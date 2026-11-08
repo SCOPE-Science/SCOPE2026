@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:43:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_dual_rll_fourgram.py",
+        "independent_checks.py FOURGRAM_COUNTS_N2_17",
+        "Kiah et al Theorem 3.3"
+      ],
+      "rationale": "For binary circular words excluding cyclic 000 and 111, the ten permitted four-grams are arcs of a six-vertex de Bruijn digraph. A profile is realizable exactly when its nonnegative integral circulation has connected positive support. Solving the five independent balance variables gives B(z)=(1+z^6)/[(1-z^2)(1-z^3)^2(1-z^4)(1-z^6)]. The six simple directed cycles have exactly two vertex-disjoint pairs; their positive union contributions are z^6/(1-z^3)^2 and z^6/[(1-z^2)(1-z^4)], yielding C(z) after subtraction of zero. Nonzero genuine poles at the necessary roots imply least quasi-period twelve; pole at 1 gives n^4/5184. Fresh independent direct enumeration compared profile sets and generating-function coefficients for n=1..17.",
+      "residual_risks": [
+        "The independent literal enumeration was finite through n=17; infinite theorem rests on exact cycle decomposition and GF derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theorem: if restricted de Bruijn graph strongly connected, profile counts quasipolynomials of degree |E|-|V| and period dividing lcm simple cycle lengths. Here |E|-|V|=4, lcm=12, but exact coefficient and least period require additional calculation."
+        ],
+        "reasoning": "The general theorem gives degree <=4 and period divisor 12 but does not determine complete coefficients, exact least period, or subtraction of disconnected supports. Thus the explicit rational C(z) is not a known automatic numerical corollary.",
+        "searches": [
+          "Kiah et al arXiv:1502.00517 Theorem 3.3",
+          "binary circular words avoid 000 111 four gram multiplicity profile enumeration run length limited de Bruijn"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1502.00517",
+        "https://doi.org/10.1016/0012-365X(88)90005-2",
+        "https://arxiv.org/abs/2403.01454",
+        "Resultary query: binary circular words avoid 000 111 four gram multiplicity profile enumeration run length limited de Bruijn"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The de Bruijn circulation approach is classical. Novel claim identifies exactly two disjoint cycle pairs causing non-Eulerian balanced supports and derives rational C(z)=B(z)-1-z^6/(1-z^3)^2-z^6/((1-z^2)(1-z^4))."
+        ],
+        "reasoning": "Cycle-pair graph-specific connectivity and generating-function subtractions are further calculations absent from the inspected generic prior theorems. No novelty claimed for Eulerian tour existence or general quasipolynomial methodology.",
+        "searches": [
+          "binary circular words avoid 000 111 four gram multiplicity profile enumeration run length limited de Bruijn",
+          "Kiah et al Theorem 3.3 / Eulerian paths",
+          "Agur et al 1988"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiah et al define flow/profile equivalence classes for restricted de Bruijn graphs, including all-length degree and period bounds, not the present specific rational generating function. Agur et al count allowed cyclic source words under forbidden 000/111, not their four-gram histograms."
+        ],
+        "reasoning": "The two forbidden constant triples define exactly the six-state ten-arc graph. Counting integral circulations by multiplicity profiles is not equivalent to counting words; different Euler tours can have the same profile. No explicit identical C(z) found.",
+        "searches": [
+          "binary circular words avoid 000 111 four gram multiplicity profile enumeration run length limited de Bruijn",
+          "Kiah Puleo Milenkovic 2015 restricted de Bruijn flow profiles",
+          "Agur Fraenkel Klein 1988 fixed points majority rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Agur enumerates binary cyclic words satisfying same triple avoidance; Chee et al study distinct-window maximal RLL sequences; neither is the full unordered multiplicity-vector profile table."
+        ],
+        "reasoning": "Those known word-count or distinct-window tables cannot be substituted for counts of ten-coordinate histogram equivalence classes; a single profile can have many source words.",
+        "searches": [
+          "binary circular words avoid 000 111 four gram multiplicity profile enumeration run length limited de Bruijn",
+          "Agur Fraenkel Klein 1988 binary words avoiding 000 and 111",
+          "Chee et al arXiv:2403.01454 RLL sequences"
+        ]
+      },
+      "rationale": "Restricted de Bruijn/Ehrhart methods and generic quasipolynomial degree were known; the exact two-disconnected-family correction and explicit rational function for oriented cyclic length-four multiplicity profiles are not supplied by the inspected antecedents.",
+      "residual_risks": [
+        "An unindexed exact transfer-matrix or Markov-type formula for this ten-arc graph could give identical C(z).",
+        "Chee RLL full text not inspected; abstract alone cannot certify noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theory covers order of growth and existence of quasipolynomial but not explicit exact 4-gram function for the double-forbidden case",
+          "evidence": [
+            "Theorem 3.3 degree |E|-|V| and period dividing lcm of directed cycle lengths; original paper treats general profile channel."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+          "material_read": "Full HTML sections 3-4 including Theorem 3.3, definition of Eulerian/profile equivalence, strongly-connected graph conditions, Ehrhart counts and appendices",
+          "method": "web arXiv full-text HTML",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Same object: frequency profiles in restricted de Bruijn digraphs"
+        },
+        {
+          "assessment": "Counts words rather than distinct four-gram multiplicity vectors, so different exact invariant",
+          "evidence": [
+            "The paper studies binary circular strings avoiding runs of three, not the ten-arc profile enumeration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+          "material_read": "Accessible original PDF specific counting statement, including screenshot of PDF page 5 (zero-index page 4), on admissible word counts",
+          "method": "web PDF page image and associated extracted text; screenshot inspected",
+          "title": "The Number of Fixed Points of the Majority Rule",
+          "trigger": "Same forbidden substrings 000 and 111 in binary cyclic words"
+        },
+        {
+          "assessment": "Cannot assert full-document noncoverage from accessible abstract, but the stated optimization concerns distinct reads rather than all multiplicity profiles",
+          "evidence": [
+            "arXiv:2403.01454 abstract describes maximal length RLL de Bruijn sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.01454",
+          "material_read": "arXiv abstract and overview of distinct-window constructions; no full appendix inspection",
+          "method": "arXiv abstract / bibliographic text",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Run-length-limited cycles sharing the same forbidden words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "general profile capacity model and new exact rational C(z)"
+      ],
+      "rationale": "Exact profile capacity answers a natural noiseless read-multiset reconstruction problem with two simultaneous run constraints. It characterizes every feasible observation vector and the exact maximal zero-error code size, not just approximate growth.",
+      "residual_risks": [
+        "Only binary cyclic four-gram multiplicities and forbidden 000/111, not noisy or partial reads."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Profile coordinates are oriented and multiplicity-labelled; no reversal/complement quotient.",
+    "Small n uses cyclic windows even n<4; C_1=0.",
+    "Exact least period twelve follows from uncancelled poles, not finite counts.",
+    "Publication withheld for metadata sanitization and source guards."
+  ],
+  "schema_version": 1
+}

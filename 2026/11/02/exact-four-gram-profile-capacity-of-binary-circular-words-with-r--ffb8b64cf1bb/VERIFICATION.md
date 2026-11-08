@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses a ten-arc, six-vertex restricted de Bruijn digraph. Its five-parameter circulation equations, the two disjoint parameter cones, the exhaustive list of six simple cycles, and the two disconnected-support families are displayed in `RESULT.md`; these are the mathematical reasons the generating function holds for arbitrary lengths.
+## correctness
 
-Run the included standard-library-only script as follows:
+PASS
 
-```sh
-python verify_dual_rll_fourgram.py
-```
+For binary circular words excluding cyclic 000 and 111, the ten permitted four-grams are arcs of a six-vertex de Bruijn digraph. A profile is realizable exactly when its nonnegative integral circulation has connected positive support. Solving the five independent balance variables gives B(z)=(1+z^6)/[(1-z^2)(1-z^3)^2(1-z^4)(1-z^6)]. The six simple directed cycles have exactly two vertex-disjoint pairs; their positive union contributions are z^6/(1-z^3)^2 and z^6/[(1-z^2)(1-z^4)], yielding C(z) after subtraction of zero. Nonzero genuine poles at the necessary roots imply least quasi-period twelve; pole at 1 gives n^4/5184. Fresh independent direct enumeration compared profile sets and generating-function coefficients for n=1..17.
 
-Its independently implemented checks construct all balanced nonnegative profiles from both parameterizations through length 44, compare each support-connectivity decision against the two claimed excluded families, match rational generating-function coefficients, build and re-read an Euler circuit for every feasible profile, and separately enumerate every labeled binary word through length 18 for complete set equality. Actual output from execution:
+## originality
 
-```text
-VERIFY_OK literal_all_binary_n=1..18 exact_flow_profiles_n=1..44 euler_tours=12596 disconnected_support_classification=PASS gf_coefficients=PASS
-profile_counts_n2..18= [1, 2, 2, 2, 5, 4, 7, 10, 11, 14, 22, 22, 29, 38, 43, 50, 67]
-```
+PASS
 
-The code performs finite checks only; it does not independently certify the infinite theorem or establish publication priority. The exact quasipolynomial period follows from genuine primitive-third, primitive-fourth, and primitive-sixth-root poles in the reduced rational generating function, not from sampled coefficients.
+Restricted de Bruijn/Ehrhart methods and generic quasipolynomial degree were known; the exact two-disconnected-family correction and explicit rational function for oriented cyclic length-four multiplicity profiles are not supplied by the inspected antecedents.
+
+## value
+
+PASS
+
+Exact profile capacity answers a natural noiseless read-multiset reconstruction problem with two simultaneous run constraints. It characterizes every feasible observation vector and the exact maximal zero-error code size, not just approximate growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

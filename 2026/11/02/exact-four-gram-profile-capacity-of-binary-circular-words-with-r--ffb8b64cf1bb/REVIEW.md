@@ -1,19 +1,21 @@
-# Scientific review: exact bounded-run four-gram profile capacity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ten permitted four-grams form a six-vertex directed graph. Balance of incoming and outgoing counts yields five free nonnegative parameters with three explicit inequalities. Splitting at the sign of the difference of two count coordinates gives two disjoint, bijective integer parameterizations with weighted degrees \(2,3,3,4,6\). The resulting generating function counts every nonnegative balanced profile exactly once. A complete six-cycle enumeration proves that the only disconnected positive-edge circulations are a pair of disjoint three-cycles and a disjoint four-cycle/two-cycle pair. Subtracting precisely those and the zero vector gives the theorem. Euler's theorem proves every remaining profile realizable and one representative per profile achieves the stated zero-error capacity. Symbolic denominator analysis proves the order-five pole and exact least quasipolynomial period twelve. The standalone verifier was executed from its included source and independently confirmed all binary words up to length eighteen, all feasible flow vectors up to length forty-four, and 12,596 Eulerian witnesses.
+PASS
 
-## Originality — PASS, with residual priority risk
+For binary circular words excluding cyclic 000 and 111, the ten permitted four-grams are arcs of a six-vertex de Bruijn digraph. A profile is realizable exactly when its nonnegative integral circulation has connected positive support. Solving the five independent balance variables gives B(z)=(1+z^6)/[(1-z^2)(1-z^3)^2(1-z^4)(1-z^6)]. The six simple directed cycles have exactly two vertex-disjoint pairs; their positive union contributions are z^6/(1-z^3)^2 and z^6/[(1-z^2)(1-z^4)], yielding C(z) after subtraction of zero. Nonzero genuine poles at the necessary roots imply least quasi-period twelve; pole at 1 gives n^4/5184. Fresh independent direct enumeration compared profile sets and generating-function coefficients for n=1..17.
 
-Kiah–Puleo–Milenkovic, *Codes for DNA Sequence Profiles* (arXiv:1502.00517v1), provides the general sequence-profile graph and Ehrhart frameworks; it does not state the two-triple-exclusion exact cyclic four-gram profile generating function. Chee et al., *Maximum Length RLL Sequences in de Bruijn Graph* (arXiv:2403.01454v1), enumerate maximum-length sequences with distinct windows under zero-run restrictions, not the multiplicity-profile image for all circular words with both symbols restricted. Chee et al., *Constrained de Bruijn Codes* (arXiv:2005.03102v1), study local window-nonrepetition constraints and related code families. Jacquet–Knessl–Szpankowski, *Counting Markov Types* (DMTCS Proceedings 2010), develop balanced-matrix and general asymptotic type enumerations rather than this exact restricted higher-order finite-length expression. Agur–Fraenkel–Klein (1988) enumerate the **words** avoiding both constant triples, not their four-gram profile classes; only a bibliographic abstract was accessible for that source. The nearest internal work treats either cyclic length-four profiles with forbidden \(11\), which is a different constraint, or cyclic length-three profile observations. No decisive equivalent or stronger finite formula was found in the checked searches; hidden equivalents in older Markov-type literature remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The constraint limiting runs of **both** symbols to at most two is a natural model for bounded homopolymers and synchronization sequences. The exact rational series determines zero-error read-profile capacity for *every* source length, not merely an asymptotic rate or isolated finite examples. Two sharply characterized disconnected circulation families must be excluded, providing a structural boundary between formal flow feasibility and realizability by one cyclic source. The degree-four, period-twelve law can inform size calculations and code construction under the precise cyclic observation model. The result does not claim a general noisy-channel theorem, individual fiber sizes, or capacity for arbitrary read lengths.
+Restricted de Bruijn/Ehrhart methods and generic quasipolynomial degree were known; the exact two-disconnected-family correction and explicit rational function for oriented cyclic length-four multiplicity profiles are not supplied by the inspected antecedents.
 
-## Verification and limitations
+## value
 
-The proof is universal; all computer experiments are finite corroboration, not independent scientific certification. Literature comparisons include primary full-text sections from the three arXiv papers and material portions of the 2010 open-access conference paper. Exact priority against unindexed equivalences remains unproved. The result has not received independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact profile capacity answers a natural noiseless read-multiset reconstruction problem with two simultaneous run constraints. It characterizes every feasible observation vector and the exact maximal zero-error code size, not just approximate growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
