@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact shift-after-single-site-majority conjugacy, monotone disappearing isolated-bit argument, and the rightmost-equal-pair count prove the n bound and exact E_n. Transfer char polynomial and Mobius inversion give the supporting rotational orbit count. Programs check 32760 labelled cases n=3..14, transfer values n=1..100 and combinatorial count n=3..16; finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tosic (2009/2010), DMTCS 2757, full PDF pp. 1–6 and the discussion of counting problems inspected; proves complexity for general graph families, not this explicit time-n count.",
+        "Tošić–Agha (2004) provides abstract cycle-free result for sequential updates, unlike explicitly relabelled feedback clocks."
+      ],
+      "reasoning": "General convergence and hardness results do not evaluate the number of initial words persisting until the last possible clock; no inspected stronger stated theorem supplies the claimed exact count.",
+      "searches": [
+        "Tosic-DMTCS-2757-2009",
+        "threshold gate shift register AND OR majority asymptotic activity",
+        "sequential majority cellular automata cyclic scan settling time exact population"
+      ]
+    },
+    "checked_sources": [
+      "Tošić–Agha, ACRI 2004 PDF, pp. 1–10, especially p. 7.",
+      "Tošić, DMTCS 2757 PDF and publication metadata.",
+      "Benjamini et al. arXiv 1405.2486 abstract only.",
+      "Relevant indexed scientific claims for exact majority shift-register and sequential majority aliases.",
+      "Accessible prior result 4965dafb-6e67-4a8c-b8ca-7eea66595bb3, and distinct nearby majority previous findings."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ACRI 2004 Lemma 3: a fixed point cannot contain 010 or 101; Lemma 4 classifies majority fixed patterns.",
+        "DMTCS 2757 abstract and its counting-complexity framework.",
+        "Benjamini et al., arXiv:1405.2486, concerns synchronous undirected majority."
+      ],
+      "reasoning": "A stable configuration condition does not imply the labelled cardinality of its depth-n preimage under a specified clocked feedback map. The formula is derived from an additional suffix-majority recurrence and rightmost equal pair case analysis. The periodic rotations are a relabeling artifact, explicitly distinguished from genuine nontrivial cycles of ordinary sequential majority.",
+      "searches": [
+        "Tosic-Agha-2004-Characterizing-Configuration-Spaces",
+        "Tosic-DMTCS-2757-2009",
+        "directed cycle copying dynamics with a single two-input majority defect attractor orbit lengths",
+        "\"majority\" feedback shift register \"transient\" longest n steps periodic orbit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tosic and Agha (2004), Lemmas 3 and 4: stable words exclude singleton runs; full ACRI 2004 PDF pp. 1–10 was available with Lemmas inspected on p. 7.",
+        "Existing accessible finding 4965dafb-6e67-4a8c-b8ca-7eea66595bb3: stable-pattern Lucas counts for a different majority graph."
+      ],
+      "reasoning": "Under rotating coordinates the feedback system becomes a fixed descending update sweep. This shares stable no-singleton words with classical sequential majority, but its clock-n last-entrance preimage count is a different dynamical statistic, not determined by a fixed-word census.",
+      "searches": [
+        "majority feedback shift register binary cyclic Boolean network single node two inputs exact periodic orbit count",
+        "directed cycle copying dynamics with a single two-input majority defect attractor orbit lengths",
+        "synchronous strict majority dynamics on corona graphs C_n corona K_1 recurrent configurations two cycles Fibonacci Lucas exact formula",
+        "Tosic-Agha-2004-Characterizing-Configuration-Spaces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed record A mod-four orbit census for parity automata on distance-two Boolean cubes (published 2026-10-11) concerns linear parity dynamics on a cube, rather than majority-feedback rotating rings.",
+        "Indexed record Sharp period-four census for complete multipartite parity automata (published 2026-10-11) concerns parity on multipartite graphs.",
+        "Earlier recorded mathematical finding 4965dafb-6e67-4a8c-b8ca-7eea66595bb3 concerns sunlet-graph synchronous majority, not last-clock feedback entry."
+      ],
+      "reasoning": "Searches were directed at a periodic-state census, the exact maximal-clock preimage population, aliases based on sequential majority and cyclic words, and nearby indexed claims. Known Lucas-type counts of stable words overlap only a supporting count and are credited, not used to claim novelty.",
+      "searches": [
+        "majority feedback shift register binary cyclic Boolean network single node two inputs exact periodic orbit count",
+        "synchronous strict majority dynamics on corona graphs C_n corona K_1 recurrent configurations two cycles Fibonacci Lucas exact formula",
+        "\"majority\" Boolean feedback shift register \"Lucas\" orbit",
+        "Searches of indexed scientific claims (2026-11-07 UTC), top-ranked parity automata and Boolean feedback papers"
+      ]
+    },
+    "rationale": "The main claim is the exact depth-n preimage cardinality E_n for this specified rotating feedback map, not the known no-singleton stable-word criterion. Inspected primary ACRI 2004 work gives stable words and the absence of ordinary sequential cycles, and general counting-complexity sources do not imply this specific preimage formula. Comparisons with indexed and previously published results found similar Lucas stable counts in other models and parity orbit results, not a covering last-clock theorem. Historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Companion sequential-interleavings full text and some specialized majority-feedback literature were not accessible or not exhaustively indexed; historical priority remains provisional.",
+      "Published static stable-pattern counts are closely related, and not asserted as new.",
+      "No independent mathematician review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the no-singleton stable-word characterization and absence of unrelabeled sequential cycles, but no stated formula counting all initial words taking exactly n ticks in this rotating feedback map.",
+        "evidence": [
+          "Abstract and introductory scope; Lemma 3–4, p. 7: stable patterns and cyclic configurations."
+        ],
+        "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "Full ten-page available PDF, including introduction, the majority update results, Lemmas 3–4 on p. 7 and references; relevant sections compared.",
+        "method": "Full document text and page-image inspection",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "Direct same-rule and sequential majority overlap"
+      },
+      {
+        "assessment": "Complexity results about general families, not an exact formula for the labelled last-clock entry set of this particular majority-feedback shift map.",
+        "evidence": [
+          "Introduction p. 1; DMTCS webpage publication date 2009-12-31; complexity framing."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2757/download",
+        "material_read": "Available 20-page PDF, abstract, introduction, definitions and counting complexity statement, with relevant later portions consulted; publisher publication metadata checked.",
+        "method": "PDF full text material search, relevant passages and original page screenshot",
+        "title": "On the complexity of enumerating possible dynamics of sparsely connected Boolean network automata with simple update rules",
+        "trigger": "Possible stronger counting and predecessor-enumeration theorem"
+      },
+      {
+        "assessment": "Parallel majority on graphs; no mathematical implication to the exact depth-n feedback clock census was identified, but full text not examined.",
+        "evidence": [
+          "arXiv:1405.2486 initial 2014 preprint abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Abstract and bibliographic summary; no full-text not-covering assessment.",
+        "method": "Accessible article metadata and summary",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "General majority-dynamics period and attractor theorems"
+      },
+      {
+        "assessment": "Potential historical overlap remains open; no claim of full-text noncoverage.",
+        "evidence": [
+          "Citation/title only."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220903547_Concurrency_vs_Sequential_Interleavings_in_1-D_Threshold_Cellular_Automata",
+        "material_read": "Search-result metadata only; full text not accessible.",
+        "method": "Metadata/title assessment",
+        "title": "Concurrency vs. sequential interleavings in 1-D threshold cellular automata",
+        "trigger": "Related companion article on update order"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "08f53e11-cf2e-443e-a1e1-bb474c95e67a",
+  "value": {
+    "rationale": "The final-clock settling event is a natural dynamic observable for a minimal nonlinear majority-feedback register, and exactly 1/12 of uniformly random inputs asymptotically attain the sharp n-clock settling threshold. This quantitative positive-density long-transient phenomenon is not a textbook restatement of stable-word enumeration. The finite-time census is complete at the sharp endpoint despite unproved earlier-time strata.",
+    "status": "PASS"
+  }
+}
