@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact covariance lift and determinant -hF, Perron-cone crossing argument with simple negative derivative at h=0 and large-h instability, and strictly convex beta optimization give necessity, sufficiency, unique extrema and all boundary cases. Symbolic and rational checks replay from supplied code; finite grid does not prove infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arjevani–Shamir–Srebro 2018 use fixed delays and finite-time delay-dependent SGD bounds.",
+        "Cohen et al. 2021 skip stale gradients rather than applying them in heavy-ball.",
+        "Su–Li–Lu 2021 specify random transmission arrivals, with each message arriving once; this is distinct from iid one-step read staleness.",
+        "Pan et al. 2023 study stochastic heavy ball with anisotropic gradient noise and decaying steps."
+      ],
+      "reasoning": "The various general convergence guarantees do not directly give the necessary-and-sufficient scalar mean-square stability boundary in the specified iid random-read momentum law. The more general mathematical principle of a covariance spectral-radius test is acknowledged as known; substituting the present 2x2 matrices and determining the exact sharp phase transition is the assessed extension.",
+      "searches": [
+        "randomly delayed heavy ball momentum mean square stability exact optimal stepsize phase transition delay probability one quarter",
+        "momentum improves tolerated stepsize Bernoulli gradient delays one step exact p one fourth probability",
+        "arxiv:1806.10188",
+        "arxiv:2106.11879",
+        "arxiv:2108.12795"
+      ]
+    },
+    "checked_sources": [
+      "Arjevani, Shamir and Srebro (2018), arxiv:1806.10188, 2018-06-26, fixed-delay recurrence and main theorem",
+      "Cohen et al. (2021), arxiv:2106.11879, 2021-06-22, introduction, Algorithm 1 skip-if-stale, theorem",
+      "Su, Li and Lu (2021), arxiv:2108.12795, 2021-08-29, model definition, main mean-square criterion and signal-flow appendix",
+      "Pan et al. (2023), arxiv:2312.14567, 2023-12-22, stochastic heavy-ball model, theorem, appendix",
+      "Published finding 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "Published finding 2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+      "Published finding 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668",
+      "Previously documented finding f5af2b94-9bb8-4c82-b97e-96c5da5de816",
+      "Previously documented finding 7332b217-a824-4fc8-b82f-a83a84d8ab3f",
+      "Previously documented finding b9296f05-7ee3-4e62-a8b3-004b0cdae91d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously recorded no-momentum claim equals the beta=0 specialization of the new polynomial, hence is explicitly subsumed but does not establish the 1/4 momentum optimum.",
+        "Previously documented heavy-ball random-stepsize claim 7332b217-a824-4fc8-b82f-a83a84d8ab3f concerns random scalar step size, a different pair of random matrices.",
+        "Pan et al. 2023 do not use Bernoulli previous-iterate gradient reads.",
+        "The new first-order condition dF/dbeta = 4 beta+(4p-1)h yields a unique low-p positive momentum optimum and a sharp high-p zero-momentum regime."
+      ],
+      "reasoning": "Neither the beta=0 special case nor the general moments principle logically gives the full mixed-polynomial inequality and sharp global momentum-phase classification without substantial independent derivation; no inspected published result states or dominates it.",
+      "searches": [
+        "For scalar strongly convex quadratic x_{k+1}=(1+beta)x_k-beta x_{k-1}-h x_{k-D}, Bernoulli one-step delay, exact stability region momentum",
+        "momentum stochastic one-step delayed gradients scalar quadratic Bernoulli delay exact mean square stability Schur Jury step h beta p",
+        "randomly delayed heavy ball momentum mean square stability exact optimal stepsize phase transition delay probability one quarter",
+        "arxiv:2312.14567",
+        "own claim f5af2b94-9bb8-4c82-b97e-96c5da5de816"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The law is equivalently a pair of iid 2x2 random matrices with a positive 3x3 second-moment lift; spectral radius below 1 exactly characterizes stability.",
+        "The zero-momentum equivalence reduces to h+p h²<2 (prior claim f5af2b94-9bb8-4c82-b97e-96c5da5de816); this only covers beta=0.",
+        "Su–Li–Lu 2021 give a general mean-square SISO packet-arrival formalism but their message-arrival dynamics differ from independent fresh/stale gradient read selection."
+      ],
+      "reasoning": "General positive moment-operator methods include the proof technique, not the boundary. There is no disclosed result in the inspected models with both the exact quadratic p h²+[1+(4p-1) beta]h+2 beta²−2 and its optimization. A hypothetical alternate state-space expression remains a residual risk.",
+      "searches": [
+        "For scalar strongly convex quadratic x_{k+1}=(1+beta)x_k-beta x_{k-1}-h x_{k-D}, Bernoulli one-step delay, exact stability region momentum",
+        "momentum stochastic one-step delayed gradients scalar quadratic Bernoulli delay exact mean square stability Schur Jury step h beta p",
+        "stale gradient momentum stochastic quadratic exact mean square Schur Jury",
+        "arxiv:1806.10188",
+        "arxiv:2108.12795"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published stochastic-delay record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac gives a randomized Gauss–Seidel delay recurrence without momentum.",
+        "Closest published Bernoulli-error-feedback record 2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e treats error-feedback residuals rather than independent stale gradient reads.",
+        "Earlier claim f5af2b94-9bb8-4c82-b97e-96c5da5de816 computes h+p h²<2 with beta=0; earlier 7332b217-a824-4fc8-b82f-a83a84d8ab3f considers iid step-jitter heavy-ball."
+      ],
+      "reasoning": "No exact matching parameter table or boundary found in the actual searched records; absence from this finite retrieval is not proof of global novelty.",
+      "searches": [
+        "Randomized stochastic heavy-ball optimal spectral radius Bernoulli gradients",
+        "random Bernoulli stale delay heavy ball exact stability 1/4",
+        "semantic search of published mathematics records of stochastic delay and momentum",
+        "previously available mathematical finding claims scanned for stale, delay, momentum, heavy-ball"
+      ]
+    },
+    "rationale": "The joint sharp scalar iid stale-gradient heavy-ball mean-square stability polynomial and unique probability-1/4 phase transition are not implied by the nearest inspected prior results, which treat zero momentum, deterministic or other delay models, different stochastic mechanisms, or broad sufficient stability bounds. This is best-knowledge originality only, with residual risk of equivalent earlier stochastic-systems literature.",
+    "residual_risks": [
+      "Equivalent results in older stochastic delay-difference or networked-control specialist literature might not be indexed by terminology used in the bounded search.",
+      "Full mathematical text outside the specifically inspected sections may contain an implicit formulation of the same criterion; this remains a publication-precedence risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-delay bounds and model; does not imply present exact stochastic momentum boundary",
+        "evidence": [
+          "First public posting 2018-06-26; fixed delay tau appears in model; the new model has iid D_k in {0,1} and beta momentum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.10188",
+        "material_read": "arXiv HTML abstract/introduction, fixed-delay model equations, main theorem and related-work sections",
+        "method": "Read accessible full-text material on the paper page and compared its fixed delays with iid Bernoulli read staleness",
+        "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+        "trigger": "Delayed gradient convergence on quadratics"
+      },
+      {
+        "assessment": "Different stale-gradient safeguard and convergence criterion",
+        "evidence": [
+          "2021-06-22 public posting; stale gradients are skipped by a selective rule, unlike the present unconditional stochastic heavy-ball updates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.11879",
+        "material_read": "accessible algorithm section, Algorithm 1, theorem statement and relevant delay discussion",
+        "method": "Inspected full-text HTML for algorithm mechanism and theorems, including skip-if-stale update",
+        "title": "Asynchronous Stochastic Optimization Robust to Arbitrary Delays",
+        "trigger": "Asynchronous gradient delays"
+      },
+      {
+        "assessment": "General stochastic system criteria may permit derivation, but no inspected result directly gives the exact displayed polynomial or unique p=1/4 momentum cutoff",
+        "evidence": [
+          "2021-08-29 arXiv posting; network packet arrivals and message-flow restrictions differ from independent selection of x_k or x_{k-1}."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.12795",
+        "material_read": "accessible full-text HTML introduction, system definitions, main theorem and relevant appendix structure",
+        "method": "Compared packet arrival dynamics and mean-square criterion with iid binary read-staleness and derived mixed momentum polynomial",
+        "title": "Mean-Square Input-Output Stability and Stabilizability of a Networked Control System with Random Channel Induced Delays",
+        "trigger": "Strongest candidate for a general mean-square random-delay implication"
+      },
+      {
+        "assessment": "Step-decay and anisotropic gradient noise; not this Bernoulli delay stability classification",
+        "evidence": [
+          "2023-12-22 public posting; noise rather than random one-step stale iterate governs randomness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.14567",
+        "material_read": "accessible ar5iv article text including assumptions, heavy-ball equations, main theorem, appendix discussion",
+        "method": "Examined stochastic mechanism, stepsize regime and whether iid stale gradient reads occur",
+        "title": "Accelerated Convergence of Stochastic Heavy Ball Method under Anisotropic Gradient Noise",
+        "trigger": "Heavy ball with stochastic updates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "14b40f37-6227-43f2-942d-750f5a56ea74",
+  "value": {
+    "rationale": "A complete natural sharp (p,beta,h) stability phase diagram for scalar heavy-ball updates with occasional one-step stale gradients: nonzero momentum uniquely maximizes the stable-step ceiling exactly for p<1/4, whereas it worsens the ceiling for p>=1/4. The phenomenon separates momentum stabilization from acceleration in a specific asynchronous optimization model and is not a routine beta=0 recomputation.",
+    "status": "PASS"
+  }
+}
