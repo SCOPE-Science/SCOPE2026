@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` (Python 3 standard library only). Its exact-fraction tests check the two sharp extremal families at eleven thresholds; every ordered positive five-part integer composition with sum 8, 12, 18, or 24 at the same eleven thresholds (127,600 inequality comparisons); the expectation identity on 100 nonuniform five-column profiles; and the equality/right-limit distinction at the first tail threshold. The checker printed `PASS` for all groups on execution.
+## correctness
 
-## Proof responsibilities and limits
+PASS
 
-The universal real-parameter inequality is proved combinatorially in RESULT.md by the five-cycle obstruction, the unique possible seven-light-edge class, its cross-edge sum bound, and attaining positive mass patterns. The checker is a finite independent algebra sanity test and cannot establish infinite-parameter completeness or mathematical novelty. Source novelty inspection was not a systematic search of all historical weighted-graph and volume-sampling papers. Independent external audit remains unperformed.
+For normalized positive p_i, pair law is (p_i+p_j)/4 and amplification T=1/(p_i+p_j); mean is exactly 10/4. At theta=1/t<2/5, 8 light edges would include a 5-cycle totaling 2>5theta. For 7 light edges the top-3 heavy edges are either a 3-star or triangle; star contradicts mass total using p2+p4<=theta and ordering. For triangle heavy, W=2+2(p1+p2)<=12theta-2; for at most 6 light edges W<=6theta. Constructed masses attain each upper branch, with uniform masses achieving probability one at theta>=2/5. Independent rational checks at theta 1/10,1/3,7/20,39/100,2/5,1/2 reproduced sharp 3theta/2, 3theta-1/2, and 1. Inclusive-event discontinuity at t=5/2 is correct. Full real simplex proof is combinatorial, not finite grid.
+
+## originality
+
+PASS
+
+Kozyrev–Osinsky studies the same Frobenius amplification and gives its optimal expectation; expectation and Markov alone do not derive the piecewise sharp tail envelope. Rank-one n=5 k=2 distributional extremization is an additional result, subject to possible prior weighted-threshold-graph reformulation.
+
+## value
+
+PASS
+
+An exact small-case worst-case risk curve distinguishes distributions sharing the same mean and shows a discontinuity and change of extremizer. This is a natural algorithm-risk invariant, not a dimension-free concentration theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

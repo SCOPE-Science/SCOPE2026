@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For five positive squared-column masses summing to one, the volume distribution is exactly \((p_i+p_j)/4\) on unordered pairs and the amplification exactly \(1/(p_i+p_j)\). A five-cycle excludes eight or more light edges below \(\theta=2/5\). With seven light edges, a heavy-star case contradicts normalization; the remaining heavy triangle gives the exact bound \(12\theta-2\). At most six light edges gives \(6\theta\). All regimes have explicit strictly positive attaining masses. These arguments verify all inequalities, equality cases, strict domain boundaries and the jump at \(t=5/2\), not just discrete tests. `verify.py` passed the documented 127,600 exhaustive rational checks, eleven attaining profiles, and 100 expectation identities.
+PASS
 
-## Originality — PASS with residual historical risk
+For normalized positive p_i, pair law is (p_i+p_j)/4 and amplification T=1/(p_i+p_j); mean is exactly 10/4. At theta=1/t<2/5, 8 light edges would include a 5-cycle totaling 2>5theta. For 7 light edges the top-3 heavy edges are either a 3-star or triangle; star contradicts mass total using p2+p4<=theta and ordering. For triangle heavy, W=2+2(p1+p2)<=12theta-2; for at most 6 light edges W<=6theta. Constructed masses attain each upper branch, with uniform masses achieving probability one at theta>=2/5. Independent rational checks at theta 1/10,1/3,7/20,39/100,2/5,1/2 reproduced sharp 3theta/2, 3theta-1/2, and 1. Inclusive-event discontinuity at t=5/2 is correct. Full real simplex proof is combinatorial, not finite grid.
 
-Kozyrev--Osinsky (arXiv:2610.08576v1) provides an expectation formula and volume-sampling algorithms, not the five-column worst-case *distributional* envelope or competing sharp tails. Dereziński--Warmuth (arXiv:1705.06908) studies unbiased pseudoinverse estimation; Dereziński--Warmuth--Hsu (NeurIPS 2018) studies regression error and tail lower bounds, not this precise matrix amplification-tail maximization. Searches for aliases involving size-biased pair sums, low-sum threshold graphs, volume-sampling upper tails and rank-one pseudoinverses produced no identified equivalent or stronger implication. No exhaustive historical-priority proof is claimed; an equivalent small weighted-graph inequality could exist elsewhere.
+## originality
 
-## Value — PASS
+PASS
 
-The source establishes optimality of a universal mean bound, while this theorem supplies an exact input-uniform upper-tail safety calibration for the smallest fixed testbed here with competing six-light-edge and seven-light-edge extremizers. The switch at \(t=3\) distinguishes adversarial column-energy patterns; the one-sided jump at the known mean \(5/2\) shows what expectation-only analysis misses. The result has a natural numerical linear algebra object, exact attained finite-sample risk and a structural obstruction proof. It does not assert high-dimensional concentration or arbitrary-rank applicability.
+Kozyrev–Osinsky studies the same Frobenius amplification and gives its optimal expectation; expectation and Markov alone do not derive the piecewise sharp tail envelope. Rank-one n=5 k=2 distributional extremization is an additional result, subject to possible prior weighted-threshold-graph reformulation.
 
-## Closest literature and limitations
+## value
 
-- Kozyrev and Osinsky, *Subset selection for matrices by volume sampling*, arXiv:2610.08576v1, Sections 1--5 and Appendix, https://arxiv.org/html/2610.08576v1.
-- Dereziński and Warmuth, *Unbiased estimates for linear regression via volume sampling*, arXiv:1705.06908, introductory and moment statements in the accessible nine-page PDF, https://arxiv.org/pdf/1705.06908; not every remaining section inspected.
-- Dereziński, Warmuth and Hsu, *Leveraged volume sampling for linear regression*, NeurIPS 2018, introduction and theorem material, https://proceedings.neurips.cc/paper_files/paper/2018/file/2ba8698b79439589fdd2b0f7218d8b07-Paper.pdf; no claim of complete full-document exclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact small-case worst-case risk curve distinguishes distributions sharing the same mean and shows a discontinuity and change of extremizer. This is a natural algorithm-risk invariant, not a dimension-free concentration theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
