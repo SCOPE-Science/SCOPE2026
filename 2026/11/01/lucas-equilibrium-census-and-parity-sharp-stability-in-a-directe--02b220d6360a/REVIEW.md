@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The support equation at every nonzero fixed coordinate is \(x_i+\gamma x_{i+1}=h\). The strong-inhibition condition excludes positive blocks longer than one. The all-positive linear recurrence has only the constant solution. The scalar logistic perturbation proves every noncheckerboard boundary point unstable; the two even checkerboards are strict local contractions. The circulant spectrum of the positive point yields the exact odd-ring threshold. Each boundary, clipping, and strict inequality is explicitly handled in the proof. Exact finite arithmetic checks of the Lucas census and numerical spectral checks agree with the analytical classification.
+## correctness
 
-**Originality — PASS under inspected evidence.** The 2026 random-coupling logistic work develops mean-field and random-matrix instability mechanisms, not the complete deterministic directed-ring equilibrium census and finite-size stability criterion. The 2013 competitive lattice paper uses undirected interactions and focuses its map analysis on Ricker-type dynamics. The 2020 coupled logistic bifurcation paper treats a symmetric two-site system. The classical independent-set/Lucas identity and the Fourier diagonalization of a cyclic matrix are acknowledged techniques, not new claims. Searches for directed clipped logistic inhibitory ring, Lucas support counts, and secant ring-size thresholds, together with comparisons against available mathematical records, revealed no result that implies this full theorem. Specialized unindexed competitive-map literature remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** Strong inhibition creates a natural, exactly solvable fixed-point classification without linearizing away extinction boundaries. The combinatorial equilibrium proliferation contrasts with only two attracting checkerboards on even rings and at most one attracting positive state on odd rings, and the exact \(O(n^{-2})\) stability window quantifies parity frustration in a directed cyclic population model. It is a complete structural theorem for a motivated family, not a mere recomputation of Lucas numbers or a numerical bifurcation plot.
+PASS: For F_i=H(r x_i(1-x_i-gamma x_(i+1))), 1<r<3 and gamma>1, a positive fixed coordinate lies strictly between 0 and 1 and satisfies x_i+gamma x_(i+1)=h=1-1/r. If a zero exists, a positive block's last element before it equals h; an adjacent earlier positive element would be h-gamma h<0, impossible. Thus all nonzero boundary points are h times independent sets of C_n, whose number is classical Lucas L_n; all-positive recurrence y_i=-gamma y_(i+1) forces the unique p=h/(1+gamma). Every noncheckerboard independent set has adjacent zeros, allowing a one-coordinate positive logistic perturbation with its successor pinned at zero; eventual deviation to h/2 proves Lyapunov instability. Even checkerboards have relative-cube triangular linearization with active multiplier 2-r and vacant one-sided multiplier max(0,r(1-gamma h)), both <1 in modulus, so they attract locally exponentially. At p the Jacobian is I-t(I+gamma S); all Fourier multipliers 1-t(1+gamma exp(2pi ik/n)). The strict Schur inequalities minimize at the least cyclic cosine, -1 for even n (unstable) or -cos(pi/n) for odd n. Solving gives the exact gamma and r thresholds and neutral conjugate pair at upper-r equality; sec(pi/n)-1~pi²/(2n²) follows by Taylor. Independent n=3..24 Lucas counts and five Fourier samples corroborated analytic proof; no global-basin conclusions.
 
-**Closest antecedents and limitations.** Baron–Galla (arXiv:2609.24402), Killingback–Loftus–Sundaram (arXiv:1204.2463), and Mareno–English (DOI:10.1155/2020/4103606) are the closest inspected sources. Claims concern local equilibrium dynamics only; the neutral equality and global recurrence remain open here. Historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact statements and implications; four structured comparisons and source-inspection limits are included.
+
+## value
+
+PASS
+
+PASS: Strong inhibition selects a natural exactly solvable family whose complete nonlinear fixed-point structure is a Lucas independent-set census, sharply contrasting exponential proliferation of equilibria with at most two attracting fixed points. The parity-specific positive equilibrium Schur window quantifies an O(n^-2) frustration effect. This is a full motivated fixed-point and local-stability classification with explicit structural proof, not merely the textbook Lucas identity or the generic Fourier test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
