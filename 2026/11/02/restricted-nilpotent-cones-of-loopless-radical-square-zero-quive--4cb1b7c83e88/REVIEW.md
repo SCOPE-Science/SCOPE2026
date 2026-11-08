@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every derivation is made vertex-fixing modulo an inner derivation by an explicit idempotent computation. The resulting block presentation and vertex-potential inner gauge are necessary and sufficient for a loopless radical-square-zero algebra. Its restricted powers are block matrix powers. Over a perfect field, unique Frobenius roots normalize every restricted-nilpotent class to precisely one tuple of nilpotent matrices; uniqueness is proved by taking powers of scalar shifts. Jordan-class centralizers supply the exact finite-field census, and dominance of the maximal bounded partition gives the irreducible reduced geometry and dimension. Seven literal matrix enumerations, nine direct quotient enumerations, and a separate direct Leibniz calculation in dimension four corroborate the specified finite instances. These computations are not an infinite proof.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Loopless radical-square-zero A=kQ/J² has derivations fixing idempotents represented by arbitrary matrices on each parallel-arrow class; quotient by inner derivations is precisely the central vertex-potential scalar subspace U. Restricted p^e power of a representative is componentwise M_alpha^(p^e). If it is central U, the unique p^e roots in a perfect field yield a unique gauge representative N_alpha with N_alpha^(p^e)=0. Jordan orbit partitions lambda_1<=p^e yield product q-point formula; dominance maximal partition (h^a,r) yields reduced irreducibility and dimension m²-r(a+1)²-(h-r)a². Direct independently enumerated GF(2) matrix examples N²=0: 2x2 count 4 and 3x3 count 22; N⁴=0: 3x3 count 64. Perfectness, looplessness, reduced geometry and height e>=1 essential. These bounded samples do not prove arbitrary quivers.
 
-The available original Strametz text gives a Lie-algebra description in arbitrary characteristic, not a classification of the **restricted** nilpotent loci or their finite-field counts. The inspected Sánchez-Flores text studies parallel-arrow blocks and characteristic-zero reductivity; it does not contain the positive-characteristic restricted-height formula. Briggs–Rubio y Degrassi treats stability of restricted Hochschild structures, not the finite-field quiver census. Classical nilpotent-orbit formulas cover the component matrix counts but require the separate, characteristic-sensitive reduction of outer derivation classes through vertex-potential Frobenius roots. Actual topical searches identified no equivalent full enumeration. The possibility that the result is implicit in broader modular Lie-theoretic literature is a residual priority risk. Earlier archival records were not all accessible; accessible claims about quiver commutators, Jordan derivations, and Witt restricted cones do not imply this statement.
+## originality
 
-## Value — PASS
+PASS
 
-Height-one and higher restricted-nilpotent loci are natural modular invariants of the first Hochschild cohomology restricted Lie algebra. The formula solves all their rational-point counts, irreducibility, dimensions, and height distribution uniformly for loopless quiver algebras. The nontrivial structural feature is that the ambient Lie dimension changes with graph cycle rank while its entire restricted-nilpotent census does not; a cycle-versus-tree family witnesses the contrast. This is a motivated classification across unbounded quiver and matrix dimensions, not a single numerical example. A published formulation of the exact statement was not found, and independent validation remains outstanding.
+Best-of-knowledge PASS. Strametz gives combinatorial HH1 Lie presentation; Sánchez-Flores Lie structure in characteristic zero; Briggs–Rubio restricted structure. Classical Jordan enumeration counts matrices, but the nontrivial universal perfect-field Frobenius-gauge normalization of outer derivation classes produces a graph-topology-independent height-by-height count and reduced cone geometry not located as a quoted corollary. Possible hidden equivalence in standard restricted Lie algebra structure remains a risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural restricted nilpotent locus inside HH1 has exact counts for every height and all loopless multiquivers over perfect fields, alongside irreducible cone dimensions; isolating graph-topology-independent nilpotence from topology-sensitive ambient cohomology is an informative structural distinction. The formula is not merely Jordan orbit recounting without the crucial quotient-normalization theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
