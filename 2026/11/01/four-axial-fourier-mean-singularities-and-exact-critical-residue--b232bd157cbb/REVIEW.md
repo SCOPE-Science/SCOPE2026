@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is exactly the planar balls \(K_q=\{|x|^q+|y|^q\le1\}\) for even integers \(q\ge2\). Formula (9) of Langharst–Manui–Zvavitch fixes the radial normalization. The proof establishes the uniform finite-type estimate \(O_q(r^{-1-1/q})\), the nonzero axial Watson coefficient \(A_q=4q^{1/q}\Gamma(1+1/q)\), and positive-curvature stationary phase off the axes. The positive mean of squared oscillations proves both endpoint divergence statements. The beta-area formula then yields the exact residue. In particular, the fourth-root and disk constants were checked against the independent special-function formulas; the attached script passes 45 diagnostics. The proof is analytical; no finite test is used to infer an infinite theorem.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest source is Langharst–Manui–Zvavitch, arXiv:2601.20117, §§1.3, 4 and 5 (full arXiv HTML inspected). It defines \(F_p\), proves general decay–compactness correspondence, identifies the disk and cube endpoints, and explicitly leaves general Fourier-index questions open, but it does not give the complete four-singular-direction intermediate regime or gamma-function endpoint residue for all even Fermat balls. Greenblatt, arXiv:2402.16636 (full arXiv HTML examined), and the earlier Bruna–Nagel–Wainger theory supply general finite-type Fourier estimates, not this normalized Fourier-mean residue classification. The abstracts of arXiv:2503.00973 and arXiv:2408.15412 concern discrepancy or angular averages rather than the precise radial invariant. Semantic indexed-record searches found related radial-mean cube and mollified-ball Fourier-kernel results, not an equivalent implication. An unindexed older example, endpoint calculation or stronger finite-type result remains a genuine priority risk; noncoverage of inaccessible full manuscripts is not asserted.
+PASS
 
-## Mathematical value — PASS
-This is a complete three-regime answer for a canonical family naturally connecting a round disk to a polygon. The exact four-axis singular support identifies the noncompact directions, and the closed gamma-normalized pole residue is a quantitative benchmark inaccessible from mere decay orders. It illustrates how loss of positive curvature changes the Fourier-mean compactness threshold before generic directions diverge. The disk and square endpoint values are checks and not presented as independent novelty.
+For each even integer q>=2 the boundary of x^q+y^q=1 has four order-q axial flat points and strictly positive curvature at other normals. Finite-patch van der Corput gives the uniform Fourier bound O_q(r^{-1-1/q}); Watson endpoint asymptotics give A_q=4q^{1/q}Γ(1+1/q) multiplying r^{-1-1/q} cos(r-π(1+1/q)/2) on axes; stationary phase at any fixed nonaxial normal gives a nonzero r^{-3/2} cosine. Positive mean of cos² establishes divergence at each sharp endpoint, not merely limsup. Squaring and taking the Abelian residue yields p_q A_q²/(2v_q)=4(1+1/q)q^{2/q}Γ(1+2/q) where v_q=4Γ(1+1/q)^2/Γ(1+2/q), p_q=2+2/q. Independently checked q=2 residue 12, q=4 residue 5√π, q=6 and 10 algebraically/numerically; q→∞ limit 4 agrees with the square Fourier transform. The finite diagnostics do not prove the full infinite q or all-direction statement: that rests on the stated uniform oscillatory-integral argument.
 
-## Limits and status
-The classical ingredients are not claimed as new. The residue concerns only axes; no joint-limit uniformity or general convex-body extension is proved. Historiographic priority and independent verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Fourier-mean body definition, Fourier index theorem and square limit are prior work of Langharst–Manui–Zvavitch; the uniform finite-type decay mechanism is classical and not novel. The asserted contribution is the precise all-even-q axial/nonaxial divergence trichotomy and exact gamma-valued critical residue. Material read from the general original paper does not present these special calculations; a future check of obscure finite-type sources remains a priority risk.
+
+## value
+
+PASS
+
+The Fermat superellipses form a natural, analytically controlled interpolation between the Euclidean disk and square. The loss of uniform integrability at four geometrically defined flat normals, yet survival off axes until p=3, provides an informative boundary phenomenon, with an exact residue depending on the contact order q; this is more than reproducing a generic Fourier-decay bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
