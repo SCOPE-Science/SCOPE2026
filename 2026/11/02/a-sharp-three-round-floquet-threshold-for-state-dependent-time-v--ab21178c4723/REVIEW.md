@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The APG2 recurrence is reconstructed from Proposition 3.5 and the prescribed Algorithm 3 initialization, with the projection explicitly shown inactive near zero. The monodromy matrix and its three exact Jury polynomials yield the strict stability threshold \(7/64\). On the unstable side, the return map is a \(C^1\) local diffeomorphism, the initialized diagonal is transverse to its stable eigenspace, and the local stable-manifold theorem yields finite-time neighborhood exit for every sufficiently small nonzero legal initialization. The scalar iterate and objective-gap consequence follows from \(z_k=2x_k-x_{k-1}\). The checked symbolic identities and independently implemented recurrence supply reproducibility but are not substituted for the proof.
+## correctness
 
-**Originality — PASS, with historical limits.** The originating manuscript specifies the method and proves a general function-gap bound, not this exact scalar switched-curvature Floquet classification. General Floquet theory does not by itself supply an APG2 instantiation or initialized acceleration-versus-PG comparison. Related published analyses of cyclic block minimization or different accelerated recurrences concern materially different dynamical maps. No inspected source was found to imply the explicit nonlinear initialized statement, though exhaustive priority cannot be guaranteed.
+PASS
 
-**Mathematical value — PASS.** The exact threshold shows that a shared, stationary strongly convex minimizer does not guarantee local stability of a concrete time-varying accelerated method, despite a globally contracting one-step proximal-gradient baseline. This is a meaningful diagnostic for momentum robustness under changing curvature and qualifies as a sharp complete local spectral classification. The result does not assert a general convergence failure for all accelerated algorithms.
+For the explicitly stated APG2 scalar update, beta=1/(1+|x-z|) and inactive projection near zero give derivative M_t=[[0,t],[-1,2t]] for t=1-a. At 3-round cadence T_s=M_s M_(4/5)^2, trace (48s-32)/25, det 16s/25. Exact Schur inequalities are (25-16s)/25>0, (57-32s)/25>0 and (64s-7)/25>0. The last gives s>7/64; at s=7/64 eigenvalues -1,-7/100. For 0<s<7/64, hyperbolic saddle; det[(1,1),T_s(1,1)]=(4s-12)/25 nonzero gives legal-initialization transversality to local stable manifold, hence neighborhood exit. PG 3-round product 16s/25 contracts. Independent SymPy matrix products/eigenvalues at s=1/10,7/64,1/2 confirmed these identities. Stability at equality beyond absence of exponential attraction intentionally not classified.
 
-**Closest literature and risks.** [1] is inspected in full at its algorithm, assumption, theorem, and relevant appendix statements. [2] treats general switched linear systems. A related optimization-acceleration literature search found no direct coverage, but abstract-only papers and unindexed results remain potential historical risks. The critical \(s=7/64\) nonlinear behavior and global attractors are not classified. This is a self-review, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Jury/Schur/Floquet criteria are acknowledged. The source time-varying APG2 paper states tracking objective-gap bounds under bounded variation, not a common-minimizer exact three-round instability threshold in accessible text; specific comparison with full algorithm source remains limited by full-text access.
+
+## value
+
+PASS
+
+A strongly convex common-minimizer periodic schedule that destabilizes acceleration but not basic PG exposes a mechanism-specific robustness limit, with exact threshold and initialized dynamics; not a broad claim about all acceleration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

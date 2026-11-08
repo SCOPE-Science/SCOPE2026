@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:02:35.579774Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicitly stated APG2 scalar update, beta=1/(1+|x-z|) and inactive projection near zero give derivative M_t=[[0,t],[-1,2t]] for t=1-a. At 3-round cadence T_s=M_s M_(4/5)^2, trace (48s-32)/25, det 16s/25. Exact Schur inequalities are (25-16s)/25>0, (57-32s)/25>0 and (64s-7)/25>0. The last gives s>7/64; at s=7/64 eigenvalues -1,-7/100. For 0<s<7/64, hyperbolic saddle; det[(1,1),T_s(1,1)]=(4s-12)/25 nonzero gives legal-initialization transversality to local stable manifold, hence neighborhood exit. PG 3-round product 16s/25 contracts. Independent SymPy matrix products/eigenvalues at s=1/10,7/64,1/2 confirmed these identities. Stability at equality beyond absence of exponential attraction intentionally not classified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kamijima–Marumo–Takeda 2026 abstract gives O(delta^(2/3)) tracking gap; a positive gap bound under nonzero variation does not entail convergence or forbid hyperbolic instability at a common minimizer."
+        ],
+        "reasoning": "Kamijima–Marumo–Takeda 2026 abstract gives O(delta^(2/3)) tracking gap; a positive gap bound under nonzero variation does not entail convergence or forbid hyperbolic instability at a common minimizer.",
+        "searches": [
+          "Kamijima Marumo Takeda 2026 accelerated proximal gradient time varying optimization Algorithm 3 APG2",
+          "time-varying accelerated proximal gradient APG2 Kamijima Marumo Takeda periodic instability"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.11425v1",
+        "doi:10.1155/S1024123X04401069",
+        "Resultary:2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+        "Resultary:time-varying accelerated proximal gradient APG2 Kamijima Marumo Takeda periodic instability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Floquet results imply spectral stability once T_s is known; the new asserted claim is its derivation for an explicitly stated proximal rule plus proof that initialized scalar algorithm states intersect the unstable direction."
+        ],
+        "reasoning": "Classical Floquet results imply spectral stability once T_s is known; the new asserted claim is its derivation for an explicitly stated proximal rule plus proof that initialized scalar algorithm states intersect the unstable direction.",
+        "searches": [
+          "periodic time varying accelerated proximal gradient common minimizer instability Floquet switched quadratics",
+          "time-varying accelerated proximal gradient APG2 Kamijima Marumo Takeda periodic instability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent representation is Floquet monodromy of a two-dimensional proximal acceleration state, but a classical Schur criterion alone does not determine the source algorithm’s matrix or legal initialization."
+        ],
+        "reasoning": "Equivalent representation is Floquet monodromy of a two-dimensional proximal acceleration state, but a classical Schur criterion alone does not determine the source algorithm’s matrix or legal initialization.",
+        "searches": [
+          "time-varying accelerated proximal gradient APG2 Kamijima Marumo Takeda periodic instability",
+          "time-varying accelerated proximal gradient APG2 Kamijima Marumo Takeda periodic instability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record on three-block cyclic alternating minimization exhibits momentum stability boundaries for a different state transition and parameters; no identical APG2 Floquet table found."
+        ],
+        "reasoning": "Resultary record on three-block cyclic alternating minimization exhibits momentum stability boundaries for a different state transition and parameters; no identical APG2 Floquet table found.",
+        "searches": [
+          "three periodic proximal gradient accelerated state-dependent momentum Floquet Schur 7/64",
+          "time-varying accelerated proximal gradient APG2 Kamijima Marumo Takeda periodic instability"
+        ]
+      },
+      "rationale": "Classical Jury/Schur/Floquet criteria are acknowledged. The source time-varying APG2 paper states tracking objective-gap bounds under bounded variation, not a common-minimizer exact three-round instability threshold in accessible text; specific comparison with full algorithm source remains limited by full-text access.",
+      "residual_risks": [
+        "Original Kamijima–Marumo–Takeda manuscript full algorithm text could not be read; supplied APG2 update is audited conditionally on matching the cited source.",
+        "The conclusion is local finite-time instability, not asymptotic global divergence; critical equality s=7/64 not classified nonlinearly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESOLVED verification against complete source algorithm; visible text supplies tracking guarantees not local Floquet classification",
+          "evidence": [
+            "abstract: state-dependent momentum, compact domains and time-varying objective gap O(delta^(2/3))"
+          ],
+          "identifier_or_url": "arxiv:2610.11425v1",
+          "material_read": "arXiv abstract, dated metadata; HTML/PDF and full source inaccessible",
+          "method": "arXiv search + direct OA attempts + institutional attempt",
+          "title": "Accelerated Proximal Gradient Method for Non-Strongly Convex Time-Varying Optimization",
+          "trigger": "Defines the precise APG2 method, crucial comparator"
+        },
+        {
+          "assessment": "DIFFERENT algorithm: cyclic block updates with fixed momentum, not APG2",
+          "evidence": [
+            "summary states three-block threshold about 0.17789 for different map"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3",
+          "material_read": "Resultary title, summary and numerical threshold, not full repository proof",
+          "method": "Resultary semantic lookup",
+          "title": "Three blocks create a sharp momentum stability barrier for cyclic alternating minimization",
+          "trigger": "Same phenomenon of momentum instability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strongly convex common-minimizer periodic schedule that destabilizes acceleration but not basic PG exposes a mechanism-specific robustness limit, with exact threshold and initialized dynamics; not a broad claim about all acceleration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.11425v1",
+    "doi:10.1155/S1024123X04401069",
+    "Resultary:2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original Kamijima–Marumo–Takeda manuscript full algorithm text could not be read; supplied APG2 update is audited conditionally on matching the cited source.",
+    "The conclusion is local finite-time instability, not asymptotic global divergence; critical equality s=7/64 not classified nonlinearly."
+  ],
+  "schema_version": 1
+}
