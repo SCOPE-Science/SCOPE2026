@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Theorem 22 of arXiv:2604.18172 supplies homology concentration; exact incidence enumeration and signed Lefschetz counts in the standalone verifier cover every admissible matching and all 48 inherited symmetry elements, with independent orbit-union checks, verified face vectors, and exact S4 orthogonality calculations. The ghost involution is as defined in arXiv:1904.10907.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin--Scoville arXiv:1904.10907 Definition 26 and Theorem 32 classify the action group, not homology representation.",
+        "Scoville arXiv:2604.18172 Theorems 20--22 and Tables 1--2 classify homotopy and ranks without group-action traces.",
+        "Chari--Joswig arXiv:math/0011234 gives the Hasse matching construction."
+      ],
+      "reasoning": "Neither an automorphism-group classification nor a nonequivariant wedge decomposition determines the top rational representation; a dominating equivariant theorem would need to fix actual character values or a canonical module structure, absent from inspected primary material.",
+      "searches": [
+        "\"On the automorphism group of the Morse complex\" homology 2021",
+        "\"Morse complex\" \"tetrahedron\" \"S_4\" homology representation",
+        "\"equivariant homology\" \"Morse complex\" \"simplex\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.18172 (full scientific article text)",
+      "arXiv:1904.10907 (full scientific article text)",
+      "arXiv:math/0011234 (PDF definition material)",
+      "nscoville/morse-complex-verification (README only)",
+      "published-finding corpus published records cfe1c818c658, 36f4259fda88, a7fb33590838 (titles and summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: each pure Morse complex has \\(\\widetilde H_3\\cong\\mathbb Z^{81}\\) and the boundary has a commuting ghost involution.",
+        "New exact computation: the ghost has chain Lefschetz number \\(-8\\), so its action on rational \\(H_3\\) has trace \\(9\\), forcing eigenspaces 45 and 36; other ghost products are separately computed."
+      ],
+      "reasoning": "Knowing that a degree-three homology group is rank 81 and carries a \\(C_2\\)-action permits any eigenvalue split summing to 81, not specifically 45/36. Nor does an abstract \\(S_4\times C_2\\) action determine its ten character values or representation-level agreement with the pure simplex. The published results are necessary premises but do not themselves imply the numerical character classification without the new full signed count.",
+      "searches": [
+        "Scoville 2604.18172 Theorem 22",
+        "Lin Scoville 1904.10907 Definition 26 Theorem 32",
+        "Chari Joswig math/0011234 Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Scoville arXiv:2604.18172 Theorem 22: nonequivariant 81-sphere wedge; Lin--Scoville arXiv:1904.10907: ghost group structure.",
+        "published-finding corpus title/summary matches were on other Morse complexes or on strong Morse subcomplexes, not the ordinary tetrahedral pure complex."
+      ],
+      "reasoning": "A rational character can be restated as traces on ten conjugacy classes or as Specht multiplicities. These are equivalent formulations of the new claim, but the inspected published statements give neither. Similar language about Morse complexes on distinct underlying graphs is not an equivalent statement.",
+      "searches": [
+        "\"pure Morse complex\" \"symmetric group\" \"tetrahedron\" representation",
+        "\"S4\" \"Morse complex\" \"homology\" tetrahedron",
+        "published-finding corpus: tetrahedral boundary pure Morse complex 81 spheres ghost involution homology eigen 45 36 S4 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scoville Table 1 gives f-vectors and Table 2 gives 81-dimensional integral rank; no representation is tabulated.",
+        "Public companion verification README enumerates f-vector, homology, relative-map and structural checks, not ghost or signed character checks.",
+        "Closest published-finding corpus record cfe1c818c658 concerns an isolated directed-forest *strong*-Morse subcomplex on simplex boundaries; records 36f4259fda88 and a7fb33590838 concern other base graphs."
+      ],
+      "reasoning": "The matching of scalar f-vectors is deliberately used as an input check, not presented as new. The ten character entries, the 45/36 dimensions and the Specht multiplicities are absent from the checked numerical tables and the semantically nearest accessible result titles.",
+      "searches": [
+        "published-finding corpus: Lin Scoville reflection cosimplicial complement pure Morse complex homology representation",
+        "published-finding corpus: Scoville 2026 pure Morse tetrahedron 81 spheres S4 character 3 10 6 11 3",
+        "Scoville arXiv:2604.18172 Table 1 Table 2",
+        "nscoville/morse-complex-verification README \"What is verified\""
+      ]
+    },
+    "rationale": "The motivating homotopy theorem provides only sphere counts, the automorphism theorem provides only the group and ghost map, and the original definition supplies incidence matchings; no inspected source states or dominates the ten signed top-homology character values. Complete enumeration and independent orbit count establish the new finer invariant, subject to unindexed equivalence risk.",
+    "residual_risks": [
+      "A semantically equivalent, unindexed character calculation may exist.",
+      "The scientific supplement repository scripts were not exhaustively inspected; its README lists nonequivariant checks only.",
+      "No claim about integral representation isomorphism or equivariant homotopy type is supported."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the nonequivariant rank/homotopy and complete face-vector input; no homology character data.",
+        "evidence": [
+          "Theorem 22: both pure Morse complexes are wedges of 81 three-spheres.",
+          "Tables 1 and 2 contain face vectors and homology ranks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.18172",
+        "material_read": "Full accessible arXiv text, sections 1--6 with particular inspection of definitions, Table 1, Table 2, Theorems 20--22, conclusions; searched character/equivariant/representation",
+        "method": "Section-by-section primary text inspection",
+        "title": "The complex of discrete Morse matchings of the n-simplex: homotopy types and structural results",
+        "trigger": "Exact matching input and possibility of stronger equivariant statements"
+      },
+      {
+        "assessment": "Proves complement ghost map and abstract full automorphism group of the ordinary boundary Morse complex but does not determine the homology character.",
+        "evidence": [
+          "Definition 26: reflection sends a face to its complement.",
+          "Theorem 32: full boundary Morse automorphism group is \\(S_4\times C_2\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.10907",
+        "material_read": "Full accessible arXiv text, especially Section 3.3, Definition 26, Lemmas 29--30, and Theorem 32; searched homology/representation",
+        "method": "Primary full-text inspection",
+        "title": "On the automorphism group of the Morse complex",
+        "trigger": "Possible direct coverage of the ghost action"
+      },
+      {
+        "assessment": "Defines acyclic Hasse matching complex and pure variant; no representation conclusion identified in inspected material.",
+        "evidence": [
+          "Hasse edges form vertices and acyclic matchings form simplices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0011234",
+        "material_read": "Opening/title and definition material in Sections 1--2, pages 1--3 of 12-page PDF; not a full-text exclusion claim",
+        "method": "PDF text and first-page visual inspection",
+        "title": "Discrete Morse Complexes",
+        "trigger": "Original matching definition, possible older character coverage"
+      },
+      {
+        "assessment": "Lists nonequivariant face vectors, homology and other checks; no group-character computation described. Unread scripts remain a residual risk.",
+        "evidence": [
+          "README coverage table for Sections 3--6 concerns f-vectors, homology and structural identities."
+        ],
+        "identifier_or_url": "https://github.com/nscoville/morse-complex-verification",
+        "material_read": "README overview and enumerated verification coverage; other repository scripts not inspected",
+        "method": "Public repository readme inspection",
+        "title": "morse-complex-verification companion source README",
+        "trigger": "Possible numerical character table concealed in scientific supplement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab38cf80-9efe-4a6a-8f79-fa7d5d6de54e",
+  "value": {
+    "rationale": "The first tetrahedral pure Morse spaces with the published 81-sphere wedge and unequal face vectors have a natural S4 action, and the boundary has a nontrivial additional ghost involution. The new exact full group character and 45/36 splitting distinguish equivariant information invisible to ordinary homology ranks and group structure; the rational agreement between the two pure complexes is a motivated structural comparison, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
