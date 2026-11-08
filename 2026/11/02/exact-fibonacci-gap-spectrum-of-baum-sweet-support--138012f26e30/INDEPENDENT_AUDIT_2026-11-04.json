@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:44:17.757034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Positive Baum–Sweet positions are exactly canonical binary words in the unambiguous language 1(1|00)*; fixed length m accepted words are F_m, yielding |S_M|=F_(M+2) including zero. Every lexicographically adjacent same-length accepted pair has a unique first differing bit after an accepted prefix p, with the maximal p0 successor and minimal p1 successor producing difference d_r=2^(r-1)+[2 if r odd else 1]; their multiplicity at length m is F_(m-r-1). r=1,2 both yield gap three, with 3<=r<=M-2 producing the remaining infinite gaps. Cross-length accepted-word extremes supply floor((M-1)/2) gaps one and floor(M/2) gaps two, plus (0,1) initial gap one. Summing Fibonacci tails proves complete H_M counts and telescoping length 2^M-1. Binet limits give mass φ^-1 at gap three and φ^-(r+1) at d_r, summing to one; tail exponent log₂φ and infinite mean follow from 2^r gap growth. Both M=2 and absent r ranges are covered; no arbitrary-truncation claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Merta includes recurrences for fixed-length accepted positions and Fibonacci-word parity coding; these supply basic ingredients.",
+          "OEIS gives the same underlying set and its generating relation, not a verified all-dyadic histogram with tail exponent in material accessed."
+        ],
+        "reasoning": "The additional exact adjacent-pair partition and all-scale count is not visibly a stated special case of those sources, although earlier fixed-length recurrences can help derive it.",
+        "searches": [
+          "Merta 2018 arxiv:1803.00292 Theorems 2 and 4.6",
+          "OEIS A060142 support generator",
+          "1976 Baum Sweet Continued Fractions of Algebraic Power Series"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A060142 underlying automatic support",
+        "Merta arxiv:1803.00292 full PDF, original positions and distinct composition inverse Theorem 4.6",
+        "Baum–Sweet 1976 Annals bibliographic source; full text not read",
+        "Dreyfus–Hardouin–Roques arxiv:1507.03361 Mahler hypertranscendence, different invariant",
+        "Resultary semantic search for Baum–Sweet gap multiplicity Fibonacci law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse-sequence exact differences are unrelated to the current 1,2,3,6,9,... spectrum for original Baum–Sweet ones.",
+          "A060142 already gives underlying set and recurrence, correctly credited."
+        ],
+        "reasoning": "The final histogram entails a distinct exhaustive adjacency argument; earlier recurrence alone allows deriving but does not supply it as a stated evaluated theorem. The 1976 full text is a material priority uncertainty.",
+        "searches": [
+          "Merta 2018 Section 2 and Theorem 4.6 with PDF screenshot page 12",
+          "OEIS A060142 generator description",
+          "Baum Sweet 1976 DOI 10.2307/1970953"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Baum–Sweet support is the ordered automatic set A060142.",
+          "Theorem 4.6 in Merta 2018 concerns differences u_(n+1)-u_n for the composition-inverse position sequence, distinct from gaps in the original b_n=1 support."
+        ],
+        "reasoning": "A theorem about the differently indexed inverse series does not imply this histogram; underlying support generation alone is not the complete multiplicity law.",
+        "searches": [
+          "Baum Sweet sequence positions of ones consecutive gaps Fibonacci histogram",
+          "OEIS A060142 ordered set recurrence x↦2x+1 and x↦4x",
+          "Merta 2018 composition inverse position sequence differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS enumerates support values, and published sources describe its recurrence; the inspected entries did not present exact multiplicity formula H_M(1),H_M(2),H_M(3),H_M(d_r).",
+          "Merta 2018 Theorem 4.6 has distinct gap arithmetic 1/3(1+2·4^k) for a different sequence."
+        ],
+        "reasoning": "Enumerating a support is not automatically a table of all consecutive-gap multiplicities at dyadic cutoffs. Absence from viewed databases cannot prove historical novelty.",
+        "searches": [
+          "OEIS A060142 same ordered support",
+          "Resultary semantic Baum Sweet sequence positions ones consecutive gaps Fibonacci histogram",
+          "Merta 2018 Table/Thm 4.6"
+        ]
+      },
+      "rationale": "PASS, qualified. OEIS A060142 and the foundational Baum–Sweet work establish exactly the same support and recurrence. Merta 2018 studies indices of ones of Baum–Sweet and Fibonacci-word/parity structure, while its Theorem 4.6 explicit gap differences pertain to a different sequence: positions of ones in a composition inverse, not the original support. The independently derived dyadic frequency histogram and limiting heavy-tailed law were not found as an implication in the inspected primary results; the original 1976 full text was not inspected, and equivalent automatic-word return-gap literature could exist.",
+      "residual_risks": [
+        "Uninspected Baum–Sweet 1976 original text or automatic-sequences return-word literature may contain an equivalent gap census.",
+        "No extension to all truncation endpoints or mixing of the infinite gap word."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPORTANT DIFFERENT OBJECT for exact differences; same original support prior work credited",
+          "evidence": [
+            "Ł. Merta (2018): Theorem 4.6 states u_(n+1)-u_n values of inverse-position sequence, not the original b_n ones."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.00292",
+          "material_read": "Primary 25-page arXiv PDF Sections 2 and 4; specifically Theorem 4.6 and preceding definitions of u_n for inverse/composition-related sequence",
+          "method": "Open arXiv PDF text and screenshots including page 12",
+          "title": "Composition inverses of the variations of the Baum–Sweet sequence",
+          "trigger": "Same Baum–Sweet one-position sequence and suspicious exact difference theorem"
+        },
+        {
+          "assessment": "THE SUPPORT ITSELF IS PRIOR; frequency distribution not identified as stated",
+          "evidence": [
+            "OEIS A060142, first dated March 5 2001."
+          ],
+          "identifier_or_url": "https://oeis.org/A060142",
+          "material_read": "Public database defining self-generating set x↦2x+1 and x↦4x, and support examples; no verified full multiplicitiy theorem in inspected entry",
+          "method": "OEIS entry description and sequence comparison",
+          "title": "OEIS A060142",
+          "trigger": "Exact same support index set, natural database/table prior"
+        },
+        {
+          "assessment": "UNKNOWN COVERAGE RISK, NOT DISQUALIFYING ALONE",
+          "evidence": [
+            "Baum and Sweet, Annals of Mathematics 103 (1976), 593–610."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1970953",
+          "material_read": "Publication metadata and later source descriptions only; original full-text inaccessible/not inspected",
+          "method": "Bibliographic search; no invented full-text noncoverage",
+          "title": "Continued Fractions of Algebraic Power Series in Characteristic 2",
+          "trigger": "Foundational 1976 Baum–Sweet original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The location of ones in a canonical automatic sequence is intrinsically meaningful, and the theorem classifies every gap size and exact Fibonacci multiplicity under all dyadic cutoffs rather than tabulating a few samples. Its nontrivial infinite-mean power-law limiting gap distribution is a useful return-time invariant distinct from the known automatic support recurrence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only ordered support below dyadic 2^M and adjacent distances in original Baum–Sweet word.",
+    "Original 1976 full text uninspected; originality best-of-knowledge, not certified."
+  ],
+  "schema_version": 1
+}

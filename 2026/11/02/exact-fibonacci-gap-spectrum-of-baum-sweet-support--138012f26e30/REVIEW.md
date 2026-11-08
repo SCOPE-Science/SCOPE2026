@@ -1,19 +1,21 @@
-# Review of the exact Baum–Sweet support gap spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Accepted binary words have the canonical language \(1(1\mid00)^*\), with the number of fixed-length words equal to a Fibonacci number. Every adjacent same-length pair splits at a legal binary prefix; comparing maximal zero-branch and minimal one-branch completions yields the unique formula for each gap, and every pair is exhausted. Cross-length boundaries are separately enumerated. Exact Fibonacci sums complete the histogram; the limiting distribution and divergent mean follow from justified asymptotic ratios. Direct enumeration for all \(2\le M\le16\) passed with support-size, sum-of-frequencies and weighted-sum checks.
+PASS
 
-## Originality
+PASS. Positive Baum–Sweet positions are exactly canonical binary words in the unambiguous language 1(1|00)*; fixed length m accepted words are F_m, yielding |S_M|=F_(M+2) including zero. Every lexicographically adjacent same-length accepted pair has a unique first differing bit after an accepted prefix p, with the maximal p0 successor and minimal p1 successor producing difference d_r=2^(r-1)+[2 if r odd else 1]; their multiplicity at length m is F_(m-r-1). r=1,2 both yield gap three, with 3<=r<=M-2 producing the remaining infinite gaps. Cross-length accepted-word extremes supply floor((M-1)/2) gaps one and floor(M/2) gaps two, plus (0,1) initial gap one. Summing Fibonacci tails proves complete H_M counts and telescoping length 2^M-1. Binet limits give mass φ^-1 at gap three and φ^-(r+1) at d_r, summing to one; tail exponent log₂φ and infinite mean follow from 2^r gap growth. Both M=2 and absent r ranges are covered; no arbitrary-truncation claim.
 
-PASS, qualified. OEIS A060142 already defines the precise set of accepted integer indices and gives its self-generating rule. Merta (2018) studies the same support indices via a Fibonacci-word parity theorem and a recursion for fixed-bit-length sets; its exact differences theorem is for the **different** positions of ones in a formal-power-series inverse. The 2000 Kimberling generator differs, and the 2015 hypertranscendence result treats another invariant. Direct source comparisons and semantic scientific searches found no theorem implying the exact all-dyadic histogram and limiting tail law. This is not a claim that the support itself is new. Complete historical priority is unresolved because the full original 1976 paper could not be inspected.
+## originality
 
-## Value
+PASS
 
-PASS. Return gaps between successive ones of an automatic word form a natural and nontrivial local-recurrence invariant. Here a complete Fibonacci multiplicity law for every dyadic cutoff yields an infinite explicit distance spectrum and a heavy-tailed limiting distribution of infinite mean. The structural classification is stronger than finite enumeration or the support's recursive definition.
+PASS, qualified. OEIS A060142 and the foundational Baum–Sweet work establish exactly the same support and recurrence. Merta 2018 studies indices of ones of Baum–Sweet and Fibonacci-word/parity structure, while its Theorem 4.6 explicit gap differences pertain to a different sequence: positions of ones in a composition inverse, not the original support. The independently derived dyadic frequency histogram and limiting heavy-tailed law were not found as an implication in the inspected primary results; the original 1976 full text was not inspected, and equivalent automatic-word return-gap literature could exist.
 
-## Limitations
+## value
 
-Only dyadic cutoffs, accepted-one support, and consecutive distances are classified. Frequencies under arbitrary truncations and other automatic sequences are not covered. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The location of ones in a canonical automatic sequence is intrinsically meaningful, and the theorem classifies every gap size and exact Fibonacci multiplicity under all dyadic cutoffs rather than tabulating a few samples. Its nontrivial infinite-mean power-law limiting gap distribution is a useful return-time invariant distinct from the known automatic support recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
