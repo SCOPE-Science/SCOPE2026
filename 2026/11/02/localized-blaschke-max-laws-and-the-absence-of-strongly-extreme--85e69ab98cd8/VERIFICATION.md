@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the analytical theorem
+# Independent mathematical audit
 
-The complete argument is contained in `RESULT.md` and requires no external computations or unverifiable certificate. The essential equalities were checked directly:
+## correctness
 
-1. For normalized Poisson harmonic measure, the centered quadratic form is \(\Phi_f(z)=\int|f-\mathcal P f(z)|^2d\omega_z\); hence its square root obeys the reverse and forward triangle inequalities.
-2. At every simultaneous non-tangential Lebesgue point of \(f\) and \(|f|^2\), \(\Phi_f(z)\to0\). This is applicable because all \(\mathrm{BMO}\) boundary data under discussion are in \(L^2\).
-3. For the disk automorphism \(b_a\), the exact expression \(\Phi_{b_a-a}(z)=1-|b_a(z)|^2\) follows from unimodular boundary values, and its value at \(z=a\) is exactly one.
-4. Inverting \(w=b_r(z)\) yields \(z=(r-w)/(1-rw)\) and the exact identity for \(1-|z|^2\); the pseudohyperbolic disk \(|w|<t<1\) lies in a fixed Stolz cone and shrinks to the specified boundary point.
-5. The peak disk and its complement yield, for every fixed \(t\in(0,1)\), a limsup bounded by \(\max\{|c|,\|f\|_G+|c|\sqrt{1-t^2}\}\). Sending \(t\to1\) and applying the two independent lower-bound tests proves the formula.
-6. Each perturbation \(b_a-a\) is rational, holomorphic across the closed disk, vanishes at zero and belongs to \(\mathrm{VMOA}\), validating all four corollaries.
+PASS
 
-No use is made of numerical sampling as a substitute for an infinite-dimensional proof. The statement fixes the perturbation scalar before taking the limit. No independent scientific audit has been performed.
+For complex BMO boundary data f, Poisson Fatou limits simultaneously for f and |f|² imply Phi_f(z) tends to zero in every fixed non-tangential cone at almost every ζ. The analytic Blaschke disk automorphism b_a has exact Poisson variance 1-|b_a(z)|² and norm one; h_a=b_a-a belongs to VMOA and locally tends to zero as a=rζ→ζ. A pseudohyperbolic high-variance disk lies in a shrinking Stolz cone; inside it Phi_f vanishes and outside the automorphism variance is uniformly small as cutoff tends to one. L2 triangle upper bounds and tests at fixed interior z and at z=a yield the max-law for every fixed c. Choosing c=±1 rules out strongly extreme unit vectors in BMO, BMOA, VMO and VMOA modulo constants; interior points are not extreme either. This proof uses classical Fatou and exact Möbius identities, not finite computation.
+
+## originality
+
+PASS
+
+Dyakonov's 2026 Garsia-norm paper explicitly raises strong extremality as a possible problem and discusses ordinary extreme points; the inspected 2026-10 revision does not solve it. His earlier BMO/VMO Garsia-norm work proves ordinary extreme points of VMO, not absence of strongly extreme points. The assessed sharp max-law and universal negative strong-extreme classification give the specific result missing from the prior sources. A hidden general peaking-function argument remains a priority risk.
+
+## value
+
+PASS
+
+A natural sharp boundary max-law resolves a named open strong-extreme geometry question in four classical harmonic/analytic function spaces and distinguishes ordinary from strong extremality, giving a reusable localization mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
