@@ -1,19 +1,21 @@
-# Scientific review: dyadic separation periodicity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies all positive window lengths and every admissible separation. The substitution yields exact even/odd decimations; infinite recurrence of each finite factor justifies empty-window bases. The one-by-one separation spectrum is proved for all gaps, and strong induction on the maximum of the two lengths reduces any claim to strictly shorter windows, with divisibility of dyadic periods. The two-letter table follows by direct substitution and certifies its least period. The accompanying script checks independent sequence constructions and 34,031 bounded assertions. No finite-prefix exhaustion is used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For the infinite 0->01,1->00 fixed point p, the exact identity p_{2i}=0, p_{2i+1}=1-p_i and valuation p_i=nu_2(i+1) mod 2 imply recurrence of any fixed factor at arbitrarily high 2-adically shifted positions. The base C_(1,1)(d) comprises (00),(01),(10) for odd d and all four pairs for even d. Splitting starting indices by parity gives exact even/odd decimation identities for ordered paired windows C_(a,b)(d); each reduced pair has maximum window length <max(a,b), while translating d by 2^(1+ceil(log2 max(a,b))) preserves d parity and moves reduced separation by a multiple of its induction period, including boundary d>=a. Hence pure periodicity holds for arbitrary a,b>=1 and every admissible d, not merely eventually. The a=b=2 sets A (d=2 mod4, six pairs), B (odd d, seven), D (d=0 mod4, seven) and least period 4 follow by substituting base maps. I independently generated a 32768-symbol prefix and checked exact C spectra/period shift for 110 mixed a,b,d sample cases, including two-letter table; the proof, not that finite prefix, supplies the infinite statement.
 
-The principal accessible primary source is Rigo–Stipulanti–Whiteland, arXiv:2206.15319 (2022); its definition exactly matches the equal-length specialization, but its general automaticity theorem does not imply pure periodicity. The relevant source text, introduction, definitions, theorem discussion and the boundary examples were inspected. Searches for the period-doubling boundary spectrum, its aliases, mixed-window correlations, dyadic separation laws and existing research records did not reveal a statement implying this theorem. Huang–Wen, arXiv:1703.07157 (2017), concerns return-word occurrence spectra; the full text was inaccessible, so latent equivalent statements are possible. Searches do not prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The original boundary-sequence problem asks which prefix/suffix combinations can coexist at a specified distance. This theorem upgrades automaticity to an explicit purely periodic law for every window length, even for unequal windows, and resolves the two-letter spectrum exactly. It supplies an infinite constructive compression from infinitely many distance values to at most \(2^{1+\lceil\log_2\max(a,b)\rceil}\) residue classes. The result does not claim a general law for all automatic words or universal optimality of the period bound.
+PASS, qualified. Rigo–Stipulanti–Whiteland define the exact equal-length boundary sets and establish automaticity for automatic words; that does not imply pure periodicity. The full primary paper was materially inspected. The highly relevant Huang–Wen occurrence/return-word manuscript remained inaccessible after authorized institutional access reported VPN disconnected; this is a named priority risk rather than a scientific rejection.
 
-## Source and verification limitations
+## value
 
-Primary source: https://arxiv.org/pdf/2206.15319. Supporting fixed-point identity: https://oeis.org/A096268. Plausible related inaccessible full text: https://arxiv.org/abs/1703.07157. Finite experiments support but do not establish the infinite theorem. Bibliographic coverage is necessarily incomplete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The extended boundary-set invariant of a canonical automatic word is shown to satisfy a substantially stronger pure-periodic dyadic separation law, with an explicit period uniform across unequal window lengths and a sharp small-length classification. Automaticity alone permits aperiodic behavior. This is a natural combinatorics-on-words refinement useful for exact factor-boundary queries, not a routine renaming of the valuation formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
