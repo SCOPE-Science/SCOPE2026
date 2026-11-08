@@ -1,11 +1,21 @@
-# Scientific review: isolated two-sink capture resonances
+# Independent mathematical audit
 
-**Correctness (PASS).** The claim covers every odd prime network order at least five, every positive pair of hopping amplitudes, every nonzero sink separation, and every positive pair of loss rates. The proof has four independently checkable steps: Fourier energy-collision factorization, prime cyclotomic independence eliminating simultaneous crossings, two-site evaluation rank, and the Gram-projector formula for local survival. The exact count follows by summing the integer inequalities. Boundary behavior at every exceptional coupling is explicitly included. The finite standalone checker compares 68,328 localized cases with independent numerical spectral projectors and six selected lossy long-time matrix exponentials; the analytic proof, not finite experiments, handles arbitrary prime size.
+## correctness
 
-**Originality (PASS, provisional).** Parlangeli and Notarstefano (2011, arxiv:1109.3556) establish full two-node observability for nearest-neighbor prime cycles. Kassal and Aspuru-Guzik (2012, arxiv:1201.5202) analyze transport with one trap on ordinary circles. Candeloro and coauthors (2020, arxiv:2005.06351) already give the closed next-neighbor cycle Fourier spectral method, while Razzoli, Paris and Bordone (2020/2021, arxiv:2011.13794) give the established spectral projection method for one trapping vertex. These components are not claimed as new. The examined works do not formulate or imply without further nontrivial analysis the complete positive-coupling resonance census with two absorbing vertices and the exact site-by-site capture law. An unlocated specialized historical theorem remains a possible priority risk; a literature search does not certify global uniqueness.
+PASS
 
-**Mathematical value (PASS).** The question tests whether extra coherent hopping can generate trapping-resistant states in a graph whose ordinary prime-cycle two-site observability is complete. The answer is an exhaustive parameter-level classification, including a discontinuous infinite-time capture response, an exact resonance count growing quadratically with prime order, and a spatially resolved measurable survival law. The arithmetic prime hypothesis has a clear spectral purpose, not an arbitrary finite cutoff.
+The frozen proof computes Fourier eigenvalues E_j=2J1c_j+2J2(2c_j²−1). Each collision E_k=E_l occurs at r=−1/[2(c_k+c_l)], positive exactly k+l≥m+1. For prime p the c_j are Q-independent by the cyclotomic minimal polynomial; no repeated resonance or triple collision. Counting gives floor(m²/4). At generic doublets, two sinks have nonzero 2×2 observation minor since p prime and d≠0. At a collision, the unique fourfold eigenspace has observation rank two, hence precisely two dark modes. Dissipative K eigenvalues on the orthogonal complement strictly decay and survival is the dark projector. Independently evaluated the exact Gram inverse site formula for all d,x and resonances at p=5,7,11,13 using explicit Fourier basis (not running repository checker). Numerical comparisons corroborate symbolic all-prime proof, no claim of finite-time uniformity.
 
-**Limitations and verification.** The model is ideal, coherent, single-excitation and uniform, with strictly positive couplings and exactly two loss vertices. Composite circumferences, negative hopping, disorder, multiple loss sites and finite-time transport speeds are excluded. Numerical replay supports the proof but cannot establish global novelty or scientific independence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior two-site observability for nearest-neighbor prime cycles and coherent next-neighbor spectral treatment separately supply key tools, but neither provides the exact collision census and two-absorber capture site law; this is the assessed new combination, with priority risk for broader controls/sink spectral work.
+
+## value
+
+PASS
+
+A complete, isolated, explicitly tunable family of dark-state capture failures in prime circulant quantum transport is a motivated physical/spectral classification. The sharp number of couplings and site-by-site survival law are useful beyond knowing Fourier energies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
