@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:04:01.838274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For identical additive two-agent valuations w_t∈{1,2}, maximum instantaneous pairwise envy equals absolute signed load gap. Folding any signed allocation gap mod 4 to distance in {0,1,2} never increases cost and realizes all folded transitions by valid allocations. The only optional edge is (state 1, unit good) ->0 or 2; selecting 0 instead of 2 cannot raise cumulative cost through the next unit, since intervening doubles alternate 0 and 2 and both paths meet at state 1 on the next unit. This proves greedy lower-load-first exactly optimal for each fixed order. The free-order lower bound from w_t<=|D_t|+|D_{t-1}|, parity, and the zero-return unit/double/mixed blocks gives u[b+ceil(a/2)+1_{a=0 and b odd}]. The u,u,3u,u counterexample genuinely beats greedy: 4u versus 6u. Independently tested all 4095 fixed words over {1,2} of lengths ≤11 against exact DP and all 81 count pairs a,b≤8 against free-order DP; proof, not testing, supplies unbounded quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper reports greedy for binary {0,1} values, pseudopolynomial DP for bounded item values, and a general free-order 3/2 approximation.",
+          "Temporal EF1 guarantees are distinct from minimizing the sum of maximum pairwise envy."
+        ],
+        "reasoning": "The general dynamic-programming algorithm permits computing the optimum instance-by-instance but does not by itself give a universally greedy theorem or the explicit free-order formula; 0/1 padding changes the time horizon, so the binary theorem does not imply the 1/2-valued result by splitting.",
+        "searches": [
+          "Goldberg Robinson Teh arxiv:2610.09843 Proposition 1 identical binary valuations",
+          "Minimizing Cumulative Envy in Allocating a Sequence of Items 2026 Section 4 and Section 5",
+          "Temporal Fair Division of Indivisible Items arxiv:2410.14593"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.09843",
+        "https://arxiv.org/abs/2410.14593",
+        "https://arxiv.org/abs/2505.22174",
+        "Resultary query: two agent identical goods 1 and 2 cumulative maximum envy online greedy free order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact formula and policy strengthen a general 3/2 approximation only within the narrow positive two-value model.",
+          "The source two-value ratio 1:2 is not same as binary 0:1, and intermediate prefix costs prevent simple reductions."
+        ],
+        "reasoning": "The cited conclusions do not straightforwardly imply the fixed-order and free-order theorems; however lack of complete primary full text limits confidence about implicit special-case coverage.",
+        "searches": [
+          "arxiv:2610.09843 Proposition 1 greedy binary identical valuation and Section 5 free ordering",
+          "arxiv:2410.14593 EF1 temporal allocation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fair-division objective for identical agents reduces exactly to total absolute prefix imbalance in a signed 1-2 sequence.",
+          "Resultary matches on other allocation phenomena did not give the same two-agent cumulative criterion."
+        ],
+        "reasoning": "Load-balancing and discrepancy terminology are mathematically equivalent to this objective and were considered; the fixed-order dynamic and free-order closed form remain specifically claimed.",
+        "searches": [
+          "Resultary semantic: two agent identical goods 1 and 2 cumulative maximum envy online greedy free order",
+          "minimum sum absolute prefix discrepancy for signed sequence weights 1 and 2",
+          "two-machine total cumulative imbalance greedy fixed sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent dynamic-programming table for a,b≤8 agrees with formula.",
+          "No matching Resultary exact table was returned."
+        ],
+        "reasoning": "An arbitrary finite optimization table cannot establish the formula for all a,b or optimality of greedy on all fixed words; specialist tables remain a possible priority risk.",
+        "searches": [
+          "Resultary cumulative envy 1/2 goods exact count tables",
+          "cumulative discrepancy 1 2 goods optimal ordering exact formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact positive-two-level greedy optimality and all-(a,b) free-order formula. The earlier binary {0,1} theorem and general pseudopolynomial DP do not immediately imply these results, because replacing 2u items with two u rounds changes intermediate-round cost. The very close 2026 primary source was only accessible in abstract/selected summaries, leaving a material full-text comparison risk.",
+      "residual_risks": [
+        "The closest October 2026 article could contain an exact 1:2 subcase in full text or appendix; full text inaccessible and authorized institutional access VPN disconnected (job identifier retained privately).",
+        "Earlier signed-load-balancing/discrepancy literature might imply fixed-order optimality in an equivalent formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General DP and approximation claims are documented; cannot conclude the full document omits exact special case",
+          "evidence": "Accessible summaries describe binary {0,1} greedy and pseudopolynomial general DP; missing complete paper is a material priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+          "material_read": "Accessible abstract, metadata, available snippets and source-cited proposition/section descriptions; complete full text NOT obtained",
+          "method": "Attempted arXiv HTML/PDF and lawful open access; authorized institutional download reported VPN disconnected, no bypass",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Same objective and directly plausible more general prior theorem"
+        },
+        {
+          "assessment": "EF1/temporal existence is not exact total envy sum optimization",
+          "evidence": "Temporal EF1 condition does not optimize additive cumulative maximum envy.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+          "material_read": "Abstract and bibliographic context; no full-paper absence assertion",
+          "method": "Compare objectives and quantifiers",
+          "title": "Temporal Fair Division of Indivisible Items",
+          "trigger": "Potential equivalence between temporal fair division and cumulative envy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source cumulative-maximum-envy objective is temporally sensitive. An exact online policy that is offline optimal for every arbitrary sequence and a closed optimal reordering law for two denominations are natural, useful benchmark theorems beyond an approximation guarantee. The sharp failure at ratio 3 distinguishes a nontrivial alphabet boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.09843",
+    "https://arxiv.org/abs/2410.14593",
+    "https://arxiv.org/abs/2505.22174",
+    "Resultary query: two agent identical goods 1 and 2 cumulative maximum envy online greedy free order"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The closest October 2026 article could contain an exact 1:2 subcase in full text or appendix; full text inaccessible and authorized institutional access VPN disconnected (job identifier retained privately).",
+    "Earlier signed-load-balancing/discrepancy literature might imply fixed-order optimality in an equivalent formulation.",
+    "Finite independent verification does not establish unbounded quantifiers; correctness relies on the reconstructed source proof.",
+    "High-priority inaccessible full primary sources remain noted as best-of-knowledge originality risks, not scientific failure.",
+    "Public-bound METADATA.json and AUDIT.json both contain private scope_run_id operational provenance; reviewed exact blobs but complete confidentiality-sanitized public replacement bytes with verified source-tree/blob guards and hashes were not prepared."
+  ],
+  "schema_version": 1
+}

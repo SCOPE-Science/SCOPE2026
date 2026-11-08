@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python verify.py` with a standard Python 3 interpreter. The deterministic test compares greedy against exact signed-gap dynamic programming over all 32,767 fixed words of length 0–14 drawn from {1,2}. A second independent dynamic program optimizes both item order and allocations for each of 289 count pairs with 0 ≤ a,b ≤ 16. It checks greedy cost 6 versus optimal cost 4 for the word (1,1,3,1), and confirms greedy optimality for all shorter words over {1,3}.
+# Independent mathematical audit
 
-Expected exact output:
+## correctness
 
-`VERIFY_OK fixed_words=32767 free_count_pairs=289 sharp_fixed_counterexample=(1,1,3,1)`
+PASS
 
-The program is a finite test, not a proof of the unbounded theorem; the folded-state exchange and block lower-bound constructions supply the mathematical proof. Verification makes no claim of an independent scientific audit.
+For identical additive two-agent valuations w_t∈{1,2}, maximum instantaneous pairwise envy equals absolute signed load gap. Folding any signed allocation gap mod 4 to distance in {0,1,2} never increases cost and realizes all folded transitions by valid allocations. The only optional edge is (state 1, unit good) ->0 or 2; selecting 0 instead of 2 cannot raise cumulative cost through the next unit, since intervening doubles alternate 0 and 2 and both paths meet at state 1 on the next unit. This proves greedy lower-load-first exactly optimal for each fixed order. The free-order lower bound from w_t<=|D_t|+|D_{t-1}|, parity, and the zero-return unit/double/mixed blocks gives u[b+ceil(a/2)+1_{a=0 and b odd}]. The u,u,3u,u counterexample genuinely beats greedy: 4u versus 6u. Independently tested all 4095 fixed words over {1,2} of lengths ≤11 against exact DP and all 81 count pairs a,b≤8 against free-order DP; proof, not testing, supplies unbounded quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact positive-two-level greedy optimality and all-(a,b) free-order formula. The earlier binary {0,1} theorem and general pseudopolynomial DP do not immediately imply these results, because replacing 2u items with two u rounds changes intermediate-round cost. The very close 2026 primary source was only accessible in abstract/selected summaries, leaving a material full-text comparison risk.
+
+## value
+
+PASS
+
+The source cumulative-maximum-envy objective is temporally sensitive. An exact online policy that is offline optimal for every arbitrary sequence and a closed optimal reordering law for two denominations are natural, useful benchmark theorems beyond an approximation guarantee. The sharp failure at ratio 3 distinguishes a nontrivial alphabet boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
