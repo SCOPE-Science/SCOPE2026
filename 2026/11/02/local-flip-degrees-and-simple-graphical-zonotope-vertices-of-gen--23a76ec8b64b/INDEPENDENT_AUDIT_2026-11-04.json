@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:07:09.120571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For simple generalized theta graphs k>=3 with at most one length-one arm, acyclicity means no two complete paths with opposite terminal directions. A reversed edge creates a cycle exactly when there is an alternative directed path, producing the minority-sign blocked-edge classification; the one direct terminal edge is explicitly handled. Counting the allowed path words yields the claimed all-length degree polynomial; the coefficient for exactly k-1 blocked edges is 2 sum_j prod_{i !=j} ell_i=2 tau(G), while the zonotope has dimension n-1. Independently built directed graphs, tested topological acyclicity and each flip, and reproduced full degree histograms for length lists (2,2,2), (2,3,4), (3,3,3), (1,2,3,4), (1,2,2), (2,2,2,2). The all-family proof is the combinatorial word/alternative-path argument, not a finite histogram.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No inspected stronger result provides an entire graded flip-degree polynomial indexed by all path lengths."
+        ],
+        "reasoning": "Grujic's matroid-flat face formula is a general face enumerator, but does not specify vertexwise degrees, while Brown–Hickman–Sokal–Wagner's theta chromatic polynomial gives only total orientation count.",
+        "searches": [
+          "Resultary semantic query: generalized theta graph acyclic orientation edge flip degree distribution simple vertices graphical zonotope spanning trees",
+          "https://arxiv.org/pdf/1604.06931",
+          "https://arxiv.org/abs/math/0012033"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 20d536cee51db373624568636151b73badde5677 and two verification scripts including SHA a78a14fd4e47fbcf31b383f593abb16e65885336",
+        "Grujic arxiv:1604.06931 PDF theorem and proof sections",
+        "Brown et al arxiv:math/0012033 chromatic polynomial reference",
+        "Resultary generalized-theta orientation/zono query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One must classify the alternative directed paths at each edge to derive this stronger statement."
+        ],
+        "reasoning": "Specializing a chromatic polynomial at -1 yields D(1), not the coefficients of D(z); specializing a global f-vector yields total edges, not full local distribution.",
+        "searches": [
+          "Resultary semantic query: generalized theta graph acyclic orientation edge flip degree distribution simple vertices graphical zonotope spanning trees",
+          "https://arxiv.org/pdf/1604.06931",
+          "https://arxiv.org/abs/math/0012033"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual zonotope viewpoint converts local legal edge reversals into vertex degrees, not merely numbers of faces."
+        ],
+        "reasoning": "Acyclic-orientation chamber adjacency of the graphic hyperplane arrangement is equivalent to the graphical zonotope 1-skeleton; the proof uses this equivalence.",
+        "searches": [
+          "Resultary semantic query: generalized theta graph acyclic orientation edge flip degree distribution simple vertices graphical zonotope spanning trees",
+          "https://arxiv.org/pdf/1604.06931",
+          "https://arxiv.org/abs/math/0012033"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently checked six varying-arm examples, including one length-one arm."
+        ],
+        "reasoning": "Finite acyclic orientation and spanning-tree counts for sample theta graphs are reproducible by exhaustive enumeration; those tables are not a universal degree histogram.",
+        "searches": [
+          "Resultary semantic query: generalized theta graph acyclic orientation edge flip degree distribution simple vertices graphical zonotope spanning trees",
+          "https://arxiv.org/pdf/1604.06931",
+          "https://arxiv.org/abs/math/0012033"
+        ]
+      },
+      "rationale": "The full individual vertex-degree distribution is distinct from both chromatic-polynomial evaluations giving total acyclic orientations and Grujic's global face counts of zonotopes. A global f-vector generally does not recover a vertex-degree histogram, so the latter does not imply the assessed claim. Special K_(2,k) all-length-two cases are acknowledged as prior; arbitrary heterogeneous path lengths and direct-edge boundary are the asserted new range.",
+      "residual_risks": [
+        "A specialized graphical-arrangement chamber-walls enumeration or inaccessible dissertation could already contain an equivalent full local-degree polynomial.",
+        "One path of length one is allowed; two direct parallel paths would violate simplicity and are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR FOUNDATION, not the evaluated heterogeneous theta local-degree polynomial",
+          "evidence": "Theorem 1.1 computes global face counts via matroid flats, not the distribution of each zonotope vertex degree.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "nine-page OA manuscript; theorem 1.1, definitions and graph-matroid flat proof sections",
+          "method": "arXiv PDF text plus page screenshots",
+          "title": "Counting faces of graphical zonotopes",
+          "trigger": "same graphical zonotope objects and orientation/vertex connection"
+        },
+        {
+          "assessment": "Known total orientation counts; full priority comparison retains caveat",
+          "evidence": "Chromatic polynomial gives total acyclic-orientation number by evaluation, not local degrees.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0012033",
+          "material_read": "abstract and introductory chromatic-polynomial statements summarized in reviewed source",
+          "method": "arXiv search and source-reference comparison, not a full-text negative assessment",
+          "title": "On the chromatic roots of generalized theta graphs",
+          "trigger": "same heterogeneous theta family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete local flip-degree distribution and number of simple vertices for a natural series-parallel graph family are structural polyhedral combinatorics; 2 tau(G) connects simplest zonotope vertices to spanning trees and the general formula resolves each degree, beyond a single benchmark count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob 20d536cee51db373624568636151b73badde5677 and two verification scripts including SHA a78a14fd4e47fbcf31b383f593abb16e65885336",
+    "Grujic arxiv:1604.06931 PDF theorem and proof sections",
+    "Brown et al arxiv:math/0012033 chromatic polynomial reference",
+    "Resultary generalized-theta orientation/zono query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Simple generalized theta graphs, k>=3 and at most one direct edge, labeled orientations only; no parallel multi-edges, arbitrary series-parallel generalization or graph automorphism quotient.",
+    "A specialized graphical-arrangement chamber-walls enumeration or inaccessible dissertation could already contain an equivalent full local-degree polynomial.",
+    "One path of length one is allowed; two direct parallel paths would violate simplicity and are excluded."
+  ],
+  "schema_version": 1
+}
