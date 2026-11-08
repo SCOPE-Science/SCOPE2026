@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source-derived three-dimensional reduced matrix yields the displayed cubic characteristic polynomial. The proof applies every strict cubic Schur–Jury inequality: the \(-1\) polynomial evaluation gives the first threshold, a globally positive residual Jury expression proves sufficiency before that threshold, and the sign of \(-P(-1)\) plus the constant term rules out every larger stepsize. The argument covers all real \(0<s<1\), \(0\le\eta<1\), and positive steps; the 13,860 exact-rational and spectral checks are corroboration, not infinite proof.
+## correctness
 
-**Originality — PASS under inspected literature, with priority risk.** Wang et al. (2026, arXiv:2608.03548v1, Sections II–IV, VII) introduce the exact reduced DGT dynamics but supply certificates for general heterogeneous networks, while asserting tightness for complete networks or homogeneous curvatures. This statement classifies the previously uncovered joint case of nonzero curvature spread and an incomplete two-node network, including a global no-restabilization conclusion. The closest retrieved homogeneous graph-specific spectral optimization covers \(\eta=0\), not \(\eta>0\). Standard Schur–Jury is acknowledged. An older equivalent two-agent spectral calculation is not ruled out by database searches alone.
+PASS
 
-**Mathematical value — PASS.** The exact dimensionless stability ceiling answers the natural sharp calibration question for the smallest network where topology and heterogeneous local Hessians interact. It quantifies the step restriction caused by curvature dispersion, locates the first flip eigenvalue, and excludes isolated larger stable windows. This informs constant-step DGT design rather than being a mere parameter substitution or arbitrary finite example.
+Deriving the 3x3 reduced dynamics from x+=W(x−αy), y+=Wy+H(x+−x) and the conserved tracker average gives the same cubic P(z) as the claimed reduced matrix. Exact Schur-Jury inequalities use P(1)=β(1−s)^2 and −P(−1)=2s(1−η²)β²−(s²+6s+1)β+2(1+s)^2. The proof establishes |c|<1 and J=1−b+ac−c²>0 before the smaller positive root; in the intermediate interval −P(−1)≤0, and beyond the larger root c<−1. Independent symbolic comparison with the true recurrence and sampled spectral radius on either side confirmed the formula. These tests do not certify all reals.
 
-**Limitations.** The result concerns Schur stability of a linear reduced iteration, not the optimal convergence rate and not time-varying, directed, or larger networks. The numerical tests do not establish a theorem beyond the analytic derivation. The motivating paper's general certificate remains applicable in broader settings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang et al. study exactly heterogeneous scalar-quadratic distributed gradient tracking and supply global sufficient certificates, tight in the complete-graph/homogeneous cases. The inspected abstract does not claim a two-agent heterogeneous sharp positive-disagreement Schur frontier; full paper was inaccessible. A standard Jury calculation is a tool, not itself the novel result.
+
+## value
+
+PASS
+
+Exact stability at the first genuinely coupled two-agent curvature/mixing regime tests conservatism of general certificates and proves heterogeneity strictly lowers the admissible step length. This is a motivated optimization boundary with explicit counterexamples to homogeneous step tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

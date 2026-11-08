@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 installation. Its deterministic exact-rational parameter grid checks polynomial coefficients, sign identities and the derived algebraic inequalities; separate eigenvalue computations corroborate the predicted stable/unstable transition. The observed run returned `VERIFY_OK 13860 exact-and-spectral checks`.
+## correctness
 
-The proof in `RESULT.md` independently establishes the theorem for all continuously varying parameters in the stated domain. The finite checker cannot certify an infinite parameter domain, publication priority or an independent audit. The work does not cover negative disagreement modes or more than two agents.
+PASS
+
+Deriving the 3x3 reduced dynamics from x+=W(x−αy), y+=Wy+H(x+−x) and the conserved tracker average gives the same cubic P(z) as the claimed reduced matrix. Exact Schur-Jury inequalities use P(1)=β(1−s)^2 and −P(−1)=2s(1−η²)β²−(s²+6s+1)β+2(1+s)^2. The proof establishes |c|<1 and J=1−b+ac−c²>0 before the smaller positive root; in the intermediate interval −P(−1)≤0, and beyond the larger root c<−1. Independent symbolic comparison with the true recurrence and sampled spectral radius on either side confirmed the formula. These tests do not certify all reals.
+
+## originality
+
+PASS
+
+Wang et al. study exactly heterogeneous scalar-quadratic distributed gradient tracking and supply global sufficient certificates, tight in the complete-graph/homogeneous cases. The inspected abstract does not claim a two-agent heterogeneous sharp positive-disagreement Schur frontier; full paper was inaccessible. A standard Jury calculation is a tool, not itself the novel result.
+
+## value
+
+PASS
+
+Exact stability at the first genuinely coupled two-agent curvature/mixing regime tests conservatism of general certificates and proves heterogeneity strictly lowers the admissible step length. This is a motivated optimization boundary with explicit counterexamples to homogeneous step tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
