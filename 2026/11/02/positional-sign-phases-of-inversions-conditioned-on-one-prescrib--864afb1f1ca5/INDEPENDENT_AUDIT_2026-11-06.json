@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:39:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the required event Pi(i)=j and Pi(j)=i, the other n-2 images are uniformly permuted on the remaining labels; pairwise inversion probabilities split into the fixed pair (one), two free positions (one half), and x=i-1,y=j-i-1,z=n-j mixed positions. Their contributions (y+2z)/d,(d+y)/d,(2x+y)/d with d=n-2 yield Delta=1/2+[y^2-(x-z)^2]/d, algebraically the claimed factorization. The event probability is 1/[n(n-1)], and summing local covariance gives Cov(I,C2)=1/12. Riemann-area sign analysis applies away from u=1/2 or v=1/2; n=3 is covered by d=1. Independent direct enumeration through n=7 corroborates exact formulas, not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hultman Theorem 6.2 computes expected inversions from conjugacy-class parameters; Pinsky fixes number of fixed points rather than a labeled 2-cycle."
+        ],
+        "reasoning": "Neither broader setup forces the position-specific mixed-pair probabilities. Conditional prescribed pairing is not the same as fixing cycle type or fixed-point count.",
+        "searches": [
+          "Hultman, Permutation statistics of products of random permutations, arXiv:1301.0430",
+          "Pinsky, The inversion statistic in derangements and in other permutations with a prescribed number of fixed points, arXiv:2505.02058"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob c255f74c0217ee40f1cd39b2b4b9f022a37a00a1",
+        "Hultman arXiv:1301.0430v1 Lemma 6.1 and Theorem 6.2",
+        "Pinsky arXiv:2505.02058",
+        "Resultary semantic query: uniform random permutations inversion statistic conditional fixed specified labelled transposition two cycle pair positions covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing conjugacy-class averages imply Cov(I,C2)=1/12 but cannot invert to the indexed Delta_{n,i,j} without new conditional information."
+        ],
+        "reasoning": "Only the aggregate check is mathematically implied by prior work; the specific label-profile is not established by it.",
+        "searches": [
+          "Hultman arXiv:1301.0430v1 Lemma 6.1 and Theorem 6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hultman Lemma 6.1 conditions on a conjugacy class (counts of 1- and 2-cycles); this cannot retain the identity of one designated pair.",
+          "A conjugacy-class expectation is an average over all pair locations, while the claimed saddle changes sign with (i,j)."
+        ],
+        "reasoning": "The closest alias is inversion covariance with a two-cycle indicator (not a descent or total-cycle count). Conjugacy averaging erases the pair-specific positional profile, so the formulations are not equivalent.",
+        "searches": [
+          "Resultary semantic search: uniform random permutations inversion statistic conditional fixed specified labelled transposition two cycle pair positions covariance",
+          "Hultman arXiv:1301.0430v1 Section 6",
+          "Pinsky arXiv:2505.02058"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary finding concerns inverse covariance among inversion indicators; another concerns total cycle count vs an inversion indicator, not the event Pi(i)=j,Pi(j)=i."
+        ],
+        "reasoning": "No applicable exact table was identified that tabulates Delta_{n,i,j}; nonidentification is a residual priority risk, not a novelty certificate.",
+        "searches": [
+          "Resultary: incidence precision law for all inversion indicators",
+          "Resultary: linear inversion-gap profile for cycle count in a uniform random permutation"
+        ]
+      },
+      "rationale": "Qualified PASS: class-averaged inversion expectation (Hultman, Lemma 6.1/Theorem 6.2) already establishes the aggregate but averages away location of a specified transposition. The fixed labeled-pair saddle and sign fraction are a genuinely different conditional statistic, not a corollary of the class average alone; no matching stronger primary theorem identified in the material inspected.",
+      "residual_risks": [
+        "An unindexed permutation statistic involving a prescribed transposition could state the same conditional formula.",
+        "Riemann-sum limit does not settle midpoint boundary sequence signs; finite equation does."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers class means and aggregate, not specific prescribed two-cycle location",
+          "evidence": "Lemma 6.1 uses number p of 1-cycles and q of 2-cycles for whole conjugacy class; it does not condition on Pi(i)=j and Pi(j)=i.",
+          "identifier_or_url": "https://arxiv.org/html/1301.0430v1",
+          "material_read": "Full HTML Section 6 including Lemma 6.1/Theorem 6.2, Introduction and derivation of class-averaged inversion probabilities",
+          "method": "Read primary arXiv HTML, compare formulas and conditioning quantifiers",
+          "title": "Permutation statistics of products of random permutations",
+          "trigger": "Same inversion statistic, two-cycle counts; may cover exact claim"
+        },
+        {
+          "assessment": "Potential overlap in methods, different conditioning event",
+          "evidence": "Prescribed fixed-point count does not specify labeled two-cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.02058",
+          "material_read": "Title, abstract, and cited scientific description; full manuscript not claimed read",
+          "method": "Published primary metadata / bibliographic comparison",
+          "title": "The inversion statistic in derangements and in other permutations with a prescribed number of fixed points",
+          "trigger": "Nearby conditioned inversion problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: conditioning on one specified two-cycle is canonical in permutation cycle statistics; the exact location-dependent sign reversal, midpoint phase diagram and cancellation to a tiny aggregate covariance explain a structural dependence phenomenon that class-average statistics miss. The formula holds for all sizes, not a tiny arbitrary table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob c255f74c0217ee40f1cd39b2b4b9f022a37a00a1",
+    "Hultman arXiv:1301.0430v1 Lemma 6.1 and Theorem 6.2",
+    "Pinsky arXiv:2505.02058",
+    "Resultary semantic query: uniform random permutations inversion statistic conditional fixed specified labelled transposition two cycle pair positions covariance"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform S_n conditioned on the designated labeled two-cycle (i j), the expected-inversion excess is 1/2+((n-2i)(2j-n-2))/(n-2) for n>=3; this gives the macroscopic midpoint saddle, positive-pair density 1/2, and aggregate covariance 1/12.",
+  "limitations": [
+    "An unindexed permutation statistic involving a prescribed transposition could state the same conditional formula.",
+    "Riemann-sum limit does not settle midpoint boundary sequence signs; finite equation does.",
+    "Original public source package not modified; publication is not authorized.",
+    "Independent bounded experiments are not proofs of infinite statements.",
+    "Raw assignment object cannot be directly mounted across tools; literal values were separately Git-verified."
+  ],
+  "residual_risks": [
+    "An unindexed permutation statistic involving a prescribed transposition could state the same conditional formula.",
+    "Riemann-sum limit does not settle midpoint boundary sequence signs; finite equation does."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers class means and aggregate, not specific prescribed two-cycle location",
+      "evidence": "Lemma 6.1 uses number p of 1-cycles and q of 2-cycles for whole conjugacy class; it does not condition on Pi(i)=j and Pi(j)=i.",
+      "identifier_or_url": "https://arxiv.org/html/1301.0430v1",
+      "material_read": "Full HTML Section 6 including Lemma 6.1/Theorem 6.2, Introduction and derivation of class-averaged inversion probabilities",
+      "method": "Read primary arXiv HTML, compare formulas and conditioning quantifiers",
+      "title": "Permutation statistics of products of random permutations",
+      "trigger": "Same inversion statistic, two-cycle counts; may cover exact claim"
+    },
+    {
+      "assessment": "Potential overlap in methods, different conditioning event",
+      "evidence": "Prescribed fixed-point count does not specify labeled two-cycle.",
+      "identifier_or_url": "https://arxiv.org/abs/2505.02058",
+      "material_read": "Title, abstract, and cited scientific description; full manuscript not claimed read",
+      "method": "Published primary metadata / bibliographic comparison",
+      "title": "The inversion statistic in derangements and in other permutations with a prescribed number of fixed points",
+      "trigger": "Nearby conditioned inversion problem"
+    }
+  ]
+}
