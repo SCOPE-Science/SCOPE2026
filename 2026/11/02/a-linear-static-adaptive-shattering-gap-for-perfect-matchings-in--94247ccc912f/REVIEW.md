@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Eight explicit domino compositions exhaust the local perfect matchings. The local VC upper bound uses the exactly enumerated per-edge positive counts and the fact that a three-query shattering of eight concepts would force three balanced edges, whereas only one exists. A complete three-level query tree is constructed explicitly and all eight outcomes are realized. Every connecting edge is an even-even separating bridge and therefore excluded from all perfect matchings. Static support counting and concatenated adaptive trees yield the exact unrestricted product dimensions. Standalone graph enumeration confirms the block calculation and the two-block bridge case.
+## correctness
 
-**Originality (PASS under accessible comparisons).** The 2021 Guingona–Kolesnikov–Nierwinski–Soucy zero-set theorem handles a different function family and proves equality rather than an exact matching-family separation. The 2021 Ghazi–Golowich–Kumar–Manurangsi work gives general classifier aggregation bounds, not the ladder block or graph construction. Searches of accessible research records for perfect-matching, domino tiling, ladder and adaptive shattering variants did not identify this result; searches are not proof of priority. Other graph results on maximal independent sets, minimal dominating sets and acyclic orientations concern distinct concept families and do not imply the perfect-matching claim. Possible prior formulations in tiling learning or dimer systems remain a residual risk.
+PASS
 
-**Value (PASS).** The five-column perfect-matching gadget has a sharp one-unit adaptive advantage and, via a parity-forbidden bridge, turns that local phenomenon into exact linear separation within connected planar bipartite subcubic graphs. This rules out equality of VC and Littlestone dimensions under several natural geometric and degree restrictions and supplies a reproducible witness mechanism. It is not an arbitrary finite enumeration.
+The eight local domino tilings are exactly the {1,2}-compositions of 5. Their edge-positive counts 5,3,4,3,5 for vertical edges and 3,3,2,2 for horizontal positions preclude a three-edge shattered support, while vertical columns 1 and 4 shatter two. The explicit V3-root depth-three adaptive tree yields 8 distinct response words and the 8-concept cardinality bound is sharp. Each interblock bridge splits even vertex counts, so cannot belong to a perfect matching. Product shattering and 8^m concepts prove the unrestricted 2m/3m formulas; there is no implicit 2-connectedness claim.
 
-**Limitations.** The construction uses bridges and does not address two-connected graphs. No broader exact formula for ladder widths is claimed. Independent historical-priority and scientific audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact edge-membership concept class of perfect matchings is different from arbitrary zero sets of linear functions, and the proven linear adaptive-static gap is not an instance of the published equal-dimension zero-set theorem. General aggregation closure results do not calculate these dimensions of any ladder family. Best-of-knowledge PASS with alternative online-dimer terminology as residual risk.
+
+## value
+
+PASS
+
+Gives an unbounded separation between adaptive and static shattering in the simultaneous natural restrictions of connectedness, planarity, bipartiteness and maximum degree three; the bridge construction preserves graph connectedness while forcing genuine matching-factor product. The exact base gadget and amplification are useful complexity-theoretic witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
