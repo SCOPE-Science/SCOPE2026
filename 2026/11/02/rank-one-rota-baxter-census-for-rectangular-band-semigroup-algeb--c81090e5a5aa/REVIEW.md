@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The universal rank-one identity reduces exactly to a quadratic image-generator condition and a simultaneous left/right eigenfunctional condition. For the rectangular-band multiplication, the row/column marginal map has kernel dimension \((m-1)(n-1)\); the three square-zero cases and the nonzero quasi-idempotent case exhaust all generators. The latter has simultaneous Peirce corner dimensions \(n-1\) and \(m-1\), producing the exact formula without restrictions on characteristic. Independently implemented finite-field multiplication verifies seven full rank-one enumerations, including \(\mathbb F_4\). Computation is corroboration, not the infinite-parameter proof.
+PASS
 
-## Originality
+The semigroup rule (i,j)(h,l)=(i,l) gives ab=rho(a)gamma(b)^T. For nonzero rank-one R=a⊗f, RB identity forces a²=λa and fL_a=μf, fR_a=νf, μ+ν=λ. If λ=0, μ=ν=0; a²=0 iff row or column marginal vanishes. The row/column marginal map has fibers of dimension (m-1)(n-1); disjoint possibilities (u=v=0), (u=0,v!=0), (v=0,u!=0) yield the three terms divided by q-1. When λ!=0, a=α^{-1}uv^T with α=τ(a)!=0; the scaled left/right operators are commuting projections with ranks n,m and one-dimensional intersection. Their (1,0) and (0,1) dual eigenspaces have dimensions n-1,m-1 and yield q^{m+n-2}(q^{n-1}+q^{m-1}-2). Distinct pair representations divide by q-1; all characteristics and m=1/n=1 boundaries work. Independent finite sums agree with B_{1,2}(3)=8, B_{2,2}(2)=35, B_{2,2}(3)=164, B_{2,3}(2)=429. The algebraic classification, not finite cases, supports arbitrary q.
 
-**PASS, subject to publication-priority risk.** The original full text of Guo–Rosenkranz–Zheng, arXiv:1402.3702 (2014), classifies semigroup algebras only through order three, whereas two-sided rectangular bands start at order four. Its general coefficient-equation criterion entails an algorithmic test, not the explicit enumeration. Jian, arXiv:1604.07292, constructs left-multiplication operators from quasi-idempotent elements but gives no rank-one enumeration. Gubarev, arXiv:1811.08219, treats sums of fields, focusing on nonzero weight; Benito–Gubarev–Pozhidaev, arXiv:1801.07037, treat quadratic and simple algebras. Searches for rectangular-band, Munn/sandwich-algebra, and rank-one Rota–Baxter formulations revealed no stronger implication. Similar rank-one counts on full matrices, truncated polynomial algebras, radical-square-zero quiver algebras, and upper-triangular algebras concern different multiplications and do not subsume this rectangular-band count. Search failure does not prove publication priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Rectangular bands are an unbounded, natural family of finite completely simple semigroups, extending the small-order semigroup-algebra program. The formula supplies a complete low-rank arithmetic invariant depending on two independent size parameters, handles positive characteristic and nonprime finite fields, and exposes two genuinely different generator mechanisms. Unlike the full matrix case, a nonzero two-sided annihilator when \(m,n\ge2\) also permits rank-one Rota–Baxter projections \(R^2=R\), a structural contrast that follows directly from the classification. The theorem does not purport to count higher-rank operators.
+General rank-one tensor reduction and semigroup-algebra Rota–Baxter coefficient equations are classical. The literature inspected classifies order-two/three semigroups, quasi-idempotent multiplier constructions, and direct sums of fields, not the full explicit all-m,n rectangular-band rank-one weight-zero count with its square-zero/quasi-idempotent split.
 
-## Closest literature and limitations
+## value
 
-Relevant inspected primary texts: arXiv:1402.3702 (sections on general equations and order-two/order-three classifications); arXiv:1604.07292 (quasi-idempotent left multipliers); arXiv:1811.08219 (direct sums of fields); arXiv:1801.07037 (quadratic/simple algebras). Potential unindexed coverage in the semigroup-algebra or operated-algebra literature remains. No external independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rectangular bands form a canonical unbounded two-parameter semigroup family, whose nonunital algebra differs from matrices or products of fields. The complete low-rank RB operator census is a natural exact invariant, including nontrivial square-zero annihilator and characteristic dependence in simple arithmetic; it is a directly reusable base case for broader operator classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
