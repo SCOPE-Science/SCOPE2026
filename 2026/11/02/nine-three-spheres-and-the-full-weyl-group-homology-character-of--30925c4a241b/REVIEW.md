@@ -1,15 +1,21 @@
-# Scientific review: folded five-cube independence complex
+# Independent mathematical audit
 
-## Correctness (PASS)
-The graph is specified by five explicit XOR edge directions, avoiding the two opposite Clebsch-graph naming conventions. All 392 nonempty faces are enumerated. An explicit 191-pair acyclic discrete-Morse matching (one critical vertex and nine critical three-cells) is certified by a topological ordering of all 392 faces and 1,200 covering relations. This proves the integral sphere wedge without extrapolation. The 1,920-element action is verified directly; a signed Lefschetz computation matches an independently defined rational representation on every automorphism. The transfer argument gives the quotient rational homology. The executable is supplied and was run from the present scientific package.
+## correctness
 
-## Originality (PASS against inspected evidence)
-Four distinct notions were compared: ordinary independence, open-neighborhood, matching, and cube-graph independence complexes. Results for the latter three do not imply the present assertion, even if their graphs are related or have the same number of vertices. Berghoff's original preprint (arXiv:2008.06267) gives a general spectral sequence and examples, not this exact Clebsch homotopy type or its 1,920-element character. The accessible record of Cioabă--Mim (arXiv:2606.27328) concerns first clique homology of strongly regular graphs, not the degree-three character. Closest indexed record on this very graph concerns its *Lovász neighborhood complex*, with 31 two-spheres, a different functor. The indexed four-cube independence complex has seven three-spheres but uses a distinct 4-regular graph, whereas the folded five-cube is 5-regular. The indexed Clebsch *matching complex* has edges as vertices. Searches for the exact graph, alternative name, full group, degree, and character found no equivalent or stronger claim. An unpublished or unindexed equivalent, or an unexamined passage in a related full paper, remains possible.
+PASS
 
-## Value (PASS)
-This is not an arbitrary graph or parameter slice: the Clebsch graph is the canonical sixteen-vertex folded hypercube, a strongly regular graph with maximal Weyl-group symmetry, and a familiar object in algebraic combinatorics and chromatic topology. The exact nine-sphere homotopy type gives an integral classification, while the full character identifies the five special nontrivial translation weights and distinguishes a four-dimensional translation-fixed subspace from zero full-group invariants. These are natural symmetry-sensitive invariants not implied by the graph's chromatic, spectral, or Betti data and provide a small reproducible test case for topological graph complexes with Coxeter symmetry.
+For Clebsch graph vertices F2^4 with XOR edges in {1,2,4,8,15}, an independently written finite-face enumerator finds augmented face vector 1,16,80,160,120,16, i.e. 392 nonempty independent faces. Reconstructing the stated pivot sequence yields 192 augmented pairs; removal of empty-face pair leaves 191 ordinary Morse pairs and exactly one critical 0-cell plus nine critical 3-cells. Independently oriented 1,200 nonempty Hasse edges and topologically sorted all 392 nodes, excluding cycles; Forman discrete Morse yields an integral wedge of nine S^3 with no torsion. The 1920 actions of T=F2^5/<all-ones> semidirect S5 were verified as graph automorphisms, and independent fixed-face signed Lefschetz sums match the sign-twisted standard 4 plus five character-weight module on every element; trace distribution {-5:20,-3:60,-1:884,1:865,3:80,5:10,9:1}, translation invariant dimension4, full group invariant dimension0. Character equality over Q and finite transfer justify quotient rational homology; no integral quotient or action splitting claimed.
 
-## Scope and remaining risks
-The character decomposition is rational, not an integral lattice decomposition. Neither quotient is assigned a homotopy type. One plausibly related recent paper was available only through its abstract. Bibliographic searches do not prove universal novelty. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The independence complex of the Clebsch graph differs from its Lovasz neighborhood complex (known wedge of 31 S^2) and all cut complexes of associated graphs. Berghoff studies independence-complex homology generally without an identified published folded-five-cube full W(D5)-character. This precise finite automorphism character and integral Morse wedge are not implied by classical automorphism descriptions alone. An earlier unindexed calculation of the Clebsch independence complex or its representations cannot be excluded.
+
+## value
+
+PASS
+
+A natural, distinguished strongly regular graph supports a complete integral homotopy type and full automorphism-module homology character, including quotient rational Betti numbers. These are motivated exact topological and representation-theoretic invariants, not an arbitrary small numerical enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
