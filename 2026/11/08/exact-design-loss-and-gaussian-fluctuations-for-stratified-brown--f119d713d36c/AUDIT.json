@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All posterior variance terms follow from independent Brownian bridges and an unobserved terminal Brownian interval. Exact uniform polynomial integrations establish 6n-1 over 48n³; strict convex gap optimization yields unique t_i=2i/(2n+1). Bounded 1-dependent CLT with explicit 11/24 long-run variance proves 11/3456; independent-block Lindeberg proof and strong law are stated. Exact-rational posterior covariance and moment checker passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General GP quadrature posterior-variance formulas in Li et al. cover computation at fixed nodes but do not report random-design mean and CLT.",
+        "Brownian bridge covariance and path integral error decomposition are classical, as used in Foster et al.; they imply the gap formula but not without further integration the numerical constants or central limit statement."
+      ],
+      "reasoning": "A general covariance formula makes the finite gap identity derivable but is not, by itself, a closed form for the law of independent stratified jitter or a proof of 1-dependent Gaussian fluctuations. The link requires exact polynomial covariances and a limit argument. No inspected theorem explicitly states them.",
+      "searches": [
+        "arxiv:1706.03369 full HTML Sections 1–3",
+        "arxiv:2210.08329 full HTML Sections 2–5 and Appendix C",
+        "arxiv:1904.06998 Brownian bridge/polynomial approximation Sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1706.03369",
+      "arxiv:1904.06998",
+      "arxiv:2210.08329",
+      "Semantic mathematical research-record searches (3 distinct queries)",
+      "Additional mathematical result titles and theorem statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Brownian bridge integral variance h³/12 and terminal motion integral variance h³/3 are known local ingredients.",
+        "Our exact mean and fluctuation theorem require additional uniform-moment identities E W²=127/28 and E W_i W_{i+1}=449/336."
+      ],
+      "reasoning": "General kernel quadrature error bounds or comparisons of uniform vs randomized grids do not quantitatively imply the precise n-dependent mean or the CLT variance. The gap-variance identity is a known-method corollary and not a standalone novelty claim. The one coherent result is their exact random-design performance law.",
+      "searches": [
+        "arxiv:1706.03369 sampling-distribution sensitivity",
+        "arxiv:2210.08329 LHS and Brownian-kernel appendix",
+        "arxiv:1904.06998 bridge polynomial covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al., arxiv:2210.08329, Sections 5 and C.1, uses general GP integrals, Brownian covariance kernel and experimental design comparison; no exact independent-jitter variance/CLT constant in inspected text.",
+        "Briol et al. arxiv:1706.03369 Sections 1–3 concerns sampling distribution, not Brownian stratum-gap fluctuations."
+      ],
+      "reasoning": "The exact random-grid law could be expressed as Bayesian-quadrature squared worst-case error under the Brownian RKHS, or as integral posterior variance of a Gaussian Markov path. We compared these equivalent formulations, rather than searching only one title. None of the inspected sources gives the same 1-dependent covariance coefficient.",
+      "searches": [
+        "Brownian motion path integral posterior conditional variance from independently uniformly jittered stratified observation times, exact mean ratio 3/2 versus optimal uniform grid and Gaussian CLT 11/3456",
+        "Stratified random time sampling Brownian integral Gaussian process Bayesian quadrature posterior variance asymptotic central limit theorem",
+        "arxiv:2210.08329 Brownian kernel and Latin-hypercube text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record search returned no matching statement among the nearest 18 for each query; nearest records concerned Langevin covariance and posterior calibration, not Brownian integral random-design variance.",
+        "Public literature searches on Brownian conditional integral variance and stratified posterior grid fluctuations did not identify a numerical table covering these constants."
+      ],
+      "reasoning": "No exact database/table entry was recovered for the finite sample mean, optimal comparison and CLT variance. Absence from searched records is only bounded negative evidence, not proof of global uniqueness.",
+      "searches": [
+        "Brownian motion path integral posterior conditional variance from independently uniformly jittered stratified observation times, exact mean ratio 3/2 versus optimal uniform grid and Gaussian CLT 11/3456",
+        "Optimal design for integrated Wiener process Brownian motion observations deterministic gaps 2/(2n+1) and random grid uncertainty",
+        "search exact constants 11/3456 and 3/2 for Brownian stratified posterior variance"
+      ]
+    },
+    "rationale": "Literature-led exact design-fluctuation claim compared with Bayesian kernel quadrature, Brownian bridge approximation and stratified design terminology. The inspected 2017/2019/2022 primary sources give general sampling/covariance structures but not this exact finite-jitter mean, 3/2 design penalty or 11/3456 CLT constant. Standard components are credited and not asserted as independent novel claims; independent precedence search remains a risk.",
+    "residual_risks": [
+      "An equivalent formula in stochastic-process observation-design literature may have escaped targeted search.",
+      "Known Gaussian bridge and stationary dependent-sequence CLT tools are not novel; distinct contribution lies in evaluated constants and design comparison.",
+      "No independent specialist review has verified publication precedence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING assessed exact Brownian one-per-cell conditional variance and 1-dependent CLT, despite relevant general motivation",
+        "evidence": "Sections 1–3 discuss random kernel quadrature and an optimal sampling-distribution problem; no Brownian motion or one-per-cell stratified conditional variance theorem found.",
+        "identifier_or_url": "https://arxiv.org/abs/1706.03369",
+        "material_read": "ArXiv full HTML Sections 1–3, including random design sensitivity and sampling strategy; text search Brownian/stratified",
+        "method": "read primary full HTML body and text searched for Brownian and stratified terms",
+        "title": "On the Sampling Problem for Kernel Quadrature",
+        "trigger": "Most relevant motivating sampling-distribution design problem"
+      },
+      {
+        "assessment": "General Brownian bridge-integral covariance is acknowledged, but random stratified observation grid mean and CLT were not established in inspected sections",
+        "evidence": "Defines bridge covariance min(s,t)-st and develops path-polynomial representation and SDE applications.",
+        "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+        "material_read": "ArXiv full-text introduction and Sections 1–2 with Brownian bridge covariance and polynomial path approximation",
+        "method": "read primary HTML exposition and Brownian-bridge definitions",
+        "title": "An optimal polynomial approximation of Brownian motion",
+        "trigger": "Potentially overlapping Brownian bridge-integral variance structure"
+      },
+      {
+        "assessment": "General Brownian GP quadrature and empirical Latin-hypercube comparisons, without exact jittered grid integrated posterior variance or 11/3456 limit",
+        "evidence": "Brownian kernel min(s,t) in Appendix C.1; LHS vs IID experiment in Section 5; no stratified exact law in text search.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.08329",
+        "material_read": "Full HTML introduction, general BQ posterior covariance, Section 5 design experiments, Appendix C.1 Brownian motion kernel and references",
+        "method": "primary full HTML targeted reading and searches for Brownian, Latin and stratified terminology",
+        "title": "Multilevel Bayesian Quadrature",
+        "trigger": "Same Brownian motion kernel and randomized quadrature design setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f119d713-d36c-45c6-83cb-6d8e51ae9e1f",
+  "value": {
+    "rationale": "Bayesian posterior variance is the exact mean-square error of the conditional-mean integral estimator, so the design cost matters in practical quadrature. The exact n-dependent expectation, unique optimal sampling benchmark, 50% asymptotic penalty and normalized fluctuation coefficient jointly quantify an intrinsic reliability-versus-randomness trade-off for one-per-stratum sampling, beyond a routine rate or relabeling. Precise scope and possible extensions to other Markov kernels are stated without assertion.",
+    "status": "PASS"
+  }
+}
