@@ -1,15 +1,21 @@
-# Review of the polynomial harmonic isoperiodicity theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. Radial monotonicity and the regular-oval construction hold for every specified integer degree and energy. Angular pushforward invariance gives exact equal action, Hamiltonian coarea gives exact equal physical periods, and the local radial Morse expansion gives the logarithmic coefficient. Symmetry and bounded non-saddle flight time establish the weak atomic limit. The numerical checker supports elementary substeps but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS within available evidence. The closest primary literature, Gasull's 2020 Problem 12, Álvarez–Gasull–Prohens (2017), and Zhuang–Liu (2023), concerns critical-period counting. The latter gives a broader answer to that distinct critical-point question. The current mathematical claim compares different angular harmonics at precisely the same energy and additionally distinguishes their equilibrium and stationary-time limits. Queries of the research index and available earlier titles/claims did not return a covering statement. Complete 2017 and 2023 texts were not available; an unrecognized equivalent construction is a remaining risk.
+PASS
 
-## Mathematical value
-PASS. Equal period-energy functions are normally associated with comparable orbital time data, whereas these polynomial examples approach different numbers of saddle atoms and are not globally topologically conjugate. This is an explicit structural limit on what period functions detect, with a full degree-family theorem and sharp frequency cancellation.
+For 0<r<r_c=(aq)^(-1/(q-p)), radial derivative r^(p-1)[1+aq r^(q-p) cos(kθ)] is positive and each E in (0,E_c) has one smooth inner radial root r_E(θ), with E_c=(q-p)r_c^p/(pq). Area is half integral of r_E(θ)²; integer multiplication θ↦kθ preserves normalized Haar circle measure, so areas match exactly and Hamiltonian coarea gives T=dA/dE in actual physical time. Critical points require sin(kθ)=0 and cos(kθ)=-1, r=r_c, so precisely k nondegenerate saddles outside the center. Local saddle expansion has radial quadratic coefficient -(q-p)r_c^(p-2)/2, angular +k²r_c^p/(2q), hence each passage time has coefficient [sqrt(q/(q-p)) r_c^(2-p)]/k times log(1/(E_c-E)); summing k passages gives independent total coefficient. Equal rotational sectors and bounded away-from-saddle residence imply equal k-atomic weak limit. Numerical inner-oval quadratures matched areas/periods across k=1,3,5 at four energies; asymptotic numerical ratios converge slowly due additive O(1), not a finite proof of the leading coefficient.
 
-## Boundaries
-Only the inner oval region below the first saddle energy is classified. The result neither claims a new critical-period counting theorem nor supplies an independent literature-priority certification. The source-access risks are recorded in the structured review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gasull 2020 Problem 12 concerns how many critical periods occur for two homogeneous Hamiltonian terms; Zhuang–Liu 2023 asserts resolution of that critical-count question. Those do not by themselves equate full physical-time period functions across distinct k nor determine the number of limiting time-measure atoms. General angular rearrangement/isochrony theorems may subsume the construction, and the 2023 full article was inaccessible; this is documented priority uncertainty.
+
+## value
+
+PASS
+
+The exact same area and physical period for globally nonconjugate polynomial Hamiltonian centers with 1,3,5 (or k) distinct separatrix saddles is a natural inverse-dynamics counterexample. The different limiting invariant time measures and k-independent saddle log coefficient explain precisely which orbit-topology information a period function loses. The phenomenon is structural across infinitely many admissible degrees, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
