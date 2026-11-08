@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The Dyck-vector hull equals the explicit coordinate/ballot-prefix halfspace system: after cumulative-sum coordinates its constraints form a totally unimodular network matrix. Intrinsic coordinate normals have squared norm (m-1)/m, while a prefix of length 2k has squared normal norm 2k(m-2k)/m. The first two-coordinate cap and first prefix force the upper bound r<=1/[2(a_m+c_m)]; the opposite-half sign construction satisfies every inward-shifted inequality because sqrt((m-t)/(mt)) is maximal at t=2. The two endpoint prefix constraints force first and last coordinate pairs at equality for every incenter; middle coordinates with one sum constraint admit a relative-interior point for n>=4, proving dimension 2n-7. Small cases n=2,3, strict monotonicity and the limit are handled separately. Numeric LP tests across n=3..34 and exact Dyck enumerations n=3..8 passed; these corroborate, do not establish, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The rank-two matroid inradius theorem concerns rank-two parallel classes; ordinary Catalan matroids have rank n and the nontrivial assertion is for n>=3.",
+        "The generalized Pitman-Stanley staircase result concerns a different polytope and has dimension-independent finite-radius formula unlike the dimension-dependent Catalan expression.",
+        "2017 affine distributive equivalence does not preserve Euclidean metric; 2025 valuations do not recover inradius from volume/Ehrhart data."
+      ],
+      "reasoning": "The strongest nearby results were checked for actual statement implication, not just title differences. No inspected broader result supplies the radius and affine center-family dimension in the canonical metric.",
+      "searches": [
+        "Generic lattice path matroid base polytope Euclidean incenter of facet inequalities, inscribed ball and optimal center dimension",
+        "arxiv:1701.05529 lattice path matroid distributive polytope",
+        "arxiv:2503.19621 valuative invariants Catalan matroids",
+        "Published mathematical finding: Exact Euclidean inradius of connected rank-two matroid base polytopes (2026)",
+        "Published mathematical finding: The generalized Pitman-Stanley staircase has dimension-free Euclidean inradius (2026)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1212.5705v1",
+      "arxiv:1701.05529v1",
+      "doi:10.1007/s10013-021-00546-z",
+      "arxiv:2503.19621v1",
+      "published record 04d0301093d4 (rank-two matroids)",
+      "published record 90db80da3ebc (generalized Pitman-Stanley staircase)",
+      "published record 9b96bfb466e7 (Boolean signed-chain incenter loci)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bidkhori supplies the required inequalities, but the optimal Euclidean normal-length tradeoff and all centers must still be established.",
+        "The signed-chain polytope has different inequalities and center constraints and does not specialize to the Catalan base polytope.",
+        "The 2025 valuation theorem targets functions additive under subdivisions; an inradius is not determined by those valuation formulas."
+      ],
+      "reasoning": "The new result uses earlier polyhedral descriptions as hypotheses and proves a new exact metric optimization. Neither known facet description nor published enumeration directly implies the sharp radius and incenter codimension without the additional simultaneous endpoint-saturation and prefix-norm argument.",
+      "searches": [
+        "arxiv:1212.5705v1 Lemma 3.8 Catalan facets",
+        "arxiv:1701.05529v1 distributive affine equivalence",
+        "arxiv:2503.19621v1 Corollary 1.3 valuative decomposition",
+        "Published mathematical finding: Cube-section incenter loci of Boolean signed-chain polytopes (2026)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Catalan bases are the up-step positions of Dyck paths (arxiv:1212.5705v1, Definitions and Catalan discussion).",
+        "The prefix-halfspace model is the same convex hull after eliminating its first and last fixed coordinates.",
+        "Searches returned related incenter results on other polytopes rather than an equivalent result on the Catalan matroid base polytope."
+      ],
+      "reasoning": "The indicator-vector geometry is invariant under coordinate permutation/reflection but not a general affine mapping to distributive polytope coordinates. The theorem was compared against ballot sequence, Dyck path, Catalan matroid and Schubert-matroid terminology. No exact equivalent metric statement was found; search absence is not a proof of absolute novelty.",
+      "searches": [
+        "Euclidean inradius Chebyshev center Catalan matroid base polytope, Dyck path upstep incidence vectors, coordinate and ballot-prefix facets, codimension four incenter locus",
+        "Ballot sequence polytope, Catalan matroid base polytope, exact inscribed Euclidean ball radius 1/(2(sqrt((m-1)/m)+sqrt((m-2)/(2m))))",
+        "Generic lattice path matroid base polytope Euclidean incenter of facet inequalities, inscribed ball and optimal center dimension",
+        "Dyck path convex hull of indicator vectors, incenter polytope and sharp Euclidean inradius dimension-independent limit 1-1/sqrt(2)",
+        "\"Catalan matroid\" \"Chebyshev\" incenter",
+        "\"Dyck path polytope\" \"inscribed ball\" radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact radius table or reference with the parameter formula surfaced in the queried mathematical literature and research-result index.",
+        "The Matroid Polytopes facet descriptions provide constraints, not tabulated maximal Euclidean ball radii."
+      ],
+      "reasoning": "This was a search for the exact object/invariant, nearby parameter sequences, and named invariant aliases; negative search evidence is not a uniqueness certificate.",
+      "searches": [
+        "Catalan matroid polytope inradius insphere inscribed",
+        "\"Catalan matroid polytope\" \"inradius\"",
+        "\"Dyck path polytope\" \"radius\" \"ball\"",
+        "\"ballot polytope\" \"inradius\" center",
+        "Euclidean inradius Chebyshev center Catalan matroid base polytope, Dyck path upstep incidence vectors, coordinate and ballot-prefix facets, codimension four incenter locus",
+        "Ballot sequence polytope, Catalan matroid base polytope, exact inscribed Euclidean ball radius 1/(2(sqrt((m-1)/m)+sqrt((m-2)/(2m))))"
+      ]
+    },
+    "rationale": "The 2012 primary facet description and 2017 Ehrhart/distributive results supply the underlying halfspace model but do not state the metric theorem. The present argument gives a sharp inradius 1/[2(a_m+c_m)], matching all-dimensional lower/upper bounds and a codimension-four incenter locus; neither follows merely from the published Ehrhart or valuative formulas. Search comparisons of exact statement, synonyms and stronger coverage revealed no matching result, with residual historical-priority risk acknowledged.",
+    "residual_risks": [
+      "An uncatalogued equivalent result in older ballot-polytope, Schubert-matroid or convex-optimization literature may exist.",
+      "Only selected relevant primary sections and search-visible text, not every page of every related source, were materially compared.",
+      "Generic algorithms to solve Chebyshev-center linear programs are known; the priority claim is the exact closed all-rank metric and center-dimension theorem, not the existence of an LP formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes polyhedral inequalities and face counts; the inspected text does not provide the intrinsic Euclidean Chebyshev radius, the endpoint-saturation construction or the incenter affine dimension.",
+        "evidence": [
+          "Lemma 3.8 states the path-prefix and coordinate halfspaces; Corollary 3.5 gives dimension 2n-3.",
+          "arxiv:1212.5705v1"
+        ],
+        "identifier_or_url": "arxiv:1212.5705v1; https://www-users.cse.umn.edu/~reiner/REU/REU2015notes/Bidkhori.pdf",
+        "material_read": "The abstract, definitions, Catalan dimension statement, Lemmas 3.8--3.10 and neighboring facet text (PDF pp. 1--7); keyword search for inradius and ball",
+        "method": "Primary openly accessible PDF text with visual page inspection",
+        "title": "Lattice Path Matroid Polytopes",
+        "trigger": "Earlier primary facet/halfspace description and intrinsic dimension of the same polytope"
+      },
+      {
+        "assessment": "Presents lattice path matroid polytope representations and Ehrhart/affine equivalence, not the sharp intrinsic Euclidean inradius and full locus of maximal ball centers. Arbitrary affine equivalence does not preserve Euclidean inradius.",
+        "evidence": [
+          "The introduction describes Ehrhart and distributive equivalence as the main claims; no radius or metric statement surfaced in the inspected PDF text.",
+          "arxiv:1701.05529v1"
+        ],
+        "identifier_or_url": "arxiv:1701.05529v1; https://arxiv.org/pdf/1701.05529",
+        "material_read": "Abstract, Sections 1--2, selected theorem/definition discussions, and relevant passages of the full PDF; keyword searches for radius and metric",
+        "method": "Open arXiv PDF and HTML-derived text, with visually inspected page",
+        "title": "On lattice path matroid polytopes: integer points and Ehrhart polynomial",
+        "trigger": "Lead 2017 paper on lattice path matroid base polytopes and affine distributive realizations"
+      },
+      {
+        "assessment": "Concerns Gröbner standard complexes and matroid deletion-contraction; provides no metric inradius or incenter locus in inspected material.",
+        "evidence": [
+          "Theorem 1.1 is a recurrence for standard complexes, not Euclidean inball optimization."
+        ],
+        "identifier_or_url": "doi:10.1007/s10013-021-00546-z; https://link.springer.com/article/10.1007/s10013-021-00546-z",
+        "material_read": "Open-access HTML abstract, introduction, Theorem 1.1, and standard-complex definitions",
+        "method": "Publisher open-access HTML",
+        "title": "Standard Complexes of Matroids and Lattice Paths",
+        "trigger": "Modern primary treatment of the same base configurations"
+      },
+      {
+        "assessment": "Derives valuations and formulas for enumerative invariants; inradius is a nonlinear metric optimization, not supplied by the valuative decomposition. Later relevant formulas were checked for possible broader coverage in inspected material.",
+        "evidence": [
+          "The stated corollary concerns valuative invariants and applications to volume, Tutte and Ehrhart quantities, not the Euclidean inradius.",
+          "arxiv:2503.19621v1"
+        ],
+        "identifier_or_url": "arxiv:2503.19621v1; https://arxiv.org/pdf/2503.19621",
+        "material_read": "Primary PDF abstract, Section 1, Corollary 1.3, and initial definitions, with visual check of page 2",
+        "method": "Open arXiv PDF text and screenshot",
+        "title": "Valuative Invariants of Catalan Matroids",
+        "trigger": "Most relevant later source about the exact Catalan matroid base-polytope object"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5bcefc8-b90a-44f4-ae3d-3febe73c63b5",
+  "value": {
+    "rationale": "The Catalan matroid is canonical, and intrinsic inradius/incenter freedom are natural Euclidean invariants not encoded by its Catalan vertex count or Ehrhart polynomial. The finding gives the exact all-rank invariant, a nonzero asymptotic radius in growing dimension, and a striking codimension-four family of maximum-ball centers. The explicit center inequalities permit geometric comparisons and future optimization in the same metric. It is a complete, motivated geometric classification rather than an arbitrary finite computation or small numerical improvement.",
+    "status": "PASS"
+  }
+}
