@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:10:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under i.i.d. atomless entries, all 9! rank permutations of 3×3 cells have probability 1/9!. The row minima and column maxima uniquely determine a six-vertex functional digraph. The rank-constrained linear-extension recurrence L(S)=sum over available cells of L(S∪{cell}) exhausts every rank order and correctly counts each of 3^6 possible map pairs, including zero-count inconsistent pairs. Independently enumerated all 362880 permutations in the working container, not merely read a recorded VERIFY_OK: joint (cycle type, max depth) counts were (2,1):9576,(2,2):69264,(2,3):22464,(2,4):6912,(4,1):127872,(4,2):110592,(6,0):15552,(2+4,0):648, summing 9!. Weighted counts of six vertex depths were (1267488,625536,247968,29376,6912), summing 6×9!, so P(T=0..4)=(163/280,181/630,41/360,17/1260,1/315) and E[T]=179/315. Summing by maximum gives (5/112,1909/5040,1249/2520,13/210,2/105). At least two vertices lie on a cycle so depth<=4, and an explicit rank matrix attains it. The full finite probability space, not an extrapolated sample, is exhausted for precisely 3×3 games. This says nothing about arbitrary play protocols or larger matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 6 studies specified cycles and asymptotic longest cycles; its Section 5 path analysis assumes common-interest payoffs.",
+          "Heinrich et al study a different random payoff-dependence model and update schedules."
+        ],
+        "reasoning": "Neither the common-interest path result nor a different random-game model dominates the B=-A six-vertex entry-time law.",
+        "searches": [
+          "Karelas–Lugosi–Zhang 2026 Section 5, Section 6",
+          "Heinrich et al DOI:10.1007/s00182-023-00837-4",
+          "Resultary semantic query: random 3 by 3 zero sum game iid continuous payoff alternating best response functional digraph exact distribution transient tail depths time enter recurrent cycle"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.29153v1 (Karelas–Lugosi–Zhang, 2026)",
+        "DOI:10.1007/s00182-023-00837-4",
+        "Resultary semantic search for zero-sum transient depths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single four-cycle can coexist with maximum transient depth one or two, so length-of-cycle statistics do not determine that depth.",
+          "A specified-cycle probability integral in principle could support further computation, but does not directly state the complete table or its probabilities."
+        ],
+        "reasoning": "Prior cycle statistics alone are insufficient; a new 9!-rank census/refinement is needed. Any direct old full rank-enumeration with the same invariant would cover it; none located.",
+        "searches": [
+          "https://arxiv.org/html/2610.29153v1 §6",
+          "Resultary semantic query: random 3 by 3 zero sum game iid continuous payoff alternating best response functional digraph exact distribution transient tail depths time enter recurrent cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Transient depth equals preperiod/first entrance to a recurrent class in a six-vertex functional digraph.",
+          "The 2026 primary source models the same zero-sum best-response graph, but reports cycle events."
+        ],
+        "reasoning": "Same game and graph is strong overlap; source cycle probabilities are not itself a full vertex entry-time distribution, and same-cycle graphs can have different transient depths.",
+        "searches": [
+          "Resultary semantic query: random 3 by 3 zero sum game iid continuous payoff alternating best response functional digraph exact distribution transient tail depths time enter recurrent cycle",
+          "https://arxiv.org/html/2610.29153v1",
+          "Karelas–Lugosi–Zhang arXiv:2610.29153 section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located same-model entry-time table lists (163/280,181/630,41/360,17/1260,1/315) or the eight (cycle,maximum-depth) strata.",
+          "The main published same-model result focuses on cycle statistics, not whole transient trees."
+        ],
+        "reasoning": "An explicit old table or enumeration would cover the exact law even with different wording, but no such table emerged from this bounded search.",
+        "searches": [
+          "Resultary semantic query: random 3 by 3 zero sum game iid continuous payoff alternating best response functional digraph exact distribution transient tail depths time enter recurrent cycle",
+          "Karelas–Lugosi–Zhang 2026 cycle probability tables"
+        ]
+      },
+      "rationale": "The same zero-sum alternating-best-response functional digraph is studied by Karelas–Lugosi–Zhang (2026), whose cycle distribution and cycle-probability formulas are prior coverage. Their Section 5 concerns common-interest paths. Exact transient-forest depth distributions from six strategy vertices require more information than cycle type and were not provided by inspected prior results. Exact finite census remains subject to possible unindexed earlier computations.",
+      "residual_risks": [
+        "An unindexed 3×3 zero-sum best-response rank-table or direct cycle-integral specialization could cover the finite count.",
+        "Observable is entry time in the six-vertex functional digraph, not convergence of arbitrary asynchronous play to a pure equilibrium."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, known cycle probabilities; no inspected exact first-recurrence entry-depth distribution",
+          "evidence": [
+            "Section 5 common-interest case; Section 6 zero-sum cycle formulas and theorem"
+          ],
+          "identifier_or_url": "arXiv:2610.29153v1 | https://arxiv.org/html/2610.29153v1",
+          "material_read": "Full text made accessible in a lawful mirrored rendition: definitions, Sections 5 and 6 including Section 6 probability formula, proofs and references",
+          "method": "Read primary full-text mirror and compare actual cycle and transient-statistic theorem statements",
+          "title": "Cycle structure of best-response dynamics in random bimatrix games",
+          "trigger": "Same zero-sum alternating-best-response graph, potentially dominating cycle formula"
+        },
+        {
+          "assessment": "Different sampled-payoff constraint; cannot directly specialize to B=-A 3×3 finite law",
+          "evidence": [
+            "Heinrich et al., International Journal of Game Theory 52 (2023) model and main results"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00182-023-00837-4",
+          "material_read": "Full open-access publisher HTML model, primary theorem conclusions and playing-sequence sections",
+          "method": "Read relevant primary full text and checked independent payoffs versus zero-sum coupling",
+          "title": "Best-response dynamics, playing sequences, and convergence to equilibrium in random games",
+          "trigger": "Closest convergence-time source for random best replies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Time to first reach a recurrent class is a natural functional-digraph observable in alternating best-response play, not determined by the usual numbers or lengths of cycles. The 3×3 matrix is the first balanced zero-sum size allowing a four-edge transient; the complete exact distribution and sharp rare-delay probability are useful finite benchmarks rather than an arbitrary numerical slice. No claim of asymptotic large games is needed for this exact finite value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.29153v1 (Karelas–Lugosi–Zhang, 2026)",
+    "DOI:10.1007/s00182-023-00837-4",
+    "Resultary semantic search for zero-sum transient depths"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the six-vertex alternating best-response graph from 3×3 iid atomless zero-sum payoffs, not joint-profile play or arbitrary dynamics.",
+    "Finite enumeration is exhaustive for exactly this 9! space, not larger games."
+  ],
+  "residual_risks": [
+    "An unindexed 3×3 zero-sum best-response rank-table or direct cycle-integral specialization could cover the finite count.",
+    "Observable is entry time in the six-vertex functional digraph, not convergence of arbitrary asynchronous play to a pure equilibrium."
+  ],
+  "schema_version": 1
+}
