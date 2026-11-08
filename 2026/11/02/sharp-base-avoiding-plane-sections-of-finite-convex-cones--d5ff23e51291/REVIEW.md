@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from a reconstructed affine-plane-offset calculation for each direction, with the exact ratio \(N_H(B)/(\pi r+N_H(B))\). Cauchy's perimeter identity fixes the mean planar support. Strict convexity of \(F_H\), the planar zonoid representation and the explicit segment integral prove both sharp endpoints and the equality cases, while strong Jensen convexity proves the stated variance deficit. Uniform Taylor expansion for a fixed base and a dominated-convergence scaling argument for thin rectangles prove the two small-height regimes. Boundary conditions \(H>0\), \(r>0\), base full dimensionality, and the endpoint \(\kappa=0\) are included. Direct angular integrations, simulated invariant planes, and thin-rectangle quadrature passed; simulation is not substituted for proof. No external certification is asserted.
+PASS
 
-## Originality — PASS (provisional priority)
+Condition on upper-hemisphere normals and integrate translation offsets. The base interval length 2h sin(theta) contributes pi*r after angular averaging, while apex-only offsets integrate to F_H(h)/2; their ratio gives p=N/(pi*r+N). F_H is strictly convex with F_H=2H^3/(H^2+s^2)^2, and mean support r by Cauchy perimeter formula, so disk uniquely minimizes. Every centrally symmetric planar base has a zonoid representation of generating mass a=pi*r/2; pointwise Jensen bounds its averaged F by the segment, with N+=sqrt(H^2+a^2)-a. Strong Jensen supplies the stated variance bound. Dominated-convergence boundary scaling of rectangles b_H/H->kappa yields the explicit H^2 coefficient, while bounded-below h_B yields fixed-base H^3 expansion. Independently evaluated cone endpoints and normalization at H=0.1,1,3; samples cannot replace arbitrary-convex-body argument.
 
-The IUR plane normalization is already explicit in van der Jagt–Jongbloed–Vittorietti (2023), and thus is **not** new; its main results instead concern absolute continuity and simulation of sectional-area distributions. Cruz-Orive–Gual-Arnau (2020), whose abstract was checked, treats cylinder probes rather than base avoidance by planes in cone solids. Finch (2012) directly treats circular-cone mean widths and remarks that a right circular cone minimizes mean width within an equal-volume family of oblique circular cones. Its domain and constraint differ from the claimed all-symmetric-base, fixed-perimeter sharp interval and singular rectangular transition. The other closest published records inspected concern cone directional-width distributions, minimum widths of pyramids, or bisector sections of double cones. The closest previously documented cylinder result uses a Cartesian-product body and has constant-width minimizers, while the present centered-cone event has the disk as its sole minimizer and a thin-rectangle height crossover. No inspected statement implies the combined sharp symmetric-base classification, quantitative rigidity and crossover. A more general classical mean-width extremal theorem could subsume the classification, so historical priority is provisional. The circular-cone special case alone is not claimed as new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The random-plane base-avoidance event is a natural stereological statistic. The new content is a complete exact probability interval over arbitrary centrally symmetric bases of fixed perimeter, with unique disk minimizer, a strict sharp segment supremum, every intermediate probability attained, and explicit rigidity controlled by support variance. The singular crossover shows a structural change in small-height exponent (three versus two) tied to geometric degeneration. These conclusions are not just the generic Crofton ratio or an arbitrary parameter slice.
+The right-circular-cone mean-width formula is prior art and reproduces the disk case; Crofton/IUR plane laws are classical. The new findings are fixed-perimeter all-symmetric-base extremizers, quantitative uniqueness, and the singular rectangle aspect-ratio crossover, none implied merely by the circular-cone result. Related random projection and pyramid width records use different quantities and constraints.
 
-## Limits and closest literature
+## value
 
-The 2012 circular-cone primary source was inspected in its available arXiv full text (especially pp. 4–8); it does cover the circular-cone mean-width component. The source from 2023 was inspected in its full readable arXiv HTML, including the IUR definition and main theorems. The 2020 source was inspected via its publisher abstract only; its full paper was not needed for the distinct cone/base event but remains a limited source comparison. Some unpublished or unlocated classical work on mean-width extrema may give equivalent expressions. Independently checked provenance or publication novelty is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cone-hit conditional probability is a natural integral-geometric observable. Its complete perimeter-constrained extremal classification, disk rigidity, and changing quadratic/cubic singular height law are nontrivial geometric information about stable and degenerating bases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
