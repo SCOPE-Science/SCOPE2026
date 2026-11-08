@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Vertex-transitivity makes the Fiedler-projector diagonal constant and edge-transitivity makes the edge-Fiedler energy constant. The lifted Fiedler-Rayleigh identity yields the universal bound, a direct two-by-two spectrum attains it, and Rayleigh-equality forces saturation of every core row and identifies every pendant-edge probability. All quantifiers, stochastic nonnegativity and negative-end spectral bounds are included. The symbolic and finite verifier is diagnostic, not a substitute for the proof.
+
+**Originality — PASS on inspected evidence, qualified.** General fastest-mixing SDP and group symmetrization are established in Boyd–Diaconis–Xiao (2004) and Boyd–Diaconis–Parrilo–Xiao (2007). The corona Laplacian spectrum is given by Barik–Pati–Sarma (2007), and a multipartite mixing problem is solved by Jafarizadeh (2010). The inspected accessible full texts provide these methods and spectra but not the present global pendant-edge rigidity for all vertex- and edge-transitive cores with arbitrary private-leaf multiplicity. The specialized core examples and their optimal values can be implied by this general statement, and are not independently claimed as new. Relevant equivalent unindexed literature is a residual risk.
+
+**Value — PASS.** A complete, uniform spectral design formula for every vertex- and edge-transitive core and every leaf multiplicity replaces graph-by-graph semidefinite optimization. More importantly, the equality case proves exact local transition rigidity of every optimum, including arbitrary non-invariant kernels. The statement identifies which edge probabilities are robustly prescribed by optimality while explicitly leaving possible non-invariant core-edge degeneracy unresolved.
+
+**Limitations.** Requires both core transitivity hypotheses, reversible uniform-stationary kernels and positive private-leaf multiplicity; arbitrary non-invariant core-edge uniqueness is not proved. The oldest precisely day-verified foundational source date is October 29, 2004; a 2003 technical report exists but its first public day was not verified. An unindexed equivalent theorem cannot be ruled out by search alone.
+
+Self-review: passed. Independent audit: not yet performed.
