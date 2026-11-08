@@ -1,0 +1,11 @@
+# Scientific review — exact color-refinement depth for spiders
+
+**Correctness: PASS.** The round-\(t\) partition is characterized by capped center and leaf distances, proved by induction on simultaneous color-refinement updates. Two independent obstructions determine the stopping round: unresolved middle vertices on one arm until \(\lceil L/2\rceil\), and leaves of different-length arms until one round beyond the shorter length. The upper bound separates precisely the automorphism orbits. The Python verifier checks 4,998 instances and each intermediate partition, but finite checks are not the infinite proof.
+
+**Originality: PASS, with residual historical risk.** Krebs and Verbitsky, arXiv:1407.3175, establish universal-cover/refinement-depth frameworks and general lower bounds rather than this spider formula. Arvind et al., arXiv:1502.01255, address color-refinement identification and general properties of amenable graphs; their observation that trees are identified does not specify the per-input number of iterations. Kiefer and McKay, arXiv:2005.10182, prove general extremal iteration bounds by special constructions but do not supply the explicit second-largest-distinct-arm formula in the inspected sections. Targeted exact-claim, equivalent-formulation, and database searches found no implication covering the theorem. This does not certify historical priority; obscure reports or unindexed results remain possible.
+
+**Mathematical value: PASS.** The full classification of a standard starlike-tree family identifies the exact parallel-depth cost of vertex refinement. Dependence on the *second-largest distinct* length, rather than the second-longest arm with multiplicity, predicts a sharp discontinuity: lengthening one of three equal arms from \(m\) to \(m+1\) raises the depth from \(\lceil m/2\rceil\) to \(m+1\). This distinguishes two mathematically different sources of stabilization delay and is not merely a computation of isolated small cases.
+
+**Scope and remaining risk.** Uncolored individual-graph refinement only; neither arbitrary trees nor colored starts are covered. The source comparisons do not exhaust every historical publication. The verifying program tests only finite cases, while the claim is established by the proof in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.
