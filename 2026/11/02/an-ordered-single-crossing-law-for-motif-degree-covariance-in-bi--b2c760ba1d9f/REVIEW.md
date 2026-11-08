@@ -1,19 +1,21 @@
-# Scientific review — motif–degree covariance
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proposition fixes finite simple non-induced motifs with no isolated vertices, \(n\ge h\ge2\), \(n\ge3\), and \(0<p<1\). Given a prescribed copy, exactly its \(d_v\) forced incident edges change a marked motif vertex's degree law from \(\operatorname{Binomial}(n-1,p)\) to \(d_v+\operatorname{Binomial}(n-1-d_v,p)\); other vertices retain the unconditioned distribution. This gives the stated normalized covariance by exact binomial identities and linearity. Strictly decreasing positive Laurent terms establish unique roots and, using the strict increase of falling factorials with \(k\), their order. Endpoint classes are checked separately. The expansion of \((n-1)_{\underline d}\) and a nonvanishing derivative give the second-order root term for fixed \(H,k\). The finite verifier passed 3,299 exact-rational or threshold-order tests; exhaustive checks stop at six ambient vertices and are not infinite proofs.
+PASS
 
-## Originality: PASS (qualified)
+For each non-induced H embedding, conditioning on the presence of its e prescribed edges forces exactly d_v edges at each internal vertex v; thus its degree distribution becomes d_v+Bin(n−1−d_v,p), whereas external vertices retain Bin(n−1,p). Consequently Cov(D_k,X_H)=((n)_h/a_H)p^e P_{n,k}(p)[Σ_v(k)_{d_v}/((n−1)_{d_v}p^{d_v})−h] for n≥h≥2 and 0<p<1, with H having no isolates. Each nonzero term in the bracket decreases strictly with p. For k<δ it is −h; δ≤k≤n−2 gives a unique root, increasing strictly with k by falling-factorial monotonicity; k=0 negative and k=n−1 positive. Expanding (n−1)_{d}=n^d[1−d(d+1)/(2n)+O(n⁻²)] and applying the simple-root implicit expansion gives exactly the displayed c/n plus second-order term for fixed H,k. The n^{e−h} normalized limit follows from Poisson binomial convergence; no uniformity in growing H,k. All steps follow conditional identities rather than finite enumeration alone.
 
-Goldstein–Rinott (arXiv:math/0510586, full preprint inspected, especially the graph example) state covariances *between two degree-frequency counts*; their explicit degree–degree formula cannot be substituted to obtain the covariance with an arbitrary non-induced motif count. Döring–Eichelsbacher (arXiv:0901.3246v1, original full text inspected) treat subgraph-count moderate deviations, not the motif–degree cross-statistic. Goldstein (arXiv:1005.4390, full preprint inspected) treats the distribution of an individual degree-count statistic. Queried published research records for aliases, exact formulas and stronger implications, and accessible previous claims: the nearby triangle–component covariance, parity–motif covariance and isolated-vertex cases do not cover the family of positive-degree frequency sign thresholds, nor the degree-multiset collapse. The 1991 generalized-U-statistic article and 2010 subgraph variance article were not inspected in complete full text; unknown stronger formulae remain a genuine historical-priority risk. The established \(k=0\) special case is expressly not presented as new.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Degree frequencies and motif counts are both canonical observables in \(G(n,p)\), but their dependence is not determined by marginal variance and concentration theory. A single formula controls the full mixed matrix, collapses normalized dependence from motif topology to degree multiset, and yields exactly one monotone threshold for each admissible degree class. The strict ordering between thresholds, regular-motif exact roots and second-order sparse-window correction reveal a natural dependence phase structure, rather than an arbitrary finite computation.
+Goldstein–Rinott 1996/full arXiv preprint studies cross-covariances among degree-frequency counts, not against arbitrary non-induced motif copies or the ordered motif–degree critical p roots. General subgraph overlap/U-statistic theory could supply a formal starting point but no inspected published theorem gives the degree-multiset-only normalized formula together with complete sign diagram and second-order roots. k=0 is elementary and not claimed as the main discovery.
 
-## Limitations and relevant sources
+## value
 
-Historical priority is not certified; general generalized-U-statistic covariance expansions and older overlap tables may subsume parts of the proof. The finite checker does not validate the asymptotic proof independently. The theorem applies to non-induced copies only and its expansion keeps \(H,k\) fixed. Primary sources: Goldstein–Rinott, arXiv:math/0510586; Döring–Eichelsbacher, arXiv:0901.3246; Goldstein, arXiv:1005.4390; Janson–Nowicki, DOI:10.1007/BF01193750 (incomplete inspection); Ellis–Ferry, DOI:10.1016/j.dam.2009.11.012 (incomplete inspection).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Degree frequencies and motif counts are central observables of G(n,p); their cross-dependence is not given by separate variance/concentration statements. The universal degree-multiset collapse, unique roots indexed by k, and ordered sparse sign changes are natural structural properties over all motifs, not an arbitrarily chosen finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

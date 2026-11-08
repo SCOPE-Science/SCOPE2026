@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:59:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each non-induced H embedding, conditioning on the presence of its e prescribed edges forces exactly d_v edges at each internal vertex v; thus its degree distribution becomes d_v+Bin(n−1−d_v,p), whereas external vertices retain Bin(n−1,p). Consequently Cov(D_k,X_H)=((n)_h/a_H)p^e P_{n,k}(p)[Σ_v(k)_{d_v}/((n−1)_{d_v}p^{d_v})−h] for n≥h≥2 and 0<p<1, with H having no isolates. Each nonzero term in the bracket decreases strictly with p. For k<δ it is −h; δ≤k≤n−2 gives a unique root, increasing strictly with k by falling-factorial monotonicity; k=0 negative and k=n−1 positive. Expanding (n−1)_{d}=n^d[1−d(d+1)/(2n)+O(n⁻²)] and applying the simple-root implicit expansion gives exactly the displayed c/n plus second-order term for fixed H,k. The n^{e−h} normalized limit follows from Poisson binomial convergence; no uniformity in growing H,k. All steps follow conditional identities rather than finite enumeration alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Nowicki generalized U-statistics and Ellis–Ferry subgraph variance overlap are broader frameworks but were not inspected in full.",
+          "General overlap expansions could imply the base covariance formula via specialization, but no established exact sign/ordered-root theorem was identified."
+        ],
+        "reasoning": "Their uninspected technical results are explicit residual risks; best-of-knowledge novelty pertains especially to ordered sign diagram, not conditional-expectation trick alone.",
+        "searches": [
+          "covariance degree count subgraph motif noninduced Erdős Rényi unique sign crossing threshold",
+          "doi:10.1007/BF01193750",
+          "arXiv:0901.3246"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md, REVIEW.md, verify_degree_motif.py at frozen tree",
+        "https://arxiv.org/pdf/math/0510586",
+        "https://arxiv.org/html/0901.3246v1",
+        "https://doi.org/10.1007/BF01193750",
+        "Resultary semantic query: covariance degree count subgraph motif noninduced Erdős Rényi unique sign crossing threshold",
+        "Published RESULT.md, Resultary/2026/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A CLT for D_k or subgraph deviations supplies asymptotic distributional information, not an exact mixed covariance with unique p-zero for every degree class.",
+          "Substituting overlap counts into a general formula requires a nontrivial conditional analysis and monotonicity proof."
+        ],
+        "reasoning": "The final conclusion does not follow directly from the inspected marginal CLT/subgraph results; yet older general U-statistic formulas may recover part of it.",
+        "searches": [
+          "covariance degree count subgraph motif noninduced Erdős Rényi unique sign crossing threshold",
+          "arXiv:math/0510586",
+          "arXiv:0901.3246"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldstein–Rinott calculate Cov(D_i,D_j); the second variable is another vertex-degree count, not X_H.",
+          "The present normalized mixed covariance depends only on H degree multiset and produces unique roots over k."
+        ],
+        "reasoning": "Moment aliases and Stein size-bias degree-frequency calculations were compared at the statement level; none inspected is the same full mixed-motif theorem.",
+        "searches": [
+          "covariance degree count subgraph motif noninduced Erdős Rényi unique sign crossing threshold",
+          "arXiv:math/0510586",
+          "arXiv:0901.3246"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph-example covariance table in Goldstein–Rinott is for degree counts.",
+          "No exact arbitrary-motif degree-frequency table found; the result is a uniform symbolic formula rather than new finite lookup."
+        ],
+        "reasoning": "A finite table of triangle cases would not dominate the all-H sign classification. Search limits do not certify novelty.",
+        "searches": [
+          "covariance degree count subgraph motif noninduced Erdős Rényi unique sign crossing threshold",
+          "arXiv:math/0510586"
+        ]
+      },
+      "rationale": "Goldstein–Rinott 1996/full arXiv preprint studies cross-covariances among degree-frequency counts, not against arbitrary non-induced motif copies or the ordered motif–degree critical p roots. General subgraph overlap/U-statistic theory could supply a formal starting point but no inspected published theorem gives the degree-multiset-only normalized formula together with complete sign diagram and second-order roots. k=0 is elementary and not claimed as the main discovery.",
+      "residual_risks": [
+        "Janson–Nowicki (1991) general U-statistics full text was inaccessible for thorough comparison.",
+        "Ellis–Ferry overlap paper may subsume the covariance core but has not been fully inspected.",
+        "Only non-induced H and fixed-H,k sparse window; induced counts obey different conditional law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides degree–degree covariance and normal approximations; arbitrary motif covariance and its sign roots not stated",
+          "evidence": "Theorem 4.2 concerns joint vector of fixed degree-frequency counts; formula (25) is Cov(W_i,W_j).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0510586",
+          "material_read": "Original 14-page arXiv preprint; materially read introduction, Theorem 4.2 graph application and covariance formula (25)",
+          "method": "Compared both variables and exact hypotheses to D_k-X_H mixed observable",
+          "title": "Multivariate normal approximations by Stein’s method and size bias couplings",
+          "trigger": "Direct classical source for degree-frequency covariance identities"
+        },
+        {
+          "assessment": "Cannot exclude that an older general theorem implies base covariance; priority risk explicitly retained",
+          "evidence": "1991 paper is about generalized U-statistics in random graphs, a plausible stronger context.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01193750",
+          "material_read": "Abstract/bibliography only, full technical text not obtained",
+          "method": "Compared generalized-U-statistic scope to exact conditional motif-degree formula",
+          "title": "The asymptotic distributions of generalized U-statistics with applications to random graphs",
+          "trigger": "Potential umbrella theorem implying covariance identity"
+        },
+        {
+          "assessment": "Different first statistic, different conditioning and different statement; does not cover universal motif-degree sign roots",
+          "evidence": "Published formula uses triangle-deleted three-point connectivity probabilities, not the degree-multiset-only binomial factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Actual published RESULT.md read materially, including theorem, conditioning proof and sparse asymptotics at Git blob f236b7f9a6baed0db048dc227d3c6cede37434d5",
+          "method": "Contrasted Cov(number of connected components, open triangles) with Cov(number of fixed-degree vertices, any non-induced H)",
+          "title": "Three-point connectivity exactly controls component–triangle covariance",
+          "trigger": "Closest published exact motif covariance result in indexed SCOPE records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree frequencies and motif counts are central observables of G(n,p); their cross-dependence is not given by separate variance/concentration statements. The universal degree-multiset collapse, unique roots indexed by k, and ordered sparse sign changes are natural structural properties over all motifs, not an arbitrarily chosen finite statistic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md, REVIEW.md, verify_degree_motif.py at frozen tree",
+    "https://arxiv.org/pdf/math/0510586",
+    "https://arxiv.org/html/0901.3246v1",
+    "https://doi.org/10.1007/BF01193750",
+    "Resultary semantic query: covariance degree count subgraph motif noninduced Erdős Rényi unique sign crossing threshold",
+    "Published RESULT.md, Resultary/2026/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No fixed-edge G(n,m), induced motif or arbitrary H with isolated vertices.",
+    "Sparse expansion O(n⁻³) applies with motif H and degree k fixed, not growing with n."
+  ],
+  "residual_risks": [
+    "Janson–Nowicki (1991) general U-statistics full text was inaccessible for thorough comparison.",
+    "Ellis–Ferry overlap paper may subsume the covariance core but has not been fully inspected.",
+    "Only non-induced H and fixed-H,k sparse window; induced counts obey different conditional law."
+  ],
+  "schema_version": 1
+}

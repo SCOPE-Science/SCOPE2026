@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic argument conditions on the edges of an arbitrary specified non-induced copy and sums the resulting binomial degree probabilities. The complete finite-size parameter range, including the zero and maximum degree boundary classes, is covered algebraically. The strict monotonicity of the normalized factor establishes the unique sign roots and their ordering. Locally uniform falling-factorial expansions and a nonzero derivative at the limiting root establish the sparse-scale second-order term.
+# Independent mathematical audit
 
-The included standalone verifier `verify_degree_motif.py` was executed under Python 3 with no third-party dependencies and reported `PASS: 3299 exact-enumeration and threshold-order checks`. It enumerates every labeled graph through six vertices for eight applicable named motifs and verifies exact rational covariances at three rational probabilities. It also checks the numerical root ordering through ambient order 29. Finite checks are auxiliary evidence, not an infinite proof.
+## correctness
 
-The sparse-scale expression and root correction were also compared independently using numerical root solving for a triangle, a three-vertex path, and a four-vertex star. This checks examples but does not certify historical priority. The external independent audit has not been performed.
+PASS
+
+For each non-induced H embedding, conditioning on the presence of its e prescribed edges forces exactly d_v edges at each internal vertex v; thus its degree distribution becomes d_v+Bin(n−1−d_v,p), whereas external vertices retain Bin(n−1,p). Consequently Cov(D_k,X_H)=((n)_h/a_H)p^e P_{n,k}(p)[Σ_v(k)_{d_v}/((n−1)_{d_v}p^{d_v})−h] for n≥h≥2 and 0<p<1, with H having no isolates. Each nonzero term in the bracket decreases strictly with p. For k<δ it is −h; δ≤k≤n−2 gives a unique root, increasing strictly with k by falling-factorial monotonicity; k=0 negative and k=n−1 positive. Expanding (n−1)_{d}=n^d[1−d(d+1)/(2n)+O(n⁻²)] and applying the simple-root implicit expansion gives exactly the displayed c/n plus second-order term for fixed H,k. The n^{e−h} normalized limit follows from Poisson binomial convergence; no uniformity in growing H,k. All steps follow conditional identities rather than finite enumeration alone.
+
+## originality
+
+PASS
+
+Goldstein–Rinott 1996/full arXiv preprint studies cross-covariances among degree-frequency counts, not against arbitrary non-induced motif copies or the ordered motif–degree critical p roots. General subgraph overlap/U-statistic theory could supply a formal starting point but no inspected published theorem gives the degree-multiset-only normalized formula together with complete sign diagram and second-order roots. k=0 is elementary and not claimed as the main discovery.
+
+## value
+
+PASS
+
+Degree frequencies and motif counts are central observables of G(n,p); their cross-dependence is not given by separate variance/concentration statements. The universal degree-multiset collapse, unique roots indexed by k, and ordered sparse sign changes are natural structural properties over all motifs, not an arbitrarily chosen finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
