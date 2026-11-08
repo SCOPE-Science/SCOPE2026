@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed finite transition rates, limiting two-function Poisson equation, uniform first and second generator error bounds, extinction block with uniform positive probability in O(log n), stopped Dynkin formula, exact graphical dual, Taylor remainder using E τ², and stationary ordinary-leaf balance. Exact finite generators/duality and 268 independent numerical/rational checks replay successfully. No finite tests are treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang–Durrett (2018) analyze the unforced contact process, including star survival time, without a pinned-source stationary probability.",
+        "Cator–Van Mieghem (2013) establish different star SIS threshold and quasi-stationary regularizations, not a uniform pinned-source stationary law.",
+        "Schwartz–Stone (2013) abstract claims general exact moment analysis on stars and a steady-state prevalence but supplies no pinned-leaf rate regime or theorem in the available material."
+      ],
+      "reasoning": "Survival-time or threshold estimates do not by themselves imply the exact value of the source-hit Laplace functional or the prefactor (exp(c²)-1)/c; the pinned process has a different generator. Schwartz–Stone could in principle permit an indirect specialization, but its full text was unavailable, a documented risk.",
+      "searches": [
+        "arxiv:1810.06040 star contact process survival extinction",
+        "doi:10.1103/PhysRevE.87.012811 epidemic threshold star",
+        "doi:10.1103/PhysRevE.87.042815 exact epidemic analysis star topology"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1103/PhysRevE.87.012811",
+      "https://arxiv.org/abs/2103.05881",
+      "https://arxiv.org/abs/1810.06040",
+      "https://doi.org/10.1103/PhysRevE.87.042815"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai–Wu–Holme Appendix B conditions on hub status and replaces peaked count distributions by empirical means; no λ=c/√n limit appears.",
+        "Cator–Van Mieghem modifications retain different infection sources and extinction constraints; they cannot simply be specialized by setting a parameter without changing the state graph.",
+        "Huang–Durrett unforced survival bounds concern trajectories with an absorbing state, not a pinned-source equilibrium, but motivate the occupation comparison."
+      ],
+      "reasoning": "The result is not obtained by reading off a known star infection threshold, finite conditional histogram, or unforced lifespan. It requires identifying a source-dependent dual Laplace transform, showing E S_n→(exp(c²)-1)/c², and controlling its second-order error uniformly. Historical priority is provisional in light of abstract-only Schwartz–Stone.",
+      "searches": [
+        "\"permanently infected leaf\" star stationary contact process first moment",
+        "\"star\" SIS \"eps\" \"modified\" stationary Cator van Mieghem",
+        "\"Multistage onset\" Appendix B m n average pinned"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai–Wu–Holme (2021), Appendix B, Figure B1: one permanently infected leaf star, fixed finite rate and finite network simulation; two conditional count profiles with approximation by their sample means.",
+        "Cator–Van Mieghem (2013), Introduction and star sections: epsilon-SIS and no-last-recovery modified models, rather than a single pinned leaf."
+      ],
+      "reasoning": "Same-object pinning is explicitly present in Cai–Wu–Holme and is credited. The new statement is an infinite-size λ=c/√n limit for hub prevalence and the mean nonpermanent-leaf burden with exact exponential constants, which the inspected Appendix B does not state. The stationary source-pinned model cannot be identified with either of Cator–Van Mieghem’s regularizations, because their allowed transitions differ.",
+      "searches": [
+        "\"pinned leaf\" \"contact process\" star \"stationary\"",
+        "\"permanently infected leaf\" \"star\" SIS",
+        "arXiv:2103.05881 Appendix B",
+        "doi:10.1103/PhysRevE.87.012811"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary source tables and Appendix B Figure B1 contain a finite-size conditional occupancy histogram at infection rate 0.2, not a critical-window formula or all-size prefactor.",
+        "Searches for the exact physical parameters and exponential prefactor did not identify a corresponding published star-graph table."
+      ],
+      "reasoning": "No matching exact table was located in the accessible primary sources. The absence of an indexed match alone is not evidence of originality; the conclusion rests on direct comparisons with the material actually read.",
+      "searches": [
+        "\"contact process\" \"permanently infected\" \"star\" \"1/sqrt\"",
+        "\"SIS\" \"pinned leaf\" \"exponential\" stationary star",
+        "doi:10.1103/PhysRevE.87.012811",
+        "arxiv:2103.05881"
+      ]
+    },
+    "rationale": "Direct same-object 2021 pinned-leaf star Appendix B has simulations at fixed coupling and a heuristic mean replacement but no exact critical limit; 2013 Cator–Van Mieghem star models use different regularizations, while 2018 Huang–Durrett proves unforced contact-process survival results. Compared model generators, implication strength and source parameter ranges; searches found no covering formula. A potentially broad 2013 star analysis could not be inspected beyond abstract and remains an explicit risk. Result is original only to best current examined evidence, not certified unique.",
+    "residual_risks": [
+      "Schwartz–Stone, Phys. Rev. E 87, 042815 (2013) full text unavailable; an unstated pinned-source specialization or stronger exact result cannot be excluded.",
+      "Semantic and keyword literature searches are not exhaustive; unindexed equivalent treatment may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different regularizations: global spontaneous infection and no-last-recovery; no fixed single leaf and no pinned-source stationary exponential prefactor",
+        "evidence": [
+          "Publisher first-public date 2013-01-23",
+          "Models explicitly epsilon-SIS and modified last-recovery SIS"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.012811",
+        "material_read": "Full lawful open-access PDF, Introduction, exact finite-star Markov construction, and modified SIS sections",
+        "method": "Read extracted text and inspected original PDF page image",
+        "title": "Susceptible-infected-susceptible epidemics on the complete graph and the star graph: Exact analysis",
+        "trigger": "Archive-era full-star exact SIS analysis and epidemic threshold that might dominate a critical-window statement"
+      },
+      {
+        "assessment": "Same pinned-leaf geometry, but simulated at one fixed rate and size; uses measured means as approximations and does not derive inverse-square-root asymptotic constants",
+        "evidence": [
+          "Appendix B Figure B1: one permanently infected leaf, infection rate r=0.2, recovery g=1, N=1000",
+          "Appendix B explicitly describes 10^7 simulation samples and replacement by mean counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05881",
+        "material_read": "Full author preprint; star modeling in Sections II–III, Figure 1, Appendix B and Figure B1, including original page image",
+        "method": "Read full extracted preprint and inspected page containing Appendix B and conditional count plots",
+        "title": "Multistage onset of epidemics in heterogeneous networks",
+        "trigger": "Appendix B directly uses a star with one permanently infected leaf"
+      },
+      {
+        "assessment": "Concerned with unforced absorbing contact process and extinction times; no pinned single-leaf equilibrium or exact critical prefactor",
+        "evidence": [
+          "Star survival-time and extinction-time results are formulated for the unforced process",
+          "No source arrow or stationary pinned leaf introduced in the examined star calculations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.06040",
+        "material_read": "Full preprint, introduction and star survival analysis in Section 2",
+        "method": "Examined complete preprint text, focusing on star survival and critical scales",
+        "title": "The Contact Process on Random Graphs and Galton-Watson Trees",
+        "trigger": "Strong results on unforced star contact-process survival might imply source-pinned stationary scaling by duality"
+      },
+      {
+        "assessment": "Undecided historical priority risk. Abstract does not mention permanent peripheral infection or critical-window exact asymptotic, but full implication comparison cannot be certified",
+        "evidence": [
+          "Abstract claims exact moment equations for all graph states and star steady-state prevalence, without describing pinned-leaf assumptions",
+          "No full paper was accessible for exact hypothesis and parameter checks"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.042815",
+        "material_read": "Publisher-indexed abstract, PubMed abstract and bibliographic record; full text unavailable",
+        "method": "Searched lawful arXiv and open-access copies and examined publisher-indexed bibliographic abstract; complete text not available.",
+        "title": "Exact epidemic analysis for the star topology",
+        "trigger": "Potentially broad all-parameter exact star SIS analysis could dominate exact stationary claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91b9b990-9142-45c1-a6b8-2fcde471edc7",
+  "value": {
+    "rationale": "The inverse-square-root coupling is dictated by star adjacency scale; a single fixed leaf gives a rare-hub, order-one mean-burden regime. Sharp nonlinear coefficients exp(c²)-1 distinguish source-pinning from metastability regularizations and are analytically useful for localized endemic spread benchmarks.",
+    "status": "PASS"
+  }
+}
