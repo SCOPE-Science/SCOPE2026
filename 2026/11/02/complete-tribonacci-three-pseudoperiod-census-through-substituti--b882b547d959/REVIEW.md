@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact five-pair factor language follows from the substitution images and is witnessed within a finite iterate. All length-1706 factors of the infinite fixed point belong to one or two adjacent level-14 supertiles; conversely each admissible adjacent pair appears, giving equality of finite and infinite factor sets. For each first two shifts, a bitset intersection enumerates all and only valid third shifts. Two separately generated factor families agree at 3413 distinct factors, and an independent exact census matches every one of the 145217 supplied rows. The standalone verifier returns `VERIFY_OK`. The range is precisely a bounded triple domain; no larger shifts are claimed.
+PASS
 
-## Originality — PASS, qualified
+The substitution μ(0)=01, μ(1)=02, μ(2)=0 has exactly the length-2 factors 00,01,02,10,20, verified from images and witnesses. Every length-1706 window in the infinite word μ^14(τ) lies in two adjacent level-14 supertiles since every block length≥1706; conversely each allowed adjacent pair occurs, proving equality between all infinite factors and the 3413 finite ones. The shift condition is thus precisely a finite cover intersection. Exhaustive intersections over all a<b and distinct matching masks generate each c at most once. Independently regenerated *all* 145217 triples with 3409 masks and a fresh C=1705 calculation, verifying CSV SHA256 03a725ce... and identical Git blob 5c0c07d620f154634700e44ae5a1b5eb1cc4092d; all ten cutoff counts matched. These are a proved-infinite-word finite-range census, not an unbounded pseudoperiod classification.
 
-Meleshko, Ochem, Shallit, and Shan explicitly state Open Problem 30 asking for all Tribonacci three-pseudoperiods and prove only existence via the triple (4,6,7), not this complete bounded census. A search for equivalent three-shift cover conditions and the 1705-cutoff values found no pre-existing matching result in the inspected literature or accessible recorded claims. Results concerning other word families or two-shift pseudoperiods do not imply this three-shift enumeration. Risk remains of an unindexed, independently computed finite census.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full finite set of 145217 valid triples, provided in machine-checkable form, is a nontrivial canonical substitution-length cutoff in an explicitly open characterization problem. Exact counts at ten natural Tribonacci-length cutoffs, together with the complete table, can test prospective automata and structural conjectures about the infinite pseudoperiod language. This is more informative than isolated existence examples, and it does not pretend to resolve the all-shift problem.
+Best-of-knowledge original contribution is the exact statement in Complete Tribonacci three-pseudoperiod census through substitution length 1705; previously established general mechanisms/base results are credited. Actual fresh semantic query and primary-text comparisons found no implication covering the precise result. This is qualified historical priority, not proof of absolute novelty.
 
-## Limitations and closest literature
+## value
 
-The finite range is maximal shift 1705; no assertion is made beyond this bound. The closest full-text source is Meleshko et al., arXiv:2207.10171, §4.5/Open Problem 30. Independent validation by a separate expert has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite 1705 cutoff is a natural length μ^12(0), not an arbitrary picked interval. A full machine-readable classification of 145217 triples at this canonical bound, plus ten substitution-length cumulative counts, supplies significant reproducible ground truth for an explicitly open all-shifts combinatorics-on-words question. Its utility is as a precise finite initial segment, not a claim to settle all pseudoperiods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
