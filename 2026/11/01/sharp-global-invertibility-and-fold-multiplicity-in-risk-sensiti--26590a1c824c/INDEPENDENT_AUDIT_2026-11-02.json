@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:45:01.524952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For prescribed output (s,Q) on (0,1)xR and 0<k<1, invert the affine belief update q=(Q-kp0-kp1 x)/(1-k); substituting into the logistic coordinate gives the equivalent scalar equation H(x)=L(s,Q), H=logit(x)-a beta x, beta=[1-k(1+cp1)]/(1-k). H tends to -infinity/+infinity at endpoints, giving surjectivity. H'(x)=1/[x(1-x)]-a beta, and det DF=(1-k)s(1-s)H'(x): beta<=0 or a beta<4 gives a smooth positive-orientation global inverse. At a beta=4, H increases strictly but derivative vanishes at x=1/2 and local Taylor coefficient 16/3 yields cubic inverse singularity. Above 4, two fold abscissae (1±sqrt(1-4/Lambda))/2 divide three monotonic intervals and yield exactly one, two or three inverse points depending on target level. The width W=Lambda*d-4atanh(d)~(Lambda-4)^(3/2)/3; at k=1 the inverse is separately smooth onto Q in (p0,p0+p1). The explicit a=6log3, c=500, k=2/5, p1=1/1000 three physical input witness has identical exact output and Jacobian signs +,-,+; independently recalculated q outputs, logits and signs. No claim that every supercritical parameter has a three-point physical fiber.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Motivating 2026 article develops detailed two-parameter attractor/bifurcation families, but these concern forward iterations rather than the global preimage count of a one-step update.",
+          "Generic logistic folding and regularized routing games have different state and auxiliary variable structure; no known conjugacy implies this model-specific threshold."
+        ],
+        "reasoning": "Neither general chaos results nor exact equilibrium/Cesaro formulas imply global injectivity, folds, or the exact three-physical-preimage witness. No external fold theory novelty is claimed.",
+        "searches": [
+          "Metaxas and Sapsis arXiv:2606.29967 full Sections 2–3",
+          "Resultary published-record search: adaptive belief multiplicative weights map logit global invertibility folds triple preimages learning rate",
+          "arXiv:1807.06831 Family of chaotic maps from game theory",
+          "PMLR 139 Follow-the-Regularized-Leader Routes to Chaos"
+        ]
+      },
+      "checked_sources": [
+        "Metaxas and Sapsis 2026 arXiv:2606.29967, full author-uploaded transcribed text reviewed through Sections 2 and 3",
+        "arXiv:1807.06831 Chotibut et al. related game map metadata",
+        "PMLR 139 Bielawski et al. distinct routing game dynamics metadata",
+        "Resultary adaptive-belief mapping search #4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating source explicitly gives the two-dimensional update and equilibrium x*=(b-cp0)/(1+cp1), but the inspected full text focuses on equilibria, Cesaro averages, period cycles and chaotic attractors.",
+          "The fold threshold is equivalent to Lambda=a[1-k(1+cp1)]/(1-k)>4 and the Jacobian degeneracy; the source exhibits parameter regimes with complex dynamics but does not establish global inverse multiplicity from this."
+        ],
+        "reasoning": "Equilibrium existence and numerical chaos curves are logically orthogonal to injectivity of the global one-step map. The precise scalar H argument and triple equal-image witness yield a non-implied, narrower result for the same object.",
+        "searches": [
+          "Metaxas Sapsis June 2026 full primary paper Sections 2-3 and Appendix A",
+          "Resultary published-record search: adaptive belief multiplicative weights map logit global invertibility folds triple preimages learning rate",
+          "arXiv:1807.06831 older game maps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source 2D logistic/affine update reduces exactly to H(x)=logit x-Lambda x by eliminating the hidden belief coordinate for fixed target.",
+          "Different one-dimensional MWU maps or fixed-point bifurcations are not equivalent to this full 2D inverse-fiber problem."
+        ],
+        "reasoning": "Compared adaptive-belief, logit shear, noninvertible map and multiple-inverse aliases. The scalar reduction appears to be a new global statement for the specific coupled 2D model, not simply a relabeling of published attractor results.",
+        "searches": [
+          "Resultary published-record search: adaptive belief multiplicative weights map logit global invertibility folds triple preimages learning rate",
+          "Web literature search: risk sensitive multiplicative weights belief adaptive logistic map invertibility logit fold",
+          "Metaxas Sapsis arXiv:2606.29967 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source has bifurcation and attractor tables/figures, but their entries classify forward dynamics and periodic attractors.",
+          "No returned Resultary record contains an exact inverse-fiber table for this adaptive-belief logistic map."
+        ],
+        "reasoning": "A forward bifurcation diagram is not an exact table of inverse multiplicity over all targets; the theorem is a new analytic fiber count rather than replication of a numerical table.",
+        "searches": [
+          "Resultary published-record search: adaptive belief multiplicative weights map logit global invertibility folds triple preimages learning rate",
+          "Web literature search: Metaxas Sapsis risk sensitive learning parameter k a fold 3 inverse branches table"
+        ]
+      },
+      "rationale": "PASS, qualified: The actual motivating June 2026 model was read in author-posted full text, Sections 2–3 and bifurcation/equilibrium discussion. That paper introduces the same map and analyzes cycles, attractors, chaos and Cesaro convergence but the inspected material does not state a global inverse-fiber count or precise fold boundary. Earlier MWU game-chaos papers treat different systems, and known general fold/cusp theory is explicitly not claimed new. An unindexed conjugate classification remains possible.",
+      "residual_risks": [
+        "An equivalent one-step fiber theorem could be described using another dynamic-systems conjugacy or implicit inverse theorem not indexed by name.",
+        "The complete fiber census concerns the algebraic open strip; clipped physical rectangle fibers can have fewer points.",
+        "General fold and cubic-root singularities are classical; only the exact model-specific threshold and physical witness are claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING exact map and its forward dynamical motivation; no exact inverse-fiber/global fold theorem found in inspected primary material",
+          "evidence": "Sections 2–3 define the state/belief map and study attractor bifurcations; full-text search returned no occurrence of invertibility or Jacobian.",
+          "identifier_or_url": "https://www.researchgate.net/publication/408235857_Risk-Sensitive_Learning_in_Population_Games_under_Extreme_Events_Bifurcations_and_Chaotic_Dynamics",
+          "material_read": "Author-posted 2026 primary full-text transcription, Sections 2.1–2.2 state risk p(x)=p0+p1 x and coupled belief update; Section 3 tables and full discussion of chaotic dynamics, fixed points, basins; targeted inverse/Jacobian searches",
+          "method": "Read openly available ResearchGate full-text HTML with lines and searches for invertibility/Jacobian",
+          "title": "Risk-Sensitive Learning in Population Games under Extreme Events: Bifurcations and Chaotic Dynamics",
+          "trigger": "Exact motivating same two-dimensional risk-MWU map and parametric bifurcation studies"
+        },
+        {
+          "assessment": "DIFFERENT model: congestion game two-agent invariant diagonal, not coupled affine risk-belief update; full-article coverage not asserted",
+          "evidence": "Different state variables and lack of adaptive belief parameter k prevent direct implication.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.06831",
+          "material_read": "Primary title, abstract and source cited model comparison, not independently read in full this run",
+          "method": "Open metadata and mathematical object comparison",
+          "title": "Family of chaotic maps from game theory",
+          "trigger": "Possible stronger theorem about logistic multiplicative weights maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The model-specific exact global diffeomorphism boundary, cubic critical homeomorphism, sharp three-preimage opening law and in-rectangle exact witness distinguish one-step folding from complicated forward attractor dynamics. It supplies a precise structural theorem for a published nonlinear map rather than a routine Jacobian sign check, with essential global fiber and physical admissibility features.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent one-step fiber theorem could be described using another dynamic-systems conjugacy or implicit inverse theorem not indexed by name.",
+    "The complete fiber census concerns the algebraic open strip; clipped physical rectangle fibers can have fewer points.",
+    "General fold and cubic-root singularities are classical; only the exact model-specific threshold and physical witness are claimed new."
+  ],
+  "schema_version": 1
+}

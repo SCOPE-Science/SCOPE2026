@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and evidence
+# Independent mathematical audit
 
-The analytic proof uses only a log-odds transformation, exact inversion of the affine belief update, the elementary inequality \(x(1-x)\le 1/4\), and Taylor expansions of \(\log((1+2u)/(1-2u))\) and \(\operatorname{arctanh}(d)\). It covers every parameter in the declared domain and every output in the extended strip. There is no reliance on finite enumeration to prove global inverse counts.
+## correctness
 
-Run `python check_fold.py` with Python 3 and `mpmath` to verify the exact physical three-preimage example numerically at 70 digits and check the fold width and orientation. The output ends with `ALL EXACT / HIGH-PRECISION ASSERTIONS PASSED` on the tested environment. Exact algebraic cross-checks of the determinant, cubic coefficient, and rational example were also carried out using symbolic algebra. The public script is diagnostic, not an independent certificate. The source-map equation is in [1], Section 2, and the proof is self-contained in RESULT.md.
+PASS
 
-The extension to arbitrary real \(q\) is mathematical; its full-range inverse counts are not universal fiber counts on the bounded physical rectangle. No computation or proof here establishes chaoticity, global attractor classification, or historical uniqueness. The external independent audit has not been performed.
+PASS: For prescribed output (s,Q) on (0,1)xR and 0<k<1, invert the affine belief update q=(Q-kp0-kp1 x)/(1-k); substituting into the logistic coordinate gives the equivalent scalar equation H(x)=L(s,Q), H=logit(x)-a beta x, beta=[1-k(1+cp1)]/(1-k). H tends to -infinity/+infinity at endpoints, giving surjectivity. H'(x)=1/[x(1-x)]-a beta, and det DF=(1-k)s(1-s)H'(x): beta<=0 or a beta<4 gives a smooth positive-orientation global inverse. At a beta=4, H increases strictly but derivative vanishes at x=1/2 and local Taylor coefficient 16/3 yields cubic inverse singularity. Above 4, two fold abscissae (1±sqrt(1-4/Lambda))/2 divide three monotonic intervals and yield exactly one, two or three inverse points depending on target level. The width W=Lambda*d-4atanh(d)~(Lambda-4)^(3/2)/3; at k=1 the inverse is separately smooth onto Q in (p0,p0+p1). The explicit a=6log3, c=500, k=2/5, p1=1/1000 three physical input witness has identical exact output and Jacobian signs +,-,+; independently recalculated q outputs, logits and signs. No claim that every supercritical parameter has a three-point physical fiber.
+
+## originality
+
+PASS
+
+PASS, qualified: The actual motivating June 2026 model was read in author-posted full text, Sections 2–3 and bifurcation/equilibrium discussion. That paper introduces the same map and analyzes cycles, attractors, chaos and Cesaro convergence but the inspected material does not state a global inverse-fiber count or precise fold boundary. Earlier MWU game-chaos papers treat different systems, and known general fold/cusp theory is explicitly not claimed new. An unindexed conjugate classification remains possible.
+
+## value
+
+PASS
+
+PASS: The model-specific exact global diffeomorphism boundary, cubic critical homeomorphism, sharp three-preimage opening law and in-rectangle exact witness distinguish one-step folding from complicated forward attractor dynamics. It supplies a precise structural theorem for a published nonlinear map rather than a routine Jacobian sign check, with essential global fiber and physical admissibility features.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
