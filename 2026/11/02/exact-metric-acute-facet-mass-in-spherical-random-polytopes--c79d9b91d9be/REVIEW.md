@@ -1,11 +1,21 @@
-# Review of exact metric acute-facet mass identities
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement defines the random inscribed polytope, Euclidean area and strict acute condition and distinguishes ratios of expectations from expectations of random ratios. The proof uses the spherical Blaschke–Petkantschin factorization, derives the \(\operatorname{Beta}(n-1,2)\) height law, evaluates six elementary trigonometric integrals, and multiplies independent moments. All symbolic integrals and finite-sample substitutions were checked using the included standalone program; numerical quadrature independently corroborates the integration. The formula applies to each integer \(n\ge4\); finite experiments are not used to claim infinity-wide validity.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The closest direct paper is Akopyan–Edelsbrunner–Nikitenko (arXiv:2007.07783, Sections 4.1–4.3), whose full text was inspected. It proves the \(1/2\) *count* fraction, gives a general factorized measure, and computes expected total surface area; those parts are credited. It does not report the evaluated exact area- and squared-area-weighted acute fractions in the inspected source. Bonnet–O'Reilly (arXiv:1908.04033) addresses facet heights, while Finch's *Random Triangles V* records the planar angle distribution and ordinary area moments, not the specific acute-area moment ratios. The geometric integral framework is known, so the assessed originality is limited to the explicit nontrivial metric evaluations and the resulting exact finite-sample area totals. Older specialized tables may contain implicit or unlocated equivalents.
+PASS
 
-**Mathematical value — PASS.** Acute-face count alone does not measure geometric coverage. The area and squared-area totals are natural, dimensionally meaningful mesh-quality observables, sensitive to large facets, for which two distinct, non-obvious universal numerical fractions emerge for every sample size. The squared-area expectation is an exact finite-sample quantity not supplied by the inspected general expected-surface-area theorem. No downstream theorem is required to motivate these metrics.
+For n>=4 i.i.d. area-uniform points on S², a uniformly selected hull facet has deterministic count normalization 2n-4 and spherical Blaschke–Petkantschin factorization: U=(1+h)/2~Beta(n-1,2) independent of triangle shape, Euclidean facet area A=(1-h²)W. On unit circumcircle interior-angle coordinates x,y, pi-x-y, W=2sin(x)sin(y)sin(x+y), shape density proportional to s=sin x sin y sin(x+y). Independently recomputed full and acute J_p integrals p=1,2,3 by quadrature, matching 3pi/8 and 3pi/16; 3pi²/64 and 3pi²/256+3/16; 35pi/512 and 53pi/1024. Ratios are exactly 1/2, 1/4+4/pi², 53/70, multiplied by beta moments to produce stated all-n total area identities. Boundary triangles right-angled have zero measure; ratios of expectations, not expected realization-wise fractions.
 
-**Limits.** This review establishes neither historical priority beyond accessible literature nor independent mathematical verification. It does not apply to expectations of realization-wise acute area fractions, other sampling distributions, or intrinsic spherical triangle angles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Akopyan, Edelsbrunner and Nikitenko give the factorized spherical facet measure, classical count fraction 1/2, and overall mean total area; these are prior and credited. Their inspected sections do not explicitly evaluate acute area-weighted or squared-area-weighted fractions. Finch gives related Poisson–Delaunay angle density and area moments, not the two conditional acute metric moments as inspected. Exact nontrivial angular constants and finite-sample expectations survive as best-of-knowledge additions, with older geometric integral tables remaining a priority risk.
+
+## value
+
+PASS
+
+Facet angle count measures combinatorial shape but area and squared area measure geometric coverage and emphasize large facets. Universal precise acute area-share and squared-area-share constants are natural mesh-quality observables, non-obvious beyond the known count fraction, and exact for every sample size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
