@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A stationary marked-gap construction gives the exact absence-episode immigration intensity \(\lambda=e^{-c}\) and exponential duration; the law of small numbers yields the stationary queue path. Clock concentration and a geometric near-threshold-gap bound transfer it to discrete sliding windows in the \(J_1\) topology. Holding intervals at zero allow first-hitting convergence. An exact resolvent convolution proves the transform and its limiting mean. `verify.py` passed 186 exact finite-word/detailed-balance and numerical consistency checks. It does not replace the functional proof.
+## correctness
 
-**Originality — PASS, qualified.** Long's arXiv:2604.26298v1 Section 8.3 gives the one-time critical Poisson mass and flux, not this process limit. Attrill and Garoni's arXiv:2605.14206v1 Lemma 4.9 already establishes the same \(M/M/\infty\) hitting transform for the *clumsy* model; it is expressly prior mathematics. The new claim is the critical-window process-level convergence for deterministic sliding expiration and consequent transfer. The neighboring reset/clumsy/careless models in arXiv:2605.14511v1 do not directly subsume it. General Poisson-clumping results could offer stronger coverage; historical priority has not been independently determined.
+PASS
 
-**Mathematical value — PASS.** One-time occupancy and flux do not determine temporal correlations or the first stationary complete-window waiting time. The joint process limit supplies both, including a nonexponential explicit transform, at the natural near-completion scale.
+For M_n=floor(n(log n+c)), independent rate-one Poissonization of each coupon marks rare interarrival gaps exceeding L_n=log n+c; each label has probability λ|I|/n of a start in a bounded interval, with Exp(1) overshoot. Superposition gives Poisson marked intervals of rate λ and unit exponential lifetimes; counting active intervals converges in D([0,T],Z_+) under J1 to stationary immigration-death M/M/∞ with birth λ and death j. Earlier intervals have mean ≤λe^{-B}. The coupling from Poisson time to fixed n draws controls max clock deviation O_P(sqrt(log n/n)), and the expected near-threshold mismatch O(n^{-1/3}log n) vanishes. The first zero is J1-continuous almost surely owing to positive holding at 0. Strong Markov renewal from zero and p00(t)=exp[-λ(1-e^{-t})] yield E exp(-sτ)=[s∫_0^1u^{s-1}e^{λu}du]^-1, Eτ=∫_0^1(e^{λu}-1)du/u. Verify.py finite factorial moment identities are consistent but not the J1 proof.
 
-**Limitations.** Two-sided stationary iid uniform draws, fixed \(c\), compact-time functional convergence, no convergence of finite-n mean hitting times, no initially-empty first-completion theorem, no general nonuniform models.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing natural equivalent, broader and table/reduction routes, including inspected primary literature and explicit residual priority risks.
+
+## value
+
+PASS
+
+The stationary path limit at the n log n coverage threshold transfers a known queue law into a distinct dependent sliding-expiration model; distinguishes stationary first-completion behavior from initially empty classical collector, a mathematically natural operational cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

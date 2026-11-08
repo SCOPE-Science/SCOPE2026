@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:05:02.569545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For M_n=floor(n(log n+c)), independent rate-one Poissonization of each coupon marks rare interarrival gaps exceeding L_n=log n+c; each label has probability λ|I|/n of a start in a bounded interval, with Exp(1) overshoot. Superposition gives Poisson marked intervals of rate λ and unit exponential lifetimes; counting active intervals converges in D([0,T],Z_+) under J1 to stationary immigration-death M/M/∞ with birth λ and death j. Earlier intervals have mean ≤λe^{-B}. The coupling from Poisson time to fixed n draws controls max clock deviation O_P(sqrt(log n/n)), and the expected near-threshold mismatch O(n^{-1/3}log n) vanishes. The first zero is J1-continuous almost surely owing to positive holding at 0. Strong Markov renewal from zero and p00(t)=exp[-λ(1-e^{-t})] yield E exp(-sτ)=[s∫_0^1u^{s-1}e^{λu}du]^-1, Eτ=∫_0^1(e^{λu}-1)du/u. Verify.py finite factorial moment identities are consistent but not the J1 proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attrill–Garoni Lemma 4.9 already identifies stationary M/M/∞ zero-hitting transform in independently refreshed clumsy collector, explicitly credited. Their Theorem 4.10 yields a different Gumbel+τ asymptotic for another starting regime."
+        ],
+        "reasoning": "Queue transform is prior work; new implication is functional convergence of deterministic sliding expiration. Standard infinite-server occupancy principles are used but require rare-gap and dePoissonization proof for dependent overlapping windows.",
+        "searches": [
+          "arXiv:2605.14206 Attrill Garoni Lemma 4.9 Theorem 4.10",
+          "arXiv:2605.14511 Long nonmonotone coupon",
+          "M/M/infinity Poisson Boolean interval occupancy stationary limit"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md and full verify.py read",
+        "arXiv:2604.26298 primary Sections 8.3/9",
+        "arXiv:2605.14206 primary Lemma 4.9/Theorem 4.10",
+        "Resultary coupon search and web keywords",
+        "independent algebraic inspection of renewal resolvent and Poisson rare-gap coupling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long’s critical stationary onto frequency e^{-λ} and entry rate λe^{-λ}/n are consistent with Y, but do not imply functional path convergence or holding-time law. Attrill–Garoni derive τ but from another model."
+        ],
+        "reasoning": "Jointly citing both prior results does not rigorously imply the sliding-window functional scaling without the present long-gap convergence and clock coupling.",
+        "searches": [
+          "arXiv:2604.26298 Sections 3,8.3",
+          "arXiv:2605.14206 Lemma 4.9 Theorem 4.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Long §8.3 gives stationary onto-window mass e^{-e^{-c}} and flux ≍ λe^{-λ}/n, not a process-level D_n or exact first-stationary-completion distribution."
+        ],
+        "reasoning": "Same model/window, but one-time probabilities and flux cannot alone specify full stationary path law and first hitting time.",
+        "searches": [
+          "Resultary sliding window coupon collector critical n log n stationary missing coupons process immigration death limit first hitting zero",
+          "arXiv:2604.26298 Long Section 8.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or full path convergence for deterministic sliding expiration in 12 closest Resultary hits; Long 2026 §8.3 gives only one-time/flux critical statistics."
+        ],
+        "reasoning": "Finite moments and occupancy quantities known, but process-level limit not found as a preexisting exact-table entry; searches do not prove novelty.",
+        "searches": [
+          "web expiring coupon collector critical sliding window immigration death",
+          "Resultary semantic coupon query"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing natural equivalent, broader and table/reduction routes, including inspected primary literature and explicit residual priority risks.",
+      "residual_risks": [
+        "A general marked-extreme-gap theorem may have deduced this special case implicitly.",
+        "Functional J1 proof relies on careful edge-window coupling, not finite sampling; statement restricted to stationary windows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_NOT_PATH_LIMIT",
+          "evidence": "Critical window: one-time target e^{-e^{-c}}, flux e^{-c}e^{-e^{-c}}/n, explicitly separates empty start. No D([0,T]) limit in focused text.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.26298",
+          "material_read": "PDF full accessible, focused Sections 1,6,8.3,9 and critical window statement on pp.19–20",
+          "method": "primary PDF content and screenshot",
+          "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+          "trigger": "identical deterministic sliding expiration"
+        },
+        {
+          "assessment": "QUEUE_TRANSFORM_ALREADY_KNOWN_DIFFERENT_MODEL",
+          "evidence": "Stationary M/M/∞ hitting transform and Gumbel-plus-hitting-time distribution for independent loss process.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14206",
+          "material_read": "primary PDF Lemma 4.9 and Theorem 4.10 around pp.13–15",
+          "method": "primary PDF content, formula and screenshot",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "same limiting queue/hitting law in alternate coupon dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stationary path limit at the n log n coverage threshold transfers a known queue law into a distinct dependent sliding-expiration model; distinguishes stationary first-completion behavior from initially empty classical collector, a mathematically natural operational cutoff.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md and full verify.py read",
+    "arXiv:2604.26298 primary Sections 8.3/9",
+    "arXiv:2605.14206 primary Lemma 4.9/Theorem 4.10",
+    "Resultary coupon search and web keywords",
+    "independent algebraic inspection of renewal resolvent and Poisson rare-gap coupling"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite computational checks corroborate only finite domains, not the unrestricted mathematical proof.",
+    "Exact prior literature coverage remains qualified by explicitly named unavailable sources."
+  ],
+  "residual_risks": [
+    "No rates of weak convergence or finite-n hitting-time mean convergence claimed.",
+    "Preexisting M/M/∞ transform is credited, not new.",
+    "A general marked-extreme-gap theorem may have deduced this special case implicitly.",
+    "Functional J1 proof relies on careful edge-window coupling, not finite sampling; statement restricted to stationary windows."
+  ],
+  "schema_version": 1
+}
