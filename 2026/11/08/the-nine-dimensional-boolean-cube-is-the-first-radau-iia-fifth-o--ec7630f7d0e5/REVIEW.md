@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** The proof defines the unnormalized Boolean-cube Laplacian and the exact [2/3] stability function, derives each matrix entry from the Walsh spectral decomposition, and reduces all real steps to positivity of integer polynomials. Exact coefficient certificates cover every entry type in the eight lower dimensions; the one non-coefficientwise-positive numerator is treated by two complementary nonnegative-polynomial transforms. The negative nine-cube entry is independently evaluated in exact rational arithmetic using the common denominator and Walsh sums. `verify.py` recomputes the complete arrays from first principles, without floating-point approximations. No unsupported larger-dimension claim is made.
+
+**Originality: PASS subject to publication-priority risk.** General implicit Runge–Kutta SSP analyses discuss method-wide absolute monotonicity and order limits, not the exact Boolean-cube endpoint map. The inspected Padé-positivity paper concerns diagonal rather than the off-diagonal [2/3] filter. The closest earlier graph-specific results cover lower-order Radau IIA on Hamming products, fourth-order Gauss on products, or fifth-order Radau IIA on paths, and neither imply this nine-dimensional cutoff. Relevant searches and the exact implication comparisons are recorded in AUDIT.json. Unindexed or inaccessible statements could establish equivalence and remain a residual risk.
+
+**Value: PASS.** Strict positivity of a fifth-order, L-stable endpoint approximation on an entire infinite stepsize interval is meaningful even when its general nonlinear SSP coefficient vanishes. The exact first-failure dimension \(9\) (a \(512\)-state hypercube) sharply locates the boundary between unconditional positivity and a concrete violation for this canonical high-symmetry family. The distinction between fourth-/fifth-order integrators and between path/cube geometry matters in graph diffusion simulations. The theorem is deliberately limited to the first failing dimension, not a classification of every higher cube.
+
+The full mathematical argument, precise limitations, primary-source comparisons, reproducibility instructions, and exact integer certificate are in RESULT.md and the standalone artifacts.
+
+Self-review: passed. Independent audit: not yet performed.
