@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The exact colored-noise first-intensity formula reduces to \\(4\\pi\\) times the variance of an exponentially tilted spectral variable. Moment differentiation and endpoint concentration prove the mass identity; Gamma moments prove algebraic cutoffs. For flat cutoffs, the phase \\(t u+\\kappa/u^\\beta\\) has a unique minimizer \\(u_t\\) and curvature (β+1)t/\\(u_t\\); scaled Laplace concentration proves centered-moment convergence and the exact coefficient for every \\(\\beta>0\\). Left edge follows by reflection. A numerical SciPy checker independently corroborates three flat exponents and the opposite algebraic edge, without being used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.18689 Section 4 Theorem 4.1 assumes \\(S(\\omega)\\ge\\alpha e^{-\\beta|\\omega|^\\gamma}\\) globally and cannot hold for compactly supported S.",
+        "arXiv:1105.3929 Theorem 1 covers arbitrary spectral measures for first intensity, but its Paley–Wiener Section 3.1 example concerns a uniform cutoff and not infinitely flat spectral edges."
+      ],
+      "reasoning": "The known intensity formulas are broader in their spectral-domain hypotheses but do not include the additional coefficient/exponent asymptotic. The old Paley–Wiener special case and any trivial corollary of it are excluded from the asserted novelty.",
+      "searches": [
+        "spectrogram zeros frequency tails compactly supported power spectral density asymptotics",
+        "Gaussian spectrogram zeros integrated frequency intensity equals bandwidth essential support endpoints of stationary colored noise spectrum",
+        "arxiv:2609.18689 Escudero Koliander Romero colored spectrogram zero intensity asymptotic slow decay"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.18689 full primary paper sections 1, 3, 4",
+      "arXiv:1105.3929 full primary paper sections 2, 3",
+      "Published-research semantic records for Gaussian spectrogram zeros, Gaussian heat smoothing, stationary GAF, and flat spectral cutoffs",
+      "Related first-intensity spectral-equivalence literature, compared for statement implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1105.3929 equation (4) already implies the basic intensity representation and, by integration, the support-width mass law; its Section 3.1 covers the constant box spectrum.",
+        "arXiv:2609.18689 equation (4.1) supplies exactly the spectrogram normalization; its Section 4 comparison proves slow-decay, not compact-edge limits.",
+        "A related previously established exact classification of spectral densities sharing a full first-intensity profile does not provide sharp infinitely flat spectral-edge asymptotics."
+      ],
+      "reasoning": "The flat-edge law uses a unique, moving endpoint saddle and second-moment Gaussian concentration, and cannot be read off from the Paley–Wiener box example or the noncompact slow-decay theorem without a new analysis. The previously recorded exact-spectrum equivalence concerns a different implication direction.",
+      "searches": [
+        "Gaussian spectrogram zeros integrated frequency intensity equals bandwidth essential support endpoints of stationary colored noise spectrum",
+        "Gaussian analytic zero intensity variance exponentially tilted spectral cutoff exp(-kappa/u^beta) saddlepoint",
+        "Zeros of the Spectrogram of Colored Noise arxiv:2609.18689 Section 4 compact spectral density",
+        "Zeroes of Gaussian Analytic Functions with Translation-Invariant Distribution arxiv:1105.3929 section 3 Paley-Wiener"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feldheim (2011), arXiv:1105.3929, Theorem 1 equation (4): the stationary-GAF zero density is a derivative of an exponentially tilted spectral mean.",
+        "Escudero–Koliander–Romero (2026), arXiv:2609.18689, equation (4.1): \\(\\rho=1+(\\log S_\\phi)^{\\prime\\prime}/(4\\pi)\\); under the Gaussian tilt this is m′=4π Var."
+      ],
+      "reasoning": "These are equivalent starting intensity formulas after the Bargmann-coordinate change and Gaussian spectral weighting. Both are credited, whereas the sharp endpoint saddle second-moment asymptotics for arbitrary β are additional and not stated in inspected material.",
+      "searches": [
+        "stationary Gaussian analytic function zeros density boundary flat spectral measure stretched exponential tail saddle point",
+        "stationary Gaussian analytic entire spectrogram zero intensity compact bandlimited spectral flat edge exp(-kappa/u^beta) critical decay exponent (beta+2)/(beta+1)",
+        "Gaussian heat convolution log derivative Laplace posterior variance stretched exponential endpoint spectral edge",
+        "arxiv:1105.3929 Feldheim stationary Gaussian analytic functions horizontal limiting measure Paley-Wiener process"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches against published mathematical research records for compact-spectrum spectrogram zeros, flat-edge powers, and saddlepoint variance returned closest records on finite Gabor STFTs or unrelated frequency concentration; no exact match was retrieved.",
+        "Primary full-text inspection found no explicit β-dependent tail in the two closest analytic sources."
+      ],
+      "reasoning": "No known finite table or exact database states this infinite parameter family. The absence of matches is only supporting negative evidence, not proof of priority.",
+      "searches": [
+        "colored Gaussian noise spectrogram zero count tail profile algebraic vanishing spectral cutoff and infinitely flat spectral cutoff",
+        "band-limited colored-noise spectrogram zeros integrated intensity exact spectral bandwidth with asymptotic power law edge",
+        "Gaussian spectral density edge infinite order vanishing Laplace variance asymptotic"
+      ]
+    },
+    "rationale": "Best-knowledge originality attaches only to the sharp family of infinitely-flat-cutoff decay powers, leading coefficients, and integrated tails. Previous general intensity identities and the Paley-Wiener box special case are acknowledged. The inspected 2026 slow-spectrum theorem assumes an everywhere positive spectral lower bound and does not address compact edges; Feldheim 2011 gives an intensity formula and a box spectrum but no arbitrary β flat-cutoff saddle-variance asymptotic. A prior result could imply this after a nontrivial reduction; publication priority is not independently established.",
+    "residual_risks": [
+      "A specialized older stationary-GAF or asymptotic-analysis paper may already formulate the flat-edge zero-density law after an equivalent coordinate change.",
+      "The foundational first-intensity and box-spectrum corollaries are known; novelty is restricted to the nontrivial β-parametrized flat-edge profile, not those ingredients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_BASE_FORMULA_NOT_FLAT_EDGE_LAW",
+        "evidence": [
+          "First public 2026-09-16; theorem 1.1 gives Gaussian-smoothed spectral intensity.",
+          "Pure-noise Section 4 equation (4.1) gives \\(\\rho=1+(\\log S_\\phi)^{\\prime\\prime}/(4\\pi)\\).",
+          "Section 4 Theorem 4.1 assumes global positive sub-Gaussian lower bound, incompatible with compact support."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+        "material_read": "Abstract, introduction, Theorem 1.1, equations (1.4)-(1.8), Section 3.2, Section 4 through hypotheses of Theorem 4.1 and its proof outline, and inverse discussion.",
+        "method": "Accessible full primary HTML text examined by sections and searched for compact/bandlimited support.",
+        "title": "Zeros of the Spectrogram of Colored Noise",
+        "trigger": "Direct 2026 motivating paper for Gaussian-window colored-noise zero first intensity and tails"
+      },
+      {
+        "assessment": "COVERS_GENERAL_INTENSITY_AND_BOXCUTOFF_NOT_BETA_FLAT_EDGE_CLASS",
+        "evidence": [
+          "Theorem 1 equation (4) is a derivative of the exponentially tilted spectral mean.",
+          "Section 3.1 gives exact formula for uniform spectral interval.",
+          "No flat-edge \\(e^{-\\kappa/u^\\beta}\\) saddle-variance or its full β-dependent coefficient appears in inspected theorems/examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1105.3929",
+        "material_read": "Main theorem and equation (4), Section 2.2 Edelman–Kostlan discussion, full Section 3.1 Paley–Wiener/sinc-kernel example, and remaining example headings.",
+        "method": "Accessible arXiv full primary HTML text examined directly.",
+        "title": "Zeroes of Gaussian Analytic Functions with Translation-Invariant Distribution",
+        "trigger": "Earlier general stationary-GAF expected-zero-intensity identity potentially dominating the novelty claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b023b14f-32fd-4f40-ab9f-1a182aa8feb8",
+  "value": {
+    "rationale": "For the practically natural distinction between algebraic and infinitely smooth spectral cutoffs, the theorem supplies an entire sharp family of inverse-power zero-density exponents (1,2), exact edge constants and integrated tail rates, and population identification of the order and severity of flatness. This is a qualitative analytic boundary rather than an arbitrary finite slice; the result does not overclaim sample stability or a new universal intensity identity.",
+    "status": "PASS"
+  }
+}
