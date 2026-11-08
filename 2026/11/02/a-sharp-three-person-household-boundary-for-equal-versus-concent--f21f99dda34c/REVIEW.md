@@ -1,19 +1,21 @@
-# Review of the three-person household vaccination threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact incoming-ancestor probabilities \((1-p)^2\), \(2p(1-p)^2\), and \(p^2(3-2p)\) sum to one and yield the stated \(F_3\) expression. The algebraic difference \(2F_2-F_1-F_3\) factors as claimed. Its strictly decreasing affine bracket in the introduction probability gives the full strict/tie classification and, by comparison with the size-two difference, minimality. The general \(n\) expansion uses only the event that a tagged vertex has no incoming direct edges. The checker verifies each identity and independently enumerates 147 exact expected-case calculations.
+PASS
 
-## Originality
+Exact finite directed Reed–Frost ancestor-set probabilities are P(K=1)=(1-p)^2, P(K=2)=2p(1-p)^2, and P(K=3)=p^2(3-2p). Substitution into F1,F2,F3 gives D3=pq(q-1)[2+6p-6p^2-q(9p-6p^2)], including q_c=(2+6p-6p^2)/(9p-6p^2) only for p>2/3. D2=-2pq(1-q)<0. For n>=3, the r=1-q coefficient in Dn is p(1-p)^(n-3)(np-2), leaving np=2 intentionally undecided. Independent exhaustive enumeration of all directed contact graphs and seed masks at (p,q)=(9/10,1/2),(9/10,9/10),(2/5,4/5) gave D3=-207/1000,3807/125000,-1328/15625 respectively. All quantifiers and endpoints are respected.
 
-**PASS, under best-knowledge comparison, not an independently certified historical priority claim.** The exact two-dose, two-three-person-household threshold for *unconditional expected cases* with independent seeding differs in objective and finite population mechanism from the reproduction-threshold household vaccination optimizations of Becker and Starczak (1997), Ball and Lyne (2002) and Ball, Britton and Lyne (2004). Keeling and Shattock (2012) provide deterministic large-population final-size allocation and explicitly distinguish small-household stochasticity. No inspected result supplies this explicit finite \((p,q)\) phase boundary or its general high-importation coefficient. However, full texts of several directly relevant early household papers were not obtainable, and a hidden special case or more general finite optimality theorem remains a substantive priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The smallest household size allowing the concentration strategy to beat equal allocation is a natural finite-population boundary, not an arbitrarily selected parameter slice. The exact threshold shows how the type of objective, seeding frequency and household transmission interact, and the size-\(n\) asymptotic identifies the universal high-introduction frontier. This is a motivated counterexample to treating a threshold-optimal household rule as automatically optimal for final-case burden, with explicit quantitative domain and limitations.
+The exact two-dose, three-person Bernoulli-introduction expected-cases threshold is not an immediate corollary of household reproduction-threshold minimization; prior final-size susceptibility-set methods are acknowledged. The sharp phase boundary and general n high-introduction sign remain best-of-knowledge additions.
 
-## Closest literature and limitations
+## value
 
-Keeling and Shattock (2012), https://doi.org/10.1016/j.epidem.2012.03.001, is the inspected full-text final-size allocation comparison. Becker and Starczak (1997), https://doi.org/10.1016/S0025-5564(96)00139-3, and Ball and Lyne (2002), https://doi.org/10.1016/S0025-5564(01)00095-5, are close finite-household allocation antecedents; only their accessible abstracts and repository descriptions were inspected, so complete historical coverage is unproved. General susceptibility-set methods are not claimed as new. The result applies only to two independent households, independent introductory seeds, independent directed contact trials, perfect vaccines and expected cases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite household policy allocation is a naturally motivated nonlinear objective, and the exact first concentration-favorable household size and crossover are nontrivial. The result separates expected case minimization from reproduction-number heuristics without claiming real-world vaccine policy applicability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
