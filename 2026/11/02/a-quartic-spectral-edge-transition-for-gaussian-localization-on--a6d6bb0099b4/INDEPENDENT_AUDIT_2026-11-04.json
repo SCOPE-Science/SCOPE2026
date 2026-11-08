@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:48:33.731369Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pinned RESULT.md reduces the STFT localization operator by frequency Plancherel to multiplication by m(t)=pi^{-1/2}int_E exp(-(t-y)^2)dy. Its derivative is (2exp(-t^2)/sqrt(pi))[exp(-a^2)sinh(2at)-exp(-b^2)sinh(2bt)]. x coth(x) strictly increasing makes sinh(2bt)/sinh(2at) monotone for t>0, giving a unique threshold and no other extrema. At the threshold q=ae^{-a²}-be^{-b²}=0, the derivative cubic coefficient is -8c(b²-a²)/(3sqrt(pi)), hence m(0)-m(t)=2c(b²-a²)t^4/(3sqrt(pi))+O(t^6). The IFT at t²=0 proves square-root peak splitting and quadratic norm gain. Near noncritical simple peaks Taylor gives s^{1/2}; nonconstant analytic finite-monotone-branch m gives only absolutely continuous multiplication spectrum [0,M], no eigenvalues. Independently evaluated nine critical fourth-order ratios for three widths, including w=1, a_c=0.271702319209... . The smooth-spectral expansion is not inferred from those finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola–Tilli norm estimates assume finite phase-space L^p masks, whereas E x R has infinite frequency measure.",
+          "Knutsen treats radial/Cantor symbols with Hermite diagonalization rather than infinite-frequency symmetric time strips."
+        ],
+        "reasoning": "Existing general bounds and other symbol geometries do not yield this exact modality criterion or critical quartic spectral superlevel coefficient.",
+        "searches": [
+          "Nicola and Tilli The norm of time-frequency and wavelet localization operators arxiv:2207.08624v2",
+          "Knutsen Daubechies Time-Frequency Localization Operator on Cantor Type Sets I 2020"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2207.08624 (Nicola–Tilli)",
+        "doi:10.1007/s00041-020-09751-9 (Knutsen)",
+        "doi:10.1016/S0022-1236(03)00166-6 (Cordero–Gröchenig)",
+        "arxiv:math/0503676 (Hall–Minnotte–Zhang)",
+        "Resultary Gaussian/STFT semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard Plancherel/STFT multiplier reduction is a known ingredient, not the new conclusion.",
+          "Sharp quartic D, square-root t*(a) and quadratic norm gain follow from specific b=a+w sinh ratio and Taylor coefficients."
+        ],
+        "reasoning": "A general Gaussian-localization operator theory does not by itself imply the special mode merger; it requires model-specific derivative analysis. Full-title overlap alone does not establish coverage.",
+        "searches": [
+          "Cordero Gröchenig Time-frequency analysis of localization operators JFA 2003",
+          "Nicola Tilli 2022 phase space norm theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hall–Minnotte–Zhang address kernel modality and bump hunting under smoothing, not the inspected exact symmetric two-uniform-band Gaussian STFT multiplier quartic spectral edge.",
+          "The symmetric Gaussian convolution is a Gaussian-smoothed disjoint-uniform density, an important rephrasing; no looked-at source gives D and spectral superlevel transition."
+        ],
+        "reasoning": "The spectral question is algebraically equivalent to modality of a particular Gaussian-smoothed two-uniform mixture. This is an explicit alternative formulation, not automatic novelty; the full theorem adds the spectral-type identification and quantified quartic unfolding.",
+        "searches": [
+          "Resultary: Gaussian localization time frequency STFT two intervals infinite frequency Gaussian convolution maxima quartic critical transition bimodal uniform distribution Gaussian kernel",
+          "Hall Minnotte Zhang Bump hunting with non-Gaussian kernels arxiv:math/0503676"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-record hits include finite cyclic STFT support and unrelated Gaussian quartic perturbations but not the same continuous-spectrum two-band exact table."
+        ],
+        "reasoning": "No finite database is expected to supply the continuum all-w identity; none of the actually returned records contains a matching spectral-edge table.",
+        "searches": [
+          "Resultary semantic Gaussian STFT quartic spectral edge",
+          "Gaussian kernel two disjoint uniform intervals mode transition critical parameter"
+        ]
+      },
+      "rationale": "Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.",
+      "residual_risks": [
+        "A previous exact Gaussian convolution of disjoint uniform intervals may imply the modal threshold through an equivalent KDE mixture statement; no exhaustive proof of mathematical priority.",
+        "The entire-frequency mask gives a multiplication operator with continuous spectrum; no compact-operator or arbitrary time-band claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING this infinite-frequency mask: hypotheses fail; method supports generic setting",
+          "evidence": [
+            "arxiv:2207.08624v2: norm theorems for finite phase-space symbols"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.08624v2",
+          "material_read": "Full accessible arXiv HTML theorem assumptions and finite Lp mask hypotheses, model and norm framework",
+          "method": "arXiv full HTML scientific text",
+          "title": "The norm of time-frequency and wavelet localization operators",
+          "trigger": "closest general STFT localization-norm bounds"
+        },
+        {
+          "assessment": "Related multimodality problem; inspected material does not provide the exact quartic spectral edge; historical equivalence risk retained",
+          "evidence": [
+            "arxiv:math/0503676"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503676",
+          "material_read": "Accessible PDF: opening/model, Gaussian kernel contrast, modal bump-hunting scope",
+          "method": "arXiv full PDF relevant model sections and first-page inspection",
+          "title": "Bump hunting with non-Gaussian kernels",
+          "trigger": "possible equivalent Gaussian-smoothing kernel-mode theorem"
+        },
+        {
+          "assessment": "Different symbol and spectrum; no full-document noncoverage claim",
+          "evidence": [
+            "doi:10.1007/s00041-020-09751-9"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-020-09751-9",
+          "material_read": "Accessible abstract and research model/radial Cantor spectrum descriptions",
+          "method": "publisher metadata/accessible text",
+          "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "broader time-frequency localization operator comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a natural frequency-unrestricted Gaussian localization multiplier, with an exact spectral-edge bifurcation (coalescing maxima) and explicit 1/4 critical exponent/unfolding coefficient. That stronger spectral statement is more than calculating one Gaussian integral; it distinguishes continuous essential spectral edge from a compact-localization eigenvalue count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2207.08624 (Nicola–Tilli)",
+    "doi:10.1007/s00041-020-09751-9 (Knutsen)",
+    "doi:10.1016/S0022-1236(03)00166-6 (Cordero–Gröchenig)",
+    "arxiv:math/0503676 (Hall–Minnotte–Zhang)",
+    "Resultary Gaussian/STFT semantic query",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-quartic-spectral-edge-transition-for-gaussian-localization-on--a6d6bb0099b4/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-quartic-spectral-edge-transition-for-gaussian-localization-on--a6d6bb0099b4/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A previous exact Gaussian convolution of disjoint uniform intervals may imply the modal threshold through an equivalent KDE mixture statement; no exhaustive proof of mathematical priority.",
+    "The entire-frequency mask gives a multiplication operator with continuous spectrum; no compact-operator or arbitrary time-band claim."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "A previous exact Gaussian convolution of disjoint uniform intervals may imply the modal threshold through an equivalent KDE mixture statement; no exhaustive proof of mathematical priority. The entire-frequency mask gives a multiplication operator with continuous spectrum; no compact-operator or arbitrary time-band claim."
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator's representation as multiplication by Gaussian convolution follows from frequency-variable Plancherel with its stated normalization; no compactness is assumed. The derivative factors into two hyperbolic sine terms. Strict monotonicity of their ratio counts all critical points, with uniqueness of the width-fixed transition established by an increasing scalar function. Taylor expansion at the critical parameter proves positive quartic curvature and the spectral-edge exponent, while the implicit-function theorem determines the splitting and norm-gain coefficients. The standalone checker numerically tests the formulas at several widths and near the critical point. Its finite tests are supplementary, and the spectral-type proof is analytic.
+## correctness
 
-## Originality — PASS, provisional
-Nicola–Tilli, arXiv:2207.08624, is the focal 2022 source for norm questions, but its finite-\(L^p\) phase-space symbols do not include the present two frequency-unrestricted bands. Knutsen's 2020 treatment concerns radial Cantor-type symbols, not the exact two-band Gaussian multiplier. Cordero–Gröchenig establishes general localization-operator mapping properties, rather than this mode and spectral-edge classification. Classical results on Gaussian-mixture bimodality and Gaussian kernel smoothing motivate a remaining priority risk; the sharp uniform-interval critical coefficient is not established by the two-point-mixture result. The local spectral edge exponent and explicit unfolding are assessed together as a single connected claim. No database-search failure is treated as proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-Two equal symmetric time windows are the simplest disconnected, frequency-unrestricted Gaussian observation mask. The result resolves the full geometry of optimal observation locations, proves a unique nondegenerate-to-degenerate transition, and quantifies how much spectral mass accumulates at the top. The quartic \(s^{1/4}\) spectral-edge law is structurally distinct from the noncritical \(s^{1/2}\) law, and the norm's order-two gain gives quantitative sensitivity to band displacement. The finding does not claim a generic multiband theorem or a discrete eigenvalue law.
+Pinned RESULT.md reduces the STFT localization operator by frequency Plancherel to multiplication by m(t)=pi^{-1/2}int_E exp(-(t-y)^2)dy. Its derivative is (2exp(-t^2)/sqrt(pi))[exp(-a^2)sinh(2at)-exp(-b^2)sinh(2bt)]. x coth(x) strictly increasing makes sinh(2bt)/sinh(2at) monotone for t>0, giving a unique threshold and no other extrema. At the threshold q=ae^{-a²}-be^{-b²}=0, the derivative cubic coefficient is -8c(b²-a²)/(3sqrt(pi)), hence m(0)-m(t)=2c(b²-a²)t^4/(3sqrt(pi))+O(t^6). The IFT at t²=0 proves square-root peak splitting and quadratic norm gain. Near noncritical simple peaks Taylor gives s^{1/2}; nonconstant analytic finite-monotone-branch m gives only absolutely continuous multiplication spectrum [0,M], no eigenvalues. Independently evaluated nine critical fourth-order ratios for three widths, including w=1, a_c=0.271702319209... . The smooth-spectral expansion is not inferred from those finite tests.
 
-## Limitations and closest literature
-The strongest possible priority concern is an earlier exact Gaussian-smoothing modality calculation for two disjoint uniform intervals; related general kernel modality literature has been checked without locating this precise Fock/localization spectral statement. General localization-operator references provide the reduction, not the claimed critical coefficients. The operator is noncompact, no nonzero \(L^2\) extremizer exists, and frequency truncation is not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.
+
+## value
+
+PASS
+
+The family is a natural frequency-unrestricted Gaussian localization multiplier, with an exact spectral-edge bifurcation (coalescing maxima) and explicit 1/4 critical exponent/unfolding coefficient. That stronger spectral statement is more than calculating one Gaussian integral; it distinguishes continuous essential spectral edge from a compact-localization eigenvalue count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
