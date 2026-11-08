@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The Markov increments exhaust the birth-event possibilities; direct substitution and unique polynomial recurrence prove the bivariate generating function. Independent Bernoulli marking gives the exact stopped negative-binomial law. The martingale residual has conditional variance q*C_n/(p*n), yielding the exact second moment; the Yule embedding and a bounded-increment stable martingale CLT prove the strong and Gaussian limits. Replayed 883 exact finite checks confirm recurrence, moments, PGF coefficients and small-tree enumeration. Infinite proofs do not depend on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baur considers p(n)→1 and cluster-size genealogy, not the fixed-p fluctuation of the number of direct child clusters.",
+        "Desmarais–Holmgren–Wagner treat global coloured leaves and root-cluster size, not frontier edges.",
+        "Bansaye–Gu–Yuan’s edge fragmentation after birth and cluster isolation differ from independent percolation marking at vertex birth."
+      ],
+      "reasoning": "No inspected stronger general theorem explicitly includes the coupled fixed-p frontier and root-size distribution or self-normalized frontier CLT as a corollary. General neutral-mutation tools could make portions derivable, a residual risk.",
+      "searches": [
+        "arxiv:1407.2508, main theorem and Section 2.2",
+        "arxiv:2110.15050v1, root-cluster and coloured-leaf sections",
+        "arxiv:2109.05760v1, process definition and limit statements"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2110.15050",
+      "https://arxiv.org/abs/1407.2508",
+      "https://arxiv.org/abs/1512.05275",
+      "https://arxiv.org/abs/2109.05760",
+      "https://arxiv.org/abs/2408.12515"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary percolation literature constructs a root Yule clone and all mutation descendants.",
+        "No relevant inspected theorem supplies the fixed-p bivariate PGF or the martingale Gaussian residual for first-generation counts.",
+        "Finite root-cluster size moments cannot determine frontier conditional distribution, because frontier depends on failed root-parent attachments."
+      ],
+      "reasoning": "Existing constructions are strong premises of the present argument but do not *state* the exact joint PGF, Gaussian mixture, or hitting-time law, nor do the compared results directly imply them without new transitions and martingale analysis. Priority could change if a broader neutral-mutation theorem explicitly specializes to these formulas.",
+      "searches": [
+        "arxiv:1407.2508, root clone and first-generation mutation process",
+        "arxiv:2110.15050v1, root-cluster theorem",
+        "arxiv:1512.05275v1, first-generation descendants",
+        "arxiv:2109.05760v1, cluster isolation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baur defines generation-one child clusters by a cut edge and uses a neutral-mutation Yule embedding; this is the same frontier random variable.",
+        "Kürsten studies the sum of sizes of child clusters, which is a size-weighted rather than unweighted first-generation count."
+      ],
+      "reasoning": "A generation-one cluster count equals the cut-edge boundary B_n, so the direct alias was compared. Baur supplies the model and mutation encoding, but not the displayed fixed-p bivariate PGF, stopped negative-binomial mass formula, exact martingale variance or Gaussian limit. Kürsten’s vertex total cannot determine the first-generation cluster count.",
+      "searches": [
+        "root component root cluster boundary size random recursive tree percolation number mutation edges children",
+        "Yule process first generation mutant family counts root cluster conditional root population negative binomial",
+        "arxiv:1407.2508, Sections 2.1–2.2",
+        "arxiv:1512.05275, Section IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared papers provide cluster sizes, mutation genealogies, and moment information for the total size of descendant clusters, not tables of the two-dimensional probability distribution P(C_n=c,B_n=b)."
+      ],
+      "reasoning": "The new formula determines all finite-dimensional joint coefficients and all p in (0,1), so a finite tabulation would not independently dominate the result. No exact matching table was located in the inspected sources.",
+      "searches": [
+        "joint distribution root component frontier percolation recursive tree probability generating function",
+        "first-generation Yule mutant count fixed population exact variance",
+        "arxiv:1407.2508; arxiv:1512.05275"
+      ]
+    },
+    "rationale": "The fixed-retention exact two-dimensional frontier law, its residual martingale identity and self-normalized Gaussian limit are not stated in the inspected primary work. Baur already defines the first-generation cluster count and uses Yule mutations; the novelty claim is strictly about the new joint quantitative laws, not the underlying object or embedding. Unindexed neutral-mutation theorems remain a historical-priority risk.",
+    "residual_risks": [
+      "The underlying first-generation count and Yule genealogy predate this work; unindexed classical mutation-count formulas may imply some statements.",
+      "The standard stable martingale CLT is invoked rather than reproved from first principles.",
+      "No independent human assessment of novelty or correctness has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT MODEL OVERLAP; NO EXPLICIT CLAIM COVERAGE for fixed-p bivariate PGF and frontier CLT.",
+        "evidence": [
+          "Generation one means separated by exactly one deleted edge.",
+          "Theorem assumes p(n) tends to one and analyzes ranked sizes of clusters, not count fluctuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.2508",
+        "material_read": "Introduction, Sections 2.1 and 2.2, limiting cluster-size statements, mutation genealogy and proof context.",
+        "method": "Full open-access HTML text, not search snippet.",
+        "title": "Percolation on random recursive trees",
+        "trigger": "Defines same generation-one child-cluster observable and Yule mutation model."
+      },
+      {
+        "assessment": "RELATED NOT COVERING the asserted first-generation boundary count distribution.",
+        "evidence": [
+          "Root component growth scaling is a shared premise; global broadcast-colour leaf counts differ from cut-edge frontier."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.15050",
+        "material_read": "Introduction, model definitions, root cluster results and relevant leaves/colouring results and proofs.",
+        "method": "Full open-access HTML reading.",
+        "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+        "trigger": "Most relevant eligible-dated root-cluster model and associated observables."
+      },
+      {
+        "assessment": "SIZE-WEIGHTED OBSERVABLE, not generation-one cluster count.",
+        "evidence": [
+          "Computes total number of vertices belonging to child components, distinct from number of those components."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.05275",
+        "material_read": "Introduction, Section IV and Appendix B addressing first-generation child-cluster size totals.",
+        "method": "Open-access HTML full text.",
+        "title": "Random Recursive Trees and the Elephant Random Walk",
+        "trigger": "Title and abstract identify first-generation child cluster moments."
+      },
+      {
+        "assessment": "DIFFERENT DYNAMICS; no claim domination.",
+        "evidence": [
+          "Edges fragment after birth and clusters may be isolated, unlike static independent birth-edge marks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.05760",
+        "material_read": "Introduction, process construction and main limit statements in the open full text.",
+        "method": "Full open-access HTML text.",
+        "title": "A growth-fragmentation-isolation process on random recursive trees and contact tracing",
+        "trigger": "Cluster genealogy and fragmentation resemblance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba4f1c49-7f72-4d22-b3d6-301115e88fa2",
+  "value": {
+    "rationale": "In the contracted percolation-component tree, B_n is exactly the root degree: a natural structural branching statistic not recoverable from the size-weighted descendant count. The exact joint generating function, finite-size residual variance and unconditional/observed-size Gaussian limits describe a genuine mechanism of fluctuations, including dependence on the random root-size limit. The first-passage negative-binomial law additionally relates growth and boundary creation.",
+    "status": "PASS"
+  }
+}
