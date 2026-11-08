@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the nine-class classification
+# Independent mathematical audit
 
-The result is a theorem proven by explicit atom extension counts and an unrestricted three-pebble strategy, not by extrapolating sample computations. For each ordered pair of vertices (including equality), the necessary and sufficient third-vertex configurations are counted in `RESULT.md`; all potentially zero factors are distinguished, and the noncollinear-pair remainder is proved positive for all allowed parameters. Four rank-at-most-three formulas (two per point/line status) distinguish the nine classes.
+## correctness
 
-## Reproduction
+PASS
 
-From this directory using Python 3 and no external dependencies, run `python3 check_profiles.py` and `python3 symbolic_profiles.py`. `check_profiles.out.txt` and `symbolic_profiles.out.txt` are the respective recorded stdout. The first program constructs nine incidence systems (including symplectic, affine, transversal, Steiner and projective instances), confirms their partial-geometry axioms, and enumerates all ordered-pair atomic-extension supports. The second implements the algebraic extension-count formulas separately, compares them with the first program’s 9 examples, and checks 54,944 arithmetically admissible triples with \(2\le s,t\le80\). It recovers the nine classes with identical supports within each.
+For finite thick partial geometries s,t>=2 in explicitly enriched signature with point and line sort predicates, incidence, named irreflexive collinearity and concurrence, the point/line parameters yield all ordered-pair third-vertex extension counts. Their support changes only when alpha equals u or u+1 for u=s,t; e.g. for a noncollinear point pair, the neither-neighbour third-point count equals (t-1)+(s-alpha)*(t*(s-alpha+1)-alpha)/alpha>0. The other candidate zero counts contain (s-alpha), (s+1-alpha) or line dual factors. Thus equal status pair (sigma(s,alpha),sigma(t,alpha)) gives identical realizable three-pebble atomic types; an indefinite back-and-forth strategy proves FO^3 equivalence for arbitrary quantifier depth, not just rank three. A rank-two sentence detects noncollinear pairs and a rank-three sentence detects collinear p,q with z adjacent to neither, separating sigma 0 vs 1 vs 2; dual line sentences give nine distinct theories. Nine explicit finite geometries (symplectic generalized quadrangle, affine net, transversal design, affine plane, Fano plane, PG(3,2) design and duals) realize each status. The supplied independent-incidence verifier was inspected; bounded finite examples are supportive rather than proof of unbounded equivalence.
 
-## Limits
+## originality
 
-The parameter sweep includes arithmetically admissible triples, some of which may not support actual finite partial geometries; that is a stronger algebraic consistency check, not an existence claim. The finite concrete examples verify witness existence, not the full quantified theorem. Counting logic, thin geometries, and reductions that omit the named relations are not covered. A human or other independent audit and complete priority verification have not been performed.
+PASS
+
+Bose provides partial-geometry intersection numbers; Grohe–Otto provide three-pebble logical methodology. The exact nine-status support profile over the enriched mixed-sorted signature and rank-three separating sentences do not follow from either source as stated without explicit mixed extension counting and positivity. General coherent configurations might imply the classification as an application, and such a prior reduction is a residual novelty risk.
+
+## value
+
+PASS
+
+A complete, sharp nine-class classification of unrestricted-depth three-variable noncounting theories for a broad natural incidence-geometric family is a mathematically meaningful model-theoretic invariant, with precise language dependence and small distinguishing rank. It is an all-parameter theorem rather than a finite example scan.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
