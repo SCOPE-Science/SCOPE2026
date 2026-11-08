@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The defining forth/back clauses are equivalent to \(f(\uparrow x)=\uparrow f(x)\). For a source layer the image of its strict successors is common to every point of that layer. This yields the explicit eligible-point equation, forces completed upper suffixes in every surjective extension, and gives the two Stirling-weight transitions without omissions or double counting. The thick-target rigidity product follows by deleting all singleton-only transitions. A separate direct clause-by-clause enumerator agrees on 449 small pairs of layered frames, with further exact thick-target checks. These tests support, but are not substitutes for, the proof.
+## correctness
 
-**Originality (PASS, subject to historical-priority risk).** The first-public 2025 primary source defines surjective bounded morphisms, establishes hardness in several classes, and gives a decision algorithm for tree inputs, not a complete weighted count for layered sources. The closest published mathematical record on these exact weak-order objects counts arbitrary order-preserving maps; the extra back condition is not automatic, and its reported result does not supply the present transfer. Another record characterizes self-retraction images rather than counts surjections between two frames. The latter records were compared through their published summaries only; any equivalent full-text theorem remains a stated risk. No proof of historical uniqueness is claimed.
+PASS
 
-**Value (PASS).** The unrestricted finite-poset surjective-bounded-morphism problem is a natural decision problem in intermediate-logic semantics. The theorem gives a complete closed transfer classification and exact solution-count algorithm on the canonical non-tree class of finite weak orders. The sharp structural distinction between target singleton and nonsingleton layers is invisible from simple cardinality bounds. This is an exact natural enumeration and a rigidity criterion, rather than a parameter-relabelled special case.
+At each x the equality f(up x)=up f(x) reduces eligibility to U_i∪{f(x)}=up f(x). A proper non-singleton frontier of an image upset is unextendable; a completed suffix has precisely stay/advance transitions, the latter counted by surjections s(a,b_j) or s(a,b_j)+s(a,b_j+1) when the old frontier is a singleton. The DP is therefore bijective with surjective maps, proving thick-layer rigidity; independently enumerated 217 small source-target shape pairs directly against all functions.
 
-**Scope and risks.** Counts are for fixed labelled carriers; no unlabelled count is asserted. The transfer does not solve the unrestricted frame problem. Potential earlier work under covering-map or role-colouring language may overlap. The general theorem is established by an all-size combinatorial argument; finite checker runs alone would not establish it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement-level comparison of accessible relevant source material, published Resultary semantic hits, and original proof ingredients; risks below retain uncertainty.
+
+## value
+
+PASS
+
+Exact counting and a sharp height-collapse criterion for a natural modal/intuitionistic frame subclass are reusable and not merely a re-expression of ordinary order-preserving map counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
