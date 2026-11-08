@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only Python's standard library. Run `python3 verify.py` from its directory. Expected last line is `VERIFY_OK`.
+## correctness
 
-The first algorithm enumerates every nonempty coefficient support in a primitive-fourth-root Kummer basis, discarding only \(\{0\}\). It determines \(r(I)\) and \(e(I)\) by their gcd characterizations, counts projective parameters, and divides by full Frobenius orbit length.
+PASS
 
-The second algorithm does **not** reuse the support rules: it enumerates Frobenius orbits of exponents in the cyclic quotient \(K^\times/F^\times\) and computes the genuine coefficient field-degree by checking \((q^r-1)k\equiv0\pmod{q^n-1}\) for each candidate divisor \(r\) of \(n\). It also measures projective orbit sizes directly.
+Fixed q-Frobenius diagonalizes on K=Fq⁴ in a Kummer eigenbasis. Each support I⊂{0,1,2,3} has (q−1)^(|I|−1) projective parameters and Frobenius orbit length e=4/gcd(4,i−j). The actual parameter field period r=4/gcd(4,i), giving right nucleus dimension 16/r from the skew polynomial commutator and known nucleus theorem; the automorphism norm criterion gives 4N/e. Exhausting all supports except central {0} yields exactly the five rows. Independent cyclic-projective exponent-orbit enumeration reproduced the frequency counts q=5,9,13, alongside direct Kummer-support arithmetic; these are finite checks of a symbolic proof depending on cited isomorphism and automorphism classification theorems.
 
-The two algorithms agree at \((q,n)=(5,4),(9,4),(13,4),(17,4),(7,6)\). The first four reproduce the five symbolic polynomial multiplicities. For \(q=5\), the five counts are \(36,2,2,2,1\), totaling \(43\). The auxiliary degree-six case is a consistency check on the support mechanism, not a degree-six theorem claimed here.
+## originality
 
-The complete mathematical proof depends on the stated literature-based isomorphism, automorphism and right-nucleus results plus a finite symbolic support partition, not on enumerating arbitrarily large fields. The program's finite verifications do not prove the infinite family. Absolute historical priority and any independent audit are not asserted.
+PASS
+
+Three established structural classification results provide orbit equivalence, automorphism norms and nuclei; the five joint class-frequency table across the first composite extension degree is not explicitly established in accessible material. The newer same-model Nevins–Pumplün paper is a significant unresolved priority risk, not an automatic O rejection.
+
+## value
+
+PASS
+
+A natural joint classification of two independent intrinsic invariants (right nucleus size, automorphism group order) across ALL isomorphism classes in the first composite extension-degree family, showing explicit non-determination both ways. Though derived from existing structural results, the complete exact arithmetic census is useful to algebra classifiers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

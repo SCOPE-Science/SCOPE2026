@@ -1,11 +1,21 @@
-# Scientific review of the degree-four joint census
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic isomorphism classes are projective Frobenius orbits; all maps are monomial because the twisting degree is four. The primitive-fourth-root eigenbasis partitions parameter points by supports. The right-nucleus calculation gives dimension \(16/r(I)\), while each stabilizing Frobenius exponent has exactly \(N\) norm lifts and gives automorphism order \(4N/e(I)\). The support partition is exhaustive and the count formulas follow symbolically. Independent finite enumerators agree for \(q=5,9,13,17\). No finite enumeration is being used as a proof for all fields.
+## correctness
 
-**Originality — PASS, qualified.** Nevins–Pumplün (2026, arXiv:2610.30921, Theorems 2.8 and 3.11, Corollary 3.12) gives the underlying isomorphism classification; Brown–Pumplün (2017, arXiv:1703.00718, Theorem 4 and Corollary 11) provides the automorphism form; Pumplün (2024, arXiv:2403.03263, Theorem 1) gives the right-nucleus structure. None of the inspected primary statements provides the simultaneous five-stratum multiplicities. Those imported theorems are acknowledged, as is the historical risk of an implicit or unindexed joint enumeration. Priority is not certified.
+PASS
 
-**Mathematical value — PASS.** The pair of intrinsic invariants is natural and their simultaneous spectrum is nontrivial precisely in composite degree. The result gives an exact infinite family of sharp five-row census tables and demonstrates that automorphism-group order and right-nucleus dimension do not determine one another.
+Fixed q-Frobenius diagonalizes on K=Fq⁴ in a Kummer eigenbasis. Each support I⊂{0,1,2,3} has (q−1)^(|I|−1) projective parameters and Frobenius orbit length e=4/gcd(4,i−j). The actual parameter field period r=4/gcd(4,i), giving right nucleus dimension 16/r from the skew polynomial commutator and known nucleus theorem; the automorphism norm criterion gives 4N/e. Exhausting all supports except central {0} yields exactly the five rows. Independent cyclic-projective exponent-orbit enumeration reproduced the frequency counts q=5,9,13, alongside direct Kummer-support arithmetic; these are finite checks of a symbolic proof depending on cited isomorphism and automorphism classification theorems.
 
-**Scientific limitations.** This is a complete explicit application of previously established structural tools, not a new structural classification theorem; it fixes the Frobenius generator, includes reducible skew polynomials, and requires \(q\equiv1\pmod4\). Isotopy classes and the division-only subfamily are not counted separately. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Three established structural classification results provide orbit equivalence, automorphism norms and nuclei; the five joint class-frequency table across the first composite extension degree is not explicitly established in accessible material. The newer same-model Nevins–Pumplün paper is a significant unresolved priority risk, not an automatic O rejection.
+
+## value
+
+PASS
+
+A natural joint classification of two independent intrinsic invariants (right nucleus size, automorphism group order) across ALL isomorphism classes in the first composite extension-degree family, showing explicit non-determination both ways. Though derived from existing structural results, the complete exact arithmetic census is useful to algebra classifiers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
