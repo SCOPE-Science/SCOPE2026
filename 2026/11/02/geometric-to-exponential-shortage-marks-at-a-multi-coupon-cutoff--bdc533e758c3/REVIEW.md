@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Poisson/Gamma lower-tail identity and falling-factorial ratios determine the conditional shortage mark. In the large-multiplicity regime the necessary uniform approximation holds because \(m_nh_n^2\sim2\log n\to\infty\), so mark scales \(j=O(1/h_n)\) make the factorial error vanish. The hazard identity converts the extreme Gamma quantile into an \(e^{-x}\) rare-event intensity. Poissonization gives independence; an order-preserving Poisson-clock sandwich de-Poissonizes *cumulative* depth counts and hence the whole finite marked law. The standalone checker reproduced 276 finite assertions. These computations support exact identities but do not replace the limiting proof. The result assumes uniform iid coupons and a convergent quota-to-logarithm ratio; temporal joint convergence is not proved.
+PASS
 
-## Originality — PASS, with priority limitations
+The final claim fixes iid uniform n types, deterministic m_n→∞ with m_n/log n→α∈[0,∞], quantile Q_m(b)=1/n, h=1-(m-1)/b and floor n(b+x/h) draws. The proof explicitly uses exact Poisson mass ratios p_(m-j)(u)/p_(m-1)(u)=(m-1)_(j-1)/u^(j-1). The three q regimes give point mass depth=1, geometric (1-q)q^(j-1), or h-scaled Exp(1). Integrating tail hazard, rare independent marked types after Poissonization, and squeezing monotone depth-tail counts between clock times x±δ with b h²/n→0 establishes the fixed-x marked Poisson limit and compound-Poisson transforms; it does not assert process-in-x convergence. Inspected verify.py checks exact multinomial and Gamma/Poisson finite formulas and is not substituted for asymptotic proof. Potential shortcut for gamma quantile requires a uniform moderate-deviation tail estimate; the stated m h²~2log n and h R_m→1 are consistent with the saddlepoint/gamma lower-tail asymptotics.
 
-The closest direct earlier work is Long, arXiv:2604.25108v2, §3.1, where the *indicator* that a type is short is counted via an exact binomial law. Castro and Marinho, arXiv:2610.33199v1, establish the growing-quota completion-time cutoff, not the conditional depths and their geometric/exponential regimes. The present claim differs by tracking the number of missing *copies* and proving a marked point-process and compound-Poisson family in all three growth regimes. Ilienko's fixed-index occupancy limits and Gnedin–Janson–Malinovsky's fixed-threshold stopped extrema were inspected for possible stronger implications; their quantified regimes do not supply this growing-quota result. Older broad occupancy point-process or threshold theory may contain an equivalent corollary; novelty has not been independently validated.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The scalar Gumbel event answers whether all quotas have been met, but does not describe the unfinished workload conditional on failure. The shortage total is a natural operational statistic, not a freely selected invariant. Its limiting law changes from a simple Poisson count to geometric compound Poisson and then to a rescaled exponential compound Poisson. The transition is nontrivial because the number of deficient types stays tight while their individual depths change scale. This distinguishes occupancy geometry at a natural cutoff, independently of any further downstream application.
+Best-of-knowledge PASS for the joint marked-shortage depth law and geometric/exponential phase diagram. Prior Long/Castro-Marinho cutoff/count results give the arrival or deficient-type count, not the conditional number of missing copies; relevant general marked Poisson methods do not automatically evaluate this distribution. An inaccessible or more general occupancy theorem could dominate, and full priority is not certified.
 
-## Limits and relationships
+## value
 
-No extension to nonuniform coupon probabilities, stopping-time configurations, or an entire time-evolving marked process is asserted. The quantile scale and unmarked rare-event count are credited to earlier work; the mathematical priority of the marked-depth statement remains subject to broader human inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The missing-copy depth and aggregate shortage are natural operational statistics distinct from merely counting incomplete coupon classes. An explicit geometric-to-exponential mark transition and compound-Poisson transform across m/log n regimes yield nontrivial estimable threshold properties, rather than a nominal rephrasing of a Gumbel completion time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

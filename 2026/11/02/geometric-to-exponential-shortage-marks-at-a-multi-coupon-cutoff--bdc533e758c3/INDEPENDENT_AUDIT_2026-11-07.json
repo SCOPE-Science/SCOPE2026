@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:13:43.941569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim fixes iid uniform n types, deterministic m_n→∞ with m_n/log n→α∈[0,∞], quantile Q_m(b)=1/n, h=1-(m-1)/b and floor n(b+x/h) draws. The proof explicitly uses exact Poisson mass ratios p_(m-j)(u)/p_(m-1)(u)=(m-1)_(j-1)/u^(j-1). The three q regimes give point mass depth=1, geometric (1-q)q^(j-1), or h-scaled Exp(1). Integrating tail hazard, rare independent marked types after Poissonization, and squeezing monotone depth-tail counts between clock times x±δ with b h²/n→0 establishes the fixed-x marked Poisson limit and compound-Poisson transforms; it does not assert process-in-x convergence. Inspected verify.py checks exact multinomial and Gamma/Poisson finite formulas and is not substituted for asymptotic proof. Potential shortcut for gamma quantile requires a uniform moderate-deviation tail estimate; the stated m h²~2log n and h R_m→1 are consistent with the saddlepoint/gamma lower-tail asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castro-Marinho derives growing-multiplicity coupon cutoff profile, but the material checked does not establish the three-regime marked depth law.",
+          "Ilienko studies occupancy at other fixed-index/stopping regimes, not a deterministic near-cutoff with m/log n varying."
+        ],
+        "reasoning": "General occupancy/marked-Poisson schemes could imply a corollary if they include the same growing quota, time normalization and conditional depth scaling; no such implication was established from inspected theorem statements. Retain risk for broad occupancy results.",
+        "searches": [
+          "Castro-Marinho 2026 arXiv:2610.33199v1 cutoff profile",
+          "Ilienko 2020 arXiv:2002.00650 limit theorems extended coupon collector",
+          "Neal 2008 generalized coupon collector",
+          "Gnedin Janson Malinovsky 2025 stopped occupancy maxima"
+        ]
+      },
+      "checked_sources": [
+        "Long, Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem, arXiv:2604.25108v2, section 3.1, https://arxiv.org/html/2604.25108v2",
+        "Castro and Marinho, Cutoff profile for the coupon collector with many collections, arXiv:2610.33199v1, https://arxiv.org/html/2610.33199v1",
+        "Ilienko, Limit theorems in the extended coupon collector problem, arXiv:2002.00650, https://vmsta.org/journal/VMSTA/article/358/text",
+        "Gnedin, Janson, Malinovsky, Maximal Counts in the Stopped Occupancy Problem, arXiv:2506.20411",
+        "Resultary search query 1: top balanced nonuniform reset coupon rates 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed; no matching growing-quota conditional-depth theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unmarked Poisson(Z) contains no information on depth J conditional Z>0.",
+          "The claimed joint law requires Poisson lower-tail ratios (m-1)_(j-1)/u^(j-1) plus factorial estimates uniformly to scale j=O(1/h)."
+        ],
+        "reasoning": "Poisson count and Gumbel arrival times do not alone imply the quantitative mark law; even if a general marked rare event theorem proves independence, computing the mark limit is additional substance.",
+        "searches": [
+          "Long terminal-defect counts",
+          "Castro Marinho 2026 cutoff profile",
+          "Ilienko extended coupon collector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deficit depth D=(m-K)_+ corresponds to the lower Poisson occupancy tail; a marked Poisson process is equivalent to joint independent Poisson counts at each positive depth, and a geometric compound-Poisson shortfall.",
+          "Long section 3.1 counts terminal deficient types in the Poissonized collector but does not identify conditional missing-copy marks."
+        ],
+        "reasoning": "Compare joint mark Laplace functionals and missing-copy probabilities, not generic Gumbel cutoff names. The existing unmarked binomial/Poisson count does not determine the conditional geometric/exponential mark distribution.",
+        "searches": [
+          "Resultary: coupon collector growing multiplicities terminal deficient coupon missing copy deficit marked geometric exponential shortage count Poisson cutoff",
+          "Long 2026 arXiv:2604.25108v2 section 3.1 terminal defects"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top returned a balanced nonuniform reset coupon collector, which concerns restart hazards rather than the exact marked deficit-depth law.",
+          "No exact three-regime geometric/exponential mark table was identified in inspected sources."
+        ],
+        "reasoning": "This is an all-n scaling theorem rather than a finite table; prior terminal defect counts and numeric examples would not imply the conditional mark distribution.",
+        "searches": [
+          "Resultary targeted query 1",
+          "Long arXiv:2604.25108v2 Section 3.1",
+          "Ilienko arXiv:2002.00650"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the joint marked-shortage depth law and geometric/exponential phase diagram. Prior Long/Castro-Marinho cutoff/count results give the arrival or deficient-type count, not the conditional number of missing copies; relevant general marked Poisson methods do not automatically evaluate this distribution. An inaccessible or more general occupancy theorem could dominate, and full priority is not certified.",
+      "residual_risks": [
+        "Highly general occupancy-point-process theorems or full Castro-Marinho sections may imply the marked limit; abstract-only access is not a whole-paper noncoverage proof.",
+        "The gamma moderate-deviation/hazard uniformity is cited in the proof; independently formalizing all uniform tail errors would further strengthen C but current derivation is coherent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_STATE conditional shortage depth phase diagram",
+          "evidence": "The terminal defect statistic indicates whether a type remains under quota, not how many more copies are required.",
+          "identifier_or_url": "https://arxiv.org/html/2604.25108v2",
+          "material_read": "Full accessible HTML with Section 3.1 on terminal defects and Poissonized binomial count and related cutoff derivations",
+          "method": "Web HTML textual inspection",
+          "title": "Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem",
+          "trigger": "Same quota regime and exactly terminal deficient types"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": "Fixed collection-index/stopping results do not explicitly calculate growing-m near-cutoff conditional shortfall marks.",
+          "identifier_or_url": "https://vmsta.org/journal/VMSTA/article/358/text",
+          "material_read": "Accessible article mathematical theorem statements and limiting process sections",
+          "method": "Full-text HTML inspection of relevant results",
+          "title": "Limit theorems in the extended coupon collector problem",
+          "trigger": "Same extended collection/occupancy setting"
+        },
+        {
+          "assessment": "PLAUSIBLE_PARTIAL_COVERAGE_UNRESOLVED_PRIORITY_RISK",
+          "evidence": "Gumbel cutoff scaling is relevant; unexamined full theorem may contain equivalent marked occupancy consequences.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33199",
+          "material_read": "Abstract/accessible indexed cutoff profile, not claimed full-paper read",
+          "method": "Abstract and record inspection",
+          "title": "Cutoff profile for the coupon collector with many collections",
+          "trigger": "Same m/log n critical cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The missing-copy depth and aggregate shortage are natural operational statistics distinct from merely counting incomplete coupon classes. An explicit geometric-to-exponential mark transition and compound-Poisson transform across m/log n regimes yield nontrivial estimable threshold properties, rather than a nominal rephrasing of a Gumbel completion time.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Long, Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem, arXiv:2604.25108v2, section 3.1, https://arxiv.org/html/2604.25108v2",
+    "Castro and Marinho, Cutoff profile for the coupon collector with many collections, arXiv:2610.33199v1, https://arxiv.org/html/2610.33199v1",
+    "Ilienko, Limit theorems in the extended coupon collector problem, arXiv:2002.00650, https://vmsta.org/journal/VMSTA/article/358/text",
+    "Gnedin, Janson, Malinovsky, Maximal Counts in the Stopped Occupancy Problem, arXiv:2506.20411",
+    "Resultary search query 1: top balanced nonuniform reset coupon rates 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed; no matching growing-quota conditional-depth theorem"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed x, iid uniform types, convergent m/log n and deterministic near-cutoff draw count; no random stopping-state or temporal-process limit."
+  ],
+  "residual_risks": [
+    "Highly general occupancy-point-process theorems or full Castro-Marinho sections may imply the marked limit; abstract-only access is not a whole-paper noncoverage proof.",
+    "The gamma moderate-deviation/hazard uniformity is cited in the proof; independently formalizing all uniform tail errors would further strengthen C but current derivation is coherent."
+  ],
+  "schema_version": 1
+}
