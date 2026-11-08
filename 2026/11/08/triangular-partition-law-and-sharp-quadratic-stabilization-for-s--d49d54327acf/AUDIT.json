@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact bijective gap decomposition and one-to-one three-free-variable reconstruction prove the rational generating function. The unique maximal-degree profile and inequality for every other profile establish sharp polynomial onset and exact leading coefficient. Standalone direct enumeration (280 cases) and independent streaming DP (735 cases) agree, plus 240 polynomial and 40 sharp-boundary checks; infinite claim follows from the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruda Theorem 1.4: for any binary p with >=2 runs, eventually polynomial degree <= length(p)-runs(p)+1, with unspecified n threshold",
+        "Tian sections 4-5: occurrence formula and constructive/primitive-word algorithms, not an explicit all-k 001 threshold"
+      ],
+      "reasoning": "Bruda specializes to the statement that B001(n,k) eventually has degree at most two, which the candidate strictly sharpens via all n exact GF, precise coefficients, optimal n=k. Tian provides an algorithm but no read matching theorem; its general ability to compute instances does not supply the closed classification.",
+      "searches": [
+        "Bruda arXiv:2607.02578 Theorem 1.4 all k and pattern p",
+        "Tian arXiv:2507.03205 Sections 4-5 pattern enumeration algorithm",
+        "published-finding corpus query: Bruda 2607.02578 subsequence frequency pattern 001 exact all k triangular partitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.02578v1",
+      "arxiv:2306.07870v1",
+      "arxiv:2507.03205v1",
+      "published-finding corpus semantic-search records with actual queries listed in four comparison checks",
+      "Accessible prior-claims ledger including 010 frequency classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bruda establishes eventual polynomial degree <=2 but not exact coefficients nor minimal onset",
+        "Menon Singh covers k only up to four",
+        "The prior 010 formula has degree one and quadratic weights j(t-j), whereas 001 has triangular weights binom(j,2) and degree two"
+      ],
+      "reasoning": "The candidate implies the general eventual-degree statement for 001 but not conversely: an eventual degree bound does not specify coefficients or a sharp onset. Finite-frequency earlier formulas do not imply arbitrary k. Pattern010 is not a reversal/complement of 001 and its enumeration parameters and degree differ.",
+      "searches": [
+        "Bruda arXiv:2607.02578 Theorem 1.4 and proof lines 150-195 and 878-920",
+        "Menon Singh arXiv:2306.07870 full Section 3",
+        "Tian arXiv:2507.03205 full Sections 4-5",
+        "Own prior 010 claim 02da9ce0-1629-4d2f-9874-7638203d96f0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bruda 2026, arXiv:2607.02578v1, Theorem 1.4, general template polynomial but no triangular partition numerator in inspected manuscript",
+        "Menon–Singh arXiv:2306.07870, Section 3, explicit fixed low frequencies only"
+      ],
+      "reasoning": "Reversal/complementation identify 001 with 100,011,110, all included in one claim. No equivalent all-frequency sharp quadratic formula was located in inspected primary sources or published-finding corpus. Other pattern 010 is a different symmetry orbit and has lower eventual degree.",
+      "searches": [
+        "exact B(n,001,k) triangular number partitions quadratic polynomial sharp threshold n=k",
+        "binary scattered subsequence 001 frequency fixed k exact quadratic coefficient triangular partition",
+        "number of binary words with exactly k subsequences 001 partition into triangular numbers",
+        "\"001\" \"scattered subsequences\" \"exactly k\" generating function count",
+        "\"B_{001}\" \"triangular\" subsequence",
+        "\"scattered 001\" \"triangular numbers\" binary words generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Menon–Singh tables/expressions at fixed k<=4 are special cases already covered by the general all-k formula",
+        "Accessible distinct 010 claim ID 02da9ce0-1629-4d2f-9874-7638203d96f0",
+        "Closest published-finding corpus search hit 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 concerns universality index, not exact 001 frequency"
+      ],
+      "reasoning": "No exact database of the triangular numerator or optimal onset was found. Previously computed coefficients for k<=4 are acknowledged as earlier work, not used as proof of novelty. Histories contain no equivalent 001 formula.",
+      "searches": [
+        "published-finding corpus query: Menon Singh 2306.07870 B n 001 k polynomial sharp n k",
+        "published-finding corpus query: polynomial enumeration binary words exactly k scattered 001 subsequences triangular partition",
+        "Menon Singh arXiv:2306.07870 section 3 k<=4",
+        "Own accessible ledger p0001_g000032 claim comparison"
+      ]
+    },
+    "rationale": "Full primary-text comparisons: Bruda 2026 proves only unspecified-onset polynomiality and degree bound in general; Menon–Singh 2023 supply k<=4 counts; Tian 2025 develops counting algorithms. No examined publication provides the sharp n=k transition and triangular-number partition formula for every k>0. Distinct linear 010 classification in available history does not imply the quadratic 001 result. This is best-knowledge originality, with residual risks noted.",
+    "residual_risks": [
+      "A literature source not returned or indexed by the searches might independently derive the all-k triangular formula.",
+      "Bruda general template-counting algorithm could allow an implicit specialization; no explicit equal/stronger theorem identified in read text.",
+      "No independent external verification of priority or proof has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_EVENUTAL_POLYNOMIALITY_ONLY for 001; exact k-wide triangular profile, quadratic coefficients and n=k sharp threshold not identified",
+        "evidence": [
+          "https://www.researchgate.net/publication/408521949_Enumerating_binary_words_restricted_by_subsequence_frequency",
+          "Theorem 1.4; proof Sections 2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+        "material_read": "Accessible full-text ResearchGate rendition, introduction, Theorem 1.4, general skeleton proof, subsequence formulas and section scope; verified first public date from arXiv metadata",
+        "method": "Full-text reading and comparison of theorem quantifiers and formula consequences",
+        "title": "Enumerating binary words restricted by subsequence frequency",
+        "trigger": "Exact B_p(n,k) fixed positive frequency and general eventual degree"
+      },
+      {
+        "assessment": "KNOWN_SPECIAL_CASES k<=4; does not establish the proposed all-k formula",
+        "evidence": [
+          "arXiv:2306.07870 Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Full arXiv HTML text, definition and symmetry classes, Section 3 low-frequency enumeration, concluding scope",
+        "method": "Statement and implication comparison",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Known low-frequency exact formulas and symmetry equivalence"
+      },
+      {
+        "assessment": "GENERAL_ALGORITHMS without an identified equivalent exact all-k classification",
+        "evidence": [
+          "arXiv:2507.03205 Sections 4–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.03205",
+        "material_read": "Full arXiv HTML text introduction, Sections 4–5 occurrence formula and constructions",
+        "method": "Searched for explicit 001 all-k triangular polynomial and its exact length threshold; compared method with closed form",
+        "title": "Counting occurrences of a pattern in a binary word",
+        "trigger": "Possible general enumeration algorithm that might subsume the fixed 001 count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d49d5432-7acf-4ed0-b811-688d2d243362",
+  "value": {
+    "rationale": "A complete all-positive-frequency exact classification of the nonalternating length-three scattered binary pattern symmetry class, refining recently proved eventual quadraticity by a sharp length threshold and arithmetic leading coefficient equal to half a triangular-number partition function. The result determines natural enumeration data not given by the general degree theorem or low-frequency tables.",
+    "status": "PASS"
+  }
+}
