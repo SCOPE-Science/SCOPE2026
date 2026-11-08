@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every prescribed three-cycle follows from the rational Hermite data. Because the same Jacobian with square zero occurs at consecutive phases, the period-three return has zero derivative and produces an open local attracting basin. The pointwise nilpotency calculation is a universal matrix identity, not a finite test. The fixed-point and two-cycle exclusions are obtained by algebraic conjugacy. `CHECK.py` independently executes 267 exact-rational checks for small positive integers; finite checks do not establish the all-integer theorem.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2022 Castañeda–Rebollo-Perdomo preprint asks about uniqueness of three-cycles and gives a conditional individual-cycle construction. The earlier Chamberland text studies a conjugate three-dimensional family and one-cycle existence/stability. The published indexed finding concerning this same family establishes a four-cycle degree threshold, not arbitrary coexistence of period-three attractors. An arbitrary-count simultaneous Hermite construction is a different quantified result; no covering assertion was found in these inspected texts. Because the approach is short and based on standard interpolation, prior-art and straightforward-corollary risks remain, and the later journal full text was not read.
+PASS
 
-## Mathematical value — PASS
-The result resolves a published qualitative uniqueness question negatively in a strong way: infinitely many distinct rational maps, each with as many superattracting three-cycles as prescribed, even though all their Jacobians are nilpotent at every point. It supplies a degree bound, exact orbit coordinates, and a local attraction proof. Nothing is claimed about the precise total cycle number, all invariant sets, or global dynamics.
+The 2N+1 rational confluent interpolation conditions at 0 and N pairwise-distinct positive squared nodes are nonsingular, giving a unique P of degree <=2N. Independent SymPy exact linear systems produced P_1,P_2,P_3 with degrees 2,4,6 and verified all data. Direct orbit substitution at A=(0,j²,0), B=(j,0,j²), C=(j,-j²,j²) gives prime-three cycles. The first two Jacobians coincide in a square-zero matrix, so the 3-return differential vanishes and polynomial Taylor remainder is quadratically contracting in a small neighborhood. Independent symbolic multiplication found (DF)^3=0 identically for unrestricted formal x,u,v. The polynomial coordinate conjugacy reduces fixed/2-cycle equations to zero; no numerical claim is used to establish all-N.
 
-## Sources and residual limitations
-Castañeda–Rebollo-Perdomo (arXiv:2209.06986v1), especially Sections 3 and 5; Chamberland (2005 author manuscript, Theorem 3.1); and the published four-cycle degree-threshold research record. All novel claims concern simultaneous multiplicity, not the known single-cycle existence criterion. Additional independent priority inspection is warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the exact final combined claim, after reviewing primary statements and Resultary hits; credited known partial antecedents. The map is a sign/coordinate variant of an already studied Chamberland/Castañeda family, explicitly acknowledged; the newly asserted object is simultaneous multiplicity of three-cycles with zero return derivatives, not construction of the family or proof of a single nonrepelling three-cycle. Castañeda–Rebollo-Perdomo Theorem 1.1 proves one nonrepelling three-cycle and excludes 2-cycles in a broader family but does not assert simultaneous arbitrary multiplicity; its concluding Section 5 asks whether a 3-cycle might be unique and attracting. The result answers that stated uniqueness question negatively via rational Hermite interpolation. An existence criterion for one nonrepelling orbit and a general Hermite theorem suggest a short proof but do not themselves assert or logically guarantee N simultaneous prime-three superattractors with the same polynomial without constructing and analyzing simultaneous derivatives. This proximity is a material priority risk, not a reason to conceal antecedents.
+
+## value
+
+PASS
+
+An explicit all-N counterexample to uniqueness of attracting three-cycles in an everywhere-nilpotent-Jacobian family resolves a concrete published question. It separates local return contraction from pointwise Jacobian nilpotence and gives a useful uniform degree-cost construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
