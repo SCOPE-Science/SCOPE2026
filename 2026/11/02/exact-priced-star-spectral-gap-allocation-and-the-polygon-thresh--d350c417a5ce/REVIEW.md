@@ -1,19 +1,21 @@
-# Scientific assessment: exact priced-star spectral-gap allocation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-sum Rayleigh quotient for a weighted star is exactly the generalized eigenproblem \((\operatorname{diag}(w),I-\mathbf1\mathbf1^{\mathsf T}/(m+1))\). The target-gap constraint is therefore a diagonal positive-semidefinite majorant, with no approximation. Gram duality reduces its optimum to the minimum achievable resultant length of vectors having prescribed lengths \(\sqrt{c_i}\); the polygon inequality and the reverse triangle inequality establish that length exactly. The proposed primal edge rates satisfy the matrix inequality by a weighted Cauchy–Schwarz identity, and their cost equals the dual bound. Complementary slackness forces each individual optimal rate in both phases; the same quadratic identity proves the eigenspace dimension. These steps establish the full real-positive parameter range; the 13,940 finite exact-rational assertions are secondary consistency checks, not an infinite proof.
+PASS
 
-## Originality — PASS on material inspected, with residual risk
+Verified the zero-sum leaf-coordinate transformation Q=I-11^T/(m+1) and equivalence lambda_2>=1 iff diag(w)-Q is PSD. The SDP Gram dual with lengths sqrt(c_i) has minimal vector-sum norm Delta by polygon/triangle inequality. In the dominant regime the weighted Cauchy-Schwarz completion gives an explicit positive-semidefinite primal slack with exact cost C*. In both regimes zero dual gap and S(w)X=0 force every individual rate (X_ii=c_i>0 or rank-one vector with no zero coordinates). Kernel ranks yield multiplicities, including m=2. Independent eigenvalue/price checks on 1,089 root-price lists m=2..6 confirm the normalization. This numeric finite check is not the proof for arbitrary prices.
 
-Sun–Boyd–Xiao–Diaconis (2006) provide the unrestricted-graph, arbitrary-linear-cost SDP and its geometric dual, so the abstract optimization framework and dual correspondence are already known. Their worked examples are a small network, paths and cycles, not the explicit heterogeneous-price star rule. Göring–Helmberg–Wappler (2007, Example 6) give the uniform-price star, which our theorem explicitly excludes as independent novelty. Their 2008 arbitrary-edge-length formulation subsumes the optimization model, but the inspected structural theorems concern embedding dimensions and separators rather than exact cost-optimal conductances and the polygon phase transition. Ghosh–Boyd (2006) derive convex graph-family bounds and do not settle the fixed-star heterogeneous-price problem. Direct searches of published mathematical work and prior mathematical findings did not identify the same explicit all-price formula, uniqueness and multiplicity classification. Absence from these searches does not prove uniqueness in the literature. Residual risks include implicit derivability within the general 2006 SDP, specialist nonindexed graph-embedding literature and the uninspected full 1990 Fiedler tree article.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The price vector may be arbitrary and nonuniform, yet the optimizer is completely explicit for every positive budget. The polygon inequality is a sharp and unexpected no-reallocation region; across its boundary the same model moves into a unique nonuniform allocation and its gap eigenspace changes dimension. This supplies an exact design-and-sensitivity rule without numerical semidefinite optimization, with practical relevance to continuous-time diffusion and Markov rates. The result is not the earlier equal-price star calculation or a purely finite table.
+The unrestricted linear-cost graph Laplacian SDP and its maximum-variance Gram interpretation are established by Sun–Boyd–Xiao–Diaconis (2006); these are credited, not rediscovered. The published uniform-price star solution (Göring–Helmberg–Wappler, Example 6) is included as known. Their arbitrary edge-length embedding framework is more general as optimization machinery, but available results do not state or directly imply the explicit heterogeneously priced star polygon threshold and unique rates/multiplicity without a fresh optimization argument. Targeted Resultary comparison found adjacent spectral results rather than exact star rule. Best-of-knowledge PASS with risk from older specialized literature, notably Fiedler 1990 full text.
 
-## Scope and limitations
+## value
 
-Only stars, positive linear edge prices, and the unnormalized continuous-time Laplacian are covered. Publication-level novelty is not guaranteed by these comparisons; independent validation is pending. The self-review evaluated the mathematical claim, proof and reproducibility, not the completeness of all historical mathematics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp nontrivial polygon-inequality phase boundary says heterogeneous prices sometimes optimally produce identical conductances; beyond it the exact rates and spectral-gap multiplicity change. This is an all-price exact design theorem for a canonical network rather than a substitution or a finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

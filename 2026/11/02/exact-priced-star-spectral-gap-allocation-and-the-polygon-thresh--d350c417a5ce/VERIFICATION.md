@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem's all-parameter justification is the analytic primal/dual and Cauchy–Schwarz proof in `RESULT.md`; no finite enumeration certifies an infinite family.
+## correctness
 
-The accompanying standalone `verify_star_budget.py` uses Python's standard-library exact `fractions.Fraction` arithmetic. Replay with `python verify_star_budget.py`. Actual run output:
+PASS
 
-```
-VERIFY_OK 13940 exact-rational assertions
-```
+Verified the zero-sum leaf-coordinate transformation Q=I-11^T/(m+1) and equivalence lambda_2>=1 iff diag(w)-Q is PSD. The SDP Gram dual with lengths sqrt(c_i) has minimal vector-sum norm Delta by polygon/triangle inequality. In the dominant regime the weighted Cauchy-Schwarz completion gives an explicit positive-semidefinite primal slack with exact cost C*. In both regimes zero dual gap and S(w)X=0 force every individual rate (X_ii=c_i>0 or rank-one vector with no zero coordinates). Kernel ranks yield multiplicities, including m=2. Independent eigenvalue/price checks on 1,089 root-price lists m=2..6 confirm the normalization. This numeric finite check is not the proof for arbitrary prices.
 
-Checks include all lists of two, three or four spoke-lengths from \(\{1,2,3,4\}\) (their price vectors are the squares), additional deterministic seeded tests through seven leaves, exact positivity and cost of every proposed edge, every principal minor of the reduced semidefinite slack, the dominant-regime dual resultant and kernel identity, and direct zero-sum Rayleigh-form reconstruction. In the polygon regime, the analytic closed-polygon Gram witness supplies the dual optimality proof; no numerical polygon construction is relied upon.
+## originality
 
-The verifier contains no optimizer invocation and therefore does not independently search over all candidate edge rates. It tests necessary certificate identities for the explicit analytic solution. Completeness, uniqueness and the phase law follow from the written proof. Independent mathematical review has not been performed.
+PASS
+
+The unrestricted linear-cost graph Laplacian SDP and its maximum-variance Gram interpretation are established by Sun–Boyd–Xiao–Diaconis (2006); these are credited, not rediscovered. The published uniform-price star solution (Göring–Helmberg–Wappler, Example 6) is included as known. Their arbitrary edge-length embedding framework is more general as optimization machinery, but available results do not state or directly imply the explicit heterogeneously priced star polygon threshold and unique rates/multiplicity without a fresh optimization argument. Targeted Resultary comparison found adjacent spectral results rather than exact star rule. Best-of-knowledge PASS with risk from older specialized literature, notably Fiedler 1990 full text.
+
+## value
+
+PASS
+
+A sharp nontrivial polygon-inequality phase boundary says heterogeneous prices sometimes optimally produce identical conductances; beyond it the exact rates and spectral-gap multiplicity change. This is an all-price exact design theorem for a canonical network rather than a substitution or a finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
