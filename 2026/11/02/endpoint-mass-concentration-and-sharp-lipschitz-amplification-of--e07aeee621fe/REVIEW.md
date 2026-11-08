@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The limiting raw-averaging operator has the explicit endpoint values \(\max\{f_1,\bar f\}\) and \(\max\{f_n,\bar f\}\), with every interior value the maximum of its local equal-mass interval maximal average and the two endpoint samples. Interval extension yields a half-contraction on interior edges; the two boundary estimates give the exact upper bound \((n-1)\max\{a,b\}/(a+b)\). Oppositely oriented one-Lipschitz ramps meet its two branches. Intervals containing endpoint mass differ from their limits by at most \((n-1)(n-2)\varepsilon/\min\{a,b\}\), proving the stated factor-two Lipschitz error. For every fixed strictly positive weight vector the entire-path mean lies strictly above the minimum of nonconstant inputs, and compactness gives strict gain below \(n-1\). Direct interval extension and an endpoint indicator prove the uniform-mass value \(1/2\). The checker passed 17,682 exact-rational assertions. Its finite tests are not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Replacing |f| by f after positive translation does not change any interval maxima on nonnegative data; |.| cannot raise the input seminorm. Every interior-only interval always has ordinary arithmetic mean, endpoint-only intervals tend to their included endpoint sample, and full path tends to (a f1+b fn)/(a+b). Thus the limiting T0 has interior max{f1,fn,Uf(i)} and endpoint max{f1,mean}, max{fn,mean}. Extending one unweighted interval across one adjacent vertex bounds interior output edge differences by input-Lip/2. Left boundary edge is <=max{(n-1)/2,a(n-1)/(a+b)}, with reflected right bound max{(n-1)/2,b(n-1)/(a+b)}; the greater mass ratio is >=1/2, giving R=(n-1)*max(a,b)/(a+b). Opposite affine ramps attain each branch. For positive epsilon, interval average differs from endpoint-only limit by at most delta=(n-1)(n-2)epsilon/min(a,b) after Lip normalization; maximalization preserves sup error delta and edge differences change by <=2 delta. For fixed arbitrary positive w, every output >= strict whole-path average > input minimum, while <= max input; compact unit-Lip quotient sphere gives K<n-1, and concentrated endpoints approach n-1. Uniform extension gives K=1/2, endpoint spike attains. n=2 has no interior and zero epsilon error.
 
-The closest inspected results are Buckley (1999), on qualitative Hölder/Lipschitz behavior in metric-measure spaces; Aldaz–Colzani–Pérez Lázaro (arXiv:1009.1359), on sharp uncentered modulus preservation for Lebesgue measure; Bober–Carneiro–Hughes–Pierce (arXiv:1005.3030), on counting-measure total variation; and Grafakos–Kinnunen, on weak and strong type constants for general measures. Neither their inspected statements nor relevant searched published summaries imply this weighted finite-path endpoint-concentration formula, the quantitative rate, or the exact fixed-weight nonattainment boundary. A prior calculation under unindexed terminology remains a real priority risk; search absence does not establish uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A standard uncentered interval maximal operator sharpens the path Lipschitz seminorm by a factor of \(1/2\) at uniform mass, but endpoint-concentrated positive masses make the optimal amplification proportional to path length. The precise two-endpoint balance, quantitative convergence bound, and global unattained supremum explain a concrete stability failure caused solely by concentration of vertex mass. This supplies a parameterized boundary phenomenon for discrete weighted maximal regularity, not an isolated numerical constant.
+Inspected uncentered maximal Lipschitz results for Lebesgue intervals, discrete total variation for counting measure, and qualitative regularity with general measures. None of the relevant theorems implies endpoint-degenerate weighted finite-path Lipschitz sharp constants: both the norm and averaging measure differ. Specialist unindexed atomic regularity calculations remain possible.
 
-## Limitations and closest literature
+## value
 
-The limiting operator is defined through strictly positive interior measures and cannot simply be replaced by a zero-mass maximal operator. Fixed positive interior weights are not individually classified. No claim is made for centered graph-ball maximal operators, total variation, or weighted Sobolev spaces. Publication priority remains qualified. The oldest precisely dated available copy inspected of Buckley's 1999 article is a 2009-10-21 repository deposit; this date is not asserted to be the first-ever publication date.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp loss of the uniform-mass half-contraction under endpoint mass concentration is a natural regularity stability phenomenon for discrete maximal operators. The exact balance-dependent limiting amplification, quantitative epsilon control and unattained mass-uniform linear growth isolate a meaningful obstruction, not a random constant or pure unweighted restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
