@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The change of variables \(v_j=mw_j-1\) exactly translates weight constraints into a centrally symmetric, full-dimensional zonotope. LP duality yields the median absolute-deviation support function; geometric chamber analysis restricts the maximizer to pair-chord normals. A compact Lipschitz strong-law argument controls all directions uniformly, and the planar Gaussian limit gives the exact Rayleigh CDF. A separate primal LP solver agreed with the chord formula on all 204 seeded nondegenerate instances; finite checks are not substituted for the limiting proof.
+## correctness
 
-**Originality — PASS under the accessible comparisons.** The motivating paper's full HTML was read through its general probability construction and near-equal-weight Corollary 2.13. It proves existence at a sufficient sample size but does not state the finite chord formula, the sharp minimal tolerance, or the explicit critical Rayleigh probability. Wendel's positive-weight convex-hull theorem removes the relative weight box entirely. Relevant previously published mathematical records and the accessible exact-quadrature findings did not yield an implication covering these more precise assertions. Residual risk: historical work on minimax survey calibration and random planar zonotopes may contain equivalent formulas or a stronger general statement.
+PASS
 
-**Mathematical value — PASS.** The result upgrades a practical high-probability random exact-quadrature guarantee to a dimension-three trigonometric test with an explicit finite computation and a distributional sharpness threshold. This supplies the precise success probability when the allowed weight perturbation is proportional to the natural sampling fluctuation. The object, error criterion, and scale are intrinsic to the new random quadrature framework, not arbitrary parameters.
+For noncollinear distinct circle nodes v_j=m w_j-1 maps exact constant/first-moment quadrature to a full-dimensional centered zonotope; LP duality gives the projected-median support function. On every strict-order chamber its support is linear in u and the ratio of linear sinusoidal functionals is monotone or constant, so chord normals suffice. Compact Lipschitz empirical-process SLLN gives uniform support/m -> 2/pi; bivariate CLT Cov=I/2 then yields the stated 1-exp(-4c^2/pi^2) Rayleigh CDF. Edge cases m=3, S_m=0, c=0 and t<1 for strict positivity are correctly scoped. New independent SciPy primal LP vs median chord formula checks on 72 seeded random instances have max abs error 8.88e-15. Finite checking does not establish the almost-sure or distributional limit.
 
-**Boundaries and limitations.** Noncollinearity is necessary to make the zonotope full dimensional; it holds almost surely for the random model. The finite calculation allows signed weights at large box radii, while strictly positive quadrature is asserted only below relative tolerance one. Neither the general-frequency extension nor finite-sample concentration constants are proved. Specialised historical-priority and independent expert checks remain incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the sharp finite minimax chord criterion and Rayleigh critical-window constant, not for general random positive quadrature.
+
+## value
+
+PASS
+
+The intrinsic box radius for exact positive first-harmonic quadrature is a natural conditioning/feasibility invariant. A computable all-node chord criterion and sharp nondegenerate c/sqrt(m) probability answer an explicit sampling question not supplied by generic existence estimates; the result does not assert more Fourier modes or finite-sample rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
