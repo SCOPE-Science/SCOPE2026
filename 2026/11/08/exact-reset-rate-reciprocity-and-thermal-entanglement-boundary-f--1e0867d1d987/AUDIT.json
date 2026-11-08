@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For r>0, the Lindblad-plus-reset evolution is trace-contracting toward a unique stationary resolvent. Projecting the stationary equation onto the even parity sector yields exactly z=r(r+Gamma)(a-d)/D and imaginary coherence y=Jr(a-d)/D; odd populations are reset b,c. Wootters X-state concurrence gives C(r)=2[J|a-d|r/D-sqrt(bc)]_+. Its sole coherence critical point is r=2J from derivative numerator 4J^2-r^2, the rate interval follows from an exact quadratic with product 4J^2, and the symmetric Gibbs population threshold follows from a strictly monotone quadratic equation. Boundary h=0, delta=0 and tangency are handled. CHECK.py passed 273 assertions, including independent 16x16 stationary solves and spin-flip spectra; calculations are diagnostics rather than infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartmann, Duer and Briegel (2007) define independent single-site reset maps in section 2.3, instead of joint replacement by one two-qubit diagonal density matrix. In sections 2.4.2 and 2.4.4 they already describe noisy entanglement and finite upper thresholds for imperfect mixed single-site resets.",
+        "Murauer et al. (2026) use Bernoulli resets and finite-step unitary transverse-field Ising dynamics; discrete phase resonances are their central objects.",
+        "Rose et al. (2018) supply stationary-state spectral formulas for Lindblad plus reset, but not all-rate concurrence window endpoints and the local product-preparation critical temperature."
+      ],
+      "reasoning": "The broad qualitative claims (resetting generates entanglement; mixed preparations create finite windows) are covered and deliberately not asserted as new. No inspected more general theorem states an implication yielding this exact parameter-specific geometric endpoint law, thermal cutoff and noise-independent optimizer without a further model-specific calculation. Later discrete-time results have a different time/frequency mechanism.",
+      "searches": [
+        "two qubit anisotropic XY pair creation local dephasing resetting r_opt 2J geometric mean entanglement rate window",
+        "Generating Entanglement by Quantum Resetting Kulkarni Majumdar 2023 mixed thermal reset local dephasing complete concurrence optimization",
+        "optimum reset rate independent of dephasing for two qubits global stochastic reset pair creation entanglement concurrence",
+        "arXiv:quant-ph/0703138 sections 2.3, 2.4, Appendix B",
+        "arXiv:2610.40638 sections II-IV"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.07485",
+      "https://arxiv.org/abs/1806.01298",
+      "https://arxiv.org/abs/quant-ph/0703138",
+      "https://arxiv.org/abs/2610.40638",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=81P10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general renewal/resolvent principle is implied by Rose (2018) and Kulkarni--Majumdar (2023); it is not included in the novelty claim.",
+        "Hartmann et al. (2007) already show a qualitative finite mixed-reset entanglement window; their reset superoperator is a *sum of partial-trace replacement maps*, not the joint replacement map of this model.",
+        "For the present full master equation the pair-conversion invariant block has coherence J*r*(a-d)/(r*(r+Gamma)+4*J*J), giving the derivative factor (4*J*J-r*r) and the thermal threshold; neither compared specialization prints these identities for this model."
+      ],
+      "reasoning": "The earlier general stationary-state representation implies that the answer is in principle computable, and the current exact matrix is an application of that known representation. The claimed new mathematical content is the model-specific global classification of the concurrence support, a sharp reciprocal endpoint identity and its unique optimum for all dephasing rates and separable diagonal preparations, including an exact local Gibbs population threshold. There is no priority claim for the general structure of resets, intermediate-rate maxima, positivity of mixed states, or the Wootters formula.",
+      "searches": [
+        "arXiv:2307.07485 Hamiltonian eq. (18) and concurrence section III.3",
+        "arXiv:1806.01298 stationary state eq. (18), quantum reset sections V.1 and V.3",
+        "arXiv:quant-ph/0703138 local reset eq. (2.3) and sections 2.4.2--2.4.4",
+        "arXiv:2610.40638 reset protocol section II and concurrence section IV"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kulkarni--Majumdar (2023) eqs. (3)--(4) give the closed-system Laplace reset average; their two-qubit Hamiltonian in eq. (18) is transverse-field Ising and the reset preparation is the pure down-down vector.",
+        "Rose et al. (2018) eq. (18) gives an arbitrary generator stationary mode/resolvent expression. The stationary resolvent in the new proof is not claimed as novel."
+      ],
+      "reasoning": "The prior general reset operator is a broader representation theorem, not an explicit equivalence to the stated Wootters concurrence sign condition and global rate optimum under the present dephasing generator. The prior TFI specialization is not unitarily equivalent under local changes of basis to this pair-flip-only Hamiltonian together with the same local Z dephasing and arbitrary diagonal joint reset: the TFI includes single-qubit transverse fields that couple odd/even blocks. No exact equivalent formulation of the complete rate/thermal thresholds was identified.",
+      "searches": [
+        "global Poisson resetting to mixed diagonal separable two qubit thermal state pair flip Hamiltonian dephasing exact concurrence entanglement threshold",
+        "two qubit anisotropic XY pair creation local dephasing resetting r_opt 2J geometric mean entanglement rate window",
+        "global two-qubit Poisson resets to mixed diagonal product density matrix with local sigma z dephasing: exact concurrence support in reset rate, reciprocal endpoints and unique rate twice the coherent coupling",
+        "arXiv:2307.07485 sections II, III.3, IV",
+        "arXiv:1806.01298 sections III.2, V.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searchable published scientific summaries include an exact mixed-state death-birth ordering for two cavity modes under amplitude damping and an anisotropic XY--DM *equilibrium* thermal-concurrence phase diagram. Both study different dynamics and are not tables for a globally reset pair-conversion model.",
+        "The inspected primary source concurrence plots for pure transverse-field Ising (Kulkarni--Majumdar, Figs. 5--7) do not tabulate the present joint mixed-reset dephasing formula; the 2007 negativity formula is for per-qubit resetting and a different interaction."
+      ],
+      "reasoning": "No exact database/table row or published expression for the 3-parameter continuous-time stationary entanglement window and thermal preparation threshold was located. This is a bounded search result rather than evidence of uniqueness; the specific historical result statements were compared for implication, not only for their titles.",
+      "searches": [
+        "global Poisson resetting to mixed diagonal separable two qubit thermal state pair flip Hamiltonian dephasing exact concurrence entanglement threshold",
+        "two qubit anisotropic XY pair creation local dephasing resetting r_opt 2J geometric mean entanglement rate window",
+        "Generating Entanglement by Quantum Resetting Kulkarni Majumdar 2023 mixed thermal reset local dephasing complete concurrence optimization",
+        "global two-qubit Poisson resets to mixed diagonal product density matrix with local sigma z dephasing: exact concurrence support in reset rate, reciprocal endpoints and unique rate twice the coherent coupling",
+        "closed-form thermal preparation threshold for entanglement generated by pair-flip XY Hamiltonian with stochastic resetting in presence of dephasing",
+        "optimum reset rate independent of dephasing for two qubits global stochastic reset pair creation entanglement concurrence",
+        "MSC2020 81P42 quantum entanglement measures concurrence separability",
+        "arXiv:2307.07485 eq. (49) concurrence",
+        "arXiv:quant-ph/0703138 eq. (9) negativity"
+      ]
+    },
+    "rationale": "The claim is the exact combined all-parameter stationary-concurrence threshold, reciprocal two-rate boundaries, dephasing-independent unique maximizing rate and thermal-preparation cutoff for *joint continuous-time Poisson resetting* under coherent pair-conversion and independent local phase noise. The general resolvent and the qualitative fact of entanglement at intermediate resetting rates are old and are expressly excluded as standalone novelty. The nearest detailed published text treats respectively pure-reset transverse-field Ising (Kulkarni--Majumdar 2023), general quantum stationary resolvents without concurrence optimization (Rose et al. 2018), and *individual local* qubit resetting with mixed-state finite-rate windows (Hartmann--Duer--Briegel 2007). Their differing generators and quantifiers do not establish the three sharp exact identities together. A later discrete-time pure-reset study does not cover this continuous-time mixed-reset phase diagram. Actual query comparisons and a complete accessible local claim-history search did not identify the precise classification. This is a bounded, not exhaustive, publication-priority judgment; potential unindexed equivalent specializations are an explicit risk.",
+    "residual_risks": [
+      "A preprint, unpublished appendix, numerical parameter table, or unindexed equivalent XY pair-conversion special case could have derived the same precise rate/thermal thresholds.",
+      "General reset spectral theorems cover the stationary resolvent and could make this finite-dimensional specialization comparatively short; the specific classification, rather than a new universal reset theorem, is the assessed addition.",
+      "The analytical result is confined to a two-qubit, diagonal joint-reset and Pauli-Z phase-noise sector; different reset mechanisms may have different optimal rates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the reset-concurrence baseline but not the dephased diagonal-mixed-reset pair-conversion exact phase diagram",
+        "evidence": [
+          "Eq. (18) has -J Z1 Z2 + Omega(X1+X2)/2; the reset is pure down-down; section III.3 reports numerically evaluated nonmonotone concurrence, not the exact thermal boundary."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.07485",
+        "material_read": "Open-access HTML full text: general stationary renewal formulas and eqs. (1)--(4), explicit transverse-field Ising Hamiltonian eq. (18), section III.3 concurrence eq. (49) and Figs. 5--7, conclusions and stated pure reset assumption",
+        "method": "Full-text HTML inspection of the relevant equations, results and model scope",
+        "title": "Generating Entanglement by Quantum Resetting",
+        "trigger": "Same global continuous-time Poisson reset architecture and two-qubit concurrence"
+      },
+      {
+        "assessment": "Provides the established general stationary-resolvent part of the current proof, but no analyzed concurrence optimization for the present pair-conversion preparation/noise family",
+        "evidence": [
+          "Eq. (18) is a general stationary vector mode sum; section V.3 studies Ising magnetization and metastability under reset, not a two-qubit mixed thermal concurrence threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+        "material_read": "Open-access HTML full text: sections III.1--III.2 including exact stationary spectral formula eq. (18), section V.1 general open-quantum resetting, section V.3 open transverse-field Ising example and conclusion",
+        "method": "Full-text HTML inspection of stationary theorem and quantum applications",
+        "title": "Spectral properties of simple classical and quantum reset processes",
+        "trigger": "Potential broader resolvent/Markovian theorem covering stationary reset states"
+      },
+      {
+        "assessment": "The qualitative mixed-reset finite-window effect is prior; joint two-qubit Poisson replacement differs from its sum of individual single-qubit resets; no matching sharp optimum/thermal formula in inspected results",
+        "evidence": [
+          "Their reset superoperator sums independent partial-trace local replacements; Fig. 8 explicitly shows finite upper entanglement threshold under imperfect mixed preparations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0703138",
+        "material_read": "Open-access HTML full text: sections 2.1 and 2.3--2.4, including local reset map, dephasing eq. (5), exact negativity example eq. (9), generic XYZ and imperfect mixed-state discussion in section 2.4.4, relevant Appendix B formulas",
+        "method": "Full-text HTML inspection and comparison of reset superoperators, Hamiltonians, observables, and noise channels",
+        "title": "Entanglement and its dynamics in open, dissipative systems",
+        "trigger": "Closest earlier two-qubit noisy entanglement and imperfect reset entanglement windows"
+      },
+      {
+        "assessment": "Discrete-step Bernoulli reset of pure states under transverse-field Ising unitary, not the asserted continuous-time open Lindblad pair-conversion model with diagonal mixed joint reset",
+        "evidence": [
+          "Each time step applies a fixed unitary or pure-state reset with probability p; the main closed forms involve phase matching and sampled-age entropies."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.40638",
+        "material_read": "Open-access HTML full text: protocol in sections I--II, spectral-resonance and reset-state selection in section III, concurrence and observed noise in section IV, relevant Appendix B description",
+        "method": "Full-text HTML inspection of the discrete-time protocol and model",
+        "title": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+        "trigger": "More recent plausible same research programme of stationary two-qubit concurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e0867d1-d987-4d89-a863-6e0ef3524c6d",
+  "value": {
+    "rationale": "The coupled effects of diagonal mixed reset preparations and independent local dephasing are natural bottlenecks in steady-state two-qubit entanglement generation. The result does not merely show an intermediate optimum: it gives necessary and sufficient all-rate entanglement feasibility, the full exact viable-rate interval, reciprocal onset/extinction rates with geometric center fixed at 2J independent of dephasing, a sharp preparation-temperature cutoff, and a universal concurrence ceiling of 1/2. These form a usable exact design/benchmark classification for a motivated model; the earlier qualitative phenomenon and general resolvent identities are acknowledged as prior.",
+    "status": "PASS"
+  }
+}
