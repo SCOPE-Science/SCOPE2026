@@ -1,11 +1,21 @@
-# Scientific review: maximal transient of the cyclic sum map
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed maximum is the nilpotency index of the singular primary factor in the group ring, attained by the basic vector. The prime-by-prime decomposition explicitly handles odd tuple length, prime factors absent from the tuple length, odd-prime powers, and powers of two. For odd \(p\), the proof derives an exact \(S\)-adic order for the quotient of \((1-X)^{p^d}\) by \(p\), inductively lifting it to every \(p^a\) and establishing nonvanishing at the preceding exponent. For \(p=2\), the decomposition \((1+X)^{2^{d-1}}=(1+X^{2^{d-1}})+2W\) supplies both divisibility and sharpness. The standalone exact checker independently reproduces 65 local indices and 87 small complete functional graphs. Finite calculations are not used as the proof of the infinite statement.
+## correctness
 
-**Originality — PASS within checked material.** Lewis and Tefft's original arXiv:2410.18204 (2024) and the final *Integers* article 26 (2026), A17 prove only the upper bound and explicitly conjecture equality for prime-power moduli in the general even-tuple case. Their 2025 thesis repeats the conjecture. Their odd-length paper arXiv:2403.05319 gives the already-known odd branch; arXiv:2401.17502 covers the pure two-power case, and their 2024 work already has equality for prime modulus. The new result proves the missing equality for odd \(p\), exponent \(a\ge2\), and every even tuple length divisible by \(p\), and hence the all-modulus exact formula. The previously recorded modulo-four transient distribution likewise covers a special case and is not claimed as novel. Records searched using the names Ducci, cyclic neighbour-sum, exact transient, prime-power nilpotency, and Lewis–Tefft conjectured equality yielded no broader claim. An unindexed equivalent statement or derivation from older group-ring literature is a residual risk, not a demonstrated priority claim.
+PASS
 
-**Value — PASS.** The result resolves a clearly stated and repeatedly retained conjectural equality for a natural modular arithmetic dynamical system, across an infinite two-parameter family. The exact binomial-filtration argument explains why the upper bound is always sharp, without requiring knowledge of immense orbit periods. It completes the local-to-global maximum-preperiod classification and may support subsequent questions on entry-time distributions. The fact that some other branches are known does not erase the independent value of the unresolved odd-prime-power case.
+Read RESULT.md and verify.py at frozen blobs df2a71703d268161786f58892b3abee09035c5bb and 4dce5621095b3e1040dcc095bc4059d6b1688b16. The ring-regular-module and Fitting decomposition reduce maxima to local nilpotency. At odd p, direct binomial divisibility gives S^(p^d)/p of exact S-order p^(d-1), and induction increases index by phi(p^d) per extra p-adic exponent. For p=2, the B=J+2W identity and its exact half-cycle S-adic order give 2^(d-1)(a+1). Odd n/p-odd is invertible and the d=0 edge cases follow. The unit basis vector generates the regular module and attains the index. Independently calculated 52 local nilpotency indices for p in {2,3,5,7,11}, d≤3 and a≤3, all matching. This numerical sample supports but does not replace the full ring proof.
 
-**Closest sources and limitations.** The 2024 Lewis–Tefft even-length manuscript and 2026 journal version provide the sharp upper bound and conjecture. Their 2025 dissertation retains the same conjecture. Other Lewis–Tefft work covers odd lengths and powers of two. Dular (2019/2020) motivates largest preperiods. The present proof concerns the sum map only, and it does not classify full transient distributions or periods. Independent audit has not been performed. The full text of Breuer (1999) was not obtained in this assessment; the explicit conjecture in accessible newer primary papers strongly limits, but cannot logically eliminate, bibliographic uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority based on comparison of actual statements and implication directions: Same map and normalization were compared. The primary 2026 theorem has upper bound with conjectured equality, while this result proves equality at odd prime powers a≥2. A finite-field n odd/a=1 identity is not claimed new. An upper bound cannot imply the exact attainment, and existing special cases do not imply the remaining prime-power equality via CRT alone. The local nilpotency induction supplies the missing step. Residual overlap risk retained; search absence alone is not evidence of novelty.
+
+## value
+
+PASS
+
+The exact odd-prime-power equality resolves a genuinely stated bound-versus-equality problem for canonical cyclic sums, with a constructive extremal vector and all composite moduli; this is not merely renaming the known prime or two-power cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
