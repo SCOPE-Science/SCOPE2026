@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete, executable certificate is `verify_herschel.py`; the actual recorded output of its successful execution is `verification_output.txt`. The program is self-contained and requires only the Python standard library.
+## correctness
 
-The graph is supplied as an exact eighteen-edge labeled list. Enumerating all matchings yields \(751\) nonempty simplices, with dimension counts \((18,111,280,270,72)\). Greedy edge toggles generate \(367\) matched face pairs and critical-cell counts \((c_0,c_2,c_3)=(1,2,14)\). The full \(2502\)-relation directed Hasse graph is acyclic, checked by topological sorting. Sign-aware gradient-path projection gives the listed integer Morse matrix; a determinant \(-1\) minor, not modular rank alone, establishes integral cancellations. All three auxiliary full-chain modular boundary-rank calculations agree.
+PASS
 
-The program enumerates exactly \(12\) graph automorphisms by adjacency-preserving backtracking and checks explicit generators of \(D_6\). Signed simplex fixed-point traces for every automorphism give the two stated six-element character lists; exact character inner products yield \((1,0,0,1,3,2)\). Averaging gives one invariant rational homology generator, in degree three.
+The frozen RESULT.md defines the graph by its 18 labeled edges and the ordinary matching complex, not the graph independence complex. Independent reconstruction enumerated exactly 751 nonempty faces (18,111,280,270,72), 367 disjoint toggle pairs, acyclic full 2502-cover Hasse orientation, and critical cells 1 in dimension 0, 2 in dimension 2, 14 in dimension 3. Independently recomputed signed integral Morse differential is 2x14 with columns (1,0),(-1,1),(-1,1),(0,-1),(-1,1),(0,0),(1,-1),(1,0),(1,0),(-1,0),(-1,0),(0,-1),(-1,0),(0,0), containing a unimodular 2x2 minor. As the 2-skeleton is two 2-spheres and pi_2 is Z^2, primitive attaching degrees cancel both 2-cells to give wedge of twelve 3-spheres. Independently enumerated all 12 graph automorphisms and signed fixed-simplex Lefschetz sums, recovering D6 rotation traces (12,1,-3,-2,-3,1) and reflection traces (0,2,0,2,0,2), whose trivial multiplicity is 1; rational transfer for finite quotients applies. This verifies integral homotopy and the rational (not integral-lattice) equivariant claim.
 
-The proof is specific to this complex; finite examples are not used to extrapolate an infinite-family theorem. A matching complex is distinguished throughout from the independence complex of the original graph. Self-review confirms the documented scientific argument and computations; independent audit and external priority verification have not been performed.
+## originality
+
+PASS
+
+No checked theorem for matching complexes of paths, cycles, homology manifolds, outerplanar graphs or other polyhedral graphs determines this named Herschel graph ordinary edge-matching wedge and full D6 character; compare actual face definition and group action, not matching counts alone.
+
+## value
+
+PASS
+
+Herschel is the canonical 11-vertex non-Hamiltonian 3-connected planar bipartite polyhedral graph, with a nontrivial D6 action; obtaining an integral homotopy decomposition together with the entire symmetry character and rank-one invariant orbit homology is a precise, reusable distinction between integral topology and rational equivariance. The 12-sphere count and full character are not routine substitutions from general matching-complex connectivity estimates; their integral primitive attaching map and signs are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
