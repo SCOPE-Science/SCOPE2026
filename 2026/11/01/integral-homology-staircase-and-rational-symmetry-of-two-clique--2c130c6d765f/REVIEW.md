@@ -1,12 +1,21 @@
-# Scientific assessment: two-clique-sum clique-free homology
+# Independent mathematical audit
 
-## Correctness — PASS
-Every clique belongs to one of the two maximal graph cliques; hence both cardinality constraints are necessary and sufficient for a face. The number-of-common-vertices filtration gives relative augmented chains as shifted joins of two uniform skeletons. Their integral reduced homology is the exterior augmentation lattice, concentrated in one degree; the filtration spectral sequence has no possible differential because its target columns lie in strictly higher total degrees than a homological differential permits. Free integral associated-graded groups give free integral homology. The group action respects the filtration, so the rational module formula follows from Maschke semisimplicity. Eleven mod-two cases, four Smith-form cases, and 492 trace checks agreed. The tests alone are not proofs.
+## correctness
 
-## Originality — PASS, subject to literature limitations
-The leading 2026 paper proves shellability criteria for clique-free complexes but not an integral homology classification for two maximal cliques sharing at least two vertices. The author-posted 2019 paper provides algebraic and shellability results, not the present full Betti staircase. The one-vertex-overlap case is already covered by earlier work, so it is excluded from the novelty assertion. Actual semantic-index queries sought clique-sum, overlapping-cardinality and binomial-formula aliases; their closest returned records described different graph complexes, while the most relevant earlier one-vertex case does not imply the nontrivial clique-overlap formula. Inaccessible or unindexed equivalent treatments remain a possible risk.
+PASS
 
-## Value — PASS
-A chordal graph with only two maximal cliques is the first natural setting beyond disjoint blocks and a one-vertex join. The result determines integral torsion-freeness and every exact Betti number for all parameters, and it explains why increasing the shared clique creates a full staircase of \(t\) different nonzero homology dimensions. The rational symmetry character detects further information invisible in Betti ranks. The calculation neither relies on an assumed shelling nor merely recomputes a known table. It does not claim an unsupported homotopy classification.
+PASS: The face inequalities are |F∩A|+|F∩C|<=k and |F∩B|+|F∩C|<=k. The filtration by j=|F∩C| has associated relative chain groups, for fixed J⊂C of size j, the join of (k-j-1)-skeleta on A and B shifted by j, including augmented degree -1 conventions. Each simplex skeleton carries exactly ∧^(k-j) ker(sum) in degree k-j-1, giving the join group in degree 2(k-j)-1 and filtration total degree d_j=2k-j-1. Every spectral sequence differential lowers total homological degree and moves j to j-r, where the only target degree d_j+r is impossible, so collapse is integral for all parameters. Free extensions split as abelian groups. The sign of permutations on oriented common subset J and wedge augmentation action produce the claimed associated-graded and rational splitting. Independently enumerated mod2 homology for seven small/boundary parameter choices, including (3,3,2,3)=(1,8,1) and (4,4,3,4)=(1,27,27,1); these are corroboration rather than the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: Clique-free-complex shellability and clique-ideal papers do not give the graded integral Betti product or the rational action in this overlapping-clique family. The common-clique size s>=2 is not the one-vertex block graph special case. This result derives an all-parameter exact spectral-sequence staircase with torsion-free groups and a nontrivial symmetry refinement; no dominating published theorem was identified in the searched sources, with unindexed equivalent algebraic formulations as residual risk.
+
+## value
+
+PASS
+
+PASS: Clique-sums are a standard structural graph operation; how forbidden cliques propagate through nontrivial intersections is natural. The formula gives a complete consecutive-degree staircase and integral/rational symmetry information for an infinite family, beyond a routine one-vertex gluing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
