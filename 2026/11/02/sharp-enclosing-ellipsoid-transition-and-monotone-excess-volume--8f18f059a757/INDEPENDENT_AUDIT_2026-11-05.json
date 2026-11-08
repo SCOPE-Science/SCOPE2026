@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:19:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original optimal ellipsoid formula and transition are mathematically correct but already in Todd (1982). The final corrected claim explicitly imports that known result as a premise. For inactive caps the volume ratio strictly grows because the ellipsoid stays unit and cap volume shrinks. For active caps, h=1−a, q=(d−1)/2, the ratio is a positive dimension constant times F(h)=(2−h)^q/[∫_0^1 y^q(2−hy)^qdy]; derivative of logF is q times a strict negative weighted average inequality y/(2−hy)<1/(2−h). Endpoint a→1 gives (d+1)/2 multiplying the constant; endpoint a→−1 gives 1. Fixed a>0 Laplace asymptotics give √(2πd)a/(1+a), and a=τ/√d Gaussian-marginal convergence gives e^{−max(τ,0)^2/2}/Phi_bar(τ). Boundaries include d=2, τ=0; independent quadrature grid corroborated d=2,3,7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Todd dominates the complete optimizer/transition; Ivanov–Naszódi gives broader contact optimality conditions."
+        ],
+        "reasoning": "The repaired quantitative excess ratio is a consequence of the known optimizer plus additional integration/differentiation, not merely a restatement of Todd. It might nevertheless be a low-effort implicit corollary; retain priority and value risk.",
+        "searches": [
+          "Todd 1982 minimum volume ellipsoid containing part of given ellipsoid",
+          "Ivanov Naszódi arXiv:2212.11781",
+          "Resultary minimum volume enclosing ellipsoid truncated Euclidean unit ball cap threshold volume ratio"
+        ]
+      },
+      "checked_sources": [
+        "Todd (1982), Mathematics of Operations Research 7(2),253–261, DOI:10.1287/moor.7.2.253",
+        "RESULT.md original blob 32936f31a0a8f9ec7f51f091911ece3a8f37d524",
+        "verify_cap_lowner.py blob 187bb614c0f3a533d8e6f75ec6ff17d557ca7483",
+        "New complete replacement RESULT.md / AUDIT.json / REVIEW.md / SLOGAN.txt / METADATA.json in repair operations",
+        "Ivanov–Naszódi arXiv:2212.11781",
+        "MathStackExchange 5040265",
+        "Resultary semantic query minimum volume enclosing ellipsoid truncated Euclidean unit ball cap threshold volume ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Todd exactly covers one-sided-cut optimizer; half-ball MSE specializes it at a=0. Repaired proof adds strict derivative inequality and Gaussian asymptotic."
+        ],
+        "reasoning": "The original strong headline was known and cannot PASS unchanged. The corrected mathematical statement requires integrating known semiaxes and establishing strict monotonicity and limits, which is fully supplied as corrected scientific text.",
+        "searches": [
+          "Todd 1982 Proposition 1 eq 2.6-2.7 section 3",
+          "Mathematics StackExchange 5040265 hemisphere 2025",
+          "Ivanov Naszódi 2022 functional John Löwner"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Todd Proposition 1 and §3 solve the enclosing ellipsoid for any one-sided cut in a general ellipsoid, giving the parameter/threshold as a special case."
+        ],
+        "reasoning": "Original shape classification decisively covered; repaired theorem deletes its originality assertion. Full monotone volume R(a) and dimensional scaling are separately specified statements not located in the inspected Todd text.",
+        "searches": [
+          "Michael J. Todd 1982 On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid DOI:10.1287/moor.7.2.253",
+          "MathStackExchange 5040265 half ball",
+          "Resultary minimum volume enclosing ellipsoid truncated Euclidean unit ball cap threshold volume ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Todd text establishes optimal ellipsoid formula, not an explicit tabulation of monotone ratio with high-dimensional crossover in the material read."
+        ],
+        "reasoning": "The target is an all-parameter strict law not a lookup of specific dimensions; relevant historical applied optimization tables may remain unindexed.",
+        "searches": [
+          "spherical cap enclosing ellipsoid volume ratio monotone cut level dimension asymptotic",
+          "minimum volume ellipsoid containing one side plane volume ratio Todd 1982"
+        ]
+      },
+      "rationale": "Strong prior coverage required scientific repair. Michael J. Todd 1982 Proposition 1 and §3 already derive one-sided-cut ellipsoid shape and exact transition at −1/d; the original all-height shape headline is NOT original. The rewritten claim explicitly credits Todd and asserts only the full strict normalized excess-volume ordering and endpoint/high-dimension quantitative laws, for which Todd text reviewed did not give equivalent formulas. A further implicit calculus corollary or unindexed optimization result remains a substantial risk.",
+      "residual_risks": [
+        "Prior shape classification directly covered by Todd 1982; no acceptance of the original claim unchanged.",
+        "Strict ratio ordering might be an implicit routine calculus consequence or previously written in later enclosing-ellipsoid literature.",
+        "No claims beyond one-cut Euclidean balls, and priority of the repaired quantitative statements remains qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE prior coverage of original ellipsoid optimality and phase threshold, requiring substantive rewrite; no stated strict ratio/CLT in inspected text",
+          "evidence": "Section 3 one-sided cut formula specializes to t=(1+da)/(d+1), u=d(1−a)/(d+1), v=d sqrt(1−a²)/sqrt(d²−1); threshold a=−1/d.",
+          "identifier_or_url": "DOI:10.1287/moor.7.2.253; Michael J. Todd (1982); https://www.researchgate.net/publication/227435470_On_Minimum_Volume_Ellipsoids_Containing_Part_of_a_Given_Ellipsoid",
+          "material_read": "Author-uploaded full text including Proposition 1, equations (2.6),(2.7) and section 3 one-sided cut classification",
+          "method": "Read primary HTML/full-text transcription and inspected full mathematical argument",
+          "title": "On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid",
+          "trigger": "Identical one-sided ellipsoidal-cap optimization problem"
+        },
+        {
+          "assessment": "Special case already covered and subsumed by Todd 1982",
+          "evidence": "A=0 specialization gives t=1/(d+1), u=d/(d+1), v=d/sqrt(d²−1).",
+          "identifier_or_url": "https://math.stackexchange.com/questions/5040265/smallest-volume-ellipsoid-containing-half-ball",
+          "material_read": "Public 2025 half-ball solution and dimensional semiaxes",
+          "method": "Web source inspection",
+          "title": "Smallest volume ellipsoid containing half ball",
+          "trigger": "Same object at a=0"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact monotonic enclosing-volume overhead measures rounding efficiency across all truncation heights; strict ordering plus dimension-varying thin-cap and Gaussian scaling provide useful quantitative benchmarks. This is a narrow self-contained consequence of a known optimal ellipsoid and should not be marketed as discovery of the ellipsoid itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Prior shape classification directly covered by Todd 1982; no acceptance of the original claim unchanged.",
+    "Strict ratio ordering might be an implicit routine calculus consequence or previously written in later enclosing-ellipsoid literature.",
+    "No claims beyond one-cut Euclidean balls, and priority of the repaired quantitative statements remains qualified."
+  ],
+  "schema_version": 1
+}

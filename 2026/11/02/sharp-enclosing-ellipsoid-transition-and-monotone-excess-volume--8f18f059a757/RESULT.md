@@ -1,100 +1,94 @@
-# Sharp enclosing-ellipsoid transition and monotone excess volume for Euclidean ball caps
+# Strict monotonicity and dimensional scaling of enclosing-ellipsoid excess volume for Euclidean ball caps
 
 ## Finding
-For every integer \(d\ge2\) and \(-1<a<1\), the **unique smallest-volume ellipsoid containing the unit Euclidean ball cut by \(x\ge a\)** is explicit and has exactly one transition. Define
+Let \(d\ge2\) be an integer, \(-1<a<1\), and
 \[
 K_{d,a}=\{(x,z)\in\mathbb R\times\mathbb R^{d-1}:x^2+\|z\|^2\le1,\ x\ge a\}.
 \]
-The optimal ellipsoid is
-\[
-E_{d,a}=\left\{(x,z):\frac{(x-t)^2}{u^2}+\frac{\|z\|^2}{v^2}\le1\right\},
-\]
-with the following complete parameter classification:
-\[
-(t,u,v)=\begin{cases}
-(0,1,1),&-1<a\le-1/d,\\[2pt]
-\left(\dfrac{1+da}{d+1},\dfrac{d(1-a)}{d+1},\dfrac{d\sqrt{1-a^2}}{\sqrt{d^2-1}}\right),&-1/d<a<1.
-\end{cases}
-\]
-The competing ellipsoids may have arbitrary centers, axes and orientations. For \(a>-1/d\), the **complete** boundary-contact set consists of the north pole \((1,0)\) and the rim \(x=a\), \(\|z\|=\sqrt{1-a^2}\). At or below the threshold the unit ball is itself the optimum, and all the surviving spherical boundary points are contacts.
-
-Writing \(\kappa_j=\pi^{j/2}/\Gamma(j/2+1)\) and \(q=(d-1)/2\), put
-\[
-\mathcal R_d(a)=\frac{\operatorname{Vol}_d(E_{d,a})}{\operatorname{Vol}_d(K_{d,a})}
-=\frac{\kappa_d}{\kappa_{d-1}}\,
-\frac{uv^{d-1}}{\int_a^1(1-x^2)^q\,dx}.
-\]
-Then \(\mathcal R_d(a)\) is **strictly increasing throughout** \((-1,1)\), including across the contact transition, and
+Let \(E_{d,a}\) be its unique minimum-volume enclosing ellipsoid and put
+\(\mathcal R_d(a)=\operatorname{Vol}_d(E_{d,a})/\operatorname{Vol}_d(K_{d,a})\). Then **the normalized ellipsoidal excess-volume ratio is strictly increasing** as the cutting height \(a\) increases across the *entire* interval \((-1,1)\), including the point \(a=-1/d\) at which the optimal ellipsoid changes shape. Its exact endpoint laws are
 \[
 \lim_{a\downarrow-1}\mathcal R_d(a)=1,\qquad
-\lim_{a\uparrow1}\mathcal R_d(a)
-=\frac{\kappa_d}{\kappa_{d-1}}\frac{d^d}{2(d^2-1)^{(d-1)/2}}.
+\lim_{a\uparrow1}\mathcal R_d(a)=
+\frac{\kappa_d}{\kappa_{d-1}}\frac{d^d}{2(d^2-1)^{(d-1)/2}},
+\quad\kappa_j=\frac{\pi^{j/2}}{\Gamma(j/2+1)}.
 \]
-A fixed positive cut \(0<a<1\) obeys
+For every fixed \(a\in(0,1)\), as \(d\to\infty\),
 \[
-\mathcal R_d(a)\sim\sqrt{2\pi d}\,\frac{a}{1+a}\quad(d\to\infty).
+\mathcal R_d(a)\sim\sqrt{2\pi d}\,\frac{a}{1+a}.
 \]
-At the finer central-limit scale \(a=\tau/\sqrt d\), for any fixed \(\tau\in\mathbb R\),
+At the central-limit height \(a=\tau/\sqrt d\), for each fixed real \(\tau\),
 \[
-\mathcal R_d(\tau/\sqrt d)\longrightarrow
-\frac{\exp\big(-\max(\tau,0)^2/2\big)}{\overline\Phi(\tau)},\qquad
-\overline\Phi(\tau)=\frac1{\sqrt{2\pi}}\int_\tau^\infty e^{-s^2/2}\,ds.
+\lim_{d\to\infty}\mathcal R_d(\tau/\sqrt d)
+=\frac{e^{-(\max\{\tau,0\})^2/2}}{\overline\Phi(\tau)},
+\qquad\overline\Phi(\tau)=\frac1{\sqrt{2\pi}}\int_\tau^\infty e^{-s^2/2}\,ds.
 \]
+**Priority boundary:** The minimum-volume ellipsoid itself, including its entire all-height parameter formula and transition at \(-1/d\), is *not claimed as new*. It is a one-sided-cut specialization of Michael J. Todd's 1982 formula in *On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid*, Proposition 1 and section 3 (DOI:10.1287/moor.7.2.253). The findings assessed here are the strict ratio monotonicity and its quantitative endpoint and dimensional laws.
 
-## Assumptions and scope
-The body is a **solid**, closed, unit-radius Euclidean ball truncated by exactly one affine halfspace; \(d\ge2\) and \(-1<a<1\). The ellipsoids are full-dimensional, closed, Euclidean and unrestricted. All volumes are ordinary \(d\)-dimensional Lebesgue volumes. Rotations, translations and uniform changes of radius reduce general single-cap balls to the model above.
+## Assumptions and definitions
+The caps are full-dimensional Euclidean balls cut by one halfspace, not multiple cuts. All enclosing ellipsoids may have arbitrary center and orientation. Let \(q=(d-1)/2>0\). The cap volume is
+\[
+\operatorname{Vol}_d(K_{d,a})=\kappa_{d-1}\int_a^1(1-x^2)^q\,dx.
+\]
+By the known all-height ellipsoid formula of Todd (1982), the optimal ellipsoid has center and semiaxes
+\[
+(t,u,v)=\begin{cases}
+(0,1,1), &-1<a\le -1/d,\\[2pt]
+\left(\frac{1+da}{d+1},\frac{d(1-a)}{d+1},\frac{d\sqrt{1-a^2}}{\sqrt{d^2-1}}\right),& -1/d<a<1.
+\end{cases}
+\]
+Here \(u\) is the axial semiaxis and \(v\) the common transverse semiaxis. Thus
+\[
+\mathcal R_d(a)=\frac{\kappa_d}{\kappa_{d-1}}
+\frac{u v^{d-1}}{\int_a^1(1-x^2)^q\,dx}.
+\]
+The ellipsoid formula and its uniqueness are supplied as an expressly credited prior theorem; their presence as input does not constitute an originality assertion.
 
-## Proof
-**1. A finite simplex certificate for any containing ellipsoid.** Choose unit vectors \(w_1,\ldots,w_d\) in \(\mathbb R^{d-1}\) with \(w_i\cdot w_j=-1/(d-1)\) for distinct indices and \(\sum_iw_i=0\). The \(d+1\) points
-\[
-p_0=(1,0),\qquad p_i=\left(-\frac1d,\sqrt{1-\frac1{d^2}}\,w_i\right)\quad(1\le i\le d)
-\]
-satisfy \(\frac1{d+1}\sum_{i=0}^dp_i=0\) and \(\frac1{d+1}\sum_{i=0}^dp_ip_i^T=I_d/d\). Suppose \(F=\{y:(y-c)^TQ^{-1}(y-c)\le1\}\) contains these points, with \(Q\) positive definite. Averaging the \(d+1\) containment inequalities gives
-\[
-\frac1d\operatorname{tr}(Q^{-1})+c^TQ^{-1}c\le1.
-\]
-Arithmetic-geometric mean applied to the positive eigenvalues of \(Q^{-1}\) yields \((\det Q)^{-1/d}\le\operatorname{tr}(Q^{-1})/d\le1\), hence \(\det Q\ge1\). Equality forces \(c=0\), \(Q=I_d\). Thus the unit ball is the **unique** minimum-volume ellipsoid containing this simplex, and every affine image enjoys the analogous uniqueness property.
+## Proof of the ratio and scaling claims
+When \(a\le-1/d\), the optimal ellipsoid remains the unit ball. Its volume is constant whereas the cap volume is strictly decreasing, so \(\mathcal R_d(a)\) is strictly increasing on this interval.
 
-**2. The inactive cut.** When \(a\le-1/d\), all the points \(p_i\) belong to \(K_{d,a}\), and the unit ball contains \(K_{d,a}\). The preceding certificate proves global optimality and uniqueness. The entire inherited spherical boundary is tangent to the unit ball.
+For \(-1/d<a<1\), the published semiaxes give
+\[
+u v^{d-1}=C_d(1-a)(1-a^2)^q,\qquad
+C_d=\frac{d^d}{(d+1)(d^2-1)^q}.
+\]
+Put \(h=1-a\in(0,1+1/d)\). The substitution \(x=1-hy\) shows
+\[
+\int_a^1(1-x^2)^qdx=h^{q+1}
+\int_0^1 y^q(2-hy)^qdy.
+\]
+Therefore \(\mathcal R_d(a)=(\kappa_d/\kappa_{d-1})C_d F(h)\) with
+\[
+F(h)=\frac{(2-h)^q}{\int_0^1 y^q(2-hy)^qdy}.
+\]
+Differentiating under the integral sign yields
+\[
+\frac{d}{dh}\log F(h)=q\left[-\frac1{2-h}+
+\frac{\int_0^1 y^q(2-hy)^q\,\frac{y}{2-hy}\,dy}
+{\int_0^1 y^q(2-hy)^q\,dy}\right].
+\]
+For \(0\le y<1\) and \(0<h<1+1/d<2\),
+\(y/(2-hy)<1/(2-h)\). The integrating weight is strictly positive for \(0<y<1\), so the derivative is strictly negative. As \(h=1-a\), the ratio increases strictly with \(a\). The formulas agree continuously at \(a=-1/d\), proving strict increase globally.
 
-**3. The active cut.** For \(a>-1/d\), define \(t,u,v\) by the second branch. Under the affine coordinate transformation \(y=((x-t)/u,z/v)\), the pole \((1,0)\) maps to \(p_0\), while the rim points \((a,\sqrt{1-a^2}\,w_i)\) map to the other \(p_i\). Therefore \(E_{d,a}\) is an affine image of the unique enclosing ellipsoid of a regular simplex of contacts. To establish that it contains **the entire cap**, observe that, for \(a\le x\le1\),
-\[
-1-\left(\frac{(x-t)^2}{u^2}+\frac{1-x^2}{v^2}\right)
-=A_{d,a}(x-a)(1-x),\quad
-A_{d,a}=\frac{2(d+1)(1+da)}{d^2(1-a)^2(1+a)}>0.
-\]
-As \(\|z\|^2\le1-x^2\), the displayed identity proves containment. Strict positivity at intermediate \(x\) proves the complete contact description. The simplex certificate rules out every smaller enclosing ellipsoid, without any symmetry restriction.
+As \(a\downarrow-1\), the cap becomes the whole ball and the ratio tends to one. As \(a\uparrow1\), \(h\downarrow0\) and \(F(h)\to q+1=(d+1)/2\), giving exactly the displayed thin-cap constant.
 
-**4. Strict monotonicity and endpoints.** For the inactive branch, the numerator \(\kappa_d\) is constant and the cap volume strictly decreases with \(a\). For the active branch,
+For a fixed positive \(a<1\), endpoint Laplace asymptotics give
 \[
-uv^{d-1}=\frac{d^d}{(d+1)(d^2-1)^q}(1-a)(1-a^2)^q.
+\int_a^1(1-x^2)^qdx\sim\frac{(1-a^2)^{q+1}}{2qa}
+\quad(d\to\infty).
 \]
-Set \(h=1-a\), with \(0<h<1+1/d<2\). Cancelling the common power \(h^{q+1}\) reduces the variable factor of \(\mathcal R_d\) to
-\[
-F(h)=\frac{(2-h)^q}{\int_0^1 y^q(2-hy)^q\,dy}.
-\]
-Its logarithmic derivative has the sign of
-\[
--\frac1{2-h}+\frac{\int_0^1y^q(2-hy)^q\,\frac{y}{2-hy}\,dy}{\int_0^1y^q(2-hy)^q\,dy},
-\]
-which is strictly negative because \(y/(2-hy)<1/(2-h)\) for \(0\le y<1\). Thus \(F\) decreases as \(h\) increases, proving strict increase in \(a\). Both branches agree at \(a=-1/d\). The full-ball limit gives \(1\); at \(h\downarrow0\), \(F(h)\to q+1=(d+1)/2\), giving the stated thin-cap limit.
+Use \(C_d\to1\), \(\kappa_d/\kappa_{d-1}\sim\sqrt{2\pi/d}\), and \(2q=d-1\) to obtain \(\mathcal R_d(a)\sim\sqrt{2\pi d}\,a/(1+a)\).
 
-**5. Dimensional asymptotics.** For each fixed \(0<a<1\), a one-sided Laplace estimate at the endpoint gives
-\[
-\int_a^1(1-x^2)^q\,dx\sim\frac{(1-a^2)^{q+1}}{2qa}.
-\]
-Together with \(\kappa_d/\kappa_{d-1}\sim\sqrt{2\pi/d}\) and \(d^d/[(d+1)(d^2-1)^q]\to1\), this proves the fixed-cut asymptotic. For \(a=\tau/\sqrt d\), the first coordinate of a uniform point in \(B_d\), multiplied by \(\sqrt d\), converges in law to a standard normal; hence the cap's volume fraction tends to \(\overline\Phi(\tau)\). If \(\tau<0\), the cut is eventually inactive and the enclosing ellipsoid is the ball. If \(\tau\ge0\), the active semiaxis product tends to \(e^{-\tau^2/2}\). Their quotient gives the final formula.
+Finally, the first coordinate of a volume-uniform random point of \(B_d\), scaled by \(\sqrt d\), converges in law to \(N(0,1)\); hence
+\(\operatorname{Vol}(K_{d,\tau/\sqrt d})/\kappa_d\to\overline\Phi(\tau)\). If \(\tau<0\), then \(\tau/\sqrt d<-1/d\) for all sufficiently large \(d\), so the ellipsoid is the unit ball. If \(\tau\ge0\), substitution in the explicit active semiaxes yields \(uv^{d-1}\to e^{-\tau^2/2}\). The quotient proves the stated crossover, including \(\tau=0\). \(\square\)
+
+## Mathematical motivation and limitations
+The excess-volume ratio measures the geometric overhead of replacing a one-cut ball by its least-volume enclosing ellipsoid. Strict monotonicity makes the degree of truncation a rigorous ordering of rounding efficiency. The fixed-height and Gaussian-window asymptotics give dimension-dependent benchmarks for convex optimization and approximation. These are quantitative statements about a specific natural one-parameter family; no all-convex-body or multi-cut extension is asserted. The 1982 optimal-ellipsoid formula is an essential cited input rather than an independently novel result. Since the new monotonicity proof is elementary once that formula is available, its priority and perceived value should be considered in that narrow context.
 
 ## Verification
-The separate script `verify_cap_lowner.py` checks the defining quadratic containment identity exactly over rational test cases, reconstructs the affine simplex contact certificate, integrates volume ratios and tests strict monotonicity numerically in dimensions \(2\) through \(11\), checks the thin-cap limit and known hemispherical benchmarks, and independently tests the Gaussian window through a beta-integral formula. Run `python3 verify_cap_lowner.py` with SymPy and mpmath installed. These computations check representative instances; the dimension-uniform results are established by the analytic proof above.
-
-## Relationship to prior work
-Ivanov and Naszódi, *Functional John and Löwner conditions for pairs of log-concave functions* (arXiv:2212.11781, first public on December 22, 2022, primary MSC 52A23), gives general contact/optimality theory. Its accessible complete HTML treatment does not state an explicit all-height ball-cap classification or the present volume-ratio laws. A March 2025 Mathematics Stack Exchange discussion, *Smallest volume ellipsoid containing half ball*, directly obtains the **hemisphere** specialization \(a=0\) in every dimension. That solved case is not claimed as new. The additional statements assessed here are the all-height contact transition, global strict monotonicity, thin-cap endpoint, and dimension-dependent Gaussian crossover, none of which is logically supplied by a formula for the single hemisphere. Published general enclosing-ellipsoid characterizations are used as conceptual context, not presented as new methodology.
-
-## Limitations
-The result applies to one-halfspace cuts of Euclidean balls (and their affine images). It does not determine enclosing ellipsoids of arbitrary intersections of balls, nonellipsoidal smooth bodies, or multiple independent cuts. The pointwise thin-cap limit and the fixed-cut high-dimensional limit are different asymptotic regimes. The novelty assessment is provisional: literature beyond inspected sources may contain equivalent full-height formulas under different terminology. There has been no independent mathematical audit.
+The existing `verify_cap_lowner.py` checks rational containment and semiaxis identities, representative strictly ordered ratios, their thin-cap limits, and large-dimensional beta-integral comparisons. The calculations corroborate but do not prove the uniform all-dimensional theorem; the integral derivative and standard asymptotic arguments above are the proof. Independent direct cap integration at dimensions 2, 3 and 7 also confirmed increasing ratios over a grid of heights. The unchanged verifier includes checks of Todd's known semiaxis formula, which do not establish its novelty.
 
 ## References
-- G. Ivanov and M. Naszódi, *Functional John and Löwner conditions for pairs of log-concave functions*, arXiv:2212.11781v1 (December 22, 2022); *International Mathematics Research Notices* (2023), DOI:10.1093/imrn/rnad210. https://arxiv.org/abs/2212.11781
-- *Smallest volume ellipsoid containing half ball*, Mathematics Stack Exchange, question 5040265, questions and answers dated February 27–March 7, 2025. https://math.stackexchange.com/questions/5040265/smallest-volume-ellipsoid-containing-half-ball
-- F. John, *Extremum problems with inequalities as subsidiary conditions*, in *Studies and Essays Presented to R. Courant on His 60th Birthday*, 1948, pp. 187–204 (background theory only).
+1. M. J. Todd, *On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid*, Mathematics of Operations Research **7** (1982), 253–261, Proposition 1 and §3; DOI:10.1287/moor.7.2.253. Author-uploaded full text at https://www.researchgate.net/publication/242929698_On_Minimum_Volume_Ellipsoids_Containing_Part_of_a_Given_Ellipsoid .
+2. G. Ivanov and M. Naszódi, *Functional John and Löwner conditions for pairs of log-concave functions*, arXiv:2212.11781 (2022), general optimality framework, not claimed as new here.
+3. *Smallest volume ellipsoid containing half ball*, Mathematics Stack Exchange question 5040265 (2025), special case \(a=0\), superseded as a priority lead for the general ellipsoid formula by Todd (1982).

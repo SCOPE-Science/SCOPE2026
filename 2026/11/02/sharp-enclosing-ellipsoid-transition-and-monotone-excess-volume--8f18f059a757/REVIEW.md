@@ -1,15 +1,9 @@
-# Scientific review
+# Mathematical assessment of the amended final claim
 
-## Correctness — PASS
-An explicit regular-simplex contact frame gives an unrestricted minimum-volume certificate for each ellipsoid. In the active regime the exact quadratic factorization proves containment in the specified ellipsoid for every point of the cap and identifies all contacts. The passive regime uses the same simplex frame within the original sphere. Strict growth of the enclosing-to-cap volume ratio is proved by a weighted-integral inequality, not inferred from a numerical sweep. The thin-cap and high-dimensional formulas follow from an endpoint integral limit, one-sided Laplace asymptotics and Gaussian marginal convergence. The bundled checker independently tests the factorizations, integral ratios and crossover at representative parameters.
+**Correctness — PASS.** The exact cap-volume integral, Todd's earlier one-cut optimal semiaxes, and the strict integral derivative in `RESULT.md` prove the monotonicity for every dimension and height. The thin-cap and high-dimensional limits follow by endpoint integration, Laplace asymptotics, and convergence of the scaled ball coordinate to a Gaussian. Independent numerical grids in dimensions 2, 3 and 7 corroborate but do not prove these statements.
 
-## Originality — PASS (provisional priority)
-Ivanov–Naszódi (arXiv:2212.11781v1, December 22, 2022) develops general contact theory, not the specialized all-height cap formulas. A March 2025 Math Stack Exchange discussion explicitly settles the half-ball at \(a=0\) for every dimension: that case is fully acknowledged as covered. The present assertion consists of the complete contact transition at \(a=-1/d\), strict global normalized volume ordering, and all-height asymptotics; these are not consequences of merely knowing the hemisphere answer. The available closely related generalized conditions and geometric findings were compared by implications. Residual risk: unindexed spherical-segment optimization formulas could precede this statement.
+**Originality — PASS, qualified and narrowly scoped.** Michael J. Todd's 1982 paper already solves the *entire* one-sided cap-ellipsoid optimization including its transition at `-1/d`; that part of the earlier claim is withdrawn, not passed as new. The remaining assessed result is a normalized volume-to-cap strict ordering and explicit dimensional-scale limits; these were not found stated in the author-uploaded primary text but might be implicit in earlier optimization analysis. The elementary derivation and this residual priority risk are explicit.
 
-## Value — PASS
-The problem is to find the smallest enclosing ellipsoid for an entire natural one-parameter family of convex bodies without assuming symmetry of the competitor. The phase boundary is exact; the strictly monotone approximation factor quantifies the geometric loss of ellipsoidal rounding; and its thin-cap and Gaussian asymptotics provide sharp dimensional benchmarks. This is more than a normalization check or one special-case calculation.
+**Value — PASS, narrowly scoped.** A geometric rounding overhead ratio is useful even when the optimal bounding shape is already known; global monotonicity and the Gaussian boundary layer give a natural efficiency comparison across truncation heights and dimensions. No broader convex-body result or rediscovery of Todd's optimization theorem is claimed.
 
-## Scientific limitations
-Single Euclidean-ball cuts only; no multi-cut or arbitrary convex-body extension. Historical priority remains provisional and the earlier solved hemisphere is not claimed as novel. Analytical identities—not finite software checks—support the infinite-dimensional statement.
-
-Self-review: passed. Independent audit: not yet performed.
+This assessment changes the original scientific headline and primary-literature comparison. It is not a claim of external expert attestation or formal verification. Scientific source material and prior evidence remain available in the original repository history.
