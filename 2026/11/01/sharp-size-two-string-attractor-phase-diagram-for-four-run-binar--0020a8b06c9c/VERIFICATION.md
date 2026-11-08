@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone program `verify.py` uses only Python's standard library and performs three complementary tests: exact full-factor coverage of all candidate position pairs for \(1\le a,b,c,d\le6\), a separate literal factor-occurrence test for \(1\le a,b,c,d\le3\), and explicit three-position cover verification whenever the analytic phase predicts minimum three. It tests all cases, not a sample, **within these finite parameter domains**. The observed output is:
+## correctness
 
-```
-VERIFY_OK quadruples=1296 exact_two_pair_tests=125496 literal_pair_tests=2376 phase_three_cases=325 three_upper_witnesses=TRUE
-```
+PASS
 
-Run `python3 verify.py` after extracting the embedded files of this finding. The program is an independently structured consistency checker for finite cases. Infinite quantifiers, novelty and broader literature coverage are established or limited by the separate mathematical argument and source comparisons, not by these finite checks. Independent scientific audit has not been performed.
+The literal factor trichotomy separates constant factors, factors containing unique middle 10, and first/last 01 mixed factors. Because middle 10 forces B_last or C_first and letters 0,1 force one of each symbol, every size-two attractor falls into the four cases, classified using maximal constant runs and mixed-boundary occurrences; reverse-complement gives the remaining two families. The existence of three-position witnesses and exact overlap at the central pair yields the sharp complete unbounded phase diagram and count. Independent literal-occurrence search over all 256 tuples 1<=a,b,c,d<=4 reproduced every possible optimal pair and phase outcome, but finite search is not used for the infinite theorem.
+
+## originality
+
+PASS
+
+Previously published string-attractor theory gives the alphabet lower bound, examples of binary size-two attractors, and special equal-periodic-run cases. The complete four-parameter all-minimizer family and sharp two independent size-three regions are not implied by the inspected general theory or specialist examples. Best-of-knowledge original with potential unindexed equivalent run-length classification.
+
+## value
+
+PASS
+
+A full exact string-attractor phase diagram for the natural four-run family supplies a useful minimal finite-word classification and resolves when the alphabet lower bound is attainable; its exact minimizer count supports benchmarking for attractor algorithms and has nontrivial sharp boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
