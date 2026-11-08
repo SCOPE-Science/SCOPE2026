@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify.py` was run on the provided version. It enumerates exactly one complete input period at every prime-power test level and compares each target fiber with an independently constructed predicted array. It also enumerates full periods for twenty-seven composite moduli and checks exact Chinese-remainder products. Execution concluded with `VERIFY_OK 205113 55` and all composite checks passed.
+# Independent mathematical audit
 
-The finite tests are not a proof of the formulas for arbitrary primes, exponents, or moduli. That conclusion rests on the branch isometries, Hensel lifts, quadratic congruence reduction, conic collision count, and Chinese remainder theorem documented in `RESULT.md`.
+## correctness
 
-The all-modulus periodicity formula is established prior literature; the point of the new calculation is the full value-fiber distribution. Inaccessible specialist literature remains a priority risk. No independent audit has been performed.
+PASS
+
+The four n mod4 branches have 2-adic isometric polynomial factors with scales 4,2,4,2, yielding 5/1 multiplicities; three n mod3 branches are 3-adic isometries, yielding 3. For p>=5, regular simple roots lift uniquely and the exact shifted cubic near a critical point 3alpha^2=1 is analytically quadratic after an isometric coordinate, giving p R_{p,k-2}. Prime-field value count comes from the nondegenerate conic collision identity and CRT combines coprime least periods. Independently enumerated 15 prime power levels, matching the local fibers and image sizes. Exact least periods known in Ahmed; not novel by themselves.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
+
+## value
+
+PASS
+
+The tetrahedral sequence is a canonical integer-valued cubic; complete target-by-target modular multiplicities, not just attained classes or periods, expose distinct 2-adic, 3-adic and odd-prime behavior and give a natural complete arithmetic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

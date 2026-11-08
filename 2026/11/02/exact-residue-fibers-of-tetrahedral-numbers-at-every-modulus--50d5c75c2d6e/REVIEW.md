@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated index periods and fiber counts refer to complete periods, with separate formulas for \(p=2\), \(p=3\), and \(p\ge5\). Algebraic expansion of the four dyadic branches gives four 2-adic isometries with output scales \(4,2,4,2\), proving the observed fivefold fibers without a finite extrapolation. Each of the three 3-adic branches is an isometry, yielding exactly three indices per target. At odd primes at least five, Hensel uniqueness handles regular roots, a local quadratic analytic coordinate handles singular roots, and the conic collision count proves the prime-field image-size formula. Chinese remaindering proves the general claim. Direct exhaustive checks of \(205113\) fibers in \(55\) prime-power levels and \(27\) composite levels were consistent with every formula.
+PASS
 
-## Originality — PASS (with residual priority risk)
+The four n mod4 branches have 2-adic isometric polynomial factors with scales 4,2,4,2, yielding 5/1 multiplicities; three n mod3 branches are 3-adic isometries, yielding 3. For p>=5, regular simple roots lift uniquely and the exact shifted cubic near a critical point 3alpha^2=1 is analytically quadratic after an isometric coordinate, giving p R_{p,k-2}. Prime-field value count comes from the nondegenerate conic collision identity and CRT combines coprime least periods. Independently enumerated 15 prime power levels, matching the local fibers and image sizes. Exact least periods known in Ahmed; not novel by themselves.
 
-The general odd-prime cubic value-set formula is a special case of earlier Dickson-polynomial theory; this component by itself is not claimed new. Similarly, Ahmed (2019, Proposition 3.1) gives the exact least periods. Leyendekkers--Shannon (2011) tabulate tetrahedral behavior modulo three and four, and Sun (2013) provides criteria for cubic roots modulo a prime. The combined **all-modulus exact fiber distribution**, especially the uniform \(3\)-adic and nonuniform \(2\)-adic towers, is not stated or implied by the inspected full texts. Bremser--Gomez-Calderon (1991) address Dickson values over Galois rings, with some preimage formulas; the full text was unavailable and might cover part of the odd-prime calculation. These limitations constrain the priority claim; they are not concealed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Tetrahedral numbers form a canonical integer-valued cubic. Determining exactly which residues occur is weaker than determining how frequently every target is reached. The theorem provides a complete multiplicative all-modulus answer, reveals the exceptional \(2\)-adic fivefold classes and the uniform \(3\)-adic branches, identifies all singular lifting contributions, and gives the exact number of representable residues for every modulus. These are natural arithmetic invariants useful in congruence constraints and additive questions about figurate numbers, rather than an arbitrary bounded computation.
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
 
-## Sources and limits
+## value
 
-See `RESULT.md` references and the `AUDIT.json` source-by-source comparisons. The proof depends on classical Hensel and finite-field collision results; independently formulated arguments are included. The automated finite check is corroboration, not proof. The 1991 specialist paper remains a literature access risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The tetrahedral sequence is a canonical integer-valued cubic; complete target-by-target modular multiplicities, not just attained classes or periods, expose distinct 2-adic, 3-adic and odd-prime behavior and give a natural complete arithmetic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
