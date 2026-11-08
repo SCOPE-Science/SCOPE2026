@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Path contraction preserves weighted spanning-tree counts. The matrix-tree cofactor has a rank-one explicit determinant, giving the probability for every prescribed simple path, with empty outside parts included. Marked-path disjointness, falling-factorial enumeration and telescoping prove both exact finite tails for every admissible a,b,k. Summing log survival factors with k on the scale sqrt(ab/(a+b)) establishes the Rayleigh tail when both parts diverge. Actual packaged verify.py passed 83,789 exact assertions; finite checks are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burton–Pemantle (1993), public preprint https://arxiv.org/abs/math/0404048: general transfer-impedance determinant for inclusion of prescribed UST edge sets.",
+        "Archer–Shalev (2024), https://doi.org/10.1002/rsa.21213: CRT scaling for dense graphs including asymptotically proportional complete bipartite graphs.",
+        "Published related claim: exact negative regression between a marked vertex degree and distance in a uniform Cayley tree; this concerns a complete-graph host and a degree conditional, rather than the complete bipartite marked distance law."
+      ],
+      "reasoning": "Generic UST determinants can derive path inclusion probabilities, but require a nontrivial contraction/determinant calculation and path-by-path enumeration to obtain both explicit finite distance tails; this is potential general-method implication, not the evaluated statement appearing in the inspected source. Dense-graph scaling provides a coarser limiting distribution in balanced regimes and does not imply the exact finite parity-resolved tails or fixed-part values. The previous Cayley-tree theorem changes the host graph and observable.",
+      "searches": [
+        "loop-erased random walk complete bipartite graph path length distance factorial product",
+        "random spanning tree K_{a,b} distance distribution 2k even odd",
+        "https://arxiv.org/pdf/math/0404048",
+        "https://doi.org/10.1002/rsa.21213"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0404048 (Burton–Pemantle general UST edge inclusion)",
+      "arxiv:math/0611775v1 (Alappattu–Pitman complete graph birthday process)",
+      "https://doi.org/10.1002/rsa.21213 (Archer–Shalev dense-graph UST scaling)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Weighted contraction cofactor explicitly yields P(path in T)=(a*r_B+b*r_A-r_A*r_B)/(a^{r_B} b^{r_A}); summing over disjoint marked paths telescopes to distinct opposite/same part falling-factorial tails.",
+        "Burton–Pemantle supplies generic edge-inclusion determinants; Alappattu–Pitman supplies complete-graph birthday path laws; Archer–Shalev supplies asymptotic metric scaling."
+      ],
+      "reasoning": "The new claim is the finite two-parameter tail for each endpoint location, including degenerate small parts, with its deduced all-ratios Rayleigh limit. Generic edge-determinantal machinery is a method of proof but the specific evaluated two-parameter path law was not found in inspected material. The limit alone is partially covered in balanced regimes and is not used as the originality basis. A previous undocumented specialization remains a nonzero priority risk.",
+      "searches": [
+        "K_{a,b} uniform spanning tree exact path length distribution same-side opposite-side tail P(distance>2k) falling factorial birthday product Rayleigh",
+        "complete bipartite uniform spanning tree marked vertex distance tail falling factorial law Rayleigh",
+        "arxiv:math/0611775v1",
+        "arxiv:math/0404048"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alappattu–Pitman (2006), https://arxiv.org/pdf/math/0611775: birthday path-length distribution for loop-erased random walk on the complete graph, not a bipartite host.",
+        "Wilson’s loop-erasure relation identifies the UST marked path with an LERW, but does not give its special two-part evaluated survival product."
+      ],
+      "reasoning": "The equivalent LERW interpretation was explicitly considered: the alternating bipartite path has different step constraints, two endpoint parity classes and a two-parameter falling-factorial tail. The complete-graph birthday identity cannot be substituted unchanged because its allowed next-vertex pool is not bipartite-alternating. An earlier specialized LERW law might exist and remains a priority risk.",
+      "searches": [
+        "complete bipartite uniform spanning tree marked vertex distance tail falling factorial law Rayleigh",
+        "loop-erased random walk complete bipartite graph path length distance factorial product",
+        "K_{a,b} uniform spanning tree exact path length distribution same-side opposite-side tail P(distance>2k) falling factorial birthday product Rayleigh",
+        "complete bipartite graph uniform spanning tree loop-erased random walk distance distribution two vertices",
+        "arxiv:math/0611775v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted web and published-result searches for K_{a,b} two-point UST distance distribution and explicit even/odd tails did not surface a table of identical probabilities.",
+        "Published related claim: explicit Minkowski asymmetry for complete-bipartite spanning-tree polytopes, concerning convex geometry, not two-point path probabilities.",
+        "Published related claim: quasipolynomial unlabelled spanning-tree isomorphism-type counts in K_{d,m}, concerning shape counts, not marked-distance distributions."
+      ],
+      "reasoning": "Finite tables and polynomial coefficients were searched as alternative exact coverage, beyond literal title matches. The nearby spanning-tree records concern polytopes and unlabelled shapes, not a probability table determining these two marked-pair distributions. Search absence does not establish a uniqueness theorem.",
+      "searches": [
+        "K_{a,b} uniform spanning tree exact path length distribution same-side opposite-side tail P(distance>2k) falling factorial birthday product Rayleigh",
+        "uniform random spanning tree complete bipartite exact distance distribution factorial formula path length",
+        "random spanning tree K_{a,b} distance distribution 2k even odd"
+      ]
+    },
+    "rationale": "Exact finite bipartite parity-specific two-point distance tails were not located in primary literature read or semantic result searches. Burton–Pemantle gives a general edge-inclusion method, Alappattu–Pitman a complete-graph birthday law, and Archer–Shalev a dense-graph scaling result. The explicit all-size falling-factorial evaluation and both endpoint classes are not stated in inspected sources; residual priority risks are acknowledged.",
+    "residual_risks": [
+      "A previously published explicit complete-bipartite loop-erased walk path distribution was not located; failure of search does not rule it out.",
+      "Burton–Pemantle general transfer-impedance determinants can be specialized to the path law, potentially reducing perceived novelty.",
+      "Rayleigh asymptotics for balanced bipartite graphs are covered in principle by broader CRT results and are not claimed independently original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General prescribed-edge probability determinants can be specialized to path inclusion, but the evaluated finite bipartite distance-tail products were not identified in read material; stronger-method priority risk retained",
+        "evidence": [
+          "Burton and Pemantle 1993, public arXiv upload 2004-04-02, arxiv:math/0404048",
+          "General transfer-current determinantal probability of finite edge inclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0404048",
+        "material_read": "Open arXiv full PDF, introductory theorem and transfer-impedance inclusion determinant section including the general edge-set formulation; not merely an abstract",
+        "method": "PDF full-text navigation and screenshot inspection of representative theorem page; compared exact event and specialization",
+        "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+        "trigger": "Plausible general UST edge-inclusion theorem might subsume the fixed path and the marked-distance law"
+      },
+      {
+        "assessment": "Exact loop-erased random-walk birthday laws are developed for the complete graph, not K_{a,b} fixed opposite/same part UST path tails",
+        "evidence": [
+          "Alappattu and Pitman arxiv:math/0611775v1, first submitted 2006-11-25",
+          "Complete graph, uniform independent sequence underlying walk, rather than bipartite alternation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611775",
+        "material_read": "Open arXiv full PDF pages 1,5,6,7 with theorem and examples; title and mathematical hypotheses checked",
+        "method": "Primary PDF text and page screenshot; checked underlying complete-graph iid choices against alternating bipartite choices",
+        "title": "Colored loop-erased random walk on the complete graph",
+        "trigger": "Potential exact birthday distribution of a uniform spanning-tree marked path"
+      },
+      {
+        "assessment": "Provides general dense-graph CRT asymptotic covering proportional complete-bipartite graphs, but not these finite exact marked tails or unbalanced small-part laws; no novelty claimed for balanced CRT limit",
+        "evidence": [
+          "Archer and Shalev, first published 2024-02-27, DOI 10.1002/rsa.21213",
+          "Proportional complete bipartite example in scaling-limit discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21213",
+        "material_read": "Open primary HTML article introduction, statement of scaling theorem and explicit example for complete bipartite K_{2n/3,n/3}",
+        "method": "Primary article HTML full-text sections and in-page find",
+        "title": "The GHP scaling limit of uniform spanning trees of dense graphs",
+        "trigger": "Potential broader asymptotic theorem covering Rayleigh limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac6044e6-31ac-4d38-99c3-ae732d9c8af1",
+  "value": {
+    "rationale": "A finite explicit survival law for distances of two fixed vertices in a uniform spanning tree of K_{a,b} is a motivated intrinsic metric invariant, not an artificial restriction: it determines exact distance quantiles for both endpoint geometries. Two different parity-resolved product laws remain valid even in strongly asymmetric finite graphs, and yield an all-ratios Rayleigh limit without invoking dense-graph scaling theorems. These sharp finite expressions are not implied numerically by previously stated general asymptotic results.",
+    "status": "PASS"
+  }
+}
