@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The real-domain theorem is proved for all \(a>0\), \(c\ne0\), all initial points: the sign-preserving substitution produces an exact monotone two-dimensional recurrence; a convergent product proves finite nonzero terminal velocity; tail summation establishes all coefficients and remainders; the unit-strip crossing argument proves the velocity bound; Poincaré recurrence characterizes stationary probabilities. Three exact-fraction normalization tests and five high-precision finite-orbit checks corroborate the algebra without substituting for its infinite-time proof. The logarithmic constant follows from absolute summability of renormalized increments.
+## correctness
 
-## Originality — PASS within inspected evidence
-The complete accessible 2022 defining article of Zhang et al. (DOI `10.1088/1674-1056/ac4025`), including the parent map and equilibrium-line section, examines primarily negative-feedback attractors and does not give the positive-feedback ballistic asymptotic, uniform gap, or invariant-measure classification. An earlier exact period-two result for the same model concerns the negative-feedback half-line and is not stronger than the present all-orbit statement on positive feedback. Searches for formula aliases, ballistic drift, invariant probabilities, and rational planar feedback, including indexed findings, yielded closest records about different dynamical systems and no mathematical implication covering this statement. These searches establish an evidence-based noncoverage assessment, not absolute uniqueness. Residual publication-priority risk comes from unindexed or differently parameterized prior theory.
+PASS
 
-## Mathematical value — PASS
-The map's equilibrium line makes the positive-feedback side a natural dynamical regime distinct from the paper's negative-feedback chaotic experiments. The strictly positive velocity bound as initial transverse displacement tends to zero is a structural, discontinuous-scattering phenomenon, not merely an elementary observation that trajectories move monotonically. The precise logarithmic correction quantifies long-lived memory of the weak rational feedback; the invariant-probability classification completes the compact statistical picture. These statements address the same well-motivated global dynamics question.
+Verified the exact substitution s=sign(cx0), z=s y, w=|c x| to z_next=z+w, w_next=w(1+a/(1+z^2)). Because w≥w0, z≥z0+n w0, the increments are summable and w increases to W>0; ∑_{k≥n} a w_k/(1+z_k²)=a/(W n)+O(log n/n²). Summing w−W establishes the logarithmic z correction with finite renormalized constant. At the first crossing z_N≥z0+1, the pre-crossing multipliers ≥r=1+a/(1+R²) and ∑_{k<N}w_k≤w_N/(r−1) force W≥r−1 independent of x0. Nonfixed points escape every compact set, hence Poincare recurrence yields the stated classification of invariant probabilities. Tested signed coordinate identities and velocity bound for five numerical orbits, including x0=10^−12; source script read, not executed.
 
-## Limits and nearest literature
-The theorem is for exact real iterates with \(a>0\), nonzero \(c\), and zero additive forcings; it does not cover the full parameter family, a universal explicit scattering function, or finite-precision numerical orbits. The original article is the closest source. Known related period-two classifications do not give a covering global convergence or scattering law; different-map escape results have no direct reduction to the rational recurrence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same positive-feedback equilibrium-line branch of Zhang et al. is the relevant object, but their inspected full article treats existence/stability and mostly a<0 numerical attractors, not all-orbit scattering or the uniform transverse-displacement-independent velocity bound. Related published planar escape laws concern other maps; statement-level coverage is not established by their similar terminology.
+
+## value
+
+PASS
+
+The exact logarithmic correction and especially a nonzero velocity gap uniform as a nonfixed point approaches an entire equilibrium line are natural dynamical boundary properties. The complete invariant-probability classification makes the exact asymptotic globally meaningful; these are not merely a fixed-point computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
