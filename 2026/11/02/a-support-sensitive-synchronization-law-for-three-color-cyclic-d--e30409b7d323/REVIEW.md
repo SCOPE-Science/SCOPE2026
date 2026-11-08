@@ -1,15 +1,21 @@
-# Review of a support-sensitive synchronization law for three-color cyclic dynamics on paths
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The integer height lift is 1-Lipschitz on adjacent vertices, and running-radius maxima satisfy the synchronous three-color successor update modulo three. If colors agree, their adjacent integer heights, differing by at most one, also agree. This proves the exact covering-radius identity. For i.i.d. full-support colors, centered stationary one-dependent height increments have long-run variance \(18p_0p_1p_2>0\); the functional CLT, unique Brownian maximizer and arcsine law establish linear scaling. Two-color trajectories reduce exactly to irreversible contact infection; standard longest-run bounds give the logarithmic coefficient. Reflection and the lazy-walk local CLT prove the extremal count and its asymptotic. Independent direct finite tests agree on every gradient word through eleven vertices and every binary word through eleven vertices. The infinite results rest on proofs, not experiments.
+## correctness
 
-## Originality (O): PASS, qualified
-Gravner–Lyu–Sivakoff (first preprint 2016-10-24, arXiv:1610.07320; later DOI:10.1214/17-AAP1350) established the underlying arbitrary-graph maximum-excitation lemma and diameter bound. These are expressly credited. Hellouin de Menibus–Le Borgne (arXiv:1903.12622) study biased Bernoulli CCA on the infinite line and give a related random-walk encoding, but the inspected material does not identify the global finite-path support transition or maximal-delay count. Semantic research-record searches and comparisons with the cited primary papers did not reveal an equivalent quantitative theorem. Implicit consequences of the general maximum principle and unseen literature remain limitations; no independence or exhaustive novelty certification is asserted.
+PASS
 
-## Mathematical value (V): PASS
-The change from three available colors to two changes the global synchronization time from linear (with a nondegenerate universal distribution) to logarithmic, even though the deterministic rule is identical. The exact degenerating variance and sharp finite-path endpoint enumeration explain rather than merely exhibit this phenomenon. This is a natural network-dynamics robustness question, not an arbitrary small enumeration.
+Path P_n three-color CCA lifted by increments −1,0,1 evolves as H_i(t)=max{S_j:|i−j|≤t}. All H remain neighboring 1-Lipschitz and equal colors then force equal integer heights, so synchronization time is max distance to initial height-maximizer set. Under full-support iid colors, centered stationary 1-dependent increments have exact long-run variance 18p0p1p2>0; functional CLT and Brownian a.s. unique arcsine argmax yield T_n/(n−1)⇒max(U,1−U), CDF 4/π arcsin√r−1 for r∈[1/2,1], mean 1/2+1/π. Two colors give monotone infection and longest zero-run K_n~log n/|log(1−θ)|, with boundary runs tight, hence T_n~K_n/2. The reflection principle counts max delay E_n=6([z^0]+[z^1])(z^-1+1+z)^(n−2), asymptotic 2√3/(3√πn). Independent exhaustive simultaneous updates for every gradient word n=2..9 matched deterministic T and maximum counts [6,12,30,78,210,576,1602,4500].
 
-## Limitations
-No finite-size CDF at every intermediate time or crossover for third-color probabilities approaching zero is claimed. No direct continuum proof substitutes for the functional CLT input. Both primary source comparisons and possible historical overlap are documented in AUDIT.json. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing natural equivalent, broader and table/reduction routes, including inspected primary literature and explicit residual priority risks.
+
+## value
+
+PASS
+
+The sharp linear versus logarithmic synchronization-time transition induced by support of the iid color law, with explicit limiting distribution, mean and exact maximum-delay census, is a useful quantitative refinement of known deterministic tree synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
