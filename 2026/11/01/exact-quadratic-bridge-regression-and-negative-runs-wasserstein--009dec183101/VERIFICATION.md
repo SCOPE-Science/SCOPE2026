@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify_runs_bridge.py` using a standard Python installation; no nonstandard dependencies or external papers are required to rerun finite checks.
+## correctness
 
-Observed exact-arithmetic report: `PASS: 1587 exact assertions; 144392 conditional-enumeration word instances; 49 unbalanced/balanced profiles.`
+PASS
 
-The script tests the arbitrary fixed-count conditional regression across small finite configurations, balanced conditional and covariance identities, monotone powers, and strict empirical one-Wasserstein covariance for deterministic strictly increasing pooled point sets. Its finite enumeration is not an infinite proof. Equations (5), (6), and the fourth-moment calculation in RESULT.md justify all dimensions analytically. The Wasserstein statement assumes no ties and a finite first parent moment; the strict all-distribution sign is derived from conditioning, not from numerical experiments.
+For uniformly balanced labels N=2m≥4, conditioning on S_k fixes counts in two independent uniformly permuted subwords. The internal run transitions and the boundary transition yield E[R|S_k=s]=(N+3)/2-(N-1)s²/[2k(N-k)]. The independent-copy monotonicity identity implies nonpositive covariance against any nondecreasing g(|S_k|), strict iff some weighted internal g varies; exchangeable-sign fourth moments yield Cov(R,S_k²)=-N(k-1)(N-k-1)/[(N-3)(N-1)]. Under an atomless common two-sample null, the pooled-order gaps are strictly positive and independent of labels, so W1=(1/m)sum gap|S_k| and the conditional and unconditional covariances are strictly negative. Independent exact fixed-composition enumeration m=2..5 corroborates; the proof handles arbitrary m.
 
-Independent audit and independent validation have not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: exact theorem/implication compared against the stated accessible primary work and semantic published-finding records. Inaccessible plausible literature is identified as risk rather than assumed not covering.
+
+## value
+
+PASS
+
+The exact universal sign between the classical runs statistic and Wasserstein two-sample discrepancy is a useful, non-obvious dependence fact in nonparametric testing. Strict conditional covariance after observing pooled order and the general monotone additive bridge formulation provide substantially more information than one fixed quadratic discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

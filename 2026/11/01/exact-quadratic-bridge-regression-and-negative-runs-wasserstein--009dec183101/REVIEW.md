@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-composition conditional decomposition (equation (5)) exactly counts internal transitions and the boundary transition. Its balanced specialization establishes the quadratic regression. The two-copy monotone-covariance identity proves both universal weak negativity and the strict-equality criterion. The moment computations use sampling-without-replacement second and fourth products to obtain the exact quadratic cut covariance. Conditioning on pooled order statistics yields the one-dimensional Wasserstein representation and strict universal covariance. A standalone exact-rational checker verified 1,587 assertions on finite sizes. Computational tests are not used as proofs for all sizes.
+## correctness
 
-**Originality — PASS (best knowledge; historical priority uncertain).** Dedicated published-finding corpus queries for runs–Wasserstein covariance, conditional bridge regression, and test dependence identified the closest published local-transition covariance classification, which does not include conditional prefix regression or Wasserstein dependence. Accessible prior research records claim comparisons identified an earlier single quadratic Cramér–von Mises covariance, covered as a special instance of the more general monotone bridge theorem but not equivalent to it. Ramdas–García Trillos–Cuturi's full text develops Wasserstein tests without such joint runs regression. Smeeton–Cox's full text describes total run-count distributions. Friedman–Rafsky's available sections discuss classical multivariate test constructions, not this conditional law. A historical monograph might imply parts of the result; priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** Two classical nonparametric two-sample diagnostics (runs and transportation distance) have an all-distribution exact covariance direction under the continuous null, including a conditional-upon-pooled-values strengthening. The pointwise quadratic regression and equality criteria explain the dependence for every weighted additive monotone bridge diagnostic, not just one arbitrary statistic or a marginal distribution. This is a meaningful structural relationship supporting interpretation and joint calibration of test statistics, without claiming a new combined test.
+For uniformly balanced labels N=2m≥4, conditioning on S_k fixes counts in two independent uniformly permuted subwords. The internal run transitions and the boundary transition yield E[R|S_k=s]=(N+3)/2-(N-1)s²/[2k(N-k)]. The independent-copy monotonicity identity implies nonpositive covariance against any nondecreasing g(|S_k|), strict iff some weighted internal g varies; exchangeable-sign fourth moments yield Cov(R,S_k²)=-N(k-1)(N-k-1)/[(N-3)(N-1)]. Under an atomless common two-sample null, the pooled-order gaps are strictly positive and independent of labels, so W1=(1/m)sum gap|S_k| and the conditional and unconditional covariances are strictly negative. Independent exact fixed-composition enumeration m=2..5 corroborates; the proof handles arbitrary m.
 
-**Scope/risk.** Equal group sizes and additive monotone bridge functionals are essential to the stated conclusions; a maximum bridge discrepancy is not covered. Historical first discovery is uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: exact theorem/implication compared against the stated accessible primary work and semantic published-finding records. Inaccessible plausible literature is identified as risk rather than assumed not covering.
+
+## value
+
+PASS
+
+The exact universal sign between the classical runs statistic and Wasserstein two-sample discrepancy is a useful, non-obvious dependence fact in nonparametric testing. Strict conditional covariance after observing pooled order and the general monotone additive bridge formulation provide substantially more information than one fixed quadratic discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
