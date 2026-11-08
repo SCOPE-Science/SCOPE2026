@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For all integers d>=3 and thresholds 1/sqrt(2)<=t<1, disjoint caps and conditional uniform-sphere moments give the complete restricted fourth-moment matrix. Signed permutations split H_2 into trace-free diagonal and off-diagonal spaces of dimensions d-1 and d(d-1)/2. The exact cap moment recurrences yield lambda_D=2dq+d^2BT/(d^2-1) and lambda_O=2dq-2dBT/(d^2-1). At t^2>=1/2, T=(d+4)t^2-3>0, proving strict order; nonvanishing on open sets gives 0<lambda<1. An independent Taylor expansion of the incomplete beta cap probability gives lambda_D~d(d+2)c_d/(d-1) delta^((d-1)/2) and lambda_O~4d(d+2)c_d/((d-1)(d+1)) delta^((d+1)/2), hence the sharp ratio. The local checker returned 490 passing assertions, including exact symbolic derivative algebra, conditional-moment generalized eigenvalues, high precision asymptotics and direct spherical Monte Carlo; numerical experiments are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General Slepian matrix construction does cover formulating the finite matrix eigenproblem, but not the closed coefficient and strict ordering.",
+        "2022 arbitrary-d spherical harmonic sampling provides high-probability randomized uniform observations, not a specific deterministic observation subdomain."
+      ],
+      "reasoning": "The general theories can express the question as an operator eigenproblem, but the exact pair of eigenvalues, equality eigenspaces, and sharp small-cap asymptotic are additional calculations not automatic corollaries of a numerical matrix formulation or randomized recovery guarantee.",
+      "searches": [
+        "spatiospectral concentration sphere symmetry hyperoctahedral region coordinate cross multiple caps quadratic spherical harmonics spectral eigenvalues",
+        "Spectral stability spherical harmonic sampling on hyperoctahedral sign permutation invariant set complete rank two and cap aperture threshold",
+        "arxiv:2103.14650v1 section 3 and 5",
+        "arxiv:2202.12995v1 Theorems 1-2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2103.14650v1 (HTML introduction, cap operator construction, conclusion)",
+      "arxiv:2202.12995v1 (HTML main theorems and reconstruction setup)",
+      "arxiv:2012.11493v1 (HTML cap orthogonal-polynomial setup and conclusions)",
+      "arxiv:math/0408424 (PDF relevant sections, screenshots and searched full text; not an exhaustive line-by-line read)",
+      "published-finding corpus 2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a",
+      "published-finding corpus 2026/9/20/SCOPE-sharp-l4-degree-two-spherical-harmonics--d4106097159f",
+      "published-finding corpus 2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paper 2103.14650 derives polar-cap Slepian commuting operators and general-region construction, but the cap union is not a polar cap.",
+        "Paper 2202.12995 bounds samples for random whole-sphere reconstruction, without deterministic restricted-domain eigenspectra.",
+        "Paper 2012.11493 addresses cap PDE bases, not Slepian concentration eigenvalues."
+      ],
+      "reasoning": "A generic operator construction implies computability but does not imply the explicit formula as a previously proved *statement*; conversely, this result does not improve or subsume any of these broad algorithmic theorems. The exact constant requires a disjoint-cap fourth-moment computation and cancellation not present in inspected statements.",
+      "searches": [
+        "arxiv:2103.14650v1 conclusion and cap commuting theorem",
+        "arxiv:2202.12995v1 main theorems",
+        "arxiv:2012.11493v1 cap orthogonal polynomials",
+        "Exact two eigenvalues of degree-two spherical harmonic concentration on disjoint coordinate-axis caps cross-polytope hyperoctahedral region; diagonal traceless and off-diagonal split; sharp small-cap condition number (d+1)/[4(1-t^2)]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2103.14650v1: full spherical cap commuting-operator construction",
+        "published-finding corpus 2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a (hemisphere parity spectrum)",
+        "published-finding corpus 2026/9/20/SCOPE-sharp-l4-degree-two-spherical-harmonics--d4106097159f (global L4 spherical harmonics)"
+      ],
+      "reasoning": "Compared the restriction Gram spectrum to hemisphere parity decompositions, global fourth-moment extrema, signed-permutation invariant forms and multiple-cap Slepian descriptions. A hemisphere at 1/2 and global L4 maxima do not imply signed-axis-cap gap formulas, because their regions/functionals differ and the required truncated fourth moments are not determined.",
+      "searches": [
+        "degree-two spherical harmonics concentration on hyperoctahedral union of axis-aligned spherical caps coordinate caps max absolute coordinate eigenspaces diagonal off-diagonal sharp condition number",
+        "Exact two eigenvalues of degree-two spherical harmonic concentration on disjoint coordinate-axis caps cross-polytope hyperoctahedral region; diagonal traceless and off-diagonal split; sharp small-cap condition number (d+1)/[4(1-t^2)]",
+        "\"union of coordinate caps\" \"spherical harmonics\" concentration",
+        "spherical Slepian eigenvalues octahedral region spherical harmonic concentration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7 concerns simplex-centered cap overlap volume, not the quadratic spectrum.",
+        "Searches for cross-polytope cap spectrum and hyperoctahedral Slepian data returned no formula or table matching the coefficient."
+      ],
+      "reasoning": "The claimed continuum of parameters is not an entry in a known numerical table surfaced by the searches. Search failures cannot establish the absence of unindexed tables; that remains an explicit historical risk.",
+      "searches": [
+        "quadratic harmonics spherical cap union coordinate axes support truncated moment ratio orthant spectral concentration",
+        "Spherical harmonic degree 2 local restriction union of ± coordinate caps fourth moment isotropic tight design but quadratic spectrum anisotropic",
+        "hyperoctahedral spherical cap union localization eigenvalues degree two",
+        "\"hyperoctahedral\" \"Slepian\" concentration",
+        "spherical caps coordinate axes quadratic harmonic eigenvalues localization"
+      ]
+    },
+    "rationale": "The actual searches of published mathematical records and primary-source inspections identify general spherical Slepian methods, random sampling theory, and single-cap polynomial methods, but no statement giving the full explicit two-level spectrum for all signed-coordinate caps, the strict fourth-moment ordering, and the sharp (d+1)/[4(1-t^2)] coefficient. General concentration frameworks alone do not state this explicit parameter law. Priority remains provisional due to possible equivalent classical group-invariant moment formulas; this risk is disclosed rather than treated as uniqueness proof.",
+    "residual_risks": [
+      "An unindexed specialized multi-cap Slepian calculation, classical signed-permutation fourth-moment identity, or exercise in invariant harmonics may encode an equivalent formula.",
+      "Relevant sections and full-text searches of the 2006 Slepian preprint were inspected, but an unrecognized implicit special computation elsewhere cannot be excluded.",
+      "No general uniqueness or exhaustive literature coverage is asserted; future independent priority assessment remains appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general Slepian matrices and commuting operators on individual polar caps, not the two-level spectrum of the all-coordinate-cap union in general dimension.",
+        "evidence": "The paper emphasizes special commuting operators for polar caps, and section 5 states arbitrary region generality without this signed-coordinate-cap specialization. First public date 2021-03-26.",
+        "identifier_or_url": "arxiv:2103.14650v1; https://arxiv.org/abs/2103.14650",
+        "material_read": "HTML full-text introduction, sections on region concentration and cap commuting operators, concluding discussion of general regions",
+        "method": "Open full HTML source; inspect main construction and conclusion",
+        "title": "A unified approach to scalar, vector, and tensor Slepian functions on the sphere and their construction by a commuting operator",
+        "trigger": "Direct scalar spherical concentration formalism and cap-region constructions; focal first-public source"
+      },
+      {
+        "assessment": "Theorem 1 is a near-optimal random uniform-sphere reconstruction guarantee, while theorem 2 is a sample-count lower bound; neither gives the exact two-level deterministic restricted-region spectrum, nor an opposite linear-versus-quadratic conditioning contrast.",
+        "evidence": "Main result states O(epsilon^-2 dimension log dimension) uniformly random observations, not continuous restriction to signed coordinate caps. First public date 2022-02-25.",
+        "identifier_or_url": "arxiv:2202.12995v1; https://arxiv.org/html/2202.12995v1",
+        "material_read": "Full HTML introduction, primary theorems and sampling method in section 3, related work, and contents including numerical performance and appendices",
+        "method": "Open experimental HTML full text; inspect actual main theorem statements and setup",
+        "title": "Near Optimal Reconstruction of Spherical Harmonic Expansions",
+        "trigger": "Spherical harmonic sampling stability, arbitrary ambient dimension and bandlimit"
+      },
+      {
+        "assessment": "The objects are sparse PDE discretizations on a single cap or band in three-dimensional space, not multi-axis spherical harmonic energy concentration nor sharp spectral anisotropy.",
+        "evidence": "Section 6 describes cap/spherical-band PDE constructions. First public date 2020-12-21.",
+        "identifier_or_url": "arxiv:2012.11493v1; https://arxiv.org/html/2012.11493v1",
+        "material_read": "Full HTML introduction, construction section on single-cap orthogonal polynomials, and conclusions for cap and band PDE discretization",
+        "method": "Inspect experimental HTML full text, sections 1-2 and 6",
+        "title": "Sparse spectral methods for partial differential equations on spherical caps",
+        "trigger": "Possible orthogonal-polynomial reduction for a collection of spherical caps"
+      },
+      {
+        "assessment": "Its general eigenvalue formulation would permit calculating spectra for this region, and it allows disconnected regions, so the general framework is not new. Inspected material develops arbitrary-region concentration in S^2, with detailed special polar-cap treatment; no axis-cap spectrum was identified. Residual implicit-priority risk retained.",
+        "evidence": "Describes region-specific Slepian eigenvalue problems and commuting operators for polar caps, rather than the present all-dimensional signed-coordinate-cap closed expression.",
+        "identifier_or_url": "arxiv:math/0408424; https://arxiv.org/abs/math/0408424",
+        "material_read": "Primary 48-page PDF: abstract and introductory formulation, section 4 variational/integral operator, section 5 polar-cap differential problem, plus global text searches for coordinate-axis and octahedral examples; not every page was read",
+        "method": "Open primary arXiv PDF, examine pages 1 and 11 with page screenshots, inspect the relevant parsed sections and search full text for octahedral/coordinate/quadratic terminology",
+        "title": "Spatiospectral concentration on a sphere",
+        "trigger": "General scalar spherical concentration source whose kernel might subsume the special problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ed7c017-8b0e-48c8-9c86-18f27afc289a",
+  "value": {
+    "rationale": "The signed-coordinate-cap region is a natural polyhedral/orientation-symmetric missing-data geometry, and is exactly second-moment isotropic: all pure linear harmonics have equal observation energy. The theorem shows this symmetry is insufficient for quadratic stability, gives an exhaustive eigenspace classification and an explicit universally sharp divergence coefficient in every fixed ambient dimension. This is a nontrivial boundary for using isotropic spatial sampling as a surrogate for stable higher-band reconstruction, rather than a parameter-renaming or small numeric gain. The conclusion is limited to pure degrees 1 and 2 on disjoint caps.",
+    "status": "PASS"
+  }
+}
