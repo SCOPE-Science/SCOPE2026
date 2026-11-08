@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Legendre's identity reduces the joint question exactly to \(s_2(n)\) and \(s_2(3n)\). The upper bound follows because a positive multiple of three cannot be a power of two. The first-carry argument forces a second consecutive carry and excludes the sole internal gap. All even and odd admissible valuations are produced by explicit integer seeds with checked binary weights; the map \(n\mapsto4n+1\) preserves the second valuation while raising the first, and binary shifting gives infinitely many distinct witnesses. Exact independent binomial, carry, bounded-scan and witness checks were executed; no finite enumeration is used to infer the universal statement.
+## correctness
 
-## Originality
-**PASS (self-review; residual literature risk).** The closest inspected works concern classical binomial divisibility (Sun, 2010), digital multiplication transducers for a different digit representation (Heuberger–Krenn–Kropf, 2016), and asymptotic joint digit-sum laws (Drmota–Krattenthaler, 2018). The latter do not imply an exact fiberwise support theorem with a missing value and explicit witnesses. A related binary-weight-product article (Kaneko–Stoll, 2021) was identifiable from its abstract, but a full-text comparison remained unavailable. A one-dimensional valuation distribution for \(\binom{3n}{n}\) does not determine its joint fibers with the central-binomial valuation. Search failure is not proof of global uniqueness; concealed equivalent statements are a residual risk.
+PASS
 
-## Mathematical value
-**PASS.** Two canonically related binomial families have sharply and completely classified *joint* prime-adic divisibility possibilities at every central-binomial valuation. The internal forbidden value, sharp maximum, no other missing values, and infinite constructive realizations are meaningful arithmetic structure not yielded by knowing either one-dimensional valuation distribution separately.
+The identities A(n)=s_2(n) and B(n)=2s_2(n)-s_2(3n) follow exactly from Legendre. Since 3n is divisible by 3 but is not a power of 2, s_2(3n)>=2, hence 0<=B<=2k-2. Kummer count of carries in n+2n shows the first carry forces a second at the next bit, excluding B=1. For b=0 use z_k=(4^k-1)/3; for b=2j-2 use e_j=(2^(2j-1)+1)/3; for b=2j-3 use o_j=(2^(2j-2)+5)/3. Each has the asserted digit weight and valuation. Map P(n)=4n+1 increases A by one while fixing B, so every b=0 or b=2..2k-2 appears for all appropriate k; n->2^h*n gives infinitely many witnesses. Independent all-pair constructive check for k=1..20 tested 381 pairs and a separate direct scan n=1..9999 found no excluded value. Finite evidence is corroborative; proof covers every n and k.
 
-## Limits and relationship
-The result gives support, not finite-window multiplicities, density, or other-base analogues. Kummer's theorem, Legendre's formula, and prior asymptotic joint-distribution theory remain prior work. The source comparison is incomplete for some related specialist literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: compare exact statement and model rather than terminology. Known foundational tools, marginal/special cases and directly overlapping results are credited. No actually inspected stronger result is shown to imply the complete final claim. Unavailable or only partially inspected plausible primary work is identified in residual risks; failed searches are not treated as proof of novelty.
+
+## value
+
+PASS
+
+An exact attainable-support theorem for two natural 2-adic binomial valuations is a motivated fine-scale classification; its globally forbidden value 1, sharp upper endpoint 2k-2, and explicit infinite witnesses are not obtained from marginal divisibility results or finite scans. It can be used to distinguish feasible simultaneous divisibility profiles, though it claims no asymptotic frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
