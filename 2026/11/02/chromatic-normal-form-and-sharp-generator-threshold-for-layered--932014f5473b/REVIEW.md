@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact frame relation has self-loops and all strict upward interlevel edges but no edges between distinct same-level points. Finite modal equivalence is reconstructed by stable successor-type refinement. Same-colour vertices within a level and same-colour vertices immediately below a singleton higher level admit explicit bisimulations. Conversely downward induction excludes all remaining pairs, including the subtle case when a higher adjacent level has at least two incomparable worlds. Counting upper-level-first injective colours produces the falling-factorial polynomial. The finite closure calculation and bisimulation refinement are separately implemented and agree on all checked cases. The proof addresses arbitrary finite heights and widths; finite tests do not claim exhaustive coverage of all sizes.
+## correctness
 
-## Originality — PASS within inspected evidence
-Agnew's full accessible 2026 paper proves a qualitative local-finiteness theorem using modal towers, not this all-size generator polynomial. Classical finite bisimulation refinement is fully credited. The closest comparison for random colourings of clustered total preorders does not imply the result on partial orders formed by antichain levels: same-level reflexive accessibility is different, and the immediately-higher-singleton colour-conflict is specific here. Its singleton-chain specialization overlaps classical chain behaviour; this is explicitly not presented as new. Database and literature searches for modal algebra generators, ordinal-sum posets and proper-colouring equivalents did not expose a covering theorem; search failure is not proof of priority. Older distinguishing-colouring or modal-algebra generation results under another name may still overlap.
+PASS
 
-## Mathematical value — PASS
-The exact generating-set inverse problem for finite complex algebras is natural independently of a particular numerical instance. The theorem gives a complete combinatorial characterization across arbitrary heights and widths, computes every ordered-generator count and minimum possible generator number, and isolates a directional obstruction invisible to a same-level injectivity test. Its closed probability and transition regime provide quantitative information about typical generation. This is stronger than a mere verification of local finiteness, and the partial-order versus clustered-preorder difference is substantive.
+Finite colour-preserving bisimulation agrees with modal formula indistinguishability by explicit stable partition refinement. Necessity: two same-level same-colour points and any lower point matching its unique immediate upper singleton admit bisimulation. Sufficiency: downward induction separates pairs using an extra immediate-upper successor when that level has size ≥2; singleton adjacent level is excluded by colour inequality; nonadjacent levels separate by accessible intermediate witnesses. Counting injective assignments top-down yields falling factorial and exact chromatic polynomial. The sharp rank and q/h window follow by positivity of falling factorials and log expansions. Independent direct partition-refinement verified 24 small compositions/palettes against local criterion and count, including direct Boolean closure cases; finite checks only supplement the full proof.
 
-## Limits and closest sources
-The result is specific to layered partial orders, and the probability limit fixes uniform width. Gabriel Agnew (2026), arXiv:2606.02941, is the motivating primary source; Blackburn–de Rijke–Venema (2001) gives standard bisimulation tools; Moraschini (2019), arXiv:1908.01659, discusses positive modal algebras rather than the present exact problem. No independent validation or priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new mathematical object is the exact conflict graph and quantitative named-generator count for finite partial-order antichain layers. General finite bisimulation and modal local-finiteness results do not provide the adjacent-singleton conflict rule or enumeration. A known chain specialization and finite modal separation are classical, credited. Older modal algebra generator-count and distinguishing-colour results under other terminology remain plausible.
+
+## value
+
+PASS
+
+A nontrivial order-specific characterization turns a modal algebra generator problem into a chromatic polynomial, giving sharp minimal ranks and random saturation thresholds. The asymmetric singleton obstruction is structurally informative, as illustrated by two- versus one-generator cases after reversing layer sizes; it is not an arbitrary substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

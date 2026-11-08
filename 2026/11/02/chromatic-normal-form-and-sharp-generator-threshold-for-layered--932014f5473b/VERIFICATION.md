@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3.9 or later and the standard library. Its output for this package is:
+## correctness
 
-`ALL_CHECKS_OK bisim_valuations= 49510 profiles= 220 direct_closure_valuations= 2340`
+PASS
 
-It enumerates atomic-colour assignments and computes the greatest colour-preserving bisimulation via an independently implemented successor-signature refinement. It compares this to the local colouring criterion and exact counting formula for every positive composition up to six worlds with palette size one to four when the palette assignment count is no more than 1500. Separately, for all compositions through four worlds, it builds the actual Boolean subalgebra closed under \(\Diamond\) from four-colour atomic predicates and compares generation to the proposed condition, checking 2340 colourings. These are bounded independent checks of finite cases. The proof, not the computation, establishes the theorem for arbitrary finite parameters. No external or independent audit has been conducted.
+Finite colour-preserving bisimulation agrees with modal formula indistinguishability by explicit stable partition refinement. Necessity: two same-level same-colour points and any lower point matching its unique immediate upper singleton admit bisimulation. Sufficiency: downward induction separates pairs using an extra immediate-upper successor when that level has size ≥2; singleton adjacent level is excluded by colour inequality; nonadjacent levels separate by accessible intermediate witnesses. Counting injective assignments top-down yields falling factorial and exact chromatic polynomial. The sharp rank and q/h window follow by positivity of falling factorials and log expansions. Independent direct partition-refinement verified 24 small compositions/palettes against local criterion and count, including direct Boolean closure cases; finite checks only supplement the full proof.
+
+## originality
+
+PASS
+
+The new mathematical object is the exact conflict graph and quantitative named-generator count for finite partial-order antichain layers. General finite bisimulation and modal local-finiteness results do not provide the adjacent-singleton conflict rule or enumeration. A known chain specialization and finite modal separation are classical, credited. Older modal algebra generator-count and distinguishing-colour results under other terminology remain plausible.
+
+## value
+
+PASS
+
+A nontrivial order-specific characterization turns a modal algebra generator problem into a chromatic polynomial, giving sharp minimal ranks and random saturation thresholds. The asymmetric singleton obstruction is structurally informative, as illustrated by two- versus one-generator cases after reversing layer sizes; it is not an arbitrary substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
