@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 32,768 potential edge sets are checked against twenty forbidden triangles, yielding an exact cellular complex. Full integer signed boundaries in degrees six and seven have zero composite. Verified ranks 564 over \(\mathbb F_2\), 565 and 95 over \(\mathbb F_3\), respectively, force rational rank 565 for the degree-six boundary. Modular-four Smith reduction identifies 564 unit invariants and one further invariant with exactly one factor of two, proving the claimed two-primary torsion by a free quotient argument. The entire checker is self-contained except for NumPy, and was run successfully.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-The closest identified foundational papers concern \(t\)-colorable graphs, bounded-covering-number graphs, and general graph-complex methods. These do not imply the exact fifth integral torsion of the triangle-free six-point graph complex: the bipartite complex is strictly smaller, and the bounded-covering-number complex is a different space. Comparisons of corresponding mathematical claims and related record searches did not find a covering computation. Some potentially relevant original full texts were unavailable; this is a residual publication-priority risk, not a proof of uniqueness.
+PASS
 
-## Value — PASS
-This exact nonzero integral torsion is a natural obstruction to any sphere-wedge description of an elementary monotone graph-property complex. It distinguishes the triangle-free graph complex from its bipartite subcomplex, for which sphere-wedge results exist. The selected invariant is intrinsic to a canonical forbidden-subgraph family, rather than a freely chosen slice or arbitrary numerical parameter. The assertion is deliberately restricted to the exact torsion group supported by its certificate.
+Exhausted all 2^15 edge subsets independently under the 20 forbidden 3-edge triangles; obtained face vector (1,15,105,435,1125,1773,1560,660,105,10) in degrees -1..8. Constructed oriented ∂6 (1560x660) and ∂7 (660x105) from faces, checked ∂6∂7=0, and obtained ranks over F2: rank∂6=564; over F3: rank∂6=565, rank∂7=95. Hence 565 ≤ rank_Q∂6 ≤660-rank_Q∂7 ≤565. Independent invertible elimination modulo 4 yielded precisely 564 odd pivots and an even residual with 630 entries 2 mod4 and no odd entries. The sole additional nonzero Smith invariant is 2 times an odd unit (not a multiple of 4); torsion of coker ∂6 is exactly Z/2 at the 2-primary part. Exact sequence 0→H5→coker∂6→im∂5→0 with im∂5 free transfers torsion to H5. Finite exhaustion is valid for this finite complex, but not a statement about all graph counts.
 
-## Limitations
-There is no claimed full integral homology, general formula across vertex counts, explicit minimality theorem, or independent expert verification. Scientific priority cannot be definitive without additional full-text inspections.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the exact natural K3-free graph-property complex and its degree-five 2-primary homology are distinct from 2-/3-colorability graph complexes, bounded-matching or bounded-cover graph complexes, and the indexed six-vertex pure 2-complex torsion table. No searched prior statement was found to imply the specific Smith invariant. The relevant Linusson–Shareshian article could not be read in full under the institutional access restriction; possible unindexed implicit overlap remains a material risk, not an automatic failure.
+
+## value
+
+PASS
+
+The K3-free graph-property complex on six labeled vertices is an intrinsically motivated canonical finite object. Determining its exact fifth integral two-primary torsion is a natural homology invariant not supplied by rational Betti numbers or graph-colorability wedge results, and it disproves a possible wedge-of-spheres homotopy form for this object. This is a substantive integer-homology calculation, not arbitrary recomputation of an unrelated six-vertex simplicial table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

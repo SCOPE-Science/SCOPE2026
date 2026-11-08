@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:14:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md (exact Git blob 3947241c49ed53ccca92dc03e282fea8dbd80916)",
+        "assigned check_tri6.py (actual mathematical algorithms inspected)",
+        "independently constructed signed matrices and modular ranks in /mnt/data/tri6_independent_check.py (private calculation)"
+      ],
+      "rationale": "Exhausted all 2^15 edge subsets independently under the 20 forbidden 3-edge triangles; obtained face vector (1,15,105,435,1125,1773,1560,660,105,10) in degrees -1..8. Constructed oriented ∂6 (1560x660) and ∂7 (660x105) from faces, checked ∂6∂7=0, and obtained ranks over F2: rank∂6=564; over F3: rank∂6=565, rank∂7=95. Hence 565 ≤ rank_Q∂6 ≤660-rank_Q∂7 ≤565. Independent invertible elimination modulo 4 yielded precisely 564 odd pivots and an even residual with 630 entries 2 mod4 and no odd entries. The sole additional nonzero Smith invariant is 2 times an odd unit (not a multiple of 4); torsion of coker ∂6 is exactly Z/2 at the 2-primary part. Exact sequence 0→H5→coker∂6→im∂5→0 with im∂5 free transfers torsion to H5. Finite exhaustion is valid for this finite complex, but not a statement about all graph counts.",
+      "residual_risks": [
+        "No odd-primary invariant or full integral Smith form was computed, deliberately outside the claim.",
+        "The finite chain computation depends on the declared face convention; it was checked independently against all 2^15 edge masks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linusson–Shareshian give wedge-of-sphere results for t-colorable graph complexes when t=2 or t≥n-3, not for the K3-free graph-property subcomplex.",
+          "The 5-cycle gives triangle-free but non-bipartite configurations; forbidding triangles and 3-colorability are different predicates (triangles themselves are 3-colorable)."
+        ],
+        "reasoning": "The colorability theorem supplies no homology-of-subcomplex injection, relative boundary, or Smith factor. General bounded-cover complexes likewise have different forbidden patterns. A hidden special-case theorem in a full book remains an originality risk.",
+        "searches": [
+          "Resultary: triangle-free graph simplicial complex on six vertices fifth integral homology 2-torsion Smith normal form graph property complexes",
+          "Linusson–Shareshian SIAM J. Discrete Math. 16 (2003) abstract DOI:10.1137/S0895480100366968",
+          "Jonsson 2008 Simplicial Complexes of Graphs bibliographic search"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md and explicit graph-property definition",
+        "Resultary: triangle-free graph simplicial complex on six vertices fifth integral homology 2-torsion Smith normal form graph property complexes",
+        "doi:10.1137/S0895480100366968",
+        "doi:10.1007/978-3-540-75859-4",
+        "Resultary 2026/9/9/SCOPE036"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior wedge-of-spheres theorem for bipartite or t-colorable graph complexes requires a different graph-property face condition.",
+          "A subcomplex of a wedge of spheres can carry torsion; the predecessor result does not force Tor_2 H5 here."
+        ],
+        "reasoning": "Neither a result at a superset/subset nor a general book title implies this exact homology. The direct finite Smith certificate supplies a nontrivial new-looking invariant, with explicit priority reservations.",
+        "searches": [
+          "Resultary: triangle-free graph simplicial complex on six vertices fifth integral homology 2-torsion Smith normal form graph property complexes",
+          "doi:10.1137/S0895480100366968",
+          "doi:10.1007/978-3-540-75859-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph-property complex is the independence complex of the 20 triangle-edge triples on the 15 vertices E(K6); it is NOT a clique complex of one graph.",
+          "A six-point graph containing a five-cycle is triangle-free but not bipartite, so the bipartite graph complex is a proper subcomplex."
+        ],
+        "reasoning": "Torsion in this independence-of-triangles complex is not automatically the torsion of any one triangle-free graph, a graph coloring complex, or an arbitrary six-vertex simplicial complex.",
+        "searches": [
+          "Resultary: triangle-free graph simplicial complex on six vertices fifth integral homology 2-torsion Smith normal form graph property complexes",
+          "search: simplicial complex of triangle-free graphs K3-free graphs homology torsion six vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE036 concerns pure two-dimensional simplicial complexes ON six simplicial vertices and RP2 H1=Z/2. The present complex has fifteen simplicial vertices (edges of K6), high dimension and H5 torsion.",
+          "Independent exact ∂6 calculations yield rank(F2)=564 vs rank(Q)=565."
+        ],
+        "reasoning": "The matched number six is the ground graph vertex count, not the simplicial vertex count of SCOPE036. No retrieved database entry tabulates this exact chain matrix or H5 2-primary group.",
+        "searches": [
+          "Resultary: triangle-free graph simplicial complex on six vertices fifth integral homology 2-torsion Smith normal form graph property complexes",
+          "Resultary: 2026/9/9/SCOPE036 integral-homology torsion census pure 2-complexes six vertices"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact natural K3-free graph-property complex and its degree-five 2-primary homology are distinct from 2-/3-colorability graph complexes, bounded-matching or bounded-cover graph complexes, and the indexed six-vertex pure 2-complex torsion table. No searched prior statement was found to imply the specific Smith invariant. The relevant Linusson–Shareshian article could not be read in full under the institutional access restriction; possible unindexed implicit overlap remains a material risk, not an automatic failure.",
+      "residual_risks": [
+        "Full SIAM 2003 article not read because authorized Oxford VPN disconnected; relevant graph-property examples may be contained in inaccessible text.",
+        "Jonsson 2008 full monograph and specialized unpublished graph-complex tables not exhaustively inspected.",
+        "Negative Resultary/keyword searches alone are not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract does not logically cover a forbidden-triangle subcomplex; full-text priority remains open.",
+          "evidence": "SIAM abstract: t-colorable graph complexes wedge spheres for t=2 or t≥n−3; no statement there about K3-free sixth-point complex.",
+          "identifier_or_url": "doi:10.1137/S0895480100366968",
+          "material_read": "Full publisher abstract, theorem scope t=2 and t≥n−3, bibliographic metadata; NOT 19-page full text.",
+          "method": "SIAM publisher abstract, lawful OA/arXiv search; Oxford authorized retrieval attempted and returned vpn_disconnected.",
+          "title": "Complexes of t-Colorable Graphs",
+          "trigger": "Closest graph-property complex with same underlying graph vertex set."
+        },
+        {
+          "assessment": "NOT_COVERING as to the specific object, not a claim that all possible related publications were read.",
+          "evidence": "Pure 2-complex on 6 simplicial vertices with H1=Z/2 vs triangle-free graph complex on 15 simplicial vertices with H5 torsion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE036",
+          "material_read": "Published indexed result summary; complete package not needed to distinguish object dimensions.",
+          "method": "Resultary semantic query and indexed scientific statement.",
+          "title": "Integral-homology torsion census for pure 2-complexes on six vertices",
+          "trigger": "Exact 2-primary torsion on six vertices in database search."
+        },
+        {
+          "assessment": "Cannot exclude an implicit table or example in unread chapters.",
+          "evidence": "Jonsson graph/hypergraph complexes book 2008; no specific six-point K3-free H5 table verified.",
+          "identifier_or_url": "doi:10.1007/978-3-540-75859-4",
+          "material_read": "Bibliographic scope/references only, not its full text.",
+          "method": "Publisher/search description; historical literature risk.",
+          "title": "Simplicial Complexes of Graphs",
+          "trigger": "Broad specialist monograph with possible graph-property table."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "independent signed boundary matrix and mod4 Smith factor",
+        "published t-colorable graph complexes for comparison"
+      ],
+      "rationale": "The K3-free graph-property complex on six labeled vertices is an intrinsically motivated canonical finite object. Determining its exact fifth integral two-primary torsion is a natural homology invariant not supplied by rational Betti numbers or graph-colorability wedge results, and it disproves a possible wedge-of-spheres homotopy form for this object. This is a substantive integer-homology calculation, not arbitrary recomputation of an unrelated six-vertex simplicial table.",
+      "residual_risks": [
+        "Value is confined to one naturally minimal small graph-property complex; no complete odd-torsion census or family theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific statement establishes only Tor_2 H5 for the six-point triangle-free graph-property complex.",
+    "The SIAM source could not be accessed in full; best-of-knowledge originality only."
+  ],
+  "schema_version": 1
+}

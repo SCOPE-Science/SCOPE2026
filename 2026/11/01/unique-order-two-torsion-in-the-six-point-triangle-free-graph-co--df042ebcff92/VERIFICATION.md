@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 check_tri6.py` with NumPy installed. The script checks all face patterns, computes the complete integral boundary matrices, tests \(\partial_6\partial_7=0\), performs independent finite-field eliminations, and applies invertible modulo-four row/column elimination. Its terminal assertions check the exact ranks and the presence of a residual two after 564 unit pivots.
+## correctness
 
-The recorded completed output is stored separately in `verification_output.txt`. This verifies only the specified two-primary summand, not every homology group or the whole Smith form at odd primes. A standalone integer torsion cycle is not provided because the direct Smith-rank argument is sufficient.
+PASS
+
+Exhausted all 2^15 edge subsets independently under the 20 forbidden 3-edge triangles; obtained face vector (1,15,105,435,1125,1773,1560,660,105,10) in degrees -1..8. Constructed oriented ∂6 (1560x660) and ∂7 (660x105) from faces, checked ∂6∂7=0, and obtained ranks over F2: rank∂6=564; over F3: rank∂6=565, rank∂7=95. Hence 565 ≤ rank_Q∂6 ≤660-rank_Q∂7 ≤565. Independent invertible elimination modulo 4 yielded precisely 564 odd pivots and an even residual with 630 entries 2 mod4 and no odd entries. The sole additional nonzero Smith invariant is 2 times an odd unit (not a multiple of 4); torsion of coker ∂6 is exactly Z/2 at the 2-primary part. Exact sequence 0→H5→coker∂6→im∂5→0 with im∂5 free transfers torsion to H5. Finite exhaustion is valid for this finite complex, but not a statement about all graph counts.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the exact natural K3-free graph-property complex and its degree-five 2-primary homology are distinct from 2-/3-colorability graph complexes, bounded-matching or bounded-cover graph complexes, and the indexed six-vertex pure 2-complex torsion table. No searched prior statement was found to imply the specific Smith invariant. The relevant Linusson–Shareshian article could not be read in full under the institutional access restriction; possible unindexed implicit overlap remains a material risk, not an automatic failure.
+
+## value
+
+PASS
+
+The K3-free graph-property complex on six labeled vertices is an intrinsically motivated canonical finite object. Determining its exact fifth integral two-primary torsion is a natural homology invariant not supplied by rational Betti numbers or graph-colorability wedge results, and it disproves a possible wedge-of-spheres homotopy form for this object. This is a substantive integer-homology calculation, not arbitrary recomputation of an unrelated six-vertex simplicial table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
