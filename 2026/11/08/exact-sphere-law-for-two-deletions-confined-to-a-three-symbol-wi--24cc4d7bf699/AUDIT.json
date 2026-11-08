@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Classifying adjacent deletions by an equality-edge path and separated deletions by their first unmatched surviving letter proves the local formula for all q>=2,n>=3. The pair-state transfer enumerator and extrema follow exactly. Three-local scores are 2-dependent; explicit gamma0 and gamma1, zero gamma2, and independent-block Lindeberg give exact mean/variance and fixed-alphabet Gaussian limit. Independent finite checker replay: 144555 direct word checks, 27 complete distributions and rational moment profiles. Finite checks are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2610.05696v1 Section VI obtains fixed-(t,T) code families with O(log n) redundancy",
+        "https://arxiv.org/html/2507.04797v1 Section V gives construction and decoding, not full sphere statistics",
+        "https://arxiv.org/abs/2105.02298 concerns the earlier window-of-t localized channel"
+      ],
+      "reasoning": "A code construction for all (t,T), although broadly parametrized, does not imply an exact enumeration for every center of this fixed output-length subchannel. The 2021 t-window model for t deletions has adjacent deletions when t=2; it does not include the separated pair within length three. The inspected broad theorems do not dominate the claim.",
+      "searches": [
+        "substring edit two deletions window length three source word ball mean variance limit distribution",
+        "arxiv:2610.05696v1 Section VI localized deletion code constructions",
+        "arxiv:2507.04797v1 Section V localized-deletion correcting codes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2507.04797v1 (full relevant sections)",
+      "arxiv:2610.05696v1 (full relevant sections)",
+      "arxiv:2105.02298 (bounded PDF model inspection)",
+      "indexed unrestricted binary two-deletion variance record (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ye–Sun–Ge 2025, Section V: redundant-symbol coding construction, not center-to-output enumerator",
+        "Ye–Ge 2026, Corollary VI.1: code existence under localized deletion; Section II: general sphere-packing estimates for substring edits",
+        "Older published arbitrary two-deletion variance: unrestricted positions give a different, higher-order asymptotic"
+      ],
+      "reasoning": "The target theorem is the exact source-ball identity (including full distribution, sharp extrema and exact variance/CLT), not the underlying channel definition. An existence proof of coding classes with optimal redundancy or a sphere bound for the larger substring-edit channel cannot logically determine these center-specific statistics. No cited primary result implies the full claim; residual unindexed and incompletely inspected literature is acknowledged.",
+      "searches": [
+        "arxiv:2507.04797v1",
+        "arxiv:2610.05696v1",
+        "arxiv:2105.02298",
+        "arxiv 2610.05696 2507.04797 q-ary (2,3) localized deletion exact output sphere volume triple distinct constant generating function variance",
+        "substring edit two deletions window length three source word ball mean variance limit distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2610.05696v1, Introduction: (t,T)-localized deletion definition; Corollary VI.1 concerns code redundancy",
+        "https://arxiv.org/html/2507.04797v1, Definition II.2 and Section V: deletion model and correcting-code constructions",
+        "Closest indexed arbitrary-two-deletion variance result concerns nonlocalized deletion positions and has cubic rather than linear variance growth"
+      ],
+      "reasoning": "The channel is the fixed-two, window-three component of the published (2,3)-localized model, not a renamed ordinary two-deletion or adjacent-two-deletion sphere. Neither directly inspected primary paper states or implies the three-triple identity, transfer enumerator, exact moments or Gaussian scale. Index searches located no same statement, but a negative index search does not prove universal priority.",
+      "searches": [
+        "arxiv 2610.05696 2507.04797 q-ary (2,3) localized deletion exact output sphere volume triple distinct constant generating function variance",
+        "localized two deletions in three consecutive positions output set distinct subsequences max sphere volume qary",
+        "localized deletion sphere size two positions window three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed finite coding tables report (3,1)-burst correcting-code sizes and unrestricted deletion-sphere variance, neither a table of (2,3) sphere volumes",
+        "Independent source-word enumerations in checker.py match the theorem in all specified finite parameter profiles"
+      ],
+      "reasoning": "Relevant located tables count correcting-code maxima or deletion intersections for other channels. They do not contain the parameter-indexed polynomial P_{n,q}(z) or the exact all-length (2,3) sphere values. The finite checker does not substitute for searching the literature or prove newness.",
+      "searches": [
+        "2 3 localized deletion ball exact cardinality maximum Fibonacci binary q-ary",
+        "nonconsecutive two deletions within length-three window q-ary deletion ball size extremal words ternary all distinct consecutive triples",
+        "t=2 T=3 localized deletion sphere two deletions distance at most 2 volume n-1 number all distinct triples constant triples exact mean variance"
+      ]
+    },
+    "rationale": "The inspected 2025 and 2026 localized-deletion literature establishes coding constructions/optimal redundancy and defines the model, but does not provide the exact (2,3) source-sphere law, complete distribution, moments or CLT. Relevant published unrestricted-two-deletion variance and other finite coding results concern different channels; implication comparisons do not show coverage. Unknown/unindexed publications remain a realistic priority risk.",
+    "residual_risks": [
+      "A different older source might independently state the same elementary triple identity under synchronization or deletion ambiguity terminology.",
+      "Indexed research records do not constitute exhaustive literature search; a plausible linked record was available only as title/summary.",
+      "The 2021 localized deletion article was not inspected appendix-by-appendix; narrower model does not logically contain the (2,3) channel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its contribution concerns code redundancy and position estimation. It does not state the output-sphere three-pattern formula or variance and Gaussian limit.",
+        "evidence": [
+          "arxiv:2507.04797v1, Introduction third research direction and Definition II.2",
+          "arxiv:2507.04797v1, Section V and conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.04797v1",
+        "material_read": "Abstract, introduction, definitions II.1–II.3, Section V localized code construction, conclusion, and keyword searches for spheres and deletion intersections",
+        "method": "Publisher-authorized full-text arXiv HTML; examined relevant sections and searches rather than relying only on an abstract",
+        "title": "Correcting Bursty/Localized Deletions: A New Error-Position-Estimation Code",
+        "trigger": "First verified 2025 source introducing localized-deletion coding constructions with the same general positional constraint"
+      },
+      {
+        "assessment": "The full fixed-parameter existence result is broader as a coding theorem but not an exact centerwise deletion-output enumeration; its inspected bounds do not imply the claimed identity or fluctuations.",
+        "evidence": [
+          "arxiv:2610.05696v1, Section I-A explicitly defines (t,T)-localized deletion",
+          "arxiv:2610.05696v1, Corollary VI.1 and Section VII"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.05696v1",
+        "material_read": "Full-text introduction and Section I-A localized model, Section II sphere-packing context, Section VI localized model corollary, conclusion, plus searches for sphere size and volume",
+        "method": "arXiv full HTML, examined the specific model, coding theorems and relevant bounds",
+        "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+        "trigger": "2026 primary model includes exactly (t,T)=(2,3), and general error correction may have stronger implications"
+      },
+      {
+        "assessment": "The paper focuses on code constructions for a length-t window of deletions; t=2 has adjacent positions and does not include distinct gap-one middle-skipping outputs. Further full-text inspection could still reveal useful related combinatorics.",
+        "evidence": [
+          "arxiv:2105.02298, model and main result description; material-read limit stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.02298",
+        "material_read": "PDF model setup, main theorems and initial proof context (first pages); targeted text search for ball/volume in PDF extraction; not every appendix",
+        "method": "Lawful OA arXiv PDF; extracted text plus visual check of page 2",
+        "title": "Optimal Codes Correcting Localized Deletions",
+        "trigger": "Earliest plausible source for localized deletion channels; checks possible prior exact source-ball counting"
+      },
+      {
+        "assessment": "Its asserted scope is arbitrary two deletion positions, not positions restricted to a three-symbol window. Unrestricted variance does not imply the localized sphere law. Whole-document coverage not certified from summary alone.",
+        "evidence": [
+          "Record describes binary unrestricted deletion variance (n-1)(n-2)(2n-3)/32",
+          "The present claim has a restriction-dependent local triple formula and variance linear in n"
+        ],
+        "identifier_or_url": "Published scientific-index record, 2026-10-04: Exact variance of binary two-deletion sphere size",
+        "material_read": "Indexed title and scientific summary only; the linked manuscript could not be fetched",
+        "method": "Semantic research-record search; compared the explicit unrestricted two-deletion statement and its order n-cubed variance with the present localized order-n variance",
+        "title": "Exact variance of binary two-deletion sphere size (indexed research record)",
+        "trigger": "An earlier result with the same number of deleted symbols, random-word variance and a potentially stronger exact statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24cc4d7b-f699-4681-968f-5cd9a9ccd86c",
+  "value": {
+    "rationale": "The (2,3) localized channel is the smallest fixed two-deletion model in which skipped-middle deletions matter. The structural triple identity explains all overlaps, gives the full sphere-volume distribution at every length, reveals the sharp binary/nonbinary extremal split and supplies finite dispersion and asymptotic Gaussian fluctuations. These motivated exact channel invariants are not arbitrary numerical slices or routine recomputations of known code sizes.",
+    "status": "PASS"
+  }
+}
