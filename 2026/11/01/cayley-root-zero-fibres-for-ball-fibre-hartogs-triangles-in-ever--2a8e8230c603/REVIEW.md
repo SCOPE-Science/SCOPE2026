@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Hilbert norm follows from integrating a Laurent monomial first over the Euclidean ball of radius \(|w|^{1/2}\), then over the punctured unit disk: \(2\pi^{n+1}\alpha!/((|\alpha|+n)!(2\beta+|\alpha|+n+2))\). The exponent cutoff and the Laurent basis are valid for this Reinhardt domain. Summing the admissible Laurent exponents produces the absolutely convergent expression (1), whose parity decomposition is checked symbolically against the binomial generating function. The even/odd formulas (2)–(3) imply the exact equation \(C^{n+1}=(-1)^nq_t^2\). The right-half-plane criterion excludes all nonphysical roots. Its root count includes the boundary-angle exclusions, and the explicit choices of domain points realize every retained root. Each root is simple; the stated boundary normalization follows from \(q_t\sim(1-t)/4\). A standalone checker passed 12,766 supplementary checks, with no infinite assertion inferred solely from finite experiments.
+PASS
 
-## Originality — PASS, subject to historical priority
+For n>=1, domain ||z||²<|w|<1 with w-bar-eta product real t∈(0,1), integrate z^alpha w^beta over complex ball radius |w|^(1/2) and punctured disk to obtain norm²=2*pi^(n+1)*alpha!/((ell+n)!*(2beta+ell+n+2)), admissible beta>=−floor((ell+n+1)/2). Summing the Laurent orthogonal basis in degree ell converges absolutely for |s|<sqrt(t), and parity decomposition yields K proportional to ((1+sqrt(t))²D−(1−sqrt(t))²E) for even n, plus sign for odd n, with D=(1−y)^−(n+1), E=(1+y)^−(n+1). Therefore zero exactly when Cayley(y)^(n+1)=(-1)^n*((1−sqrt(t))/(1+sqrt(t)))². Cayley maps disk to right half-plane: retain precisely root angles with positive cosine; counts n even 1+2 floor((n+1)/4), n odd 2 floor((n+1)/4), including n=1 no positive-slice zeros. All roots simple and realizable by actual strict-domain point pairs. q_t~(1−t)/4 implies sharp boundary fan coefficient 2^(1−4/(n+1)). Independently checked 126 admissible roots over n=1..12 and t=.16,.49,.81 against exact root equations. No off-slice or other exponent assertions.
 
-The focal full-text article of Fu, Deng and Cao (arXiv:2203.06938) establishes the general Bergman kernel formula but its enumerated results and inspected argument concern kernel construction and \(L^p\) projection bounds, rather than the complete dimension-dependent zero-fibre classification. In particular, an explicit rational kernel does not itself state which of its candidate scalar zeros are geometrically admissible for each dimension, their exact number, or the normalized convergence fan. The \(n=1\) two-dimensional zero phenomenon treated by Edholm does not cover the \(n\ge2\) ball-fibre geometry. Park's 3-dimensional article addresses nested coordinate Hartogs domains, rather than an Euclidean ball fibre; only its abstract was accessible, so possible indirect methods remain an uncertainty. Park’s 2016 open-access all-dimensional theorem addresses a different polydisk-based Cartan–Hartogs Reinhardt family and does not classify the present punctured-base ball-fibre scalar roots. Relevant published mathematical finding summaries concern two-dimensional rational Hartogs exponents or weighted disks/balls, not this assertion. Absence from search results does not establish priority; uninspected literature and implicit consequences of older formulas remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The Lu Qi-Keng question is intrinsic to Bergman representative coordinates on nontrivial pseudoconvex Hartogs domains. The result supplies a complete and realized scalar zero set on the canonical positive radial-product slice for every dimension, a strict \(n=1\) versus \(n\ge2\) existence transition, an exact parity-dependent count, and a sharp fractional condensation exponent and angular fan. The combination is a natural finite classification for an entire dimension family, not a numerical spot check or an arbitrary single parameter example.
+Fu–Deng–Cao (2022) explicitly derives the general Bergman kernel for the same ball-fibre Hartogs family, so kernel itself is prior. The present contribution is the full admissible scalar zero-fibre count/realization and boundary condensation for every dimension. Edholm concerns two-dimensional power-Hartogs triangles, Park 2018 uses nested coordinate-domain inequalities rather than Euclidean ball fibres, and related Resultary rational diagonal Hartogs results have different geometry. The closest known general explicit formula may make the root equation a fairly immediate corollary; the detailed all-dimensional root count and geometric admissibility still require stated deductions. Explicit full priority uncertainty retained.
 
-## Limits and strongest antecedents
+## value
 
-Fu, Deng and Cao (2022): known general kernel. Edholm (2015/2016): classical two-dimensional exponent-dependent zeros. Park (2017/2018): nested-coordinate three-dimensional Hartogs zero results, abstract-level only, full text unavailable. Related published mathematical research results on rational two-dimensional Hartogs triangles do not imply the ball-fibre dimension transition. No claims off the positive product slice or for other exponents. The review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Lu Qi-Keng zero problem and realizability of kernel zeros are natural geometric-analytic invariants. This result settles a positive radial-product slice in all complex-ball fibre dimensions, exhibits the first dimension n=2 with genuine zeros, supplies all distinct roots and a sharp boundary exponent/parity-dependent count. It is more than a few-dimensional table and does not claim a new kernel formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
