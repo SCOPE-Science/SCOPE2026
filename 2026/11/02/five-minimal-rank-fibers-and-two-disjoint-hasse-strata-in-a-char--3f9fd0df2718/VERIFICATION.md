@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_symbolic.py` (requires SymPy) and `python3 verify_fields.py` (standard library only) from the same directory.
+## correctness
 
-The first checks the actual degree-thirty expansion of the branch polynomial cubed in characteristic seven, the Cartier matrix, discriminant, Hasse determinant, elliptic quotient Hasse coefficient, boundary identities, factorization of the Frobenius-twisted scalar, and the prime-field marked-census.
+PASS
 
-The second recomputes the coefficients by ordinary finite-field convolution, directly constructs inverse-Frobenius-semilinear Cartier iterates, and uses row-reduction over separate explicit field implementations of sizes 7, 49, and 343. It exhausts all smooth coefficient-marked pairs over the first two fields and verifies all five claimed minimal-rank points in the third.
+Writing f=xg(x³), smooth iff bΔ !=0. Independently extracted Cartier coefficient matrix H = [[3ab²,0,0,b³],[0,L,0,0],[0,0,R,0],[3,0,0,3a+3]] in characteristic7 and verified det H=3b² L R². On R=0, L=-a²(a+2)² and Δ=2a(a+2)^3, proving smooth-locus disjointness. The 2x2 rank-one block is u v^T and its inverse-Frobenius-semilinear stable rank is controlled by 3S=v^[7]u, not ordinary trace. S(a,3a(a+1))=(a-2)(a-3)(a+1)²(a³+3a²-1); excluded a=-1 and boundary leave five simple smooth roots (2 rational, 3 cubic). Independent symbolic expansions and exhaustive smooth F7 census (29,4,2,2 respectively) corroborate; geometric exhaustiveness follows polynomial factorization over closure, not finite census.
 
-Expected success markers:
+## originality
 
-`EXACT_GENUS4_C6_P7_IDENTITIES_OK`
+PASS
 
-`F7_EXHAUSTIVE_CARTIER_OK`
+Kudo-Nakagawa-Takagi 2023 original same-model open journal full text establishes order-six family, quotient elliptic curve, Cartier support pattern and superspecial algorithm, but no complete characteristic-seven positive stable-rank stratification found there. Kudo-Harashita genus-wide superspecial impossibility only excludes a-number four in char7. New exact marked rank-one geometry and doubled Hasse component not implied by those weaker statements. Journal correction and unindexed specialized stratification remain residual risks.
 
-`F49_EXHAUSTIVE_CARTIER_OK`
+## value
 
-`GF343_FIVE_DEEP_POINTS_OK`
+PASS
 
-These checks support the formal polynomial argument for all geometric parameters. Numerical or finite-field enumeration alone does not prove geometric completeness. No independent audit or validation has been performed.
+Complete two-parameter geometric a-number/p-rank stratification, scheme-theoretic Hasse multiplicity, and five marked minimal-rank special fibers are natural arithmetic-geometric invariants extending superspecial-only study. No unmotivated cutoff or infinite extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
