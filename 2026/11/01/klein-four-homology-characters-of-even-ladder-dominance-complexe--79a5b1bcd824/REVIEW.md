@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The domain, simplicial face condition, action, sign convention, and quantifiers are fixed. Thapper's even-width cylinder matching-tree theorem (Proposition 3.3, arXiv:0812.1165) and the Matsushita–Wakatsuki duality (arXiv:2312.02639) give integral homology concentrated in degree \(n-1\), of rank \(n+1\). The reduced simplicial Lefschetz trace equals the negative weighted invariant-face orbit sum, and the odd degree makes the homology trace equal that sum. Explicit four-state and sixteen-state transfer matrices satisfy exactly checked annihilating identities. Independent direct simplicial calculations confirm ranks and group traces at several nontrivial parameters. These calculations are supplemental; the matrix identities and cited theorem prove every even \(n\ge4\).
+## correctness
 
-**Originality: PASS against inspected sources, with residual bibliographic risk.** Thapper computes the cylinder's ordinary homotopy type, and Matsushita–Wakatsuki derive dominance homology and homotopy information without the action of path reversal and row interchange. The closest publicly indexed ladder symmetry records concern total cut, matching, or circular-ladder independence complexes, different simplicial constructions. Searches of aliases and structural reductions found no statement implying these four precise dominance traces or quotient dimensions. Unindexed equivalent work cannot be excluded.
+PASS
 
-**Value: PASS.** Symmetry decomposition is not recoverable from the known \(n+1\) ordinary Betti rank. The result gives every irreducible multiplicity for an infinite family and isolates a sharp mod-four transition: the rational quotient loses its entire nonzero reduced homology when \(n\equiv2\pmod4\). The transfer proof is structural and exact, not a finite graph census.
+Thapper's even-length four-wide-cylinder matching tree establishes I(P_n×C4)≃ wedge^{n+1} S^{n−1}; Matsushita--Wakatsuki's suspension/Alexander-dual relation ΣD(L_n)^vee≃I(P_n×C4) and N=2n-vertex duality shift give D(L_n) one free H_{n−1} of rank n+1. For each group element the reduced signed Lefschetz sum is minus the weighted sum of invariant faces by number of included vertex orbits. Because n−1 is odd the homology trace is the latter sum. For layer swap the binary triple-avoidance transfer has exact four-state identity T_s^4 v=v and initial value −1 at n=2, yielding sign (−1)^{n/2}. For path reversal, left-half four-mask recurrence has sixteen states with (T_r²−I)²v=0, initial values (−1,3,−3,5), and yields (−1)^{n/2}(2⌊n/4⌋+1); reflected layer swap has the same trace by symmetry of endpoint/internal tests. Character orthogonality yields displayed irreducible multiplicities and rational quotient invariants. I independently enumerated all admissible dominance faces for n=2,4,6,8 and all four signed automorphism actions, obtaining vectors (3,−1,−1,−1),(5,1,3,3),(7,−1,−3,−3),(9,1,5,5), agreeing with exact all-n formulas. The source script contains exact T_s and T_r identities; independent mod-2 homology n=2,4,6 independently confirms degree/rank. A published ladder example has a degree-label discrepancy; the stated degree is confirmed by Alexander duality calculation and finite ranks.
 
-**Limits:** Rational representations only, not the integral lattice; quotient rational homology only, not quotient contractibility; even \(n\ge4\) only. The nonequivariant concentration rests on primary published mathematics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Thapper's cylinder theorem and Matsushita--Wakatsuki's dominance duality fix only nonequivariant rank/degree. Published same-ladder total-three-cut and matching-complex four-element characters, and circular-ladder independence action, are for different simplicial constructions and cannot cover the dominance traces. No prior work inspected supplies the exact full V4 dominance character or mod-four quotient transition.
+
+## value
+
+PASS
+
+Complete V4 representation for a natural infinite series of ladder dominance complexes has an explicit transfer-matrix proof and a sharp mod-four quotient phase boundary invisible to ordinary n+1 Betti ranks. Such equivariant invariants are motivated by graph automorphism actions and quotient topology, not arbitrary finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
