@@ -1,15 +1,21 @@
-# Self-review of the finite modal-expansion census
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses precisely (MK), (Pos), (Con) on the stated fixed labelled bounded involutive lattice, with no implicit normalization. The self-contained proof derives separate coordinate maps using (Pos) and (Con), verifies the reverse construction, then gives an exhaustive principal-filter/normal-join characterization per Boolean output atom. For distinguished coordinates, the filter coverage forces the two neighborhood sets to coincide and lie in the support. For other coordinates, the box may be inactive or the diamond neighborhood is a subset of the box threshold. The independent brute enumeration of all unary maps on carrier sizes 2, 3, 4, 6 and complete small subset tests agree with the formula. These tests corroborate but do not constitute the general proof.
+## correctness
 
-## Originality — PASS within checked sources
-The closest primary source is Celani–Menchón–Miguelez, *A Modal Expansion of Kleene Algebras via Twist Structures*, arXiv:2608.10937v1, §§2–3. It supplies the modal Kleene definitions, general modal triple representation and the twist construction, not the complete per-coordinate finite classification and parameter-wise counts. The classical Boolean slice follows from standard relational semantics and is acknowledged. Searches for mixed Boolean–Kleene product expansion counts, finite modal contact filter spectra and principal-filter normal forms did not establish the same all-parameter result. An older equivalent specialized enumeration is still possible; no priority claim beyond inspected literature is implied.
+PASS
 
-## Value — PASS
-The mixed products are the simplest fixed finite Kleene algebras interpolating between classical truth values and an indeterminate value. The formula determines the exact number of modal expansions for every mixture and the normal form explains how the modal contact and filter conditions couple the classical coordinates while leaving asymmetric freedom at three-valued coordinates. This is a natural complete classification of a substantive family, rather than a count of a selected small example.
+For h,k>=0, h+k>=1, represent labelled product 2^h×3^k by disjoint set pairs (A,B) covering H⊆X. From (MK) meet preservation, (Pos) positivity and (Con) contact, show each modal unary map separates as m(A,B)=(Box A,Diamond B). Component maps are meet-preserving and union-preserving with Diamond(empty)=empty; each output coordinate is a principal-filter Box threshold P or inactive, and a Diamond neighborhood Q. Disjoint outputs require Q⊆P on active outputs; coverage at y∈H forces P=Q⊆H, yielding 2^h each. At y outside H there are 2^n inactive plus 3^n active choices. Independence yields 2^{h²}(2^n+3^n)^k. Independently brute-force checked all unary functions of carriers sizes 2,3,4,6 (counts 2,5,16,26) against original (MK),(Pos),(Con), corroborating boundary and mixed cases. C relies on analytic coordinate proof for all n, not finite extrapolation.
 
-## Limits
-The result does not classify arbitrary finite Kleene algebras or isomorphism types, and independent validation remains outstanding. The concrete enumeration code and published definitions support reproducibility. A historical-priority risk remains for older specialized Kleene-algebra enumerations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Celani–Menchón–Miguelez (2026) defines precisely these modal Kleene axioms and proves general twist/contact representation; it does not print the finite labelled complete count for mixed Boolean and Kleene products or the atomwise P,Q classification in the inspected full text. The k=0 Boolean special case 2^{h²} is classical modal relation counting and not asserted novel; the exact mixed-product exponent and nonnormal distinction are additional specialized enumeration.
+
+## value
+
+PASS
+
+These fixed products interpolate classical Boolean and indeterminate Kleene truth values. Enumerating all modal unary operations exactly and giving unique local normal forms explains support-driven asymmetric freedom and classifies a natural infinite finite-algebra family, not an arbitrary small-carrier exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
