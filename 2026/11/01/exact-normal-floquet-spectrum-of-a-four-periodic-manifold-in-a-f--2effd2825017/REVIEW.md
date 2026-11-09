@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The model is explicitly defined on positive histories; the four independent product equations characterize all positive period-dividing-four histories for \(p\ne1\). Linearization in logarithmic variables uses denominator one at those histories. Cyclic Fourier modes produce four degree-five polynomials whose factors establish the full 20-dimensional return spectrum and semisimplicity. The unit eigenspace matches the tangent space of the twelve-dimensional fixed manifold. The normal contraction or expansion implies the stated local dynamical alternatives. Exact symbolic output from the embedded checker reproduced the characteristic polynomials, annihilating identity, trace, and two specialization ranks. No global or degenerate-parameter assertion is claimed.
+## correctness
 
-## Originality
-PASS on the inspected evidence, with residual historical risk. The primary full text of Murovhi–Folly-Gbetoula–Anani, arXiv:2610.24657v1, was inspected at the recurrence, Theorem 2.1, example, and conclusion; it contains a periodic existence result, explicit solution expressions, and reciprocal-invariant affine recurrences (39)–(42) with factor \(AE=p^2\) in this specialization. It does not present the complete original twenty-dimensional return spectrum, twelve neutral and eight transverse directions, or an accompanying local manifold stability theorem. Searches of relevant mathematical records and accessible earlier records found no implication covering the 12+8 Floquet statement. Elsayed–Alofi (2023), which concerns related autonomous signs, remained inaccessible in full text, and could carry unassessed overlap.
+PASS
 
-## Mathematical value
-PASS. This answers the motivating paper's explicit call for investigation of attractivity and stability by determining the complete twenty-dimensional linearized return, its orbit-independent multiplicities, the normal attraction/instability dichotomy, and the special-case instability of its own \(p=2\) periodic illustration. The positive-dimensional periodic family makes the distinction between normal attraction and attraction to a prescribed orbit essential; its eight transverse directions would not be detected by checking only periodicity.
+Substitution of a four-periodic block gives exactly four product-one constraints P_j=x_{j+1}y_jw_{j+3}z_{j+2}=1 with independent logarithmic gradients, leaving dimension 16−4=12. At each such history, all denominators equal one and the log-linearized one-step 20x20 matrix T_p has four cyclic Fourier factors L_q. Their exact factorizations give (λ−1)^3(λ+1)^3(λ²+1)^3(λ²−p)^2(λ²+p)^2; roots are semisimple for p>0,p≠1, so T_p^4 has 12 neutral and eight p² multipliers. Tangent directions equal the neutral fixed-manifold eigenspace; a normal contraction plus summable tangential drift yields local convergence to some periodic manifold point for p<1, and p>1 has eight unstable directions. Independent SymPy block expansion and exact 20x20 specializations p=1/2 and 2 confirmed the two-eigenvalue annihilator, ranks, and all factors. This does not establish global attraction or p=1 dynamics.
 
-## Limitations and closest literature
-The current theorem covers the positive autonomous common-parameter family rather than arbitrary nonautonomous coefficients. Global basins and the degenerate \(p=1\) parameter are not classified. The original recurrence paper already exhibits the reduced product coefficient \(p^2\) and general formulas from which the new full spectrum is derivable, but it does not formulate this complete history-space stability theorem; this relationship and related 2023 priority uncertainty require independent historical evaluation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Murovhi–Folly-Gbetoula–Anani 2026 already solve more general nonautonomous recurrences and show reciprocal-product affine reductions with factor AE=p² on the common-parameter specialization. This element is explicitly prior-covered. Their inspected theorem and closing discussion do not classify the full ORIGINAL 20-dimensional return derivative, 12-dimensional semisimple neutral eigenspace and local manifold attraction/instability. Earlier autonomous sign-case paper (Elsayed–Alofi 2023) remained inaccessible in full text and may overlap. Qualified best-of-knowledge PASS for the full spectral/multiplicity/manifold-stability package.
+
+## value
+
+PASS
+
+The system is an explicit natural four-component higher-order rational recurrence with a nonisolated periodic manifold. Separating the 12 neutral directions from eight normal p² directions, including stable p<1 and unstable p>1 regimes, is a meaningful local dynamical classification absent from a scalar-product multiplier alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
