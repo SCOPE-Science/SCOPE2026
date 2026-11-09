@@ -1,19 +1,21 @@
-# Scientific review: a sharp inverse-chi moment frontier for Gaussian-sketched Arnoldi Hessenberg noise
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem specifies the three-dimensional SPD matrix, Gaussian sketch dimensions and normalization, and the coefficient recorded before termination. The key identity \(h_{13}=C_\ell/r_{33}\) was reconstructed symbolically from \(RAR^{-1}\), with the matrix basis interpretation checked against the exact sketched Arnoldi recurrence. The Bartlett distribution makes \(r_{33}\sim\chi_{\ell-2}\) independent of a nonzero numerator \(C_\ell\) having a finite \((\ell-2)\)-moment. This proves the complete if-and-only-if moment threshold, the positive tail constant and the weak Gaussian limit. The finite regression tests verify algebra and algorithm consistency but do not substitute for these infinite statements. The theorem is not a claim about conditionally embedded sketches, other matrices or floating-point error.
+PASS
 
-## Originality (PASS, qualified)
+For the ordered Krylov basis, sketched MGS produces V=sqrt(ell)R^-1 with positive-diagonal QR of sqrt(ell)Omega. Thus H=RAR^-1, and an independent symbolic calculation gives the exact h13 numerator/(r11*r22*r33). Bartlett QR has r33 chi_(ell-2) independent of C, while denominators r11 chi_ell and r22 chi_(ell-1) have enough inverse moments at p=ell-2. Tonelli proves divergence for p>=ell-2; chi small-ball expansion and dominated convergence give the exact tail constant. Chi concentration gives sqrt(ell)h13=r12-r23+o_P(1) and the normal limit. Sympy independent algebra and chi CDF leading constants k<=4 passed.
 
-The closest motivating source is Timsit, Grigori and Balabanov, arXiv:2302.07466 (first public preprint 2023-02-15), whose randomized Arnoldi section and Section 4.1 report a visually Gaussian pattern for the coefficients above the tridiagonal band and treat Gaussianity as an assumption. It does not establish the unconditional inverse-chi tail or sharp moment cutoff in this particular minimal SPD example. Balabanov and Grigori, arXiv:2011.05090, and Balabanov, arXiv:2210.09953, explain randomized Gram–Schmidt and sketch-based QR, but their inspected methodological sections do not state this coefficient law. Simoncini and Wang (2025) analyze stabilized randomized Krylov recurrences, not this exact distributional threshold. Searches for Gaussian-sketch Arnoldi Hessenberg Student, chi, Bartlett, power tails and exact moments did not expose an implication-equivalent theorem. These are best-knowledge comparisons, not proof of publication priority; specialized work on QR ratios or non-Gaussian Hessenberg coefficients is a residual risk. Gaussian QR independence and chi small-ball asymptotics themselves are standard and explicitly excluded from novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-The source literature uses empirically Gaussian-looking above-tridiagonal coefficients to motivate short-recurrence analysis. This exact small model shows that the same coefficient's central limit is Gaussian even though an \(\ell=4\) Gaussian sketch has infinite coefficient variance. The first nontrivial above-tridiagonal entry, the whole dimension-dependent moment cutoff and the explicit tail are a naturally motivated diagnostic for what empirical histograms and standard embedding estimates cannot establish. The theorem does not imply a method-wide instability or assert performance failure; its value is a sharp boundary for unconditioned statistical modeling of this coefficient.
+General randomized Arnoldi/Gram–Schmidt work supplies the algorithm, Gaussian sketching motivation and stability results, while classical Bartlett QR supplies the probabilistic ingredients. The exact unconditional heavy-tail moment cutoff and tail constant for the earliest extra Hessenberg entry of a specific SPD path matrix were not derived by the accessible analyzed sections. This is a qualified exact-distribution contribution rather than a newly invented QR theorem.
 
-## Checks and limitations
+## value
 
-Symbolic similarity identities, 900 independently seeded sketch QR/direct-Arnoldi comparisons and five small-chi CDF checks were executed using the standalone `verify.py`. The proof's weak Gaussian limit is not uniform moment convergence. The finite-dimensional matrix is intentionally the first example in which an above-tridiagonal entry exists; extension to higher Krylov dimensions or non-Gaussian sketches is unproved. Earlier equivalent specialized results may exist despite the searches and paper sections inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first above-superdiagonal coefficient h13 is the earliest nontrivial diagnostic of non-tridiagonality in a sketched SPD Arnoldi process. Exact unconditional moment thresholds, tail constant and Gaussian central limit together expose a mathematically motivated stability/noise-model boundary that could matter in finite-sketch error analysis. The 3x3 path matrix is minimal for that phenomenon, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

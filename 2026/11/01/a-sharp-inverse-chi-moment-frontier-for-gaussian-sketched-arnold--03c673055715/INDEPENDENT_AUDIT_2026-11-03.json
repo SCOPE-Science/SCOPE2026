@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T14:38:44Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md and accompanying mathematical package were retrieved at the assignment commit and all actual Git blob identities reconstruct the assigned source-tree SHA.",
+        "Independent /mnt/data/[internal audit slot]-run-20261103T142900Z/independent_checks.py output: 3841 independent assertions total across five topics, not a universal proof."
+      ],
+      "limitations": [
+        "Exact arithmetic, fixed Gaussian sketch and the single h13 coefficient only; finite checks do not justify other matrices/algorithms."
+      ],
+      "rationale": "For the ordered Krylov basis, sketched MGS produces V=sqrt(ell)R^-1 with positive-diagonal QR of sqrt(ell)Omega. Thus H=RAR^-1, and an independent symbolic calculation gives the exact h13 numerator/(r11*r22*r33). Bartlett QR has r33 chi_(ell-2) independent of C, while denominators r11 chi_ell and r22 chi_(ell-1) have enough inverse moments at p=ell-2. Tonelli proves divergence for p>=ell-2; chi small-ball expansion and dominated convergence give the exact tail constant. Chi concentration gives sqrt(ell)h13=r12-r23+o_P(1) and the normal limit. Sympy independent algebra and chi CDF leading constants k<=4 passed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 SIAM article introduces sketch Gram–Schmidt Arnoldi, mainly numerical stability; 2025 Wiley Section 3 derives sketch Arnoldi matrix relations, not tail moment frontiers."
+        ],
+        "reasoning": "Classical Bartlett formulas are strong ingredients but do not themselves identify the relevant h13 function and its moment coefficient for the given A.",
+        "searches": [
+          "Balabanov–Grigori SIAM J Sci Comput (2022) DOI 10.1137/20M138870X",
+          "Palitta et al Wiley 2025 DOI 10.1002/nla.2596",
+          "Timsit–Grigori–Balabanov arXiv:2302.07466"
+        ]
+      },
+      "checked_sources": [
+        "Timsit et al. arXiv:2302.07466 (abstract)",
+        "Balabanov–Grigori SIAM (2022) abstract",
+        "Palitta et al Wiley (2025) Section 3/4",
+        "Bartlett decomposition (classical)",
+        "Resultary targeted search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General sketched Arnoldi relations and classical QR independence do not state an unconditional iff p<ell-2 for this coefficient."
+        ],
+        "reasoning": "The new specialization derives a non-Gaussian heavy-tail law from an otherwise Gaussian sketch; high-probability embedding/error results do not yield inverse moments without control of singular sketch events.",
+        "searches": [
+          "Timsit et al. 2023 ROPM",
+          "Palitta et al. 2025 Section 3",
+          "Bartlett chi QR"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wiley Palitta–Schweitzer–Simoncini Section 3 gives sketch Arnoldi relation via QR and rank-one modifications; no explicit distribution of first extra Hessenberg h13 in inspected sections."
+        ],
+        "reasoning": "The RAR^-1 coefficient may also be regarded as a ratio of independent Gaussian QR coordinates; this is mathematically equivalent but requires the particular Arnoldi identification.",
+        "searches": [
+          "Resultary: Gaussian sketched Arnoldi h13 inverse chi moments QR Bartlett",
+          "web: h13 Arnoldi Gaussian sketch heavy tails",
+          "Wiley sketched polynomial Krylov methods"
+        ]
+      },
+      "evidence": [
+        "Independent scientific comparison: 2026/11/01/a-sharp-inverse-chi-moment-frontier-for-gaussian-sketched-arnold--03c673055715 versus Timsit et al. arXiv:2302.07466 (abstract), Balabanov–Grigori SIAM (2022) abstract.",
+        "Resultary targeted search and primary source inspection documented below."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Top Resultary hit is Gaussian chaos extrema, a different stochastic object."
+        ],
+        "reasoning": "No directly covering explicit h13 tail table found; absence in searches not definitive.",
+        "searches": [
+          "Resultary top seven Gaussian Arnoldi queries",
+          "web: inverse chi Hessenberg coefficient sketch moment tail"
+        ]
+      },
+      "rationale": "General randomized Arnoldi/Gram–Schmidt work supplies the algorithm, Gaussian sketching motivation and stability results, while classical Bartlett QR supplies the probabilistic ingredients. The exact unconditional heavy-tail moment cutoff and tail constant for the earliest extra Hessenberg entry of a specific SPD path matrix were not derived by the accessible analyzed sections. This is a qualified exact-distribution contribution rather than a newly invented QR theorem.",
+      "residual_risks": [
+        "A specialized random-Gaussian-matrix ratio theorem may already imply this exact distribution.",
+        "2023 Timsit article complete body not read here, and only specific sections of Wiley article were checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies sketched Arnoldi matrix relations and rank-one perturbations, not h13 probability tails in read sections.",
+          "evidence": [
+            "Wiley doi:10.1002/nla.2596, Proposition 3.1 and equations (13)-(18)"
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+          "material_read": "Accessible full-text Section 3 Proposition 3.1 and Section 4 discussion of rank-one modifications",
+          "method": "Read relevant displayed formulas and local explanatory text of sections 3 and 4 in Wiley HTML.",
+          "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+          "trigger": "Direct mathematical relation to sketched Arnoldi QR"
+        },
+        {
+          "assessment": "Algorithm and numerical stability are background; no whole-paper negative coverage conclusion.",
+          "evidence": [
+            "SIAM J Sci Comput 44 (2022), A1450-A1474"
+          ],
+          "identifier_or_url": "https://epubs.siam.org/doi/10.1137/20M138870X",
+          "material_read": "Publisher abstract, methods overview, keywords; full paper not accessed",
+          "method": "Read SIAM article page and abstract",
+          "title": "Randomized Gram–Schmidt Process with Application to GMRES",
+          "trigger": "Algorithmic original stochastic orthogonalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Claim/invariant motivation and precise scope reviewed, distinct from code reproducibility and novelty."
+      ],
+      "limitations": [
+        "No general error or solver convergence theorem follows automatically, and this single-matrix result is not a universal randomized Krylov moment classification."
+      ],
+      "rationale": "The first above-superdiagonal coefficient h13 is the earliest nontrivial diagnostic of non-tridiagonality in a sketched SPD Arnoldi process. Exact unconditional moment thresholds, tail constant and Gaussian central limit together expose a mathematically motivated stability/noise-model boundary that could matter in finite-sketch error analysis. The 3x3 path matrix is minimal for that phenomenon, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Timsit et al. arXiv:2302.07466 (abstract)",
+    "Balabanov–Grigori SIAM (2022) abstract",
+    "Palitta et al Wiley (2025) Section 3/4",
+    "Bartlett decomposition (classical)",
+    "Resultary targeted search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the 3x3 symmetric tridiagonal SPD path matrix with fixed Gaussian ell-by-3 sketch (ell>=3), the first above-tridiagonal sketch-MGS Arnoldi h13 equals C_ell/chi_(ell-2) with independent numerator. Its pth absolute moment exists iff p<ell-2, its regular-variation tail constant is E|C_ell|^(ell-2)/(2^((ell-2)/2)Gamma((ell-2)/2+1)), and sqrt(ell)h13 converges to N(0,2).",
+  "limitations": [
+    "Exact arithmetic, fixed Gaussian sketch and the single h13 coefficient only; finite checks do not justify other matrices/algorithms.",
+    "No general error or solver convergence theorem follows automatically, and this single-matrix result is not a universal randomized Krylov moment classification.",
+    "A specialized random-Gaussian-matrix ratio theorem may already imply this exact distribution.",
+    "2023 Timsit article complete body not read here, and only specific sections of Wiley article were checked."
+  ],
+  "residual_risks": [
+    "A specialized random-Gaussian-matrix ratio theorem may already imply this exact distribution.",
+    "2023 Timsit article complete body not read here, and only specific sections of Wiley article were checked."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Studies sketched Arnoldi matrix relations and rank-one perturbations, not h13 probability tails in read sections.",
+      "evidence": [
+        "Wiley doi:10.1002/nla.2596, Proposition 3.1 and equations (13)-(18)"
+      ],
+      "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+      "material_read": "Accessible full-text Section 3 Proposition 3.1 and Section 4 discussion of rank-one modifications",
+      "method": "Read relevant displayed formulas and local explanatory text of sections 3 and 4 in Wiley HTML.",
+      "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+      "trigger": "Direct mathematical relation to sketched Arnoldi QR"
+    },
+    {
+      "assessment": "Algorithm and numerical stability are background; no whole-paper negative coverage conclusion.",
+      "evidence": [
+        "SIAM J Sci Comput 44 (2022), A1450-A1474"
+      ],
+      "identifier_or_url": "https://epubs.siam.org/doi/10.1137/20M138870X",
+      "material_read": "Publisher abstract, methods overview, keywords; full paper not accessed",
+      "method": "Read SIAM article page and abstract",
+      "title": "Randomized Gram–Schmidt Process with Application to GMRES",
+      "trigger": "Algorithmic original stochastic orthogonalization"
+    }
+  ]
+}
