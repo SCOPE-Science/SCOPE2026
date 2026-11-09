@@ -1,0 +1,226 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:40:51Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Reviewed original RESULT.md proof under frozen Git tree 7ea03cc886a77fadb2c66f9c67c645cf829eb420 and independently checked derivative/endpoint/odd recurrence signs.",
+        "Independent symbolic algebra confirms exact A3/A5 and the two-step induction identity; /mnt/data/[internal audit slot]-run-20261103T132900Z/independent_sine_check.py.",
+        "Independent numerical integration checked 168 coefficients against recurrence values, max abs difference under 9e-42; alpha=1.7 and 2.8 show negative harmonics 5 and 4; N=32 finite cyclic fifth eigenvalue -0.0510351363090516.",
+        "Computed Git tree SHA 7ea03cc886a77fadb2c66f9c67c645cf829eb420 from all seven fetched blob IDs; matched assignment."
+      ],
+      "limitations": [
+        "Support radius exactly pi/2 on the circle; not higher spheres or other cutoffs.",
+        "Independent finite experiments corroborate but do not prove infinite Fourier positivity.",
+        "Strict finite-point PD is not equivalent to positivity of every individual coefficient; endpoint fifth harmonic is zero but Vandermonde still proves strictness."
+      ],
+      "rationale": "On the 2pi circle and intrinsic angular distance with cutoff pi/2, normalized Fourier coefficients are A_|n|/pi, A_n=int_0^{pi/2}(1-sin^alpha t) cos(nt) dt. Differentiating sin^(alpha+1)(t)cos((n-1)t) yields (alpha+n)I_n+(alpha-n+2)I_(n-2)=2cos((n-1)pi/2). Even I_(2k) are negative for 0<alpha<2, making A_(2k)>0, while for alpha>2 A4=-alpha(alpha-2) I0/[(alpha+2)(alpha+4)]<0. Odd A1=alpha/(alpha+1), A3=alpha(5-alpha)/[3(alpha+1)(alpha+3)], and A5=alpha(alpha^2-16alpha+23)/[5(alpha+1)(alpha+3)(alpha+5)]. In alpha in (0,2], A5 switches sign exactly at alpha*=8-sqrt(41). The two-step odd recurrence from m=5, m=1 mod 4, proves A_(m+2)>0 and A_(m+4)>0 via lower bound 2alpha(4-2alpha)/[m(m+2+alpha)(m+4)(m+4+alpha)] for alpha<=alpha*; thus all n>=6 positive at and below the endpoint. Fourier Bochner criterion then proves PSD for all finite sets, and any consecutive sufficiently high positive frequencies form a Vandermonde system, so all finite sets of distinct points give strictly PD Gram matrices even when A5=0. Endpoints alpha=2 and alpha>2 are excluded as above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beatson–zu Castell–Xu (arXiv:1110.2437), Theorem 1.7: circle Pólya sufficient condition assumes convexity, false for 1<alpha<=8-sqrt(41).",
+          "Guella–Menegatto–Peron (arXiv:1505.01169), Theorem 1.1: strictness given nonnegative spectrum, not a closed-form family parameter threshold.",
+          "Gneiting (2012 v4), Problem 10: no proved general criterion covering all exponents at c=pi/2."
+        ],
+        "reasoning": "The broader Bochner/Schoenberg and spectral-support criteria give frameworks but not the needed signs. A convex sufficient condition covers at most a strict subset and cannot imply admissibility of the nonconvex interval or necessity of the fifth-harmonic cutoff.",
+        "searches": [
+          "circle positive definite kernel angular distance 1 minus sin(theta)^alpha truncated pi/2 exact spectrum positivity threshold",
+          "A Pólya criterion for (strict) positive definiteness on the sphere arxiv 1110.2437 theorem 1.7",
+          "Strictly positive definite kernels on product of circles arxiv 1505.01169 theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1111.7077, v4 copy with Problem 10/eq.45, and 2013 published v5 main paper",
+        "arXiv:1110.2437, Theorems 1.6/1.7 (circle convex criterion)",
+        "arXiv:1505.01169, Theorem 1.1 (product-of-circles spectral-support strictness)",
+        "doi:10.1016/S0167-7152(98)00042-X, journal/abstract only",
+        "Published Resultary findings: shifted Vietoris sine sums and related Fourier thresholds, checked by semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gneiting Problem 10 and equation (45) define the candidate family but leave the parameter classification open.",
+          "Beatson et al. Theorem 1.7 supplies convex-profile sufficient positivity; the present alpha>1 range violates its hypothesis.",
+          "Guella et al. Theorem 1.1 characterizes strictness on S1xS1 assuming prior positive definiteness and does not determine this family's Fourier signs.",
+          "Gneiting (1998) abstract alone does not settle its possible coverage."
+        ],
+        "reasoning": "No actually inspected stronger theorem implies the exact threshold or its uniquely zero fifth mode. Elementary spectral theory implies strictness once all frequencies >=6 are strictly positive, so strictness alone is not claimed as independent deep novelty. Older 1998 text remains inaccessible; this material risk qualifies, but does not by itself negate the best-of-knowledge originality finding.",
+        "searches": [
+          "generalized sine-power compactly supported covariance on circle sharp exponent threshold sine alpha half-circle fifth Fourier coefficient",
+          "piecewise sine power isotropic sphere Gneiting Problem 10",
+          "Gneiting 1998 Simple tests validity correlation function models circle pdf",
+          "Gneiting 2011 generalized sine power Problem 10 equation 45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gneiting (2012 v4), Problem 10 equation (45): c=pi/2 substitution is exactly the reviewed profile, but states an open parameter question, not the asserted sharp threshold.",
+          "Published Resultary semantic search for the same cutoff and exact Fourier signs returned shifted Vietoris sine sums, a different signed-polynomial coefficient problem; no direct equivalent among returned top entries."
+        ],
+        "reasoning": "The circle kernel is precisely the c=pi/2,d=1 specialization of generalized sine-power covariances. Equivalent formulations include nonnegativity of every cosine Fourier coefficient of the compactly supported profile and positive definiteness of every finite circulant sample. The founding source asks for parameters, and compared related indexed statements did not state a theorem implying this radical cutoff. Nonhit searches cannot certify novelty.",
+        "searches": [
+          "generalized sine-power compactly supported covariance on circle sharp exponent threshold sine alpha half-circle fifth Fourier coefficient",
+          "circle positive definite kernel angular distance 1 minus sin(theta)^alpha truncated pi/2 exact spectrum positivity threshold",
+          "\"8-sqrt(41)\" \"positive definite\" sine circle",
+          "\"generalized sine power\" circle positive definite c pi/2 8 sqrt41"
+        ]
+      },
+      "evidence": [
+        "Gneiting 2012 v4, Problem 10 eq.(45); 2013 v5 Section 5.",
+        "Beatson–zu Castell–Xu Theorem 1.7 and Guella–Menegatto–Peron Theorem 1.1, with hypotheses compared.",
+        "Four targeted published-Resultary searches returned no same-family implication; exact-radical web and bibliography searches were also performed; failed retrieval alone is not a novelty proof."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Gneiting (2012 v4) presents the variable-support family as Problem 10, not as a table of solved cutoffs.",
+          "Resultary search around the sine-power family and critical radical did not return a directly matching exact coefficient table."
+        ],
+        "reasoning": "This is an infinite Fourier-sign classification over a continuous exponent, not a finite numerical table. Exact-radical and full-family queries revealed no equivalent published tabulation; search coverage is bounded.",
+        "searches": [
+          "8 sqrt 41 Fourier coefficient generalized sine-power spectral cosine integral",
+          "\"8-sqrt(41)\" \"positive definite\" sine circle",
+          "\"1-sin\" \"pi/2\" Fourier circle covariance positive definite"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the exact c=pi/2 exponent cutoff 8-sqrt(41), all-frequency sign classification and unique vanishing fifth harmonic were not implied by the closely matching accessible primary statements. The foundational Gneiting generalized sine-power source explicitly poses the parameter question; Pólya convexity results cannot establish the nonconvex alpha>1 range; general strict-support criteria presuppose Fourier nonnegativity. A potentially relevant 1998 circle positivity paper was abstract-only and institutionally inaccessible, so historical priority remains an explicit risk rather than a fabricated NOT_COVERING finding.",
+      "residual_risks": [
+        "Gneiting 1998 Simple tests for the validity of correlation function models on the circle: full text not accessed, possible earlier family-specific example remains unexcluded; the abstract is not a whole-paper comparison.",
+        "The authorized institutional retrieval for Gneiting 1998 reported VPN disconnected; no login bypass or retry was attempted.",
+        "An unindexed, alternate-terminology, or later paper could have already evaluated this natural fixed-radius case; searches are bounded.",
+        "Strictness from eventual strictly positive Fourier support is a standard Vandermonde consequence; the new claim is the special-family sharp cutoff rather than a new general SPD theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Problem 10 poses the admissibility region for 1-(sin(pi*theta/(2c)))^alpha on [0,c], zero beyond; setting c=pi/2 yields exactly the reviewed kernel. No all-frequency cutoff theorem is stated in the inspected problem and contextual discussion.",
+          "evidence": [
+            "2012 v4 Section 5 Problem 10, equation (45), asks for alpha and c; https://citeseerx.ist.psu.edu/document?doi=2752092e1b5a51f80e901bd82e6cda31614519ea&repid=rep1&type=pdf",
+            "2013 main text Section 5 points to supplementary Appendix C containing the open problems; https://arxiv.org/pdf/1111.7077"
+          ],
+          "identifier_or_url": "arXiv:1111.7077 (2011), 2012 v4 full-text copy https://citeseerx.ist.psu.edu/document?doi=2752092e1b5a51f80e901bd82e6cda31614519ea&repid=rep1&type=pdf ; 2013 v5 https://arxiv.org/pdf/1111.7077",
+          "material_read": "Full-text 2012 v4 accessible extraction, including Section 5 Problem 10, equation (45), and its explanation; 2013 v5 main article Sections 4-5 (the problem is transferred to supplement in v5).",
+          "method": "Read source PDF extracted text for v4 and v5, crosschecked v5 PDF visually; compare equation (45) directly with c=pi/2.",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Exact same generalized sine-power family with variable support and c=pi/2 specialization."
+        },
+        {
+          "assessment": "Theorem 1.7 uses convexity; for alpha>1, 1-sin^alpha(theta) has second derivative negative near zero, so this theorem cannot prove the novel nonconvex interval. Theorem 1.6 also requires convexity.",
+          "evidence": [
+            "Theorem 1.7 conditions (i)-(iv), page 5, require convexity; https://arxiv.org/pdf/1110.2437",
+            "For 1<alpha<2, psi(theta)=1-theta^alpha+o(theta^alpha) and psi''(theta)~ -alpha(alpha-1)theta^(alpha-2)<0."
+          ],
+          "identifier_or_url": "arXiv:1110.2437 https://arxiv.org/pdf/1110.2437",
+          "material_read": "Introduction and statements Theorems 1.3, 1.6, and 1.7, with their full continuity, derivative, support and convexity hypotheses; surrounding discussion of d=2/circle.",
+          "method": "Read original preprint extracted PDF text and inspected PDF page 5 visually.",
+          "title": "A Pólya criterion for (strict) positive definiteness on the sphere",
+          "trigger": "Potential general sufficient criterion could dominate claimed nonconvex interval."
+        },
+        {
+          "assessment": "Theorem 1.1 addresses support-based strict positive definiteness on S1 x S1, not the signs of Fourier coefficients for this parametrized one-circle family; after the signs are known, high-frequency support gives strictness by a direct Vandermonde argument.",
+          "evidence": [
+            "Theorem 1.1, page 3, requires positive definiteness as a premise and characterizes strictness by support intersections with lattice translates; https://arxiv.org/pdf/1505.01169"
+          ],
+          "identifier_or_url": "arXiv:1505.01169 https://arxiv.org/pdf/1505.01169",
+          "material_read": "Full introductory description and Theorem 1.1 with spectral-lattice support condition, Section 2 definitions and strictness framework.",
+          "method": "Read original arXiv primary PDF extracted text and visually inspected theorem page.",
+          "title": "Strictly positive definite kernels on a product of circles",
+          "trigger": "General spectral-support criterion may imply endpoint strictness."
+        },
+        {
+          "assessment": "The abstract describes a circle Pólya analogue and derivative necessary condition, but does not establish absence or presence of the exact c=pi/2 threshold. A whole-document NOT_COVERING judgment is explicitly not made.",
+          "evidence": [
+            "The 1998 abstract describes two general tests, Pólya analogue and derivative necessity, not a stated sine-power threshold; https://ideas.repec.org/a/eee/stapro/v39y1998i2p119-122.html"
+          ],
+          "identifier_or_url": "DOI:10.1016/S0167-7152(98)00042-X https://ideas.repec.org/a/eee/stapro/v39y1998i2p119-122.html",
+          "material_read": "Bibliographic details and abstract only; no complete article text was obtained.",
+          "method": "Searched for lawful open-access/full-text versions and checked bibliographic abstract; institutional retrieval separately blocked by disconnected VPN.",
+          "title": "Simple tests for the validity of correlation function models on the circle",
+          "trigger": "Older original circle covariance tests could contain hidden coverage of this special cutoff."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Direct Problem 10 and c=pi/2 substitution give original motivation; Fourier proof resolves all frequencies.",
+        "The admissible range includes 1<alpha<=8-sqrt(41), where convex sufficient criteria do not apply.",
+        "At critical alpha only fifth modes vanish; finite-set interpolation remains well-posed despite spectral zero."
+      ],
+      "limitations": [
+        "A one-parameter fixed-support circle result, not the full two-parameter problem.",
+        "Fourier recurrence technique itself relies on standard calculus; value is complete sharp classification of a natural family, not a new abstract framework."
+      ],
+      "rationale": "This is a natural, motivated slice of Gneiting's explicit generalized sine-power parameter question at support radius pi/2 (one quarter circumference, half the maximum intrinsic distance). It identifies the exact boundary of admissible nonconvex exponents, not just a numerical sample or low-order obstruction, by proving every remaining harmonic is nonnegative. The exact fifth-mode threshold and strict endpoint positive definiteness offer useful covariance-model and interpolation information, even without solving all radii or dimensions. The fact is independently meaningful and could be reused as a sharp test case in sphere/circle covariance theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1111.7077, v4 copy with Problem 10/eq.45, and 2013 published v5 main paper",
+    "arXiv:1110.2437, Theorems 1.6/1.7 (circle convex criterion)",
+    "arXiv:1505.01169, Theorem 1.1 (product-of-circles spectral-support strictness)",
+    "doi:10.1016/S0167-7152(98)00042-X, journal/abstract only",
+    "Published Resultary findings: shifted Vietoris sine sums and related Fourier thresholds, checked by semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "On T=R/(2piZ), for any alpha>0 define psi_alpha(theta)=1-sin(theta)^alpha for 0<=theta<=pi/2 and 0 for pi/2<theta<=pi; K_alpha(x,y)=psi_alpha(shorter angular distance(x,y)). All finite Gram matrices are positive semidefinite iff 0<alpha<=8-sqrt(41), and in this interval every Gram matrix on distinct points is strictly positive definite. All coefficients at positive frequencies are strictly positive for alpha<alpha*, while at alpha* only ±5 vanish; for alpha*<alpha<=2 frequency 5 is negative and for alpha>2 frequency 4 is negative.",
+  "limitations": [
+    "No assertion for cutoff other than pi/2 or on higher-dimensional spheres.",
+    "Originality is a bounded best-of-knowledge judgment: 1998 full text unavailable, other indexing variants possible.",
+    "Repository verifier was not executed; a separate independent script checked 168 integrals and symbolic identities."
+  ],
+  "residual_risks": [
+    "Gneiting 1998 Simple tests for the validity of correlation function models on the circle: full text not accessed, possible earlier family-specific example remains unexcluded; the abstract is not a whole-paper comparison.",
+    "The authorized institutional retrieval for Gneiting 1998 reported VPN disconnected; no login bypass or retry was attempted.",
+    "An unindexed, alternate-terminology, or later paper could have already evaluated this natural fixed-radius case; searches are bounded.",
+    "Strictness from eventual strictly positive Fourier support is a standard Vandermonde consequence; the new claim is the special-family sharp cutoff rather than a new general SPD theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Problem 10 poses the admissibility region for 1-(sin(pi*theta/(2c)))^alpha on [0,c], zero beyond; setting c=pi/2 yields exactly the reviewed kernel. No all-frequency cutoff theorem is stated in the inspected problem and contextual discussion.",
+      "evidence": [
+        "2012 v4 Section 5 Problem 10, equation (45), asks for alpha and c; https://citeseerx.ist.psu.edu/document?doi=2752092e1b5a51f80e901bd82e6cda31614519ea&repid=rep1&type=pdf",
+        "2013 main text Section 5 points to supplementary Appendix C containing the open problems; https://arxiv.org/pdf/1111.7077"
+      ],
+      "identifier_or_url": "arXiv:1111.7077 (2011), 2012 v4 full-text copy https://citeseerx.ist.psu.edu/document?doi=2752092e1b5a51f80e901bd82e6cda31614519ea&repid=rep1&type=pdf ; 2013 v5 https://arxiv.org/pdf/1111.7077",
+      "material_read": "Full-text 2012 v4 accessible extraction, including Section 5 Problem 10, equation (45), and its explanation; 2013 v5 main article Sections 4-5 (the problem is transferred to supplement in v5).",
+      "method": "Read source PDF extracted text for v4 and v5, crosschecked v5 PDF visually; compare equation (45) directly with c=pi/2.",
+      "title": "Strictly and non-strictly positive definite functions on spheres",
+      "trigger": "Exact same generalized sine-power family with variable support and c=pi/2 specialization."
+    },
+    {
+      "assessment": "Theorem 1.7 uses convexity; for alpha>1, 1-sin^alpha(theta) has second derivative negative near zero, so this theorem cannot prove the novel nonconvex interval. Theorem 1.6 also requires convexity.",
+      "evidence": [
+        "Theorem 1.7 conditions (i)-(iv), page 5, require convexity; https://arxiv.org/pdf/1110.2437",
+        "For 1<alpha<2, psi(theta)=1-theta^alpha+o(theta^alpha) and psi''(theta)~ -alpha(alpha-1)theta^(alpha-2)<0."
+      ],
+      "identifier_or_url": "arXiv:1110.2437 https://arxiv.org/pdf/1110.2437",
+      "material_read": "Introduction and statements Theorems 1.3, 1.6, and 1.7, with their full continuity, derivative, support and convexity hypotheses; surrounding discussion of d=2/circle.",
+      "method": "Read original preprint extracted PDF text and inspected PDF page 5 visually.",
+      "title": "A Pólya criterion for (strict) positive definiteness on the sphere",
+      "trigger": "Potential general sufficient criterion could dominate claimed nonconvex interval."
+    },
+    {
+      "assessment": "Theorem 1.1 addresses support-based strict positive definiteness on S1 x S1, not the signs of Fourier coefficients for this parametrized one-circle family; after the signs are known, high-frequency support gives strictness by a direct Vandermonde argument.",
+      "evidence": [
+        "Theorem 1.1, page 3, requires positive definiteness as a premise and characterizes strictness by support intersections with lattice translates; https://arxiv.org/pdf/1505.01169"
+      ],
+      "identifier_or_url": "arXiv:1505.01169 https://arxiv.org/pdf/1505.01169",
+      "material_read": "Full introductory description and Theorem 1.1 with spectral-lattice support condition, Section 2 definitions and strictness framework.",
+      "method": "Read original arXiv primary PDF extracted text and visually inspected theorem page.",
+      "title": "Strictly positive definite kernels on a product of circles",
+      "trigger": "General spectral-support criterion may imply endpoint strictness."
+    },
+    {
+      "assessment": "The abstract describes a circle Pólya analogue and derivative necessary condition, but does not establish absence or presence of the exact c=pi/2 threshold. A whole-document NOT_COVERING judgment is explicitly not made.",
+      "evidence": [
+        "The 1998 abstract describes two general tests, Pólya analogue and derivative necessity, not a stated sine-power threshold; https://ideas.repec.org/a/eee/stapro/v39y1998i2p119-122.html"
+      ],
+      "identifier_or_url": "DOI:10.1016/S0167-7152(98)00042-X https://ideas.repec.org/a/eee/stapro/v39y1998i2p119-122.html",
+      "material_read": "Bibliographic details and abstract only; no complete article text was obtained.",
+      "method": "Searched for lawful open-access/full-text versions and checked bibliographic abstract; institutional retrieval separately blocked by disconnected VPN.",
+      "title": "Simple tests for the validity of correlation function models on the circle",
+      "trigger": "Older original circle covariance tests could contain hidden coverage of this special cutoff."
+    }
+  ]
+}
