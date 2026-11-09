@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`. The standalone Python 3 program `CHECK.py` uses only `fractions.Fraction` and the standard library. It verifies the precise seven- and eight-prime comparison sums, every entry of the five-step forcing table, both final nonintegral denominators, and the exact published nine-prime witness. Its recorded output is `CHECK_OUTPUT.txt`; replay from these packaged files returned `VERIFY_OK`.
+## correctness
 
-This is **not** an exhaustive enumeration of all finite groups or arbitrary primes. The infinite-prime-power exclusion comes from symbolic inequalities: each omitted or squared early prime is dominated by the smallest remaining prime choices, and at the last stage only two sixth-prime cases remain. A failed finite run would not establish impossibility; the arithmetic inequalities independently do.
+PASS
 
-No independent mathematical audit has been performed. Absolute historical priority is not certified. The full-text comparison with the 2026 motivating article establishes the scope of its existing general criterion and witnesses, not an exhaustive search of all unpublished results.
+Exact Sylow counts of A5 give gamma(A5)=9/2. For nilpotent N, multiplying shared Sylow orders produces the stated defect equality. Seven smallest new-prime reciprocal terms sum 29/63, smaller than defects from 3,5 or 2-power order >=4; only a 2-order factor can occur if omega<=8. Six new primes sum 269/630<4/9, so seven required. At each of the first five positions, skipping the next prime or raising its exponent to >=2 makes the maximal seven-term sum below 4/9; the last two prime choices 23 or 29 require nonintegral reciprocal denominators. Nine-prime witness satisfies exact 4/9 sum. For omega=9 the eight-new-prime upper sum 991/2016 excludes all larger old-prime defects. Independent exact Fraction calculations checked all rational forcing inequalities and witness.
+
+## originality
+
+PASS
+
+The May 2026 primary Zhang–Yang source already proves the general compensation equation and gives explicit nine-prime examples, so those are not new. Its inspected Section 12 certificate theorem converts any Egyptian-fraction equality to a group; it does not assert the optimal nine-prime lower bound or exclusion of arbitrary seven new prime powers. The finite exact obstruction is the surviving natural extremal step. Novelty remains qualified against older Diophantine minimization work.
+
+## value
+
+PASS
+
+Minimal distinct prime support is the natural extremal unanswered parameter left by a published Sylow-integral compensation construction. The complete prime-power lower bound and equality-case old-prime structure certify that the known nine-prime witness is optimal in an invariant sense rather than merely an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
