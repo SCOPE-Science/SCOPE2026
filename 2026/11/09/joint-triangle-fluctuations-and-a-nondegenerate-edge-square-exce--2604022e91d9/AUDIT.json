@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact creation identities and a summation-by-parts quadratic remainder (checked exhaustively at small sizes) reduce triangle counts to weighted centered-bit sums. Stationary Pólya word law yields exact innovation variance v=rho(1-rho)[1+2M delta+M(M-1)delta^2/(1+delta)]. A bounded martingale functional central limit theorem and uniform remainder O_P(n^2) establish the process-level joint Gaussian limit, positive-definite density covariance, and the 2/15 excess coefficient. The standalone checker passed 8,615 exact assertions; finite testing is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Konno et al. Theorem 4 and Theorem 9 allow static iid weighted threshold-network subgraph CLTs.",
+        "Bhattacharya–Chatterjee–Janson (2021) treats graphon-generated graphs sampled from independent vertex randomness.",
+        "Yu–Alajaji–Gharesifard (2026) Section 4.2.2 specifies finite-memory Markov creation and numerical consensus, not motif fluctuations."
+      ],
+      "reasoning": "Static independent-weight and graphon-sampling theorems cover the independent-input special situation but do not state this fixed finite-memory serial-dependence covariance. A general mixing-sequence invariance theorem underlies the proof but does not by itself provide the model-specific motif identity and exact coefficient.",
+      "searches": [
+        "random threshold graph subgraph triangle count central limit theorem, variance finite memory Polya contagion",
+        "finite-memory Pólya threshold graphs triangles and edges joint Gaussian covariance excess ρ(1-ρ) memory multiplier",
+        "random graphon subgraph motif central limit theorem dependence Markov vertex inputs",
+        "Konno Masuda Roy Sarkar threshold network triangle central limit theorem 2005"
+      ]
+    },
+    "checked_sources": [
+      "Yu–Alajaji–Gharesifard, arXiv:2603.18452, Section 4.2.2 and conclusion",
+      "Konno–Masuda–Roy–Sarkar, arXiv:math/0505681, Sections 1 and 4",
+      "Diaconis–Holmes–Janson, arXiv:0908.2448, threshold-graph model/limit constructions",
+      "Bhattacharya–Chatterjee–Janson, arXiv:2104.07259, abstract only",
+      "Alajaji–Fuja (1994) finite-memory process credited via source literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The same model has an earlier edge-only fluctuation with the multiplier D_M, but its scalar CLT does not determine triangle covariance; the new 2x2 covariance determinant is 3 rho^2 v^2/20 > 0.",
+        "The motivating paper gives adjacency and Markov transition representations but not the theorem.",
+        "Konno et al. assumes iid vertex weights and does not imply the fixed positive-memory dependent result."
+      ],
+      "reasoning": "The previous edge-only theorem is strictly weaker as a distributional statement: Gaussian edge density and deterministic first-order triangle density do not specify the residual or its variance. The new theorem proves a separate linearized triangle functional and its joint coupling to the edge functional.",
+      "searches": [
+        "triangular subgraph density and squared edge density for threshold graph variance 2/15",
+        "sequential threshold graph triangle count versus edge density squared asymptotic normal",
+        "arXiv:2603.18452 stochastic properties finite memory triangle fluctuations",
+        "arXiv:math/0505681 Theorem 4 triangles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A sequential threshold graph is also a threshold graph under vertex-weight representations; Diaconis–Holmes–Janson (2009), Sections 1 and 5.",
+        "Konno–Masuda–Roy–Sarkar (2005), Section 4, proves CLTs for independent-weight threshold networks, but has independent vertex inputs."
+      ],
+      "reasoning": "The graph-level equivalence does not convert finite-window Markov-dependent creation bits into independent sampled weights with the same joint law. Accordingly a static iid U-statistic CLT cannot directly supply the explicit dependent-memory covariance and residual coefficient.",
+      "searches": [
+        "triangle density minus square of edge density second order Gaussian fluctuation for Pólya threshold graphs, finite memory reinforcement Markov binary sequence",
+        "threshold graph triangle and edge density joint central limit Markov Bernoulli sequence",
+        "sequential threshold graph triangle count versus edge density squared asymptotic normal",
+        "\"finite memory\" \"threshold graph\" triangle fluctuations",
+        "\"creation sequence\" \"triangle count\" central limit theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic published research record concerns component–triangle covariance in independent percolation, not sequential threshold-graph motif density.",
+        "Another close record concerns random-greedy maximal independent sets on deterministic threshold graphs, not random motif fluctuations.",
+        "The exact 2/15 residual integral is derived from explicit creation kernels, not retrieved from a known constants table."
+      ],
+      "reasoning": "No exact table or numerical database found containing the claim, the finite-memory multiplier in the joint motif covariance, or the nondegenerate normalized excess. Lack of a search hit is not a novelty proof.",
+      "searches": [
+        "triangular motifs signed excess variance 2/15 edge density square threshold graph 60C05",
+        "Pólya threshold graph triangle count edge-square excess finite-memory 2026 Yu Alajaji Gharesifard",
+        "Markov binary creation string graph motif fluctuations Polya urn triangle finite memory"
+      ]
+    },
+    "rationale": "Novelty is assigned to the dependent finite-memory joint motif covariance and strictly positive triangle–edge-square residual. Existing independent-input threshold graph triangle CLTs and existing finite-memory edge-only fluctuations are credited; no directly dominating published statement was found after full relevant primary-text comparisons. An unlocated general Markov-dependent motif theorem remains an acknowledged priority risk.",
+    "residual_risks": [
+      "A broad Markov-dependent U-statistic or graphon motif theorem might imply the explicit formula under a reformulation; this possibility has not been fully excluded.",
+      "The later literature may contain a mathematically equivalent covariance in a different parameterization.",
+      "Full primary text of the graphon-sampling CLT was not inspected; its stated iid-input hypotheses distinguish it from the finite-memory model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source contains exact finite-memory Markov law and structural results but no finite-memory triangle joint covariance or edge-square residual theorem.",
+        "evidence": [
+          "Section 3 gives adjacency entry as the later binary bit; Section 4.2.2 Eq. (45) gives the order-M law; conclusion identifies finite-memory stochastic properties for future research."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18452v1",
+        "material_read": "Full relevant manuscript sections: urn construction, adjacency matrix, degree results, finite-memory section 4.2.2, conclusion and references.",
+        "method": "Direct text/HTML primary read and searching for finite-memory, triangles and graph statistics",
+        "title": "Pólya Threshold Graphs",
+        "trigger": "Exact source model and possible motif results"
+      },
+      {
+        "assessment": "Its iid-weight triangle and prescribed-subgraph CLTs are important prior art, but do not cover finite-memory dependent creation bits; iid analogy explicitly acknowledged.",
+        "evidence": [
+          "Section 1 imposes iid vertex weights; Theorem 4 gives triangle CLT and Theorem 9 a general subgraph CLT for that model."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0505681v1",
+        "material_read": "Full relevant primary Section 4 (Theorems 4, 8, 9), model assumptions, and local-motif discussion.",
+        "method": "Direct arXiv HTML full-primary inspection and implication comparison",
+        "title": "Rigorous results on the threshold network model",
+        "trigger": "Highly plausible pre-existing triangle CLT under another threshold-graph representation"
+      },
+      {
+        "assessment": "Establishes threshold-graph representations and first-order graph limits; does not state the dependent-memory joint motif Gaussian covariance.",
+        "evidence": [
+          "Sequential isolated/dominating creation and independent-weight threshold graphs are reviewed; the work concerns graph limits rather than serial Markov motif covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0908.2448",
+        "material_read": "Full indexed primary text on threshold graph constructions, random models, and graph-limit convergence.",
+        "method": "Direct available arXiv full-text read and searches for representation and central limits",
+        "title": "Threshold graph limits and random threshold graphs",
+        "trigger": "Representation equivalence and possible stronger graph limits"
+      },
+      {
+        "assessment": "Explicitly graphon-sampled with independently sampled vertex randomness, unlike the dependent finite-memory creation process; residual risk is retained without an exhaustive full-text exclusion.",
+        "evidence": [
+          "Abstract states graphon-based random graph sampling, Gaussian and degenerate U-statistic regimes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.07259",
+        "material_read": "Public abstract and theorem-level description only; full proof not inspected.",
+        "method": "Primary arXiv abstract and claim-assumption comparison",
+        "title": "Fluctuations of Subgraph Counts in Graphon Based Random Graphs",
+        "trigger": "Potential broad graphon motif fluctuation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2604022e-91d9-48c8-95ab-b07bb95bcbdf",
+  "value": {
+    "rationale": "Triangle density and normalized edge density are central, naturally comparable invariants. The first-order relation t_n→rho² could conceal second-order degeneracy, but the proof determines a strictly positive residual with exact factor (2/15)rho³(1-rho)D_M. The joint covariance is positive definite, so this is not an edge-only theorem in disguise. The memory multiplier quantitatively identifies the role of reinforcement in motif fluctuations.",
+    "status": "PASS"
+  }
+}
