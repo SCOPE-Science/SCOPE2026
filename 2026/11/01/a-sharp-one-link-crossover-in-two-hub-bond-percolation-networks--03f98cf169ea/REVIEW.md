@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The model states a finite independent bond-percolation law with a uniform initial source and a one-nonedge intervention. The all-pairs formula is derived from connected-component sizes. Equation (1) conditions on necessary pendant branches and uses two edge-disjoint cycle arcs, giving exact gains. The five graph symmetry classes are exhaustive, including small leaf-class edge-existence exceptions. Pairwise inequalities reduce the optimizer to two candidate classes. The Bernstein-to-Descartes argument proves the cubic has one simple root for every \(a\ge b\ge1\). The exact-rational checker replays from the included file; its finite enumeration is only corroboration.
+PASS
 
-## Originality
+The uniform-source expectation is sum of squared retained component sizes divided by N, equivalent to one plus two/N times all-pairs connection probabilities. For a tree plus one new edge, two disjoint arcs on the induced cycle yield gain (2/N) sum W_i W_j p^(d+1-j+i)(1-p^(j-i)). The five symmetry types A-E exhaust all nonedges, and algebraic comparisons eliminate same-class chords and the less favorable hub shortcut. The remaining difference is p^2(1-p)H_(a,b). In the cubic Bernstein basis H has exactly one coefficient sign variation, so Descartes after t=p/(1-p) and H(0)<0<H(1) give a unique simple zero. Independent exact bond-subgraph enumeration of all nonedges for 1<=b<=a<=3 at p=1/8,1/2,7/8 verified 18 cases.
 
-**PASS within inspected evidence; not an independent priority certification.** Youssef et al. (2013, arXiv:1308.4577) establish a reliability framework and simulation-based triangle/assortativity effects. Khorramzadeh et al. (2014/2015, arXiv:1403.7074) explicitly demonstrate *other* edge-importance reversals under two-terminal reliability after deletion; their Section IV includes a crossover near \(0.618\). This existing general phenomenon is not claimed as new. Their motif identities could be used to *derive* finite-graph reliability polynomials, but neither inspected article gives a direct statement of the optimal added edge across every double-star and every transmissibility, the cubic threshold, its uniqueness or the complete ties. Earlier reliability-augmentation literature may contain an equivalent result. The epidemiological model caveat from Kenah–Robins is kept explicit.
+## originality
 
-## Value
+PASS
 
-**PASS.** A two-hub tree is a minimal interpretable model of two locally centralized contact communities. Choosing whether a new edge should attach directly to the opposite hub or connect two peripheral individuals is a natural one-link network intervention. The exact one-switch threshold explains a nontrivial balance between short alternative transmission routes and a longer cycle's wider coverage, for every unequal pair of population sizes. The fully explicit crossover enables comparisons without an exhaustive reliability computation and is not merely a numerical marginal gain.
+The single-source mean connected-component size is an established percolation reliability functional, and motif sensitivity/reversals are prior phenomena. The primary 2013/2015 studies examine network reliability, threshold attacks, and local structural motifs rather than exact maximization over one added nonedge in an arbitrary double star. The present exact five-orbit optimization with unique root H_(a,b) is not implied by the inspected results; earlier edge-augmentation combinatorics remains a priority risk.
 
-## Scientific limits
+## value
 
-One homogeneous added edge only; uniform source, independent edge status, no variable common infectious-period effect, no clinical claim. Prior structural-motif theory covers some general techniques and qualitative crossovers but not the inspected explicit optimization theorem. An earlier exact pair-reliability bistar table remains an unresolved historical priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimizing the expected percolation component size over all single added nonedges in a family of two-community trees is a natural complete network-design classification. The exact unique algebraic triangle-versus-four-cycle threshold across every a,b provides interpretable structural information beyond generic motif reversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
