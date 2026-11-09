@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Neighbor counts give exact four-case updates for odd shores and three-case updates for even shores. The proof explicitly partitions all initial states by shore populations and overlap, accounts for both primitive two-cycle states and their nonperiodic one-step precursors, derives all counts by multinomial enumeration, and handles the \(n=2,3\) boundaries. A separate per-vertex implementation exhaustively checks 87,376 labelled states; the population-profile calculation independently checks every matched-pair type distribution for sizes 2 through 40. The latter checks are finite corroboration and are not substituted for the uniform proof.
+## correctness
 
-**Originality — PASS, with residual risk.** General Goles–Olivos theory already proves ultimate period at most two; that qualitative statement is excluded from the originality claim. The new assertion is the explicit exact two-orbit census, the odd one-step basin multiplicity, sharp bounded transient and exponential-versus-polynomial alternation on matching-coupled cliques. Relevant full-text sections of arXiv:1307.4035 and arXiv:1405.2486 discuss other graphs, growth hypotheses, random models and qualitative stabilization, not this family-wise count. Searches for the graph's Cartesian-product, paired-clique, crown-complement and majority aliases found no decisive equivalent. The 1980 primary paper was not obtained in full, leaving a documented unindexed-special-case risk; its accessible abstract asserts only the universal period bound.
+PASS
 
-**Mathematical value — PASS.** The graph is a natural two-community model with strong intra-community edges and an identifiable cross-community matching. The theorem yields a complete infinite-family recurrent-orbit classification and an unexpectedly large change in the probability of sustained opinion oscillation between consecutive parity regimes, even though both use the same synchronous majority rule and all initial states stabilize rapidly. The basin distinction between parity classes is quantitatively substantive, not a small finite numerical increment.
+Direct neighbor count on one clique is a−x+y and degree n. For even n=2m this gives shore update ∅ if a<m, B if a=m, U if a>m. For odd n=2m+1 it gives ∅ if a<m, B\A if a=m, (U\A)∪B if a=m+1, U if a>m+1; the other shore follows symmetrically. The all-n partition by (a,b,c=|A∩B|) isolates all primitive 2-cycles and odd one-step preperiod states; extremal shores reach fixed configurations. Combinatorics yield even C=binom(2m,m): fixed 4+C, primitive period-2 orbits (C²−C)/2, basin C²−C; odd D=binom(2m+1,m): fixed 4, primitive orbits (m+2)D, basin 2(m²+2m+2)D, preperiodic period-two states 2m(m+1)D. Explicit boundary witnesses give max transients 1 (n=2), 2 (n=3 and even n≥4), 3 (odd n≥5). Independent all-labelled-state simulation for n=2,…,8 confirms update, periods, basins and max transients; the uniform case division—not finite extrapolation—proves all n. Stirling yields the claimed exact leading parity scales.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The universal Goles–Olivos period-at-most-two theorem supplies only qualitative eventual period. It does not determine precise first-entry times or counts on K_n □ K₂. Primary papers on random/unimodular majority, information retention and static majority graph problems have different quantitative statements. No covering formula found for the graph’s two-clique, prism, crown-complement aliases; this is qualified best-of-knowledge novelty.
+
+## value
+
+PASS
+
+Two highly cohesive communities coupled only by a perfect matching form a canonical regular graph family. The complete period-two orbit and attraction-basin census plus an exponential-versus-polynomial parity separation in oscillation probability is a significant dynamical distinction not predicted by eventual-period theorem alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

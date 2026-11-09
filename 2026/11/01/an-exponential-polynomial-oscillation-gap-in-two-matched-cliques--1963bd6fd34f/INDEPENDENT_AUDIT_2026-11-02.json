@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:44:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/RESULT.md",
+        "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/VERIFICATION.md",
+        "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/REVIEW.md",
+        "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.py",
+        "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.log"
+      ],
+      "rationale": "Direct neighbor count on one clique is a−x+y and degree n. For even n=2m this gives shore update ∅ if a<m, B if a=m, U if a>m. For odd n=2m+1 it gives ∅ if a<m, B\\A if a=m, (U\\A)∪B if a=m+1, U if a>m+1; the other shore follows symmetrically. The all-n partition by (a,b,c=|A∩B|) isolates all primitive 2-cycles and odd one-step preperiod states; extremal shores reach fixed configurations. Combinatorics yield even C=binom(2m,m): fixed 4+C, primitive period-2 orbits (C²−C)/2, basin C²−C; odd D=binom(2m+1,m): fixed 4, primitive orbits (m+2)D, basin 2(m²+2m+2)D, preperiodic period-two states 2m(m+1)D. Explicit boundary witnesses give max transients 1 (n=2), 2 (n=3 and even n≥4), 3 (odd n≥5). Independent all-labelled-state simulation for n=2,…,8 confirms update, periods, basins and max transients; the uniform case division—not finite extrapolation—proves all n. Stirling yields the claimed exact leading parity scales.",
+      "residual_risks": [
+        "All labels are distinguished, and primitive orbits are quotient only by time shift, not by graph automorphism.",
+        "The nearest-pair edge counts must exclude the vertex’s own opinion and include its matched opposite, which the formula does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos general symmetric threshold theorem implies eventual least periods at most two, a subclaim explicitly credited.",
+          "Benjamini et al. address general/random/unimodular graph convergence and disagreement, while the candidate gives exact all-n labelled basin counts and sharp length ≤3 first entry."
+        ],
+        "reasoning": "A general qualitative period theorem or bound for a different graph measure does not imply this exact census, its transient threshold, or parity asymptotics.",
+        "searches": [
+          "Goles–Olivos 1980 DOI 10.1016/0012-365X(80)90121-1",
+          "Benjamini et al. arXiv:1405.2486 introduction Theorem 1.1",
+          "Tamuz–Tessler arXiv:1307.4035 relevant results"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1405.2486",
+        "https://arxiv.org/abs/1307.4035",
+        "https://doi.org/10.1016/0012-365X(80)90121-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All eventual periods 1 or 2 follow from an older general theorem and are not a novel subclaim.",
+          "Fixed configurations 4+C or 4, period-two orbit counts, exact period-two basin sizes, and n-parity asymptotics are not supplied by the cited general statements."
+        ],
+        "reasoning": "The old theorem is used as background only; the new exact enumerations depend on the highly structured matched-clique update formulas and new overlap classification.",
+        "searches": [
+          "Goles–Olivos theorem generic period-two stabilization",
+          "Benjamini–Chan–O’Donnell–Tamuz–Tan arXiv:1405.2486",
+          "Tamuz–Tessler arXiv:1307.4035"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is K_n□K₂, two matched K_n shores, equivalently complement of a crown graph, degree n.",
+          "Complementing edges does not conjugate majority threshold sums; graph aliases do not imply a different rule has identical dynamics."
+        ],
+        "reasoning": "The original dynamical map and its tie-retention convention were compared under graph aliases, not merely graph isomorphism or the possible period set.",
+        "searches": [
+          "Resultary: binary synchronous majority two complete cliques matching Cartesian product K_n square K_2 exact two-cycle basin",
+          "web: majority dynamics K_n cartesian K_2 two cliques matching oscillation",
+          "web: complement of crown graph synchronous majority cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest ranked entries concerned binary parity cellular automata rather than tie-retaining majority on K_n□K₂.",
+          "No matching count table or equivalent closed formula was identified in the actual searches."
+        ],
+        "reasoning": "Search failure is not a theorem of novelty; a hidden existing finite-state census remains possible, particularly in non-digitized graph dynamics literature.",
+        "searches": [
+          "Resultary semantic majority dynamics two matched cliques exact cycles",
+          "web: \"K_n\" \"K_2\" \"majority dynamics\" oscillation basin",
+          "web: exact majority cycles paired cliques binomial 2m m"
+        ]
+      },
+      "rationale": "The universal Goles–Olivos period-at-most-two theorem supplies only qualitative eventual period. It does not determine precise first-entry times or counts on K_n □ K₂. Primary papers on random/unimodular majority, information retention and static majority graph problems have different quantitative statements. No covering formula found for the graph’s two-clique, prism, crown-complement aliases; this is qualified best-of-knowledge novelty.",
+      "residual_risks": [
+        "Foundational Goles–Olivos full article was not available; an old specialized table could be missed.",
+        "Resultary/public web searches are incomplete historical novelty evidence, not certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_QUALITATIVE_COVERAGE_ONLY",
+          "evidence": "The paper cites/uses eventual period at most two but does not provide closed finite-graph orbit/basin counts under the studied family in the inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Primary PDF introduction, theorem statements and relevant discussion on eventual periods and random graph dynamics; inspected PDF page screenshot of stated theorem.",
+          "method": "Compare degree/graph ensemble hypotheses and consequences against exact K_n□K₂ orbit counts.",
+          "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "Most relevant modern primary majority paper"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_EXACT_COUNTS",
+          "evidence": "Information retention and stabilization on other graph classes do not entail the binomial fixed and two-cycle census.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.4035",
+          "material_read": "Accessible arXiv primary full text relevant introduction and principal information-retention/stabilization results.",
+          "method": "Compare scope of theorems and probability models with exact matched-clique transients.",
+          "title": "Majority Dynamics and the Retention of Information",
+          "trigger": "Potential stronger stabilization bounds"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE_WITH_ACCESS_RISK",
+          "evidence": "General eventual period ≤2 is already known; no full-text check of possible worked special examples.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic record and abstract only; complete historic primary article not accessed.",
+          "method": "Compare abstracted theorem conclusion, distinguishing period bound from sharp transients and orbit multiplicities.",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Foundational general period-two theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/RESULT.md",
+        "https://arxiv.org/abs/1405.2486",
+        "https://arxiv.org/abs/1307.4035",
+        "https://doi.org/10.1016/0012-365X(80)90121-1"
+      ],
+      "rationale": "Two highly cohesive communities coupled only by a perfect matching form a canonical regular graph family. The complete period-two orbit and attraction-basin census plus an exponential-versus-polynomial parity separation in oscillation probability is a significant dynamical distinction not predicted by eventual-period theorem alone.",
+      "residual_risks": [
+        "The specific threshold rule and graph family are essential; no extension to asynchronous or weighted systems is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/RESULT.md",
+    "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/VERIFICATION.md",
+    "2026/11/01/an-exponential-polynomial-oscillation-gap-in-two-matched-cliques--1963bd6fd34f/REVIEW.md",
+    "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.py",
+    "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.log",
+    "https://arxiv.org/abs/1405.2486",
+    "https://arxiv.org/abs/1307.4035",
+    "https://doi.org/10.1016/0012-365X(80)90121-1"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n≥2, synchronous tie-retaining binary majority on K_n □ K₂ has explicit fixed, primitive 2-cycle and basin counts, sharp maximum preperiod ≤3, and parity contrast p_even∼2/(πn) versus p_odd∼n^{3/2}2^{−n}/√(2π).",
+  "limitations": "Best-of-knowledge originality based on inspected source material, explicit theorem/implication comparison and actual searches; neither a formal Lean check nor an exhaustive historical priority certification. Correctness is limited to the final claim’s stated hypotheses, not stronger variants. Release is blocked by public-file privacy, not by these C/O/V scientific judgments.",
+  "residual_risks": [
+    "Foundational Goles–Olivos full article was not available; an old specialized table could be missed.",
+    "Resultary/public web searches are incomplete historical novelty evidence, not certification.",
+    "All labels are distinguished, and primitive orbits are quotient only by time shift, not by graph automorphism.",
+    "The nearest-pair edge counts must exclude the vertex’s own opinion and include its matched opposite, which the formula does.",
+    "The specific threshold rule and graph family are essential; no extension to asynchronous or weighted systems is proved."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_QUALITATIVE_COVERAGE_ONLY",
+      "evidence": "The paper cites/uses eventual period at most two but does not provide closed finite-graph orbit/basin counts under the studied family in the inspected sections.",
+      "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+      "material_read": "Primary PDF introduction, theorem statements and relevant discussion on eventual periods and random graph dynamics; inspected PDF page screenshot of stated theorem.",
+      "method": "Compare degree/graph ensemble hypotheses and consequences against exact K_n□K₂ orbit counts.",
+      "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+      "trigger": "Most relevant modern primary majority paper"
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING_EXACT_COUNTS",
+      "evidence": "Information retention and stabilization on other graph classes do not entail the binomial fixed and two-cycle census.",
+      "identifier_or_url": "https://arxiv.org/abs/1307.4035",
+      "material_read": "Accessible arXiv primary full text relevant introduction and principal information-retention/stabilization results.",
+      "method": "Compare scope of theorems and probability models with exact matched-clique transients.",
+      "title": "Majority Dynamics and the Retention of Information",
+      "trigger": "Potential stronger stabilization bounds"
+    },
+    {
+      "assessment": "PARTIAL_PRIOR_COVERAGE_WITH_ACCESS_RISK",
+      "evidence": "General eventual period ≤2 is already known; no full-text check of possible worked special examples.",
+      "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+      "material_read": "Bibliographic record and abstract only; complete historic primary article not accessed.",
+      "method": "Compare abstracted theorem conclusion, distinguishing period bound from sharp transients and orbit multiplicities.",
+      "title": "Periodic behaviour of generalized threshold functions",
+      "trigger": "Foundational general period-two theorem"
+    }
+  ]
+}
