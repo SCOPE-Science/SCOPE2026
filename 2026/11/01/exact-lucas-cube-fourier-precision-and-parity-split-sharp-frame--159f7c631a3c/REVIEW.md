@@ -1,15 +1,21 @@
-# Scientific review: finite Lucas-cube Fourier precision
+# Independent mathematical audit
 
-## Correctness
-PASS. The transfer matrix counts all cyclic admissible bitstrings, including the wrap-around edge, and gives a closed covariance row. The discrete Fourier geometric sum yields every Gram eigenvalue. Strict positivity follows independently from the all-zero vector and coordinate unit vectors in the support. The cyclic inverse-covariance formula follows by matching every Fourier mode. Explicit rational inequalities establish the potentially problematic even-cycle minimum, while an elementary trigonometric bound and a separate exact five-cycle calculation give the strict universal condition-number bound. Taylor expansion separates even exponential and odd inverse-square convergence. The included standard-library code checks exact small-order moments and directly reconstructed finite spectra and inverse products.
+## correctness
 
-## Originality
-PASS under bounded source review, with a substantive residual risk. The 2014 Lucas-cube graph papers determine vertex and edge combinatorics rather than finite-cycle Walsh-frame spectra or precision matrices. Closely related indexed Fourier restriction results cover Hamming balls and fixed-weight Hamming shells, neither of which contains all Lucas cubes as a special case under a domain-preserving reduction. The 1987 lattice-gas correlation paper is a plausible partial or stronger precursor: its abstract describes direct correlation functions with nearest and next-nearest interactions, but the complete text was inaccessible. Accordingly the infinite-volume locality mechanism is not asserted novel, and possible hidden equivalence of its full finite-size formula is explicitly retained as a risk. Actual statement/implication comparisons are detailed in AUDIT.json.
+PASS
 
-## Mathematical value
-PASS. The cyclic hard-core configuration is canonical, not an artificial sampling slice. The theorem identifies exact finite-sample stable harmonic reconstruction, a sparse-plus-rank-one inverse covariance structure, a universal optimal conditioning threshold, and a nontrivial parity separation between exponential and polynomial convergence. These precise features can guide finite constrained-domain sampling and covariance preconditioning; the established statement is a complete structural result, not a finite census or a small numerical gain.
+The transfer matrix T=[[1,1],[1,0]] and occupancy projector D determine all finite-cycle moments with the exact trace normalization L_n. The covariance row is [r^d+r^{n-d}]/[5(1+r^n)]+r^n/[5(1+r^n)^2]; geometric DFT gives γ/4 and the precision symbol. Centered coordinate independence follows from the all-zero and n unit strings. Even n≥6 uses n^3(2/5)^n<1 for the zero-mode bound; odd n≥7 uses 4/n² trigonometric lower bound, with n=5 calculated separately. Expanding the exact quotient gives 5√5 n s^n (even) and 5π²/n² (odd). Independent enumeration n=5..12 reproduced all means, covariances, Fourier eigenvalues, positivity and mode extrema. This is an all-n analytic argument, not extrapolation from enumeration.
 
-## Limits
-Uniform activity-one sampling, degree-one centered characters, cycles of length at least five. No assertion about other Gibbs weights, higher harmonic degrees or arbitrary graphs. Full historical novelty in older physical correlation literature remains subject to independent specialist inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: standard one-dimensional hard-core transfer correlations and Lucas-cube counting/orbits are known. Their visible statements do not settle the full finite-ring rank-one precision operator, sharp global Walsh sampling condition bound, and different exact parity convergence orders. The highly relevant Tanaka–Morita–Hiroike 1987 direct-correlation paper was located, its abstract compared, and authorized full-text access failed owing to disconnected institutional VPN; possible overlap is a concrete historical risk, not evidence of coverage or automatic rejection.
+
+## value
+
+PASS
+
+The first Walsh band on cyclic hard-core configurations is a canonical finite sampling problem. The complete positive spectrum and inverse covariance give condition and precision operators for all n, while the parity-different sharp convergence is a nontrivial finite-size phenomenon. The exact all-size result is useful independently of any higher-band generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
