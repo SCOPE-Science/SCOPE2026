@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T14:38:44Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md and accompanying mathematical package were retrieved at the assignment commit and all actual Git blob identities reconstruct the assigned source-tree SHA.",
+        "Independent /mnt/data/[internal audit slot]-run-20261103T142900Z/independent_checks.py output: 3841 independent assertions total across five topics, not a universal proof."
+      ],
+      "limitations": [
+        "The independence is across time/cardinality rows; the assertion excludes time-constant or dependent rows and is a.e. environment, not uniform."
+      ],
+      "rationale": "For fixed driver-sign path, independent Bernoulli rows yield independent bounded zeta_n with conditional mean product over odd binomial coefficients. Lucas parity gives 2^popcount(S_n) factors and |mean|<=q^(2^popcount). The geometric holding times are O(log N) maximally almost surely by Borel-Cantelli; visits with <=2 log2 log N binary ones number N^o(1), and all remaining conditional means are exp(-c (log N)^2). Hence drift is N^o(1), variance N-o(N), and Kolmogorov independent bounded-array LIL applies with +/-1. Fubini transposes joint almost-sure to quenched for Q-a.e. environment. Bounded martingale jumps and off-diagonal bracket o(N) give the quenched functional CLT. Lucas checked independently for S<=256.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source-associated open-problem statement identifies both quenched questions not resolved; previous general criteria characterize possible Brownian limits."
+        ],
+        "reasoning": "An annealed limit cannot force a quenched limit; a deterministic characterization requires checking its environment-dependent criterion, which this work does via almost sure LIL.",
+        "searches": [
+          "arXiv:2610.01658 Corollary 9",
+          "Collevecchio Hamza Shi Williams arXiv:2010.16000"
+        ]
+      },
+      "checked_sources": [
+        "Hamza–Tournier arXiv:2610.01658 (abstract)",
+        "Collevecchio et al. arXiv:2010.16000 (bibliography/summary)",
+        "EmergentMind open problem summary tied to 2610.01658",
+        "Resultary targeted search eight hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source-associated open-problem page explicitly says quenched convergence was unresolved for the time-cardinality and time-constant cases."
+        ],
+        "reasoning": "The new statement implies the annealed limit, not conversely, and the stronger two-sided sharp cross-bracket LIL supplies genuinely extra quantitative information.",
+        "searches": [
+          "Hamza–Tournier 2026 summary",
+          "Collevecchio et al. 2022 general characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hamza–Tournier arXiv:2610.01658 abstract discusses both quenched and annealed; emergentmind open-problem transcription identifies time/cardinality case as annealed-only."
+        ],
+        "reasoning": "The given beta_(n,K)=beta_(n,|K|) model is time-dependent cardinality grouping, not a model with independent subset coefficients or time-constant grouping.",
+        "searches": [
+          "Resultary: quenched invariance principle cardinality grouped bootstrap Bernoulli coefficients",
+          "web: Hamza Tournier Are random random walks normal Corollary 9 quenched"
+        ]
+      },
+      "evidence": [
+        "Independent scientific comparison: 2026/11/01/a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7 versus Hamza–Tournier arXiv:2610.01658 (abstract), Collevecchio et al. arXiv:2010.16000 (bibliography/summary).",
+        "Resultary targeted search and primary source inspection documented below."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary hits are general dependent-Bernoulli/independence phenomena, not this random-walk model."
+        ],
+        "reasoning": "This is a pathwise limit theorem rather than a finite table; no matching special-case quenched LIL surfaced.",
+        "searches": [
+          "Resultary: quenched LIL random random walks normal cardinality grouped",
+          "web: quenched cardinality bootstrap random walks"
+        ]
+      },
+      "rationale": "Hamza–Tournier 2026 identifies the same independently resampled time-cardinality inclusion model and only gives its annealed result; the source-associated open-problem description explicitly distinguishes unresolved quenched behavior. The new pathwise conditional-mean suppression and sharp LIL are strictly stronger than an annealed Brownian limit and not implied by the Collevecchio et al. general deterministic criterion without checking its hypotheses. Full text of the exact source was not obtainable here, so priority remains qualified.",
+      "residual_risks": [
+        "Full Hamza–Tournier Corollary 9 and surrounding remarks not read in this run; source summaries are not full-document NOT_COVERING evidence.",
+        "A more general quenched theorem may already imply this result under alternate random-environment hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Annealed/time-cardinality case identified; cannot claim whole preprint was inspected.",
+          "evidence": [
+            "arXiv:2610.01658 (October 1, 2026)",
+            "https://www.emergentmind.com/open-problems/quenched-convergence-inclusion-induced-annealed-randomizations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01658",
+          "material_read": "Original abstract plus source-linked open problem summary of Corollary 9; complete 27-page preprint not accessed",
+          "method": "Read arXiv abstract and linked summary; arXiv HTML retrieval disabled.",
+          "title": "Are random random walks normal?",
+          "trigger": "Exactly same bootstrap transformation and neighboring annealed theorem"
+        },
+        {
+          "assessment": "General deterministic limit criteria do not automatically verify time-cardinality Bernoulli environment hypotheses.",
+          "evidence": [
+            "arXiv:2010.16000, Electronic Journal of Probability (2022)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.16000",
+          "material_read": "Title, abstract/summary from record; full text not obtained",
+          "method": "Bibliographic comparison with stated theorem scope, no full-text negative judgment",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "General deterministic Brownian-limit comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Claim/invariant motivation and precise scope reviewed, distinct from code reproducibility and novelty."
+      ],
+      "limitations": [
+        "The result does not cover time-constant grouped coefficients or environments lacking independent resampling."
+      ],
+      "rationale": "Quenched versus annealed Brownian convergence is a central gap for random bootstrap walks. Sharp two-sided LIL bracket control gives more information than convergence alone, for a uniformly elliptic and genuinely dependent-within-level model, and addresses an explicitly identified question.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hamza–Tournier arXiv:2610.01658 (abstract)",
+    "Collevecchio et al. arXiv:2010.16000 (bibliography/summary)",
+    "EmergentMind open problem summary tied to 2610.01658",
+    "Resultary targeted search eight hits"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every uniform-elliptic, independently resampled time-by-cardinality Bernoulli array, for almost every fixed environment the predictable cross-bracket of the derived pair of fair-sign walks has sharp two-sided LIL constants +/-1 and the pair converges quenched to independent planar Brownian motions.",
+  "limitations": [
+    "The independence is across time/cardinality rows; the assertion excludes time-constant or dependent rows and is a.e. environment, not uniform.",
+    "The result does not cover time-constant grouped coefficients or environments lacking independent resampling.",
+    "Full Hamza–Tournier Corollary 9 and surrounding remarks not read in this run; source summaries are not full-document NOT_COVERING evidence.",
+    "A more general quenched theorem may already imply this result under alternate random-environment hypotheses."
+  ],
+  "residual_risks": [
+    "Full Hamza–Tournier Corollary 9 and surrounding remarks not read in this run; source summaries are not full-document NOT_COVERING evidence.",
+    "A more general quenched theorem may already imply this result under alternate random-environment hypotheses."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Annealed/time-cardinality case identified; cannot claim whole preprint was inspected.",
+      "evidence": [
+        "arXiv:2610.01658 (October 1, 2026)",
+        "https://www.emergentmind.com/open-problems/quenched-convergence-inclusion-induced-annealed-randomizations"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.01658",
+      "material_read": "Original abstract plus source-linked open problem summary of Corollary 9; complete 27-page preprint not accessed",
+      "method": "Read arXiv abstract and linked summary; arXiv HTML retrieval disabled.",
+      "title": "Are random random walks normal?",
+      "trigger": "Exactly same bootstrap transformation and neighboring annealed theorem"
+    },
+    {
+      "assessment": "General deterministic limit criteria do not automatically verify time-cardinality Bernoulli environment hypotheses.",
+      "evidence": [
+        "arXiv:2010.16000, Electronic Journal of Probability (2022)"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2010.16000",
+      "material_read": "Title, abstract/summary from record; full text not obtained",
+      "method": "Bibliographic comparison with stated theorem scope, no full-text negative judgment",
+      "title": "Limit theorems and ergodicity for general bootstrap random walks",
+      "trigger": "General deterministic Brownian-limit comparison"
+    }
+  ]
+}

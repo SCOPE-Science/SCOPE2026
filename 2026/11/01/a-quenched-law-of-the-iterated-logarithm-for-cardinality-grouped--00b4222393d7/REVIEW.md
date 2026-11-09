@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional parity identity follows by counting odd binomial coefficients with Lucas's theorem. Conditional on the complete sign trajectory, independent environment rows yield independent bounded signs whose means have magnitude at most \(q^{2^{w(S_n)}}\). The count process visits a sparse set of low-binary-weight integers only \(N^{o(1)}\) times almost surely, by geometric holding-time bounds and binary counting. Consequently the means contribute \(N^{o(1)}\), the centered conditional variance sum is \(N-N^{o(1)}\), and Kolmogorov's bounded non-identically distributed iterated-logarithm theorem proves the two-sided limit. Fubini and the bounded-jump martingale functional central limit theorem establish the precise quenched conclusion. A standalone exact checker passed 12,002 assertions; it is supplementary and does not purport to verify infinite convergence by enumeration.
+PASS
 
-## Originality — PASS, with historical limits
+For fixed driver-sign path, independent Bernoulli rows yield independent bounded zeta_n with conditional mean product over odd binomial coefficients. Lucas parity gives 2^popcount(S_n) factors and |mean|<=q^(2^popcount). The geometric holding times are O(log N) maximally almost surely by Borel-Cantelli; visits with <=2 log2 log N binary ones number N^o(1), and all remaining conditional means are exp(-c (log N)^2). Hence drift is N^o(1), variance N-o(N), and Kolmogorov independent bounded-array LIL applies with +/-1. Fubini transposes joint almost-sure to quenched for Q-a.e. environment. Bounded martingale jumps and off-diagonal bracket o(N) give the quenched functional CLT. Lucas checked independently for S<=256.
 
-Hamza and Tournier, arXiv:2610.01658v1, Section 4.2, state annealed normality for independent time levels and leave quenched normality open in the adjacent remark. Their Section 3 result assumes independent subset coefficients, whereas the present coefficients are identical within each cardinality class. Their Section 5 treats a different, totally-unordered basis. Collevecchio et al., arXiv:2010.16000, supply the general limit criterion without proving the conditional bracket limit in this random cardinality-grouped case. Independent-time fully uniform Boolean-function constructions are less constrained than the cardinality-grouped model and do not imply the present statement. Searches for quenched one-factor bootstrap normality, cardinality-based Bernoulli transforms, and the source's unresolved Corollary 9 case revealed no directly covering result. Search visibility is not proof of priority, and unindexed work remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This settles a clearly identified quenched-versus-annealed gap for a natural class of random adapted transformations, under the source's full elliptic independent-time assumptions. The more precise law of the iterated logarithm identifies the optimal almost-sure fluctuation envelope of the predictable cross-variation, rather than merely proving asymptotic decorrelation. The binary-digit sparsity mechanism also explains why only a polynomial number of random coefficients per time level suffices for pathwise normality despite their strong within-level sharing.
+Hamza–Tournier 2026 identifies the same independently resampled time-cardinality inclusion model and only gives its annealed result; the source-associated open-problem description explicitly distinguishes unresolved quenched behavior. The new pathwise conditional-mean suppression and sharp LIL are strictly stronger than an annealed Brownian limit and not implied by the Collevecchio et al. general deterministic criterion without checking its hypotheses. Full text of the exact source was not obtainable here, so priority remains qualified.
 
-## Boundaries
+## value
 
-No statement is made for dependent time rows, vanishing ellipticity, or the time-constant coefficient model. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quenched versus annealed Brownian convergence is a central gap for random bootstrap walks. Sharp two-sided LIL bracket control gives more information than convergence alone, for a uniformly elliptic and genuinely dependent-within-level model, and addresses an explicitly identified question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
