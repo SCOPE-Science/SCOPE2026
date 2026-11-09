@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rational Schwarz map is a finite Blaschke product with two conjugate zeros of squared modulus \(1/8\). The explicit odd/even integral construction proves that the full analytic function, rather than merely its first five coefficients, belongs to the defined symmetric H-domain class. Formal Taylor algebra gives exactly \(a_2=1/16\), \(a_3=-31/192\), \(a_4=3749/18432\), and \(a_5=19373/147456\), and hence the stated exact determinant. Both excesses are strictly positive exact rationals. The independently written standard-library rational checker rederives the coefficients and checks the differential identity through degree four. The Blaschke and integral membership proof is analytical; finite computation is not used as a substitute for global membership.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The exact rational Schwarz map ω=z(1−3z+8z²)/(8−3z+z²) factors into z times two disk Blaschke factors whose conjugate zeros have squared modulus 1/8. With Q=φ_H∘ω, the odd g=z exp ∫(Q_even−1)/z and even h=∫Q_odd g/z construct analytic f=g+h on the entire disk, f(0)=0 and f′(0)=1; 2zf′/(f−f(−z))=Q follows identically. Positivity Re φ_H>0 makes g odd starlike (Re zg′/g=Re Q_even>0), with f close-to-convex relative to g and therefore univalent if required by the ambient class definition. Independent exact Fraction division and Hankel evaluation reproduce (a2,a3,a4,a5)=(1/16,−31/192,3749/18432,19373/147456), H=−10700387/169869312 and positive gaps 83555/169869312 and 69731/169869312. Polynomial finite checks verify the digits, while Blaschke/integral identities establish global analytic membership.
 
-The full accessible research text of Tayyah–Hadi–Lupaş (2026), DOI 10.3390/sym18081307, gives the exact same class and the asserted upper bound \(769/12288\) in Theorem 1. The class, original higher upper bound, and unproved \(1/16\) conjecture were examined in Lupaş–Tayyah–Sokół (2025), DOI 10.3390/sym17081244. Neither contains this rational Blaschke witness or an equivalent contradiction; the 2026 claimed upper bound is logically incompatible with the example. Searches for equivalent formulations, rational witnesses, stronger Hankel bounds, related Sakaguchi-type symmetric-point claims, and published mathematical records found no covering result. Closest indexed mathematical records concern different Hankel orders or different analytic classes. A previously unnoticed correction or unindexed counterexample is a residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The original sharp-constant conjecture and a later published upper-bound theorem concern the central third-order Hankel functional of a defined univalent-function class. A short exact example resolves the conjecture negatively and supplies a concrete lower bound above the reported upper bound, materially changing the feasible extremal range. The lower bound is not claimed sharp and no more general theorem is inferred.
+Both original 2025 proposed 1/16 and 2026 asserted 769/12288 upper bounds are logically falsified by the fully constructed same-class analytic witness. Neither wrong universal bound implies this counterexample; the checked citation snippets are not a whole-text search for an already existing correction. Direct searches of its rational fraction and Blaschke form revealed no prior indexed instance. Therefore best-of-knowledge originality is qualified, not categorical.
 
-## Scope and limits
+## value
 
-The result concerns the particular target \(\phi_H\) and the third Hankel determinant of the normalized symmetric-point class. It does not determine the correct maximum or characterize global extremizers. Both the analytic proof and the rational calculation require independent expert evaluation before external mathematical reliance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A short exact analytic witness invalidates both the central proposed sharp constant and a later published theorem in a natural coefficient extremal problem, while preserving a rigorous new lower bound. This is a motivated mathematical correction, not an arbitrary numerical improvement; the unsolved sharp supremum remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
