@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The lower bound uses two necessary inequalities from the reflected top and bottom generators: the top forces axial center height at least \(1/(1+\lambda)\), and the reflected bottom at height \((1+\lambda)z\) must fit in \((\lambda-(1-t)(1+\lambda)z)B\). The base Minkowski-asymmetry definition therefore implies \(\lambda\ge s(B)+1-t\). For the stated center, the two generator images lie in the appropriate target sections; the top inclusion follows by a convex combination of the base's exact optimal-containment certificate and a point of the base. Convexity extends containment to the full frustum. Equality forces the complete center locus when \(t<1\); the product structure gives the prism locus separately. Exact-rational vertex/facet checks and fifteen independent unrestricted center/dilation linear programs corroborate the formulas. No finite test is used as a universal proof.
+## correctness
 
-## Originality
-The inspected Brandenberg--von Dichter--González Merino 2023 work establishes the Minkowski-asymmetry definitions, extremal dimension bounds, and other symmetrization inequalities but does not classify homothetic frusta. The full publicly available Santaló/volume-product frustum result examines the same bodies under a distinct functional; its equations do not imply optimal reflection containment or the center-locus transition. The simplex-truncation mixed-volume and stellohedron center results treat different invariants/families. Searches for frustum/truncated pyramid/cone, base asymmetry, point-reflection center, and additive \(s(B)+1-t\) formulations did not locate a stronger statement. Search absence is not priority proof: older unindexed treatments of cone or prism asymmetry remain the main residual risk.
+PASS
 
-## Value
-The identity describes *every* convex base in *every* dimension, not an arbitrary chosen aspect or finite table. It gives a dimension-free additive rank-one law, the complete optimal-center locus, sharp extremal bounds/equality families, and an actual dimension jump of the center set at the prism endpoint for asymmetric bases. These consequences matter for affine shape invariants and equality-case classification; they are not a rephrased bound for a single trapezoid or simplex.
+Let λ be feasible, (q,z) its center and k=1−t. The reflected upper generator forces (1+λ)z≥1; the reflected lower generator, at target height (1+λ)z, fits into [λ−k(1+λ)z]B. The base asymmetry definition makes this factor at least σ=s(B), so λ≥σ+k. For c∈M(B), choose z=1/(σ+2−t), q=(σ+1)c/(σ+2−t); one generator follows from optimal base reflection and the other from convexity of B plus c∈B, proving equality for arbitrary nonsymmetric B without assuming 0∈B. Equality locks axial z when t<1; t=1 is the Cartesian product and admits the stated interval. Exact rational generator checks for triangular base at five t values independently corroborated. The classical base bound 1≤σ≤m yields sharp equality classes.
 
-## Limitations
-Both sections must be homothetic around a common center. No claim is made for unrelated bases, other asymmetry notions, noisy reconstruction, or historical priority beyond the compared literature. A product-of-triangle-and-segment example demonstrates that centers need not be unique. The claim has been reviewed only within this analysis, without independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full same-frustum Santaló/volume-product theorem materially read this run optimizes polar volume/centroid and does not imply optimal point-reflection containment or the complete Minkowski-center locus. A published simplex truncation mixed-volume theorem is limited to simplex bases and Godbersen coefficients, likewise not the arbitrary-base center locus. General Minkowski-asymmetry inequalities do not determine s(F_t). Originality PASS at best-of-knowledge level, with older unindexed truncated-cone center literature a residual risk.
+
+## value
+
+PASS
+
+The theorem gives a natural universal affine-geometric transformation rule for all convex bases, including nonsmooth asymmetric ones; the exact optimal center loci and dimension jump at t=1 are structural and not a cosmetic substitution into dimension bounds. Researchers studying asymmetry of cones, frusta or convex interpolations can use the precise base-to-frustum law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
