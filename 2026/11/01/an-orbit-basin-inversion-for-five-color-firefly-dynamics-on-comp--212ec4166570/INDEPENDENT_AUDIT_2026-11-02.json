@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:44:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/RESULT.md",
+        "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/VERIFICATION.md",
+        "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/REVIEW.md",
+        "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.py",
+        "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.log"
+      ],
+      "rationale": "Any vertex’s color update depends only on its own color and whether blink color 2 appears in the opposite shore, yielding a deterministic factor on (2⁵−1)²=961 pairs of occupied color supports, independent of a,b. Within a shore equal colors never separate; support sizes cannot grow, hence periodic support cycles induce bijective color permutations. After q support steps the monodromy has order L, so a labelled microstate on that cycle has exact least period qL, and first periodic-entry time equals the support entry depth. Independent reimplementation of all 961 mask transitions, cycle search, color-permutation monodromy, and transients reproduced exactly 16 support cycles, 49 recurrent supports, seven cycle types of least period 5, seven of 6, two of 18; maximum entry depth 25 at support pair (1,31). The exact independent basin-six coefficient matrix is [[0,0,0,0,0],[0,30,28,5,0],[0,28,20,12,1],[0,5,12,3,1],[0,0,1,1,0]], and the six supports entering 18-cycles are already periodic. Summing the finite support factors with A_j(n)=number of surjections onto j colors yields all closed N_p and B_p formulas. Leading support-size terms yield N18∼12^n/3, N6∼9^n/3, N5∼(2/5)10^n, whereas almost every initial configuration has full support on each shore, depth exactly 8 and period 5. The finite enumeration is mathematically exhaustive for the proved 961-state factor; microscopic finite examples are auxiliary.",
+      "residual_risks": [
+        "For all-shore-size lifting, every initial state uses all colors of its current support and the return color permutation order must act faithfully; the proof accounts for this.",
+        "The result depends on five colors, the exact blink/inhibit rule and complete bipartite topology."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original model papers establish qualitative synchronization and time bounds on paths, stars, trees.",
+          "A complete bipartite graph with a,b≥2 has 4-cycles and is not a tree; the candidate includes precise 5/6/18 cycle counts and basins not implied by tree statements."
+        ],
+        "reasoning": "The 961-state support theorem is an exact finite quotient of a family outside those prior tree hypotheses, producing stronger and different invariants.",
+        "searches": [
+          "Lyu arXiv:1407.1103 synchronization finite-state pulse-coupled oscillators",
+          "Lyu arXiv:1610.00837 time complexity on trees",
+          "Resultary: five-color complete bipartite graph orbit basin period18"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1407.1103",
+        "https://arxiv.org/abs/1610.00837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree synchronization does not imply any nontrivial periodic-orbit counts for cyclic complete bipartite graphs.",
+          "Any numerical relation of period-18 tripartite and bipartite enumerations does not imply the 5/6 orbits, 25-step maximum, entire basin-six matrix or typical-entry depth eight."
+        ],
+        "reasoning": "Only the firefly rule is reused; the complete K_{a,b} classification needs the new support-factor and exact monodromy enumeration.",
+        "searches": [
+          "Lyu 2014 arXiv:1407.1103 theorem on trees, stars",
+          "Lyu 2016 arXiv:1610.00837",
+          "Resultary related complete-tripartite firefly 18-cycle count discussed in source REVIEW"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Model is the color-2 blink and color-3/4 inhibition rule; complete bipartite aliases K_{a,b}/biclique match the same graph.",
+          "A prior complete-tripartite result requires three nonempty shores; replacing a shore by zero is not within its stated hypotheses."
+        ],
+        "reasoning": "The same local automaton and graph isomorphisms were compared, and the zero-shore boundary of tripartite models was not assumed automatically.",
+        "searches": [
+          "Resultary: five-color pulse inhibited firefly cellular automaton complete bipartite graph support orbit basin period 18",
+          "web: complete bipartite 5-state firefly support map orbit census",
+          "Lyu arXiv:1407.1103 transition rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact 961×support basin table or C_{kℓ} matrix matching the specified coefficients emerged from actual searches.",
+          "The source package itself contains a complete 961-row support_attractors.csv, which was inspected as candidate evidence rather than treated as an independent prior table."
+        ],
+        "reasoning": "A candidate-supplied certificate is not a previously published independent database; the finite quotient is fully motivated by the natural color supports.",
+        "searches": [
+          "Resultary semantic firefly five-color bipartite support orbit basin 18",
+          "web: \"firefly\" \"bipartite\" \"18\" \"basin\"",
+          "web: firefly 5 color K_ab 961 support pairs"
+        ]
+      },
+      "rationale": "Lyu’s original firefly model and tree synchronization theorems do not include a complete orbit/basin census on all K_{a,b}. A related published complete-tripartite period-18 construction requires three nonempty shores and may share a special numeric factor; it does not determine bipartite period-5/6 cycles, 961-state basin coefficients or max transient 25. Related Resultary automata entries cover different update rules. Claim is qualified original after checking actual implications.",
+      "residual_risks": [
+        "A related tripartite period-18 enumeration shares aspects of the cycle count, reducing uniqueness of that single subformula.",
+        "An unindexed prior biclique firefly census cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRIOR_ART; NOT_COVERING BIPARTITE CENSUS",
+          "evidence": "Primary source defines this automaton and analyzes synchronization on trees, not orbit/basin counts for K_{a,b}.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+          "material_read": "Available full arXiv text, exact blinking/inhibition update rule, introduction, path and tree synchronization theorem statements and star-related discussion.",
+          "method": "Compare update rule and graph hypotheses to the complete bipartite K_{a,b} family and period-18 micro-orbits.",
+          "title": "Synchronization of finite-state pulse-coupled oscillators",
+          "trigger": "Original primary definition of the firefly five-color rule"
+        },
+        {
+          "assessment": "RELATED_WITH_LIMITED_ACCESS",
+          "evidence": "Tree-time bound not sufficient to derive the 961-state quotient on K_{a,b} with a,b≥2.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+          "material_read": "Accessible bibliographic abstract and cited tree-family scope; no complete theorem-by-theorem full-text reading performed.",
+          "method": "Compare tree premise and discussed synchronization time to all bicliques containing even cycles.",
+          "title": "Time complexity of Synchronization of discrete pulse-coupled oscillators on trees",
+          "trigger": "Possibly stronger transient theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/RESULT.md",
+        "https://arxiv.org/abs/1407.1103",
+        "https://arxiv.org/abs/1610.00837"
+      ],
+      "rationale": "The finite quotient is exact for an infinite natural graph family, and determines genuine orbit counts, basin sizes and sharp universal entry time; the asymptotic reversal between uniform choice of a periodic orbit and of an initial condition is a substantive new dynamical phenomenon, not simply a computed small graph.",
+      "residual_risks": [
+        "No claim on other color counts, stochastic perturbations, or general graphs; the 961-state factor depends on the specific 5-color rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/RESULT.md",
+    "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/VERIFICATION.md",
+    "2026/11/01/an-orbit-basin-inversion-for-five-color-firefly-dynamics-on-comp--212ec4166570/REVIEW.md",
+    "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.py",
+    "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.log",
+    "https://arxiv.org/abs/1407.1103",
+    "https://arxiv.org/abs/1610.00837"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every K_{a,b} with a,b≥1 under the fixed five-color inhibitory firefly rule, the support quotient has max first entry 25, microscopic periods 5/6/18, exact primitive-orbit and basin formulas, and asymptotic inversion of typical orbit period versus typical initial-state destination.",
+  "limitations": "Best-of-knowledge originality based on inspected source material, explicit theorem/implication comparison and actual searches; neither a formal Lean check nor an exhaustive historical priority certification. Correctness is limited to the final claim’s stated hypotheses, not stronger variants. Release is blocked by public-file privacy, not by these C/O/V scientific judgments.",
+  "residual_risks": [
+    "A related tripartite period-18 enumeration shares aspects of the cycle count, reducing uniqueness of that single subformula.",
+    "An unindexed prior biclique firefly census cannot be excluded.",
+    "For all-shore-size lifting, every initial state uses all colors of its current support and the return color permutation order must act faithfully; the proof accounts for this.",
+    "The result depends on five colors, the exact blink/inhibit rule and complete bipartite topology.",
+    "No claim on other color counts, stochastic perturbations, or general graphs; the 961-state factor depends on the specific 5-color rule."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MODEL_PRIOR_ART; NOT_COVERING BIPARTITE CENSUS",
+      "evidence": "Primary source defines this automaton and analyzes synchronization on trees, not orbit/basin counts for K_{a,b}.",
+      "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+      "material_read": "Available full arXiv text, exact blinking/inhibition update rule, introduction, path and tree synchronization theorem statements and star-related discussion.",
+      "method": "Compare update rule and graph hypotheses to the complete bipartite K_{a,b} family and period-18 micro-orbits.",
+      "title": "Synchronization of finite-state pulse-coupled oscillators",
+      "trigger": "Original primary definition of the firefly five-color rule"
+    },
+    {
+      "assessment": "RELATED_WITH_LIMITED_ACCESS",
+      "evidence": "Tree-time bound not sufficient to derive the 961-state quotient on K_{a,b} with a,b≥2.",
+      "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+      "material_read": "Accessible bibliographic abstract and cited tree-family scope; no complete theorem-by-theorem full-text reading performed.",
+      "method": "Compare tree premise and discussed synchronization time to all bicliques containing even cycles.",
+      "title": "Time complexity of Synchronization of discrete pulse-coupled oscillators on trees",
+      "trigger": "Possibly stronger transient theorem"
+    }
+  ]
+}

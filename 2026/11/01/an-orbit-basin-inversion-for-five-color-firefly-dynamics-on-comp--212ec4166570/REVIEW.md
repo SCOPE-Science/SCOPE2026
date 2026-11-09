@@ -1,19 +1,21 @@
-# Review of the five-color bipartite firefly census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the stated five-color inhibitory rule, a support pair consisting of the nonempty occupied-color sets on the two shores is a genuine deterministic factor: every neighbor decision depends only on the opposite shore's membership of blinking color \(2\). There are exactly \(961\) possible pairs independent of shore sizes. Equal-color vertices on the same shore never separate, so shore support cardinalities cannot increase. A periodic support orbit therefore induces bijections of the occupied colors, allowing exact determination of the microscopic period by its color-permutation order. A complete functional-graph enumeration on all \(961\) support pairs yields \(16\) support cycles and maximum transient \(25\); the exact finite graph is supplied in `support_attractors.csv`, and the individual cycles in `support_cycles.csv`. Surjection counting then yields all primitive-orbit and basin formulas. Direct microscopic simulations of \(97{,}525\) labelled states and \(64\) numerical parameter-pair identities independently support the derived statements; the all-size proof uses the factor-and-lifting argument, not extrapolation from these experiments.
+PASS
 
-## Originality
+Any vertex’s color update depends only on its own color and whether blink color 2 appears in the opposite shore, yielding a deterministic factor on (2⁵−1)²=961 pairs of occupied color supports, independent of a,b. Within a shore equal colors never separate; support sizes cannot grow, hence periodic support cycles induce bijective color permutations. After q support steps the monodromy has order L, so a labelled microstate on that cycle has exact least period qL, and first periodic-entry time equals the support entry depth. Independent reimplementation of all 961 mask transitions, cycle search, color-permutation monodromy, and transients reproduced exactly 16 support cycles, 49 recurrent supports, seven cycle types of least period 5, seven of 6, two of 18; maximum entry depth 25 at support pair (1,31). The exact independent basin-six coefficient matrix is [[0,0,0,0,0],[0,30,28,5,0],[0,28,20,12,1],[0,5,12,3,1],[0,0,1,1,0]], and the six supports entering 18-cycles are already periodic. Summing the finite support factors with A_j(n)=number of surjections onto j colors yields all closed N_p and B_p formulas. Leading support-size terms yield N18∼12^n/3, N6∼9^n/3, N5∼(2/5)10^n, whereas almost every initial configuration has full support on each shore, depth exactly 8 and period 5. The finite enumeration is mathematically exhaustive for the proved 961-state factor; microscopic finite examples are auxiliary.
 
-**PASS with documented risk.** H. Lyu's arXiv:1407.1103 introduces the rule, and arXiv:1610.00837 provides tree synchronization and time-complexity analyses. Their relevant definitions, theorems, tree/branch sections and conclusions were inspected in accessible primary full text. These papers do not give complete-bipartite primitive-orbit formulas, the exact six-period basin matrix, or the inversion between a typical orbit and a typical initial configuration. A previously documented complete-tripartite \(18\)-cycle formula applies only to three nonempty shores and does not supply the present bipartite transient and basin classification. An explicit numerical relation holds between its singleton-shore specialization and the bipartite \(18\)-cycle count, so the two enumerations are scientifically related, not independent constructions. Relevant mathematical-record searches returned no directly covering match; this is evidence of noncoverage among the inspected records, not an assertion of globally proved uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Counting primitive orbits and determining their attraction basins are distinct natural invariants in finite oscillator networks. Here the longest cycles dominate the *population of periodic orbits* exponentially, whereas the shortest cycles capture asymptotically almost every *initial state*. This is not a routine consequence of known synchronization/no-synchronization theorems. The sharp size-independent \(25\)-step cutoff, exact \(5/6/18\) period spectrum, complete basin census, and absence of nonperiodic basin points for the longest cycles give a structural classification of an infinite natural graph family. The source model is a standard coupled-oscillator construction rather than an arbitrary finite table.
+Lyu’s original firefly model and tree synchronization theorems do not include a complete orbit/basin census on all K_{a,b}. A related published complete-tripartite period-18 construction requires three nonempty shores and may share a special numeric factor; it does not determine bipartite period-5/6 cycles, 961-state basin coefficients or max transient 25. Related Resultary automata entries cover different update rules. Claim is qualified original after checking actual implications.
 
-## Limitations and closest comparisons
+## value
 
-The claims are only for the precise synchronous five-color rule on labelled complete bipartite graphs. Their finite certificate is exhaustive for an exactly proved quotient, but independent mathematical audit has not occurred. The closest literature concerns trees, including stars; a related tripartite enumeration has comparable \(18\)-cycle factors but does not contain the bipartite basin law. An unindexed historical treatment of biclique firefly oscillators cannot be completely excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite quotient is exact for an infinite natural graph family, and determines genuine orbit counts, basin sizes and sharp universal entry time; the asymptotic reversal between uniform choice of a periodic orbit and of an initial condition is a substantive new dynamical phenomenon, not simply a computed small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
