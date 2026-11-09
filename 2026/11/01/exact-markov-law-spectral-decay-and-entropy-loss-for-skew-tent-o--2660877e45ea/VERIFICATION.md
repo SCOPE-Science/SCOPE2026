@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction and proof limits
+# Independent mathematical audit
 
-Execute `python3 verify_ordinal_skew.py` with Python 3 standard library. The script uses exact fractions for seven skew parameters \(c=1/10,1/4,1/3,1/2,2/3,3/4,9/10\). It computes all two-step and three-step ordinal-cylinder measures from inverse affine intervals and checks them against the stationary Markov formula, tests all symbolic words of length at most four for positive measure precisely when graph-admissible, checks matrix row sums and stationary weights, evaluates both characteristic polynomials by exact determinants, and checks the entropy formula numerically. It completed without assertion failures both directly and after assembly. Exact finite checks are corroborative; the manuscript's all-parameter and all-length proof relies on the stated affine full-inverse-branch property, stationarity, and determinant identities. The material does not assert independent external auditing or a computational proof for infinitely many parameters.
+## correctness
+
+PASS
+
+Order comparisons X0/X1/X2 give five intervals with boundaries a=c/(2−c), b=c/[1+c(1−c)], u=1/(2−c), v=1/[1+c(1−c)]. Every permitted one-step atom arrow is a union of affine full inverse branches covering its entire destination atom; C→E has exactly two branches and all other arrows one. Composition therefore pushes conditional Lebesgue measure to the uniform law on any terminal atom for any finite past, establishing a genuine Markov chain, not a two-point surrogate. Its computed P_c and interval-length π_c are stochastic/stationary; direct characteristic polynomials give z(z−1)(z+1−c)(z²+c(1−c)) and adjacency z(z+1)(z³−2z²+z−1). Shannon branch cancellation isolates the sole double edge of mass c(1−c)/s, yielding exact entropy H_b(c)/s and fraction loss c(1−c)/s. Independent symbolic matrices and exact inverse-image triple-cylinder checks at four rational c verified the constants; the all-history proof uses the affine inverse-branch geometry.
+
+## originality
+
+PASS
+
+The symmetric tent five-atom partition and convergence of ordinal/permutation entropy at growing window length are known. The new all-skew-parameter exact five-state Markov law, all eigenvalues and exact fixed-window Shannon loss are not consequences of those prior results. General ordinal transition-network Markov walks are models and do not guarantee exact Markov symbolic factors of the original deterministic dynamics. Primary Potratzki 2026 main text was unavailable; its abstract covers a different reservoir-computing construction. Assessment remains historically qualified.
+
+## value
+
+PASS
+
+The canonical full-branch tent family gives a rigorous finite symbolic quotient whose process is exactly Markov yet loses an explicitly computable positive fraction of dynamical entropy. Exact topological support, spectral mixing and parameter-uniform graph provide substantive information for ordinal dynamics beyond a routine transition table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

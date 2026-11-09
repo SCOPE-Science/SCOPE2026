@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for all \(0<c<1\), Lebesgue-stationary observations, and exactly three consecutive orbit values. The order relations split \((0,1)\) into five intervals with explicitly verified breakpoints; each permitted atom arrow has a complete affine inverse branch, with only the \(201\to120\) arrow having two. Uniform conditional distribution on a terminal atom after *any* finite admissible history follows from composing these full inverse branches. This establishes genuine first-order Markov behavior rather than merely fitting a two-point transition matrix. The displayed stationary vector, stochastic matrix, exact factorized characteristic polynomial, and adjacency characteristic polynomial were independently checked symbolically and for multiple exact rational parameters. Entropy is proved by the cancellation of stationary atom-length terms in the entropy of the refined branch process; the sole double branch explains the entropy deficit. The finite code checks exact cylinder probabilities up to three steps, and all paths through length four, but the all-length claim rests on the full-branch proof. Endpoint ties are excluded on a null set; \(c=0\) and \(c=1\) are excluded.
+PASS
 
-## Originality — PASS on inspected evidence, with residual priority risk
+Order comparisons X0/X1/X2 give five intervals with boundaries a=c/(2−c), b=c/[1+c(1−c)], u=1/(2−c), v=1/[1+c(1−c)]. Every permitted one-step atom arrow is a union of affine full inverse branches covering its entire destination atom; C→E has exactly two branches and all other arrows one. Composition therefore pushes conditional Lebesgue measure to the uniform law on any terminal atom for any finite past, establishing a genuine Markov chain, not a two-point surrogate. Its computed P_c and interval-length π_c are stochastic/stationary; direct characteristic polynomials give z(z−1)(z+1−c)(z²+c(1−c)) and adjacency z(z+1)(z³−2z²+z−1). Shannon branch cancellation isolates the sole double edge of mass c(1−c)/s, yielding exact entropy H_b(c)/s and fraction loss c(1−c)/s. Independent symbolic matrices and exact inverse-image triple-cylinder checks at four rational c verified the constants; the all-history proof uses the affine inverse-branch geometry.
 
-Bandt–Keller–Pompe's original full-text tent-map example already gives the five three-point ordinal intervals at \(c=1/2\). That fact is excluded from the novelty claim. Their asymptotic permutation-entropy theorem does not imply the exact *fixed-window* stationary Markov family, its characteristic polynomial, or its entropy deficiency. Unakafov's thesis examines *skew tent* dynamics and conditional ordinal entropy, including evidence that certain larger ordinal partitions need not be Markov; it does not establish the uniform three-point formula and exact mixing spectrum. Potratzki–de Jong–Small–Bröhl (2026) provide a symbolic-reservoir construction for ordinal transition networks, but the accessible abstract and partial article material do not state the present skew-parameter classification; the complete text could not be independently re-opened, so lack of overlap in its uninspected sections is **not claimed**. Searches of mathematical records, phrase/formula variants, and available earlier claims found no covering result. This supports best-knowledge originality, not a priority guarantee. The main residual risk is an unindexed exact computation or a currently inaccessible appendix supplying this same formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A three-point ordinal partition is a natural smallest nontrivial temporal-order observable for a full-branch chaotic map, and exact transition-network modeling is directly motivated by current symbolic dynamical and data-driven studies. The theorem simultaneously identifies the *exact* Markov status, the nontrivial full-parameter entropy loss, the edge that causes that loss, the complete mixing spectrum, and a parameter-independent support entropy. It supplies quantitative limits on what even a correctly modeled finite symbolic surrogate retains. This is not a relabeling, a fitted finite sample, or simply a known five-atom count. It is restricted to the stated family; no generic assertion about ordinal encodings is made.
+The symmetric tent five-atom partition and convergence of ordinal/permutation entropy at growing window length are known. The new all-skew-parameter exact five-state Markov law, all eigenvalues and exact fixed-window Shannon loss are not consequences of those prior results. General ordinal transition-network Markov walks are models and do not guarantee exact Markov symbolic factors of the original deterministic dynamics. Primary Potratzki 2026 main text was unavailable; its abstract covers a different reservoir-computing construction. Assessment remains historically qualified.
 
-## Closest literature and limitations
+## value
 
-The 2002 symmetric tent partition, 2015 skew tent ordinal conditional entropy thesis, and 2026 symbolic transition-network construction are compared by statement and implication, not merely by title. The 2026 main full text and some specialized older literature remained inaccessible; these are priority risks and do not become evidence of novelty. All scientific assertions are conditional on the exact stated map, observable, invariant measure, and five symbol definitions. External independent review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical full-branch tent family gives a rigorous finite symbolic quotient whose process is exactly Markov yet loses an explicitly computable positive fraction of dynamical entropy. Exact topological support, spectral mixing and parameter-uniform graph provide substantive information for ordinal dynamics beyond a routine transition table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
