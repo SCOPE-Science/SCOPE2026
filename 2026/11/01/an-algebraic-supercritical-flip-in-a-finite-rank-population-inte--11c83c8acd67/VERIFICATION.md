@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python verify.py` in an environment with Python 3 and the SymPy package. The checker recomputes the exact reduced polynomial map, fixed-branch identity, critical determinant factorization, and the odd multiplier identity. Its rational interval implementation brackets the isolated sextic root and proves strict signs of the other eigenvalues, the pointwise-population admissibility margin, the critical multiplier derivative, and the cubic coefficient of the second iterate.
+## correctness
 
-On the extracted source used in this package, the output is an exact root bracket \((166763953195/10^{12},166763953197/10^{12})\), a critical growth bound \((2.7324800658552,2.7324800659526)\), an even complementary eigenvalue in \((-0.181,-0.178)\), an odd eigenvalue in \((-0.503,-0.500)\), a second-iterate cubic coefficient in \((-19.2,-19.1)\), and critical multiplier derivative in \((-0.98,-0.96)\).
+PASS
 
-All asserted inequalities are certified by exact rational endpoints, not floating-point tolerances. The analytic conclusion relies additionally on finite Fourier range and the classical smooth flip theorem; algebraic finite checks alone would not imply a global phase portrait. The theorem does not transfer to dispersal kernels with nonzero higher Fourier modes. Independent validation has not been performed.
+The kernel K=1+cos(y−x) has only Fourier modes 0,±1, hence the nonlinear Banach map has exact rank-three image E=span{1,cos,sin}. Direct independent Laurent-Fourier integration reproduces the displayed quadratic map. Independent SymPy substitution confirms a(t)=5t/N, b(t)=5t²/N, λ=N/D (N=1−5t²+16t³, D=1−4t−t²+8t³) and det(A+I)=Q/D², Q=384t⁶−44t⁵−447t⁴+122t³+88t²−34t+3. The real isolated root lies in (166763953195/10¹²,166763953197/10¹²); complementary multipliers are approximately −0.17979 and −0.50161. Independently reconstructing the left/right eigendirections, the bilinear Hessian and h=−(A−I)⁻¹ B(v,v) gives ν'=−0.96973278 and c=−19.18617853, consistent with source exact-rational enclosures (−0.98,−0.96), (−19.2,−19.1). Both signs negative imply a supercritical stable flip by the standard smooth flip theorem; finite rank ensures arbitrary C(T) perturbations enter E after one iteration. The full profile is biologically positive, with max κu in (0.74,0.75). The claim is local only; no infinite-rank Poisson-kernel result follows.
+
+## originality
+
+PASS
+
+The exact rank-three full-C(T) cosine-kernel polynomial flip and certified algebraic threshold are different from a ten-mode Galerkin study of another dispersal kernel and from general existence methods for other kernels. Fourier rank is not a generic implication of the historical Galerkin theorem. The accessible original theorem and the exact coefficient-level comparison support qualified novelty, with explicitly limited access to some spatial two-cycle papers.
+
+## value
+
+PASS
+
+The nonnegative three-mode cosine kernel is the simplest nonconstant convolution kernel with exact Fourier closure, not an ad hoc Galerkin truncation. A locally attracting patterned positive period-two branch with an explicit algebraic threshold and verified normal-form sign is a reusable rigorous full-function-space benchmark for spatial dynamics, even without a global attractor theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
