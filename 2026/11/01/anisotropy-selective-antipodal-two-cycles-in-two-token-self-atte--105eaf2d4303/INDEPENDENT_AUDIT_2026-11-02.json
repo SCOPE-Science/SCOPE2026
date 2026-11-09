@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:44:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/RESULT.md",
+        "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/VERIFICATION.md",
+        "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/REVIEW.md",
+        "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.py",
+        "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.log"
+      ],
+      "rationale": "At (e_j,−e_j), the scores are ±α, so attention messages equal ±t e_j with t=tanh α. If η s_j t>1, the residual is ∓R e_j for R=η s_j t−1>0 and the normalized map interchanges the two states exactly. Tangent variations have zero first-order score derivatives because they are perpendicular to e_j; on every transverse eigenmode k≠j the exact one-step Jacobian block is [[1−ηs_k p,−ηs_k(1−p)], [−ηs_k(1−p),1−ηs_k p]]/R with p=(1+t)/2. Common/difference eigenvalues are q_com=(1−ηs_k)/R, q_dif=(1−ηs_k t)/R, and the second-step Floquet multipliers are their squares by global sign equivariance. Solving both strict unit-circle inequalities gives s_k/s_j<t and η s_j>2/[t(1+s_k/s_j)]; combining k forces j=1, t>s2/s1 and η>2/[t(s1+sd)]. Equality gives a multiplier +1, precluding exponential attraction without asserting nonlinear boundary instability. Independent exact Fraction evaluation with s=(8,2,1),t=1/2,η=1/2 gives {0,1/4,1/4,9/16} and η*=4/9. Exact scalar rational-grid comparisons also corroborate iff. The argument is local and excludes points where normalization denominator vanishes.",
+      "residual_risks": [
+        "Nonhyperbolic equality thresholds are only classified at the linear level; nonlinear attraction is not claimed.",
+        "Non-eigencycle two-token periodic orbits and global basins are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altafini studies equilibria and stability with simple positive leading V eigenvalue; target V is negative definite.",
+          "Gao–Yang–Chen study a negative isotropic value operator with masked score, whose s2/s1=1 violates t<1 and hence cannot exhibit this attractive eigencycle.",
+          "Kuehn–Yoon continuous flow QᵀK=V is distinct from the positive-score, negative-value discrete residual normalized map."
+        ],
+        "reasoning": "No broader cited theorem contains this all-d spectral gap and weakest-eigenvalue gain condition under the current discrete local map.",
+        "searches": [
+          "Altafini arXiv:2610.13518 positive leading eigenvalue assumptions",
+          "Gao–Yang–Chen arXiv:2609.28448 masked isotropic negative V appendix",
+          "Kuehn–Yoon arXiv:2604.26085 continuous flow"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.13518",
+        "https://arxiv.org/abs/2609.28448",
+        "https://arxiv.org/abs/2604.26085"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior isotropic masked flip existence is explicitly not claimed as original.",
+          "The strict gap tanhα>s2/s1 is impossible for isotropic s1=s2 and therefore cannot be a corollary of an isotropic stable-cycle theorem.",
+          "A continuous-time equilibrium spectral selection theorem cannot imply exact squares of finite-step discrete period-two Floquet multipliers."
+        ],
+        "reasoning": "The new statement is a distinct discrete spectral calculation, not a rephrasing of already-known qualitative negative-value periodicity.",
+        "searches": [
+          "arXiv:2610.13518 local self-attention equilibrium theorems",
+          "arXiv:2609.28448 repulsive masked cluster flip",
+          "arXiv:2604.26085 negative-definite continuous-time selection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current scoring is QᵀK=αI with **self-inclusive** tokens and value V symmetric negative definite; diagonal masking changes the attention weights even at antipodal states.",
+          "The output explicitly classifies labelled period-2 eigencycles, not sign-split equilibria or unlabelled token swap equivalence."
+        ],
+        "reasoning": "Discrete-time self-inclusive versus masked kernels and isotropic versus anisotropic value maps are mathematically different and cannot be identified by shared period-two terminology.",
+        "searches": [
+          "Resultary: normalized two-token softmax self-inclusive attention negative definite anisotropic value matrix antipodal period two stability",
+          "web: \"tanh\" \"s_2\" \"s_d\" \"antipodal\" attention",
+          "Altafini arXiv:2610.13518 original map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-edge Floquet classification found among the thirteen nearest Resultary records, which largely concerned distinct optimization dynamical systems.",
+          "The source example with Floquet (0,1/4,1/4,9/16) is not a known database table located by the searches."
+        ],
+        "reasoning": "An algorithm optimization eigencycle on a different update does not give an attention map equivalence; lack of index hits is only limited negative evidence.",
+        "searches": [
+          "Resultary semantic two-token attention negative definite anisotropic antipodal stability",
+          "web: normalized softmax two token antipodal period2 strict stability spectral gap",
+          "web: \"4/9\" attention negative value antipodal orbit"
+        ]
+      },
+      "rationale": "The most relevant discrete work treats positive-leading value eigenvalue fixed points (Altafini) or masked isotropic repulsive cycles (Gao–Yang–Chen). The closest negative-definite spectral selection work is continuous time with QᵀK=V, a different vector field. None logically implies the derived self-inclusive discrete two-edge anisotropic iff Floquet criterion. Known existence of repulsive attention flips is explicitly credited.",
+      "residual_risks": [
+        "The 2026 repulsive masked attention work was not read fully end-to-end; a latent anisotropic extension is a historical risk though not implied by the inspected theorems.",
+        "No assertion on nonhyperbolic boundaries or other periodic orbits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRIOR_ART; NEGATIVE_DEFINITE_CYCLE_NOT_COVERED",
+          "evidence": "The local theorems assume a simple positive leading value eigenmode and establish equilibrium stability, not the negative-definite antipodal two-cycle two-edge threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13518",
+          "material_read": "Accessible full arXiv text, model equations, local equilibrium theorem assumptions, discussion of bipartite equilibria and spectral leading eigenvalue.",
+          "method": "Compare QᵀK, positivity of V leading eigenvalue, equilibrium versus period-two conclusion.",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Closest identical self-inclusive normalized residual attention model"
+        },
+        {
+          "assessment": "PERIOD_TWO_EXISTENCE_COVERED; ANISOTROPIC_IF_AND_ONLY_IF_NOT_LOGICALLY_IMPLIED",
+          "evidence": "The isotropic value spectra satisfy s1=s2, making tanhα>s2/s1 impossible for any finite α; masked attention changes Floquet blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28448",
+          "material_read": "Available indexed main-text and appendix descriptions of negative isotropic value map and diagonal-masked kernel; full paper not independently read end-to-end.",
+          "method": "Check isotropic V and attention-mask hypotheses explicitly against the submitted two-token self-inclusive model.",
+          "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+          "trigger": "Known repulsive attention flip cluster examples potentially broader"
+        },
+        {
+          "assessment": "NOT_APPLICABLE_TO_DISCRETE_TWO_EDGE_PERIODIC_CRITERION",
+          "evidence": "The flow ties the query/key and value operators and does not have the discrete sign-flipping normalized residual map.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.26085",
+          "material_read": "Primary full-text sections on continuous-time two-token dynamics, QᵀK=V symmetry and the negative-definite selection case.",
+          "method": "Compare continuous flow vector field and its equilibrium theorem with finite-step normalized discrete residual eigencycle.",
+          "title": "Spectral Selection in Symmetric Self-Attention Dynamics",
+          "trigger": "Negative-definite value spectral selection under related attention dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/RESULT.md",
+        "https://arxiv.org/abs/2610.13518",
+        "https://arxiv.org/abs/2609.28448",
+        "https://arxiv.org/abs/2604.26085"
+      ],
+      "rationale": "The theorem gives a complete local bifurcation phase diagram for a minimal discrete attention system with distinct physical controls: the second strongest negative eigenmode decides if stabilization by gain is possible, but the weakest decides the sharp gain onset. This is an independently meaningful nonlinear dynamics classification, with a rational three-dimensional witness.",
+      "residual_risks": [
+        "Only two labeled tokens and the exact self-inclusive normalization are covered, not general transformer architectures or global dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/RESULT.md",
+    "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/VERIFICATION.md",
+    "2026/11/01/anisotropy-selective-antipodal-two-cycles-in-two-token-self-atte--105eaf2d4303/REVIEW.md",
+    "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.py",
+    "/mnt/data/[internal audit slot]-run-20261102T122900Z/independent_scientific_checks.log",
+    "https://arxiv.org/abs/2610.13518",
+    "https://arxiv.org/abs/2609.28448",
+    "https://arxiv.org/abs/2604.26085"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two labelled spherical tokens with self-inclusive softmax score αI and symmetric negative-definite V with spectral magnitudes s1>s2≥…≥sd>0, the antipodal eigencycle at e1 is exponentially attracting iff tanhα>s2/s1 and η>2/[(s1+sd)tanhα]; all nonleading antipodal eigencycles cannot be exponentially attracting.",
+  "limitations": "Best-of-knowledge originality based on inspected source material, explicit theorem/implication comparison and actual searches; neither a formal Lean check nor an exhaustive historical priority certification. Correctness is limited to the final claim’s stated hypotheses, not stronger variants. Release is blocked by public-file privacy, not by these C/O/V scientific judgments.",
+  "residual_risks": [
+    "The 2026 repulsive masked attention work was not read fully end-to-end; a latent anisotropic extension is a historical risk though not implied by the inspected theorems.",
+    "No assertion on nonhyperbolic boundaries or other periodic orbits.",
+    "Nonhyperbolic equality thresholds are only classified at the linear level; nonlinear attraction is not claimed.",
+    "Non-eigencycle two-token periodic orbits and global basins are outside scope.",
+    "Only two labeled tokens and the exact self-inclusive normalization are covered, not general transformer architectures or global dynamics."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MODEL_PRIOR_ART; NEGATIVE_DEFINITE_CYCLE_NOT_COVERED",
+      "evidence": "The local theorems assume a simple positive leading value eigenmode and establish equilibrium stability, not the negative-definite antipodal two-cycle two-edge threshold.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.13518",
+      "material_read": "Accessible full arXiv text, model equations, local equilibrium theorem assumptions, discussion of bipartite equilibria and spectral leading eigenvalue.",
+      "method": "Compare QᵀK, positivity of V leading eigenvalue, equilibrium versus period-two conclusion.",
+      "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+      "trigger": "Closest identical self-inclusive normalized residual attention model"
+    },
+    {
+      "assessment": "PERIOD_TWO_EXISTENCE_COVERED; ANISOTROPIC_IF_AND_ONLY_IF_NOT_LOGICALLY_IMPLIED",
+      "evidence": "The isotropic value spectra satisfy s1=s2, making tanhα>s2/s1 impossible for any finite α; masked attention changes Floquet blocks.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.28448",
+      "material_read": "Available indexed main-text and appendix descriptions of negative isotropic value map and diagonal-masked kernel; full paper not independently read end-to-end.",
+      "method": "Check isotropic V and attention-mask hypotheses explicitly against the submitted two-token self-inclusive model.",
+      "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+      "trigger": "Known repulsive attention flip cluster examples potentially broader"
+    },
+    {
+      "assessment": "NOT_APPLICABLE_TO_DISCRETE_TWO_EDGE_PERIODIC_CRITERION",
+      "evidence": "The flow ties the query/key and value operators and does not have the discrete sign-flipping normalized residual map.",
+      "identifier_or_url": "https://arxiv.org/abs/2604.26085",
+      "material_read": "Primary full-text sections on continuous-time two-token dynamics, QᵀK=V symmetry and the negative-definite selection case.",
+      "method": "Compare continuous flow vector field and its equilibrium theorem with finite-step normalized discrete residual eigencycle.",
+      "title": "Spectral Selection in Symmetric Self-Attention Dynamics",
+      "trigger": "Negative-definite value spectral selection under related attention dynamics"
+    }
+  ]
+}

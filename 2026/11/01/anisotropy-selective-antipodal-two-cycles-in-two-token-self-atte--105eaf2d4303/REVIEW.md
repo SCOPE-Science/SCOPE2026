@@ -1,15 +1,21 @@
-# Anisotropy-selective antipodal two-cycles in two-token self-attention
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A direct normalized-map calculation gives a least-period-two antipodal eigencycle whenever \(\eta s_j\tanh\alpha>1\). At both orbit states the softmax score derivative vanishes on the tangent bundle; the entire tangent Jacobian decomposes into explicit two-by-two spectral blocks. The original map's sign equivariance squares their eigenvalues into the exact Floquet multipliers. Algebraic unit-disk inequalities establish the sharp necessary-and-sufficient temperature and gain conditions, including strict-instability and nonhyperbolic boundaries. Rational and original-map finite-difference checks agree, but are auxiliary to the proof.
+## correctness
 
-## Originality
-**PASS under inspected evidence.** Altafini's discrete normalized attention paper arXiv:2610.13518v1 uses a simple positive leading value eigenvalue and classifies equilibria, not this negative-definite flip cycle. Gao–Yang–Chen arXiv:2609.28448v1 already proves repulsive period-two cluster exchange in an isotropic, self-masked map; that existence phenomenon is not claimed as new. Kuehn–Yoon arXiv:2604.26085v1 proves negative-definite two-token spectral selection for a continuous-time gradient flow whose query–key metric is tied to the value matrix. The present independent positive score matrix and discrete step are outside their hypotheses, and none establishes the two-edge iff criterion. Targeted record queries did not reveal decisive coverage, but historical priority remains provisional. The exact search comparisons, source material read, and residual risks are in AUDIT.json.
+PASS
 
-## Mathematical value
-**PASS.** The theorem distinguishes a temperature gap controlled by the second-strongest negative value eigenmode from a sharp gain onset controlled by the weakest mode, giving a genuine finite-step phase diagram. At isotropy no antipodal eigencycle can be exponentially attracting. A dimension-three example has exact nonzero Floquet multipliers \(1/4,1/4,9/16\), making the threshold reproducible and independently testable.
+At (e_j,−e_j), the scores are ±α, so attention messages equal ±t e_j with t=tanh α. If η s_j t>1, the residual is ∓R e_j for R=η s_j t−1>0 and the normalized map interchanges the two states exactly. Tangent variations have zero first-order score derivatives because they are perpendicular to e_j; on every transverse eigenmode k≠j the exact one-step Jacobian block is [[1−ηs_k p,−ηs_k(1−p)], [−ηs_k(1−p),1−ηs_k p]]/R with p=(1+t)/2. Common/difference eigenvalues are q_com=(1−ηs_k)/R, q_dif=(1−ηs_k t)/R, and the second-step Floquet multipliers are their squares by global sign equivariance. Solving both strict unit-circle inequalities gives s_k/s_j<t and η s_j>2/[t(1+s_k/s_j)]; combining k forces j=1, t>s2/s1 and η>2/[t(s1+sd)]. Equality gives a multiplier +1, precluding exponential attraction without asserting nonlinear boundary instability. Independent exact Fraction evaluation with s=(8,2,1),t=1/2,η=1/2 gives {0,1/4,1/4,9/16} and η*=4/9. Exact scalar rational-grid comparisons also corroborate iff. The argument is local and excludes points where normalization denominator vanishes.
 
-## Scope and risks
-Only the explicit antipodal eigenvector two-cycle is classified, locally, with two labeled tokens and self-inclusive softmax weights. Other cycles, global basins, undefined normalization states, and nonlinear dynamics at neutral thresholds are outside the claim. Full historical priority and independent mathematics verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The most relevant discrete work treats positive-leading value eigenvalue fixed points (Altafini) or masked isotropic repulsive cycles (Gao–Yang–Chen). The closest negative-definite spectral selection work is continuous time with QᵀK=V, a different vector field. None logically implies the derived self-inclusive discrete two-edge anisotropic iff Floquet criterion. Known existence of repulsive attention flips is explicitly credited.
+
+## value
+
+PASS
+
+The theorem gives a complete local bifurcation phase diagram for a minimal discrete attention system with distinct physical controls: the second strongest negative eigenmode decides if stabilization by gain is possible, but the weakest decides the sharp gain onset. This is an independently meaningful nonlinear dynamics classification, with a rational three-dimensional witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
