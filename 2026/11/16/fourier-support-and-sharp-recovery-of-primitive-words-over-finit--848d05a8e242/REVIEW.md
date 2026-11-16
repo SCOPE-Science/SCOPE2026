@@ -1,0 +1,14 @@
+# Scientific comparison and review
+
+## Correctness — PASS
+The theorem concerns the position-labelled full-period subset of \(H^n\), not rotation-orbit representatives. The proof gives exact definitions and all quantifiers: any finite abelian \(H\), \(|H|=q\ge2\), \(n\ge2\). Period Möbius inversion plus finite-character orthogonality establishes the displayed coefficient formula. A leading-power domination argument excludes every additional zero in the claimed support; a strict union bound isolates a coefficient of absolute value \(q^m\). Finite Pontryagin duality gives the exact translation stabilizer and range, and convolution diagonalization gives the sharp spectral constants. Two independent programs passed exact finite tests; see VERIFICATION.md for boundaries.
+
+## Originality — PASS, with bounded historical risk
+published-finding corpus semantic comparisons used the full-period/primitive-word indicator, Fourier support, cyclic/necklace aliases, and prime-factor/radical formulations. The closest returned results treat necklace-count arithmetic, sparse general Fourier supports, and period-doubling or other cyclic-word questions, without the full-period indicator support-and-stability theorem. The published records compared did not present an equivalent primitive-word Fourier support theorem.
+
+The Kopparty–Kumar–Saks 2015 primary full text treats fundamental periods, Möbius inversion and efficient necklace indexing, not the claimed complete Fourier support or sharp convolution inverse. The Álvarez–Becher–Ferrari–Yuhjtman 2016 primary full text studies perfect necklaces, a different subset. The Klapper–Goresky–Washington 2000 author abstract concerns Fourier coefficients of individual periodic binary sequences and 2-adic span, not the ensemble indicator on the alphabet-product group. Its complete paper was not examined, leaving an explicit access-limited risk. Classical divisor Möbius inversion is a premise; the exact noncancellation, annihilator support, maximal stabilizer, and sharp positive spectral endpoint are the claimed contribution. Search failure alone is not treated as proof of novelty.
+
+## Mathematical value — PASS
+The complete characterization concerns a canonical and widely used class of primitive words, simultaneously for all lengths and every finite abelian colour group. It identifies a previously non-obvious enlargement of the translation stabilizer whenever the length has a repeated prime factor, gives the exact Fourier-recoverable dimension, and proves optimal inverse stability rather than merely counting necklaces. The full all-length theorem has structural content and is not an arbitrary finite tabulation. Limitations and historical priority risks are stated explicitly in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.
