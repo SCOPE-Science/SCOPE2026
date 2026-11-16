@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact STFT-to-polynomial change of variables; Rouché comparison handles both endpoint-modulus cases; conditional independent CN(0,2) coordinates reduce classification to |normal|<Rayleigh; normal Laplace transform yields complete probabilities. Root simplicity and boundary exclusions follow from absolute continuity. Bundled checker passed 451910 direct/Monte Carlo checks; analytic proof is independent of sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Escudero et al. (2026) arXiv abstract describes expectation and spectrum estimation, not an exact three-point count law.",
+        "Forrester–Honner (1999) abstract describes one- and two-point functions for Gaussian polynomials; the full text was not accessible.",
+        "Full published three-line RESULT.md [2] explicitly excludes random-realization root-count fluctuations."
+      ],
+      "reasoning": "General random-polynomial correlation formulas may imply this as a nontrivial specialized integral, so older priority risk is acknowledged. No inspected statement supplies the parameterized q_beta probabilities. Mean-intensity data alone are not stronger coverage.",
+      "searches": [
+        "three independent Gaussian spectral lines probability both spectrogram zeros same frequency half-plane random quadratic roots inside unit circle monotonic middle variance",
+        "Escudero Koliander Romero 2026 colored noise Gaussian window three discrete spectral lines zeros two point covariance",
+        "Exact statistical properties of the zeros of complex random polynomials Forrester Honner 1999 two-point correlation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.18689",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de/RESULT.md",
+      "https://doi.org/10.1088/0305-4470/32/16/006"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Three-line [2] gives F(1)=1 independent of beta; different discrete distributions can share the same expectation, so it does not imply probability masses.",
+        "Two-line [3] has exactly one root per temporal period, while the claimed three-line model has two, with random split around an intrinsic frequency.",
+        "The new q_beta varies strictly, whereas the prior first-intensity bifurcation at beta=4 distinguishes shapes, not finite-cylinder count variance."
+      ],
+      "reasoning": "The exact distribution is not a corollary of the closest one-point intensity formula or of the two-line case. The Rouché plus Gaussian angle integration is a logically additional computation. General two-point random polynomial correlations could in principle cover it and remain a residual priority risk.",
+      "searches": [
+        "three-line stationary Gaussian noise spectrogram zeros random quadratic polynomial zero pair density covariance",
+        "three line spectrogram zeros negative frequency half cylinder count probability zero one two geometric polynomial roots",
+        "Escudero Koliander Romero 2026 colored noise Gaussian window three discrete spectral lines zeros two point covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full three-line result [2] maps STFT zeros to Gaussian quadratic roots and computes one-point intensity. It does not state or imply the full distribution of the number of roots in a disk.",
+        "General root count is equivalent by positive real scaling to root-count of a quadratic with independent CN(0,1),CN(0,beta),CN(0,1) coefficients."
+      ],
+      "reasoning": "This statement is about the full random disk-count distribution, not the known expected intensity, a deterministic root number, or merely a Schur-Cohn membership test. An exact distribution formula requires integration against Gaussian coefficients, supplied here by orthogonalization.",
+      "searches": [
+        "three-line stationary Gaussian noise spectrogram zeros random quadratic polynomial zero pair density covariance",
+        "three independent Gaussian spectral lines probability both spectrogram zeros same frequency half-plane random quadratic roots inside unit circle monotonic middle variance",
+        "Gaussian random quadratic polynomial Schur Cohn root count inside unit disk middle coefficient variance sigma sqrt(sigma squared plus two)",
+        "three line spectrogram zeros negative frequency half cylinder count probability zero one two geometric polynomial roots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus searches returned exact three-line expected-intensity and two-line count records, but not a three-line half-cylinder 0/1/2 count table.",
+        "The natural full count law here has a variable continuous beta parameter; a fixed-numerical table does not state it."
+      ],
+      "reasoning": "No matching exact database result or tabulation was found; lack of a hit alone is not novelty evidence, so the checked full closest statements are compared separately.",
+      "searches": [
+        "three-line stationary Gaussian noise spectrogram zeros random quadratic polynomial zero pair density covariance",
+        "Gaussian random quadratic polynomial Schur Cohn root count inside unit disk middle coefficient variance sigma sqrt(sigma squared plus two)",
+        "three line spectrogram zeros negative frequency half cylinder count probability zero one two geometric polynomial roots",
+        "root count binomial three complex normal coefficients exact probability one root in unit disk"
+      ]
+    },
+    "rationale": "Closest fully inspected published three-line result gives only first intensity and explicitly not realization-level counts; fully inspected two-line random-count law cannot give quadratic three-line split. Searches for polynomial-root-count equivalences and weighted-middle-coefficient formulas found no identical exact beta-parameter law. Priority risks from inaccessible older full texts are recorded.",
+    "residual_risks": [
+      "Classical random-polynomial literature may contain the same beta-dependent unit-disk root-count formula under another normalization.",
+      "Full texts of Escudero–Koliander–Romero 2026 and Forrester–Honner 1999 could not be inspected, so publication priority is not established independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING count distribution; derives only expected intensity and modality",
+        "evidence": [
+          "The publication expressly says it classifies expected zero intensity, not zero counts in each random realization.",
+          "Its F(1)=1 proves only expectation, which is not a distribution."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-modal-bifurcation-of-three-line-gaussian-spectrogram-zeros--106a484313d3/RESULT.md",
+        "material_read": "Full public RESULT.md, Finding through References, including displayed expected cumulative count, STFT mapping and explicit limitations",
+        "method": "GitHub full raw file read",
+        "title": "Exact modal bifurcation of three-line Gaussian spectrogram zeros",
+        "trigger": "Same random three-line model and beta parameter"
+      },
+      {
+        "assessment": "NOT_COVERING three-line centered half-strip classification",
+        "evidence": [
+          "The two-line model has one randomly located zero row per period.",
+          "It explicitly excludes claims for three or more spectral lines."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-exact-zero-count-laws-and-non-self-averaging-for-two-line-gaussi--6079d35cb6de/RESULT.md",
+        "material_read": "Full public RESULT.md, Finding through References, including count law and limitations",
+        "method": "GitHub full raw file read",
+        "title": "Exact zero-count laws and non-self-averaging for two-line Gaussian spectrograms",
+        "trigger": "Closest exact finite-period count distribution"
+      },
+      {
+        "assessment": "Accessible text concerns expectation and PSD estimation, not the three-atomic full count law; full-text uncertainty remains",
+        "evidence": [
+          "arXiv:2609.18689 first posted 2026-09-16, abstract says exact expected number and smoothed power spectral density recovery.",
+          "No claim of complete three-line half-cylinder count distribution found in accessible source portion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+        "material_read": "ArXiv abstract/metadata; full text not accessible through attempted arXiv HTML and ar5iv",
+        "method": "Web abstract and archived metadata review; attempted lawful full-text access",
+        "title": "Zeros of the Spectrogram of Colored Noise",
+        "trigger": "Recent first-public motivating study"
+      },
+      {
+        "assessment": "UNRESOLVED possible earlier equivalent integral; priority risk explicitly retained",
+        "evidence": [
+          "Publisher abstract states exact one-/two-point density and variance of linear statistics for a different general Gaussian polynomial ensemble.",
+          "The accessible abstract does not state the weighted quadratic beta-dependent disk-count distribution."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/0305-4470/32/16/006",
+        "material_read": "Publisher abstract and arXiv metadata; full text unavailable",
+        "method": "Publisher abstract and source metadata inspection; attempted arXiv HTML",
+        "title": "Exact statistical properties of the zeros of complex random polynomials",
+        "trigger": "General random-Gaussian-polynomial zero-point correlations could potentially cover special degree-two law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b2de27a-d46b-48a0-b1d0-c397c99f9ff9",
+  "value": {
+    "rationale": "Natural intrinsic balance frequency and random count of two zeros per temporal period yields full 0/1/2 classification; mean stays exactly one but variance varies strictly with spectral-middle amplitude. It supplies a genuinely additional zero-fluctuation observable and shows no singular count transition at prior known first-intensity beta=4 threshold.",
+    "status": "PASS"
+  }
+}
