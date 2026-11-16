@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The assertion is confined to the squarefree degree-\(k\) subspace, not the whole harmonic degree. The Gaussian/Dirichlet moment computation yields the normalized entry \(w(2/\pi)^{k-r}\rho_{2(k-r)}\); the binomial inversion yields the inclusion Gram expansion; the established Johnson incidence theorem produces all \(k+1\) eigenvalues and multiplicities, whose sum is \(\binom dk\). Strict positive and subunit eigenvalues follow from nonvanishing of nonzero real-analytic polynomials on the region and its complement. Explicit sign-moment identities prove the dipole square-dimension classification and the quadrupole impossibility, with every off-diagonal overlap type treated. The independent finite-matrix program passes 37 complete spectra with largest discrepancy less than \(8\times10^{-16}\); exact arithmetic establishes the obstruction for 20,291 parameter pairs. Computations are supporting checks, not an infinite proof.
+
+## Originality — PASS (best-knowledge, with stated priority risks)
+
+The source arXiv:2308.03543 establishes ball polynomial concentration generally but studies different subspaces and asymptotic rather than the evaluated continuous sign-cardinality operator. The all-parameter combinatorial incidence eigenvalues in arXiv:0902.4367 are explicitly credited, not presented as new. The published binary Hamming-shell Walsh bandwidth result is a discrete spectral compression with exact zero modes; the continuous folded-normal sphere changes off-diagonal entries by powers of \(2/\pi\), yielding strictly positive spectra and different equality structure. The nonbinary Hamming-sphere all-degree theorem applies to a different finite configuration and character space. The positive-orthant pure-quadratic spherical theorem treats a single sign orthant and the entire quadratic harmonic space. The union of coordinate caps is a different mask. None of the inspected statements implies the continuous all-parameter sign-count region spectrum without deriving the new Gaussian moment kernel and Johnson evaluation. An earlier specialist treatment of continuous sign-layer concentration, especially an unstated result in the folded-normal/association-scheme literature, remains a plausible priority risk.
+
+## Mathematical value — PASS
+
+Fixed sign-count regions form a canonical family of highly disconnected, permutation-invariant spherical observation masks that range from a single orthant to central layers. The theorem gives the entire sharp observable-energy spectrum for every multilinear harmonic degree and every admissible dimension, with only \(k+1\) values instead of \(\binom dk\) matrix diagonalization. Its square-dimensional dipole isotropy and universal quadratic obstruction give a motivated precise boundary between tight first-order and unattainable tight second-order observation. These are not a routine reparametrization of a scalar moment or isolated small-dimension table entry.
+
+## Relevant sources and limitations
+
+Primary: Gerhards–Huang (2023), arXiv:2308.03543, introduction, theorem 2.1 and section 4. Combinatorial ingredient: Ghareghani–Ghorbani–Mohammad-Noori (2009), arXiv:0902.4367, section 8, Lemma 14/Theorem 15. Related distinct results: *Square-dimension spectral resonances for quadratic-band Walsh concentration on Hamming shells*, *An all-degree spectral law for Fourier sampling on q-ary Hamming spheres*, and *Exact quadratic spherical-orthant concentration and a sharp dimension-squared stability law*, each inspected as full result text. Classical spherical framework: Simons–Dahlen–Wieczorek (2006). No broader claim for the full spherical degree or arbitrary region is justified. The absence of a database hit is not a proof of novelty.
+
+Self-review: passed. Independent audit: not yet performed.
