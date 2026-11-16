@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The open 4x4 graph has exactly 24 edges and 36 enumerated perfect matchings. Since each matching contains one edge incident to each vertex, 16 star gauges with one relation reduce all 2^24 Fourier characters to 2^9 signed matching sums. Two distinct exact algorithms, recursive matching enumeration with Walsh transform and 8x8 Kasteleyn determinant with Bareiss elimination, calculate all 512 sums and match the stated multiplicities; Parseval 512*36 is checked. A second exact transform gives the projection-kernel absolute sum 3698, so its exact l1 and linfinity norm is 3698/512=1849/256. The spectral rank 279*32768, gap four, pseudoinverse 1/4, and eight corner singleton zeros follow by Fourier diagonalization and certified counts. Computation is exhaustive with bounded loops, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kenyon 2003 gives a general weighted dimer determinant and inverse Kasteleyn local probabilities, not an evaluated zero multiplicity table.",
+        "Cohn--Kenyon--Propp 2000 bibliographic abstract is about a variational principle and scaling limits; only abstract inspected.",
+        "Published summary of the 4x6 toroidal tiling flip metric treats winding components, not the open 4x4 signed Fourier transform.",
+        "Published summary of the 8-vertex complete graph perfect-matching Fourier spectrum treats K8 rather than the open square grid graph."
+      ],
+      "reasoning": "An algorithm applicable to all planar matchings implies efficient evaluation of each of these signed sums, but does not state the exact frequency distribution, its zero orbit count, or the sharp norm derived by a second transform. Other retrieved exact finite classifications have incompatible boundary conditions or underlying graphs, so their stated results do not imply this table.",
+      "searches": [
+        "Kenyon 2003 introduction dimer model Kasteleyn weighted determinant full text sections 2.1 2.4",
+        "A variational principle for domino tilings Cohn Kenyon Propp arxiv math/0008220",
+        "2026/11/2/SCOPE-complete-winding-sector-flip-metric-of-domino-tilings-on-the-4-t--65307c7ee5da",
+        "2026/11/8/SCOPE-exact-walsh-spectrum-and-sharp-endpoint-norm-of-the-eight-vertex--3b3fc3e31c5f"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0310326",
+      "https://arxiv.org/abs/math/0008220",
+      "https://www.matpic.com/essays/signs-that-make-a-determinant-count/",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-complete-winding-sector-flip-metric-of-domino-tilings-on-the-4-t--65307c7ee5da",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-walsh-spectrum-and-sharp-endpoint-norm-of-the-eight-vertex--3b3fc3e31c5f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General Pfaffian/Kasteleyn formulas and 4x4 tiling count 36 provide a computational route but not the evaluated 9-level histogram nor the L1 norm 1849/256.",
+        "Related previous three-row-strip result has an odd number of tilings and no Fourier zero, whereas the square contains 36 tilings with 233 vanishing gauge classes.",
+        "Aztec-diamond exact Fourier gcd statements do not imply this complete open-square Fourier zero count or sharp endpoint range projection."
+      ],
+      "reasoning": "The new quantitative result is not a rephrasing of the known matching count or determinant identity, nor a specialization of the available three-row or Aztec-diamond statements: all differ in graph family or they omit the evaluated full spectral distribution and range projection. The claim is confined to the 4x4 instance and does not assert a new general determinant theorem.",
+      "searches": [
+        "4x4 square domino tilings signed matching Walsh Fourier transform zero frequency census exact 233 of 512 gauge classes endpoint projection 1849/256",
+        "Kasteleyn signed edge weights plus minus 4x4 determinant zero counts",
+        "Kenyon dimer Fourier local statistics projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The signed 4x4 dimer partition function is equivalent to the edge-incidence Walsh character sum with plus/minus edge weights. Kenyon, arXiv:math/0310326, §§2.1,2.4, explains the determinant representation.",
+        "Matpic, Signs that make a determinant count, §§One minus sign on every square and Three counts that must agree, displays 36 square tilings and determinant signing, without an evaluated 512-class Walsh census."
+      ],
+      "reasoning": "The full weighted matching polynomial, the signed bipartite determinant, and the Fourier multipliers are computationally equivalent after edge signs are specialized to plus/minus one. That general identity is fully prior; the asserted new object is its explicitly evaluated joint distribution over all gauge classes and the inverse-support projection norm, not the identity or the number 36.",
+      "searches": [
+        "4x4 square domino tilings signed matching Walsh Fourier transform zero frequency census exact 233 of 512 gauge classes endpoint projection 1849/256",
+        "signed perfect matchings 4x4 square grid 233 zero determinants",
+        "4x4 domino tilings 36 Fourier projection Walsh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 4x4 tiling table reports the classical count 36, not 233 zero gauge classes or projection norm 1849/256.",
+        "The direct searches for the exact 233/512 and 1849/256 constants returned no matching signed-dimer Fourier table."
+      ],
+      "reasoning": "No exact Walsh zero census or endpoint norm was located in the checked accessible tables. A negative search is not proof of uniqueness; tables with different notation or offline sources may exist.",
+      "searches": [
+        "\"233\" \"512\" domino tilings Walsh spectrum",
+        "\"1849/256\" \"domino\" Fourier",
+        "\"4x4\" \"Fourier\" \"tilings\" \"Walsh\"",
+        "four by four domino tilings Fourier nullity Walsh zero characters matchings"
+      ]
+    },
+    "rationale": "The evaluated absolute-multiplier multiplicities {0:233,4:177,8:72,12:12,16:6,20:2,24:8,32:1,36:1} in the 512-class quotient, the eight singleton zeros, and the exact range projection norm 1849/256 are not the same as the classical statement that a weighted dimer partition function is a determinant. The latter computes each coefficient in principle but does not furnish the evaluated finite distribution or endpoint norm. Bounded searches of primary literature, closely related public mathematical records, and accessible prior claims found no covering exact table or broader theorem supplying these numbers; differently indexed historical tables remain possible.",
+    "residual_risks": [
+      "Historical tables of signed 4x4 partition functions may use different equivalence classes or notation and remain unindexed.",
+      "Full Cohn--Kenyon--Propp paper not materially inspected; the accessible abstract does not support a whole-document not-covering assertion.",
+      "Some published mathematical records were only available via summaries, so no universal completeness of the priority search is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying signed determinant identity is prior and acknowledged; no evaluated 4x4 Walsh zero-census or range-projection norm in inspected relevant sections",
+        "evidence": [
+          "Section 2.1 equates domino matchings with determinant terms and proves sign consistency over alternating cycles",
+          "Section 2.4 treats inverse Kasteleyn local probabilities",
+          "Section 4.1 discusses alternative Kasteleyn weights"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0310326",
+        "material_read": "Full accessible HTML text; sections 2.1, 2.4, 4.1 inspected closely",
+        "method": "Reviewed theorem, proof of Kasteleyn signing, weighted local-statistics statements and relevant headings",
+        "title": "An introduction to the dimer model",
+        "trigger": "Direct primary exposition of the exact weighted planar dimer determinant that might dominate an edge-sign Fourier claim"
+      },
+      {
+        "assessment": "Covers known count 36 and determinant realization, but does not display the 233-of-512 signed matching Fourier census or its 1849/256 projection norm",
+        "evidence": [
+          "The 4x4 figure divides plain determinant terms 18 and 18 and depicts the Kasteleyn re-signing",
+          "The table lists numbers of tilings for rectangles, not Walsh-multiplier distributions"
+        ],
+        "identifier_or_url": "https://www.matpic.com/essays/signs-that-make-a-determinant-count/",
+        "material_read": "Full accessible HTML article, especially sections on 36 tilings, sign rule and tabulated rectangle counts",
+        "method": "Inspected displayed tiling count, determinant signing and finite table for explicit Fourier distributions",
+        "title": "Signs that make a determinant count",
+        "trigger": "Exact matching of 4x4 square and 36 domino tilings; plausible direct prior evaluation"
+      },
+      {
+        "assessment": "Abstract treats variational entropy and tiling measures; full-text priority comparison remains limited, so no whole-document absence claim is asserted",
+        "evidence": [
+          "arXiv initial public submission 2000-08-30",
+          "Abstract emphasizes asymptotic variational principle and general boundary conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0008220",
+        "material_read": "Public abstract, bibliographic metadata and first-public date only; full paper not inspected",
+        "method": "Reviewed accessible abstract and scope, compared to exact 4x4 signed edge-weight spectrum",
+        "title": "A variational principle for domino tilings",
+        "trigger": "Foundational primary dimer work with arbitrary domains, potentially broad coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b335d715-a888-4ce9-935f-995fb07f9d6f",
+  "value": {
+    "rationale": "The 4x4 open-square dimer is a canonical planar matching system with a small yet genuinely nontrivial nine-cycle gauge quotient and 36 coverings. Its complete exact signed partition-function cancellation spectrum discriminates 233 invisible and 279 recoverable gauge modes. The first-cancellation edge geometry and sharp 1849/256 endpoint amplification give a natural complete Fourier recovery benchmark not implied numerically by tiling count 36; the exact finite invariant can be reused to test signed planar-dimer calculations and Fourier reconstruction methods.",
+    "status": "PASS"
+  }
+}
