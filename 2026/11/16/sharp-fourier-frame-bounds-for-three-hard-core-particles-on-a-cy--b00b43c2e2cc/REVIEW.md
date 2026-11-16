@@ -1,0 +1,15 @@
+# Scientific review: fixed-three hard-core cycle Fourier frame
+
+## Correctness — PASS
+A counting argument gives exactly \(n(n-4)(n-5)/6\) admissible triples. The two-point count has only three off-diagonal classes, making the covariance circulant with a quadratic spatial Fourier symbol. The proof includes the forced constant-sum zero mode, proves strict positivity for all other frequencies, identifies both extremal mode families for every \(n\ge7\) (including exact rational cubic isolations at the three short lengths), and derives the sharp \(8/n\) asymptotic coefficient. The special six-site ensemble is checked separately. Reproduction from `verify.py` completed successfully; finite experiments are supplementary, not an all-length proof.
+
+## Originality — PASS, with stated residual historical risks
+Direct comparisons were made against the published complete vertex-covariance spectrum of cycle stable-set polytopes and an exact Lucas-cube Fourier precision result: those treat the full mixture of independent-set sizes, whereas this theorem conditions on **exactly three** particles. This changes the zero-mode rank, spectral symbol and limiting ratio, so neither full-mixture theorem implies the present finite-layer theorem. Jain–Perkins–Sah–Sawhney (2021), Sections 1 and 3–5, treat sampling and counting fixed-size independent sets via local central limit theorems rather than a sharp spatial Fourier covariance spectrum. Vavro (2001), arXiv:cond-mat/0011401, was read in full (four-page manuscript): its equations (15)–(21) count cyclic cluster arrangements and canonical partition functions, but it does not compute the fixed-three position-pair covariance, spatial Fourier eigenvalues, or their sharp extremizers. Its composition counting overlaps the preliminary enumeration and is credited rather than claimed as new. Specialist historic structure-factor literature may contain a differently expressed finite-size result. Thus priority is provisional rather than independently certified.
+
+## Mathematical value — PASS
+Fixed-size independent-set sampling is a natural microcanonical counterpart to grand-canonical hard-core sampling. Exactly three particles are the first interaction layer beyond one particle and a forbidden pair. The sharp nullity change between six and seven sites, explicit all-length extremizing spatial wavelengths, and quantified approach to a tight frame at rate \(8/n\) provide a usable exact stability statement, not a mere finite example or a reworded standard count. In particular, the full-size-mixture covariance retains a distinct nontrivial limiting anisotropy, so the conditioning contrast is mathematically motivated.
+
+## Limitations
+The theorem does not classify other fixed particle numbers or arbitrary exclusions, and the assertion of historical originality is subject to further specialist source comparison. Exact rational bracket verification and finite enumeration do not substitute for the analytic proof supplied in the result.
+
+Self-review: passed. Independent audit: not yet performed.
