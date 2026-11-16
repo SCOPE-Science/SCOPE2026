@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, cyclic binary domination on C_n squared is precisely a 5-zero forbidden pattern. The transfer matrix closed walks biject to these words, the exact two-point trace identity is derived, and affine support yields strict covariance positivity. The Perron root is the inverse root t of sum(t^j,j=1..5)=1; its reset renewal chain gives the exact infinite-volume gap law. Exponential Perron mixing proves uniform convergence in Fourier index. The rational P/Q identity and degree-six R identity were verified exactly as polynomial remainders modulo the quintic using verify_symbolic.py. verify.py uses exact rational interval arithmetic: it isolates t, verifies three alternating derivative roots, proves at most three roots by Descartes, and rigorously orders all candidate peak heights and endpoints. The finite checker independently enumerates all allowed cyclic binary words for n=3..14 and checks exact two-point transfer counts. Finite enumeration is not used as an infinite proof; no stronger finite extremal index claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2408.12731 Theorem 1.5 treats any power and counts dominating sets; its recurrence does not determine joint occupation at two specified positions",
+        "arxiv:1007.3084 Theorem 2 is general renewal diffraction; its input law can reproduce a limiting transform but not the root-ordering specialization without additional algebra",
+        "Published cyclic-transversal study: Ultra-log-concavity of dense cyclic-block transversals and cycle-power domination (published 2026) concerns certain bounded-n cases and cardinality ultra-log-concavity, not arbitrary-n Fourier covariance"
+      ],
+      "reasoning": "A broader theorem about domination polynomials covers partition functions and count distributions, but not spatial pair correlations. A general renewal spectral theorem covers the generic S functional expression and is credited. The candidate requires a separate exact sixth-degree algebraic optimization, strict comparison of two close local maxima, and uniform finite-cycle-to-limit convergence; no inspected broader source states these conclusions. Such derivability by combining known methods remains a priority risk rather than proof of novelty.",
+      "searches": [
+        "Uniform dominating sets on cycles, tribonacci renewal process. Complete cyclic Fourier covariance eigenvalues, unique interior high-frequency maximizer and sharp limiting condition ratio 2.566268622.",
+        "Domination polynomial powers cycles Galvin Zhang two-point Fourier autocorrelation",
+        "arxiv 2019 2021 domination polynomial of cycles exact roots transfer matrix",
+        "random renewal process diffraction spectrum Markov zero run gaps lattice explicit formula arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2408.12731v1 (2024-08-22; full relevant text)",
+      "arxiv:2012.11813v1 (2020-12-22; full relevant text)",
+      "arxiv:1601.01268 (2016-01-06; full relevant text)",
+      "arxiv:1007.3084 (2010-07-19; full relevant text)",
+      "Published mathematical result: Sharp universal Fourier sampling stability on proper colourings of cycles (published 2026)",
+      "Published mathematical result: The complete vertex-covariance spectrum of cycle stable-set polytopes (published 2026)",
+      "Published mathematical result: Ultra-log-concavity of dense cyclic-block transversals and cycle-power domination (published 2026)",
+      "Published mathematical result: Parity-sharp covariance conditioning of cycle fractional stable-set polytopes (published 2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baake--Koesters arxiv:1007.3084 derives renewal autocorrelation and diffraction; the input is a general gap law, whereas no five-weight peak extremization appears in inspected section 3",
+        "Galvin--Zhang arxiv:2408.12731 Theorems 1.4--1.5 prove unimodality/recurrence but not conditional two-site probabilities",
+        "Beaton--Brown arxiv:2012.11813 Corollary 2.3 concerns ordinary-cycle domination-polynomial unimodality",
+        "Arocha--Llano arxiv:1601.01268 Theorems 10 and 19 count ordinary-cycle dominating k-sets"
+      ],
+      "reasoning": "The renewal transform formula is mathematically implied by prior work and is neither presented as independently novel nor used alone to justify O. The candidate-specific extremal theorem requires finding all three roots of a sixth-degree polynomial in cosine, proving only three lie inside the unit interval, comparing the two peaks by rational intervals, and controlling finite cyclic covariances uniformly. No cited result states that sharper conclusion, and the graph-based counting results lack the pairwise data necessary to imply it. Independently, the five-state finite covariance formula is a direct but nontrivial explicitly reproducible refinement of counts.",
+      "searches": [
+        "Domination polynomial sampling of cycle C_n, forbidding 000, spatial structure factor of occupation variables, spectral density rational function of cosine and condition number.",
+        "Structure factor of renewal process with five allowed spacings and pentanacci weights, local and global diffraction peak",
+        "renewal process diffraction Fourier transform formula geometric gaps autocorrelation structure factor Baake Grimm",
+        "\"dominating sets\" \"structure factor\" cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1007.3084 section 3: general renewal diffraction via renewal measure; equivalent functional form but no five-gap peak geometry",
+        "arxiv:2408.12731 sections 1,2.1.2,2.3: size enumerators of domination sets, not two-point spatial correlations",
+        "Published proper-colouring study: Sharp universal Fourier sampling stability on proper colourings of cycles (published 2026)"
+      ],
+      "reasoning": "Dominating sets of C_n squared correspond exactly to cyclic binary strings without five consecutive zeros. General renewal diffraction is equivalent to the infinite-volume two-point transform after specialisation, so the raw transform alone is NOT claimed original. Neither this generic identity nor published domination counts states the specialized three-critical-point/two-maxima theorem, its globally highest lower-frequency peak, or the exact finite transfer covariance. Proper q-colourings require adjacent unequal symbols; stable sets forbid adjacent occupied vertices, so neither is equivalent to the five-zero rule or has a direct implication.",
+      "searches": [
+        "Exact covariance Fourier spectrum for uniform dominating sets of cycle squares, no run of five zeros, spectral double peak and sharp ratio",
+        "Structure factor of renewal process with five allowed spacings and pentanacci weights, local and global diffraction peak",
+        "\"dominating sets\" \"covariance\" \"Fourier\" cycle",
+        "renewal process point process gap distribution structure factor characteristic function spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2408.12731 contains finite dominating-set cardinality recurrences and a numerical/log-concavity investigation, not an exact table of Fourier eigenvalues or peaks",
+        "arxiv:1601.01268 section 3 has coefficient enumeration for ordinary cycles, not the square-cycle harmonic spectrum",
+        "The closest retrieved mathematical findings treat differently defined graph ensembles and do not furnish the root x_* or the condition ratio 1.479580816665..."
+      ],
+      "reasoning": "The exact target is not a finite tabulation: it asserts an all-n five-state covariance formula and limiting peak classification. Counting tables and finite tests cannot imply strict all-n positivity or exact asymptotic optimization. No exact published table of the same polynomial root geometry was located in the actual searches; this is an evidence limit, not a uniqueness certificate.",
+      "searches": [
+        "Exact covariance Fourier spectrum for uniform dominating sets of cycle squares, no run of five zeros, spectral double peak and sharp ratio",
+        "Stationary lattice renewal processes with gap lengths one two three; exact diffraction spectral density and peak location for tribonacci weights.",
+        "cyclic dominating sets covariance spectral density tribonacci graph",
+        "dominating sets cycle correlation Fourier transfer operator random dominating sets"
+      ]
+    },
+    "rationale": "The novel part compared on mathematical implication is the two-peak strict ordering and sharp limiting Fourier covariance condition ratio of uniform dominating sets on square cycles, together with the explicit finite cyclic covariance spectrum. General renewal diffraction implies the functional form of the limiting spectrum after identifying the gap law, and this is expressly credited; it does not state the nontrivial algebraic peak-count and ordering for the five-gap weights or the finite square-cycle covariance spectrum. Published domination polynomial results establish counts and unimodality, not this two-point harmonic theorem. Closest published database records concern proper colourings, independent sets or certain dense cyclic transversals, whose measures do not imply the statement. Searches do not prove global novelty; priority risk remains.",
+    "residual_risks": [
+      "Generic stationary renewal diffraction is prior art and already implies the functional form S; only the specialized critical-point geometry, finite cyclic formula and strict condition ratio are claimed as new.",
+      "An earlier five-gap specialization or thesis may have optimized the same diffraction peaks without appearing in the checked searches.",
+      "Search-based comparisons are not exhaustive; historical priority and independent mathematical audit are provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes size recurrences and coefficient unimodality, but not occupation covariance or frequency extrema; used as focal middle-cohort source, first posted 2024-08-22",
+        "evidence": [
+          "arxiv:2408.12731 Theorem 1.5 and Section 2.1.2",
+          "https://arxiv.org/abs/2408.12731"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.12731",
+        "material_read": "Full accessible text: introduction Theorems 1.4--1.7 and 2.1.2 recurrence for powers of cycles, plus Section 2.3 unimodality",
+        "method": "arXiv full text rendered in accessible HTML",
+        "title": "The domination polynomial of powers of paths and cycles",
+        "trigger": "Exact target graph family C_n squared, potential broad domination-set result"
+      },
+      {
+        "assessment": "Unimodality of cardinality coefficients only, graph C_n rather than C_n squared; no covariance theorem",
+        "evidence": [
+          "arxiv:2012.11813v1 Section 2",
+          "https://arxiv.org/html/2012.11813v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.11813v1",
+        "material_read": "Full HTML Section 2, especially Theorem 2.2, Table 1 and Corollary 2.3, plus contextual scope",
+        "method": "arXiv HTML experimental full text",
+        "title": "On the Unimodality of Domination Polynomials",
+        "trigger": "Earlier counts for ordinary cycles and related recurrence"
+      },
+      {
+        "assessment": "Computes one-dimensional set-size counts for ordinary cycles; not square-cycle two-position covariances, hence does not imply candidate",
+        "evidence": [
+          "arxiv:1601.01268 Theorems 10,18,19",
+          "https://arxiv.org/abs/1601.01268"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1601.01268",
+        "material_read": "Accessible full text Sections 2--3, in particular Theorems 10, 18 and 19",
+        "method": "arXiv readable full-text presentation",
+        "title": "The number of dominating k-sets of paths, cycles and wheels",
+        "trigger": "Earliest natural cycle domination count formulas that might imply covariance"
+      },
+      {
+        "assessment": "General renewal spectral formula DOES cover the limiting transform form after specialization; credited explicitly. Did not present the specialized two-peak proof, strict max ordering, or the exact finite cyclic distribution",
+        "evidence": [
+          "arxiv:1007.3084 Section 3 Theorem 2",
+          "https://arxiv.org/abs/1007.3084"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1007.3084",
+        "material_read": "Accessible full text Section 3 (renewal process), Theorem 2 and autocorrelation renewal equations",
+        "method": "arXiv readable full-text presentation",
+        "title": "Random point sets and their diffraction",
+        "trigger": "Plausible general theorem implying Fourier spectra of the renewal limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70f28a07-c46c-4986-8bea-b08528b0dedc",
+  "value": {
+    "rationale": "For a natural domination-sampling law first systematically handled by cycle-power cardinality recurrences, harmonic observability was not classified in the inspected sources. The limiting Fourier profile has two almost-tied local peaks (0.275130674... versus 0.273761566...), and a nontrivial exact algebraic certificate decides the uniquely dominant lower-frequency mode. The globally weakest constant mode and sharp limiting covariance condition ratio 1.479580816665... give interpretable stability information for the actual finite-cycle sampling problems. This is more than a new count or a numerical pattern; it combines all-length positive definiteness, finite spectral formulas, and an infinite-size extremal classification.",
+    "status": "PASS"
+  }
+}
