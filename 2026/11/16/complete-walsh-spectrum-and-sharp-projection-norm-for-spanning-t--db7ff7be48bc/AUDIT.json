@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact domain is sixteen binary edge coordinates and all 4096 seven-edge spanning trees of \\(K_{4,4}\\). Two independent implementations agree pointwise on all 65536 character multipliers: (1) 192 row/column/transpose orbits with exact signed-Laplacian cofactors by fraction-free integer elimination and (2) exact union-find enumeration of all seven-edge trees followed by a 16-stage integer Walsh-Hadamard transform. Both yield 42894 zeros, 22642 nonzero values and minimal nonzero magnitude 32; Parseval and complement-sign symmetry are checked. A further exact transform of the Fourier range indicator gives kernel absolute sum 2950060, hence sharp endpoint norm 2950060/65536=737515/16384. This proves a complete finite statement without extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dong–Ge (https://arxiv.org/abs/2103.05294), Theorem 4, gives exact counts of trees containing any prescribed forest of a complete bipartite graph.",
+        "Martin–Reiner (https://arxiv.org/abs/math/0302213) investigates weighted tree enumerators on Cartesian products of complete graphs and threshold graphs.",
+        "Existing harmonic-analysis result entitled Complete Walsh spectrum and sharp Fourier projection norms for spanning trees of \\(K_{2,n}\\) addresses fixed shore size two."
+      ],
+      "reasoning": "The forest-containing theorem permits calculating each Fourier character through an additional inclusion-exclusion sum but does not state or automatically provide the evaluated \\(K_{4,4}\\) table, 192 orbit classes or projection constant. Results covering \\(K_{2,n}\\), \\(K_{3,n}\\), complete graphs or Cartesian products do not specialize to \\(K_{4,4}\\), which has shore sizes four and four.",
+      "searches": [
+        "Complete Walsh spectrum and convolution rank of labelled spanning trees of complete bipartite graph K4,4",
+        "Fourier transform of spanning tree indicator on hypercube edge subsets K4,4 spectrum",
+        "bipartite spanning tree incidence Boolean convolution rank four-by-four edge sets"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0302213",
+      "https://arxiv.org/abs/1510.00033",
+      "https://arxiv.org/abs/2103.05294",
+      "https://doi.org/10.1007/978-3-642-46908-4_38 (abstract only; classical K_{m,n} tree count)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 of Dong–Ge, arXiv:2103.05294, counts trees containing a prescribed forest by its component-shore sizes.",
+        "Section 4 and Remark 4.4 of Aalipour et al., arXiv:1510.00033, cover degree-weighted enumerators of complete colorful complexes, including complete bipartite graphs.",
+        "The present exact certificate differentiates 19 Fourier levels and proves the sharp projection kernel norm for a specific 16-bit space."
+      ],
+      "reasoning": "The antecedent tree-counting formulas imply general calculability in principle, not the explicitly evaluated new finite numerical invariant without all-mask analysis. Neither a standard determinant identity nor the fixed-shore-size-two Fourier result entails the exact multipliers/projection constant merely by substitution. General numerical computability is acknowledged as a limitation and not misrepresented as novelty of the underlying enumeration methods.",
+      "searches": [
+        "spanning trees complete bipartite graph signed matrix tree theorem Fourier Walsh transform 2008",
+        "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "Complete Walsh spectrum and sharp Fourier projection norms for spanning trees of K_{2,n}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A weighted edge-sign tree enumerator equals a signed Laplacian cofactor by the matrix-tree theorem (https://arxiv.org/abs/1510.00033).",
+        "The present characters are indexed by all 16 independently signed edges; the 2015 degree-weighted complete-multipartite formula assigns products of vertex weights to each edge, a restricted specialization."
+      ],
+      "reasoning": "Compared Fourier coefficients with the equal-weight ±1 signed tree polynomial, matrix-tree cofactors and the possible degree-weighted specialization. These transformations describe the same underlying polynomial evaluation but do not contain the exact evaluated all-sign orbit histogram or sharp range-projection norm.",
+      "searches": [
+        "Fourier spectrum spanning trees complete bipartite K4 4 sign matrix rank convolution",
+        "K_{4,4} spanning trees 65536 Walsh coefficients zeros 42894 rank 22642 projection 737515/16384",
+        "signed Kirchhoff polynomial of 4 by 4 complete bipartite graph exact multiplier values 640 512 288 224"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked exact scientific search results returned tree counting formulas, general signed matrix-tree identities and related graph Fourier spectra but no table of the asserted 19 levels and 192 sign orbits.",
+        "The 192-row orbits.csv in the current result contains a fully reproduced exact certificate of the proposed table."
+      ],
+      "reasoning": "No checked relevant source supplied a table with the complete 19 signed Walsh levels, rank 22642, or endpoint constant 737515/16384. Searches alone cannot prove an absent prior table; this residual risk is retained.",
+      "searches": [
+        "K4,4 spanning tree Fourier transforms signed determinants spectra 22642 42894",
+        "signed spanning tree polynomial K_{4,4} exact Fourier zeros and sharp inverse norm",
+        "K_{4,4} spanning trees 65536 Walsh coefficients zeros 42894 rank 22642 projection 737515/16384"
+      ]
+    },
+    "rationale": "Under bounded searches and full inspection of the relevant 2015 and 2021 mathematical articles, a weighted spanning-tree determinant and all-forest containment moments are known, but none of the inspected sources states or directly implies the numerically evaluated complete 19-level \\(K_{4,4}\\) signed Fourier histogram, its 192 symmetry-orbit certificate, rank or endpoint-projection constant without additional nontrivial finite computation. A previously published result for \\(K_{2,n}\\) gives a complete formula on a different graph family; earlier work for \\(K_{3,n}\\) also has a different graph. The paper by Martin–Reiner concerns Cartesian products and threshold graphs. Exhaustive historical priority is not asserted.",
+    "residual_risks": [
+      "Historical signed-tree determinant tables or unpublished computations not indexed by searched sources might already contain some or all 19 spectral levels.",
+      "The broad Dong–Ge inclusion theorem makes computation possible in principle; the claim is an evaluated finite invariant and its exact endpoint constant, not an intrinsically new general mechanism.",
+      "The 2003 weighted-tree paper was not fully inspected; its abstract indicates a different graph family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract concerns Cartesian products of complete graphs and threshold graphs; distinct from the complete bipartite graph \\(K_{4,4}\\), so no direct same-graph coverage identified; full text not independently inspected.",
+        "evidence": [
+          "First public arXiv date 2003-02-18.",
+          "Abstract specifies Cartesian products of complete graphs, weighted by degree sequences and edge directions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0302213",
+        "material_read": "ArXiv public abstract and bibliographic details, not primary full PDF",
+        "method": "Read available abstract and graph-family description",
+        "title": "Factorizations of some weighted spanning tree enumerators",
+        "trigger": "Foundational weighted tree enumeration and potential graph-family overlap"
+      },
+      {
+        "assessment": "Degree-weighted tree enumeration specializes weights from vertices to edges; it does not list edgewise sign-mask Fourier spectrum or endpoint projection for \\(K_{4,4}\\).",
+        "evidence": [
+          "Public arXiv date 2015-09-30.",
+          "Section 4 defines weights as products of vertex weights and Remark 4.4 gives the degree-weighted complete multipartite enumerator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.00033",
+        "material_read": "Accessible arXiv HTML full text, Introduction, Theorem 1.2, Section 4 and Remark 4.4",
+        "method": "Inspected full mathematical HTML around the statements and proofs, including specialized weight definitions",
+        "title": "A weighted cellular matrix-tree theorem, with applications to complete colorful and cubical complexes",
+        "trigger": "Highly relevant complete multipartite graph spanning-tree enumeration"
+      },
+      {
+        "assessment": "General prescribed-forest counts can be summed with signs to calculate Fourier coefficients, but the paper does not tabulate the exhaustive \\(K_{4,4}\\) Fourier histogram, 192 sign orbits or projection norm. Possible antecedent for an algorithm, not exact-statement coverage.",
+        "evidence": [
+          "Public arXiv date 2021-03-09.",
+          "Theorem 4 expresses the number of trees containing any spanning forest using component sizes in the two shores."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+        "material_read": "Accessible arXiv HTML full text, Introduction, Theorem 4 and combinatorial identities",
+        "method": "Inspected exact forest-containment theorem and relation to weighted tree enumeration",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Strongest same-graph general formula; might imply all Fourier coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db7ff7be-48bc-4667-b6d0-4c7a69183335",
+  "value": {
+    "rationale": "The balanced four-by-four complete bipartite graph is a canonical first sizeable square case with sixteen edge-sign coordinates, and the complete Fourier spectrum measures exact identifiability of parity observations of its uniform spanning-tree codebook. The 22642-versus-42894 recoverability boundary, minimal positive multiplier 32, and sharp endpoint range-projection norm 737515/16384 are precise natural Fourier invariants not implied numerically by the generic counting formula. The 192-orbit integral certificate and pointwise-independent replay make this a complete and reproducible finite benchmark, not an arbitrary parameter slice or small delta in an already tabulated sequence.",
+    "status": "PASS"
+  }
+}
