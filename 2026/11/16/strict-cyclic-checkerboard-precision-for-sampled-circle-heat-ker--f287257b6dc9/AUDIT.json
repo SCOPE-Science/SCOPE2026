@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Every n>=2,t>0 is handled by DFT aliasing plus Poisson and Jacobi product. The exact inverse factor coefficient is a signed positive strictly cyclic-unimodal vector on even doubled cycles. Nonnegative radial convolution preserves unimodality by explicit circular-ball overlap, and an isolated strict prefix and nearly delta tail yield strictness in the infinite product. Folding from 2n to n resolves odd/even signs and excludes zero entries. Checker passes 39,574 exact/high-precision finite assertions; universal statements depend on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belton et al. analyze total positive and Pólya frequency kernels generally, with no located periodized heat covariance inverse sign theorem.",
+        "Da Costa et al. prove negative definiteness results for a distinct geodesic Gaussian kernel.",
+        "A cyclic theta-product argument is developed explicitly here rather than cited as established equivalent."
+      ],
+      "reasoning": "General Pólya frequency machinery is a plausible route to this result but an implication would require matching periodization and parity at odd length; that implication was not located. Geodesic Gaussian is not a stronger covering class because its Fourier coefficients can be negative.",
+      "searches": [
+        "Jacobi theta circular total positivity cyclic variation diminishing inverse matrix checkerboard",
+        "cyclic Pólya frequency function periodic Gaussian inverse checkerboard matrix finite cyclic Jacobi theta",
+        "arXiv:2006.16213 sections 6, 8, 9",
+        "arXiv:2302.10623 circle spectrum section"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.10160 (same covariance, main text + circular appendix)",
+      "arXiv:2302.10623 (different geodesic Gaussian, main circle arguments)",
+      "arXiv:2006.16213 (total positivity and Pólya frequency related sections)",
+      "arXiv:2305.11065 (abstract only, not full exclusion)",
+      "Dietrich and Newsam DOI 10.1137/S1064827592240555 (abstract only)",
+      "published-finding corpus semantic searches, queries enumerated in originality checks",
+      "Previously reported mathematical claim identified by c11d579e-2abe-4f12-852b-89333d44f916"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior order-two Matérn statement: sampled precision sign and full graph for rational-polynomial Fourier weights.",
+        "Borovitskiy et al.: circle squared-exponential covariance via spectral theta expansion, no stated inverse signs.",
+        "Da Costa et al.: intrinsic geodesic Gaussian fails full positive definiteness and cannot be inverted uniformly."
+      ],
+      "reasoning": "The prior circle Matérn theorem concerns different kernels: finite-order rational Fourier decay and a rational inverse multiplier. No asserted limit or parameter substitution produces exactly Gaussian exponential Fourier decay or ensures strict signs under such a limit. Existing covariance formula alone does not imply a sign pattern of its inverse without the present proof. This work explicitly acknowledges related signatures but establishes a genuinely different universal family.",
+      "searches": [
+        "Related published claim c11d579e-2abe-4f12-852b-89333d44f916",
+        "arXiv:2006.10160 original spectral theta formula",
+        "arXiv:2302.10623 geodesic Gaussian positivity",
+        "Jacobi theta circular total positivity cyclic variation diminishing inverse matrix checkerboard"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim equivalently says inverse cardinal interpolation coefficients of the periodic heat kernel have strict sign by shortest cyclic distance.",
+        "The arXiv:2006.10160 theta Fourier series is the same covariance family but does not state the inverse sign classification.",
+        "Related claim c11d579e-2abe-4f12-852b-89333d44f916 concerns order-two Matérn Fourier weights, not exponential weights."
+      ],
+      "reasoning": "Names such as inverse theta circulant, cardinal Gaussian interpolation coefficient, and cyclic GP precision were searched. The Matérn inverse sign theorem does not specialize to the heat spectrum because the latter has exponential rather than rational Fourier weights. No retrieved equivalent cyclic heat statement was found; absence is not proof of priority.",
+      "searches": [
+        "equispaced observations periodic Gaussian heat kernel covariance inverse circulant precision exact alternating signs by cyclic distance all sizes theta function",
+        "strict alternating inverse of sampled periodic heat kernel covariance theta Gaussian circulant cyclic distance Gaussian precision matrix",
+        "Jacobi theta inverse discrete Fourier coefficients cyclic checkerboard strict sign radial distance",
+        "circle theta kernel Gaussian precision inverse sign cyclic all entries strictly alternating",
+        "arXiv:2006.10160, circular squared-exponential theta covariance; precision/inverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest finite-cycle Gaussian entry concerns positivity of intrinsic geodesic Gaussian and its scale threshold, not precision signs for periodized heat.",
+        "Gaussian lattice interpolation entry concerns a one-dimensional interval and alternating finite-size boundary term, not circular all-entry inverse signs.",
+        "Potts coloring inverse-covariance formula is for a different random combinatorial covariance."
+      ],
+      "reasoning": "No exact finite-table formula or database finding supplies the quantified all-n, all-positive-t strict signs. A table of finite examples would not prove this universal theorem.",
+      "searches": [
+        "equispaced observations periodic Gaussian heat kernel covariance inverse circulant precision exact alternating signs by cyclic distance all sizes theta function",
+        "periodized Gaussian heat kernel covariance regular grid theta inverse checkerboard alternating strict precision signed conditional dependence",
+        "circle theta kernel Gaussian precision inverse sign cyclic all entries strictly alternating",
+        "published-finding corpus closest 2026/10/25/SCOPE-the-sharp-pi-n-gaussian-covariance-transition-on-discrete-circle--07cd4e63f039",
+        "published-finding corpus closest 2026/10/26/SCOPE-alternating-finite-size-boundary-correction-for-gaussian-lattice--493d02a4b343",
+        "published-finding corpus closest 2026/11/2/SCOPE-sharp-universal-fourier-sampling-stability-on-proper-colourings--8dc8f90856db"
+      ]
+    },
+    "rationale": "Exact same-object source arXiv:2006.10160 constructs the theta/heat covariance but does not provide sign/nonzero statements for its finite-grid inverse. A geometric-Gaussian source arXiv:2302.10623 uses a different non-positive-definite kernel, and arXiv:2006.16213 provides background Pólya theory but no explicit cyclic precision assertion in its inspected relevant sections. The existing order-two circular Matérn sign theorem is not a specialization or stronger-parameter result of the Gaussian heat spectrum. Targeted published-finding corpus and literature searches found no dominating exact claim; historical priority remains provisional due to broader classical cyclic Pólya-frequency theory.",
+    "residual_risks": [
+      "A classical theorem on cyclic Pólya-frequency/theta interpolation could imply the strict inverse-sign claim without matching current search vocabulary; independent priority check recommended.",
+      "Full text of the broader Fourier-grid Gaussian approximation and circulant-embedding simulation papers was not inspected; abstract comparison cannot establish absence.",
+      "Comparisons with related mathematical claims depend on the statements inspected, not a comprehensive independent literature audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the spectral kernel construction but no theorem for off-diagonal inverse covariance signs, finite-sample graph, or odd/even parity law.",
+        "evidence": [
+          "arXiv:2006.10160, circle appendix and squared-exponential covariance; exact theta Fourier family; earliest public date 2020-06-17"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.10160",
+        "material_read": "Main text and compact-manifold/circular-kernel appendix, including Fourier-series/theta descriptions; arXiv source first posted 2020-06-17.",
+        "method": "lawful arXiv HTML reading, with relevant sections and search for inverse/precision",
+        "title": "Matérn Gaussian processes on Riemannian manifolds",
+        "trigger": "This is the earliest verified public source, and its circular squared-exponential theta kernel is the exact covariance object."
+      },
+      {
+        "assessment": "The source treats the intrinsically geodesic squared-distance Gaussian, a distinct kernel that fails global positive definiteness. It neither proves nor dominates the heat-kernel inverse sign claim.",
+        "evidence": [
+          "arXiv:2302.10623, main statement: geodesic Gaussian is not globally positive definite for any parameter, unlike the positive Fourier-weight heat kernel"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.10623",
+        "material_read": "Open-access HTML main text and circle spectrum/positivity arguments; submitted 2023-02-21.",
+        "method": "lawful arXiv HTML reading, with explicit comparison of kernel formulas",
+        "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+        "trigger": "Plausible name collision: Gaussian kernel on circle; determine whether the same kernel is studied."
+      },
+      {
+        "assessment": "Provides general total-positivity and Pólya-frequency theory but no explicit assertion about inverse regular-circle periodized heat Gram matrices or geodesic-parity signs. Generic literature risk remains.",
+        "evidence": [
+          "arXiv:2006.16213, sections 6, 8 and 9; discussions of real-line Toeplitz and Pólya kernels"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.16213v5",
+        "material_read": "Open-access HTML main results, Gaussian-convolution section, Pólya-frequency sequences/functions sections and references.",
+        "method": "arXiv HTML full-text section comparison rather than abstract-only inference",
+        "title": "Totally positive kernels, Pólya frequency functions, and their transforms",
+        "trigger": "Possible implication from classical Gaussian total positivity and inversion of Pólya frequency kernels."
+      },
+      {
+        "assessment": "Abstract concerns approximation and conditioning, not full strict precision sign theorem; cannot rule out unstated full-text implications.",
+        "evidence": [
+          "arXiv:2305.11065, first posted 2023-05-18; abstract on aliasing, Fourier grids, covariance conditioning"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.11065",
+        "material_read": "Public arXiv abstract and metadata only; complete document not inspected.",
+        "method": "abstract and title comparison",
+        "title": "Uniform approximation of common Gaussian process kernels using equispaced Fourier grids",
+        "trigger": "Fourier-grid squared-exponential covariance, with possible inverse conditioning implications."
+      },
+      {
+        "assessment": "Abstract describes exact simulation via FFT rather than inverse signs; full text remains historical risk.",
+        "evidence": [
+          "Dietrich and Newsam, SIAM J. Sci. Comput., 1997, circulant covariance embedding abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S1064827592240555",
+        "material_read": "Publisher abstract only; full primary article not inspected.",
+        "method": "abstract comparison",
+        "title": "Fast and Exact Simulation of Stationary Gaussian Processes through Circulant Embedding of the Covariance Matrix",
+        "trigger": "Broader circulant covariance embedding may have relevant inverse structural theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f287257b-6dc9-4fb4-a13d-0502d8517486",
+  "value": {
+    "rationale": "For an infinitely smooth and widely used circle GP covariance, exact zeros of inverse covariance are conditional independence decisions. The theorem determines all nonzero conditional edges and precise signs for all grid orders and any heat time, beyond numerical experiments. Odd-cycle alternating shorter-arc signs require a nontrivial doubled-cycle argument. The result distinguishes infinite-smooth heat behavior from sparse finite-Markov covariance graphs and supplies a rigorous theta-product convolution technique.",
+    "status": "PASS"
+  }
+}
