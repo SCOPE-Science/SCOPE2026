@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Uniform Fourier inversion uniquely determines all pre-collision weights; explicit Dirichlet sine/cosecant inequalities prove strict positivity for all odd sizes, including the continuous endpoint. A unitary grid Fourier transform, rank N-1 at collision, and a normalized one-dimensional nullspace perturbation yield the exact singular-value slope. Standalone checker executed with 1,226 finite assertions; analytical steps establish all-size quantifiers and include normalization and boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2202.04722: introduction and §4.1-§4.2 give general estimates and an alternating all-grid negative-weight construction.",
+        "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf: Theorems 1-2 and §3-4 concern general perturbations, convergence, and possible collisions.",
+        "Explicit derived Dirichlet-cosecant formula in RESULT.md supplies the narrower positive-weight statement not implied by those estimates.",
+        "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959: Random independent jitter at three points; positive-weight probability and noise tail, not deterministic all-size paired collision quadrature.",
+        "2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0: Three-node trigonometric summation-by-parts mass rule, not odd-band exact interpolatory Fourier quadrature with one colliding pair."
+      ],
+      "reasoning": "The strongest directly inspected source covers arbitrary small perturbations but only upper bounds on total-variation weights and a negative-weight counterexample; it does not assert all weights nonnegative in the paired symmetric subclass, especially at the singular endpoint. General convergence for smooth functions also cannot imply finite-size positivity.",
+      "searches": [
+        "Symmetrically move exactly two adjacent nodes of odd equispaced trigonometric grid towards collision: all interpolatory Fourier quadrature weights strictly positive and normalized L1 noise amplification remains one; explicit Dirichlet-cosecant formulas; smallest singular value linear at collision",
+        "Finite odd trigonometric interpolation one adjacent pair coalescing positive quadrature and exact smallest singular derivative coefficient 2pi cos/(N² sin²)",
+        "positive interpolatory trigonometric quadrature for two adjacent equispaced nodes displaced symmetrically toward midpoint all grid sizes collision limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.04722 (full public text, §4.1, §4.2, theorem 4.1, theorem 4.2)",
+      "arxiv:1612.04018 (author-hosted full PDF, theorems 1-2 and §§3-4)",
+      "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959",
+      "2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0",
+      "2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+      "2026/11/1/SCOPE-sharp-two-frequency-exterior-fourier-leverage-and-the-quadratic--517d41b07a68"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2202.04722: introduction and §4.1-§4.2 give general estimates and an alternating all-grid negative-weight construction.",
+        "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf: Theorems 1-2 and §3-4 concern general perturbations, convergence, and possible collisions.",
+        "Explicit derived Dirichlet-cosecant formula in RESULT.md supplies the narrower positive-weight statement not implied by those estimates.",
+        "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959: Random independent jitter at three points; positive-weight probability and noise tail, not deterministic all-size paired collision quadrature.",
+        "2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0: Three-node trigonometric summation-by-parts mass rule, not odd-band exact interpolatory Fourier quadrature with one colliding pair."
+      ],
+      "reasoning": "A general instability result does not imply positivity of a specified subfamily; a generic positive quadrature existence theorem need not identify the unique interpolatory weights or their all-size positivity. The full-text statements inspected concern distinct parameter quantifiers and do not dominate the joint precise quadrature and Fourier spectral-slope claim.",
+      "searches": [
+        "Symmetrically move exactly two adjacent nodes of odd equispaced trigonometric grid towards collision: all interpolatory Fourier quadrature weights strictly positive and normalized L1 noise amplification remains one; explicit Dirichlet-cosecant formulas; smallest singular value linear at collision",
+        "Finite odd trigonometric interpolation one adjacent pair coalescing positive quadrature and exact smallest singular derivative coefficient 2pi cos/(N² sin²)",
+        "positive interpolatory trigonometric quadrature for two adjacent equispaced nodes displaced symmetrically toward midpoint all grid sizes collision limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2202.04722: introduction and §4.1-§4.2 give general estimates and an alternating all-grid negative-weight construction.",
+        "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf: Theorems 1-2 and §3-4 concern general perturbations, convergence, and possible collisions.",
+        "Explicit derived Dirichlet-cosecant formula in RESULT.md supplies the narrower positive-weight statement not implied by those estimates.",
+        "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959: Random independent jitter at three points; positive-weight probability and noise tail, not deterministic all-size paired collision quadrature.",
+        "2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0: Three-node trigonometric summation-by-parts mass rule, not odd-band exact interpolatory Fourier quadrature with one colliding pair."
+      ],
+      "reasoning": "Reformulated positivity as the operator norm one of the exact trigonometric quadrature functional, or as existence of a positive moment representation on N-1 distinct sites at collision. Neither the general perturbed quadrature estimates nor sampled database summaries give this deterministic all-odd-N equivalence.",
+      "searches": [
+        "Symmetrically move exactly two adjacent nodes of odd equispaced trigonometric grid towards collision: all interpolatory Fourier quadrature weights strictly positive and normalized L1 noise amplification remains one; explicit Dirichlet-cosecant formulas; smallest singular value linear at collision",
+        "Finite odd trigonometric interpolation one adjacent pair coalescing positive quadrature and exact smallest singular derivative coefficient 2pi cos/(N² sin²)",
+        "positive interpolatory trigonometric quadrature for two adjacent equispaced nodes displaced symmetrically toward midpoint all grid sizes collision limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2202.04722: introduction and §4.1-§4.2 give general estimates and an alternating all-grid negative-weight construction.",
+        "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf: Theorems 1-2 and §3-4 concern general perturbations, convergence, and possible collisions.",
+        "Explicit derived Dirichlet-cosecant formula in RESULT.md supplies the narrower positive-weight statement not implied by those estimates.",
+        "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959: Random independent jitter at three points; positive-weight probability and noise tail, not deterministic all-size paired collision quadrature.",
+        "2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0: Three-node trigonometric summation-by-parts mass rule, not odd-band exact interpolatory Fourier quadrature with one colliding pair."
+      ],
+      "reasoning": "Semantic searches returned nearby records on three-node random jitter, trigonometric SBP, and spline projection, not an exact table or formula for the two-adjacent-node trigonometric quadrature configuration or sharp collision coefficient. This is evidence of no match in searched records, not proof of global novelty.",
+      "searches": [
+        "positive interpolatory trigonometric quadrature for two adjacent equispaced nodes displaced symmetrically toward midpoint all grid sizes collision limit",
+        "rank deficient trigonometric interpolation with positive quadrature two coincident nodes continuous weights",
+        "near colliding symmetric pair Fourier sampling smallest singular value sharp constant linear collision",
+        "Dirichlet kernel double replacement pair positive quadrature weights",
+        "2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959",
+        "2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0",
+        "2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+        "2026/11/1/SCOPE-sharp-two-frequency-exterior-fourier-leverage-and-the-quadratic--517d41b07a68"
+      ]
+    },
+    "rationale": "Exact comparison to full readable Yu–Townsend §4 and Austin–Trefethen §§1–5 shows different quantified claims: negative weights from alternating multi-node perturbation or general convergence/upper bounds, not positive exact one-pair quadrature through collision and its singular slope. Semantic research-record searches of exact phrases and aliases found no equivalent/stronger result; historical priority remains provisional.",
+    "residual_risks": [
+      "Classical exact trigonometric quadrature or low-rank Vandermonde update theory may imply this special deterministic configuration without using these precise words; independently confirmed priority is not claimed.",
+      "Research-record summaries cannot replace all primary full texts; only the two most directly relevant primary full texts were read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this precise family: alternating many-site negative-weight construction and generic upper bound do not imply strict positive weights for an inward-moving pair up to collision or its sharp singular-value coefficient.",
+        "evidence": [
+          "https://arxiv.org/abs/2202.04722",
+          "§4.1 theorem 4.1, formula (4.1), and §4.2 theorem 4.2 in the publicly readable text"
+        ],
+        "identifier_or_url": "arxiv:2202.04722; https://www.researchgate.net/publication/358519870_On_the_stability_of_unevenly_spaced_samples_for_interpolation_and_quadrature",
+        "material_read": "Public full-text introduction, Sections 2-4, especially §4.1 theorem 4.1 with its full alternating-perturbation construction and proof, §4.2 theorem 4.2 and formula (4.4).",
+        "method": "Examined full publicly readable preprint text and compared parameter quantifiers, geometries, claims, and stronger implications.",
+        "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+        "trigger": "Same odd trigonometric quadrature objects and explicitly sign-indefinite jitter constructions."
+      },
+      {
+        "assessment": "NOT_COVERING: general convergence/Lebesgue estimates and possible confluent-point interpolation do not give the all-N exact weights, strict positivity through collision, or sharp singular-value slope.",
+        "evidence": [
+          "https://people.maths.ox.ac.uk/trefethen/perturbed.pdf",
+          "Theorem 1, Theorem 2, §3 and §4"
+        ],
+        "identifier_or_url": "arxiv:1612.04018; https://people.maths.ox.ac.uk/trefethen/perturbed.pdf",
+        "material_read": "Author-hosted full PDF, Theorems 1-2 and Sections 1-5, particularly §3 on confluent points and §4 on sampling stability.",
+        "method": "Examined accessible full primary-source PDF text and visually inspected its PDF page; compared its asymptotic convergence statements to exact finite-size positive weights and fixed-N spectral slope.",
+        "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+        "trigger": "Earlier general treatment of trigonometric perturbed-node quadrature and confluent points."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92a65f43-a0d4-4180-8af9-4ca28d215ced",
+  "value": {
+    "rationale": "The minimal geometric perturbation of exactly one adjacent pair isolates an all-size positivity and full collision endpoint not captured by generic perturbed-grid bounds; the simultaneously quantified coefficient-reconstruction singularity demonstrates a sharp mathematical separation between integration and interpolation stability. Explicit all-N formulas, strict endpoint signs, and a sharp spectral slope are naturally motivated reusable facts, not an arbitrary finite case.",
+    "status": "PASS"
+  }
+}
