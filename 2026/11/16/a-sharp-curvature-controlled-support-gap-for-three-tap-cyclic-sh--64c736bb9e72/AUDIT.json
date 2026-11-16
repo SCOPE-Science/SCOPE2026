@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Every active STFT row has at most a quadratic Fourier polynomial. Counting overlaps and the cyclic interval expansion gives >=4N for support >=3, including a separate exhaustive analytic N=6 case. Exactly two overlaps in an adjacent two-site signal give formula 4N-I(r in C1)-I(r in C2), with cosets equal iff R belongs to mu_N. The five-cycle construction verifies dimension sharpness. Exact checker supplies independent cyclotomic consistency tests, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krahmer–Pfander–Rashkov section 4 implies a known prime-order lower bound 4N-2 when signal support 2 and window support 3.",
+        "Nicola gives universal |supp V|>=N and equality characterization only."
+      ],
+      "reasoning": "These stronger/universal statements bound support sizes but do not decide whether 4N-2 or 4N-1 is attained for a fixed three-tap window, characterize all its minimizers or classify larger-support signals for composite orders.",
+      "searches": [
+        "cyclic short-time Fourier below 4N support rigidity sparse window length 3",
+        "g supported on 3 consecutive positions, sharp STFT support bound for signal supported on at least two points, classification of equality",
+        "arxiv:math/0611493 section 4",
+        "arxiv:2204.14176 main theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.14176v1",
+      "arxiv:math/0611493v1",
+      "doi:10.1155/2014/131459",
+      "2026/10/4/SCOPE-exact-support-geometry-for-a-two-point-cyclic-short-time-fourier--f7682ff5d741",
+      "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+      "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db",
+      "2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+      "2026/10/25/SCOPE-the-one-step-support-gap-for-finite-group-short-time-fourier-tra--301d9bf3df13"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nicola only concerns equality at N.",
+        "KPR covers the prime numeric lower bound, but not its window-specific sharpness.",
+        "Two-tap fixed-window geometry and three-by-three phase-only classifications restrict different supports."
+      ],
+      "reasoning": "Known prime estimates imply only lower bounds, not the exact curvature-conditioned attainable minimum or the forbidden adjacent support level; no quoted theorem determines all minimizers and excludes every signal with >=3 taps at below 4N. The precise statement-level distinction is substantive rather than a renamed corollary.",
+      "searches": [
+        "Nicola 2022 main equality theorem",
+        "Krahmer Pfander Rashkov 2006 prime support-size inequality",
+        "2026/10/4/SCOPE-exact-support-geometry-for-a-two-point-cyclic-short-time-fourier--f7682ff5d741",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two adjacent-overlap cancellation cosets give the invariant R=ac/b^2, which is unaffected by common tap scaling and modulation.",
+        "No retrieved equivalent complete phase-curvature classification; comparison included 2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db"
+      ],
+      "reasoning": "The two cosets of N-th roots describe two overlapping STFT rows; two simultaneous zeros occur iff the cosets coincide, equivalent to R in mu_N. This equivalence was searched explicitly, rather than treating only the theorem title as a novelty test.",
+      "searches": [
+        "Sharp second-smallest support of short-time Fourier transform on cyclic groups for fixed three-site window, stability of delta extremizers",
+        "finite STFT three-site window support cardinality 3N 4N-2 4N-1 N≥6",
+        "sharp second support level fixed three consecutive tap cyclic Gabor transform window discrete curvature g0 g2 / g1^2 root of unity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full record 2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c classifies two-by-two prime pairs, values 3N-1,3N,4N.",
+        "Full record 2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db classifies equal-modulus three-by-three prime pairs, values 5N,5N-1,5N-2."
+      ],
+      "reasoning": "Neither has the same parameters N>=6, arbitrary 3-tap window and arbitrary signal, or the same curvature dichotomy. No covering exact table was found; that negative search is not a proof of uniqueness.",
+      "searches": [
+        "finite STFT three-site window support cardinality 3N 4N-2 4N-1 N≥6",
+        "second minimum STFT support for three-tap windows rigidity projective coefficient curvature",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db"
+      ]
+    },
+    "rationale": "The earlier known prime 4N-2 inequality is credited rather than claimed new. The proposed claim is an exact curvature-controlled attainability/nonattainability and minimizer classification for all consecutive three-tap windows over every N>=6, including composite order and arbitrary signal support. Checked primary full text and three directly related complete published statements did not cover the combined claim. Priority remains provisional, not independently certified.",
+    "residual_risks": [
+      "Older signal-processing literature might contain an unindexed two-by-three cyclic STFT support classification under another notation.",
+      "The proof is self-contained but independent mathematical and priority audits are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes absolute minimum support N and global equality; does not imply fixed-window second support levels 4N-2/4N-1.",
+        "evidence": [
+          "arXiv:2204.14176v1, 2022-04-29; main equality classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.14176",
+        "material_read": "Open-access full preprint, statement and equality/classification arguments",
+        "method": "Read the original preprint and compared theorem hypotheses and support-level conclusion",
+        "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+        "trigger": "Direct closest classification of global STFT support extrema"
+      },
+      {
+        "assessment": "The prime lower bound 4N-2 is known; equality classification, resonance dichotomy and arbitrary-support/composite-order result not furnished.",
+        "evidence": [
+          "arXiv:math/0611493v1, section 4 support-size inequalities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+        "material_read": "Open-access original paper; prime support-size propositions and argument in section 4",
+        "method": "Checked the support-size implication at |supp f|=2, |supp g|=3 and distinguished sharp-attainability statement",
+        "title": "Uncertainty in time--frequency representations on finite Abelian groups and applications",
+        "trigger": "Earlier prime STFT inequalities could dominate proposed lower bound"
+      },
+      {
+        "assessment": "Provides a different global minimum classification under additional support hypotheses, not the fixed-three-tap curvature threshold.",
+        "evidence": [
+          "2014 article, principal STFT uncertainty theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/131459",
+        "material_read": "Open-access article HTML, definitions and main uncertainty/equality theorem",
+        "method": "Compared the sum-of-support hypotheses and universal-minimal support setting",
+        "title": "Localization Operators and an Uncertainty Principle for the Discrete Short Time Fourier Transform",
+        "trigger": "Earlier localization-operator and STFT extremal theorem"
+      },
+      {
+        "assessment": "Exact two-tap window, not an arbitrary three-tap window; no 3-tap curvature.",
+        "evidence": [
+          "2026/10/4/SCOPE-exact-support-geometry-for-a-two-point-cyclic-short-time-fourier--f7682ff5d741/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-support-geometry-for-a-two-point-cyclic-short-time-fourier--f7682ff5d741",
+        "material_read": "Entire accessible RESULT.md, including theorem, proof and limitations",
+        "method": "Compared support of window and prescribed support quantifiers",
+        "title": "Exact support geometry for a two-point cyclic short-time Fourier window",
+        "trigger": "Closest fixed sparse window support geometry"
+      },
+      {
+        "assessment": "Both factors have exactly two taps and prime order. Does not determine a three-tap window with arbitrary signal.",
+        "evidence": [
+          "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+        "material_read": "Entire accessible RESULT.md, including case split and limits",
+        "method": "Compared the number of taps in signal/window and the exact support levels",
+        "title": "Exact support trichotomy for two-sparse prime cyclic STFTs",
+        "trigger": "Closest two-sparse signal STFT classification"
+      },
+      {
+        "assessment": "Distinct object and spectral levels (5N-2 vs 4N-2), not covering.",
+        "evidence": [
+          "2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-optimizer-topology-for-phase-only-three-tap-cross-ambiguit--114875b726db",
+        "material_read": "Entire accessible RESULT.md, including proof and equality cases",
+        "method": "Compared 3-by-3 equal-modulus pair with the current 2-by-3 unrestricted-modulus and all-signal theorem",
+        "title": "Exact optimizer topology for phase-only three-tap cross-ambiguity on prime cycles",
+        "trigger": "Closest 3-tap equal-phase support classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64c736bb-9e72-4c8f-b5d1-f54f9be79685",
+  "value": {
+    "rationale": "The next nontrivial STFT support level, exact forbidden level, and complete extremizers for a fixed short window are natural spectral uncertainty invariants. The phase curvature classifies a genuine resonance change and is meaningful for arbitrary amplitudes and all composite lengths N>=6; the sharp cutoff distinguishes structurally different short cycles. This is not presented as a generic numerical lower bound, textbook identity, or noise-stability result.",
+    "status": "PASS"
+  }
+}
