@@ -1,0 +1,15 @@
+# Assessment of the fan-tree Walsh singularity theorem
+
+## Correctness — PASS
+The signed weighted matrix-tree identity is derived by Cauchy–Binet on a deleted-hub incidence matrix, so it remains valid for every independent choice of negative edge signs. Parity is fixed by the known unsigned \(F_{2n}\) fan count, while a six-periodic tridiagonal continuant explicitly reaches zero exactly for \(3\mid n\) and reaches unit magnitude otherwise. At resonance a single spoke flip evaluates the determinant as exactly \(\pm2\). The explicit period-six null vector stays null under arbitrary changes at its \(k\) zero coordinates, and a global sign reversal doubles the family. Direct tree enumeration and Walsh transforms agree with independently evaluated determinants on every frequency up to \(n=9\).
+
+## Originality — PASS, with residual priority risk
+Chebotarev's 2006 path-rooted-forest theorem and Bogdanowicz's 2008 fan theorem establish the *unsigned* tree count, including its parity. Dall and Pfeifle's 2014 weighted matrix-tree treatment supplies a general identity, not the signs-specific divisibility and cancellation classification. Cameron, Grubb, and Sawada's 2021 fan-tree listing addresses enumeration algorithms. Closest indexed published mathematical findings concern fan cut/cycle Hodge projections, fan matching complexes, and Walsh spectra of spanning trees on bicliques, all with different operators or different graphs. The combined all-length sharp Walsh gap, cancellation criterion, and null-family construction were not found in the checked material. Priority is not established beyond the bounded search; equivalent signed-continuant identities could exist.
+
+## Mathematical value — PASS
+The fan is a canonical graph family, with a classical Fibonacci tree count. That count alone does not determine invertibility of convolution by its tree incidence indicator, because many different signed sums are involved. The theorem completely determines whether *any* of the exponentially many Fourier multipliers vanish and computes the exact weakest surviving multiplier, hence the sharp Hilbert-space inverse and pseudoinverse norms, for infinitely many sizes. The resonance simultaneously produces an explicit exponential set of null frequencies, exhibiting a genuine structural difference between parity-obstructed and invertible sizes. It does not claim an exact Fourier-nullity census or broader graph classification.
+
+## Closest sources and limitations
+See the four primary sources cited in `RESULT.md`. The 2008 fan paper's full six-page text concerns its unsigned determinant formula; the 2006 path-forest paper's full Section 2 concerns unsigned forest counts; the weighted matrix-tree paper establishes a general determinant method; the later fan Gray-code paper concerns tree enumeration. A potentially equivalent earlier signed-continuant statement remains a residual priority risk. The finite checker does not replace the general recurrence argument or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
