@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The signed-prefix bijection proves the full multiplier formula without a sampling assumption. Parity and an explicit alternating-bottom-frequency construction prove the all-width singularity and sharp nonzero gap. Singleton counts reduce exactly to the negative Pell equation, whose complete positive solution family is standard; two top-cell witnesses establish the sharp fallback at every other singular width. The state transfer is a bijective four-choice update. The direct C++ Walsh transform and separate Python state/count analysis reproduce exact integer results through the stated ranges and agree on Parseval.
+
+**Originality — PASS under bounded comparison.** Full relevant sections and main theorem of Dhand (2013) concern Gaussian rank enumeration and unimodal chain decomposition, not coordinate Fourier signs. The Boolean-Fourier survey of de Wolf (2008) establishes general diagonalization only. The mathematically nearest identified public rectangle-generating-function record `2026/9/15/SCOPE031` was read in full as to its RESULT and compared by implication: area-and-corner weights do not cover the independent per-cell Walsh transform or Pell cancellation threshold. published-finding corpus searches for Ferrers/Young Fourier zeros and Pell first-support equivalents, plus comparison with the accessible related research claims, found no stronger covering result. Residual priority risk: unindexed Fourier or partition literature, and equivalence under an unexpected signed-enumerator change of variables.
+
+**Value — PASS.** The exact first vanishing Fourier support degree is a natural local-observation threshold for deconvolution on Young diagram incidence codes; its exceptional set is an infinite, arithmetically sparse Pell family rather than an arbitrary finite parameter table. The same proof determines invertibility and sharp Hilbert stability at every width, and yields a polynomial-time exact rank procedure instead of exhaustive \(4^n\)-frequency enumeration. These invariants are not mere normalizations of the Gaussian area generating function.
+
+**Limits.** No closed form for every nullity and no higher-row generalization is asserted. Historical priority has bounded-search uncertainty and no independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
