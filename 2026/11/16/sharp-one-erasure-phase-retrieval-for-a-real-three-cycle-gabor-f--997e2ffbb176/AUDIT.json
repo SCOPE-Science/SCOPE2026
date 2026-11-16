@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact Hermitian lifting: the 9x9 determinant is -5832(s-1)^6(s+1)^2(2s+1)^2(s²+2); the eight-row kernel matrix has determinant -(s²+s+1)^4(2s^4+2s^3+5s²+6s+3), strictly negative by an explicit sum-of-squares. Unitary Gabor covariance covers all erasures, ranks 3/7/7 cover exceptions, and odd determinant in a 2D Hermitian kernel excludes seven measurements. verify.py ran and passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bojarovska–Flinth (2015), Theorem 2.2, supplies full-orbit sufficiency with nine measurements.",
+        "Salanevich (2023), Main Theorem, concerns efficient multiwindow constructions, not a complete 3-cycle one-erasure classification.",
+        "Published exact one-coordinate cyclic projector rank-discriminant summary concerns rank of the complete projector span, not singularity of erased dual kernels."
+      ],
+      "reasoning": "Stronger complete-orbit tomography does not logically cover one-erasure phase retrieval: removing a projector from a 9-element Hermitian tomography basis can leave a rank-two matrix in the kernel. The explicit nonzero cubic determinant needed here is a separate condition.",
+      "searches": [
+        "length three Gabor phase retrievable one-erasure one-coordinate defect t -1 -1/2 rank",
+        "finite Gabor three dimensional eight intensities erasure phase retrieval window",
+        "three point Gabor ambiguity phase retrieval robust one erasure eight of nine window boxcar"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.00834",
+      "https://arxiv.org/html/1503.05800v2",
+      "https://arxiv.org/html/1605.07046v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-rank-discriminant-for-one-coordinate-cyclic-gabor-measurem--4ad1eba7465a",
+      "https://arxiv.org/abs/2509.01325"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full nine-by-nine linear lifted rank only gives eight-row nullity one after deletion, not that the nullvector is full rank.",
+        "Our explicit determinant of the unique eight-row kernel is strictly negative throughout the nonexceptional real parameter range."
+      ],
+      "reasoning": "The original paper results do not entail the new erasure certificate. The only overlap is foundational rank-two lifting and full-data sufficient conditions, both acknowledged. The proved exact exceptional set and erasure robustness are distinct propositions.",
+      "searches": [
+        "single-window cyclic Gabor phase retrieval three dimensional real window (1,1,t) eight samples any one erasure",
+        "Bojarovska–Flinth 2015 Section 2.2",
+        "Li et al. 2016 Sections II–III",
+        "Salanevich 2023 Sections I–II",
+        "arxiv 2307.00834 Salanevich Injectivity of Multi-window Gabor Phase Retrieval 2023",
+        "one coordinate defect Gabor rank discriminant n=3 real parameter 1 -1 negative one half"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The phase-retrieval rank-two Hermitian kernel criterion is stated in Bojarovska–Flinth, section 2.2, Theorem 2.1.",
+        "The new claim requires all nine eight-of-nine orbit masks and an if-and-only-if parameter set, not only one full-orbit injectivity example."
+      ],
+      "reasoning": "Translated into Hermitian lifting, the asserted property is an invertible one-dimensional dual kernel for each erased projector. Neither an ordinary full-orbit phase-retrieval criterion nor generic full-rank projector tomography is equivalent to that requirement; no matching eight-of-nine phase diagram was found.",
+      "searches": [
+        "single-window cyclic Gabor phase retrieval three dimensional real window (1,1,t) eight samples any one erasure",
+        "phase retrieval 3 complex dimensions 8 measurements two windows Gabor explicit minimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published exact erasure classifications retrieved in the topical searches concern different frame or Gabor measurement objects.",
+        "The closest relevant published one-coordinate rank-discriminant abstract does not state an eight-of-nine phase retrieval table."
+      ],
+      "reasoning": "No exact matching table was observed in the queried published sources. Negative topical searches do not prove global novelty; specialist small-dimensional tables remain a residual risk.",
+      "searches": [
+        "three point Gabor ambiguity phase retrieval robust one erasure eight of nine window boxcar",
+        "Gabor phase retrieval eight measurements dimension three two windows classification 3-cycle",
+        "published rank-discriminant and Gabor one-erasure phase retrieval"
+      ]
+    },
+    "rationale": "The full-orbit linear rank discriminant and standard phase-retrieval criteria do not imply single-erasure injectivity; the new one-dimensional Hermitian dual-kernel determinant and sharp three-parameter classification are additional. Indexed published-result and primary-paper comparisons found no covering claim; specialized historical tables remain residual risk.",
+    "residual_risks": [
+      "The full text of the closest published one-coordinate projector-span classification was inaccessible; an unobserved stronger theorem cannot be entirely excluded.",
+      "Unindexed three-dimensional phase-retrieval tables may contain this exact eight-of-nine calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Main theorem provides multiwindow O(M log M) construction and does not state all eight-of-nine single-window masks at M=3",
+        "evidence": [
+          "arxiv:2307.00834, Sections I and II; first posted 2023-07-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.00834",
+        "material_read": "Web-accessible arXiv HTML text, introduction, definitions, main theorem and constructive Section II including graph-polarization setup",
+        "method": "Compared exact sample scheme and quantifiers",
+        "title": "Injectivity of Multi-window Gabor Phase Retrieval",
+        "trigger": "Motivating work on reducing phaseless Gabor samples"
+      },
+      {
+        "assessment": "Full 9-orbit sufficient condition covered; eight-of-nine full signal phase retrieval not implied by it",
+        "evidence": [
+          "arxiv:1503.05800v2, Section 2, Theorems 2.1–2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1503.05800v2",
+        "material_read": "ArXiv HTML full text, introduction and Section 2.2 Theorems 2.1–2.3 and kernel proofs",
+        "method": "Checked rank-two kernel criterion, complete orbit assumptions and partial measurements scope",
+        "title": "Phase Retrieval from Gabor Measurements",
+        "trigger": "Most relevant full-orbit single-window injectivity source"
+      },
+      {
+        "assessment": "Connectivity and full-frequency STFT criteria are different from exact eight-of-nine projector-kernel classification",
+        "evidence": [
+          "arxiv:1605.07046v1, Sections II–III"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.07046v1",
+        "material_read": "ArXiv HTML full text, Sections I–III and Theorems II.1, III.1 including support-length restrictions",
+        "method": "Compared support and sampled index geometry",
+        "title": "Phase Retrieval from Multiple-Window Short-Time Fourier Measurements",
+        "trigger": "Earlier multiple-window and support-graph conditions"
+      },
+      {
+        "assessment": "The abstract reports complete-projector-span rank rather than an eight-of-nine Hermitian-kernel classification; without the full text an unstated stronger implication remains a residual priority risk.",
+        "evidence": [
+          "2026/10/11/SCOPE-exact-rank-discriminant-for-one-coordinate-cyclic-gabor-measurem--4ad1eba7465a"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-rank-discriminant-for-one-coordinate-cyclic-gabor-measurem--4ad1eba7465a",
+        "material_read": "Published result abstract/summary, not the full mathematical text.",
+        "method": "Compared precisely described full-orbit rank proposition with deleted-sample Hermitian kernel nonsingularity",
+        "title": "Exact rank discriminant for one-coordinate cyclic Gabor measurements",
+        "trigger": "Closest published complete-projector rank claim for the same real one-defect window family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "997e2ffb-b176-4fed-bfc0-37d1ecbb693d",
+  "value": {
+    "rationale": "At the complex dimension-three information-theoretic minimum, a single simple finite Gabor window tolerates every single sample erasure; the theorem gives the complete real parameter bifurcation at three exceptional values, including the sparse two-tap case s=0. This is a natural measurement-reliability and phase-retrieval design question, not a mere renaming or arbitrary table.",
+    "status": "PASS"
+  }
+}
