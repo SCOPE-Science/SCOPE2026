@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact Funk–Hecke zonal eigenvalues; 1st and 2nd degrees yield global lower bound with only two candidate cosines; 3rd-degree closed form and uniform 4th moment control all higher degrees; rational checker verified 59,232 supplementary cases. All degree and dimension quantifiers are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5 of arXiv:1609.02901 applies to many manifolds but gives a Wasserstein-distance upper bound with a chosen step, not an exact angle-minimization or equality-sector theorem.",
+        "Schär–Stier (2023) explicitly contrasts their angle-randomized transition with the earlier fixed-step walk."
+      ],
+      "reasoning": "Generality of the manifold class does not imply an exact solution for a different sharp Hilbert-space minimax problem. The classical complete Gegenbauer spectral formula is an input, not by itself the optimized all-degree strict comparison.",
+      "searches": [
+        "geodesic walk fixed step positive curvature Wasserstein contraction Mangoubi Smith 2016",
+        "higher-dimensional Gegenbauer spherical averages optimal spectral radius fixed angle",
+        "arxiv:1609.02901 section 7 Theorem 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2309.09097",
+      "https://arxiv.org/pdf/1609.02901",
+      "https://www.researchgate.net/publication/1941086_Random_Walks_on_Hyperspheres_of_Arbitrary_Dimensions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 of arXiv:2309.09097 bounds a uniform-angle walk by 7/8 in Wasserstein distance.",
+        "Theorem 5 of arXiv:1609.02901 gives curvature-based Wasserstein mixing bounds for fixed-step walks.",
+        "Caillol (2004) yields heat-semigroup eigenvalues exp(-D n(n+d-2)t), distinct from shell multipliers."
+      ],
+      "reasoning": "Neither W1 contraction estimates nor heat-semigroup multipliers yield exact minimization over a fixed geodesic shell angle with strict higher-degree exclusions. Previously known single dimensions three and four do not entail the claimed uniform family d>=5.",
+      "searches": [
+        "arxiv:2309.09097 main result Theorem 4.1 7/8 Wasserstein",
+        "arxiv:1609.02901 Theorem 5 geodesic walk fixed step mixing",
+        "arxiv:cond-mat/0401209 diffusion Gegenbauer spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schär–Stier, arXiv:2309.09097, (1.2) samples a geodesic angle uniformly, not at a fixed value.",
+        "Mangoubi–Smith, arXiv:1609.02901, Theorem 5 bounds Wasserstein mixing, not the full spherical-harmonic operator norm."
+      ],
+      "reasoning": "The geodesic kernel can be described as uniform fixed-inner-product sampling, normalized Gegenbauer Fourier multipliers, or an SO(d)-zonal spherical averaging Markov operator. The inspected primary statements do not identify the exact minimax for this same operator and objective.",
+      "searches": [
+        "fixed step random walk hypersphere optimal angle 1/d spectral radius Gegenbauer Chebyshev",
+        "optimal fixed angle random walk sphere dimension d harmonic eigenvalues minimax degree 1 2",
+        "arxiv:2309.09097",
+        "arxiv:1609.02901"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Caillol (2004), Section III, formulas (3.10)–(3.15), explicitly diagonalizes the continuous diffusion equation with exponential time multipliers, not a discrete shell-length optimization.",
+        "No inspected table contained the pair of optimal angles and full equality-sector classification for all ambient dimensions at least five."
+      ],
+      "reasoning": "Prior numerical or spectral formulas are compared by their actual operators and solved parameters. Absence from inspected tables is a bounded search result, not a proof that no prior formula exists.",
+      "searches": [
+        "fixed geodesic distance spherical harmonic minimax exact angle cos theta 1/d",
+        "Gegenbauer fixed-angle random walk sharp L2 spectral contraction norm high dimensional sphere",
+        "Random Walks on Hyperspheres of Arbitrary Dimensions Caillol 2004"
+      ]
+    },
+    "rationale": "A bounded but claim-specific search and full-text comparison of the most relevant primary studies identifies W1/variable-angle/heat-semigroup results that do not imply the exact all-dimensional deterministic-shell L2 minimax. Isolated low-dimensional conclusions cannot cover d>=5. Residual historical priority risk remains acknowledged.",
+    "residual_risks": [
+      "Earlier specialized fixed-angle Gegenbauer minimax results, possibly under zonal convolution or random-rotation terminology, could preempt priority.",
+      "No automated semantic retrieval exhausts the mathematical literature; independent historical-priority audit remains absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: angle integrated over [0,2pi], W1 upper bound, not deterministic-angle sharp L2 minimax.",
+        "evidence": [
+          "Equation (1.2) explicitly integrates uniform angle omega.",
+          "Theorem 4.1 gives a dimension-dependent integral W1 upper bound and Corollary 4.2 gives 7/8."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.09097",
+        "material_read": "Full 11-page PDF, in particular kernel (1.2), motivation Section 2, main Theorem 4.1 and proof Sections 4–5.",
+        "method": "Read legal arXiv PDF text and viewed initial PDF page.",
+        "title": "A Dimension-Independent Bound on the Wasserstein Contraction Rate of a Geodesic Random Walk on the Sphere",
+        "trigger": "Same spherical walk geometry and a contemporary contraction question."
+      },
+      {
+        "assessment": "NOT_COVERING for inspected central theorem: Wasserstein mixing upper bound, no exact mean-zero L2 optimal angle or complete harmonic equality classification.",
+        "evidence": [
+          "Theorem 5 states a Wasserstein mixing-time bound depending on curvature and fixed T, not sharp Fourier minimax."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.02901",
+        "material_read": "36-page arXiv PDF text: abstract, introduction, definitions, main theorems, Section 7 Theorem 5 on mixing and nearby assumptions.",
+        "method": "Read legal arXiv PDF text and viewed initial PDF page.",
+        "title": "Rapid Mixing of Geodesic Walks on Manifolds with Positive Curvature",
+        "trigger": "Specifically the earlier fixed-geodesic-step walk, possible dominating theorem."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected core: diffusion heat semigroup and time constants, not one fixed-geodesic-shell operator optimized over its angle.",
+        "evidence": [
+          "Equations (3.11)–(3.15) give multipliers exp(-D n(n+d-2)t), not shell Gegenbauer values."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0401209",
+        "material_read": "Author paper text displayed on ResearchGate, Sections I–IV, including Gegenbauer addition theorem and diffusion equations (3.10)–(3.22).",
+        "method": "Read page transcription of paper text at https://www.researchgate.net/publication/1941086_Random_Walks_on_Hyperspheres_of_Arbitrary_Dimensions.",
+        "title": "Random Walks on Hyperspheres of Arbitrary Dimensions",
+        "trigger": "Classical arbitrary-dimensional Gegenbauer random-walk spectral machinery."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "74ddad68-663f-460f-add4-fd3f8a55210f",
+  "value": {
+    "rationale": "Solves a natural infinite-dimensional spectral optimization for a full family of dimension-dependent geodesic samplers, with exact sharp d^-1 contraction, two optimal angles, strict harmonic equality classification, and optimal powers. Not a generic textbook substitution; one nontrivial fourth-moment bound excludes infinitely many sectors.",
+    "status": "PASS"
+  }
+}
