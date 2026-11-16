@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact low-order inclusion counts and the identity W(S)=sum_{T subset S}(-2)^|T| F(T) imply uniform congruence 8 modulo16 at n=6,7. Two distinct graph-decision implementations exhaust all 2^21 edge masks at n=7, agree on 1014888 graphs, Walsh zeros=0, sharp witness W(2396)=8, and Parseval 2128374398976. Finite scope and unnormalized convolution are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kemkes–Sato–Wormald arxiv:1010.2516 Theorems 1–2 concern asymptotic numbers by n and edge count, not individual sign patterns.",
+        "published-finding corpus hit 2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7 concerns restricted coordinate Fourier interpolation rather than the convolution operator defined here."
+      ],
+      "reasoning": "Known generation/edge-count formulas may in principle be specialized into a new computation, but the cited results do not already imply a nonzero modulo-16 evaluation at arbitrary edgewise sign assignments. A different full-rank Fourier matrix is not a stronger theorem for this convolution.",
+      "searches": [
+        "Fourier convolution by two-vertex-connected graphs graph reliability 6 7 vertices invertibility",
+        "Fourier transforms of labelled biconnected graphs and graph reliability, bridge-free graphs and Boolean group characters",
+        "Walsh spectrum graph reliability biconnectivity no zeros",
+        "published-finding corpus: biconnected labelled graph edge-incidence Walsh transform seven vertices complete spectrum vanishing 20064 characters"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0710.5711",
+      "arxiv:1010.2516",
+      "OEIS:A013922",
+      "doi:10.1002/jgt.3190020403 (abstract only)",
+      "published-finding corpus 2026/11/8/SCOPE-exact-walsh-spectrum-and-sharp-endpoint-norm-of-the-eight-vertex--3b3fc3e31c5f",
+      "published-finding corpus 2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7",
+      "published-finding corpus 2026/11/2/SCOPE-a-sharp-three-quarter-bispectral-uniqueness-threshold-on-finite--41b04ad55504",
+      "prior published graph Fourier claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously published record 17010463-d26e-4700-ac50-66e3796573a3 gives a gcd formula for signed sums of connected labelled graphs.",
+        "Previously published record c987bb4d-d1d8-4db7-b041-7dad3ee27be1 gives an exact Walsh spectrum for forests of K6.",
+        "Mestre 2007 Theorem 11 and Kemkes–Sato–Wormald 2010 Theorem 1 do not evaluate signed Boolean edge characters."
+      ],
+      "reasoning": "A biconnected graph is connected but arbitrary connected-graph Walsh gcd data cannot determine the transform after removing graphs with articulation vertices. Forests exclude cycles while biconnected graphs contain cycles. Neither result entails the modular-16 gap or sharp inverse norm.",
+      "searches": [
+        "connected labelled simple graphs Fourier gcd and Walsh transform",
+        "spanning forest indicator Walsh spectrum K6",
+        "2-connected labelled graph indicator arbitrary edge signs Boolean Fourier transform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mestre 2007 arxiv:0710.5711 Section 4.1 Theorem 11 produces biconnected graphs weighted by reciprocal automorphism factors; it does not evaluate Walsh frequencies.",
+        "Web searches for signed biconnected-graph indicator Fourier coefficients returned general Walsh transforms and graph reliability background, without a matching computation."
+      ],
+      "reasoning": "Equivalence could be via signed edge-weighted graph partition functions or graph-property Fourier coefficients; the inspected primary text does not evaluate them at all sign choices. The claimed congruence is on every edge frequency, not just an unsigned graph count.",
+      "searches": [
+        "Walsh Fourier spectrum indicator of 2-vertex-connected labelled graphs on six vertices; exact zero multipliers, convolution rank, Fourier projection norm",
+        "Fourier transforms of labelled biconnected graphs and graph reliability, bridge-free graphs and Boolean group characters",
+        "Fourier coefficients monotone graph properties two connected graph boolean function",
+        "Walsh Hadamard transform graph biconnected 2-connected property signed graph enumeration Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A013922 lists total labelled 2-connected graph counts 10, 238, 11368, 1014888, not nine forced-edge subtotals or Walsh congruences.",
+        "Mestre 2007 Appendix B tabulates biconnected graph classes only through four internal edges."
+      ],
+      "reasoning": "The exact zero-frequency count is known and excluded from novelty. The seven-vertex forced-edge counts for each pattern type are different statistics. They are explicitly provided as an independently reproducible certificate rather than assumed from the known sequence.",
+      "searches": [
+        "\"1014888\" \"biconnected\" graphs",
+        "\"11368\" \"biconnected\" labeled graphs",
+        "labelled 2 connected graphs n=7 1014888 6 11368",
+        "published-finding corpus: 2-vertex-connected labelled graphs K7 seven nodes signed edge partition functions, all Boolean Fourier coefficients congruent 8 modulo 16, nonvanishing convolution inverse, forced edges 1 2 3"
+      ]
+    },
+    "rationale": "The exact family, order, Walsh normalization and universal congruence were compared by implication to primary graph enumerations, indexed Fourier findings and available prior claims. Mestre gives recursive biconnected generation, Kemkes–Sato–Wormald give asymptotic graph counts, and OEIS records the unsigned total. None of the checked results supplies the nine forced-edge counts or the signed all-frequency congruence. A residual unindexed-table risk remains, but no decisive covering statement was found.",
+    "residual_risks": [
+      "Unindexed exact computational tables may contain the same nine forced-edge statistics or signed Fourier congruence.",
+      "The 1978 Wright full text was not inspected; only its abstract was accessible during the comparison.",
+      "No claim of complete historical priority or independent external mathematical verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed signed seven-vertex Fourier congruences",
+        "evidence": "Section 4.1 recursively generates biconnected classes with automorphism weights, and Appendix B treats classes up to four internal edges, not seven-vertex all-frequency signs.",
+        "identifier_or_url": "https://arxiv.org/abs/0710.5711",
+        "material_read": "Introduction, Section 1 definitions, Section 4.1 Theorem 11 and Appendix B scope",
+        "method": "full rendered arXiv text, with targeted inspection of Theorem 11 and appendices",
+        "title": "Generating connected and biconnected graphs",
+        "trigger": "Same graph class; possible exact generation implying the signed count"
+      },
+      {
+        "assessment": "NOT_COVERING for finite edgewise signed Walsh congruences",
+        "evidence": "Theorem 1 assumes m-n tends to infinity and gives asymptotics; no finite seven-vertex signed character evaluation.",
+        "identifier_or_url": "https://arxiv.org/abs/1010.2516",
+        "material_read": "Introduction and Section 2 main theorem statements; Section 7 result collection",
+        "method": "rendered complete arXiv manuscript with targeted theorem comparison",
+        "title": "Asymptotic enumeration of sparse 2-connected graphs",
+        "trigger": "Biconnected labeled graphs, potential stronger counting theorem"
+      },
+      {
+        "assessment": "COVERS only zero-frequency graph cardinality, not claimed signed statistics",
+        "evidence": "The sequence includes 11368 and 1014888 and describes labelled 2-connected graphs.",
+        "identifier_or_url": "https://oeis.org/A013922",
+        "material_read": "sequence listing, comments and references",
+        "method": "public sequence record",
+        "title": "Number of labeled connected graphs with n nodes and 0 cutpoints",
+        "trigger": "Known exact labelled-graph counts"
+      },
+      {
+        "assessment": "UNRESOLVED full-text comparison, but abstract concerns graph-count generating functions",
+        "evidence": "1978 abstract describes exponential generating functions for counts of smooth graphs and blocks, with no Fourier claims stated.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.3190020403",
+        "material_read": "publisher abstract only",
+        "method": "public publisher abstract; full text not obtained",
+        "title": "The number of connected sparsely edged graphs. II. Smooth graphs and blocks",
+        "trigger": "Older exact formula potentially overlapping"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92ada0c1-e462-4eac-bbce-c3f6bc300f70",
+  "value": {
+    "rationale": "The indicator of 2-vertex-connected graphs is a natural network-robustness family. The low-degree incidence certificate reduces two million potentially zero signed sums to nine small graph-pattern counts, settles exact invertibility and its sharp 1/8 inverse stability at seven vertices, and distinguishes constrained-graph recovery from previously enumerated total counts. The result is a motivated complete finite classification with no higher-order extrapolation.",
+    "status": "PASS"
+  }
+}
