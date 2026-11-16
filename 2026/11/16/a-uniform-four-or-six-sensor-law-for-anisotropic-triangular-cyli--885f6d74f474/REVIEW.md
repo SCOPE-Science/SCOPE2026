@@ -1,0 +1,15 @@
+# Scientific review — uniform triangular-cylinder dynamical sampling
+
+## Correctness
+**PASS.** The entire \(3N\)-dimensional eigenbasis is explicitly displayed. Within either horizontal Fourier branch the cosine levels are strictly ordered, so positive eigenvalue collisions merge at most one level from each branch. This gives the necessary four/six spectral multiplicities without unverified assumptions about distinct exceptional coupling ratios. Exact two-frequency Vandermonde determinants show that the staggered four-site pattern detects each unaffected four-dimensional block *and* each mixed four-dimensional collision; the full horizontal three-point Fourier transform and two vertical points detect all six-dimensional collisions. A separate eigenvalue-time Vandermonde argument establishes finite-horizon reconstruction. A saved standalone checker replayed **1,020 finite parameter cases and 28,210 assertions** across odd lengths through 35, but this experiment is corroborative, not a proof for infinitely many lengths.
+
+## Originality
+**PASS relative to inspected published evidence, not independent certification.** The general dynamical orbit frame test is established in Bulai–Cabrelli–Cordero–Molter–Saliani, arXiv:2609.25472, and in older finite-index work. The most directly comparable published special graph-product classification is *Sharp four-six-eight sensor resonance law for an anisotropic \(5\times7\) Fourier torus*, whose full RESULT.md was inspected. That statement treats a fixed different torus and cannot yield the all-odd \(3\times N\) law or the universal staggered four-site geometry by implication. Cartesian-product *structural* observability concerns generic edge perturbations, not this exact one-parameter spectral resonance law. Semantic published-finding corpus searches examined equivalent graph-observability, Fourier-rank, and spectral-frame phrasings. No matching all-odd theorem was found. Residual risks include older equivalent product-grid results, incomplete accessibility of one broader structural-observability text, and publication-priority uncertainty.
+
+## Mathematical value
+**PASS.** Exact minimum sensor cost and its exceptional anisotropy set are natural design invariants. The classification holds at every size in a geometrically natural infinite family; it distinguishes four-dimensional coincidences that are harmless for a carefully staggered four-site sensor from six-dimensional coincidences that force two additional sensors. Two universal fixed measurement patterns and a finite-time recovery guarantee give substance beyond numerical spectra or a generic abstract observability criterion.
+
+## Scientific limitations
+Only odd second-cycle lengths are covered. The complete signal, exact anisotropy, static point sensors and noiseless model are essential assumptions. No uniform conditioning near resonance, shortest time horizon, even-length classification or claim of independent verification is made. General finite-dimensional spectral observability is prior art and is not claimed new.
+
+Self-review: passed. Independent audit: not yet performed.
