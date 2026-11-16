@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes the unnormalized Walsh convention, uses the weighted matrix-tree theorem with negative weights, and reconstructs the coefficient-of-t identity even with extra zero eigenvalues. Symmetric/antisymmetric rail diagonalization yields the explicit half-determinant. Odd length: the classical tau_n recurrence makes all Walsh coefficients odd and the all-negative-rungs coefficient is +/-1 by an exact path spectrum identity. Even length: the explicit period-four vector gives an eigenvalue 2 for every prescribed independent even-edge sign choice, producing \\(2^{n/2-1}\\) distinct zeros. Fourier diagonalization then yields exact \\(\\ell^2\\) operator and inverse norms. Standard-library standalone checker independently enumerates all frequencies to n=7, exact determinant to n=13, and witness families through n=22. Finite checks are corroboration, not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klee and Stamps 2019, introduction and §§2–4: determinant methods for weighted complete, complete multipartite, Ferrers and threshold graphs.",
+        "Raff 2008, §4: transfer recurrence for ordinary 2-by-n ladder spanning-tree counts.",
+        "Mallik 2022, §3: signed-tree cofactor formula valid for general graphs."
+      ],
+      "reasoning": "Weighted Laplacian and matrix-tree results have broader object classes and enable a proof, but none of the inspected statements logically supplies the evaluated strict parity invertibility criterion, exact spectral minimum 1, or \\(2^{n/2-1}\\) distinct null frequencies without additional ladder-specific analysis. The claim does not present the general cofactor theorem as new.",
+      "searches": [
+        "spanning trees ladder graphs signed Laplacian signed enumeration ladder matrix tree negative rungs Fourier",
+        "arxiv:1903.03575",
+        "arxiv:0809.2551",
+        "spanning trees ladder graph negative rungs signed spectrum"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0809.2551v1 §4",
+      "https://www.yumpu.com/en/document/view/52170177/counting-spanning-trees-in-grid-graphs-alma-college",
+      "arxiv:1903.03575 §1–4",
+      "arxiv:2210.03711 §§2–3",
+      "published-finding corpus semantic searches on ladder signed spanning trees, Walsh zeros and matching aliases",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-optimal-bipartite-shape-for-one-edge-walsh-sampling-on-unifo--c81189b7b350",
+      "published other-graph wheel spanning-tree Walsh classification (distinct graph)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Raff 2008, §4: tau_n recurrence implies oddness of the count at odd n and so gives only the easy nonvanishing direction under a separate Walsh parity observation.",
+        "Klee and Stamps 2019: the general cofactor identity is an ingredient but not a ladder evaluation.",
+        "The previously compared wheel theorem is a different graph; the sampled bipartite-tree Gram result concerns first-order correlations, not the full signed spanning-tree sum."
+      ],
+      "reasoning": "An odd unsigned tree count implies odd Walsh coefficients for any graph, so that half is not independent of known enumeration and the elementary parity observation. The claimed result is instead the complete converse, the family of even-length cancellations, and the explicitly attained absolute minimum/condition number. The closest examined work does not provide the requisite signed-eigenvector construction or min-eigenvalue equality, and thus does not by itself imply the full conjunction.",
+      "searches": [
+        "published-finding corpus: two-rail grid spanning tree signed Fourier zeros determinant parity exact exponential zero count",
+        "published-finding corpus: Walsh nonvanishing spanning tree indicator of rectangular 2 by n ladder odd even condition number exact min Fourier coefficient",
+        "source: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-the-optimal-bipartite-shape-for-one-edge-walsh-sampling-on-unifo--c81189b7b350",
+        "source: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+        "arxiv:0809.2551v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Raff 2008, §4: ordinary ladder tree enumeration, not Fourier coefficient zero sets.",
+        "Mallik 2022, §3: signed tree counts via net Laplacian in general, with no ladder parity theorem."
+      ],
+      "reasoning": "The coefficient may be reformulated as the signed spanning-tree enumerator and the exact inverse norm as the reciprocal of its smallest nonzero absolute signed-tree sum. The general weighted matrix-tree formula represents all such coefficients as cofactors but does not evaluate the all-frequency minimum or construct the even-length null family for this graph. No equivalent evaluated theorem was found in the actual searches.",
+      "searches": [
+        "ladder graph spanning-tree Walsh Fourier spectrum zero free odd n all rung signs negative signed spanning tree Laplacian",
+        "signed spanning tree sum of 2 by n grid ladder parity invertibility nonvanishing Fourier",
+        "Walsh nonvanishing spanning tree indicator of rectangular 2 by n ladder odd even condition number exact min Fourier coefficient",
+        "arxiv:2210.03711"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS and Raff contain ordinary spanning-tree counts, not an evaluated signed Walsh multiplier table for all n.",
+        "Published finite-volume rung kernel record concerns determinantal probabilities, not all signed frequencies.",
+        "Previously encountered wheel spanning-tree Fourier claim concerns different wheel graphs, not a ladder parametrization."
+      ],
+      "reasoning": "Number tables for unsigned ladders are not signed-frequency tables. No exact zero/nonzero pattern or global minimum for the ladder edge-cube Fourier transform was identified in the actually retrieved database and record matches.",
+      "searches": [
+        "published-finding corpus: signed matrix tree Fourier coefficient 2 x n ladder opposite rung signs periodic nullvector",
+        "published-finding corpus: two-rail grid spanning tree signed Fourier zeros determinant parity exact exponential zero count",
+        "published-finding corpus: ladder graph spanning-tree Walsh Fourier spectrum zero free odd n all rung signs negative signed spanning tree Laplacian",
+        "OEIS: ladder graph spanning trees recurrence",
+        "source: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c"
+      ]
+    },
+    "rationale": "An actual bounded comparison against the own accessible prior claims, searched published mathematical records and primary full texts found no statement that implies the complete ladder parity zero classification together with the attained minimum Fourier gap and explicit family of exponentially many null signatures. Classical unsigned ladder enumeration and general signed matrix-tree identities are cited as prior inputs, and their partial implications are distinguished. Residual risk remains for unindexed equivalent specializations.",
+    "residual_risks": [
+      "Signed spanning-tree formulas might have an earlier unevaluated-to-evaluated ladder specialization in a source not indexed by the searched databases.",
+      "The full original Desjarlais–Molina typeset article was not independently accessible; its accessible reproduction and Raff discussion concern unsigned counts.",
+      "The originality assessment is not exhaustive for non-English, unpublished, or poorly indexed historic literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary enumeration and recurrence are already prior, acknowledged; no signed-frequency zero-set or sharp Walsh minimum conclusion appeared.",
+        "evidence": [
+          "§4: T_n=3T_{n-1}+F_{n-1}, F_n=2T_{n-1}+F_{n-1}, hence T_{n+2}=4T_{n+1}-T_n."
+        ],
+        "identifier_or_url": "arxiv:0809.2551v1",
+        "material_read": "Accessible 16-page PDF; inspected the document outline and the relevant §4 and adjacent §5 material, with rendered pages 5–6.",
+        "method": "Read the mathematical text for the relevant sections, inspected their page images, and searched the complete PDF for Walsh and negative-weight terminology.",
+        "title": "Spanning Trees in Grid Graphs",
+        "trigger": "Directly counts ordinary spanning trees of 2-by-n grids, potential domination of enumeration and parity step."
+      },
+      {
+        "assessment": "Ordinary positive tree and forest counting for grids; the examined text has no treatment of independent sign assignments or sharp Fourier invertibility. Full original typeset version not independently reviewed.",
+        "evidence": [
+          "§2: recurrence T_n=4T_{n-1}-T_{n-2} for ordinary 2-by-n grid trees."
+        ],
+        "identifier_or_url": "https://www.yumpu.com/en/document/view/52170177/counting-spanning-trees-in-grid-graphs-alma-college",
+        "material_read": "Accessible reproduced article text including introduction and §§2–3, though reproduction formatting is garbled.",
+        "method": "Read reproduced content and searches for signed/positive terms.",
+        "title": "Counting Spanning Trees in Grid Graphs",
+        "trigger": "Earlier primary source of exact ladder recurrence, with possible signed generalizations."
+      },
+      {
+        "assessment": "Provides general weighted determinant identities and examples for other graph families but not the ladder all-sign Walsh nonvanishing classification, specific eigenvector zeros or exact minimum.",
+        "evidence": [
+          "§1 Eq. (1): arbitrary weighted spanning-tree sum equals a Laplacian cofactor; §§2–4 treat complete, multipartite, Ferrers and threshold graphs."
+        ],
+        "identifier_or_url": "arxiv:1903.03575",
+        "material_read": "Accessible 12-page PDF; inspected introduction, weighted matrix-tree statement, determinant lemma, and the enumerated later graph classes.",
+        "method": "Read the relevant full-text portions and inspected the weighted theorem page image; searched the document for ladder and grid cases.",
+        "title": "Linear Algebraic Techniques for Weighted Spanning Tree Enumeration",
+        "trigger": "General weighted matrix-tree theorem could dominate an evaluation of signed tree sums."
+      },
+      {
+        "assessment": "Confirms general signed-tree technology; no evaluated ladder parity criterion or minimum Fourier gap was present in examined material.",
+        "evidence": [
+          "§3: net-Laplacian cofactors for positive versus negative spanning trees, without a 2-by-n ladder classification."
+        ],
+        "identifier_or_url": "arxiv:2210.03711",
+        "material_read": "Open-access article HTML; inspected the definitions, §§2–3 matrix-tree derivation, and searched full text for ladder and Fourier cases.",
+        "method": "Read the relevant complete sections of open-access primary text, including signed Laplacian and tree cofactor formulas.",
+        "title": "Matrix tree theorem for the net Laplacian matrix of a signed graph",
+        "trigger": "Signed graph cofactor theory might already encode the target vanishing phenomenon."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d2e70778-6118-480c-b8a5-3489e19b2afd",
+  "value": {
+    "rationale": "The object is the canonical spanning-tree indicator of an open grid strip on a Boolean edge cube. Its Fourier zero set controls whether a natural finite-group convolution is invertible. The theorem gives a complete infinite-width invertibility classification, the exact sharp minimum eigenvalue and \\(\\ell^2\\) spectral condition number in every invertible case, and an exponential explicit family of null frequencies otherwise. The result distinguishes ordinary counting parity from a second signed-Laplacian cancellation mechanism; it is not an isolated numerical census or an arbitrary normalization test.",
+    "status": "PASS"
+  }
+}
