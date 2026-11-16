@@ -1,0 +1,15 @@
+# Scientific review of five-erasure Lebedev sampling stability
+
+## Correctness — PASS
+The fourteen-node rule is a Parseval sampling frame on all nine spherical harmonics through degree two because its normalized fourth moments equal the sphere moments. The complement identity \(E_S^*E_S=I-E_T^*E_T\) reduces the claim to the largest eigenvalue of a five-node principal Gram submatrix. An elementary forbidden-pair argument shows every nonhemispherical deletion has largest eigenvalue strictly above \(4/5\); the six hemispherical deletions have an explicitly diagonalized Gram matrix with largest eigenvalue exactly \(4/5\). The supplied separate checker verifies the kernel algebra symbolically and all 2002 nine-subsets numerically. The infinite-dimensional extension and alternative normalization are not claimed.
+
+## Originality — PASS, with priority uncertainty
+Shimizu–Tsunoda's full accessible 2022 treatment of Lebedev quadrature supplies exact cubature and efficiency, not optimal subframe deletion. Nafees et al.'s accessible 2017 paper optimizes iso-latitude sampling systems rather than nine-of-fourteen fixed Lebedev masks. The publicly readable all-degree rhombic-dodecahedron study addresses single-degree unweighted Gram spectra on seven antipodal representatives and does not imply the weighted cumulative-degree nine-node optimum. A distinct pre-existing eleven-node worst-case recovery result on the same vertices establishes ranks, not this minimum-eigenvalue optimum or its six equality configurations. Keyword searches for nine-point Lebedev subsampling, five erasures, projection stability, and the exact bound found no matching theorem; lack of search hits is not proof of priority. Specialist subframe optimization tables remain a residual risk.
+
+## Mathematical value — PASS
+The nine-dimensional harmonic band needs at least nine values for invertible sampling, while the standard efficient fourteen-point positive cubature presents a concrete and commonly used pool of candidate measurements. This result determines the **sharp achievable condition-stability floor with no freedom to alter weights** at the information-theoretic minimum, identifying a unique octahedral orbit of six optimizers and excluding all other deletion geometries via a robust structural obstruction. This is a meaningful exact experimental-design and erasure-selection problem, not simply another cubature identity or floating-point enumeration. No unrestricted point-design optimum is asserted.
+
+## Sources and limitations
+The source inspection covered arXiv:2205.04119, arXiv:1709.02497, and the full readable online research result *All-degree harmonic sampling and sharp stability on the radially normalized rhombic dodecahedron*. Earlier specialty databases may contain analogous exact finite optimal-subframe tables. The proof is supplied in `RESULT.md`, with an executable independent-coordinate check in `check_lebedev14.py`. No independent external validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
