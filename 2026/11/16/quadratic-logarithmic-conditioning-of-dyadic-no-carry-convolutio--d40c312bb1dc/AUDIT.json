@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For each bit the Fourier sum factors into a three-term dyadic root-of-unity sum. Concavity of \\(2\\cos(\\pi t)-1\\) on [0,1/2] and 3 not dividing any dyadic denominator prove every factor has modulus at least the reciprocal of its order, hence the product is at least \\(2^{-n(n+1)/2}\\). A single explicit pair of frequencies approximating the two primitive cube roots at all scales gives the matching upper bound \\((4\\pi/3)^n2^{-n(n+1)/2}\\). The spectral condition number and limit follow from diagonalization, maximum \\(3^n\\), and the two-sided bounds. A finite standalone checker verifies direct versus factored sums for 1364 Fourier positions at lengths 1 through 5 and witnesses through 10. Floating point finite checks are not mistaken for all-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lam–Leung arXiv:math/9511209v1 §5, especially Theorem 5.2 and Corollary 5.6: any nonzero sum of a power-of-two number of roots of unity has even weight.",
+        "Shevelev arXiv:1011.6083 introduction and Theorem 1 deal with binary row encodings and Fermat factors."
+      ],
+      "reasoning": "An existing broader three-term cyclotomic nonvanishing theorem does dominate the zero-free corollary. No inspected source includes a two-sided estimate of the least product modulus on the full dyadic dual torus. Search incompleteness remains a risk.",
+      "searches": [
+        "\"Sierpinski\" \"condition number\" \"convolution\" Fourier cyclic",
+        "Fourier transform no carry pairs 2-adic Sierpinski gasket indicator nonzero characters convolution",
+        "Fourier transform of finite Pascal triangle mod two binomial odd coefficients dyadic groups"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/9511209v1, Theorem 5.2 and Corollary 5.6",
+      "arxiv:1011.6083, abstract, Theorem 1, product corollary",
+      "arxiv:math/9912127 abstract (not full text)",
+      "bounded indexed-scientific and web searches of dyadic no-carry Fourier aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lam–Leung theorem + the product formula imply each factor is nonzero, since each is a sum of three roots of order dividing a power of two. This is explicitly not claimed new.",
+        "The new estimate uses a quantitative chord/tangent lower bound, and a single dual frequency whose successive powers approximate cube roots to within O(2^{-(n-j)})."
+      ],
+      "reasoning": "A vanishing-weight classification cannot by itself determine how close every factor can get to zero, much less yield the matched global exponent \\(n^2/2\\). The present two-sided estimates require an independent geometric argument and simultaneous near-cancellation witness.",
+      "searches": [
+        "Lam Leung on vanishing sums of roots of unity arxiv date 2000",
+        "\"Sierpinski\" \"condition number\" \"convolution\" Fourier cyclic",
+        "\"Sierpinski\" \"Fourier\" \"1+z+w\" convolution dyadic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The no-carry pairs are exactly the odd-binomial-coefficient positions in the first dyadic triangle; their cyclic Fourier transform is a product of three-term digit masks, proved in RESULT.md. Lam-Leung Theorem 5.2 classifies root-of-unity vanishing weights, which covers zero-freeness but not the sharp quadratic logarithmic decay rate."
+      ],
+      "reasoning": "Compared the finite cyclic product-group convolution (not a Boolean-cube Walsh transform) and its minimum modulus, including the precise asymptotic exponent. Qualitative digit products and nonvanishing alone do not imply the quantitative matching bounds.",
+      "searches": [
+        "no carry binary digit pairs Sierpinski Pascal triangle additive Fourier convolution invertibility spectrum superexponential condition number",
+        "Sierpinski triangle discrete Fourier transform dyadic cyclic groups zeros spectrum",
+        "\"no carry\" \"Fourier transform\" \"Pascal\" \"cyclic\" 2-power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shevelev arXiv:1011.6083 cites OEIS A001317 for integer-encoded Pascal rows and gives their product representation.",
+        "Direct finite checks give the least Fourier modulus at dyadic orders 2, 4, 8, 16, 32, but no finite table is used to establish the theorem."
+      ],
+      "reasoning": "The finite Pascal row and odd-entry sequence tables are not a database of smallest complex Fourier multipliers for all frequencies of the two-dimensional cyclic no-carry indicator; no exact-table coverage was identified.",
+      "searches": [
+        "Pascal triangle modulo 2 Fourier series product Sierpinski triangle binomial coefficients odd 2009 paper",
+        "Fourier transform of finite Pascal triangle mod two binomial odd coefficients dyadic groups"
+      ]
+    },
+    "rationale": "The central novelty assertion is the sharp quadratic coefficient of the logarithmic spectral condition number, not qualitative zero-freeness. The 1995 Lam-Leung theorem combined with the digit factorization already implies no Fourier zeros, and this implication is explicitly credited. Its stated weight-set result does not provide the simultaneous-scale lower/upper modulus estimates. The inspected Pascal-row source addresses different invariants; bounded searches found no equivalent quantitative two-dimensional dyadic no-carry condition-number theorem. Residual risk of prior cyclotomic-product bounds is documented.",
+    "residual_risks": [
+      "Specialized cyclotomic products, digital Fourier Riesz products, or discrete Sierpiński spectra may contain an equivalent quantitative least-modulus estimate in sources not retrieved or not inspected in full.",
+      "The finite checker is not an independent proof; independent validation remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prior coverage of qualitative nonvanishing; no quantitative bound for the least value of the specific product of dyadic masks is stated in the examined portions.",
+        "evidence": [
+          "arXiv:math/9511209v1 dated 1995-11-13, Main Theorem and Theorem 5.2, Corollary 5.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/9511209",
+        "material_read": "Full-text PDF material: introduction pp. 1–3 and Theorem 5.2 / Corollary 5.6 in §5 pp. 12–13; exact statements and proofs around those items.",
+        "method": "Direct inspection of the paper text and page images.",
+        "title": "On vanishing sums for roots of unity",
+        "trigger": "Power-of-two three-term root-of-unity factors might be a previously proved zero-free case."
+      },
+      {
+        "assessment": "The checked results concern integer encodings, Fermat factorization, and binary-row products, not the minimum of 2D cyclic Fourier mask products.",
+        "evidence": [
+          "arXiv:1011.6083v4, Theorem 1 and product relation (2.10)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1011.6083",
+        "material_read": "Full-text PDF, abstract/introduction and §2 through the central Theorem 1 and its generating-function corollary, pp. 1–5.",
+        "method": "Direct PDF text and page-image inspection.",
+        "title": "On Stephan's conjectures concerning Pascal triangle modulo 2 and their polynomial generalization",
+        "trigger": "Same mod-two Pascal-triangle digits and related product identities."
+      },
+      {
+        "assessment": "Broad background only in available evidence. Cannot rule out an analogous quantitative estimate elsewhere in this literature.",
+        "evidence": [
+          "arXiv:math/9912127 abstract describes orthogonal harmonic analysis of certain iterated measures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/9912127",
+        "material_read": "Bibliographic metadata and abstract only; full relevant argument not inspected.",
+        "method": "Public abstract comparison, not whole-document assessment.",
+        "title": "Orthogonal harmonic analysis of fractal measures",
+        "trigger": "General harmonic analysis of self-similar digit measures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d40c312b-b1dc-4de5-9fe2-4bd00ac85ac1",
+  "value": {
+    "rationale": "The no-carry indicator is the natural Sierpiński/Pascal odd-entry pattern on a finite dyadic torus. Its Fourier convolution is always invertible, but the sharp leading logarithmic condition-number coefficient is \\(n^2/2\\), an extreme form of stability loss not implied by standard binary counts or qualitative nonvanishing. This structural scale matching is informative for deconvolution on digital fractal approximants; no false promise of exact finite-n extremizers is made.",
+    "status": "PASS"
+  }
+}
