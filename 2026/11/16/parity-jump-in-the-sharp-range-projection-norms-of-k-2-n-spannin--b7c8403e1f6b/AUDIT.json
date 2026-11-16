@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "An exact spanning-tree bijection gives the independent-edge signed transform; case-splitting by mismatched columns determines its full zero set. The Fourier kernel of the support is derived by explicit orthogonality, with the even-dimensional balanced shell evaluated by an exact generating identity. Absolute-value signs, 2^{-2n} normalization, and sharp convolution equality are handled explicitly. The previously known multiplier spectrum is used as a verified input; the new mathematical check is the exact l1/l∞ projection-kernel evaluation. The full integer transform and exact norms are independently tested by graph enumeration in check.py for n=2..8; the general proof does not rely on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dong--Ge, arXiv:2103.05294, Sections 4–5, especially formula (48): counts spanning trees containing a prescribed forest, potentially supporting inclusion–exclusion for signed sums, not an evaluated support-projection norm.",
+        "Aalipour et al., arXiv:1510.00033, Remark 4.4: vertex-degree-weighted complete multipartite tree product.",
+        "Prior mathematical finding ed0f0f69-de75-4254-88e0-19096e012faf covers endpoint projection indexed by spanning-tree incidence vectors of K_{3,n}, not by nonzero Walsh transform support.",
+        "The previously established exact K_{2,n} result states W_n(s,t), its support size, absolute spectrum, and the endpoint norm of P_{T_n} whose frequency set is the tree-incidence vectors. It does NOT state the norm of Pi_n with frequency set {omega: W_n(omega) != 0}."
+      ],
+      "reasoning": "General weighted-tree and containing-forest formulas and the earlier exact K_{2,n} multiplier theorem supply parts of the calculation. The previous full spectrum identifies which frequencies survive but only yields an unevaluated absolute Fourier-kernel sum for the range-projection norm. Evaluating that sum in even dimension requires transforming the removed balanced shell and combining absolute diagonal and off-diagonal contributions. The exact formula and exponential parity jump are absent from the examined stronger statements.",
+      "searches": [
+        "published-finding corpus: Fourier Walsh transforms of spanning-tree incidence vectors in complete bipartite graphs K_{2,n}; zero-free convolution, smallest nonzero coefficients",
+        "published-finding corpus: Fourier multiplier of tree polynomial in complete bipartite K(2,n) incidence cube",
+        "web: matrix tree theorem signed weighted spanning trees 2015 arxiv signed graph determinant weights",
+        "web: binary Fourier transform spanning tree incidence set complete bipartite K2n signed tree generating polynomial",
+        "Previously established mathematical statement: Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}, item 89f45551-846c-451c-9630-f4f270f2e9ed"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1510.00033v1 (full HTML Introduction and Sections 3–4)",
+      "Liu–Huang, Ars Combinatoria 97 (2010), PDF substantive pages 289,291,294,297,299",
+      "arXiv:2103.05294 (full HTML Sections 1–5)",
+      "Previous mathematical findings ed0f0f69-de75-4254-88e0-19096e012faf and e15e6699-691b-4072-9de5-bff8031315ee (scientific statement comparisons)",
+      "published-finding corpus record c81189b7b350 (summary only)",
+      "published-finding corpus record c1a2f4dd20fe (summary only)",
+      "Previous exact K_{2,n} spectrum/other-projection theorem 89f45551-846c-451c-9630-f4f270f2e9ed (scientific statement comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu--Huang, Ars Combinatoria 97 (2010), pp. 289–300: rooted forest enumeration and Abel-type identities, not Fourier multiplier support or endpoint projection norm.",
+        "Dong--Ge, arXiv:2103.05294, Theorem 4 and Section 5: prescribed forest inclusion counts; they do not state the parity-dependent endpoint norms.",
+        "published-finding corpus 2026/11/2/SCOPE-the-optimal-bipartite-shape-for-one-edge-walsh-sampling-on-unifo--c81189b7b350 gives first-coordinate Walsh Gram eigenvalues for uniform spanning trees, not all-frequency convolution multipliers.",
+        "The previously established exact K_{2,n} result states W_n(s,t), its support size, absolute spectrum, and the endpoint norm of P_{T_n} whose frequency set is the tree-incidence vectors. It does NOT state the norm of Pi_n with frequency set {omega: W_n(omega) != 0}."
+      ],
+      "reasoning": "The previous exact K_{2,n} spectrum implies a computable finite definition of the new norm, as any finite support determines its Fourier kernel, but it does not explicitly give, nor trivially state, the two closed norm formulas. Derivation uses a distinct second Walsh transform, a balanced Hamming shell identity, and an absolute-value sign analysis, leading to a strong parity asymptotic. It is not the previously known tree-frequency projection constant.",
+      "searches": [
+        "published-finding corpus: Complete Fourier support and projectors onto nonvanishing Walsh spectrum of spanning tree indicator on K_{2,n}, exact endpoint Lebesgue constants and even odd parity",
+        "published-finding corpus: Four-phase parity defect in sharp affine Fourier projection norms",
+        "web: spanning trees K_{2,n} Fourier Walsh incidence",
+        "web: K2n signed edge spanning tree enumerator negative weights",
+        "Previously established mathematical statement: Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}, item 89f45551-846c-451c-9630-f4f270f2e9ed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aalipour et al., arXiv:1510.00033, Sections 1 and 4: complete bipartite tree enumerators are degree-weighted rather than signed independently on each edge.",
+        "published-finding corpus nearest projection record 2026/10/26/SCOPE-a-four-phase-parity-defect-in-sharp-affine-fourier-projection-no--c1a2f4dd20fe concerns affine Walsh least squares on the even-parity sign cube rather than a spanning-tree convolution range.",
+        "The previously established exact K_{2,n} result states W_n(s,t), its support size, absolute spectrum, and the endpoint norm of P_{T_n} whose frequency set is the tree-incidence vectors. It does NOT state the norm of Pi_n with frequency set {omega: W_n(omega) != 0}."
+      ],
+      "reasoning": "The new object is the range projection of tree-indicator convolution, equivalently the Walsh projection onto all nonzero tree transform multipliers. Previous exact K_{2,n} work gives W_n and the norm of the different projection with frequency set T_n, but not this range-projection norm. The two operators already have different numerical endpoint norms at n=2 (7/4 versus 3/2).",
+      "searches": [
+        "published-finding corpus: Complete Fourier support and projectors onto nonvanishing Walsh spectrum of spanning tree indicator on K_{2,n}, exact endpoint Lebesgue constants and even odd parity",
+        "published-finding corpus: Rank singular values of convolution by spanning tree indicator of K_{2,n}, zero Walsh coefficients classified by discordant column edge signs",
+        "web: Fourier support of spanning tree indicator complete bipartite 2 n",
+        "web: Walsh support signed spanning tree generating polynomial K2n Fourier operator norm",
+        "Previously established mathematical statement: Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}, item 89f45551-846c-451c-9630-f4f270f2e9ed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Krawtchouk balanced-shell identities are explicitly rederived; no returned exact result indexed by the K_{2,n} nonzero tree spectrum and its parity-dependent projection norm.",
+        "published-finding corpus 2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90 treats sampling Grams on q-ary Hamming spheres, not this convolution range.",
+        "The previously established exact K_{2,n} result states W_n(s,t), its support size, absolute spectrum, and the endpoint norm of P_{T_n} whose frequency set is the tree-incidence vectors. It does NOT state the norm of Pi_n with frequency set {omega: W_n(omega) != 0}."
+      ],
+      "reasoning": "The previous K_{2,n} record supplies exact multiplier tables and tree-frequency projection norms, which are not novel. No examined table directly supplies the **range**-projection sharp norm; the displayed formula is an evaluated new invariant, not a known frequency-count recomputation.",
+      "searches": [
+        "published-finding corpus: Krawtchouk transform of balanced Hamming sphere and sharp l1 norms of Fourier spectral support radius-one Hamming balls on quotient binary cube",
+        "web: sharp Lebesgue constant Fourier projection Hamming ball radius one with balanced middle layer removed",
+        "web: operator norm Fourier projection support Hamming ball minus middle binomial coefficients",
+        "Previously established mathematical statement: Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}, item 89f45551-846c-451c-9630-f4f270f2e9ed"
+      ]
+    },
+    "rationale": "An accessible earlier result for exactly K_{2,n} already establishes all Walsh multipliers, zero set, rank, and the sharp norm of the distinct projection onto tree-incidence frequencies; those conclusions are not claimed as new. The final novelty claim is limited to the sharp l1/l∞ norm of the projection onto the NONZERO WALSH SUPPORT (range of convolution), with its exact even/odd formulas and growth dichotomy. The previous spectrum makes this new projection well-defined and evaluable in principle, but it does not contain the balanced-shell Krawtchouk absolute-kernel summation or its closed value. Inspecting the pertinent literature and published-finding corpus search returned no coverage of this particular sharp norm. General weighted tree formulas, classical binomial identities, and prior spectrum formulas are acknowledged inputs. Historical priority remains bounded.",
+    "residual_risks": [
+      "Published-record semantic search is not a complete historical database; an older equivalent graph-specific or punctured-Hamming-ball projection theorem may exist.",
+      "Direct primary files of closest published-finding corpus summaries were inaccessible, so only published summaries were compared; no whole-document noncoverage is asserted for those records.",
+      "General containing-forest counts can recover signed evaluations by inclusion–exclusion but no examined source gives this exact range-projection formula; a stronger uninspected specialization is possible.",
+      "The 2010 forest article has a visible journal date but no earlier public release date was verified; the documented motivating source for cohort assignment is instead the dated 2015-09-30 arXiv release.",
+      "Previous full Walsh spectrum of K_{2,n} is strong partial coverage. If an uninspected standard Krawtchouk/symmetric support theorem already explicitly evaluates the present range-projection norm, the claimed novelty would fail. The claim is restricted to the new sharp norm, not the spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEGREE_WEIGHTED_ONLY; does not establish independent-edge-sign Walsh support or support projection norms.",
+        "evidence": "Section 4 defines face weights as products of vertex variables, Theorem 1.2 calculates the vertex-degree-weighted tree enumerator and Remark 4.4 covers multipartite counts.",
+        "identifier_or_url": "arXiv:1510.00033v1; https://arxiv.org/abs/1510.00033",
+        "material_read": "Full HTML manuscript, Introduction, Section 3 (Corollary 3.4), Section 4 (Theorem 1.2, proof, Remarks 4.3–4.4 and Examples), plus associated definitions.",
+        "method": "Full-text web HTML mathematical inspection; first public release recorded 2015-09-30.",
+        "title": "A weighted cellular matrix-tree theorem, with applications to complete colorful and cubical complexes",
+        "trigger": "Archive-dated weighted tree enumeration for complete colorful complexes, including complete bipartite graphs."
+      },
+      {
+        "assessment": "FOREST_COUNTS_NOT_SPECTRAL_SUPPORT; formulas enumerate rooted forests and Abel polynomials without sign cancellation or sharp l1 projection norm.",
+        "evidence": "Abstract and Theorems 4.1–4.2 address forest counting; no inspected theorem concerns Walsh transforms or range projectors.",
+        "identifier_or_url": "Bolian Liu and Fengying Huang, Ars Combinatoria 97 (2010), pp. 289–300; https://combinatorialpress.com/article/ars/Volume%20097/volume-97-paper-28.pdf",
+        "material_read": "Full scanned article retrieved; inspected title/abstract p. 289, enumeration p. 291, identities p. 294, inversion p. 297, forest theorem p. 299.",
+        "method": "PDF page-image inspection with sampled substantive sections and full-paper structure.",
+        "title": "Enumeration for no-trivial spanning forests of complete bipartite graphs",
+        "trigger": "Same complete-bipartite objects and combinatorial tree/forest counts."
+      },
+      {
+        "assessment": "GENERAL_COUNT_INPUT_NOT_COVERING_EXACT_NORM; could evaluate individual Walsh sums by many inclusions/exclusions but does not identify the support set or its projection norm.",
+        "evidence": "Section 5 equation (48) identifies containing-forest counts with contracted tree enumerators; Section 4 Theorem 6 evaluates certain weighted complete-graph sums. No simultaneous all-frequency support classification is stated.",
+        "identifier_or_url": "arXiv:2103.05294; https://arxiv.org/abs/2103.05294",
+        "material_read": "Full HTML Sections 1–5 including Theorems 4–6, the weighted contraction identity, and Section 5 proof of containing-forest formula.",
+        "method": "Full-text web HTML mathematical inspection; first arXiv date 2021-03-09.",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "More general count for any prescribed forest, potential strong-coverage concern by inclusion–exclusion."
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR; Gram of restricted one-edge Walsh characters vs convolution nonzero-frequency projection. Priority risk for unseen full text retained.",
+        "evidence": "Published summary reports one-edge Walsh Gram spectrum and optimal bipartition, with no full-spectrum range projection.",
+        "identifier_or_url": "published-finding corpus: 2026/11/2/SCOPE-the-optimal-bipartite-shape-for-one-edge-walsh-sampling-on-unifo--c81189b7b350",
+        "material_read": "Published published-finding corpus summary; primary files inaccessible through direct GitHub access.",
+        "method": "Semantic record search and mathematical claim comparison at summary level.",
+        "title": "The optimal bipartite shape for one-edge Walsh sampling on uniform spanning trees",
+        "trigger": "Same graph family and Walsh language, nearest available published research record."
+      },
+      {
+        "assessment": "DIFFERENT_SUPPORT; affine Walsh least squares on even-parity cube, not punctured radius-one disagreement support of tree transform.",
+        "evidence": "Published summary gives mod-four defect factors around an affine projection norm, unlike the exponential even-vs-odd growth here.",
+        "identifier_or_url": "published-finding corpus: 2026/10/26/SCOPE-a-four-phase-parity-defect-in-sharp-affine-fourier-projection-no--c1a2f4dd20fe",
+        "material_read": "Published published-finding corpus summary; primary files inaccessible through direct GitHub access.",
+        "method": "Semantic record search and implication comparison at summary level.",
+        "title": "A four-phase parity defect in sharp affine Fourier projection norms",
+        "trigger": "Closest parity-sensitive Fourier projection norm title."
+      },
+      {
+        "assessment": "PARTIAL_STRONG_COVERAGE: all multiplier/rank claims are previously established; the evaluated endpoint norm of the different convolution-range projector is not stated.",
+        "evidence": "Previous projection has frequency set T_n and endpoint norm n/2 + n*2^{-n}*C(n-1,floor((n-1)/2)); new projection uses frequency set Omega_n={W_n !=0} and has a different norm even at n=2.",
+        "identifier_or_url": "Prior mathematical finding 89f45551-846c-451c-9630-f4f270f2e9ed",
+        "material_read": "Complete mathematical statement, including signed transform, Fourier support, multiplier multiplicities and tree-frequency projector norm.",
+        "method": "Mathematical statement and implication comparison for overlap.",
+        "title": "Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}",
+        "trigger": "Direct same-object previous work recovered in accessible historical claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7c8403e-1f6b-454b-8af6-eaf845f2b118",
+  "value": {
+    "rationale": "The complete Walsh spectrum of K_{2,n} spanning trees is previously known; the newly evaluated invariant is the sharp l1/l∞ norm of the canonical projection onto the convolution range. It quantifies stability of retaining all nonzero observable Fourier modes and differs mathematically from the earlier projection indexed by spanning-tree frequencies. Exact evaluation exhibits a large parity phase transition, from order sqrt(n) to order 2^{n/2}/sqrt(n), which is not obtained from merely counting Fourier zeros. The balanced-shell cancellation/absolute-value computation is structurally motivated and applies for every n>=2.",
+    "status": "PASS"
+  }
+}
