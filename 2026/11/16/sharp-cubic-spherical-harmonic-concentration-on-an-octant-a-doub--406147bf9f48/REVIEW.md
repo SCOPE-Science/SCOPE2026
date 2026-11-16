@@ -1,0 +1,14 @@
+# Scientific review
+
+## Correctness — PASS
+The proposed basis contains seven linearly independent homogeneous harmonic cubics, matching the exact dimension of the pure-degree-three spherical harmonic eigenspace. Full-sphere monomial moments make their Gram matrix positive and diagonal. The positive-octant Gaussian gamma moment formula yields every entry of the stated normalized regional matrix. The permutation representation splits it into alternating, trivial and two standard sectors of dimensions 1, 2 and 4; their characteristic factors yield exactly the five levels and correct multiplicities. Integer radical bounds prove strict ordering, hence both endpoints and equality spaces. The standalone exact script checks every Gram entry and characteristic factor; separate direct spherical-coordinate quadrature reproduces all seven eigenvalues with maximum error below \(5\times10^{-16}\). The theorem is deductive; finite computation is corroboration only.
+
+## Originality — PASS, provisional priority
+The motivating 2021 masked-sky paper constructs a different region-adapted Laplacian basis and does not evaluate the cubic Slepian concentration operator. The full 2023 Slepian wavelet treatment and 2021 spin-weighted Slepian paper provide general spectral constructions, but no evaluated positive-octant degree-three spectrum or double maximizing eigenspace. A highly relevant published quadratic positive-orthant classification treats pure degree two in arbitrary dimension; lower-degree octant spectra are not implications of the present pure cubic spectrum. published-finding corpus searches for positive octant, trirectangular triangle, cubic harmonics, Vandermonde extremizers, and the exact radicals did not retrieve a covering statement. This comparison is substantive rather than proof from a failed search; a specialist calculation not indexed remains a priority risk.
+
+## Mathematical value — PASS
+A positive octant is a canonical spherical triangle (one cell of the octahedral partition), not an ad hoc mask. Its cubic-harmonic restriction is the first nontrivial odd-degree seven-dimensional pure-harmonic case; the complete sharp condition spectrum and complete equality classification are useful exact benchmarks for regional harmonic sensing. The two-dimensional top sector contrasts with the unique least-observable alternating harmonic, revealing information about the geometry that generic Slepian existence or matrix formulas do not convey. No higher-degree claim or statistical noise guarantee is inferred.
+
+The sharp ratio of energy concentration eigenvalues is \((30\pi+25+\sqrt{4045})/[30(\pi-3)]\). The result is restricted to this exact mask and degree, and historical priority is not independently established.
+
+Self-review: passed. Independent audit: not yet performed.
