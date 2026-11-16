@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The result fixes the domain (normalized uniform volume on the solid unit ball), the exact polynomial degree bound, all integer dimensions \(d\ge4\), and every multiplicity. The Dirichlet/gamma monomial formula is derived by polar integration. The permutation action splits the polynomial space into four trivial, three standard and one irreducible edge-difference summand, with dimensions summing to \(\binom{d+2}{2}\). The edge summand is irreducible by a three-orbit commutant calculation. The two invariant Gram pencils therefore recover every concentration eigenvalue. Expansion of the representative edge polynomial proves the exact scalar \(2^{-d}(1-2/\pi)^2\). The trace follows from rotational invariance. A full monomial-basis calculation independently matches all block eigenvalues in dimensions four through eight; the finite checks supplement, rather than replace, the universal proof.
+
+## Originality — PASS, with limits
+The August 7, 2023 Gerhards–Huang paper develops concentration by total polynomial degree on a ball and analyzes high-bandlimit eigenvalue distributions, not the exact all-dimensional quadratic orthant spectrum. The 2014 Khalid–Kennedy–McEwen paper uses different radial–angular bandwidth systems. Related published spherical-orthant results concern surface harmonics, including a similar repeated edge eigenvalue; **that shared sector is not separately claimed to be novel**. The solid-volume spectrum has an additional independent radial quadratic direction and a distinct four-dimensional multiplicity pencil. Available semantic indexing and full-text comparisons did not identify the complete claim. Full texts of some indexed specialist results were inaccessible, and a priority risk remains.
+
+## Mathematical value — PASS
+The positive orthant is a canonical observation region and total-degree-two polynomials are the first band containing both radial and mixed quadratic variation. An exact spectrum would normally require diagonalizing \(\binom{d+2}{2}\) modes, while the theorem gives constant-size four-, three- and one-dimensional problems in every dimension. It determines the sharp concentration and inverse-stability constants without large-dimensional diagonalization. In dimension four, a region of volume fraction \(1/16\) supports a sharp maximum energy fraction near \(0.483477\), illustrating meaningful localization; the small least eigenvalue is an exact observability bottleneck. This is a substantive full-spectrum classification, not merely a numerical table or the already-known spherical edge scalar.
+
+## Scientific limitations
+The proof does not establish a dimension-uniform order among the block eigenvalues, simplification of the quartic/cubic roots into radicals, or asymptotic constants as \(d\to\infty\). Numerical tests through dimension eight cannot validate all dimensions independently. An independent audit has not been conducted. Existing literature may contain a specialist equivalent not indexed in the accessible comparisons.
+
+Self-review: passed. Independent audit: not yet performed.
