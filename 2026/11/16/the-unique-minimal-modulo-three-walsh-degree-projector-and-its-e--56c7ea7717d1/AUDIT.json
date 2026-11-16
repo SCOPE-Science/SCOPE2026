@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The projection kernel is exactly \\(2^{-n}\\) times an integer character sum; character-orthogonality and translation averaging establish the sharp and minimal endpoint norm. A cubic root-of-unity filter gives the closed kernel at every Hamming weight. Binomial even/odd sum identities yield both formulas; 3B_n-A_n=2A_{n-1} establishes strict uniqueness for all n≥3. Independent exact-integer methods verify n=3..18 and boundary inequalities through n=100.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant et al. Theorem 3.1 establishes an exact expected-absolute-character-sum identity for every Fourier set; Section 4 develops estimates for homogeneous fixed degree.",
+        "The comparison to the coordinate-shadow norm concerns the Lipschitz-free norm, not the endpoint norm considered here."
+      ],
+      "reasoning": "The arbitrary-spectrum norm formula logically includes an unevaluated sum for these sets, but does not determine which r is uniquely optimal, the closed exact values, or their exponential comparison. Those require a roots-of-unity and absolute-value computation proved in the present work.",
+      "searches": [
+        "arXiv:2302.00233v2 Theorem 3.1 Section 4",
+        "finite Hamming association scheme spectral idempotent sums projection ℓ1 operator norm residue classes",
+        "finite Hamming association scheme spectral idempotent sums projection ℓ1 operator norm residue classes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1205.0314v1 (Section 1.1 inspected)",
+      "arXiv:2302.00233v2 (Theorem 3.1 and Section 4 inspected)",
+      "Two-level spectral collapse and optimal residue selection in modulo-three Walsh sampling (public abstract only)",
+      "Quadratic Walsh sampling on Hamming-weight classes modulo three: exact spectrum and injectivity threshold (public abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Modulo-three Walsh sampling records concern low-degree restrictions evaluated on a domain Hamming-weight class, while the new operator projects onto all frequencies of a given degree residue.",
+        "Defant et al. Theorem 3.1 gives the starting general expression but neither classifies optimal residue nor its exact norm gap."
+      ],
+      "reasoning": "Transposing sample-domain and Fourier-degree index does not preserve the stated operator or norm, so sampling results do not imply the theorem. Applying the general formula requires a substantive evaluation of signed Krawtchouk sums across all degrees, performed with full boundary cases. The residual historical risk is an older equivalent explicit evaluation.",
+      "searches": [
+        "exact sharp Lebesgue constants Walsh Fourier projection onto all subsets of size congruent r modulo 3 on n-bit cube optimum r=2n mod3",
+        "Walsh transform of modulo three Hamming-weight indicator spectral projection norm sharp",
+        "arXiv:2302.00233v2",
+        "exact sharp Lebesgue constants Walsh Fourier projection onto all subsets of size congruent r modulo 3 on n-bit cube optimum r=2n mod3",
+        "exact minimal projection constant Hamming weight modulo 3 Walsh Fourier degrees 2n mod 3 exponential endpoint ratio (1+sqrt3)/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "All definitions translate into a Walsh convolution kernel \\(K_{n,r}\\) with generating polynomial \\((1+t)^{n-k}(1-t)^k\\).",
+        "The general Fourier projection norm equals \\(2^{-n}\\sum_z|K_{n,r}(z)|\\); the new claim evaluates this for all three residue choices."
+      ],
+      "reasoning": "Direct equivalent formulations as a modular Hamming-shell Krawtchouk sum and a Lebesgue/projection constant were compared. The general norm principle is prior and is used; the novel assessed statement is the exact two-level evaluation, optimizer and exponential arithmetic gap.",
+      "searches": [
+        "Fourier projection onto Hamming weight residue class mod 3 on Boolean cube exact ℓ1 norm root-of-unity filter exponential growth",
+        "Walsh transform of modulo three Hamming-weight indicator spectral projection norm sharp",
+        "Krawtchouk polynomial root-of-unity filter Hamming weight residue projector norm",
+        "arXiv:2302.00233v2 Theorem 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved mathematical records concern modular Walsh sampling, fixed-degree Walsh projections, and other norms, not a table of all L_{n,r} for n≥3.",
+        "The exact small-n table in check.py was calculated independently from integer transforms and compared with the symbolic formula."
+      ],
+      "reasoning": "Neither the actual searches nor the inspected primary literature produced an exact preexisting all-n table with these two norm levels. This is bounded negative evidence only; it cannot establish absolute uniqueness.",
+      "searches": [
+        "exact sharp Lebesgue constants Walsh Fourier projection onto all subsets of size congruent r modulo 3 on n-bit cube optimum r=2n mod3",
+        "three congruence classes of Fourier degrees mod 3 projection norm optimal minimal among residue selectors exponential growth",
+        "Walsh projection residue weight classes modulo three infinity operator norm root unity"
+      ]
+    },
+    "rationale": "Bounded review of original publication texts, modular Walsh frequency-domain equivalents, and accessible prior claim summaries found the general character-sum norm principle (explicitly credited) but not the two-level closed norm evaluation, unique optimal residue and exponential gap. The related modular sampling work uses distinct restriction Gram operators. Historical-priority risk remains.",
+    "residual_risks": [
+      "The complete public full text of the two modular-Walsh sampling summaries could not be opened; their available descriptions indicate distinct operators.",
+      "An older equivalent roots-of-unity norm evaluation may be catalogued under Hamming association schemes or special functions.",
+      "A general projection-constant identity already gives an unevaluated finite sum; novelty is limited specifically to the new closed two-level evaluation and sharp optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies Walsh character foundations, not modular projection norms or optimizer",
+        "evidence": "arXiv:1205.0314v1, printed page 3 and Section 1.1; first public submission 2012-05-02",
+        "identifier_or_url": "https://arxiv.org/pdf/1205.0314",
+        "material_read": "Contents plus Section 1.1 and Fourier expansion statement, especially printed page 3",
+        "method": "full-text PDF parsed and page-image inspected",
+        "title": "Analysis of Boolean Functions (Tan, notes from O’Donnell lectures)",
+        "trigger": "earliest dated motivating Fourier-Walsh foundation"
+      },
+      {
+        "assessment": "Universal norm formula is strong prior coverage of the reduction but does not explicitly evaluate modular-three classes or their unique optimizer and exponential gap",
+        "evidence": "arXiv:2302.00233v2 Theorem 3.1 and Theorem 4.1",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+        "material_read": "Abstract, introduction, Sections 3–4 including Theorem 3.1 at printed page 9 and fixed-degree results around printed page 13; PDF searches for modulo/residue/Krawtchouk",
+        "method": "public arXiv PDF parsed, pages 2 and 9 visually inspected; theorem and relevant sections read",
+        "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+        "trigger": "closest broad projection-norm theorem potentially implying new calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "56c7ea77-17d1-482c-afb5-975938c71167",
+  "value": {
+    "rationale": "For all n≥3 the three Fourier subspace ranks differ by at most one but the corresponding sharp projection norms have exactly two distinct levels, a unique minimizing residue, and an exponentially increasing gap with nontrivial constant limiting ratio. Exact endpoint conditioning for nearly equal-dimensional modular Walsh spaces is a natural stable-projection optimization question, not just a finite census.",
+    "status": "PASS"
+  }
+}
