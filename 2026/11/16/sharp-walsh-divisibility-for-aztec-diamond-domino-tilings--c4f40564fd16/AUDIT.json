@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1, Kasteleyn signs give det K=±W. The signed matrix reduces modulo two to U⊗V of rank \\(n^2\\) in size \\(n(n+1)\\), implying uniform \\(2^n\\) divisibility. Deleting diagonal n rows/columns leaves an odd determinant: a vector supported off the deleted columns with image supported on deleted rows must vanish by binary row sums and the explicit Kronecker kernel. The top controlled-sign finite difference divided by \\(2^n\\) is odd, so an odd number attain exact valuation n. Walsh inversion excludes odd gcd divisors. The standalone exact checker tests rank/minor through n=12, match-sums through n=5, Kasteleyn determinants through n=4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barkley–Liu, arXiv:1911.08102, Theorem 3.5 and Example 6.10 prove \\(2^n\\) divides the ordinary unsigned number of perfect matchings.",
+        "Chhita–Duits (2023), Sections 1–2 and abstract, study positive-weight dimer correlations and Kasteleyn inverses for arbitrary weights."
+      ],
+      "reasoning": "Barkley–Liu already imply the lower-bound half even for arbitrary edge signings by applying their general determinant-nullity lemma to the fixed binary reduction. Their calculation does not imply a sign assignment with exact valuation n, much less odd parity of minimal-valuation signings. General positive-weight Kasteleyn/correlation formulas do not explicitly evaluate this arithmetic extremum.",
+      "searches": [
+        "Aztec diamond domino tilings Walsh coefficients signed edge weights universal divisibility 2^n two-adic determinant Kasteleyn",
+        "binary rank deficiency mod 2 of Aztec diamond Kasteleyn biadjacency matrix and signed perfect matchings",
+        "Aztec diamond all independently signed domino partition functions modulo powers of two 2-adic sharp valuation rank incidence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/9201305",
+      "https://people.math.wisc.edu/~rbrualdi/aztec2.pdf",
+      "arxiv:1911.08102",
+      "doi:10.1007/s00220-023-04676-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical Aztec theorem gives W_n(empty)=2^{n(n+1)/2}, which concerns a single edge signing.",
+        "Brualdi–Kirkland compute a fixed sign-nonsingular determinant whose magnitude is the unsigned tiling count.",
+        "Barkley–Liu give an unsigned matching-count divisor \\(2^n\\) but explicitly note such a divisor can be far below the unsigned valuation."
+      ],
+      "reasoning": "The classical all-positive tiling count concerns one signing. The binary nullity in Barkley–Liu combined with their Lemma 2.9 covers the universal divisibility lower bound, including independent sign choices. The exact gcd needs a signing of valuation n; the controlled n-edge full-degree finite-difference coefficient and odd witness parity supply that missing statement. Neither inspected prior theorem states or implies this exact attainability without new determinant-minor information.",
+      "searches": [
+        "Aztec diamond domino tilings Walsh coefficients signed edge weights universal divisibility 2^n two-adic determinant Kasteleyn",
+        "binary rank deficiency mod 2 of Aztec diamond Kasteleyn biadjacency matrix and signed perfect matchings",
+        "Aztec diamond all independently signed domino partition functions modulo powers of two 2-adic sharp valuation rank incidence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The signed matching sum is precisely a Walsh coefficient in the edge-incidence embedding; via a fixed Kasteleyn signing it is also a signed determinant.",
+        "Elkies et al. (1991) treat orientation/rank generating functions, not arbitrary individual edge signs."
+      ],
+      "reasoning": "A Fourier or determinant formulation could have the same content without matching terminology. No equivalent all-edge-signing gcd and sharp-valuation parity statement was located in the inspected original results.",
+      "searches": [
+        "Walsh Fourier spectrum convolution zero multipliers incidence vectors of domino tilings Aztec diamond perfect matchings",
+        "Fourier projection exact norm binary incidence vectors plane partitions tilings",
+        "Aztec diamond signed domino tiling partition function greatest common divisor Fourier Walsh coefficients exact 2^n all edge signs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected indexed records concern eight-vertex complete-graph perfect-matching Walsh spectra, four-by-six torus domino flip metrics, and coordinate Walsh sampling on noncrossing perfect matchings; their objects and invariants differ.",
+        "Finite computations in the supplied checker are corroboration, not claims of exhaustive indexed-record coverage."
+      ],
+      "reasoning": "These adjacent results neither supply the all-order Aztec signed gcd nor a stronger formula that implies it. No known numerical table was used as a source for the claimed exact all-order value.",
+      "searches": [
+        "Signed perfect matching sums determinants Aztec diamond Fourier support rank convolution projection",
+        "Aztec diamond signed domino tiling partition function greatest common divisor Fourier Walsh coefficients exact 2^n all edge signs",
+        "Aztec diamond spectral convolution rank Fourier support signed dimer partition functions"
+      ]
+    },
+    "rationale": "The universal \\(2^n\\) lower bound is implied by Barkley–Liu Lemma 2.9 and Example 6.10, since every signed Kasteleyn determinant has the same binary rank; that lower-bound mechanism is expressly not claimed as new. The additional exact all-order attainability, odd parity of minimal-valuation signings on a designated diagonal edge set, and hence exact Walsh gcd \\(2^n\\) were not identified in inspected primary sources or searchable mathematical records. A novel odd complementary-minor proof is given.",
+    "residual_risks": [
+      "An overlooked all-signed gcd formula may exist in historical statistical-mechanics or integral matrix literature.",
+      "A general Kasteleyn determinant method covers the algebraic representation; historical novelty is restricted to the exact all-order gcd, explicit minor, and odd witness parity.",
+      "No independent referee or external proof certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes classical unsigned count and two global statistics; no independently signed edge Walsh gcd in inspected relevant portions",
+        "evidence": [
+          "Introduction and theorem, original full text lines 7–24."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/9201305",
+        "material_read": "Rendered full-text opening, definition, principal formula, discussion of vertical/rank statistics and proof-roadmap; terminology searches for Fourier",
+        "method": "Primary arXiv full-text HTML inspection",
+        "title": "Alternating sign matrices and domino tilings",
+        "trigger": "Original Aztec theorem and potential refined generating functions"
+      },
+      {
+        "assessment": "Constructs one determinant computing the unsigned permanent; does not assert exact gcd over all choices of edge signs",
+        "evidence": [
+          "Introductory SNS determinant statement and matching correspondence, pages 1–3."
+        ],
+        "identifier_or_url": "https://people.math.wisc.edu/~rbrualdi/aztec2.pdf",
+        "material_read": "Abstract, introduction and sign-nonsingular matrix construction description, PDF pages 1–3, together with document-term checks",
+        "method": "Primary open PDF text and visual page inspection",
+        "title": "Aztec Diamonds and Digraphs, and Hankel Determinants of Schröder Numbers",
+        "trigger": "Signed bipartite determinant of same Aztec graph"
+      },
+      {
+        "assessment": "Establishes binary nullity n and a general determinant lower bound which together imply uniform 2^n divisibility for signed Kasteleyn determinants; does not show exact attainable valuation or odd witness parity.",
+        "evidence": [
+          "Theorem 2.11 (unsigned m_G), Theorem 3.5, Example 6.10."
+        ],
+        "identifier_or_url": "https://www.ias.edu/sites/default/files/BarkleyLiu_Channels.pdf",
+        "material_read": "Theorems 2.10–2.11 and 3.5 and their proofs; Example 6.10; PDF pages 8–11 and 41–42",
+        "method": "Primary open PDF parsed text and relevant page images",
+        "title": "Channels, Billiards, and Perfect Matching 2-Divisibility",
+        "trigger": "Closest direct 2-adic divisor of Aztec-diamond matching counts"
+      },
+      {
+        "assessment": "Provides equivalent graph coordinates and positive-weight correlation machinery, not an integer gcd or sharp dyadic-signing theorem",
+        "evidence": [
+          "Section 2.2 vertex sets and edge relation; Section 2.1 positivity condition."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00220-023-04676-y",
+        "material_read": "Abstract and Sections 1.1–1.2 and 2.1–2.2 including vertex/edge coordinate formulas; index terms for signed weights",
+        "method": "Primary open-access full-text HTML inspection",
+        "title": "On the Domino Shuffle and Matrix Refactorizations",
+        "trigger": "Arbitrary Aztec-diamond edge-weight and Kasteleyn framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4f40564-fd16-470b-9573-3bfded27cfa9",
+  "value": {
+    "rationale": "Known unsigned Aztec tilings have valuation \\(n(n+1)\\)/2, and known channels give a universal signed determinant lower bound n. The proved exact common Walsh divisor shows this barrier is attained in every order; a natural n-edge flip family contains an odd number of sharp signings. This closes an all-order arithmetic attainability question for natural planar dimers, rather than recomputing one positive partition function.",
+    "status": "PASS"
+  }
+}
