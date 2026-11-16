@@ -1,0 +1,12 @@
+# Mathematical review
+
+## Correctness — PASS
+The signed-basis expansion is a finite sum over independent subsets. Extension counts follow by ordered basis completion, with factorial normalization. The two-adic valuation formula is exact; its lower bound at ranks at least five uses \(2r-s-3\ge2\) and \(\nu_2(s!)\le s-1\). A basis-sized sign set gives sharpness. The small-rank congruences follow from explicit extension counts, and the rank-five nine-point frequency has a complete six-term integer cancellation. Independently enumerated rank-four and rank-five cases corroborate all computational boundary claims. No inference from limited enumeration is used to prove the infinite-rank statement.
+
+## Originality — PASS under bounded comparison
+Classical matroid theory identifies the projective bases and their generating polynomial. Brändén and González D'León (arXiv:0906.1071) exclude projective geometries from weak half-plane stability, but their condition permits neither an inference of zero-free behavior nor an explicit real-sign zero. Kordecki (arXiv:1305.3119) counts geometric hyperplanes and circuits relative to a basis, rather than signed Fourier coefficients. The already-known rank-three Fano boundary and regular-matroid Fourier gcd results do not imply a sharp higher-rank congruence: projective geometries in ranks at least three are nonregular. A related projective-matroid top-homology result concerns invariant homology classes, not congruences of every sign evaluation. Database and literature comparisons did not expose a dominating claim. The priority search was bounded, and the related homology result was only available as an indexed abstract.
+
+## Mathematical value — PASS
+The theorem identifies the exact power of two common to exponentially many Fourier coefficients of a natural nonregular matroid family in every dimension. The congruence also recovers the parity of contained projective bases directly from the lowest dyadic layer of a signed Fourier coefficient. The rank-five cancellation marks a concrete change from universal invertibility to singularity, separating real-sign behavior from the known half-plane-stability obstruction. This supplies a meaningful arithmetic and recoverability boundary beyond unsigned projective-basis counts. It does not classify later singular ranks or complete spectra.
+
+Self-review: passed. Independent audit: not yet performed.
