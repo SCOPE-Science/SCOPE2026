@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian Fourier formula gives exact entire identity I=2exp(-s|ξ|²)(cosh(q|ξ|²)+cos(h·ξ)). Expanding produces Q=4s Id+hh^T and the stated homogeneous quartic. In dimension d≥2 the rank-one part has a zero eigenvalue, so min(Q) determines s. The nullspace of T yields q² exactly; T determines the separation vector up to sign. Explicit reverse construction validates every listed feasible jet including h=0 and q=0; varying q fixes all lower jets; two verified rational d=1 examples share Q=9 and P4=31/3. The attached checker tests rational expansions, but infinite proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kalavasis et al., arXiv:2601.05157v2, full HTML, Sections 1 and 3, explicitly excludes Gaussian components from its principal slow-Fourier-decay method; Appendix C uses original mixture data and local convergence.",
+        "Agostini et al., DOI:10.1007/s10208-020-09469-6: two-component reconstruction from moments under common covariance, not differing-width autocorrelation Fourier intensity.",
+        "Blomenhofer, arXiv:2307.03850: general Gaussian mixtures studied through original signed moments up to degree six."
+      ],
+      "reasoning": "General learning guarantees from full complex Fourier characteristics or raw moments do not imply uniqueness from only intensity derivatives of degree four. Homoscedastic mixture results exclude distinct widths. No strong prior implication was found in inspected material.",
+      "searches": [
+        "published-finding corpus: Sharp reconstruction of finite Fourier phase retrieval from local derivatives, spherical harmonics bandlimits, moment matrices and Gabor samples; new exact rigidity and optimality theorems",
+        "web: Gaussian mixture identifiability from degree 6 moments",
+        "web: Moment Identifiability of Homoscedastic Gaussian Mixtures"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.05157v2",
+      "https://arxiv.org/abs/2606.19855",
+      "https://pubmed.ncbi.nlm.nih.gov/21869125/",
+      "https://link.springer.com/article/10.1007/s10208-020-09469-6",
+      "https://ir.cwi.nl/pub/33276"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kalavasis et al. address full Fourier characteristics and sample-based mixture learning; Gaussian case has locally convergent estimates conditional on warm starts.",
+        "Xia and Xu 2026 concern complete-magnitude uniqueness for one-dimensional interval indicators, not low-order jets of two Gaussians.",
+        "Fukunaga and Flick 1983 have fourth-order ordinary-moment recovery for bimodal Gaussian mixtures, but full manuscript could not be inspected."
+      ],
+      "reasoning": "Neither raw-mixture moment access nor whole Fourier-magnitude intensity for a different function class entails this fourth-jet uniqueness and feasibility classification. Strong equivalence hidden in older Gaussian moment calculations remains a residual risk.",
+      "searches": [
+        "arXiv:2601.05157v1 and v2",
+        "arXiv:2606.19855v1",
+        "doi:10.1109/tpami.1983.4767410",
+        "doi:10.1007/s10208-020-09469-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned indexed statement asserted a complete fourth-order Fourier-magnitude jet inversion for two unit-mass Gaussians with unknown unequal positive isotropic widths.",
+        "Fukunaga and Flick, DOI:10.1109/tpami.1983.4767410, abstract: bimodal Gaussian moment estimates use ordinary distribution moments, not the autocorrelation intensity jet."
+      ],
+      "reasoning": "The autocorrelation has two centered self-convolutions and two translated cross-convolutions; its even moments are not the original mixture moments. The inverse conditions on rank-one Q and quartic form are not obtained by merely quoting the ordinary-moment theorem.",
+      "searches": [
+        "published-finding corpus: two normalized isotropic Gaussian mixture Fourier intensity Hessian fourth derivative recover both variances and separation in dimension two sharp derivative order",
+        "web: two component isotropic Gaussian mixture autocorrelation identify variance separation fourth moments phaseless Fourier power spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved nearest titles concern Fourier-intensity windows, Gaussian mixture direct moments, and two-interval indicator phase retrieval, not a table of fourth-jet Gaussian inverse parameters.",
+        "A related 2026 result for two Euclidean balls from second intensity derivatives concerns indicator balls of unit density, not Gaussian components with two unknown positive widths."
+      ],
+      "reasoning": "Exact tensor coefficients Q=4s Id+hh^T and quartic coefficient P4 with q² are model-specific. Closest entries do not list or imply their realizability cone or 1D alias collision.",
+      "searches": [
+        "published-finding corpus: Exact phaseless two Gaussian mixture inverse moment: recover two isotropic Gaussian variances and center separation from intensity Taylor derivatives of orders zero two and four; characterize feasible quartic tensors and one-dimensional aliases",
+        "published-finding corpus: phaseless Fourier transform of two Gaussians with different widths 4-jet reconstruction low frequency"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and primary literature comparisons distinguish phaseless Fourier intensity derivatives from original mixture moments or full Fourier characteristic functions. A Gaussian ordinary-moment degree-four result and interval phase retrieval are scientifically close but do not imply exact phaseless Gaussian jet feasibility. Searches reveal no prior formulation with the same Q and P4 classification; priority is explicitly provisional.",
+    "residual_risks": [
+      "Equivalent fourth-jet phaseless Gaussian identifiability may occur in older optical scattering or autocorrelation moment literature; search failure is not novelty proof.",
+      "The Fukunaga–Flick 1983 full article and Xia–Xu 2026 full manuscript were not inspected; their abstracts do not settle all implication possibilities.",
+      "No external independent review; proof has only same-model review and exact-arithmetic supplemental tests."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this claim: principal Fourier approach excludes Gaussians; appendix uses ordinary sample-based estimates, not intensity-only finite jets",
+        "evidence": [
+          "arXiv abstract states that slow-Fourier-decay algorithm excludes Gaussians",
+          "Appendix C describes Gaussian local convergence conditional on prior cluster mean estimates",
+          "No phaseless or phase-retrieval theorem found by full-text keyword search"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05157v2",
+        "material_read": "Abstract, Introduction, related work, model definitions, algorithm overview, Appendix C Gaussian local convergence",
+        "method": "read searchable HTML full manuscript sections and inspect phase-retrieval terminology",
+        "title": "Learning Mixture Models via Efficient High-dimensional Sparse Fourier Transforms",
+        "trigger": "Recent Fourier mixture learning; examine full text for phaseless Gaussian moment coverage"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY distinct indicator-interval class, but uninspected complete paper is a residual comparison risk",
+        "evidence": [
+          "Abstract explicitly concerns one-dimensional indicator functions of finite unions of intervals"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.19855",
+        "material_read": "arXiv abstract and public research abstract, not entire manuscript",
+        "method": "abstract bibliographic view; full document retrieval failed",
+        "title": "Fourier Phase Retrieval for Finite Unions of Intervals",
+        "trigger": "Closest 2026 structured Fourier phase retrieval source"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY fourth order ordinary distribution moments, not explicitly autocorrelation jets; equivalence cannot be decisively excluded without full text",
+        "evidence": [
+          "Abstract states general n-dimensional bimodal Gaussian parameter recovery from sample moments no higher than fourth order"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/21869125/",
+        "material_read": "PubMed abstract and bibliographic fields, not full manuscript",
+        "method": "read published abstract and identify quantifiers/measurements",
+        "title": "Estimation of the Parameters of a Gaussian Mixture Using the Method of Moments",
+        "trigger": "Classical high-priority fourth-order Gaussian-moment result"
+      },
+      {
+        "assessment": "NOT_COVERING for distinct unknown isotropic component widths and intensity-only moments",
+        "evidence": [
+          "Paper explicitly assumes a common unknown covariance for all components",
+          "Reconstruction uses odd-order cumulants of the mixture itself"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10208-020-09469-6",
+        "material_read": "Article abstract and openly available explanatory section describing reconstruction from cumulants",
+        "method": "read article HTML sections",
+        "title": "Moment Identifiability of Homoscedastic Gaussian Mixtures",
+        "trigger": "Closest explicit algebraic fourth-order Gaussian identifiability theorem"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY general direct-moment identifiability with degree six, not a fourth-intensity-jet theorem",
+        "evidence": [
+          "Results target direct mixture moments, generic high-dimensional mixture identification"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/33276",
+        "material_read": "Public record abstract, not complete manuscript",
+        "method": "review repository abstract and model assumptions",
+        "title": "Gaussian Mixture Identifiability from degree 6 Moments",
+        "trigger": "Check for stronger all-Gaussian moment inversion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ab3a228-0cc5-4b5f-8ccd-52645f801c87",
+  "value": {
+    "rationale": "The theorem is a natural complete inverse-data classification: for all separations it identifies the entire feasible fourth-order Fourier-intensity jet variety, yields explicit constructive two-scale inversion, proves sharp jet-order necessity and a nontrivial dimension-one failure by exact collision. Its use of a rank-one anisotropic covariance to isolate the Gaussian width sum provides a structural explanation of why 2D and higher differ from 1D. No general noise robustness is claimed.",
+    "status": "PASS"
+  }
+}
