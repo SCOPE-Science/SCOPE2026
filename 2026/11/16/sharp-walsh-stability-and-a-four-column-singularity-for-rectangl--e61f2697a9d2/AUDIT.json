@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The bijective decomposition of C4-free matrices yields formula (1). Every light-column factor is even; the six triple-pair assignments have even total, proving uniform 2^(n-2) divisibility. Explicit sign columns give -2^(n-2) and a zero for n>=4. Direct finite cardinality/marginal counts give W=2 mod 4 at n=2,3. The convolution claims follow by character diagonalization. Independent exact-integer C++ and Python certificates verify all spectra n=2..5 (C++ through n=7), Parseval and the n=4 nullity 621.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kitaev--Mansour--Vella's both-color 3x3 table has 168 matrices versus 334 in the single-color family.",
+        "The prior transfer-matrix method yields ordinary enumeration, not all sign-dependent Walsh multipliers."
+      ],
+      "reasoning": "The closest general enumerative approaches do not imply a sharp uniform Walsh divisibility theorem without an additional signed analysis. No inspected stronger Fourier recovery theorem covers this indicator.",
+      "searches": [
+        "spectral invertibility of binary convolution kernel consisting of rectangle free incidence matrices",
+        "Fourier Walsh C4-free K_{3,n} Boolean incidence no repeated row pair, rank invertible n=2,3, vanishing for n>=4 sharp multiplier 2^(n-2)",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL8/Mansour/jiskmv3.pdf, Sections 3.1--3.2"
+      ]
+    },
+    "checked_sources": [
+      "Kitaev--Mansour--Vella, Journal of Integer Sequences 8 (2005), Article 05.2.2, original PDF, relevant sections",
+      "Ju--Seo, arXiv:1107.1299 (first release 2011-07-07), arXiv full text",
+      "Published Fourier records on individual four-cycles, six-cycles, matchings, spanning trees and acyclic orientations of K_{3,n}: distinct subsets or operators, no implication to the C4-free family."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published count of 168 for both-color 3x3 avoidance is of a different family; the one-color count 334 follows from the signed injection formula at trivial frequency.",
+        "Standard Fourier diagonalization transfers the result to operator norms only once the novel exact nonzero gap and zero witness are proved."
+      ],
+      "reasoning": "Neither ordinary cardinalities nor C4-free extremal bounds determine zero character cancellations or sharp nonzero multipliers. The result is not an immediate corollary of the inspected literature.",
+      "searches": [
+        "C4-free bipartite graphs K3n Walsh Fourier transform signed adjacency matrices convolution zero multiplier rank",
+        "Walsh spectrum graph properties excluding 4 cycles across bipartite three row matrices",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL8/Mansour/mansour.html",
+        "https://arxiv.org/abs/1107.1299"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An all-one 2x2 submatrix is exactly a C4 in a bipartite adjacency matrix.",
+        "Binary complementation exchanges single all-one and single all-zero avoidance and multiplies Walsh coefficients only by characters, preserving their absolute values.",
+        "Ju--Seo (2011) explicitly separates single-pattern avoidance from simultaneous J,O avoidance."
+      ],
+      "reasoning": "The same absolute-spectrum theorem would cover the complemented one-color class; no such theorem was located in inspected sources. Both-color monochromatic avoidance is not equivalent to this family.",
+      "searches": [
+        "C4 free bipartite 3 by n no K2,2 Walsh transform sharp nonzero multiplier Fourier rank",
+        "Walsh spectrum of single forbidden 2x2 all-ones binary matrices rectangular Zarankiewicz configurations",
+        "https://arxiv.org/abs/1107.1299, introduction and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ju--Seo's table treats simultaneous J,O avoidance; their conclusion describes the one-color J case separately as C4-free enumeration.",
+        "Exact exhaustive checks produce 621 zeros for 3x4, but no checked published table includes this Walsh number."
+      ],
+      "reasoning": "No exact Walsh table was observed in searched published mathematical records or the two inspected primary papers; a non-indexed table is a remaining risk.",
+      "searches": [
+        "signed weighted enumeration C4 free 3xn binary matrix Fourier Walsh polynomial",
+        "Walsh Fourier transform C4-free bipartite graphs Boolean matrices",
+        "https://arxiv.org/abs/1107.1299, Table 1 and Section 4"
+      ]
+    },
+    "rationale": "Published single- and both-color rectangle-avoidance enumerations were materially distinguished; neither inspected full text states the all-frequency dyadic gap or its sharp witnesses. The closest published Fourier records on K_{3,n} four-cycles, six-cycles, matchings, spanning trees and acyclic orientations concern different indicator families, and do not dominate the C4-free indicator theorem. This is bounded historical comparison, not guaranteed uniqueness.",
+    "residual_risks": [
+      "Unindexed historical Walsh tables or differently normalized one-color signed enumerators might exist.",
+      "A more general unpublished theorem for arbitrary excluded subgraphs could subsume the three-row statement.",
+      "Independent expert verification of the finite certificate and theorem has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: counts and finite transfer algorithm, but no coordinatewise Walsh spectrum or sharp gap; the monochromatic-both-colors family is different",
+        "evidence": [
+          "Proposition 5 reports 168 both-color 3x3 patterns",
+          "Theorem 3.1 is a generating function for counts, not signed Fourier coefficients"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL8/Mansour/jiskmv3.pdf",
+        "material_read": "Title/abstract and Sections 3.1--3.2, including Proposition 5, Theorem 3.1, the 3x3 table and comparisons of one- and two-color avoidance",
+        "method": "Full original PDF text with corresponding page screenshots",
+        "title": "Pattern Avoidance in Matrices",
+        "trigger": "Closest early small 2x2 matrix-pattern enumerator and possible broader transfer theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: explicitly acknowledges C4-free single-pattern family but provides no Walsh multiplier or invertibility classification",
+        "evidence": [
+          "Introduction distinguishes one-color J or O from simultaneous J,O",
+          "Conclusion describes the single J enumerative problem as separate and records no signed Fourier theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.1299",
+        "material_read": "Full HTML representation with Introduction, Sections 2--3 and Conclusion, especially the distinction between one-pattern J and simultaneous J,O",
+        "method": "ArXiv full-text HTML inspection",
+        "title": "Enumeration of (0,1)-Matrices Avoiding Some 2x2 Matrices",
+        "trigger": "Same forbidden all-one matrix and complement/dual formulations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e61f2697-a9d2-403b-88fb-fd51db95b5a2",
+  "value": {
+    "rationale": "C4-free labelled bipartite graphs are a standard natural family, and three fixed rows are the smallest shore size with three different conflicting row pairs. Exact recovery holds at widths two and three but fails abruptly at width four. The all-frequency sharp dyadic gap and exact pseudo-inverse norm quantify stable recovery of all surviving modes for every width; these invariants do not follow from mere counts. The theorem is a natural complete threshold and exact nonzero-gap classification, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
