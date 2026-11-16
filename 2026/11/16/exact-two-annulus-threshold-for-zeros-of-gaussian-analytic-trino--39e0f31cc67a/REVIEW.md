@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The Gaussian covariance is \(1+a r^{2m}+r^{4m}\), and the distributional logarithmic-potential identity yields the stated planar zero density with factor \(1/(4\pi)\). Differentiation in \(x=2m\log r\) reduces the entire radial critical-point problem to \(h_a(x)=1/m\). The exact derivative comparison is affine in \(\cosh x\), proving the unique negative-radius-logarithm maximum and at most two further stationary points. The peak-height calculation gives the one and only threshold \(4m^2(u-1)^3=4u^3-1\). The tangency and \(m^{-2/3}\) law follow by nondegenerate Taylor expansion. Endpoint conditions, coefficient variance normalization, the origin, and the distinction between area and radial density were checked. `CHECK.py` passed 149 finite assertions; these are not substituted for the global argument.
+
+## Originality — PASS with bounded priority risk
+The starting expected-density formula is classical, not claimed new. Kiro–Nishry's covariance-kernel framework includes the requisite intensity formula, but its inspected statements concern zero-count and variance estimates, not the sharp global one- or two-annulus count and cubic variance threshold. Kawada's 2026 paper treats iid dense polynomial coefficients and limiting radial zero counts; it does not assert this sparse finite-degree peak bifurcation. Comparisons with published mathematical records about deterministic Fock intensities, two-ring Fock localization, and Gaussian spectrogram zeros concern different quantities; none of the inspected statements directly supplies the all-degree threshold. Searches for the equivalent three-atom exponential-family variance formulation and parameter equation identified no decisive stronger theorem. This is not a proof of publication priority: older specialized trinomial or exponential-family work could contain the same classification.
+
+## Mathematical value — PASS
+The model is the minimal three-term Gaussian analytic polynomial capable of a tunable split of its expected zero cloud into two annular density peaks. The exact one-versus-two ring classification holds for *all* integers \(m\ge2\) and positive middle variances, including the degenerate boundary. The unexpectedly simple cubic in \((a/4)^{2/3}\), the square-root fold, and the sharp \(m^{-2/3}\) critical shift give a reproducible structural benchmark for lacunary random-polynomial zero geometry. The classification is not merely a substitution into the known covariance formula: the global critical-point count and all-degree threshold require the separate monotonicity and critical-value arguments.
+
+## Relationship and limitations
+Kiro–Nishry, *Fluctuations for zeros of Gaussian Taylor series* (2021), DOI 10.1112/jlms.12457; Kawada, *Universal Radial Laws for Random Polynomials* (2026), arXiv:2610.11324; classical Edelman–Kostlan expected-zero identity. Only expected planar intensity is covered, not realizations or radial-count density. There remains a possible overlooked equivalent classification in older literature.
+
+Self-review: passed. Independent audit: not yet performed.
