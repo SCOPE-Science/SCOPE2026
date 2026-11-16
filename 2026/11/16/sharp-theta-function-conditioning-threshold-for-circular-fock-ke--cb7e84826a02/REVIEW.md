@@ -1,0 +1,11 @@
+# Scientific evaluation
+
+**Correctness — PASS.** Fourier diagonalization gives strictly positive Poisson residue eigenvalues and exact identification of the squared condition ratio. Strict full-support convolution proves monotonicity for every real radius. A uniform modular Fourier local limit, including the drifting mean phase, and the Jacobi product identify the exact theta extreme ratio. The inverse threshold follows by monotone bracketing. The packaged checker passed 48 finite consistency checks; the infinite result is analytical.
+
+**Originality — PASS relative to inspected literature.** The precise underlying Gram eigenvalues are expressly known from Horoshko et al. (2016), equation (9), and are not claimed new. The inspected Sections II and V of that paper do not derive a uniform modular heat limit, a strict condition-number monotonicity theorem, or the fixed-accuracy sharp large-orbit radius threshold. The analytic Fock kernel and corresponding Gaussian-RBF constructions are standard in De Bie et al. (2025). The full open-access introduction and sampling setup of Gröchenig–Ortega-Cerdà (2022) concern polynomial sampling, not fixed-circle Gram conditioning. Published published-finding corpus searches for Fock, coherent circular samples, theta thresholds, and Poisson residue conditioning yielded no identical or stronger theorem. This is a best-knowledge originality comparison, not proof of publication uniqueness. An equivalent result could exist in historical cyclic Markov-chain or quantum-optics sources.
+
+**Value — PASS.** Condition number is an intrinsic stability invariant of circular coherent-state interpolation. The theorem gives the smallest permissible geometric radius for any prescribed stability tolerance, identifies its exact quadratic growth and a universal theta constant, and excludes nonmonotone intermediate-radius behavior. The quantitative threshold cannot be read off as a fixed number from the previously published finite spectral decomposition and requires a nontrivial phase-uniform limit and extremal argument. It does not claim a wider sampling theorem.
+
+No independent publication-priority verification or mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
