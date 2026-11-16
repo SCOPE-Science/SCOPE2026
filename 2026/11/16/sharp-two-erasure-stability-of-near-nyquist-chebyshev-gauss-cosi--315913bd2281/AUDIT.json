@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The complete normalized DCT-II is orthogonal; its complementary two-row two-column block has determinant-squared D and trace T, yielding all squared singular values. The determinant is nonzero for any distinct nodes. For every nonendpoint pair, the elementary bound lambda_- >= 4/(5N) min(sin^2 theta) (cos theta_j-cos theta_k)^2, plus sine spacing and a strict endpoint upper bound, proves unique extremal erased pairs for N>=5. The six N=4 cases are compared exactly. Taylor expansion of trace and determinant at the endpoint gives 9 pi^6/(25 N^7). A standalone NumPy checker passed 5346 finite assertions and is supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dirckx et al. (2022), complete arXiv HTML, study singular-value computation for contiguous complex DFT submatrices; the present DCT-II arbitrary-pair erasure patterns are not their set of matrices."
+      ],
+      "reasoning": "A full-matrix DCT orthogonality identity yields singular-value duality but not by itself the extremal pair uniqueness and seventh-power sharp coefficient. The identified broader-looking SVD work does not prove that specific comparison.",
+      "searches": [
+        "Sharp two-erasure stability of near-square Chebyshev-Gauss discrete cosine sampling matrices: worst adjacent endpoint erasures and seventh-order lower frame bound",
+        "Optimal two-removed-node pattern for cosine transform interpolation determinant, symmetric endpoint adjacent erasures",
+        "arxiv:2208.12583"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.5402/2011/421502 full HTML",
+      "arxiv:2208.12583 complete HTML v1",
+      "doi:10.1109/TIP.2021.3087404 abstract only",
+      "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f complete RESULT.md",
+      "2026/11/8/SCOPE-three-consecutive-erasures-are-uniquely-worst-for-four-row-cycli--b647927b49e8 search summary",
+      "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0 search summary",
+      "2026/11/8/SCOPE-sharp-three-erasure-stability-of-a-cyclic-three-mode-fourier-fra--1b09479ce727 search summary",
+      "2026/9/19/SCOPE-ar1-klt-dct-boundary-layer--eb1cf877d8ed search summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full Salomon–Ur 2011 source: edge gap difficulty qualitatively but no sharp universal two-erasure spectral theorem.",
+        "Goren–Zamir 2021 abstract: DCT irregular interpolation with distributed losses, not an explicit sharp Chebyshev-Gauss two-erasure frame bound in accessible abstract.",
+        "Dirckx–Huybrechs–Ongenae 2022 full source: numerical SVD for contiguous DFT minors, not Gauss-node pair optimizer."
+      ],
+      "reasoning": "The claimed exact N^-7 stability law and unique endpoints are stronger and more specific than observed qualitative edge sensitivity. A plausible inaccessible 2021 article may contain an equivalent corollary, so the originality judgment is provisional and should be reviewed against its full text when lawfully accessible.",
+      "searches": [
+        "Chebyshev Gauss node interpolation with N−2 basis polynomials and two missing points, smallest eigenvalue via complementary sine modes, N^{-7} instability",
+        "Optimal two-removed-node pattern for cosine transform interpolation determinant, symmetric endpoint adjacent erasures",
+        "doi:10.1109/TIP.2021.3087404",
+        "doi:10.5402/2011/421502",
+        "arxiv:2208.12583"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The DCT-II is an orthogonal Chebyshev–Gauss evaluation matrix; deleting two rows and last two columns is equivalent, via complementary singular values, to examining a 2-by-2 sine-row block. Salomon and Ur (2011), full HTML Sections 2–6, discuss DCT gap filling but not the complementary 2-by-2 extremizer classification."
+      ],
+      "reasoning": "The near-square DCT interpolation, polynomial Chebyshev sampling and orthogonal-complement minor are equivalent formulations of the same claim. The inspected gap-filling source neither gives the all-pairs spectral formula nor proves the global sharp endpoint minimizer.",
+      "searches": [
+        "Chebyshev Gauss node interpolation with N−2 basis polynomials and two missing points, smallest eigenvalue via complementary sine modes, N^{-7} instability",
+        "Discrete cosine transform (DCT-II) minor singular values complementary rows, exact endpoint vulnerability",
+        "doi:10.5402/2011/421502"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus Chebyshev–Lobatto item (2026-10-18), full RESULT.md inspected, classifies a single missing Lobatto node via a sup-norm Lebesgue constant; the 2026-09-19 AR(1) KLT-DCT item addresses a different matrix family."
+      ],
+      "reasoning": "Neither retrieved result tabulates or implies the two-erasure Gauss–Chebyshev DCT-II squared singular values. Absence from searched records remains limited evidence rather than uniqueness certification.",
+      "searches": [
+        "Sharp two-erasure stability of near-square Chebyshev-Gauss discrete cosine sampling matrices: worst adjacent endpoint erasures and seventh-order lower frame bound",
+        "Discrete cosine transform (DCT-II) minor singular values complementary rows, exact endpoint vulnerability",
+        "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f",
+        "2026/9/19/SCOPE-ar1-klt-dct-boundary-layer--eb1cf877d8ed"
+      ]
+    },
+    "rationale": "Targeted semantic and alias searches found no exact all-N eigenvalue formula or unique adjacent-boundary two-erasure minimizer for the N-by-(N−2) DCT-II minor. The full Salomon–Ur gap-recovery study has qualitative edge sensitivity, not the exact determinant/singular-value minimax theorem; the full Dirckx–Huybrechs–Ongenae Fourier-submatrix SVD study treats a different complex-DFT truncation. A directly related 2021 DCT interpolation article could only be compared through its abstract, leaving stated priority risk. No search result is treated as proof of novelty.",
+    "residual_risks": [
+      "The full Goren–Zamir (2021) DCT irregular interpolation article was unavailable; a stronger equivalent extremal statement could reside there.",
+      "Earlier DCT packet-erasure and Chebyshev interpolation literature could contain the same spectral minimax conclusion in different notation; extensive search is not a priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative missing-block recovery, no all-N optimal two-deletion squared-singular spectral theorem",
+        "evidence": [
+          "Gauss–Chebyshev interpolation setup and edge-gap effects are discussed; no exact pairwise smallest eigenvalue or N^-7 coefficient stated in inspected text."
+        ],
+        "identifier_or_url": "https://doi.org/10.5402/2011/421502",
+        "material_read": "Full open HTML, Sections 2–6 and discussion",
+        "method": "Full open-text inspection",
+        "title": "A Method for the Recovery of Gaps in General Analytic Signals",
+        "trigger": "Uses Chebyshev zeros and DCT-II for missing-sample recovery"
+      },
+      {
+        "assessment": "Computational analysis for complex contiguous DFT submatrices, not equivalent Chebyshev Gauss DCT pair-erasure optimality",
+        "evidence": [
+          "Its source family and truncation assumptions do not provide the endpoint pair minimization proved here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.12583",
+        "material_read": "Full arXiv v1 HTML, Sections 1–3",
+        "method": "Full arXiv HTML inspection",
+        "title": "On the computation of the SVD of Fourier submatrices",
+        "trigger": "General Fourier submatrix SVD may cover DCT minors"
+      },
+      {
+        "assessment": "No same sharp theorem in abstract; unresolved full-text historical risk",
+        "evidence": [
+          "Indexed abstract discusses diverse DCT interpolators and resilience to packet loss, not exact pair-erasure minimizer or spectral coefficient."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIP.2021.3087404",
+        "material_read": "PubMed and indexed abstract only; full article not obtained",
+        "method": "Open/author preprint searches, abstract review; lawful institutional retrieval unavailable",
+        "title": "Diversity Image Coding Using Irregular Interpolation",
+        "trigger": "DCT-domain recovery with irregular missing observations is a plausible exact predecessor"
+      },
+      {
+        "assessment": "Single Lobatto erasure, sup-norm Lebesgue growth, not two Gauss erasures or the squared spectral bound",
+        "evidence": [
+          "Full statement treats interpolation of degree N−1 on N retained Lobatto nodes and an N-order Lebesgue constant."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f",
+        "material_read": "Complete public RESULT.md",
+        "method": "Read full published statement, proof and limitations",
+        "title": "Single-erasure boundary layers for Chebyshev–Lobatto interpolation",
+        "trigger": "Closest Chebyshev missing-node mathematical finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "315913bd-2281-4db6-8d68-2358423a2b8c",
+  "value": {
+    "rationale": "The exact worst-case two-erasure threshold is a natural conditioning invariant for critically retained Chebyshev–Gauss polynomial sampling. Although every pair permits reconstruction, only adjacent endpoint gaps create the sharp N^7 squared-condition blow-up; the theorem characterizes all erasure spectra, global extremizers and the nontrivial exact asymptotic coefficient. It connects sampling design and redundancy against missing nodes beyond elementary DCT orthogonality.",
+    "status": "PASS"
+  }
+}
