@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For every distinct-prime p and ell, q=ell^r, zero-frequency sums of p q-roots cannot vanish by the explicit cyclotomic coefficient argument; for any nonzero frequency, irreducibility of Phi_p over Q(zeta_q) means a vanishing Fourier coefficient forces a constant product row; two different constant shifts imply a common prime-order and q-order multiplier, hence both input words constant. The three support sets and unique shift follow, and independent phase-normalized pairs count exactly 1, p(q^(p-1)-1), q^(2p-2)-1-p(q^(p-1)-1). Direct independent enumeration verified all pairs for five small parameter cases, largest 65536. All cases p=2 and r>=1 are covered; computations supplement an all-parameter algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicola 2022 Theorem 1.1: support at least p; Theorem 1.2: equality characterization.",
+        "A published constant-envelope prime-cycle gap gives p or at least 4p-3 for p>=5; the present result gives exactly p, p^2-p+1 or p^2 under a coprime prime-power alphabet.",
+        "A published arbitrary-input prime-cycle gap gives p or at least 2p."
+      ],
+      "reasoning": "Unrestricted coefficients have strictly broader input coverage but much weaker output claims; neither p or >=4p-3 nor p or >=2p can imply full p^2-p+1/p^2 spectrum, locations and multiplicities. The special fixed-order phase-censuses on Z4 or with sixth roots on Z5 do not cover all coprime primes.",
+      "searches": [
+        "distinct primes p l phase alphabet l power exact STFT support sizes p p squared minus p plus one p squared",
+        "finite alphabet roots of unity short time Fourier support rigidity prime cycles cross ambiguity gaps",
+        "https://arxiv.org/abs/2204.14176",
+        "2026/11/2/SCOPE-a-four-frequency-gap-for-constant-envelope-prime-cyclic-spectrog--d3d02e246771",
+        "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.14176",
+      "https://arxiv.org/html/2206.06729v1",
+      "https://arxiv.org/abs/math/9511209",
+      "2026/11/2/SCOPE-a-four-frequency-gap-for-constant-envelope-prime-cyclic-spectrog--d3d02e246771",
+      "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+      "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c",
+      "2026/11/8/SCOPE-exact-gabor-lifting-ranks-and-composite-alphabet-obstructions-fo--079b1832650a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nicola generalizes the minimal-support equality but does not analyze the prime-power alphabet intermediate support stratum.",
+        "Lam-Leung length semigroup gives the necessary p≠ell zero-modulation noncancellation but says nothing directly about nonzero modulation or consistency across all shifts.",
+        "Bartusel studies magnitude-phase retrieval for cyclic windows, not exact zero-set cardinalities of arbitrary cross STFT pairs."
+      ],
+      "reasoning": "The key new implication combines (a) multiplicative-order coprimality, (b) full minimal polynomial of zeta_p over Q(zeta_q), and (c) mutual incompatibility of multiple proportional shifts, then derives all multiplicities. A source proving only one algebraic sublemma, the global p equality case or a weak global bound does not entail the entire claimed result.",
+      "searches": [
+        "coprime prime power unimodular alphabet exact cross STFT support three strata p p^2-p+1 p^2 multiplicities",
+        "distinct primes p l phase alphabet l power exact STFT support sizes p p squared minus p plus one p squared",
+        "https://arxiv.org/abs/2204.14176",
+        "https://arxiv.org/html/2206.06729v1",
+        "https://arxiv.org/abs/math/9511209",
+        "2026/11/2/SCOPE-a-four-frequency-gap-for-constant-envelope-prime-cyclic-spectrog--d3d02e246771",
+        "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For each shift the coefficient row lies in Q(zeta_q); the p-th cyclotomic polynomial is irreducible over that field. This is an equivalent algebraic formulation, but the prior two-sparse theorem has a different domain.",
+        "Nicola 2022 Theorem 1.2 classifies support p for unrestricted inputs, without forcing every other row full."
+      ],
+      "reasoning": "Compared Gabor cross ambiguity, cyclic spectrogram and STFT notions as the same Fourier transform up to nonzero normalization/coordinate reversal. Our assertion includes exact counts and support sets, not solely the p equality case. Neither nearby two-sparse support trichotomy nor phase-retrieval statements imply the all-nonzero q-ary word classification.",
+      "searches": [
+        "coprime prime power unimodular alphabet exact cross STFT support three strata p p^2-p+1 p^2 multiplicities",
+        "cyclotomic phase short-time Fourier zero at nonzero modulation only for shifted proportional sequences distinct primes",
+        "https://arxiv.org/abs/2204.14176",
+        "2026/10/4/SCOPE-exact-support-trichotomy-for-two-sparse-prime-cyclic-stfts--5b84852d543c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing indexed results concern proper-support lifting ranks, three-tap cross ambiguities, and fixed Z4/Z5 alphabet censuses.",
+        "Exact census from direct-DFT test across 9,16,256,256,65536 normalized pairs matches all predicted counts but is not a novelty proof."
+      ],
+      "reasoning": "No identical full parameterized trichotomy or closed multiplicity table surfaced. Small finite waveform tables may encode some examples and remain a residual priority risk; the general all-prime formula is not shown covered by such tables.",
+      "searches": [
+        "prime-power phase alphabet Gabor cyclic ambiguity nonzero zero-frequency all shifts sharp support gap",
+        "prime power roots of unity full support finite Fourier transform all frequency coefficients nonzero cyclic prime",
+        "2026/11/8/SCOPE-exact-gabor-lifting-ranks-and-composite-alphabet-obstructions-fo--079b1832650a",
+        "phase-only complete support spectrum QPSK prime STFT counts"
+      ]
+    },
+    "rationale": "The exact three support cardinalities, corresponding complete phase-normalized multiplicities, and complete support-location classification for all distinct primes and prime-power phase alphabets do not follow from the compared published minimal-support/equality, prime support-gap, cyclotomic zero-sum, or cyclic STFT phase retrieval statements. Full-text inspection covers the most relevant motivating and related primary sources; residual unindexed-table risk is explicit.",
+    "residual_risks": [
+      "Some published specialized radar/polyphase-sequence zero-pattern tables may not be indexed by exact support/phase-alphabet terminology.",
+      "The two closest published mathematical repository records were available by title and summary but not full text in this run; no whole-document noncoverage claim is made about them.",
+      "The cyclotomic algebra lemma and root-of-unity length obstruction are classical; originality is restricted to their synthesis into an exact STFT support-set and multiplicity classification.",
+      "Independent priority and proof review remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only the p-size extremal cases, not this exact cyclotomic support spectrum and multiplicities",
+        "evidence": [
+          "Theorem 1.1 states support >=N; Theorem 1.2 identifies all equality cases via cosets of order N."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.14176",
+        "material_read": "Full machine-readable text, including Theorems 1.1-1.2 and surrounding proof framework",
+        "method": "Inspected arXiv full HTML/text",
+        "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+        "trigger": "Same transform and general sharp minimum"
+      },
+      {
+        "assessment": "Phase-retrieval fiber/injectivity and window-ambiguity supports; does not assert this coefficient-alphabet exact cross-STFT spectrum",
+        "evidence": [
+          "Section 4.1 Theorems 4.1.1/4.1.4 and 4.2 generic short-window results treat injectivity; no cyclotomic-alphabet trichotomy."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.06729v1",
+        "material_read": "Full available HTML examined with emphasis on Section 4.1, Section 4.2 and Section 4.3 statements",
+        "method": "Inspected arXiv original v1 HTML and theorem statements",
+        "title": "Injectivity conditions for STFT phase retrieval on Z, Z_d and R^d",
+        "trigger": "Full finite cyclic STFT and ambiguity zero questions"
+      },
+      {
+        "assessment": "Known arithmetic prerequisite, not novelty; full-paper novelty comparison not asserted",
+        "evidence": [
+          "For root order q=ell^r, vanishing sum length must be a nonnegative multiple of ell."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/9511209",
+        "material_read": "Abstract and main theorem statement only, not complete paper",
+        "method": "Read arXiv public abstract; separately supply a full elementary proof of the required prime-power case",
+        "title": "On vanishing sums for roots of unity",
+        "trigger": "Root-of-unity zero-length divisibility lemma"
+      },
+      {
+        "assessment": "Proved p or at least 4p-3 for p>=5, with no exact full-alphabet support shapes/counts reported; full-text risk remains",
+        "evidence": [
+          "General full-unimodular support gap p or >=4p-3 cannot imply p^2-p+1/p^2-only under prime-power alphabet."
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-a-four-frequency-gap-for-constant-envelope-prime-cyclic-spectrog--d3d02e246771",
+        "material_read": "Indexed published title and summary; full source inaccessible during this check",
+        "method": "Semantic claim comparison and attempted public source fetch",
+        "title": "A four-frequency gap for constant-envelope prime-cyclic spectrograms",
+        "trigger": "Same phase-only full-support cross-STFT and sharp support gaps"
+      },
+      {
+        "assessment": "General support p or >=2p, not the three-level alphabet-specific claim; full-text risk remains",
+        "evidence": [
+          "Support >=2p after the minimum does not force the asserted support values or multiplicities."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+        "material_read": "Indexed published title and summary; full source inaccessible during this check",
+        "method": "Semantic implication comparison and attempted public source fetch",
+        "title": "A sharp support gap above the odd-prime short-time Fourier uncertainty minimum",
+        "trigger": "Possible broader support gap theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "39ffded0-8bd9-43af-a362-1aaa2cd7f293",
+  "value": {
+    "rationale": "Determines a complete natural support spectrum, not a bound: all p^2 time-frequency bins are nonzero except for at most one p-1-frequency line unless both words are constant. The exact phase-normalized multiplicities and complete support geometry hold for infinitely many cyclic dimensions and arbitrary coprime prime-power phase alphabets. This is motivated by finite-alphabet time-frequency waveform zero design and quantifies a strong alphabet-induced gap absent from unrestricted phase-only models. The q composite counterexample sharply explains the arithmetic restriction. It is neither an arbitrary single finite case nor a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
