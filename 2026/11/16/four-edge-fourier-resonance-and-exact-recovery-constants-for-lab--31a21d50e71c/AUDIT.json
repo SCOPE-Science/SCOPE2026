@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: Proof sections 1-5",
+      "verify.cpp: by_connected_edge_sets/by_cycle_and_rooted_forest, full frequency checks, cycle_forest_signed_sum, classed signature assertions",
+      "SPECTRA.txt: exact complete histograms, zero weights, projection numerator",
+      "arxiv:2210.03711v2, sections 3 and 5 for relevant signed matrix-tree methods"
+    ],
+    "rationale": "The unique-cycle forest decomposition yields the exact unsigned enumerator and signed all-minors determinant formula. Two independent graph-generating procedures agree for n=3..7. The packaged exact C++17 checker verifies all 1024 and 32768 signed coefficients at n=5 and 6 using direct sums, complete Walsh transforms and independent signed cycle-forest determinants. The n=6 weight-four support theorem is checked against every one of the 1365 four-edge signings and all lower weights, with an elementary characterization of degree sequence (0,1,1,2,2,2). Rank follows from Fourier diagonalization; minimal nonzero magnitudes and projection-kernel abs sums follow from exact arrays. The infinite n congruent to 3 mod 4 invertibility proof follows from the exact forest count and a two-adic valuation argument, not finite extrapolation.",
+    "risks": [
+      "Independent audit and formal verification are not performed. Source enumeration and exact arithmetic fit signed 32-bit integers in the checked domain; any higher-order extrapolation is unproved."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The earlier unicyclic first-band result determines centered degree-one Walsh covariance and explicitly says higher-degree spectra are outside scope. It does imply the five-vertex one-edge cancellation, which is not claimed new.",
+        "Mallik Theorem 5.2 evaluates signless net-Laplacian determinants with disconnected tree-unicyclic components, odd cycles and weights 4^components, not the connected fixed-cyclomatic-number-one signed Fourier polynomial.",
+        "The earlier all-connected-subgraphs Fourier gcd concerns an ungraded connected edge-set sum, not the fixed exactly-n-edge unicyclic layer."
+      ],
+      "reasoning": "Neither first-band covariance nor unsigned/random-graph counts determine four-edge cancellation or the full convolution Fourier rank. An ungraded sum cannot be inverted into a particular edge-count component from its total alone.",
+      "searches": [
+        "published-finding corpus record 191cfc31fb25, fetched full RESULT.md",
+        "published-finding corpus public finding 89f45551846c, Fourier spectra of spanning trees of K_{2,n}",
+        "arxiv:2210.03711v2 Mallik, full text sections 3,5",
+        "arxiv:math/0502579v1 van der Hofstad-Spencer, full text introduction and main results",
+        "mathematical finding ID 17010463-d26e-4700-ac50-66e3796573a3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0502579v1",
+      "arxiv:0806.4848v1",
+      "arxiv:2210.03711v2",
+      "published-finding corpus:191cfc31fb25",
+      "related mathematical statements compared by claim identifiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published first-band theorem supplies p=2/(n-1) and therefore the frequency-one coefficient U_n(1-2p), which vanishes at n=5; this subset is already covered.",
+        "The net Laplacian cofactor determinant gives signed tree sums and the all-minors extension gives rooted forest sums; neither determines the whole cycle-weighted sum at every edge signing."
+      ],
+      "reasoning": "The surviving novelty is the high-order Fourier zero pattern, n6 precise shape boundary, total convolution nullity and sharp unrestricted projection constants. Standard transform identities are used as tools, not presented as novel; the prior one-edge corollary is explicitly attributed.",
+      "searches": [
+        "published-finding corpus public record 191cfc31fb25, full proof and limitations",
+        "arxiv:2210.03711v2 Theorems 3.6 and 5.2",
+        "arxiv:0806.4848v1 sections 4.1-4.4",
+        "mathematical record on ungraded connected graph Fourier gcd, item 17010463-d26e-4700-ac50-66e3796573a3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A vanishing unnormalized Walsh coefficient means exactly equal positive and negative signed connected unicyclic subgraph totals. This also equals a zero of the fixed-complexity-one edge-set generating polynomial at a sign vector.",
+        "Goodall establishes finite group Fourier identities and graph-polynomial formalism but not the exact six-vertex signed cancellation census."
+      ],
+      "reasoning": "The claim was compared as a signed cycle-and-rooted-forest polynomial evaluation, not merely by the word Walsh. General Fourier duality transforms the statement into zero signed enumerators but supplies no counts, minimum zero degree or graph-shape classification.",
+      "searches": [
+        "published-finding corpus semantic search: signed spanning unicyclic graph Fourier Walsh edge character convolution rank",
+        "published-finding corpus semantic search: labelled unicyclic K6 exact Walsh spectrum 1200 vanishing convolution rank 31568 projection constant",
+        "published-finding corpus semantic search: six vertex unicyclic graph Walsh zero exactly path P5 disjoint triangle edge 420",
+        "web search: unicyclic signed graph Fourier coefficient edge indicator six vertices",
+        "Goodall arxiv:0806.4848v1, full text sections 4.1-4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public index returned related graph spectra and first-degree unicyclic results but no table with ranks 812 or 31568, zero set 1200, or the two four-edge graph types.",
+        "Earlier historical items include graph-tree spectra, connected-graph Fourier arithmetic and unicyclic edge Gram sampling, but none is the full signed edge-character census of unicyclic K6."
+      ],
+      "reasoning": "Actual exact constants and the isomorphism shape criterion were searched, not only article titles. Absence of a hit is weak evidence, so possible unindexed tables are retained as a residual risk.",
+      "searches": [
+        "published-finding corpus semantic search: labelled unicyclic K6 exact Walsh spectrum 1200 vanishing convolution rank 31568 projection constant",
+        "published-finding corpus semantic search: six vertex unicyclic graph Walsh zero exactly path P5 disjoint triangle edge 420",
+        "published-finding corpus semantic search: unicyclic signed Fourier nullity first zero degree four graph on six vertices",
+        "web search: unicyclic Walsh Fourier graph edge signed indicator rank zero",
+        "prior research statements on Fourier graph indicators, compared by claim"
+      ]
+    },
+    "rationale": "The six-vertex full Walsh nullity 1200, first zero-weight four with precisely two negative-edge graph shapes, and full-space sharp projection constant are different from and not implied by the established unsigned unicyclic enumerator or first-Walsh-band covariance. Exact n=5 full spectrum is also a distinct higher-degree result. The previously known five-vertex single-edge zero is explicitly excluded from the novelty claim. Bounded public mathematical index, own historical-claim, and primary-source searches yielded no dominating statement.",
+    "residual_risks": [
+      "Search indexes and available primary texts cannot prove historical uniqueness or exclude an unindexed signed enumerator table.",
+      "Two related published-finding corpus records on spanning trees and unicyclic edge sampling do not automatically imply coverage; their summaries were compared and only the direct unicyclic first-band record was read in full.",
+      "Independent scientific review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING six-vertex full spectrum; COVERING five-vertex one-edge cancellation indirectly",
+        "evidence": "Its proof section 2 fixes p=2/(n-1), and its Limitations excludes higher-degree Walsh spectra.",
+        "identifier_or_url": "published-finding corpus public record 191cfc31fb25",
+        "material_read": "complete RESULT.md including theorem, proof and limitations",
+        "method": "retrieved full document and compared definitions, degree bands and implications",
+        "title": "Exact centered Walsh stability for uniform labelled unicyclic graphs",
+        "trigger": "same combinatorial object and edge Walsh characters"
+      },
+      {
+        "assessment": "NOT_COVERING exact signed fixed-order Walsh spectrum",
+        "evidence": "The authors study asymptotic counts of connected graphs by complexity; unicyclic C(k,1) is contextual literature.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0502579",
+        "material_read": "introduction, definitions of C(k,l), stated theorems and research scope in the 23-page paper",
+        "method": "arXiv full-text and first-page render inspection",
+        "title": "Counting Connected Graphs Asymptotically",
+        "trigger": "classical complexity-one labelled graph enumeration"
+      },
+      {
+        "assessment": "NOT_COVERING exact unicyclic K6 nullity, weights or projection norm",
+        "evidence": "Section 4 gives general Fourier inversion, Plancherel and graph-related polynomial transformations.",
+        "identifier_or_url": "https://arxiv.org/pdf/0806.4848",
+        "material_read": "abstract, introduction and sections 4.1-4.4 on Fourier, graph polynomials, flows and tensions",
+        "method": "arXiv full-text and first-page render inspection",
+        "title": "Graph polynomials and Tutte-Grothendieck invariants: an application of elementary finite Fourier analysis",
+        "trigger": "general graphical Fourier transform and signed evaluation frameworks"
+      },
+      {
+        "assessment": "NOT_COVERING connected fixed-edge family Fourier frequencies",
+        "evidence": "Theorem 3.6 gives net signed spanning tree cofactor; Theorem 5.2 gives a signless determinant over possibly disconnected odd-unicyclic TU-subgraphs with weights 4^components.",
+        "identifier_or_url": "https://arxiv.org/pdf/2210.03711",
+        "material_read": "sections 2,3,5, Theorems 3.6 and 5.2, open problems",
+        "method": "arXiv full-text and first-page render inspection",
+        "title": "Matrix tree theorem for the net Laplacian matrix of a signed graph",
+        "trigger": "closest possible signed tree determinant and unicyclic formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31a21d50-e71c-40b6-b87d-63f444bd34d5",
+  "value": {
+    "evidence": [
+      "complete exact six-vertex spectrum and 420 graph-shape-minimal zero signings",
+      "nonzero inverse bound and projection constants with unrestricted minimization proof",
+      "classical fixed-complexity-one graph enumeration and prior first-band sampling distinction"
+    ],
+    "rationale": "The smallest nontrivial connected one-cycle class exhibits a concrete Fourier-recovery transition: n=4 invertible, n=5 zero modes at one edge, n=6 first zeros only at four-edge signings with a two-shape graph-theoretic characterization, n=7 invertible again. The complete six-vertex rank 31568 and sharp minimum endpoint projection norm 9077/512 quantify information loss and stable recovery beyond the ordinary enumerative count and beyond first-band covariance. The signed-cycle forest formula permits independent exact verification of every coefficient and makes the shape boundary inspectable. This is a natural complete finite spectral invariant with explicit objects and a genuine interpretation as a cancellation order threshold, rather than an arbitrary coordinate slice.",
+    "risks": [
+      "Finite benchmark and parity corollary do not settle general n; full classification in larger dimensions may have different structure."
+    ],
+    "status": "PASS"
+  }
+}
