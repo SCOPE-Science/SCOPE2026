@@ -1,0 +1,15 @@
+# Mathematical review: sharp mixed-polyspectral reconstruction on two Fourier cosets
+
+## Correctness
+**PASS.** The object and Fourier normalization are explicit. For fixed Fourier magnitudes, ratios are unit phases on the exact two-coset support. Cubic equations impose a character on the subgroup and one remaining coset phase. No order at most \(q\) can compare \(q\) second-coset inputs with a first-coset output. The order-\(q+1\) compatibility equation is both necessary and sufficient by finite abelian character extension. The proposed individual entries implement the subgroup and coset recursions and one final compatibility test. The optimality lower bound follows from the real torus dimension \(2|H|\) versus the rank of fewer individual monomial equations. No computation replaces the all-group proof; the provided integer checker independently corroborates 86 finite parameter instances.
+
+## Originality
+**PASS relative to the material inspected, with meaningful residual uncertainty.** Agulnick–Busick-Warner treat holomorphic higher autocorrelations and broad order bounds; the mixed conjugate polynomial phase relations are different. Babanskyy's zero-sum phase lattices are an important analogous *general method*, with explicit families of cyclic support classifications, but the inspected support-specific results do not give this exact arbitrary-abelian two-coset mixed-polyspectral cutoff or the \(2|H|\)-entry design. Schefler–Zhao–Zhong's monomial separating-set theory is a conceptual antecedent, but its polynomial-invariant statements do not directly supply this precise mixed signal reconstruction theorem. Similarities in mathematical technique are acknowledged, and independent specialist priority validation is still warranted. The conclusion is not based on search absence alone.
+
+## Value
+**PASS.** Two-coset spectra are a canonical and structurally flexible finite-band model. The result supplies both the exact first informative high-order correlation and a provably optimal uniform choice of individual entries, allowing a potentially very large full polyspectrum to be replaced by a linear-size targeted design. The sharp order grows without bound with quotient order, whereas almost all required observations stay cubic. This joint order/sample tradeoff is a substantive reconstruction statement, not merely a rephrasing of a standard inversion identity.
+
+## Boundaries and priorities
+The result assumes noiseless complex-valued data and complete knowledge of Fourier magnitudes on an exact two-coset support. It addresses conjugate mixed polyspectra, not holomorphic higher autocorrelations. Its optimality is for the number of individually selected entries, not necessarily measurement acquisition or conditioning cost. General orbit-separation, bispectrum and autocorrelation literature may contain equivalent implications outside the inspected cases; no independent audit or exhaustive priority guarantee is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
