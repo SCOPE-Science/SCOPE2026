@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact mod-two degree equations define a 15-dimensional quotient and an explicit formula for all 21-edge Walsh coefficients. The Python certificate exhausts 2^15 inner-edge encodings; a second C++ certificate independently enumerates all 2^21 orientations and checks every quotient Walsh coefficient by direct sums. Both agree on 2640 regular tournaments, 8656 nonzero quotient multipliers, least positive magnitude 16, and the exact kernel sum 1427840. The 64-fold lift yields rank 553984. Translation averaging analytically proves minimality among arbitrary endpoint projections, giving 11155/256. Finite proofs are exhaustive for order seven and not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The publicly available first-degree regular-tournament Fourier study proves covariance and Gram determinant statements, not the nonzero set of all high-order edge Walsh multipliers.",
+        "Yu–Zhu arXiv:2504.12693 gives general signed-subset duality for computing unsigned constrained-orientation counts, not the evaluated full seven-vertex signed frequency distribution.",
+        "Isaev arXiv:1110.2598 gives asymptotic counts and no complete order-seven signed histogram."
+      ],
+      "reasoning": "Potentially dominating general enumeration and Fourier-sampling results were checked for implication rather than titles. A generic transform algorithm permits recomputation but does not assert the exact nontrivial positive-frequency support or norm. No stronger coverage identified.",
+      "searches": [
+        "indexed mathematical literature query: regular 7 vertex tournament exact signed Walsh transform rank 8656 553984 projection constant 11155/256",
+        "indexed mathematical literature query: 2640 balanced tournament vectors binary convolution Walsh transform full spectrum 16-divisibility",
+        "web: Fourier transform of Eulerian orientations complete graph counting",
+        "arxiv:2504.12693 full text: Fourier"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0908.3411v1 (first posted 2009-08-24; later PDF introduction and theorem checked)",
+      "arxiv:1110.2598v1 (first posted 2011-10-12; later PDF introduction and theorem checked)",
+      "arxiv:2504.12693 (general signed-subset duality; supporting comparison)",
+      "Public RESULT.md, Integral tight Fourier sampling and tree-complement designs for regular tournaments, 2026-11-02",
+      "ANU combinatorial data regular-tournament census",
+      "OEIS A007079, labelled regular tournament counts",
+      "published mathematical literature index, multiple actual regular-tournament/Walsh/convolution queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first-degree full-support covariance theorem gives the 15-dimensional real circulation space but not all 32768 high-degree Walsh multipliers.",
+        "The current finding computes 8656 nonzero quotient frequencies, the explicit zero-indicator transform, and its exact 11155/256 endpoint norm, which require higher-order character correlations.",
+        "Generic translation averaging was used only to prove that the *evaluated* canonical norm is the universal minimum."
+      ],
+      "reasoning": "The older first-band theorem implies that a 15-dimensional coordinate basis can sample functions on the regular-tournament set, but this rank refers to a covariance matrix indexed by edges, not the rank of convolution on 2^21 group elements. It therefore neither subsumes the claimed 553984 ambient rank nor fixes the projection-kernel absolute sum.",
+      "searches": [
+        "indexed mathematical literature query: Walsh Fourier support of all regular tournaments edge orientation matrices",
+        "indexed mathematical literature query: regular tournaments Fourier projection endpoint norm 11155/256",
+        "Public full text: Integral tight Fourier sampling and tree-complement designs for regular tournaments, RESULT.md",
+        "arXiv:0908.3411 full text search Fourier, Walsh",
+        "arXiv:1110.2598 full text search Fourier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0908.3411 introduction and theorem concern Hamilton decompositions rather than Walsh multipliers.",
+        "arXiv:1110.2598 introduction/theorem concern asymptotics of unsigned Eulerian orientations.",
+        "The closest returned regular-tournament first-band result explicitly treats only constant and edge-coordinate Walsh sampling.",
+        "No searched result stated the complete 32768-value quotient spectrum, rank 553984, or projection norm 11155/256."
+      ],
+      "reasoning": "Equivalent signed-orientation enumerators, binary incidence encodings and character-sum spectra were compared by claim. General formulas for a fixed degree condition do not directly imply the evaluated full Walsh support or kernel absolute-sum statistic; no exact equivalent was observed.",
+      "searches": [
+        "indexed mathematical literature query: Walsh Fourier spectrum regular tournaments order seven binary orientation vectors, convolution rank projection constant",
+        "indexed mathematical literature query: Fourier transform regular tournaments signed Eulerian orientations complete graph K7",
+        "web: regular tournaments signed Eulerian orientations complete graph Fourier characteristic polynomial",
+        "web: signed regular tournaments Fourier transform orientation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ANU regular-tournament census lists three isomorphism classes at seven vertices; the OEIS A007079 entry reports the known 2640 labelled count.",
+        "The unsigned 2640 count is independently reproduced, and is treated only as an input/checksum, not an original result.",
+        "No inspected database or source gives the full 11-level absolute Walsh histogram or 10-level support-projection-kernel histogram."
+      ],
+      "reasoning": "Ordinary regular-tournament catalogues list counts or isomorphism types; they do not list the signed character transform on the full binary edge cube. A stored table of signed 32768 coefficients would cover this claim, but none was identified.",
+      "searches": [
+        "web: regular tournaments 7 vertices 2640 enumeration first published date 1960s Moon 1968 combinatorics",
+        "web: regular tournaments 7 vertices Walsh Fourier transform distribution of signed score sequence tournaments",
+        "web: regular tournaments 7 vertices 2640 enumeration first published date 1960s Moon 1968 combinatorics",
+        "indexed mathematical literature query: regular tournaments Fourier projection endpoint norm 11155/256"
+      ]
+    },
+    "rationale": "The source comparison separates ordinary regular-tournament enumeration and first-degree Fourier sampling from the complete binary Walsh spectrum and range-projection constant. No covering statement or exact table was identified in checked materials. A bounded historical-priority risk remains.",
+    "residual_risks": [
+      "A differently titled or unpublished older full signed-enumerator table might evaluate the same quotient frequencies, despite no such source being identified.",
+      "The first-band regular-tournament paper is adjacent in topic, but its stated results do not cover the complete high-order spectrum.",
+      "Other general orientation-enumerator methods might independently reproduce the finite numbers; no priority beyond the checked literature is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the signed frequency spectrum or its endpoint projection norm.",
+        "evidence": "Theorem 2 concerns almost full Hamilton decompositions and has no Fourier-transform or Walsh discussion in searched PDF text.",
+        "identifier_or_url": "https://arxiv.org/abs/0908.3411",
+        "material_read": "arXiv submission history; PDF abstract, introduction, Theorems 2 and 3, section structure through section 2; full-text searches for Fourier and Walsh",
+        "method": "arXiv HTML and PDF textual extraction, page-1 screenshot and string searches",
+        "title": "Hamilton decompositions of regular tournaments",
+        "trigger": "Earliest dated motivating source treating regular tournaments"
+      },
+      {
+        "assessment": "Not covering the claim; treats unsigned asymptotics not complete signed character distribution.",
+        "evidence": "Eulerian orientations of complete graphs are explicitly called regular tournaments, with asymptotic counts in equation (1.1); no Fourier claim found.",
+        "identifier_or_url": "https://arxiv.org/abs/1110.2598",
+        "material_read": "submission history; PDF abstract, introduction pp.1–3 and Theorem 2.1; text search for Fourier",
+        "method": "arXiv HTML/PDF text plus first-page screenshot",
+        "title": "Asymptotic behavior of the number of Eulerian orientations of graphs",
+        "trigger": "Closest classical general Eulerian orientation enumerative framework"
+      },
+      {
+        "assessment": "First-degree covariance and D-optimal sampling classification; does not imply full Walsh support or range projection constant.",
+        "evidence": "Main theorem gives covariance rank 15 and tree-complement Gram determinants for coordinate edge Walsh characters; present convolution rank is 553984 in the ambient function space.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-integral-tight-fourier-sampling-and-tree-complement-designs-for--eaf6965e2c4a",
+        "material_read": "Entire publicly available RESULT.md, including theorem, proof, verification, relationship and limitations",
+        "method": "public repository file read",
+        "title": "Integral tight Fourier sampling and tree-complement designs for regular tournaments",
+        "trigger": "Most closely overlapping indexed mathematical result for the same set"
+      },
+      {
+        "assessment": "General degree-constrained counting method; no evaluated order-seven all-frequency Walsh support or projection constant located.",
+        "evidence": "Its Theorem 1.1 and duality count degree-constrained orientations via edge-subset sums, not the exact support-indicator Fourier transform.",
+        "identifier_or_url": "https://arxiv.org/abs/2504.12693",
+        "material_read": "arXiv HTML abstract/introduction and PDF page one through theorem 1.1 and section-2 opening; PDF Fourier text search",
+        "method": "HTML full-text excerpts, PDF extraction, page-one screenshot",
+        "title": "Counting degree-constrained orientations",
+        "trigger": "Potential dominating general signed-subset duality for constrained orientations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c1c6cc65-0dbb-4da7-9c60-0f350652e064",
+  "value": {
+    "rationale": "Regular tournaments are a classical natural constraint family; the seven-vertex case is the first with three unlabelled regular tournament types. The full Walsh support and its sharply minimized endpoint range-projector norm are natural harmonic-analytic invariants not specified by the 2640 cardinality or the first-degree covariance. The unexpectedly large exact norm 11155/256 quantifies the unconditional instability of projecting onto this Fourier range; the exhaustive classification resolves a genuinely natural finite case without claiming a universal-order theorem.",
+    "status": "PASS"
+  }
+}
