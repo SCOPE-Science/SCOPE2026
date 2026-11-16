@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Full Fourier diagonalization yields the two exact multipliers; their joint zero is equivalent to two cosine scalars satisfying one monic rational quadratic. Integral symmetric functions force integer gains. The rational-root case yields precisely 15 unordered scalar pairs; the irreducible case uses real-cyclotomic degree phi(q)/2=2, giving precisely q=5,8,10,12 with two conjugate scalar values and 2 frequencies per scalar per divisible period. This proves the exact nullity and rank for every m,n>=3, independently of finite checks. Exact symbolic and numerical finite tests passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Christie–Dykema–Klep, arXiv:2008.11268, §2–§3: structural classification of root-of-unity sums, no explicit simultaneous-stencil parameter/rank table in inspected sections.",
+        "You–Yang, arXiv:2210.02024, §§2–3: generalized up/downsampling perfect reconstruction conditions and filter design, not fixed unsampled axial/diagonal gain classification."
+      ],
+      "reasoning": "Broader cyclotomic and graph-filter techniques can be applied to the problem, but the inspected results do not state or immediately entail the exact nineteen-pair table and finite-torus nullities without the new joint quadratic reduction. Application of standard techniques is acknowledged rather than called novel.",
+      "searches": [
+        "\"Classifying minimal vanishing sums of roots of unity\" Christie Dykema Klep",
+        "\"Perfect Reconstruction Two-Channel Filter Banks on Arbitrary Graphs\" You Yang",
+        "\"two dimensional lattice\" \"adjacency\" \"diagonal\" Fourier eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2008.11268",
+      "https://arxiv.org/abs/2210.02024",
+      "Classical real-cyclotomic degree formula and toroidal Fourier diagonalization (explicitly derived in RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical cyclotomic degree theorem supplies a proof ingredient, but alone does not identify the common kernel for these two fixed symbols or give its multiplicity for all m,n.",
+        "General Fourier diagonalization of torus operators gives two symbols; solving their joint zeros under rationality and exact order multiplicities is an additional classification step.",
+        "Graph-filter-bank work handles a different downsampled measurement model."
+      ],
+      "reasoning": "Compared mathematical implication rather than just titles: neither broader result states the 19 exceptional gains and exact m,n-dependent nullity. The new result is explicitly limited to this specialized classification; no novel cyclotomic theorem or universal filter design is claimed.",
+      "searches": [
+        "\"vanishing sums of roots of unity\" \"filter bank\" periodic grid",
+        "\"torus grid\" adjacency eigenvalues diagonal convolution",
+        "\"Perfect Reconstruction Two-Channel Filter Banks on Arbitrary Graphs\" arxiv 2210.02024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The mathematical equivalent is a common-zero problem for two Laurent polynomial multipliers: alpha+x+x^{-1}+y+y^{-1} and beta+(x+x^{-1})(y+y^{-1}).",
+        "Related arXiv:2210.02024 treats downsampled graph filters and perfect reconstruction, not the unsampled pair of Laurent symbols."
+      ],
+      "reasoning": "Checked the equivalent simultaneous Fourier-zero formulation rather than relying on naming. No inspected source gave the all-rational-gain nineteen-pair and rectangular multiplicity assertion. An overlooked equivalent toroidal convolution classification remains possible.",
+      "searches": [
+        "\"two channel\" \"axial\" \"diagonal\" \"torus\" common zeros",
+        "\"square lattice\" \"two stencils\" rational Fourier nullity",
+        "\"two channel lattice filters\" \"common Fourier zero\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact gain-pair table is generated from all unordered pairs in {-2,-1,0,1,2} and four degree-two real cyclotomic minimal polynomials; standalone exact checks verify this table for 144 sample grids.",
+        "No matched table of the same stencils and nullity formula emerged in the named searches."
+      ],
+      "reasoning": "A finite numerical census is not a novelty proof. A prior exact table could subsume this claim even without referring to Fourier filter banks; this possibility is recorded as historical risk.",
+      "searches": [
+        "\"19\" \"axial\" \"diagonal\" filter gains torus",
+        "\"square lattice\" \"five point\" convolution joint kernel integer gains",
+        "\"cos\" \"cyclotomic\" \"two-channel\" periodic convolution"
+      ]
+    },
+    "rationale": "The specified unsampled joint-stencil parameter and nullity theorem was not identified in direct symbol-equivalence, broader theorem, and exact-table searches. The classical cyclotomic ingredients are not novel. Historical coverage remains uncertain.",
+    "residual_risks": [
+      "Specialized pre-existing work on commuting torus convolution multipliers may contain an equivalent rank classification without using two-channel filter terminology.",
+      "The new derivation is short and uses classical cyclotomic facts; priority is not externally certified.",
+      "This is full-resolution simultaneous analysis and should not be conflated with downsampled filter-bank reconstruction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classifies root-of-unity sum types, not the two particular axial/diagonal convolution symbols or their simultaneous rational-center nullities",
+        "evidence": [
+          "§1 describes weight-at-most-16 minimal vanishing sums; §2 covers prime-root decompositions; §3 is the classification theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.11268",
+        "material_read": "Accessible full-text HTML introduction, §2 preliminary results on root relations, §3 theorem statement and targeted related passages",
+        "method": "Read the actual text and inspect scope of the theorem and arithmetic definitions",
+        "title": "Classifying minimal vanishing sums of roots of unity",
+        "trigger": "Root-of-unity classification could cover the Fourier zeros"
+      },
+      {
+        "assessment": "Focus is generalized downsampling/up-sampling and graph-bank synthesis; no fixed unsampled five-point axial/diagonal rational-gain classification in inspected results",
+        "evidence": [
+          "§2.6 states design of graph-bank up/downsamplers; §3 develops the corresponding perfect reconstruction condition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.02024",
+        "material_read": "Accessible HTML full text introduction, §§2–3, theorem and corollary discussion on generalized samplers and synthesis",
+        "method": "Read primary HTML exposition and inspected mathematical measurement model and reconstruction conditions",
+        "title": "Perfect Reconstruction Two-Channel Filter Banks on Arbitrary Graphs",
+        "trigger": "Two-channel recovery literature could imply common-kernel injectivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc952cb6-e3d7-46eb-8079-4d630635e018",
+  "value": {
+    "rationale": "The two complementary five-point measurement kernels are natural full-resolution lattice filters. A complete all-rectangular-size parameter obstruction set of exactly 19 rational center-gain pairs, together with all m,n-dependent nullities and a four-family quadratic resonance split, answers a concrete invertibility and data-loss problem; it is not simply one arbitrary modulus calculation. No conditioning or universal design gain is claimed.",
+    "status": "PASS"
+  }
+}
