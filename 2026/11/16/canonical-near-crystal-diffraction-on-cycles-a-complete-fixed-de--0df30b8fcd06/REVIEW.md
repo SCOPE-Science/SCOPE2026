@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The exact binomial pair-count formula follows from independent cyclic gap compositions; the rank statement follows from explicitly paired configurations and cyclic rotation. Uniform compositions with fixed excess converge to uniformly placed finite phase slips. The two-point parity correlation gives the limiting integrals, while the bounded number of `00` bonds yields reciprocal-square Fourier-tail domination and the claimed \(\ell^1\) convergence. The standalone checker independently enumerates the small canonical ensembles and passes 1,678 assertions. The asymptotics are proved analytically, not extrapolated from numerical samples.
+
+**Originality — PASS, with residual historical-priority risk.** The first public source for the initiating canonical-ensemble question is Davies and Perkins (2021); their full text addresses approximate counting and sampling complexity, not Bragg covariance. The earlier lattice hard-rod density-functional article by Bakhti, Müller and Maass gives general distributions/correlations but no identified canonical fixed-defect Fourier profile. The closest available claim records concern fixed-cardinality pair covariance at distance two or fugacity-weighted length-three near-crystal diffraction, neither of which implies this distinct canonical \(\ell^1\) law. Broader structure-factor or conditioned telegraph formulas may nevertheless contain an equivalent specialization, and priority remains provisional.
+
+**Value — PASS.** The precise invariant is the entire Fourier covariance energy distribution of a natural near-maximal binary packing, not a freely chosen numerical statistic. Its parity-sensitive satellites and \(1/4\) mass sum describe the limiting observable harmonic content of a nearly crystalline ensemble. The explicit one- and two-defect spectra give interpretable boundary cases, and the \(\ell^1\) statement strengthens mere pointwise satellite limits into a global spectral classification.
+
+Limitations: fixed excess \(m\), no growing-defect uniformity, and no independent mathematical validation. The primary mathematical novelty comparison is necessarily contingent on discoverable literature.
+
+Self-review: passed. Independent audit: not yet performed.
