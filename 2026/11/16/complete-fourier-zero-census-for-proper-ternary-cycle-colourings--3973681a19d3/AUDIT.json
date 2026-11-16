@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The formula follows by a bijection from proper cycle colourings to closed ternary +/-1 edge-increment words, character orthogonality for the closure, and exact evaluation of factors as 2 or -1. A three-term (-2)-power sum vanishes exactly for occupancies (a,a,a+1), and the fixed-terminal-colour multinomial count gives \\(n!/(a!^2(a+1)!)\\). The hyperplane-frequency bijection and Fourier diagonalization give rank \\(3^{n-1}\\) minus this count. Nonzero multipliers are multiples of three. The included checker.py independently performs full cyclotomic transforms on 88,560 frequencies for \\(3\\le n\\le10\\), matching every coefficient and nullity. There is no inference from finite computations to the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shrock--Xu 2010 gives generalized single-subset, uniform field weighting with parameters q,s,v,w, and a specific cycle contribution, not independent three-character weights at n vertices.",
+        "Beck--Braun--Cornejo 2025 treats a much more general graph with vertex linear forms and includes the weighted sum as a specialization, but their main theorems are constructions for a generating function, not an all-frequency zero count for this family.",
+        "Published record 8dc8f90856db determines the Gram spectrum for constant and first-coordinate characters of proper q-colourings of cycles; its stated scope explicitly excludes higher Fourier degrees."
+      ],
+      "reasoning": "The general Potts/chromatic constructions cover the weighted count as an input formalism, but do not supply the closed nullity formula or the extremal cancellation classification. The first-degree Gram result controls a proper subspace and does not imply zeros or rank of the full convolution operator. Those distinctions are at the level of theorem implications rather than titles.",
+      "searches": [
+        "arXiv:1009.1182v1 sections I,II,X,XII",
+        "arXiv:2509.22946v1 Theorem 3.3",
+        "published-finding corpus:2026/11/2/8dc8f90856db/RESULT.md",
+        "published-finding corpus query: complete additive Fourier spectrum of proper 3-colorings of cycles n modulo 3, vanishing criterion and rank"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0907.0925v1/v2",
+      "arXiv:1009.1182v1",
+      "arXiv:2509.22946v1",
+      "published-finding corpus public record 8dc8f90856db"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full text of the first-degree sampling record explicitly limits its theorem to constant and first-coordinate characters; this does not determine general b in the n-dimensional frequency group.",
+        "Uniform-field partition functions concern one field variable, whereas the new theorem evaluates all site-dependent third-root fields.",
+        "The 2025 general graph generating-function theorem could compute every weighted value in principle, but contains no n congruence criterion or multinomial vanishing-frequency census."
+      ],
+      "reasoning": "The new claim requires a nontrivial zero-equation classification 3 powers of -2 and a multinomial count of exactly which general frequencies have these exponents. Neither the sampled-coordinate Gram eigenvalues nor a generic weighted-colouring generating function logically states or immediately resolves this zero classification; the full all-frequency rank therefore is not a corollary of an inspected theorem without the new argument.",
+      "searches": [
+        "published-finding corpus:2026/11/2/8dc8f90856db/RESULT.md",
+        "arXiv:0907.0925v2 VIII.1",
+        "arXiv:1009.1182v1 X",
+        "arXiv:2509.22946v1 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chang--Shrock 2009 studies Potts partition functions with a single field parameter and the cycle as a one-row strip (arXiv:0907.0925v2, Introduction and VIII.1).",
+        "Beck--Braun--Cornejo 2025, Theorem 3.3, supplies a generic vertex-weighted chromatic generating function; its stated conclusions do not identify which ternary specializations vanish.",
+        "Searches did not return a theorem directly characterizing all additive Fourier coefficients of cycle three-colourings."
+      ],
+      "reasoning": "Character-weighted chromatic sums, site-dependent Potts partition functions and a q-chromatic polynomial specialized at a cubic root of unity are equivalent input representations of the transform. Their general definitions or generating-function constructions do not, by themselves, assert the zero criterion (n congruent to 1 modulo 3), the occupancy test, or its exact multinomial multiplicity. The present theorem isolates and proves those cancellations.",
+      "searches": [
+        "published-finding corpus query: complete additive Fourier spectrum of proper 3-colorings of cycles n modulo 3, vanishing criterion and rank",
+        "published-finding corpus query: ternary chromatic coloring Fourier support zero coefficients length n=3a+1 character trace",
+        "web: \"Fourier transform\" \"proper colorings\" \"cycle\"",
+        "arXiv:0907.0925v2, sections II and VIII.1",
+        "arXiv:2509.22946v1, sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published-finding corpus nearest hit concerns one-site Fourier Gram statistics; its theorem does not state or imply the all-frequency ternary proper-colouring zero census.",
+        "The exact verification obtains ranks 9,15,81,243,519,2187,6561,15483 for n=3 through 10; those calculations are checks and not sourced prior tables."
+      ],
+      "reasoning": "No matching published exact rank table or formula was found in the inspected sources. This negative search is not treated as a proof of novelty; it supports only the bounded comparison. The contribution is an unrestricted formula, not a re-tabulation of the eight computed cases.",
+      "searches": [
+        "published-finding corpus query: ternary chromatic coloring Fourier support zero coefficients length n=3a+1 character trace",
+        "web: \"Fourier transform\" \"proper colorings\" \"cycle\"",
+        "web: weighted cycle coloring discrete Fourier transform coefficients roots of unity zero support"
+      ]
+    },
+    "rationale": "Compared the exact full Fourier support/rank statement, not only shared terminology, against the closest published first-degree cycle-colouring sampling result and the classical Potts uniform-field transfer matrices and general weighted-colouring generating functions. Those prior results do not state the additional-zero condition \\(n=3a+1\\) or exact nullity \\(n!/(a!^2(a+1)!)\\). Equivalence to a specialized general weighted-chromatic sum is acknowledged as formal prior coverage, not hidden. Searches were bounded and historical priority remains a residual risk.",
+    "residual_risks": [
+      "An earlier exact root-of-unity character-weighted cycle-colouring identity may exist under site-dependent Potts, clock-model or q-chromatic terminology, not recovered in bounded searches.",
+      "General vertex-weighted chromatic generating functions encompass every weighted sum formally; if their specializations have an already published closed cancellation theorem, the present originality assessment would change.",
+      "No independent originality or mathematical validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-site, all-frequency spectral-zero census; evaluates a uniform external field instead.",
+        "evidence": "Introduction defines H times the indicator of one selected colour summed over all sites; Section VIII.1 relates single-row cyclic transfer matrices to a circuit partition function.",
+        "identifier_or_url": "https://arxiv.org/html/0907.0925v2",
+        "material_read": "HTML full text, introduction, the cycle-related structural transfer-matrix sections, and Section VIII.1 for one-row cycles.",
+        "method": "Full-text HTML reading including scope, field variable definition, and explicit statement about one-row cycles.",
+        "title": "Structure of the Partition Function and Transfer Matrices for the Potts Model in a Magnetic Field on Lattice Strips",
+        "trigger": "The original Potts transfer matrix on a cyclic single row is the nearest historical model of the colouring family."
+      },
+      {
+        "assessment": "NOT_COVERING all independent site-root weights or spectral rank; paper establishes subset-uniform weighting.",
+        "evidence": "Definition \\(H_p=H\\) for p in \\(I_s\\) and 0 otherwise and formula Ph(G,q,s,w); Section X cycle measure is expressed through a single w, q and s.",
+        "identifier_or_url": "https://arxiv.org/abs/1009.1182",
+        "material_read": "Full extracted manuscript sections I, II, the cycle analysis in X, and conclusion XII; inspected targeted mathematical formulas.",
+        "method": "Full-text arXiv manuscript HTML with indexed section/formula inspection.",
+        "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+        "trigger": "Its exact weighted chromatic polynomial on cycles could imply a site-character specialization."
+      },
+      {
+        "assessment": "NOT_COVERING the full Fourier-rank census; it proves a first-degree sampling-frame Gram spectral theorem.",
+        "evidence": "Its scope explicitly samples only constant and \\(n(q-1)\\) coordinate characters, whereas current frequencies run through all \\(q^n\\) additive characters; its limitations exclude higher harmonic degrees.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-universal-fourier-sampling-stability-on-proper-colourings--8dc8f90856db",
+        "material_read": "Entire published RESULT.md, including theorem, hypotheses, all four proof stages, and stated limitations.",
+        "method": "Public GitHub full-text retrieval following published-finding corpus semantic hit.",
+        "title": "Sharp universal Fourier sampling stability on proper colourings of cycles",
+        "trigger": "Published published-finding corpus hit on the same colouring family and Fourier analysis."
+      },
+      {
+        "assessment": "GENERAL_FORMALISM_ONLY: contains the sum under specialization but not the all-n cancellation and rank laws.",
+        "evidence": "Theorem 3.3 provides generating functions for q-chromatic polynomials under arbitrary vertex linear forms; the paper gives no cycle-specific rank theorem or root-of-unity zero count.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.22946",
+        "material_read": "Full HTML introduction and Sections 2 and 3.2, including Theorems 3.2 and 3.3 and their proofs; inspected scope of later sections.",
+        "method": "Full arXiv manuscript text and targeted theorem inspection.",
+        "title": "Generating functions of q-chromatic polynomials",
+        "trigger": "Its arbitrary linear-form weighted-colouring sums include character-weighted graph colourings as specializations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3973681a-19d3-47d3-b452-a1a08341af37",
+  "value": {
+    "rationale": "The indicator of proper cycle colourings is a canonical constraint set in a finite abelian product group. Global translation forces one baseline Fourier annihilator, but whether it gives the entire support and hence full convolution rank is not answered by chromatic counts or low-degree covariances. The theorem isolates an unexpected modulo-three resonance, classifies every extra zero, and gives an exact multinomial nullity for infinitely many lengths. This is a structural all-n harmonic-analysis classification, not a finite table, normalization check or cosmetic parameter substitution.",
+    "status": "PASS"
+  }
+}
