@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The Fourier amplitude is a Bessel-difference. The positive Bessel energy has derivative (4nu-2)t^(2nu-1)J_(nu-1)^2, strictly positive after integration for nu>=1. This proves simple and unique bracketed radial zeros and fixes the sign of D. Implicit differentiation yields (a*tau_k)' = tau_k*J_(nu-1)(tau_k)/D > 0 and tau_k' = a^nu*tau_k*J_(nu-1)(a*tau_k)/D. Since a*tau_k increases continuously from zero to j_(nu-1,k), the derivative vanishes exactly once for each of j_(nu-1,1),...,j_(nu-1,k-1), with simple sign changes; k-1 nondegenerate extrema follow. The unique critical ratio formula uses strict H_nu monotonicity and increasing absolute Bessel extremal values. The independent checker_all.py ran successfully: 18,216 finite assertions across d=2,3,4,5,6,8; no infinite claim rests on a finite experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published published-finding corpus theorem covers all d>=2 and all k for interlacing/analytic continuation, but not stationarity or monotonic inner-scaled motion.",
+        "Khachaturian et al., arXiv:2109.05118v1, full HTML §§1–2, circular aperture J1 and thin ring J0 Fourier profiles."
+      ],
+      "reasoning": "Broader dimension/index scope alone does not dominate the new parameter-trajectory result: the earlier all-dimensional interlacing theorem provides no bound on turning count. Its Bessel energy inequality is reused with attribution, then a new monotonicity identity yields exact k-1 extrema for all indices. The physics source has broader aperture applications but does not analyze indexed moving zeros.",
+      "searches": [
+        "Hankel Fourier transform planar annulus zeros simple interlacing Bessel J0 zeros all radii ratio radial diffraction",
+        "Bessel Jν(t) minus r^ν Jν(rt) zeros varying r turning point stationary radius annulus diffraction",
+        "2021 annular aperture Fourier Bessel diffraction far field analytical 2020 arxiv",
+        "2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.05118v1 full HTML, 2021-09-10",
+      "https://dlmf.nist.gov/10.21 §10.21(i)",
+      "published-finding corpus 2026/10/25 annular Fourier-zero full RESULT.md",
+      "Rivolta 1987 accessible abstract/table",
+      "Urcid–Padilla 2005 accessible abstract/bibliographic record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published prior proof derives the positive energy derivative and the radial-zero simplicity, but stops at real-analyticity and endpoint limits.",
+        "New identities: d(a*tau)/da = tau*J_(nu-1)(tau)/D >0 and dtau/da = a^nu*tau*J_(nu-1)(a*tau)/D, D=J_(nu-1)(tau)-a^(nu+1)J_(nu-1)(a*tau)."
+      ],
+      "reasoning": "Analytic continuation between two known limits can oscillate arbitrarily, so it does not logically imply a fixed count of stationary points. Combining the prior energy inequality with new implicit differentiation proves a strict rescaled coordinate and a one-to-one correspondence between all critical radii and earlier J_(nu-1) roots. This is a genuine additional parameter-dependent structural statement, not a parameter substitution or a special case of the earlier interlacing claim.",
+      "searches": [
+        "2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0",
+        "annulus Fourier zero trajectory radius ratio exactly k minus one turning points Bessel J0 extrema",
+        "nodal motion planar annulus Hankel Fourier zeros nonmonotone second zero maximizer",
+        "annulus Fourier zero trajectory radius ratio exactly k minus one turning points Bessel J0 extrema"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published prior full RESULT.md, sections Finding, Proof and Relationship to prior work; no parametric derivative or stationarity count.",
+        "NIST DLMF 10.21(i), standard interlacing of single Bessel orders."
+      ],
+      "reasoning": "An equivalent wording would count how many times each annular diffraction dark-ring radius reverses under an increasing central obstruction, or prove monotonicity of the product inner_radius times radial root. The identified interlacing result is a crucial antecedent but its stated analytic endpoint passage does not determine how often the root turns. The new derivative identifies those turns as inner-scaled J_(nu-1) zero crossings.",
+      "searches": [
+        "annulus Fourier zero trajectory radius ratio exactly k minus one turning points Bessel J0 extrema",
+        "nodal motion planar annulus Hankel Fourier zeros nonmonotone second zero maximizer",
+        "derivative zero inner radius annulus Fourier dark ring Bessel j0 stationary",
+        "2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLMF and MathWorld tabulate Bessel zeros for individual Bessel functions.",
+        "C. Rivolta (1987), Multiple annular circular aperture: maxima and minima of the diffraction pattern, includes finite numerical diffraction-zero tables for alternating annular zones; no infinite moving single-annulus theorem in the accessible abstract/table."
+      ],
+      "reasoning": "Fixed-radius Bessel-zero tables or numerical aperture minima do not tabulate the exact stationary aperture ratios for every indexed Fourier null. The formulas in the finding characterize all critical radii by one-dimensional Bessel level intersections.",
+      "searches": [
+        "derivative zero inner radius annulus Fourier dark ring Bessel j0 stationary",
+        "annular pupil diffraction dark rings first second zero radius obstruction",
+        "NIST DLMF Bessel jnu zeros interlacing"
+      ]
+    },
+    "rationale": "The October 25, 2026 published annular-zero theorem proves uniqueness, simplicity and analytic motion with endpoint values. Its inspected full RESULT.md has no formula for the derivative of the inner-scaled zero, no monotonicity of a*tau_k(a), and no exact number or locations of stationary inner radii. The new differential identity and k-1 turning-point classification are not implied by analyticity and endpoint convergence alone. The 2021 annular-aperture source concerns Bessel diffraction models and engineering beamforming, not zero trajectories. DLMF covers zeros of each individual Bessel order, not these parametric annular roots. Real possibility remains of an earlier differently indexed Bessel-perturbation argument.",
+    "residual_risks": [
+      "An earlier Bessel cross-product/parametric zero perturbation result may encode this stationarity census under other notation.",
+      "Only abstract and visible table were accessible for Rivolta 1987; no full-document noncoverage claim is made.",
+      "Only abstract and bibliographic information independently inspected for Urcid–Padilla 2005."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS root existence/simplicity/interlacing and analytic endpoint motion, but NOT the k-1 stationary-point classification; key known lemmas credited rather than claimed novel.",
+        "evidence": "Theorem enumerates roots j_(nu-1,k)<tau_k<j_(nu-1,k+1), real-analytic a dependence and endpoint limits. No parameter derivative nor stationary point count.",
+        "identifier_or_url": "2026/10/25/SCOPE-rigidity-and-bessel-interlacing-of-fourier-zeros-of-concentric-a--08d6dce0baa0",
+        "material_read": "Entire RESULT.md, including Finding, Assumptions and scope, Proof, Verification, Relationship to prior work, Limitations and References",
+        "method": "Public GitHub repository file retrieval of full RESULT.md",
+        "title": "Rigidity and Bessel interlacing of Fourier zeros of concentric annuli",
+        "trigger": "Identical annular Fourier object and all-dimensional root classification"
+      },
+      {
+        "assessment": "Models annular rings and Fourier–Bessel aperture patterns, not moving Fourier zeros or exact turning-point counts.",
+        "evidence": "§1 equations (1)-(2), §2.1 equation (4), subsequent aperture discussion.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.05118",
+        "material_read": "Complete accessible arXiv HTML text; Sections 1–2 and figures/equations for circular/annular diffraction",
+        "method": "Author public arXiv HTML full text",
+        "title": "Discretization of Annular-Ring Diffraction Pattern for Large-Scale Photonics Beamforming",
+        "trigger": "Middle-period source with Fourier–Bessel annular-aperture motivation"
+      },
+      {
+        "assessment": "Supplies standard Bessel zeros/interlacing; no annular zero-trajectory classification.",
+        "evidence": "10.21.2: j_(nu,k)<j_(nu+1,k)<j_(nu,k+1).",
+        "identifier_or_url": "https://dlmf.nist.gov/10.21",
+        "material_read": "Section 10.21(i) with equation 10.21.2, zero simplicity and interlacing",
+        "method": "Official reference HTML",
+        "title": "NIST Digital Library of Mathematical Functions, Bessel zero interlacing",
+        "trigger": "Classical input on contiguous-order zeros"
+      },
+      {
+        "assessment": "Cannot certify full-text noncoverage. Visible table is for fixed multishell designs rather than continuous single-hole migration; residual priority risk retained.",
+        "evidence": "Published numerical table for first three minima at selected annular-zone counts.",
+        "identifier_or_url": "https://opg.optica.org/ao/abstract.cfm?uri=ao-26-15-3119",
+        "material_read": "Public abstract and the displayed Table II of discrete alternating-zone aperture minima; full article not obtained",
+        "method": "Public publisher abstract/table",
+        "title": "Multiple annular circular aperture: maxima and minima of the diffraction pattern",
+        "trigger": "Possible indexed tables of annular diffraction dark rings"
+      },
+      {
+        "assessment": "No claim of complete-document noncoverage; retained as accessible-background comparison only.",
+        "evidence": "Classical circular-sector and related aperture Fourier-Bessel diffraction treatment.",
+        "identifier_or_url": "DOI:10.1364/AO.44.007677",
+        "material_read": "Accessible abstract and bibliographic record; earlier full text mentioned in published comparison but not independently inspected for this run",
+        "method": "Web source abstract/record",
+        "title": "Far-field diffraction patterns of circular sectors and related apertures",
+        "trigger": "Classical annular Fourier–Bessel formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4dce7d42-6125-4164-b66a-73c213744648",
+  "value": {
+    "rationale": "The sharp exact count k-1 shows arbitrarily many reversals of moving diffraction nulls under one smooth physical obstruction parameter, despite the known zero-interlacing and analytic continuation. It resolves a natural inverse-diffraction calibration question (whether dark-ring radii move monotonically) for every radial order and all dimensions d>=2; the exactly specified critical radii are reusable to invert or avoid ambiguous annular-aperture settings. It is not a mere numerical root table or a routine change of a known threshold.",
+    "status": "PASS"
+  }
+}
