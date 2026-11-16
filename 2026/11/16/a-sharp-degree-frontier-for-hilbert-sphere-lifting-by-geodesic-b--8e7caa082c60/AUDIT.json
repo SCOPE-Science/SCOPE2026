@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Complete proof for all n and d. Restriction S^d to S^2 gives a convex Legendre expansion. An exact Laplace-integral inequality controls all Legendre degrees >=8 after the first eight exact values; the coefficients of arcsin cubed have a proved all-order recurrence and an exact odd-square sum bound, proving nonnegative Hilbert-sphere Schoenberg power coefficients for n=1,2,3. At n=4, P6 gives midpoint -17/256; for every n>=5, P2 gives (1-3cos(pi/n)^n)/4<0 by strict monotonicity; on S1, cos(2theta) witnesses all n>=3. The standard-library exact checker passed, but finite tests are not used to infer the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/11/1/SCOPE-sharp-dimension-degree-frontier-and-infinite-sphere-lift-for-aff--3785c4062726: affine Bernstein in u=(1+cos(theta))/2, which interpolates at dot-product-uniform nodes; sharp threshold n<=d+1.",
+        "2026/11/2/SCOPE-a-sharp-degree-frontier-for-affine-bernstein-approximation-of-sp--a8520e405e97: positive-definiteness frontier for the same affine-dot-product operator.",
+        "arxiv:2608.04836 Section 1 proves angular Bernstein circle positive definiteness for every n, while Section 4 distinguishes affine S2 nonpreservation."
+      ],
+      "reasoning": "The affine records concern a different map: their samples occur at u=-1+2j/n and the output is polynomial in u. The new operator samples theta=j*pi/n and produces a polynomial in theta. The circle theorem offers source-circle positivity, not target-Hilbert positivity; indeed the new circle n=3 counterexample is consistent with it. No stronger checked statement dominates the same mapping and target.",
+      "searches": [
+        "Positive definiteness preserving Bernstein approximation for S^2, S infinity, Gegenbauer polynomial spherical dimension lifting",
+        "Geodesic cubic Bernstein operator on spherical zonal positive definite kernels: preserves positivity in all dimensions and lifts sphere S^d to Hilbert sphere S infinity",
+        "\"Bernstein operator\" \"geodesic\" \"Hilbert sphere\" positive definite",
+        "site:arxiv.org/abs/2608.04836 Preservation of Positive-Definiteness by Bernstein Operators on the Circle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.04836 full accessible article",
+      "arxiv:1111.7077 abstract and bibliographic source",
+      "2026/11/1/SCOPE-sharp-dimension-degree-frontier-and-infinite-sphere-lift-for-aff--3785c4062726 indexed summary",
+      "2026/11/2/SCOPE-a-sharp-degree-frontier-for-affine-bernstein-approximation-of-sp--a8520e405e97 indexed summary",
+      "2026/11/2/SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa indexed summary",
+      "https://sigma-journal.com/2019/004/ bibliographic summary of interdimension Schoenberg coefficient relations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Otten-Nguyen-Watts theorem concerns Psi1->Psi1 for angular B_n, and its Section 4 only exhibits an affine S2 counterexample; Psi1->Psi1 does not imply Psi2->Psi-infinity.",
+        "2026/11/2/SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa concerns admissible circle sampling grids, not their Hilbert-sphere output.",
+        "The two relevant indexed affine-frontier records have formally different input evaluations from the angular B_n."
+      ],
+      "reasoning": "Parameter coincidences at n=3 do not imply statement inclusion. In particular the all-degrees circle theorem permits B3(cos(2theta)) taking a negative value at theta=pi/2, which prevents Hilbert-sphere positivity; this is a concrete logical separation. The affine results cannot be substituted because their sampling nodes and resulting polynomials differ.",
+      "searches": [
+        "Preservation of Positive-Definiteness by Bernstein Operators on the Circle arxiv 2608.04836",
+        "Sharp dimension degree frontier and infinite sphere lift for affine Bernstein kernels",
+        "Quadratic rigidity and cubic node freedom for positive-definite Bernstein interpolation on the circle",
+        "Bernstein geodesic cubic operator positive definite sphere arcsin power Schoenberg"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2608.04836 Section 4 proposes a finite sphere analogue but distinguishes the affine operator from angular Bernstein; no cubic geodesic Hilbert-sphere lift is asserted.",
+        "The new statement is equivalently an all-power-coefficients nonnegativity assertion for angular Bernstein images of every normalized Gegenbauer basis element.",
+        "No matching equivalence was found in the queried indexed abstracts and published research summaries."
+      ],
+      "reasoning": "Schoenberg on S-infinity equates the target with nonnegative monomial coefficients, while positivity on the source S^d is Gegenbauer-coefficient nonnegativity. Searching by arcsine, normalized Legendre and degree-three Bernstein formulations did not produce an already stated equivalence; searches alone do not prove novelty.",
+      "searches": [
+        "Geodesic cubic Bernstein operator on spherical zonal positive definite kernels: preserves positivity in all dimensions and lifts sphere S^d to Hilbert sphere S infinity",
+        "Degree-three Bernstein interpolation geodesic distance arcsin Schoenberg coefficients Legendre values at cos(pi/3) bound minus one third",
+        "\"Bernstein\" \"Schoenberg\" \"arcsin\" \"sphere\" interpolation",
+        "Legendre polynomial Pn one half bound negative one third all n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Legendre polynomial recurrences give small-degree values, but the full integral bound and target-operator result are independently established here.",
+        "Classical arcsine series and odd-square sum are known ingredients; the new result is their combination with universal angular Bernstein positivity and a sharp degree frontier.",
+        "The searched published records with a numerical degree-three frontier use affine dot-product Bernstein interpolation, not angular Bernstein."
+      ],
+      "reasoning": "A table of P_m(1/2) or of arcsine coefficients would not by itself imply the all-degree operator classification. The newly asserted global implications require dimension restriction, polynomial images, and sharp counterexamples. No exact operator table was found.",
+      "searches": [
+        "arcsin cubed Taylor coefficient odd reciprocal squares expansion 6 sum",
+        "Legendre values one half bound -1/3 gives cubic spherical positive definite interpolation and arcsin cubed positive coefficients",
+        "Bernstein geodesic sampling operator uniform degree n 1 2 3 preserves all spherical covariance on S2 and maps into power series cone"
+      ]
+    },
+    "rationale": "Compared the actual geodesic-angle operator, its source sphere, target Hilbert-sphere cone, degree quantifiers and counterexamples to the full Otten-Nguyen-Watts 2026 article, the nearest indexed affine-Bernstein frontier records, cubic circle-node record and relevant classical spherical positivity sources. No checked statement directly implies the geodesic dimension-lifting frontier; affine dot-product interpolation uses different nodes and a different output variable. This is relative originality, with unresolved older equivalence risk explicitly recorded.",
+    "residual_risks": [
+      "A substantially older geodesic covariance approximation result may have an equivalent cubic degree threshold under alternate terminology.",
+      "Full text of the three closely related indexed published records was unavailable, so their absence of an unstated equivalent claim is not certified.",
+      "The finding concerns Hilbert-sphere lifting, not finite-dimensional positivity preservation for every n>3."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full text does not state the angular B1/B2/B3 Hilbert-sphere lifting cutoff or degree-four/higher counterexamples. Its finite-sphere negative example uses a distinct affine dot-product operator.",
+        "evidence": [
+          "Published initial preprint 2026-08-05; Section 1 defines angular nodes and circle preservation; Section 4 states sphere question and affine n4/P6 example."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.04836",
+        "material_read": "Full accessible HTML text, especially Introduction, Theorem 1.2, coefficient proof and Section 4 sphere/affine comparison",
+        "method": "Compared definitions, sampled nodes, statement quantifiers and higher-sphere discussion",
+        "title": "Preservation of Positive-Definiteness by Bernstein Operators on the Circle",
+        "trigger": "Same angular operator and stated finite-dimensional question"
+      },
+      {
+        "assessment": "Summary explicitly identifies affine dot-product interpolation rather than geodesic-angle interpolation; hidden equivalence not entirely ruled out.",
+        "evidence": [
+          "Published record: all-dimension affine degree frontier n<=d+1 and Hilbert-sphere power-coefficient lift."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-dimension-degree-frontier-and-infinite-sphere-lift-for-aff--3785c4062726",
+        "material_read": "Published indexed title and scientific summary; linked complete text not available for inspection",
+        "method": "Operator-definition and implication comparison from indexed description, not a whole-document negative claim",
+        "title": "Sharp dimension–degree frontier and infinite-sphere lift for affine Bernstein kernels",
+        "trigger": "Closest indexed lifting theorem with same degree variables"
+      },
+      {
+        "assessment": "Describes S2 positivity of affine Bernstein, not geodesic-angle Hilbert-sphere lifting.",
+        "evidence": [
+          "Published record: affine n>=4 fails S2 positivity, contrasted with angular n>=4 failure of Hilbert lift."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-degree-frontier-for-affine-bernstein-approximation-of-sp--a8520e405e97",
+        "material_read": "Published indexed title and summary; complete text unavailable",
+        "method": "Compared affine-variable operation, source-target cones, and failure witness type",
+        "title": "A sharp degree frontier for affine Bernstein approximation of spherical positive-definite kernels",
+        "trigger": "Reported n<=3 boundary on S2"
+      },
+      {
+        "assessment": "Circle cone-preservation does not imply universal Hilbert-sphere lifting; B3 cos(2theta) demonstrates separation.",
+        "evidence": [
+          "Published record describes all cubic symmetric circle grids preserving Psi1, no Hilbert-sphere claims in its indexed summary."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa",
+        "material_read": "Published indexed summary only",
+        "method": "Compared source and target spheres and the implication strength",
+        "title": "Quadratic rigidity and cubic node freedom for positive-definite Bernstein interpolation on the circle",
+        "trigger": "Same uniform cubic angular nodes among adjustable circle grids"
+      },
+      {
+        "assessment": "Classical foundational material; no Bernstein degree threshold described by the inspected abstract.",
+        "evidence": [
+          "Gneiting, Bernoulli 19 (2013), 1327-1349, survey of Schoenberg and dimension walks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+        "material_read": "Abstract and bibliographic record",
+        "method": "Background check of coefficient characterizations and dimension implications",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Foundational Schoenberg coefficient and dimension-walk theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e7caa08-2c60-4d8c-9d99-d2a1f6a4cf21",
+  "value": {
+    "rationale": "The sharp all-degree boundary for natural geodesic Bernstein covariance approximation is a structural result, not a routine calculation: the operator lifts every source kernel from any S^d with d>=2 to all spheres exactly in its uniform degree range n<=3, while the circle admits only n<=2. This directly addresses the motivating finite-sphere positivity problem in a stronger target sense; exact global witnesses delimit the conclusion. The Legendre sampling restriction plus cubic arcsine coefficient argument provides a potentially reusable mechanism for other angular interpolation schemes.",
+    "status": "PASS"
+  }
+}
