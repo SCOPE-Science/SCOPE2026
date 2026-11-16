@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem is finite with an explicitly stated complete domain. Independent global phase normalization has a unique representative. The `checker.py` program exhausts all 4096 quaternary and 64 binary normalized pairs using Gaussian integer arithmetic, verifies a direct STFT computation against a separately factored four-point Fourier identity, and asserts the complete scalar and row-profile distributions. No numerical or partial search is used. The exact definitions and the unnormalized Fourier convention are fixed in RESULT.md.
+
+**Originality — PASS (best available evidence, residual historical risk).** The 2022 original preprint of Nicola was read through its main theorem and relevant introduction: it establishes the minimal support and all arbitrary-complex extremizers, but not the six-valued quaternary support distribution or profile multiplicities. Semantic database searches for quaternary four-cycle cross ambiguity, phase-only STFT support spectra, and equivalent formulations retrieved nearby Gabor frame, support-uncertainty and small Fourier-sequence results but no statement implying this complete census. The specialist 1989 quadriphase radar paper was accessible only by abstract and could not be excluded as a source of related historical computations; it concerns particular longer radar codes, with no explicit covering claim identified. Novelty is a provisional self-review, not proof of first discovery.
+
+**Value — PASS.** This is a natural complete zero-pattern classification at the first composite cyclic length for the standard four-phase waveform alphabet, rather than an arbitrary partial enumeration. The exact absence of seven support levels, the isolated odd value 11, two distinct shift-row geometries at that value, and the complete binary/quaternary comparison furnish reproducible constraints for phase-coded time-frequency null design. No general large-length result is claimed.
+
+Closest sources and scope limits are recorded in RESULT.md and AUDIT.json. Scientific limitations include finite length, finite alphabets and uncertainty about specialist code tables. The proof is fully finite and exact, not an infinite-family claim.
+
+Self-review: passed. Independent audit: not yet performed.
