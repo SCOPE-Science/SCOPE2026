@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Angular STFT–Hermite orthogonality gives a complete eigenbasis, radial Laguerre densities yield exact eigenvalues, the incomplete-gamma recurrence yields the stated adjacent-gap quadratic, and explicit discriminant analysis including k=0, integer-area, tangencies and the ceil cutoff proves the quantified statement. A separate executable confirmed 3081 finite checks; finite tests are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Svela theorem covers any polyradial positive state and radial mask, so it dominates the diagonalization portion of this calculation.",
+        "Alaifari and Yang analyze stable STFT phase retrieval with Hermite windows and ambiguity response, rather than disk localization eigenvalue order."
+      ],
+      "reasoning": "The stronger general spectral representation implies the eigenvalue formula after specializing and integrating but does not assert the sharp uniform weight cutoff or exact number of spectral-order reversals. The claimed mathematical contribution is confined to those comparisons, not another general mixed-state theorem.",
+      "searches": [
+        "arxiv:2410.18769 Proposition 6.7; arxiv:2410.05486 multiwindow Hermite spectrogram methods",
+        "Sharp weight ratio threshold and radius-dependent ordering of Gaussian plus first-excited Hermite STFT localization eigenvalues on time-frequency disks; spectral crossings and inverse conditioning",
+        "Joint Gaussian and first Hermite Gabor localization operators disk eigenvalue monotonicity sharp mixing weight threshold"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.18769",
+      "arxiv:2410.05486",
+      "DOI:10.1007/s00041-020-09751-9",
+      "2026/11/8/SCOPE-the-triple-hermite-spectral-crossing-for-disk-localization-with--9b8f12cf0e60",
+      "2026/11/2/SCOPE-an-exact-one-mode-spectral-exchange-for-first-hermite-disk-local--f52d39665d98",
+      "2026/10/26/SCOPE-sharp-disk-concentration-and-spectral-gap-resonances-in-the-firs--60f08a58beae",
+      "2026/10/25/SCOPE-sharp-diskwise-ambiguity-conditioning-for-the-first-two-hermite--1bd35b3639f1",
+      "2026/11/8/SCOPE-sharp-two-hermite-measurement-budgeting-on-a-fourier-ambiguity-d--c587ddc9b341"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Svela establishes general eigenvalue diagonalization and weighted integral representation; this is used as prior rather than recast as a discovery.",
+        "Pure first-Hermite work yields infinitely recurring degeneracies at integer area for rho=0.",
+        "Multiwindow ambiguity results concern optimal inversion margin, not mixed disk eigenvalue-index order."
+      ],
+      "reasoning": "Specialization of Svela directly implies the exact eigenvalue integrals, but a nontrivial additional all-index scalar sign classification and exact finite cardinality are needed to obtain the research claim. The previously published pure-window and ambiguity statements do not imply the precise rho_k thresholds without this new comparison. Residual priority risk: the gap classification could have been made previously as an unstated consequence or in a specialized prior paper.",
+      "searches": [
+        "arxiv:2410.18769 §6, arxiv:2410.05486 §§2-4",
+        "2026/11/8/SCOPE-the-triple-hermite-spectral-crossing-for-disk-localization-with--9b8f12cf0e60",
+        "2026/10/25/SCOPE-sharp-diskwise-ambiguity-conditioning-for-the-first-two-hermite--1bd35b3639f1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Svela arXiv:2410.18769 Proposition 6.7 diagonalizes general radial mixed-state localization, while §3.3 provides Laguerre–STFT densities.",
+        "The independent-channel operator is a trace-class mixture of two Hermite pure-state localization operators; reparametrizing weights by rho preserves order."
+      ],
+      "reasoning": "The general eigenvalue formulas are equivalent to the spectral-integral INPUT, not to a stated all-parameter classification of adjacent eigenvalue sign changes. The latter requires solving and globally counting the quadratic gaps. No different notation for such a classification found.",
+      "searches": [
+        "Weighted sum of first two Hermite-window disk localization operators, exact spectral gap = Poisson mass times (k-s)^2+k+(rho-1)s, finite crossing thresholds rho_k",
+        "Gaussian and first excited Hermite disk localization mixed-window monotone eigenvalue ordering restoration sharp threshold rho equal one",
+        "Finite Poisson spectral crossing levels of convex mixture Gaussian Hermite localization, adjacent gap double roots and mode cutoff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest related public findings are pure first-Hermite disk spectral resonance and mixed-channel ambiguity inversion; neither is a table of the rho-dependent adjacent-order intervals."
+      ],
+      "reasoning": "No exact table or quoted equivalent reversal-count result in searched accessible sources. The absence of a returned hit is not proof of novelty.",
+      "searches": [
+        "Weighted sum of first two Hermite-window disk localization operators, exact spectral gap = Poisson mass times (k-s)^2+k+(rho-1)s, finite crossing thresholds rho_k",
+        "Finite Poisson spectral crossing levels of convex mixture Gaussian Hermite localization, adjacent gap double roots and mode cutoff",
+        "published-finding corpus published pure first-Hermite disk spectral crossings and Gaussian/first-Hermite ambiguity conditioning"
+      ]
+    },
+    "rationale": "The reviewed priority claim is restricted to the exact two-Hermite MIXED adjacent-gap inversion phase diagram and finite mode-count law. The mixed-state Hermite eigenbasis and general eigenvalue-integral formulas are expressly credited to Svela; pure first-Hermite triple crossings are credited to prior research. Statement-by-statement comparisons did not identify the sharp rho=1 universal order threshold, rho_k tangencies, complete inversion intervals or ceil((1-rho)^2/(4rho)) count. Historical priority remains provisional.",
+    "residual_risks": [
+      "The general mixed-state spectral formulas make the eigenvalue and gap derivation short; some readers may regard the phase diagram as an elementary unstated consequence rather than a new theorem.",
+      "A specialized earlier two-channel localization paper with identical ordering inequalities could exist despite actual searches.",
+      "Only scientific summaries, not full text, were accessible for some published overlap candidates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general diagonalization and eigenvalue-integral formulas; no explicit all-weight adjacent-order phase diagram or finite reversal-count law identified.",
+        "evidence": [
+          "Proposition 6.7 gives general radial mixed-state eigenfunctions and a Laguerre integral.",
+          "Remark preceding Definition 6.5 explicitly states linear combinations of pure Hermite eigenvalues; §6.1 treats Gaussian states."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.18769",
+        "material_read": "Full accessible HTML text including introduction, §§3.3, 5.1–5.2, 6, Proposition 6.7, Remarks 6.8–6.9 and Gaussian mixed-state examples §6.1.",
+        "method": "Read textual arXiv full HTML and inspected statements and proofs describing diagonalization, eigenvalue representations and examples.",
+        "title": "Extensions of Daubechies theorem: Reinhardt domains, Hagedorn wavepackets and mixed-state localization operators",
+        "trigger": "Exact same general mixed-state operator family; possible dominating theorem"
+      },
+      {
+        "assessment": "MOTIVATES multiwindow choice but addresses ambiguity inversions / phase retrieval rather than disk localization eigenvalue order.",
+        "evidence": [
+          "Weighted spectrogram and Laguerre zeros appear in its multiwindow setting.",
+          "No disk-area k-to-k+1 eigenvalue-order threshold was present in inspected claims."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.05486",
+        "material_read": "Accessible arXiv full HTML introduction, window definitions and stability estimates including Laguerre response, applications and numerical sections.",
+        "method": "Read scientific full text; compared measurement operator, masks, claimed inference and theorems.",
+        "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+        "trigger": "Motivation for independent Gaussian and Hermite spectrogram channels; dates within selected literature period"
+      },
+      {
+        "assessment": "COVERS Gaussian-only Hermite diagonalization/incomplete-gamma input, not the two-window order transition.",
+        "evidence": [
+          "Theorem 2.1 gives Gaussian radial operator eigenvalues as exponential moments."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00041-020-09751-9",
+        "material_read": "Open-access full HTML abstract, definitions, §2.3 and theorem 2.1.",
+        "method": "Read the published webpage theorem and normalization, compared general radial Gaussian spectrum to mixed Hermite operator.",
+        "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+        "trigger": "Closest Gaussian-only radial localization mathematical reference"
+      },
+      {
+        "assessment": "Pure first-Hermite result describes rho=0 triple collisions, not the positive-rho finite-inversion census.",
+        "evidence": [
+          "Summary identifies triple Hermite ties at positive integer disk areas for pure first Hermite window."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-triple-hermite-spectral-crossing-for-disk-localization-with--9b8f12cf0e60",
+        "material_read": "Published indexed title and scientific summary only, not full text.",
+        "method": "Compared actual published finding summary and its stated assumptions against the mixed positive-rho claim.",
+        "title": "The triple Hermite spectral crossing for disk localization with a first-excited window",
+        "trigger": "Potential identical pure first-Hermite boundary"
+      },
+      {
+        "assessment": "Distinct operator: ambiguity-inversion stability rather than disk localization; its sharp weight-ratio claim does not directly imply this theorem.",
+        "evidence": [
+          "Summary optimizes ambiguity precision split, with Gaussian-only below squared radius 2 and mixed design above."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-diskwise-ambiguity-conditioning-for-the-first-two-hermite--1bd35b3639f1",
+        "material_read": "Published indexed title and scientific summary only, not full text.",
+        "method": "Compared measurement quadratic form and investigated whether reported optimal budget division implies mixed localization eigenvalue order.",
+        "title": "Sharp diskwise ambiguity conditioning for the first two Hermite windows",
+        "trigger": "Closest mixed Gaussian and first-Hermite spectral-design result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdf01c36-1d5b-48fc-982d-ec22461d112c",
+  "value": {
+    "rationale": "The full natural phase diagram quantifies how positive mixed-window measurement regularizes infinitely recurring pure first-Hermite adjacent-index crossings, yielding an exact finite count, a sharp universal monotonicity threshold, and explicit radius intervals. It is directly motivated by multiwindow spectrogram design and does not purport to reprove prior general diagonalization.",
+    "status": "PASS"
+  }
+}
