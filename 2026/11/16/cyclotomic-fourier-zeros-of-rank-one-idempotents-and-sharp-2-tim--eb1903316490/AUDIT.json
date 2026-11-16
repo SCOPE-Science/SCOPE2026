@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every q and n, rank-one idempotents are exactly uv^T with v^Tu=1 modulo q-1 rescalings; affine-hyperplane character orthogonality yields q^(n-1) per eigenline and zero otherwise. Cyclotomic minimal-polynomial independence proves the exact balancing criterion. The four disjoint two-by-two similarity types and centralizer sizes give every coefficient and multiplicity; trace-fiber counting gives the characteristic-two exception, and the sharp endpoint norm follows from the exact convolution kernel and a finite cosine sum. Direct exhaustive code checks covered 3891 ambient frequency matrices for q=2,3,4,5,7 and one three-dimensional case. The universal proof does not rely on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Hu Theorems 2.1 and 2.4 cover different multiplicative-group summation domains.",
+        "De Seguins Pazzis 2009 Theorems 1–4 concern sums, differences and decomposability into idempotents; no frequency-wise orbital character sum.",
+        "The read published rank-one-shell result explicitly computes a coordinate restriction Gram spectrum, not the trace-one rank-one orbit Fourier kernel."
+      ],
+      "reasoning": "General linear-group Gauss sums, idempotent decomposition theory, and rank-one matrix-shell character tables do not state or directly imply the new trace-class balancing criterion and characteristic-dependent sharp endpoint norm. A general theory of orbital sums could in principle specialize to the claim; no such decisive covering formula was found in the inspected full texts.",
+      "searches": [
+        "Li Hu Gauss sums over GL_n SL_n finite fields rank character orthogonality",
+        "Pazzis finite field sums of idempotents arbitrary fields theorem",
+        "Complete first-coordinate Fourier spectrum rank one finite field published-finding corpus",
+        "additive Fourier coefficients of fixed-rank idempotent matrices",
+        "Additive Fourier transform of rank-one idempotent matrix conjugacy orbit in M_2(F_q), vanishing at irreducible characteristic polynomial, exact Fourier projection L1 norm characteristic two versus odd"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arxiv:0907.5360",
+        "title": "On sums of idempotent matrices over a field of positive characteristic",
+        "url": "https://arxiv.org/abs/0907.5360"
+      },
+      {
+        "identifier": "arxiv:1105.4513",
+        "title": "Gauss sums over some matrix groups",
+        "url": "https://arxiv.org/html/1105.4513v1"
+      },
+      {
+        "identifier": "published-finding corpus:2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7",
+        "title": "Complete first-coordinate Fourier spectrum on finite-field rank-one matrices",
+        "url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7/RESULT.md"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The rank-one-shell transform in the inspected published result is (q^(m+n-r)-q^m-q^n+1)/(q-1), depending only on dual rank r.",
+        "Present coefficient for rank-one idempotents: q^(n-1) sum over eigenlines of psi(eigenvalue), sensitive to eigenline traces.",
+        "Li–Hu Section 2 explicitly sums over all invertible matrices; de Seguins Pazzis Section 4 proves an idempotent-sum trace condition."
+      ],
+      "reasoning": "A dual-rank statistic cannot determine the present coefficients: for n=2 and q=3, matrices diag(0,1) and a nonzero nilpotent Jordan block have different sums despite equal rank one. The prior GL_n sum has a different support and does not imply this restricted orbit norm. The existing general character orthogonality principle is a tool used in the proof, not itself claimed to be new.",
+      "searches": [
+        "finite abelian harmonic analysis Fourier transform rank-one idempotent matrices finite fields matrix conjugacy orbit coefficients",
+        "Fourier transform of rank-one idempotent matrix orbit eigenspace dimensions additive character finite field",
+        "Fourier support of rank-one projections over finite fields classified by eigenvalues",
+        "additive Fourier coefficients of fixed-rank idempotent matrices",
+        "Additive Fourier transform of rank-one idempotent matrix conjugacy orbit in M_2(F_q), vanishing at irreducible characteristic polynomial, exact Fourier projection L1 norm characteristic two versus odd",
+        "\"matrix idempotent\" \"conjugacy class\" \"Fourier\" finite field",
+        "\"Gauss sums over some matrix groups\" theorem 2.1 additive character"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact orbit is {uv^T:v^Tu=1}; eigenline trace-profile formula obtained from affine-hyperplane orthogonality.",
+        "Li and Hu 2011 Section 2 Theorem 2.1 sums over GL_n(F_q), whose left-right invariance makes coefficients functions of matrix rank.",
+        "Published first-coordinate rank-one Fourier result Section 1 treats all nonzero rank-one matrices and a restricted-character Gram operator, without the idempotent constraint."
+      ],
+      "reasoning": "Alternative descriptions as projective rank-one projections, trace-one rank-one matrices, or a GL_n conjugacy orbit were compared. The full nonzero rank-one shell is larger: it permits v^Tu equal to any field value and its transform is rank-invariant. The present orbit requires v^Tu=1 and produces eigenline-sensitive coefficients, a cyclotomic zero test, and two-dimensional sharp norms.",
+      "searches": [
+        "finite abelian harmonic analysis Fourier transform rank-one idempotent matrices finite fields matrix conjugacy orbit coefficients",
+        "Fourier transform of rank-one idempotent matrix orbit eigenspace dimensions additive character finite field",
+        "Fourier support of rank-one projections over finite fields classified by eigenvalues",
+        "\"rank one idempotent\" \"Fourier transform\" matrix",
+        "\"rank one idempotent\" \"exponential sum\" finite field",
+        "\"Fourier transform\" \"idempotent matrices\" \"finite fields\" additive",
+        "\"exponential sums\" \"idempotent matrices\" \"finite field\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A379778 tabulates matrices that converge to idempotents by rank, not their additive orbital Fourier coefficients.",
+        "Direct finite calculations for q=2,3,4,5,7 produced zero-frequency counts 8,18,152,200,882, respectively; no retrieved table was identified as tabulating these same invariants."
+      ],
+      "reasoning": "Table lookup did not reveal an exact existing Fourier-zero table or projection-norm sequence for this orbit. This is a bounded negative check, not an exhaustive database uniqueness guarantee.",
+      "searches": [
+        "OEIS A379778 idempotent matrices convergence ranks",
+        "\"rank one idempotents\" \"Fourier\" \"finite field\"",
+        "\"Fourier\" \"projective\" \"idempotent matrices\" finite",
+        "\"Fourier transform\" \"idempotent matrices\" \"eigenvectors\" finite"
+      ]
+    },
+    "rationale": "Bounded semantic comparison located additive character sums over GL_n and SL_n, an idempotent additive-decomposition paper, and a Fourier restriction spectrum on all nonzero rank-one matrices. The inspected statements do not cover the trace-one rank-one idempotent conjugacy orbit, its eigenline balancing criterion, two-dimensional zero count, or its sharp endpoint norm. The classical orthogonality technique and similarity-class counts are not claimed as new; no exhaustive priority certification is asserted.",
+    "residual_risks": [
+      "Unlocated older harmonic analysis on conjugacy orbits of rank-one idempotents could imply the present result.",
+      "A generalized orbital or matrix-association-scheme transform may contain an equivalent specialization not found in the checked search results.",
+      "Independent external validation and exhaustive literature priority review were not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the present orbital Fourier claim within the inspected relevant sections: trace and idempotent-sum decompositions, not additive character transforms.",
+        "evidence": "Section 4 Theorem 4: a matrix is a sum of idempotents iff its trace lies in the prime field; no Fourier or character text match.",
+        "identifier_or_url": "arxiv:0907.5360 / https://arxiv.org/abs/0907.5360",
+        "material_read": "Full-text HTML introduction and Sections 2–4 including Theorems 1–4 and their proofs, plus full-text searches for Fourier and characters.",
+        "method": "Read primary HTML text and locate statements/sections.",
+        "title": "On sums of idempotent matrices over a field of positive characteristic",
+        "trigger": "Closest early primary paper on matrix idempotents and their additive decompositions; verified original public posting 2009-07-30."
+      },
+      {
+        "assessment": "NOT_COVERING: sums over GL_n and SL_n, no rank-one idempotent orbit or projection norm.",
+        "evidence": "Section 2 Eq. (2.1) and Theorem 2.1 treat GL_n and simplify by rank of U, while idempotent does not occur in the paper.",
+        "identifier_or_url": "arxiv:1105.4513 / https://arxiv.org/html/1105.4513v1",
+        "material_read": "HTML Introduction, all of Section 2 including Theorems 2.1 and 2.4 with derivations, and Section 3 title and context; searched full text for idempotents.",
+        "method": "Read primary arXiv HTML formulae and theorem statements.",
+        "title": "Gauss sums over some matrix groups",
+        "trigger": "Most plausible accessible general matrix additive-character-sum coverage."
+      },
+      {
+        "assessment": "NOT_COVERING for the present claim: nonzero rank-one shell and first-coordinate restriction Gram matrix rather than idempotent orbit and additive Fourier projector.",
+        "evidence": "Its Finding and Proof §1 use uv^T with no condition v^Tu=1 and yield rank-only character sums; its later sections analyze eigenvalues of the restriction Gram matrix.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7/RESULT.md",
+        "material_read": "Complete published RESULT.md, including theorem, proof, verification, relationship to earlier work and limitations.",
+        "method": "Read exact source file via public-repository file access.",
+        "title": "Complete first-coordinate Fourier spectrum on finite-field rank-one matrices",
+        "trigger": "Closest published rank-one matrix Fourier research result from semantic search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb190331-6490-437e-89ac-2c51dc99279c",
+  "value": {
+    "rationale": "The orbit of rank-one idempotents is a natural matrix-theoretic subset distinct from the rank-one determinantal cone. Its complete additive Fourier-zero criterion reveals that convolution invertibility is controlled by an arithmetic balance of eigenline traces; in dimension two the exact kernel dimension changes from asymptotic density 1/2 in odd characteristic to 3/4 in characteristic two. The exact sharp l1 and l-infinity Fourier-projection norm is a natural amplification invariant and depends on the field characteristic via a cosecant factor. These constitute a nontrivial complete finite-field-family calculation, not an isolated unmotivated table entry.",
+    "status": "PASS"
+  }
+}
