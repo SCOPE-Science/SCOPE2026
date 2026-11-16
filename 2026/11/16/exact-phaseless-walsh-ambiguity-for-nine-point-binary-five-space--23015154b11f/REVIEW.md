@@ -1,0 +1,11 @@
+# Scientific review: nine-point Walsh-magnitude census
+
+**Correctness — PASS.** Affine relations yield a bijection between full-span nine-point affine classes and coordinate-permutation classes of even binary dimension-three length-nine relation codes of minimum distance at least four. The 148 admissible generator-column multisets form six classes under all 168 linear substitutions. A separately exhaustive four-space affine census gives three hyperplane classes. Direct character sums, dual-code weight counts, stabilizer orbit sizes, and the aggregate binomial total independently agree; the complete finite ranges and generation arguments are supplied in the result and checker.
+
+**Originality — PASS under bounded sources.** The inspected Danielsen–Parker code-equivalence paper provides a general classification method and counts, not this nine-point Walsh-histogram table. The inspected eight-point Walsh-support study concerns a different support size; the inspected short-code isospectral family concerns a different length and quantitative distortion. Searches for nine-point Boolean five-space magnitude histograms and equivalent length-nine even-code spectra did not recover a covering theorem. Historical code catalogs and potentially unindexed explicit tables remain a substantive priority risk.
+
+**Mathematical value — PASS.** The unlabeled Walsh-magnitude histogram is a natural invariant of sparse binary patterns under affine coordinate change. A complete census establishes exactly where this invariant first becomes ambiguous within the natural nine-point, five-dimensional setting; it determines the number of ambiguous affine classes, their explicit witnesses, and exact labeled prevalence \(1792/5655\). This is a structural inverse-harmonic classification, not an arbitrary small numerical check.
+
+**Closest literature and limitations.** The MacWilliams transform and code equivalence are classical; finite tabulations of short binary codes may imply part of the affine classification. The newly assessed contribution is the stated eight-profile Fourier census with its exact two-class ambiguity and orbit-size distribution. No claim is made for labeled phaseless data, other support cardinalities or ambient dimensions.
+
+Self-review: passed. Independent audit: not yet performed.
