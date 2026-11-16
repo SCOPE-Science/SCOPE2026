@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each integer n≥1 the 3-row signed matching expansion is reconstructed by distinct-column inclusion--exclusion. The exact identity uses all seven sign moments. The matching count n³+2n+1 fixes parity. A four-column block with ΔC13=-4 and zero other moment changes preserves W when S2=-1; two zero bases and two -2 bases extend over all odd lengths. The all-eight sign block has zero seven nonconstant moments, preserving W universally; ±1 witnesses at lengths 2,4,6,8 extend over all even lengths. The null-frequency lower bound uses independent permutations within fixed distinct-column blocks. Fourier diagonalization gives the exact inverse/pseudoinverse ℓ² norms. A standalone integer FWHT on every matching supports all frequencies n=1..6; an independent matching DP exhausts all sign-column types n=7..12; finite checks are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wagner 2004 §3 Theorem 17 and Corollary 18 concern region nonvanishing under positive/sector conditions, not all independently signed ±1 edge configurations.",
+        "Wagner 2008 §3 Theorem 3.2 and §4 Examples 4.1 and 4.8 distinguish nonnegative edge matchings from special unit-modulus models; these hypotheses do not enforce the claimed parity singularity on K3n."
+      ],
+      "reasoning": "These broad weighted matching theorems contain the generating function but do not logically determine its exact zero and sharp-gap behavior on the binary sign grid. The present claim is a boundary specialization with a new exact sign-block argument, not a purported new general matching generating function.",
+      "searches": [
+        "weighted enumeration of spanning subgraphs with degree constraints Wagner arxiv 0803.1659",
+        "Enumeration of spanning subgraphs with degree constraints Wagner arxiv math/0412059",
+        "Heilmann Lieb multivariate matching polynomial edge weights unit modulus signs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0412059 (public 2004-12-02)",
+      "arxiv:0803.1659 (public 2008-03-11)",
+      "arxiv:1404.3469 (public 2014-04-14)",
+      "https://mathworld.wolfram.com/RookPolynomial.html",
+      "Earlier two-edge-only K3n Walsh theorem (claim-level comparison; separate from all-matchings)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier two-edge-only transform on K3n has W2 = Σ_{i<j}(SiSj-Cij) and zero-free lengths n ≡ 2,3 mod 4; its statement lacks the 0-, 1-, and 3-edge terms.",
+        "Li--Shi--Trinks 2014 §§1-4 concern reconstruction of the ordinary matching polynomial, not signed Walsh transforms."
+      ],
+      "reasoning": "The earlier two-edge-only result neither states nor implies this full-family classification: n=3 is zero-free for two-edge-only but singular for all matchings; n=4 is singular for two-edge-only but invertible for all matchings. Both statements can coexist, and the new claim explicitly includes the neglected sizes.",
+      "searches": [
+        "Walsh transform two-edge matchings K3n",
+        "complete all matchings Fourier support K3n",
+        "arxiv:1404.3469 polynomial reconstruction of matching polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matching indicator Walsh coefficient is precisely the edge-signed monomer--dimer partition function at unit activity, or the signed rook polynomial evaluated at one.",
+        "Wagner 2004 arXiv math/0412059 and 2008 arXiv 0803.1659 give general graph-factor and weighted polynomial frameworks; no all independent sign assignments K3n classification appears in the inspected main results and applications."
+      ],
+      "reasoning": "Signed rook and monomer--dimer terminology were treated as equivalent statements, not separate claims. The proof yields zero-existence and least surviving absolute value simultaneously for every n; prior general definitions and complex-weight nonvanishing sectors do not imply these discrete sign boundary values.",
+      "searches": [
+        "signed rook polynomial 3 x n sign matrix zero evaluation at 1",
+        "matching partition function K3n independent ±1 edge signs parity",
+        "complete Fourier transform all rook placements including 0 1 2 3 rooks on 3 by n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Rook Polynomial gives unsigned rectangular rook numbers, yielding n^3+2n+1 after summation at three rows.",
+        "No exact table for all signed Fourier values or the all-length zero/gap dichotomy was found in the inspected literature and index records."
+      ],
+      "reasoning": "The unsigned rook count supplies only parity, so it proves zero-freeness when n is even but not the existence of zeros for odd n or the sharp positive gaps. A search with no hit is recorded only as bounded evidence; it is not treated as proof of novelty.",
+      "searches": [
+        "rook polynomial complete rectangular boards count non attacking rooks MathWorld",
+        "K3n signed rook polynomial zero coefficient ±1 Fourier spectrum",
+        "matchings Walsh complete bipartite graph Fourier convolution zeros"
+      ]
+    },
+    "rationale": "The zero criterion and sharp positive gap for complete matchings of K3n are not implied by the inspected unsigned matching, matching-reconstruction, positive-weight stability, or two-edge-only Walsh results. The signed monomer--dimer/rook aliases were explicitly compared. Remaining risk is an unidentified earlier equivalent sign-grid computation.",
+    "residual_risks": [
+      "An unindexed earlier signed rectangular rook-polynomial evaluation may yield the identical all-length dichotomy.",
+      "Index searches can miss unrecognized aliases; absence of a search hit is not a mathematical uniqueness proof.",
+      "The full text of Heilmann--Lieb 1972 was not independently inspected; Wagner presents its theorem and its relevance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Theorems describe positive-weight and half-plane nonvanishing regimes; no exact independent sign-grid Fourier classification of K3n.",
+        "identifier_or_url": "https://arxiv.org/html/math/0412059v2",
+        "material_read": "Introduction, statement of main results, §3 Theorem 17, Corollaries 18--20 and proof context.",
+        "method": "Read source HTML text (not search snippets).",
+        "title": "Enumeration of spanning subgraphs with degree constraints",
+        "trigger": "Earliest 2004 source establishing matching generating functions under degree constraints."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Includes weighted matchings and nonvanishing sectors; unit-modulus cases require special vertex activities and do not yield parity/gap theorem for independent ±1 edge weights.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0803.1659",
+        "material_read": "§1 definitions, §3 Theorem 3.2/Corollary 3.3, §4 Examples 4.1--4.9 and §5 interpretation.",
+        "method": "Read full-text HTML sections and theorem hypotheses.",
+        "title": "Weighted enumeration of spanning subgraphs with degree constraints",
+        "trigger": "Closest broad multivariate weighted matching framework, rewritten/extended from the 2004 source."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its exact statements concern reconstruction of unsigned matching polynomials from vertex-deleted decks, not signed spectral multipliers.",
+        "identifier_or_url": "https://arxiv.org/pdf/1404.3469",
+        "material_read": "Eight-page arXiv preprint, introduction, reconstruction propositions and main §§3--4 proofs and examples.",
+        "method": "Read parsed PDF text and inspected PDF screenshots including first and third pages.",
+        "title": "Polynomial reconstruction of the matching polynomial",
+        "trigger": "Historical complete-family matching polynomial paper with potentially stronger results."
+      },
+      {
+        "assessment": "UNSIGNED_ONLY",
+        "evidence": "Count formula for unweighted nonattacking rooks; no all-sign binary Walsh zero table.",
+        "identifier_or_url": "https://mathworld.wolfram.com/RookPolynomial.html",
+        "material_read": "Definition and complete rectangular-board formula.",
+        "method": "Read web mathematical reference text.",
+        "title": "Rook Polynomial",
+        "trigger": "Potential exact-table/alias source for complete rectangular rook placements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5bf177d8-9df5-4fcd-b7ac-9f2baeaed251",
+  "value": {
+    "rationale": "This identifies precisely when a canonical full-matching indicator on a three-row bipartite edge cube acts as an invertible convolution operator, and its exact least positive singular value for every width. It differs decisively from the earlier two-matching-only spectrum on the identical graph family (opposite outcomes at widths three and four). The explicit sign-moment blocks yield a structural parity mechanism and exponentially many null frequencies, rather than a mere unsigned matchings recount. Exact odd nullities and endpoint inverse norms are deliberately left open.",
+    "status": "PASS"
+  }
+}
