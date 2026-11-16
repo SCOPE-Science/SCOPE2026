@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem quantifies over every finite real \(q\ge9\) and all integer Bessel orders \(k\ge2\). The sixth- and ninth-moment inequalities are established by outward-rounded exact-rational Bessel Taylor/Simpson certificates with explicit fourth-derivative and tail estimates. The all-order sixth-moment comparison uses a uniform analytical high-order bound, not a finite extrapolation. A Sonin function yields the required global amplitude estimate in order two; Landau controls all higher orders. Hölder interpolation produces a strict comparison at every real exponent. The sharp mixed-norm spectral formula and its equality cases are imported with attribution from Xu. `CHECK.py` was run successfully from the self-contained package; it does not substitute for the analytic infinite-order steps.
+
+## Originality — PASS relative to inspected published results
+Xu's arXiv:2610.19648v1, Theorem 1.3 and Remark 3, leaves the optimal positive circle degree undetermined for general \(q>4\). The closely related published sixth-power finding proves the ordering at \(q=6\); the published high-exponent finding proves it for \(q\ge27\). Complete scientific result files of both were read and compared with the claim, rather than their titles alone. The new proof provides the previously uncovered continuous interval \(9\le q<27\), using a new strict ninth/sixth moment certificate and interpolation. Full arXiv primary texts of the earlier mixed-norm and spherical extremizer references were inspected. The earlier statements do not imply the quantified claim without the new numerical inequalities. An older equivalent formulation may still exist; discovery searches do not establish uniqueness or publication priority.
+
+## Mathematical value — PASS
+The second spectral mode governs the best squared-distance stability deficit for the sharp radial–angular Fourier restriction theorem. Identifying it for all real \(q\ge9\) fixes the optimal stability constant and the precise equality classes on a substantial natural interval not supplied by either a single even exponent or a large-exponent tail. The proof also develops a reusable moment-interpolation method with sharp strict rational separators rather than a routine finite computation.
+
+## Scope, nearest literature, and residual risks
+The theorem is for the planar mixed radial–angular norm, not the ordinary unmixed norm. It is not known here whether \(q=9\) is the optimal lower endpoint; no order comparison is claimed for \(4<q<9\). The closest prior references are Xu (2026), *First-harmonic sharp sixth-power stability for circular mixed Fourier extension* (2026), and *The first harmonic gives the sharp planar mixed-norm Fourier stability gap for every exponent \(q\ge27\)* (2026). Landau's underlying original article was not fully inspected, though its bound is quoted in the accessible Xu text. No independent audit or verification has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
