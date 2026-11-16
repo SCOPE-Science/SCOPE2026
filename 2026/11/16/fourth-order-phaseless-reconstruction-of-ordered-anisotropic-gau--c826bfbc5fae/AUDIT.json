@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian Fourier formula gives I=2exp(-S)(cosh Q+cos H). Taylor expansion gives M=S+H²/4 and T=Q²−R² with R=H²/sqrt(24). In d≥3 Q+R and Q−R are distinct irreducible real quadratics: each has at least two positive directions, no real-linear factorization. UFD reduces any competing decomposition to reciprocal factor scaling, and nonzero scalar Q plus rank-one R has rank at least d−1≥2, forcing unit scaling; swapping yields an inadmissible negative rank-one R. R=0 follows from unique irreducible square root. Covariance and displacement recovery then follows. Explicit positive definite d=2 pairs with Q1,R1,Q2,R2 share T and M but differ genuinely. Exact SymPy certificate tests formulas/positivity and order-two insufficiency. Full-dimensional proof is analytic, not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blomenhofer et al. (2023) §1-2: generic sum-of-cubes quadratic identifiability from ordinary sixth moments for centered mixtures.",
+        "Agostini et al. (2021), two-component homoscedastic recovery from raw moments up to four.",
+        "arXiv:2307.03850 abstract: generic Gaussian mixtures from order-six original moments; degree-four insufficient in an unrestricted setting.",
+        "The present strict positive difference and phaseless autocorrelation are not covered by those raw mixture moment maps."
+      ],
+      "reasoning": "The stronger-looking general Gaussian-mixture identifiability results involve all raw mixture moments, center conditions, sixth-order data or generic assertions; no theorem stated there simultaneously has the present measurement map, model class and global fourth-order implication. Classical complete-distribution Gaussian identifiability does not imply a finite-jet phaseless recovery theorem.",
+      "searches": [
+        "fourth Fourier modulus jet two anisotropic normal packets positive definite ordered covariance uniqueness three dimensions planar ambiguity",
+        "phase retrieval two Gaussian mixtures arbitrary covariance fourth moments autocorrelation factorization",
+        "homoscedastic heteroscedastic Gaussian mixtures fourth moment identifiability phase retrieval Fourier modulus",
+        "Gaussian mixture identifiability from degree 6 moments 2307.03850",
+        "published-finding corpus search: two multivariate Gaussian mixtures unequal covariance autocorrelation fourth cumulant inverse ambiguity dimension two versus three"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.22951, full open HTML text relevant sections",
+      "arxiv:2610.39145v1, full HTML theorem statements and methods",
+      "doi:10.1112/blms.12871, open full-text §1-2 and main theorem",
+      "doi:10.1007/s10208-020-09469-6, open full-text §1 and recovery theorems",
+      "doi:10.1016/j.jmva.2013.09.007, abstract only",
+      "arxiv:2307.03850, abstract and repository description",
+      "published-finding corpus semantic results for actual queries given in audit checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Javed (2026), Introduction and Theorem 1: scalar normal variance-mean mixtures and forward fourth-cumulant expression.",
+        "Agostini et al. (2021), §1: homoscedastic raw moment identifiability.",
+        "Blomenhofer et al. (2023), §1-2: centered Gaussian mixture generic sixth moment recovery.",
+        "Liu et al. (2026), Theorems 3.1 and 4.4: wavelet phaseless samples of bandlimited functions."
+      ],
+      "reasoning": "None of these theorems implies the exact global claim under data reduction to I(0), D²I(0), D⁴I(0) with unknown noncoincident centers and arbitrary strictly ordered covariance matrices. In the new proof Q²−R² has a positive-definite irreducible factor; the rank-one difference eliminates factor-rescaling ambiguity only for d≥3, and explicit planar counterexample demonstrates genuine boundary not asserted in inspected papers.",
+      "searches": [
+        "phase retrieval two Gaussian mixtures arbitrary covariance fourth moments autocorrelation factorization",
+        "fourth cumulant two component heteroscedastic Gaussian mixture multivariate recover covariance matrices fourth identifiability",
+        "https://arxiv.org/abs/2606.22951",
+        "https://doi.org/10.1007/s10208-020-09469-6",
+        "https://doi.org/10.1112/blms.12871"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published result Sharp derivative-intensity threshold for real polynomial covariance tomography addresses polynomial covariance tomography, not Gaussian finite-jet autocorrelation.",
+        "Javed (2026) §2: forward mixture fourth-cumulants for a common scalar covariance factor.",
+        "Loperfido (2014) abstract: equal component covariance condition excludes strictly unequal covariances."
+      ],
+      "reasoning": "Aliases sought: characteristic-function modulus, autocorrelation fourth cumulant, anisotropic Gaussian mixture phase retrieval, tensor quartic factorization and rank-one quadratic difference. The cited closest results use different observables or assumptions; no found statement reconstructs both arbitrary strictly ordered covariances globally from an order-four phaseless jet or supplies a planar noncongruence pair.",
+      "searches": [
+        "phaseless fourth-order Fourier intensity jet identifiability two anisotropic Gaussian kernels with Loewner ordered covariance matrices quadratic-form factorization",
+        "fourth Fourier modulus jet two anisotropic normal packets positive definite ordered covariance uniqueness three dimensions planar ambiguity",
+        "quartic polynomial product decomposition positive definite quadratic and rank one form Gaussian autocorrelation tensor",
+        "phase retrieval two Gaussian mixtures arbitrary covariance fourth moments autocorrelation factorization",
+        "published-finding corpus search: phaseless fourth-order Fourier intensity jet identifiability two anisotropic Gaussian kernels with Loewner ordered covariance matrices quadratic-form factorization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus results for quartic factors and covariance rank-one decomposition had no exact two-packet Fourier jets or planar coefficient example.",
+        "The finding is a continuum-dimensional global algebraic classification, not a lookup value; the planar rational identities are proved exactly."
+      ],
+      "reasoning": "No indexed exact table/certificate of anisotropic two-Gaussian phase-retrieval fourth jets was found. Exact symbolic verification and a formal proof were independently produced; existence of table coverage cannot be ruled out solely from semantic search.",
+      "searches": [
+        "phaseless fourth-order Fourier intensity jet identifiability two anisotropic Gaussian kernels with Loewner ordered covariance matrices quadratic-form factorization",
+        "quartic polynomial product decomposition positive definite quadratic and rank one form Gaussian autocorrelation tensor",
+        "published-finding corpus search: quartic polynomial product decomposition positive definite quadratic and rank one form Gaussian autocorrelation tensor"
+      ]
+    },
+    "rationale": "The exact claim is a GLOBAL injectivity theorem for the Fourier autocorrelation jet of two unit-mass Gaussians with strictly Loewner-ordered unequal anisotropic covariances in dimensions at least three, plus an explicit sharp planar noninjectivity example. Actual published-finding corpus searches and paper-level implication comparisons found no equivalent or stronger statement. Javed gives forward scalar-variance-mixing kurtosis, Agostini gives raw-moment homoscedastic recovery, and Blomenhofer et al. give generic degree-six centered recovery, none asserting this inverse phaseless threshold. Residual risk of older autocorrelation/tensor decomposition work and one inaccessible full text is recorded; search absence alone is not novelty proof.",
+    "residual_risks": [
+      "An older complete Gaussian autocorrelation or fourth-cumulant tensor classification might already establish an equivalent rank-one factorization and dimension threshold.",
+      "Full text of Loperfido (2014) could not be inspected; available abstract does not cover unequal covariances, but absence from abstract is insufficient for a definitive negative statement.",
+      "published-finding corpus is a semantic index, so failure to retrieve matching formulations cannot establish exhaustive uniqueness or priority.",
+      "Previous distinct isotropic finite-jet analysis does not cover the arbitrary anisotropic ordered case; this distinction was explicitly checked in accessible duplicate history."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the model uses a single random positive scalar multiplying one covariance matrix; its two-Gaussian cases have proportional covariances, whereas the present claim covers arbitrary strictly ordered anisotropic pairs. Its theorems give forward fourth-cumulant expressions and summaries, not global inversion of the Fourier autocorrelation jet.",
+        "evidence": [
+          "arXiv:2606.22951, Introduction (two-point specialization has proportional covariances), Section 2.1 and Theorem 1 (forward fourth-cumulant formula), Sections 2.3-3 (summaries and projection pursuit)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22951",
+        "material_read": "Full arXiv HTML presentation: introduction and model, Theorem 1, fourth-cumulant tensors, structural corollaries, projection-pursuit sections, overview and appendix descriptions.",
+        "method": "Read open-access article text and compared hypothesis, observable and asserted inverse implication.",
+        "title": "The kurtosis of normal variance-mean mixtures",
+        "trigger": "Recent fourth-order tensor study of Gaussian mean/variance mixtures and their two-point specializations."
+      },
+      {
+        "assessment": "NOT_COVERING: two sampled wavelet-magnitude families for bandlimited one-dimensional functions are different from a single origin Fourier-intensity fourth-order jet for Gaussian mixtures in dimension at least three.",
+        "evidence": [
+          "arXiv:2610.39145v1, Theorems 3.1, 4.4: wavelet magnitude sampling hypotheses and conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39145v1",
+        "material_read": "HTML main statements, definitions and proof structures in sections 3 and 4, including Theorems 3.1 and 4.4.",
+        "method": "Read original full text online and compared measurement families and signal domain.",
+        "title": "Phase Retrieval of Bandlimited Signals Using a Morlet Wavelet and an Admissible Companion",
+        "trigger": "Recent phaseless recovery paper with potentially stronger coverage of Fourier-intensity recovery."
+      },
+      {
+        "assessment": "NOT_COVERING: the source proves generic identifiability of centered Gaussian mixtures from ordinary sixth moments via sums of cubic powers of quadratics, not exact global phaseless fourth-jet inversion for noncentered unequal-covariance pairs.",
+        "evidence": [
+          "Blomenhofer et al. (2023), abstract, §1, identifiability theorem for degree-six ordinary moments."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.12871",
+        "material_read": "Open full-text sections 1-2 on identifiability and the main sum-of-cubes-of-quadratics theorem.",
+        "method": "Compared source moment polynomial map and strength/quantifiers of its generic results against the exact rank-one-difference factorization here.",
+        "title": "Identifiability for mixtures of centered Gaussians and sums of powers of quadratics",
+        "trigger": "Closest algebraic decomposition work involving powers of multivariate positive quadratic forms."
+      },
+      {
+        "assessment": "NOT_COVERING: this paper assumes equal covariance of each component and access to ordinary mixture moments, neither holds in the present pair with strict positive-definite covariance difference and phase lost.",
+        "evidence": [
+          "Agostini, Améndola and Ranestad (2021), §1 homoscedastic mixture definition and two-component fourth-order moment reconstruction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10208-020-09469-6",
+        "material_read": "Open full-text model assumptions in introduction, moment-map definitions, and statements and procedures for two-component order-four reconstruction.",
+        "method": "Compared homoscedasticity, raw moments, and observed mean/variance statistics to heteroscedastic Fourier magnitude derivatives.",
+        "title": "Moment Identifiability of Homoscedastic Gaussian Mixtures",
+        "trigger": "Existing order-four exact recovery of a two-component multivariate Gaussian mixture."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: discusses decomposition of fourth cumulants when component second/third cumulants coincide; strictly ordered Gaussian covariance pairs do not meet that equal-covariance premise. Full-text novelty comparison remains incomplete.",
+        "evidence": [
+          "Loperfido (2014), abstract: conditional fourth-cumulant decomposition for common second and third component cumulants."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmva.2013.09.007",
+        "material_read": "Bibliographic record and abstract only; full manuscript was not accessible.",
+        "method": "Compared explicit condition in abstract and claimed output with the present exact inverse theorem.",
+        "title": "A note on the fourth cumulant of a finite mixture distribution",
+        "trigger": "Possible older cumulant identity dominating the present kurtosis decomposition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c826bfbc-5fae-4bca-ac4f-dce4a8f9165e",
+  "value": {
+    "rationale": "Natural inverse question is how much low-frequency phaseless information identifies two anisotropic Gaussian packets, a structured deconvolution/phase-retrieval model. The complete theorem supplies exact global recovery under a substantive Loewner-order hypothesis, proves minimal derivative order, and identifies a surprising dimension boundary using an explicit noncongruent planar counterexample; these are not merely parameter substitutions of earlier isotropic d≥2 results. It offers a useful structural limit on finite-jet imaging, while deliberately not claiming noise stability or broader mixture recovery.",
+    "status": "PASS"
+  }
+}
