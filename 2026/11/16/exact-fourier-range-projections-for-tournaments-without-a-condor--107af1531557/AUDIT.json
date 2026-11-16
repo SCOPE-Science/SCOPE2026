@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For n>=3, no-winner tournaments are the complement of n pairwise disjoint star faces, each fixing n-1 orientation bits. Exact character orthogonality proves all nonzero Walsh coefficients and all zero frequencies, with cancellation of singleton-edge coefficients. The inverse Fourier transform of the support indicator gives the exact graph kernel 2^(n-1) H(G)+4 e(G)-n^2+1. Translation averaging of arbitrary linear projections onto the translation-invariant convolution range proves the Fourier projection has global minimum l1 and l-infinity norm. Isolation inclusion-exclusion proves the finite sum. For G(n,1/2), the isolated-vertex correction differs from n by at most 2 n^3 2^(-(n-1)), and the binomial CLT with second-moment uniform integrability proves the displayed limiting coefficient. The standalone exact-integer checker verifies 33864 Fourier positions at n=3..6 and the exact graph sum through n=20; these finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. Zippin, Arch. Math. 82 (2004), DOI 10.1007/s00013-003-0582-x: abstract of general translation-invariant projection norm principle.",
+        "J. Gilbert and Z. Rzeszotnik, Ann. Inst. Fourier 60 (2010), DOI 10.5802/aif.2556: entire Fourier-transform norms, not individual Boolean idempotent multiplier subspaces.",
+        "2026 indexed first-coordinate regular-tournament sampling result concerns degree-balance fibres, not exclusion of a Condorcet winner."
+      ],
+      "reasoning": "The abstract universal optimality-by-averaging method is prior and expressly not claimed as original; the new object-specific support and exact Fourier-kernel L1 mean do not follow from it without a separate star-face calculation. Unlike full-group Fourier-transform norm inequalities, this is a sharp range-complementability constant.",
+      "searches": [
+        "Sharp l1 Fourier projection norm on winner-free round robin tournament outcomes",
+        "Fourier spectrum of dominating sets of cycles and paths, signed domination polynomial"
+      ]
+    },
+    "checked_sources": [
+      "Altman and Kleinberg (2010), DOI 10.1609/aaai.v24i1.7613, entire article",
+      "Kolesnik and Sanchez (2020 preprint), arXiv:2009.09322, entire public paper",
+      "Zippin (2004), DOI 10.1007/s00013-003-0582-x, accessible abstract only",
+      "Gilbert and Rzeszotnik (2010), DOI 10.5802/aif.2556, accessible abstract only",
+      "Indexed 2026 result on regular-tournament first-band covariance and spanning-tree complements, full mathematical statement and proof inspected",
+      "Indexed 2026 result on exact covariance of random-tournament score histograms, full statement and proof inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Altman–Kleinberg 2010 discusses selection of an unbeaten tournament winner and manipulation, not harmonic convolution.",
+        "Kolesnik–Sanchez arXiv:2009.09322 analyzes score-sequence geometry and zonotopal representations, not arbitrary edge-frequency correlations.",
+        "Zippin 2004 gives a general averaging principle but leaves this particular multiplier and constant undetermined."
+      ],
+      "reasoning": "Even together, these references do not assert the characterization of all nonzero frequencies as edge-star supports of size >=2 or the graph-isolation Fourier kernel. The explicit Gaussian-plus-rare-isolates coefficient is not a mere special case of the classical count of Condorcet winners.",
+      "searches": [
+        "Exact Walsh Fourier transform of the no-Condorcet-winner tournament indicator, range projection constants and asymptotics",
+        "Fourier support of tournament orientations without a Condorcet winner, star frequency characters",
+        "minimum projection norm Fourier span star edges tournament no Condorcet winner"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Altman–Kleinberg 2010 DOI 10.1609/aaai.v24i1.7613, complete primary paper; 2020 Kolesnik–Sanchez arXiv:2009.09322, complete paper",
+        "Searches for edge-star Boolean Fourier expansion and winner-free tournament orientation character sums returned tournament-rule and generic Walsh background, not the same all-frequency statement."
+      ],
+      "reasoning": "A count of winner-free tournaments is only the zero-frequency value, not the full support or projection constant. Removing disjoint star faces determines every character, but the published papers inspected do not state or imply the claimed endpoint projection norm or asymptotic.",
+      "searches": [
+        "Exact Walsh Fourier transform of the no-Condorcet-winner tournament indicator, range projection constants and asymptotics",
+        "Fourier support of tournament orientations without a Condorcet winner, star frequency characters",
+        "tournament no condorcet winner Fourier spectrum Walsh transform hypercube projection",
+        "Fourier analysis tournament with Condorcet winner event Walsh coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A dedicated published-result index returned close but different models: first-order sampling on regular tournaments, and a complete random-score histogram covariance projector.",
+        "The checker produces exact Lambda_3=1, Lambda_4=101/32, Lambda_5=355/64, Lambda_6=73287/8192; numerical agreement is verification rather than novelty evidence."
+      ],
+      "reasoning": "Relevant indexed statements and tournament counting databases concern different probability laws, coordinate Gram matrices or classical event counts. No full Walsh-support or optimal projection-norm table for no-Condorcet-winner orientations was identified. Index incompleteness remains a residual risk.",
+      "searches": [
+        "Exact Walsh Fourier transform of the no-Condorcet-winner tournament indicator, range projection constants and asymptotics",
+        "Sharp l1 Fourier projection norm on winner-free round robin tournament outcomes",
+        "Walsh character sums of graph colorings and orientations, dominating-set incidence vectors"
+      ]
+    },
+    "rationale": "The specific all-frequency support and least endpoint projection norm for the natural no-Condorcet-winner orientation support are not implied by the inspected tournament-selection or score-geometry papers, by the known abstract translation-averaging mechanism, or by general full-Fourier-transform operator norms. The novelty assessment is qualified by bounded literature and indexed-record access, and cannot exclude an unindexed historical character-weighted formula.",
+    "residual_risks": [
+      "Historical literature may have an unindexed or differently named full edge-star Fourier classification or the exact range-projection constant.",
+      "Two relevant general harmonic-analysis papers were compared on abstracts only; a stronger applicable specialized statement in their inaccessible full texts cannot be definitively excluded.",
+      "Results have undergone same-model review only and not independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines selection and Condorcet consistency, not the Walsh transform of a winner-free tournament subset.",
+        "evidence": "AAAI 2010 official PDF and 2010-07-04 public date; distinct randomized-rule output versus binary-indicator convolution.",
+        "identifier_or_url": "https://doi.org/10.1609/aaai.v24i1.7613",
+        "material_read": "Complete openly accessible five-page paper, including definition of Condorcet winner and statements about manipulation",
+        "method": "Read primary PDF text and first-page image, compared mathematical objects and asserted theorem statements",
+        "title": "Nonmanipulable Randomized Tournament Selections",
+        "trigger": "Earliest verified motivating source for no-Condorcet-winner tournaments"
+      },
+      {
+        "assessment": "Score-realizability and geometric representations do not determine the character-by-character transform or range-projection norms of winner-free tournaments.",
+        "evidence": "arXiv:2009.09322, first publicly posted 2020-09-19.",
+        "identifier_or_url": "https://arxiv.org/abs/2009.09322",
+        "material_read": "Open complete article; main results on score vectors, tilings and zonotopal structure, including Theorems 1.1, 1.2, 3.1, 4.1",
+        "method": "Read public full-text sections and searched for Fourier terminology",
+        "title": "The Geometry of Random Tournaments",
+        "trigger": "Potential complete geometric characterization of edge-orientation outcomes"
+      },
+      {
+        "assessment": "General translation-invariant projection principle is treated as known and is not a novelty claim; does not give winner-free tournament star support or graph-isolation kernel.",
+        "evidence": "2004 Arch. Math. article abstract; full-text-access risk recorded.",
+        "identifier_or_url": "https://doi.org/10.1007/s00013-003-0582-x",
+        "material_read": "Accessible abstract and bibliographic metadata only; full publisher text not obtained",
+        "method": "Abstract-level implication comparison",
+        "title": "A variant of Rudin’s inequality for translation invariant projections on group algebras and its generalization to finite dimensional Banach spaces",
+        "trigger": "Potential stronger theorem implying the global minimality of the Fourier projection"
+      },
+      {
+        "assessment": "Addresses entire finite-group Fourier transform norms, not the specific Fourier idempotent supported on winner-free tournament star frequencies.",
+        "evidence": "Annales de l’Institut Fourier 60 (2010); primary MSC43A25.",
+        "identifier_or_url": "https://doi.org/10.5802/aif.2556",
+        "material_read": "Abstract and publisher bibliographic data; publisher full-text fetch unavailable",
+        "method": "Compared scope of norm statements using metadata/abstract and known general Fourier operators",
+        "title": "The norm of the Fourier transform on finite abelian groups",
+        "trigger": "Potential broad harmonic norm coverage under MSC43A25"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "107af153-1557-4c70-b803-7b84a817ef87",
+  "value": {
+    "rationale": "The minimal real or complex l1/linfinity norm among all projections onto the winner-free tournament convolution range is a natural sharp Banach-space invariant, not a routine count. The Fourier range is extremely sparse but the endpoint projection constant grows linearly with an explicit, nonobvious coefficient. Its Gaussian contribution and isolated-vertex rare-event contribution remain of equal linear order, requiring both a CLT and delicate event conditioning. The exact graph-isolation formula is useful for finite benchmark calculations and may motivate analogous orientation constraints. The result is an all-n structural theorem rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
