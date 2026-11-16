@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The finite-sum/tail identity and derivative-elimination identity hold algebraically. Strictly decreasing exact binomial convolution ratios plus Descartes bound positive y-roots after z=-1-y; endpoint signs and the variational root equation prove counts and uniqueness. Analytic pointwise convergence of R_N gives the sharp limit. SymPy checker independently tests 413 exact/symbolic instances; the infinite claim is based on proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Edholm–Mathew gives effective Bergman-kernel formulas and rational oblique slices, while Deng–Fu proves positive unit-circle values of a palindromic rational-Hartogs numerator; neither gives this vertex polynomial real-root phase diagram.",
+        "Fu gives the number of bounded near-vertex zeros and possible multiple-zero type, not their real-versus-complex count by every degree and parameter."
+      ],
+      "reasoning": "The stronger kernel existence/total-zero theorems do not imply this location statistic, and the diagonal numerator is a distinct parameter-dependent polynomial. Existing real double-root splitting in the limiting exceptional case is credited as prior.",
+      "searches": [
+        "\"Generalized Hartogs triangle Bergman kernel Qian Fu limiting polynomial double zero classification critical parameter odd N\"",
+        "https://arxiv.org/html/2505.20489v3 Sections 1 and 4",
+        "https://arxiv.org/abs/2611.07480"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2505.20489",
+      "arXiv:2611.07480",
+      "arXiv:2611.15406v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fu establishes at most one double negative root, necessarily odd N and alpha below 1/2, not one collision for EVERY odd N; provides no parameter threshold converging to 1/2.",
+        "For each even N, Fu does not provide the exact one-negative-real-root statement."
+      ],
+      "reasoning": "Being allowed a possible repeated root is strictly weaker than proving that a unique parameter yields it for every odd degree, with the full two/one/zero real-count diagram. The present Descartes/TP2 coefficient proof supplies this missing implication.",
+      "searches": [
+        "https://arxiv.org/html/2611.15406v1 Lemmas 2.3, 3.1, 3.2",
+        "https://arxiv.org/html/2505.20489v3",
+        "https://arxiv.org/abs/2611.07480"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fu writes exactly P_delta(z)/delta=Q_{N,alpha}(z), proves that there is at most one double negative zero and all other zeros are simple, and gives N=3 critical alpha; Sections 3 and 5 do not state an all-N negative-real zero count or unique collision threshold."
+      ],
+      "reasoning": "The exact same polynomial and its normalization were deliberately matched. The existing lemma on possible multiplicity does not imply existence/uniqueness of a collision for each odd N, one real zero in each even N, or the threshold limit.",
+      "searches": [
+        "\"For odd N polynomial P_delta(z)=sum_{n=1}^N n(1-n delta)z^{n-1}, uniqueness of multiple negative real root discriminant as delta varies and root topology\"",
+        "https://arxiv.org/html/2611.15406v1, Lemma 3.1 and Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A degree-three discriminant and critical value are already explicitly recorded by Fu; not claimed as novel. No all-degree phase table was identified in the inspected primary sources."
+      ],
+      "reasoning": "The new result is the complete all-degree classification; matching a low-degree table entry cannot imply this. Search absence is not uniqueness proof.",
+      "searches": [
+        "\"positive coefficient polynomial n(N+alpha-n) roots two negative real coalescence odd N\"",
+        "https://arxiv.org/html/2611.15406v1 example N=3",
+        "Published database search terms: Hartogs vertex polynomial negative-root parity transition"
+      ]
+    },
+    "rationale": "Compared the identical polynomial and its known double-root lemma in Qian Fu, with full relevant manuscript read. That work does not imply the all-degree parity counting law, universal existence and uniqueness of odd collision thresholds, or their 1/2 limit; other inspected Hartogs numerator papers work with different slices. Risk remains of an older equivalent result.",
+    "residual_risks": [
+      "Older literature on partial sums of arithmetic–geometric series or truncated power sums could give an equivalent all-degree root-location classification.",
+      "The 2026-11-11 Fu manuscript is very close in object and proves key prior lemmas; distinctions must be maintained in any publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: describes rational effective formulas, palindromic slice zeros and rational families, not an arbitrary real N,alpha vertex polynomial root-count law",
+        "evidence": "arXiv abstract and Sections 1.1–1.3 and 4; first submission 2025-05-26",
+        "identifier_or_url": "https://arxiv.org/html/2505.20489v3",
+        "material_read": "Abstract, introduction on Lu Qi-Keng question, effective numerator formula, prior-zero section, and sections on rational Hartogs zero patterns",
+        "method": "read public full-text HTML and compare variables and polynomial construction",
+        "title": "Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains",
+        "trigger": "Earliest dated motivating generalized Hartogs kernel paper; possible numerator overlap"
+      },
+      {
+        "assessment": "NOT_COVERING: palindromic rational oblique numerator Q_{m,n} differs from the vertex polynomial Q_{N,alpha}",
+        "evidence": "arXiv:2611.07480, abstract and proof of unit-circle positivity",
+        "identifier_or_url": "https://arxiv.org/abs/2611.07480",
+        "material_read": "Abstract, public full text sections describing Q_{m,n} on the unit circle, Fejér decomposition and zeros of Q_{m,n}",
+        "method": "compare full text mathematical objects and spectral variable",
+        "title": "Bergman Kernel Zeros on Rational Hartogs Triangles",
+        "trigger": "Potentially stronger positivity theorem on all rational Hartogs parameters"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: exact polynomial definition, simple-root generality, possible double-root location, degree-three case, vertex-convergence and exceptional splitting already known. NOT_COVERING full parity real-zero count or unique odd threshold sequence and its limit",
+        "evidence": "arXiv:2611.15406v1 Lemma 2.3, Lemma 3.1, Lemma 3.2, example N=3 and Section 5",
+        "identifier_or_url": "https://arxiv.org/html/2611.15406v1",
+        "material_read": "Entire relevant Sections 1–3, including formulas (2.8)–(2.13), Lemmas 2.3, 3.1, 3.2, the explicit degree-three example, and Section 5 root-count discussion",
+        "method": "read accessible HTML and compare all assumptions, claims and implications",
+        "title": "Bergman Kernel Zeros on Generalized Hartogs Triangles",
+        "trigger": "Same normalized polynomial, high-priority direct overlap, source published after motivating anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46a45669-01e8-4410-a241-c201ccb1c69c",
+  "value": {
+    "rationale": "The sign and location of zero fibres in generalized Hartogs vertex sections depend on whether the finite polynomial zeros are real. A complete natural all-degree parity classification and unique collision threshold with asymptotic value provide a meaningful missing analytic kernel invariant, not a tiny arbitrary finite table or elementary renaming.",
+    "status": "PASS"
+  }
+}
