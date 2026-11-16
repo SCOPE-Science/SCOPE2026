@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For the full finite unitary group the central Steinberg Fourier projection has kernel degree times character over group order. The known Steinberg semisimple-value theorem converts its sharp endpoint \(\ell^1\)-norm exactly into a sum over semisimple conjugacy classes of defining-characteristic centralizer parts divided by centralizer orders. The fixed point counts for \(\lambda\mapsto\lambda^{-q}\) yield the orbit counts by Möbius inversion; the standard unitary and linear centralizer orders yield the displayed rational factors in both parities. This proves every finite coefficient. The factorization of the comparison Euler product is verified by logarithmic expansion and the fixed-point identity. Uniform bounds on the corrected factors in every disk of radius below \(\sqrt q\) prove the positive limit and exponential coefficient convergence. The fully enumerated \(U_3(2)\) character agrees with the independent coefficient construction. Remaining dependencies are standard character-value and centralizer theorems, not finite experiments.
+
+## Originality — PASS under bounded literature comparison
+The closest directly relevant published record gives Steinberg Fourier endpoint norms for \(\mathrm{GL}_n(q)\), not the twisted unitary family. Its repeated even/odd normalized values are explicitly false for the present unitary calculation, since ranks two and three at \(q=2\) give \(2/3\) and \(14/27\). Hiss–Zalesski treat Weil–Steinberg tensor characters and restrictions. Møller's unitary-building results provide the centralizer geometry and generating-function context but evaluate (primary) equivariant Euler characteristics, not the positive absolute Steinberg character average. Source text reviewed includes the unitary centralizer decomposition and main generating-function formulas. Specific published and database searches found no dominating evaluated unitary endpoint theorem. This does not rule out an unindexed formula or an uninspected stronger representation-theoretic theorem.
+
+## Mathematical value — PASS
+The Steinberg isotypic idempotent is a canonical harmonic-analysis projection on an infinite, natural nonabelian group family. Its sharp norm has a direct interpretation as exact endpoint amplification. The result replaces a sum over all group elements by an explicit computable orbit Euler product valid at every rank and field size, and proves exponential convergence of the normalized norms to a positive product. A rank-three unitary value also demonstrates that the earlier general-linear parity pattern does not transfer without change. These are natural spectral quantities, not arbitrary finite cutoffs.
+
+## Limits
+No claim is made for special unitary groups, unexamined central blocks, or an exhaustive historical-priority search. The calculation relies on classical input theorems. The standalone exact checker verifies small cases but not all ranks. Independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
