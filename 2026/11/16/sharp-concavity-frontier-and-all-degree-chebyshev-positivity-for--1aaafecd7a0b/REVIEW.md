@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof treats the full real exponent range \([0,3]\) and every polynomial degree. The expansion of \(\csc^2u\) has strictly positive coefficients, so \(h_3''<0\); normalized second curvature is convex in the exponent and both endpoint values are strictly negative. The local expansion proves sharpness for concavity, and the twice-integrated cosine identity establishes Fourier negativity with the boundary term exactly zero. Schur and Szegő recurrences establish all-degree coefficient positivity. The checker passes 224 finite assertions; the proof does not depend on their exhaustiveness.
+
+**Originality: PASS relative to inspected material.** Xu's September 2026 paper identifies the deformation and proves all-degree coefficient positivity at the special weight \(t=1\), along with linear response at \(t=0\), but the inspected Introduction, Section 2, Section 4 and Appendix do not give the parameter interval \([0,3]\) or the sharp concavity boundary. The general Schur sign criterion is explicitly credited to that paper. Chenevier's original work concerns the distinguished weight. Classical sinc/cosine inequalities concern pointwise bounds rather than the second-derivative threshold or this orthogonal-polynomial consequence. Search evidence does not exclude unindexed equivalents; see the originality evidence and residual risks in `AUDIT.json`.
+
+**Mathematical value: PASS.** A natural deformation already used in orthogonal-polynomial spectral analysis gains a uniform, all-degree positivity theorem on a nontrivial parameter interval with an exact geometrical boundary. The threshold \(3\) arises as a genuine change of concavity, not as a chosen numerical cutoff. The finding makes no claim about a sharp coefficient-positivity threshold for larger exponents.
+
+**Limits and literature comparison.** The result is not an asymptotic for Verblunsky coefficients. Both the Schur transfer argument and the classical Mittag–Leffler formula are established tools; the additional content is their sharp application to the continuous arcsine-ratio power family. Older related trigonometric-inequality literature may contain the curvature criterion under a different normalization. Independent audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

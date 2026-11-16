@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The Mittag-Leffler expansion of csc²u has explicit positive b_j, so \\(h_3\\)(u)=1-Σ_(j>=1) j b_j u^(2j+2) is strictly concave on 0<u<π/2; \\(h_0\\)=cos u is likewise. For each u, h_t/h_t is a convex quadratic in t and is negative at 0,3; the expansion h_\\(t=1\\)+(t-3)u²/6+O(u⁴) rules out concavity when t>3. Under the exact change x=cos(θ/2), the circle density is a positive multiple of h_t((π-θ)/2) and its derivative vanishes at θ=π; two integrations by parts yield all negative nonzero cosine moments. The Carathéodory–Schur identity gives a strictly coefficient-negative Schur series, and recurrence preserves that sign at every iterate; all α_j lie in (-1,0) as the measure has infinite support. The Szegő recurrence and standard para-orthogonal identity imply positivity of every coefficient in every degree, including n=0. The saved-package finite checker verifies 224 consistency assertions, not the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu arXiv:2609.10328v1, Remark 2.5: a general sufficient mechanism transfers strictly negative circle Fourier moments into negative Schur parameters; it does not establish that the power-family moments have the required signs on an interval.",
+        "Classical Mitrinović–Adamović inequality, quoted by New approximation inequalities for circular functions (2018), supplies a pointwise sine-cosine inequality, not the second derivative of h_t or full t-interval Fourier signs.",
+        "Nearby sine-power covariance work concerns a different stationary positive-definiteness problem, rather than this orthogonal-polynomial weight and its circle-density concavity."
+      ],
+      "reasoning": "Standard Schur sign transfer is broader as an implication but requires an unverified hypothesis here. Xu determines the hypothesis only at \\(t=1\\). The exact concavity criterion for cos(u)(u/sin(u))^t proves that hypothesis for the whole \\(0\\le t\\le3\\) family; no retrieved stronger theorem covers this stated interval or exact curvature endpoint.",
+      "searches": [
+        "cos(x)*(x/sin(x))^p concavity threshold p<=3 positive coefficients on circle",
+        "Sharp concavity threshold cos u (u/sin u)^t at t=3 all t≤3 Fourier coefficients negative",
+        "general even weight with concave Szego circle density strictly negative Fourier moments Verblunsky sign"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10328v1 full available arXiv HTML",
+      "arXiv:1802.05066 abstract and Xu citation context",
+      "doi:10.1186/s13660-018-1910-9 abstract and Theorem 1.1",
+      "Barry Simon (2005) standard formulas through Xu Section 2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu arXiv:2609.10328v1, Theorem 1.1 is positivity for \\(t=1\\), not \\(t=2\\) or \\(t=3\\); Theorem 1.3 is a linear response about \\(t=0\\), not a global sign theorem.",
+        "Chenevier arXiv:1802.05066, paper description and Xu introduction: original critical vector construction is for the special weight (arcsin x)/x.",
+        "Classical Schur recurrence, Szegő recurrence and Mittag-Leffler expansion are used as established lemmas; those identities alone do not state the interval of t for which the density is strictly concave."
+      ],
+      "reasoning": "The new exact proposition h_t strictly concave on (0,π/2) iff \\(0\\le t\\le3\\) follows from a positive-coefficient csc² expansion and convexity in t. Combined with a Fourier curvature-sign identity it supplies a family-specific premise unavailable in the cited \\(t=1\\) special case. The published \\(t=1\\) result is a member, not a proof of all real \\(0\\le t\\le3\\). The threshold 3 is not asserted to be sharp for coefficient positivity.",
+      "searches": [
+        "Positivity and Asymptotics for Chenevier’s Orthogonal Polynomials arXiv 2609.10328 initial September 9 2026",
+        "New approximation inequalities for circular functions 2018 Mitrinovic Adamovic sine x over x cube cosine",
+        "Orthogonal Polynomials on the Unit Circle Barry Simon Schur algorithm strictly negative Fourier coefficients sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu arXiv:2609.10328v1, Introduction Eq. (3) introduces exactly the family η_t; Theorem 1.1 gives all-degree coefficient positivity for the special member \\(t=1\\) and Theorem 1.3 is a first variation at \\(t=0\\).",
+        "Comparative literature searches for the power deformation and negative Fourier moments did not identify an exact published theorem covering the full real parameter range; absence of a search hit is not novelty proof."
+      ],
+      "reasoning": "The equivalent problem is the negative Fourier moments of the pushforward η_t on the circle, or equivalently the sign of all circle Schur parameters. The source establishes the equivalence as general theory but proves the desired sign for \\(t=1\\) only, not the uniform continuum \\(0\\le t\\le3\\). Search noncoverage is not a uniqueness proof.",
+      "searches": [
+        "Chenevier weight power deformation arcsin x over x exponent t convexity circle lift all Fourier moments negative positivity of critical coefficient vectors t=3",
+        "Shisong Xu Chenevier arcsin x/x weight power deformation orthogonal Chebyshev expansion positivity all exponents parameter",
+        "arXiv:2609.10328 Sections 1, 2, 4 and Appendix power deformation strict positivity all t"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Xu arXiv:2609.10328v1, Introduction: the conjecture is numerically checked in Chenevier only through degree n=25 for \\(t=1\\); later proof establishes every n for that one weight.",
+        "Nearby ultraspherical lower-envelope results concern a different measure and different extrema. The continuous-parameter all-degree theorem is not implied by a finite coefficient table."
+      ],
+      "reasoning": "This is an infinite-degree and continuous-exponent sign theorem plus a concavity iff statement; finite published numerical tables cannot imply it. Relevant inspected source comparisons appear in the checked literature.",
+      "searches": [
+        "arcsin x/x continuous power deformation Chenevier Verblunsky coefficient positivity 0<=t<=3",
+        "Power arcsine weight on [-1,1] circle lift negative Fourier moments positive Chebyshev coefficients",
+        "Shisong Xu 2026 positivity Chenevier orthogonal polynomials exponential perturbation entire t continuum 0 to 3"
+      ]
+    },
+    "rationale": "The exact continuous parameter interval \\(0\\le t\\le3\\) for all-degree strict Chebyshev positivity and the sharp iff concavity boundary are not stated or logically implied by the inspected primary source, which proves positivity at \\(t=1\\) and linear response at \\(t=0\\). The Schur transfer, Mittag-Leffler series, and para-orthogonal identity are explicitly prior theory. Search risk remains for older equivalent trigonometric inequalities or orthogonal-polynomial parameter theorems.",
+    "residual_risks": [
+      "Potential older trigonometric inequalities may imply the same h_t curvature criterion under another parameterization; no complete all-history priority proof.",
+      "Original Chenevier full paper and other older sources were not all inspected in full; they are not claimed as excluded.",
+      "The result proves a sharp concavity endpoint, not a sharp maximal positivity interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes the \\(t=1\\) positivity theorem, the general Schur implication, and a derivative at \\(t=0\\), but not \\(0\\le t\\le3\\) global positivity nor the exact concavity iff statement.",
+        "evidence": [
+          "arXiv:2609.10328 Introduction (3), Theorems 1.1 and 1.3, Section 2 Remark 2.5, Section 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10328 (initial v1, 2026-09-09)",
+        "material_read": "Full available arXiv HTML: Introduction and theorem statements, Section 2 sign proof and Remark 2.5, Section 4 deformation/linear response, and Appendix Fourier-mode discussion.",
+        "method": "Read text and mathematical formulas with section-level comparison of exponents, quantifiers and implications.",
+        "title": "Positivity and Asymptotics for Chenevier’s Orthogonal Polynomials",
+        "trigger": "This paper introduces precisely the same power deformation and is the nearest primary result."
+      },
+      {
+        "assessment": "Original distinguished Chenevier weight is identified; full-text priority comparison is not claimed.",
+        "evidence": [
+          "Chenevier arXiv:1802.05066 abstract; Xu arXiv:2609.10328 Introduction, Chenevier discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.05066",
+        "material_read": "Public abstract and source-derived summary in Xu Introduction; original full text not inspected in this run.",
+        "method": "Abstract and citation context only.",
+        "title": "An automorphic generalization of the Hermite–Minkowski theorem",
+        "trigger": "Original setting of the critical coefficient vectors, cited in the nearest primary paper."
+      },
+      {
+        "assessment": "The identified pointwise sine/cosine inequality does not imply the new full \\(0\\le t\\le3\\) Fourier sign theorem; equivalent curvature inequalities elsewhere remain possible.",
+        "evidence": [
+          "Mitrinović–Adamović pointwise sine-power/cosine inequality as quoted in that article."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13660-018-1910-9",
+        "material_read": "Open abstract and Theorem 1.1/introductory classical Mitrinović–Adamović inequality; remaining text not inspected.",
+        "method": "Compare pointwise inequalities to derivative-sign and continuous-parameter conditions.",
+        "title": "New approximation inequalities for circular functions",
+        "trigger": "Potential classical trigonometric inequality dominating the concavity step."
+      },
+      {
+        "assessment": "Provides established implication from negative Fourier moments to positive coefficients, not the new analytic sign of this continuum of measures.",
+        "evidence": [
+          "Schur recurrence, Szegő recurrence, and real-line para-orthogonal correspondence."
+        ],
+        "identifier_or_url": "Barry Simon (2005)",
+        "material_read": "Relevant standard formulas as reproduced in Xu Section 2; the entire monograph was not read.",
+        "method": "Reconstruct each recurrence algebraically and compare to the stated polynomial normalization.",
+        "title": "Orthogonal Polynomials on the Unit Circle, Part 1: Classical Theory",
+        "trigger": "Standard Schur algorithm, Szegő recurrence and para-orthogonal polynomial construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1aaafecd-7a0b-49b7-908b-65e4655d10d4",
+  "value": {
+    "rationale": "Xu’s September 2026 investigation poses a natural exponential power deformation of a genuinely specialized orthogonal-polynomial weight and establishes all-degree positivity only for its distinguished member. The result supplies a continuum of valid measures, every degree and coefficient, and a mathematically intrinsic exact concavity threshold \\(t=3\\) controlling a useful Fourier-sign mechanism. This is a motivated structural extension, not a finite census, routine restatement, or arbitrary fixed-degree parameter slice.",
+    "status": "PASS"
+  }
+}
