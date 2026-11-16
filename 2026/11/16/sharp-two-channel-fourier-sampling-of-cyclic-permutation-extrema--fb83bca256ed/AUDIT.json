@@ -1,0 +1,201 @@
+{
+  "correctness": {
+    "rationale": "Cyclic uniform-rank representation reduces every covariance to exact 3-,4-,or5-point relative order counts: A0=2/9,A±1=-1/9,A±2=1/45 and B0=-1/9,B±1=7/72,B±2=-7/360. A direct unitary DFT yields the two polynomial spectral bands in RESULT.md. The plus band is bounded below by 4/45; the minus band factors (1-c)(3-2c)/12 and vanishes only at c=1 (j=0). Both bands are strictly decreasing in c, giving the exact n=5 versus n>=6 minimum and alternating-frequency maximum. Taylor expansion of 1-cos(2pi/n) gives kappa/n²→5/pi². The bundled standalone Python 3 checker enumerates exact covariance entries at n=5..8 and performs 1964 assertions; infinite claims rest on the stated proof, not the tests. No unproved special lemma or excluded small n is silently used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Crane, DeSalvo, Elizalde arXiv:1609.01370 Section 8 uses overlaps to derive single consecutive-pattern count variances.",
+        "Borga–Penaguiao arXiv:1910.02233 proves the cycle-polytope feasible region of limiting aggregate consecutive-pattern proportions, not finite cyclic stochastic Fourier bands.",
+        "Chavez–Martinez, Entropy 2025 27(10):1027, Sections 2–3 develops empirical ordinal-symbol autocovariance spectra and surrogate tests, but does not derive the exact cyclic peak/valley bands or sharp conditioning."
+      ],
+      "reasoning": "General finite-range covariance Fourier transforms and overlap enumeration are standard antecedents, explicitly not novel. These broader tools alone do not specify the precise two-channel local moment table, the singular mode, n=5 threshold, or condition-number constant; the cited specialized papers were checked for such statements.",
+      "searches": [
+        "joint spatial Fourier covariance peaks valleys uniform random permutations exact two-band eigenvalues",
+        "permutation rise descent process peak valley Fourier two-band",
+        "ordinal spectrum mapping ordinal patterns frequency domain local maxima extrema dual channel",
+        "arxiv:2212.14386",
+        "arxiv:1609.01370",
+        "https://www.mdpi.com/1099-4300/27/10/1027"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.04397",
+      "https://arxiv.org/pdf/2212.14386",
+      "https://arxiv.org/abs/1910.02233",
+      "https://arxiv.org/abs/1609.01370",
+      "https://arxiv.org/abs/cond-mat/0509584",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232",
+      "https://www.mdpi.com/1099-4300/27/10/1027"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bandt continuous iid aggregate covariance has a long-run turning-rate variance 8/45 (his Eq. (21)); this agrees with the peak-plus-valley constant-frequency variance derived here, and is acknowledged as covered.",
+        "Bandt and the published six-pattern aggregate published-finding corpus theorem do not assert or tabulate the nonzero discrete spatial-frequency eigenvalues or maximum/minimum positive eigenvalue classification.",
+        "Present theorem provides lambda_j^+=(19-5cos theta_j+2cos^2 theta_j)/180 and lambda_j^-=(1-cos theta_j)(3-2cos theta_j)/12 for every n>=5, with explicit n=5 threshold and kappa_n/n^2 -> 5/pi^2."
+      ],
+      "reasoning": "Known aggregate variance and conservation follow from summing local statistics and are not separated as new claims. Conversely those aggregate results give only frequency-zero or averaged information, not the full two-channel cyclic n-resolved eigenstructure. Their proofs can be adapted to build the current local moments, but the stated full theorem is not a trivial corollary of a previously stated spectral theorem. Prior methods may implicitly yield it; priority remains provisional.",
+      "searches": [
+        "random cyclic permutation peak valley indicator covariance Fourier spectrum alternating height local extrema near zero quadratic conditioning",
+        "joint spatial Fourier covariance peaks valleys uniform random permutations exact two-band eigenvalues",
+        "Exact two channel covariance spectral density for cyclic local maxima and minima in uniform random permutations, positional Fourier eigenvalues, zero mode, sharp condition number",
+        "Bandt 2022 turning rate white noise pattern contrasts cyclic peak valley Fourier covariance spectral function",
+        "2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+        "2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232",
+        "arxiv:2212.14386",
+        "arxiv:1910.02233"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bandt arXiv:2212.14386 Section IV, equations (9),(12),(21), analyzes six ordinal-pattern frequency contrasts and exact long-run aggregate i.i.d. covariance; the peak-minus-valley balance is a boundary/coboundary relation.",
+        "The linear triple-pattern aggregate covariance RESULT.md at 2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e computes all six nonwrapped aggregate counts and their eigenvalues.",
+        "The cyclic identity P_i-V_i=(S_{i-1}-S_i)/2 implies one frequency-zero null direction and a low-frequency O(theta^2) band; neither cited aggregate result states the positive-mode band for finite cyclic n."
+      ],
+      "reasoning": "Aliases checked: turning rate, extrema point process, peak/valley signed contrast, ordinal-pattern spectral density, cyclic ranks. Known local ordinal overlap and telescoping are explicitly credited. A full spatial n-dependent two-channel covariance operator and its exact Fourier bands are mathematically stronger than, and cannot be read off from, the published aggregated count covariance without additional positional and periodic analysis. No equivalent stated theorem found in inspected material.",
+      "searches": [
+        "random cyclic permutation peak valley indicator covariance Fourier spectrum alternating height local extrema near zero quadratic conditioning",
+        "joint spatial Fourier covariance peaks valleys uniform random permutations exact two-band eigenvalues",
+        "2018 Fu exterior peaks double descents permutation 1801.04397 Fourier peak valley stationary cyclic",
+        "rank covariance two channel cyclic turning point indicators local extrema uniform permutation 5/pi^2",
+        "Exact two channel covariance spectral density for cyclic local maxima and minima in uniform random permutations, positional Fourier eigenvalues, zero mode, sharp condition number",
+        "Bandt 2022 turning rate white noise pattern contrasts cyclic peak valley Fourier covariance spectral function",
+        "arxiv:2212.14386",
+        "2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e gives a 6-by-6 covariance spectrum of aggregated nonwrapped triple counts, not a 2n-by-2n covariance or cyclic frequency table.",
+        "published-finding corpus 2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232 gives asymptotic rank 10 for thirteen weak-order pattern counts on iid finite alphabets of at least three symbols; zero mode via coboundary, but no spatial Fourier spectrum.",
+        "Bandt arXiv:2212.14386 Eq. (9) is a 6-by-6 long-run covariance of aggregate proportions rather than the two-channel cyclic positional matrix."
+      ],
+      "reasoning": "Searched exact coefficients, constants, 5/pi^2, positional spectrum, Fourier bands, rank and boundary equivalences using published-finding corpus and web. The close aggregate tables do not contain the finite cyclic eigenvalues as tabulated entries; they give overlap ingredients. There is residual risk that another indexed or unindexed point-process computation derived these same formulas.",
+      "searches": [
+        "random cyclic permutation peak valley indicator covariance Fourier spectrum alternating height local extrema near zero quadratic conditioning",
+        "local maxima minima random permutations first difference peak valley covariance eigenvalue",
+        "Exact two channel covariance spectral density for cyclic local maxima and minima in uniform random permutations, positional Fourier eigenvalues, zero mode, sharp condition number",
+        "2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+        "2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232",
+        "2026/10/12/SCOPE-exact-covariance-spectrum-and-the-unique-boundary-fluctuation-of--3a676bebbf63"
+      ]
+    },
+    "rationale": "Close preceding results give the six-count aggregate covariance, turning-rate variance, local overlap probabilities and coboundary conservation; these are expressly not novelty claims. Full-text comparison with Bandt (2022) and the published exact aggregate triple-pattern covariance theorem found no claim covering the full finite cyclic 2n peak/valley spatial eigenband classification, exact condition-number threshold and leading constant. No substantially equivalent theorem surfaced in published-finding corpus or targeted literature searches. Historical priority remains provisional; an older cyclic extrema spectral density under different terminology is possible.",
+    "residual_risks": [
+      "Earlier cyclic peak-valley point-process cross-spectrum with equivalent bands could be indexed under signal processing or ordinal time-series language; priority not certified.",
+      "Aggregate covariance of six triple patterns determines a subset of moments and is close enough that an implicit reduction may exist; explicit all-frequency implication was not found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exterior peak and double descent aggregate enumerators, no exact cyclic positional peak/valley covariance bands.",
+        "evidence": [
+          "First submitted 2018-01-13 UTC, arxiv v1.",
+          "Generating functions concern numbers of exterior peaks and double descents, not 2n local indicator covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.04397",
+        "material_read": "arXiv HTML title, abstract, introduction and generating-function statements",
+        "method": "arXiv original/preprint HTML inspection",
+        "title": "A Context-free Grammar for Peaks and Double Descents of Permutations",
+        "trigger": "Middle-window primary literature on permutation peaks"
+      },
+      {
+        "assessment": "Establishes asymptotic aggregate ordinal-pattern covariance and balance; does not give cyclic finite two-channel spatial spectral theorem.",
+        "evidence": [
+          "Equation (9) is 6x6 long-run covariance of aggregate pattern frequencies.",
+          "Eq (12) is asymptotic peak-valley count balance; Eq (21) turning-rate variance 8/45.",
+          "First posted 2022-12-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.14386",
+        "material_read": "Abstract, sections II and IV, pp 16–22 including equations (9), (12), (21), Proposition 3, plus page screenshots",
+        "method": "arXiv full-text PDF page text and screenshots",
+        "title": "Statistics and modelling of order patterns in univariate time series",
+        "trigger": "Strongest close prior on six-pattern covariance and turning-rate contrast"
+      },
+      {
+        "assessment": "Polytope of limiting frequency proportions; not full random cyclic positional covariance spectrum.",
+        "evidence": [
+          "First posted 2019-10-05.",
+          "Determines dimension/vertices/faces of limiting feasible occurrence proportions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02233",
+        "material_read": "Preprint abstract, introduction and main polytope feasible-region theorem",
+        "method": "arXiv open full-text HTML inspection",
+        "title": "The feasible region for consecutive patterns of permutations is a cycle polytope",
+        "trigger": "Check whether overlap-flow constraints already imply precise cyclic rank and eigenvalues"
+      },
+      {
+        "assessment": "Overlap-based single-pattern count variances are known; no full cyclic two-channel spectral conclusion.",
+        "evidence": [
+          "Section 8 uses dissociation and overlapping consecutive-pattern indicators.",
+          "Source first public 2016-09-06, outside middle-window seed; cited only as prior background."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.01370",
+        "material_read": "arXiv full-text HTML Section 8 and pattern-variance formula statements",
+        "method": "arXiv primary open article inspection",
+        "title": "The probability of avoiding consecutive patterns in the Mallows distribution",
+        "trigger": "Known exact finite overlap variance methodology"
+      },
+      {
+        "assessment": "Peak counts and conditioned peak gaps are treated; no joint peak-and-valley finite cyclic two-band Fourier covariance theorem identified.",
+        "evidence": [
+          "Full text discusses number of local maxima and gap lengths with no intervening peak.",
+          "Source predates eligible cohort and is cited solely as established background."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0509584",
+        "material_read": "PDF abstract, early formulation, section on one-dimensional no-intervening-peak gaps and concluding results; page screenshots",
+        "method": "arXiv full PDF text and targeted screenshots",
+        "title": "On the distribution of surface extrema in several one- and two-dimensional random landscapes",
+        "trigger": "Potential general extrema-point-process domination"
+      },
+      {
+        "assessment": "Six aggregate linear count covariance eigenvalues; its 4!/5! local ordering method is prior but no spatial cyclic 2n Fourier two-channel eigenvalue array.",
+        "evidence": [
+          "Scope n>=4 linear permutations and counts indexed by i=1,...,n-2.",
+          "Full theorem lists six global count covariance eigenvalues and bounded boundary mode."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+        "material_read": "Complete RESULT.md proof, theorem, reference and limitations sections",
+        "method": "Authorized public GitHub source read connector",
+        "title": "Exact covariance spectrum of the six consecutive triple patterns in uniform permutations",
+        "trigger": "Top published-finding corpus overlap, same random permutations and triple patterns"
+      },
+      {
+        "assessment": "Asymptotic aggregate tie-aware ordinal-pattern nullspaces on finite alphabets; neither same distribution nor same finite positional covariance statement.",
+        "evidence": [
+          "Rank 13-coordinate asymptotic covariance q>=3 =10; zero modes coboundary, full-support finite ordered alphabet.",
+          "Finite cyclic permutation rank and spectral bands not addressed."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232",
+        "material_read": "Complete RESULT.md theorem, Hoeffding-coboundary proof, references and limitations",
+        "method": "Authorized public GitHub source read connector",
+        "title": "Exact covariance nullspaces of three-point generalized ordinal patterns",
+        "trigger": "Potential broader coboundary rank result for ordinal patterns"
+      },
+      {
+        "assessment": "Empirical ordinal-symbol spectrum and surrogate diagnostic; not exact finite uniform permutation extrema two-channel spectral/conditioning theorem.",
+        "evidence": [
+          "Methods estimate symbolic autocovariances and apply Fourier transform.",
+          "Examples focus on spectral diagnostics for stochastic/chaotic series, not exact cyclic point processes."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1099-4300/27/10/1027",
+        "material_read": "Open full HTML Sections 1–3, symbolic ordinal spectrum construction and stochastic-noise examples",
+        "method": "Publisher open HTML article",
+        "title": "Ordinal Spectrum: Mapping Ordinal Patterns into Frequency Domain",
+        "trigger": "Potential spectral-domain prior that may subsume spatial Fourier analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb83bca2-56ed-4331-b53f-26e3a1c45de8",
+  "value": {
+    "rationale": "The cyclic peak-and-valley indicators are a canonical dual-channel rank-observation model. Their exact number-balance conservation produces a singular DC mode; the theorem quantifies the nearest nonzero harmonic sensitivity and proves a sharp n² condition growth with coefficient 5/pi², whereas the peak-only covariance stays full rank with limiting condition 11. This strict contrast and the complete all-n rank/condition threshold supply motivated harmonic observability information beyond local moment enumeration or a routine rename.",
+    "status": "PASS"
+  }
+}
