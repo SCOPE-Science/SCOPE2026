@@ -1,0 +1,19 @@
+# Scientific assessment: reciprocal-Gamma boundary-layer zero process
+
+## Correctness — PASS
+
+The complete mathematical claim is the convergence of the unconditioned large-exponent Gaussian analytic fields and their zero configurations, accompanied by the universal second-order covariance defect, the intensity expansion and its two tail regimes. The exact covariance follows by reindexing the given power series after a nonvanishing analytic gauge. Euler–Maclaurin summation applies uniformly with derivatives because reciprocal Gamma is entire at zero and superexponentially damped on the positive axis; its derivative at zero is exactly two, yielding the coefficient \(-1/6\). Uniform convergence of positive-definite kernels gives convergence of proper Gaussian analytic fields. The nondegenerate value/derivative Gaussian pair ensures simple zeros almost surely, so Rouché continuity passes to zero measures. The intensity identity is the exact Edelman–Kostlan formula. Left-tail rescaling produces a Gamma(shape two) law, and Stirling's strictly log-concave saddle produces a centered unit Gaussian on the right, with variance constants \(2/s^2\) and \(e^{s/2}/4\). The annular identity correctly accounts for the nonvanishing gauge, whose derivative contributes \(-1/\beta\) and cancels between radii. The saved numerical checker completed 45 finite consistency assertions. Numerical evidence is not used as the infinite proof.
+
+## Originality — PASS relative to inspected material, with explicit access risk
+
+Y.-H. Du's preprint arXiv:2602.24193v1 defines precisely this family but its stated theorem is a large-radius *conditioned hole event* at fixed positive exponent; it does not logically imply the unconditioned limit as the exponent tends to infinity. The full 32-page manuscript could not be inspected; only its abstract and first publisher-preview page were readable, and no whole-document noncoverage conclusion is inferred. The accessible general Gaussian analytic function sources establish mean-zero formulas, convergence principles and disk boundary universality but do not provide the reciprocal-Gamma high-exponent edge profile or the \(-1/6\) covariance defect. Semantic database comparisons did not identify an equivalent claim; that absence is not a uniqueness certificate. A reparametrized theorem in older Volterra-function or random-analytic-series literature remains a plausible priority risk, but no concrete stronger coverage was found.
+
+## Value — PASS
+
+The exponent in the published power-exponential family controls the steepness of its radial weight. Taking that exponent to infinity changes the spatial scale of zeros near the unit circle, a natural gap distinct from the source's fixed-exponent hole problem. The theorem identifies a full limiting analytic zero process, not a finite simulation or a single coefficient. The exact reciprocal-Gamma Laplace kernel and the universal second-order correction permit controlled finite-exponent approximations. Its intensity connects an inverse-square interior tail to an exponential exterior tail, while mixing in the tangential direction describes the limiting geometry. The answer can guide further studies of edge correlations and extreme gaps without asserting such results here.
+
+## Source and scope limitations
+
+The motivating article was not available in full text through accessible open copies; institutional retrieval could not proceed because the institutional connection was unavailable. The second-order coefficient and tail asymptotics have direct complete mathematical proofs in the accompanying result, but external priority remains unverified by an independent expert. The limit fixes the logarithmic coordinate before sending the exponent to infinity and does not address conditioned holes or growing spatial windows.
+
+Self-review: passed. Independent audit: not yet performed.
