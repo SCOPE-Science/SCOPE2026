@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "All \\(2^{10}\\) five-vertex graph masks and all \\(2^{15}\\) six-vertex graph masks are exhausted with independent chordality predicates. The 34 actual \\(S_5\\) orbits partition 1024 frequencies and direct signed sums have exactly representatives 28, 31, 185 as zero. At order six, the count 18154 and fixed-edge incidence count 8524 are independently reproduced; the product identity yields \\(W_6(S)\\equiv2\\pmod4\\) for every S. Signed sum at mask 639 equals 2. An independent exact butterfly program reproduces full zero counts and Parseval 841728 and 594870272. The proof explicitly states normalizations, finite quantifiers, algorithmic exhaustion and limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "N. C. Wormald (1985), DOI 10.1007/BF02582944: abstract promises counts by clique numbers and sizes, up to order 13.",
+        "U. Hebert-Johnson, D. Lokshtanov, E. Vigoda (2023), arXiv:2308.09703: Theorem 1.1 counts colourability-restricted labelled chordal graphs.",
+        "https://oeis.org/A058862 gives the ordinary graph counts 822 and 18154."
+      ],
+      "reasoning": "Existing unrestricted counts and even edge-count marginals may imply the six-vertex modulo-four observation by a simple identity, so that parity component is explicitly acknowledged as potentially covered. Neither ordinary graph counts nor edge-number distributions imply the precise signed character sums at three nonisomorphic five-vertex edge patterns. A formula for arbitrary prescribed labelled edge patterns would dominate the new zero classification, but none was found in inspected accessible material. The plausible 1985 source could not be inspected beyond abstract and is a priority risk.",
+      "searches": [
+        "Counting labelled chordal graphs Wormald pdf",
+        "Counting and Sampling Labeled Chordal Graphs in Polynomial Time",
+        "chordal graphs Fourier coefficients exact enum triangulated graph property"
+      ]
+    },
+    "checked_sources": [
+      "Wormald 1985 DOI 10.1007/BF02582944 (abstract only)",
+      "Chandran–Mathew arXiv:1108.0277 (HTML sections)",
+      "Hebert-Johnson–Lokshtanov–Vigoda arXiv:2308.09703 (material HTML sections)",
+      "OEIS A058862 (count table)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wormald (1985) abstract: enumeration by clique counts; no inspected text gives character-specific signed values.",
+        "arXiv:2308.09703, Sections 1 and 3–4: exact counts and samplers, without arbitrary edge-character Fourier evaluation.",
+        "The n=5 complete frequency-orbit partition has 34 rows and precisely three zero motifs; all are recomputable from independent induced-cycle testing."
+      ],
+      "reasoning": "The six-vertex nonvanishing corollary follows directly from |C6|=18154 and even one-edge incidence 8524, so the new contribution does not depend on asserting that this algebraic consequence was historically unavailable. Crucially, neither stated enumeration theorem has hypotheses or outputs determining Walsh sums for every fixed geometric edge mask; there is no logical implication from the aggregate counts alone to the full n=5 orbit-zero classification. The result is narrower than an all-order theorem and makes no such claim.",
+      "searches": [
+        "number of chordal graphs with given numbers of cliques of given sizes Wormald",
+        "graph property Fourier analysis signed enumeration chordal triangulated graphs",
+        "chordal graphs Fourier convolution singularity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2308.09703 (chordal-graph enumeration and uniform sampling, HTML Theorem 1.1 and Sections 3.4–4 inspected)",
+        "https://doi.org/10.1007/BF02582944 (classic graph enumeration; abstract/metadata only)",
+        "https://arxiv.org/abs/1108.0277 (structural equivalence of 3-chordal and chordal, HTML preliminaries inspected)"
+      ],
+      "reasoning": "Triangulated graphs, perfect-elimination graphs, and graphs with no induced long chordless cycle are the same objects. The stated result is not about the graph Laplacian or vertex-signal graph Fourier transform: it evaluates Walsh characters on edge-incidence vectors of ALL labelled chordal graphs. Searched these equivalent descriptions; none of the inspected accessible sections supplied its three exceptional signed-frequency orbits.",
+      "searches": [
+        "Fourier spectrum chordal graphs Boolean graph property Walsh transform chordality",
+        "Walsh Fourier coefficients characteristic function chordal graphs graph property n=5 n=6",
+        "chordal graphs Fourier convolution singularity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A058862 lists 822 and 18154 as total labelled chordal graph counts; it does not list the 34 orbit-specific signed Walsh sums.",
+        "The exact 34-row signed orbit certificate five_vertex_orbits.csv gives three zero rows 28,31,185 with multiplicities 30,30,60.",
+        "The independent six_vertex_edge_census.csv has total 18154 and incidence count 8524 for edge 12."
+      ],
+      "reasoning": "The prior count sequence is not a database of Walsh zero frequencies. Distinguishing the three geometric types needs pairwise and higher-order incidence information not encoded by n-only total counts. Exact existing full-text tables in unindexed sources were not ruled out.",
+      "searches": [
+        "chordal graphs number labeled n 5 n 6 822 18154 OEIS",
+        "Walsh rank of Boolean property of labelled graphs, chordal triangulated, induced cycle avoidance",
+        "Six labelled vertices chordal graph indicator signed Walsh transform uniformly 2 modulo 4"
+      ]
+    },
+    "rationale": "After direct statement-and-implication comparisons, the identified standard literature covers chordal graph enumeration and structural recognition, but not the three exact geometry-dependent zero orbits for the Walsh transform on five labelled vertices. Aggregate counts are acknowledged as prior and can lead to the six-vertex congruence once its edge marginal is known. No broader covering signed edge-pattern result was identified in inspected full-text material. The uninspected Wormald 1985 full text and unindexed signed tables are material residual priority risks; no absolute novelty guarantee is asserted.",
+    "residual_risks": [
+      "The 1985 Wormald original full text was not obtained; its tables or appendices may contain finer signed data than the abstract indicates.",
+      "Unindexed graph enumeration tables may incidentally record the same five-vertex Walsh orbit sums.",
+      "Public record and semantic searches do not prove historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact counts and uniform sampling are covered, while no geometry-dependent edge-Walsh cancellation classification was located.",
+        "evidence": [
+          "arXiv:2308.09703, Theorem 1.1: count omega-colourable labelled chordal graphs in O(n^7) arithmetic operations.",
+          "Section 4: finite tables of total and chromatic-restricted graph counts; no Fourier or signed occurrence found in accessible text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.09703",
+        "material_read": "HTML introduction and Theorem 1.1; Sections 3.4 and 4 on the counting algorithm and tables; full-text searches for Fourier, signed, spectrum and number of edges.",
+        "method": "Read public arXiv HTML text, not only abstract.",
+        "title": "Counting and Sampling Labeled Chordal Graphs in Polynomial Time",
+        "trigger": "Same chordal-graph support and strongest accessible general exact enumeration theorem."
+      },
+      {
+        "assessment": "Abstract covers clique-statistic and connectivity counts through n=13. Cannot assert document-level absence of orbit-specific signed sums without the full text.",
+        "evidence": [
+          "Bibliographic abstract describes generating functions for counts by clique sizes, not signed edge-mask evaluations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02582944",
+        "material_read": "Public abstract and bibliographic record; full text not obtained.",
+        "method": "University publication listing and OA manuscript search.",
+        "title": "Counting labelled chordal graphs",
+        "trigger": "Original exact enumerator on precisely the same labelled chordal-graph family."
+      },
+      {
+        "assessment": "Concerning bipartite powering and chordality, not signed Walsh enumeration.",
+        "evidence": [
+          "Section 2 defines k-chordal in terms of induced holes; principal result preserves k-chordality under bipartite powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.0277",
+        "material_read": "arXiv HTML abstract, introduction, graph preliminaries and result description.",
+        "method": "Public arXiv HTML v2 and submission-history record identifying first version 2011-08-01.",
+        "title": "Bipartite powers of k-chordal graphs",
+        "trigger": "Publicly dated archival structural background and 3-chordal alias."
+      },
+      {
+        "assessment": "Covers count totals 822 and 18154, not frequency-mask-specific signed sums.",
+        "evidence": [
+          "A058862 gives labelled chordal graph totals 1,2,8,61,822,18154,... by n."
+        ],
+        "identifier_or_url": "https://oeis.org/A058862",
+        "material_read": "Sequence title, initial terms, references, and linked enumeration papers.",
+        "method": "Public sequence entry.",
+        "title": "OEIS A058862",
+        "trigger": "Check historical exact total graph counts and possible tabulated coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58099a39-a780-4d6f-a6ea-2d7b30a5bb94",
+  "value": {
+    "rationale": "The exact first singular five-vertex chordal-graph convolution and immediately invertible six-vertex case answer a natural identifiable edge-parity observable question for a foundational graph class. The three-motif zero classification is not merely an aggregate count and is necessary to describe the entire missing observation subspace. The n6 congruence yields full recovery and a sharp inverse norm from only two graph incidence counts. This is a complete motivated finite cutoff/contrast; higher orders are explicitly outside the scope.",
+    "status": "PASS"
+  }
+}
