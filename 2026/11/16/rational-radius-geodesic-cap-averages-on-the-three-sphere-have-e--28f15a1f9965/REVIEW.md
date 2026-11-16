@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The radial measure on \(S^3\) is \(\sin^2t\,dt\), and the Chebyshev zonal character yields the stated exact scalar harmonic multipliers. Multiplying the numerator equation by a nonzero exponential produces a four-term cyclotomic relation. The two possible forms of a four-term vanishing relation are handled separately: reducible relations force \(z^2=1\); irreducible ones force root order dividing six by Mann's theorem. Exact substitution excludes orders three and six and retains just the hemisphere/even-degree case. Completeness of spherical harmonics finishes the \(L^2\) statement. The high-degree decay independently rules out a bounded inverse.
+
+**Originality — PASS, subject to historical priority.** A literal, alias and implication search of accessible mathematical records found no prior theorem covering the particular rational-angle geodesic-**cap** operator on \(S^3\). The 2023 Schär–Stier primary text analyzes angle-randomized **geodesic-circle** walks with Wasserstein bounds rather than uniform geodesic caps or their exact spectral kernels. Evertse/Mann supply an arithmetic lemma but do not state or imply the harmonic-cap classification without a nontrivial spectral reduction. Nearby results for even-dimensional spheres do not imply the odd-dimensional \(S^3\) case. Earlier specialized spherical mean-transform or Pompeiu literature is a residual priority risk.
+
+**Value — PASS.** Exact injectivity of a natural spherical averaging transform is a motivated inverse problem. The theorem supplies a complete classification across every rational opening angle and identifies a single geometric radius causing infinitely many lost modes; the proof links spherical harmonic zeros to short cyclotomic relations. Inversion remains unstable, a limit stated openly.
+
+Self-review: passed. Independent audit: not yet performed.
