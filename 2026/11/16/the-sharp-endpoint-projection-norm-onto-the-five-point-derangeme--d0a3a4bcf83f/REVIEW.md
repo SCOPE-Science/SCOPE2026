@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** For the specified additive Boolean group, the nonzero signed-permanent frequency set is the Fourier range of derangement-indicator convolution. The explicit nine-edge spanning tree yields a genuine eleven-bit quotient of that nonzero indicator. A standalone exact-integer checker computes and twice independently verifies all 2048 Fourier values of the *nonzero-support indicator*. Its absolute kernel histogram sums to 27996 and gives the norm 6999/512; translation averaging rigorously proves minimality over arbitrary projections in both endpoint spaces.
+
+**Originality — PASS under bounded comparison.** An earlier mathematical result already provides the complete 2048-class **signed-permanent** magnitude distribution and rank, and establishes the **different** endpoint Fourier projection norm 1269/256 for the 44 derangement characters. Those values are NOT asserted as new here. A published all-permutation result, a full-text signed permanent paper, and a nonabelian derangement Cayley graph spectrum also do not calculate the Fourier transform of the *nonzero permanent indicator*. The exact minimum range-projection norm 6999/512 was not identified in the checked sources. Exhaustive historical priority remains uncertain.
+
+**Value — PASS.** This is the natural endpoint-stability constant for reconstructing the range of a canonical singular Boolean convolution. It is not determined by the already-known absolute spectrum because different arrangements of zero frequencies can have the same magnitude histogram but different support transforms. The new exact norm is substantially larger than the previously studied projection onto the original 44 characters and supplies a sharp stability benchmark for the 1710-class spectral range. Its sharpness holds over all projections, not only convolutions.
+
+**Limitations and risks.** The new exact integer histogram is a complete finite computation, not an infinite-order asymptotic. Earlier tabulation of the nonzero-support transform under restricted-permanent terminology is a residual originality risk. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
