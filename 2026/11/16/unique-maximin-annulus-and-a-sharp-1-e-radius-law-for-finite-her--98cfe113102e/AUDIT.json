@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md sections Proof 1–5 and exact equations",
+      "check_annulus.py numerical consistency checks; run prints FINITE_HERMITE_ANNULUS_PASS"
+    ],
+    "rationale": "Gaussian STFT Hermite diagonalization gives the stated exact incomplete-gamma eigenvalues and orthogonal modes. Integration by parts makes their sequence unimodal, reducing the restricted minimum to indices 0 and K. The endpoint ratio is strictly increasing in inner radius and crosses once. The K-th eigenvalue is rising at the crossing and has a unique single peak, while the zero-th decreases everywhere; this gives the unique global maximum and precise two-mode equality. Stirling expansion of the crossing integral gives \\(K/e\\), its exact logarithmic and constant terms, and the prefactor of the exponentially small optimum. The packaged standard-library program independently checks finite spectra and asymptotic convergence, not infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1808.02258v1 gives upper concentration bounds and disc-centered local reproducing formulas, not an optimal lower Gram bound on finite Gaussian-Hermite bands.",
+        "arXiv:1907.00848v1 considers ring localization and the *largest* Hermite eigenvalue in section 3.1, not the minimum over degrees 0 through K.",
+        "arXiv:2106.03423v1 maximizes the STFT energy of a freely chosen signal and set, whereas the new invariant takes a worst-case infimum over a fixed subspace.",
+        "arXiv:2410.18769v1 broadens spectral diagonalization but does not optimize the fixed-area annulus for a prescribed finite-band lower edge."
+      ],
+      "reasoning": "Existing general diagonalization supplies a premise, while the infimum over a prescribed finite band, the unique optimal location and the sharp radius law remain additional comparisons; broader spectral statements do not logically imply their values without the new endpoint/minimax analysis.",
+      "searches": [
+        "arXiv:1808.02258v1 sections 1, 4.2, 5",
+        "arXiv:1907.00848v1 section 3.1 and Appendix A",
+        "arXiv:2106.03423v1 Theorem 1.1",
+        "arXiv:2410.18769v1 introduction and Daubechies-type results",
+        "Gaussian Toeplitz annular symbols optimal min eigenvalue first n Hermite eigenfunctions maximin"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.02258v1; https://arxiv.org/abs/1808.02258",
+      "arXiv:1907.00848v1; https://doi.org/10.1007/s00041-020-09751-9",
+      "arXiv:2106.03423v1; https://arxiv.org/abs/2106.03423",
+      "arXiv:2410.18769v1; https://arxiv.org/abs/2410.18769",
+      "arXiv:2503.07069v1; https://arxiv.org/abs/2503.07069"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known ring largest-eigenvalue result maximizes over Hermite order for each radius; the new assertion minimizes over \\(0\\le j\\le K\\) and then maximizes over radius, reversing both quantifiers.",
+        "The full-operator second-eigenvalue result contains the \\(K=1\\) balance and has no implication for the finite Hermite band \\(K\\ge2\\); its authors discuss that third-eigenvalue annular shapes differ.",
+        "The new crossing formula, proof of strict two-dimensional equality and bandwidth asymptotic use a separate unimodal endpoint reduction and Stirling limit."
+      ],
+      "reasoning": "General spectral formulas can be used to derive the result but do not state or subsume the new maximization theorem. Existing special \\(K=1\\) is genuinely covered; we exclude it rather than rename it.",
+      "searches": [
+        "arXiv:2503.07069v1 Theorem 1.3, Remark 4.1",
+        "arXiv:1907.00848v1 ring largest-eigenvalue proposition 3.1",
+        "minimax annular localization Hermite cutoff finite band worst energy equalizes vacuum and highest Hermite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1.3 in arXiv:2503.07069v1 optimizes the second largest eigenvalue on the full Fock space; its equality annulus balances degrees zero and one only.",
+        "The restricted Hermite-band least eigenvalue differs from the global ordered third-or-higher Toeplitz eigenvalue considered in the accompanying Remark 4.1.",
+        "The new statement requires every \\(K\\ge2\\) and gives a different endpoint balance between degrees zero and K, including a new large-K asymptotic."
+      ],
+      "reasoning": "The \\(K=1\\) instance is covered and explicitly excluded. Higher prescribed-band minima are not equivalent to the full-operator second eigenvalue or ordered high eigenvalues, since full eigenvalue ordering depends on the annulus.",
+      "searches": [
+        "Gaussian short-time Fourier localization annulus fixed area maximize minimum over Hermite orders 0 through K unique radius Lambda0 LambdaK K/e",
+        "Fock radial annulus lower Riesz bound on polynomial subspace degree K optimize smallest eigenvalue asymptotic one over e",
+        "finite Hermite-band Gaussian localization annular concentration optimal lower singular value first K Hermite modes",
+        "arXiv:2503.07069v1 Theorem 1.3 and Remark 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched scientific records returned related Hermite half-line spectral gaps and weighted Bergman radius staircases; those involve different masks, operators and extrema.",
+        "No inspected source displayed a table of all fixed-area annulus maximin radii for \\(K\\ge2\\) or the asymptotic \\(K/e\\) and explicit logarithmic correction."
+      ],
+      "reasoning": "This is bounded evidence of no exact database match, not an assertion that a failed search proves novelty. A different-language specialist table remains a residual risk.",
+      "searches": [
+        "Gaussian STFT annulus Hermite finite-dimensional subspace maximize smallest eigenvalue fixed area",
+        "finite Hermite-band Gaussian localization annular concentration optimal lower singular value first K Hermite modes",
+        "constant-area concentric annuli Poisson gamma integrals endpoint balance largest smallest restricted eigenvalues"
+      ]
+    },
+    "rationale": "Compared mathematically equivalent formulations, stronger eigenvalue coverage and closest full-text sources. The Gaussian-Hermite diagonalization and the \\(K=1\\) annulus are prior facts explicitly credited and excluded, respectively. No inspected result fixes \\(K\\ge2\\), optimizes the prescribed finite-band minimum, proves endpoint-only equality and establishes the \\(K/e\\)+logarithmic design law. Bounded literature/database searching leaves historical-priority risks.",
+    "residual_risks": [
+      "Specialist sampling, concentration or observability papers may phrase the same prescribed-band minimax calculation differently.",
+      "Full mathematical priority cannot be certified from bounded retrieval and selected readings.",
+      "The case \\(K=1\\) is known (2025 Toeplitz second eigenvalue theorem) and is not included as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bounds STFT concentration and reconstructs from discs; does not give maximin fixed-area annulus locations or first-K Hermite lower spectrum.",
+        "evidence": [
+          "Theorem 1 and Proposition 7 concern disc local reproducing formulas and large-sieve bounds, not the annulus optimization objective."
+        ],
+        "identifier_or_url": "arXiv:1808.02258v1; https://arxiv.org/abs/1808.02258",
+        "material_read": "Introduction, definitions of the Gaussian/Hermite STFT, Section 4.2 local reproducing formulas, and discussion of recovery and frames.",
+        "method": "Accessible arXiv text, reading theorem statements and surrounding mathematical material.",
+        "title": "Donoho–Logan large sieve principles for modulation and polyanalytic Fock spaces",
+        "trigger": "Earliest eligible time-frequency Hermite concentration and recovery source; check for lower finite-band concentration design."
+      },
+      {
+        "assessment": "Derives known spectrum and maximal-eigenvalue ring asymptotics; not the restricted smallest eigenvalue or its optimum over radius.",
+        "evidence": [
+          "Section 3.1 treats the largest eigenvalue and a fixed area-one ring, estimating its norm as radius tends to infinity."
+        ],
+        "identifier_or_url": "arXiv:1907.00848v1; https://doi.org/10.1007/s00041-020-09751-9",
+        "material_read": "Preliminaries and Hermite diagonalization, section 3.1 ring localization (including proposition and proof), and Appendix A gamma comparison.",
+        "method": "Full open-access journal HTML, direct equation/proposition comparison.",
+        "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets",
+        "trigger": "Same exact Gaussian annular eigenvalue formula and ring operator; direct potential overlap."
+      },
+      {
+        "assessment": "Establishes the maximal over arbitrary normalized input signals; does not bound an optimized worst-case finite-band signal from below.",
+        "evidence": [
+          "Theorem 1.1 optimizes a supremum over signals and arbitrary sets, unlike the present nested infimum and annulus maximum."
+        ],
+        "identifier_or_url": "arXiv:2106.03423v1; https://arxiv.org/abs/2106.03423",
+        "material_read": "Introduction, Theorem 1.1, Bargmann-Hermite setup, radial operator background.",
+        "method": "Public arXiv HTML text and theorem comparison.",
+        "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+        "trigger": "Potential stronger global isoperimetric coverage of area-fixed STFT concentration."
+      },
+      {
+        "assessment": "Supplies broad diagonalization tools; does not establish annulus lower-edge maximization or large-Hermite-band optimum.",
+        "evidence": [
+          "The paper states Gaussian Hermite spectral diagonalization and generalizes masks and windows; no fixed-area minimax objective was found."
+        ],
+        "identifier_or_url": "arXiv:2410.18769v1; https://arxiv.org/abs/2410.18769",
+        "material_read": "Introduction and localization setup, classical Gaussian-Hermite theorem statement, and description of generalized Daubechies-type results.",
+        "method": "Accessible public arXiv full text, comparison of mathematical aims and claims.",
+        "title": "Extensions of Daubechies' theorem: Reinhardt domains, Hagedorn wavepackets and mixed-state localization operators",
+        "trigger": "Generalized diagonalization for radial localization could imply all spectral ingredients."
+      },
+      {
+        "assessment": "Covers the K=1 special case and studies globally ordered eigenvalues, not prescribed-band min for K>=2; K=1 explicitly excluded.",
+        "evidence": [
+          "Theorem 1.3 identifies the annulus balancing modes zero and one; Remark 4.1 says no analogous annular optimizer for the third global eigenvalue."
+        ],
+        "identifier_or_url": "arXiv:2503.07069v1; https://arxiv.org/abs/2503.07069",
+        "material_read": "Introduction, Theorem 1.3, proof in section 4, and Remark 4.1 concerning failure of annular optimality for higher global eigenvalues.",
+        "method": "Public full arXiv text, matched operator/area and compared optimizations and equality cases.",
+        "title": "The Faber–Krahn inequality for partial sums of eigenvalues of Toeplitz operators",
+        "trigger": "Especially plausible direct coverage: an optimal annulus appears for second Toeplitz eigenvalue."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98cfe113-102e-4a71-a47d-fbe289b9e0a4",
+  "value": {
+    "evidence": [
+      "RESULT.md Finding and Proof 2–5",
+      "arXiv:1808.02258v1 Hermite/STFT concentration and reconstruction motivation",
+      "arXiv:2503.07069v1 example of importance of annular spectral optimization"
+    ],
+    "rationale": "Maximizing the smallest restricted concentration eigenvalue is the exact finite-band stability/observability design problem for a specified Hermite signal class. The full all-K exact optimization and two-dimensional unique worst-mode family determine a natural complete invariant; the sharp \\(K/e\\) relocation and logarithmic prefactor quantify its bandwidth cost. This is not a mere new name for a known top-eigenvalue formula or a finite table. Limits are single concentric annuli, Gaussian windows and fixed positive area.",
+    "status": "PASS"
+  }
+}
