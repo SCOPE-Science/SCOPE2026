@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Rows and columns of each binary matrix have exactly three ones. Matrix complement proves zero coefficients at odd frequency weight. Row/column frequency toggles span an 11-dimensional gauge, leaving a unique 25-bit frequency representative. Both standalone row-first C++ and independent column-first Python complete integer enumerators produce exactly 297200 admissible tables, transform all 33554432 reduced frequency indices, verify every even multiplier is 16 modulo 32, verify all odd multipliers are zero, min positive absolute value 16 (attained at reduced index 36045), and exact Parseval total 9972377190400. Fourier diagonalization then yields rank=kernel dimension=\\(2^{35}\\), sharp pseudoinverse norm 1/16, positive condition 18575, and a translation-average range projector of exact ell-p norm one.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchet and Stauffer, arXiv:1007.1214, Theorem 1.1 gives a uniform-sampling criterion for sequences of fixed-margin tables, and related work emphasizes asymptotic counts rather than Walsh nonvanishing.",
+        "de Launey and Levin, arXiv:1003.4003, introduce a lattice walk for partial Hadamard designs and use real Fourier inversion of its return probabilities; this is a different combinatorial set and Fourier transform."
+      ],
+      "reasoning": "Neither count asymptotics nor Fourier inversion on pairwise-orthogonal column designs implies the exact signed Fourier coefficients for six-by-six row- and column-regular binary matrices. A general Walsh-transform identity gives an algorithm, not the nonzero residue evaluation.",
+      "searches": [
+        "\"Fourier transform\" \"regular bipartite\" adjacency matrices fixed degree",
+        "\"binary contingency tables\" \"Fourier transform\" \\(6\\times6\\)",
+        "Fourier transforms of binary contingency tables fixed row column sums 2014",
+        "arXiv:1003.4003 Fourier-analytic approach to counting partial Hadamard matrices"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1007.1214",
+      "https://arxiv.org/html/1003.4003v1",
+      "https://math.stackexchange.com/questions/449969/matrix-combinatorial-or-conditional-probability-bit-patterns",
+      "https://oeis.org/A058527 (attempted; access limited)",
+      "Public mathematical records: complete Walsh spectrum of eight-vertex perfect matchings; Fourier identifiability from noncrossing perfect matchings (summary-level comparison only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complement symmetry implies W(S)=0 for odd |S|, but with 297200 divisible by 32 it does not exclude zero for even |S|.",
+        "The new certificate establishes W(S)=16 mod32 for every even |S|, ruling out every such zero and fixing the exact sharp spectral gap.",
+        "The earlier record on noncrossing perfect matchings is a low-degree sampling Gram-rank result; the eight-vertex perfect-matching orbit concerns a 1-regular graph family, not a \\(6\\times6\\) degree-three bipartite ensemble."
+      ],
+      "reasoning": "The decisive prior-to-claim implication was tested explicitly: known unsigned counting, complement pairing, standard Walsh inversion, and unrelated Fourier evaluations do not imply a nonzero congruence for all even frequencies. For contrast, an arbitrary complement-invariant indicator with a number of antipodal pairs divisible by two can have even-frequency zeros, so this additional congruence is substantive, not a generic complement corollary.",
+      "searches": [
+        "Characterizing Optimal Sampling of Binary Contingency Tables via the Configuration Model arxiv 1007.1214",
+        "A Fourier-analytic Approach to Counting Partial Hadamard Matrices arxiv 1003.4003",
+        "Published mathematical result on exact Walsh spectrum of eight vertex perfect matchings",
+        "Published mathematical result on integral Fourier identifiability from noncrossing perfect matchings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1007.1214 defines fixed-margin binary matrices and equates them to labelled fixed-degree bipartite graphs; the studied statistics are sampling probabilities and cardinalities, not signed character sums.",
+        "Public abstract records for perfect-matching and noncrossing-matching Fourier problems have different incidence families and frequency groups; their signed sums do not specialize to all 3-regular bipartite graphs on 6+6 labelled vertices."
+      ],
+      "reasoning": "The binary contingency-table, regular bipartite graph, fixed-margin incidence code, Walsh transform, and signed partition-function formulations were explicitly searched. A matching label or object name alone is insufficient; no retrieved theorem evaluated the stated 25-dimensional reduced character sum or proved the uniform 16 mod32 residue.",
+      "searches": [
+        "Walsh transform spectrum of 6 by 6 balanced binary contingency tables with three 1s in each row column, eigenvalues 16 mod32, complement kernel",
+        "Fourier nonvanishing of 3-regular bipartite graphs on six plus six labelled vertices; 297200 degree margin fixed incidence codes",
+        "\"0-1 matrices\" \"Walsh\" \"row sums\" \"column sums\"",
+        "\"297200\" \"Walsh\" Fourier matrix signed \\(6\\times6\\)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly listed balanced-table cardinalities include 2, 90, 297200, and 116963796250; the count 297200 was checked independently by both programs.",
+        "The accessible sequence listing supplies unsigned enumerations only; direct access to the corresponding OEIS A058527 detail page returned 403 and is not represented as a full-document inspection."
+      ],
+      "reasoning": "A table count is only the zero-frequency coefficient and cannot establish values or nonvanishing at the other \\(2^{25}\\) reduced characters. No exact signed Fourier table was found; the inaccessible OEIS page remains explicitly a bounded-search residual risk.",
+      "searches": [
+        "Number of binary \\(4\\times4\\) matrices with two ones in each row and column 90 generating function",
+        "Number of 2n X 2n 0-1 matrices with n ones each row and column 297200",
+        "OEIS A058527 balanced binary matrices 297200",
+        "\"297200\" \"Walsh\" Fourier matrix signed \\(6\\times6\\)"
+      ]
+    },
+    "rationale": "The 297200 count and complement cancellation are classical or immediate and are expressly excluded as novel claims. The additional uniform modulo-32 congruence for every even character, exact absence of accidental zeros, and sharp minimum are not implied by those facts; the count has 2-adic valuation four, so complement pairing cannot rule out even-frequency cancellation. Public primary literature examined concerns sampling fixed-margin tables or a different partial-Hadamard Fourier integral, not this complete signed \\(6\\times6\\) spectrum. Relevant public mathematical result summaries and accessible historical mathematical claims were compared by object, Fourier character, and implication. No covering statement was located under bounded searches; historical priority is not certified.",
+    "residual_risks": [
+      "Unindexed specialized signed fixed-margin partition-function tables may coincide with the finite congruence without using the term Walsh transform.",
+      "The detailed A058527 database page was inaccessible; only external count listings could be read, so no claim is made of its full contents.",
+      "External independent mathematical verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: its principal theorem is about the efficiency of the configuration sampler and approximate cardinalities, not the \\(6\\times6\\) signed Walsh spectrum.",
+        "evidence": [
+          "Section 1 defines Omega_(r,c); Theorem 1.1 gives a sampling criterion; the related-work section discusses counting asymptotics."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1007.1214",
+        "material_read": "Full-text HTML: abstract, introduction, main theorem and its hypotheses, related-work discussion, portions of analytical proofs in sections 4 and 6, and later proof material; text searched for Fourier, Walsh and signed character sums, with no matches.",
+        "method": "Read accessible arXiv HTML sections and navigated to central theorems and methods; semantic implication comparison",
+        "title": "Characterizing Optimal Sampling of Binary Contingency Tables via the Configuration Model",
+        "trigger": "Same fixed-margin binary matrix objects and bipartite-graph interpretation"
+      },
+      {
+        "assessment": "NOT_COVERING BY OBJECT: its lattice walk has pairwise row-orthogonality constraints and real Fourier inversion, not fixed row/column sum three on binary \\(6\\times6\\) tables.",
+        "evidence": [
+          "Theorems 1 and 2 concern return probabilities and asymptotic counts of partial Hadamard designs; the underlying set is not Omega_(3^6,3^6)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1003.4003v1",
+        "material_read": "Full-text HTML abstract and introduction, design definition, increment-support walk, Fourier inversion formulation, statements of Theorems 1 through 3 and sections navigation; not claimed to be a complete page-by-page review.",
+        "method": "Direct HTML primary text with object and theorem comparison",
+        "title": "A Fourier-analytic Approach to Counting Partial Hadamard Matrices",
+        "trigger": "Potential broader Fourier-inversion approach to constrained binary matrices"
+      },
+      {
+        "assessment": "ACCESS_LIMITATION: count known, but the inaccessible database page is not certified free of signed character tables.",
+        "evidence": [
+          "Public integer sequence 1, 2, 90, 297200, 116963796250,...; only zero-frequency enumeration is corroborated."
+        ],
+        "identifier_or_url": "https://oeis.org/A058527",
+        "material_read": "Direct page request returned 403; a separate accessible sequence listing and a public 2013 discussion supplied the unsigned count 297200; no full page inspection is claimed.",
+        "method": "Attempted direct database access; bounded cross-check of externally displayed count",
+        "title": "Balanced binary matrix count sequence A058527",
+        "trigger": "Possible exact enumeration table that could cover the numerical special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bca369fa-8ce2-443c-994b-49cad6a2a1be",
+  "value": {
+    "rationale": "The fixed-margin \\(6\\times6\\) 3-regular bipartite ensemble is canonical in binary contingency-table statistics and graph configuration models. Its 297200 members form a natural high-dimensional binary incidence set. Unlike at the \\(4\\times4\\) balanced order, complement symmetry alone is insufficient to forbid even-frequency cancellation because the count is divisible by 32. The uniform exact 16 mod32 theorem resolves this natural first difficult-sized recovery question; it determines the entire Fourier kernel, the exact recoverable translation-even signal space, a sharp 1/16 inverse stability constant, and a norm-one projection, all directly useful in fixed-margin deconvolution benchmarks. This is a motivated complete finite classification, not a claim of an arbitrary-size theorem.",
+    "status": "PASS"
+  }
+}
