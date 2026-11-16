@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "First-principles cap integration gives an exactly diagonal five-by-five regional Gram matrix on a globally orthogonal pure quadratic basis. All eigenvalue branches, all six factored differences and the trace identity were reconstructed symbolically from the standalone checker. Positivity and strict ordering hold on the entire prescribed c interval by sign analysis; both crossings and multiplicities are exact, not extrapolated. Seven direct cap quadratures corroborate the formulas; their finite nature is explicitly limited.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simons et al. (2006), formulation of arbitrary-region matrix and numerical Slepian basis",
+        "Bates et al. (2016/2017), arbitrary-region algorithm, polar-cap specialization",
+        "Michel et al. (2021), Sec. 1 states restriction to spherical-cap regions"
+      ],
+      "reasoning": "The general theorems reduce arbitrary-region concentration to an algebraic eigenproblem, but provide neither the explicit polynomial eigenvalues for the perpendicular two-cap pure degree-two restriction nor the sharp parameter ordering and equality spaces. A general computational recipe does not by itself report the exact crossover classification. Cap commuting-operator results use a single rotationally symmetric mask and do not apply to the non-axisymmetric union.",
+      "searches": [
+        "Efficient computation of Slepian functions for arbitrary regions on the sphere 2017 pdf",
+        "Bates Khalid Kennedy Efficient Computation Slepian Functions Arbitrary Regions 1608.05479 orthogonal caps",
+        "Simons Dahlen Wieczorek Spatiospectral Concentration on a Sphere 2006 two caps spectrum",
+        "Slepian functions union of two caps spherical"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.07266v1 (Aslam and Khalid, 2020)",
+      "arXiv:1608.05479v1 (Bates, Khalid and Kennedy, 2016)",
+      "DOI:10.1137/S0036144504445765 (Simons, Dahlen and Wieczorek, 2006)",
+      "arXiv:2103.14650v1 (Michel, Plattner and Seibert, 2021)",
+      "DOI:10.1186/s40623-019-0997-7 (Rogers, Beggan and Whaler, 2019)",
+      "SHTOOLS SHReturnTapers: https://shtools.github.io/SHTOOLS/pyshreturntapers.html",
+      "Published result: Exact half-energy multiplicities for hemispherical spherical Slepian concentration with arbitrary degree masks (different geometry)",
+      "Published result: Sharp degree-four concentration over antipodal caps (different degree and geometry)",
+      "Published result: Tetrahedral four-cap cubic-harmonic concentration (different geometry and degree)",
+      "Published result: Octahedral six-cap fourth-degree harmonic concentration (different geometry and degree)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simons et al. (2006), arbitrary-region harmonic concentration; single-cap spectral examples",
+        "Michel et al. (2021), single-cap commuting-operator construction",
+        "Rogers et al. (2019), antipodal geophysical polar-cap restriction",
+        "Published pure-quadratic antipodal-cap and octahedral-cap classifications (different spatial masks)"
+      ],
+      "reasoning": "The earlier antipodal-cap pure quadratic spectrum has rotational symmetry about one axis and three sectors; the current cap union has perpendicular, not antipodal, centers and four eigenvalue branches including a double mode. The earlier tetrahedral, octahedral, hemispherical and equatorial-trace statements also use different masks, harmonic degrees or observation measures. None of those statements, even with relabelling or a duality transform, logically asserts the present four branch values or their two sharp crossings. The broad Gram-matrix method is acknowledged as prior.",
+      "searches": [
+        "Spatial-Slepian Transform on the Sphere Aslam Khalid 2010.07266 two cap quadrupole",
+        "Michel Plattner Seibert Slepian cap commuting operator degree two non antipodal",
+        "Slepian disconnected sphere two caps 2019 2022",
+        "orthogonal caps Slepian spherical harmonics two center inverse stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2010.07266v1, Sec. II-D, concentration matrix and regional eigenproblem",
+        "arXiv:1608.05479v1, Secs. II-III, arbitrary-region spherical Slepian computation",
+        "Rogers et al. (2019), localization-region discussion: two antipodal polar caps"
+      ],
+      "reasoning": "The same numerical object is a rank-five continuous observation Gram operator, a pure quadrupole Slepian compression, and a five-dimensional spherical-harmonic restricted-energy operator. Published material with those descriptions is about arbitrary or single-cap regions, antipodal double caps, other harmonic degrees, or different trace geometry. The exact four polynomial branches and two crossover apertures were not located in those inspected statements. Unindexed equivalents remain possible.",
+      "searches": [
+        "degree two spherical harmonics pair congruent spherical caps Slepian spectrum orthogonal cap centers",
+        "two disjoint spherical caps orthogonal axes quadrupole spatial concentration sharp eigenvalues mode transition",
+        "quadrupole concentration two disjoint perpendicular spherical caps principal mode x squared minus z squared",
+        "two spherical caps localization harmonic quadratic spectrum eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bates et al. (2016/2017), numerical arbitrary-region methods",
+        "Simons et al. (2006), figures and spectral algorithm for a single polar cap",
+        "SHTOOLS SHReturnTapers documentation: single spherical-cap concentration"
+      ],
+      "reasoning": "Searches of exact branch-coefficient expressions, threshold squares 5/9 and 11/15, quadrupole terminology and two-cap harmonic concentration did not retrieve an exact spectral table for this configuration. This is a bounded search, not a proof of nonexistence. Available polar-cap Slepian software computes single- or antipodal-cap spectra rather than supplying this algebraic two-orthogonal-cap classification.",
+      "searches": [
+        "orthogonal two spherical caps Slepian eigenvalue crossings sqrt five ninths eleven fifteenths",
+        "two orthogonal caps spherical harmonics concentration eigenvalues",
+        "57c 27c spherical caps harmonic concentration",
+        "degree two spherical harmonics Slepian spectrum non antipodal two caps exact polynomial"
+      ]
+    },
+    "rationale": "Statement-level searches of equivalent quadrupole/Slepian/restriction formulations, general-region algorithms, exact tables and claim implication found no existing explicit four-branch spectrum or the two crossing values for two perpendicular equal caps. General matrix and arbitrary-region theory, plus antipodal, hemispherical and single-cap cases, are acknowledged; their statements do not assert these new exact polynomial evaluations and equality spaces. Priority is provisional because a specialist calculation may be unindexed or outside inspected material.",
+    "residual_risks": [
+      "An unindexed or terminologically different specialist exact quadrupole calculation could predate this result.",
+      "Generic arbitrary-region algorithms can numerically recover this spectrum after special calculations; the novelty claim is restricted to closed forms, exact crossings and equality spaces, not the general eigenproblem or algorithm.",
+      "No exhaustive search of every historical thesis, software notebook, or full-paper appendix was possible; specialist bibliographic verification remains desirable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General eigenproblem and polar-cap examples found; no explicit perpendicular two-cap pure degree-two spectrum in material examined.",
+        "evidence": [
+          "SIAM Review 48 (2006), pp. 504-536, especially equations defining the regional eigensystem and polar-cap figures"
+        ],
+        "identifier_or_url": "https://geoweb.princeton.edu/people/simons/PDF/reprints/SIAM-2006.pdf",
+        "material_read": "Abstract, introduction, spherical-harmonic preliminaries, regional concentration formulation, polar-cap eigenfunction examples on pp. 504-510 and 516-517; full-text searches for perpendicular/two-disjoint/quadrupole terms.",
+        "method": "Read available full-paper PDF text and visually inspected pages 509 and 517.",
+        "title": "Spatiospectral Concentration on a Sphere",
+        "trigger": "Foundational general spherical Slepian theory and possible stronger coverage of arbitrary masks."
+      },
+      {
+        "assessment": "Algorithmic reduction to a finite matrix and approximation through cap bases, but not the proposed explicit polynomial spectrum and exact crossing values.",
+        "evidence": [
+          "arXiv:1608.05479, Secs. II-B and III-A; first submitted 2016-08-19"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.05479",
+        "material_read": "Abstract; Sec. II, equations (7)-(11), including note that a region can be a union of disconnected pieces; Sec. III polar-cap construction and eigenvalue plots, visible pages 4381 and 4383.",
+        "method": "Read PDF text and visually inspected pages 4381 and 4383; checked targeted phrase search.",
+        "title": "Efficient Computation of Slepian Functions for Arbitrary Regions on the Sphere",
+        "trigger": "Highly relevant arbitrary-region method includes disconnected regions and cap decompositions."
+      },
+      {
+        "assessment": "Provides definition and application of regional Slepian matrices; neither the two perpendicular cap quadrupole eigenvalues nor the algebraic thresholds is stated in the inspected relevant sections.",
+        "evidence": [
+          "arXiv:2010.07266v1, first submitted 2020-10-14, Sec. II-D"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.07266",
+        "material_read": "Abstract, Secs. I and II-D, especially the spherical harmonic concentration matrix in equations (15)-(18), and stated transform constructions.",
+        "method": "Read openly rendered arXiv manuscript HTML text and its equations.",
+        "title": "Spatial-Slepian Transform on the Sphere",
+        "trigger": "Focal middle-period spherical Slepian paper motivating region-adapted harmonic measurements."
+      },
+      {
+        "assessment": "Explicitly restricts its commuting-operator analysis to a single spherical cap; does not settle disconnected perpendicular two-cap scalar quadrupole spectrum.",
+        "evidence": [
+          "arXiv:2103.14650v1, Sec. 1 and abstract, first submitted 2021-03-26"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.14650",
+        "material_read": "Abstract, introduction, scope declaration restricting the commuting-operator construction to a spherical cap, and foundational definitions.",
+        "method": "Read open arXiv manuscript HTML in sections 1 and 2.",
+        "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+        "trigger": "Potentially stronger spherical-cap eigensystem construction at arbitrary tensor rank."
+      },
+      {
+        "assessment": "Its two caps are antipodal about the rotation axis, not centered at perpendicular axes; its results are numerical physical-flow decompositions, not this exact pure quadrupole spectrum.",
+        "evidence": [
+          "Earth, Planets and Space 71 (2019), article 19, regional mask discussion and equation (10)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s40623-019-0997-7",
+        "material_read": "Full accessible article abstract and mathematical Gram-matrix description; sections describing localization regions and the two polar caps of the tangent cylinder.",
+        "method": "Read open-access article text and checked the geometry of its two-cap region.",
+        "title": "Investigation of regional variation in core flow models using spherical Slepian functions",
+        "trigger": "Specialist physical application considers two disjoint spherical caps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6401a9d-bd5c-4f69-929f-63ee408e4657",
+  "value": {
+    "rationale": "For the first nontrivial scalar harmonic degree, two separated non-antipodal sensing caps yield a natural full regional observability spectrum and complete classification of worst- and best-observed modes. The minimum eigenspace changes from dimension one through three to dimension two at the exact aperture \\(\\sqrt5/3\\); there is a further middle crossing at \\(\\sqrt{11/15}\\). These explain a genuine stability transition and the sharp Gram condition-number divergence as caps shrink, not merely a sample computation or change of notation.",
+    "status": "PASS"
+  }
+}
