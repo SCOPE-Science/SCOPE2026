@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness: PASS.** All seven displayed cubics are degree-three harmonic restrictions and form a full-sphere orthogonal basis. Exact beta/gamma monomial integration gives the regional Gram matrix and its exact radical spectrum. Two locally executable stand-alone checkers confirm the symbolic identities and independent Gauss–Legendre integration; the integral proof, not the quadrature, establishes the theorem.
+
+**Originality: PASS, with priority uncertainty.** Searches for cubic spherical-lune concentration, ninety-degree lune spectra, the radical \(\sqrt{115}\), and the seven eigenvalues found no equivalent formulation in the accessible indexed records. The closest indexed work treats pure quadratic harmonics on arbitrary lunes and quarter-wedges, not pure cubic harmonics. The 2004 spherical Slepian foundation formulates the eigenproblem without these evaluated values. The inspected full-text HTML sections of the 2023 manifold-wavelet article address general regional Slepian wavelets without these constants. The indexed descriptions of two closely related published quadratic results were compared; their linked full texts could not be inspected, so an unindexed equivalent specialist calculation remains a risk.
+
+**Value: PASS.** A quarter-longitude spherical lune is a natural intersection of two perpendicular hemispheres and a canonical non-axisymmetric observation mask. This is its complete seven-mode cubic spectral stability benchmark, including exact sharp bounds, simplicity of both extremizers, and a central symmetry of the spectrum. It is not a routine normalization or a numerical census, and its exact constants have a clear role in regional inversion and observation conditioning.
+
+Self-review: passed. Independent audit: not yet performed.
