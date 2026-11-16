@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The self-contained proof fixes probability normalization, twelve cap-mixture measure with multiplicity, the seven-dimensional cubic-harmonic domain, and all aperture quantifiers. Antipodal pairing and degree-two/four Legendre moments prove the five-design assertion; the exactly computed symmetric six-by-six conference matrix yields the point frame spectrum \(0\) (fourfold) and \(7/3\) (threefold); Funk--Hecke then shows \(G_c=I+a_6(c)(G_{\mathrm{pt}}-I)\). Factoring the explicit sixth-degree cap multiplier proves precisely two interior Parseval thresholds, multiplicity switching, and the sharp shrinking-cap condition number. The packaged checker independently reproduces these computations and compares seven full Gram matrices by quadrature. Numerical agreement alone does not prove the theorem, but the analytical steps do.
+
+## Originality — PASS (provisional historical priority)
+The focal first-public source is Xiao--Zhuang (2023-03-09), whose full author-posted text, including Platonic-solid design examples and spherical framelet constructions, was compared. Hitchin (2007, Proposition 1) proves the four-dimensional cubic nullspace at icosahedral point samples: this known fact is explicitly credited, not claimed as original. Li--Chen (2024, full article, Sections 1--3) treat transformed point designs on individual spherical caps, rather than twelve-area-cap mixtures and the two sixth-Legendre cancellation apertures. Generic spherical concentration literature treats the spectral method, not this exact classification. Searches using the unusual radicals, Legendre coefficient, aperture aliases, and frame-spectral equivalences found no stronger covering statement, but search non-detection is not a proof of historical uniqueness. A differently phrased zonal-convolution calculation remains a risk.
+
+## Mathematical value — PASS
+The observable object is a natural seven-dimensional harmonic band, and the twelve icosahedral centers are the classical smallest Platonic five-design. It is natural to ask whether **positive-area**, noisy/averaged observations restore the four cubic modes invisible to point sampling, and whether all seven modes can be perfectly balanced. The complete answer is unexpectedly reentrant: precisely two nontrivial cap apertures restore exact Parseval sampling and reverse the worst-observed symmetry sector between them. This is an exact positive-measure design and global aperture classification rather than a numerical coincidence, arbitrary slice, or rebranding of the previously known point nullspace. It does not purport to be a general theorem for all bands or designs.
+
+## Closest sources and limitations
+The original point nullspace and five-design strength are known. The overlap checks focused on the *mixed-cap degree-three Gram spectrum*, which is not covered by the inspected source statements. The cap mixtures overlap and must be treated with multiplicity. No independent audit was performed; equivalent specialist calculations may exist.
+
+Self-review: passed. Independent audit: not yet performed.
