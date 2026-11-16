@@ -1,0 +1,21 @@
+# Scientific review
+
+## Correctness — PASS
+The result is proved for every integer base dimension \(d\ge1\), transverse width \(m\ge2\), fixed sensor location, and positive heat-sampling interval. Separation of the combinatorial Cartesian-product Laplacian gives an explicit Fourier-fiber Vandermonde matrix. The cosine zero identity determines exactly the arithmetic blind modes and ranks. Uniform positive frame bounds follow from the compact Fourier torus and a uniformly invertible finite matrix. The determinant is minimized at the maximal longitudinal Laplacian frequency; strict logarithmic concavity proves existence and uniqueness of the sharp D-optimal spacing. The first-order strip-width expansion is established by a two-term triangular Euler summation formula, not by extrapolating numerics. The large-dimension expansion follows from a uniform small-parameter Taylor formula. `CHECK.py` returned `VERIFY_OK 5663 supplementary_assertions`; these checks supplement rather than substitute for the proof.
+
+## Originality — PASS with named access risk
+The inspected full-text dynamical-sampling survey gives general spectral visibility criteria, not the Cartesian-strip arithmetic rank, sharp worst-fiber information determinant, or width-corrected timing law. The closest inspected published mathematical result on normalized paths optimizes a finite-path heat interval, but its theorem does not cover the combinatorial infinite Cartesian strip or the longitudinal worst-frequency shift; notably its two-mode path optimum is attained only in an infinite-time limit, whereas the strip has a finite exact optimizer. A second inspected published result gives normalized-path endpoint sensor determinants rather than this infinite-strip timing law. The published arithmetic-spectrum temporal result has distinct sensors and a different spectral distribution. Claim-level and equivalence searches in the mathematical-results database did not identify the claimed strip theorem. The September 2026 motivating manuscript was accessible only through its public abstract despite arXiv, open-access, and authorized institutional attempts; its uninspected sections remain a specific priority risk, as do older equivalent strip-control arguments. These limitations are not represented as proofs of novelty.
+
+## Value — PASS
+The problem asks whether a fixed rail can recover **all**, not merely bandlimited, initial signals on an infinite periodic graph when spatial sampling is reduced by a factor of \(m\). The result gives the exact minimal number of observations and the arithmetic obstruction for interior rails. Its spectral volume objective is physically defined by worst-base-frequency information and is optimized sharply across all widths and longitudinal dimensions. The all-width finite optimizer, including the exceptional two-rail case, and the continuum constant with its \(m^{-1}\) correction provide reproducible acquisition-design information unavailable from qualitative observability alone. The claim does not confuse D-optimality with maximization of the smallest frame bound.
+
+## Closest evidence and remaining limits
+- I. M. Bulai et al., *Dynamical Sampling in Graph Paley–Wiener Spaces*, arXiv:2609.25472v1, 2026-09-21. Only the full public abstract, not the complete manuscript, was available for inspection.
+- A. Aldroubi et al., *Dynamical Sampling: A Survey*, La Matematica 5:37 (2026). Full open-access article inspected, including the finite-dimensional frame criterion and graph research discussion.
+- *Optimal heat-sampling intervals on normalized paths: a bandwidth crossover*, published mathematical record dated 2026-11-01. Complete RESULT text inspected.
+- *Universal endpoint optimality for dynamical sampling on normalized paths*, published mathematical record dated 2026-10-11. Complete RESULT text inspected.
+- *A universal optimal observation horizon for arithmetic-spectrum flows*, published mathematical record dated 2026-10-11. Its finding, assumptions and determinant argument inspected.
+
+The design fixes one sensor rail, uniform temporal spacing and the combinatorial Laplacian. No statement about nonlinear, noisy, nonuniform-time or multiple-rail optimal designs is proved. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
