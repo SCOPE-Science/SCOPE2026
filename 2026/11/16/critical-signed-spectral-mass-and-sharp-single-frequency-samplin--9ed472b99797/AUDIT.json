@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The full normalization is reconstructed from radial Fourier/Sonine integration, the Bessel order is d/2+beta, and the radial exponent after the leading oscillation is -1-(beta-(d-1)/2). Fixed-order Bessel remainder is uniformly integrable near the boundary, and |cos|-2/pi has a bounded phase-uniform primitive; its weighted integral is uniformly O(1). The exact gamma prefactor simplifies to 4 Gamma((d+1)/2)/(pi^(3/2) Gamma(d/2)). Fourier uniqueness of finite measures and Cauchy–Schwarz prove minimum second moment and impossibility when the signed spectrum is not finite. Numerical script independently passed 62 finite checks; those are corroborative, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Langrené–Chen's accessible abstract introduces signed random Fourier features for general Kuttner–Golubov kernels and assumes absolute spectral integrability, but provides no explicit theorem on the critical variation pole or minimax cost in the accessible abstract.",
+        "A published published-finding corpus result on the Lp norm of mollified Fourier-ball kernels has a different norm and a different scaling parameter."
+      ],
+      "reasoning": "The general signed-feature method covers the construction of an unbiased sampler, so that mechanism is not claimed as new. The potentially new theorem supplies the sharp integrability boundary, residue, crossover and one-frequency cost for the alpha=2 family. The full originating paper is inaccessible, so possible stronger coverage in its body is an explicitly retained risk.",
+      "searches": [
+        "Exact total variation of Fourier spectral measure for parabolic Epanechnikov compact kernel signed random Fourier features",
+        "Sharp logarithmic divergence constant of Fourier total variation near critical beta=(dimension-1)/2 for ball polynomial (1-|x|^2)_+^beta, random Fourier feature variance",
+        "Signed random Fourier feature minimum possible variance blowup as smoothness parameter approaches Fourier L1 integrability threshold",
+        "arxiv:2608.29265"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.29265 (abstract; 2026-08-29)",
+      "https://www.mdpi.com/2075-1680/11/10/558 (full accessible HTML)",
+      "https://dlmf.nist.gov/10.17 (analytic identities)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518 (published summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The available Wang–Langrené–Chen abstract motivates signed sampling and an absolute-integrability condition; full-text statement coverage is unresolved.",
+        "The full accessible Lekesiz–Aktaş–Area article treats Fourier transforms and Parseval identities for orthogonal polynomial systems on balls, with no stated signed-variation critical cost in its main results.",
+        "DLMF 10.17 supplies a classical Bessel asymptotic used in the proof."
+      ],
+      "reasoning": "Known transform/asymptotic formulae imply the new closed constants by a further oscillatory absolute-value integration; no inspected primary theorem states that integration or its uniform cutoff window. The Cauchy–Schwarz sampler optimum is a general consequence once the variation is known and is not independently asserted to be novel. A decisive appendix comparison remains unavailable.",
+      "searches": [
+        "arxiv:2608.29265",
+        "https://www.mdpi.com/2075-1680/11/10/558",
+        "https://dlmf.nist.gov/10.17",
+        "Critical Bessel absolute integral integral_0^infty r^{d/2-beta-1} |J_{d/2+beta}(r)| near beta=(d-1)/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no direct ball-power L1 variation/crossover theorem; closest hit concerns smoothed-ball Lp norms.",
+        "DLMF 10.17.3 gives the Bessel oscillatory expansion; it does not state the absolute integral residue or sampling cost."
+      ],
+      "reasoning": "The exact Bessel transform is a classical equivalent formulation of the kernel spectrum, but its signed total variation requires an absolute value; the sharp critical residue and uniform moving-exponent cutoff window do not follow merely by citing the transform. Any earlier source explicitly integrating its absolute Bessel tail could dominate the variation subclaim; no such directly matching statement was observed in accessible material.",
+      "searches": [
+        "Kuttner Golubov compact support kernels (1-|x|^alpha)_+^beta Fourier spectral L1 absolute integrability threshold dimension and boundary alpha beta signed features",
+        "Sharp L1 Fourier transform criterion for truncated radial powered polynomials in dimensions d",
+        "Spectral signed negative mass of compactly supported biweight kernels with Bessel transform J_{d/2+beta}, threshold and 1/(beta-(d-1)/2) divergence",
+        "https://dlmf.nist.gov/10.17"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-record searches found no matching exact dimensional gamma residue or log-cutoff crossover. The closest named record is 2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518."
+      ],
+      "reasoning": "The named record concerns a critical Lp norm of mollified indicator-ball Fourier kernels and not the beta-dependent L1 total variation of ball-power Fourier densities. Absence from the searched records is not a uniqueness proof.",
+      "searches": [
+        "Kuttner Golubov compact support kernels (1-|x|^alpha)_+^beta Fourier spectral L1 absolute integrability threshold dimension and boundary alpha beta signed features",
+        "Sharp logarithmic divergence constant of Fourier total variation near critical beta=(dimension-1)/2 for ball polynomial (1-|x|^2)_+^beta, random Fourier feature variance",
+        "Spectral signed negative mass of compactly supported biweight kernels with Bessel transform J_{d/2+beta}, threshold and 1/(beta-(d-1)/2) divergence"
+      ]
+    },
+    "rationale": "Claim-level comparison found the classical ball-power Bessel transform and large-r Bessel expansion as established inputs, a directly motivating 2026 signed-sampling proposal and a distinct mollified-ball Lp crossover. The combined exact L1 spectral-variation threshold, sharp gamma residue, uniform cutoff crossover and sharp one-frequency sampling moment were not observed as statements in accessible material. The full motivating article remains inaccessible, so originality is a best-knowledge assessment with a material priority risk, not a proof of uniqueness.",
+    "residual_risks": [
+      "Full text/appendices of arXiv:2608.29265 inaccessible; an equivalent theorem there could dominate the present result.",
+      "Older equivalent absolute Bessel-integral residues or signed-variation asymptotics under different terminology may exist.",
+      "Semantic search and partitioned records are not proofs of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates absolute-integrability requirement, signed spectral sampling, isotropic Kuttner–Golubov kernels; does not certify absence of a matching full-text result",
+        "evidence": [
+          "First public arXiv posting 2026-08-29",
+          "Abstract gives general signed-random-Fourier-feature method"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.29265",
+        "material_read": "Public abstract and bibliographic record only; complete paper unavailable",
+        "method": "Read dated public bibliographic abstract; tried arXiv open-access routes and authorized access, unavailable",
+        "title": "Signed random Fourier features for fast density estimation with indefinite kernels",
+        "trigger": "Exact motivating family and signed-spectral sampler"
+      },
+      {
+        "assessment": "Different Fourier-transform/orthogonal-polynomial program; no displayed sharp beta-dependent signed total variation or Fourier sampling optimum",
+        "evidence": [
+          "Theorem 2 gives a Fourier formula for orthogonal polynomial basis systems",
+          "Section 3.2 gives Parseval-derived orthogonality"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2075-1680/11/10/558",
+        "material_read": "Accessible full HTML: introduction, definitions, theorem 2 and accompanying main result/discussion",
+        "method": "Reviewed HTML main results and their Fourier/Parseval formulae",
+        "title": "Fourier Transform of the Orthogonal Polynomials on the Unit Ball and Continuous Hahn Polynomials",
+        "trigger": "Potential exact ball-weight Fourier transform and prior coverage"
+      },
+      {
+        "assessment": "Standard analytic input, not claimed as new",
+        "evidence": [
+          "10.17.3 supplies Jnu expansion with phase r-pi*nu/2-pi/4"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/10.17",
+        "material_read": "Web HTML including 10.17.2–10.17.4 and stated error-bound section",
+        "method": "Inspected formulas and real-order error-bound headings",
+        "title": "NIST Digital Library of Mathematical Functions §10.17",
+        "trigger": "Bessel large-argument asymptotics and remainder"
+      },
+      {
+        "assessment": "Critical Lp mollified-indicator-ball norm, rather than signed L1 beta-power spectrum and one-frequency sampler cost",
+        "evidence": [
+          "Summary describes critical exponent p_c=2d/(d+1) and mollification scale delta"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518",
+        "material_read": "Published finding title and summary only; complete file not accessed",
+        "method": "Semantic published-record retrieval and claim-level parameter comparison",
+        "title": "A universal logarithmic crossover for mollified ball Fourier kernels",
+        "trigger": "Closest database match to critical Fourier logarithmic crossover"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ed472b9-9797-4f8b-a344-2eeda1db0f50",
+  "value": {
+    "rationale": "The signed random Fourier feature method explicitly requires an L1 spectral density for compactly supported kernels. The theorem gives the exact feasibility threshold, sharp dimensional residue, uniform finite-frequency crossover, diverging negative spectral mass, and unavoidable inverse-square second-moment penalty for the optimal one-frequency estimator in a natural radial subfamily. This changes both the admissibility and expected simulation cost at a motivated boundary, rather than measuring an arbitrary Bessel integral. The class of estimators and scope are explicit.",
+    "status": "PASS"
+  }
+}
