@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Uniform convergence of the reciprocal products proves bounded invertible Hardy multiplication, allowing an exact similarity with the diagonal compact dilation. Unit eigenvectors are fixed up to phases, which makes their optimal Riesz bounds intrinsic; Fejér concentration proves equality is sharp at the two boundary points. The spectral projections are explicit rank-one similarities, with their norms deduced from coefficient duality. Their dense-atom exponential rate follows from two integrable Riemann sums plus an explicit short-arc Hardy-norm lower bound. Finite algebraic consistency tests are included but are not used to justify an infinite-dimensional step.
+
+**Originality — PASS on inspected evidence, provisional publication priority.** Searches included the atomic Cesàro formulation, the q-Pochhammer eigenbasis, Riesz bounds, projection norms and equivalent multiplier-conditioned formulations. The closest underlying 2026 paper establishes boundedness of the general operator rather than its single-atom spectral-basis geometry. Earlier weighted-composition papers concerning approximation numbers and parabolic spectrum do not imply these exact formulas. The general multiplier similarity and Fejér multiplier norms are known tools, not claimed as inventions. Undiscovered older exact q-series/weighted-composition formulas remain an explicit risk.
+
+**Mathematical value — PASS.** For a natural one-atom subfamily of a current integral operator, this theorem supplies the exact *intrinsic*, unit-normalized spectral-coordinate stability constant at every scale, every one-dimensional spectral projection norm, and distinct sharp exponential divergence rates as the atom approaches the boundary. This distinguishes benign-looking simple eigenvalues from severe spectral-coordinate amplification and is stronger than merely asserting existence of a Riesz eigenbasis. It yields reproducible quantitative predictions for diagonal spectral reconstructions without asserting broader applications.
+
+Independent publication-priority and expert mathematical reviews remain desirable. No claim of independent validation is made.
+
+Self-review: passed. Independent audit: not yet performed.
