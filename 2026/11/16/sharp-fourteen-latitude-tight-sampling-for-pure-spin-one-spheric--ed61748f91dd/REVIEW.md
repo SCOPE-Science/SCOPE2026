@@ -1,0 +1,11 @@
+# Scientific self-review
+
+**Correctness — PASS.** The fixed-degree spin-one Wigner product expansion misses exactly the \(P_{20}\) moment. All 29 Wigner coefficients are checked exactly. The positive-quadrature lower bound reduces to the rank of a finite 15-by-15 affine Hankel-type moment matrix. The parity determinant factors are squarefree and coprime, ruling out nullity two for every parameter. The existence proof uses the closest negative determinant root, four strictly positive localizing forms, and the finite real spectral theorem. Exact arithmetic in the standalone checker rederives all critical certificates. The theorem concerns only a fixed degree and latitude count.
+
+**Originality — PASS, provisional.** Full text of the 2018 spin sampling paper addresses bandlimited transforms, not this fixed-degree positive tight 14-latitude problem. The 2020 Wigner-zero survey and its older references already cover Pell-related 3j zeros; that input is explicitly credited and not claimed new. Nearby published findings on spin-zero latitude tightness and harmonic interpolation address different spaces and implications. No inspected source gives the specific optimal positive moment quadrature, and the verified published-finding corpus comparisons found no equivalent statement. General positive cubature literature has not been exhausted; priority risk remains.
+
+**Mathematical value — PASS.** The exact minimum of positive latitude levels is a natural operational sampling invariant in a 29-dimensional spin harmonic band. Its isolated degree-14 exceptional moment removes one latitude relative to ordinary 15-node full-degree-28 Gauss quadrature. Both a universal lower bound for arbitrary longitude choices and a constructive positive tight design are provided. This is not a minor numeric improvement asserted without structural reason: the Wigner-Pell degeneracy explains the exact exception.
+
+**Scientific limitations.** No theorem about minimum total nodes, mixed-degree spin transforms, all spins, or conditioning. The values of the algebraic latitude nodes are specified implicitly by an exact certificate. Full historical priority is provisional.
+
+Self-review: passed. Independent audit: not yet performed.
