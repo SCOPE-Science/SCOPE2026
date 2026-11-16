@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Weighted matrix-tree determinant exactly equals the unnormalized Walsh sum. Odd-order parity proves every coefficient odd; Cayley--Pruefer signing with vertex-sign sum 1 attains magnitude 1. In even order the reduced Laplacian is all-odd and n-2 integer row differences prove divisibility by 2^(n-2). Balanced factorizable signs give zeros. Reversing the signs of a tree on n-1 vertices changes the reduced Laplacian from -yy^T to M-yy^T, and adj(M)=product(weights)11^T; with sum(y)=-1 gives exact absolute determinant 2^(n-2). Both directions and spectral normalization checked. Independent Prüfer/FWHT, signed determinant and witness tests replayed from the standalone package code; exhaustive only n<=6, universal argument is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dall--Pfeifle, arxiv:1404.3876, Sections 3--4, recovers weighted matrix-tree identities in a polyhedral treatment.",
+        "Burton--Pemantle, math/0404048, Theorems 1.1 and 4.2 treat transfer-current determinants and tree edge correlations.",
+        "Martin--Reiner, math/0302213, treats the weighted tree enumerator when edge weights factor into vertex weights."
+      ],
+      "reasoning": "The broader identities express each coefficient or compute correlations, but inspected theorem statements do not bound all nonzero signed minors below by 2^(n-2), prove attainment, or give the exact full convolution spectral gap. Such results might be derivable with the new mod-two row reduction and tree-flip adjugate witness, but are not directly implied as stated.",
+      "searches": [
+        "published-finding corpus: Signed tree polynomial on complete graph all plus-minus edge signings determinant divisibility 2^(n-2) sharp attained",
+        "published-finding corpus: Weighted Cayley formula signed complete graph balanced vertex signs and edge-sign tree flips",
+        "arxiv:1404.3876v1",
+        "arxiv:math/0404048v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0302213v1 (Martin--Reiner, first public 2003-02-18)",
+      "arxiv:math/0404048v1 (Burton--Pemantle)",
+      "arxiv:1404.3876v1 (Dall--Pfeifle)",
+      "published full RESULT.md 2026/11/2/SCOPE-quadratic-walsh-uniqueness-on-the-spanning-tree-slice-of-a-compl--8fece1c0bd0f",
+      "published-finding corpus exact IDs 2026/11/1/SCOPE-exact-walsh-sampling-determinants-and-optimal-coordinate-bases-o--737b012e9a14, 2026/11/2/SCOPE-the-optimal-bipartite-shape-for-one-edge-walsh-sampling-on-unifo--c81189b7b350, 2026/11/2/SCOPE-a-modulo-four-cycle-law-for-minimum-walsh-projection-constants--937e50b4a079"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest record shows pair-incidence independence for K_n over C and degree-two Walsh Gram rank C(C(n,2),2); its conclusions concern restriction of a small Fourier band, not minimum of all signed spanning-tree sums.",
+        "The classical matrix-tree formula is used as an exact algebraic reduction rather than credited as a new theorem.",
+        "The multivariate Cayley identity itself supplies both factor-sign cancellation and odd-order extremizer, so those subclaims are not standalone novelty."
+      ],
+      "reasoning": "The final combined statement is sharp all-n minimum positive singular value, even-order divisibility, and explicit equality witnesses. Previously inspected assertions are not stronger statements that cover this exact invariant: degree-two sampling rank neither controls higher-degree Walsh frequencies nor signed Laplacian determinant gcd, and vertex-factored signs do not cover arbitrary edge signings. Historical equivalence to an unlocated stronger signed graph congruence remains possible.",
+      "searches": [
+        "published-finding corpus: Fourier projection norm of spanning trees complete graph K_n signed matrix tree Walsh transform all frequencies odd even invertibility",
+        "published-finding corpus: Complete graph spanning tree indicator Walsh transform minimum nonzero absolute Fourier coefficient 2 to power n minus 2 odd n 1 signed Laplacian determinant",
+        "published full text RESULT.md 2026/11/2/SCOPE-quadratic-walsh-uniqueness-on-the-spanning-tree-slice-of-a-compl--8fece1c0bd0f",
+        "arxiv:math/0302213v1",
+        "arxiv:1404.3876v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Martin--Reiner, math/0302213, Section 2, states the multivariate Cayley--Pruefer polynomial; it covers factorable edge signs s_ij=x_i*x_j, not all signings.",
+        "The full published RESULT.md at 2026/11/2/SCOPE-quadratic-walsh-uniqueness-on-the-spanning-tree-slice-of-a-compl--8fece1c0bd0f proves rank/nullspace of degree-at-most-two Walsh evaluations on the set of spanning trees, not the full all-frequency signed tree sum minimum."
+      ],
+      "reasoning": "The signed tree determinant equals the unnormalized Walsh coefficient; this is an equivalent formulation and is classical. Cayley--Pruefer includes the odd-order unit and even balanced-factor zeros as special cases but cannot, without extra constraints on arbitrary edge signs, determine minimum nonzero determinants across independent signings. The new contribution is sharp universal even-order divisibility and an equality construction for every n.",
+      "searches": [
+        "published-finding corpus: Complete graph spanning tree indicator Walsh transform minimum nonzero absolute Fourier coefficient 2 to power n minus 2 odd n 1 signed Laplacian determinant",
+        "published-finding corpus: Signed tree polynomial on complete graph all plus-minus edge signings determinant divisibility 2^(n-2) sharp attained",
+        "published-finding corpus: Walsh spectrum of complete graph spanning tree incidence set invertible n odd signed tree enumerator",
+        "arxiv:math/0302213v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus yielded an exact-object result about complete-graph spanning-tree degree-two Walsh uniqueness, with an unrelated rank invariant.",
+        "Other close records concern perfect-matching sampling determinants, bipartite one-edge sampling, and unicyclic edge-Walsh projection constants."
+      ],
+      "reasoning": "None of the returned summaries or the fully read closest RESULT.md is an exact all-frequency minimum-nonzero Walsh coefficient table for complete graph spanning-tree incidence sets. Search did not produce a direct table; lack of a hit is only bounded evidence, not absolute historical priority.",
+      "searches": [
+        "published-finding corpus: Fourier projection norm of spanning trees complete graph K_n signed matrix tree Walsh transform all frequencies odd even invertibility",
+        "published-finding corpus: Complete graph spanning tree indicator Walsh transform minimum nonzero absolute Fourier coefficient 2 to power n minus 2 odd n 1 signed Laplacian determinant",
+        "published-finding corpus: Walsh spectrum of complete graph spanning tree incidence set invertible n odd signed tree enumerator",
+        "2026/11/2/SCOPE-quadratic-walsh-uniqueness-on-the-spanning-tree-slice-of-a-compl--8fece1c0bd0f",
+        "2026/11/1/SCOPE-exact-walsh-sampling-determinants-and-optimal-coordinate-bases-o--737b012e9a14",
+        "2026/11/2/SCOPE-the-optimal-bipartite-shape-for-one-edge-walsh-sampling-on-unifo--c81189b7b350",
+        "2026/11/2/SCOPE-a-modulo-four-cycle-law-for-minimum-walsh-projection-constants--937e50b4a079"
+      ]
+    },
+    "rationale": "The novelty claim deliberately excludes classical weighted spanning-tree determinants, Prüfer enumeration, and the factorable-sign Cayley--Pruefer cancellations. The specific universal optimal even-order nonzero signed-Laplacian gap and sharp tree-flip witness, along with exact pseudoinverse norm, were not found among inspected general statements, the closest published published-finding corpus full text, and current own archive claims. An unknown stronger general congruence remains a priority risk.",
+    "residual_risks": [
+      "An unlocated stronger signed matrix-tree determinant congruence or all-signing Walsh result could imply the claimed specialization; bounded search cannot prove uniqueness.",
+      "Not every older mathematical journal or unpublished source has been exhausted.",
+      "The theorem has not undergone independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers basic Prüfer weighted identity, odd unit and balanced-factor cancellations; not arbitrary edge-sign sharp gap",
+        "evidence": "Multivariate Cayley--Pruefer identity: sum_T prod_i x_i^(degree_i) = (prod_i x_i)(sum_i x_i)^(n-2).",
+        "identifier_or_url": "https://arxiv.org/abs/math/0302213",
+        "material_read": "Opening theorem and Section 2 statements on PDF pages 1 and 4 (zero-index 0 and 3); arXiv record and text of weighted formula",
+        "method": "Read open-access arXiv text and checked PDF screenshots",
+        "title": "Factorizations of some weighted spanning tree enumerators",
+        "trigger": "Exact complete-graph weighted tree polynomial and signed vertex-weight specialization"
+      },
+      {
+        "assessment": "Gives determinantal joint edge-inclusion marginals, not the sharp all-signings Walsh gap",
+        "evidence": "Transfer-current determinant formulas for spanning-tree edge inclusion.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0404048",
+        "material_read": "Abstract, Theorems 1.1 and 4.2 locations, PDF page 1 and page 10 screenshots; surrounding open-access text",
+        "method": "Read arXiv PDF text, inspected screenshots and theorem locations",
+        "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+        "trigger": "Possible stronger joint tree-edge character/correlation formula"
+      },
+      {
+        "assessment": "Provides weighted matrix-tree identity used as a premise, no sharp nonzero determinant minimum over complete graph signings",
+        "evidence": "Weighted spanning-tree generating polynomial via Laplacian determinant.",
+        "identifier_or_url": "https://arxiv.org/abs/1404.3876",
+        "material_read": "Opening statement, weighted matroid/graph tree sections 3--4 and PDF screenshots of pages 1 and 13",
+        "method": "Read arXiv accessible full-text sections and PDF page screenshots",
+        "title": "A Polyhedral Proof of the Matrix Tree Theorem",
+        "trigger": "Weighted signed tree determinant and possible general matrix-congruence claims"
+      },
+      {
+        "assessment": "Exact object overlap, different statistic: rank/nullity of degree-at-most-two coordinate Walsh sample matrix; does not derive all-signing minimum",
+        "evidence": "Published theorem: rank C(m,2), nullity m+1 for degree-at-most-two coordinate Walsh evaluation on labelled K_n trees.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-quadratic-walsh-uniqueness-on-the-spanning-tree-slice-of-a-compl--8fece1c0bd0f/RESULT.md",
+        "material_read": "Complete published RESULT.md including theorem, induction proof, scope, verification, relationships, limitations and references",
+        "method": "Read full public repository result text through read-only connector",
+        "title": "Quadratic Walsh uniqueness on the spanning-tree slice of a complete graph",
+        "trigger": "Same exact tree support with Walsh evaluation language"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2c0b7b0-a6e5-4dfb-bada-1588f2ab1419",
+  "value": {
+    "rationale": "The complete-graph tree-incidence indicator is a canonical determinantal Boolean signal. Its smallest positive Walsh multiplier is the exact inverse stability constant of an associated full-dimensional convolution operator, and the theorem settles that invariant for every n. Nontrivial even-order 2-adic sharpness via a tree-flip determinant construction and infinitely many zero frequencies make the result an exact natural infinite-family structural finding rather than a routine parity test. It distinguishes singular even orders from invertible odd orders with exact spectral stability.",
+    "status": "PASS"
+  }
+}
