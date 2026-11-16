@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact two-prefix character parametrization proves that every multiplier is an integer with the parity of the order-ideal count; an alternating-prefix choice realizes both the claimed zero spectrum boundary and the optimal nonzero spectral gap. Fourier diagonalization proves the sharp inverse norms. The conditional cosine product, Donsker convergence, a fourth-moment error bound and a directly verified Feynman--Kac solution establish the non-Gaussian limit, while its atomlessness proves vanishing zero density. The independent direct Walsh and transfer counts agree at 87,380 frequencies through eight columns, with further checks through seventeen. Finite checks do not replace the proof.
+
+**Originality — PASS under bounded comparison.** Erné--Heitzig--Reinhold (2002) count distributive lattices but do not give Fourier multipliers. Sjöstrand (2003--2005) studies the sign of tableaux/linear extensions, not the arbitrary binary character of all order-ideal incidence vectors. De Wolf (2008) provides Boolean Fourier background but not the two-row exact residue-class invertibility theorem. Indexed research on graph-independent Fourier minors and noncrossing-matchings Fourier identification concerns different sample sets and operators, without an implication yielding the finite classification or the scaled limiting spectrum. Related signed Ferrers-enumeration formulas remain possible priority risks, and stochastic limit theory itself is acknowledged prior mathematics; global historical uniqueness is not claimed.
+
+**Mathematical value — PASS.** Order ideals are canonical combinatorial data for distributive lattices. Their indicator convolution has a sharp and unexpected alternating two-class invertibility transition, an exact gap despite singularity, and a continuous non-Gaussian bulk law implying nearly full Fourier rank at singular lengths. This joint finite arithmetic and asymptotic result is not merely a reformulation of an ideal count.
+
+**Limitations.** The exact number of finite-width zeros at singular lengths, convergence rate, and higher-row analogues remain open in this investigation. Independent validation and exhaustive priority verification have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
