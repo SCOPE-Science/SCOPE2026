@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 and kappa>0, the sampled Fourier multiplier f=(A+B cos theta)/D^2 is strictly positive by alias positivity; B>0 because a>tanh a and A>B by endpoints. Polynomial division gives W+V cos theta+R/(A+B cos theta), whose geometric Fourier coefficients periodize exactly. For distances >=2 positivity of the wrapped geometric pair gives strict alternating signs. The n-even nearest-neighbor inequality Rt/s>V/2 and n-odd monotone comparison to the negative three-site inverse prove the remaining signs. The norm bound is a geometric tail, order-one control a degree-one inverse. The standalone arbitrary-precision checker passed 14980 direct covariance and Fourier checks plus the order-one control; finite checks corroborate rather than prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lindgren–Rue–Lindström (2011), Section 2 and Result 2: SPDE/FEM GMRF sparse approximations, not point-sampling inverse",
+        "Haddad (2004), abstract, general closed inverse for causal ARMA sequences, full text not accessible"
+      ],
+      "reasoning": "A general ARMA covariance-inversion result might imply the present formula and cannot be ruled out without full inspection. The specific source inspected concerns a causal non-circular process; periodic lattice Matérn aliases and strict noncancellation for all n and all ranges are not stated in the abstract. This leaves a material risk, not a confirmed covering theorem.",
+      "searches": [
+        "Matérn SPDE sparse FEM precision exact sampled Gaussian field inverse dense mass matrix",
+        "Gaussian ARMA(2,1) covariance periodic sample inverse alternating sign geometric tail",
+        "cyclic total positivity inverse checkerboard sign Matérn covariance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.12856 (full HTML Sections 2–3, appendices)",
+      "doi:10.1016/j.jmva.2015.08.018 (author PDF)",
+      "doi:10.1111/j.1467-9868.2011.00777.x (open publisher text)",
+      "doi:10.1111/j.1467-9892.2004.01454.x (abstract only)",
+      "arxiv:1505.07598 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huang–Li 2022 Section 3 expressly contrasts exact alpha=1 CAR with approximate alpha=2 CAR; their output is a covariance of a different precision model",
+        "Guinness–Fuentes 2016 Example 3 and supplemental Fourier formulas are covariance not full sampled precision",
+        "Haddad 2004 abstract is too general to decide whether the new statement follows"
+      ],
+      "reasoning": "Previous Fourier kernels and CAR approximations are inputs, not equivalent exact conditional dependence signs for all equispaced sampled circular fields. An earlier ARMA inverse may dominate algebraically, but sign noncancellation, cyclic wrapping and full n, kappa quantifiers need a separate implication; this risk remains named.",
+      "searches": [
+        "arxiv:2201.12856 circular Matérn order two CAR exact approximation sampled covariance",
+        "Isotropic Covariance Functions on Spheres Guinness Fuentes 2016 circular Matern closed form",
+        "On the closed form of the covariance matrix and its inverse of the causal ARMA process Haddad 2004"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2201.12856 Sections 2–3: order-one exact CAR and order-two approximate CAR; no exact point-sampled full-precision signs",
+        "arxiv:1505.07598 abstract: explicit inverse of other families of circulant matrices"
+      ],
+      "reasoning": "A formula for the sampled covariance or for a sparse approximate CAR is not the all-pairs exact precision inverse. Harmonic rational inversion gives the exact nonzero checkerboard off-diagonal signs, not found in the inspected materials. Generic circulant inverse results are potential methods but not demonstrated equivalent claims.",
+      "searches": [
+        "periodic matern covariance equispaced observations inverse dense alternating sign entries Markov cyclic ARMA",
+        "circular Matern 3/2 sampled precision matrix all entries checkerboard sign",
+        "inverse of circulant covariance (1+alpha n) exp(-alpha n) alternating signs matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact formula or tabulated all-size precision sign classification identified in the source inspections and database search results",
+        "Guinness–Fuentes (2016) tabulates kernels, not the inverse precision of every sampled grid"
+      ],
+      "reasoning": "The theorem is quantified over unbounded n and continuum kappa; finite covariance tables or general Fourier coefficient listings do not by themselves imply exact nonvanishing. No known table giving the complete inverse and sign classification was identified, but absence is not a proof of uniqueness.",
+      "searches": [
+        "sampled periodic circular Matérn order two precision matrix entry signs complete graph",
+        "equally spaced circular Matérn alpha 2 sampled covariance inverse Fourier circulant dense alternating complete conditional dependence graph"
+      ]
+    },
+    "rationale": "Inspected sources establish circular Matérn kernels, continuous SPDE links, first-order exact CAR and second-order approximate CAR, but not the exact sampled order-two precision full-support checkerboard signs with finite-n inverse and tail bound. Dedicated searches found no equivalent published statement; priority remains provisional with a specific older ARMA inversion risk.",
+    "residual_risks": [
+      "Haddad (2004) causal ARMA inverse full text not inspected; a sufficiently general theorem could imply a cyclic version after reduction.",
+      "Potential exact checkerboard inverse/oscillatory-matrix statement in the older cyclic total-positivity literature; broad theory not exhaustively inspected.",
+      "Scientific historical priority has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact alpha=1 CAR and approximate alpha=2 CAR; does not state all-grid order-two exact precision support/sign or the closed rational Fourier inverse",
+        "evidence": "Abstract and Section 3 distinguish an exact first-order link and an approximate second-order CAR; Equation (5) defines Fourier covariance.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.12856",
+        "material_read": "Full accessible HTML Sections 2–3 and relevant appendices, including definitions, covariance equations and CAR construction",
+        "method": "Open-access arXiv full text; section-level statement and result comparison",
+        "title": "The Circular Matérn Covariance Function and its Link to Markov Random Fields on the Circle",
+        "trigger": "Same circular Matérn kernel, order-two CAR, likely closest prior"
+      },
+      {
+        "assessment": "Circular Matérn covariance and positivity, not inverse covariance of a sampled order-two periodic grid",
+        "evidence": "Model Fourier kernel and covariance expression, as cited by Huang–Li Section 2.",
+        "identifier_or_url": "https://guinness.cals.cornell.edu/papers/spheres_withsupplement.pdf",
+        "material_read": "Author paper Example 3, Theorem 2 and supplemental circular covariance material",
+        "method": "Author open-access PDF text and representative page screenshots",
+        "title": "Isotropic covariance functions on spheres: Some properties and modeling considerations",
+        "trigger": "Original circular Matérn Fourier kernels and half-integer expressions"
+      },
+      {
+        "assessment": "Sparse finite-element/SPDE approximation, not exact point-sampling precision; hence does not assert the opposite conclusion for this object",
+        "evidence": "Mass matrix and discretization-based GMRF construction with possible dense exact mass-matrix inverse.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2011.00777.x",
+        "material_read": "Relevant open-access/publisher HTML description and Section 2/Result 2",
+        "method": "Online scholarly full-text examination",
+        "title": "An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach",
+        "trigger": "General theorem promising sparse precision for integer-order Matérn"
+      },
+      {
+        "assessment": "Unresolved priority risk; object is causal finite-interval ARMA rather than circular sampling, but a reduction could exist",
+        "evidence": "Abstract states general closed-form inverse for causal ARMA process without specializing to cyclic Matérn sign classification.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.2004.01454.x",
+        "material_read": "Abstract and bibliographic metadata only; full text was unavailable",
+        "method": "Publisher/bibliographic abstract comparison",
+        "title": "On the closed form of the covariance matrix and its inverse of the causal ARMA process",
+        "trigger": "General inverse-covariance theorem potentially broad enough to imply the rational decomposition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c11d579e-2abe-4f12-852b-89333d44f916",
+  "value": {
+    "rationale": "Exact zero vs nonzero entries of a Gaussian precision matrix determine conditional independence, so establishing that every point-sampled order-two circular Matérn process has a complete signed dependence graph—unlike exactly nearest-neighbor order one—is a natural structural and statistical question. The explicit exponentially decaying finite-grid truncation error quantifies when sparse numerical approximations remain useful. The full all-grid, all-parameter statement is not a textbook normalization identity, finite anecdote, or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
