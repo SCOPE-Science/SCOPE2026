@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The character-to-signed-matching reduction and the adjacent-pair subtraction prove the exact formula for every \(n\ge4\). The three small signings give the exact integer gcd; Vandermonde's identity verifies the mod-four residue table. An explicit seven-edge negative star gives an actual zero at \(n=8\), while another eight-edge negative graph gives a multiplier of \(2\). The entire rank census is independently recomputed by two distinct exact-state updates over all \(2^{27}\) gauge representatives, checked against 2,048 direct character evaluations and Parseval. The infinite claim does not depend on the finite computation.
+
+**Originality: PASS under bounded comparisons.** Kamat–Misra (arXiv:1303.4061v1) prove a matching-family intersection theorem, not a signed Fourier rank. Li–Shi–Trinks (arXiv:1404.3469v1) study unsigned matching-polynomial reconstruction. The adjacent indexed complete-graph perfect-matching spectrum is for size-four, not size-two, matchings on eight vertices. Published related work and recoverable prior claims on other matching orbits do not imply the precise \(20{,}467{,}680\) vanishing coefficients here. The elementary expansion is treated as a tool rather than a novelty claim. Full historical priority remains an uncertainty.
+
+**Mathematical value: PASS.** The first singular order of a natural matching orbit is a motivated boundary: order seven is universally invertible by parity, while order eight has a nontrivial kernel occupying \(639615/8388608\) of the Fourier space. The exact kernel dimension and sharp Moore–Penrose norm measure harmonic recoverability that the mere count of 210 matchings cannot determine. The infinite arithmetic classification explains additional even-cardinality orders where no cancellation is possible. This is a natural complete cutoff, not an arbitrary labelled frequency slice.
+
+**Limitations and risk.** No complete large-order zero-multiplier classification or endpoint Banach projection norm is claimed. The order-eight exact census is machine-reproducible rather than independently audited. Indexed and primary-literature comparison is bounded; an unidentified stronger old theorem remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
