@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For fixed n and m, the weighted interval Rayleigh quotient is asymptotically C_(n,m) a^(2n+1). A monic rescaled Legendre polynomial gives an upper bound; numerator O(a^(2n+1)) forces coefficient j to be O(a^(n-j)) by fixed-degree norm equivalence, and full-interval normalization then fixes the leading-coefficient magnitude. The unique monic Legendre minimizer identifies the matching lower bound and scaled polynomial shape. Spherical-harmonic azimuthal separation reduces each sector to weight (1-z^2)^m and degree n=L-m; nonzonal powers are smaller than 2L+1, so their eigenvalues are larger. Courant-Fischer gives a zonal second eigenvalue at least order a^(2L-1), yielding eventual simplicity and scaled Gauss-Legendre zeros. A high-precision checker verifies finite L<=5 examples, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gilbert–Slepian (1977) studies eigenvalue ratios of polynomials on nested intervals; accessible abstract announces large-degree asymptotics of the largest eigenvalue at fixed interval width.",
+        "Simons–Dahlen (2006) addresses belt operators across azimuthal orders at finite widths, including poorly concentrated eigenfunctions."
+      ],
+      "reasoning": "General polynomial Slepian theory subsumes the setting as an eigenvalue problem, but cited large-n or fixed-width computations do not state or imply the precise least-eigenvalue shrinking-width coefficient and all-sector transition without additional analysis. The 1977 full text is not yet accessible; priority remains provisional.",
+      "searches": [
+        "worst observed spherical harmonic bandlimited degree <= L on a shrinking equatorial belt sharp smallest concentration eigenvalue c_L a^(2L+1), Legendre Gauss roots",
+        "\"Doubly Orthogonal Concentrated Polynomials\" Slepian Gilbert small c interval asymptotic eigenvalues coefficient degree",
+        "doi:10.1137/0508022 (Gilbert–Slepian 1977)"
+      ]
+    },
+    "checked_sources": [
+      "Simons and Dahlen 2006, DOI 10.1111/j.1365-246X.2006.03065.x, relevant full-text HTML sections",
+      "Parisi et al. 2020, DOI 10.1029/2020JE006416, full HTML; first public 2020-09-30",
+      "Gilbert and Slepian 1977, DOI 10.1137/0508022, abstract only",
+      "Public mathematical research records on hemispherical spectral gaps and exact half-energy multiplicity in Slepian restriction",
+      "NIST DLMF 14.30 spherical harmonic standard formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The hemispherical gap-product result treats spectral determinants with fixed hemisphere and varying Gegenbauer weights, not least concentration as belt width tends to zero.",
+        "The hemisphere half-energy multiplicity result concerns a parity threshold at lambda=1/2, not sharp vanishing eigenvalues.",
+        "Parisi et al. (2020) constructs numerical zonal Slepian functions for an application with bounded latitudes rather than a sharp universal small-width asymptotic."
+      ],
+      "reasoning": "Known diagonalization and generic variational principles are inputs, not statements with stronger quantitative bounds implying the specific constant and root scaling. The new result is not the general existence of Slepian eigenfunctions or Legendre orthogonality alone.",
+      "searches": [
+        "2026/10/11/SCOPE-uniform-dimension-bandwidth-crossover-for-zonal-hemispherical-sp--ff7d4d2424fb",
+        "2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a",
+        "doi:10.1029/2020JE006416",
+        "arxiv:math/0603271"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A spherical belt eigenvalue is exactly a finite-degree weighted-polynomial Rayleigh quotient after azimuthal decomposition.",
+        "Simons–Dahlen (2006), section 6.1, explicitly describes least-concentrated belt modes at fixed cutoff and computes eigenpairs numerically, but not the a->0 binomial law or scaled Gauss–Legendre nodes."
+      ],
+      "reasoning": "Searches include equivalent terms narrow latitude bands, strip restriction, least eigenvalue, least observable zonal mode, nodal scaling and Legendre polynomials. A numerical description at finite belt width does not imply the sharp fixed-degree singular asymptotic.",
+      "searches": [
+        "small equatorial belt spherical Slepian least eigenvalue full bandlimit L sharp asymptotic a^(2L+1) Legendre central binomial coefficient",
+        "bandlimited spherical harmonics equatorial strip minimal concentration sharp small width Legendre monic limiting eigenvector",
+        "Gauss-Legendre polynomial roots of least observable spherical Slepian zonal function thin belt",
+        "Simons and Dahlen 2006: spherical Slepian functions and polar gap in geodesy, section 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary 2006 work provides tables of belt eigenvalues for selected finite bands and widths, not the all-L asymptotic coefficient.",
+        "No checked research-record or published table returned the binomial coefficient as a fixed-L thin-belt minimum."
+      ],
+      "reasoning": "A finite-width eigenvalue table or numerical concentration eigenpair does not resolve the universal exact limit or nodal asymptotics. Absence from search is not by itself novelty proof.",
+      "searches": [
+        "small equatorial belt spherical Slepian least eigenvalue full bandlimit L sharp asymptotic a^(2L+1) Legendre central binomial coefficient",
+        "worst observed spherical harmonic bandlimited degree <= L on a shrinking equatorial belt sharp smallest concentration eigenvalue c_L a^(2L+1), Legendre Gauss roots",
+        "spherical Slepian thin equatorial belt small width smallest eigenvalue polynomial Legendre nodes asymptotic 2L+1"
+      ]
+    },
+    "rationale": "The geometric equatorial Slepian operator, azimuthal separation, zonal numerical eigenfunctions and orthogonal polynomials are established prior work. Inspected primary 2006 belt Slepian work and 2020 application do not derive fixed-L thin-belt least-eigenvalue asymptotics with exact binomial constants, eventual zonal least eigenvector and scaled Gauss-Legendre nodal limit. The closest historical polynomial concentration paper treats fixed-width concentration and large-degree limits in its publicly accessible abstract, so an equivalent small-width statement remains an identified priority risk, not an established implication. Specific contemporary research-record comparisons concern hemisphere gap products or half-energy parity, not a vanishing equatorial belt. Unsearched/equivalent historical literature could change the originality assessment.",
+    "residual_risks": [
+      "Historical polynomial concentration literature such as Gilbert–Slepian (1977) may contain an unstated equivalent small-width eigenvalue or Gauss–Legendre scaling, inaccessible full text not inspected.",
+      "No explicit error rate, finite-belt threshold, growing-cutoff uniformity or sampled-observation bound is proved.",
+      "Search and source inspection are evidence of noncoverage in examined portions, not an exhaustive priority guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides operator formulas and qualitative/numerical belt eigenmodes; no explicit fixed-degree width->0 least-eigenvalue binomial limit or Gauss–Legendre nodal rescaling found in the inspected sections.",
+        "evidence": "Section 6.1 describes m=0..4, L=18 and a 60-degree belt, plots lowest-concentration eigenfunctions and their parity.",
+        "identifier_or_url": "https://academic.oup.com/gji/article/166/3/1039/2140074",
+        "material_read": "Primary HTML Introduction, spherical eigenproblem and section 6.1 on the Slepian basis on the belt including its figures and qualitative nodal patterns.",
+        "method": "Read accessible article HTML sections and compared band cutoff, belt width and reported eigenvalue limits.",
+        "title": "Spherical Slepian functions and the polar gap in geodesy",
+        "trigger": "Direct same domain: spherical harmonic localization in equatorial belts, including least-concentrated modes."
+      },
+      {
+        "assessment": "Application uses zonal Slepian concentration for partial latitude gravity measurements but does not state a sharp width->0 law.",
+        "evidence": "Wiley original records first publication 30 September 2020; article uses degrees 2..40 and eigenvalues above 0.99 in an application.",
+        "identifier_or_url": "https://doi.org/10.1029/2020JE006416",
+        "material_read": "Freely accessible full-article HTML including methods around spherical harmonic cutoff N=40, zonal restriction and localization eigenvalue threshold.",
+        "method": "Compared finite practical latitude band and fixed harmonic truncation against asymptotic shrinking centered equatorial belt and worst-mode eigenpair.",
+        "title": "Resolving the Latitudinal Short-Scale Gravity Field of Jupiter Using Slepian Functions",
+        "trigger": "Recent 2020 application of Slepian functions for incomplete latitude observation, framing the physical observability gap."
+      },
+      {
+        "assessment": "The abstract discusses the largest concentration eigenvalue and large-degree fixed-width limits, not the exact lowest eigenvalue for width->0 at fixed degree. Full-text unavailability is a real historical-priority risk.",
+        "evidence": "Gilbert and Slepian (1977), SIAM J. Math. Anal. 8, 290–319; publisher abstract gives large-n behavior as 1-C_3 n^(1/2) C_4^n for centered intervals.",
+        "identifier_or_url": "https://doi.org/10.1137/0508022",
+        "material_read": "Publisher abstract and bibliographic page only; original full body not accessible.",
+        "method": "Compared announced parameter regime and extremal eigenvalue in the public abstract.",
+        "title": "Doubly Orthogonal Concentrated Polynomials",
+        "trigger": "Potentially dominating historical theory for polynomial eigenfunctions concentrated on a small interval inside a larger interval."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7fb5c5bc-c2b6-4a51-926b-f5223d353544",
+  "value": {
+    "rationale": "The geometry is motivated by latitudinally limited spherical observations. The sharp all-bandwidth (fixed L) power a^(2L+1) and normalized binomial constant quantify the worst attainable continuum stability, and the asymptotic zonal optimizer and Gauss–Legendre nodes describe a nontrivial symmetry and nodal law. The joint quantitative spectral/nodal statement is not an arbitrary finite invariant, isolated experiment or routine numeric increment. The lack of a bandwidth-uniform estimate is explicitly limited.",
+    "status": "PASS"
+  }
+}
