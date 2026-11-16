@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The proof gives an exact character-by-character identity for all n≥3: diagonal colour translation annihilates unbalanced frequencies; closed nonzero edge increments and the orthogonality filter reduce the balanced sum to three integer powers (-2)^{c_r}; their only possible zero is the histogram (a,a,a+1); multinomial counting gives Z_n and diagonalization gives rank. The boundary n=3 and the b_n=0 normalization were checked. Two independently structured exact-integer implementations check every character for n=3,...,7; scripts form part of this package. The asymptotic follows by the stated Stirling formula. No finite computation is substituted for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sokal, arXiv:math/0503607v1, §§2.2 and 2.4: classical chromatic counts and a general abelian Fourier duality. The cycle formula concerns unweighted colour counts.",
+        "Ellis-Monaghan–Moffatt, arXiv:1005.5470v2, Theorem 4.2 and Corollary 4.3: a general vertex-weighted Potts polynomial and spanning-subgraph expression for arbitrary local fields, not the closed ternary cycle Fourier cancellation histogram.",
+        "Babson–Beck, arXiv:1204.1283v1, pages 1–4: an abelian Fourier derivation for probabilities of graph colourings and a reciprocity law indexed by bridgeless spanning subgraphs, not all site Fourier multipliers.",
+        "Shrock–Xu, arXiv:1009.1182v1, §X: set-weighted cycle partition functions with a uniform field affecting a subset of colours, not arbitrary vertex-dependent root-of-unity fields."
+      ],
+      "reasoning": "The general V-polynomial can evaluate arbitrary locally weighted colour sums and thus provides an algorithmic expression for the coefficients as a special instance. It does not itself supply the explicit three-power reduction, complete exact zero locus, multinomial multiplicities, or all-order rank; deriving these is the substantive claim. The cycle count and Fourier flow duality likewise do not settle the multiplier-zero question.",
+      "searches": [
+        "web: Sokal multivariate Tutte polynomial arxiv 2005 first version",
+        "web: Potts partition function external field arbitrary local weights complete graph colouring Fourier cyclic model survey Ellis Monaghan Moffatt arxiv",
+        "web: Fourier transform graph colourings cyclic graph 3 color spin character",
+        "web: \"Counting Group Valued Graph Colorings\" Babson Beck 2012 full text arxiv"
+      ]
+    },
+    "checked_sources": [
+      "Sokal, arXiv:math/0503607v1, §§2.2, 2.4",
+      "Ellis-Monaghan–Moffatt, arXiv:1005.5470v2, Theorem 4.2 and Corollary 4.3",
+      "Babson–Beck, arXiv:1204.1283v1, text of theorem, Lemma 4 and examples",
+      "Shrock–Xu, arXiv:1009.1182v1, intro and §X",
+      "Sharp universal Fourier sampling stability on proper colourings of cycles, public RESULT.md, entire claim and proof",
+      "Accessible earlier science claims relevant to Fourier recovery on triangular blocks, books and complete bipartite colourings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior cycle first-band theorem expresses Gram entries by the colour-matching probabilities and diagonalizes a circulant n×n covariance matrix; its stated restriction to coordinate characters cannot determine arbitrary higher-degree Fourier values of f_n.",
+        "The general vertex-weighted V-polynomial gives an exponential subgraph expansion, whereas the new formula compresses every balanced Fourier coefficient to three signed powers of two and then proves a necessary and sufficient cancellation condition.",
+        "The flow-duality and group-colouring literature counts full solutions or edge flows; its displayed propositions do not show the exact vanishing rank of the vertex-signal convolution."
+      ],
+      "reasoning": "A first-band Gram matrix is not a substitute for the full convolution diagonalization; the full coefficient spectrum is neither a corollary of the Gram eigenvalues nor of ordinary cycle colouring counts. Broader field-polynomial machinery can express coefficients but provides no direct zero-classification implication without the present structural reduction and signed-power argument.",
+      "searches": [
+        "published-finding corpus search: site graph Potts external fields exact Fourier coefficients on cycles ternary 3-coloring zeros",
+        "published-finding corpus search: Fourier convolution by proper 3-coloring indicator on cyclic graph all degrees",
+        "web: \"Potts\" \"character\" \"cycle\" \"Fourier\" external field site",
+        "web: \"Counting Group Valued Graph Colorings\" \"Fourier transform\" cycles coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full published note “Sharp universal Fourier sampling stability on proper colourings of cycles” explicitly restricts the Gram system to degree-one vertex characters; it gives a probability-normalized first-coordinate Gram spectrum, not the unnormalized complete additive-character transform of the colouring indicator. GitHub RESULT.md, Finding, Assumptions, Proof, Limitations, URL in checked_sources.",
+        "Sokal arXiv:math/0503607 §2.4, especially the Fourier spin-flow duality statement, supplies a general character expansion for edge interactions but no explicit vertex-character spectrum for ternary cycle colourings."
+      ],
+      "reasoning": "The nearest first-degree Gram problem is not the complete characterwise convolution problem: it comprises pairwise moments of vertex characters, while the claim covers all 3^n frequencies, with exact zeros and multiplicities. General spin/flow duality can express the same weighted sums but does not explicitly state or immediately classify their mod-three cancellation loci.",
+      "searches": [
+        "published-finding corpus search: Fourier spectrum proper three-colorings of cycles graph chromatic character sums zero coefficients harmonic analysis",
+        "published-finding corpus search: Complete ternary Fourier spectrum of proper colorings on simple cycle, balanced character zero criterion modulo three and multinomial rank",
+        "web: \"three colorings\" \"Fourier coefficients\" \"cycles\"",
+        "web: \"proper 3-colorings\" \"Walsh\" \"Fourier\" cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/11/2/SCOPE-sharp-universal-fourier-sampling-stability-on-proper-colourings--8dc8f90856db: publicly accessible RESULT.md explicitly describes only first-coordinate Fourier Gram eigenvalues.",
+        "Accessible bounded historical comparisons of vertex-weighted chromatic/Potts material and group-colouring expansions yielded no matching character-multiset table or rank sequence.",
+        "The directly checked first examples for the full spectrum have balanced extra-zero counts 0,12,0,0,210 for cycle lengths 3 through 7."
+      ],
+      "reasoning": "No exact table with the full vertex-Fourier multiplicities, histogram condition or 3^{n-1}-Z_n rank was located in the inspected sources. Search absence alone is not evidence of absolute uniqueness, and unindexed weighted-character tables remain a residual risk.",
+      "searches": [
+        "published-finding corpus search: additive Fourier transform graph coloring proper colorings on cycle C_n spectral invertibility cancellation rank",
+        "published-finding corpus search: Fourier convolution by proper 3-coloring indicator on cyclic graph all degrees",
+        "web: \"chromatic polynomial\" \"Fourier transform\" \"cycle\" \"zero\"",
+        "web: \"Fourier\" \"proper colorings\" \"cycle\" \"zero\" additive"
+      ]
+    },
+    "rationale": "Closest available full text treats only degree-one Fourier Gram sampling on proper-coloured cycles; generalized Potts, external-field and group-valued colouring literature provides count or evaluation frameworks rather than the explicit all-character zero locus and exact convolution rank. The claim is a nontrivial structural reduction and signed-power cancellation classification, not a numerical recomputation. Historical priority is bounded and remains subject to unindexed equivalents.",
+    "residual_risks": [
+      "An unindexed or differently named site-field Potts cycle evaluation may already simplify to the same three-power histogram and make the result an explicit corollary.",
+      "The Babson–Beck article was available as parsed PDF text, but page-image retrieval was blocked with HTTP 403; all relevant displayed statements were compared by text.",
+      "The compared public cycle first-band result has a different matrix, but adjacent higher-degree sampling studies could exist outside indexed sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts ordinary cycle colourings and describes general duality; no complete individual site-frequency Fourier multiplier histogram or ternary cancellation rank stated in these sections.",
+        "evidence": "https://arxiv.org/abs/math/0503607, passages on cycles, proper colouring, and Fourier duality",
+        "identifier_or_url": "arxiv:math/0503607v1; https://arxiv.org/abs/math/0503607",
+        "material_read": "HTML full text relevant §§2.2, 2.4, cycle example and spin-flow duality at the Fourier-transform discussion",
+        "method": "Original arXiv HTML text, equations (2.5), (2.7)–(2.10), (2.23) and nearby discussion",
+        "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+        "trigger": "Classical Potts/chromatic counting and Fourier spin–flow duality on cycles"
+      },
+      {
+        "assessment": "A general weighted enumeration framework can specialize to Fourier weights, but does not display the closed ternary cycle character formula or classify its three-power cancellations and rank.",
+        "evidence": "https://arxiv.org/html/1005.5470v2, Theorem 4.2 and Corollary 4.3",
+        "identifier_or_url": "arxiv:1005.5470v2; https://arxiv.org/html/1005.5470v2",
+        "material_read": "HTML text including definitions of vertex magnetic weights, Theorem 4.2, Corollary 4.3 and §5 specializations",
+        "method": "Full public arXiv HTML, targeted examination of theorem statements and local-field expansions",
+        "title": "The Tutte-Potts connection in the presence of an external magnetic field",
+        "trigger": "Potentially dominating general polynomial for all vertex-weighted colourings"
+      },
+      {
+        "assessment": "Its target is an expansion of the count/probability of valid colourings and graph-indexed reciprocity, not the Fourier transform as a function of all vertex-character frequencies. Does not provide the claimed exact rank.",
+        "evidence": "arxiv:1204.1283v1, pages 1–4, theorem and Lemma 4",
+        "identifier_or_url": "arxiv:1204.1283v1; https://citeseerx.ist.psu.edu/document?doi=4268d284d6ff6d819f2f32f9d629bcb98a995a83&repid=rep1&type=pdf",
+        "material_read": "Searchable PDF text, pages 1–4, theorem and corollaries, Lemma 4 Fourier expansion, and example statements. Page screenshots unavailable due to HTTP 403.",
+        "method": "Text extracted by academic PDF web preview and cross-checked against arXiv abstract",
+        "title": "Counting Group Valued Graph Colorings",
+        "trigger": "Direct Fourier treatment of colouring constraints on finite abelian palettes"
+      },
+      {
+        "assessment": "Uses uniform weighting of a selected colour subset, not arbitrary vertex-specific ternary character phases; no matching full Fourier zero classification.",
+        "evidence": "arxiv:1009.1182v1, §X",
+        "identifier_or_url": "arxiv:1009.1182v1; https://arxiv.org/abs/1009.1182",
+        "material_read": "HTML full text, introductory field definition and §X cycle measure, equations (147)–(149)",
+        "method": "Public arXiv HTML original text",
+        "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+        "trigger": "Exact Potts cycle weighted-colouring partition function as possibly broader source"
+      },
+      {
+        "assessment": "Proves first-coordinate Fourier Gram spectrum, positivity and sharp conditioning; explicitly excludes higher-degree harmonics and does not discuss convolution rank or all 3^n Fourier multipliers.",
+        "evidence": "RESULT.md, the first-band scope and final Limitations section",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-universal-fourier-sampling-stability-on-proper-colourings--8dc8f90856db/RESULT.md",
+        "material_read": "Entire RESULT.md including Finding, Assumptions, Proof, Relationship to prior work, Limitations",
+        "method": "Public repository file-content read",
+        "title": "Sharp universal Fourier sampling stability on proper colourings of cycles",
+        "trigger": "Exactly same cycle-colouring objects and additive characters; decisive close comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a98d4f2c-f356-4377-93c0-94f9d70f7b96",
+  "value": {
+    "rationale": "The claim identifies a sharp mod-three transition in injectivity of a natural counting convolution on the colour-translation quotient, for an infinite family of cyclic graphs. It gives the complete spectrum and exact dimension of information loss at every order (with an asymptotic rarity law). This is a motivated structural boundary at the first nontrivial cyclic block beyond trees, not simply the classical number of colourings or a finite table.",
+    "status": "PASS"
+  }
+}
