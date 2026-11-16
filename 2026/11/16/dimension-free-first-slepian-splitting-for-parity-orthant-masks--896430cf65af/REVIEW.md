@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The coordinate-sign selection rule annihilates every product monomial below total degree \(2m\); at the first critical degree it isolates complementary squarefree monomials. Their harmonicity and mutual orthogonality are direct, and the two required Dirichlet moments give the coupling \((2/\pi)^m\). The full multiplicity count follows from the standard dimension formula. Separate generalized-eigenvalue calculations from monomial Laplacian nullspaces agree for eight cases across several ambient dimensions, without serving as a substitute for proof. The principal boundary conditions are \(d\ge2m\) and the distinctness of selected coordinate axes.
+
+**Originality — PASS (provisional historical priority).** The 2004/2006 general spherical Slepian framework, the 2019 spherical large-sieve concentration estimates, and the 2021 commuting-operator cap analysis do not state an even-parity orthant spectral law. A published half-domain reflection result gives generic spectral pairing, but no exact parity-depth threshold, complement-pair rank, or universal splitting. The separate cube-vertex Walsh interpolation theory concerns finite samples, not a positive-measure spherical mask. Full mathematical priority would require wider historical coverage of signed-orthant harmonic integration.
+
+**Value — PASS.** The first bandwidth at which a maximally discontinuous half-sphere mask changes any low-frequency energy is a natural observability invariant. The complete critical spectrum, explicit extremizers, and exact sharp inverse-energy ratio quantify reconstruction stability for an infinite family of non-axisymmetric regions. Dimension-independence distinguishes the calculation from routine finite-matrix diagonalization; the fact remains useful without a larger downstream theorem.
+
+Limitations: odd-parity depths and all later bandwidths are not treated. The symmetric-sign cancellation below the threshold is elementary; the assessed contribution is the complete critical spectrum and its universality. Historical priority remains provisional. The supplied checker is numerical and not an independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
