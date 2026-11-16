@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The claim is finite and precisely scoped. Its fourth-moment identity follows from the orthogonality of distinct torus characters. Unique normalization removes exactly three independent cyclotomic phases. Exhaustive C++17 integer arithmetic checks all \(298636\) normalized assignments across the five specified alphabets with two distinct finite expressions, identifying the exact minima and gaps. The additional Python checker independently reconstructs the action of all barycentric permutations and complex conjugation on the lists of minimizing arrays and checks every orbit. The maximum and its equality class also follow analytically from the triangle inequality and multiplicative character relations.
+
+## Originality — PASS, with residual priority risk
+Published array-design texts motivate the object and the moment invariant, but accessible full texts address planar Golay pairs or MIMO sequence optimization, not the complete exact table for this ten-point third-degree triangular aperture. The closest mathematical record summaries describe an earlier six-site second-degree triangular aperture and nine-site square or twelve-site prism supports. These conclusions cannot directly imply the different ten-frequency optimization. Searches for the precise aperture, alphabet orders and optimum values found no mathematical statement of this exact table. The historical novelty determination is provisional: specialist tables and one plausible triangular-array paper without accessible full text could contain additional information. The relevant inaccessible work was not classified as not covering on abstract evidence alone.
+
+## Mathematical value — PASS
+The support is the full cubic polynomial triangle, the next natural member after a six-site quadratic triangle, and all five phase alphabets with cyclotomic field degree at most two are included. The exact nonlinear energy objective measures integrated sidelobe levels and is not a textbook normalization calculation. The strict \(q=3\) versus \(q=4\) ordering, strong \(q=6\) improvement, and complete orbit/geometric multiplicities provide a reproducible natural benchmark. No large system-level performance gain or continuous-phase global optimum is claimed.
+
+## Closest literature and limitations
+The accessible full texts of arXiv:2110.05214v1 (sections on cell-specific beams and array design) and arXiv:2104.03303v1 (phase-coded MIMO optimization and numerical design) do not present this ten-site exact spectrum. The Keizer 2020 triangular-grid IFT paper was available as abstract only. Comparisons with published summaries of related smaller triangular, square, prism and hexagonal Fourier-support problems did not reveal an implication covering the precise claim. Older exact polyphase-array classifications and access-limited designs are residual priority risks. The claim does not address higher-degree cyclotomic fields or unconstrained coefficient phases.
+
+Self-review: passed. Independent audit: not yet performed.
