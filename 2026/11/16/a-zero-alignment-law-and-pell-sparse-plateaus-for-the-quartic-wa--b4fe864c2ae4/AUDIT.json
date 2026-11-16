@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes the normalized kernel and exact projection norm, derives a nonnegative increment from an independent sign, identifies opposite signs of neighboring kernel values as the only contributors, proves all four quartic roots lie in distinct grid cells unless aligned, and carries out a positive Pell descent to two exponentially growing solution orbits. Actual verify_quartic.py uses independent combinatorial evaluation and exact integer arithmetic; its finite checks do not replace the analytical infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.00233, pp. 1–23: general projection norm and asymptotic result; includes a degree-four limit integral but not finite-dimensional increments.",
+        "arXiv:2208.06467, Chapter 8: general finite-degree setup and large-dimension limits."
+      ],
+      "reasoning": "A broader existing result would settle quartic equality across adjacent dimensions. Asymptotic n-to-infinity norm equivalents and exact per-n kernel expectations do not imply a two-binomial increment formula or a Pell-sparse equality set without additional comparison arguments.",
+      "searches": [
+        "Boolean cube projection constants general degree fixed dimension exact equality strict monotonicity",
+        "Asymptotic insights projection Gordon Lewis Sidon constants Boolean cube finite degree Theorem 4.1",
+        "fourth Boolean chaos L1 norm successive dimensions projection constants plateaus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.06467 first submission 2022-08-12, Chapter 8",
+      "arXiv:2302.00233 first submission 2023-02-01, Sections 3–4",
+      "Chihara–Stanton Krawtchouk zeros, Sections 2–4",
+      "Krasikov–Litsyn 1996 abstract only",
+      "Comparison of quartic projection dimension-plateau, Pell Krawtchouk, and degree-four Walsh endpoint norm formulations",
+      "Degree-three Walsh Fourier projection norm plateau theorem, which has different degree and arithmetic classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously formulated cubic homogeneous Walsh projection result classifies degree-three norm plateaus, but makes no quartic assertion.",
+        "Defant et al., arXiv:2208.06467: known starting kernel formula but not the sign-change and Pell conclusion.",
+        "Chihara–Stanton, Sections 2–4: arithmetic roots without the operator-norm implication."
+      ],
+      "reasoning": "The degree-three theorem is not a special case or converse of the quartic statement. The earlier degree-four integral-root information supplies background but does not contain the stated exact norm-comparison formula. The result is a combined Fourier-operator and arithmetic assertion, not a rebranding of a known table.",
+      "searches": [
+        "degree four Walsh L1 projection monotonicity zero alignment",
+        "degree three Walsh projection norm dimension plateaus consecutive dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Defant et al., arXiv:2208.06467, Chapter 8, Theorem 8.1.1: projection norm as absolute Walsh-kernel expectation.",
+        "Defant et al., arXiv:2302.00233, Theorem 3.1 and Section 4: same expectation formula and fixed-degree Hermite limit.",
+        "Chihara and Stanton, Zeros of generalized Krawtchouk polynomials, Sections 2–4: zeros and integrality."
+      ],
+      "reasoning": "An equivalence would have to compare successive dimensions of the canonical quartic projection and detect equality from simultaneous integrality of all four Krawtchouk roots. The inspected formulas concern each dimension separately; the zero paper does not make this norm comparison.",
+      "searches": [
+        "quartic Walsh projection norm dimension plateau Krawtchouk roots",
+        "homogeneous degree four Walsh Fourier projection endpoint L infinity norm equality dimensions plateaus consecutive dimension Krawtchouk zeros",
+        "Walsh Fourier homogeneous quartic projection equality L1 norms successive dimensions 8 17 66 Krawtchouk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chihara–Stanton, Section 4, Proposition 4.4 and discussion after it: some individual quartic integer roots and their arithmetic restrictions.",
+        "Krasikov–Litsyn, On integral zeros of Krawtchouk polynomials, 1996 bibliographic record and abstract."
+      ],
+      "reasoning": "Tables of individual quartic integral zeros are not tables of complete four-root alignment or Fourier projection norm increments. Some prior number-theoretic restrictions may strengthen the finite-cutoff observation, which is therefore verification rather than an independently novel theorem.",
+      "searches": [
+        "Krawtchouk quartic polynomial integral roots projection norm monotonicity logarithmic exceptional indices",
+        "On integral zeros of Krawtchouk polynomials Krasikov Litsyn 1996",
+        "more zeros Krawtchouk degree four integral zeros 8 17 66 1521"
+      ]
+    },
+    "rationale": "The claimed increment and quartic zero-alignment/Pell conclusions are not stated in the inspected primary presentations. Their given Walsh kernel expectation, Krawtchouk interlacing facts, and arithmetic zero studies are explicitly treated as prior, not claimed new. The quantitative exact consecutive-dimension comparison is new to the inspected sources, with residual priority risk acknowledged.",
+    "residual_risks": [
+      "Equivalent quartic monotonicity result may be recorded under coding-theory or orthogonal-polynomial terminology not indexed by targeted queries.",
+      "Krasikov–Litsyn (1996) full article not inspected; could contain stronger zero restrictions.",
+      "The exact square-root cutoff is a finite reproducible check, not a global uniqueness theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the known exact kernel expectation and fixed-degree asymptotics, not the quartic successive-dimension equality theorem.",
+        "evidence": [
+          "Theorem 8.1.1; Chapter 8 Section 8.2; first posted 2022-08-12"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.06467",
+        "material_read": "Chapter 8, especially 8.1 projection-kernel norm and 8.2 asymptotic treatment, pp. 101–110; contents and descriptions",
+        "method": "Inspected primary public PDF text and displayed page 105",
+        "title": "Projection constants for spaces of multivariate polynomials",
+        "trigger": "Focal first-public source on finite Walsh projection constants"
+      },
+      {
+        "assessment": "Gives all-degree norm formula and a fourth-degree Hermite limiting integral; neither is a finite-dimension norm-difference or plateau classification.",
+        "evidence": [
+          "Theorem 3.1; Section 4; arXiv first posted 2023-02-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.00233",
+        "material_read": "Introduction pp. 1–3, Theorem 3.1 and Sections 4–4.1 plus degree-four limit example pp. 14–23",
+        "method": "Inspected primary arXiv full-text PDF extraction and displayed page 2",
+        "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+        "trigger": "Highly relevant later published revision/follow-up"
+      },
+      {
+        "assessment": "The paper treats integer zeros and recurrences, but not Boolean projection-norm increments; individual integer-root tables alone do not imply complete quartic alignment.",
+        "evidence": [
+          "Proposition 2.1; Section 3; Section 4 quartic integer-root discussion"
+        ],
+        "identifier_or_url": "https://www-users.cse.umn.edu/~stant001/PAPERS/krlaur.pdf",
+        "material_read": "Introduction and Sections 2–4, including discrete zero location and quartic integral-zero discussion",
+        "method": "Inspected primary university-hosted PDF and displayed page 8",
+        "title": "Zeros of generalized Krawtchouk polynomials",
+        "trigger": "Plausible domination through complete arithmetic classification of zeros"
+      },
+      {
+        "assessment": "Priority risk for the arithmetic zero component; no conclusion about uninspected full document.",
+        "evidence": [
+          "Journal of Combinatorial Theory Series A 74 (1996), 71–99"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jcta.1996.0038",
+        "material_read": "Bibliographic abstract and publication metadata only",
+        "method": "Institutional bibliographic record; complete paper not available in this comparison",
+        "title": "On integral zeros of Krawtchouk polynomials",
+        "trigger": "Potential stronger arithmetic coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4fe864c-2ae4-4d8f-990c-e23d1058b870",
+  "value": {
+    "rationale": "The finding resolves a natural endpoint norm stabilization question with a two-term exact increment rule and a per-dimension arithmetic plateau test, proves at most logarithmically many possible quartic plateaus, and relates exact Fourier projection stability to rare integral Krawtchouk roots. The natural invariant is the projection norm across adjacent Boolean dimensions; the result is not simply a small table or a generic asymptotic.",
+    "status": "PASS"
+  }
+}
