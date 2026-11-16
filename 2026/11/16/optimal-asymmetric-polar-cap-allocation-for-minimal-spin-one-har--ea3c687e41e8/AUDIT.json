@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Normalized Wigner angular densities integrate to three exact polynomial eigenvalues. For every total area fraction \\(h\\in(0,1)\\), reflection reduces to \\(d\\ge0\\); the lower eigenvalue is \\(\\min\\{\\lambda_0,\\lambda_{+1}\\}\\). The first is strictly increasing for \\(d>0\\), the second strictly decreasing, and their difference has the unique positive root \\(d_*\\in(0,h)\\). The formula, multiplicity, uniqueness, and asymptotic improvement follow without numerical assumptions. The included checker passed independent quadrature and symbolic tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Michel–Plattner–Seibert (2021), Theorem 3.5 and Section 3.2, provide general spin cap kernel entries, for prescribed regions and individual polar caps.",
+        "Seibert (2018), Introduction and Chapter 8 headings and text, provide the fixed-cap spin Slepian construction.",
+        "The published study “Optimal separation and a spectral phase transition for two spherical sampling caps” concerns varying separation of equal caps for real scalar quadratic harmonics, rather than unequal areas for spin-weight-one degree-one harmonics."
+      ],
+      "reasoning": "General kernel and representation theorems imply the starting entries and allow numerical computation for chosen masks, but do not logically imply the unique optimal unequal split or sharp twofold gain without additional optimization. The closest cap-placement study varies a different geometric parameter and harmonic space.",
+      "searches": [
+        "spin-weighted spherical harmonics fixed degree antipodal polar cap small aperture sharp smallest concentration eigenvalue condition number Jacobi",
+        "Slepian spherical harmonics two unequal antipodal polar caps optimal area allocation worst concentrated spin one",
+        "polar cap area design spin one spherical Slepian minimal eigenvalue unequal caps optimal",
+        "arxiv:2103.14650v1 sections 3.1–3.3",
+        "Seibert 2018 Chapter 8 kernel matrix for spherical cap"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.14650v1 (2021-03-26), Sections 3.1–3.3",
+      "Seibert (2018) thesis, Introduction and Chapter 8 selected passages",
+      "arXiv:1306.3201 (2013), abstract",
+      "Published research record: Optimal separation and a spectral phase transition for two spherical sampling caps",
+      "Published research record: Exact finite-spin cap shape Hessian and sharp second-harmonic stability"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Michel–Plattner–Seibert 2021, Section 3.1, explicitly optimizes the *signal* for fixed region, while Section 3.2 assumes a polar cap parameter b and studies a commuting differential operator.",
+        "Seibert 2018, Chapter 8 studies the single spherical cap and its commuting operator; thesis Introduction references scalar double-cap operators without giving the new spin-one unequal-area allocation result.",
+        "The named published cap separation result concerns a fixed equal-aperture geometry and real quadratic harmonics. A shape-Hessian result concerns local perturbations of a coherent-state objective, not this global spectral minimum."
+      ],
+      "reasoning": "No prior inspected claim quantifies the supremum of the least eigenvalue over all splits of a total observation-area budget. An operator that can compute the spectrum for each split does not provide the global optimum, its uniqueness, or the strict symmetry-breaking benefit. The distinct scalar/spin and location/area hypotheses prevent the other identified statements from directly implying this one.",
+      "searches": [
+        "Michel Plattner Seibert 2021 unified spin weighted Slepian functions polar cap eigenproblem full text section 3",
+        "Katrin Seibert 2018 spin weighted Slepian sphere cap thesis chapter 8",
+        "optimal separation spectral phase transition two spherical sampling caps scalar quadratic",
+        "exact finite spin cap shape Hessian and sharp second harmonic stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For spin weight +1 and degree one, the Wigner angular energy distributions are the beta densities 3(1-u)^2, 6u(1-u), and 3u^2; the new claim maximizes their minimum two-tail mass at fixed total cap measure.",
+        "Michel–Plattner–Seibert (2021), Section 3.1, defines the cap concentration eigenproblem with the region fixed, not the outer area-allocation optimization."
+      ],
+      "reasoning": "Equivalent problems include a minimax two-tail beta-mass allocation for beta parameters (1,3), (2,2), (3,1), or optimal worst-energy three-mode Wigner sampling. The exact two asymmetric optima and their square-root formula were checked under those formulations; no prior result giving that optimization or a stronger dominating allocation theorem was identified.",
+      "searches": [
+        "spin one degree one two antipodal unequal polar caps maximin optimal area split h d square root concentration",
+        "spin weight 1 degree 1 spherical harmonic optimal unequal two caps area allocation Fourier observability symmetry breaking",
+        "spin 1 coherent state sphere binomial distribution optimal antipodal cap area partition minimum eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published spin-one spherical cap matrix formulas are parameterized by cap aperture, not by a min-over-three-eigenvalues max-over-cap-allocation design table.",
+        "The exact parameterized two-cap optimum is the positive root of \\(3d^2+2d+h^2-2h=0\\) and has a specific cap-allocation law for every \\(h\\in(0,1)\\)."
+      ],
+      "reasoning": "The exact parameterized two-cap allocation formula and its one-sided small-area quadratic scaling were not located in accessible literature or a published-result table. This negative search is only limited evidence, not a proof of historical priority.",
+      "searches": [
+        "spin-weighted spherical harmonics unequal double polar caps optimal min eigenvalue",
+        "spin weighted spherical harmonics two polar caps best concentration conditioning unequal radii optimal equal area split",
+        "unequal polar caps spin weighted spherical harmonics maximization minimum eigenvalue",
+        "spin one cap eigenvalue spectral sampling table"
+      ]
+    },
+    "rationale": "The claimed theorem is a unique global maximin cap-area allocation theorem, rather than the known spin-one Wigner cap kernel. The primary 2021 formulation handles concentration for a fixed region; its inspected Sections 3.1–3.3 do not optimize the worst eigenvalue over unequal two-cap areas. A 2018 thesis treats the spherical-cap spin kernel, and comparable published sphere-cap designs concern distinct scalar or center-placement objectives. Exact-output, alias and implication searches revealed no preceding theorem with the same design optimum, but historical priority remains provisional.",
+    "residual_risks": [
+      "Historical priority cannot be established by a database search; an independently discovered optimal spectral design could exist in unindexed quantum measurement or spin-Slepian literature.",
+      "Only selected material of the 2018 thesis and the abstract of 2013 vector Slepian work were accessible; neither is certified absent by a full-document review.",
+      "The repository source text of two relevant but scientifically distinct published results was unavailable for direct inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides mathematical operator framework and a single-cap formula, not the unequal two-cap maximin design objective",
+        "evidence": [
+          "Problem 3.2 fixes measurable region R and maximizes signal concentration.",
+          "Section 3.2 defines the single polar cap by its threshold b, and studies commuting operators."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.14650",
+        "material_read": "Accessible full-text reproduction, Sections 3.1–3.3, including Problem 3.2 and Theorems 3.5, 3.7; Section 2.3 context",
+        "method": "Read hosted full text in HTML; compared region-fixed eigenproblem and cap kernel statements",
+        "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+        "trigger": "Closest spin-weighted Slepian framework and degree-one normalization"
+      },
+      {
+        "assessment": "Earlier spin-harmonic foundation and single-cap Slepian methods; inspected material does not state the pairwise unequal-area optimum. Remaining uninspected thesis pages are a limited historical risk.",
+        "evidence": [
+          "Chapter 8 focuses on Slepian functions on the spherical cap and its commuting operator.",
+          "Introduction distinguishes scalar double-cap literature from the spin-weighted single-cap contribution."
+        ],
+        "identifier_or_url": "https://noah.nrw/ubsihs/download/pdf/3558688",
+        "material_read": "Abstract and table of contents; Introduction and identified Chapter 8 excerpts concerning spherical-cap kernels; term searches for unequal and maximin",
+        "method": "Inspected publisher-hosted accessible parsed PDF text; direct screenshot request was unavailable because file exceeded the viewing limit",
+        "title": "Spin-Weighted Spherical Harmonics and Their Application for the Construction of Tensor Slepian Functions on the Spherical Cap",
+        "trigger": "Potential earlier primary treatment of spin Slepian cap allocation"
+      },
+      {
+        "assessment": "Provides general vector concentration over given spatial regions but no identified sharp fixed-budget unequal antipodal cap design; full-text coverage is an access risk.",
+        "evidence": [
+          "The abstract describes a spectral-domain eigenvalue problem for arbitrary shapes and block-diagonal kernels for polar caps."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.3201",
+        "material_read": "Abstract, scope and full-text access attempt",
+        "method": "Read primary abstract and compared stated type of vector spatial localization; full text was not available through this route",
+        "title": "Spatiospectral Concentration of Vector Fields on a Sphere",
+        "trigger": "Earlier vector spherical Slepian formulation, potentially broader coverage"
+      },
+      {
+        "assessment": "Pertains to equal nonoverlapping caps and scalar quadratic harmonics with variable center separation, so does not imply the spin-one unequal-area maximizer.",
+        "evidence": [
+          "Claimed optimum is in center separation at equal cap radius, not area split."
+        ],
+        "identifier_or_url": "Published title: Optimal separation and a spectral phase transition for two spherical sampling caps",
+        "material_read": "Published research-record title and statement summary; linked repository full text inaccessible",
+        "method": "Compared parameter domains and implications from retrieved statement",
+        "title": "Optimal separation and a spectral phase transition for two spherical sampling caps",
+        "trigger": "Closest published two-cap optimal geometry claim"
+      },
+      {
+        "assessment": "Area-preserving shape Hessian of a coherent-state cap is not a global two-cap worst-eigenvalue allocation theorem.",
+        "evidence": [
+          "Its statement addresses local shape Hessian under area-preserving deformation of one cap."
+        ],
+        "identifier_or_url": "Published title: Exact finite-spin cap shape Hessian and sharp second-harmonic stability",
+        "material_read": "Published research-record title and statement summary; linked repository full text inaccessible",
+        "method": "Compared claimed second-variation question with global maximin eigenvalue of a three-mode subspace",
+        "title": "Exact finite-spin cap shape Hessian and sharp second-harmonic stability",
+        "trigger": "Possible coherent-state variational dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ea3c687e-41e8-49b7-9166-1ba8187717de",
+  "value": {
+    "rationale": "Under the intrinsic and experimentally meaningful fixed-area sampling budget, the smallest concentration eigenvalue determines guaranteed reconstruction energy. The global optimizer unexpectedly breaks antipodal area symmetry for every interior budget, gives a precisely determined two-mode bottleneck, and achieves a factor-two asymptotic improvement over equal-area masks. This is a structural design theorem, not a renaming of the known Wigner density or a numerical tabulation.",
+    "status": "PASS"
+  }
+}
