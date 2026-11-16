@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Direct Fourier diagonalization gives sigma_k=|(1-omega^k)(1+b omega^k)| and a concave quadratic of cosine; only extremal-frequency modes can control the minimum. On even cycles increasing low-frequency and decreasing Nyquist branches cross at exactly the stated weight. On odd cycles a factored branch difference has one crossing before b=d and the entire later branch is below the crossing value; n=3 is explicit. Every boundary, strict equality mode, and large-order expansion is proved algebraically; 392 finite full-matrix or Fourier checks supplement but do not establish infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Segarra–Marques–Ribeiro (2017) optimizes polynomial graph-filter coefficients to approximate prescribed operators rather than this minimum singular difference gain.",
+        "Emirov–Cheng–Jiang–Sun (2020) studies distributed polynomial graph-filter inversion, not the global optimum of a constrained two-hop difference."
+      ],
+      "reasoning": "General filter-design techniques provide methodology but their targets and conclusions do not presently imply the stated parity-dependent closed-form global minimax result. Potential generic optimal-design theorems remain an explicitly acknowledged historical risk.",
+      "searches": [
+        "Direct graph two-neighbor directed circulant cycle Fourier optimal edge weight algebraic connectivity exact even odd spectral gap",
+        "Design directed two-hop cyclic difference operator maximin gain mean-zero smallest singular value unique optimal mixing 1 step 2 steps",
+        "\"Optimal Graph-Filter Design and Applications to Distributed Linear Network Operators\"",
+        "\"Polynomial graph filter of multiple shifts\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2205.06242v1",
+      "https://arxiv.org/abs/2003.11152",
+      "https://arxiv.org/html/2003.11152v2",
+      "https://tsc.urjc.es/~amarques/papers/ssamar_tsp17.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al. Theorem II.2 and Appendix A imply diagonalization and all unoptimized singular values, but leave the weight budget free.",
+        "The present strict-concavity endpoint reduction, parity-dependent unique optimizer, and simultaneous equality-mode sets require additional minimax analysis not asserted in the inspected Chen article.",
+        "Segarra et al. address prescribed-operator approximation rather than the least-nonzero-gain objective."
+      ],
+      "reasoning": "The strongest direct prior implication is the basic spectral formula, fully credited in the proof. The genuinely assessed remainder is the sharp global optimization with unique parameter (except n=3), all bottleneck frequencies and asymptotic 2-fold gain. No inspected exact predecessor states that remainder; generic minimax literature may still reduce it.",
+      "searches": [
+        "https://arxiv.org/html/2205.06242v1",
+        "https://arxiv.org/abs/2003.11152",
+        "https://tsc.urjc.es/~amarques/papers/ssamar_tsp17.pdf",
+        "Two-step directed cycle circulant Laplacian optimize smallest nonzero singular value convex combination of one-step and two-step shift explicit weights spectral gap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Cheng–Sun (2022), Section II, (II.11)–(II.13), gives general circulant multiplier eigenvalues; it contains the unoptimized polynomial-symbol specialization.",
+        "The special difference symbol factors as (1-z)(1+bz) but the cited 2022 results do not optimize the finite-grid minimum in b."
+      ],
+      "reasoning": "The graph-difference, filter, and Fourier multiplier formulations are mathematically equivalent for this cyclic operator, so all were included in the comparison. The mere explicit symbol is covered by existing circulant harmonic analysis; the new claim is the fully optimized, parity-resolved maximin value and exact equality Fourier modes.",
+      "searches": [
+        "Two-step directed cycle circulant Laplacian optimize smallest nonzero singular value convex combination of one-step and two-step shift explicit weights spectral gap",
+        "Optimal cyclic high-pass Fourier difference filter (1-z)(1+b z) maximum minimum nonzero multiplier two nearest neighbour shift graph singular frequency spectral Nyquist",
+        "Sharp min nonzero Fourier modulus for weighted polynomial 1-(1-b)z-b z^2 on n-th roots unity optimal convex edge weights Nyquist even odd",
+        "https://arxiv.org/html/2205.06242v1#S2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public spectral and graph-filter sources inspected contain the general circulant Fourier symbol, not an exhaustive n-by-n or symbolic table of the stated two-hop maximin optimizer."
+      ],
+      "reasoning": "The contribution is a theorem for all integer cycle sizes and a complete frequency equality classification; a finite list of computed values cannot subsume it. No matching published exact table was identified; nonidentification is not a uniqueness proof.",
+      "searches": [
+        "Spectral graph Fourier differentiator with two neighbors singular gap optimum at first and Nyquist frequencies exact value",
+        "Sharp min nonzero Fourier modulus for weighted polynomial 1-(1-b)z-b z^2 on n-th roots unity optimal convex edge weights Nyquist even odd",
+        "\"two-hop\" \"circulant\" \"minimum singular\" \"optimal\""
+      ]
+    },
+    "rationale": "Primary works on directed circulant SVDs, general polynomial graph filters and optimizing filters for specified operators provide the spectral representation and conceptual context but do not assert the exact nonnegative two-hop difference maximin solution, parity-dependent weights, and equality-mode classification. Remaining risks are stated; absolute historical priority is unconfirmed.",
+    "residual_risks": [
+      "An earlier general trigonometric minimax, finite-difference optimization, or weighted circulant result could imply this specialization without matching words.",
+      "The cited 2017 author manuscript was not exhaustively read through every appendix; the objective comparison is supported by initial formulation but deeper related specializations remain possible.",
+      "No independent historical priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General Fourier spectral representation directly covers the baseline, not sharp b-optimization or two-mode equality cases",
+        "evidence": [
+          "Section II equation (II.11) defines general circulant polynomial; (II.13) identifies its Fourier eigenvalues; Appendix A derives its SVD."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.06242v1",
+        "material_read": "Open-access HTML introduction; Section II on directed circulant Fourier singular multipliers and Theorem II.2; Appendix A explicit Fourier diagonalization; selected numerical and reference material",
+        "method": "Read specified open-access primary HTML sections, mathematical formulas and appendix, comparing objective, weights and all-frequency claim",
+        "title": "Graph Fourier transform based on singular value decomposition of directed Laplacian",
+        "trigger": "Direct same-object result on singular Fourier spectra of directed cyclic Laplacians"
+      },
+      {
+        "assessment": "Focuses on distributed inverse filtering of a given polynomial graph filter; no explicit finite-cycle two-hop optimal weight or parity equality classification found",
+        "evidence": [
+          "arXiv abstract states inverse-filtering algorithms and simulations, not filter-coefficient maximin design."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.11152v2",
+        "material_read": "Open-access arXiv HTML abstract, introductory multiple-shift framework, algorithm statements and problem aims (version 2); first-public date independently checked in arXiv history",
+        "method": "Read selected lawful open-access HTML sections; compared inverse-filtering objective against two-hop maximin design, without asserting a full exclusion of every section",
+        "title": "Polynomial graph filter of multiple shifts and distributed implementation of inverse filtering",
+        "trigger": "Earlier framework for polynomial filters with multiple shifts"
+      },
+      {
+        "assessment": "Targets approximation of fixed linear operators rather than maximum least gain of I minus convex two-step shifts; remaining uninspected material is a priority risk",
+        "evidence": [
+          "Early problem statement concerns approximation error for desired linear network operators."
+        ],
+        "identifier_or_url": "https://tsc.urjc.es/~amarques/papers/ssamar_tsp17.pdf",
+        "material_read": "Author manuscript abstract, introduction and problem formulation (initial PDF pages); not a complete full-document coverage exclusion",
+        "method": "Read lawful public author manuscript and compared optimization criterion",
+        "title": "Optimal Graph-Filter Design and Applications to Distributed Linear Network Operators",
+        "trigger": "Plausibly stronger general graph-filter coefficient optimization precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d65ea78-76e3-43cc-b5af-bb13b4fd3fef",
+  "value": {
+    "rationale": "The natural fixed-budget directed graph difference design has a complete all-size optimizer with exact equality frequency sectors; its least mean-zero singular gain controls worst-case stable inversion, increasing by a factor approaching two over the one-hop scheme. Parity decides whether the high-frequency obstruction is Nyquist or two near-Nyquist modes. This is a full structural minimax classification rather than a tiny arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
