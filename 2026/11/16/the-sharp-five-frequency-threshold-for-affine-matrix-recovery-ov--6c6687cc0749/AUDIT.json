@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For the exactly specified twelve-dimensional Fourier-side affine representation over F_13, the cited 2021 Theorem 6.5 and equations (6.5),(6.10) reduce matrix recovery to character nonzeros and full rank of a 12x11 matrix. At <=3 active coordinates there are <=6 nonidentity ratios. Four active coordinates and rank 11 require >=11 nonzero rows, hence all 12 differences by parity, so a (13,4,1) perfect difference set. The exhaustive 55 normalized choices have precisely four patterns, each an affine image of {0,1,3,9}; the nine admissible translates have quotient counts (8,9,8,9,9,7,7,8,7), strictly under 11. For the exhibited five-point vector, character domination is 256-85=171 and the 11x11 exact minor is -2^43. Independently, a full 156x144 projector matrix has exact rank 144 after cyclotomic reduction to F_53, guaranteeing rank 144 over C. Standalone checker replayed and passed on actual packaged path. No claims for other primes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartusel–Führ–Oussa 2021, arXiv:2109.07123, Theorem 6.5 general iff matrix-recovery criterion; Theorem 6.6 exhibits a mostly-full-support vector",
+        "Mészáros–Rónyai–Szabó 2019, arXiv:1908.05591, Section 1.2 planar Singer difference sets"
+      ],
+      "reasoning": "The 2021 general characterization is an essential stronger conditional tool, but it does not determine the minimum Fourier support by itself: exact enumeration of the p=13 perfect difference sets, new multiplicative quotient obstruction, and a concrete five-point full-rank witness are further substantive steps. The 2019 difference-set result has no phase-retrieval criterion. Generic RIP and random phase retrieval results do not provide this finite exact minimum.",
+      "searches": [
+        "published-finding corpus: 2021 Bartusel Führ Oussa Theorem 6.5 sparse support additive difference and multiplicative ratio obstruction, Singer difference set 13 4 1",
+        "web: phase retrieval for affine groups sparse support minimization",
+        "web: simultaneous additive multiplicative difference basis prime field 13 4 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2109.07123",
+      "https://arxiv.org/abs/1908.05591",
+      "https://link.springer.com/article/10.1007/s00041-023-10026-2",
+      "published-finding corpus record 2026/10/11/SCOPE-exact-projector-span-ranks-for-binary-affine-fourier-windows--038706e64864"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 affine paper Theorem 6.5, eq. (6.5), eq. (6.10), proof and Theorem 6.6, read in full relevant sections",
+        "2019 Singer paper §1.2, its results address planar difference sets not affine projectors",
+        "2023 Bartusel, Injectivity Conditions for STFT Phase Retrieval on Z, Z_d and R^d, https://link.springer.com/article/10.1007/s00041-023-10026-2, cyclic-STFT setting differs"
+      ],
+      "reasoning": "General iff criteria logically allow a dedicated p=13 calculation; they do not assert or exhibit the claimed sharp five-coordinate minimum. The four-coordinate obstruction is not implied merely by the existence of a Singer difference set: its quotient sets are all too small. The new construction is verified also by a direct exact modular rank 144 certificate. The finite cyclic STFT theorem studies a different orbit and cannot imply the F_13 affine orbit cutoff.",
+      "searches": [
+        "web: affine group phase retrieval matrix recovery sparse window support cyclic difference set prime 13",
+        "published-finding corpus: minimum number of nonzero Fourier coefficients in a generating vector for matrix recovery by affine group AGL(1,13), order 156; support 4 versus 5",
+        "web: phase retrieval for affine groups over prime fields sparse support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bartusel–Führ–Oussa, arXiv:2109.07123, Section 6 and Theorem 6.5, https://arxiv.org/abs/2109.07123",
+        "No equivalent p=13 minimal-generator statement in returned published-finding corpus titles and summaries; nearest binary affine Fourier-window record 2026/10/11/SCOPE-exact-projector-span-ranks-for-binary-affine-fourier-windows--038706e64864",
+        "Both final exact-parameter published-finding corpus queries returned no claim that implies a five-frequency optimum for the 13-point affine orbit; nearest hits involved nonmatching finite Fourier supports, matrix ranks on abelian groups and characteristic-two fields."
+      ],
+      "reasoning": "Equivalent language includes group-frame maximal spanning vectors, orbit projectors, Fourier-sparse analyzing vectors, and affine wavelet matrix tomography. The primary theorem provides a universal criterion, but does not state the p=13 support extremum. The char-2 finite-field window record involves additive groups of size powers of two, not the F_13 affine group.",
+      "searches": [
+        "published-finding corpus: minimum number of nonzero Fourier coefficients in a generating vector for matrix recovery by affine group AGL(1,13), order 156; support 4 versus 5",
+        "published-finding corpus: affine group permutation representation 13 minimal sparse matrix recovery wavelet coefficient vector classification",
+        "web: AGL(1,13) matrix recovery support",
+        "web: affine matrix recovery 13 support sparse generator Fourier",
+        "published-finding corpus: Four-frequency affine AGL(1,13) matrix recovery failure, five-frequency generator with support 1 2 3 4 11 and coefficients 1 2 4 8 16",
+        "published-finding corpus: Sharp minimal Fourier support of full matrix spanning vector for thirteen-point affine group, 13 4 1 Singer difference set quotient obstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Singer difference-set entry {0,1,3,9} is standard; Mészáros–Rónyai–Szabó 2019 §1.2 provides structural background",
+        "Enumerated 55 normalized four-point candidates and all 495 four-subsets of F_13^* exactly in verify_affine13.py"
+      ],
+      "reasoning": "Known difference-set tables cover the additive (13,4,1) configuration but neither multiplicative quotient coverage after translating away from zero nor the exact minimum full matrix-recovering Fourier support. The package produces the support gap and witness from scratch rather than importing an unexplained table.",
+      "searches": [
+        "published-finding corpus: support size five affine phase retrieval p=13, perfect difference set cannot give matrix recovery, arithmetic sparse wavelet group frames",
+        "web: cyclic (13,4,1) difference set unique affine equivalence 13 4 1",
+        "web: difference sets and quotient sets field 13 affine groups phaseless tomography"
+      ]
+    },
+    "rationale": "The 2021 primary paper proves the general affine matrix recovery criterion and gives explicit generators, but the inspected relevant sections do not compute the minimal Fourier-coordinate support at p=13 or derive the incompatibility of simultaneous additive and multiplicative support covers. The 2019 Singer paper studies planar difference sets without affine matrix-recovery optimization; other accessible finite/STFT and binary-field records address different actions/fields. Targeted published-finding corpus searches and primary/literature text searches did not locate an implication-equivalent five-frequency minimality theorem. Priority remains provisional.",
+    "residual_risks": [
+      "Some preexisting specialized finite wavelet or difference-basis table could encode the same p=13 optimum without searchable terminology.",
+      "The result relies on the published characterization for the necessary full-rank obstruction, though the five-coordinate sufficiency is independently certified by exact modular orbit-matrix rank."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general iff and examples, not support-five p=13 minimum or quotient obstruction",
+        "evidence": "Theorem 6.6 uses 1-delta_1 for p>3, supported on p-2 Fourier coordinates; Section 6 discusses matrix rank criterion, not a sparse support optimum.",
+        "identifier_or_url": "arxiv:2109.07123 | https://arxiv.org/abs/2109.07123",
+        "material_read": "Accessible full-text sections 1, 3, 6 including the proof of Theorem 6.5, equations (6.5) and (6.10), Theorem 6.6 and its proof, Remarks 6.10-6.11, and Section 7 excerpts",
+        "method": "read primary full-text webpage",
+        "title": "Phase retrieval for affine groups over prime fields",
+        "trigger": "Same finite affine group, exact matrix-recovery criteria, possible dominating result"
+      },
+      {
+        "assessment": "Classical difference-set structure is related but not an orbit-projector recovery or multiplicative quotient optimization",
+        "evidence": "Section 1.2 defines planar difference sets, their q^2+q+1 parameter pattern and Singer construction.",
+        "identifier_or_url": "arxiv:1908.05591 | https://arxiv.org/abs/1908.05591",
+        "material_read": "Primary full-text introduction and Section 1.2 on planar Singer difference sets and their equivalences",
+        "method": "read primary full-text webpage",
+        "title": "Singer difference sets and the projective norm graph",
+        "trigger": "The four-supported necessity creates a planar difference set"
+      },
+      {
+        "assessment": "Different cyclic time-frequency orbit and weaker phase retrieval problem; no p=13 finite affine matrix-support minimum",
+        "evidence": "Section 4 treats the cyclic STFT and sparse-window injectivity, rather than the nonabelian AGL(1,13) orbit projectors.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-023-10026-2",
+        "material_read": "Accessible full-text sections 1 and 4 on cyclic STFT phase retrieval and ambiguity functions",
+        "method": "read primary article webpage",
+        "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Z_d and R^d",
+        "trigger": "Potential alternative Fourier phase-retrieval framework covering finite cyclic signals"
+      },
+      {
+        "assessment": "Characteristic-two extensions, not thirteen-point prime field; cannot cover the present p=13 optimum",
+        "evidence": "Record reports a rank stratification for fields F_{2^n} and one-frequency complex perturbation of a flat window.",
+        "identifier_or_url": "2026/10/11/SCOPE-exact-projector-span-ranks-for-binary-affine-fourier-windows--038706e64864",
+        "material_read": "published-finding corpus indexed title and scientific summary only; full paper not inspected",
+        "method": "semantic scientific-record search",
+        "title": "Exact projector-span ranks for binary affine Fourier windows",
+        "trigger": "Closest semantic research record involving affine Fourier-coordinate projectors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c6687cc-0749-4358-bd94-7ed0a20fac48",
+  "value": {
+    "rationale": "The exact minimum Fourier support for full matrix recovery by a fixed affine group orbit is a natural resource invariant, not a renaming or arbitrary slice. At the first Singer four-point planar configuration (13,4,1), the obvious lower bound k(k-1)>=12 suggests four could suffice; the complete additive/multiplicative incompatibility forces five, and a concise explicit integer vector proves sharpness. This provides a reproducible structural counterexample to naive pair-count heuristics, with potential use in sparse structured orbit-sensing design. The claim is limited to p=13; no unsupported generalization is asserted.",
+    "status": "PASS"
+  }
+}
