@@ -1,0 +1,15 @@
+# Scientific review: sharp recovery of the rational half-density Gabor frame
+
+## Correctness
+**PASS (self-review).** The Zak transform turns the exact optimal frame bound into the minimum of two squared fiber magnitudes. The three-point Zak-zero classification for the unperturbed rational window is reconstructible using the rational function and the strictly positive factor given in the proof, leaving only the single common two-channel fiber (represented twice under the original frequency period). Cotangent/cosecant periodization and direct differentiation give exact derivatives \(h_0,h_1,d_0,d_1,b_0,b_1\). Their nonzero determinant conditions yield a positive-definite local problem. The global minimizer is confined to that problem by compactness; its two orthogonal projections give the stated coefficients and a phase-uniform little-oh remainder. The bundled numerical checker independently confirms sampled derivatives and asymptotic trials. **Risk:** the result uses an earlier, explicitly verified rational-Zak zero lemma; the numerical tests alone would not establish it.
+
+## Originality
+**PASS relative to available full-text comparisons.** Ghosh's fixed-window rational-density analysis and Lyubarskii–Nes parity obstruction imply aspects of the unperturbed half-density failure but not sharp recovery under a complex numerator shift. The closest published two-coset rational result moves the modulation coset, not the window, and its scalar offset asymptotic does not determine the two phase-dependent coefficient formulas. The closest Gaussian–Hermite result treats an analogous perturbation but with a different generator and theta-series constants; its statement does not imply these rational-window values. No searched item or accessible own-history claim entails the present exact rational claim. **Risk:** the proof method is closely related to the general Zak local-minimization mechanism, and historical or unindexed work may already have evaluated this particular rational family.
+
+## Mathematical value
+**PASS.** This is a sharp quantitative answer for how a natural complex symmetry-breaking perturbation repairs a concrete, recently studied rational-window frame obstruction. The two exact leading coefficients differ by a factor exceeding fifteen despite equal window energy at equal perturbation magnitude; the directional effect is not captured by mere frame/no-frame classification or by the fixed-window frequency-shift calculation. The claim is local, but it determines a natural stability invariant without arbitrary frequency cutoffs or discretization.
+
+## Limits and provenance
+No claim is made about arbitrary complex perturbation sizes, uniqueness of global minimizers, or independence of mathematical validation. Existing theory supplies Zak's frame criterion and the unperturbed rational Zak-zero identity; the new computation concerns the perturbation's sharp two-direction onset. This remains a self-review, not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
