@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** All fourteen balanced ballot words are explicitly enumerated; independent full-column Walsh and distance-polynomial Gram constructions give identical exact characteristic factorizations. The sign-cube vector cancels against every character of degree at most two; simple zero multiplicity gives the entire nullspace. The positive eigenvalue minima and maxima are certified by exact rational root brackets. All singular-value statements use unnormalized counting measure; code execution was performed from the delivered source files.
+
+**Originality — PASS, bounded comparison.** Ardila's original Catalan matroid work establishes the objects. The full accessible material on lattice-path standard complexes by Engström--Sanyal--Stump has overlapping graded-rank implications, and the exact indexed Dyck shattering-support result gives additional combinatorial information. Those ranks and the elementary kernel witness are **not** represented as discoveries. The separately tested quantitative characteristic polynomials, eigenvalue multiplicities and optimal stability norms are not found in those inspected materials or the targeted searches. Priority remains contingent on possible unindexed small-matrix spectral tables.
+
+**Mathematical value — PASS.** The first degree-two loss of measure identifiability occurs already among fourteen Catalan configurations despite thirty-seven Fourier measurements. The full quadratic and cubic spectra distinguish qualitative identifiability from the **sharp** reconstruction stability after adding cubic moments. Exact finite spectral benchmarks on an archetypal matroid family give a natural baseline for evaluating other constrained harmonic samplers. The claim is an exact natural cutoff and stability classification, not a general theorem for every Dyck semilength.
+
+**Closest literature and limits.** Ardila, arXiv:math/0209354, gives the Catalan matroid; Engström--Sanyal--Stump, arXiv:1911.12290, covers general graded interpolation structures. The publicly available strip-walk shattering result treats coordinate trace supports, which is a different invariant. The present result is a counting-normalized finite spectral calculation and has not undergone independent mathematical auditing.
+
+Self-review: passed. Independent audit: not yet performed.
