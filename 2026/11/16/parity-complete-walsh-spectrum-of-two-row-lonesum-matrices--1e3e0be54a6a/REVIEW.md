@@ -1,0 +1,15 @@
+# Scientific review: parity-complete Walsh spectrum of two-row lonesum matrices
+
+## Correctness: PASS
+The exact coefficient formula follows from the union of two product cylinders of three column types each. Its four one-column character-sum cases are shown explicitly in the proof, including the two-column intersections. For mixed frequency columns the parity of their total number determines exact cancellation or a nonzero twice-power-of-three coefficient. For no mixed columns the possible zero reduces to \(3^c=2^{n-1}\), impossible when \(n\ge2\). A two-column frequency witness attains the magnitude \(2\). Fourier diagonalization and reversal averaging give the stated operator norms. The independent topological-sort tests and complete integer transforms for \(n\le8\) corroborate the unrestricted argument; they are not substituted for it.
+
+## Originality: PASS under bounded comparison
+Kim–Krotov–Lee (arXiv:1103.4884v1, Section 2) provide the forbidden-submatrix characterization and unweighted poly-Bernoulli enumerations. Cameron–Glass–Rekvényi–Schumacher (arXiv:1412.3685v1, Sections 2–3) provide complete bipartite acyclic-orientation counts and the lonesum correspondence, including the special unweighted count. Those identities give the frequency-zero value, but not all signed frequencies, exact Fourier support or convolution stability. A published full result concerning indegree-parity feasibility of acyclic orientations of complete bipartite graphs was inspected: its quantified object is prescribed vertex parity, not signed sums indexed by every edge-frequency vector. A separate published result on \(K_{2,n}\) spanning trees concerns a different indicator function. Exact or stronger prior coverage was not found in the inspected material. Residual risk: a preexisting equivalent multivariate signed lonesum identity in less-visible literature may imply the theorem.
+
+## Mathematical value: PASS
+The lonesum property is a natural reconstruction/forbidden-pattern condition with established enumerative study. Its unweighted count does not answer whether the signed Fourier transform has additional zeros, which is exactly the rank-loss question for convolution. The theorem identifies the full nullspace and range across an unbounded family, proves absence of all accidental zeros beyond forced complement symmetry, gives an attained universal integer spectral gap, and determines sharp inverse and projection norms. The two-row restriction is an intrinsically natural first nontrivial bipartite case, not an arbitrarily selected numerical slice.
+
+## Limits and closest literature
+No higher-row or nonbinary generalization, no claim of independent certification, and no exhaustive historical-priority guarantee are asserted. The 1995 West enumeration paper was confirmed bibliographically but not relied upon for the original Fourier comparison because a full text was not inspected. Reproducing classical counting results alone is not claimed as novelty.
+
+Self-review: passed. Independent audit: not yet performed.

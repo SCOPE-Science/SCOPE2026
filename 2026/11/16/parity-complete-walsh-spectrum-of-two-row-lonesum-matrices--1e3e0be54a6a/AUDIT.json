@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The lonesum criterion is exactly a union of two three-state Cartesian products; the complete four-column-frequency table yields a full Walsh formula. Odd mixed-column count cancels, even positive mixed-column count yields ±2·3^c, and the no-mixed branch cannot vanish for n≥2 because 3^c≠2^{n−1}. Two 01 frequency columns attain coefficient 2. Walsh diagonalization gives rank 2^{2n−1}, inverse norm 1/2 and the claimed projection. Exact code independently computed every coefficient through n=8 and graph acyclicity through n=5; infinite proof does not rely on it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full published RESULT.md for the parity-complete orientation theorem (record ending 361e3944de6f) gives feasibility of indegree-parity subsets on vertices for all K_{m,n}; it expressly does not count orientation fibres.",
+        "The published K_{2,n} spanning-tree Fourier result (record ending 89f45551846c) studies the edge-indicator of the distinct spanning-tree set, not the acyclic-orientation set.",
+        "Cameron et al. (2014) count orientations by Stirling/poly-Bernoulli sums, not all assignments of signs to edges."
+      ],
+      "reasoning": "The full K_{m,n} vertex parity feasibility classification is broader in graph size but strictly different in object and output: it says which vertex parity signatures can be realized, rather than the signed counts for each of 2^{2n} possible edge characters. No reduction from that feasibility claim determines the nonzero Fourier support or minimum multiplier. The K_{2,n} spanning-tree result is also neither a superclass nor an equivalent subset.",
+      "searches": [
+        "acyclic orientations complete bipartite K_2,n signed Fourier transforms no accidental zeros",
+        "Fourier inversion of acyclic orientations graph incidence vectors",
+        "2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f",
+        "2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1103.4884v1",
+      "https://arxiv.org/abs/1412.3685",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f/RESULT.md",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c",
+      "https://dblp.org/rec/journals/dm/West95a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kim et al. give the forbidden 2-by-2 submatrix characterization and enumerative formula; Cameron et al. give the precise count a(K_{2,n})=2·3^n−2^n.",
+        "The present formula specializes to that count at the zero frequency, but supplies exact nonzero signed multipliers, including the exclusion of all accidental zeros and the attained magnitude 2.",
+        "The published vertex-parity theorem addresses existence of constrained acyclic orientations, not their Fourier-weighted sums."
+      ],
+      "reasoning": "A classical count W_n(0) is strictly weaker than the values at every nonzero frequency. Ryser’s characterization provides the combinatorial premise and makes a short proof possible, but does not state the all-frequency formula or spectrum. The source claims do not logically entail those signed values without the additional product-cylinder Fourier analysis, so the proposed contribution is their precise spectral refinement.",
+      "searches": [
+        "Poly-Bernoulli numbers and lonesum matrices 2011 Section 2 exact forbidden patterns",
+        "Acyclic orientations and poly-Bernoulli numbers 2014 sections 2 3",
+        "Walsh Fourier spectrum of acyclic orientations of complete bipartite graphs K2n zero eigenvalues",
+        "arXiv:1103.4884v1",
+        "arXiv:1412.3685v1",
+        "2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Krotov–Lee, arXiv:1103.4884v1, Section 2, characterizes binary lonesum matrices by excluding both 2-by-2 permutation patterns and enumerates them.",
+        "Cameron–Glass–Rekvényi–Schumacher, arXiv:1412.3685v1, Section 3.2, identifies these binary lonesum matrices with acyclic orientations of complete bipartite graphs.",
+        "Neither inspected relevant section states a character-by-character Walsh formula or even-weight Fourier-support theorem."
+      ],
+      "reasoning": "The equivalence of two-row lonesum matrices and acyclic orientations of K_{2,n} was used as a deliberate alias in the comparison. A weighted character sum is a stronger invariant than the unweighted count; known equivalence of objects alone does not imply prior coverage of this all-frequency Fourier theorem.",
+      "searches": [
+        "Walsh lonesum matrices Fourier transform two rows",
+        "signed acyclic orientations complete bipartite graph character Fourier sum",
+        "Fourier transform of 2xn lonesum matrices via forbidden 01 and 10 column pairs",
+        "arXiv:1103.4884v1",
+        "arXiv:1412.3685v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned published results about vertex indegree-parity feasibility, spanning-tree Walsh spectra, and generic Boolean Fourier problems, but no entry containing the same two-row lonesum all-frequency coefficient formula.",
+        "The known unweighted value 2·3^n−2^n agrees with the frequency-zero coefficient of the theorem, and is explicitly not claimed as new."
+      ],
+      "reasoning": "The published record titles and available detailed RESULT texts were compared by object and quantifiers, not by lexical similarity. A missing result from a search is not proof of novelty; residual historical-priority uncertainty is recorded.",
+      "searches": [
+        "Complete binary lonesum matrices two rows Walsh Fourier spectrum nonzero only even characters, minimum coefficient 2",
+        "Fourier transform of acyclic orientations of K_{2,n}: all even edge parity characters nonzero; rank half; convolution inverse 1/2",
+        "Signed lonesum matrices alternating character sums binary 2xn",
+        "2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f",
+        "2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c"
+      ]
+    },
+    "rationale": "Full-text primary sources prove the forbidden-pattern criterion and unweighted counts but not arbitrary signed edge-character sums. The closely related published K_{m,n} parity theorem was fully inspected and concerns feasible vertex parity signatures, not all-edge Fourier coefficients. No dominating source identified in documented searches; risk of an equivalent weighted lonesum identity survives.",
+    "residual_risks": [
+      "An earlier multivariate signed-count formula for lonesum matrices may imply the present exact spectrum without using the same terminology.",
+      "The 1995 West article was checked bibliographically but not in full.",
+      "The indexed spanning-tree Fourier paper was compared only via its published abstract; its fundamentally different indicator does not assert the current theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unweighted object structure and enumeration; no signed Walsh spectrum or convolution analysis in examined sections.",
+        "evidence": [
+          "Section 2, Theorem 2.1: forbidden permutation submatrices.",
+          "Section 2, concluding formula: unweighted sum of squared factorial times Stirling factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1103.4884v1",
+        "material_read": "Full relevant Section 2 and introduction in the arXiv HTML, with Section 3 relevant contrast to q-ary formulations.",
+        "method": "Direct reading of text and displayed structural equations, including the two 2-by-2 forbidden patterns, staircase classification and poly-Bernoulli enumeration.",
+        "title": "Poly-Bernoulli numbers and lonesum matrices",
+        "trigger": "Exact same binary lonesum matrix objects, forbidden submatrices and enumerative formulas; original 2011 preprint."
+      },
+      {
+        "assessment": "Proves the unweighted count and graph-to-matrix identification; does not state arbitrary edge-character sums or Fourier-support classification.",
+        "evidence": [
+          "Section 2.4: count a(K_{2,n})=2·3^n−2^n.",
+          "Section 3.2: 4-cycle exclusion equivalent to acyclicity; no all-edge-frequency parameters."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.3685",
+        "material_read": "Full available arXiv article HTML, Sections 1–3 and remaining sections.",
+        "method": "Read theorem statements and proofs of acyclic-orientation enumeration, the 2·3^n−2^n case, and the lonesum/acyclic bijection.",
+        "title": "Acyclic orientations and poly-Bernoulli numbers",
+        "trigger": "Exactly same K_{2,n} acyclic-orientation objects, possible prior multivariate counts; earliest version 2014-12-11."
+      },
+      {
+        "assessment": "A feasibility characterization for vertex parity signatures; not a Fourier eigenvalue or signed-count theorem and does not determine all edge-character sums.",
+        "evidence": [
+          "Theorem asserts existence iff global vertex parity and not all vertices odd; explicitly says it does not count orientation fibres."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f/RESULT.md",
+        "material_read": "Complete published RESULT.md text including theorem, proof, limits and references.",
+        "method": "Direct source read and mathematical variable comparison between vertex indegree-parity feasibility and edge Walsh-character weighted sums.",
+        "title": "A parity-complete characterization of acyclic orientations of complete bipartite graphs",
+        "trigger": "Same K_{m,n} acyclic orientations with a parity predicate; strongest indexed claim plausibly implying special cases."
+      },
+      {
+        "assessment": "Different input subset, so the stated sharp projection result does not imply the present Walsh formula. Whole-source noncoverage is not claimed.",
+        "evidence": [
+          "Indexed theorem explicitly concerns spanning-tree frequencies; no acyclic orientation indicator is asserted."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c",
+        "material_read": "Published title and detailed indexed summary only; full result text not accessed.",
+        "method": "Compared the spectral objects: spanning-tree indicator versus all acyclic orientation indicator.",
+        "title": "Complete Walsh spectrum and sharp Fourier projection norms for the spanning trees of K_{2,n}",
+        "trigger": "Same graph and ambient Boolean edge group; potential overlap by Fourier projection methods."
+      },
+      {
+        "assessment": "No priority conclusion drawn from inaccessible full text; residual risk named.",
+        "evidence": [
+          "1995 Discrete Mathematics 138, 393–396, Douglas B. West."
+        ],
+        "identifier_or_url": "doi:10.1016/0012-365X(94)00222-5",
+        "material_read": "Bibliographic metadata only; full article not inspected.",
+        "method": "Verified bibliographic identity and publication year; did not infer whole-paper noncoverage.",
+        "title": "Acyclic orientations of complete bipartite graphs",
+        "trigger": "1995 historically relevant primary enumeration source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e3e0be5-4a6a-4f80-9b49-03d7c9e893fb",
+  "value": {
+    "rationale": "The classical 2-by-n lonesum family is a motivated reconstruction class, and Fourier rank/nonvanishing is a natural invariant of its indicator convolution. Complete all-n support and sharp nonzero gap show that reversal is the only Fourier information loss, identify the entire range, and give exact inverse and endpoint projection norms. This resolves a complete natural two-row case rather than a one-off arbitrary computation.",
+    "status": "PASS"
+  }
+}
