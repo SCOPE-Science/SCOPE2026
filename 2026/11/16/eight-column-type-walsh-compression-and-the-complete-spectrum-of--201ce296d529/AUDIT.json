@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "All 2^{8n} frequencies are partitioned into eight-type classes by exact column-gauge invariance and column permutation. The sign-weighted coefficient follows from selecting exactly two ones per column; the three-row dynamic program tracks its coefficient exactly. For n=3, 1716 classes exhaust 2^{24} frequencies, with exact integer re-execution, a complete histogram and Parseval identity. Independent row-mask enumeration of 1860 supports and 256 direct character sums corroborate the full exhaustive class certificate; they are not substituted for proof of completeness. Fourier diagonalization gives the 4 gap, 465 condition number, and rank 2^{23}. The O(n^{11}) arithmetic cost follows from O(n^7) classes times O(n^4) recurrence work.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barvinok arXiv:0806.1480, introduction and main theorems, computes estimates and concentration for cardinalities of fixed-marginal 0-1 matrices, not their full signed character sums.",
+        "Canfield-Greenhill-McKay arXiv:math/0606496 gives unsigned asymptotic counts, not finite signed Fourier rank or levels.",
+        "published-finding corpus closest result 2026/11/8/SCOPE-exact-walsh-spectrum-and-sharp-endpoint-norm-of-the-eight-vertex--3b3fc3e31c5f treats 105 perfect matchings in K8; its support is a different finite group and incidence family."
+      ],
+      "reasoning": "Asymptotic cardinality estimates and signed spectra are not equivalent; a single unsigned value is the zero-frequency coefficient only. An exact but different perfect-matching orbit does not dominate the Eulerian 4-by-6 spectrum. General Walsh diagonalization supplies the operator consequences after the new histogram, not the histogram itself.",
+      "searches": [
+        "Web: Alexander Barvinok On the number of matrices and a random matrix with prescribed row and column sums 0-1 entries arxiv 2009",
+        "Web: Canfield Greenhill McKay 2008 asymptotic enumeration dense 0-1 matrices specified line sums arxiv",
+        "published-finding corpus: Fourier projection binary contingency tables with fixed row and column sums, 4x4 degree two"
+      ]
+    },
+    "checked_sources": [
+      "Nester 1994 JCMCC 16 pp. 3-17; publisher PDF material inspected",
+      "Barvinok arXiv:0806.1480; preprint extracted text and arXiv record",
+      "Beluhov ECA 6:1 (published 2025-10-03) Theorem 1.1 and introduction",
+      "published-finding corpus searches for Eulerian orientation Walsh signed transform and fixed-marginal Fourier spectra; nearest results identified in named checks",
+      "Available current-week own ledger through generation p0001_g000066; recoverable claims and IDs compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beluhov, Powers of 2 in Balanced Grid Colourings, 2025 public date, Theorem 1.1 establishes 2-adic valuation of unsigned B(2,n), not signed Walsh coefficients.",
+        "published-finding corpus indexed id 2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c concerns spanning trees of K_{2,n}, not Eulerian orientations of K_{4,6}.",
+        "The proved orbit coefficient formula specializes to a zero-frequency unsigned count, whereas the inverse implication is false: cardinality and 2-adic valuation alone do not determine all signed Fourier levels."
+      ],
+      "reasoning": "Neither a known scalar count nor its 2-adic valuation implies the 29-level signed spectrum or the smallest nonzero multiplier 4. Column-permutation and gauge symmetries reduce the problem, but the complete 1716-case integer evaluation is the distinguishing new finite assertion.",
+      "searches": [
+        "Source inspection: https://ecajournal.haifa.ac.il/Volume2026/ECA2026_S2A3.pdf (published 2025-10-03), located via Web: Nester 1994 Eulerian orientations K4 2n divisibility binomial central",
+        "published-finding corpus: 2-adic valuation Eulerian orientations K_{4,2n}, binary digit sum",
+        "published-finding corpus: 2-regular bipartite graphs on four plus four vertices Walsh signed Fourier spectral distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nester 1994 pp. 3-17, especially Table 5 and Lemma 6, counts unsigned balanced 4-by-6 matrices as 1860 but does not present signed Walsh level multiplicities.",
+        "Nester 1994 gives the same 4-by-2n matrix family under the equivalent term Eulerian orientations of K_{4,2n}.",
+        "No retrieved published-finding corpus entry states the 29 signed multiplier values or the 1716 complete orbit coefficients."
+      ],
+      "reasoning": "Equivalent object terminology includes balanced binary contingency tables, zero-one matrices with margins, Eulerian biclique orientations, and 2-regular bipartite subgraphs. This comparison explicitly identifies Nester as covering the object and scalar count, not as an unrelated title; its unweighted generating polynomial cannot imply the signed coefficient histogram without new evaluation.",
+      "searches": [
+        "published-finding corpus: 4 by 4 binary matrices row and column sums 2 signed Walsh transform exact spectrum zero count projection norm Eulerian orientations K4,4",
+        "published-finding corpus: Eulerian orientations of complete bipartite K_{4,2n}, Walsh transform nonvanishing even-frequency powers-of-two, Fourier rank half",
+        "Web: \"signed\" \"Eulerian orientations\" \"Fourier coefficients\"",
+        "Web: \"Fourier transform\" \"0-1 matrices\" \"row and column sums\" 2009"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nester 1994 Table 5: Eulerian orientation count 1860 for 4-by-6 (the unsigned zero-frequency coefficient).",
+        "Nester 1994 Lemma 6: general unsigned 3-partition sum, and its worked 4-by-6 evaluation 1860.",
+        "No retrieved exact table enumerates the 14 nonzero absolute Walsh magnitudes or the frequency multiplicities for the 4-by-6 indicator."
+      ],
+      "reasoning": "The classic table determines only W(0)=1860, while the present exact census covers all 16,777,216 characters. The equality of one scalar is acknowledged as existing information and is independently reproduced only as a consistency check.",
+      "searches": [
+        "Web: \"Eulerian Orientations and Circuits of Complete Bipartite Graphs\" 1994 4 4",
+        "Web: \"four by six\" \"Walsh\" \"Eulerian orientations\"",
+        "published-finding corpus: 4 by 4 binary matrices row and column sums 2 signed Walsh transform exact spectrum zero count projection norm Eulerian orientations K4,4"
+      ]
+    },
+    "rationale": "Nester (1994) explicitly gives the unsigned 4-by-6 count 1860 and the orientation model, but not the complete character-weighted level distribution. Barvinok (2008) gives unsigned fixed-marginal counts/estimates; Beluhov (2025) gives unsigned 2-adic valuations. published-finding corpus and current-week comparisons found no stronger signed 4-by-6 Fourier census; no absolute novelty certification is asserted.",
+    "residual_risks": [
+      "Prior signed Fourier transforms might appear under specialized character-weighted contingency-table terminology not found in bounded search.",
+      "The Barvinok university PDF screenshot redirected and could not be visually retrieved; relevant parsed abstract/main theorems were available, not entire full text.",
+      "Current same-model review is not an independent audit or guarantee of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the object and unsigned orientation count 1860; inspected results are not a character-resolved Walsh census.",
+        "evidence": [
+          "Publisher page https://combinatorialpress.com/jcmcc-articles/volume-016/eulerian-orientations-and-circuits-of-complete-bipartite-graphs/",
+          "1994 PDF Table 5 and Lemma 6 at printed pages 8-9; circuit count at printed page 11."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+        "material_read": "Title/abstract and pages 3, 5, 7-11, 13 of the 15-page publisher-hosted PDF, including Table 5, Lemmas 4-6, the 4-by-6 worked formula, and Theorem 1 on Eulerian circuits.",
+        "method": "Publisher PDF visual page inspection; bibliographic page date 1994-10-31.",
+        "title": "Eulerian orientations and circuits of complete bipartite graphs",
+        "trigger": "Same objects K4,6, balanced orientation matrices, and scalar orientation count."
+      },
+      {
+        "assessment": "Unsigned count and distribution estimates; no claim in material read of exact signed Walsh multiplicities.",
+        "evidence": [
+          "arXiv:0806.1480 dated 2008-06-09",
+          "Theorem 1.1 of university-hosted PDF concerns bounds for |Sigma(R,C)|."
+        ],
+        "identifier_or_url": "arXiv:0806.1480; https://dept.math.lsa.umich.edu/~barvinok/zeroone.pdf",
+        "material_read": "Abstract, introduction, definitions, Theorem 1.1, and selected later concentration statements in accessible extracted full-text PDF (sections 1.1-1.4); rendered PDF screenshot endpoint failed because of a publisher redirect.",
+        "method": "Open-access arXiv record and extracted university preprint text; no claim of reading every page.",
+        "title": "On the number of matrices and a random matrix with prescribed row and column sums and 0-1 entries",
+        "trigger": "Potential stronger coverage for binary contingency tables with prescribed margins."
+      },
+      {
+        "assessment": "Proves unsigned valuation B(2,n), acknowledged. A valuation of W(0) is insufficient to recover the full signed spectrum.",
+        "evidence": [
+          "Theorem 1.1 and introduction in ECA 6:1 article S2R3; 2025 public publication date."
+        ],
+        "identifier_or_url": "https://ecajournal.haifa.ac.il/Volume2026/ECA2026_S2A3.pdf",
+        "material_read": "Accessible full-text PDF pages 1-3 including abstract, Theorem 1.1, and discussion of the balanced-grid and orientation correspondence; no assertion of inspecting all remaining sections.",
+        "method": "Open-access publisher PDF extracted text, dated published 2025-10-03.",
+        "title": "Powers of 2 in Balanced Grid Colourings",
+        "trigger": "Same Eulerian K4,2n family and possible two-adic nonvanishing implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "201ce296-d529-44ea-b1e7-304034c05f8a",
+  "value": {
+    "rationale": "The exact signed spectrum of a canonical labelled 4-by-6 Eulerian orientation support is a motivated natural complete finite invariant, not Nester’s known unsigned count: it yields 29 signed levels, exact rank, sharp positive spectral gap 4 and spectral conditioning 465. The accompanying proved eight-column-type compression is a polynomial-time method for the complete signed Walsh distribution for every 4-by-2n width, giving a reusable structural tool. A future application is exact frequency-selective inversion and comparison of zero sets beyond the first rectangular case; no downstream theorem is required for its intrinsic value.",
+    "status": "PASS"
+  }
+}
