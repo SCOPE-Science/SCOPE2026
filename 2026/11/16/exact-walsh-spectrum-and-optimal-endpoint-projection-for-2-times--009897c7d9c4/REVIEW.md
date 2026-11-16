@@ -1,0 +1,15 @@
+# Scientific review: boxed-plane-partition Walsh census
+
+## Correctness — PASS
+The specified 24-bit encoding is unambiguous. Two structurally different complete ideal enumerators agree on exactly 490 masks. Two differently ordered exact Walsh transforms agree at all 16,777,216 frequencies, with 8,192 independent direct character sums. Their signed histogram has 1,234,934 zeros and has smallest/largest nonzero absolute values 2 and 490. Support transforms agree exactly and have absolute-coefficient sum 11,078,918,348. Both Parseval identities and the minimum-coordinate pairing symmetry check. Translation averaging proves projection optimality among *all* real or complex linear projections, not merely invariant ones. The C++17 code and histograms are embedded and replayable.
+
+## Originality — PASS under bounded comparison
+Cohn--Larsen--Propp (arXiv:math/9801059, Introduction and Section 2) establish the shape/tiling interpretation and classical enumerations, not a binary cube-sign spectrum. Borodin--Gorin--Rains (arXiv:0905.0679, Sections 2--3 and Theorem 10.5) study finitely parameterized weights and their integrable models, rather than all 24 independent character signs or this support-projection constant. Existing finite-group results on complete spectra of binary permutation matrices and perfect matchings share methods but not support sets or numerical implications. An earlier exact study of indicators of two-chain order ideals concerns a two-dimensional poset; the present set is the 24-coordinate order-ideal ensemble of a three-chain product. No source inspected provided the claimed 490-point spectrum, nullity or projector constant. The search is not a proof of priority; generic weighted-partition-function expressions may offer alternate routes without explicitly supplying this census.
+
+## Mathematical value — PASS
+The smallest box with three mutually distinct nontrivial side lengths is an intrinsically natural first asymmetric lozenge-tiling ensemble. A full Fourier-nullity census and a sharp unrestricted endpoint projection norm quantify recoverable and unstable signal modes in its binary incidence representation. The sharp constant is substantially larger than 1 despite the large nonzero spectral support, and the exact histogram supplies a reproducible benchmark for finite harmonic analysis of constrained random surfaces. The result is a self-contained natural complete finite classification, not a generic parameter slice selected solely to produce digits. No asymptotic or paper-sized contribution is asserted.
+
+## Limitations and closest sources
+The primary sources give the underlying plane-partition ensemble and weighted partition functions. They do not rule out every historical presentation of equivalent signed specializations. The calculation is exhaustive only for \(2\times3\times4\), and the remaining unknown general-dimensional behavior is not inferred. External independent validation was not performed.
+
+Self-review: passed. Independent audit: not yet performed.
