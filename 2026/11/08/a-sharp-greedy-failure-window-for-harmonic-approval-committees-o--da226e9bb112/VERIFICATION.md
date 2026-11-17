@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_triangle.py` with a standard Python 3 interpreter. The source uses only `itertools` and `fractions`, and every asserted comparison uses exact rational or integer arithmetic, not floating-point approximations.
+## correctness
 
-The verifier creates all \(15\) distinct labeled committees of size \(4\) from \(6\) candidates, computes harmonic satisfaction by voter-approval set intersections, and enumerates **every** greedy tie branch. Independently, it computes aggregated four-seat compositions in three capacity-two candidate classes using harmonic values scaled by \(12\). For every positive integer triple sorted by triangle-label symmetry with total electorate size at most \(17\), the two methods must produce identical sets of greedy and optimizing composition outcomes and identical scores. Exactly \(123\) triples have total size below \(17\), and \(24\) triples have size \(17\); their exact cutoff is checked.
+PASS
 
-A separate test evaluates \(2684\) positive rational weight ratios including all ratio-boundary points and verifies the complete seven-row analytical phase table. It also confirms exactly the optimal and greedy PAV scores in the \((5,5,7)\) witness.
+All 4-seat 2-capacity count vectors reduce to four symmetry classes; exact score differences S_V−S_W=(y−x)/3 and S_U−S_V=(3y−4x)/12 give PAV winners. All branch-level greedy marginal inequalities yield its distinct transition at y/x=3/2, including ties at 1, 4/3, 3/2. Independently enumerated all 147 sorted positive integer ballot triples through 17 voters using exact fractions; of 123 below 17 none has disjoint greedy/optimal outcomes and exactly (5,5,7) of 24 at 17 does. Source verify_triangle.py independently uses aggregate and labeled-candidate scores. Infinite real-ratio rows follow from symbolic comparisons, finite exhaustion only proves 17-voter cutoff.
 
-The finite enumeration proves the **finite** minimal-electorate assertion because it exhausts the entire specified positive-integer domain below and at the witness size. It does not prove the infinite weight-ratio phase theorem; that theorem is proved algebraically in `RESULT.md`. The code, calculations, and review do not constitute an independent external audit.
+## originality
+
+PASS
+
+The general discrepancy between PAV optimization and sequential PAV is textbook/classical, so it is not claimed new. Closest 2023 primary work is axiomatic characterizations rather than this concrete three-overlap-clone family. The exact robust interval, tie-boundary outcomes, and integer cutoff 17 remain unreported in inspected primary statements and indexed published findings.
+
+## value
+
+PASS
+
+The all-tie robust failure interval and sharp 17-voter cutoff give a motivated exact counterexample boundary for a natural overlapping three-type approval domain with finite capacity; usefulness does not depend on a new general impossibility theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

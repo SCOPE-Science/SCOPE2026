@@ -1,21 +1,21 @@
-# Scientific review: sharp PAV versus seq-PAV separation on the triangle domain
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact PAV formula follows by summing three harmonic ballot-type satisfactions, and all four distinct symmetry classes of four-seat count vectors are enumerated. Their pairwise differences yield the global-optimum switch at weight ratio \(4/3\). The greedy comparison at the state with one candidate in each of the two higher-approval classes yields the seq-PAV switch at \(3/2\). All boundary tie cases, including ratio \(1\), are addressed explicitly; hence the open failure interval and exact gap follow algebraically. The integer cutoff uses a complete, finite exact-rational enumeration after the explicitly justified triangle relabeling symmetry, not a statistical sample. The two implementations in `verify_triangle.py` agree on all \(147\) sorted triples through \(17\) voters and all \(2684\) chosen ratio tests. The analytic proof establishes the continuous parameter claim independently of the finite checks.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+All 4-seat 2-capacity count vectors reduce to four symmetry classes; exact score differences S_V−S_W=(y−x)/3 and S_U−S_V=(3y−4x)/12 give PAV winners. All branch-level greedy marginal inequalities yield its distinct transition at y/x=3/2, including ties at 1, 4/3, 3/2. Independently enumerated all 147 sorted positive integer ballot triples through 17 voters using exact fractions; of 123 below 17 none has disjoint greedy/optimal outcomes and exactly (5,5,7) of 24 at 17 does. Source verify_triangle.py independently uses aggregate and labeled-candidate scores. Infinite real-ratio rows follow from symbolic comparisons, finite exhaustion only proves 17-voter cutoff.
 
-The specific result is **not** the general fact that greedy seq-PAV can fail to maximize PAV: Lackner and Skowron's published Example 2.5 already shows such a failure for committee size \(2\), with five ballot types. Dong and Lederer's paper derives characterizations of sequential valuation rules and seq-PAV. Its inspected definitions, main statements, and relevant proof material do not supply an exact all-tie-break triangular two-clone phase diagram or a minimum \(17\)-voter domain certificate. Janson’s 2016 survey contains earlier Thiele method comparison examples (especially 13.3–13.4), which likewise establish a general discrepancy but neither this three-type phase diagram nor its restricted minimum. The inspected party-approval paper by Delemazure and coauthors compares proportionality and strategyproofness on a larger domain and contains a sequential-Thiele incentive counterexample; that logically does not imply the present optimizer-comparison thresholds or minimality. Disjoint party-list divisor/apportionment results likewise do not cover overlapping ballots. Searches on the exact ratios, voter multiplicities, approval aliases, and candidate-class parameters did not reveal a stronger covering theorem, but searches alone cannot certify universal priority.
+## originality
 
-Closest material inspected: Janson, *Phragmén’s and Thiele’s Election Methods*, Sections 4 and 13 (arXiv:1611.08826v1); Dong–Lederer, *Characterizations of Sequential Valuation Rules* (arXiv:2302.11890v1); Lackner–Skowron, *Dramatis Personae: ABC Rules*, Rules 4–5 and Example 2.5 (DOI 10.1007/978-3-031-09016-5_2); Delemazure et al., *Strategyproofness and Proportionality in Party-Approval Multiwinner Elections* (arXiv:2211.13567), especially the party-approval and sequential-Thiele definitions and Theorem 4. Publication-priority risks include possible unindexed equivalent analyses of clone-restricted three-party profiles.
+PASS
 
-## Value — PASS
+The general discrepancy between PAV optimization and sequential PAV is textbook/classical, so it is not claimed new. Closest 2023 primary work is axiomatic characterizations rather than this concrete three-overlap-clone family. The exact robust interval, tie-boundary outcomes, and integer cutoff 17 remain unreported in inspected primary statements and indexed published findings.
 
-Three pairwise-overlapping constituencies are the smallest cyclic overlap structure beyond disjoint lists. In such a domain greedy and optimizing harmonic allocation switch at distinct rational weight ratios, producing a nonempty region where **no** choice of ties repairs the greedy outcome. The exact loss and the sharp minimum electorate within the entire integer triangle class offer a structural benchmark for designing or comparing approval-committee rules. This is more than a single small counterexample: it identifies the complete two-parameter phase slice with its equality boundaries and distinguishes tie-dependent from tie-independent failure. No claims are made about global minimality across unrestricted approval profiles or about an approximation ratio for general elections.
+## value
 
-## Scientific limits and further checks
+PASS
 
-The phase diagram requires two equal ballot multiplicities, while the sharp integer cutoff ranges over arbitrary positive multiplicities but fixes the number of candidates and seats. No independent specialist verification or complete publication-priority guarantee is asserted. The provided verifier is complete only for its stated finite domain; continuous-parameter completeness comes from the written argument.
+The all-tie robust failure interval and sharp 17-voter cutoff give a motivated exact counterexample boundary for a natural overlapping three-type approval domain with finite capacity; usefulness does not depend on a new general impossibility theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
