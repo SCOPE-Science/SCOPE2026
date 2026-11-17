@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The restriction-extension lemma turns the universal three-query question into an exhaustive finite nine-label assertion. The verifier checks all \(95284\) candidate supports, compares the entire set of \(504\) failures with the forbidden four-label configurations, and checks all \(60460\) six-label candidate supports. The sharp dimension bound comes from there being only \(120\) cyclic orders, and explicit witnesses reach \(6\). The independent twenty-bit quadrangle-equation enumeration agrees with the direct cycle enumeration. The paper's four-term characterization is appropriately credited. One can rerun the code and compare its exact certificate.
+## correctness
 
-**Originality — PASS subject to priority limits.** Abram--Chapelier-Laget--Reutenauer's admitted-vector theorem already implies a finite decision method, but the inspected Theorem 21 and surrounding results do not state the universal three-query projection classification or full shattering complex with its facet orbits. Ayyer--Josuat-Vergès--Ramassamy enumerate selected partial cyclic orders with consecutive constraints, and Johnson--Wickes study linear permutation pattern shattering by selected permutation collections, not this binary-query concept class. Fiorini--Fishburn (2003) concerns partial cyclic-order extension and was accessible only as an abstract; hidden equivalent results remain a risk. Database and title searches do not prove mathematical uniqueness.
+PASS
 
-**Mathematical value — PASS.** The nontrivial uniform minimal obstruction identifies when three cyclic-orientation queries are jointly independent, a basic consistency invariant of circular order data. The six-label classification determines all face counts, all inclusion-maximal supports, and every natural relabeling orbit; its nonpure facet-size distribution is invisible to scalar VC dimension. The six-label case is motivated as the first explicitly verified layer with facets of three different sizes, not an arbitrary numeric variant.
+Any three distinct triple queries involve at most nine labels; circular orders restrict/extend without changing answers. A fresh independent exhaustive enumeration of 8!=40320 circular orders on nine labels tested all C(84,3)=95284 query supports: exactly 504 failures, equal as literal sets to the 4*C(9,4)=504 choices of three of four triples on a common four-label set. That four-label family cannot shatter since only six cyclic orders exist. For six labels independent enumeration of 120 cyclic orders, all supports of sizes <=6, yields polynomial coefficients [1,20,190,1080,3420,1680,30]; k>=7 excluded since 2^7>120. One-coordinate extension checks produce facet counts 840 at size4,1500 at size5,30 at size6; relabeling yields ten orbits. The 2020 circular-permutation four-term identities give a second exact concept model in the source; direct cycle enumeration is independently reproduced. This is a complete bounded finite proof for exactly stated domains, not sampling.
 
-**Scientific limits.** A nine-label finite exhaustive check, not a general local hand derivation, underlies the universal obstruction. The exact full complex is known here only for six labels. There is no claimed Littlestone-dimension formula for larger labels, and no claim of external certification. Historical priority with older extension literature warrants scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four-term admitted-vector theorem and general VC-dimension computations are prior. Neither their mathematical statements nor a separate earlier seven-label dimension calculation implies the forbidden three-query support classification and exact six-label facet/orbit census without additional complete combinatorial enumeration.
+
+## value
+
+PASS
+
+The full labeled six-point shattering complex is a natural finite VC invariant, not an arbitrary slice: it has three facet dimensions and ten symmetry orbits, and the precise three-query obstruction is universal for any label count. Complete support classification and nonpurity are conceptually useful beyond scalar VCdim; exhaustive finite certification is appropriate to this bounded exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

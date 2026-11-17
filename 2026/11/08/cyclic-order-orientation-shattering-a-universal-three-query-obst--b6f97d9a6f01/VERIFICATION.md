@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the directory containing the supplied certificate, `certificates.json`, using a standard Python 3 interpreter. The script enumerates all cyclic orders of nine labels in a canonical rotation-normalized representation and checks all three-query supports on the nine-label ground set. It independently constructs the complete six-label hypothesis class from permutations and binary solutions of every four-term equation. The resulting \(120\) hypotheses are compared as sets. It then checks all \(60460\) candidate supports through query size \(6\), rules out larger supports by the concept cardinality bound, reconstructs all facets and their ten label-permutation orbits, and validates sixty-four exact witness cycles.
+## correctness
 
-Expected terminal line:
+PASS
 
-`CIRCULAR_TRIPLE_SHATTER_PASS 95284_three_query_supports 504_quadruple_obstructions 120_cyclic_orders 120_cocycles 60460_six_label_supports 6421_faces 2370_facets 10_orbits 64_witnesses`
+Any three distinct triple queries involve at most nine labels; circular orders restrict/extend without changing answers. A fresh independent exhaustive enumeration of 8!=40320 circular orders on nine labels tested all C(84,3)=95284 query supports: exactly 504 failures, equal as literal sets to the 4*C(9,4)=504 choices of three of four triples on a common four-label set. That four-label family cannot shatter since only six cyclic orders exist. For six labels independent enumeration of 120 cyclic orders, all supports of sizes <=6, yields polynomial coefficients [1,20,190,1080,3420,1680,30]; k>=7 excluded since 2^7>120. One-coordinate extension checks produce facet counts 840 at size4,1500 at size5,30 at size6; relabeling yields ten orbits. The 2020 circular-permutation four-term identities give a second exact concept model in the source; direct cycle enumeration is independently reproduced. This is a complete bounded finite proof for exactly stated domains, not sampling.
 
-The full nine-label three-coordinate statement follows from restriction-extension, not from statistical extrapolation. The program does not claim to decide all arbitrary-size supports for arbitrary \(n\), to establish priority against every historic manuscript, or to provide an independent audit. The output certificate is machine-checkable but finite in scope.
+## originality
+
+PASS
+
+The four-term admitted-vector theorem and general VC-dimension computations are prior. Neither their mathematical statements nor a separate earlier seven-label dimension calculation implies the forbidden three-query support classification and exact six-label facet/orbit census without additional complete combinatorial enumeration.
+
+## value
+
+PASS
+
+The full labeled six-point shattering complex is a natural finite VC invariant, not an arbitrary slice: it has three facet dimensions and ten symmetry orbits, and the precise three-query obstruction is universal for any label count. Complete support classification and nonpurity are conceptually useful beyond scalar VCdim; exhaustive finite certification is appropriate to this bounded exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
