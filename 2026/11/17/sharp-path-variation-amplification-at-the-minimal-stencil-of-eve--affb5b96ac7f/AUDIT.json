@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact rational first-difference reduction gives an induced l1 column norm; all diagonal signs are controlled since alpha u_j v_j<1. The sharp step input saturates each column, the M=0 threshold follows at p=2, and Stirling yields M_p/binom(2p,p)->sqrt2. An independent Fraction-based direct matrix inversion checked p=1..12 for three positive rational lambda values. Limits in p are analytic, not inferred from finite numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The prior all-order range-preservation result gives a negative-weight witness and minimal-stencil Sherman–Morrison identity; it does not give variation Lipschitz norms.",
+        "An accessible earlier path-variation result proves the p=1 and p=2 larger-n statements, including the p=2, n=4 constant; this new theorem treats p>=3 at n=p+1 and a high-order limit."
+      ],
+      "reasoning": "The new exact induced variation coefficient and high-order limit are not stated as theorems in these sources. Unlike range preservation, variation contraction does not follow directly from kernel positivity, and the cited first-/second-order statements cannot cover p>=3.",
+      "searches": [
+        "Whittaker Henderson Hodrick Prescott second-difference penalized least-squares smoother path total variation sharp Lipschitz amplification at four sites for every smoothing parameter",
+        "second order smoothing resolvent total variation non-contraction uniform across all finite path lengths n >=4",
+        "Only first-difference Whittaker–Henderson smoothing is universally range-preserving (2026-10-04)"
+      ]
+    },
+    "checked_sources": [
+      "10.1021/ac034173t",
+      "10.14490/jjss.45.121",
+      "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+      "Only first-difference Whittaker–Henderson smoothing is universally range-preserving (2026-10-04)",
+      "09f96de7-88c0-42ea-85b3-40543198098b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published range-preservation note explicitly gives S=I-alpha d^T d, which is a common starting identity, and shows negative output at order p>=2.",
+        "Its negative output does not imply BV expansion at p=2, where the exact norm is one; thus the p>=3 amplification threshold and 1+sqrt(2) high-order law cannot be inferred from the published qualitative conclusion.",
+        "The 2016 finite-sample HP work concerns second-order coefficients, not the all-order norm."
+      ],
+      "reasoning": "The rank-one inverse representation is prior-covered, and is therefore not claimed as novel. The additional first-difference factorization, exact absolute column sums, maximization, extremizer identification and asymptotic binomial comparison are the claimed contribution. Although the inverse representation permits this derivation, the cited work does not establish or state the sharp BV invariant or its high-order law.",
+      "searches": [
+        "Only first-difference Whittaker–Henderson smoothing is universally range-preserving (2026-10-04)",
+        "sharp discrete total variation Lipschitz norm of Whittaker Henderson graduation order three four points rank-one smoother",
+        "Whittaker Henderson variation contraction TV p>=3 rank one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At minimal n=p+1, the smoother is a rank-one penalty correction; the variation operator is the induced l1 norm of its first-difference conjugate.",
+        "The inspected 2016 Yamada paper develops ridge and spectral representations of generalized HP filters, not an exact induced BV norm."
+      ],
+      "reasoning": "Checked aliases include generalized HP filters, high-order Whittaker smoothing, path variation, discrete BV and the difference-gradient l1 operator. No located primary statement supplies the displayed max binomial coefficient and the fixed-parameter 1+sqrt(2) asymptotic. Matrix formulas alone fix the underlying S, but extracting an exact variation coefficient and a high-order limiting law requires further analysis.",
+      "searches": [
+        "higher order Whittaker Henderson smoothing minimal sample length order p+1 exact path total variation amplification binomial coefficient 1+sqrt2",
+        "sharp discrete total variation Lipschitz norm of Whittaker Henderson graduation order three four points rank-one smoother",
+        "generalized Hodrick Prescott finite difference smoother BV seminorm sharp norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches returned the known all-order range-preservation note but no numerical/closed BV-norm table matching M_p.",
+        "First five exact M values were computed independently: (-2,0,6,30,132), and p=1..12 direct rational tests matched."
+      ],
+      "reasoning": "The parameters are complete natural difference orders and minimal possible observation lengths, not arbitrarily selected entries; no located table has the same norm, threshold, or limit. Lack of a database hit is only supporting evidence, not novelty proof.",
+      "searches": [
+        "higher order Whittaker Henderson smoothing minimal sample length order p+1 exact path total variation amplification binomial coefficient 1+sqrt2",
+        "rank one binomial finite difference penalized least squares oscillation variation 2.414 limit",
+        "Whittaker Henderson high-order finite sample total variation exact table"
+      ]
+    },
+    "rationale": "Comparisons included general HP/Whittaker finite-sample representations, the published all-order range-preservation result and accessible previous first-/second-order total-variation findings. No inspected work states the exact all-order minimal-stencil BV norm, its sharp binary-step extremizers and fixed-lambda high-order limit. Underlying rank-one smoothing matrices are not novel and may create a priority risk; originality here refers only to the derived induced-variation invariant and asymptotic classification.",
+    "residual_risks": [
+      "Published matrix formulas for the minimal stencil allow derivation of the matrix norm, so an unindexed source may already perform the same BV calculation.",
+      "The complete full text of Eilers (2003) was not accessible; its accessible abstract and citation metadata do not establish absence of this norm classification.",
+      "The theorem covers exactly n=p+1 and makes no all-n high-order contraction claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers matrix inversion and qualitative range preservation; does not calculate sharp adjacent-variation Lipschitz coefficient or 1+sqrt2 limit. Strong shared-premise risk disclosed.",
+        "evidence": [
+          "Exact rank-one S=I-alpha d^T d and p>=2 negative weight witness stated; no l1 norm of first-difference conjugate."
+        ],
+        "identifier_or_url": "Online mathematical result dated 2026-10-04: Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+        "material_read": "Entire public result statement, proof, limitations and references",
+        "method": "Direct reading of publicly accessible primary result file",
+        "title": "Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+        "trigger": "Same high-order Whittaker smoother and minimal n=p+1"
+      },
+      {
+        "assessment": "Gives generalized ridge regression representation; does not state a sharp two-input path-BV norm or order-asymptotic.",
+        "evidence": [
+          "Generalized difference-penalty representation, regression decomposition and equivalent smoothing formulations."
+        ],
+        "identifier_or_url": "10.14490/jjss.45.121",
+        "material_read": "Open PDF formula, main results and conclusion",
+        "method": "Read accessible PDF text and page images",
+        "title": "Ridge Regression Representations of the Generalized Hodrick–Prescott Filter",
+        "trigger": "General integer-order HP/Whittaker operator and penalty matrix"
+      },
+      {
+        "assessment": "Focuses on order-two filter coefficients; does not cover all-order minimal-length variation norms.",
+        "evidence": [
+          "Order-two finite-sample explicit formula, rather than variation induced norm."
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+        "material_read": "Open PDF main formula sections and conclusion",
+        "method": "Read open manuscript text and page images",
+        "title": "The Explicit Formula for the Hodrick-Prescott Filter in Finite Sample",
+        "trigger": "Exact finite-sample smoother matrix and boundary effects"
+      },
+      {
+        "assessment": "Provides motivating smoothing method, but absence of a closely related norm theorem cannot be certified from abstract alone.",
+        "evidence": [
+          "Earliest verified public date 2003-05-30 and standard difference-penalty smoothing context."
+        ],
+        "identifier_or_url": "10.1021/ac034173t",
+        "material_read": "Accessible bibliographic metadata and abstract; full paper unavailable",
+        "method": "Read publisher abstract/metadata",
+        "title": "A Perfect Smoother",
+        "trigger": "Historical definition and primary smoothing motivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "affb5b96-ac7f-4f7f-8704-ba292a490721",
+  "value": {
+    "rationale": "The exact sharp variation amplification quantifies worst-case creation of adjacent variation by a standard penalized smoothing method. It identifies three distinct low-order regimes, proves that monotone one-step data can be worst cases, and shows a universal high-order amplification of 1+sqrt2 despite arbitrarily small fixed positive penalty. A natural complete classification of the minimal admissible observation length with a nontrivial binomial asymptotic is useful in stability and trend-filter interpretation.",
+    "status": "PASS"
+  }
+}
