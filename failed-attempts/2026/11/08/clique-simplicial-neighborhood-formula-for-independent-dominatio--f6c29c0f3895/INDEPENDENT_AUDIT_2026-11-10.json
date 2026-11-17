@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T07:59:25.175786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact bijection is mathematically sound: in the central graph each independent dominating set intersects original vertices in a clique A. A subdivider of edge uv must be selected exactly when neither u nor v is in A. An unselected original vertex v is undominated precisely when N_G(v)=A, so admissible A are all cliques except distinct open neighborhoods of simplicial vertices. The set cardinality is |A|+e_G(V\\A), which equals |A|+m−sum_{v in A}deg(v)+binom(|A|,2) for a clique. The triangle-free min-degree>=2 and multipartite cases follow by elementary clique restriction. Independent checks read actual source verifier and reconstructed the bijection on representative isolated, complete and triangle-free graph cases; no finite test is an all-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-10-18 theorem applies to every finite simple graph, no clique-number restriction, with exact whole polynomial and bounded-clique computational extraction.",
+          "2026-11-02 theorem covers all triangle-free graphs with minimum degree two, including exact 1+n+m and degree terms."
+        ],
+        "reasoning": "The strongest previous theorem has identical domain and the full outcome; the 2026-11-02 corollary also independently covers the advertised special class.",
+        "searches": [
+          "2026-10-18 Resultary full prior all-graph theorem",
+          "2026-11-02 Resultary triangle-free independent-domination polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-clique-indexed-independent-domination-polynomial-of-every-centra--9495805bdf38",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-domination-polynomials-of-central-graphs-of-triangle--89445fe058b6",
+        "https://arxiv.org/abs/2609.16357"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old proof says omitted original vertex undominated iff N_G(v)=A; its admissibility is exactly the current exclusion.",
+          "Every current explicit all-graph coefficient and counting corollary follows by summing over the same A sets with the same weights."
+        ],
+        "reasoning": "The prior 2026-10-18 statement logically implies current principal theorem, and 2026-11-02 independently covers its major graph-class application. Thus O and V are rejected regardless of correctness.",
+        "searches": [
+          "Published 2026-10-18 full proof of clique-indexed polynomial",
+          "Published 2026-11-02 triangle-free polynomial and min-set consequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier admissible family A={cliques: N_G(v)!=A for all v outside A} is exactly current K(G) minus distinct simplicial-neighborhood sets.",
+          "Earlier map A -> A union {w_uv: u,v notin A} exactly current I_A."
+        ],
+        "reasoning": "The complete bijections coincide vertex-for-vertex; distinct-neighborhood formulation subtracts each forbidden clique once, as already built into the earlier admissibility predicate. Therefore equivalent, not independent.",
+        "searches": [
+          "Resultary: independent domination central graph clique simplicial vertex neighborhood exact cardinality polynomial independent dominating sets",
+          "2026-10-18 full RESULT: clique-indexed independent-domination polynomial of every central graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior polynomial I(C(G);z)=sum_{admissible clique A} z^{|A|+m−sum_{v in A}deg(v)+binom(|A|,2)}.",
+          "Current polynomial has identical coefficients after graph identity e(V\\A)=m−sum deg(A)+binom(|A|,2)."
+        ],
+        "reasoning": "This is already an exact theorem/formula, not merely a table of a few enumerated graphs; the present calculation recomputes it.",
+        "searches": [
+          "Resultary semantic index central graphs independent domination polynomial exact",
+          "GitHub Resultary/2026 2026-10-18 RESULT.md and 2026-11-02 RESULT.md"
+        ]
+      },
+      "rationale": "FAIL decisively: the 2026-10-18 published full RESULT.md \"Clique-indexed independent-domination polynomial of every central graph\" proves precisely the SAME all-graph admissible-clique bijection and polynomial with exponent written using degree sum. The current simplicial-neighborhood correction is exactly the complement of its condition N_G(v) != A, not a different classification. A separate 2026-11-02 result proves the complete same triangle-free polynomial and 1+n+m count. There is no surviving independent theorem after comparison of implications.",
+      "residual_risks": [
+        "No risk that inaccessible arXiv alone caused failure: two accessible prior full theorem statements decisively cover the claim.",
+        "The general identical polynomial and triangle-free special case were published before the current 2026-11-08 submission."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: identical bijection and polynomial for arbitrary base G",
+          "evidence": [
+            "A admissible iff clique and N_G(v) != A for every v outside A; D_A formula and weighted exponent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-clique-indexed-independent-domination-polynomial-of-every-centra--9495805bdf38",
+          "material_read": "Entire published RESULT.md: Finding, all-set proof, exact polynomial and limitations",
+          "method": "GitHub connected fetch_file(Resultary/2026, RESULT.md), blob a6e693a82d7988fa4d77bdaa0c28df1781a19d12",
+          "title": "Clique-indexed independent-domination polynomial of every central graph",
+          "trigger": "Exact general claim and matching bijection"
+        },
+        {
+          "assessment": "COVERING special class and complete polynomial",
+          "evidence": [
+            "z^m+sum_v z^{m−deg(v)+1}+sum_uv z^{m−deg(u)−deg(v)+3}, count 1+n+m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-domination-polynomials-of-central-graphs-of-triangle--89445fe058b6",
+          "material_read": "Entire published RESULT.md, including universal triangle-free polynomial and count",
+          "method": "GitHub connected fetch_file(Resultary/2026) blob 6278d80bcaf93df48bc0fe688fca559a6731f8fb",
+          "title": "Independent-domination polynomials of central graphs of triangle-free graphs",
+          "trigger": "Exact current triangle-free corollary"
+        },
+        {
+          "assessment": "BACKGROUND; unnecessary to decisively settle O because a completely covering published theorem was read",
+          "evidence": [
+            "Optimization theorem on smallest independent dominating set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.16357",
+          "material_read": "Source citation and abstract/partial available in assigned RESULT, not a new full-text inspection",
+          "method": "Published arXiv metadata",
+          "title": "Independent domination in central graphs",
+          "trigger": "Original optimization study and possible additional source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL because the main complete polynomial and all-set bijection are already fully known; the distinct-neighborhood exclusion is a direct restatement of the earlier inadmissibility predicate and the multipartite and triangle-free formulas are substitutions/counts from the prior exact all-graph polynomial. Reproducible code, alternative notation, and correct calculations do not create distinct scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-clique-indexed-independent-domination-polynomial-of-every-centra--9495805bdf38",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-domination-polynomials-of-central-graphs-of-triangle--89445fe058b6",
+    "https://arxiv.org/abs/2609.16357"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection does not dispute correctness of the all-graph bijection or polynomial; it is full prior mathematical coverage.",
+    "No scientific file change proposed; preserve original package atomically if a later authorized importer relocates it."
+  ],
+  "residual_risks": [
+    "No risk that inaccessible arXiv alone caused failure: two accessible prior full theorem statements decisively cover the claim.",
+    "The general identical polynomial and triangle-free special case were published before the current 2026-11-08 submission."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING: identical bijection and polynomial for arbitrary base G",
+      "evidence": [
+        "A admissible iff clique and N_G(v) != A for every v outside A; D_A formula and weighted exponent."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-clique-indexed-independent-domination-polynomial-of-every-centra--9495805bdf38",
+      "material_read": "Entire published RESULT.md: Finding, all-set proof, exact polynomial and limitations",
+      "method": "GitHub connected fetch_file(Resultary/2026, RESULT.md), blob a6e693a82d7988fa4d77bdaa0c28df1781a19d12",
+      "title": "Clique-indexed independent-domination polynomial of every central graph",
+      "trigger": "Exact general claim and matching bijection"
+    },
+    {
+      "assessment": "COVERING special class and complete polynomial",
+      "evidence": [
+        "z^m+sum_v z^{m−deg(v)+1}+sum_uv z^{m−deg(u)−deg(v)+3}, count 1+n+m."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-domination-polynomials-of-central-graphs-of-triangle--89445fe058b6",
+      "material_read": "Entire published RESULT.md, including universal triangle-free polynomial and count",
+      "method": "GitHub connected fetch_file(Resultary/2026) blob 6278d80bcaf93df48bc0fe688fca559a6731f8fb",
+      "title": "Independent-domination polynomials of central graphs of triangle-free graphs",
+      "trigger": "Exact current triangle-free corollary"
+    },
+    {
+      "assessment": "BACKGROUND; unnecessary to decisively settle O because a completely covering published theorem was read",
+      "evidence": [
+        "Optimization theorem on smallest independent dominating set."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.16357",
+      "material_read": "Source citation and abstract/partial available in assigned RESULT, not a new full-text inspection",
+      "method": "Published arXiv metadata",
+      "title": "Independent domination in central graphs",
+      "trigger": "Original optimization study and possible additional source"
+    }
+  ]
+}
