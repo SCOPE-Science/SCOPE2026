@@ -1,15 +1,21 @@
-# Review of sharp subunit-\(q\) segment non-realization
+# Independent mathematical audit
 
-## Correctness — PASS
-For any bounded complex Hilbert-space operator, the maximal perpendicular vector variance equals its norm-distance to scalars: \(\beta(T)=\inf_{\lambda}\|T-\lambda I\|\). The proof supplies a finite-dimensional minimax argument using the top eigenspace, then passes to arbitrary Hilbert spaces by finite-dimensional compressions. Given a unit input vector, all constrained output vectors trace a complete circle of radius \(\sqrt{1-|q|^2}\) times the perpendicular variance. Thus each directional width exceeds \(\sqrt{1-|q|^2}\) times the diameter. Evaluation at the maximum segment separation gives the sharp Hausdorff lower bound. A normal two-level field has precisely the filled ellipse \(E_s\); its explicit quadratic parametrization, including the interior, and the equality of its two one-sided Hausdorff errors establish attainability. The restrictions \(0<|q|<1\), \(L>0\) and \(\dim H\ge2\) are explicit. The local exact-rational checker ran successfully with 12,504 assertions. Infinite-dimensional claims depend on the written proof, not on finite checks.
+## correctness
 
-## Originality — PASS, qualified
-Azadi's arXiv:2610.32504v1, Theorem 2.16, gives an exact-realization theorem for unit-modulus \(q\), and its singleton obstruction does not quantify nondegenerate segments. The prior normal-operator ellipse formulas and the distance-to-scalars identity are treated as classical ingredients, not original conclusions. published-finding corpus comparisons for exact scalar-Hausdorff queries, universal directional-width/diameter formulations, rank-one disk-containment, Jordan-block spectral sets and two-parameter numerical radii gave no result dominating the present *all-Hilbert-dimension optimal Hausdorff infimum for arbitrary continuous-function line segments*. The motivating arXiv paper's relevant proof and theorem text were inspected. Older Li–Mehta–Rodman (1994), and Chien–Nakazato (2005) were accessible only through abstracts/partial scholarly descriptions, not full text, leaving material residual risk that a general width theorem or related quantitative statement is already known. This is best-knowledge originality, not independence or publication-priority certification.
+PASS
 
-## Mathematical value — PASS
-The exact minimax constant turns a qualitative unit-modulus realization boundary into a sharp quantitative theorem for every nondegenerate function-valued segment, without restrictions on the Hilbert dimension, normality, or the topology of the compact base. The all-direction width-to-diameter inequality is independently useful for geometric exclusion and optimization of constrained numerical ranges. The two-dimensional extremal field demonstrates global sharpness without numerical optimization. The use of an exact, universal Hausdorff metric boundary is more than a renaming of the known ellipse calculation, which only supplies an extremal example and not the unrestricted lower bound.
+For all bounded T, β(T)=sup_x||(I−P_x)Tx|| equals dist(T,CI): the nontrivial direction follows by finite-dimensional minimax at a scalar-norm minimizer using the top A*A eigenspace and Toeplitz–Hausdorff convexity, followed by finite compressions/net approximation. For fixed x, the admissible y yield a circle radius s||(I−P_x)Tx||, s=√(1−|q|²), hence every directional width ≥2sβ while diameter ≤2β. Evaluate the continuous field at ω with |f1(ω)−f0(ω)|=L: a set within Hausdorff ε of an L-segment has transverse width ≤2ε and diameter ≥L−2ε; therefore ε≥Ls/[2(1+s)]. A 2×2 normal field with diagonal±1 has filled ellipse E_s, not just its convex hull; scaling by a=1/(1+s) balances both Hausdorff deviations to equality. Independent exact algebra checked Pythagorean r,s and balanced ε, with no claim finite check proves universal bound.
 
-## Limits and closest literature
-The result is limited to one-dimensional real-affine segments and fixed nonzero \(q\) with \(|q|<1\). Two older comprehensive numerical-range articles could not be inspected in full. The proof neither classifies all minimizing fields nor claims novelty for the ellipse geometry or the operator distance-to-scalars identity. Relevant sources include arXiv:2610.32504v1, DOI 10.1080/03081080500156888, DOI 10.1080/03081089408818311 and arXiv:2410.03669.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original full claim after comparing equivalent formulations, dominating results, exact tables and known theorem implications. Relevant inaccessible primary literature remains named as residual risk; no search absence is treated as a proof of novelty.
+
+## value
+
+PASS
+
+A natural endpoint realization theorem |q|=1 breaks down quantitatively at 0<|q|<1. Sharp unavoidable thickness and explicit dimension-independent approximation obstruction clarify the geometry of joint q-numerical ranges, with an attainable natural 2×2 extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
