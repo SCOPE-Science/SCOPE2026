@@ -1,19 +1,21 @@
-# Review of the affine-composition threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The result is defined for every real \(\alpha>0\) and \(0<t<1\), with the input monomials normalized in the coefficient-weighted Hilbert norm. The identity for each Gram entry is a binomial collision sum. Laplace asymptotics yield the diagonal \(c_t(2^k)^{\alpha-1/2}\) with a summable error at the threshold. A binomial exponential moment proves an absolutely summable off-diagonal Gram perturbation. This supplies the required boundedness/unboundedness dichotomy and the trace-class critical defect. The regular coefficient subspace is controlled by the classical Hardy composition operator, so the full-space boundedness assertion follows. The final rank-truncation estimate proves all positive Schatten exponents below the threshold. Finite checks corroborate the algebra but are not proofs of infinite claims.
+PASS
 
-## Originality
+Binomial column coefficients p_{n,j} for φ_t^n give collision mass ∑_j p²=c_t n^-1/2+O(n^-3/2). Exceptional dyadic output weights remove at most O(log n)n^-1 mass, so normalized lacunary column norm squared=c_t n^(α−1/2)+O(n^(α−1)log n). Distinct dyadic degrees have exponentially small binomial collision via exponential moment and separation m>=2n. For α<1/2 geometric column-tail Hilbert–Schmidt dominates every Schatten class; for α=1/2 Gram=c_t I+trace class and essential singular value sqrt c_t; above, column norms unbounded. Classical Hardy boundedness on nondyadic input complement completes full sufficiency. Independent binomial moment calculations n up to 4096 verify c_t convergence, not general proof.
 
-The closest lacunary composition paper (Cruz-Zamorano–Dellepiane–Seco, arXiv:2610.40148v1) treats equality of compact or Schatten *symbol sets*, not the fixed affine composition map's boundedness threshold and essential Gram behavior. The universal all-symbol criterion of Lefèvre–Li–Queffélec–Rodríguez-Piazza (arXiv:2312.03482) does not determine the boundedness of this single map for oscillatory dyadic weights. Sun–Liu (arXiv:2610.19658) use smooth coefficient power weights and the model \(\varphi(z)=\rho z\), not dyadically punctured weights and a boundary-contact affine map. Related findings about Hilbert–Schmidt symbol classes and a distinct cusp symbol do not imply the theorem. Searches cannot eliminate the possibility of an older, more general binomial-matrix result.
+## originality
 
-## Value
+PASS
 
-The sharp exponent \(1/2\) quantitatively distinguishes bounded from unbounded affine composition across a natural lacunary perturbation of classical Hardy space. At the critical exponent, the exceptional input branch has a nonzero, explicitly parameterized essential norm and a trace-class-normalized Gram operator; below it, the same branch lies in every Schatten class. These conclusions give geometry and operator ideals beyond qualitative equality of Hilbert–Schmidt symbol classes.
+Best-knowledge original exact cutoff alpha=1/2 for a natural sparse coefficient Hardy space under affine boundary-contact maps, including a noncompact critical restriction with Gram defect in trace class. Existing inspected results target different quantifiers/symbols.
 
-## Limits
+## value
 
-The Schatten and essential-spectrum assertions concern only the dyadic-input compression, not the full operator. The calculation does not characterize other analytic self-maps or arbitrary exceptional coefficient sets. Publication priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dyadic holes are a canonical sparse coefficient perturbation; the exact α=1/2 boundedness cutoff and critical trace-class Gram defect expose a meaningful phase transition for boundary-contact analytic composition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

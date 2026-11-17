@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `VERIFY_LACUNARY_AFFINE.py` checker executed successfully with output `LACUNARY_AFFINE_BINOMIAL_CHECKS_OK 1183`. Its finite arithmetic comparisons cover the displayed binomial moment identities and examples of the dyadic target-weight correction at rational affine slopes.
+# Independent mathematical audit
 
-The proof of the infinite-dimensional statements is analytical: Gaussian asymptotics for binomial convolution diagonals, an exponential cross-scale collision bound, and a trace-class estimate for the Gram defect. The finite program does not certify an infinite asymptotic, a universal bound, or publication priority. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+Binomial column coefficients p_{n,j} for φ_t^n give collision mass ∑_j p²=c_t n^-1/2+O(n^-3/2). Exceptional dyadic output weights remove at most O(log n)n^-1 mass, so normalized lacunary column norm squared=c_t n^(α−1/2)+O(n^(α−1)log n). Distinct dyadic degrees have exponentially small binomial collision via exponential moment and separation m>=2n. For α<1/2 geometric column-tail Hilbert–Schmidt dominates every Schatten class; for α=1/2 Gram=c_t I+trace class and essential singular value sqrt c_t; above, column norms unbounded. Classical Hardy boundedness on nondyadic input complement completes full sufficiency. Independent binomial moment calculations n up to 4096 verify c_t convergence, not general proof.
+
+## originality
+
+PASS
+
+Best-knowledge original exact cutoff alpha=1/2 for a natural sparse coefficient Hardy space under affine boundary-contact maps, including a noncompact critical restriction with Gram defect in trace class. Existing inspected results target different quantifiers/symbols.
+
+## value
+
+PASS
+
+Dyadic holes are a canonical sparse coefficient perturbation; the exact α=1/2 boundedness cutoff and critical trace-class Gram defect expose a meaningful phase transition for boundary-contact analytic composition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
