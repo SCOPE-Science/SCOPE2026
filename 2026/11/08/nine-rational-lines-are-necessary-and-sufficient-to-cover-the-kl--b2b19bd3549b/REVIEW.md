@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact scope is the rational projective plane over \(\mathbb F_{31}\). `VERIFY.py` exhausts all \(993\) rational lines, shows that \(K(\mathbb F_{31})\) has \(32\) points, verifies the nine-line cover, and enumerates every pairwise disjoint subset of the \(31\) four-secants (depth counts \((1,31,270,804,805,207,3,0)\)). Any eight-line cover would require eight disjoint four-secants. The finite program is itself the explicit exhaustive certificate; no extrapolation is used.
+## correctness
 
-**Originality (PASS, best-knowledge).** Actual semantic searches of prior research records for Klein quartic, characteristic \(31\), rational line covering, four-secants and matching found no equivalent exact count. The source on covering curves supplies the thematic question and broad bounds, not an identified exact Klein-over-\(\mathbb F_{31}\) calculation. A prior account documents a different Klein quartic \(24\)-arc over \(\mathbb F_{29}\). The full new covering paper was inaccessible; this creates real priority uncertainty, not evidence of uniqueness.
+PASS
 
-**Value (PASS).** The exact line-covering number of a canonical highly symmetric genus-three curve is a natural finite-field geometry invariant, directly motivated by work on rational-line covering. Here the optimal count is strictly larger than the naive degree-four lower bound; the mechanism is a separately exact and nontrivial four-secant packing obstruction. The result is a reproducible benchmark for line-cover constructions rather than an arbitrary polynomial substitution.
+Independent exhaustive projective enumeration uses 993 normalized points/dually lines and computes exactly 32 points satisfying X^3Y+Y^3Z+Z^3X=0 modulo 31. Complete incidence scan gives line spectrum 354,334,256,18,31 for 0..4 rational contacts. Independent recursive enumeration of every increasing-index family of pairwise curve-disjoint 4-secants returns depth counts 1,31,270,804,805,207,3,0, forbidding 7 and hence 8; eight covering lines would require eight disjoint 4-secants by Bezout and 32 points. Explicit nine witness lines cover all 32; tau=9. Full finite exhaustive proof; no extrapolation.
 
-Independent mathematical verification and exhaustive literature-priority assessment have not been performed. The accepted statement is finite-field specific.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Asgarli–Dassarma–Ghioca–MacLean–Stokdyk 2026 proves q-asymptotic near-optimal upper bounds for general reflexive plane curves, without a demonstrated exact F31 Klein quartic line-cover table. Earlier published Klein maximal quartic at F25 has 56 points and a perfect 14-line cover in a different model/field. The target 31-field exact invariant is not implied by either; plausible exact prior table remains a recorded risk due primary full-text access limitation.
+
+## value
+
+PASS
+
+PASS as an exact, naturally motivated finite-geometric covering invariant of the classical Klein quartic at F31, demonstrating a strict nonattainment of the obvious Bezout lower bound 8. The exhaustive 31 four-secant packing obstruction and explicit cover are reusable exact evidence; no general q-law or paper-sized theorem is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` in an environment supporting Python 3. It regenerates all \(993\) rational projective points and lines over \(\mathbb F_{31}\), enumerates the \(32\) rational points on the Klein quartic, calculates the complete \((0,1,2,3,4)\)-intersection spectrum, checks all nine cover lines, and exhaustively explores every pairwise rational-point-disjoint four-secant family.
+## correctness
 
-Expected stdout contains three `*_OK` lines, culminating in `MINIMUM_RATIONAL_LINE_COVER_OK: 9 explicit lines, 8 impossible`. This self-contained finite search is exhaustive because projective normalization and the strictly increasing recursion cover every possible rational line and every disjoint family once. No auxiliary tables, stochastic tests, or outside inputs are used.
+PASS
 
-The statement is only over \(\mathbb F_{31}\). The source paper's full text could not be inspected and independent review remains outstanding.
+Independent exhaustive projective enumeration uses 993 normalized points/dually lines and computes exactly 32 points satisfying X^3Y+Y^3Z+Z^3X=0 modulo 31. Complete incidence scan gives line spectrum 354,334,256,18,31 for 0..4 rational contacts. Independent recursive enumeration of every increasing-index family of pairwise curve-disjoint 4-secants returns depth counts 1,31,270,804,805,207,3,0, forbidding 7 and hence 8; eight covering lines would require eight disjoint 4-secants by Bezout and 32 points. Explicit nine witness lines cover all 32; tau=9. Full finite exhaustive proof; no extrapolation.
+
+## originality
+
+PASS
+
+PASS best of knowledge: Asgarli–Dassarma–Ghioca–MacLean–Stokdyk 2026 proves q-asymptotic near-optimal upper bounds for general reflexive plane curves, without a demonstrated exact F31 Klein quartic line-cover table. Earlier published Klein maximal quartic at F25 has 56 points and a perfect 14-line cover in a different model/field. The target 31-field exact invariant is not implied by either; plausible exact prior table remains a recorded risk due primary full-text access limitation.
+
+## value
+
+PASS
+
+PASS as an exact, naturally motivated finite-geometric covering invariant of the classical Klein quartic at F31, demonstrating a strict nonattainment of the obvious Bezout lower bound 8. The exhaustive 31 four-secant packing obstruction and explicit cover are reusable exact evidence; no general q-law or paper-sized theorem is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
