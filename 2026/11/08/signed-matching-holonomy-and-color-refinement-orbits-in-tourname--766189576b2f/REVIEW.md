@@ -1,15 +1,21 @@
-# Review of the signed-matching holonomy theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. A stable three-element class must be a directed triangle, and the adjacency matrix between two such classes has constant row and column sums. Every nonuniform three-by-three such matrix, at row sum one or two, is a perfect matching or its complement. Automorphisms preserve the stable classes and act on each triangle by a rotation. The compatibility equations transport exponents in \(\mathbb Z/3\mathbb Z\) with the signs of the matchings, so positive cycle holonomy gives one order-three factor while a negative cycle forces that component to act trivially. The explicit nine-vertex tournament has three degree classes and one negative signed cycle. The verifier reproduces orbit partitions and automorphism orders throughout an exhaustive 2744-case constructed test family, with 2310 in scope.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. Arvind et al. (arXiv:1502.01255), introductory and definitional sections, study refinability of undirected graphs; their results do not supply this tournament matching-holonomy criterion. Kiefer et al. (arXiv:1503.08792), introduction and general relational-structure classification (Theorems 24 and 27), address structures identifiable by two-variable counting logic rather than giving this exact automorphism-group description for all small-cell tournaments. The inspected sections include directed triangles as special components, but do not state the signed-cycle obstruction to refinability. Searches for signed matching, directed-triangle equitable partitions, monodromy, and orbit recovery found no explicit covering theorem. A previously unindexed equivalent result remains possible.
+PASS
 
-## Value
-PASS. The theorem turns a potentially global automorphism-orbit problem into an exact graph-theoretic balance criterion, valid for an unbounded family of tournaments, and computes the entire automorphism group from the number of balanced components. It identifies the first possible obstruction under a natural stable-cell size restriction and constructs rigid counterexamples for every order starting at nine. The result explains why two-variable counting logic can see symmetric three-vertex cells in a rigid tournament. Its value is structural rather than merely computational.
+Stable 3-vertex cells have common within-cell outdegree one and are directed triangles; size-two stable cells are impossible. Between two triples the directed 3×3 cross-adjacency has constant row/column sum k, so k∈{0,3} is uniform and k∈{1,2} gives exactly a perfect matching or complement. Every automorphism preserves refinement cells and rotates each triangle by t_P∈Z/3; matching preservation imposes t_Q=sgn(π_PQ)t_P. Balanced signed components admit one free C3 rotation; a negative cycle gives t=−t, hence t=0 modulo 3. All compatible rotations preserve every arc; this proves full group and orbit partition, not just necessary conditions. Unbalanced signed cycle needs >=3 triple blocks => >=9 vertices. Independent reconstruction of explicit three-triangle witness verified degree partition 3,3,3/4,4,4/5,5,5 and unique automorphism among 27 possible classwise rotations; appending dominating singleton vertices maintains a negative cycle and rigid property. Inspected full verify.py with 2744 pattern families (2310 in-scope), but finite checks only corroborate the unbounded symbolic theorem.
 
-## Limits and nearest sources
-The conclusion is restricted to finite tournaments whose **stable directed** color classes all have size at most three. The checked papers provide broad background but do not certify the historical originality of the signed criterion. The explicit test family checks the sign bookkeeping; the infinite proof is symbolic. There has been no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General undirected graph refinability and C²-identifiability literature develops the concept but does not give a tournament-specific matching-sign holonomy classification or full automorphism-group formula for all small stable cells. A published rooted tournament 8-vertex obstruction has stable classes 1+7, so it lies outside this size<=3 condition and cannot imply its nine-vertex cutoff. The parity/holonomy logic is an original-looking structural specialization, with unindexed tournament-equitable-partition precedent still a risk.
+
+## value
+
+PASS
+
+The theorem computes full automorphism groups and orbits from an elementary signed auxiliary graph rather than exhaustive permutations. It explains exact obstruction to refinability for unbounded tournament sizes with naturally small equitable color cells and gives a sharp threshold and rigid counterexample family; it is a structural classification, not just a finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
