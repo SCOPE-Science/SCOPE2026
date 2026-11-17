@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:05:41.233536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstruct the weighted matrix-tree identity sum_T product_w x_w^{deg_T(w)}=(prod_w x_w)S^{r-2}prod_i(S-S_i)^{n_i-1}, noting r=2 works by S^0. Dividing by the count realizes excess degrees as independent categorical one-hot allocations, yielding covariance -(r-2)/N² minus (n_i-1)/(N-n_i)^2 over parts excluding both marked vertices. For f(s)=(s-1)/(N-s)^2, strict increasing convexity and g(s)=f(s)+1/N² strict superadditivity concentrate all nonmarked vertices in one N-2 part. Same-part pairs are strictly weaker; K3 versus K1,2 boundary checked separately. In extremal host, one binomial allocation and a single multinomial allocation give variance (N-3)/4+(N-1)/N² and covariance -(N-3)/4-1/N², so the correlation rate follows. Independent Prüfer enumeration across 40 hosts N<=7 and 4,063 bounded assertions corroborated the formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remmel–Williamson proves multivariate forest enumeration for complete multipartite graphs and states 1994 predecessor."
+        ],
+        "reasoning": "The enumerator is broader as a data structure but the inspected paper does not state a sharp host/pair extremal covariance or uniqueness; an existing generating-function formula does not mechanically provide the nontrivial strict superadditivity extremizer without additional analysis.",
+        "searches": [
+          "complete multipartite uniformly random spanning tree degrees covariance sharp extremal K_1,1,N-2",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+          "Egecioglu Remmel multipartite spanning tree bijection 1994"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+        "https://doi.org/10.37236/1650",
+        "https://sites.cs.ucsb.edu/~omer/personal/abstracts/multipartite.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical formula implies the exact covariance by differentiation; minimization of that expression over all connected host compositions is an additional strict convexity argument with unique K_{1,1,N-2}."
+        ],
+        "reasoning": "The prior enumerator logically implies the input formula and could enable deduction but the submission supplies a motivated sharp extremal theorem not present in the inspected primary full text; the older 1994 full article remains a real risk.",
+        "searches": [
+          "complete multipartite uniformly random spanning tree degrees covariance sharp extremal K_1,1,N-2",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+          "https://sites.cs.ucsb.edu/~omer/personal/abstracts/multipartite.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remmel–Williamson 2002 Example 3.2 develops multipartite spanning-tree/forest multivariate enumerators. The new covariance is a second log-derivative of the standard weighted enumerator."
+        ],
+        "reasoning": "Equivalent categorical allocation and generating-function forms are established classical inputs; their presence does not include the sharp global optimization of pair covariance over arbitrary part compositions.",
+        "searches": [
+          "complete multipartite uniformly random spanning tree degrees covariance sharp extremal K_1,1,N-2",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this same 2026-11-08 claim and different edge-covariance, degree-leaf, and bipartite conditional-dependence results."
+        ],
+        "reasoning": "No exact sharp all-part composition covariance table was found; not a novelty certificate.",
+        "searches": [
+          "complete multipartite uniformly random spanning tree degrees covariance sharp extremal K_1,1,N-2",
+          "Resultary semantic complete multipartite spanning tree degree covariance"
+        ]
+      },
+      "rationale": "PASS best knowledge for the universal sharp covariance envelope, sole extremal complete-multipartite composition and near-perfect anticorrelation rate; NOT a claim of originality for the classical multipartite tree enumerator or its degree-generating function.",
+      "residual_risks": [
+        "Egecioglu–Remmel (1994) full primary manuscript was not obtained; possible degree-covariance interpretation or extremal aside remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENUMERATOR_PRIOR_NOT_EXTREMAL_RESULT",
+          "evidence": "Example 3.2 reproduces complete-multipartite forest/tree generating formulas, with no covariance or global extremal inequality found in full parsed text.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i1r34/pdf/",
+          "material_read": "24-page PDF parsed, abstract and Introduction and Example 3.2 pages 14-20 read; page-one screenshot inspected",
+          "method": "web PDF text and screenshot",
+          "title": "Spanning Trees and Function Classes",
+          "trigger": "Direct same-host multivariate spanning-tree enumeration"
+        },
+        {
+          "assessment": "ACCESS_PRIORITY_RISK",
+          "evidence": "The 1994 source is an antecedent to enumerators; its full treatment of derivative properties cannot be excluded on this inspection.",
+          "identifier_or_url": "https://sites.cs.ucsb.edu/~omer/personal/abstracts/multipartite.html",
+          "material_read": "Archived abstract, not original full article",
+          "method": "author archive/index",
+          "title": "A Bijection for Spanning Trees of Complete Multipartite Graphs",
+          "trigger": "Original combinatorial enumeration of identical host class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unique optimizer K_{1,1,N-2} is a natural all-host extremal theorem for dependent random tree vertex degrees; the exact bound and N^-2 approach to perfect anticorrelation quantify a sharp probabilistic geometry not supplied by counting formulas alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Uniform trees of finite connected complete multipartite hosts only; no claim for arbitrary or weighted graphs or higher-degree cumulants.",
+  "schema_version": 1
+}

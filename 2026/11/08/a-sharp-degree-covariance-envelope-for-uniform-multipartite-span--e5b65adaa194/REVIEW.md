@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The directed matrix-tree calculation recovers the degree-weight enumerator without invoking an unsupported coefficient identity. Independent categorical draws from its probability-generating function give the exact covariance. A strictly convex single-parameter function yields the global inequality and unique minimizer; the binomial/multinomial decomposition establishes the extreme correlation law. The finite checker enumerated 102,778 admissible trees, with 6,834 complete-polynomial and 646 pair-covariance comparisons passing. Proof covers all allowed host sizes, not just those enumerated.
+## correctness
 
-**Originality — PASS, with residual risk.** The complete multipartite weighted tree polynomial is classical and explicitly excluded from the new contribution. The claimed new content is the *sharp covariance minimum over all multipartite compositions and vertex pairs*, its precise equality classification, and the near-perfect anticorrelation rate. Remmel–Williamson (2002) gives related forest/tree enumerations, and Egecioglu–Remmel (1994) gives multivariate spanning-tree bijections. No inspected source states the universal extremal claim. The full 1994 paper was unavailable, so historical implicit/explicit priority remains uncertain; absence from an index is not proof of originality. The later Kirchhoff-algebra study of the maximizing host does not itself establish the covariance envelope in inspected available sections.
+PASS
 
-**Value — PASS.** The negative dependence between two degrees is a basic statistic of the uniform spanning-tree measure. The result solves a natural graph-shape extremal problem and identifies a unique structural regime where covariance grows linearly with the host size, unlike the weak dependence in complete hosts and zero covariance across bipartite parts. The sharp near-perfect anticorrelation rate supplies a useful quantitative boundary for dependence in multipartite tree sampling.
+Reconstruct the weighted matrix-tree identity sum_T product_w x_w^{deg_T(w)}=(prod_w x_w)S^{r-2}prod_i(S-S_i)^{n_i-1}, noting r=2 works by S^0. Dividing by the count realizes excess degrees as independent categorical one-hot allocations, yielding covariance -(r-2)/N² minus (n_i-1)/(N-n_i)^2 over parts excluding both marked vertices. For f(s)=(s-1)/(N-s)^2, strict increasing convexity and g(s)=f(s)+1/N² strict superadditivity concentrate all nonmarked vertices in one N-2 part. Same-part pairs are strictly weaker; K3 versus K1,2 boundary checked separately. In extremal host, one binomial allocation and a single multinomial allocation give variance (N-3)/4+(N-1)/N² and covariance -(N-3)/4-1/N², so the correlation rate follows. Independent Prüfer enumeration across 40 hosts N<=7 and 4,063 bounded assertions corroborated the formulas.
 
-**Closest literature and limitations.** The enumerator is not new (Egecioglu–Remmel, 1994; Remmel–Williamson, 2002). Results are restricted to uniform trees on connected complete multipartite hosts; no statement is made for arbitrary graphs or weighted tree laws. The full earlier original is an unresolved priority risk. The finite checker does not establish the all-size theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge for the universal sharp covariance envelope, sole extremal complete-multipartite composition and near-perfect anticorrelation rate; NOT a claim of originality for the classical multipartite tree enumerator or its degree-generating function.
+
+## value
+
+PASS
+
+The unique optimizer K_{1,1,N-2} is a natural all-host extremal theorem for dependent random tree vertex degrees; the exact bound and N^-2 approach to perfect anticorrelation quantify a sharp probabilistic geometry not supplied by counting formulas alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
