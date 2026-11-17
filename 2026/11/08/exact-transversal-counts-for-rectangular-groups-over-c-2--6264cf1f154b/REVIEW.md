@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The product-coordinate identities and exact three-way bijection between output-indexed target-bit choices, target first-coordinate permutations, and input last-coordinate permutations establish the coefficient formula over all positive integer dimensions. Each factor \((r!)^{2s}\) and \((s!)^{2r}\) is accounted for without duplication. The opposite-semigroup inversion proves symmetry. The two-row polynomial and binomial sum follow by explicit coefficient expansion. Exhaustive small-case permutation counts provide an independent check, not a replacement for the proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The 2026 source proves existence for general Rees matrix semigroups (its Theorem 5.1), not numbers of complete mappings for the \(C_2\) rectangular groups. Its Latin-square enumeration in Section 6.1 concerns Brandt semigroups with zero, a different multiplication. The 2026 group-Latin-square paper treats group tables, not the present non-group family. Search comparisons to rectangular-band and Brandt counts show different statements and do not imply the displayed formula. No equivalent count was found in the searches performed, though historical nonindexing remains a risk.
+PASS
 
-**Value — PASS.** Existence for even index product is settled, but the number of transversals is the next canonical invariant in a Rees group family built over the smallest Hall–Paige obstruction \(C_2\). The formula answers it for every pair of index sizes; the two-row specialization is an explicit nontrivial binomial sum. It avoids factorial-scale direct permutation enumeration and supplies data for comparison with Brandt and rectangular-band counts. This is not an arbitrary slice.
+For every r,s>=1 the nonzero Rees rectangular group has product (i,a,lambda)(j,b,mu)=(i,a+b,mu), with labeled 2rs-point permutations. Indexing each distinct output (i,t,mu) fixes g=t+b. The 2r target middle bits in each mu-slice must be balanced; each such slice admits (r!)^2 independent target-first-coordinate assignments. The source exponent balance assigns each input suffix lambda in (s!)^(2r) ways. Four possibilities for a pair of target bits give exactly (1+z^2)x_i0*x_i1+z(x_i0^2+x_i1^2); extracting z^r and then each x_i,g^s gives a bijective count, no overcount. Inversion of alpha in the opposite semigroup and exchanging the row/column index sets yields N_rs=N_sr. The r=1 and r=2 expansions and n=2 group boundary are correct. Independently reimplemented the coefficient DP and exhausted every 8!-or-smaller permutation: (1,1)=0,(1,2)=8,(1,3)=0,(1,4)=3456,(2,1)=8,(2,2)=2048,(3,1)=0,(4,1)=3456; also N_2,3=2,654,208 by independent coefficient DP. Generality follows from the bijective proof, not finite checks.
 
-**Limitations.** Sandwich matrix is all-identity and the maximal subgroup is exactly \(C_2\); other Rees groups are not treated. Literature searches cannot prove absolute novelty, and computational tests alone are finite. The known existence criterion is not an originality claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-size complete-mapping enumerator for Rees rectangular groups with nontrivial middle C2 is a specific, natural exact count, not mechanically determined by the known parity-existence theorem or enumeration of zero-containing Brandt semigroups. Resultary semantic searches for rectangular groups, C2 transversals, Rees matrices and complete mappings did not surface a prior formula. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Complete mappings/transversals are canonical semigroup combinatorial objects. The precise labeled count extends a nontrivial all-dimensions existence boundary to a computable coefficient enumerator, with one- and two-row closed forms and row-column duality; this is more than a normalization or a tiny case count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
