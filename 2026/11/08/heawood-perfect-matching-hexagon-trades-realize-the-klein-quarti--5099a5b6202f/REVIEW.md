@@ -1,19 +1,21 @@
-# Review of the Heawood perfect-matching hexagon-trade correspondence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies exactly the Fano incidence relation, matching and six-cycle flip criterion, and embedded facial rotation. Exhaustive matching enumeration is performed independently by local incidence choices and by all seven-point bijections. In both programs, 24 perfect matchings and 28 six-cycles appear; a six-cycle flip is legal exactly when a matching contains three alternate edges. The 84-edge graph is connected, with constant distance layers \((1,7,14,2)\) and the complete neighbor intersection counts of \(\{7,4,1;1,2,7\}\). The cycle-disjointness model independently computes all 24 distinct induced Coxeter heptagons and tests the common-two-path criterion across all 276 matching pairs. Two different facial constructions independently give \(3K_1\sqcup3C_7\). The identification as the named Klein quartic graph uses the previously established uniqueness of the distance-regular graph having that array. Independent scientific validation is not claimed.
+PASS
 
-## Originality — PASS, qualified
+For Heawood H specified by Fano incidence, exhaustive bijection enumeration among all 7! partner permutations gives 24 perfect matchings. All 28 simple hexagons were generated, and flip adjacency is equivalent to exactly three changed point partners, giving 84 edges, layers (1,7,14,2), intersection array {7,4,1;1,2,7}. Construct Coxeter graph on the 28 pairwise vertex-disjoint hexagons; every matching has 7 alternating hexagons inducing a 7-cycle; 24 distinct heptagons exhaust all, and each of 276 pairwise matching comparisons shows flip iff common Coxeter 2-edge path. Exact torus rotation gives seven facial hexagons and 21 facial flip edges with 3 isolated matchings and 3 seven-cycles, direction signatures as claimed. Independent fresh enumeration tested all these finite states, not inference from sampled graph parameters.
 
-Ye–Zhang (arXiv:0908.1506v1) studies Pfaffian toroidal polyhexes with the Heawood graph. Dejter (arXiv:1002.1960v1) already supplies the 28-hexagon Coxeter model, 24 Coxeter heptagons, Klein graph and path-based heptagon geometry; none are presented as independently new. The additional matching-to-heptagon assignment and exact equivalence of matching-hexagon flips to common-two-path adjacency are not stated in the inspected relevant constructions. Tratnik–Ye (arXiv:1710.00761v1) provides general surface resonance theory; its cubical-component theorem assumes a proper subset of faces and does not cover this seven-out-of-seven system. Liang–Zhang (arXiv:2609.19766v1) covers general toroidal polyhex facial connectivity and trivial matchings but does not provide the explicit Heawood \(3C_7+3K_1\) calculation or its all-hexagon counterpart. Specific database-result checks did not identify a stronger calculation of this matching correspondence. Residual originality risk: the correspondence might be implicit in a different Fano/Klein construction or appear under an unindexed synonym; priority is qualified, not absolute.
+## originality
 
-## Value — PASS
+PASS
 
-Perfect-matching resonance ordinarily uses only embedding faces, whereas alternating-cycle trades admit nonfacial exchanges. The smallest cubic girth-six toroidal incidence graph supplies a canonical, symmetry-rich test of the distinction: seven facial hexagons leave six components, but permitting the 21 essential ones connects everything in at most three moves. The new explicit matching-to-Coxeter bijection explains the symmetry through the existing Klein geometry and allows shortest-path questions in one context to be translated into Coxeter heptagon adjacency. The insight is structural, not an arbitrary partial census; it makes no claim of a theorem for an infinite family.
+PASS best of knowledge ONLY for the explicit matching-to-Coxeter seven-cycle bijection with its shared-two-path adjacency equivalence and the specific seven-face resonance decomposition 3K1 disjoint union 3C7. MAJOR EARLIER COVERAGE: two published SCOPE theorems from October 26 and November 2, 2026 establish exactly the headline that the Heawood alternating-hexagon perfect-matching flip graph is the 24-vertex Klein quartic graph, including 24 vertices, 84 edges, all distance intersection numbers and antipodal triple data; these are NOT new. The distinct Coxeter matching map and explicit facial-versus-all flip contrast survive; Dejter already gives Coxeter 7cycles and Klein adjacency but not an inspected perfect-matching construction. Source-access limits and prior-citation gaps remain material.
 
-## Closest sources and limitations
+## value
 
-The dominant nearby construction is Dejter's Coxeter-to-Klein seven-cycle model (2010). The strongest general coverage of facial resonance is the later surface theory of Tratnik–Ye and Liang–Zhang. Verified conclusions are finite and specific to the stated torus rotation; the graph-name and distance-array classification is prior knowledge. The two supplied programs are same-package mathematical checks, not an external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Heawood graph with canonical torus embedding is a natural finite resonance/reconfiguration object: seven actual faces alone strand three matchings and split the other 21 into three C7, while all 28 six-cycles connect configurations within three trades. The canonical matching-to-Coxeter heptagon map gives a structural translation of elementary trades into an exceptional symmetric graph. Exact finite classification is independently useful despite prior discovery of the abstract flip graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
