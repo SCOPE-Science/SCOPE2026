@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is precise for three positive directional weights on infinite and square-periodic honeycomb graphs. Two-band Bloch diagonalization gives the exact diagonal resolvent, and its off-diagonal kernel is strictly positive. A nonzero fixed-sum perturbation produces a strictly positive resolvent Hessian quadratic form, so strict Schur-convexity is established without relying on numerics. Every quotient return dominates the infinite return via the weighted closed-walk lift, with the first possible extra winding return at step \(2n\). The weak-edge singular law follows from an explicit two-site strong-edge resolvent and a norm-controlled error. The isotropic value is rigorously bracketed by rational walk-series bounds; `verify.py` replays 537 supplementary checks.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority uncertainty.** The generic Crank–Nicolson return criterion and earlier honeycomb random-walk Green functions are acknowledged prior work. The full texts inspected in the Faragó–Horváth nonnegativity analysis, the Higueras–Roldán Dirichlet analysis, the Marris–Sarvaharman–Giuggioli honeycomb propagator treatment, and Gan–Ouvry–Polychronakos closed-walk enumeration do not state the combination of a sharp all-torus anisotropic positivity bound, strict fixed-sum Schur order and near-matching divergence. A specialized earlier treatment might imply the same result; no publication-priority certificate is asserted.
+PASS
 
-**Value — PASS.** Positivity, rather than spectral stability alone, is the physical admissibility criterion for many semidiscrete diffusion problems. Here the exact worst-case conductance allocation yields a provably sharp timestep budget across all periodic sample sizes, and the singular matching limit clarifies how heterogeneity changes that restriction. This is a natural design question and is not a mere isolated numerical table. The improvement in the isotropic threshold over the degree-only tree bound is small, but the structural allocation classification and finite-size theorem are the substantive contributions.
+C(s)=2R(s)-I, R=(I+sL)^{-1} has strictly positive off-diagonal Neumann-walk entries and equal diagonal returns. The 2×2 Bloch inverse yields g∞ and gn, each decreasing from 1 to below 1/2, hence unique thresholds. The fixed-sum return Hessian is a strict positive quadratic form with nonzero Bloch polynomial; honeycomb edge-direction symmetry makes it strictly Schur-convex. Lifted winding walks prove finite torus return greater with difference at most q(s)^{2n}; resolvent perturbation around a strong matching proves σ∞∼(2Sε)^{-1/2}. Independently reproduced the exact-rational 45-term bracket 0.41705524440007830<σ0<0.41705524440007831 and sample torus return ordering.
 
-The result does not extend to arbitrary boundary geometries, heterogeneous site-dependent edge weights or nonlinear diffusion. Comparison with specialist literature remains a publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing Crank–Nicolson positivity criteria and lattice Green functions provide tools, not the exact anisotropic honeycomb strict majorization, exponentially sharp all-periodic comparison or singular matching law. Closely ranked cube and square-lattice results involve different graphs and different spectral geometries.
+
+## value
+
+PASS
+
+A natural numerical positivity constraint for honeycomb diffusion has a complete sharp budget-optimal allocation and an all-periodic-volume bound, including a computable exact integral constant and universal dimer degeneration exponent. The strict Schur-convexity plus winding correction is structural, useful for design of positivity-preserving integration, and not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
