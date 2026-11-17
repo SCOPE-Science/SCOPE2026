@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:11:23.800769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reduction v=u(1+H(1-u²)), Phi=u W_B with B∈[0,H] and H<=1/alpha<=1 gives Phi>=u>=0 for u>=0 and alpha>=1. For B=H exact P(z,y,t)=[2-z(1+W_H²)]/(1-z) on [0,1]^3; independent exact algebra reconstructs 46 monomials and all 729 rational degree-eight Bernstein coefficients >=1/8 (minimum index (1,8,8)), hence Phi²+u²<=2 by endpoint interpolation and energy-difference factorization. For alpha<1 derivative at u=1 has large-step limit (1-2/alpha)²>1 (alpha=0 direct), giving energy increase near equilibrium. At alpha=1 output can exceed one; no iterated result. The exact finite coefficient certificate and Bernstein convexity, not random tests, prove positivity on the whole cube.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2, eqs. 2.12,2.16; arXiv 2402.15142",
+          "arXiv 2610.11532, energy-framework theorems"
+        ],
+        "reasoning": "Fu–Shen–Yang Theorem 2.2 and Quan framework give sufficient general energy criteria under Lipschitz and operator restrictions; neither inspected statement provides necessity of alpha>=1 for untruncated single-step scalar equation.",
+        "searches": [
+          "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+          "https://arxiv.org/abs/2610.11532"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+        "https://arxiv.org/abs/2610.11532",
+        "https://doi.org/10.1016/j.jcp.2022.110943"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.2, eqs. 2.12,2.16; arXiv 2402.15142",
+          "DOI 10.1016/j.jcp.2022.110943; Oxford vpn_disconnected job d10125565f2762c371c14a09595b043d"
+        ],
+        "reasoning": "Fu sufficient threshold can imply descent at some choices but not the if-and-only-if optimal bound with local-repulsion necessity. Uninspected 2022 primary may dominate, explicitly risk not dismissed.",
+        "searches": [
+          "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+          "https://doi.org/10.1016/j.jcp.2022.110943"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.2, eqs. 2.12,2.16; arXiv 2402.15142"
+        ],
+        "reasoning": "Exact scheme matches Fu–Shen–Yang ETDRK2 table and h phi_j coefficients, but current claim adds an all-h iff minimal-alpha scalar input-domain statement.",
+        "searches": [
+          "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 2.2, eqs. 2.12,2.16; arXiv 2402.15142",
+          "arXiv 2610.11532, energy-framework theorems"
+        ],
+        "reasoning": "No database of exact one-step Allen–Cahn alpha thresholds found; previous numerical data for stabilized PDE schemes do not tabulate this iff result.",
+        "searches": [
+          "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+          "https://arxiv.org/abs/2610.11532"
+        ]
+      },
+      "rationale": "Best-knowledge PASS: Fu–Shen–Yang prove sufficient unconditional energy conditions with global Lipschitz nonlinearities, not an exact minimum scalar stabilizer for untruncated quartic on single-step input interval; 2026 Quan et al general framework similarly does not supply iff alpha>=1. The 2022 paper inaccessible full text remains an explicit priority risk.",
+      "residual_risks": [
+        "Fu–Yang 2022 full theorem not accessible via legal OA/arXiv or institutional channel (Oxford vpn_disconnected); uninspected priority risk.",
+        "Energy theorem deliberately only one step on [-1,1], not invariant domain or arbitrary-h flow."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2.2 gives sufficient condition based on globally Lipschitz f and positive-definite method matrix; not necessary/sufficient scalar all-h one-step threshold alpha>=1 on [-1,1].",
+          "evidence": [
+            "Theorem 2.2, eqs. 2.12,2.16; arXiv 2402.15142"
+          ],
+          "identifier_or_url": "https://www.math.purdue.edu/~shen7/pub/SCM24.pdf",
+          "material_read": "Entire 20-page author-hosted primary PDF, especially eqs. (2.10)-(2.17), Theorem 2.2 and Corollary 3.2",
+          "method": "PDF parsed text and screenshot page 4; proof and model assumptions inspected",
+          "title": "Fu, Shen and Yang, Higher-order energy-decreasing exponential time differencing Runge–Kutta methods for gradient flows",
+          "trigger": "The same ETDRK2 stages and original energy stability"
+        },
+        {
+          "assessment": "General sufficient conditions and step-size requirements; no equivalent exact scalar alpha=1 iff one-step theorem located.",
+          "evidence": [
+            "arXiv 2610.11532, energy-framework theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11532",
+          "material_read": "ArXiv full HTML introduction and conditions; comparisons of step size and scalar cases",
+          "method": "HTML full text reading",
+          "title": "Quan, Zheng and Zhou, Unified framework for original energy dissipation of equilibrium-preserving exponential Runge–Kutta methods",
+          "trigger": "Related newer ETDRK original-energy theorem"
+        },
+        {
+          "assessment": "Uninspected complete theorem could contain relevant sufficient threshold; not used to make a whole-paper exclusion.",
+          "evidence": [
+            "DOI 10.1016/j.jcp.2022.110943; Oxford vpn_disconnected job d10125565f2762c371c14a09595b043d"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jcp.2022.110943",
+          "material_read": "Abstract/bibliography only; full primary text not obtained via OA or arXiv; Oxford access attempted after both failed",
+          "method": "public metadata and authorized institutional request",
+          "title": "Fu and Yang (2022), Energy-decreasing exponential time differencing Runge–Kutta methods for phase-field models",
+          "trigger": "Most plausible older coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The absolute minimal stabilizer for all stepsizes and all inputs in the physically natural scalar order-parameter interval is a sharp structure theorem with an exact positivity certificate. The non-invariance caveat matters to numerical integrator theory and avoids an unjustified trajectory claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fu–Yang 2022 full theorem not accessible via legal OA/arXiv or institutional channel (Oxford vpn_disconnected); uninspected priority risk.",
+    "Energy theorem deliberately only one step on [-1,1], not invariant domain or arbitrary-h flow."
+  ],
+  "schema_version": 1
+}

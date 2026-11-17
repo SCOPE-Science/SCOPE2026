@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact expansion reduces the ETDRK2 update to a scalar multiplier, and elementary inequalities show that the output magnitude is no smaller than its input for nonnegative starts. A finite rational certificate proves the complementary inequality that the sum of the squared input and output does not exceed two. The accompanying standard-library checker constructs the polynomial and verifies 729 Bernstein coefficients exactly; the smallest is \(1/8\). The original-energy factorization then gives dissipation. Conversely, the derivative at the well equilibrium exceeds one for a sufficiently large step whenever the stabilization parameter is below one; nearby interior initial data gain energy. The proof does not rely on numerical trials.
+PASS
 
-## Originality
+Reduction v=u(1+H(1-u²)), Phi=u W_B with B∈[0,H] and H<=1/alpha<=1 gives Phi>=u>=0 for u>=0 and alpha>=1. For B=H exact P(z,y,t)=[2-z(1+W_H²)]/(1-z) on [0,1]^3; independent exact algebra reconstructs 46 monomials and all 729 rational degree-eight Bernstein coefficients >=1/8 (minimum index (1,8,8)), hence Phi²+u²<=2 by endpoint interpolation and energy-difference factorization. For alpha<1 derivative at u=1 has large-step limit (1-2/alpha)²>1 (alpha=0 direct), giving energy increase near equilibrium. At alpha=1 output can exceed one; no iterated result. The exact finite coefficient certificate and Bernstein convexity, not random tests, prove positivity on the whole cube.
 
-**PASS, with stated historical risk.** The October 2026 study addresses general conditional energy dissipation and references earlier stabilized ETDRK2. The inspected 2024 primary full text provides the classical recurrence and sufficient generic conditions, not the exact scalar if-and-only-if stabilization constant. Searches for the exact scalar statement and corresponding aliases revealed no equivalent or dominating result. A highly relevant 2022 predecessor could be assessed at abstract and later-literature level, but its full text could not be inspected. This limits historical-priority certainty; no claim of exhaustive uniqueness is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** The threshold is a genuine method-selection boundary for a named numerical integrator on the canonical quartic gradient flow. It is not a substitution into a known theorem: its sufficiency needs a nonlinear exact certificate, and its necessity distinguishes bounded-step behavior from arbitrary-step behavior. The overshoot example also separates one-step energy descent from interval preservation, preventing an incorrect full-trajectory inference.
+Best-knowledge PASS: Fu–Shen–Yang prove sufficient unconditional energy conditions with global Lipschitz nonlinearities, not an exact minimum scalar stabilizer for untruncated quartic on single-step input interval; 2026 Quan et al general framework similarly does not supply iff alpha>=1. The 2022 paper inaccessible full text remains an explicit priority risk.
 
-## Scientific limitations
+## value
 
-Only the scalar, untruncated reaction equation and one step with input in \([-1,1]\) are proved. Other phase-field models and spatially coupled methods are not covered. Full historical priority against an inaccessible 2022 predecessor is not established. Numerical experiments alone do not prove the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The absolute minimal stabilizer for all stepsizes and all inputs in the physically natural scalar order-parameter interval is a sharp structure theorem with an exact positivity certificate. The non-invariance caveat matters to numerical integrator theory and avoids an unjustified trajectory claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

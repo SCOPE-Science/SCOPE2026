@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with only its standard library. The checker independently constructs the rational polynomial in the proof by three-variable polynomial arithmetic, divides exactly by \(1-z\), verifies that the remainder vanishes, and converts its 46 nonzero monomials to the degree-eight trivariate Bernstein basis. Each of the 729 coefficients is checked as a rational number and the minimum equals \(1/8\). This finite exact coefficient check, together with the elementary Bernstein convex-combination property, is an infinite-domain proof of positivity on the unit cube.
+## correctness
 
-The checker also runs reproducible seeded floating-point tests: 20,000 stable parameter triples and seven illustrative counterexample parameter values below the claimed threshold. These are supplemental diagnostics and are not needed to justify universal quantifiers. The analytic fixed-point multiplier proves sharpness for all excluded stabilization parameters.
+PASS
 
-The one-step result is not invariant-domain preservation. A limiting output at stabilization one exceeds the starting interval, so the theorem alone does not guarantee energy descent on subsequent iterations. The scientific comparison with an unavailable full 2022 article remains a residual historical-priority risk; no independent audit has been performed.
+Reduction v=u(1+H(1-u²)), Phi=u W_B with B∈[0,H] and H<=1/alpha<=1 gives Phi>=u>=0 for u>=0 and alpha>=1. For B=H exact P(z,y,t)=[2-z(1+W_H²)]/(1-z) on [0,1]^3; independent exact algebra reconstructs 46 monomials and all 729 rational degree-eight Bernstein coefficients >=1/8 (minimum index (1,8,8)), hence Phi²+u²<=2 by endpoint interpolation and energy-difference factorization. For alpha<1 derivative at u=1 has large-step limit (1-2/alpha)²>1 (alpha=0 direct), giving energy increase near equilibrium. At alpha=1 output can exceed one; no iterated result. The exact finite coefficient certificate and Bernstein convexity, not random tests, prove positivity on the whole cube.
+
+## originality
+
+PASS
+
+Best-knowledge PASS: Fu–Shen–Yang prove sufficient unconditional energy conditions with global Lipschitz nonlinearities, not an exact minimum scalar stabilizer for untruncated quartic on single-step input interval; 2026 Quan et al general framework similarly does not supply iff alpha>=1. The 2022 paper inaccessible full text remains an explicit priority risk.
+
+## value
+
+PASS
+
+PASS: The absolute minimal stabilizer for all stepsizes and all inputs in the physically natural scalar order-parameter interval is a sharp structure theorem with an exact positivity certificate. The non-invariance caveat matters to numerical integrator theory and avoids an unjustified trajectory claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
