@@ -1,11 +1,21 @@
-# Review of the symmetric two-mode one-state \(H_2\) theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** With \(a>0\), \(0<p<1\), and every complex stable one-state competitor, the projection identity reduces the exact squared error to maximizing a normalized reproducing-kernel score. A strict angular inequality rules out complex optimal poles, and the one-dimensional rational derivative proves the full optimizer count, sharp transition, boundary exclusion, residues and exact excess squared error. The local Hessian expansion proves saddle status; the critical quartic and square-root emergence are explicitly derived. Exact-rational identities and finite impulse sums were checked independently of the analytic derivation. Sampling does not establish any global assertion.
+## correctness
 
-**Originality: PASS, qualified.** Angino--Dózsa--Voigt, *\(H_2\)-optimal model order reduction using hyperbolic geometry* (arXiv:2610.16249v1), supplies necessary interpolation/equilibrium conditions and stability-preserving root-finding but no stated two-mode sharp **global** classification. Wang--Qian (arXiv:2012.06184v1) establishes existence of best Hardy rational approximants, not a parametric branch formula. Van Dooren--Gallivan--Absil (2008) gives generic first-order stationary conditions and a different high-dimensional nonconvex example. Varah (1982/1985) establishes multiple best exponential fits in continuous time with real negative rates, not the alternating discrete-time impulse family here. Six published mathematical-record searches, relevant primary full-text comparisons, published literature searches, and the published mathematical record identified no equivalent result. The possibility of unindexed equivalent older discrete exponential-fitting calculations remains a priority risk; keyword absence is not a proof of novelty.
+PASS
 
-**Value: PASS.** The closed-form critical threshold and two-branch global optimizer answer a natural exact reduction problem of the smallest genuinely two-mode system. The sharp squared-error gap makes precise why the symmetric stationary root may mislead global root-finding even if stability holds, and offers an analytic benchmark. The theorem neither generalizes to arbitrary pole/residue families nor predicts root-finder convergence; general projection formulas themselves are acknowledged as old.
+The physical transfer is zG and z multiplication is isometric in H2. Kernel projection over every complex pole gives captured squared norm 4a²(1-|lambda|²)/|1-t lambda²|². Reverse triangle inequality forces lambda real at any nonzero optimal radius; the derivative of 4a²(1-s)/(1-ts)² has sign 2t-1-ts. This proves uniqueness at zero for t<=1/2 and exactly ±sqrt(2-1/t) for t>1/2, residue a/t, sharp squared error, saddle Hessian and quartic threshold. Independently checked derivative, t=3/4 rational example and excess formula. The script verify.py is supplementary; no finite sampling is treated as proof.
 
-**Scientific limits.** Exact infinite-horizon Hardy norm, equal positive residues, opposite real full-order poles, a single stable reduced state, unrestricted complex reduced pole/residue, no finite-precision claim. A different notion of physical transfer function is handled by the shared one-step delay, which preserves the norm.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving contribution is a complete global complex-admissible order-one optimum and its exact symmetry-breaking transition for a natural two-mode test family. Standard H2 interpolation/necessary conditions, including the full Angino–Dózsa–Voigt text consulted, do not imply uniqueness and optimizer multiplicity for all parameters. No identified Resultary predecessor apart from the exact same-claim archive copy.
+
+## value
+
+PASS
+
+A sharp solvable minimal nonconvex model-reduction benchmark illustrates qualitative optimizer bifurcation, saddle persistence and quantified loss from symmetry-fixed approximation, not merely an isolated numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

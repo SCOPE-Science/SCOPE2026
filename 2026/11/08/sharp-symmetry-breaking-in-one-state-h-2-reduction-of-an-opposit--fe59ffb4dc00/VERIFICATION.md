@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The normalized delay-free factor and the physical transfer function have equal \(H_2\) approximation error because multiplication by \(z\) is norm-preserving on the unit circle. The claimed minimization uses every \(\lambda\) in the open complex unit disk, every \(c\in\mathbb C\), and every \(a>0\), \(0<p<1\).
+## correctness
 
-Run `python3 verify.py` in a directory containing the extracted standalone checker. It performs exact rational arithmetic at six values of the squared pole modulus, verifies both branches of the captured-norm formula, checks the rational example \(p^2=3/4\), independently reconstructs six infinite-horizon errors from 300 impulse coefficients per model and compares them to the exact geometric sums, and tests the global angular/radial captured-norm bound at 58,500 seeded complex samples.
+PASS
 
-The proof is analytic and is not based on the finite sampling: orthogonal Hardy projection, reverse triangle inequality, strict radial derivative analysis, and a Taylor expansion cover the infinite quantifiers. The 300-term reconstructions approximate the infinite impulse norm and are not themselves convergence certificates. Exact-rational identities in the checker are supplementary to the hand-verifiable algebra. No external or independent mathematical audit is represented by these tests.
+The physical transfer is zG and z multiplication is isometric in H2. Kernel projection over every complex pole gives captured squared norm 4a²(1-|lambda|²)/|1-t lambda²|². Reverse triangle inequality forces lambda real at any nonzero optimal radius; the derivative of 4a²(1-s)/(1-ts)² has sign 2t-1-ts. This proves uniqueness at zero for t<=1/2 and exactly ±sqrt(2-1/t) for t>1/2, residue a/t, sharp squared error, saddle Hessian and quartic threshold. Independently checked derivative, t=3/4 rational example and excess formula. The script verify.py is supplementary; no finite sampling is treated as proof.
+
+## originality
+
+PASS
+
+The surviving contribution is a complete global complex-admissible order-one optimum and its exact symmetry-breaking transition for a natural two-mode test family. Standard H2 interpolation/necessary conditions, including the full Angino–Dózsa–Voigt text consulted, do not imply uniqueness and optimizer multiplicity for all parameters. No identified Resultary predecessor apart from the exact same-claim archive copy.
+
+## value
+
+PASS
+
+A sharp solvable minimal nonconvex model-reduction benchmark illustrates qualitative optimizer bifurcation, saddle persistence and quantified loss from symmetry-fixed approximation, not merely an isolated numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
