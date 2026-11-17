@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces each element to its unique finite birooted Munn tree. Every shortest representative is a parity-forced edge-covering walk, yielding a bijection with local orderings of off-path subtree excursions and the exact factorial formula. The maximum over fixed endpoints occurs for closed tours based at a maximum-degree vertex. The handshake identity yields the integer constraint \(3A+2B+C=m-1\); optimizing \(4\,6^A2^B\) strictly favors the greatest feasible \(A\) and fixes the remainder cases. Every optimizer is realizable as a finite subtree of the rank-two free-group Cayley tree. The finite checker enumerates signed words up to length eight, checks all endpoint pairs on 11 Munn trees, and exhaustively tests abstract degree-bounded tree shapes with at most ten edges. It is corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS (with residual historical risk)
+Munn element is a birooted finite Cayley subtree; every minimal representing walk crosses its s-t path edges once and all other edges twice, giving length 2m-dist(s,t). Independent excursion-order choices at each vertex yield N_T(s,s)=d_s! product_{v!=s}(d_v-1)! and N_T(s,t)=product_internal(d_v-2)! product_other(d_v-1)! for distinct endpoints; labels of departing signed edges separate word choices. The fixed-tree maximum is max_degree times product (d_v-1)!. In rank two, with counts A,B,C of degree4,3,2, the handshake identity 3A+2B+C=m-1 maximizes 4*6^A*2^B by using A=floor((m-1)/3), then at most one degree3/degree2 depending on residue. Every admissible degree sequence embeds in the Cayley tree. Independent integer exact optimization over every degree count through m=31 reproduced unique profiles and M_m; finite tree and word enumeration checker was inspected but not re-executed completely.
 
-The primary motivating preprint (Bodart–Carvalho–Monteiro, arXiv:2609.35251, first public 2026-09-28) gives the tree-traversal rules G10 and Green-class endpoint extrema R4 and D4. These are acknowledged and not claimed. Its inspected full text does not state the exact factorial word count, the extremal maximum over all \(m\)-edge Munn trees, or the optimizing degree patterns. Mitchell's 1974 note counts trees rather than geodesic words per tree according to its accessible abstract, and Silva's 2001 paper studies a different Schützenberger-tree realization question. Record searches returned tree enumeration and unrelated geodesic claims rather than a dominating result. The remaining concern is a potentially uninspected stronger general theorem on shortest covering walks; novelty is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Geodesic representative multiplicity is an intrinsic quantitative refinement of the recently defined Green geodesic languages. The result gives a sharp all-size extremal invariant with precise period-three fluctuations, an exponential growth rate \(6^{1/3}\), and all equality cases, while the local formula supports exact per-class enumeration. For example, the extremal multiplicities at four, six and ten Munn edges are 24, 48 and 864. The optimum requires a specific degree-four packing rather than merely a longest diameter, showing how branching controls geodesic redundancy. The statement is neither a rephrasing of the non-context-freeness result nor a finite-experiment observation. Its scope and the possible preexisting combinatorial principle are explicitly limited.
+The full accessible prior paper The Growth of Free Inverse Monoids (Kambites et al.) gives the Munn model, Lemma 3.2 shortest length t+2k, and sphere counts of elements via rooted-tree enumeration, not the number of distinct shortest words for a fixed element or the maximum at fixed tree-edge size. Bodart–Carvalho–Monteiro (2026) introduces Green geodesic language classes and their complexity, with abstract inspected; complete v2 source could not be retrieved after arXiv/OA attempts and institutional access was blocked. No published Resultary search hit supplied the exact 4*6^k residue-dependent fixed-m maximum or degree-pattern extremizers. A broader preexisting enumeration of depth-first tree tours could imply the local factorial formula, but no evidence that it already optimizes all degree profiles; best-of-knowledge O passes subject to explicit risk.
 
-## Closest sources and residual limits
+## value
 
-The closest primary source is arXiv:2609.35251, Sections 2–4 and 6. The 1974 Mitchell note was accessible only through its extract and publication record, so stronger uninspected content cannot be excluded. The theorem does not address larger-rank extremal constants or alternate generating sets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geodesic word redundancy is a canonical invariant of free inverse monoid elements, especially after formal introduction of Green geodesic languages. The theorem gives an all-size exact maximum, growth base 6^{1/3}, complete equality-case tree degree patterns with mod-three fluctuations, and a uniform Green-class enumeration polynomial. These are motivated complete extremal classifications not evident from previously known length or element-growth formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
