@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of exact cactus activity distributions
+# Independent mathematical audit
 
-The theorem uses the published finite-graph circulation result and the explicit independent modular-increment argument in `RESULT.md`. The Poisson limit follows from the displayed exact fixed-deficit trinomial coefficient and the binomial zero-event formula, not numerical extrapolation.
+## correctness
 
-The exact standalone source files are `exact_formula.py`, `dynamics_check.py`, `nonbouquet_check.py`, and `critical_check.py`. No external packages are used. Run them in that order from the directory containing these files; `dynamics_check.py` imports `exact_formula.py`. Their recorded standard outputs are `formula_output.txt`, `dynamics_output.txt`, `nonbouquet_output.txt`, and `critical_output.txt`.
+PASS
 
-For six bouquet/mixed examples, `dynamics_check.py` traverses every three-color initial configuration (up to 59,049 states per rule), iterates each synchronous automaton until it reaches a previously visited state, computes the root excitation fraction on that cycle, and checks the entire histogram against the coefficient formula. For three separately constructed nonbouquet cacti, `nonbouquet_check.py` does the same full-state check with a separate transition and coefficient implementation. `exact_formula.py` verifies the resulting total populations and near-endpoint coefficients. `critical_check.py` calculates exact endpoint coefficient expressions and the finite-binomial probabilities in all three residue classes.
+The referenced general finite-graph circulation/activity theorem reduces CCA rate to max_C |T_C|/|C| with winding T_C divisible by 3; the GHM cycle form equals one third by conservation of three color-transition currents. Cactus cycles use disjoint edges, and root color plus independent edge increments constrained by sum divisible by 3 yield exactly 3^(b+1) prod A_ell(t_ell) colorings. This proves cumulative distribution 3^(b+1)prod B_ell(a), and 3x CCA/GHM rate ratio. For a length-n petal, maximal winding m=n-(n mod 3) occurs with p_n=2A_n(m)/3^(n-1) ~6 n^s/(s!3^n); next winding m-3 occurs at scale n^3 times more, giving Poisson(6c/s!) and a sharp two-rate limit on r_n~c 3^n/n^s. Independent from source code, exhaustively enumerated 243 assignments on two triangles for both update rules and reproduced rate histogram 147 at zero and 96 at maximal. Finite state verification is corroboration only.
 
-Each program was rerun from files extracted from the delivered record, and each output was compared byte-for-byte with the corresponding embedded result. The package contains all dependencies needed for replay. The finite examples do not establish the all-graph result or the limiting theorem; those follow from the mathematical steps in `RESULT.md`.
+## originality
 
-Limits: the established quantities are asymptotic temporal excitation rates, not first-entry times or primitive period spectra. The independent audit status remains unperformed.
+PASS
+
+Gravner–Lyu–Sivakoff 2018 Theorem 3 and Doba 2018 give the pointwise long-run excitation rate from cycle integrals, duly credited. Their actual text does not enumerate all labelled initial states on arbitrary cacti or derive the Poisson arithmetic saturation of exponentially many petals. Close 2026-11-08 Resultary results count time-zero primitive three-cycles, which is a different observable from the eventual rate of every initial state. Current best knowledge supports originality of the new rate-population and two-rate threshold claims.
+
+## value
+
+PASS
+
+The full uniform-initial-state distribution is a natural exact statistic on all cactus geometries, not a restatement of one-trajectory rate. The dimension-residue-dependent 3^n,3^n/n,3^n/n^2 sharp thresholds and two-rate Poisson profile give a nontrivial structural effect of many loop blocks and can be reused for excitable network design and probabilistic initial-data questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

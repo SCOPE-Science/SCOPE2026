@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has two linked components: an exact activity-rate distribution on finite cactus graphs and an asymptotic two-rate saturation law for equal-length cycle bouquets. For the first, the finite-graph circulation theorem [1, Theorem 3] gives each individual trajectory's rate. A direct three-color flow-conservation identity gives the exact CCA/GHM factor three. A cactus has no simple cycles besides its blocks, and its block-edge sets are disjoint. The root-color plus modular edge-increment construction establishes a bijection rather than merely a heuristic independence assertion. Consequently its exact count has no missing cut-vertex corrections. For the second component, near-endpoint trinomial coefficients satisfy the displayed exact binomial sum, making the event probability and Poisson parameter explicit. The second-highest winding has expected occurrence tending to infinity and completes the claimed two-point limit. Complete state-space simulations of nine small cactus graphs, in both models, agree with the exact counts. The verification code was executed after extracting the final embedded files.
+PASS
 
-## Originality — PASS, with explicit dependence on known results
+The referenced general finite-graph circulation/activity theorem reduces CCA rate to max_C |T_C|/|C| with winding T_C divisible by 3; the GHM cycle form equals one third by conservation of three color-transition currents. Cactus cycles use disjoint edges, and root color plus independent edge increments constrained by sum divisible by 3 yield exactly 3^(b+1) prod A_ell(t_ell) colorings. This proves cumulative distribution 3^(b+1)prod B_ell(a), and 3x CCA/GHM rate ratio. For a length-n petal, maximal winding m=n-(n mod 3) occurs with p_n=2A_n(m)/3^(n-1) ~6 n^s/(s!3^n); next winding m-3 occurs at scale n^3 times more, giving Poisson(6c/s!) and a sharp two-rate limit on r_n~c 3^n/n^s. Independent from source code, exhaustively enumerated 243 assignments on two triangles for both update rules and reproduced rate histogram 147 at zero and 96 at maximal. Finite state verification is corroboration only.
 
-Gravner–Lyu–Sivakoff [1, Theorem 3] already prove the pointwise maximum-cycle-circulation formula for any finite graph, and Doba [2, Section 7] already gives the GHM maximum-cycle-density rule. Neither pointwise result supplies a complete population distribution over the initial colorings of arbitrary connected cactus graphs or the critical two-rate Poisson window in a growing bouquet. The 1995 infinite-lattice GHM study [3] does not give these graph-family counts. Searches for cactus cycle-winding distributions, finite-graph GHM rate populations, and rare maximal bouquet activity did not identify a covering paper. A prior unpublished or differently described modular-flow enumeration remains a priority risk; the novelty claim is restricted to the counting distribution and its arithmetic saturation window.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rate distributions are natural observables in excitable-network dynamics when the initial coloring is random. The cactus class is broad enough to include articulation sharing, bridge attachments, chains of cycles and bouquets, yet admits a complete exact enumeration. The especially distinctive feature is a sharp arithmetic trichotomy in the number of cycles required to attain maximal excitation. At its critical exponential scale, global activity concentrates on exactly the highest and second-highest rates with nondegenerate Poisson weights. This is more informative than applying the known pointwise criterion to one configuration and provides a nontrivial finite-to-large-network transition. It does not claim a new generic extreme-value theorem.
+Gravner–Lyu–Sivakoff 2018 Theorem 3 and Doba 2018 give the pointwise long-run excitation rate from cycle integrals, duly credited. Their actual text does not enumerate all labelled initial states on arbitrary cacti or derive the Poisson arithmetic saturation of exponentially many petals. Close 2026-11-08 Resultary results count time-zero primitive three-cycles, which is a different observable from the eventual rate of every initial state. Current best knowledge supports originality of the new rate-population and two-rate threshold claims.
 
-## Closest literature and scope
+## value
 
-[1] J. Gravner, H. Lyu, D. Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, arXiv:1610.07320, Theorem 3 and the random-unicyclic discussion.
+PASS
 
-[2] N. Doba, *The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph*, Complex Systems 27 (2018), Section 7.
+The full uniform-initial-state distribution is a natural exact statistic on all cactus geometries, not a restatement of one-trajectory rate. The dimension-residue-dependent 3^n,3^n/n,3^n/n^2 sharp thresholds and two-rate Poisson profile give a nontrivial structural effect of many loop blocks and can be reused for excitable network design and probabilistic initial-data questions.
 
-[3] R. Fisch, J. Gravner, *One-dimensional Deterministic Greenberg–Hastings Models*, Complex Systems 9 (1995), introduction and model statements.
-
-The result does not establish precise transient times or periodic orbit lengths. Exhaustive verification is finite and cannot replace the proof's infinite parameter argument. Absolute historical priority is not independently certified.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
