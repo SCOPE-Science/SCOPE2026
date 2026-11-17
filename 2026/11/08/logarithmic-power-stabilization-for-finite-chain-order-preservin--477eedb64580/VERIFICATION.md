@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and its standard library. All checks operate on the embedded standalone source file.
+## correctness
 
-The verifier directly generates all order-preserving contractions of sizes \(1\) through \(10\), calculates each power-stabilization index by literal composition and by the independently implemented tail-prefix recurrence, and compares these exactly. For sizes \(1\) through \(8\), it also generates every map separately from conditional fixed-interval Bernoulli-tail strings and verifies bijectivity. All joint image-rank/fixed-point counts match the **established** formula of Adeshola and Umar (arXiv:1303.7428v2), which is not presented as a new result.
+PASS
 
-Observed exhaustive totals for chain sizes \(1\) through \(10\) are \(1,3,8,20,48,112,256,576,1280,2816\). For size \(5\), the counts by stabilization index \(0\) through \(4\) are \(1,14,23,8,2\). Execution of the packaged script ends with `VERIFY_OK`.
+Displacement f(i)-i is nonincreasing and crosses zero in one consecutive interval. Given the interval, forced adjacent flats leave independent unbiased outer step bits, and orbit distance evolves exactly via the same sampled prefix count h->S_(h-1), not resampled binomials. Hoeffding bounds summed over all prefixes above C loglog t simultaneously sandwich contraction ratios between 1/2±delta. Endpoint absorption lies between two geometric logarithmic bounds with o(log t) error uniformly in L,R. Published finite fixed-point enumeration ensures n-|Fix|=n-O_P(1), yielding unconditional convergence. Independently enumerated every map up to n=7 and reproduced n=5 index histogram 1,14,23,8,2.
 
-## Limitations of computation
+## originality
 
-A deterministic, seeded Monte Carlo diagnostic tests three large finite tail lengths; its ratios are merely illustrations and play no role in proving the limit. Exhaustive enumeration over finitely many chain sizes does not imply a theorem as the size tends to infinity. The general theorem is proved in `RESULT.md` by an exact Bernoulli-tail coding, uniform prefix concentration, absorption-time bounds, and a uniform conditioning argument. Independent audit has not been performed.
+PASS
+
+Established full-contraction monoid ranks/fixed-point/image-rank enumerations do not determine times until powers stabilize, and the Resultary nearest Bernoulli convolution is for independent products of random order-decreasing maps, not powers of one fixed random full contraction. The inspected statements do not imply the conditional uniform time law, with residual risk for unindexed random transformation dynamics.
+
+## value
+
+PASS
+
+Power-to-idempotence is a natural dynamic semigroup invariant; the logarithmic typical law and interval-uniform form quantify a sharp contrast to linear worst-case stabilization. It is not a reparametrization of static rank/fixed-point counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
