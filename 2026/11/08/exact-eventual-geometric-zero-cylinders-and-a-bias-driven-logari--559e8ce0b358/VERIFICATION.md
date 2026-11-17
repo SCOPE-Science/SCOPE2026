@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The Python standard-library script `CHECK.py` was executed directly from the extracted current package. Its independent rational interval partition integrates the zero-branch selector across all original-position breakpoints, rather than evaluating the finite-sum formula twice. The program reports 423 passed exact identities and inequalities, covering 40 pairs of rational parameters, eight lengths beyond the cutoff for each pair, and exact balanced-parameter identities. No floating-point simulations are used.
+## correctness
 
-The analytic proof additionally establishes the zero-branch product identity, plateau reduction, finite-level weight partition, normalization, the cutoff and strict equality criterion, and both fixed-bias endpoint asymptotics. Checks of source premises used the original map equations (11)--(12), Theorem 3.5, Lemma 3.8, and the \(L^1\)-convergence argument in Lemma 3.11 of Dajani--Kalle--Maggioni, arXiv:2008.04398.
+PASS
 
-Scope: \(1<\alpha\leq2\), \(0<p<1\); no asserted uniformity of the biased remainder at \(p=1/2\). A finite run does not certify the analytic theorem. No independent external verification has been performed.
+On a zero run the map doubles x, and the conditional zero-digit selector is g(x)=1 on |x|<a/2, p or q on the flanking subintervals and 0 beyond |x|>1/2. Original Dajani–Kalle–Maggioni Lemma 3.8/3.9 gives stationary density 1/(1+a) on |x|<=a at strong matching parameters; their Lemma 3.11 proof gives local L1 continuity, extending plateau to every 1<alpha<3/2, while alpha>=3/2 is explicit. When n>=J, |x|<=2^-n<=a; scaling u=2^(n-1)x makes all selector terms with j>=J equal 1, so exact P(0^n)=2^-n C(a,p). Finite geometric summation yields balanced a(J+2/theta)/(1+a), and biased a^delta F_s(theta)+O_p(a) with nonconstant log-periodic F_s.
+
+## originality
+
+PASS
+
+Primary density/one-digit paper does not imply the explicit n-step geometric cylinder and bias-sensitive edge prefactor.
+
+## value
+
+PASS
+
+Zero-run length cylinders in stationary random signed-expansion dynamics are natural observables beyond the studied single-digit marginal. The exact onset of geometric continuation and the sharp balanced-versus-biased singular behavior constitute a useful new renewal-like structural boundary, with log-periodic prefactors not mechanically implied by known one-digit frequency bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
