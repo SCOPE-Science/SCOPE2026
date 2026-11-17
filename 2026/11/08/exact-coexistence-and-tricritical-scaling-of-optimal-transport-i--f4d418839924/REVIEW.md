@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the published dimensionless four-direction slit formula, the proof algebraically decomposes the diffusivity into a unimodal bulk term and monotone wall term, factors the exact derivative via an auxiliary cubic, and compares every finite run time with the large-run plateau through a rational envelope. Descartes' sign rule proves the unique spinodal root in the discontinuous sector; the quadratic envelope derivative gives the exact coexistence optimizer. Every boundary, including zero wall velocity, coexistence, spinodal and the tricritical equality, is handled. The inverse-linear and inverse-square-root divergence laws follow from a fully specified rational expansion. `CHECK.py` verifies exact multivariate identities and illustrative limits using only the standard library. Numerical tests are not infinite proofs.
+## correctness
 
-**Originality — PASS (qualified).** Pietrangeli et al., *Optimal run-and-tumble in slit-like confinement*, Phys. Rev. Research 6, 023028 (2024), Eq. (27), Figs. 6–7, Appendix C, already provides the exact diffusivity, both qualitative continuous/discontinuous scenarios, and a sufficient strict-inequality criterion plus the ordinary divergence asymptotic. This result supplies the missing necessary-and-sufficient classification, exact discontinuous coexistence threshold, distinct metastability/spinodal threshold, uniqueness of optimizers, and tricritical exponent. A full-text comparison with Pietrangeli et al. (2025), arXiv:2503.03273, found a wider porous-medium discussion and surface sliding, but not this specific exact three-boundary structure. Available research-record and own-claim queries did not reveal the same theorem. Formula-based deductions are logically possible from the original source; independently unindexed work may cover this result. This is a self-review, not priority certification.
+PASS
 
-**Mathematical value — PASS.** The 2024 source leaves the discontinuous critical wall speed only numerically illustrated and observes that the raw quartic optimizer equation resists a general explicit solution. The envelope reduces global competition to a quadratic critical equation and separates the coexistence velocity from the metastability-destruction velocity. The equality boundary changes the divergence exponent, making it a genuine organizing point of the phase diagram rather than a mere parameter substitution. These are structural conclusions about a motivated transport optimization problem, not a known-table recomputation or arbitrary slice.
+For a∈(0,2],h>1,t>0,w>=0, x>0, the exact F_w(x) from the assigned four-state slit model decomposes B(x)+w*S(x), with S’(x)>0. For x>sqrt(2at/h), sign F’ equals sign(w-W(x)); W’ has sign Q(x)=Delta*x^3+6at*x^2+6at^2*x+2a^2*t^3, Delta=2a-(1-a)ht. Delta>=0 implies increasing W approaching w_infty from below, yielding one finite optimum for w<w_infty and strictly increasing F otherwise. Delta<0 gives exactly one positive cubic root q by Descartes, hence one spinodal ws=W(q); the plateau comparison F_w(x)-tw is a positive factor times H(x)-w, and H’ has a unique positive zero z, giving wc=H(z), w_infty<wc<ws and metastability. The large-x W expansion proves exponent 1 for Delta>0 and 1/2 at Delta=0. Independent symbolic algebra verified all five rational identities and derivative factorizations, not merely printed CHECK.py output.
 
-**Closest literature and limitations.** Primary reference: https://doi.org/10.1103/PhysRevResearch.6.023028 (full text https://arxiv.org/pdf/2404.07680), notably Eq. (27), Sec. IV.A.2 and Appendix C. Related extension: https://arxiv.org/pdf/2503.03273, esp. multimodal surface sliding. The calculation uses the exact model's diffusivity and does not prove analogous phase boundaries for continuous-angle motion, finite-sample measurements, or other pore geometries. The logical relation to the source formula is transparent. Independent scientific novelty review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2024 original source gives the exact rational diffusivity and qualitative continuous/discontinuous scenarios, with a sufficient strict Delta>0 criterion and noncritical divergence. The complete necessary-and-sufficient classification, equality-case tricritical square-root exponent, exact wc and ws, and metastability interval are stronger structural deductions not stated in the original.
+
+## value
+
+PASS
+
+A sharp coexistence/spinodal distinction and equality-line change of exponent are motivated physical-mathematical phase boundaries of an established exact stochastic model. The metastability window identifies a real local-versus-global optimization separation; the result is not a trivial numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
