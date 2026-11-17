@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The proof identifies actual geometric fixed points rather than merely invariant vertices. Odd hyperedge cardinality rules out individually fixed hyperedges; admissible two-hyperedge orbits are exactly binary transversals modulo complement. Compatibility equals disjointness of support blocks. The top boundary is a block-diagonal integer map indexed by perfect partitions, and its kernel in each block is the tensor product of integral augmentation kernels. The full centralizer action, including the sign arising from permuted join factors, follows from those oriented integer chains. The reduced-chain case for one block and the even-uniform exclusion are explicit. Standard-library numerical checks independently reconstruct small original hyperedge orbits and exact modular top boundary ranks; they are corroboration, not a proof of arbitrary size.
+
+## Originality
+**PASS relative to inspected sources; residual priority risk remains.** The nearest general theorem is Björner–Wachs–Welker, *Poset Fiber Theorems*, Theorem 6.2 and Corollaries 6.3, 8.5. It covers nonequivariant inflation ranks over integers and general equivariant inflation homology **over characteristic-zero fields**. These are acknowledged as prior coverage. Shareshian–Wachs studies ordinary hypergraph matching-complex homology over complex coefficients, and Bate–Everitt–Ford–Ramos treats ordinary complete-hypergraph matching homology and representation stability. The actual odd-uniform free-involution fixed-space PL model and the signed full-centralizer **integral** top lattice were not identified in the inspected source texts. A different application or strengthened integral form of the known inflation theory may reduce novelty; no priority proof from negative search results is claimed.
+
+## Value
+**PASS.** The problem is natural because hypergraph matchings carry permutation symmetries and geometric fixed loci may differ from ordinary invariant homology. A single family theorem works in every odd uniformity and every multiple of it, identifies an explicit PL model, computes top integral ranks, and retains integral symmetry data that a rational character does not specify. At the smallest nontrivial connected case, ten component graphs carry ninety cycles; higher parameters yield unbounded ranks. The separate integral lattice result is an actual structural classification, not an arbitrary fixed-size computation.
+
+## Checked literature and limits
+Full relevant sections of Björner–Wachs–Welker (especially §6 inflation and §8 equivariant homology), the introduction and relevant definitions of Shareshian–Wachs, and the ordinary hypergraph matching treatment in Bate–Everitt–Ford–Ramos were compared to the exact claim. The top dimension only is determined; lower homology may be nonzero or have torsion. The nearest general results yield parts of the rank and rational story and are expressly excluded from the claimed novelty.
+
+Self-review: passed. Independent audit: not yet performed.
