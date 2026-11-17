@@ -1,19 +1,21 @@
-# Scientific review: dyadic cap-survival exponents
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The forward polar map is an increasing homeomorphism for each \(0<t<1\), and its inverse is exactly \(Q_t(\theta)=\theta+\arcsin(t\sin\theta)\). Hence the nonentrance set is a spherical cap complement with an explicit one-dimensional surface-area integral. The exact deficit recurrence \(r_{j+1}=r_j-\arcsin((1-\delta)\sin r_j)\) is independently rederived from that inverse. Smooth pre-collapse iterations, the branch expansion near \(\pi/2\), and a mean-value estimate after collapse yield the advertised powers and constants. The proof fixes each dimension and iteration count; it never infers an infinite limit from numerical tests. The standalone checker tests the inverse relationship and the limiting coefficients at multiple parameters and dimensions.
+PASS
 
-## Originality
+PASS: For 0<t<1 and 0<theta<pi, forward angle g_t=atan2(sin theta, cos theta+t) is strictly increasing and smaller than theta. Solving sin(theta−g)=t sin(g) gives inverse Q_t(theta)=theta+asin(t sin(theta)), so time-n cap nonentrance is initial polar angles above Q_t^n(epsilon); its exact surface-area integral follows from sin^(d−1) angular density. With δ=1−t, r_j=π−Q_t^j(epsilon) obeys r_{j+1}=r_j−asin((1−δ)sin r_j). Nonresonance α∈(π/2,π) yields r_m~−tan(α)δ; at dyadic resonance α=π/2 yields sqrt(2δ), and εδ=π/2^m+z sqrtδ/2^(m−1) yields r_m/sqrtδ→sqrt(z²+2)−z. Each further fixed step multiplies by δ; cap volume is A_d r^d. Correct integer m=ceil(log2(π/epsilon)) and fixed d≥2,n≥m quantifiers and limiting antipode excluded. Independent high-precision constants corroborated.
 
-**PASS within inspected evidence.** The map and its topological properties predate this result. Shah–Yadav (arXiv:1606.08797, 2016) proves the homeomorphism and studies distality and fixed points, mostly on the circle. Choudhuri–Faraco–Yadav (arXiv:2209.05236, 2022) treats distality, expansivity and orbit behavior on spheres; its full-length preprint text was checked at the definitions and relevant results. Known normalized-translation flow formulas also give single-step inverse and Jacobian calculations. None of the inspected sources states an iterated surface-area cap-survival law with a dyadic exponent staircase and an explicit square-root boundary-layer profile. Published-record searches for the same map, its inverse formula and the crossover returned only different dynamical systems or other spherical geometric probabilities, rather than a stronger covering statement. Novelty is therefore a best-knowledge scientific assessment, not a global priority certificate.
+## originality
 
-## Value
+PASS
 
-**PASS.** A normalized affine sphere homeomorphism becomes noninvertible at the limiting parameter. The probability that uniformly sampled initial points avoid a target cap measures the geometry of this loss of invertibility. Even the qualitative existence of an attracting pole does not predict the observable's sharp rarity, the count-dependent exponent, or a half-integer exponent at each dyadic angular resonance. The full family of resonances and its universal crossover is a natural quantitative classification of that singular geometry, not a parameter substitution or a fixed-number table.
+PASS best-of-knowledge: Shah–Yadav and Choudhuri–Faraco–Yadav treat normalized affine sphere homeomorphisms and qualitative distality/expansivity, not the quantitative n-step uniform-surface-area cap survival probability near the singular translation strength. Single-step normalized-translation inverse formulas are prior ingredients. No inspected prior theorem implies the full dyadic exponent staircase, half-integer resonance and z-dependent square-root crossover.
 
-## Closest prior literature and limitations
+## value
 
-The principal background is Choudhuri, Faraco and Yadav, *On the distality and expansivity of certain maps on spheres*, arXiv:2209.05236 (first posted 2022-09-12), and Shah and Yadav, *Dynamics of Certain Distal Actions on Spheres*, arXiv:1606.08797 (first posted 2016-06-28). Their qualitative conclusions do not imply the stated metric-statistical constants. Broad normalized-translation-flow literature could contain equivalent but unindexed calculations; the available evidence does not rule out every such possibility. The result applies to a centered spherical cap under a pure translation followed by normalization, for fixed iteration number as \(t\uparrow1\). It does not address off-axis caps, general affine maps, or simultaneous long-time limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The family loses invertibility at t=1 and survival probabilities quantify the geometry of rare noncaptured initial conditions. Exact all-iteration survival and a hierarchy of sharp δ exponents with critical boundary profile answer a natural dynamical measure question, not merely a routine endpoint check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

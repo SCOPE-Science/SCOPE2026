@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of dyadic cap-survival asymptotics
+# Independent mathematical audit
 
-The exact inverse identity, spherical surface-area normalization and parameter-domain restrictions were reconstructed directly. The proof proceeds by the exact scalar inverse recurrence, an endpoint expansion of \(\arcsin\), fixed-iteration propagation of the small deficit, and the cap-volume asymptotic \(I_d^{-1}\int_0^r\sin^{d-1}v\,dv\sim r^d/(dI_d)\). The resonance and near-resonance calculations explicitly retain the term proportional to \(z\sqrt{1-t}\), which is necessary for the crossover coefficient.
+## correctness
 
-Running `python checker.py` with `mpmath` installed produced `SPHERICAL_CAP_SURVIVAL_EXACT_AND_CRITICAL_LIMITS_OK`. Tests include the polar inverse for three map parameters, exact spherical integrals in dimensions two and three, and both critical regimes in dimensions two through four, including shifted resonances for \(z=-2,0,2\) and two successive post-collapse iteration counts.
+PASS
 
-The numerical calculations only corroborate the analytical proof. The statement fixes each finite iteration count and does not provide uniform error bounds for growing iteration counts. The limiting map is undefined at the antipodal point, which has zero surface area. No independent mathematical review, certification or external validation was performed.
+PASS: For 0<t<1 and 0<theta<pi, forward angle g_t=atan2(sin theta, cos theta+t) is strictly increasing and smaller than theta. Solving sin(theta−g)=t sin(g) gives inverse Q_t(theta)=theta+asin(t sin(theta)), so time-n cap nonentrance is initial polar angles above Q_t^n(epsilon); its exact surface-area integral follows from sin^(d−1) angular density. With δ=1−t, r_j=π−Q_t^j(epsilon) obeys r_{j+1}=r_j−asin((1−δ)sin r_j). Nonresonance α∈(π/2,π) yields r_m~−tan(α)δ; at dyadic resonance α=π/2 yields sqrt(2δ), and εδ=π/2^m+z sqrtδ/2^(m−1) yields r_m/sqrtδ→sqrt(z²+2)−z. Each further fixed step multiplies by δ; cap volume is A_d r^d. Correct integer m=ceil(log2(π/epsilon)) and fixed d≥2,n≥m quantifiers and limiting antipode excluded. Independent high-precision constants corroborated.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Shah–Yadav and Choudhuri–Faraco–Yadav treat normalized affine sphere homeomorphisms and qualitative distality/expansivity, not the quantitative n-step uniform-surface-area cap survival probability near the singular translation strength. Single-step normalized-translation inverse formulas are prior ingredients. No inspected prior theorem implies the full dyadic exponent staircase, half-integer resonance and z-dependent square-root crossover.
+
+## value
+
+PASS
+
+PASS: The family loses invertibility at t=1 and survival probabilities quantify the geometry of rare noncaptured initial conditions. Exact all-iteration survival and a hierarchy of sharp δ exponents with critical boundary profile answer a natural dynamical measure question, not merely a routine endpoint check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
