@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in RESULT.md is analytic. Its critical ingredients are the eigenvalue multiplicities of the page-difference spaces, the determinant and trace of the two-dimensional odd block, strict convexity of the trace inverse, the negative derivative ruling out unpurchased middle edges, and the bridge complementary-slackness condition.
+## correctness
 
-Run the included `verify.py` with Python 3.10+; it uses only the standard library. The checked execution returned:
+PASS
 
-```
-VERIFY_OK 124
-M2 dcrit 99/35 ; limiting m*dcrit 5.598076211353316
-```
+The Kirchhoff index is N[tr((L+J)^{-1})−1] on connected supports. The strictly convex trace-inverse functional plus the injective simple-edge Laplacian parametrization makes the global budget optimum unique, so page permutations and hub-exchange reflection force common outer weight a, middle weight b, shared-hub edge q. Orthogonal page-difference subspaces plus even and odd hub modes yield the stated four-term spectral formula. A feasible derivative at b=0 is strictly negative, excluding all middle-edge omissions. With r=b/a and t=q/a the boundary q=0 has one positive optimum ratio r_m solving g_m+(2+r)g_mʹ=0; its KKT bridge derivative has sign g_m(r_m)(d−d_m*), establishing zero edge iff d>=d_m*, with equality, and unique strictly positive q below. The m=2 root r=1 yields d*=99/35 and the leading polynomial root r∞=(sqrt(3)−1)/2 yields m d_m*→3+3sqrt(3)/2. Independent exact symbolic derivative checking and full rational Laplacian inversion for m=2,3,5 agreed with the source spectral formula. The infinitude and all prices follow from strict convex/KKT, not a numerical grid.
 
-The program reconstructs the full graph Laplacian, inverts the shifted Laplacian over exact rational numbers, checks the Kirchhoff-index expression at several positive and boundary conductance choices, checks the middle-edge descent formula, calculates the unique boundary ratio, and checks a collection of nonsymmetric feasible competitors. A separate optimization stress test across \(m\in\{2,3,4,6\}\) and multiple prices reproduced the predicted support regimes; solver outputs were not used as proof of global optimality.
+## originality
 
-The finite tests cannot establish a theorem over all integers and real prices, nor can literature searches establish universal novelty. The symbolic algebra and convex optimality argument in RESULT.md supply the claimed infinite-domain result. No external or independent mathematical verification has been performed.
+PASS
+
+Best-of-knowledge originality: the exact assigned final claim (not its already-known general machinery) was compared with primary published theorems, more general methods, aliases, semantic research records and matched objects. The four structured comparisons and materially read source inspections below identify no inspected prior theorem implying this full result; residual risks remain real, and non-discovery is not a mathematical proof of priority.
+
+## value
+
+PASS
+
+The result solves when a purchasable shared shortcut disappears from a globally resistance-optimal electrical network as its relative price increases. Its exact all-m support threshold, unique all-edge allocation, and 1/m asymptotic exhibit nontrivial topology selection under a continuous resource budget; a natural benchmark for effective-resistance network synthesis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
