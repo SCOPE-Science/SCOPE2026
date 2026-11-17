@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:53:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform-seed perfect-inoculation on labelled undirected C_n, individual susceptible cost equals Lg/n for its exposed component g, while a protected vertex becomes susceptible to merged component g_(i−1)+g_i+1 after deviation. The exact necessary/sufficient k>=2 gap constraints are 0<=g_i<=t, g_(i−1)+g_i+1>=t, Σg_i=n−k for t=nC/L; trace T(x)^k with T_uv=x^v 1{u+v+1>=t} counts cyclic gaps and n/k accounts for marked inoculated origin. k=0,1 exceptions correctly included at t>=n and n−1<=t<=n. For 2<t<3, no two adjacent susceptible runs survive cost-optimality; optimal vertex-cover inoculation k=ceil(n/2) gives Opt=(L/n)[n+(t−1)ceil(n/2)]. For k>=2 NE gap values 0,1,2 with b>=c; n−2k=b−c yields sharp odd/even BestNE gap (L/n)(3−t). Independently enumerated strategy, unilateral deviation and exact rational transfer for n=3..9, tie values; verified Perrin first cost cell. Finite data not a proof of all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier work studies general games and cost-sensitive bounded-degree inefficiency; cycle cases appear but not full labelled generating-polynomial or explicit odd parity PoS gap for 2<t<3."
+        ],
+        "reasoning": "General equilibrium conditions and inequalities do not algebraically entail all coefficients E_nk(t) without performing the gap transfer and discrete welfare classification.",
+        "searches": [
+          "Aspnes Chang Yampolskiy JCSS 2006 full PDF",
+          "DiCicco Poskanzer Reichman arXiv:2304.12303 full HTML"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md, verify.py, full Git tree",
+        "Aspnes et al. 2006 JCSS primary PDF and relevant theorem",
+        "DiCicco et al. arXiv:2304.12303 full HTML",
+        "Resultary semantic query: cycle virus inoculation pure Nash equilibrium exact count price of stability parity Perrin"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known threshold inequalities underlie g_i<=t and g_i+g_(i−1)+1>=t. Novel package sharp odd gap (L/n)(3−t) and all-t transfer E_nk."
+        ],
+        "reasoning": "General Nash criterion only establishes feasibility, not the exact all-cost polynomial or extremal social cost; no decisive earlier covering statement located.",
+        "searches": [
+          "Aspnes Chang Yampolskiy 2006",
+          "DiCicco Poskanzer Reichman arXiv:2304.12303"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2006 Nash characterization requires vulnerable components <=nC/L and de-inoculation exposed components >=nC/L; this implies local gap inequalities."
+        ],
+        "reasoning": "The reduction to cycle gap constraints is not separately new. The full all-cost weighted cycle trace and exact PoS separation are nonautomatic consequences requiring enumeration/optimization.",
+        "searches": [
+          "cycle virus inoculation pure Nash equilibrium exact count price of stability parity Perrin",
+          "Aspnes Chang Yampolskiy 2006 component-threshold theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Perrin number in 1<t<2 is classical count of maximal independent set patterns; exact numbers for every k and t including equalities and odd PoS gap were not in examined primary results."
+        ],
+        "reasoning": "A classical count in one open cost cell is acknowledged rather than being dressed as novel; no exact full table was found in examined papers.",
+        "searches": [
+          "cycle virus inoculation pure Nash equilibrium exact count price of stability parity Perrin",
+          "arXiv:2304.12303 cycle examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for all-cost exact labelled-cycle Nash-spectrum transfer and sharp parity-sensitive social-optimum comparison. Aspnes–Chang–Yampolskiy already prove the general component threshold characterization; the present cycle-gap constraints specialize that prior theorem, and classical Perrin combinatorics is acknowledged. Full primary Aspnes and DiCicco et al. relevant treatments were examined; neither supplied the complete all-t labelled equilibrium polynomial plus exact 2<t<3 PoS parity formula.",
+      "residual_risks": [
+        "An earlier parametrized cycle equilibrium polynomial may exist with different indexing; targeted searches do not exhaust literature.",
+        "Price-of-stability closed form only for 2<t<3 and PoA closed form only 1<t<2; all-cost transfer remains exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Nash component criteria established; all-t labelled cycle count and parity PoS not supplied",
+          "evidence": "JCSS 72 (2006), Nash threshold comparison theorem, source model.",
+          "identifier_or_url": "https://www.cs.yale.edu/homes/aspnes/papers/jcss-inoculation-final.pdf",
+          "material_read": "Primary PDF complete text including unilateral deviation / threshold theorem and associated network costs",
+          "method": "PDF full text with visual page inspection of relevant theorem",
+          "title": "Inoculation Strategies for Victims of Viruses and the Sum-of-Squares Partition Problem",
+          "trigger": "Original model and general Nash characterization"
+        },
+        {
+          "assessment": "Broader price-of-anarchy analysis but no identical exact labelled cycle equilibrium generating function and best-equilibrium parity formula",
+          "evidence": "DiCicco–Poskanzer–Reichman (2023), bounded-degree inoculation PoA/cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.12303",
+          "material_read": "Full arXiv HTML including motivation, bounded-degree bounds and relevant cycle examples",
+          "method": "primary full HTML reading",
+          "title": "Inoculation Strategies for Bounded Degree Graphs",
+          "trigger": "Earlier cycle and cost-sensitive inefficiency findings"
+        },
+        {
+          "assessment": "No full-document claim of noncoverage is made",
+          "evidence": "Chen–David–Kempe 2010 covers related but different vaccination incentives.",
+          "identifier_or_url": "https://david-kempe.com/publications/vaccinations.pdf",
+          "material_read": "Reference-level source context, not a full-paper negative comparison",
+          "method": "citation and model-context comparison",
+          "title": "Better Vaccination Strategies for Better People",
+          "trigger": "Related social optimum versus voluntary protection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-population equilibrium census with tie boundaries and a strict odd/even welfare separation solves a motivated network-game calculation, going beyond the general threshold criterion and ordinary cycle vertex-cover fact. Closed transfer and parity formulas can be used directly for cost-sensitive network design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md, verify.py, full Git tree",
+    "Aspnes et al. 2006 JCSS primary PDF and relevant theorem",
+    "DiCicco et al. arXiv:2304.12303 full HTML",
+    "Resultary semantic query: cycle virus inoculation pure Nash equilibrium exact count price of stability parity Perrin"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier parametrized cycle equilibrium polynomial may exist with different indexing; targeted searches do not exhaust literature.",
+    "Price-of-stability closed form only for 2<t<3 and PoA closed form only 1<t<2; all-cost transfer remains exact."
+  ],
+  "residual_risks": [
+    "An earlier parametrized cycle equilibrium polynomial may exist with different indexing; targeted searches do not exhaust literature.",
+    "Price-of-stability closed form only for 2<t<3 and PoA closed form only 1<t<2; all-cost transfer remains exact."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General Nash component criteria established; all-t labelled cycle count and parity PoS not supplied",
+      "evidence": "JCSS 72 (2006), Nash threshold comparison theorem, source model.",
+      "identifier_or_url": "https://www.cs.yale.edu/homes/aspnes/papers/jcss-inoculation-final.pdf",
+      "material_read": "Primary PDF complete text including unilateral deviation / threshold theorem and associated network costs",
+      "method": "PDF full text with visual page inspection of relevant theorem",
+      "title": "Inoculation Strategies for Victims of Viruses and the Sum-of-Squares Partition Problem",
+      "trigger": "Original model and general Nash characterization"
+    },
+    {
+      "assessment": "Broader price-of-anarchy analysis but no identical exact labelled cycle equilibrium generating function and best-equilibrium parity formula",
+      "evidence": "DiCicco–Poskanzer–Reichman (2023), bounded-degree inoculation PoA/cycles.",
+      "identifier_or_url": "https://arxiv.org/abs/2304.12303",
+      "material_read": "Full arXiv HTML including motivation, bounded-degree bounds and relevant cycle examples",
+      "method": "primary full HTML reading",
+      "title": "Inoculation Strategies for Bounded Degree Graphs",
+      "trigger": "Earlier cycle and cost-sensitive inefficiency findings"
+    },
+    {
+      "assessment": "No full-document claim of noncoverage is made",
+      "evidence": "Chen–David–Kempe 2010 covers related but different vaccination incentives.",
+      "identifier_or_url": "https://david-kempe.com/publications/vaccinations.pdf",
+      "material_read": "Reference-level source context, not a full-paper negative comparison",
+      "method": "citation and model-context comparison",
+      "title": "Better Vaccination Strategies for Better People",
+      "trigger": "Related social optimum versus voluntary protection"
+    }
+  ]
+}
