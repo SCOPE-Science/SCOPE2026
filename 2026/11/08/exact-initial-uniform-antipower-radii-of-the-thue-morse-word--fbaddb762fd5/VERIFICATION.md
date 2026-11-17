@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The accompanying `verify.py` and `independent_check.py` are complete standalone Python standard-library programs. Run each under Python 3.8 or later. They recompute the eight radius values, factor counts and all explicitly exhibited lower witnesses. The first constructs the Thue–Morse prefix with the bitcount formula; the second constructs the relevant factors through substitutions \(\mu^h(ab)\), and separately computes witness bits by digit parity. All tests passed in the assembled source files.
+# Independent mathematical audit
 
-The finite-to-infinite bridge is independently mathematical: \(\mu^3(0)=01101001\) contains all four adjacent binary pairs, so \(\mu^{11}(0)\) contains all occurrences of \(\mu^8(ab)\) needed to represent every infinite Thue–Morse factor of length at most \(256\). Every factor checked is of length at most \(130\). Thus all infinite starting positions are genuinely covered. The witness checks give matching lower bounds.
+## correctness
 
-No claim outside \(3\leq k\leq10\) has been verified. Neither program performs historical-priority validation or external independent certification.
+PASS
+
+The morphism mu:0->01,1->10 has all four bigram types inside mu^3(0); any factor of length L<=256 of the infinite fixed point crosses at most two 256-blocks mu^8(ab) and occurs in mu^11(0) of length 2048. For k=3..10 and proposed r=(5,7,9,11,11,11,13,13), max kr=130. Independently enumerating ALL distinct factors of length kr in that prefix, every factor supports at least one allowed m<=r, with exact counts 44,86,144,196,240,284,360,388. Actual lower witnesses j=(0,16,16,10,0,0,64,53) reject every m<r by parity digit sums. Thus all starting positions, not just sampled positions, satisfy matching bounds.
+
+## originality
+
+PASS
+
+No inspected earlier statement covers the exact worst-start radii; earlier Table 1 is a different prefix statistic, and the general uniform-morphism linear existence theorem is strictly weaker. This is best-of-knowledge, not exhaustive historical priority.
+
+## value
+
+PASS
+
+The uniform antipower radius is a natural quantitative recurrence parameter. Eight exactly classified small k values expose the first genuine prefix/worst-start discrepancy at k=4 and two plateaus, supplying concrete benchmarks for uniform antipower research beyond existence asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review of the exact uniform Thue–Morse antipower radii
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pointwise definition of the shortest antipower block length and its supremum over all positions are unambiguous. The finite-factor lemma is decisive: every relevant factor has length at most \(130\), and every such factor is represented among the \(2048\) symbols of \(\mu^{11}(0)\) because all four binary pairs occur in \(\mu^3(0)\). This reduces the upper bounds for infinitely many start positions to a complete, small, finite check. The eight lower bounds each have an explicit zero-based starting position verified against every smaller block size. Two distinct standalone programs confirm the factor counts, all upper tests and all lower witnesses, using independent factor generators. The computation is finite and exhaustive for the stated \(3\leq k\leq10\), not an extrapolation.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+The morphism mu:0->01,1->10 has all four bigram types inside mu^3(0); any factor of length L<=256 of the infinite fixed point crosses at most two 256-blocks mu^8(ab) and occurs in mu^11(0) of length 2048. For k=3..10 and proposed r=(5,7,9,11,11,11,13,13), max kr=130. Independently enumerating ALL distinct factors of length kr in that prefix, every factor supports at least one allowed m<=r, with exact counts 44,86,144,196,240,284,360,388. Actual lower witnesses j=(0,16,16,10,0,0,64,53) reject every m<r by parity digit sums. Thus all starting positions, not just sampled positions, satisfy matching bounds.
 
-The 2016 Fici–Restivo–Silva–Zamboni table is for \(j=0\) only. Defant and Narayanan principally treat prefix asymptotics, Gaetz treats fixed starting positions and asymptotics, and Berger–Defant prove uniform linear existence without the exact finite optimum. These do not determine the eight exact maxima of \(\gamma_j(k)\) over all \(j\). The nearest independently indexed analogous result concerns Fibonacci rather than Thue–Morse words. No accessible own earlier claim provides the present exact table. Searches cannot exclude every unindexed or independently circulated computation.
+## originality
 
-## Value — PASS
+PASS
 
-The uniform guarantee is a natural strengthening of a classical antipower existence theorem and answers an exact worst-start question rather than just its prefix-only version. The calculation identifies the first strict discrepancy (\(k=4\), uniform \(7\) against prefix \(5\)) and two early plateaus. A compact completeness lemma lets other investigations reuse the same finite-state certification method for sharp small-parameter questions. No general asymptotic improvement or result beyond \(k=10\) is claimed.
+No inspected earlier statement covers the exact worst-start radii; earlier Table 1 is a different prefix statistic, and the general uniform-morphism linear existence theorem is strictly weaker. This is best-of-knowledge, not exhaustive historical priority.
 
-## Literature and limitations
+## value
 
-Primary sources: *Anti-Powers in Infinite Words* (arXiv:1606.02868, first public 2016-06-09), *Anti-Power Prefixes of the Thue-Morse Word* (arXiv:1607.05825), *Functions on Antipower Prefix Lengths of the Thue-Morse Word* (arXiv:1705.06310), *Anti-power j-fixes of the Thue-Morse word* (arXiv:1808.01528), and *On Anti-Powers in Aperiodic Recurrent Words* (arXiv:1902.01291). The indexed closest comparison is the exact uniform radius of Fibonacci, which neither implies nor supplies the Thue–Morse values.
+PASS
 
-The proof covers exactly the eight indicated \(k\)'s, unrestricted positive block lengths and the one-sided binary Thue–Morse fixed point. Historical originality has not received an independent audit.
+The uniform antipower radius is a natural quantitative recurrence parameter. Eight exactly classified small k values expose the first genuine prefix/worst-start discrepancy at k=4 and two plateaus, supplying concrete benchmarks for uniform antipower research beyond existence asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
