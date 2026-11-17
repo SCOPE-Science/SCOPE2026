@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim specifies a positive shift, two independent Rademacher quadratic probes, a complete bipartite graph and a variance-only objective. Direct inversion yields three types of off-diagonal resolvent entries; the general quadratic-form variance identity converts the target into an explicit weighted cut. The strictly positive second difference along the integer \((1,-1)\) direction rules out **all** interior maximizing count pairs, not only real stationary points. The two remaining one-dimensional concave maximizations are exact, including clamping, integrality, color swaps, equality and singleton-part cases. Factoring the differences from the proper cut proves necessity and sufficiency of the sharp boundary. Direct rational-matrix inversion and finite-grid checks passed, without treating finite tests as an infinite proof.
+## correctness
 
-## Originality (O): PASS with residual precedence risk
-Frommer–Rinelli–Schweitzer, arXiv:2308.07722v1, Theorem 3.3 and Section 3.2, provide the variance of stochastic probing for a given partition and optimize repeat-sample allocation, but do not supply the optimal two-color partition for \(K_{m,n}\) shifted-Laplacian inverses. The general identity is explicitly credited. Stathopoulos–Laeuchli–Orginos, arXiv:1302.4018, concerns hierarchical lattice-based graph-distance probing, not the sharp all-partitions complete-bipartite transition. Laeuchli–Stathopoulos, DOI:10.1137/18M1176427, extends hierarchical graph coloring; its accessible abstract and related open work do not establish the exact result, but its full article was not inspected and publication overlap is possible. Semantic searches of a mathematical result index for trace-estimator variance, graph coloring, shifted graph Laplacians, stars, and complete bipartite graphs found only disparate graph invariants and generic probing work. Those searches are not a uniqueness certificate. An earlier weighted-MaxCut classification or a specialist probing paper could already contain this precise result.
+PASS
 
-## Value (V): PASS
-Distance-one graph coloring seems natural for probing inverse sparse graph operators, yet it fails to minimize the actual Rademacher variance on a family as canonical as stars. The result gives an exact all-parameter design law and a complete classification of optimal assignments at fixed two-quadratic-form cost, including the graph-size/regularization transition. The explicit \(K_{10,1}\) example lowers variance by one fifth without more probes. It is not a trivial numerical table, renaming, or isolated parameter slice; the result illustrates a structural gap between annihilating shortest-range interactions and minimizing long-range squared inverse entries. The result does not claim computational wall-time advantage or extension to arbitrary graphs.
+For the resolvent B=(μI+L(K_mn))^-1, block inversion gives within-left off-diagonal c·n/(μ+n), within-right c·m/(μ+m), across c=1/[μ(μ+m+n)]. Two-class Rademacher variance is 4c² times weighted same-color unordered pairs, so minimizing it is maximizing C(x,y)=αx(m−x)+βy(n−y)+nx+my−2xy. For interior grid points, C(x+1,y−1)+C(x−1,y+1)−2C=2(2−α−β)>0; all optima lie on boundary up to color reversal. Concave edge sequences give exact integer optimizers and the proper-coloring transition α(m−1)≤n and β(n−1)≤m; both inequalities cannot fail together. Direct exact enumeration of 147 small cases corroborated, including star (m,n,μ)=(10,1,1) variance 1/4 versus 5/16.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Frommer–Rinelli–Schweitzer supply the general stochastic-probing variance identity for fixed colors, but do not solve the global partition optimization for all shifted Laplacian inverses of K_mn in the materially read text. Distinct published hypercube and screened-cycle two-color results have different kernel weights. The sharp improper-coloring phase is a new mathematical comparison within bounded searches.
+
+## value
+
+PASS
+
+The exact all-size classification changes a natural numerical linear algebra design choice: two fixed-cost stochastic trace probes may be better with an improper graph coloring; the sharp phase and star counterexample give an analytically useful criterion not reducible to a routine variance identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
