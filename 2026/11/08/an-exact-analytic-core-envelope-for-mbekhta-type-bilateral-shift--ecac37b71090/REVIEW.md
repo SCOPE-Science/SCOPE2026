@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique backward-preimage formula follows from the injective weighted shift; its norm is exactly identity (1). At the \(n=j\) inverse iterate it forces the necessary exponential envelope, and a convergent Gaussian tail sum proves sufficiency. The constructed \(c\)-family is in every power range for each \(c>0\), but in the analytic core exactly for \(c\ge1\). Rational tests corroborate, but infinite assertions use the analytic proof.
+## correctness
 
-**Originality — PASS (best-knowledge comparison).** Aznay–Chabbabi 2026 Section 2 explicitly determines the quasinilpotent-part coefficients and proves density/properness of the analytic core, not its complete coefficient membership test. Mbekhta's 1990 original pp. 274–275 proves non-pseudo-Fredholmness without specifying analytic-core coefficients. Aiena–Biondi's one-sided shift condition has trivial hyperrange, so it does not imply the present bilateral boundary. Related previously reported curvature/spectral studies of the same shift family have different conclusions and do not imply core membership. No identified broader result covers the exact Gaussian threshold. Classical general backward-chain criteria may be expressible as weighted-sequence conditions, creating a residual priority risk; search absence does not prove novelty.
+PASS
 
-**Mathematical value — PASS.** The recent paper leaves one of its central two spectral subspaces specified only by density, while describing the other by exact coefficients. The finding fills that natural asymmetric gap with a complete sharp classification, and establishes strict analytic-core versus hyperrange separation through explicit vectors. This distinction matters for local spectral/Kato decomposition theory and is more than a finite computation or cosmetic normalization.
+For B_q e_j=w_j e_{j+1}, w_j=1 for j<=0 and q^j for j>=1, all weights nonzero, so each n-fold preimage is unique. Its coordinate is x_j when j<=0, x_j/gamma_j for 1<=j<=n, and x_j gamma_{j-n}/gamma_j for j>n, with gamma_j=q^{j(j-1)/2}. Orthogonal squaring yields the exact inverse-norm identity with finite positive-coordinate sum and Gaussian-weighted tail. The n=j preimage zero-coordinate forces |x_j/gamma_j|<=M A^j for any analytic-core chain. Conversely an exponential envelope bounds both finite sum and Gaussian tail uniformly by O(R1^{2n}), constructs compatible backward preimages and proves membership. For x_j=q^{cj(j-1)/2}, c>0, every fixed-order inverse tail exponent is ck²+O_n(k), while the analytic-core rescaled coordinates are subexponential iff c>=1. Finite-support density and 0<c<1 give strict hyperrange containment. Independent exact rational inverse-norm checks used 39 (q,n) cases, not a replacement for the infinite-n proof.
 
-**Limitations.** The result treats the geometric positive-half-line damping family, not all bilateral weighted shifts. It does not establish new Fredholm criteria. A comprehensive external publication-priority review is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing treatments of Mbekhta's bilateral shift show non-pseudo-Fredholmness, analytic-core density/properness, and a complete quasinilpotent-part criterion controlled by NEGATIVE coordinates. The exact POSITIVE-coordinate Gaussian analytic-core envelope and c=1 hyperrange separation are not established by those results. No broader published source found yielding this equivalence; assessment is best knowledge, not a proof of absolute novelty.
+
+## value
+
+PASS
+
+The analytic-core versus hyperrange distinction is central to local spectral theory. For Mbekhta's canonical non-pseudo-Fredholm bilateral shift, an explicit necessary-and-sufficient Gaussian coordinate envelope and sharp c=1 membership threshold give a natural exact operator invariant and concrete dense strict inclusion. It is not merely a guessed numerical example or an arbitrary slice, though its computation uses elementary inverse products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
