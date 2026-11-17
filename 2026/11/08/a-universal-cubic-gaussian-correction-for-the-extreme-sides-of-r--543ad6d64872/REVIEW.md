@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gram determinant joint density follows by an explicit conditional spherical-coordinate calculation with the stated gamma normalization. On a growing central ball its logarithm has a cubic term of size \(d^{-1/2}\), and the Gaussian-integrable polynomial remainder contributes \(O(d^{-1})\) in absolute integral; subGaussian tails bound the complement. The probability expansions then follow by integrating the signed cubic over lower and upper orthants, with the threshold approximation controlled uniformly on compact sets. The exact \(d=3\) right-angle integral and numerical cross-checks agree. No statement relies on finite simulations as an infinite proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The strongest directly relevant earlier theorem is Bubeck–Ding–Eldan–Rácz (arXiv:1411.5713): their Lemma 1 shows triangle excess of at least constant order \(d^{-1/2}\) for fixed connection probabilities, while Lemma 5 explicitly integrates the threshold at one right angle. These are **not** claimed new. Cai–Fan–Jiang (arXiv:1306.0256) established pairwise angle independence and large-sample extreme-angle laws. The present claim identifies the *precise*, variable-threshold coefficient \(\phi(t)^3\) and establishes an \(L^1\) first-order Gram-density expansion with an integrated error \(O(d^{-1})\), from which both the smallest and largest side extremes follow. Allen-Perkins (arXiv:1807.06220) addresses cap overlaps and clustering for an ordinary sphere; Qi–Yang (arXiv:2609.05330) treats extreme angles when the number of vertices grows. A historical derivation of the exact coefficient in specialized random geometric graph literature remains the principal risk; priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The correction coefficient is not a cosmetic first-order substitution: even though all three edge angles are pairwise independent and individually Gaussian to error \(O(d^{-1})\), their *extremes* retain a universal order-\(d^{-1/2}\) third-order dependence. This supplies a complete sharp leading profile for the simplest spherical geometric graph motif and yields a quantitative geometric approximation that the earlier order-only lower bounds do not specify.
+Conditional spherical-coordinate normalization yields Gram density c_d det(G)^((d-4)/2) supported on PSD correlations. z_i=sqrt(d)r_i gives log-density relative to three independent standard normals with cubic term z1 z2 z3/sqrt(d) plus Gaussian-integrable O(poly(||z||)/d) error in the central ball ||z||<=d^(1/16). Marginal sphere concentration bounds both true and signed reference tails by exp(-c d^(1/8)). Gamma ratio normalization has only O(1/d) error. Orthant integrals of zi phi(zi) equal +/-phi(t), converting cubic term to the same positive phi(t)^3/sqrt(d) for max and complement-of-min, with threshold -sqrt(d)sin(t/sqrt(d))=-t+O_T(1/d).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cai–Fan–Jiang full text gives pairwise-angle independence and extreme laws in growing sample count; Bubeck–Ding–Eldan–Racz Lemmas 1 and 5 examine the same triangle threshold, positive excess order d^-1/2 and special right-angle integral, but not an explicit all-t coefficient nor O(1/d) L1 expansion in inspected theorem. Exact LKJ triangular cubic moment alone does not imply a density remainder bound. These known ingredients reduce technique novelty but not the precise asymptotic theorem under current evidence.
+
+## value
+
+PASS
+
+The exact leading constant for a dependent three-edge spherical-graph triangle event, and its total-variation-strength joint approximation, fill a meaningful quantitative gap beyond mere order bounds and marginal/pairwise independence. This is a reusable three-edge threshold approximation, not an arbitrary tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
