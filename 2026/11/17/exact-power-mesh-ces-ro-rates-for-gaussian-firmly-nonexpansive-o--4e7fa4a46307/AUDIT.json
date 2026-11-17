@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The admissibility inequality follows from a mean-value lower bound and the explicit delta restriction. Bauschke–Tung Theorem 7.1 then realizes the Gaussian vector sequence as an orbit of a firmly nonexpansive map with unique fixed point. For each macroscopic index i/N->u in (0,1), the Gaussian Gram row has asymptotic density N^alpha sqrt(pi)u^alpha/delta; a uniform Gaussian row bound and dominated convergence give the asserted N^{1-alpha} limit, including the factor exp(-2 delta^2 zeta(2 alpha)). 40,000 finite mesh checks and direct Gram computations are corroborative, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bauschke–Tung Theorem 7.1 constructs the mapping for arbitrary admissible meshes; Theorem 7.6 gives qualitative strong convergence under \\(nd_n\\to\\infty\\), without exact norm asymptotics.",
+        "Lemma 4.3 supplies only a row upper estimate, and Theorem 7.6 with Example 7.7 proves qualitative convergence rather than a sharp leading term."
+      ],
+      "reasoning": "Existence and general boundedness are broader in operator scope, but the published inequalities are one-sided and cannot deliver the exact positive coefficient. The new claim is narrower in map class and stronger in quantitative limit information.",
+      "searches": [
+        "Sharp norm decay of Cesaro averages of nonlinear firmly nonexpansive fixed point iteration Gaussian mesh",
+        "firmly nonexpansive Cesàro means rates polynomial n power Gaussian",
+        "Bauschke Tung 2026 meshs alpha 1/2<alpha<1 n^{alpha-1} asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.25491",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba",
+      "Search phrases on Gaussian Gram sums, power-law meshes and nonlinear Cesàro rates, 2026-11-08"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.25491 Eq. (74) is an upper bound of order N/d_N for the unweighted Gram sum.",
+        "arXiv:2605.25491 Eqs. (75)–(78) derive qualitative convergence at exponent alpha=3/4.",
+        "Published harmonic-endpoint record 2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba determines a nonzero Cesàro limit for alpha=1."
+      ],
+      "reasoning": "An upper bound and one qualitative convergence example do not imply a matching power asymptotic or the positive coefficient. The harmonic formula cannot specialize to alpha<1 because its correlation scale is macroscopic. The new proof derives the missing lower-order mass through local Gaussian Riemann sums.",
+      "searches": [
+        "arxiv:2605.25491 Bauschke Tung exact Cesaro averages polynomial mesh 3/4 Gaussian inner products power asymptotic",
+        "2026 Bauschke Tung Cesàro mean n^-3/4 exact asymptotic constant Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published index closest: 2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba (harmonic-alpha endpoint).",
+        "Bauschke–Tung [arXiv:2605.25491], Theorem 7.6 gives qualitative strong convergence whenever n*d_n tends to infinity; Example 7.7 instantiates d_n=1/(16n^{3/4}) without a sharp rate or constant."
+      ],
+      "reasoning": "The aliases Gaussian Gram double-sum, polynomial mesh, power-law local density and Cesàro averaged norm point to the same functional. The harmonic alpha=1 limit uses correlations across indices of order N; the new alpha<1 formula uses windows of size N^alpha and a different scaling, so neither statement implies the other.",
+      "searches": [
+        "arxiv:2605.25491 Bauschke Tung exact Cesaro averages polynomial mesh 3/4 Gaussian inner products power asymptotic",
+        "For vectors x_n=e^{-sum d_k^2}u(sum d_k), Gaussian inner products, N^{1-alpha} norm of averages square tends sqrt pi over delta(alpha+1)",
+        "Gaussian kernel sequence t_n=sum k^-alpha sum pair e^-(t_i-t_j)^2 asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest matching published record: 2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba; its summary explicitly concerns alpha=1, not alpha strictly below one.",
+        "Full text arXiv:2605.25491 has no exact normalized N^{1-alpha} coefficient in Example 7.7."
+      ],
+      "reasoning": "No published exact-value table for this Gaussian double sum was identified. This negative search is not evidence of absolute uniqueness; it is combined with the concrete comparison of mathematical statements.",
+      "searches": [
+        "Bauschke Tung Gaussian kernel polynomial mesh n^-alpha Cesaro means exact decay sharp constant N^{alpha-1} for alpha between 1/2 and 1",
+        "Gaussian trajectory averages regularly varying mesh t_n n^(1-alpha) sharp asymptotic norm",
+        "\"Gaussian kernel\" \"power law mesh\" \"Cesaro\" Hilbert"
+      ]
+    },
+    "rationale": "The source full text gives qualitative strong convergence for all admissible meshes with \\(nd_n\\to\\infty\\) (Theorem 7.6), and one polynomial-mesh example and a nonsharp Gaussian row bound, while the proposed theorem establishes all intermediate power exponents and the exact nonzero normalized coefficient. The closest published record treats the harmonic endpoint alpha=1 with a positive Cesàro norm limit, not the shrinking limit for alpha<1. Searches of the research index and literature did not reveal exact coverage; a general Gaussian approximate-identity theorem could overlap as a method and remains a priority risk.",
+    "residual_risks": [
+      "A classical theorem for Gaussian kernels sampled at regularly varying meshes may subsume the underlying double-sum limit even if published under different terminology.",
+      "The nearest published harmonic record was only inspected at title-and-summary level; it is mathematically an endpoint, but its full text was unavailable.",
+      "The proof applies to the original Gaussian construction, not to all firmly nonexpansive iterations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The construction and elementary upper bounds are prior work; Theorem 7.6 and Example 7.7 do not calculate the exact power-mesh Cesàro coefficient. Checked the theorem assumptions independently for the present family.",
+        "evidence": [
+          "arXiv:2605.25491, Theorem 7.1, Eq. (62)",
+          "arXiv:2605.25491, Lemma 4.3, Eq. (25)",
+          "arXiv:2605.25491, Example 7.7, Eqs. (75)–(78)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.25491",
+        "material_read": "Full HTML text Sections 2, 5, 6, 7 including Eqs. (24)–(28), (29), (36)–(40), (48)–(53), (60)–(63), (65)–(78), and Theorem 7.6",
+        "method": "Full-text inspection of definitions, theorem, proof prerequisites, example claims, constants and limiting regime",
+        "title": "Cesàro means of firmly nonexpansive iterates need not converge strongly",
+        "trigger": "Direct source with the same Gaussian curve, mesh and firmly nonexpansive orbit construction"
+      },
+      {
+        "assessment": "The summary explicitly concerns the alpha=1 endpoint; different scaling from the new alpha<1 claim. Priority risk remains because the full record was not accessed.",
+        "evidence": [
+          "Published index record 2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba; positive limiting norm for d_n=delta/n."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-ces-ro-norm-limit-for-the-harmonic-firmly-nonexpansive-cou--4fec08167fba",
+        "material_read": "Published index title and summary, identifying the harmonic alpha=1 case and its positive Gaussian-logarithmic limit; full document not accessed",
+        "method": "Indexed title-and-claim comparison, not a whole-document negative assertion",
+        "title": "Exact Cesàro norm limit for the harmonic firmly nonexpansive counterexample",
+        "trigger": "Nearest published same-object exact norm calculation under the harmonic mesh"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e7fa4a4-6307-42fa-a936-193f01fc3359",
+  "value": {
+    "rationale": "The 2026 source introduced a new nonlinear ergodic counterexample and a qualitative strong-convergence theorem for many meshes, without its exact speed. A continuum of exact rates and constants for 1/2<alpha<1 quantifies how averaging may converge arbitrarily slowly in the same orbit class even while the unaveraged iterates fail to converge strongly. The invariant is the natural squared norm of actual Cesàro means, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
