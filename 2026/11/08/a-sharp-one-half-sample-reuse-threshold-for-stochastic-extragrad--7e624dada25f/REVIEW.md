@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Each update is an exact scalar-plus-rotation matrix; squaring its action yields the exact expected multiplier. Independence across iterations proves the all-horizons formula, and the scalar quadratic sign supplies an if-and-only-if stable step interval including the neutral boundary. The distribution-free half-reuse sufficiency follows from \(a_\rho=\mu^2+(2\rho-1)(m_2-\mu^2)\); necessity uses rare positive two-point laws and strict continuity. The bundled checker gives exact-rational independent examples, not a replacement for the proof.
+PASS
 
-## Originality
+Write z_(k+1)=((1-eta²A_kB_k)I-eta B_k J)z_k with J²=-I and J^T=-J. Orthogonality gives pathwise squared-norm multiplier 1+eta²(B²-2AB)+eta^4A²B²; iid pairs imply exact all-n expectation (1+eta²(m2-2c)+eta^4 d)^n. Because c>m2/2 implies d>=c²>0, strict contraction occurs iff 2c>m2 with 0<eta²<(2c-m2)/d, and all edge cases are handled. Under Bernoulli reuse rho, c=rho m2+(1-rho)mu² and d=rho m4+(1-rho)m2², giving a_rho=mu²+(2rho-1)(m2-mu²); every law with nonzero mean has a_rho>0 when rho>=1/2. For any rho<1/2 a rare positive two-point law makes m2/mu² large enough that a_rho<0 and all positive steps are unstable; perturbing the zero atom to a small strictly positive value preserves failure. Direct exact rational one-step/multistep enumeration independently confirmed representative formulas and the half-reuse example; universality follows algebraically, not from tests.
 
-**PASS, with publication-precedence risk.** Chavdarova et al. establish possible divergence for independent oracle calls, Mishchenko et al. motivate shared samples, and the 2022 bilinear/extragradient studies address rates for endpoint choices. The inspected source sections do not imply the sharp half-reuse guarantee over *all* finite-fourth-moment coefficient distributions. A related uniform positive two-point coupling classification is narrower: in that family \(m_2<2\mu^2\), so there is no rare-event obstruction and no distribution-free half-reuse cutoff. More obscure joint-oracle coupling literature may overlap and warrants specialist review.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a sharp uniform coordination requirement for a natural family interpolating between two standard stochastic extragradient implementations. It shows that the amount of sample sharing needed to assure *some* mean-square-stable stepsize has a universal one-half threshold, even though the admissible stepsize itself depends on oracle moments. The sharpness persists with strictly positive, bounded two-point oracles. The mean-versus-mean-square separation illustrates why looking only at the expected iterate is insufficient.
+The exact scalar bilinear moment identity is elementary once the update is written, and same-sample stabilization versus independent divergence is established prior art. The substantive surviving original contribution is the sharp distribution-free rho=1/2 Bernoulli within-step reuse threshold for ALL scalar oracle laws with finite fourth moment, with strictly-positive rare two-point counterexamples and law-specific critical reuse. Prior published equally-likely two-component coupling phase theorems do not imply this rare-law universal quantifier. Primary Mishchenko and Chavdarova full paper material lacks the sharp rho threshold. Possible alternate correlated-oracle formulations remain an originality risk.
 
-## Scope and limitations
+## value
 
-The theorem concerns equal-step, two-dimensional scalar bilinear games, iid iteration pairs, arbitrary marginal laws of finite fourth moment and nonzero mean. It does not assert a universal numerical step size, almost-sure instability, general matrix-valued extensions, or full publication-precedence certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It identifies the minimum fraction of costly reused stochastic oracle calls guaranteeing the *existence* of stable mean-square steps for all finite-fourth-moment scalar bilinear coefficient laws. The sharp half-fraction and strictly positive rare-event obstruction resolve a meaningful sampling-design robustness question beyond textbook deterministic extragradient algebra. It does not claim one universal stepsize or convergence on general matrix-valued games.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
