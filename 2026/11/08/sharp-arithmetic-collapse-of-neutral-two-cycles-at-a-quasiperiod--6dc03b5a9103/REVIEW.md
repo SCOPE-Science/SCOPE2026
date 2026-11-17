@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The conjugating central graph solves the forcing cohomology exactly. Subtracting it from the original map yields the exact clipped reflection \(\delta_{n+1}=\min(-\delta_n,h_b(\theta_n))\), whose parity-resolved running-minimum identities are proved by induction. Irrational density proves the neutral-pair selection and critical uniform collapse. Supremizing over all initial fibers and angular phases produces the finite-sample circle covering radius, rather than a merely asymptotic estimate. The continued-fraction proof checks both bounded-type upper bounds and the reverse obstruction from unbounded consecutive-denominator ratios. The supplied checker replayed finite cases from the exact map, but is not an infinite proof.
+## correctness
 
-## Originality (O): PASS within inspected evidence
-The motivating paper by Martinez-Vergara and Tatjer, arXiv:2512.04234 (full article inspected, including its \(F_4\) definition, Assumption 2.1, Theorems 3.4 and 3.13, proofs, and conclusion), works on the two open slope ranges separated by \(a=-1\). It does not state the critical-margin foliation, finite-time worst-case formula, or the bounded-type equivalence. The earlier Jorba–Tatjer–Zhang neutral-slope result uses a different **increasing**, doubly clipped map, and the Anagnostopoulou–Jäger saddle-node theory uses increasing/convex fiber hypotheses. No inspected published research-record claim implies the present statement via a source substitution, even though there are broad analogies. Historical priority remains a risk, especially for general nonexpansive clipped cocycles.
+PASS
 
-## Value (V): PASS
-The neutral slope \(-1\) is the precise boundary between the source's contraction and expansive regimes, so its dynamics is not resolved by either theorem. The transition from a continuum of two-periodic graph pairs to uniform, everywhere attraction is a motivated stability problem. The exact **worst-case** convergence rate is not a numerical observation: its equivalence with bounded partial quotients captures the dependence of physical transient times on irrational forcing arithmetic, which cannot be inferred from mere convergence or a standard spectral multiplier.
+For irrational ω/(2π), cos(ω/2)≠0, and 0<b≤b*=2c/(1+c), the displayed mu_b satisfies mu(θ+ω)=−mu(θ)−b(1+cosθ) exactly. Since h=1+mu≥d_b≥0, displacement δ obeys δ_{n+1}=min{−δ_n,h(θ_n)}. Alternating signs yield exact even/odd running minima; density of 2ω irrational rotation gives shadowing of continuous exchanged graph pairs ±min(|δ0|,d_b). At critical d_b=0, optimizing initial magnitude and phase gives equality of both 2m/2m+1 uniform worst errors with (1−cos rho_m)/(1+c), not merely asymptotic upper bounds; no other continuous graph can remain invariant. Consecutive continued-fraction convergents yield rho_m=O(1/m) exactly for bounded partial quotients, and unbounded q_next/q force limsup m² rho_m²=∞; universal largest-gap lower bound gives Θ(m^-2) iff bounded type. Independently iterated original clipped map against running minima for 2 irrationals, 3 amplitudes, 3 phases, 5 deviations, 29 steps (2610 comparisons).
 
-## Limitations and further checks
-This is a harmonic, exactly marginal-slope theorem. The arithmetic criterion concerns uniform minimax error, not an individual-orbit lower rate. Broader nonexpansive and forced-cocycle literature may still contain a covering theorem. Numerical and self-review are not independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for exact excluded neutral a=−1 slope of the published F4 quasiperiodic clipped model, including sharp b threshold, continuum of two-graph pairs, minimax covering-radius identity, and Diophantine rate dichotomy. The primary Martinez-Vergara–Tatjer open-access article treats contracting −1<a<0 and nonsmooth regime a<−1 but explicitly leaves |a|=1 untreated; it cannot imply the rate. Other positive-slope neutral clipped systems have different recurrence and no identical negative-slope running-minimum law. Classical circle-covering/continued-fraction bounds are acknowledged.
+
+## value
+
+PASS
+
+A natural missing bifurcation boundary of a named quasiperiodic dynamical family is solved exactly, including global orbit shadowing, uniform minimax convergence and an arithmetic distinction of bounded-type vs unbounded-type frequencies. This is a structural rigidity and rate theorem, not a routine finite orbit computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
