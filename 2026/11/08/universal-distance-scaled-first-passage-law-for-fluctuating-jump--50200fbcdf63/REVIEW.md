@@ -1,19 +1,21 @@
-# Scientific review: Universal distance-scaled first-passage law for fluctuating jump rates
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses a unit-rate spatial walk, an independent integrated jump-rate clock and a two-parameter Laplace scaling limit. The hitting-time functional is handled through convergence of independent scalar hitting time and operational clock at every fixed time, not through unproved inversion of a discontinuous stable path. The Gaussian representation of Brownian first passage and the Laplace integral for negative stable moments give the exact fractional-moment formula. The discrete heat-kernel reflection bound and gamma integral yield uniform subcritical moment integrability. A standalone checker verifies special-function identities and finite-distance spectral quadratures in 37 deterministic tests. Numerical finite-size comparisons do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+Operational-time representation makes T_n the inverse of the independent integrated clock evaluated at simple-walk hitting time H_n. The random-walk invariance principle gives H_n/n^2->Brownian H. The triangular array Laplace transform of integrated rates at n^(2alpha)t converges to exp(-ct s^alpha); joint convergence and a continuous comparison event identify c^(-1)(H/U_alpha)^alpha. Brownian sine spectral formula and stable Laplace transform yield the survival integral. Gamma integrations prove E H^(alpha q) and E U^(-alpha q); a free-walk survival heat-kernel bound plus Laplace split yield uniform v^(-1/(2alpha)) tails and moment convergence below threshold. Error-function limit and stable negative half-moment give the sharp tail constant. Independently checked gamma-product at alpha .3/.7, valid q; the finite checker alone is not proof.
 
-Levit and Reuveni, arxiv:2609.26925v1, already establish the exact finite-distance spectral survival formula, the fixed-distance power tail and threshold, and for the Mittag--Leffler rate the large-start *mean* when the first moment is finite. The present limit recovers that mean coefficient but additionally identifies a full universal distribution under general Laplace-tail conditions, proves convergence of all subcritical positive moments, and gives their exact values. Arutkin and Reuveni, arxiv:2302.07041, provide the underlying random-rate walk framework; Uchida et al., arxiv:2502.20705, concern finite-mean ergodic diffusivities. Standard inverse-stable time-change theory is prior work and a potential route to general coverage. A broader unindexed theorem could imply parts of the result: a residual publication-priority risk remains. Consult AUDIT.json for four claim-level implication comparisons, source inspections and evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by a current first-passage phase transition: knowing a mean and a fixed-start tail does not identify the law on the physically different large-start scale. The full survival curve determines quantiles; the moment spectrum quantifies rare search durations and makes sense when the mean is infinite. The limit also demonstrates which aspects depend only on the rate-tail index and normalization rather than on the complete rate distribution.
+Levit-Reuveni establish finite-start survival tail, finiteness threshold and a Mittag-Leffler large-distance first moment, not the whole simultaneous large-start distribution, general Laplace-tail universality or fractional moment spectrum in available material. Classical Brownian/stable subordination supplies methods but not an inspected exact prior statement of this combined first-passage limit. Best-of-knowledge pass; recent primary full text and general invariance theorem equivalences remain residual risks.
 
-## Limits
+## value
 
-Only symmetric nearest-neighbor half-line motion and independent fixed-interval rate refreshes are included. There is no error rate, quenched law, varying-interval limit or independent validation. General inverse-stable-subordination literature was identifiable, but a full global uniqueness survey is impossible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full nondegenerate first-passage distribution and exact moment range provide a natural universality law beyond a known single mean and tail exponent, applicable to a broad heavy-rate class. It clarifies which observables survive as finite moments; mathematical significance does not require novel stable-limit tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
