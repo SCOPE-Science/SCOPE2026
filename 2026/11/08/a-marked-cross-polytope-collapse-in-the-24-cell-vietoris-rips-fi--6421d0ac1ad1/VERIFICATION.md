@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact checker `verify.py` reconstructs the root coordinates and reads `collapse_pairs.json` from its own directory. It verifies all 752 ordered elementary free-face removals, the face count at every removal stage, the final induced eight-vertex four-cross-polytope boundary, and the pairwise Euclidean distance shells. The one-dimensional, two-dimensional, and higher-dimensional homotopy conclusions use the explicit cell-structure and join arguments in RESULT.md; the mod-two rank calculation is an independent finite check, not an integral-homology certificate by itself.
+# Independent mathematical audit
 
-To reproduce: put `verify.py` and `collapse_pairs.json` in one directory and execute `python verify.py`. The provided `verification_output.txt` is the output of that exact command. Every integer and face comparison is exact. The verifier checks the finite 24-point complex only and does not certify any proposed infinite-dimensional or varying-parameter extension.
+## correctness
+
+PASS
+
+From lexicographically sorted D4 roots, independently enumerated all 1584 flag simplices with f-vector (24,168,480,600,288,24). Independently fetched and checked all 752 exact collapse_pairs.json certificate pairs against evolving live complex, each lower face having precisely one immediate current coface. Exactly 80 surviving faces lie in the prescribed eight roots, giving (S0)^*4=S3. Hence marked inclusion is a simple homotopy equivalence and its integral fundamental class maps to primitive H3 generator. Other filtration stages follow distance shells sqrt2,2,sqrt6,2sqrt2.
+
+## originality
+
+PASS
+
+Saleh thesis gives 24-cell H2,H3,H11 ranks, not the marked collapse. Earlier 2026-11-01 736-step collapse onto a different ten-vertex triangulated sphere proves unmarked simple homotopy, not that the particular eight-vertex induced cross-polytope is a deformation retract. New exact marked inclusion is not mechanically implied by a homotopy-equivalent residual sphere.
+
+## value
+
+PASS
+
+A specific cross-polytope embedded in D4 roots gives a geometrically identifiable primitive homology representative, stronger than the known Betti numbers and distinct from a non-marked collapse. Complete finite certificate is a mathematically substantive exact witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

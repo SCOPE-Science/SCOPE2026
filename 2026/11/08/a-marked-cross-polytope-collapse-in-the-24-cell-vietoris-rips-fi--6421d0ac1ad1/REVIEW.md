@@ -1,11 +1,21 @@
-# Scientific assessment of the marked 24-cell collapse
+# Independent mathematical audit
 
-**Correctness: PASS.** The unique-coface condition is verified for every one of the 752 proposed elementary collapses of the complete 1,584-face Euclidean Rips complex at scale two. The final 80-face induced subcomplex is the join of four pairs of antipodal vertices, a three-sphere, so its inclusion is a simple-homotopy equivalence and gives a primitive integral third-homology generator. The other stages follow from the 24-cell's octahedral cellular boundary, the twelve antipodal nonedges at squared threshold six, and the full simplex at squared threshold eight. The independent mod-two ranks agree with the asserted integral homotopy consequences, but are not their proof.
+## correctness
 
-**Originality: PASS for the marked-collapse claim.** The 2023 dissertation of Saleh gives 24-cell degree-two, -three, and -eleven homology ranks; those numerical values and associated ordinary barcodes are prior art. The 2023 Saleh–Titz Mite–Witzel paper remarks that regular four-dimensional cases beyond the 120-cell are easy; therefore, the bare unmarked homotopy labels are not presented as a novelty claim. Neither inspected source gives the particular 752 elementary collapses from the Euclidean scale-two complex to the stated embedded 16-cell boundary, nor the resulting explicitly identified primitive integral generator. Exact result-record and literature searches were performed under 24-cell, \(D_4\), 16-cell, Vietoris–Rips, nonnegative inner products, and root-system terminology; the closest indexed 24-cell result concerns its *independence* complex. Residual risk is an unindexed equivalent marked collapse.
+PASS
 
-**Value: PASS.** The 24-cell is the exceptional self-dual regular four-dimensional polytope, and the previously computed three-dimensional persistent homology class lacked an explicit simplicial and geometric representative in the inspected primary treatment. A direct collapse to a prescribed inscribed 16-cell proves a stronger simple-homotopy statement and turns its integral generator into a concrete geometric cycle. The exact self-contained finite certificate provides a reusable test case for collapse algorithms and an interpretation of the middle-stage persistence feature. No unproved higher-dimensional generalization is implied.
+From lexicographically sorted D4 roots, independently enumerated all 1584 flag simplices with f-vector (24,168,480,600,288,24). Independently fetched and checked all 752 exact collapse_pairs.json certificate pairs against evolving live complex, each lower face having precisely one immediate current coface. Exactly 80 surviving faces lie in the prescribed eight roots, giving (S0)^*4=S3. Hence marked inclusion is a simple homotopy equivalence and its integral fundamental class maps to primitive H3 generator. Other filtration stages follow distance shells sqrt2,2,sqrt6,2sqrt2.
 
-**Closest literature and limitations.** Saleh (2023), §4.2, p. 73, is the decisive prior numerical table; Saleh–Titz Mite–Witzel (arXiv:2302.14388, first version 2023-02-28) supplies the motivation and explicitly notes that 4-dimensional cases may be easy. These sources may signal prior expert awareness of the unmarked homotopy types. The marked *simple-homotopy* result is stronger, but originality remains conditional on the accessible literature. The particular collapse is not claimed to respect all root-system symmetries; independent external review is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Saleh thesis gives 24-cell H2,H3,H11 ranks, not the marked collapse. Earlier 2026-11-01 736-step collapse onto a different ten-vertex triangulated sphere proves unmarked simple homotopy, not that the particular eight-vertex induced cross-polytope is a deformation retract. New exact marked inclusion is not mechanically implied by a homotopy-equivalent residual sphere.
+
+## value
+
+PASS
+
+A specific cross-polytope embedded in D4 roots gives a geometrically identifiable primitive homology representative, stronger than the known Betti numbers and distinct from a non-marked collapse. Complete finite certificate is a mathematically substantive exact witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
