@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python 3.9+). No external packages or data are required. The checker fully enumerates all \(2^{20}=1,048,576\) vertex subsets by common-neighbor intersection and independently enumerates unions of neighborhood-subset families; both yield 8,621 faces including the empty face. It constructs 4,238 Morse pairs, checks each of 41,940 signed Hasse incidences, and verifies acyclicity by an exhaustive directed topological sort.
+## correctness
 
-The signed integer recursion for degree-2 Morse weights is evaluated on the whole finite complex and gives 95 zeros, 30 coefficients \(+2\), 17 coefficients \(-2\), and gcd \(2\). An explicit coefficient \(+2\) occurs for the critical 3-cell with face mask 8707. Exact unreduced mod-two simplicial boundary ranks in dimensions 1 through 8 are \((19,161,798,1400,1120,560,160,20)\), consistent with the universal coefficient theorem. The included `verification_output.txt` was produced by running the included verifier. The result proves the complete nonequivariant homotopy type of this one finite complex; it does not establish a general family claim or replace independent external validation.
+PASS
+
+The simplicial faces are precisely subsets of 20 open 9-neighborhoods in J(6,3), with 8,621 augmented faces. Independently regenerated faces, 4,238 toggled pairs, critical cells (one 0, one 2, 142 3), and all 142 signed integer Morse degrees: 95 zero, 30 +2, 17 -2, so gcd 2. Source verifier explicitly constructs and topologically sorts all 41,940 nonempty Hasse arrows. Its graph acyclicity and unit incidence recursion are mathematically appropriate. The 2-skeleton is S2, so 142 attaching maps are integral degrees, reducing by unimodular changes to degree 2 plus 141 zero attachments. Thus the claimed Moore wedge follows, not just field Betti numbers.
+
+## originality
+
+PASS
+
+Best-of-knowledge no earlier covering exact open-neighborhood Johnson Moore homotopy identified; the closest Johnson theories have different simplex tests.
+
+## value
+
+PASS
+
+This is a natural first 20-vertex middle-level Johnson graph, and its common-neighbor complex unexpectedly realizes 2-primary integral torsion in degree two despite a high-dimensional pure triangulation. The precise Moore summand and 141-sphere count are not implied by known clique/closed-neighborhood calculations and are a useful benchmark for topology of graph Hom/neighborhood complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
