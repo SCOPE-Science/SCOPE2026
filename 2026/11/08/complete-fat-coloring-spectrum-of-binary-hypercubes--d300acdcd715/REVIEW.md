@@ -1,19 +1,21 @@
-# Scientific review: complete FAT-coloring spectrum of binary hypercubes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every integer \(d\ge1\), \(k\ge2\), and real FAT parameter \(\alpha\), with all \(k\) color classes nonempty. Connectivity excludes \(\alpha=0\) for \(k>1\). The common positive integer off-color degree \(t=\alpha d\) implies \((k-1)t\le d\). Counting interclass edges from both ends proves equal class sizes, so \(k\mid2^d\) and \(k\) is a power of two. For the converse, the \(d\) coordinate columns consist of \(t\) copies of every nonzero vector of \(\mathbb F_2^r\) plus the remaining zero columns. The syndrome map is surjective and its one-coordinate changes produce exactly the claimed neighbor histogram for every vertex. Thus the construction proves all parameter cases, rather than extrapolating from computations. The one-color case and proper-coloring boundary are separately explicit. The verifier checks 106 constructed parameter triples and 14 exhaustive small instances by direct adjacency enumeration; these finite checks are corroborative, not a substitute for the general argument.
+PASS
 
-## Originality — PASS (priority provisional)
+For k>=2, if alpha=0 then graph connectivity forces one color; hence t=alpha d is positive integer, with (k-1)t<=d. Double-counting edges between each two classes (t times either class size) forces all classes equal and thus k|2^d, hence k a power of two. For sufficiency choose r with k=2^r, use t copies of each nonzero column of F2^r and d-(k-1)t zero columns in a linear syndrome c(x)=sum x_i a_i. Each nonzero color difference occurs exactly t among one-coordinate flips, zero difference exactly s; map surjective as each basis column appears. This proves every (d,k,t) without assuming linearity of arbitrary colorings. Properness s=0 and maximal k power-of-two <=d+1 follow. Independently checked 47 permitted parameter triples d<=8 by direct neighbor histograms, while repository verify.py includes 106 construction profiles and exhaustive small labelings. All infinite assertions are proved by counting and explicit construction.
 
-The nearest FAT-coloring papers are Beers–Mulas, arXiv:2510.18494, which contains the foundational definition and the equal-class/degree restrictions for connected regular graphs, and Beers–Mulas, arXiv:2604.21665, whose Section 7.2 gives product lifts with unchanged palette size. Neither of those inspected statements is the necessary-and-sufficient existence theorem for every binary-cube dimension, palette, and tolerance, nor does the former's upper bound establish attainability. Shaebani, arXiv:2511.14871 and arXiv:2512.11153, addresses other general existence and gap constructions rather than a cube-specific spectrum. Krotov–Valyuzhenich, arXiv:2311.05566, studies selected degree-limited perfect-coloring classes, not uniform off-diagonal quotient matrices for all parameters. The term *perfect coloring* or *equitable partition* encompasses the same cube objects, so a previously published coding-theoretic existence result remains a material priority risk. The linear syndrome mechanism is a familiar coding-theory technique and is not claimed as a new algorithm; the assembled all-parameter FAT theorem is the claim assessed here.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The binary cube is a canonical regular bipartite graph family, not an arbitrarily selected finite example. The theorem determines an entire feasibility region rather than a single numerical bound: the number of colors is restricted to powers of two, every allowable integer off-color count is attainable, and properness occurs exactly at a divisibility boundary. It gives the exact FAT chromatic number, thereby producing an unbounded gap over the ordinary chromatic number two *within a connected family*. The witness is explicit and scales to every dimension. This complete natural classification can serve as a benchmark for graph-product colorings, quotient matrices, and coding-theoretic equitable partitions; no downstream theorem is asserted.
+In regular Q_d, FAT is exactly an equitable/perfect vertex coloring with quotient diagonal d-(k-1)t, all off-diagonal t. This equivalence was searched explicitly. Beers–Mulas arXiv:2510.18494 prove necessary balance and degree bounds, but do not state simultaneous attainment for every binary hypercube dimension/palette/tolerance. Their 2026 spectral product constructions preserve a given k rather than establish all k=2^r; Shaebani papers treat other existence families. Krotov–Valyuzhenich arXiv:2311.05566 classifies spectrally restricted perfect colorings, not this exact all-parameter iff. Syndrome/Hamming-code special cases are classical and expressly excluded from standalone novelty; no stronger all-parameter statement was found. Older coding-theoretic quotient-matrix literature remains substantive priority risk.
 
-## Sources and limitations
+## value
 
-Compared primary text: arXiv:2510.18494 (FAT definition, regular-graph restrictions, graph families); arXiv:2604.21665 (product-lifting theorems); arXiv:2511.14871v2 and arXiv:2512.11153v1 (Shaebani constructions); arXiv:2606.22374 (irreducible FAT colorings); arXiv:2311.05566 (perfect-coloring eigenvalue restrictions). Historical syndrome partitions and Hamming-code special cases may imply overlapping instances. The latest revision of the first FAT paper was not completely inspected. Comprehensive specialist priority determination and independent review are outstanding. The proof does not classify all individual colorings or cover nonbinary cubes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The hypercube is a canonical graph family, and FAT colorings a well-defined mathematical invariant. This is a complete exact feasibility spectrum for all dimensions, palettes and tolerances, not a one-parameter isolated example; an explicit construction demonstrates attainability of every necessary divisibility/degree bound and identifies the properness boundary and unbounded FAT-vs-ordinary chromatic gap. While elementary, the natural classification can serve as an exact benchmark; no claim that the syndrome mechanism itself is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

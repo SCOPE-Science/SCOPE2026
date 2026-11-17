@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T02:47:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2, if alpha=0 then graph connectivity forces one color; hence t=alpha d is positive integer, with (k-1)t<=d. Double-counting edges between each two classes (t times either class size) forces all classes equal and thus k|2^d, hence k a power of two. For sufficiency choose r with k=2^r, use t copies of each nonzero column of F2^r and d-(k-1)t zero columns in a linear syndrome c(x)=sum x_i a_i. Each nonzero color difference occurs exactly t among one-coordinate flips, zero difference exactly s; map surjective as each basis column appears. This proves every (d,k,t) without assuming linearity of arbitrary colorings. Properness s=0 and maximal k power-of-two <=d+1 follow. Independently checked 47 permitted parameter triples d<=8 by direct neighbor histograms, while repository verify.py includes 106 construction profiles and exhaustive small labelings. All infinite assertions are proved by counting and explicit construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beers–Mulas equal class sizes and degree constraints on connected regular graphs",
+          "Beers–Mulas spectral paper Cartesian product lift retains palette size",
+          "Krotov–Valyuzhenich classifications cover only low polynomial degree or highly correlation-immune regimes"
+        ],
+        "reasoning": "The general regular-graph theorems give numerical necessary restrictions but not sufficiency on every specific Q_d; product lifts do not create all power-of-two palettes/t. The spectral restricted classifications are not general domination of all k,t.",
+        "searches": [
+          "binary hypercube fair tolerant coloring perfect equitable partitions uniform off diagonal quotient matrix syndrome powers of two",
+          "arxiv:2510.18494 Theorem 2.12",
+          "arxiv:2604.21665 Section 7.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2510.18494",
+        "https://arxiv.org/pdf/2604.21665",
+        "https://arxiv.org/pdf/2311.05566",
+        "https://arxiv.org/abs/2511.14871",
+        "https://arxiv.org/abs/2512.11153"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Necessity k|2^d and k<=d+1 from general FAT equal-class/degree bounds",
+          "Sufficiency is independently constructed by repeated nonzero syndrome columns for ALL positive t with (k-1)t<=d"
+        ],
+        "reasoning": "The sharp existence bound and exact tolerance spectrum are not corollaries of necessity alone. Previous Hamming-code syndrome special cases use t=1,d=k-1; repeating columns and allowing zero columns establishes all permitted triples, a mathematically additional statement even though the construction is elementary.",
+        "searches": [
+          "arxiv:2510.18494 Theorem 2.12 and graph degree bound",
+          "binary hypercube fair tolerant coloring perfect equitable partitions uniform off diagonal quotient matrix syndrome powers of two",
+          "arxiv:2604.21665 product lifts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krotov–Valyuzhenich (2024) defines perfect k-colorings of Q_n by quotient matrices",
+          "FAT quotient has diagonal d-(k-1)t and constant off-diagonal t"
+        ],
+        "reasoning": "Reformulated the claim under perfect-coloring/equitable-partition terminology. Existing study restricts quotient spectral degree or correlation immunity and does not present the claimed complete (d,k,t) criterion; classical syndrome partitions cover some examples.",
+        "searches": [
+          "binary hypercube fair tolerant coloring perfect equitable partitions uniform off diagonal quotient matrix syndrome powers of two",
+          "\"perfect coloring\" \"hypercube\" uniform off diagonal matrix quotient all colors equally 2 power syndrome",
+          "arxiv:2311.05566 Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary corpus returns the own same-day FAT cube record, other hypercube edge-coloring records",
+          "Krotov–Valyuzhenich primary literature studies quotient matrices for restricted eigenvalue classes"
+        ],
+        "reasoning": "No parameter-spectrum table encompassing all d,k,t was identified; Hamming codes and small perfect-coloring tables include special t=1 or d=k-1 but not logically the complete iff for arbitrary t/d. Search absence is not novelty proof.",
+        "searches": [
+          "binary hypercube fair tolerant coloring perfect equitable partitions uniform off diagonal quotient matrix syndrome powers of two",
+          "\"FAT chromatic\" \"hypercube\" power two",
+          "\"perfect coloring\" \"hypercube\" uniform off diagonal matrix quotient all colors equally 2 power syndrome"
+        ]
+      },
+      "rationale": "In regular Q_d, FAT is exactly an equitable/perfect vertex coloring with quotient diagonal d-(k-1)t, all off-diagonal t. This equivalence was searched explicitly. Beers–Mulas arXiv:2510.18494 prove necessary balance and degree bounds, but do not state simultaneous attainment for every binary hypercube dimension/palette/tolerance. Their 2026 spectral product constructions preserve a given k rather than establish all k=2^r; Shaebani papers treat other existence families. Krotov–Valyuzhenich arXiv:2311.05566 classifies spectrally restricted perfect colorings, not this exact all-parameter iff. Syndrome/Hamming-code special cases are classical and expressly excluded from standalone novelty; no stronger all-parameter statement was found. Older coding-theoretic quotient-matrix literature remains substantive priority risk.",
+      "residual_risks": [
+        "Older coding-theory and equitable-partition results could prove the uniform off-diagonal quotient spectrum, possibly with the same repeated-syndrome construction but under different terminology",
+        "Only existence parameters, not isomorphism classes or number of individual colorings; nonbinary Hamming cubes unaddressed",
+        "The latest 2026 revision of original FAT paper was not verified exhaustively"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS necessary class-size/divisibility bounds; no inspected all-cube parameter sufficiency statement",
+          "evidence": [
+            "Beers–Mulas arXiv:2510.18494 regular-graph theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.18494",
+          "material_read": "Definitions, regular-graph class-balance theorem (Theorem 2.12), degree restrictions, graph families in the original version",
+          "method": "Original full arXiv PDF text and supporting page-image inspection",
+          "title": "Fair and Tolerant (FAT) Graph Colorings",
+          "trigger": "Foundational invariant and possible cube-specific classification"
+        },
+        {
+          "assessment": "Product lifts preserve palette count and do not state a simultaneous full (d,k,t) cube spectrum",
+          "evidence": [
+            "Beers–Mulas arXiv:2604.21665 Section 7.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.21665",
+          "material_read": "Relevant Section 7.2 product lifts and stated theorems",
+          "method": "Original arXiv PDF text and page-image inspection",
+          "title": "Spectral Perspectives on FAT Graph Colorings",
+          "trigger": "Possible stronger graph product theorem"
+        },
+        {
+          "assessment": "A classification of low-degree/high-correlation-immune subfamilies; does not assert the uniform off-diagonal all-d,k,t iff",
+          "evidence": [
+            "Krotov–Valyuzhenich arXiv:2311.05566v2 (2024), abstract and introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.05566",
+          "material_read": "Introduction, quotient-matrix definition and scope of restricted degree/correlation-immune theorems",
+          "method": "Original arXiv 28-page PDF text and page-image inspection",
+          "title": "On degree-3 and (n-4)-correlation-immune perfect colorings of n-cubes",
+          "trigger": "Equivalent equitable/perfect coloring terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The hypercube is a canonical graph family, and FAT colorings a well-defined mathematical invariant. This is a complete exact feasibility spectrum for all dimensions, palettes and tolerances, not a one-parameter isolated example; an explicit construction demonstrates attainability of every necessary divisibility/degree bound and identifies the properness boundary and unbounded FAT-vs-ordinary chromatic gap. While elementary, the natural classification can serve as an exact benchmark; no claim that the syndrome mechanism itself is new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2510.18494",
+    "https://arxiv.org/pdf/2604.21665",
+    "https://arxiv.org/pdf/2311.05566",
+    "https://arxiv.org/abs/2511.14871",
+    "https://arxiv.org/abs/2512.11153"
+  ],
+  "disposition": "passed",
+  "final_claim": "For d>=1 and k>=2, a Fair and Tolerant k-coloring of Q_d with nonempty classes and global off-color fraction alpha exists iff k=2^r, alpha=t/d for positive integers r,t, and (k-1)t<=d; hence chi_FAT(Q_d)=2^floor(log2(d+1)), and a proper FAT coloring exists iff k=2^r and (k-1)|d.",
+  "limitations": "Binary unweighted connected Q_d, d>=1; palette classes all nonempty; k=1 handled separately; complete parameter feasibility only, not all-coloring classification.",
+  "residual_risks": [
+    "Older coding-theory and equitable-partition results could prove the uniform off-diagonal quotient spectrum, possibly with the same repeated-syndrome construction but under different terminology",
+    "Only existence parameters, not isomorphism classes or number of individual colorings; nonbinary Hamming cubes unaddressed",
+    "The latest 2026 revision of original FAT paper was not verified exhaustively"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS necessary class-size/divisibility bounds; no inspected all-cube parameter sufficiency statement",
+      "evidence": [
+        "Beers–Mulas arXiv:2510.18494 regular-graph theorem"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2510.18494",
+      "material_read": "Definitions, regular-graph class-balance theorem (Theorem 2.12), degree restrictions, graph families in the original version",
+      "method": "Original full arXiv PDF text and supporting page-image inspection",
+      "title": "Fair and Tolerant (FAT) Graph Colorings",
+      "trigger": "Foundational invariant and possible cube-specific classification"
+    },
+    {
+      "assessment": "Product lifts preserve palette count and do not state a simultaneous full (d,k,t) cube spectrum",
+      "evidence": [
+        "Beers–Mulas arXiv:2604.21665 Section 7.2"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2604.21665",
+      "material_read": "Relevant Section 7.2 product lifts and stated theorems",
+      "method": "Original arXiv PDF text and page-image inspection",
+      "title": "Spectral Perspectives on FAT Graph Colorings",
+      "trigger": "Possible stronger graph product theorem"
+    },
+    {
+      "assessment": "A classification of low-degree/high-correlation-immune subfamilies; does not assert the uniform off-diagonal all-d,k,t iff",
+      "evidence": [
+        "Krotov–Valyuzhenich arXiv:2311.05566v2 (2024), abstract and introduction"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2311.05566",
+      "material_read": "Introduction, quotient-matrix definition and scope of restricted degree/correlation-immune theorems",
+      "method": "Original arXiv 28-page PDF text and page-image inspection",
+      "title": "On degree-3 and (n-4)-correlation-immune perfect colorings of n-cubes",
+      "trigger": "Equivalent equitable/perfect coloring terminology"
+    }
+  ]
+}
