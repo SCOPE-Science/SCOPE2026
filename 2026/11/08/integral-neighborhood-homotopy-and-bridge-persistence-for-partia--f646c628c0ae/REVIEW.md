@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The neighborhood-cover formula is checked directly from the graph definition, and each private-apex cone retracts onto a boundary facet. Intersections are exactly the graph of off-diagonal matched cross edges. Cofibration homotopy-pushout splitting gives every integral homotopy type, including the two-component and one-circle exceptions. Natural integral Mayer–Vietoris and primitive inclusions of graph cycle lattices give all persistence maps. A separate finite boundary-reduction program checks every stage and the complete barcode for clique sizes four through eight. Remaining proof scope: no assertion below clique size four or for different bridge patterns.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual priority risk.** The complete-clique neighborhood sphere and topological neighborhood formalism of Kahle [1] do not supply the matched-bridge filtration. Shukla [2] treats bounded-degree graphs and selected circulants, not the whole family; Matsushita–Wakatsuki [3] gives a duality, not this barcode. The full-matching endpoint is already known, including a symmetry refinement; it is expressly excluded from the novel contribution. An indexed complete-graph/cycle-product result involves a related crown-graph interface but states a different cyclic-layer theorem. No compared indexed statement gives the intermediate \(t=0,1,2\) transition and all integer persistence maps. The related cycle-product full text was not accessible in this review, so an unindexed or implicit treatment remains possible. Failed searches are not treated as proof of priority.
+PASS
 
-**Value — PASS.** Edge-by-edge joining of two cliques is a canonical controlled graph perturbation. The classification identifies a sharp, parameter-independent transition at the third bridge, followed by predictable quadratic growth of persistent two-dimensional classes. It computes inclusion maps over the integers rather than only final-stage ranks and provides a reusable natural Mayer–Vietoris model for neighborhood filtrations. This value is specific to the **full** parameterized persistence theorem, not a repeat of the already known endpoint case.
+A uniform cover X_t=U_t∪V_t gives U_t≃V_t≃∂Δ^{m-1} by collapsing private cone apexes. For t≥1 the exact intersection is K_{t,t} minus the diagonal: two isolated vertices at t=1, two disjoint edges at t=2, and a connected graph with cycle rank t²−3t+1 for t≥3. Since m−2≥2, the graph inclusions into each sphere are nullhomotopic, and homotopy pushouts give precisely the stated wedges. In the Mayer–Vietoris diagrams under t→t+1, the connected intersection graph H1 embeddings are primitive as their cycle-lattice quotients embed in free new-edge chains. Thus generators persist integrally with births µ3=1 and µ_s−µ_{s−1}=2s−4. At m=4 the sphere generators share H2 with graph-induced generators, but a compatible Z² summand survives. An independently coded exact face enumeration/mod-two boundary check matched every stage for m=4,5,6; the package verifier covers m=4..8 and whole barcodes. These finite checks support, not replace, the uniform proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The older t=m clique-prism published theorem (and a more general squarefree-base Cartesian-fiber result restricted to full matching) determines the endpoint wedge and symmetry but has no partial-matching filtration or persistence maps. Targeted queries for two partially matched cliques, crown-graph graph-of-spaces, and integral matching-bridge barcodes found no prior proof of the discrete full filtration. The later full-matching result must not be mistaken for a barcode theorem. Unindexed partial-matching work is a residual risk.
+
+## value
+
+PASS
+
+A sharp, natural edge-addition phase transition and full integral persistence answer a meaningful filtration question, including the degree-one transient and primitive new H2 classes; the result is not a mere specialization of an endpoint formula. The general m parameter and exact maps are mathematically motivated without requiring a separate downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
