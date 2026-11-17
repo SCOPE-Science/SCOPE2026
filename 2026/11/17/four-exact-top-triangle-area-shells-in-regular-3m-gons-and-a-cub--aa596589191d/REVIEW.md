@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The circumradius area-product identity parametrizes every selected triangle by three positive gaps. Strict log-sine concavity orders all but the one incomparable pair of configurations; their exact trigonometric difference is positive, and counting starting records proves multiplicities. The proof covers every integer \(m\ge3\). An independently coded Cartesian-coordinate reconstruction checks all 707,434 selected triangles for 26 polygon orders; it is not claimed as a proof of the infinite theorem.
+
+**Originality — PASS, historical priority provisional.** The inspected 2020 largest-triangle algorithm manuscript and 2021 area-inscribed-polygon manuscript concern maximal selection or convex-polygon performance guarantees, not the first four distinct area shells of regular triple-order vertex sets. The 2026 OEIS record A400213 gives the sine-product formula and equal-area classification; neither alone states the global exact first-four ordering or the cubic third/fourth splitting. Published related findings on circumscribed support triangles and conditional random triangle area moments address different invariants. The full Zenodo source linked from OEIS could not be inspected; an equivalent formula there or in older recreational literature is a nonzero priority risk.
+
+**Value — PASS.** The first four distinct area levels form the sharp stability landscape immediately below the equilateral maximum for every three-divisible polygon order. The two configurations competing for ranks three and four are incomparable by the usual majorization order. Their exact universal cubic near-tie, versus quadratic first-two gaps, gives a qualitative multi-scale feature useful for distinguishing near-maximizers. This is a complete, uniform infinite-family ranking with all equality multiplicities, not merely a computation for a chosen order.
+
+Self-review: passed. Independent audit: not yet performed.
