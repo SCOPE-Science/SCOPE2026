@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The equilibrium reduction follows from the compatible infected-population integral, the susceptible equilibrium equation, and the exact phage balances. The domain is one interval of positive denominators. Its scalar response is strictly convex whenever any coefficient differs from zero, giving no more than two roots; the all-zero case is completely resolved separately. At zero characteristic frequency, explicit row elimination gives \(\Delta_s(0)=\mu s\prod_i a_i(s)F'(s)\). On the decreasing branch this determinant is strictly negative, while its positive-real high-frequency sign is positive, so a strictly positive characteristic root exists. The corresponding exponential mode satisfies the infected-history compatibility equation, and hence represents a genuine physical perturbation. Exact witnesses realize two roots for every finite \(n\ge2\). Standard-library exact-arithmetic tests of characteristic matrices and real root bracketing corroborated critical identities; they are not a substitute for the proof.
+
+## Originality — PASS (inspected evidence only)
+
+The nearest primary result, Bardina–Cano–Cuadrado (arXiv:2611.08370v1), presents the multi-type model and a detailed *two-type* equal-latency classification. Its strict-convexity calculation for two types and its numerical observations of instability are explicitly credited. The claim assessed here is the all-finite-type upper bound together with the exact determinant sign and an analytic, common-latency-independent positive real eigenvalue for every decreasing-branch equilibrium. An additional preexisting critical-dose analysis of the same model gives a local branch \(s=\delta/\kappa+O(\delta^2)\) and critical algebraic clearance. Its coefficient matches \(F_s(0;\alpha_c)\) here, but those statements are local to the bacteria-free threshold and do not imply the global equilibrium bound or the positive-real-root certificate along all decreasing branches. The earlier single-phage coinfection model and an alternative two-phage resistance/immune model do not contain these exact equations and conclusions. Searches for arbitrary-type phage equilibrium bounds, positive-real characteristic exponents, and equivalent delay-model formulations did not identify a dominating result. Search incompleteness and older literature remain priority risks, not proof of uniqueness.
+
+## Value — PASS
+
+Clearing the equilibrium denominators for \(n\) distinct phage types creates a polynomial of potential degree \(n\); it is mathematically useful to know that the full positive branch has no more than two equilibria, and that the bound actually persists sharply for every finite cocktail size. The positive real eigenvalue, valid at every common delay and without choosing a numerical continuation or small-delay regime, distinguishes the lower branch dynamically. These are natural classification and stability questions for the published multi-type model; they go beyond a parameter substitution or isolated computation.
+
+## Closest literature and limitations
+
+[1] X. Bardina, M. Cano, S. Cuadrado (2026), *Modelling and analysis of a cocktail phage therapy with coinfection*, arXiv:2611.08370v1, https://arxiv.org/html/2611.08370v1, Sections 2, 5 and 5.1. [2] X. Bardina and C. Rovira (2017), *Coinfection in a stochastic model for bacteriophage systems*, arXiv:1702.06177. [3] J. Marchi et al. (2025), *Multi-strain phage induced clearance of bacterial infections*, DOI:10.1371/journal.pcbi.1012793. No claim is made for unequal latencies, upper-state stability, global basins or therapeutic efficacy. Some older and tangential literature was not reviewed in full. Independent mathematical validation has not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
