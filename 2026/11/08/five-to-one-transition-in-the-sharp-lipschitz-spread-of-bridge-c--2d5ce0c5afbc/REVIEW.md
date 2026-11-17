@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized finite Lipschitz polytope is compact and variance is strictly convex. The bridge displacement must saturate; each clique has integer two-level extreme potentials. Pairwise variance makes the two reflection improvements strict. The remaining exact integer quadratic is optimized with all boundary cases, including the first tie at \(H=5L+1\). The checker reproduces every stated finite consistency test. The result is restricted to unit-edge two-clique bridge barbells with uniform masses.
+## correctness
 
-**Originality — PASS, qualified.** The closest mathematical antecedents are Alon–Boppana–Spencer's general integral-extremizer theorem, Addario-Berry–Janson–McDiarmid's random-graph spread analysis, and Yancey's variance-extremizer structural study. Their inspected material does not supply the bridge-barbell sharp value, the five-to-one optimizer transition, or the all-optimizer classification. An indexed result on bridge-barbell zero forcing and separate negative-type/heat-flow analyses concern different quantities, so they have no implication for this spread formula. Search cannot exclude every unindexed or differently named equivalent argument. The complete Alon–Boppana–Spencer manuscript was available; other literature coverage is limited to described inspected material.
+PASS
 
-**Mathematical value — PASS.** This is a complete exact sharp inequality for a natural infinite family with a single bottleneck edge, not an isolated computation. It explains a nontrivial nearest-integer phase transition in the spread optimizer, identifies the exact gain and every equality case, and shows strict balancing at fixed graph order. These are structural features relevant to finite metric-space concentration and comparison of bottleneck graphs. The result does not claim an all-block-graph classification.
+Anchoring a bridge endpoint removes constants; strictly convex centered variance forces an extreme point. Translation of the second clique saturates the bridge, clique tight-edge connectivity yields integral two-level extremes, and strict reflections place first-clique values in {-1,0}, second in {1,2}. For smaller size L, F(k,l)=N(H+k+3l)-(H-k+l)^2 increases strictly with k, hence k=L-1. Put l=H-1-d: F=9LH-4N+d(H-5L-d). Maximizing integer concave quadratic gives floor(max(H-5L,0)^2/4) and complete equality cases. Direct independent anchored integral Lipschitz enumeration for every 2<=m,n<=8 matched the formula. The first extra tie at H=5L+1 and strict improvement for H>=5L+2 follow; fixed-N balancing is strictly monotonic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General spread/integer-maximizer results and random-graph concentration are established; the exact two-parameter unit-bridge clique-barbell maximum, complete extremizer classes and H: L 5:1 transition do not follow from the inspected general statements or from the similar-looking but different clique-bouquet family.
+
+## value
+
+PASS
+
+A sharp centered-Lipschitz variance on a natural bottleneck graph, including all maximizers, a discrete phase transition and strict balance monotonicity, is a reusable exact graph-concentration benchmark. It is not a mere one-off integer evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

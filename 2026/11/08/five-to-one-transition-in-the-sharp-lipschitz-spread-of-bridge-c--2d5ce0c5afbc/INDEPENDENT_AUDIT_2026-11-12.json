@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:12:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Anchoring a bridge endpoint removes constants; strictly convex centered variance forces an extreme point. Translation of the second clique saturates the bridge, clique tight-edge connectivity yields integral two-level extremes, and strict reflections place first-clique values in {-1,0}, second in {1,2}. For smaller size L, F(k,l)=N(H+k+3l)-(H-k+l)^2 increases strictly with k, hence k=L-1. Put l=H-1-d: F=9LH-4N+d(H-5L-d). Maximizing integer concave quadratic gives floor(max(H-5L,0)^2/4) and complete equality cases. Direct independent anchored integral Lipschitz enumeration for every 2<=m,n<=8 matched the formula. The first extra tie at H=5L+1 and strict improvement for H>=5L+2 follow; fixed-N balancing is strictly monotonic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf gives generic integral potential existence, not a graph-specific sharp value.",
+          "A clique bouquet attaches at one shared vertex, not an edge, and its 3:1 transition is not a 5:1 edge-barbell theorem."
+        ],
+        "reasoning": "Neither stochastic graph-spread estimates nor universal integrality determine the stated concave integer optimization and equality cases.",
+        "searches": [
+          "https://arxiv.org/html/0902.1156v2",
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-partition-discrepancy-and-a-dominant-blade-phase-transition-for--d698545b27b9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/0902.1156v2",
+        "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "Resultary semantic search: bridge barbell two cliques edge sharp spread Lipschitz variance 5 to 1 threshold",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-partition-discrepancy-and-a-dominant-blade-phase-transition-for--d698545b27b9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Random-graph spread paper treats random regular, Erdos-Renyi and small-world models, not this exact clique bridge graph.",
+          "The metric graph arclength result uses continuous edge length measure rather than uniform mass at discrete clique vertices."
+        ],
+        "reasoning": "No inspected theorem logically implies the exact 5:1 discrete optimization, first tie and strict balancing on this graph; a general proof technique does not count as known exact formula.",
+        "searches": [
+          "https://arxiv.org/html/0902.1156v2",
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-bridge-length-budget-for-lipschitz-variance-on-metric-gr--7b323049ef63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Addario-Berry–Janson–McDiarmid define the same maximal variance of graph 1-Lipschitz potentials.",
+          "A graph barbell with one bridge is not a clique bouquet with a shared articulation vertex; metrics and optimizers differ."
+        ],
+        "reasoning": "Graph spread, maximal centered L2 Lipschitz norm and Poincare sup are equivalent objective descriptions; exact barbell optimizer formula is additional.",
+        "searches": [
+          "Resultary semantic search: bridge barbell two cliques edge sharp spread Lipschitz variance 5 to 1 threshold",
+          "https://arxiv.org/html/0902.1156v2",
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table indexed for the unit-edge bridge clique family, as opposed to zero-forcing or bouquet spread."
+        ],
+        "reasoning": "Graph name barbell is ambiguous (metric circles, lollipop, bridge-connected cliques); object/invariant checks were applied, so similarly named metric-graph results cannot be asserted as covering.",
+        "searches": [
+          "Resultary semantic search: bridge barbell two cliques edge sharp spread Lipschitz variance 5 to 1 threshold",
+          "sharp spread dumbbell graph two cliques connected bridge",
+          "graph metric concentration barbell two cliques equal masses"
+        ]
+      },
+      "rationale": "General spread/integer-maximizer results and random-graph concentration are established; the exact two-parameter unit-bridge clique-barbell maximum, complete extremizer classes and H: L 5:1 transition do not follow from the inspected general statements or from the similar-looking but different clique-bouquet family.",
+      "residual_risks": [
+        "Original Alon–Boppana–Spencer full text not newly inspected, so cannot exclude a hidden exact special case.",
+        "A natural graph under other terminology (dumbbell, two complete blocks) may have been evaluated elsewhere; historical originality is best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS graph spread definition and stochastic families, not bridge-of-two-cliques exact formula",
+          "evidence": [
+            "Abstract and intro focus random regular, Erdos–Renyi and small-world models; no occurrences barbell/clique"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0902.1156v2",
+          "material_read": "Full primary arXiv HTML scope, introduction and model/theorem headings; searched complete text for barbell and clique",
+          "method": "Read public HTML and targeted full-text searches",
+          "title": "On the spread of random graphs",
+          "trigger": "Same sharp variance definition with potential broad structural theorem"
+        },
+        {
+          "assessment": "General integer extreme potentials; priority risk remains for relevant uninspected statements",
+          "evidence": [
+            "Theorem 2.1 general integrality per reviewed record, not independently verified here"
+          ],
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "material_read": "Prior cited Theorem 2.1 as identified by record; no fresh PDF full-text read this execution",
+          "method": "Bibliographic/previous source comparison only, not fresh full text",
+          "title": "An Asymptotic Isoperimetric Inequality",
+          "trigger": "Origin of spread and existence of integer extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp centered-Lipschitz variance on a natural bottleneck graph, including all maximizers, a discrete phase transition and strict balance monotonicity, is a reusable exact graph-concentration benchmark. It is not a mere one-off integer evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform masses and unit bridge/clique edges, two complete blocks only; not general block graphs or continuous metric-graph measure."
+  ],
+  "schema_version": 1
+}
