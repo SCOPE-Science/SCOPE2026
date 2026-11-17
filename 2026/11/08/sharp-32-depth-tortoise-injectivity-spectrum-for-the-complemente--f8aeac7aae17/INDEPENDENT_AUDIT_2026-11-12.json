@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:07:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The length-two language of mu(1)=10,mu(0)=11 is exactly {01,10,11}; for q=ceil(log2 n), every length-n factor is in two adjacent q-superblocks, and every allowed ordered pair occurs. This yields an exact, not sampled, factor-language enumeration. Each length-N prefix contains at least floor(N/2)>=k ones for N>=2k; equal T^k images at n>N would imply equal length-N prefix T^k images and then equal original factors, so injectivity propagates. For each k=1..32 the complete threshold.csv row includes N>=2k; fresh independent superblock enumeration at N-1 and N confirmed the factor counts, an exactly one size-two collision before N and no collision at N. The collision proves sharpness and the lemma proves all n>=N; no assertion is extrapolated to k>32. Read pinned RESULT.md, thresholds.csv and verify.py; the independently constructed finite certificate is sufficient for those fixed 32 depths plus the stated infinite length inheritance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper develops general tortoise-factor methods and studies paperfolding and Thue–Morse; the prior 31-depth table is for paperfolding, not the present fixed point."
+        ],
+        "reasoning": "Generic bounded-defect or other-word factor analyses do not mathematically imply these 32 exact complemented period-doubling thresholds.",
+        "searches": [
+          "period doubling tortoise word complexity iterated first 1 delete append k thresholds complemented injectivity",
+          "Campbell–Rampersad arXiv:2604.25811",
+          "Resultary:2026/11/2/SCOPE-exact-paperfolding-tortoise-injectivity-thresholds-through-31-it--64aa07482c20"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob fb7f7db773603fb86c33faf2bc153b87a599c000",
+        "Pinned thresholds.csv blob df1897f0847d3eafd3f285b73c0370db44de969f",
+        "Pinned verify.py blob 51010b76ce538d2eddf6928584f37811ec0b6290",
+        "Campbell–Rampersad arXiv:2604.25811",
+        "Resultary original-period-doubling November 2 full theorem",
+        "Resultary paperfolding iterated spectrum semantic result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier one-pass uncomplemented threshold 10 and more extensive paperfolding/Thue–Morse dynamics do not imply first-one multi-depth 32-row complement spectrum."
+        ],
+        "reasoning": "Only an operator-preserving conjugacy or a genuine general theorem with explicit specialized certificates would dominate this submission; neither occurs in the inspected source statements.",
+        "searches": [
+          "period doubling tortoise word complexity iterated first 1 delete append k thresholds complemented injectivity",
+          "https://arxiv.org/pdf/2604.25811",
+          "Resultary:2026/11/2/SCOPE-sharp-tortoise-injectivity-threshold-for-period-doubling-factors--24aa7024dc27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original period doubling phi(0)=01,phi(1)=00 is the bit complement of the submitted mu, but T deletes first 1, and conjugating by complement transforms it into delete-first-0, not delete-first-1."
+        ],
+        "reasoning": "The earlier one-step threshold 10 on the original binary presentation cannot supply the first-one thresholds 5,...,144 on the complemented fixed point; the operator is not equivariant under the alphabet flip.",
+        "searches": [
+          "period doubling tortoise word complexity iterated first 1 delete append k thresholds complemented injectivity",
+          "Resultary:2026/11/2/SCOPE-sharp-tortoise-injectivity-threshold-for-period-doubling-factors--24aa7024dc27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published period-doubling table contains a different first-one presentation's one-step threshold 10; the paperfolding sequence has leading iterated thresholds 8,13,14,25, not the submitted 5,9,17,19."
+        ],
+        "reasoning": "No accessible matching or dominating 32-depth table for the same ordered alphabet and operator was found. Unindexed private tabulations remain an explicit risk.",
+        "searches": [
+          "period doubling tortoise word complexity iterated first 1 delete append k thresholds complemented injectivity",
+          "Resultary:2026/11/2/SCOPE-sharp-tortoise-injectivity-threshold-for-period-doubling-factors--24aa7024dc27",
+          "Resultary:2026/11/2/SCOPE-exact-paperfolding-tortoise-injectivity-thresholds-through-31-it--64aa07482c20"
+        ]
+      },
+      "rationale": "Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.",
+      "residual_risks": [
+        "Unindexed prior numerical tables or a broader general automatic-word theorem could subsume these 32 depths.",
+        "The theorem proves neither thresholds beyond depth 32 nor all pre-threshold tortoise complexity.",
+        "Finite sampled-prefix cross-check is not the proof of complete factor-language coverage; superblock equality is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Treats paperfolding and Thue–Morse rather than the submitted complemented period-doubling 32-depth spectrum",
+          "evidence": [
+            "Paperfolding threshold and iterates in section 5; Thue–Morse in section 6; further examples proposed in section 7"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25811",
+          "material_read": "Definition, iteration and factor-complexity framework and Sections 3,5,6,7, references",
+          "method": "Read accessible primary PDF relevant text and inspected PDF page images",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Introduces exact same first-one tortoise operator and studies automatic-word factors"
+        },
+        {
+          "assessment": "It computes the first-one map on the original morphism with threshold 10, not the complemented first-one operator",
+          "evidence": [
+            "Original phi(0)=01, phi(1)=00; the submitted mu(0)=11,mu(1)=10; complement conjugates first-one to first-zero"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-tortoise-injectivity-threshold-for-period-doubling-factors--24aa7024dc27/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, valuation and finite-prefix proof, verification and limitations",
+          "method": "Read complete prior source through connected GitHub at main",
+          "title": "Sharp tortoise-injectivity threshold for period-doubling factors",
+          "trigger": "Same factor subshift up to complement, potentially exact earlier coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first 32 iterative depths for a canonical automatic word produce an exact and sharply delimited all-length injectivity spectrum with substantial jumps at 9,17,33,65,129. Each row is an infinite length statement, not merely a finite prefix count. The distinct complemented-letter dynamics and boundary collision classification constitute useful quantitative stack-sorting data without claiming an unproved all-depth recurrence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob fb7f7db773603fb86c33faf2bc153b87a599c000",
+    "Pinned thresholds.csv blob df1897f0847d3eafd3f285b73c0370db44de969f",
+    "Pinned verify.py blob 51010b76ce538d2eddf6928584f37811ec0b6290",
+    "Campbell–Rampersad arXiv:2604.25811",
+    "Resultary original-period-doubling November 2 full theorem",
+    "Resultary paperfolding iterated spectrum semantic result"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed prior numerical tables or a broader general automatic-word theorem could subsume these 32 depths.",
+    "The theorem proves neither thresholds beyond depth 32 nor all pre-threshold tortoise complexity.",
+    "Finite sampled-prefix cross-check is not the proof of complete factor-language coverage; superblock equality is essential.",
+    "A public metadata sanitization process is operationally incomplete; this does not alter C/O/V conclusions or certify publication."
+  ],
+  "residual_risks": [
+    "Unindexed prior numerical tables or a broader general automatic-word theorem could subsume these 32 depths.",
+    "The theorem proves neither thresholds beyond depth 32 nor all pre-threshold tortoise complexity.",
+    "Finite sampled-prefix cross-check is not the proof of complete factor-language coverage; superblock equality is essential."
+  ],
+  "schema_version": 1
+}

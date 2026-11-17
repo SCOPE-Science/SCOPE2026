@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact factor-language equality follows from the two-block covering property of the length-two uniform morphism and the complete pair language. The no-\(00\) constraint yields at least \(k\) ones by length \(2k\). The prefix-inheritance lemma transfers any length-\(N\) injectivity certificate to all larger lengths, without treating finite experiments as an infinite proof. The packaged verifier separately reconstructs all factors at the two decisive lengths for each of 32 depths, checks two formulations of the map, and checks one two-word collision fiber at every length immediately before the threshold. It has been run successfully against the actual package paths.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Campbell–Rampersad's full-text study of tortoise complexity treats paperfolding and Thue–Morse, not this 32-depth complemented period-doubling classification. The closest known period-doubling one-step analysis uses the opposite symbol orientation: its first-\(1\) map corresponds to this word's first-\(0\) map and does not imply the first-\(1\) table here. Prior paperfolding 31-depth data has a different substitution system. Targeted mathematical-record and literature searches found no dominating classification. Unindexed calculations and equivalences remain a genuine risk; search failure is not a uniqueness proof.
+PASS
 
-**Value — PASS.** This computes a natural finite-depth phase diagram of a newly introduced algorithmic factor-equivalence invariant on a canonical automatic sequence. Each of 32 distinct iteration depths has a mathematically exact, sharp *all-word-length* threshold, with a uniquely surviving collision at the boundary. The large dyadic jumps and strong alphabet-order dependence reveal structure not visible in ordinary factor complexity, and provide exact benchmarks for future general-depth theorems rather than merely extending a known integer sequence by an unmotivated increment.
+The length-two language of mu(1)=10,mu(0)=11 is exactly {01,10,11}; for q=ceil(log2 n), every length-n factor is in two adjacent q-superblocks, and every allowed ordered pair occurs. This yields an exact, not sampled, factor-language enumeration. Each length-N prefix contains at least floor(N/2)>=k ones for N>=2k; equal T^k images at n>N would imply equal length-N prefix T^k images and then equal original factors, so injectivity propagates. For each k=1..32 the complete threshold.csv row includes N>=2k; fresh independent superblock enumeration at N-1 and N confirmed the factor counts, an exactly one size-two collision before N and no collision at N. The collision proves sharpness and the lemma proves all n>=N; no assertion is extrapolated to k>32. Read pinned RESULT.md, thresholds.csv and verify.py; the independently constructed finite certificate is sufficient for those fixed 32 depths plus the stated infinite length inheritance.
 
-**Closest source and limits.** Campbell and Rampersad, *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811 (2026-04-28), definition of \(k\)-tortoise equivalence and Sections 5–7. The claim makes no assertion for depths greater than 32 or for other alphabet orderings. A mathematical source search cannot exclude inaccessible or unindexed earlier work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.
+
+## value
+
+PASS
+
+The first 32 iterative depths for a canonical automatic word produce an exact and sharply delimited all-length injectivity spectrum with substantial jumps at 9,17,33,65,129. Each row is an infinite length statement, not merely a finite prefix count. The distinct complemented-letter dynamics and boundary collision classification constitute useful quantitative stack-sorting data without claiming an unproved all-depth recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

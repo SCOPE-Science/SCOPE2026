@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite certificate
+# Independent mathematical audit
 
-The attached `thresholds.csv` contains a row for every integer depth from 1 through 32. `verify.py` reconstructs the complete factor sets at both the threshold and its preceding length by applying the two-block formula proved in `RESULT.md`, and separately compares them to length-matched substrings of an independently evaluated valuation-based prefix. It checks output equality between successive tortoise iterations and deletion of the first k ones. Each threshold fiber partition must be discrete and each preceding partition must have exactly one nontrivial two-word class, matching the recorded witnesses. The exhaustive two-block lemma plus the prefix-inheritance proof extends the claim to every longer word length.
+## correctness
 
-Command: `python3 verify.py`
+PASS
 
-Observed output: `PERIOD_DOUBLING_REVERSED_TORTOISE_VERIFY_OK 32`
+The length-two language of mu(1)=10,mu(0)=11 is exactly {01,10,11}; for q=ceil(log2 n), every length-n factor is in two adjacent q-superblocks, and every allowed ordered pair occurs. This yields an exact, not sampled, factor-language enumeration. Each length-N prefix contains at least floor(N/2)>=k ones for N>=2k; equal T^k images at n>N would imply equal length-N prefix T^k images and then equal original factors, so injectivity propagates. For each k=1..32 the complete threshold.csv row includes N>=2k; fresh independent superblock enumeration at N-1 and N confirmed the factor counts, an exactly one size-two collision before N and no collision at N. The collision proves sharpness and the lemma proves all n>=N; no assertion is extrapolated to k>32. Read pinned RESULT.md, thresholds.csv and verify.py; the independently constructed finite certificate is sufficient for those fixed 32 depths plus the stated infinite length inheritance.
 
-Dependencies: Python 3 standard library only. The valuation-prefix comparison is a cross-check, not the infinite proof. There is no assertion for unlisted depths or other substitutions. Independent audit has not been conducted.
+## originality
+
+PASS
+
+Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.
+
+## value
+
+PASS
+
+The first 32 iterative depths for a canonical automatic word produce an exact and sharply delimited all-length injectivity spectrum with substantial jumps at 9,17,33,65,129. Each row is an infinite length statement, not merely a finite prefix count. The distinct complemented-letter dynamics and boundary collision classification constitute useful quantitative stack-sorting data without claiming an unproved all-depth recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
