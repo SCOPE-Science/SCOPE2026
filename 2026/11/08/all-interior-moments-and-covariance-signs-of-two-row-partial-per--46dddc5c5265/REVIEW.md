@@ -1,19 +1,21 @@
-# Scientific review: interior moments and rook-attack covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive \(n\) and arbitrary nonnegative monomial exponents, the product of two \(n\)-simplices loses precisely a disjoint collection of column-violation caps. Exact Dirichlet integration gives the stated alternating factorial sum for every monomial. Dividing by the already-known positive volume from Heuer–Striker, Theorem 3.8, is legitimate. Conditional Dirichlet first and second moments yield the three distinct covariance classes. The inequality \(\binom{2n}{n}\ge n(n+1)\) and explicit polynomial bounds certify strict signs for all \(n\ge2\). Independent exact weighted-Ehrhart counts verify 31 rational cases for \(n=1,2,3,4\); enumeration is not used as an infinite proof.
+PASS
 
-## Originality — PASS for the moment-and-covariance claim; known volume excluded
+The standard 2n-dimensional matching polytope inequalities identify a product of two n-simplices minus the pairwise interior-disjoint caps x_j+y_j>1. Exact Dirichlet integration after u=1-x_j, v=1-y_j and binomial expansion gives the complete stated formula for every monomial of nonnegative exponents. The known volume binom(2n,n)-n is used only to normalize. Conditioning on the Dirichlet(n,n,1) law on a cap yields first- and second-moment identities, and their explicit inequalities via 1/binom(2n,n)<=1/[n(n+1)] give strictly negative same-row/column covariance and strictly positive nonattacking covariance for all n>=2, with n=2 checked separately for strictness. Independently computed rational covariance signs for n=2,3,5,10; direct weighted-Ehrhart source checker was inspected. The n=1 law has no distinct-entry comparison and is not misstated.
 
-The lead paper, Heuer–Striker, arXiv:2012.09901v3, **already proves** the two-row normalized-volume formula in **Theorem 3.8**, following a referee proof of its earlier conjecture; neither the formula nor the cap-disjointness observation is presented as a novel volume theorem. Its full Section 3 and the rest of the full-text article contain no formula for general interior monomial moments or the strict rook-attack covariance-sign classification. The 2022 partial-permutohedron paper studies a different projection; its volume/Ehrhart results do not determine the matrix-polytope interior distribution. General polytope-integration methods are broader in algorithmic scope, but no inspected statement provides an evaluated uniform formula for this family and its covariance signs. The historical risk is an unindexed equivalent integration formula; claims of absolute priority are not made.
+## originality
 
-## Value — PASS
+PASS
 
-An explicit exact all-degree uniform-volume moment law for a natural infinite family of matching polytopes gives a reusable integration tool beyond the **already-known** volume. The strict sign classification converts second-order Euclidean interior-volume data into the combinatorics of rook attacks, distinguishing same-row, same-column and nonattacking cell pairs. Its proof and inequalities work for all positive column counts and do not merely re-enumerate existing volume tables. These constitute the candidate's mathematical value independently of the old volume result.
+Heuer–Striker (revised 2022) already proved the volume of the two-row partial permutation polytope and inequality model. The assessed contribution is evaluated closed all-degree INTERIOR (Lebesgue) monomial moments and the complete pairwise covariance sign rule. Prior Resultary covariance analyses are for uniform VERTICES of matching polytopes or other polytope families; partial permutohedra are different projections and not volume-preserving. Generic moment algorithms for polytopes are broader computational techniques but their existence does not supply this evaluated formula or signs by direct substitution without a new computation. Heuer–Striker full current article was inaccessible; checked bibliographic/available conference material and the explicit source comparison, with residual priority risk.
 
-## Scope and limitations
+## value
 
-Only two-row matching polytopes in their indicator coordinates are covered. The sign law need not persist under affine coordinate changes, the two-row cap-disjointness proof fails in general for more rows, and finite checks do not establish all-dimensional claims. The 2022 revised lead paper's volume theorem and non-exhaustiveness of historical search are explicit limitations. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full monomial moments for a natural two-row matching polytope provide an exact integration identity over all n and all nonnegative exponents; the positive/nonpositive covariance dichotomy recovers rook-attack combinatorics from continuous uniform interior geometry. It is strictly stronger than the already-known volume and not an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
