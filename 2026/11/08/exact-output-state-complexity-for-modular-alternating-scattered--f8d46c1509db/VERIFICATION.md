@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-From a directory containing `checker.py`, run `python3 checker.py`. The test exits with an assertion failure if any comparison fails. A successful run prints the number of comparisons in four categories.
+## correctness
 
-The checker directly recounts scattered index triples for words through length \(13\), compares all residues for moduli \(2\) through \(10\), breadth-first searches transition states for moduli \(2\) through \(23\), and confirms injectivity of the three-suffix output signature. An independent Moore output-partition-refinement algorithm minimizes the reachable machines for moduli \(2\) through \(10\). It also constructs positive-word realizations of the commutator transformations and verifies their witness action for moduli \(2\) through \(8\).
+PASS
 
-Replayed checks: 147447 direct word-count comparisons; 22 reachability moduli; 58751 unique output-signature states; 2685 group-generator and constructive-witness checks; 9 independent Moore minimizations. All passed. The all-modulus conclusion is supplied by the algebraic proof in `RESULT.md`, not by an extrapolation from the finite tests.
+For every m>=2, the triple (#0,#01,#010) modulo m obeys T0(a,b,c)=(a+1,b,c+b), T1(a,b,c)=(a,b+a,c). Counting zeros before/after each one gives c=(Z-1)b mod 2, so only m^3/gcd(m,2) triples are possible. T0,T1 have order m; explicit commutators C and D provide a unit translation in b and a +2 translation in c, reaching exactly all parity-admissible triples. Outputs after epsilon, 0, 10 respectively reveal c,c+b,c+b+a; no states merge. Independent BFS checks through m=19, and direct scattered-subsequence comparison for short binary words corroborates. Complement letters transfers 010 to 101.
 
-## Scientific limits
+## originality
 
-The claim concerns a residue-output Moore machine. It is not a claim about the minimum Boolean DFA for an individual target residue. Complete historical priority and independent mathematical validation have not been established.
+PASS
+
+Existing Parikh-matrix and trie-automaton constructions explain tracking subsequences but the available primary arguments do not derive this exact modular reachable orbit plus distinguishability count. Full 2011 trie paper remains inaccessible after authorized route, a material but nondecisive originality risk. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+An exact minimal Moore transducer for a natural length-three scattered-subsequence statistic, including the even-modulus parity defect and all-composite-modulus constructive reachability, is a useful sharp automata complexity classification rather than a generic counting-machine upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

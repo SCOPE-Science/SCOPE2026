@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For every m>=2, the triple (#0,#01,#010) modulo m obeys T0(a,b,c)=(a+1,b,c+b), T1(a,b,c)=(a,b+a,c). Counting zeros before/after each one gives c=(Z-1)b mod 2, so only m^3/gcd(m,2) triples are possible. T0,T1 have order m; explicit commutators C and D provide a unit translation in b and a +2 translation in c, reaching exactly all parity-admissible triples. Outputs after epsilon, 0, 10 respectively reveal c,c+b,c+b+a; no states merge. Independent BFS checks through m=19, and direct scattered-subsequence comparison for short binary words corroborates. Complement letters transfers 010 to 101.
+
+## originality
+
+PASS
+
+Existing Parikh-matrix and trie-automaton constructions explain tracking subsequences but the available primary arguments do not derive this exact modular reachable orbit plus distinguishability count. Full 2011 trie paper remains inaccessible after authorized route, a material but nondecisive originality risk. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+An exact minimal Moore transducer for a natural length-three scattered-subsequence statistic, including the even-modulus parity defect and all-composite-modulus constructive reachability, is a useful sharp automata complexity classification rather than a generic counting-machine upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
