@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:05:07.306197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For b>=2 full leaf cylinders on [b]^h, a positive leaf query gives exactly h+1 nested ancestors, online rank floor(log2(h+1)); the negative branch contains the full sibling subtree. The induction proves the matching rank except (b,h)=(2,1), with h=0 and empty-hypothesis distinctions explicit. Laminarity bounds VCdim by two; the ultraproduct stability equivalence is Łoś transfer of bounded finite thicket rank and applies only to the incidence formula. Independent minimax checks at (b,h)=(2,1),(2,2),(2,3),(3,1),(3,2) confirmed both with- and without-empty ranks. Mathematical validity survives despite prior priority failure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published all finite rooted-tree one-bit height theorem also explicitly gives exact full regular b-ary rank and exceptional b=2,h=1 case."
+        ],
+        "reasoning": "The earlier theorem treats all rooted trees and hence the same full regular tree objects; its witness construction supplies the leaf-only lower bound by elementary substitution.",
+        "searches": [
+          "Resultary: Littlestone dimension prefix cylinder ultrametric leaves ball infinite stable log height",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44",
+        "https://arxiv.org/abs/2203.12211",
+        "Resultary: Littlestone dimension prefix cylinder ultrametric leaves ball infinite stable log height"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior leaf-to-node ancestor positive chain plus sibling induction appears verbatim in published proof.",
+          "Stability of the incidence formula in an ultraproduct is equivalent to a U-uniform bounded finite thicket rank by Los."
+        ],
+        "reasoning": "Replacing each earlier node query used in the explicit lower witnesses by a descendant leaf preserves those witness branch labels. Therefore the new exact finite formula and its ultraproduct restatement follow without a new structural argument.",
+        "searches": [
+          "Resultary: Littlestone dimension prefix cylinder ultrametric leaves ball infinite stable log height",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier node-rooted cone C_v={all descendant nodes}, queried at nodes; current leaf cylinders C_v∩Leaves, queried at leaves.",
+          "For full b-ary trees, both have identical rank and VC profiles."
+        ],
+        "reasoning": "The difference in query sorts is real, not a literal renaming. However the earlier explicit proof lower witnesses convert to descendant leaf queries without changing their ancestor-chain labels, and the upper bound is the same.",
+        "searches": [
+          "Resultary: Littlestone dimension prefix cylinder ultrametric leaves ball infinite stable log height",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identical exact full b,h cases and VC two-point bound in earlier publication."
+        ],
+        "reasoning": "This is an earlier all-size formula, not merely a finite table or isolated example.",
+        "searches": [
+          "Resultary: Littlestone dimension prefix cylinder ultrametric leaves ball infinite stable log height",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44"
+        ]
+      },
+      "rationale": "Decisive earlier 2026-10-26 full-b-ary tree cone theorem establishes the identical all-b,h numerical online and VC profile for node-query descendant cones. Although the newly submitted class queries leaves only, the earlier proof witnesses can be converted to leaf queries by taking leaf extensions of its separating sibling nodes, with ancestor-chain responses unchanged and sibling recursion preserved. Thus the leaf-only rank is a routine restriction/transfer of the earlier sharp theorem; ultraproduct stability is the standard Los bounded-rank corollary. The syntactic ball/leaf presentation does not provide a surviving substantial new classification.",
+      "residual_risks": [
+        "The published 2026-10-26 all-tree statement has different node-query domain; implication uses the explicitly described easy leaf-query transfer of its proof, not a false claim of literal identical concept classes.",
+        "Independent finite tests cannot establish the all-height theorem without the chain induction.",
+        "No publication or repair attempted for previously covered claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "decisively covers the structural rank calculation after elementary replacement of node queries by descendant leaves",
+          "evidence": [
+            "prior already proves 0 at h=0, 1 at (b,h)=(2,1), 1+floor(log2(h+1)) otherwise for full b-ary trees"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44",
+          "material_read": "entire published RESULT.md including full-b-ary exact formula, proof witnesses and VC discussion",
+          "method": "read-only GitHub full-text retrieval",
+          "title": "A sharp one-bit height law for online learning of rooted-tree descendant cones",
+          "trigger": "same full b-ary tree nodes and ancestor-cone incidence; node queries versus leaf queries"
+        },
+        {
+          "assessment": "background only, no complete noncoverage finding",
+          "evidence": [
+            "different tree-dimension formalism; priority risk for alternatives"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "abstract and the bibliographic summary in the assigned RESULT.md; complete text not inspected",
+          "method": "literature search and package reference",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "general tree shattering framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural metric-ball learner is mathematically motivated, but the claimed exact b,h profile was already derived for the same full regular tree cone structure in the 2026-10-26 theorem. Converting the explicit lower-bound separating queries to leaves and applying Los are routine consequences; no distinct unknown exact invariant or substantive boundary remains.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44",
+    "https://arxiv.org/abs/2203.12211",
+    "Resultary: Littlestone dimension prefix cylinder ultrametric leaves ball infinite stable log height"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The published 2026-10-26 all-tree statement has different node-query domain; implication uses the explicitly described easy leaf-query transfer of its proof, not a false claim of literal identical concept classes.",
+    "Independent finite tests cannot establish the all-height theorem without the chain induction.",
+    "No publication or repair attempted for previously covered claim."
+  ],
+  "residual_risks": [
+    "The published 2026-10-26 all-tree statement has different node-query domain; implication uses the explicitly described easy leaf-query transfer of its proof, not a false claim of literal identical concept classes.",
+    "Independent finite tests cannot establish the all-height theorem without the chain induction.",
+    "No publication or repair attempted for previously covered claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "decisively covers the structural rank calculation after elementary replacement of node queries by descendant leaves",
+      "evidence": [
+        "prior already proves 0 at h=0, 1 at (b,h)=(2,1), 1+floor(log2(h+1)) otherwise for full b-ary trees"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44",
+      "material_read": "entire published RESULT.md including full-b-ary exact formula, proof witnesses and VC discussion",
+      "method": "read-only GitHub full-text retrieval",
+      "title": "A sharp one-bit height law for online learning of rooted-tree descendant cones",
+      "trigger": "same full b-ary tree nodes and ancestor-cone incidence; node queries versus leaf queries"
+    },
+    {
+      "assessment": "background only, no complete noncoverage finding",
+      "evidence": [
+        "different tree-dimension formalism; priority risk for alternatives"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+      "material_read": "abstract and the bibliographic summary in the assigned RESULT.md; complete text not inspected",
+      "method": "literature search and package reference",
+      "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+      "trigger": "general tree shattering framework"
+    }
+  ]
+}
