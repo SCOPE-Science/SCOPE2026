@@ -1,61 +1,37 @@
-# Sharp three-basis support uncertainty in prime dimensions five and seven
+# Sharp three-basis support uncertainty for the standard MUBs of dimension five
 
 ## Finding
-For \(p\in\{5,7\}\), take the standard complete collection of \(p+1\) mutually unbiased bases of \(\mathbb C^p\), comprising the coordinate basis and the \(p\) quadratic Fourier bases. For **every** choice of three distinct bases \(\mathcal B_1,\mathcal B_2,\mathcal B_3\), the sharp total-support inequality is
+Let \(\mathcal B_\infty,\mathcal B_0,\ldots,\mathcal B_4\) be the standard complete set of six mutually unbiased bases of \(\mathbb C^5\), consisting of the coordinate basis and five quadratic finite-field Fourier bases. For every triple of distinct bases, the sharp total-support inequality is
 \[
-\min_{0\ne v\in\mathbb C^p}\ \sum_{j=1}^3 |\operatorname{supp}_{\mathcal B_j}(v)|=2p.
+\min_{v\in\mathbb C^5\setminus\{0\}}\sum_{\mathcal B\text{ in the triple}}|\operatorname{supp}_{\mathcal B}(v)|=10.
 \]
-Equivalently, at most \(p\) of the \(3p\) amplitude coordinates can vanish simultaneously. In dimensions five and seven the sharp minima are, respectively, \(10\) and \(14\). This statement is for the standard finite-field family of bases, not an arbitrary unrelated triple of complex Hadamard bases.
+Equivalently, any nonzero state has at most five zero amplitude coordinates across the selected three bases, and equality is achievable for every triple. This is an exact dimension-five theorem, not an arbitrary-prime assertion.
 
-## Assumptions and scope
-Let \(p\) be \(5\) or \(7\), \(\omega=\exp(2\pi i/p)\), and index coordinate locations by \(t\in\mathbb F_p\). The coordinate basis \(\mathcal B_\infty\) consists of the unit impulses \(\delta_t\). For \(a\in\mathbb F_p\), the basis \(\mathcal B_a\) consists of the vectors
+## Definitions and normalization
+Put \(\omega=e^{2\pi i/5}\). The coordinate basis \(\mathcal B_\infty\) comprises \(\delta_t\), \(t\in\mathbb F_5\); for \(a\in\mathbb F_5\), let
 \[
-\phi_{a,b}(t)=p^{-1/2}\omega^{a t^2+b t},\qquad b\in\mathbb F_p.
+\phi_{a,b}(t)=5^{-1/2}\omega^{at^2+bt},\qquad b,t\in\mathbb F_5.
 \]
-The quadratic Gauss-sum identity proves these bases are pairwise mutually unbiased. The support of \(v\) relative to a basis counts its nonzero inner-product coordinates, not the magnitudes or their approximate numerical values. There are no restrictions on the complex coefficients of \(v\).
+These six bases are mutually unbiased by the quadratic Gauss-sum identity. Support counts the number of nonzero complex inner-product coefficients, irrespective of amplitude normalization. The state coefficients are unrestricted complex numbers.
 
 ## Proof
-**1. Rank formulation.** A zero coefficient \(\langle\phi_{a,b},v\rangle\) is a linear constraint on \(v\). Its row is, up to a nonzero normalization and replacement of \((a,b)\) by \((-a,-b)\), the vector \((\omega^{a t^2+b t})_{t\in\mathbb F_p}\). The coordinate-basis constraints are standard unit rows. For three bases this produces \(3p\) distinct rows. If a nonzero \(v\) had at least \(p+1\) zero coefficients, some \((p+1)\)-row submatrix would have rank at most \(p-1\) over \(\mathbb C\).
+Each zero coordinate is a homogeneous linear constraint on the five-dimensional state. In the basis \(\mathcal B_a\) its row, up to complex conjugation of the exponents and a nonzero scale, is \((\omega^{at^2+bt})_{t\in\mathbb F_5}\); the coordinate basis contributes standard unit rows. If at least six of fifteen outcomes vanished, a selection of six analysis rows would have rank at most four.
 
-**2. Rigorous rank certificate.** All row entries belong to \(\mathbb Z[\omega]\). For \(p=5\) reduce \(\omega\) modulo a prime ideal by \(\omega\mapsto95\) in \(\mathbb F_{101}\); for \(p=7\), use \(\omega\mapsto16\) in \(\mathbb F_{29}\). In each case the image has *exact* multiplicative order \(p\), hence annihilates \(1+X+\cdots+X^{p-1}\) and defines a ring homomorphism \(\mathbb Z[\omega]\to\mathbb F_q\). An \(p\times p\) minor that is nonzero after reduction was nonzero over \(\mathbb C\).
+To prove this impossible, specialize cyclotomic integers by the ring homomorphism \(\mathbb Z[\omega]\longrightarrow\mathbb F_{101}\) given by \(\omega\mapsto95\), whose image has exact multiplicative order five. For each of the \(\binom63=20\) basis triples and each of the \(\binom{15}{6}=5005\) six-row subsets, perform exact modular Gaussian elimination. The accompanying original `CHECK.cpp` implements this computation; an independently implemented modular rank checker also enumerated all \(20\cdot5005=100100\) cases without a deficient rank. A maximal minor nonzero modulo 101 was nonzero as a cyclotomic integer over \(\mathbb C\). Therefore every selection of six rows has rank five, and no nonzero state has six vanishing outcomes. Total support is at least \(15-5=10\).
 
-The accompanying `CHECK.cpp` enumerates **every** three-element subset of the \(p+1\) bases and, within each triple, **every** subset of \(p+1\) of the \(3p\) analysis rows. It performs modular Gaussian elimination and checks that each selected matrix has rank \(p\). The exhaustive counts are
-\[
-\begin{array}{c|c|c|c}
-p&q&\binom{p+1}{3}&\binom{p+1}{3}\binom{3p}{p+1}\\\hline
-5&101&20&100100\\
-7&29&56&11395440
-\end{array}
-\]
-with no rank failures. This is a finite *exact* certificate, not floating-point evidence. Thus no nonzero vector can have more than \(p\) zeros across any three selected bases, and its total support is at least \(3p-p=2p\).
+To establish sharpness for every triple, the finite-field Fourier transform and multiplication by chirps \(D_c:v(t)\mapsto\omega^{ct^2}v(t)\) permute these six bases; their action is transitive on the basis labels. Move one chosen basis to the coordinate basis, with the other two distinct quadratic bases. Set \(v=\delta_0-\delta_1\). It has three coordinate zeros, and its analysis coefficients in every quadratic basis are proportional to \(1-\omega^{-(a+b)}\), which has exactly one zero in \(b\). The three supports are \((2,4,4)\), sum ten. Unitary transport gives an extremizer for every original triple.
 
-**3. Equality for every triple.** Multiplication by a quadratic chirp, \(D_c v(t)=\omega^{c t^2}v(t)\), permutes the standard bases by \(a\mapsto a+c\), fixing \(\infty\). The finite Fourier transform exchanges the bases labelled \(0\) and \(\infty\) and maps every other quadratic basis to another quadratic basis, by completion of the square. Hence an invertible unitary transformation from these operations maps any chosen basis in a triple to \(\mathcal B_\infty\), while permuting the remaining two into distinct finite bases.
-
-In these coordinates take \(v=\delta_0-\delta_1\). It has exactly \(p-2\) zero coordinate entries, and in **each** quadratic basis the analysis coefficients are proportional to
-\[
-1-\omega^{-(a+b)},
-\]
-which vanishes exactly at \(b=-a\). Thus the three selected bases have \((p-2)+1+1=p\) zero outcomes, or total support \(2+(p-1)+(p-1)=2p\). Transporting back gives equality for the original arbitrary triple.
+This finite exact rank certificate proves exactly the dimension-five statement. It is not a computation of all complex equality rays, a stability inequality, or an infinite-prime proof.
 
 ## Verification
-`CHECK.cpp` is a standalone ISO C++17 exact-integer implementation. Execute `c++ -O3 -std=c++17 CHECK.cpp -o check && ./check`. Successful output is exactly:
+Compile the original accompanying `CHECK.cpp` with a C++17 compiler; the `p=5` branch computes all 100100 ranks, with `CHECK_OK p=5 modulus=101 root=95 triples=20 rank_certificates=100100`. An independently authored C++ Gaussian elimination using the same finite field and independently assembled matrices reproduced this count. The original source also computes a dimension-seven certificate, but that extra historical computation is not asserted here as novel mathematics.
 
-```
-CHECK_OK p=5 modulus=101 root=95 triples=20 rank_certificates=100100
-CHECK_OK p=7 modulus=29 root=16 triples=56 rank_certificates=11395440
-```
+## Relationship to prior work and limited novelty
+Fiorentino and Weigert, *Uncertainty relations for the support of quantum states*, J. Phys. A 55 (2022), 495305, arXiv:2209.09817, prove the pairwise support inequalities, discuss the triple lower bound \(3(p+1)/2\), and analyze complete \(p+1\)-basis support. Their prime-five complete-family sharp bound does not imply this exact arbitrary-three-basis value.
 
-No external data are needed. The checker builds all three-basis row matrices from the stated formulas, validates every rank over a prime field, and terminates with a nonzero status at the first counterexample. Since the proof uses only implications from nonzero reduced minors to nonzero complex minors, modular bad reduction cannot yield a false positive proof. The analytic equality construction is independent of the enumeration.
+The earlier published *A sharp three-basis support law for the seven-point Fourier and quadratic-chirp transforms*, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-sharp-three-basis-support-law-for-the-seven-point-fourier-and--22c716053510, establishes the seven-dimensional fixed-triple support bound fourteen. Its theorem, combined with the fact that the projective \(SL_2(\mathbb F_7)\) action on the eight standard MUB labels is transitive on unordered triples, already gives the all-triple dimension-seven corollary. Consequently, the seven-dimensional part of the original combined five-and-seven assertion is **not** presented here as new. The surviving new statement is exclusively the exact arbitrary-triple theorem in dimension five; the two PSL2(5) triple orbits are both checked by the finite certificate.
 
-## Relationship to prior work
-Fiorentino and Weigert (2022) derived from pairwise prime-Fourier uncertainty the three-basis lower bound \(3(p+1)/2\), namely \(9\) in dimension five and \(12\) in dimension seven. They explicitly identify sharp triple-basis inequalities as future work and report preliminary evidence against saturation of their bound outside dimension three. The present inequality gives the **sharp** values \(10\) and \(14\) for the first two such prime dimensions.
-
-Li (2026) solved the **complete** \((p+1)\)-basis total-support problem and proved a parity-sensitive bound on zeros across *all* quadratic Fourier bases. Those results do not give the stated sharp bound for an **arbitrary selected triple**: restricting a complete-family total-zero estimate to three bases loses the necessary positional information. The present exact rank certificate supplies that missing finite-family incidence statement. Related published finite-parabola support classifications address a fixed spatial support, not the arbitrary-triple support minimum of this theorem.
+Li, *Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola*, arXiv:2609.16030, treats complete-MUB/parabola support conditions, not this five-dimensional arbitrary-triple classification. Unindexed equivalent computations remain a historical-priority risk.
 
 ## Limitations
-This theorem proves only \(p\in\{5,7\}\), not a universal prime-dimension formula; it does not classify all minimizing rays or establish noise stability. It applies to the standard quadratic finite-field MUB family, not arbitrary triples of mutually unbiased bases in other constructions. The proof uses exhaustive exact modular elimination for the upper bound rather than a conceptual non-enumerative argument. Publication priority relative to unindexed equivalent finite-dimensional computations is not fully settled.
-
-## References
-1. V. Fiorentino and S. Weigert, *Uncertainty relations for the support of quantum states*, J. Phys. A 55 (2022), 495305; first public arXiv version 2022-09-20, https://arxiv.org/abs/2209.09817. In particular Section 3.2, equation (31), and Section 6.
-2. D. Li, *Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola*, first public arXiv version 2026-09-11, https://arxiv.org/abs/2609.16030. Related complete-MUB and parabolic zero theorems; not a triple-basis support classification.
-3. T. Tao, *An uncertainty principle for cyclic groups of prime order*, Math. Res. Lett. 12 (2005), 121–127, https://arxiv.org/abs/math/0308286.
+Only standard finite-field MUBs of dimension five are considered; arbitrary unrelated Hadamard triples need not satisfy this result. The proof relies on exact exhaustive modular rank checks. The theorem neither determines all equality rays nor gives an approximate-sparsity inequality. Earlier dimension-seven work is explicitly credited; no independent verification or formal proof is claimed by this public scientific statement.
