@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:13:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For each proper S subset of n Bernoulli rounds, the moment equations E(prod_(i in S)B_i)=prod p_i have rank 2^n-1, giving one affine parity atom coordinate q_b+(-1)^(n-|b|)*theta. Nonnegativity is precisely -alpha<=theta<=beta. In CE the -z_y expectation is theta-invariant. Its mixed forward difference equals integral of distinct-index derivative of logsumexp, which is (-1)^(n-1)(n-1)! times strictly positive product of softmax probabilities; hence unique theta endpoint by n parity, invariant in y. Fair p=1/2 endpoint supported on even parity and symmetric h asymptotic gain h/2^n+O(1) follow exactly by binomial difference. Independently computed 50 random higher-dimensional cases for proper-subset constraints and endpoint sign, and n=3 h=4 gain 0.25014236686591174. Finite examples do not establish general calculus or rank proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Bonferroni-type probability envelopes of Natarajan et al. control event intersections/unions under n-1-wise independence; they do not directly optimize arbitrary smooth logsumexp CE.",
+          "Blanchard–Higham–Higham assess numerical accuracy of evaluating logsumexp, a different objective."
+        ],
+        "reasoning": "A possible general higher-order supermodularity theorem may imply the CE endpoint, but no inspected statement covering the sign of this all-coordinate logsumexp derivative was identified.",
+        "searches": [
+          "n-1-wise independent Bernoulli parity distributions optimal expected softmax cross entropy mixed derivative stochastic rounding",
+          "https://arxiv.org/html/2211.01596v1",
+          "https://arxiv.org/abs/2610.01889",
+          "https://eprints.maths.manchester.ac.uk/2765/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2211.01596v1",
+        "https://arxiv.org/abs/2610.01889",
+        "https://eprints.maths.manchester.ac.uk/2765/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical affine dependence family implies risk is linear in theta for any function of all bits, but DOES NOT by itself determine which endpoint minimizes softmax log loss.",
+          "The submitted strict derivative (-1)^(n-1)(n-1)! product pi_i establishes endpoint and label independence for any positive d_i."
+        ],
+        "reasoning": "The prior linear-programming geometry is a tool; the sharp all-logit CE sign and risk gap are additional, logically stronger objective-specific conclusions.",
+        "searches": [
+          "n-1-wise independent Bernoulli parity distributions optimal expected softmax cross entropy mixed derivative stochastic rounding",
+          "https://arxiv.org/html/2211.01596v1",
+          "https://arxiv.org/abs/2610.01889",
+          "https://eprints.maths.manchester.ac.uk/2765/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Natarajan–Ramachandra–Tan (2022) Theorem 9 already gives the one-dimensional affine parity family and sharp feasible parameter bounds.",
+          "The submitted new objective is exact expected softmax cross-entropy with fixed logits, strict global n-way derivative sign and unique endpoint."
+        ],
+        "reasoning": "The feasible law is classical, explicitly credited, and not counted as original. Its application to nonlinear softmax expected loss needs a separate complete-sign calculation not established by the cited abstract/general event probability results.",
+        "searches": [
+          "n-1-wise independent Bernoulli parity distributions optimal expected softmax cross entropy mixed derivative stochastic rounding",
+          "https://arxiv.org/html/2211.01596v1",
+          "https://arxiv.org/abs/2610.01889",
+          "https://eprints.maths.manchester.ac.uk/2765/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary high-order Rademacher moment bounds and parity allocations optimize L^n norms and event probabilities, not softmax log loss.",
+          "The exact h-dependent grid gain G_n(h) is a derived analytic finite sum, not reproduced from a prior table."
+        ],
+        "reasoning": "An event-probability bound/table is not an exact cross-entropy evaluation; the logsumexp sign is what selects parity optimizer for every logit vector.",
+        "searches": [
+          "n-1-wise independent Bernoulli parity distributions optimal expected softmax cross entropy mixed derivative stochastic rounding",
+          "https://arxiv.org/html/2211.01596v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-endpoint-khintchine-constants-for-next-to-independent-rade--93098a285ffa"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge: Natarajan et al. 2022 already prove the general one-parameter (n-1)-wise-independent Bernoulli feasible law and parity bounds, and are credited. The additional global strict sign of the logsumexp n-way mixed derivative, all-label cross-entropy endpoint optimization and exact quantified gain were not stated in the read full primary independence paper nor prior ZO/low-precision work accessible. Chatelain/de Oliveira Castro full paper unavailable from authorized institutions; unindexed higher-order difference inequality applied to logsumexp could imply this theorem. This is a motivated one-shot output-logit coupling, NOT a claim about sequential stochastic rounding unbiasedness.",
+      "residual_risks": [
+        "Chatelain/de Oliveira Castro full manuscript inaccessible due disconnected institutional VPN; appendix overlap is unexcluded.",
+        "Classical multiway dependence/supermodular-order theory could contain an equivalent specialization; historical priority remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS one-dimensional feasible law and bounds; no discovered softmax cross-entropy derivative sign or all-class optimizer",
+          "evidence": "General extremal event probabilities are not the nonlinear CE objective; probability fiber must be cited as prior.",
+          "identifier_or_url": "https://arxiv.org/html/2211.01596v1",
+          "material_read": "Complete accessible primary arxiv HTML, Section 2 and principal theorems on n-1-wise independence and sharp event bounds, plus relevant later sections",
+          "method": "Direct primary HTML full-text examination",
+          "title": "Probability bounds for n random events under (n-1)-wise independence",
+          "trigger": "EXACT same feasible Bernoulli dependence family and parity endpoint polytope"
+        },
+        {
+          "assessment": "Plausible overlap not excluded, especially appendix treatments",
+          "evidence": "Available results analyze operation-level stochastic rounding and Fisher-weighted second-order loss; no full-text exclusion claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01889",
+          "material_read": "Dated accessible abstract/model description and indexed second-order conclusions; complete paper unavailable",
+          "method": "ArXiv and lawful accessible sources failed to yield full text; institutional access reported disconnected authentication",
+          "title": "Stochastic Rounding in Low-Precision Transformer Inference: A Variable-Precision Emulation Study of a Small GPT-2",
+          "trigger": "Same low-precision logit setting and expected softmax loss"
+        },
+        {
+          "assessment": "Different algorithmic rounding-error problem; no objective-coupling optimization identified",
+          "evidence": "Computing logsumexp accurately does not optimize joint Bernoulli logit rounding couplings.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2765/",
+          "material_read": "Accessible abstract and numerical method overview; full article not reread",
+          "method": "Primary university manuscript abstract and statement comparison",
+          "title": "Accurately Computing the Log-Sum-Exp and Softmax Functions",
+          "trigger": "Original logsumexp numerical accuracy and potential analytic formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Identifies a mathematically sharp way higher-order dependence changes a standard nonlinear loss while all lower-order Bernoulli joint distributions, means and covariances are preserved. Exact n-way mixed derivative gives a universal label-independent optimizer and quantifiable risk gap; this is a useful natural risk invariant beyond known probability coupling geometry, with no speculative actual floating point implementation guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only simultaneous one-stage output-logit quantization, all proper subcollections independent, interior Bernoulli parameters and positive bins.",
+    "No claim of operation-level sequential martingale correctness, accuracy on trained models or top-1 prediction improvement."
+  ],
+  "schema_version": 1
+}
