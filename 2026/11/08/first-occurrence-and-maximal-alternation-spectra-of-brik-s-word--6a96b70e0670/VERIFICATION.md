@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check_alternation.py` with Python 3.8 or newer. The code constructs 19 exact finite iterates, verifies their lengths and boundary properties, finds the maximal alternating factor by an independent linear scan, and directly checks all alternating factors of lengths 1–8 against the claimed first positions. It checks the first 010101 occurrence in stage seven and the integer arithmetic for the next, symbolic witness. These tests passed at packaging.
+## correctness
 
-The infinite statement is proved in `RESULT.md` by an induction on the first occurrence of alternating powers. The next stage is too large to generate explicitly; its existence follows from the already present finite source window and fixed suffix, rather than from a finite enumeration. Independently auditing this induction and historical priority is not part of this verification.
+PASS
+
+For B_(i+1)=B_i plus suffix beginning at i+1, the length is 2^(i-1)+i+1, no 00 appears, and the stable trailing 1101 for i>=3 forces new (01)^k, k>=3, to cross the unique join starting at length(B_i)-1. The source window first appears at i+1=r_(k-1), giving r3=38 and r_k=2^(r_(k-1)-2)+r_(k-1)-1. The start shift and no-00 extension give all four orientations/parities, and the first-containing stage gives A_i=2K_i+1. Independently constructed stages 1..18, checked full maximal alternating lengths and r3, and the integer r4=68719476773. The unbounded claim is an induction, not a finite extrapolation.
+
+## originality
+
+PASS
+
+Full original Shallit manuscript supplies recurrence and language but no alternating first-hit spectrum. A same-word published factor-completion theorem supplies only global latest-first-occurrence maxima, which do not determine every alternating first position. Own source gives a new exact nested growth and exact first stage of alternation, all k.
+
+## value
+
+PASS
+
+Alternating-factor hitting times are a natural combinatorial statistic in a nonuniformly recurrent word with enormous gaps. The exact tower-like recurrence and complete stage spectrum resolve a meaningful quantitative gap not supplied by mere factor existence or constant-run onsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

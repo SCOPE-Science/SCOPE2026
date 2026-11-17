@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:02:52.374441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B_(i+1)=B_i plus suffix beginning at i+1, the length is 2^(i-1)+i+1, no 00 appears, and the stable trailing 1101 for i>=3 forces new (01)^k, k>=3, to cross the unique join starting at length(B_i)-1. The source window first appears at i+1=r_(k-1), giving r3=38 and r_k=2^(r_(k-1)-2)+r_(k-1)-1. The start shift and no-00 extension give all four orientations/parities, and the first-containing stage gives A_i=2K_i+1. Independently constructed stages 1..18, checked full maximal alternating lengths and r3, and the integer r4=68719476773. The unbounded claim is an induction, not a finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Every legal no-00 factor eventually occurs; factor-completion U(n) determined by 1^n"
+        ],
+        "reasoning": "Existence of all alternating factors and upper bound on latest arrival of any length-n factor do not determine the exact huge first occurrence or maxima in each finite iterate.",
+        "searches": [
+          "Resultary: Brik word replication sequence alternating factors first occurrence 010101 38 maximal alternating length",
+          "Shallit theorem 7 legal factor language",
+          "Resultary sharp factor-completion thresholds Brik"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.07542 full HTML",
+        "Resultary published Brik factor-completion RESULT.md",
+        "OEIS A334820 contextual record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original: r_n(first 1^n) recurrence. Present: r_k(first (01)^k) recurrence with r3=38 and q_k=r_(k-1)."
+        ],
+        "reasoning": "New join-structure proof must be supplied; prior constant run and factor completion theorems are not the present alternating result.",
+        "searches": [
+          "Shallit arxiv:2605.07542 Theorems 4,7",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-factor-completion-thresholds-for-brik-s-infinite-binary-wo--986a5a4afc43/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Constant-run earliest hits and maximal factor-completion times follow different recurrence inputs from alternating factors"
+        ],
+        "reasoning": "An alternating run containing zeros is not an all-ones run; factor-completion extremal maxima cannot be substituted for individual earliest arrivals.",
+        "searches": [
+          "Resultary: Brik word replication sequence alternating factors first occurrence 010101 38 maximal alternating length",
+          "arxiv:2605.07542 full HTML",
+          "Resultary Brik factor-completion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS and Shallit record constant-run positions; directly inspected same-word result provides different extremal factor table"
+        ],
+        "reasoning": "No earlier exact alternating spectrum was located; indexed runs do not automatically cover it.",
+        "searches": [
+          "Resultary: Brik word replication sequence alternating factors first occurrence 010101 38 maximal alternating length",
+          "OEIS A334820 replication binary sequence first appearances"
+        ]
+      },
+      "rationale": "Full original Shallit manuscript supplies recurrence and language but no alternating first-hit spectrum. A same-word published factor-completion theorem supplies only global latest-first-occurrence maxima, which do not determine every alternating first position. Own source gives a new exact nested growth and exact first stage of alternation, all k.",
+      "residual_risks": [
+        "Historical-priority search is bounded; other individual-factor first-occurrence work may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers recurrence, length, language and constant-run first hits, but does not assert alternating hit spectrum or finite-stage maximal alternation",
+          "evidence": "Theorem 4: first 1^n position r_{n+1}=2^(r_n-2)+r_n; Theorem 7: factors exactly words avoiding 00",
+          "identifier_or_url": "https://arxiv.org/abs/2605.07542",
+          "material_read": "Full arXiv HTML sections 1–3, especially Proposition 1, Theorems 4 and 7 on first constant runs and legal factors",
+          "method": "arXiv full HTML read",
+          "title": "Brik's sequence: a strange recursion",
+          "trigger": "Exact word and original first occurrences"
+        },
+        {
+          "assessment": "Does not give individual alternating first starts; factor-completion maximum over words cannot determine first hitting time for each alternating word",
+          "evidence": "Global max t(1^n) and second maximum t(1^(n-1)0) from a different recurrence",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-factor-completion-thresholds-for-brik-s-infinite-binary-wo--986a5a4afc43/RESULT.md",
+          "material_read": "Full published RESULT.md read, including safe-occurrence lemma and first/last factor proof",
+          "method": "exact GitHub published source blob b0b2aa29ed7facf7501412dc4629134d58a5990a",
+          "title": "Sharp factor-completion thresholds for Brik's infinite binary word",
+          "trigger": "Same infinite word and quantitative first-occurrence upper bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Alternating-factor hitting times are a natural combinatorial statistic in a nonuniformly recurrent word with enormous gaps. The exact tower-like recurrence and complete stage spectrum resolve a meaningful quantitative gap not supplied by mere factor existence or constant-run onsets.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2605.07542 full HTML",
+    "Resultary published Brik factor-completion RESULT.md",
+    "OEIS A334820 contextual record"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Historical-priority search is bounded; other individual-factor first-occurrence work may be unindexed."
+  ],
+  "schema_version": 1
+}
