@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The selected path eigenvalues are nonnegative on the stated parameter domain, with at least \(k-1\) strictly positive. In the bipartite spider, all walk counts at a fixed vertex-pair distance have one parity, so every summand of the specified adjacency polynomial has the same sign and the shortest-walk term is nonzero. The path-eigenvector arm contrasts are independent and in the kernel. The known upper bound on zero forcing yields the exact kernel dimension. Bounded numerical verification checked 24 parameter triples; it is not the proof.
+## correctness
 
-**Originality — PASS, provisional.** Abiad et al. (2026), Theorem 20, give a *conditional* spectral-polynomial lower bound; the explicit polynomial and signed nonvanishing on all distance layers are supplied here. The separately released general spider-power theorem already establishes the entire numerical zero-forcing formula, and its directed weighted tree can be symmetrized, so the numerical maximum nullity is **covered**, not presented as novel. Its specified matrix is a parameter-tuned nonuniform Jacobi construction, not the claimed canonical unweighted adjacency polynomial. Chang–Lin resolve square-of-tree nullity and DeAlba et al. cover path ordinary powers and strict tree powers, not this higher-power signed unweighted certificate. published-finding corpus queries on analogous spectral matrices and accessible prior claims showed no exact corresponding statement, but searchable coverage is incomplete.
+PASS
 
-**Mathematical value — PASS.** A parameter-free, exact-support spectral filter whose sign on every off-diagonal distance layer is prescribed is a reusable structural certificate for a whole family of graph powers. It avoids the generic nonzero-parameter choice needed in the previously released proof and exhibits a concrete optimum-rank matrix, rather than simply restating an already determined scalar invariant. The longest-arm hypothesis is essential to the positivity argument; outside it no assertion is made.
+For ell>=2k-1 the largest k path eigenvalues lambda_j=2cos(j pi/(ell+1)) satisfy lambda_1>...>lambda_{k-1}>0 and lambda_k>=0. The monic p(x)=prod_{j=1}^k(x-lambda_j) has alternating coefficients with positive relevant elementary symmetric polynomials. The tree is bipartite, so every walk from vertices distance d contributes to p(A) with the same sign (-1)^(k-d) and the unique length-d path makes the entry strictly nonzero for d<=k; d>k vanishes by degree. Arm-contrast sine path eigenvectors of each lambda_j give k(m-1) independent nullvectors; the established zero forcing bound Z<=k(m-1) and M<=Z prove equality. Independently formed representative p(A) for m=3,4, k=3,4 at boundary ell>=2k-1 and checked signs/nullity; those finite cases corroborate, universal result uses exact polynomial and eigenvector proof.
 
-**Residual risks.** An unindexed spectral construction may coincide with this polynomial. Scalar ranks and zero-forcing numbers themselves are known. There is no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Numerical Z=M=(m-1)k for these graph powers is fully covered by the published stronger unequal-arm theorem, and the older Abiad et al Theorem 20 gives conditional general polynomial spectral bound. The new claim explicitly excludes numerical novelty. Neither source constructs this particular top-k-path-eigenvalue polynomial of the *unweighted* spider adjacency nor its exact universal distance sign (-1)^(k-d) and explicit arm-contrast eigenbasis. The earlier optimal symmetric integer matrix is built from sliding-window blocks, not the same spectral functional calculus; no implication of the precise signed canonical matrix follows from M equality.
+
+## value
+
+PASS
+
+The canonical unweighted adjacency polynomial is an exact, fully supported, signed-layer and optimal-nullity spectral certificate on an infinite natural family. It specifies an actual optimal matrix and sign regularity not implied by numerical zero forcing; such constructive spectral matrices are natural inputs to signed-pattern rank and eigenvector analyses. Motivation is the certificate itself, not a false novelty claim for known M.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

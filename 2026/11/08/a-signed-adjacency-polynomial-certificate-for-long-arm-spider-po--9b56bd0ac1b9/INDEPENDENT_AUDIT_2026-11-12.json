@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:46:49.363515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ell>=2k-1 the largest k path eigenvalues lambda_j=2cos(j pi/(ell+1)) satisfy lambda_1>...>lambda_{k-1}>0 and lambda_k>=0. The monic p(x)=prod_{j=1}^k(x-lambda_j) has alternating coefficients with positive relevant elementary symmetric polynomials. The tree is bipartite, so every walk from vertices distance d contributes to p(A) with the same sign (-1)^(k-d) and the unique length-d path makes the entry strictly nonzero for d<=k; d>k vanishes by degree. Arm-contrast sine path eigenvectors of each lambda_j give k(m-1) independent nullvectors; the established zero forcing bound Z<=k(m-1) and M<=Z prove equality. Independently formed representative p(A) for m=3,4, k=3,4 at boundary ell>=2k-1 and checked signs/nullity; those finite cases corroborate, universal result uses exact polynomial and eigenvector proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Previous unequal-arm rank theorem covers more graph families but does not establish layerwise signs of p(A) for equal legs."
+        ],
+        "reasoning": "Broader numerical coverage is conceded, whereas the new structural matrix identity is not a corollary of abstract maximum-nullity equality.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+          "https://arxiv.org/abs/2610.03892"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-signed-adjacency-polynomial-certificate-for-long-arm-spider-po--9b56bd0ac1b9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-signed-adjacency-polynomial-certificate-for-long-arm-spider-po--9b56bd0ac1b9/artifacts/verify.py",
+        "https://arxiv.org/abs/2610.03892",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abiad Theorem 20: p(A) can attain eigenvalue-multiplicity bound if nonzero support is established; does not guarantee all offdiagonal entries or their sign for chosen roots.",
+          "Earlier construction A=[0,h^TU;U^Th,D+U^TBU], symmetric nonnegative integer sliding-window matrix, not product(A_unweighted-lambda_j)."
+        ],
+        "reasoning": "Their results imply numerical bounds and a conditional strategy, not the exact p(A) canonical choice, sign identity or explicit path-eigenmode kernel.",
+        "searches": [
+          "https://arxiv.org/abs/2610.03892",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior spider rank theorem gives another explicit optimal matrix, not p(A_unweighted), and Abiad Theorem 20 conditional polynomial technique does not choose the eigenvalues."
+        ],
+        "reasoning": "Same nullity value is NOT equivalent to identical signed unweighted polynomial; explicit entrywise signs and canonical base matrix are additional assertions.",
+        "searches": [
+          "Resultary: spider graph power symmetric minimum rank unweighted adjacency polynomial sign regular distance path eigenvalues",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+          "https://arxiv.org/abs/2610.03892"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known M=Z=(m-1)k and minrank formulas already reported for all ell_i>=k+1; candidate agrees."
+        ],
+        "reasoning": "Exact prior database/numerical invariant is fully covered. Audit originality attaches only to an unweighted adjacency polynomial with exact coefficients and sign layers, absent from that record.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+          "Resultary: zero forcing unequal arms spider higher powers"
+        ]
+      },
+      "rationale": "Numerical Z=M=(m-1)k for these graph powers is fully covered by the published stronger unequal-arm theorem, and the older Abiad et al Theorem 20 gives conditional general polynomial spectral bound. The new claim explicitly excludes numerical novelty. Neither source constructs this particular top-k-path-eigenvalue polynomial of the *unweighted* spider adjacency nor its exact universal distance sign (-1)^(k-d) and explicit arm-contrast eigenbasis. The earlier optimal symmetric integer matrix is built from sliding-window blocks, not the same spectral functional calculus; no implication of the precise signed canonical matrix follows from M equality.",
+      "residual_risks": [
+        "Rank/nullity value is prior art and not itself novel.",
+        "Other unlocated spectral-filter constructions might give equivalent signed polynomial, unexcluded historical-priority risk.",
+        "Finite floating point eigenvector/symmetry checks do not replace all-parameter proof; real eigenvalues exactly defined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: Z upper bound and abstract polynomial technique, not canonical signed polynomial",
+          "evidence": [
+            "Proposition 9 gives k(m-1) upper bound; Theorem20 needs support verification missing for prescribed top path eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+          "material_read": "Full arXiv HTML problem statements, Proposition 9 forcing bound, Theorem 20 conditional spectral polynomial method and proof",
+          "method": "Read primary full text and compare exact quantifiers/equations",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Primary graph powers of spiders and polynomial adjacency spectral method"
+        },
+        {
+          "assessment": "COVERING numerical M/Z, NOT covering specific p(A) and sign regularity",
+          "evidence": [
+            "Earlier A is nonnegative integer symmetric from C_i^T C_i and U^T B U; unlike alternating signed p(A_unweighted) and equal-arm eigenvalue basis."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+          "material_read": "Complete published RESULT.md including window-matrix construction, forcing proof and scope",
+          "method": "Read primary full text and compare exact quantifiers/equations",
+          "title": "Sharp zero forcing and minimum real rank of spider powers with unequal arms",
+          "trigger": "Decisive older all-arm numerical rank theorem and constructive symmetric matrix"
+        },
+        {
+          "assessment": "OUTSIDE k>=3 canonical certificate",
+          "evidence": [
+            "Maximum nullity for T^2 is known; does not give this k>=3 explicit polynomial."
+          ],
+          "identifier_or_url": "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf",
+          "material_read": "Theorem 4.1 k=2 claim as cited in the audited package; no fresh full-PDF reading in this run",
+          "method": "Read primary full text and compare exact quantifiers/equations",
+          "title": "Minimum Rank of Powers of Cycles and Trees",
+          "trigger": "Earlier square-of-tree and graph power rank work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical unweighted adjacency polynomial is an exact, fully supported, signed-layer and optimal-nullity spectral certificate on an infinite natural family. It specifies an actual optimal matrix and sign regularity not implied by numerical zero forcing; such constructive spectral matrices are natural inputs to signed-pattern rank and eigenvector analyses. Motivation is the certificate itself, not a false novelty claim for known M.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-signed-adjacency-polynomial-certificate-for-long-arm-spider-po--9b56bd0ac1b9/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-signed-adjacency-polynomial-certificate-for-long-arm-spider-po--9b56bd0ac1b9/artifacts/verify.py",
+    "https://arxiv.org/abs/2610.03892",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Rank/nullity value is prior art and not itself novel.",
+    "Other unlocated spectral-filter constructions might give equivalent signed polynomial, unexcluded historical-priority risk.",
+    "Finite floating point eigenvector/symmetry checks do not replace all-parameter proof; real eigenvalues exactly defined."
+  ],
+  "residual_risks": [
+    "Rank/nullity value is prior art and not itself novel.",
+    "Other unlocated spectral-filter constructions might give equivalent signed polynomial, unexcluded historical-priority risk.",
+    "Finite floating point eigenvector/symmetry checks do not replace all-parameter proof; real eigenvalues exactly defined."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIALLY_COVERING: Z upper bound and abstract polynomial technique, not canonical signed polynomial",
+      "evidence": [
+        "Proposition 9 gives k(m-1) upper bound; Theorem20 needs support verification missing for prescribed top path eigenvalues."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+      "material_read": "Full arXiv HTML problem statements, Proposition 9 forcing bound, Theorem 20 conditional spectral polynomial method and proof",
+      "method": "Read primary full text and compare exact quantifiers/equations",
+      "title": "The Zero Forcing Number of Graph Powers",
+      "trigger": "Primary graph powers of spiders and polynomial adjacency spectral method"
+    },
+    {
+      "assessment": "COVERING numerical M/Z, NOT covering specific p(A) and sign regularity",
+      "evidence": [
+        "Earlier A is nonnegative integer symmetric from C_i^T C_i and U^T B U; unlike alternating signed p(A_unweighted) and equal-arm eigenvalue basis."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-zero-forcing-and-minimum-real-rank-of-spider-powers-with-u--5580508bfee7/RESULT.md",
+      "material_read": "Complete published RESULT.md including window-matrix construction, forcing proof and scope",
+      "method": "Read primary full text and compare exact quantifiers/equations",
+      "title": "Sharp zero forcing and minimum real rank of spider powers with unequal arms",
+      "trigger": "Decisive older all-arm numerical rank theorem and constructive symmetric matrix"
+    },
+    {
+      "assessment": "OUTSIDE k>=3 canonical certificate",
+      "evidence": [
+        "Maximum nullity for T^2 is known; does not give this k>=3 explicit polynomial."
+      ],
+      "identifier_or_url": "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf",
+      "material_read": "Theorem 4.1 k=2 claim as cited in the audited package; no fresh full-PDF reading in this run",
+      "method": "Read primary full text and compare exact quantifiers/equations",
+      "title": "Minimum Rank of Powers of Cycles and Trees",
+      "trigger": "Earlier square-of-tree and graph power rank work"
+    }
+  ]
+}

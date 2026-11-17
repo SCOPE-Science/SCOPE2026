@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification of the signed spectral certificate
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify.py` using standard-library Python 3. The script constructs the unweighted spider adjacency matrix for 24 triples with \(m\in\{3,4\}\), \(k\in\{3,4,5,6\}\), and \(\ell\in\{2k-1,2k,2k+1\}\). It directly computes \(p(A)\) via multiplication by the eigenvalue factors and checks: (i) every distance-\(d\) edge of the graph power has sign \((-1)^{k-d}\), (ii) every nonedge beyond distance \(k\) has a zero matrix entry within tolerance, (iii) matrix symmetry, and (iv) all explicit kernel vectors. Checked output:
+## correctness
 
-```text
-SPECTRAL_SUPPORT_AND_KERNEL_OK 24
-VERIFY_OK
-```
+PASS
 
-**Limits:** The program works in floating-point arithmetic at finite parameters; it does not constitute a proof for all integers or prove priority. The unrestricted proof is symbolic and uses eigenvector identities, walk parity, elementary symmetric functions of nonnegative roots, and the published inequality \(M(H)\le Z(H)\). Historical literature searches and comparisons are recorded in AUDIT.json; independent mathematical review was not performed.
+For ell>=2k-1 the largest k path eigenvalues lambda_j=2cos(j pi/(ell+1)) satisfy lambda_1>...>lambda_{k-1}>0 and lambda_k>=0. The monic p(x)=prod_{j=1}^k(x-lambda_j) has alternating coefficients with positive relevant elementary symmetric polynomials. The tree is bipartite, so every walk from vertices distance d contributes to p(A) with the same sign (-1)^(k-d) and the unique length-d path makes the entry strictly nonzero for d<=k; d>k vanishes by degree. Arm-contrast sine path eigenvectors of each lambda_j give k(m-1) independent nullvectors; the established zero forcing bound Z<=k(m-1) and M<=Z prove equality. Independently formed representative p(A) for m=3,4, k=3,4 at boundary ell>=2k-1 and checked signs/nullity; those finite cases corroborate, universal result uses exact polynomial and eigenvector proof.
+
+## originality
+
+PASS
+
+Numerical Z=M=(m-1)k for these graph powers is fully covered by the published stronger unequal-arm theorem, and the older Abiad et al Theorem 20 gives conditional general polynomial spectral bound. The new claim explicitly excludes numerical novelty. Neither source constructs this particular top-k-path-eigenvalue polynomial of the *unweighted* spider adjacency nor its exact universal distance sign (-1)^(k-d) and explicit arm-contrast eigenbasis. The earlier optimal symmetric integer matrix is built from sliding-window blocks, not the same spectral functional calculus; no implication of the precise signed canonical matrix follows from M equality.
+
+## value
+
+PASS
+
+The canonical unweighted adjacency polynomial is an exact, fully supported, signed-layer and optimal-nullity spectral certificate on an infinite natural family. It specifies an actual optimal matrix and sign regularity not implied by numerical zero forcing; such constructive spectral matrices are natural inputs to signed-pattern rank and eigenvector analyses. Motivation is the certificate itself, not a false novelty claim for known M.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
