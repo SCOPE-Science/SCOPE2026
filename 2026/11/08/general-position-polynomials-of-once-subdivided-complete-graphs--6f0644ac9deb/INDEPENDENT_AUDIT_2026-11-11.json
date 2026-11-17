@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:50:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md @ 88cea75205d472a339f91db75c68129ecc2a4833",
+        "pinned verifier @ 2a5be6983c5cffad06927fc9a2dd046a6ba8045d"
+      ],
+      "rationale": "In the full single-edge subdivision H_n of K_n, original pairs have distance 2; original-to-subdivision distances are 1 or 3; two edge-vertices have distance 2 for intersecting edges and 4 otherwise. Hence a chosen subdivision-edge family is geodesically admissible exactly when its induced line graph is P3-free, i.e. disjoint cliques, corresponding to disjoint edge-stars and triangles of K_n. Mixed triples force no original vertex incident to any of >=2 chosen subdivision edges; singleton-edge exceptions allow one chosen endpoint but no other original vertices. The labelled exponential block formula gives exponent (1+z)t+t(e^{zt}-1)-zt²/2+z³t³/6, with n(n-1)z² endpoint exceptions, and maximal sets are partitions into singleton originals and triangle edge-sets. Independent all-subset BFS geodesic checks for n=3,4,5 (64,1024,32768 subsets respectively) reproduce each polynomial coefficient exactly; general proof is structural, not inferred from n<=5.",
+      "residual_risks": [
+        "Finite computational checks corroborate but do not prove the unrestricted claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior 2019 triangular graph work determines edge-only GP extremal size, and the Oct13 full triangular polynomial counts edge-only subsets.",
+          "The 2024 general-position polynomial article treats other graph families and operations but does not give the full K_n incidence-subdivision polynomial."
+        ],
+        "reasoning": "Known line-graph structural decomposition is important prior input, but does not include original vertices or their geodesic interactions. The new full mixed-set classification is not a direct stated specialization of a stronger enumeration.",
+        "searches": [
+          "https://arxiv.org/abs/2401.05696",
+          "https://arxiv.org/abs/1903.04286",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md",
+        "https://arxiv.org/abs/2401.05696",
+        "https://arxiv.org/abs/1903.04286",
+        "https://arxiv.org/abs/1812.08460",
+        "Resultary related complete-graph subdivision and graph-geodesic results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Oct13 exponent for edge-only selected vertices reappears with factor exp(zt) representing selected uncovered originals; this factor follows only after proving the mixed-vertex admissibility criterion.",
+          "The n(n-1)z² exceptional incident-edge original-vertex configurations have no counterpart in the line graph."
+        ],
+        "reasoning": "The submitted polynomial is not merely renaming the triangular graph formula: a new distance-three/four mixed-triple argument supplies an additional case classification and a nonzero additive term; maximum-set count uses the resulting block decomposition.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md",
+          "https://arxiv.org/abs/1903.04286",
+          "https://arxiv.org/abs/2401.05696"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H_n is the original-vertex/edge incidence graph of K_n, while L(K_n) consists only of the edge vertices.",
+          "The earlier triangular graph EGF is exp(t e^{zt}-zt²/2+z³t³/6), and the new H_n EGF changes this to exp(zt) times that expression plus n(n-1)z² at coefficient n."
+        ],
+        "reasoning": "The line-graph count is exactly the edge-only specialization but not a polynomial over mixed incidence vertices; generic graph polynomial operations do not identify the singleton-edge endpoint exception.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md",
+          "Resultary: subdivision graph S(K_n) vertex-edge incidence K_n full general position polynomial",
+          "https://arxiv.org/abs/2401.05696"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearby mathematical records analyze P3 convexity, zero-forcing, forts, and general-position polynomials of the triangular graph, not this mixed-vertex exact enumerator.",
+          "Small-order coefficients are independently obtained from all-subset BFS rather than imported from a published mixed-vertex table."
+        ],
+        "reasoning": "No earlier exact H_n general-position polynomial/table was found in indexed published records; lack of a match does not certify priority.",
+        "searches": [
+          "Resultary: general position polynomial once subdivided complete graph incidence graph enumeration geodesic general position",
+          "Resultary: subdivision graph S(K_n) vertex-edge incidence K_n full general position polynomial",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best of knowledge. A previously published full general-position polynomial of the line graph L(K_n) supplies exactly the selected-subdivision-only star–triangle EGF (exp[t exp(zt)-zt²/2+z³t³/6]); the new theorem adds a specific e^{zt} factor for original-vertex choices AND n(n-1)z² singleton-edge incident-endpoint exceptions, arising from mixed geodesic triples that the line-graph result does not treat. Earlier standard general-position polynomials and clique-component criteria cover definitions and structural ingredients but not this exact mixed-vertex enumerator for the incidence graph of K_n.",
+      "residual_risks": [
+        "Unindexed incidence-graph general-position polynomials may include the full formula.",
+        "Line-graph component classification is previously known, and only mixed-vertex structure and enumeration are asserted as new.",
+        "Finite all-subset checks stop at n=5; the all-n statement relies on the distance and labelled-partition proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS selected-subdivision-only portion but not original/subdivision mixed configurations or exception term",
+          "evidence": [
+            "Earlier EGF exp(t exp(zt)-zt²/2+z³t³/6), vs new exp(zt) times earlier EGF plus n(n-1)z² at n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md",
+          "material_read": "ENTIRE RESULT.md including complete labelled block decomposition, EGF proof and maximum-size result",
+          "method": "Read primary scientific result in full and compared exponential terms and graph vertices",
+          "title": "Full general-position polynomial of triangular graphs by star–triangle components",
+          "trigger": "Highly relevant full edge-only subproblem and superficially similar EGF"
+        },
+        {
+          "assessment": "Does not state the full once-subdivided K_n mixed polynomial.",
+          "evidence": [
+            "Original general-position polynomial framework; graph families other than the full incidence graph H_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "Accessible full article sections defining polynomials, standard graph families and graph-operation results",
+          "method": "Read accessible article content and compared its graph-family statements",
+          "title": "General Position Polynomials",
+          "trigger": "Foundational full general-position size enumerators and graph operations"
+        },
+        {
+          "assessment": "Structural argument accounts for exceptional one-edge-plus-incident-original cases and all n.",
+          "evidence": [
+            "Step 3 mixed triples, Step 5 EGF, Step 6 maximum count."
+          ],
+          "identifier_or_url": "2026/11/08/general-position-polynomials-of-once-subdivided-complete-graphs--6f0644ac9deb/RESULT.md",
+          "material_read": "ENTIRE RESULT.md, distance classification, EGF and maximum multiplicity proof",
+          "method": "Pinned Git blob inspection and independently implemented BFS enumeration",
+          "title": "General-position polynomials of once-subdivided complete graphs",
+          "trigger": "Assigned claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e/RESULT.md",
+        "https://arxiv.org/abs/2401.05696",
+        "https://arxiv.org/abs/1903.04286",
+        "https://arxiv.org/abs/1812.08460",
+        "Resultary related complete-graph subdivision and graph-geodesic results"
+      ],
+      "rationale": "The full general-position size polynomial is a natural enumerative refinement of the graph's geodesic extremal invariant. It classifies all original-edge mixed configurations in a canonical graph family, not just the edge-only subproblem, and extracts maximum cardinality n and exact count of maximum sets for all n. The exceptional endpoint cases make the complete enumeration nontrivial.",
+      "residual_risks": [
+        "Unindexed incidence-graph general-position polynomials may include the full formula.",
+        "Line-graph component classification is previously known, and only mixed-vertex structure and enumeration are asserted as new.",
+        "Finite all-subset checks stop at n=5; the all-n statement relies on the distance and labelled-partition proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed incidence-graph general-position polynomials may include the full formula.",
+    "Line-graph component classification is previously known, and only mixed-vertex structure and enumeration are asserted as new.",
+    "Finite all-subset checks stop at n=5; the all-n statement relies on the distance and labelled-partition proof."
+  ],
+  "schema_version": 1
+}

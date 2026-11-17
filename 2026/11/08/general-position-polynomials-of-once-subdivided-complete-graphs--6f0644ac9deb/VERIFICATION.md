@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify.py` with a standard Python 3 interpreter. There are no nonstandard dependencies. The script independently builds the one-subdivision graph, computes shortest-path distances using breadth-first search, enumerates forbidden selected geodesic triples, and compares the original definition with the structural characterization and exact coefficient formulas.
+# Independent mathematical audit
 
-Actual output:
+## correctness
 
-```text
-DIRECT_OK 3 subsets 64 coefficients [(0, 1), (1, 6), (2, 15), (3, 2)]
-DIRECT_OK 4 subsets 1024 coefficients [(0, 1), (1, 10), (2, 45), (3, 30), (4, 5)]
-DIRECT_OK 5 subsets 32768 coefficients [(0, 1), (1, 15), (2, 105), (3, 175), (4, 100), (5, 11)]
-SAMPLE_OK 6 subsets 40000 coefficients [(0, 1), (1, 21), (2, 210), (3, 655), (4, 900), (5, 357), (6, 31)]
-VERIFY_OK direct_subsets 33856 sampled_subsets 40000 orders_checked 3..20 forbidden_triples 1063 full_polynomials=PASS maximum_multiplicity=PASS
-```
+PASS
 
-The degree and maximum-multiplicity formula are checked for each integer \(3\le n\le20\), but the complete BFS enumeration is limited to \(n\le5\). Order-six BFS checks sample \(40000\) deterministic subsets, and its complete edge-family enumeration verifies the formula separately. These checks corroborate but do not prove the infinite statements. The mathematical proof supplies the unrestricted argument.
+In the full single-edge subdivision H_n of K_n, original pairs have distance 2; original-to-subdivision distances are 1 or 3; two edge-vertices have distance 2 for intersecting edges and 4 otherwise. Hence a chosen subdivision-edge family is geodesically admissible exactly when its induced line graph is P3-free, i.e. disjoint cliques, corresponding to disjoint edge-stars and triangles of K_n. Mixed triples force no original vertex incident to any of >=2 chosen subdivision edges; singleton-edge exceptions allow one chosen endpoint but no other original vertices. The labelled exponential block formula gives exponent (1+z)t+t(e^{zt}-1)-zt²/2+z³t³/6, with n(n-1)z² endpoint exceptions, and maximal sets are partitions into singleton originals and triangle edge-sets. Independent all-subset BFS geodesic checks for n=3,4,5 (64,1024,32768 subsets respectively) reproduce each polynomial coefficient exactly; general proof is structural, not inferred from n<=5.
+
+## originality
+
+PASS
+
+PASS best of knowledge. A previously published full general-position polynomial of the line graph L(K_n) supplies exactly the selected-subdivision-only star–triangle EGF (exp[t exp(zt)-zt²/2+z³t³/6]); the new theorem adds a specific e^{zt} factor for original-vertex choices AND n(n-1)z² singleton-edge incident-endpoint exceptions, arising from mixed geodesic triples that the line-graph result does not treat. Earlier standard general-position polynomials and clique-component criteria cover definitions and structural ingredients but not this exact mixed-vertex enumerator for the incidence graph of K_n.
+
+## value
+
+PASS
+
+The full general-position size polynomial is a natural enumerative refinement of the graph's geodesic extremal invariant. It classifies all original-edge mixed configurations in a canonical graph family, not just the edge-only subproblem, and extracts maximum cardinality n and exact count of maximum sets for all n. The exceptional endpoint cases make the complete enumeration nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

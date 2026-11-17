@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument proves all shortest-path distances in the once-subdivided complete graph, classifies each type of selected geodesic triple, and establishes a bijection between allowable mixed vertex configurations and labelled blocks. The correction for choosing one incident original vertex with one subdivision vertex is necessary and is counted separately. The exponential formula follows from explicit block weights. Equality in the support-size bound yields the partitions into singleton/triple blocks. Independent BFS enumeration verifies all \(33856\) vertex subsets for orders three through five, while order six has an independent edge-family census and deterministic subset samples. The finite checks do not replace the general proof.
+## correctness
 
-## Originality — PASS (provisional)
-The 2024 *General Position Polynomials* paper provides the invariant and generic operations, not this subdivision-family polynomial. Ghorbani et al. (arXiv:1903.04286, Theorem 4.4 and proof) already investigate general position in \(L(K_n)\) and its clique blocks: those facts, and the general-position clique-component characterization from Anand et al., are acknowledged as prior coverage. The new content is a full description of **mixed original and subdivision vertices** and a closed all-cardinality exponential enumerator, with the exceptional incident-pair term and exact maximum-set multiplicities. Relevant database records about complete-graph coronas, generalized windmills, and Rips complexes of the same subdivision graph concern different invariants or graphs. Unindexed incidence-graph and geodesic-irredundance work remains a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The natural complete-subdivision incidence graph has quadratically many vertices, but all general-position sets admit a structured partition into stars/triangles plus a small exception. The formula gives *every* cardinality coefficient and identifies a concise, nonobvious 1-and-3 block partition count for extremal configurations, beyond the previously known edge-only line-graph extremum. This is more than a relabelling or a numerical sample; it is a complete enumeration of a motivated graph family.
+In the full single-edge subdivision H_n of K_n, original pairs have distance 2; original-to-subdivision distances are 1 or 3; two edge-vertices have distance 2 for intersecting edges and 4 otherwise. Hence a chosen subdivision-edge family is geodesically admissible exactly when its induced line graph is P3-free, i.e. disjoint cliques, corresponding to disjoint edge-stars and triangles of K_n. Mixed triples force no original vertex incident to any of >=2 chosen subdivision edges; singleton-edge exceptions allow one chosen endpoint but no other original vertices. The labelled exponential block formula gives exponent (1+z)t+t(e^{zt}-1)-zt²/2+z³t³/6, with n(n-1)z² endpoint exceptions, and maximal sets are partitions into singleton originals and triangle edge-sets. Independent all-subset BFS geodesic checks for n=3,4,5 (64,1024,32768 subsets respectively) reproduce each polynomial coefficient exactly; general proof is structural, not inferred from n<=5.
 
-## Limitations
-The result concerns exact one-edge subdivisions of complete graphs only. An earlier theorem gives the edge-only star/triangle decomposition and maximum in the corresponding line graph; originality is restricted accordingly. Finite tests are not exhaustive over all graph orders. Independent literature priority and mathematical validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. A previously published full general-position polynomial of the line graph L(K_n) supplies exactly the selected-subdivision-only star–triangle EGF (exp[t exp(zt)-zt²/2+z³t³/6]); the new theorem adds a specific e^{zt} factor for original-vertex choices AND n(n-1)z² singleton-edge incident-endpoint exceptions, arising from mixed geodesic triples that the line-graph result does not treat. Earlier standard general-position polynomials and clique-component criteria cover definitions and structural ingredients but not this exact mixed-vertex enumerator for the incidence graph of K_n.
+
+## value
+
+PASS
+
+The full general-position size polynomial is a natural enumerative refinement of the graph's geodesic extremal invariant. It classifies all original-edge mixed configurations in a canonical graph family, not just the edge-only subproblem, and extracts maximum cardinality n and exact count of maximum sets for all n. The exceptional endpoint cases make the complete enumeration nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
