@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:10:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform S_n, nearby index/value pairs T_n have E T_n=O(1). Bond slide graph on two-deletion sets has rank loss (n−2)J−binom(J,2) when unit bonds do not share endpoints. Single-common deletion collisions reduce to monotone consecutive-value slides, with exceptional pairs bounded by T_n; disjoint deletions force four matched nearby indices and at most binom(2T_n,2)^2 extra edges. Overlapping bonds have probability O(1/n). Thus D_n−(n−2)J_n=O_P(1). Factorial moments of J_n ->2^r, so D_n/n -> Poisson(2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bevan–Homberger–Tenner characterize k-prolific permutations at every n via min Manhattan gap >=k+2, but do not quantify the typical shortfall when k=2. Homberger 2012 section 4 calculates only D_1 random mean/variance, section 5 extremal D_k."
+        ],
+        "reasoning": "Their general results cover exact zero-deficit geometry but not the random positive collision count or scaled Poisson distribution.",
+        "searches": [
+          "https://strathprints.strath.ac.uk/61550/1/Bevan_etal_JCTSA_2017_Prolific_permutations_and_permuted_packings.pdf",
+          "https://arxiv.org/pdf/1211.7117",
+          "https://arxiv.org/abs/2609.37578"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/poisson-two-deletion-sphere-deficiency-for-random-permutations--32fcc2c370f3",
+        "https://arxiv.org/pdf/1211.7117",
+        "https://strathprints.strath.ac.uk/61550/1/Bevan_etal_JCTSA_2017_Prolific_permutations_and_permuted_packings.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-two-deletion-permutation-pattern-sphere-spectrum-at-the--5cf589273ff1/RESULT.md",
+        "https://arxiv.org/abs/2609.37578"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bond graph on unordered two-deletion position sets has (n−2)J edges and exactly choose(J,2) square redundancies when bonds disjoint; all other equality collisions are bounded by O(T_n+T_n^4) with E[T_n]=O(1). Thus D_n/n−J_n->0 in probability and J_n->Pois(2)."
+        ],
+        "reasoning": "Known Poisson bond counts alone do not imply double-deletion collision-deficit asymptotics; this extra uniform collision bound is substantive new content.",
+        "searches": [
+          "https://arxiv.org/pdf/1211.7117",
+          "https://strathprints.strath.ac.uk/61550/1/Bevan_etal_JCTSA_2017_Prolific_permutations_and_permuted_packings.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-two-deletion-permutation-pattern-sphere-spectrum-at-the--5cf589273ff1/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homberger D_1 (one deletion) is exactly n minus adjacent-value bonds; the present object is D_2 with roughly n times a Poisson number of bond-induced collisions. The Bevan et al. k=2 prolific theorem is only the event D_2=0."
+        ],
+        "reasoning": "A first-deletion law and a two-deletion zero-deficit criterion do not determine the distribution of positive double-deletion deficiencies.",
+        "searches": [
+          "Resultary: permutation-invariant standardized two deletions sphere size Poisson deficit bonds",
+          "https://arxiv.org/pdf/1211.7117",
+          "https://strathprints.strath.ac.uk/61550/1/Bevan_etal_JCTSA_2017_Prolific_permutations_and_permuted_packings.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published length-seven table enumerates all 5,040 permutations with 21 two-deletion choices and the full finite sphere distribution, but gives no increasing-n limit."
+        ],
+        "reasoning": "The finite table is correct relevant material, not a preexisting infinite asymptotic law.",
+        "searches": [
+          "Resultary: exact two-deletion permutation pattern sphere n=7 spectrum",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-two-deletion-permutation-pattern-sphere-spectrum-at-the--5cf589273ff1/RESULT.md"
+        ]
+      },
+      "rationale": "The existing one-deletion bond-law and two-deletion prolific characterization are credited. The new all-length asymptotic double-deletion collision deficit (n−2)J_n+O_P(1), and resulting Poisson(2) law, require novel collision-graph comparison not present in inspected prior theorems.",
+      "residual_risks": [
+        "Same-channel Wu et al. 2026 complete text inaccessible; authorized access returned vpn_disconnected; do not infer full noncoverage.",
+        "An older equivalent two-deletion collision-count asymptotic may appear under permutation pattern poset terminology, despite inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRECURSOR_NOT_COVERING",
+          "evidence": "Section 4 is one-deletion D_1, Section 5 k>=2 zero-collision extremal characterization; neither asserts random double-deletion D_2/n Poisson.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.7117",
+          "material_read": "Full publicly readable 11-page PDF with Sections 3–5, Theorem 13 exact one-deletion random mean/variance, Theorem 19 minimum-gap criterion for k>1",
+          "method": "Read page-scoped primary PDF text and independently viewed relevant pages",
+          "title": "Counting Fixed-Length Permutation Patterns (Homberger, 2012)",
+          "trigger": "Same permutation deletion-poset objects and random bonds"
+        },
+        {
+          "assessment": "EXTREMAL_NOT_DISTRIBUTIONAL",
+          "evidence": "Characterizes k-prolific D_k=0 and minimum-length constructions, but no typical two-deletion sphere-deficiency law.",
+          "identifier_or_url": "https://strathprints.strath.ac.uk/61550/1/Bevan_etal_JCTSA_2017_Prolific_permutations_and_permuted_packings.pdf",
+          "material_read": "Accessible accepted manuscript, introduction, chain geometry, extremal characterization and representative proof sections; not every line examined",
+          "method": "Primary PDF with page-image checks",
+          "title": "Prolific permutations and permuted packings (Bevan–Homberger–Tenner)",
+          "trigger": "Potential general dominance from all-k exact deletion patterns"
+        },
+        {
+          "assessment": "FINITE_DATABASE_NOT_COVERING",
+          "evidence": "n=7 exact histogram is not an asymptotic distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-two-deletion-permutation-pattern-sphere-spectrum-at-the--5cf589273ff1/RESULT.md",
+          "material_read": "Entire RESULT.md and exhaustive 5,040-source spectrum argument",
+          "method": "Full published GitHub mathematics inspected",
+          "title": "Complete two-deletion permutation-pattern sphere spectrum at the first prolific length",
+          "trigger": "Same two-deletion sphere at one exact finite order"
+        },
+        {
+          "assessment": "FULL_TEXT_ACCESS_BLOCKED",
+          "evidence": "Code constructions are advertised; possible uninspected collision lemma remains a priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37578",
+          "material_read": "Public arXiv abstract and bibliographic metadata; complete PDF could not be read",
+          "method": "Open-access/preprint lookup then authorized institutional access attempted; VPN disconnected",
+          "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions (Wu et al.)",
+          "trigger": "Permutation-invariant deletion channel with matching underlying output"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural exact two-deletion channel ambiguity is of order n with a nondegenerate Poisson limit; quantified collision redundancy informs permutation pattern shadows and coding error-ball sizes, not merely the known bond count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/poisson-two-deletion-sphere-deficiency-for-random-permutations--32fcc2c370f3",
+    "https://arxiv.org/pdf/1211.7117",
+    "https://strathprints.strath.ac.uk/61550/1/Bevan_etal_JCTSA_2017_Prolific_permutations_and_permuted_packings.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-two-deletion-permutation-pattern-sphere-spectrum-at-the--5cf589273ff1/RESULT.md",
+    "https://arxiv.org/abs/2609.37578"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform random source only; no finite-n exact D_n law or correcting-code capacity.",
+    "All-n conclusion follows from analytic collision bounds, not finite enumeration."
+  ],
+  "residual_risks": [
+    "Same-channel Wu et al. 2026 complete text inaccessible; authorized access returned vpn_disconnected; do not infer full noncoverage.",
+    "An older equivalent two-deletion collision-count asymptotic may appear under permutation pattern poset terminology, despite inspected sources."
+  ],
+  "schema_version": 1
+}
