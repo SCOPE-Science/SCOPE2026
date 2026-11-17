@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the structural and enumerative formulas
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` using the Python standard library; no external package is needed. The script independently generates every unlabelled partition of the labelled vertex set into at most three classes, keeps only partitions into independent blocks of the complete bipartite graph, and joins two partitions precisely when deleting a single vertex gives equal restrictions. It separately constructs the predicted antipodal-cube vertex-sum and compares their full edge sets.
+## correctness
 
-For \((m,n)\) equal to \((3,3),(3,4),(4,4),(3,5),(4,5)\), every pair of Bell states is checked against breadth-first-search distance and complete shortest-path multiplicity, and compared with the closed formula. For graph orders at most sixteen, the tree count is independently calculated from the reduced integer Laplacian using Bareiss elimination and compared with the product formula. Standalone quotient factors \(P_3,P_4,P_5\) receive independent determinant checks; \(P_6\) receives a product and divisibility check.
+PASS
 
-Expected final marker is `VERIFY_OK`; exact replay output is not considered proof of unrestricted parameter statements. Those follow from the partition reduction, twofold quotient covering, and character-spectrum proof in `RESULT.md`.
+For labelled K_{m,n} with m,n>=3, unlabelled proper partitions into at most 3 blocks have one common root (the bipartition), with every non-root partition splitting exactly one side into two unnamed classes. Restriction/deletion adjacency within one side corresponds to flipping one bit modulo global complement, so its factor is the simple folded cube P_s=Q_s/(x~complement x); cross-branch adjacency is impossible off the root. Thus the Bell graph is P_m∨P_n and has order 2^(m-1)+2^(n-1)-1, unique cut vertex and no Hamilton cycle. The quotient cube is a 2-cover for s>=3: distance between orbits is min(h,s-h), and geodesic count is d!, or 2d! when h=s/2, including geodesics to the root. Cross-factor routes concatenate uniquely at root, giving diameter floor(m/2)+floor(n/2). Even-weight Walsh cube characters descend to P_s, with Laplacian eigenvalues 2j of multiplicity C(s,j) for even j; Kirchhoff gives T_s=2^-(s-1) product_{j>=2 even}(2j)^C(s,j) and tau= T_m T_n. For m=n=3 one gets K4∨K4, 7 vertices, 12 edges and 256 spanning trees.
+
+## originality
+
+PASS
+
+Asgarli–Krehbiel–MacLean earlier recognize one folded-cube factor as the Bell 2-colour graph of an edgeless host and study star cases. This is acknowledged and is not itself new. The actual three-colour Bell graph of a genuine K_{m,n} joins TWO such factors at the common two-class partition, and the exact interbranch geodesic multiplicities, diameter and spanning-tree census are not implied as published statements by that one-factor result. Named 3-colouring reconfiguration graphs differ: they have colour labels and can be Hamiltonian in sizes where the unlabelled Bell graph has a cut vertex.
+
+## value
+
+PASS
+
+A full structural decomposition of a canonical unlabelled recolouring graph, together with all-pairs shortest reconfiguration counts and its exact spanning-tree complexity, is a naturally useful combinatorial classification. Distinguishing its non-Hamiltonian behaviour from named-colour recolouring graphs also resolves a meaningful normalization distinction. These exact invariants go beyond merely renaming one previously known folded cube.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

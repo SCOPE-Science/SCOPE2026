@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for all integer \(m,n\ge3\), with simple unlabelled Bell edges. Every proper colour class lies wholly on one side of the complete bipartition, and three nonempty classes allow precisely the two-colour root plus two one-side-split families. Deletion of one vertex corresponds to one binary bit flip modulo complementation within a side; different non-root families cannot meet under one deletion. Thus the claimed one-vertex union is an exact graph isomorphism. Each factor contains a spanning \(Q_{s-1}\), which is 2-connected when \(s\ge3\), establishing unique articulation and non-Hamiltonicity. Cube-cover lifts give distances and \(d!\) or \(2d!\) routes; crossing factors forces the root. Even-character Laplacian eigenvalues on the antipodal quotient and the matrix-tree theorem give the spanning-tree product. The standalone verifier independently constructs Bell adjacency by restricting set partitions, checks complete shortest-path counts for five pairs and integer Laplacian minors. The finite runs corroborate, but the complete proof supports all parameters.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Asgarli–Krehbiel–MacLean, arXiv:2512.10177v1 (December 11, 2025), explicitly prove the *one-factor* structure \(\mathcal B_2(\overline{K_s})\cong P_s\), and apply it to stars. That fact is credited; it does not identify the full Bell three-colour graph for \(K_{m,n}\) with both parts nontrivial, nor geodesic multiplicities or spanning trees. Celaya–Choo–MacGillivray–Seyffarth (2016) give named recolouring graph results; their Hamiltonian odd/odd cases sharply contrast with this Bell graph. Bard (2014) establishes results for **named** complete multipartite recolouring graphs, and Haas–MacGillivray (2018) have a cutvertex theorem for order-dependent canonical recolouring graphs, not the generally larger Bell graph. Finbow–MacGillivray (2025/2026) treat different palettes or tree hosts. published-finding corpus and accessible own-claim searches for exact and equivalent invariants found no stronger coverage. One early related 2012 primary source was available only at abstract level and remains a priority risk. The comparison is not a universal novelty certificate.
+PASS
 
-## Mathematical value — PASS
-The result completely describes the geometry of an infinite, natural family of recently studied reconfiguration graphs. It establishes the striking named-versus-unlabelled Hamiltonicity dichotomy even for odd complete bipartite part sizes, gives the exact shortest-route multiplicity between every pair of states, and determines a nontrivial exact all-size spanning-tree complexity product via Fourier characters. These quantities address graph reconfiguration navigation and reliability beyond a routine vertex count or a renamed textbook statement. The two-factor articulation, route formula and complexity census form one coherent structural claim, not artificial incremental extensions.
+For labelled K_{m,n} with m,n>=3, unlabelled proper partitions into at most 3 blocks have one common root (the bipartition), with every non-root partition splitting exactly one side into two unnamed classes. Restriction/deletion adjacency within one side corresponds to flipping one bit modulo global complement, so its factor is the simple folded cube P_s=Q_s/(x~complement x); cross-branch adjacency is impossible off the root. Thus the Bell graph is P_m∨P_n and has order 2^(m-1)+2^(n-1)-1, unique cut vertex and no Hamilton cycle. The quotient cube is a 2-cover for s>=3: distance between orbits is min(h,s-h), and geodesic count is d!, or 2d! when h=s/2, including geodesics to the root. Cross-factor routes concatenate uniquely at root, giving diameter floor(m/2)+floor(n/2). Even-weight Walsh cube characters descend to P_s, with Laplacian eigenvalues 2j of multiplicity C(s,j) for even j; Kirchhoff gives T_s=2^-(s-1) product_{j>=2 even}(2j)^C(s,j) and tau= T_m T_n. For m=n=3 one gets K4∨K4, 7 vertices, 12 edges and 256 spanning trees.
 
-## Limits and closest literature
-The domain excludes part sizes below three because antipodal quotient degeneracies affect simplicity and 2-connectivity. The result is about simple Bell graphs, not named colour graphs or multigraph edge witnessing. A full exhaustive literature search and independent scientific audit have not been performed. The strongest overlapping premises — known projective-cube factors and canonical cutvertex results — are credited explicitly.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Asgarli–Krehbiel–MacLean earlier recognize one folded-cube factor as the Bell 2-colour graph of an edgeless host and study star cases. This is acknowledged and is not itself new. The actual three-colour Bell graph of a genuine K_{m,n} joins TWO such factors at the common two-class partition, and the exact interbranch geodesic multiplicities, diameter and spanning-tree census are not implied as published statements by that one-factor result. Named 3-colouring reconfiguration graphs differ: they have colour labels and can be Hamiltonian in sizes where the unlabelled Bell graph has a cut vertex.
+
+## value
+
+PASS
+
+A full structural decomposition of a canonical unlabelled recolouring graph, together with all-pairs shortest reconfiguration counts and its exact spanning-tree complexity, is a naturally useful combinatorial classification. Distinguishing its non-Hamiltonian behaviour from named-colour recolouring graphs also resolves a meaningful normalization distinction. These exact invariants go beyond merely renaming one previously known folded cube.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

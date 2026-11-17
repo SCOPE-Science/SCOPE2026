@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:06:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For labelled K_{m,n} with m,n>=3, unlabelled proper partitions into at most 3 blocks have one common root (the bipartition), with every non-root partition splitting exactly one side into two unnamed classes. Restriction/deletion adjacency within one side corresponds to flipping one bit modulo global complement, so its factor is the simple folded cube P_s=Q_s/(x~complement x); cross-branch adjacency is impossible off the root. Thus the Bell graph is P_m∨P_n and has order 2^(m-1)+2^(n-1)-1, unique cut vertex and no Hamilton cycle. The quotient cube is a 2-cover for s>=3: distance between orbits is min(h,s-h), and geodesic count is d!, or 2d! when h=s/2, including geodesics to the root. Cross-factor routes concatenate uniquely at root, giving diameter floor(m/2)+floor(n/2). Even-weight Walsh cube characters descend to P_s, with Laplacian eigenvalues 2j of multiplicity C(s,j) for even j; Kirchhoff gives T_s=2^-(s-1) product_{j>=2 even}(2j)^C(s,j) and tau= T_m T_n. For m=n=3 one gets K4∨K4, 7 vertices, 12 edges and 256 spanning trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The edgeless Bell-2 case yields P_s; named reconfiguration K_mn can be Hamiltonian for odd parts, unlike this cut-vertex Bell quotient."
+        ],
+        "reasoning": "A known single folded-cube factor and general Bell connectivity/Hamiltonicity results do not state the two-factor complete bipartite decomposition or the exact all-pairs geodesic and Kirchhoff tree formulas.",
+        "searches": [
+          "arXiv:2512.10177 §5 Example 5.5",
+          "Celaya–Choo–MacGillivray–Seyffarth 2016 named 3-colourings K_mn",
+          "Finbow–MacGillivray 2025 Bell Hamiltonicity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md and artifacts/verify.py",
+        "Asgarli–Krehbiel–MacLean arXiv:2512.10177 full primary preprint Example 5.5",
+        "Celaya et al 2016 named recolouring theorem and definitions",
+        "Resultary semantic search for Bell recolouring and folded cubes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single-side edgeless Bell factor has 2^(s-1) vertices; the current K_mn graph has 2^(m-1)+2^(n-1)-1, with a cut vertex and cross-factor distance products."
+        ],
+        "reasoning": "The one-factor theorem supplies a reusable component, but without the new full partition/edge restriction argument it does not logically state the two-factor decomposition and resulting all-vertex geodesic/tree formulas. Named recolouring edges preserve color names and are inequivalent.",
+        "searches": [
+          "arXiv:2512.10177 Section 5 Example 5.5",
+          "Celaya et al 2016 named colouring reconfiguration",
+          "Resultary 2026/11/2 named biclique recolouring one-edge robustness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli–Krehbiel–MacLean identifies the folded-cube graph of two classes of an edgeless graph; the present Bell K_mn has two side-splitting branches glued at their common unsplit partition."
+        ],
+        "reasoning": "Compared unlabelled colour partitions, named recolouring graphs, canonical colouring graphs, and projective/folded cube aliases. The one-factor isomorphism is prior and credited; the two-branch Bell graph is not equivalent to an earlier named-colour graph.",
+        "searches": [
+          "Resultary: Bell colouring graph K_mn unlabelled 3 color folded hypercubes spanning tree",
+          "arXiv:2512.10177 Example 5.5 Bell coloring graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Each folded-cube Laplacian spectrum descends directly from even Walsh characters; this spectral tool is classical."
+        ],
+        "reasoning": "Classical P_s Laplacian data can calculate a tree count once the two-factor decomposition is recognized, but no inspected complete K_mn Bell graph table or theorem already supplies the full parameter-dependent results.",
+        "searches": [
+          "Resultary: geodesics spanning trees three-colour Bell graph K_mn",
+          "arXiv:2512.10177 folded cube sizes",
+          "known hypercube character eigenvalue table"
+        ]
+      },
+      "rationale": "Asgarli–Krehbiel–MacLean earlier recognize one folded-cube factor as the Bell 2-colour graph of an edgeless host and study star cases. This is acknowledged and is not itself new. The actual three-colour Bell graph of a genuine K_{m,n} joins TWO such factors at the common two-class partition, and the exact interbranch geodesic multiplicities, diameter and spanning-tree census are not implied as published statements by that one-factor result. Named 3-colouring reconfiguration graphs differ: they have colour labels and can be Hamiltonian in sizes where the unlabelled Bell graph has a cut vertex.",
+      "residual_risks": [
+        "Earlier unlabeled K_mn Bell color graph decomposition under folded-cube or projective-hypercube language could have escaped indexing.",
+        "Small parts 1 or 2 and higher colour palettes are outside the claimed m,n>=3 case.",
+        "Primary named recolouring paper compared via theorem/definition references, not claimed to have been fully read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR one-factor folded cube, not K_mn two-factor graph",
+          "evidence": "Example 5.5 identifies Bell two-colour graph for edgeless vertices as cube plus antipodal matching, isomorphic to P_s.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.10177",
+          "material_read": "Primary full arXiv PDF including graph definition, §5 Example 5.5 and star/independent-set discussion",
+          "method": "full primary PDF/page-image inspection",
+          "title": "Bell coloring graphs: realizability and reconstruction",
+          "trigger": "exact Bell graph formalism and likely folded-cube prior result"
+        },
+        {
+          "assessment": "NOT EQUIVALENT named graph; full-text priority risk acknowledged",
+          "evidence": "2016 Theorem 2.1 concerns named colourings and Hamiltonicity for certain odd sizes, incompatible with a unique articulation in unlabelled Bell graph.",
+          "identifier_or_url": "https://doi.org/10.5666/KMJ.2016.56.3.647",
+          "material_read": "Bibliographic, theorem and definition comparison (named k-colourings); not complete full text",
+          "method": "published named-graph statement comparison",
+          "title": "Reconfiguring k-colourings of Complete Bipartite Graphs",
+          "trigger": "same host graph and palette but potentially named color semantics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full structural decomposition of a canonical unlabelled recolouring graph, together with all-pairs shortest reconfiguration counts and its exact spanning-tree complexity, is a naturally useful combinatorial classification. Distinguishing its non-Hamiltonian behaviour from named-colour recolouring graphs also resolves a meaningful normalization distinction. These exact invariants go beyond merely renaming one previously known folded cube.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md and artifacts/verify.py",
+    "Asgarli–Krehbiel–MacLean arXiv:2512.10177 full primary preprint Example 5.5",
+    "Celaya et al 2016 named recolouring theorem and definitions",
+    "Resultary semantic search for Bell recolouring and folded cubes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier unlabeled K_mn Bell color graph decomposition under folded-cube or projective-hypercube language could have escaped indexing.",
+    "Small parts 1 or 2 and higher colour palettes are outside the claimed m,n>=3 case.",
+    "Primary named recolouring paper compared via theorem/definition references, not claimed to have been fully read.",
+    "Scientific originality is best of knowledge, not a worldwide priority certificate or formal-machine attestation.",
+    "No edits, publications or publisher attestations were made."
+  ],
+  "residual_risks": [
+    "Earlier unlabeled K_mn Bell color graph decomposition under folded-cube or projective-hypercube language could have escaped indexing.",
+    "Small parts 1 or 2 and higher colour palettes are outside the claimed m,n>=3 case.",
+    "Primary named recolouring paper compared via theorem/definition references, not claimed to have been fully read."
+  ],
+  "schema_version": 1
+}
