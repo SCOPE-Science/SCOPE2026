@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The closed-form real-node Jacobian, kernel, frozen excursion and resonance-time identity have been reconstructed from the specified differential equations, including the switching laws. A matrix-exponential bootstrap proves uniform-in-time nonlinear \(O(A^2)\) error for all bounded inputs, making the strict gaps in the frozen/low/high and resonant comparisons decisive for all sufficiently small \(A\). The extinction continuation uses the strictly negative prey drift below its threshold, and the predator decay law on both sides of its threshold. The accompanying standalone checker reproduces the required symbolic identities and selected finite tests. Risk: the theorem asserts existence, not uniqueness, of a Filippov extinction continuation at an exceptional tangency; it does not cover arbitrary amplitudes.
+
+## Originality — PASS within checked evidence
+The motivating full-text source proves frequency-induced tipping in a focus regime and discusses stable nodes only as an equilibrium classification, without the real-node tipping construction. A related earlier focus-only result assumes a strictly positive imaginary-eigenvalue frequency and does not imply the present robust node example with discriminant bounded strictly above zero, its distinguished real-node gain peak, or its explicit low/high comparison. Searches for overdamped, nonoscillatory, real-node frequency tipping and equivalent threshold predator–prey statements did not identify stronger coverage in the inspected records. General forced-system transfer calculations are standard and expressly not claimed as new. Risk: uninspected literature on nonoscillatory frequency-selective tipping may contain an equivalent construction; priority is not externally certified.
+
+## Value — PASS
+The source interpretation ties resonance to damped intrinsic predator–prey oscillations. The example supplies a mathematically decisive counter-boundary: an entirely nonoscillatory, strictly stable node can nonetheless exhibit a finite-frequency bandpass response strong enough for irreversible ecological tipping while all static and two contrasting periodic controls remain safe. The threshold scale is selected from strict analytic response bounds rather than from an arbitrary numerical slice. It clarifies the dynamical mechanism and yields a reproducible worked counterexample, not merely a restatement of the textbook transfer function.
+
+Self-review: passed. Independent audit: not yet performed.
