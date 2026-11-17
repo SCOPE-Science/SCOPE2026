@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:03:13.794679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=4, a strong induced four-tournament is equivalent to a directed Hamiltonian 4-cycle, one per 4-set. Conditional on a shared cyclic triple, strong-extension probability is 3/4; on a transitive triple it is 1/4. Counting 3-in-4 nested overlaps gives Cov(X,Y)=3/8*binom(n,4); two 4-sets sharing a triple have covariance 3/64, giving Var(Y)=3(n-3)(4n-11)/256*binom(n,3). Distinct triangle indicators are pairwise uncorrelated, giving Var(X)=3/16*binom(n,3). Regression slope (n-3)/2, correlation squared 4(n-3)/(4n-11), residual fraction 1/(4n-11) then follow algebraically. Independently enumerated all 64 n=4 and 1024 n=5 fair tournaments by direct reachability and exact fractions; moments agree. The unrestricted statements follow from overlap counting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem gives an exact orthogonal decomposition Y-EY=(n-3)(X-EX)/2+R, with each local residual uncorrelated with every triangle indicator.",
+          "It states the exact moments, covariance, Pearson coefficient and Var(R)=3/64*binom(n,4)."
+        ],
+        "reasoning": "This is strictly broader than the submitted regression: retaining the local degenerate decomposition already yields the target as an immediate projection.",
+        "searches": [
+          "Resultary: exact orthogonal decomposition of three and four cycle counts random tournaments",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-triangle-quadrilateral-regression-in-uniform-random-tourna--89dc4ca76558/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+        "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291098-2418%28199810/12%2913%3A3/4%3C249%3A%3AAID-RSA4%3E3.0.CO%3B2-V"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem: X cyclic 3-cycles, Y directed 4-cycles, exact centered decomposition and all first/second moments for all n>=4.",
+          "Later theorem: X cyclic 3-subsets, Y strongly connected 4-subsets, same exact moments and regression."
+        ],
+        "reasoning": "Use the deterministic identity Y_strong4=Y_directed4 and earlier formulas; every submitted assertion follows term by term, with the prior local decomposition stronger. Consequently originality is definitively FAIL.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+          "Resultary: random tournament triangle quadrilateral regression exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted Y marks strongly connected 4-sets, each with a unique directed Hamiltonian 4-cycle.",
+          "The earlier theorem defines Y as number of directed 4-cycles modulo cyclic rotations and explicitly notes at most one per 4-set."
+        ],
+        "reasoning": "The two Y statistics are identical on every labeled tournament; no distinction in induced vs non-induced conventions changes the sample random variable.",
+        "searches": [
+          "Resultary: uniform random tournament triangle quadrilateral regression exact",
+          "Resultary: random tournament exact covariance count cyclic triangles and strongly connected 4-vertex tournaments decomposition",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier published formulas include identical correlation sqrt(4(n-3)/(4n-11)) and residual variance 3/64*binom(n,4).",
+          "The submitted Var(Z) = 3(n-3)/256*binom(n,3) equals 3/64*binom(n,4) because binom(n,4)=(n-3)*binom(n,3)/4."
+        ],
+        "reasoning": "All purported exact numeric invariants are already present in the earlier theorem, even though later source title uses quadrilateral instead of directed 4-cycle.",
+        "searches": [
+          "Resultary: uniform random tournament triangle quadrilateral regression exact",
+          "Resultary: random tournament exact covariance count cyclic triangles and strongly connected 4-vertex tournaments decomposition"
+        ]
+      },
+      "rationale": "FAIL decisively: the complete October 18, 2026 theorem Exact orthogonal decomposition of three- and four-cycle counts in random tournaments already uses exactly the same X and Y (since a strong induced four-tournament has exactly one directed four-cycle). It proves identical E/Var/Cov, regression slope (n-3)/2, correlation sqrt(4(n-3)/(4n-11)), and residual variance; moreover it gives a strictly stronger local orthogonal four-vertex residual decomposition. The earlier complete proof was directly read. The submitted claim is a corollary/specialization, with no surviving independent mathematical conclusion. Inaccessible Andersson 1998 is irrelevant to this decisive coverage.",
+      "residual_risks": [
+        "No scientific-originality remainder survives the earlier full exact cycle decomposition. The 1998 general distribution paper could yield still earlier coverage, but it does not affect the rejection.",
+        "Finite independent exhaustive verification n=4 and n=5 does not prove general n; overlap argument establishes it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: every submitted assertion follows, and prior locally degenerate residual decomposition is stronger",
+          "evidence": [
+            "Y counts one directed 4-cycle per strongly connected 4-vertex set; Var(R)=3/64*binom(n,4); correlation sqrt(4(n-3)/(4n-11)); slope (n-3)/2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+          "material_read": "Entire published RESULT.md theorem, assumptions, 4-vertex classification, conditional-degeneracy proof, exact residual/covariance identities, limitations",
+          "method": "Full direct reading of original published mathematical proof",
+          "title": "Exact orthogonal decomposition of three- and four-cycle counts in random tournaments",
+          "trigger": "Exact same fair-orientation model and overlapping 3/4-cycle statistics; stronger prior result"
+        },
+        {
+          "assessment": "Could be earlier broad fluctuation coverage; not needed to decide O because the complete 2026 prior theorem is decisive",
+          "evidence": [
+            "1998 article studies asymptotic distributions of uniformly random-tournament subgraph counts"
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291098-2418%28199810/12%2913%3A3/4%3C249%3A%3AAID-RSA4%3E3.0.CO%3B2-V",
+          "material_read": "Publisher abstract and bibliography only; full text was not available",
+          "method": "Direct publisher abstract inspection",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Same random tournament subgraph-fluctuation problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Joint finite-sample regression of canonical random-tournament motif counts is a meaningful exact stochastic invariant with an asymptotically perfect linear relation; its sharp residual fraction is mathematically useful. However correctness and intrinsic value cannot remedy full prior coverage. Scientific disposition is failed because O is FAIL.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-triangle-quadrilateral-regression-in-uniform-random-tourna--89dc4ca76558/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+    "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291098-2418%28199810/12%2913%3A3/4%3C249%3A%3AAID-RSA4%3E3.0.CO%3B2-V"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No scientific-originality remainder survives the earlier full exact cycle decomposition. The 1998 general distribution paper could yield still earlier coverage, but it does not affect the rejection.",
+    "Finite independent exhaustive verification n=4 and n=5 does not prove general n; overlap argument establishes it."
+  ],
+  "residual_risks": [
+    "No scientific-originality remainder survives the earlier full exact cycle decomposition. The 1998 general distribution paper could yield still earlier coverage, but it does not affect the rejection.",
+    "Finite independent exhaustive verification n=4 and n=5 does not prove general n; overlap argument establishes it."
+  ],
+  "schema_version": 1
+}
