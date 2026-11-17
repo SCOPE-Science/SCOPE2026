@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The actual claim comprises (i) the reflection-mirror graph theorem for every even integer \(n\ge6\) and (ii) the exact surface homeomorphism at \(n=10\). The two exceptional index-orbit types for a reflection supply the only possible varying coordinates of a fixed point; supports of those two orbits cannot vary simultaneously, so the fixed locus is a union of four-edge circles. Different mirrors meet only at sign vertices, since their product is a nontrivial index rotation fixing no positive-dimensional cubical cell. Consequently the defined binary graph is the full preimage of the quotient boundary, proving (i). For (ii), exhaustive finite orbit calculations yield ten mirror components, Euler characteristic \(-74\), and a fifteen-edge odd orientation-monodromy cycle. Reproducible source checks reconstruct those certificates directly. Compact-surface classification yields \(66\) crosscaps. Limits: no general even orientability assertion and no closed divisor-sum formula for even boundary counts.
+
+## Originality — PASS relative to inspected statements
+The closest published full-dihedral polygonal quotient result explicitly supplies an all-width graph-spine and Euler characteristic and an odd-width boundary count, while leaving the even boundary and orientability unresolved in its stated theorem and limitations. The direct primary text of Das treats cyclic-only quotients, so it does not imply reflection-boundary gluing. The full path-reversal quotient result uses a different complex and action. Historical coordinate-sign involution results also do not contain the index-permutation dihedral quotient. Searches for the binary mirror graph, decagonal ten-boundary count, and \(66\)-crosscap homeomorphism found no equivalent result; that lack is not a general uniqueness guarantee.
+
+## Value — PASS
+Boundary count plus orientability completes the homeomorphism classification of a natural quotient that the existing Euler characteristic and free fundamental group do not determine. The decagon is the first tested even polygon at which the boundary count leaves the power-of-two pattern \(2,4\) of widths \(6,8\); the exact value ten is an informative boundary phenomenon rather than an arbitrary slice. The all-even mirror graph replaces two-dimensional orbit triangulations by a lower-dimensional, reflection-symmetric binary graph, offering a reusable structural method for further even widths.
+
+## Closest literature and residual limits
+Denham–Suciu and Grujić–Welker give polyhedral-product frameworks; Das computes cyclic quotient genus; the directly inspected published polygonal-dihedral result gives homotopy and odd-boundary information; the path-reversal result concerns a different quotient. The original Euler characteristic and cyclic genus are not presented as discoveries. An unindexed equivalent treatment of the even boundary remains possible, and no independent review has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
