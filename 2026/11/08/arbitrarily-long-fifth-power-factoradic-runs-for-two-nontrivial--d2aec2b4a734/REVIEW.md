@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Factorial digits and quantifiers are explicit. The bound \(S_{5,!}(n)<n\) for \(n\ge8!\) follows from the six negative digit minima, the nonnegative seventh digit, and the positive eighth-or-higher leading contribution. Two independently implemented integer checkers exhaust all \(40319\) remaining positive states, find exactly seven fixed points and one two-cycle, and verify each of the \(18\) shifted paths term by term. The digit-shift construction proves, for each positive interval length, the existence of a whole interval in each target basin. Finite enumeration is used only where a rigorous finite cutoff has been proved.
+## correctness
 
-**Originality: PASS within inspected evidence.** The principal 2019/2020 source gives a *conditional* criterion and the periodic-point list for exponent five, but its unconditional consecutive-run theorem stops at exponent four. The two specific synchronization witnesses are not listed there. The general decrease theorem (2021) addresses a different prerequisite; the 2025 tree article concerns fixed positional bases. Relevant exact-phrase, equivalent-formulation, research-index, and accessible local-claim searches found no theorem supplying these exponent-five translations. No absence-of-evidence argument is treated as a proof of priority. The inaccessible full 2022 survey and unindexed literature remain stated risks.
+PASS
 
-**Mathematical value: PASS.** Exponent five is the first factoradic power in the motivating literature with a nonfixed periodic orbit, which obstructed verification of the established consecutive-run criterion. The concrete synchronization certificates include both members of that orbit and turn two previously conditional cases into unconditional infinite-length results. This is not merely a larger finite example of a known length-ten run or a restatement of the general criterion.
+For factorial-base digits a_j<=j, a_j j!-a_j^5>=0 at j>=7, the total worst j<=6 loss is -7162 and the highest j>=8 digit contributes at least 8!-8^4=36224, proving S(n)<n for n>=8!. For 1<=n<8!, fifth-power digit sum is <=sum(j^5,j=1..7)=29008, so the finite set 1..40319 traps all positive orbits. An independently coded greedy-factoradic orbit census exhausted all 40,319 states, finding exactly seven fixed points (1,34,35,308,309,1058,1059) and 2114<->3401. Independently checked all 18 complete paths from offsets 1373 and 75004 across every member of U, reaching 34 or 1058. The stated shift f_t moves factoradic positions without digit overlap; surjectivity S(sum_{j=1}^c j!)=c gives the backward lifts. This proves arbitrarily long runs for both targets, not just finite tested runs.
 
-Scope: Neither standard fifth-power \(1\)-happiness nor density or minimality of interval starts is settled. Reproduction is self-reviewed only; no independent scientific audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carlson, Goedhart and Harris (2019/2020), Sequences of consecutive factoradic happy numbers, provides the exact fifth-power finite periodic set and a conditional theorem reducing arbitrary runs to a common translation of the periodic set. Its unconditional construction covers exponents 1 through 4; the fifth-power case with the 2114-3401 cycle is left without synchronization. The submitted 1373/75004 translations and all 18 explicit orbits solve the missing e=5 hypotheses for targets 34 and 1058, and were rechecked. No matching earlier unconditional statement found in Results semantic search or checked literature. This is an original useful certificate-supported instantiation, not an independently new lifting lemma.
+
+## value
+
+PASS
+
+The fifth-power case is a natural first exponent with a nontrivial positive periodic cycle, blocking the earlier e<=4 uniform synchronization argument. Two exact and independently reproduced common translations for entire nine-point U close a concrete unsolved hypothesis and unlock arbitrarily long consecutive-run theorems in two nontrivial fixed-point basins. This is a meaningful exact finite witness with a global conclusion, despite using an existing lifting lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
