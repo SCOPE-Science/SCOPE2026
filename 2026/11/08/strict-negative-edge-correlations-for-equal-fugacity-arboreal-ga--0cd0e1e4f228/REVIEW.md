@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every forest in the stated graph has exactly one of three possible degree-pattern structures on the larger bipartite side. The weighted partition function and all one- and two-edge inclusion sums follow by exhaustive symbolic case distinctions. For each of the three edge-pair orbits, subtracting the weighted joint numerator from the squared marginal numerator yields an explicitly displayed polynomial with strictly positive coefficients. The standalone checker independently reproduces these identities with integer polynomial arithmetic, and weighted forest enumeration with rational arithmetic confirms them for small sizes. This proves strict pairwise inequality for every real positive common fugacity and every integer size in the claimed range.
+## correctness
 
-**Originality — PASS, with historical risk.** The closest contemporary complete-bipartite theorem (Cao–Fu, arXiv:2610.36749, October 27, 2026) proves negative edge correlation under the uniform forest measure, corresponding only to fugacity one. Huang (arXiv:2311.00965, November 2, 2023) treats high-fugacity and other graph cases; Wagner (arXiv:math/0602648, 2006) includes the finite graph \(K_{3,4}\), not an all-size family. Çiçeksiz–Ravichandran (arXiv:2610.00549, 2026) proves high-fugacity and other special-case results. A semantic research-record search did not locate the all-positive-fugacity \(K_{3,n}\) statement. An unlocated consequence of older multivariate Rayleigh calculations remains possible; independent priority verification is outstanding.
+PASS
 
-**Value — PASS.** The uniform spanning-forest inequality on complete bipartite graphs was recently established, while arbitrary scalar fugacities remain a central, structurally motivated aspect of arboreal-gas dependence. The theorem gives a non-series-parallel infinite family with *strict* pairwise negative correlation uniformly throughout the full parameter interval. Its three explicit factorized certificates may be useful in further restricted-side forest-polynomial calculations. It does not claim a solution to the general graph conjecture.
+Each right vertex has zero/one/two/three chosen neighbors of three left vertices. Cycles prohibit degree-three together with another right degree>=2, equal paired two-neighbor supports, and three different degree-two supports. Hence only zero, one, or two compatible high-degree right vertices; yields Z_n=A^(n-2)[A^2+nBA+3n(n-1)b^4] with A=1+3b,B=3b^2+b^3. One-edge E and two-edge Q_R,Q_L,Q_D enumerations were inspected and the Rayleigh differences Δ=E^2-QZ independently recomputed exactly using polynomial arithmetic: Δ_R=b^4(n-1)P_R, Δ_L=2b^4P_L, Δ_D=b^4P_D. Each P has 15 strictly positive integer monomials in b and h=n-1; thus all three covariances strictly negative for b>0, n>=5. Independent source checker includes exact finite enumeration, but the general claim follows from symbolic identities and combinatorial classification, not a finite run.
 
-**Scientific limitations:** Only equal positive edge fugacity, a three-vertex part, finite graphs, and pairwise edge events. The finite checker does not certify the infinite family independently of the proof, and historical uniqueness is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 complete-bipartite negative-correlation result covers uniform forests at beta=1 for arbitrary m,n, and Wagner covers small K3,4 with heterogeneous weights; the candidate proves every positive common beta on an unbounded family K3n. The new fugacity-continuum statement is not a corollary of the isolated beta=1 theorem. A general Rayleigh theorem could imply it, but one was not established by the inspected highly relevant primary results.
+
+## value
+
+PASS
+
+The arboreal-gas negative dependence problem is actively studied and is not generally trivial. An infinite complete-bipartite family with a proof uniform over all common positive fugacities is a mathematically motivated parametric extension of the known β=1 graph theorem and can inform further Rayleigh investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
