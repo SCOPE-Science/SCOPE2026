@@ -1,23 +1,21 @@
-# Scientific review: nine pure-modal operations on finite compatibility frames
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** On the full nonzero Boolean frame, the singleton-world and maximal-world witnesses establish the exact formulas \(\Box U=D_{T(U)}\) and \(\Diamond U=H_{S(U)}\). These formulas determine all nine normal forms and the closed prefix table. Nine distinct operations are witnessed by three explicit events on the two-atom frame, and a surjective bounded morphism from every higher-atom frame to that frame preserves this separation. The dichotomy of support and guaranteed support yields the exact paired spectrum, and inclusion-exclusion proves all fiber multiplicities. Exhaustive direct modal-evaluation checks were successfully executed for one through four atoms (including 32,768 distinct events at four atoms). Boundary \(n=1\) is correctly excluded.
+PASS
 
-## Originality
+For the full nonzero Boolean-powerset intersection frame, Diamond U=H_{S(U)} and Box U=D_{T(U)}, with T(U) nonempty forcing S(U)=[n]. The nine normal forms, prefix closure table and n=2 separating witnesses show exactly nine operators for every n>=2 (bounded-morphism lift). Independent direct all-event Kripke enumeration for n=2,3 confirmed nine distinct maps, full prefix closure, and precisely 2^(n+1)-1 observation values; inclusion-exclusion gives the fiber sizes for all n. n=1 exception explicit.
 
-**PASS within inspected evidence; independent priority review not performed.** Jockwich–Tarafder–Venturi (arXiv:2607.25977, first posted July 28, 2026) defines the compatibility frames and their translation semantics; their published results concern modal validity and a descending finite hierarchy. The prior published strict-hierarchy theorem proves a sharp domatic quotient bound and event definability, not the nine-operator transformation monoid or the full fiber spectrum. Classical set-cover enumeration \(F(s)\) is explicitly identified with OEIS A003465 rather than presented as new. The statement-level comparison concerns pure modal word equivalence, two-observation images, and event multiplicities; these do not follow as stated from the examined hierarchy or known cover-count sequence. Generic modal-operator identities form related background but were not exhaustively searched. An older equivalent classification under transformation-semigroup, hypergraph, or algebraic-logic terminology remains a residual priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The finite compatibility frames are a natural complete family recently used for internal forcing semantics. The theorem computes a complete finite algebra of modality-only contexts *uniformly in the number of atoms*, then gives exact information-loss statistics for the pair of one-step modal observations. It separates three distinct issues: equality of nested operators, possible joint observations, and the precise size of every observation fiber. This is a structural all-size classification, rather than a single small example or the rederivation of cover numbers. It could be useful for operator simplification and modal observation/compression on these frames; no stronger downstream result is asserted.
+PASS for the composite final claim due to the independent nine-element pure-modal transformation monoid, not the fiber census. IMPORTANT: the entire one-step paired observation spectrum and fiber formula were already published 2026-10-25 on the identical frame. That earlier theorem explicitly restricts to one-step (Diamond,Box) and does not classify iterated pure modal words. None of the checked results implies exact nine operators with full prefix multiplication. Count/fibers must be credited as prior, not claimed novel; this is a substantive originality limitation of the unchanged package.
 
-## Closest literature and limitations
+## value
 
-- Jockwich, Tarafder, Venturi, *The Internal Modal Logic of Forcing* (2026), arXiv:2607.25977; motivating definition and general modal semantics.
-- *Every finite stage of the internal forcing logic hierarchy is strict* (2026), published research record; treats complete bounded-morphic quotients and event-definability, not the present word monoid or paired fibers.
-- OEIS A003465 and cited classical finite covering literature; supplies the preexisting function \(F\), but not its placement in the full observation-fiber theorem.
+PASS
 
-The result is restricted to the complete nonzero finite Boolean power-set frame, arbitrary events, and modal words with no intervening connectives; the one-atom case collapses. No independent mathematical or historical-priority audit is claimed.
+PASS narrowly for the exact nine-element transformation monoid of a natural Boolean compatibility Kripke frame; a finite but uniform structural classification of all pure nested modalities independent of n can inform decidability and normal forms. The older one-step fiber sequence itself adds no value as a new discovery, but the monoid has a different mathematically motivated invariant and is not a mechanical restatement of paired fibers.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

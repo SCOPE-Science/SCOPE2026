@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify_modal_word_monoid.py` with Python 3 and no third-party dependencies. The script evaluates necessity and possibility from the adjacency matrix of the nonempty-subset intersection relation, independently computes the closed-form functions, and checks every event for \(n=1,2,3,4\).
+## correctness
 
-For the four-atom case it checks all \(2^{15}=32768\) events; the count of nine distinct operations is corroborated for two, three, and four atoms. It verifies the complete left-prefix transition table, all paired-observation fibers, the \(2^{n+1}-1\) spectrum count, and the inclusion-exclusion values. The printed verification totals are:
+PASS
 
-```
-{'n': 1, 'events': 2, 'distinct_words': 1, 'joint_profiles': 2, 'cover_count': 1, 'unprotected_full_support': 0}
-{'n': 2, 'events': 8, 'distinct_words': 9, 'joint_profiles': 7, 'cover_count': 5, 'unprotected_full_support': 2}
-{'n': 3, 'events': 128, 'distinct_words': 9, 'joint_profiles': 15, 'cover_count': 109, 'unprotected_full_support': 90}
-{'n': 4, 'events': 32768, 'distinct_words': 9, 'joint_profiles': 31, 'cover_count': 32297, 'unprotected_full_support': 31826}
-PASS: exhaustive event cases, nine normal forms, profile fibers, and prefix table
-```
+For the full nonzero Boolean-powerset intersection frame, Diamond U=H_{S(U)} and Box U=D_{T(U)}, with T(U) nonempty forcing S(U)=[n]. The nine normal forms, prefix closure table and n=2 separating witnesses show exactly nine operators for every n>=2 (bounded-morphism lift). Independent direct all-event Kripke enumeration for n=2,3 confirmed nine distinct maps, full prefix closure, and precisely 2^(n+1)-1 observation values; inclusion-exclusion gives the fiber sizes for all n. n=1 exception explicit.
 
-The unrestricted parameter \(n\ge2\) is proved symbolically through the support identities, transition table, two-atom separation plus bounded morphisms, and inclusion-exclusion. Finite checking is not presented as proof of the infinite family. Literature non-detection is not proof of priority. An independent audit has not been performed.
+## originality
+
+PASS
+
+PASS for the composite final claim due to the independent nine-element pure-modal transformation monoid, not the fiber census. IMPORTANT: the entire one-step paired observation spectrum and fiber formula were already published 2026-10-25 on the identical frame. That earlier theorem explicitly restricts to one-step (Diamond,Box) and does not classify iterated pure modal words. None of the checked results implies exact nine operators with full prefix multiplication. Count/fibers must be credited as prior, not claimed novel; this is a substantive originality limitation of the unchanged package.
+
+## value
+
+PASS
+
+PASS narrowly for the exact nine-element transformation monoid of a natural Boolean compatibility Kripke frame; a finite but uniform structural classification of all pure nested modalities independent of n can inform decidability and normal forms. The older one-step fiber sequence itself adds no value as a new discovery, but the monoid has a different mathematically motivated invariant and is not a mechanical restatement of paired fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
