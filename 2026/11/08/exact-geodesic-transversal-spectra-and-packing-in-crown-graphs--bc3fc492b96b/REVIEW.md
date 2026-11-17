@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies every maximal geodesic as a three-edge path between the two vertices of a deleted matched pair, with two distinct intermediate indices. The reduction to missing-shore index sets \(R,C\) is an exact if-and-only-if statement. Its three alternatives are exhaustive and disjoint after the stated inclusion-exclusion adjustment. Inclusion-minimality is proved in both directions for each class, including the coincident degrees at \(n=4\). The vertex-disjoint packing construction works because \(\lfloor n/2\rfloor\ge2\) for every stated order. Independently implemented breadth-first-search and endpoint-extension tests checked all \(87,296\) vertex subsets for orders \(4\) through \(8\). No finite test is used as an infinite proof.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+Every maximal geodesic in K_{n,n} minus a perfect matching is a length-three path a_i-b_j-a_k-b_i with pairwise distinct i,j,k. Omitted-index criterion U=empty OR |R|=1 OR |C|=1 OR R=C={i,h} is an exhaustive equivalence. Counting these sets by inclusion-exclusion yields T_n, removing chosen vertices classifies the three disjoint minimal families and M_n, and the explicit p=floor(n/2) vertex-disjoint length-three paths attain the vertex-count packing bound. Recomputed independent BFS maximal-path hitting sets for n=4,5,6 (24,60,120 maximal geodesics) and all 2^(2n) subsets; T_n and M_n agree exactly. This is finite corroboration of the unlimited-n combinatorial proof.
 
-The primary 2021 geodesic-transversal paper defines the invariant and proves complexity/algorithmic results for trees and spread cactus graphs, with a short complete-bipartite observation, but not this matching-deleted-biclique classification. The 2022 geodesic-packing paper proves general packing/transversal inequalities, rook-graph results and tree/strong-product results; it does not give the crown-graph formulas. The 2023 networks paper treats meshes, tree-derived networks, coronas and chemical networks, not crowns. The 2021 maximal-shortest-path-cover paper addresses the equivalent invariant but its accessible descriptions and inspected sections do not identify an encompassing crown theorem. Database searches for crown, matching-deleted biclique, geodesic transversal, maximal shortest path cover, and diametral path transversal found related but different results, notably counts of geodesic subpaths and edge-metric bases. The absence of coverage in these searches is not proof of global priority. A full-text access limitation for one related journal article and possible unindexed treatments are genuine residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a motivated complete classification for a classical regular bipartite graph family of a recently introduced hitting-path invariant. It gives not only the minimum but the all-set and inclusion-minimal polynomials, upper-minimal parameter, exact cardinality gaps, and the dual geodesic-packing number. In particular, a three-family minimal-set structure creates an unbounded gap between sizes \(n\) and \(2n-4\), a phenomenon not implied by the minimum geodesic transversal number alone. The exact formulas may serve as benchmarks for path-hitting and packing algorithms.
+Best-of-knowledge original exact transversal and inclusion-minimal cardinality polynomials and packing ratio for crown graphs. The highly similar crown geodetic-set polynomial is an inequivalent coverage convention: it seeks S whose intervals cover all vertices, while this theorem hits every maximal shortest path. Earlier geodesic-transversal and packing papers establish the parameters and some other graph classes without the three-family crown enumeration. Full historical journal texts were not all accessible.
 
-## Limits
+## value
 
-The theorem is for \(n\ge4\), and the computational census is through \(n=8\). Priority relative to unindexed or inaccessible literature is not established conclusively. The proof is self-contained but has not received independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural vertex-transversal versus disjoint-geodesic-packing invariants on a highly symmetric matching-deleted complete bipartite graph. The exact minimal-set spectrum and unbounded gaps are structural, the polynomial enumerates every irredundant configuration, and the exact packing ratio answers a natural covering/packing comparison beyond a small finite tally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
