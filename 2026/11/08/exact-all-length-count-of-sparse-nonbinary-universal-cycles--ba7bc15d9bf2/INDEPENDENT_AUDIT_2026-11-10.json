@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:46:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=3,n>=3 set m=n-1 and r=q-1. The overlap digraph on words with <=2 nonzero positions is balanced, strongly connected, and has q outgoing edges at vertices of weight 0 or 1 and one outgoing edge at weight 2. Directed BEST with canonical 0^n edge gives ((q-1)!)^(1+mr)*t_o. Forced weight-two zero-appending edges contract to transitions on (a,j), yielding rooted Laplacian qI-S tensor I_r-R tensor J_r. Splitting color into constants and sum-zero gives t_o=q^(m(r-1))*det(qI_m-S-(q-1)R). The triangularization by columns of cumulative ones and endpoint-distance order gives determinant q^floor(m/2), including m=1. Independently constructed the reduced full integer Laplacians and computed exact determinants for q=2..5 and n=2..8; all match. This finite matrix check is not an all-q/n proof. BEST counts rooted cyclic tours uniquely via sole 0^n window.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic BEST and directed Matrix–Tree results count tours once a graph-dependent arborescence determinant is evaluated, but do not by themselves give this factored q,n determinant."
+        ],
+        "reasoning": "General algorithmic constructions and random generation are broader in object families but not a stronger enumerative theorem implying the exact product expression with no new determinant work.",
+        "searches": [
+          "Resultary semantic search: q ary Hamming weight at most two de Bruijn sparse universal cycle exact count BEST arborescences",
+          "https://arxiv.org/abs/2603.11934",
+          "https://arxiv.org/abs/2510.16545"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.11934",
+        "https://arxiv.org/abs/2510.16545",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63",
+        "Pinned RESULT.md blob acbe1c1649b4995eace83e64ea68b500952bbcca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2 the new formula becomes 2^floor((n-1)/2), a known special case. Gabric et al. decode bounded numerical-weight sequences rather than evaluate the new reduced colored arborescence."
+        ],
+        "reasoning": "Binary specialization is prior-covered; the new general-q statement is not an implication of it. A generalized symbolic nonbinary enumeration could exist unindexed, so priority remains bounded.",
+        "searches": [
+          "Resultary semantic search: q ary Hamming weight at most two de Bruijn sparse universal cycle exact count BEST arborescences",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63",
+          "https://arxiv.org/abs/2603.11934"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrić et al. 2026 concern bounded symbol-sum weight decoding; Sawada–Gabrić 2025 sample arborescences and enumerate examples, not a closed Hamming-weight-two multicolor count."
+        ],
+        "reasoning": "The q>=3 Hamming-weight constraint means nonzero symbol values 1..q-1 have equal weight, unlike numerical symbol-sum weight. The published accounts do not supply the same count under an equivalent language encoding.",
+        "searches": [
+          "Resultary semantic search: q ary Hamming weight at most two de Bruijn sparse universal cycle exact count BEST arborescences",
+          "https://arxiv.org/abs/2603.11934",
+          "https://arxiv.org/abs/2510.16545"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Nov2 binary weight-at-most-two cycles yield 2^floor((n-1)/2), exactly the q=2 specialization of new product; no q>=3 all-length enumeration in searched records."
+        ],
+        "reasoning": "The binary known table is explicitly outside the novelty domain q>=3; it cannot determine powers of q or factorial color factors for multiple nonzero symbols.",
+        "searches": [
+          "Resultary semantic search: q ary Hamming weight at most two de Bruijn sparse universal cycle exact count BEST arborescences",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63"
+        ]
+      },
+      "rationale": "The binary specialization q=2 is already enumerated by older published binary weight<=2 universal-cycle findings and is expressly not claimed new. Known nonbinary bounded symbol-SUM-weight de Bruijn decoding constructions and random universal-cycle sampling do not state the Hamming-weight<=2, separately labeled nonzero symbols, all-q,n product formula. No equivalent q>=3 count or stronger covering theorem was located in targeted searches and inspected material; best-of-knowledge PASS, not a priority guarantee.",
+      "residual_risks": [
+        "An unindexed q-ary Hamming-weight-two universal-cycle enumeration or a broad directed-tree determinant identity may cover the formula.",
+        "Published primary works were compared in relevant text, without claiming exhaustiveness of all combinatorics literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER",
+          "evidence": "Focus is symbol-sum bounded weight and ranking/decoding, not exact Hamming-weight-two q>=3 tour count.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.11934",
+          "material_read": "Public manuscript material covering weight convention, decoding objectives, universal-cycle constructions and enumeration scope",
+          "method": "Read available public arXiv text and result/description sections; compared definitions",
+          "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+          "trigger": "Same q-ary bounded-weight de Bruijn objects"
+        },
+        {
+          "assessment": "DOES_NOT_COVER",
+          "evidence": "Provides arborescence sampling and universal-cycle generation but not the stated product enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "Public manuscript sections on uniform arborescence sampling, weight-restricted examples and generation",
+          "method": "Read available public arXiv text and theorem descriptions",
+          "title": "Random generation of universal cycles and de Bruijn sequences",
+          "trigger": "Potential general arborescence-based enumeration"
+        },
+        {
+          "assessment": "COVERS_ONLY_BINARY",
+          "evidence": "Binary 2^floor((n-1)/2) equals q=2 restriction; target explicitly q>=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63",
+          "material_read": "Published finding and complete binary count from Resultary semantic result",
+          "method": "Compared theorem scope and formulas",
+          "title": "A Boolean-cube enumeration of binary weight-at-most-two universal cycles",
+          "trigger": "Check exact q=2 boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sparse constrained universal cycles are natural de Bruijn/Eulerian objects. The exact nonbinary Hamming-weight-two global count is an independently useful enumeration, with a nontrivial factorized directed Matrix–Tree determinant that separates color and position. It is not a mere binary renaming: q>=3 has independently labeled nonzeros and extra positive-degree and color components; the exact count could support coding/decoding or uniform generation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The finite Laplacian checks do not prove the determinant lemma for all dimensions; proof by triangularization does.",
+    "q=2 count is known and is not credited as a new discovery.",
+    "Priority is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

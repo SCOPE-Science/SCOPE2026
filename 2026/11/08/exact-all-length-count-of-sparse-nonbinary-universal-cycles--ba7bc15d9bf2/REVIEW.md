@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Eulerian digraph has a unique labeled edge \(0^n\) to anchor rotation classes, degrees \(q\) or one, and the directed BEST product. The forced weight-two exits reduce the in-tree count to a multicolor position Laplacian. Constant/sum-zero decomposition and an explicit triangular determinant identity establish the formula without relying on a finite experiment. The independent checker reconstructs full finite graphs, directly enumerates Euler circuits, tests distinct windows, and evaluates the reduced determinants exactly. Finite tests cannot substitute for the general proof.
+## correctness
 
-**Originality — PASS against accessible comparisons.** The nearest 2019/2020 k-ary and 2026 bounded-weight constructions use **numerical symbol-sum weight**, not the Hamming number of nonzero positions, and study successors/decoding rather than the cardinality of all such multicolor cycles. Generic uniform in-tree sampling does not supply an evaluated determinant. Earlier limited-weight shift-register counting and 2022/2023 structural results concern binary words; that endpoint is not asserted new. The author PDF for the 2019/2020 result and primary arXiv full texts were inspected. The 2022/2023 full body could not be obtained, and unindexed multicolor enumerations are residual priority risks. Bibliographic absence is not proof of novelty.
+PASS
 
-**Value — PASS.** The exact count is a natural two-parameter sparse-alphabet invariant; it turns the distinction between a constructive cycle and the whole family of cycles into a closed structural formula, with a nontrivial color-space decomposition and mirror determinant. Such exact cardinalities give benchmarks for randomized generation and sequence design. It is not asserted to solve higher-weight enumeration or symmetry-orbit classification.
+For q>=3,n>=3 set m=n-1 and r=q-1. The overlap digraph on words with <=2 nonzero positions is balanced, strongly connected, and has q outgoing edges at vertices of weight 0 or 1 and one outgoing edge at weight 2. Directed BEST with canonical 0^n edge gives ((q-1)!)^(1+mr)*t_o. Forced weight-two zero-appending edges contract to transitions on (a,j), yielding rooted Laplacian qI-S tensor I_r-R tensor J_r. Splitting color into constants and sum-zero gives t_o=q^(m(r-1))*det(qI_m-S-(q-1)R). The triangularization by columns of cumulative ones and endpoint-distance order gives determinant q^floor(m/2), including m=1. Independently constructed the reduced full integer Laplacians and computed exact determinants for q=2..5 and n=2..8; all match. This finite matrix check is not an all-q/n proof. BEST counts rooted cyclic tours uniquely via sole 0^n window.
 
-**Limitations.** Fixed alphabet of labeled symbols, circular substrings, Hamming support at most two; no noisy correction, arbitrary weight, or independent mathematical audit. The formula is all-order, but the checker examines only explicitly stated finite ranges.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binary specialization q=2 is already enumerated by older published binary weight<=2 universal-cycle findings and is expressly not claimed new. Known nonbinary bounded symbol-SUM-weight de Bruijn decoding constructions and random universal-cycle sampling do not state the Hamming-weight<=2, separately labeled nonzero symbols, all-q,n product formula. No equivalent q>=3 count or stronger covering theorem was located in targeted searches and inspected material; best-of-knowledge PASS, not a priority guarantee.
+
+## value
+
+PASS
+
+Sparse constrained universal cycles are natural de Bruijn/Eulerian objects. The exact nonbinary Hamming-weight-two global count is an independently useful enumeration, with a nontrivial factorized directed Matrix–Tree determinant that separates color and position. It is not a mere binary renaming: q>=3 has independently labeled nonzeros and extra positive-degree and color components; the exact count could support coding/decoding or uniform generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
