@@ -1,19 +1,21 @@
-# Review of three-marker binary jumbled-spectrum rigidity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the independently explicit minimum/maximum length intervals for factors containing zero, one, two, or three ones. Those data recover the unordered outer and interior gap pairs, after which two canonical orientations differ in exactly one threshold. Direct algebra shows that the thresholds coincide exactly when the smaller interior gap is at least the larger outer gap, assuming both pairwise inequalities are strict. The four-element classes are parameterized bijectively by a nonnegative four-variable equation, and reversal Burnside counting yields the exact formula. The coefficient asymptotics follow from the order-four pole. Independent-in-method finite brute-force Parikh-set enumeration through length 21 and parameter enumeration through length 100 passed, but those checks are corroboration rather than infinite proof.
+PASS
 
-## Originality
+From observed minimal three-one and two-one factor lengths recover b+c and min(b,c), and from maximal two-one length recover max(a,d); known n then recovers the unordered inner and outer zero-gap pairs. The only remaining independent assignments have different maximal single-one length unless A>D, B>C, C>=A. The 4-parameter bijection n=7+4t+3u+2v+r counts four-word fibers by partitions into 1,2,3,4, while reflection Burnside gives the class formula and 1/6 limiting ambiguity. All gap-zero, palindrome, n=3 boundary cases are handled. Reconstructed all claims from actual RESULT.md and inspected VERIFY.py; independently enumerated actual substring composition sets for all 1,820 weight-three words of lengths 3..15, including equivalence classes, ambig criterion and counting polynomial. Finite check corroborates, unrestricted proof is gap-statistic argument.
 
-PASS, qualified by historical-priority risk. The Fici–Lipták 2011 work proves a general equivalence characterization using two prefix-normal forms. The 2014 generating algorithm and the expanded 2016 preprint treat efficient generation and fixed-density counts of prefix-normal words, including density three, but those facts do not give the joint two-form fiber classification or the exact four-element ambiguity count without a further gap-orientation analysis. The 2026 jumbled-index article is algorithmic. Exact statement/implication comparisons found no cited theorem that already gives this weight-three all-length spectrum; additional claim searches and accessible historical-claim comparisons also did not yield a covering assertion. Residual risk: an unindexed specialized enumeration or implicit equivalent might exist.
+## originality
 
-## Value
+PASS
 
-PASS. A binary jumbled-pattern-matching index deliberately forgets both factor order and multiplicity; knowing precisely how many indexed inputs share an observation is a natural inverse/reconstruction problem. This theorem resolves the first nontrivial sparse-marker ambiguity threshold, gives every exact fiber size and an all-length closed enumeration, and quantifies the asymptotic frequency of non-reversal ambiguity. The partition-number appearance is structural, not merely a re-evaluation of a known integer table. This is a fixed-weight result only.
+Exact joint Parikh-set inverse-fiber classification at binary weight three survives best-of-knowledge comparisons. General paired-prefix-normal-form characterization describes equality of Parikh sets but does not give the four-gap ambiguity criterion, four-element fibers, p_{<=4}(n-7) correction or 1/6 proportion; selective substring-composition result retains multiplicities and therefore solves a strictly stronger observation/reconstruction channel with different fibers.
 
-## Relevant prior literature and boundaries
+## value
 
-Fici–Lipták (DLT 2011) supplies the general normal-form equivalence; Burcsi et al. (arXiv:1401.6346 and arXiv:1611.09017) supply generation and fixed-density normal-word counts; Cunha–Medina (2026) addresses indexing. The novelty claim excludes the general normal-form theorem, the rational generating functions for density-three prefix-normal words, and the classical restricted-partition sequence. The result has not received an external independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The set of all substring Parikh vectors is a natural low-information measurement for binary jumbled indexing and string reconstruction. Sharp first ambiguity weight, complete fiber cardinalities, all-length enumerator and limiting ambiguity probability resolve a substantive inverse problem and supply usable exact benchmarks, not a renamed prefix-normal identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

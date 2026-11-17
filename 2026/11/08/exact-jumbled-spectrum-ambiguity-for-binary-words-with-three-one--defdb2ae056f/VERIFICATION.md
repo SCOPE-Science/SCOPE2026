@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying standard-library Python program `VERIFY.py` enumerates every indexed binary word of weight three for lengths \(3\) through \(21\). It computes the sets of all nonempty contiguous-factor Parikh vectors by direct substring scanning and groups them by exact set equality, independently of the claimed threshold formulas. The program checks class sizes, the four-gap criterion, and exact enumeration versus the restricted-partition formula, then checks the nonnegative-parameter bijection for all lengths through \(100\).
+## correctness
 
-Execute `python VERIFY.py` in the extracted file directory. Observed output: `VERIFY_OK words=7315 lengths=3..21 transform=3..100`.
+PASS
 
-The check requires only Python 3 and its standard library. The proof of the unbounded length and asymptotic statements is mathematical, in `RESULT.md`; no finite search is asserted to be an infinite certificate. Exhaustive ranges, absence of independent audit, and the distinction between equal Parikh sets and equal Parikh multisets are explicitly retained.
+From observed minimal three-one and two-one factor lengths recover b+c and min(b,c), and from maximal two-one length recover max(a,d); known n then recovers the unordered inner and outer zero-gap pairs. The only remaining independent assignments have different maximal single-one length unless A>D, B>C, C>=A. The 4-parameter bijection n=7+4t+3u+2v+r counts four-word fibers by partitions into 1,2,3,4, while reflection Burnside gives the class formula and 1/6 limiting ambiguity. All gap-zero, palindrome, n=3 boundary cases are handled. Reconstructed all claims from actual RESULT.md and inspected VERIFY.py; independently enumerated actual substring composition sets for all 1,820 weight-three words of lengths 3..15, including equivalence classes, ambig criterion and counting polynomial. Finite check corroborates, unrestricted proof is gap-statistic argument.
+
+## originality
+
+PASS
+
+Exact joint Parikh-set inverse-fiber classification at binary weight three survives best-of-knowledge comparisons. General paired-prefix-normal-form characterization describes equality of Parikh sets but does not give the four-gap ambiguity criterion, four-element fibers, p_{<=4}(n-7) correction or 1/6 proportion; selective substring-composition result retains multiplicities and therefore solves a strictly stronger observation/reconstruction channel with different fibers.
+
+## value
+
+PASS
+
+The set of all substring Parikh vectors is a natural low-information measurement for binary jumbled indexing and string reconstruction. Sharp first ambiguity weight, complete fiber cardinalities, all-length enumerator and limiting ambiguity probability resolve a substantive inverse problem and supply usable exact benchmarks, not a renamed prefix-normal identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
