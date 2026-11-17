@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns one precise derivation: Kovič's polar extension of the ordinary arithmetic derivative with the unit-circle derivative identically zero. The norm identity \(L(z)=\frac12 L(z\overline z)\) is exact and proves necessary denominators. Bézout applied to \(m\) and \(4m/p\) constructs every admitted target; no existence of special primes or radicals is assumed. The two independent positive rational kernel elements \(4/27\) and \(4/3125\) yield a dense radial subgroup, and norm-one Gaussian rationals give dense angles. Multiplication transfers density to every fiber. The included verifier checks exact arithmetic examples and is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For z=a+ib ≠0, norm N=a²+b²>0 is rational and L(z)=1/2 Σ_p v_p(N)/p. Thus odd denominator prime valuations are ≤1 and v2≤2. Conversely gcd(m,{4m/p:p|m})=1 for odd squarefree m supplies Bezout coefficients generating each permitted r from L(1+i)=1/4 and L(p)=1/p. The independent kernel radii 4/27 and 4/3125 have irrational logarithm ratio by 3-/5-adic valuations, generating a dense multiplicative subgroup of R>0, and rational unit-circle parametrization gives dense angles, so multiplication by one representative makes each fiber dense in C. No arbitrary radical outside Q(i) is used. Independent exact rational check tested 2250 nonzero Gaussian-rational tuples; it corroborates, not proves, the unrestricted claims.
 
-Ufnarovski–Åhlander (2003), Theorems 15 and 18, give the zero kernel and squarefree-denominator spectrum on \(\mathbb Q^\times\), respectively, but do not study the polar Gaussian-rational spectrum or dense planar classes. Kovič (2012), Proposition 1 and Definition 3, introduces that precise extension and its classes. His Proposition 12 uses broader real radicals \(p^{pr}\); these need not lie in \(\mathbb Q(i)\). The fixed-domain Gaussian-rational image and plane-density statement are not implied by a valid in-domain construction there. Dahl–Olsson–Loiko (2011) address unbounded ordinary rational derivative values, not the fixed logarithmic classes. A separate Gaussian-prime normalization cannot be identified with the polar extension. Targeted searches of related literature and publicly indexed mathematical claims did not identify an equivalent full theorem. This is a qualified originality assessment, not a statement that historical uniqueness is proved.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Logarithmic classes are the principal level sets used to analyze homogeneous arithmetic differential equations in the 2012 primary paper. Their precise nonemptiness over its chosen Gaussian-rational domain is therefore a natural classification question. The spectrum has a sharp denominator obstruction at \(1/8\) but admits \(1/4\), and every allowed class is unexpectedly everywhere dense. These are unrestricted structural properties of all classes, not a table or a narrow arbitrary parameter choice. The classical rational result alone is credited as antecedent rather than a new contribution.
+The polar rule and rational-only squarefree-denominator image are acknowledged prior results, but their statements do not determine the exact restricted Gaussian-rational image or density of each complex fiber. Kovič Proposition 12 concerns radical representatives not constrained to Q(i).
 
-## Limits and closest literature
+## value
 
-Original work provides the arithmetic derivative, the rational image and the polar extension; this result does not assert a new derivative definition, the rational image, or the general classification of nonhomogeneous equations. Historical novelty remains subject to further independent specialist scrutiny. The finite checker only corroborates examples; the mathematical proof is elementary and unrestricted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact image/fiber classification for a natural fixed algebraic field under an established polar arithmetic derivative addresses a domain restriction that makes the unrestricted rational-radical statement false; dense nonempty fibers in C are a nontrivial topological complement to the arithmetic denominator obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
