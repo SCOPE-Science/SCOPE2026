@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sitewise period-three dichotomy is derived from the deterministic transitions; connectedness eliminates mixtures of stationary zero sites and rotating sites. Each internal degree-two vertex enforces \(\delta_j=-1\) or \(\delta_{j+1}=+1\), yielding exactly the two listed increment-word forms with counts \(c_L(d)\). The source events are disjoint all-positive and all-negative words, so multiplication and two-sided inclusion--exclusion give the polynomial. Rooted trees have uniquely determined reverse-phase colors by leaf induction; their edges cannot supply the core. The existence condition and equilateral formulas follow algebraically. Independent finite checks replay the exact update rule and source coefficients. The proof establishes the infinite family; finite enumerations do not purport to establish infinite validity alone.
+## correctness
 
-## Originality — PASS, with priority limitations
-The exact **source-marked immediate period-three** polynomial, noncactus two-terminal constraints, and equilateral second-difference law are not present in the inspected 1991 full text (period-three lattice clocks), the inspected 2016/2018 full text (general circulation, synchronization and excitation rates), or the inspected 2018 Doba full text (eventual activity and maximum cycle density). Direct statement-level comparisons with the nearest accessible historical claims show: a theta-graph claim for *long-run rates* explicitly excludes initial primitive-period counts; a full-subdivision claim may cover the unmarked total on some all-even theta networks, but not the general class or source multiplicities; a single-hub bouquet formula is for a cactus and does not imply the two-terminal source requirements. Three targeted published-finding corpus searches and broad public-literature searches found no direct source-resolved theta period-three census; search failure is not proof of priority.
+PASS
 
-## Value — PASS
-The two-terminal theta family is the first natural noncactus series-parallel testbed beyond single-loop and single-cut-vertex arrangements: coexistence of opposite current sources is obligatory, and exact multiplicities measure redundant excitation sources. The resulting full polynomial is a complete invariant for immediate three-cycles over infinitely many arm choices, with an exact existence test and tree-decoration invariance. The equilateral second finite difference shows polynomial rather than exponential growth in the arm length, and in three-path all-multiple-of-three theta graphs the exact count is linear in total arm length. These specific structural results are not generic fixed-point deductions without the word classification.
+At primitive period three every nonzero connected Greenberg-Hastings configuration must rotate all vertices; local successor support gives edge-difference words (-1)^a(+1)^(L-a) or (-1)^a 0 (+1)^(L-1-a). Their counts c_L(d), p_L(d), q_L(d), inclusion-exclusion at both terminals, and forced colors on attached trees imply the bivariate polynomial for all m>=3,L_i>=2. Independently enumerated support colorings and coefficient populations for (2,2,2),(2,3,4),(3,3,3) with totals 0,12,36.
 
-## Literature limits
-Durrett and Griffeath (1993) was available by its archival abstract and metadata but its complete text was not inspected; its stated subject is lattice excitable-media scaling rather than a theta census. Related unindexed or inaccessible work could contain an equivalent count. Prior general rate theorems may facilitate deriving the result but do not, as stated, enumerate the immediate source-marked periodic configurations. No absolute priority claim or independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Gravner-Lyu-Sivakoff graph circulation theory determines qualitative activity and contains the same successor-neighbor mechanisms, and published subdivision and bouquet counts cover restricted unmarked classes. Neither inspected Resultary statement nor available abstracts determines two separate terminal supplier multiplicities for arbitrary generalized theta arm lengths and rooted-tree decorations. Significant full-primary-text access risk is recorded.
+
+## value
+
+PASS
+
+PASS: Bivariate supplier-marked primitive three-cycle polynomial is a natural local excitation invariant on two-terminal graphs; it refines mere existence or long-run activity and gives useful all-arm classifications and tree-invariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

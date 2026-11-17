@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of the three-period census
 
-Run `python verify_source.py` and `python verify_dynamics.py` with Python 3. No third-party packages, external files, network access, or other dependencies are required. The two files are included alongside their captured exact stdout files.
+# Independent mathematical audit
 
-The first program constructs the bivariate path-source coefficients, then independently enumerates admissible vertex colorings and records source multiplicities on 110 generalized-theta instances, covering 3,325,212 colorings. It also tests the equilateral closed formula for 49 parameter pairs. The second performs three actual synchronous Greenberg--Hastings updates on 1,025,946 initial states across 44 cores, checks that the only fixed state is zero, and enumerates four examples with attached trees. These reproducibility checks support, but do not replace, the unrestricted combinatorial proof.
+## correctness
 
-The published general activity criteria do not by themselves certify novelty of this source-refined initial-state count. Priority beyond inspected literature remains qualified; independent audit has not been performed.
+PASS
+
+At primitive period three every nonzero connected Greenberg-Hastings configuration must rotate all vertices; local successor support gives edge-difference words (-1)^a(+1)^(L-a) or (-1)^a 0 (+1)^(L-1-a). Their counts c_L(d), p_L(d), q_L(d), inclusion-exclusion at both terminals, and forced colors on attached trees imply the bivariate polynomial for all m>=3,L_i>=2. Independently enumerated support colorings and coefficient populations for (2,2,2),(2,3,4),(3,3,3) with totals 0,12,36.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Gravner-Lyu-Sivakoff graph circulation theory determines qualitative activity and contains the same successor-neighbor mechanisms, and published subdivision and bouquet counts cover restricted unmarked classes. Neither inspected Resultary statement nor available abstracts determines two separate terminal supplier multiplicities for arbitrary generalized theta arm lengths and rooted-tree decorations. Significant full-primary-text access risk is recorded.
+
+## value
+
+PASS
+
+PASS: Bivariate supplier-marked primitive three-cycle polynomial is a natural local excitation invariant on two-terminal graphs; it refines mere existence or long-run activity and gives useful all-arm classifications and tree-invariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
