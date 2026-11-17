@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T10:56:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected network L, trace (L+P0)^-1 is strictly convex in edge conductances because off-diagonal Laplacian entries identify them and inverse trace has positive-definite second variation; disconnected assignments have divergent Kirchhoff index. Therefore the unique global Kirchhoff optimum is invariant under full community-preserving automorphism group, giving two orbit weights a (cross) and b (internal). Lambda2 is concave in L and symmetrization preserves an optimum. On community-difference vector lambda=2ma; community-internal zero sums eigenvalue m(a+b), multiplicity 2(m-1). Thus K=1/a+4(m-1)/(a+b), lambda2=m min(2a,a+b), budget m^2 a+c m(m-1)b=B. With r=b/a, scalar K derivative sign is c(1+r)^2-4[m-c(m-1)], giving r_R=2 sqrt(m/c-(m-1))-1 if c<4m/(4m-3), else 0. Scalar lambda2=B min(2,1+r)/[m+c(m-1)r] maximizes at r=1, r=0, or interval [0,1] according to c compared with m/(m-1). Strict averaged support argument extends all-optimum decisions beyond symmetric allocations. Threshold difference = m/[(m-1)(4m-3)], and substitution c=1+kappa/m gives .75 and 1. Independent Laplacian eigensolvers for m=2,3,5 and positive rational prices reproduced formulas, including m=3,c=1.4 giving K=81, lambda2=1/3. Experiments are not all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi 2008 two-clique barbell has one bridge rather than m^2 cross edges",
+          "Resultary 2026/11/2 priced complete tripartite resistance design concerns three blocks and only resistance",
+          "Resultary 2026/11/2 D-optimal two-community design maximizes determinant rather than min Kirchhoff and max lambda2"
+        ],
+        "reasoning": "Related graphs/SDPs are general in techniques but not statement-dominating: differing edge orbit and objective means their phase thresholds do not imply the claimed c_R<c_M or global optimal-support requirements.",
+        "searches": [
+          "Resultary: graph effective resistance Kirchhoff index algebraic connectivity two clique price intercommunity investment optimal threshold",
+          "Web: two community graph Kirchhoff index algebraic connectivity optimal conductance edge price threshold"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md, numeric verification source, REVIEW.md, metadata and AUDIT.json",
+        "Ghosh–Boyd–Saberi 2008 primary PDF optimization and examples",
+        "Sun–Boyd–Xiao–Diaconis 2006 primary PDF mixing model and symmetry",
+        "Ellens et al. 2011 metadata; Resultary price-design comparison hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghosh et al., SIAM Review 2008 DOI 10.1137/050645452 convex Kirchhoff optimization, barbell one bridge",
+          "Sun et al. SIAM Review 2006 DOI 10.1137/S0036144504443821 continuous-time fastest mixing SDP",
+          "Ellens et al. LAA 2011 DOI 10.1016/j.laa.2011.02.024 notes nonidentical graph-design objectives"
+        ],
+        "reasoning": "General convexity/concavity and qualitative tradeoffs are prior ingredients, but do not directly yield the two explicit all-m price thresholds, opposite all-optimum support decisions, exact compatibility set or critical window without the stated spectral and scalar analysis.",
+        "searches": [
+          "Resultary: graph effective resistance Kirchhoff index algebraic connectivity two clique price intercommunity investment optimal threshold",
+          "Web: two community graph Kirchhoff index algebraic connectivity optimal conductance edge price threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kirchhoff index is N tr(L^+) and effective-resistance sum; continuous-time mixing rate is lambda2 of weighted Laplacian",
+          "Ghosh–Boyd–Saberi 2008 resistance convex program and Sun–Boyd–Xiao–Diaconis 2006 spectral-gap SDP"
+        ],
+        "reasoning": "General optimization frameworks are equivalent formulations of the objectives, not closed analytic solutions for this two-price complete network. No stochastic discrete-time normalization is involved.",
+        "searches": [
+          "Resultary: graph effective resistance Kirchhoff index algebraic connectivity two clique price intercommunity investment optimal threshold",
+          "Web: two community graph Kirchhoff index algebraic connectivity optimal conductance edge price threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary priced resistance vs spectral gap and two-community price threshold queries",
+          "Ghosh–Boyd–Saberi Table/examples of tree, wheel, and one-bridge clique graph; Sun–Boyd–Xiao–Diaconis path/cycle examples"
+        ],
+        "reasoning": "Existing numerical/analytic examples do not list c_R=4m/(4m-3) and c_M=m/(m-1) simultaneously for the current full two-block network. No exact database covering this joint table identified; search absence is not novelty proof.",
+        "searches": [
+          "Resultary: graph effective resistance Kirchhoff index algebraic connectivity two clique price intercommunity investment optimal threshold",
+          "Web: two community graph Kirchhoff index algebraic connectivity optimal conductance edge price threshold"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi establish general convex effective-resistance optimization and analyze graphs with a single bridge; Sun–Boyd–Xiao–Diaconis give generic fastest continuous-time Markov mixing SDP, and Ellens et al. discuss resistance vs spectral objectives. The joint exact price-window/all-optimum support classification for a fully connected two-community graph is not furnished by these statements. Resultary includes related priced clique bouquets, tripartite designs and D-optimal two-community networks, but they have different topology or objective and cannot dominate these joint Kirchhoff/lambda2 thresholds.",
+      "residual_risks": [
+        "General formulations could contain an unindexed closed two-community solution; not ruled out absolutely.",
+        "Fastest-mixing support conclusion does not assert uniqueness of arbitrary nonsymmetric maximizers; graph is fully connected with equal parts and only two prices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_METHOD",
+          "evidence": "General optimization and different two-clique topology, not full cross-community price experiment.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Primary PDF objective, convexity, examples including pair of cliques with a single bridge",
+          "method": "Stanford author-hosted full PDF text and screenshot",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "same Kirchhoff index and conductance budget"
+        },
+        {
+          "assessment": "METHOD_NOT_CURRENT_THRESHOLDS",
+          "evidence": "Supplies concavity/symmetry framework but not competing resistance price window.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Primary full PDF formulation and SDP sections, path/cycle examples and intro",
+          "method": "Stanford author-hosted primary full PDF text and screenshot",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "exact lambda2 mixing design objective"
+        },
+        {
+          "assessment": "QUALITATIVE_ONLY_WITH_LIMIT",
+          "evidence": "Known differing decisions, cannot claim qualitative divergence novel; no full-document noncoverage asserted.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.02.024",
+          "material_read": "Bibliographic data and reported qualitative edge-addition example; complete full text not assessed",
+          "method": "Publisher DOI and indexed metadata",
+          "title": "Effective graph resistance",
+          "trigger": "prior qualitative objectives differ"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-community complete graphs with distinct internal/cross pricing are a natural resource-allocation model. An explicit nonempty price range in which two important objectives force opposite presence/absence of entire edge classes is a structural Pareto design fact with exact finite-size and critical-scaling boundaries, beyond a routine Lagrange multiplier exercise. Closed formulas provide concrete optimization benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md, numeric verification source, REVIEW.md, metadata and AUDIT.json",
+    "Ghosh–Boyd–Saberi 2008 primary PDF optimization and examples",
+    "Sun–Boyd–Xiao–Diaconis 2006 primary PDF mixing model and symmetry",
+    "Ellens et al. 2011 metadata; Resultary price-design comparison hits"
+  ],
+  "disposition": "passed",
+  "final_claim": "For complete K_(2m) with m>=2 equal communities, per-edge conductances freely chosen under total cost B, cross-edge price 1, internal price c, Kirchhoff-minimizer uniquely has no internal edges iff c>=c_R=4m/(4m-3), while every fastest-mixing (lambda2) optimizer has no internal edges iff c>c_M=m/(m-1); c_R<c_M yields compulsory opposite decisions. Exact scalar optimizers, minima, common-optimum classification and 1/m-price critical coordinates 3/4 versus 1 follow.",
+  "limitations": [
+    "General formulations could contain an unindexed closed two-community solution; not ruled out absolutely.",
+    "Fastest-mixing support conclusion does not assert uniqueness of arbitrary nonsymmetric maximizers; graph is fully connected with equal parts and only two prices."
+  ],
+  "residual_risks": [
+    "General formulations could contain an unindexed closed two-community solution; not ruled out absolutely.",
+    "Fastest-mixing support conclusion does not assert uniqueness of arbitrary nonsymmetric maximizers; graph is fully connected with equal parts and only two prices."
+  ],
+  "schema_version": 1
+}
