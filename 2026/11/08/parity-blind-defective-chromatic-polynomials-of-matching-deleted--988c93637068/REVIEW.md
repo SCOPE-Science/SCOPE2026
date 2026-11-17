@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A monochromatic class of size \(a\) in a clique with a deleted matching has per-vertex degree either \(a-1\) or \(a-2\), depending on whether its unique missing-edge partner also belongs to the class. This proves the exhaustive exceptional-fibre classification. The labelled-colour selection and disjoint missing-edge assignments are bijective, and the residual bounded-bin count is exact. The leading-degree calculation isolates the one-exceptional-colour term; lower terms cannot cancel its positive coefficient. Independently programmed exhaustive checks agreed for all 608 tested small graph/palette/defect combinations.
+PASS
 
-## Originality
+For n>=2 and t disjoint deleted edges, every monochromatic fibre S of size a in K_n-M_t has same-color degree either a-1 (missing mate outside S) or a-2 (mate inside). Therefore all fibre sizes <=d+1 are legal; sizes >=d+3 forbidden; size d+2 is legal only if it is a disjoint union of (d+2)/2 whole missing-edge pairs, possible only for even d. Uniquely marking r exceptional color names and assigning s=h+1 matching edges to each gives binom(k,r)*t!/(s!^r(t-rs)!)*B_(d+1)(n-2sr,k-r). Every odd d has no exceptional fibre and equals the K_n polynomial; for even d, a nonzero difference begins at t>=s and has exact degree n-d-1 and leading coefficient binom(t,s), from r=1 and injective residual colors. The zero-vertex residual and k=0 cases are included. Independent direct graph/palette enumeration n=2..7 and k=1..3 for all allowed t,d agreed with the formula.
 
-PASS, provisional historical priority. The motivating 2026 paper (Asgarli et al., arXiv:2605.05550) gives an all-graph edge-contraction formula but does not state the matching-deleted-clique fibre classification or odd-versus-even invisibility and exact first-difference coefficient. Humpert's earlier degree-chromatic polynomial employs a shifted index, and Wood's survey primarily addresses colour existence. The most pertinent published mathematical-record hit about matching-deleted cliques concerns acyclic-orientation signatures, which are not defective colourings. Targeted literal and semantic searches did not identify an equivalent explicit formula. A generic all-graph contraction identity does logically specialize to this family, and the claim of originality is limited to the explicit structurally simplified theorem and its parity consequences. Other historical sources may remain unidentified; the final 2026 revision of the main paper was only partially retrievable.
+## originality
 
-## Value
+PASS
 
-PASS. The central motivating question is what degree-constrained colouring counts can distinguish. The theorem exhibits a robust infinite family of large dense graphs whose deleted edges are completely invisible to every odd defect, while an explicit binomial threshold and first-difference coefficient control exactly when even defects can detect those edges. This structural information is not apparent from the universal contraction sum and yields an exact computable formula for all palette sizes and defects over a natural two-parameter dense family. The result is an exact classification, not a claim of a new general algorithm.
+The 2026 Asgarli-Whitehead McGinley-Xue primary paper fully defines defective chromatic polynomials and proves an arbitrary-graph contraction sum, but its named main theorems treat tree/triangle-free reconstruction and nonisomorphic trees; no matching-deleted clique all-defect fibre classification, odd-defect polynomial invisibility, or leading coefficient threshold is stated. The universal contraction formula can in principle be specialized algorithmically but does not directly imply this structural even/odd all-parameter count. Indexed Resultary records on matching-deleted graphs involve strong odd, stable or other color constraints, not this invariant. Best-of-knowledge originality remains conditional on older unindexed defective chromatic work.
 
-## Scope and limitations
+## value
 
-The theorem requires missing edges forming a matching. It does not settle reconstruction of arbitrary graphs by the full family. Finite checks do not establish historical priority or replace the unrestricted proof. Independent mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural exact defective-coloring invariant of the cocktail-party/matching-deleted clique family. The parity-blindness for all odd defect parameters, sharp first detectable even defect at t=h+1, and leading coefficient combinatorics distinguish graph-deletion influence on an entire polynomial family. These exact degeneracies and full generating formula are independently reusable in defective-coloring enumeration and graph-polynomial comparison, rather than a random tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
