@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run with Python 3 (standard library only):
+## correctness
 
-```text
-python3 verify.py
-```
+PASS
 
-The finite verifier independently constructs every shortest universal linear word from alphabet permutations, closes these under rotations and compares resulting marked words, necklaces and primitive necklaces to exact arithmetic formulas. It separately tests the inclusion–exclusion sum against a positive-composition formula, and directly tests the scattered-subsequence definition on all words in the small regimes identified below.
+Greedy arches show a shortest linear k-universal word has k consecutive alphabet permutation blocks and length qk. Circular marked words are a union of q cut-phase sets. In an intersection of t phases with cyclic offsets g_i, the segment symbol sets in all k blocks are identical, giving q! (Π g_i!)^(k-1) words per selected subset. Each t-subset counted t times by its rooted q-gap composition and q starting residues, giving coefficient q/t. Equal symbol counts imply any period is q e with e|k. Burnside fixed words under rotations are repeated shorter circular universal words, yielding the totient and Möbius divisor sums. Direct independent enumeration generated all word rotations for (q,k)=(2,2),(2,3),(3,2), finding marked/necklace pairs (6,2),(14,3),(78,14).
 
-Observed output ending:
+## originality
 
-```text
-VERIFY_OK orbit_cases=19 marked_word_memberships=138088 formula_identities=35 direct_subsequence_crosschecks=q2_k1to3_q3_k1to3_q4_k1to2 PASS
-```
+PASS
 
-Orbital comparisons: all \(1\le k\le9\) for \(q=2\), \(1\le k\le5\) for \(q=3\), \(1\le k\le3\) for \(q=4\), and \(1\le k\le2\) for \(q=5\). Composition/inclusion–exclusion identities also tested at \(2\le q\le8\), \(1\le k\le5\). Direct scattered-subsequence comparisons use all length-\(qk\) words for \(q\le3,k\le3\), and \(q=4,k\le2\). These are explicitly bounded tests; the universal-quantifier result rests on the combinatorial proof. The verification is not independent scientific audit.
+Published work defines circular scattered-factor universality and study repeated words, while Adamson gives linear counts, but the inspected central primary sources do not enumerate overlaps between q phase cuts and primitive rotation orbits for all q,k. General Burnside enumeration only supplies the quotient method after this specific phase-intersection count. Resultary comparisons identified an exact deletion-resilience permutation block result with different quantifiers and distinct circular-avoidance necklace counts, not a dominating theorem.
+
+## value
+
+PASS
+
+Complete all-alphabet shortest-length cyclic-subsequence-universal necklace and primitive-period census naturally sharpens structural universality theory, distinguishing cut overlap and imprimitive repetition from linear permutation-block counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
