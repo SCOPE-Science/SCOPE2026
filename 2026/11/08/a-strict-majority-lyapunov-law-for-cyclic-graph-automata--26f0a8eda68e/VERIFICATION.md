@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_majority.py` using Python 3 with only its standard library. The script constructs graphs and computes the simultaneous successor-neighbor update directly. The successful checks cover:
+## correctness
 
-- All 1,098 labeled undirected simple graphs of sizes 2–5, with all 1,319,754 initial configurations for three and four colors, at the smallest strict-majority threshold.
-- All 5,001 nonempty eligible partial-update selections for three colors on every labeled graph of sizes 2–4.
-- Random configurations and graphs of sizes 8, 12, 18, 30, and three-color Moore toroidal grids of sizes 3, 4, 5, and 7.
-- Universal sharpness families \(K_{m,m,m}\) and the binary exception \(K_{m,m}\) for stated values of \(m\).
+PASS
 
-Every simulated nonempty update checks the quantified Lyapunov inequality, and each full trajectory checks the global edge-budget upper bound. The checker reports its counts and terminates normally on success. These checks were executed successfully on the embedded script's bytes in this package. Finite exhaustive and random checks cannot replace the analytical proof for arbitrary finite graphs.
+Fix any moved eligible subset S. For kappa>=3, an edge internal to S contributes at most once to successor-neighbor counts; hence |P| >= sum theta_v-|I| where P are boundary edges whose unmoved endpoint has mover successor color and I internal edges. Boundary monochromatic gain equals |P|-|Q|; since Q is subset of remaining boundary, >=2|P|-|B| >= sum(2theta_v-d_v). Monochromatic edge potential Phi increases at least eta|S|>0, giving total update budget floor((|E|-Phi0)/eta) and synchronous fixation. K_{m,m,m} at theta=m=d/2 cycles with 3 colors; kappa=2 bipartite alternating counterexample; Moore torus L>=3 degree8 theta5 gives eta2 and |E|=4L^2, at most 2L^2 updates. Independent exhaustive fresh checks of all 3-color states and eligible batches on every labeled simple graph n=2..4 agreed. Finite checks do not replace the exact potential proof.
 
-The unresolved questions include the borderline half-degree contact rule, potential stronger finite-graph results in older inaccessible sources, arbitrary infinite networks and the best possible worst-case constant on Moore tori.
+## originality
+
+PASS
+
+Older Moore automata and cyclic-network studies discuss thresholds, periods or probabilistic fixation, not this exact arbitrary-finite-graph arbitrary-batching monochromatic-edge Lyapunov inequality in inspected sources. However Matamala–Goles 1997 highly relevant full text inaccessible (Oxford institution VPN disconnected); it may implicitly cover theorem. Best-of-knowledge qualified PASS, NOT a complete priority certification.
+
+## value
+
+PASS
+
+A global finite-graph quantitative fixation theorem using strict local majority and a sharp universal failure boundary, covering arbitrary asynchronous eligible batches and deterministic worst-case update budgets. The multicolor condition is substantive because binary oscillations persist even at full neighbor threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

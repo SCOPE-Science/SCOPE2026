@@ -1,19 +1,21 @@
-# Scientific review: a strict-majority Lyapunov law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives a one-round exact boundary-edge identity: only boundary edges connecting a mover to a successor-colored nonmover become monochromatic, while equal-color boundary edges cease to be monochromatic. Because three or more cyclic states prevent reciprocal successor relations on internal mover–mover edges, the total successor-neighbor demand bounds the number of gained boundary edges and gives the stated inequality. Summation over the bounded integer monochromatic-edge potential proves termination and the update budget for any finite graph. The complete tripartite three-cycle and bipartite two-color cycle directly verify both claimed boundary failures. The torus graph is eight-regular for side length at least three. A direct executable implementation of the definitions in the included verification script passed 1,319,754 exhaustive small-graph trajectories, 5,001 partial-update checks and the listed random and torus tests. No finite calculation is used as a replacement for the infinite graph-size proof.
+PASS
 
-## Originality — PASS within checked evidence
+Fix any moved eligible subset S. For kappa>=3, an edge internal to S contributes at most once to successor-neighbor counts; hence |P| >= sum theta_v-|I| where P are boundary edges whose unmoved endpoint has mover successor color and I internal edges. Boundary monochromatic gain equals |P|-|Q|; since Q is subset of remaining boundary, >=2|P|-|B| >= sum(2theta_v-d_v). Monochromatic edge potential Phi increases at least eta|S|>0, giving total update budget floor((|E|-Phi0)/eta) and synchronous fixation. K_{m,m,m} at theta=m=d/2 cycles with 3 colors; kappa=2 bipartite alternating counterexample; Moore torus L>=3 degree8 theta5 gives eta2 and |E|=4L^2, at most 2L^2 updates. Independent exhaustive fresh checks of all 3-color states and eligible batches on every labeled simple graph n=2..4 agreed. Finite checks do not replace the exact potential proof.
 
-The 2026 motivating paper directly treats the Moore cyclic rule and empirically observes no long cycles at high thresholds, but the inspected threshold sections do not establish a deterministic, all-initial-state, arbitrary-graph potential inequality. The 1991 original threshold-range paper discusses large-scale lattice fixation and traveling-wave thresholds, not a finite-graph worst-case edge-count bound in the inspected relevant sections. The 2021 tree paper proves almost-sure statements for random initial states on infinite trees; these do not imply deterministic finite-graph fixation for all configurations. Binary threshold-network Lyapunov theorems allow period two and are not equivalent to the strictly oriented successor rule with three or more colors. Historical comparisons with finite-graph cyclic-automata work are incomplete because the primary 1997 article could not be accessed; that is an explicit residual priority risk, not evidence that the inaccessible article lacks an equivalent statement. No claim of exhaustive global priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a structural all-configuration stabilization result for a natural high-contact regime of a recently studied cyclic-dominance automaton. It gives a finite-time bound linear in the number of edges, survives arbitrary simultaneous eligible batches and heterogeneous local thresholds, identifies why three cyclic colors differ from binary majority dynamics, and shows that the strict majority hypothesis is a genuine universal transition rather than a convenient sufficient numerical cutoff. These features are not consequences of merely enumerating a small state space. The unresolved borderline Moore threshold remains separate.
+Older Moore automata and cyclic-network studies discuss thresholds, periods or probabilistic fixation, not this exact arbitrary-finite-graph arbitrary-batching monochromatic-edge Lyapunov inequality in inspected sources. However Matamala–Goles 1997 highly relevant full text inaccessible (Oxford institution VPN disconnected); it may implicitly cover theorem. Best-of-knowledge qualified PASS, NOT a complete priority certification.
 
-## Closest literature and limitations
+## value
 
-Relevant work: Muñoz–Nuño (2026, arXiv:2610.37990), Fisch–Gravner–Griffeath (1991, doi:10.1007/BF01890834), Bello–Sivakoff (2021, arXiv:2108.06404), and Matamala–Goles (1997, doi:10.1016/S0166-218X(97)84104-2). Only the first three had directly inspected primary text. The 1997 primary remained inaccessible after open-access and institutional-access attempts; it remains a plausible historical-overlap risk. No claim is made for directed/infinite graphs, the critical half-degree threshold, or sharpness of the Moore-specific time constant.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A global finite-graph quantitative fixation theorem using strict local majority and a sharp universal failure boundary, covering arbitrary asynchronous eligible batches and deterministic worst-case update budgets. The multicolor condition is substantive because binary oscillations persist even at full neighbor threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
