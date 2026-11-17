@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:08:52.410500Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At p^a the allowed valuations min(v_p(x),a) are precisely even ones, including zero only if a even. For r<=p, p-r residue classes avoid p, while each of r classes containing a single multiple of p admits B_p(a-2) eligible lifts for a>=2; for p<r<=2p exactly 2p-r classes contain one multiple; r>=2p has two multiples separated by p so at least one forbidden valuation one. At a=1 only p-r classes contribute. CRT multiplies the independent local counts without statistical assumptions. Positivity at local r=p-1 or 2p-1 proves exact global longest run; second finite difference W(r)-2W(r+1)+W(r+2) counts maximal cyclic runs because A_n is a proper subset n>=2. Fresh direct integer gcd/isqrt enumeration checked 699 moduli n2..700, 10394 windows and 41473 histogram entries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Resultary RESULT.md gives C_n(H)=product((p-r_p(H))p^(a-1)+t_{p,a}(H)) for regular condition; not the square-gcd condition",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2010/648165 Section 2.2 states Schemmel counts consecutive coprime integers"
+        ],
+        "reasoning": "An arbitrary-pattern theorem for DIFFERENT admissible residue sets does not imply the present square-gcd run product. Schemmel and Lucas count only p-adic units; they give merely a=1/squarefree boundary.",
+        "searches": [
+          "Resultary higher-order correlations and maximal runs of regular residues November2",
+          "Pabhapote Laohakosol generalized Euler totient Section2 Schemmel"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828",
+        "https://doi.org/10.1155/2010/648165",
+        "https://arxiv.org/abs/1209.3464",
+        "https://oeis.org/A206369",
+        "https://arxiv.org/abs/1111.4842"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pabhapote counts k consecutive terms all relatively prime to n; n=9,r=2 Schemmel=3 but square gcd count=5",
+          "Resultary regular residues for squarefree n all n, but square gcd W_n(1)=phi(n)"
+        ],
+        "reasoning": "Numerical and structural counterexamples disprove implication/equivalence. The novel local B_p(a-2) factor must be proved separately, as in source; no known broader theorem directly yields it.",
+        "searches": [
+          "Pabhapote Laohakosol 2010 Section2 generalized totient counting",
+          "Resultary full regular-integer run theorem November2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://oeis.org/A206369 identifies the single-site square-gcd totient",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828 characterizes regular residues by v_p=0 or v_p>=a"
+        ],
+        "reasoning": "The gcd-square condition asks for parity-even truncated p-adic valuation, not von Neumann regularity. For n=8, local gcd-square admissibility includes residues of p-adic valuation 2, which are not regular; for squarefree n, regularity allows all residues but square gcd allows only units.",
+        "searches": [
+          "square gcd totatives alternating divisor beta(n) OEIS A206369",
+          "regular integers modulo n von Neumann regularity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://oeis.org/A206369 single-site beta(n)",
+          "https://arxiv.org/abs/1209.3464 abstract on coprime consecutive integers",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2010/648165 Section2"
+        ],
+        "reasoning": "The recognized tables enumerate one point or consecutive unit blocks, not square-gcd allowed even prime-power valuations. No complete all-modulus square-gcd run histogram identified.",
+        "searches": [
+          "OEIS A206369 alternating sum divisors square gcd",
+          "Costello Watts Jacobsthal generalization Euler totient",
+          "Schemmel consecutive unit table"
+        ]
+      },
+      "rationale": "One-point beta(n)=number of x with square gcd is classical. Schemmel totients count blocks of units, agreeing with the squarefree special case, but at prime powers a>=2 allowing v_p even including v_p=2 creates distinct local correction B_p(a-2). The earlier full arbitrary-shift theorem for regular integers modulo n uses valuations 0 or exactly a and is not equivalent (indeed for squarefree n every residue regular, while only units are square-gcd admissible); it does not dominate square-gcd run frequencies.",
+      "residual_risks": [
+        "Equivalent even-valuation interval count could exist in arithmetic-function literature under different name",
+        "Costello–Watts primary full text not inspected",
+        "General theorem is for cyclic consecutive residues, not arbitrary shifts or variable-n asymptotics"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local CRT proof establishes all n; finite windows independently verified",
+          "evidence": "699 moduli, 10394 direct windows, 41473 histograms; r>=n yield zero",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca",
+          "material_read": "Entire RESULT.md sections Finding, prime-power local proof 1–5, boundary examples and attached verifier source",
+          "method": "Frozen source, independent gcd computations",
+          "title": "Exact cyclic run-length spectrum of square-gcd totatives",
+          "trigger": "Final theorem"
+        },
+        {
+          "assessment": "Different local set: regular residues 0 or unit, not even gcd valuation; not covering",
+          "evidence": "Local formula (p-r)p^(a-1)+t_{p,a} applies to different property",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828",
+          "material_read": "Entire RESULT.md including exact arbitrary-shift count, p^a characterization, run formulas and limitations",
+          "method": "Full GitHub source reading",
+          "title": "Exact higher-order correlations and maximal runs of regular residues",
+          "trigger": "Most plausible prior stronger run classification"
+        },
+        {
+          "assessment": "Schemmel and Lucas count unit blocks; do not give even-valuation correction",
+          "evidence": "Section2 lists consecutive relatively-prime condition; squarefree case overlaps only",
+          "identifier_or_url": "https://doi.org/10.1155/2010/648165",
+          "material_read": "Full accessible HTML; especially Section 2 lines 183–235 on Jordan, Schemmel, Lucas, Nageswara Rao totients",
+          "method": "Publisher open-access HTML read",
+          "title": "Combinatorial Aspects of the Generalized Euler’s Totient",
+          "trigger": "Potential generalized totient coverage"
+        },
+        {
+          "assessment": "Potential older terminology unresolved; no claim of full-text exclusion",
+          "evidence": "Abstract discusses consecutive coprime integers",
+          "identifier_or_url": "https://arxiv.org/abs/1209.3464",
+          "material_read": "Abstract only; full primary unavailable",
+          "method": "arXiv bibliographic/abstract search",
+          "title": "Jacobsthal’s function and a generalisation of Euler’s totient",
+          "trigger": "Consecutive totative runs under alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Square-gcd totatives arise naturally from alternating divisor counts; the maximal run length and full run spectrum are canonical arithmetic statistics, extending a one-point multiplicative function to joint consecutive correlations and sharp periodic gaps. The exact parity-of-valuation corrections are not a trivial unit case or table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-higher-order-correlations-and-maximal-runs-of-regular-resi--ff65dda93828",
+    "https://doi.org/10.1155/2010/648165",
+    "https://arxiv.org/abs/1209.3464",
+    "https://oeis.org/A206369",
+    "https://arxiv.org/abs/1111.4842"
+  ],
+  "disposition": "passed",
+  "limitations": "The modulus is n>=2 and all intervals are consecutive modulo n. Squarefree unit case and one-point beta count are prior; full arbitrary-pattern correlations are not claimed.",
+  "residual_risks": [
+    "Equivalent even-valuation interval count could exist in arithmetic-function literature under different name",
+    "Costello–Watts primary full text not inspected",
+    "General theorem is for cyclic consecutive residues, not arbitrary shifts or variable-n asymptotics"
+  ],
+  "schema_version": 1
+}
