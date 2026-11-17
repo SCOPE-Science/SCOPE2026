@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim compares limits of expected symbol proportions in uniformly selected length-\(n\) words avoiding one fixed factor. The proof constructs the exact weighted cluster generating function, identifies a unique simple dominant root using a primitive higher-alphabet de Bruijn presentation, and differentiates its root equation. The full signed difference is a nonzero negative multiple of a weighted border-prefix difference polynomial. Since the root lies strictly below \(1/2\), the last nonzero border contribution dominates all smaller-length contributions, even in the worst case of opposite signs. A separate direct argument handles singleton targets. Every asserted limit, tie, sign and uniformity boundary is covered. Matrix and polynomial computations replayed for all \(703\) tested forbidden words and \(3,129\) tested letter pairs; finite enumeration is a secondary check, not an infinite proof.
+PASS
 
-## Originality — PASS against inspected evidence; residual priority risk
+The weighted one-pattern cluster identity F=C/[(1-zT)C+z^mW] is valid. For q>=3 and m>=2 a connector letter other than the forbidden first/last letters ensures a primitive allowed de Bruijn graph. The Perron root lies strictly between 1/q and 1/2; implicit derivatives show differences of limiting letter frequencies equal a negative scalar times sum over borders rho^(m-ell) d_ell. At the longest differing border d>=1, shorter-border changes are bounded by missing prefix letters, giving the strict bound 1-rho^2/(1-rho)^2>0. This proves the reversed sign, all pairwise ties and the uniform case, with m=1 handled separately.
 
-The June 4, 2026 Bóna–Maga–Richey preprint studies symbol frequency for a **binary** one-pattern shift. A separately available binary balanced-border settlement proves the equal-half case. The new statement is instead a simultaneous full weak ordering for arbitrary \(q\ge3\), including pairs of symbols neither of which need be the most frequent, and it uses a strict \(\rho<1/2\) dominance argument. Known binary conclusions are compatible with, but do not imply, this statement. The September 13, 2024 Chandgotia–Marcus–Richey–Wu preprint was inspected in its full available text for multiletter graphs, entropy/Perron theory and related results: its quantitative comparisons are entropy/hitting-time comparisons between forbidden patterns, not symbol-frequency rankings within one pattern. The classical overlap and marked-cluster papers supply enumeration machinery but not the resulting pairwise sign theorem. Two earlier stopped-first-hit letter-proportion claims concern a distinct probability space and cannot be substituted for an avoidance-conditioned limit. Targeted bibliographic and research-index searches did not expose a prior universal multiletter ranking. The most plausible same-topic 2026 binary preprint was available only as an abstract and tertiary exposition, not complete full text; an implicit equivalent all-alphabet claim remains a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-A single forbidden word defines a natural family of constrained-word sources. The complete relative order and every tie among its \(q\) stationary alphabet frequencies are structural invariants. The theorem extracts these from border Parikh vectors without matrix eigenvalue computations, and yields an exact necessary-and-sufficient uniform-frequency criterion. It detects asymmetry even for targets with globally balanced symbol counts, such as `011220`. This is a substantive all-parameter structural classification rather than a routine isolated value or an arbitrary finite table.
+Bóna–Maga–Richey 2026 studies binary marginal avoidance frequencies, while the Resultary first-hit Parikh ordering instead studies expected proportions at a stopping time and has the opposite sign. The older Guibas–Odlyzko overlap polynomial and Chandgotia–Marcus–Richey–Wu graph framework yield tools, but the inspected statements do not give simultaneous q>=3 ordering and ties under conditional long-word avoidance.
 
-## Reproducibility and limitations
+## value
 
-See `RESULT.md` for the whole proof and `checker.py`/`requirements.txt` for independent transfer-matrix checks. Source priority and complete bibliographic coverage have not been independently certified. The scope is \(q\ge3\), one contiguous pattern and unbiased sampling, with no claim about finite-length convergence speed, binary exceptions, or multi-pattern shifts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full exact all-letter ordering from finitely many border Parikh vectors resolves a naturally posed correlation observable for single-word subshifts and exposes a nonobvious sign reversal against first-hit sampling; it is stronger and qualitatively different from one-frequency or entropy-only results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
