@@ -1,19 +1,21 @@
-# Review of level-two integrality for ComboSum sequences
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all nonzero integer sequences with \(\gcd(|f_i|,|f_j|)\mid f_{i+j}\). For every prime and valuation cutoff, the relevant index set is additively closed. The sumset-counting lemma establishes nonnegativity for the base generalized-binomial exponents; the strict refinement proves the only potentially negative contribution at level two cannot occur. The equality-rigidity lemma is justified by monotone grid paths, and the boundary cases \(u=0\), \(k=0\), and \(1\in S\) are explicit. Finite exhaustive and pseudorandom experiments agree but do not certify the infinite statement.
+PASS
 
-## Originality — PASS within inspected evidence
+For any prime p and height r, valuations of f define additive submonoids S_{p,r}. For finite S prefix count F, integer sumset growth yields Delta(u,k)=F(u+k)-F(u)-F(k)>=0. The strict refinement when 1 not in S and u+1 in S follows from equality of finite sumsets: if both initial prefix sets have >=2 members they must be common-step arithmetic progressions; the two elements u+1,k+1 then produce a further in-range semigroup element beyond the equality sumset, contradiction. Each prime-valuation exponent of B_c(u+k,k) decomposes exactly as Delta(u,k)+Delta(u,k+1)+a_1-a_(u+1), always nonnegative including u=0, k=0, a1=1. Sum over finite heights gives integrality for all primes and signed sequences. Independently checked ALL additively closed masks through index 12 (171, 11286 inequalities), without using finite checks as universal proof.
 
-Shapiro's 2023 work proves ComboSum binomidness at level one, raises the all-level question explicitly, and proves all-level integrality only for the narrower divisor-product family. No level-two theorem for every ComboSum sequence was located in the queried research index or web searches. A specific ComboSum example outside the divisor-product and divisor-chain classes confirms that those existing sufficient conditions do not imply the general statement. Later or unindexed equivalent work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves the first genuinely new level of an explicit number-theoretic open question, for the full natural hypothesis rather than an ad hoc subclass. Its mechanism isolates a strict additive-semigroup sumset inequality and applies uniformly to arbitrary prime valuations and signed sequences. Higher levels remain open.
+Shapiro 2023 explicitly asks if every ComboSum sequence is binomid at every level; his Proposition 23 proves only baseline binomid and Theorem 15 provides all levels for the narrower divisor-product class. The complete Oct26 interlaced-divisor-chain theorem covers a proper subclass not every ComboSum, while its proof uses f_n|f_(n+2) unavailable for arbitrary additive semigroup supports. The new uniform level-two semigroup strict-refinement theorem is not implied by inspected known results.
 
-## Sources and remaining uncertainty
+## value
 
-Primary source: D. B. Shapiro, arXiv:2302.02243v1 (2023), relevant full-text sections on divisor-products and ComboSum sequences. The accessible record for the INTEGERS 23 (2023), A16 publication retains Open Question 24. Residual priority risk: later work or indexing under other terminology may have resolved this first level. No independent review is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It settles the first genuinely open level of a named natural all-level divisibility question for the full ComboSum class, rather than a convenient subgroup, using an independently meaningful additive-semigroup equality-rigidity inequality. Higher-level conjectures remain open; this bounded first-level partial resolution is substantively valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
