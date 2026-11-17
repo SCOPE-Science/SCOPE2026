@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The complete mathematical proof is in RESULT.md. It derives the strict two-coordinate budget inequality and its equality-case consequence from Bang's sign lemma and the explicit two-variable estimate in the cited primary work. Boundary cases with coordinate normals are treated, and the passage from closed to open planks is justified by strict slack.
+# Independent mathematical audit
 
-`verify.py` uses only exact `fractions.Fraction` arithmetic and checks the two-variable inequality, strictness for oblique normal vectors, and plank direction-budget identities. It also checks canonical interval-strip costs for a representative collection of holes. Execute `python verify.py`; a passing run prints a total number of assertions.
+## correctness
 
-The verification program does not test all orientations, all intervals, or all dimensions; no finite test is an infinite proof. The numerical value of the optimum follows from earlier lower-bound machinery; the new scientific assertion is the rigidity and complete equality classification for \(h_1+h_2>1\). Independent mathematical auditing has not been performed.
+PASS
+
+Reconstructed normal components a,b≥0, a²+b²=1, orientation budgets R1+R2=W and Bang-box spans Xj(λ). For λ>1, the two-variable inequality is strict if a,b>0; it follows from the concave tangent bound and strict inequality a+b<1+ab for oblique unit normals. The crossing/noncrossing monotonicity argument gives strict Xj<δj and Xk<1 when Rj<δj or Rj=δj with an oblique normal. The strict-slack Bang sign obstruction excludes a cover. Thus W≥min(1,S), all optimizers at S<1 must have axial normals and budgets δj, and a projected interval-length covering argument prohibits overlapping or wasted widths. Boundary h_j in (0,1), finite closed positive-width planks, arbitrary rectangle offset and transition S=1 treated correctly. Independently reran exact rational mixed-normal and axial tests; numerical checks do not prove universality.
+
+## originality
+
+PASS
+
+Prior sharp scalar threshold is explicitly excluded from novelty. Full reading of the most relevant primary theorem plus all four equivalence/stronger-coverage comparisons did not identify a theorem forcing all minimizing orientations or partitions. Best-of-knowledge only.
+
+## value
+
+PASS
+
+A complete equality-case classification for a natural sharp planar covering problem is mathematically motivated: it identifies when arbitrary-direction optimal covers become rigid and gives every minimizer, a stronger and potentially stability-relevant fact than the known minimum cost. No paper-sized theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
