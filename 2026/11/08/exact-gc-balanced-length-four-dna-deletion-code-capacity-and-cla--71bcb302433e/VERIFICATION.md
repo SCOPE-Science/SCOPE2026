@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Finite certificate verification
+# Independent mathematical audit
 
-The included `certificate.json` is interpreted by `verify_certificate.py`, which reconstructs all 96 GC-balanced words, 44 permitted two-word reverse-complement orbits, the exact 344-edge conflict graph, a fourteen-clique rational upper-bound certificate, the explicit fourteen-word witness, all twenty maxima, and their four symmetry classes. The upper bound is the mathematical inequality described in `RESULT.md`, not merely a computation log.
+## correctness
 
-Run:
+PASS
 
-```
-python3 verify_certificate.py
-c++ -O2 -std=c++17 independent_census.cpp -o census
-./census
-```
+Enumerating all balanced four-mers gives exactly 96, 52 reverse-complement orbits with 8 fixed and 44 admissible two-member orbits. A 44-vertex deletion-shadow conflict graph has 344 edges. Fourteen explicit conflict cliques from certificate.json cover each vertex at least twice (36 with multiplicity 2 and eight with 3); a deletion-compatible independent set therefore has size ≤7, and seven explicit pairs realize it, giving 14 DNA words. Independent increasing-index enumeration of all compatible seven-orbit subsets yields exactly 20, and a full 16-action group calculation gives orbit sizes 4,4,4,8. Every seven-set was independently checked maximal, so no eight-set exists; this is a complete finite certificate, not merely a solver result.
 
-The C++ program independently derives shadow sets from base-four encodings and exhaustively counts compatible orbit selections of sizes seven and eight. Its output is `DIRECT_CENSUS_OK`. Both source programs and the exact finite data are present and require no remote services, third-party Python libraries or precomputed executable.
+## originality
 
-**Limits.** These checks verify a finite exact classification of four-letter DNA codes. They do not prove general statements at other lengths or independently establish historical priority. Independent scientific audit has not been performed.
+PASS
+
+The prior unrestricted strand-closed quaternary length-four maximum 22 without fixed words does not determine the maximum or optimizer census after exact GC balance; prior constant-GC Hamming codes use a different error metric. The targeted 14-word/20-code optimum is a motivated intersection of established coding constraints and not a recomputation of an existing table found in relevant full texts.
+
+## value
+
+PASS
+
+GC balance, reverse-complement closure, avoidance of self-complement strands, and single-deletion correction are natural simultaneous DNA storage constraints. Their exact feasible maximum and complete 20-solution equality classification constitute an independently checkable finite extremal coding fact not implied by unrestricted or Hamming models. No longer-length theorem is required for this precisely motivated finite optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

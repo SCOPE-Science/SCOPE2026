@@ -1,19 +1,21 @@
-# Scientific review: Exact GC-balanced length-four DNA deletion-code capacity and classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exactly 96 balanced length-four DNA words form 52 reverse-complement orbits, of which eight are self-fixed. The remaining 44 two-word orbits are individually deletion-correcting. The 344-edge conflict graph has a checkable rational cover by fourteen conflict cliques with each vertex in at least two, proving that seven pairs (fourteen words) is the maximum. The explicit seven-pair witness meets the bound. The complete census of 20 optimum codebooks and the four symmetry classes of sizes 4, 4, 4, 8 was checked by an independently implemented C++ enumeration as well as a Python checker. The proof covers the full finite domain, with no extrapolation from small samples.
+PASS
 
-## Originality — PASS (priority qualified)
+Enumerating all balanced four-mers gives exactly 96, 52 reverse-complement orbits with 8 fixed and 44 admissible two-member orbits. A 44-vertex deletion-shadow conflict graph has 344 edges. Fourteen explicit conflict cliques from certificate.json cover each vertex at least twice (36 with multiplicity 2 and eight with 3); a deletion-compatible independent set therefore has size ≤7, and seven explicit pairs realize it, giving 14 DNA words. Independent increasing-index enumeration of all compatible seven-orbit subsets yields exactly 20, and a full 16-action group calculation gives orbit sizes 4,4,4,8. Every seven-set was independently checked maximal, so no eight-set exists; this is a complete finite certificate, not merely a solver result.
 
-King (2003) studies the GC-balanced Hamming model; D'yachkov et al. (2003) formulate strand-closed deletion-similarity codes; D'yachkov et al. (2005) give an unrestricted four-base deletion construction. Their inspected results do not state the combined exact GC-balanced four-base deletion optimum or its complete 20-code classification. Targeted scholarly and research-record searches also did not find an equivalent statement or stronger implication. A later 2025 multi-constraint single-edit paper was found at abstract level but not inspected in full, leaving a specific historical-priority risk. Failure to locate another claim is not proof of historical novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The joint GC-content, strand-closure, and deletion-correction conditions are independently motivated in DNA coding theory. Their interaction is mathematically nontrivial: the sharp 14-word optimum requires a fourteen-clique rational cover of a 44-vertex conflict graph. A full extremizer census is useful for understanding the finite design choices, and is not just a recomputation of a Hamming optimum or an arbitrary substring slice. No experimental applicability is asserted.
+The prior unrestricted strand-closed quaternary length-four maximum 22 without fixed words does not determine the maximum or optimizer census after exact GC balance; prior constant-GC Hamming codes use a different error metric. The targeted 14-word/20-code optimum is a motivated intersection of established coding constraints and not a recomputation of an existing table found in relevant full texts.
 
-## Limitations and provenance
+## value
 
-Single exact deletion, length-four, binary GC classification over four labeled nucleotides only. The independent scientific audit and historical-priority check have not been performed. Verification uses the complete standalone data and source in this package, not a solver log or a finite extrapolation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+GC balance, reverse-complement closure, avoidance of self-complement strands, and single-deletion correction are natural simultaneous DNA storage constraints. Their exact feasible maximum and complete 20-solution equality classification constitute an independently checkable finite extremal coding fact not implied by unrestricted or Hamming models. No longer-length theorem is required for this precisely motivated finite optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
