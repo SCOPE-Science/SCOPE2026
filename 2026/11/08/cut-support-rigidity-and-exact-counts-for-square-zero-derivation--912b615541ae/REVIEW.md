@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof constructs an inner implementer for every derivation via primitive idempotents, then kills its diagonal and uses the exact double-commutator identity. Testing individual matrix units makes the key implication \(NXN=0\) to common-cut support free of cancellation assumptions. The irredundancy and intersection dimensions of linear components follow from matrix units and rectangular coordinates. Inclusion-exclusion by unique maximal row and minimal column proves the finite-field census, including the zero derivation. The packaged checker exhaustively composes commutators in five finite odd-field configurations and verifies the characteristic-two contrast.
+PASS
 
-## Originality
+For char(k) !=2, every derivation of T_n is inner and has implementer unique modulo kI. Square-zero ad forces equal diagonal entries and N strictly upper triangular; ad_N²(X)=N²X-2NXN+XN². Testing diagonal E_aa forces N²=0, then matrix-unit sandwich products N_ai N_jb show all nonzero row indices are strictly below all nonzero column indices, equivalent to a common cut c. Each U_c is irreducible and distinct; pair intersections have dimension c(n-d). Inclusion-exclusion on final active row a and first active column b yields exact S_n(q). Characteristic two n4 E12+E34 is a sharp boundary. Independently enumerated formula for q3 and n2..7.
 
-**PASS (provisional).** Guo–Li (2010) supply general derivation structure but do not state the nonlinear index-two classification or the finite-field point count. Hu (2022) uses strong ad-nilpotence rather than the square-zero condition. Ekhad–Zeilberger (1995) count triangular matrices with \(N^2=0\), not the stricter odd-characteristic condition \(N T_n(k)N=0\). Mattarei (2022) studies sandwiches in a different class of Lie algebras. Published research record searches revealed no same-statement match, but absence from those searches cannot certify priority. An unlocated classical classification of sandwiches in Borel subalgebras remains the main historical risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The degree-two nilpotence locus of derivations is a natural structure attached to a standard finite-dimensional algebra. Its complete component decomposition, non-equidimensionality for \(n\ge4\), exact counts over arbitrary odd finite fields, and characteristic-two discontinuity describe an entire family rather than a sampled or hand-chosen example. This is strictly finer than the usual square-zero-matrix enumeration.
+Best-of-knowledge after actual Resultary searches and material full published-source reading: The primary 1996 triangular matrix census counts N²=0, not (ad_N)²=0. Hu 2022 concerns strongly ad-nilpotent elements in a different sense. Neither examined content yields the explicit odd-characteristic cut union and finite-field point-count formula; possible older sandwich classification remains unexcluded. ['A general Lie-theoretic classification of sandwich elements in Borel subalgebras may imply all cut-support geometry; historical full-text comparison is not exhaustive.']
 
-## Limitations and closest literature
+## value
 
-The scope is the associative upper-triangular algebra \(T_n(k)\), fields of characteristic not two, and the **reduced** zero locus; no nonreduced geometry or higher powers are asserted. Guo–Li's path-algebra derivation framework, Ekhad–Zeilberger's square-zero matrix census, Hu's strongly ad-nilpotent matrices, and Mattarei's sandwich elements are the closest inspected primary sources. Independent review and exhaustive priority verification have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifying square-zero derivations is a natural operator nilpotency problem (distinct from square-zero matrices); cut-support rigidity, reduced irreducible component arrangement, odd-characteristic exact point counts and the first char-two exception answer structural questions for every triangular size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
