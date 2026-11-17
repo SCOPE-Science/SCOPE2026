@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 30-vertex incidence graph is explicitly defined by fifteen duads and fifteen synthemes. Two distinct exact enumeration procedures agree on all 476,187 faces (including the empty face). A complete sequential vertex-toggle matching has 238,089 pairs and leaves only nine augmented critical faces of dimension eight. The full directed Hasse diagram has 3,461,430 incidences and is acyclic by exhaustive topological sorting. Removing the empty-to-vertex pair gives one critical vertex and nine eight-dimensional cells. Forman's theorem therefore proves the integral wedge \(\bigvee^9 S^8\) with no unsolved attaching maps.
+## correctness
 
-## Originality — PASS, on inspected evidence
-The nearest general references are Barmak's triangle-free suspension theorem, Jonsson's bipartite suspension formula, and Tsukuda's incidence-hypergraph duality. They do not give this concrete dimension or multiplicity. The nearest record concerning the same thirty-vertex graph computes a Čech nerve, with a different face condition, and does not imply the target independence-complex classification. A separate Coxeter-graph independence result concerns 28 vertices. The actual literature and mathematical-index comparisons are structured in `AUDIT.json`. Residual risk: publication priority is not independently definitive, and there may be an unindexed equivalent computation.
+PASS
 
-## Mathematical value — PASS
-The Tutte–Coxeter graph is the canonical first cubic girth-eight cage and the Levi graph of a generalized quadrangle, not an arbitrarily chosen graph. The exact homotopy type of its ordinary independence complex is a natural structural invariant, and reducing a 14-dimensional complex to nine eight-spheres goes beyond generic suspension and Euler-characteristic statements. The result does not assert an all-girth or all-quadrangle classification.
+PASS: Reconstructed the Tutte–Coxeter incidence graph from 15 duads and 15 synthemes on six labels, a cubic bipartite 30-vertex 45-edge graph of girth eight. Independent full face traversal and separate summation over 2^15 duad subsets agree on all 476,187 independent faces, augmented face-cardinality vector (1,30,390,2890,13515,41736,86610,120690,111225,66090,24948,6420,1370,240,30,2). Independently implemented greedy pivot matching v=0..29 on the augmented poset, yielding 238,089 disjoint pairs, nine unmatched size-nine faces, plus pair empty ↔ {0}. Complete directed cover graph topological sort across all 476,187 faces verifies acyclicity, not just correct pair counts. Removing augmented empty pair gives one critical vertex and nine critical 8-cells and no intermediate cells, hence the CW Morse model is integrally wedge of nine S^8. The 14-dimensional original simplices do not invalidate Morse reduction.
 
-## Scientific and access limitations
-The proof uses a complete finite computer-checkable acyclic matching and no infinite extrapolation. The checker is included and runnable with the Python standard library. No independent mathematical audit or exhaustive global publication-priority audit has been performed. A separate 2011 primary preprint's complete text was available, although its page renderer did not succeed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): The accessible general bipartite graph independence suspension theorems express complexes via other complexes but do not give the exact nine 8-sphere multiplicity for this duad–syntheme incidence graph without new nontrivial enumeration. Related exact Coxeter graph results concern a different 28-vertex cubic graph; Rips/Čech on the 30-vertex cage have different face conditions. A targeted published Resultary semantic search returned the current statement but no older equivalent result or stronger numerical classification.
+
+## value
+
+PASS
+
+PASS: A complete, nonobvious integral homotopy classification for a canonical highly symmetric 30-vertex girth-eight cage, with original 14-dimensional faces and a large exact nontrivial acyclic reduction to nine 8-cells. A natural finite invariant can be valuable without an infinite family or a larger classification; no unsupported general cage conclusion is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
