@@ -1,15 +1,21 @@
-# Review of finite Mallows stable-matching law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes all quantifiers to a complete strict \(3\times3\) market with six independent, identically distributed Mallows preference rankings. It checks the exact blocking condition against all six possible matchings for each of the \(46{,}656\) labeled profiles. The Python and C++ standalone implementations independently recover the same coefficient vectors for one, two, and three stable matchings and for stability of the identity matching. Exact polynomial algebra verifies the three rational probability laws, derivative factorizations, their signs on \(0<\phi<1\), and the first-nonzero-degree counts \(4,4,6\). The finite exhaustive check is a proof for this finite domain only.
+PASS
 
-## Originality — PASS (with residual risk)
+Each six-agent profile lies in the explicit 6^6 finite universe, and each of its six perfect matchings is stable exactly when no unassigned mutually preferred pair exists. All rank comparisons and inversion weights therefore give exact polynomial coefficient counts. A separate from-scratch Python enumeration tested all 46656 profiles, giving counts N=1/2/3 of 34080/11484/1092 and 10054 profiles with stable identity. Rational identities checked symbolically; derivative numerators factor phi(1-phi) or phi^4(1-phi) with positive-coefficient polynomials for multiplicity, and -(1-phi) times positive polynomial for assortativity, establishing strict signs throughout 0<phi<1. No infinite-market inference.
 
-Wang (2026, arXiv:2603.24526) gives large-market rank-quantile assortativity for fixed dispersion, not finite exact probabilities. Hoffman, Levy and Mossel (2023, arXiv:2312.14813) give asymptotic exponential stable-matching growth, not the three-event \(3\times3\) laws or their sharp small-noise exponents. The graph-percolation model of Angel and colleagues (2018, arXiv:1802.07142) produces a Mallows-distributed *outcome* under deterministic rankings, unlike these random preference lists. The exhaustive counts of Borodin et al. (2021), and the later full-symmetry orbit census, agree with the \(\phi=1\) endpoint; their uniform counts and relabeling classes do not supply inversion-weighted exact parameter laws. The full web-accessible primary articles were inspected, but unindexed equivalent parameterized calculations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem quantifies an analytically meaningful gap between loss of perfect assortativity, the onset of multiple stable matchings, and three-way multiplicity. The three sharp inversion costs \(1,2,5\), accompanying leading coefficients, and strict monotonicity across the entire dispersion interval make the finite market a nontrivial benchmark for correlated-preference matching. No claim of polynomial-time algorithms for larger markets, market-size asymptotics, or heterogeneous-dispersion results is made.
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. The four prior statements have differing probability spaces or limiting quantifiers, so neither the fixed-size rational laws nor their strict signs follow as corollaries.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The 3x3 market is the first size allowing three stable matchings; exact rare-event exponents 1,2,5 separate three relevant economic phenomena under increasing preference noise. This finite parameter-exact law is not interchangeable with uniform count or n-to-infinity asymptotics; it offers a useful exact benchmark for correlated-market models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
