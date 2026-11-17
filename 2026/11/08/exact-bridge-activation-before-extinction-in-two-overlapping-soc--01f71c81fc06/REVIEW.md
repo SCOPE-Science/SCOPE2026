@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem specifies the exact two-edge Poisson jump mechanism, threshold-one source, initially active overlap and inactive target-only vertices, and the first target-clock event. A renewal decomposition at source-group firings gives \(P=S/(S+E)\). Its critical computations are the success probability \(S=\mathbb E\int_0^{T_B}\beta e^{-(\alpha+\beta)t}dt\) and the extinction probability \(E=\mathbb E e^{-\alpha T_A-\beta T_B}\). A uniform death-order permutation and independent exponential spacings yield the binomial-weight products and finite sums. Expanding all \(a\) Laplace factors proves the universal coefficient, rather than relying on numerical extrapolation. An independently assembled full-state rational chain confirmed 56 instances, and a compressed rational chain 165 more; no unproved infinite extrapolation is made. Critical assumptions are independent exponential death and group clocks, two edges only, and fixed parameters in the asymptotic.
+PASS
 
-## Originality: PASS, with residual priority risk
+For exactly two hyperedges A and B, source size a>=3, overlap 1<=c<min(a,b), target threshold k, all A initially active, all B\A inactive, per-vertex exponential recovery delta, whole-group activation rates alpha and beta, c<k forces P=0. If c>=k, excursions start from all A active; competing clocks yield success S=E beta/(alpha+beta)*(1-exp(-(alpha+beta)T_B)), extinction E=E exp(-alpha T_A-beta T_B), and renewal P=S/(S+E). The r=c-k+1-th overlap death rank J is hypergeometric w_j=binom(j-1,r-1) binom(a-j,c-r)/binom(a,c), independent of exponential spacings with rates (a-i+1)delta. Their Laplace products give the displayed exact finite sums. At fixed a,c,k,beta,delta, S~beta/alpha and E~a!delta^a/alpha^a, so 1-P~a!delta^a/(beta alpha^(a-1)), independent of c,k in leading term. Independently solved exact rational full 2^a microstate harmonic chains for a=3..5 across overlap/threshold examples including c<k; formula agrees. The original concrete case P=720/767 is reproduced.
 
-The direct motivating full open article by de Arruda et al. presents the hyperedge Poisson rule, phenomenology of bridging groups, and exact one-hyperedge hyperblob analysis, but does not state or imply a finite expression for the target's first firing before extinction in two genuinely overlapping groups or the overlap-independent power law. St-Onge et al. use one-vertex activation by a group in their full-text Methods and therefore do not cover the simultaneous full-group event; their results concern approximate master equations, phase transitions, and seeding. Higham–de Kergorlay likewise employ nodewise SIS infection, with spectral extinction bounds rather than the target-event law. Queries for stochastic hypergraph bridge invasion and order-statistic first passage produced no covering mathematical records. A contemporaneous supplementary file to the direct article was not fully readable, and unindexed equivalent work remains a priority risk. Negative search results are not asserted as proof of uniqueness.
+## originality
 
-## Value: PASS
+PASS
 
-Hyperedge intersections are the mechanism behind cross-community activation in the motivating work, yet even the elementary two-group event is affected by both finite-population extinction and recovery-dependent erosion of bridge eligibility. The result provides an exact, polynomial-size expression in place of an absorbing microstate calculation, a precise zero-versus-positive overlap threshold, a concrete rational test case, and a non-obvious universal \(\alpha^{-(a-1)}\) bridge-failure law whose leading coefficient does not depend on how many overlap vertices are required. It can serve as an exact benchmark when selecting or evaluating bridge arrangements and internal reinforcement strengths. It is not presented as a general hypergraph phase-transition theorem.
+Best-of-knowledge PASS. De Arruda et al (Nature Communications 2023) give the underlying simultaneous group-activation threshold rule and investigate hyperedge overlap/phase transitions, including a one-edge hyperblob calculation; the inspected complete public main article does not give the exact two-overlap first B-clock probability and universal strong-alpha coefficient. St-Onge and Higham–de Kergorlay use nodewise group infection or spectral SIS, mathematically different events. The de Arruda supplementary materials were not fully read; this remains a material priority risk, not an automatic O failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. In threshold hypergraph contagion, whether a finite infectious source activates a neighboring overlapping group before extinction is a natural first-bridge observable. The hypergeometric death-rank formula collapses a growing absorbing state space to a short explicit finite sum; the leading strong-reinforcement failure term unexpectedly loses all overlap and target-threshold dependence despite finite-alpha dependence. This is a motivated reusable exact benchmark, not an arbitrary one-off calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

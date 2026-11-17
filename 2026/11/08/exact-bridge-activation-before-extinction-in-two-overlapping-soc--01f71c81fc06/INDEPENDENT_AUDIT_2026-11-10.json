@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly two hyperedges A and B, source size a>=3, overlap 1<=c<min(a,b), target threshold k, all A initially active, all B\\A inactive, per-vertex exponential recovery delta, whole-group activation rates alpha and beta, c<k forces P=0. If c>=k, excursions start from all A active; competing clocks yield success S=E beta/(alpha+beta)*(1-exp(-(alpha+beta)T_B)), extinction E=E exp(-alpha T_A-beta T_B), and renewal P=S/(S+E). The r=c-k+1-th overlap death rank J is hypergeometric w_j=binom(j-1,r-1) binom(a-j,c-r)/binom(a,c), independent of exponential spacings with rates (a-i+1)delta. Their Laplace products give the displayed exact finite sums. At fixed a,c,k,beta,delta, S~beta/alpha and E~a!delta^a/alpha^a, so 1-P~a!delta^a/(beta alpha^(a-1)), independent of c,k in leading term. Independently solved exact rational full 2^a microstate harmonic chains for a=3..5 across overlap/threshold examples including c<k; formula agrees. The original concrete case P=720/767 is reproduced.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Arruda et al give broader hypergraph phenomenology and exact one-hyperedge reductions; Higham–de Kergorlay address spectral extinction for nodewise hypergraph epidemics."
+        ],
+        "reasoning": "A general Markov-chain solver can theoretically evaluate the first-event probability, but without this closed hypergeometric Laplace formula and universal asymptotic leading constant it does not constitute actual prior coverage.",
+        "searches": [
+          "Two overlapping hyperedges social contagion probability bridge activation before extinction exact first group clock Laplace",
+          "arxiv:2112.04273",
+          "arxiv:2103.07319"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10011415/",
+        "arxiv:2105.07092"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source result derives renewal P=S/(S+E), overlap-order death rank, and alpha asymptotic; earlier paper supplies event rules, not these event expressions."
+        ],
+        "reasoning": "Defining the stochastic model does not imply an already-published explicit hitting probability and overlap-independent coefficient; the reduction genuinely uses ordered recovery competition.",
+        "searches": [
+          "arxiv:2112.04273",
+          "arxiv:2105.07092",
+          "Two overlapping hyperedges social contagion probability bridge activation before extinction exact first group clock Laplace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Arruda et al study the same whole-group threshold mechanism but mostly stationary transitions and one-hyperedge hyperblob; St-Onge et al infect one susceptible vertex rather than the whole group."
+        ],
+        "reasoning": "Two overlapping whole-group clocks with a first B-fire event and competing finite extinction is not equivalent to nodewise SIS prevalence or stationary mean-field spillover.",
+        "searches": [
+          "Two overlapping hyperedges social contagion probability bridge activation before extinction exact first group clock Laplace",
+          "arxiv:2112.04273",
+          "arxiv:2105.07092"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published bridge results involve irreversible adoption and deterministic seed-set counting, not the continuous-time absorbing probability of a whole-group first firing."
+        ],
+        "reasoning": "No exact table for this two-hyperedge finite-state event found; the counterexample/test P=720/767 is corroborative, not itself the novelty.",
+        "searches": [
+          "Two overlapping hyperedges social contagion probability bridge activation before extinction exact first group clock Laplace",
+          "Resultary: 2026/11/02/SCOPE-a-three-way-bridge-effect-on-two-community-threshold-cascades--af99c793984a"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. De Arruda et al (Nature Communications 2023) give the underlying simultaneous group-activation threshold rule and investigate hyperedge overlap/phase transitions, including a one-edge hyperblob calculation; the inspected complete public main article does not give the exact two-overlap first B-clock probability and universal strong-alpha coefficient. St-Onge and Higham–de Kergorlay use nodewise group infection or spectral SIS, mathematically different events. The de Arruda supplementary materials were not fully read; this remains a material priority risk, not an automatic O failure.",
+      "residual_risks": [
+        "Supplementary material to the main hypergraph-threshold source could contain closely related finite event calculations",
+        "Unindexed first-passage expressions for overlapping group-reset CTMC remain possible"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_MAIN_TEXT_WITH_SUPPLEMENT_RISK",
+          "evidence": "Introduces whole-group threshold activation and discusses overlap/phase transitions; no first B-clock before extinction two-overlap finite formula located in inspected main text.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10011415/",
+          "material_read": "Full openly accessible main paper: model definition, multistability, overlapping communities, methods and exact one-hyperedge hyperblob portions inspected; separate supplementary not fully accessed",
+          "method": "Read PMC full HTML article sections",
+          "title": "Multistability, intermittency, and hybrid transitions in social contagion models on hypergraphs",
+          "trigger": "Same simultaneous hyperedge-threshold contagion and bridge motivation"
+        },
+        {
+          "assessment": "DIFFERENT_NODEWISE_EVENT_PARTIAL_ACCESS",
+          "evidence": "Infection updates a susceptible node rather than simultaneous whole group; publication focuses phase transitions and influential seeds.",
+          "identifier_or_url": "arxiv:2105.07092",
+          "material_read": "Abstract, publication metadata and source method comparison; no full primary reread this run",
+          "method": "ArXiv and repository reference search",
+          "title": "Influential groups for seeding and sustaining nonlinear contagion in heterogeneous hypergraphs",
+          "trigger": "Possible stronger two-group stochastic bridge result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. In threshold hypergraph contagion, whether a finite infectious source activates a neighboring overlapping group before extinction is a natural first-bridge observable. The hypergeometric death-rank formula collapses a growing absorbing state space to a short explicit finite sum; the leading strong-reinforcement failure term unexpectedly loses all overlap and target-threshold dependence despite finite-alpha dependence. This is a motivated reusable exact benchmark, not an arbitrary one-off calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC10011415/",
+    "arxiv:2105.07092"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two overlapping nonnested hyperedges, threshold-one source; initially all source active and no target-private active",
+    "Fixed positive delta,beta and fixed finite group sizes as alpha grows; not a network phase-transition law",
+    "Full relevant de Arruda supplementary not read, risk of previously tabulated two-group exact event"
+  ],
+  "residual_risks": [
+    "Supplementary material to the main hypergraph-threshold source could contain closely related finite event calculations",
+    "Unindexed first-passage expressions for overlapping group-reset CTMC remain possible"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_IN_MAIN_TEXT_WITH_SUPPLEMENT_RISK",
+      "evidence": "Introduces whole-group threshold activation and discusses overlap/phase transitions; no first B-clock before extinction two-overlap finite formula located in inspected main text.",
+      "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10011415/",
+      "material_read": "Full openly accessible main paper: model definition, multistability, overlapping communities, methods and exact one-hyperedge hyperblob portions inspected; separate supplementary not fully accessed",
+      "method": "Read PMC full HTML article sections",
+      "title": "Multistability, intermittency, and hybrid transitions in social contagion models on hypergraphs",
+      "trigger": "Same simultaneous hyperedge-threshold contagion and bridge motivation"
+    },
+    {
+      "assessment": "DIFFERENT_NODEWISE_EVENT_PARTIAL_ACCESS",
+      "evidence": "Infection updates a susceptible node rather than simultaneous whole group; publication focuses phase transitions and influential seeds.",
+      "identifier_or_url": "arxiv:2105.07092",
+      "material_read": "Abstract, publication metadata and source method comparison; no full primary reread this run",
+      "method": "ArXiv and repository reference search",
+      "title": "Influential groups for seeding and sustaining nonlinear contagion in heterogeneous hypergraphs",
+      "trigger": "Possible stronger two-group stochastic bridge result"
+    }
+  ]
+}
