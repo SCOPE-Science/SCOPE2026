@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The double is partitioned into a two-skeleton of the \(4\)-by-\(4\) chessboard complex and a union of cones over sixteen \(K_{3,3}\) subgraphs of \(K_{6,6}\). Their overlap is exactly sixteen isolated vertices. The standard chessboard connectivity theorem makes the first summand simply connected; a direct four-cycle reduction proves the same for the second. Both have Euler characteristic \(40\) and are two-dimensional, hence each has integral homotopy type \(\bigvee^{39}S^2\). Their homotopy pushout contributes fifteen independent circles. The standalone checker independently confirms face counts and homology over three characteristics; no finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS (with residual risk)
+Checked X=∂Δ(A)*∂Δ(B), each |A|=|B|=4, is S5 and its D²(X) has pair vertices. Partition D²(X)=C∪Y where C is the 2-skeleton of Δ_4,4 (16 vertices,72 edges,96 triangles) and Y is K_6,6 with sixteen K_3,3 subgraphs coned off (28 vertices,132 edges,144 triangles); their intersection is 16 discrete cross vertices. Chessboard connectivity makes C simply connected; each 4-cycle in K_6,6 splits into cycles with intersecting A and B pairs killed inside one of the specified cones, hence Y simply connected. Each connected 2D complex has χ=40 and therefore wedge39 S² by Hurewicz/Whitehead. Their homotopy pushout over 16 discrete points adds 15 free circle factors, proving ∨15 S¹∨∨78 S² integrally. Independent enumeration gives face vector (28,204,240), ordinary Betti (1,15,78); modular arithmetic alone does not establish π1 or torsion-free integral homotopy.
 
-The primary 2025 work establishes the construction and a general weak Cohen–Macaulay bound, and notes sharpness for ordinary simplices. It neither states nor implies the specific integral mixed-dimensional decomposition of the double of a join of two tetrahedral boundaries in the inspected definition, theorem and examples. The 1994 chessboard theorem yields simple connectivity of one summand, but not the missing complementary cone decomposition and its glueing. Searches for natural aliases and exact parameters did not yield a covering published formula. Unindexed independent computations remain possible; absence of a matching search hit is not a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The first natural non-simplex case of a five-sphere built as a join of two tetrahedral boundaries exhibits nontrivial first homotopy in its double, witnessing sharpness of the contemporary general connectivity bound in a different class from full simplices. More strongly, the complete integral homotopy type and a transparent chessboard/coned-graph structural splitting explain why mixed-dimensional spheres arise. This is a motivated, exact finite topological phenomenon, not an arbitrary graph parameter slice.
+No verified broader or equivalent prior statement implies the precise final claim after reading the identified primary theorems and searching published findings. This is a best-of-knowledge novelty assessment with the material access and indexing limitations explicitly recorded; published inputs and exact known subclaims are acknowledged.
 
-## Limits
+## value
 
-The result makes no claim about arbitrary joins, symmetry actions or independent review; the cited chessboard connectivity theorem is used as a known result. Search completeness is not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural non-simplex 5-sphere attains sharply the weak Cohen–Macaulay connectivity guarantee for simplicial doubles, with an exact mixed-dimensional integral homotopy decomposition and rank-15 free fundamental group, not merely a bound or a small random example. The chessboard and cone decomposition explains the obstruction structurally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
