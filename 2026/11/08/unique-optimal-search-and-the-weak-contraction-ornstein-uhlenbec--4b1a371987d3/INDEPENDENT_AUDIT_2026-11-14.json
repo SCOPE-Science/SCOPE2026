@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T21:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The supplied exact first-passage series F_a(beta) of Biroli et al. has positive coefficients c_k and F_a(beta)/beta² derivative sign -c1+sum_{k>=3}(k-2)c_k beta^{k-1}; positivity yields a unique global positive minimizer for each 0<=a<1. The q-Gamma ratio R(a) and its sqrt(1-a) limit, plus bounds 1-a^m<=m(1-a), dominate all rescaled entire series and their derivatives on compacts. Matching the limiting series with the OU first-passage ODE solution u''-b²x u'=-1 from x=0 to x=1 gives an exact Gaussian integral. Terms c1/b and b²/24 equicoerce minimizers away from 0,infinity; local uniform convergence plus unique limit implies convergence of global argmins. Independently evaluated the OU Gaussian-integral minimum at b≈1.280880474 and cost≈1.99986485199, consistent with stated high-precision root b*=1.280880490. Numerical decimals are approximations, not certified intervals; singular scaling is proved analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al. derive the full MFPT series, show numerical optimization, not a proved all-a unique optimizer or singular scaling of the optimizer.",
+          "Tal-Friedman et al. investigate stationary spatial Gaussian limit under partial resetting; stationary position distribution is not target hitting time."
+        ],
+        "reasoning": "These broader process results do not imply uniform integrability of first-passage cost, optimizer convergence or the displayed universal constants.",
+        "searches": [
+          "https://arxiv.org/html/2406.08387v1",
+          "https://arxiv.org/html/2205.03363v2",
+          "https://arxiv.org/abs/2204.07215"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2406.08387v1",
+        "https://arxiv.org/html/2204.07215v1",
+        "https://arxiv.org/html/2205.03363v2",
+        "https://dlmf.nist.gov/5.18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biroli series gives positive coefficients enabling a new sign argument; source plots a local optimum, not proved unique for all multipliers.",
+          "OU stationary Gaussian limit is an unrelated one-time law, not a first-passage argmin convergence theorem."
+        ],
+        "reasoning": "Published ingredients plus nontrivial derivative signs, uniform series majorants and coercive bounds yield the new joint result; existing statement does not logically entail it without substantial analysis.",
+        "searches": [
+          "https://arxiv.org/html/2406.08387v1",
+          "https://arxiv.org/html/2204.07215v1",
+          "https://arxiv.org/html/2205.03363v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Biroli et al. positive-rescaling partial-reset model uses the same jump X->aX and identical first-passage series F_a(beta).",
+          "Under frequent weak contraction, partial resets produce OU drift -b²x when (1-a)r is held fixed."
+        ],
+        "reasoning": "The OU weak limit is physically natural, but convergence of path laws alone is insufficient for first-passage mean and minimizing argmin; source series and coercivity provide the missing bridge.",
+        "searches": [
+          [
+            "tandem exclusion process stationary current unique optimal allocation alpha plus beta fixed budget density rho",
+            "elementary cellular automaton Rule 22 cyclic periodic preimages all zero maximizer unique maximum predecessor count",
+            "randomized two-state generator splitting exact mean semigroup Bernoulli convolution invariant Cantor distribution calibration",
+            "Brownian resetting outward drift partially reactive delta killing trap unique optimal resetting rate Péclet",
+            "partial stochastic resetting contraction a to one Brownian first passage unique optimal rate Ornstein Uhlenbeck limit"
+          ],
+          "https://arxiv.org/html/2406.08387v1",
+          "https://arxiv.org/html/2204.07215v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q-Gamma identity/limit is classical, and the source contains exact finite-a MFPT coefficients; no prior table in the inspected papers gives both b*=1.280880490... and optimal time 1.999864851... for the limit of optimized partial-reset search."
+        ],
+        "reasoning": "Computing one numerical minimizer from a known formula would be weaker; actual claim includes unique global minimizers for all a and rigorous non-escape and convergence as a->1.",
+        "searches": [
+          [
+            "tandem exclusion process stationary current unique optimal allocation alpha plus beta fixed budget density rho",
+            "elementary cellular automaton Rule 22 cyclic periodic preimages all zero maximizer unique maximum predecessor count",
+            "randomized two-state generator splitting exact mean semigroup Bernoulli convolution invariant Cantor distribution calibration",
+            "Brownian resetting outward drift partially reactive delta killing trap unique optimal resetting rate Péclet",
+            "partial stochastic resetting contraction a to one Brownian first passage unique optimal rate Ornstein Uhlenbeck limit"
+          ],
+          "https://arxiv.org/html/2406.08387v1",
+          "https://dlmf.nist.gov/5.18"
+        ]
+      },
+      "rationale": "The exact positive-multiplier partial-reset MFPT power series is prior work. The submitted proof supplies strict uniqueness for every a<1 and convergence of *optimized* MFPT and scaled argmin as a->1 via q-Gamma asymptotics, entire-series domination and equicoercivity, identifying an OU first-passage functional. Inspected source plots an optimum but does not give this rigorous global or joint limit theorem.",
+      "residual_risks": [
+        "Other OU singular-limit theorems or unindexed first-passage optimizations may include the same constants.",
+        "Numerical decimal expansions are not interval-certified, and no rate of convergence in a is proved; a is restricted to [0,1)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SERIES_KNOWN_NEW_OPTIMIZER_LIMIT",
+          "evidence": "Provides exact MFPT for finite a and numerical optimality visualization but no analytic uniqueness/argmin singular-limit proof.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+          "material_read": "Full arxiv v1 HTML; Section III.1 mean first passage, Eqs. (36),(42),(44)-(45), optimization figure, discussion/conclusion and appendices",
+          "method": "Full-text arxiv HTML reading",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Exact same Brownian X->aX target-search and possible dominance"
+        },
+        {
+          "assessment": "STATIONARY_NOT_HITTING_TIME",
+          "evidence": "Stationary Gaussian positional law does not control the expected first-hit optimizer.",
+          "identifier_or_url": "https://arxiv.org/html/2205.03363v2",
+          "material_read": "Primary work and scientific descriptions of Sections II/III stationary distribution/Gaussian limit; no claim that entire article was re-read this execution",
+          "method": "Related source comparison",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Potential all-model weak reset OU law"
+        },
+        {
+          "assessment": "CLASSICAL_MATHEMATICAL_INGREDIENT",
+          "evidence": "sqrt(1-a) R(a)->sqrt(pi/2); not independently novel.",
+          "identifier_or_url": "https://dlmf.nist.gov/5.18",
+          "material_read": "Equation references 5.18.4 and 5.18.10 inspected via source proof and cross-linked identity; not claiming whole reference website read",
+          "method": "Reference formula verification",
+          "title": "NIST DLMF q-Gamma function identities",
+          "trigger": "Nonstandard ratio of infinite products in weak contraction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Partial resetting by a small fractional contraction is a natural search protocol whose optimized rate diverges while its optimized cost remains finite. The theorem rigorously identifies the OU limit of the entire MFPT objective and optimizer, supplies universal constants and global uniqueness, and is not a routine stationary Gaussian or fixed-rate limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite-a series from Biroli is a premise; decimals from numerical quadrature are approximate.",
+    "Limit a->1^- only, fixed target Brownian, no general reset-rate, negative multiplier or cost extension."
+  ],
+  "schema_version": 1
+}

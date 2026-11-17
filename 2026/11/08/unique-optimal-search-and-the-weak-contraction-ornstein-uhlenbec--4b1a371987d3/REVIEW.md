@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite-multiplier first-passage expansion is explicitly attributed to arXiv:2406.08387v1, Eq. (45). Strict positivity of its coefficients makes the derivative-sign function strictly increasing, proving a single global optimum. The nonstandard infinite-product step is grounded in the standard \(q\)-gamma identity and limiting theorem, NIST DLMF equations 5.18.4 and 5.18.10. Coefficientwise weak-contraction limits come with quantitative entire-series majorants and hence locally uniform functional and derivative convergence; two explicit positive terms make optimizer sublevel sets equicoercive. The limiting coefficients are independently identified with the full Ornstein–Uhlenbeck boundary-value integral. All claimed decimals were reproduced by a separate Gaussian-integral evaluation and 33 finite checks.
+PASS
 
-## Originality — PASS (with residual priority risk)
+The supplied exact first-passage series F_a(beta) of Biroli et al. has positive coefficients c_k and F_a(beta)/beta² derivative sign -c1+sum_{k>=3}(k-2)c_k beta^{k-1}; positivity yields a unique global positive minimizer for each 0<=a<1. The q-Gamma ratio R(a) and its sqrt(1-a) limit, plus bounds 1-a^m<=m(1-a), dominate all rescaled entire series and their derivatives on compacts. Matching the limiting series with the OU first-passage ODE solution u''-b²x u'=-1 from x=0 to x=1 gives an exact Gaussian integral. Terms c1/b and b²/24 equicoerce minimizers away from 0,infinity; local uniform convergence plus unique limit implies convergence of global argmins. Independently evaluated the OU Gaussian-integral minimum at b≈1.280880474 and cost≈1.99986485199, consistent with stated high-precision root b*=1.280880490. Numerical decimals are approximations, not certified intervals; singular scaling is proved analytically.
 
-The 2024 Biroli–Feld–Hartmann–Majumdar–Schehr paper supplies the complete source MFPT series and plots an apparently unique optimum. It does not present the singular optimal-rate limit, universal optimized MFPT, or argmin-convergence proof. Pierce's 2022 proportional-reset paper only gives the first-passage equation; Tal-Friedman–Roichman–Reuveni's 2022 result gives a stationary spatial Gaussian limit, not an absorbing first-passage optimum. Other related mathematical findings address stationary rescaling large deviations, negative-multiplier first passage, and stationary power spectra; these do not imply the positive-multiplier optimized limit. Relevant searchable external research records did not contain the claimed exact limit. The risk that a broader published Ornstein–Uhlenbeck limit theorem already implies this particular optimizer asymptotic, or that an unindexed source presents the constants, remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Optimal target search under increasingly weak but increasingly frequent resets is a physically natural singular-control limit. The theorem separates divergent event frequency from finite optimized target-search cost, provides an explicit universal design scale rather than a numerical optimization plot, and proves global optimizer convergence. This goes beyond a textbook Taylor expansion: the stationary objective requires control of an infinite product, all series terms, and minimizers on the noncompact positive rate axis. Its scope is the stated model, not a general theorem for arbitrary stochastic resetting.
+The exact positive-multiplier partial-reset MFPT power series is prior work. The submitted proof supplies strict uniqueness for every a<1 and convergence of *optimized* MFPT and scaled argmin as a->1 via q-Gamma asymptotics, entire-series domination and equicoercivity, identifying an OU first-passage functional. Inspected source plots an optimum but does not give this rigorous global or joint limit theorem.
 
-## Scientific limitations
+## value
 
-The result depends on the previously published full first-passage expansion and the classical \(q\)-gamma limit. Numerical tests support calculations but do not certify continuum claims or decimal enclosures. Independent evaluation, a wider priority search, and extension to randomized or negative multipliers remain outside the established theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Partial resetting by a small fractional contraction is a natural search protocol whose optimized rate diverges while its optimized cost remains finite. The theorem rigorously identifies the OU limit of the entire MFPT objective and optimizer, supplies universal constants and global uniqueness, and is not a routine stationary Gaussian or fixed-rate limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
