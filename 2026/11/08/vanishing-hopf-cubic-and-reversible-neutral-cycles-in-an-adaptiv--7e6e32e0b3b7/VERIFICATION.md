@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The result is supported by an analytic computation of the first Lyapunov coefficient, an exact parameter-independent binomial derivative identity, and a planar time-reversing symmetry. `verify.py` evaluates the key identity in exact rational arithmetic on six sample group quotas, tests the symmetry for balanced quotas, and diagnoses the half-return construction by numerical integration.
+## correctness
 
-Run `python verify.py` in the directory containing the file; prerequisites are Python 3, SymPy, and SciPy. Expected output contains `VERIFY_OK`. The finite checks do not prove the theorem in arbitrary dimension/parameters; the full universal argument appears in `RESULT.md`.
+PASS
 
-The first Lyapunov coefficient is asserted to be zero at the specified critical parameter only. It is not asserted that every asymmetric case is a center, nor that an isolated small cycle exists away from criticality. The balanced center and nonisolated-cycle arguments are purely deterministic and local to interior periodic orbits. No independent external audit has been performed.
+PASS: At T0=p/(p+q), the binomial logarithmic derivative (p−(p+q)x)/(x(1−x)) gives Γʺ=−(p+q)Γ/Q and Γʺʹ=2(p+q)ΓQʹ/Q². These cancel AΓʺʹ+2AʹΓʺ in the correctly normalized planar cubic formula; an independent exact symbolic calculation checked five symmetric/asymmetric quota pairs. In balanced quotas the full vector field is reversible under (x,r)↦(1−x,r); the elliptic linearization and transverse half-return force actual periodic orbits by uniqueness. A Jordan-curve index and crossing argument excludes isolated interior cycles. Numerics in inspected verify.py are only ancillary; asymmetry higher-order focus not decided.
+
+## originality
+
+PASS
+
+PASS, restricted to all-quota exact cubic cancellation and the higher-balanced-quota reversible family; the N=3 balanced center already appears in an earlier published record. The primary 2023 paper gives the same sigmoid System II and reports a numerical negative Lyapunov coefficient (~−1.876×10⁻⁸), incorrectly inferring a nondegenerate stable Hopf cycle. Exact cancellation is a real correction, not a mere numerical refinement. Earlier conserved-quantity results use linear feedback and cannot be transferred unchanged.
+
+## value
+
+PASS
+
+PASS: The all-quota exact vanishing coefficient changes interpretation of a published critical bifurcation and prevents unsupported supercritical Hopf conclusions; the balanced odd-group subfamily supplies an explicit structural explanation, genuine nonisolated neutral cycles and a sharp period limit. This addresses a motivated model-specific dynamical gap; N=3 center itself is not newly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
