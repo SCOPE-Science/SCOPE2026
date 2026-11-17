@@ -1,15 +1,21 @@
-# Review of exact coprime-run laws for degree-two cyclotomic sequences
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact resultant identities for two shifted monic quadratics restrict the nontrivial common prime factors to \(3,7,19\) for the five-point \(\Phi_3,\Phi_6\) windows and \(2,5\) for the three-point \(\Phi_4\) windows. Modulo-prime root pairs and prime-power checks establish each exact gcd. Universal finite cutoffs use repeated roots at separations three and two; CRT then yields the complete run and edge-count profiles. Proper nonempty local residue subsets over prime moduli have no nontrivial translation symmetry, proving the minimal periods. The delivered exact-integer verifier reproduces the finite profiles but is not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Deshouillers--Naik (arXiv:2506.20948, 2025, primary MSC 11B05) proves arbitrarily long coprime blocks under the hypothesis that the second derivative tends to zero. That hypothesis fails for the three quadratic polynomials. Sanna--Szikszai (arXiv:1704.01738, 2017) studies a distinct Pillai-type condition on long blocks of quadratic polynomial values, not the complete pairwise-coprime run spectrum. The general resultant argument is classical; its use alone is not claimed as new. Published-literature comparisons include equivalent formulations, broader coverage, exact tables, and implication tests, with closest accessible work and residual risks recorded in AUDIT.json. A general 2025 resultant exposition was checked only at abstract level. Unindexed prior tables or equivalent elementary results remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete classification for all degree-two cyclotomic polynomials, not an arbitrary finite slice: exact universal maximal lengths, least periods, densities of all run lengths, and full common-divisor graph distributions. It supplies a sharp integer-quadratic boundary example to the emerging smooth-curvature literature, where arbitrarily long coprime blocks hold under different hypotheses. The complete finite family gives a reusable arithmetic test case for general polynomial-gcd structure.
+Polynomial resultants for Phi3 at separations 1..4 restrict common primes to 7 at h=2, 3 at h=3 and 19 at h=4; exact modular roots determine all five-window edges. Phi4 separations 1,2 yield primes 5,2 and Phi6(x)=Phi3(x−1). Every six Phi3 indices contain two ≡1 mod3 and every four Phi4 indices two odd, giving strict universal cutoffs. CRT count of allowable maximal windows and graph-edge generating polynomials gives the claimed 399- and 10-period histograms; proper nonempty residue classes at every prime factor force least periods. Independently enumerated every starting residue of periods 399 and 10, all gcd edges and run lengths, including Phi6 n=1 boundary; matches exactly. Finite checks corroborate the resultant/CRT proof, not substitute for it.
 
-## Scientific limitations
-No extension to general quadratics or higher cyclotomic indices is established; exact priority is not guaranteed. Finite calculations verify arithmetic, not every infinite quantifier by themselves. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An October 18 prior theorem provides a complete single-shift pair-gcd formula for Phi3 at every shift, and therefore covers the individual Phi3 edge congruences. The submitted Phi3 399-period run and multi-edge distribution can be obtained by combining that prior pair formula over shifts 1..4 and applying CRT; this is substantial logically antecedent coverage and is not represented as a new local-gcd mechanism. However the earlier theorem only covers same-step gcds and individual distributions for Phi3, not the stated joint window/run classification of the complete three degree-two cyclotomic family; Phi4 has separate parity-and-mod5 behavior and Phi6 translates Phi3. The significance is the unified exact full-family run/graph invariant rather than its elementary prime checks. Risk: a reader may view the run histograms as routine corollaries of the earlier general formula, weakening novelty.
+
+## value
+
+PASS
+
+The family of all monic quadratic cyclotomic sequences is a natural, exhaustively defined arithmetic class. Exact maximal pairwise-coprime blocks, least periods and full common-divisor graph distribution give global sequence invariants rather than isolated gcd counts; completeness across Phi3,4,6 and sharp cutoffs are mathematically useful. Nevertheless the combinatorial CRT evaluation is short and some Phi3 content mechanically follows the earlier all-shift gcd theorem; assessed as a modest, motivated classification rather than a broad new gcd theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
