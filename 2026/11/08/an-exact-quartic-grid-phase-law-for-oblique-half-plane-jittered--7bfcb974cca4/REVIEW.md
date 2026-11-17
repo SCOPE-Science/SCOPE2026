@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact cellwise Bernoulli variance identity, integer-slope level-count reduction, Faulhaber-polynomial quartic cancellation, primitive-lattice counting bound, and rational/irrational rotation arguments cover every hypothesis and boundary in the stated result. The standalone exact-rational verifier passed 1742 independent assertions. Finite checks support but do not prove the all-integer or irrational claims.
+## correctness
 
-**Originality — PASS with residual priority risk.** The closest prior work on stratified sampling contains general variance/discrepancy inequalities (Kiderlen–Pausinger 2020), integrated jittered \(\mathcal L_2\) discrepancy formulas (Kirk–Pausinger 2022), and randomized quadrature confidence bounds including low-regularity settings (Kunsch 2023). These results do not by themselves imply the claimed all-primitive-slope quartic phase cancellation and complete intercept-arithmetic cluster sets, although they provide familiar ingredients. Published numerical research records about stratified variance reversal and unrelated lattice grid-phase laws have different estimands and are not stronger coverage. Specialist exact-geometry sampling literature may still contain an equivalent result; no proof of publication priority is claimed.
+PASS
 
-**Value — PASS.** Oblique discontinuity interfaces are a natural non-axis-aligned stress test for stratified integration. The theorem supplies an exact finite estimator risk formula for all primitive integer orientations, identifies a rigorous \(n^{-3}\) variance scale, and quantifies a nonvanishing arithmetic variation in the leading constant. In particular the simplest diagonal yields a sharp limiting range \([7c/32,c/4]\), so a single phase-free sharp coefficient would be mathematically false. The claim is restricted to independent per-square jitter and triangular-cut intercepts.
+For each one-per-square independent uniform sample, Var(Q_n)=n^-4 sum of Bernoulli cell variances. With m=floor(nc), theta={nc}, cells contributing have ai+bj=m-k for 0<=k<a+b; c<a and a<=b ensure every nonnegative solution fits the n by n grid. The piecewise triangular/trapezoid CDF of aU+bV yields W(theta)=(-a^4+5a^3b+10ab^3+1)/(60ab^2)-theta^2(1-theta)^2/(2ab^2) by finite power sums. Primitive counting N_{a,b}(s)=s/(ab)+O_{a,b}(1) gives n^3Var=cW(theta)/(ab)+O(1/n). Irrational Kronecker/density and rational residue cycling yield the asserted exact cluster sets, including sharp diagonal [7c/32,c/4]. Independent fraction calculations corroborated 77 distinct W and finite n cell-count identities; only the analytic lattice-count and exact power sums prove all n.
 
-The relevant articles are Kiderlen–Pausinger, arXiv:2008.12026; Kirk–Pausinger, arXiv:2208.08924; and Kunsch, arXiv:2309.09059. All three of those principal papers were inspected in accessible full HTML, including the theorem and proof sections relevant to their estimands. Their integrated anchored-box discrepancy and Sobolev-class guarantees are different statements from the fixed oblique half-plane variance. Additional cited diagonal-singularity QMC work addresses a distinct quadrature design; publication-priority risk in other specialized literature remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected stronger result implies the universal quartic dependence of the fixed-oblique-half-plane square-grid jitter variance or its complete arithmetic cluster set; prior partition discrepancy statements address different functionals. Best-of-knowledge novelty with specialist literature risk.
+
+## value
+
+PASS
+
+An exact risk for a discontinuous oblique interface is a natural stress test for independent stratified quadrature. The phase oscillation is not removable by generic rate bounds; a single sharp limit constant is false for irrational c, and complete rational/irrational cluster sets quantify the phenomenon across all primitive directions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

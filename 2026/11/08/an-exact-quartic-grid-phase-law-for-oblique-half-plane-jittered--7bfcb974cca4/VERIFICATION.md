@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact-rational verifier `verify.py` has been executed successfully with Python 3 and no third-party dependencies; its output is `PASS: 1742 independent exact-rational assertions`.
+# Independent mathematical audit
 
-Direct per-cell Bernoulli variances were compared with the exact grouped lattice counts for all coprime \(1\le a\le5\), \(a\le b\le6\), multiple positive rational heights and \(n\in\{1,2,4,7,11\}\). The quartic coefficient was tested independently for five rational grid phases over the same slope collection. The one-dimensional lattice-count remainder was checked in finite ranges. These computations are finite diagnostics. The infinite-size, all-slope and irrational-phase results rest on the explicit polynomial-sum identity and coprime lattice-counting argument given in the proof, not on exhaustive enumeration or numerical sampling.
+## correctness
 
-To reproduce the finite checks, run `python verify.py`. This does not constitute an independent scientific audit.
+PASS
+
+For each one-per-square independent uniform sample, Var(Q_n)=n^-4 sum of Bernoulli cell variances. With m=floor(nc), theta={nc}, cells contributing have ai+bj=m-k for 0<=k<a+b; c<a and a<=b ensure every nonnegative solution fits the n by n grid. The piecewise triangular/trapezoid CDF of aU+bV yields W(theta)=(-a^4+5a^3b+10ab^3+1)/(60ab^2)-theta^2(1-theta)^2/(2ab^2) by finite power sums. Primitive counting N_{a,b}(s)=s/(ab)+O_{a,b}(1) gives n^3Var=cW(theta)/(ab)+O(1/n). Irrational Kronecker/density and rational residue cycling yield the asserted exact cluster sets, including sharp diagonal [7c/32,c/4]. Independent fraction calculations corroborated 77 distinct W and finite n cell-count identities; only the analytic lattice-count and exact power sums prove all n.
+
+## originality
+
+PASS
+
+No inspected stronger result implies the universal quartic dependence of the fixed-oblique-half-plane square-grid jitter variance or its complete arithmetic cluster set; prior partition discrepancy statements address different functionals. Best-of-knowledge novelty with specialist literature risk.
+
+## value
+
+PASS
+
+An exact risk for a discontinuous oblique interface is a natural stress test for independent stratified quadrature. The phase oscillation is not removable by generic rate bounds; a single sharp limit constant is false for irrational c, and complete rational/irrational cluster sets quantify the phenomenon across all primitive directions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

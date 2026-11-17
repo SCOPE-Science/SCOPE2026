@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T03:55:33.291313Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob f2141238f748da1f2729439b343e18873d1f2935",
+        "Assigned verify.py blob 2b9fd2d65448ccd6d96559053078d98c248ad067",
+        "M. Kiderlen, F. Pausinger, Discrepancy of stratified samples from partitions of the unit cube, arXiv:2008.12026, DOI:10.1007/s00605-021-01538-4",
+        "N. Kirk, F. Pausinger, On the expected L2-discrepancy of jittered sampling, arXiv:2208.08924",
+        "Resultary 2026/11/8/SCOPE-exact-lattice-phase-variance-for-triangular-latin-hypercube-quad--55f29d7ad065",
+        "Resultary 2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3"
+      ],
+      "rationale": "For each one-per-square independent uniform sample, Var(Q_n)=n^-4 sum of Bernoulli cell variances. With m=floor(nc), theta={nc}, cells contributing have ai+bj=m-k for 0<=k<a+b; c<a and a<=b ensure every nonnegative solution fits the n by n grid. The piecewise triangular/trapezoid CDF of aU+bV yields W(theta)=(-a^4+5a^3b+10ab^3+1)/(60ab^2)-theta^2(1-theta)^2/(2ab^2) by finite power sums. Primitive counting N_{a,b}(s)=s/(ab)+O_{a,b}(1) gives n^3Var=cW(theta)/(ab)+O(1/n). Irrational Kronecker/density and rational residue cycling yield the asserted exact cluster sets, including sharp diagonal [7c/32,c/4]. Independent fraction calculations corroborated 77 distinct W and finite n cell-count identities; only the analytic lattice-count and exact power sums prove all n.",
+      "residual_risks": [
+        "Direct finite arithmetic checks are corroborative and do not prove the irrational phase claim. The formula assumes fixed primitive integer normal and c in (0,a), not general lines intersecting other square boundaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stratified discrepancy estimates and Sobolev-class bounds give rates or integrated criteria, not a finite-sample lattice polynomial and all rational/irrational alignment clusters."
+        ],
+        "reasoning": "Even a general upper rate O(n^-3) cannot determine a grid-phase coefficient and all subsequential constants; no located dominating parameter result specifies these.",
+        "searches": [
+          "Resultary query: jittered stratified sampling half plane rational slope variance quartic phase irrational threshold lattice count",
+          "arXiv:2008.12026",
+          "arXiv:2309.09059"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob f2141238f748da1f2729439b343e18873d1f2935",
+        "Assigned verify.py blob 2b9fd2d65448ccd6d96559053078d98c248ad067",
+        "M. Kiderlen, F. Pausinger, Discrepancy of stratified samples from partitions of the unit cube, arXiv:2008.12026, DOI:10.1007/s00605-021-01538-4",
+        "N. Kirk, F. Pausinger, On the expected L2-discrepancy of jittered sampling, arXiv:2208.08924",
+        "Resultary 2026/11/8/SCOPE-exact-lattice-phase-variance-for-triangular-latin-hypercube-quad--55f29d7ad065",
+        "Resultary 2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-half-plane grid-phase quartic varies with {nc}; integrated L2 and rate comparison cannot reconstruct phase-resolved coefficient without additional analysis."
+        ],
+        "reasoning": "The claimed strong all-primitive-grid formula is not a specialization of a documented prior exact formula; both use shared classical Bernoulli variance ingredients.",
+        "searches": [
+          "Resultary query: jittered stratified sampling half plane rational slope variance quartic phase irrational threshold lattice count",
+          "M. Kiderlen, F. Pausinger, Discrepancy of stratified samples from partitions of the unit cube, arXiv:2008.12026, DOI:10.1007/s00605-021-01538-4",
+          "N. Kirk, F. Pausinger, On the expected L2-discrepancy of jittered sampling, arXiv:2208.08924"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiderlen-Pausinger studies partition discrepancy and general convex-domain tools; Kirk-Pausinger studies expected integrated L2 discrepancy across anchored boxes."
+        ],
+        "reasoning": "Integrated discrepancy averages across a family of test sets; an exact variance for a specific rational-slope half-plane at every grid phase is not given by their scalar integrated formulas.",
+        "searches": [
+          "Resultary query: jittered stratified sampling half plane rational slope variance quartic phase irrational threshold lattice count",
+          "arXiv:2008.12026",
+          "arXiv:2208.08924"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Latin-hypercube triangular estimator uses coupled point placement; the arithmetic jump theorem varies rational direction for an anchored triangle rather than phase of threshold at a fixed slope."
+        ],
+        "reasoning": "Neither gives the exact finite variance formula for the assigned independent square-cell estimator; no exact equivalent table identified in examined resources.",
+        "searches": [
+          "Resultary query: jittered stratified sampling half plane rational slope variance quartic phase irrational threshold lattice count",
+          "Resultary 2026/11/8/SCOPE-exact-lattice-phase-variance-for-triangular-latin-hypercube-quad--55f29d7ad065",
+          "Resultary 2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3"
+        ]
+      },
+      "rationale": "No inspected stronger result implies the universal quartic dependence of the fixed-oblique-half-plane square-grid jitter variance or its complete arithmetic cluster set; prior partition discrepancy statements address different functionals. Best-of-knowledge novelty with specialist literature risk.",
+      "residual_risks": [
+        "Specialized exact-discrepancy or rational-slope sampling papers not exhaustively inspected.",
+        "Kirk-Pausinger full text not independently read during this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECT_COVERAGE",
+          "evidence": [
+            "General partition discrepancy estimates do not specialize to the asserted quartic fixed-half-plane phase coefficient without additional computation."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00605-021-01538-4",
+          "material_read": "Accessible full HTML theorem and proof sections about stratified partition discrepancy and integrated anchored-box quantities",
+          "method": "Web opened full HTML; compared hypotheses and estimand",
+          "title": "Discrepancy of stratified samples from partitions of the unit cube",
+          "trigger": "Closest full primary partition-discrepancy theorem"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_PRIORITY_RISK",
+          "evidence": [
+            "The cited L2-integrated discrepancy target differs from the fixed oblique half-plane variance, but unread full body leaves priority risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.08924",
+          "material_read": "ArXiv bibliographic information and the assigned package description; not complete primary full text independently reproduced in this audit",
+          "method": "Metadata/abstract retrieval and mathematical comparison using available formulation",
+          "title": "On the expected L2-discrepancy of jittered sampling",
+          "trigger": "Related classic integrated statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob f2141238f748da1f2729439b343e18873d1f2935",
+        "Assigned verify.py blob 2b9fd2d65448ccd6d96559053078d98c248ad067",
+        "M. Kiderlen, F. Pausinger, Discrepancy of stratified samples from partitions of the unit cube, arXiv:2008.12026, DOI:10.1007/s00605-021-01538-4",
+        "N. Kirk, F. Pausinger, On the expected L2-discrepancy of jittered sampling, arXiv:2208.08924",
+        "Resultary 2026/11/8/SCOPE-exact-lattice-phase-variance-for-triangular-latin-hypercube-quad--55f29d7ad065",
+        "Resultary 2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3"
+      ],
+      "rationale": "An exact risk for a discontinuous oblique interface is a natural stress test for independent stratified quadrature. The phase oscillation is not removable by generic rate bounds; a single sharp limit constant is false for irrational c, and complete rational/irrational cluster sets quantify the phenomenon across all primitive directions.",
+      "residual_risks": [
+        "Scope excludes other cell geometries and nonprimitive normals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independently checked 77 exact fraction identities; all-n counting and dense-phase conclusions rely on the analytic proof. Residual specialist priority risk.",
+    "All assigned source tree identifiers independently matched Git tree objects with truncated=false. Any script outputs are corroboration; assertions are based on the reconstructed analytic proof."
+  ],
+  "schema_version": 1
+}
