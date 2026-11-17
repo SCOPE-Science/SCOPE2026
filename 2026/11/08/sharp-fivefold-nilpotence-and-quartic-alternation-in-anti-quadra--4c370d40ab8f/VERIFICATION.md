@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the standard Python library. `verification_output.txt` contains an execution of the bundled code; the proof in `RESULT.md` is self-contained apart from a finite, completely enumerated arity-four sign test, for which the code is provided. The checker reconstructs the three cubic rewrite rules from scratch and evaluates 120 arity-four and 1680 arity-five formal monomials. In the explicit example, it checks all ordered triples of the 15-dimensional base and 30-dimensional cotangent extension with exact integer coefficients, nonzero quartic product, and a distinction from a related symmetric-metric identity. All assertions were executed successfully from this package. The check is not an independent mathematical audit, is not an external certification, and does not investigate characteristic two or minimal example dimension.
+## correctness
+
+PASS
+
+The three displayed universal cubic identities imply an 8-step signed rewrite cycle sending ((((ab)c)d)e) to its negative, so all 5-fold left combs vanish in characteristic !=2. The nearly associative identity reduces every bracketing to a permutation of such a comb, and higher products vanish. The arity-four identity graph has 120 signed monomials, one consistent component transforming by sign. The explicit B=Lambda^1 V+...+Lambda^4 V (dim15) and D=B+B* (dim30) structure constants satisfy all identities and the canonical symplectic form, with nonzero 4-fold product -e1234. Recomputed the signed arity4/5 relation graphs and independently checked all 27,000 triple basis inputs in D; nonzero quartic witness.
+
+## originality
+
+PASS
+
+Best-of-knowledge new sharp index-five theorem in the anti-quadratic class: motivating 2026 paper states a weaker sixfold bound; another 2026 index-five theorem assumes a different symmetric-metric anti-left-invariant variety, and a concrete quartic counterexample prevents transfer of its skew triple-product property. Primary full-text access risks explicitly retained.
+
+## value
+
+PASS
+
+This is a sharp structural improvement from a published sixfold nilpotence bound to five, with universal fourth-arity alternation and explicit sharpness example. It resolves a meaningful algebraic identity boundary rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
