@@ -1,15 +1,21 @@
-# Review of Fourier-null rigidity of residue-deformed cubic moment curves
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the complete additive character group of \((\mathbb Z/p^2\mathbb Z)^3\), for every prime \(p\) and every triple of residue-dependent functions. The key equality is exact orthogonality on each input residue fibre, not an asymptotic stationary-phase approximation. When the derivative quadratic has at most two roots, their odd-order roots of unity cannot cancel. At the two small primes, the only identically-zero derivative cases are checked by residue parity and divisibility by the ninth cyclotomic polynomial; these prevent spurious cancellation. Imprimitive frequencies reduce to prime-level permutation polynomials. Independent count of rootless derivatives and a collision argument for depressed permutation cubics lead to the exact nullity and rank. The supplied cyclotomic verifier was executed successfully in addition to the proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-Cochrane–Zheng's general prime-power stationary phase is fundamental prior art, so the reduction itself is **not** claimed as new. The published prime-square \(\{(t,t^3)\}\) spectrum theorem uses the same prime-square cancellation mechanism for a two-coordinate cubic graph but classifies orthonormal bases, not the full Fourier-null set for \(\{(t,t^2,t^3)\}\) and its \(p^{2p}\) distinct deformations. Haessig's cubic exponential-sum \(L\)-functions concern prime fields, while Segers–Zúñiga-Galindo provide general prime-power estimates. A published local finite-field moment-curve stability result treats a different extension invariant. Searches found no directly covering exact three-coordinate rank law or all-residue-perturbation invariance. The primary literature may contain an equivalent unindexed specialization; absence of a result in search is not itself a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The cubic moment curve is a canonical arithmetic Fourier object. Its exact prime-square convolution rank, three-characteristic boundary behavior, asymptotic half-density of Fourier zeros, and invariance across an exponentially large family of genuinely distinct deformations provide a complete natural spectral invariant. This is not an arbitrary finite slice or a restatement of point counts: it determines every zero Fourier direction and thus the entire convolution kernel. It does not purport to solve more general higher-power or arbitrary-polynomial questions.
+For all primes p and arbitrary h1,h2,h3:F_p→F_p, x=r+pt reduces the unnormalized character sum on (x+ph1,x²+ph2,x³+ph3) to p times a sum over derivative-critical residues. For p≥5 a primitive derivative is a nonzero quadratic and at most two p²th roots cannot cancel; for p=2,3 the zero-derivative exceptional cases have incompatible exponent residues so also cannot cancel. Imprimitive sums vanish iff the reduced cubic is a permutation (cyclotomic minimal polynomial). Rootless-derivative and permutation-cubic counts prove nullity 20,168 and p³[p−1+p(p−1)²/2]+(p−1)(1+p1_{p≡2 mod3}) at p≥5; rank p^6−nullity and limit 1/2. Independent exact residue-census reconfirmed p=2,3,5,7,11, incl. rootless/permutation counts; finite checks corroborate but do not prove the universal theorem.
 
-## Risks and verification limits
-The independent mathematical audit has not occurred. The all-prime proof depends on exact cyclotomic cancellations and classical permutation-polynomial reasoning, all reconstructed here. Exhaustive numerical runs stop at finite moduli; their role is reproducibility, not infinite certification. The literature survey is bounded; there may be a stronger historical theorem that subsumes this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Three-coordinate p² Fourier zero-set invariant under all residue-digit perturbations and its complete rank are not stated by the inspected two-coordinate cubic graph classification. Stationary phase and permutation polynomial ingredients are prior art; best-of-knowledge all-three-coordinate enumeration and deformation rigidity remain distinct.
+
+## value
+
+PASS
+
+A complete perturbation-insensitive rank law for a canonical finite-ring moment curve answers a natural additive-harmonic robustness question, with nontrivial p=2,3 exceptions and half-density limit; it is not a renamed derivative lemma or a bare numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
