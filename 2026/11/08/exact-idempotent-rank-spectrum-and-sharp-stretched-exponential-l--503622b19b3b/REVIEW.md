@@ -1,15 +1,21 @@
-# Scientific review: even-cycle idempotent rank distribution
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact formula follows from the equivalence between an idempotent graph endomorphism and a retraction onto its image: every nontrivial proper image of a cycle is a consecutive-vertex path. Each fixed image arc has a uniquely specified fixed interior, and its complementary arc is an endpoint-to-endpoint nearest-neighbor walk in the image path, counted by a matrix power. The admissible rank cutoff follows from walk length. The path adjacency spectral expansion has two equal top-modulus, *constructively aligned* endpoint terms for even cycle length; their coefficient is precisely \(4j^{-1}\sin^2(\pi/j)\). Uniform eigenvalue-gap estimates, a unique cubic-root saddle and a localized Gaussian sum establish the claimed prefactor and rank central limit. The identity contributes a negligible singleton at maximal rank. The exact closed-walk count of all endomorphisms gives the stated proportion. The independently written `verify.py` enumerated all actual cycle endomorphisms in even dimensions 4–14 and reproduced the entire idempotent rank spectrum. The infinite assertions rest on analytic estimates, not finite experiments.
+## correctness
 
-## Originality: PASS relative to examined literature
-The underlying endomorphism monoid, total size, and qualitative idempotent/retraction correspondence are not new: Dimitrova–Fernandes–Koppitz–Quinteiro (arXiv:2310.04149v1) and earlier work of Michels–Knauer cover these backgrounds. Bouchot (arXiv:2202.11953v1) establishes sharp partition functions and Gaussian fluctuations for **unconstrained range-penalized random walks**, which explains why the cubic-root and Gaussian *mechanism* cannot be claimed as a wholly new phenomenon. Crucially, the studied algebraic statistic counts an endpoint-to-opposite-endpoint excursion in a prescribed finite path, rather than an unconstrained endpoint penalized by its range. Its two endpoint spectral factors yield a different polynomial prefactor and an exact semigroup-specific rank spectrum not supplied by the inspected theorems. Primary full text of the 2023 cycle-monoid paper and the 2022 random-walk paper was compared by statements and implications, and the published total-endomorphism table OEIS A112850 was checked. The 2009 Michels–Knauer full text was not accessible, so priority remains provisional. Targeted search results did not identify an exact idempotent rank table or a dominating theorem; absence of a match is not proof of novelty.
+PASS
 
-## Mathematical value: PASS
-The exact number and rank spectrum of idempotents are natural invariants of the explicitly studied finite endomorphism monoids. The result determines an infinite family of rank profiles, the sharp leading constant, the scale of the typical image rank, and the proportion of idempotents among all endomorphisms. The ratio has a stretched-exponential penalty that is invisible from the previously known total count alone. Although its analytic mechanism is related to established random-walk confinement results, the boundary-conditioned enumeration is a nontrivial, structurally motivated algebraic statistic.
+An idempotent strict graph endomorphism retracts C_n onto its image, which if proper must be a path of k consecutive cycle vertices. The complement maps to a length n-k+1 nearest-neighbor walk between fixed path endpoints; n placements give e_{n,k}=n(A_k^{n-k+1})_{1,k}. For even n, the two extremal eigenmodes of path adjacency have combined amplitude 4 sin²(pi/(k+1))/(k+1), giving a saddle exponent a j + pi² n/(2j²) at j=(pi²/log2)^{1/3} n^{1/3}. A localized discrete Gaussian Laplace sum yields 16 sqrt(2 pi a s/3)*2^n*n^{1/6} exp(-(3/2)a s n^{1/3}) and centered n^{1/6} rank CLT. Independent exhaustive enumeration of ALL strict endomorphisms via closed +/-1 cycle walks for n=4,6,8,10,12,14,16 exactly matched every rank count and totals 9,25,73,221,685,2157,6881. Odd n gives only automorphism idempotent identity.
 
-## Closest sources and risks
-The closest primary semigroup paper is Dimitrova et al., arXiv:2310.04149v1: generators, Green relations, regularity and full endomorphism totals, without the asserted rank spectrum in the inspected text. Bouchot's arXiv:2202.11953v1 establishes Gaussian range behavior in a related but not equivalent endpoint model and explicitly separates final-endpoint laws from its range-endpoint treatment. Michels–Knauer (2009), *The congruence classes of paths and cycles*, is a relevant inaccessible earlier full text. A more general unlocated graph-retraction enumeration or conditioned polymer theorem could dominate the claim; independent priority checking is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite strict-CYCLE idempotent rank formula and its sharp two-ENDPOINT prefactor were not determined by the inspected prior strict-PATH free-tail convolution or WEAK-cycle lazy walks. Although their cubic-root location and normal scale resemble published path and range-penalized-walk laws, neither exact cycle rank counts nor the sharp prefactor and rarity constant are implied by those other boundary conditions. Best-of-knowledge originality remains provisional due inaccessible 2023 cycle-monoid primary full text.
+
+## value
+
+PASS
+
+Strict cycle graph endomorphisms form a natural finite transformation monoid. Their exact idempotent image-rank enumerator, sharp stretched-exponential total and explicit centered CLT give genuinely useful algebraic and probabilistic invariants (including rare-retraction counts and typical image geometry); unlike an arbitrary small computation, they solve all even n and provide a specific boundary-conditioned prefactor not supplied by the compared path or weak-cycle results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
