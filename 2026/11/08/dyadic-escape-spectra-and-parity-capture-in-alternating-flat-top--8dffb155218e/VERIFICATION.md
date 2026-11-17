@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify_markov.py` with Python 3.9 or later. It uses only the Python standard library and exact fractions. Expected messages:
+# Independent mathematical audit
 
-```
-DYADIC_ALTERNATING_TENT_EXACT_MARKOV_AND_CHARPOLY_OK parameters=22 cells_checked= 198
-DIRECT_GRID_CYLINDER_LENGTHS_OK independent_comparisons= 24
-```
+## correctness
 
-The first part checks the forward-invariant endpoint sets, all affine images and retained-cell transitions, characteristic polynomials using exact integer matrix traces, and critical-orbit capture for parameter indices \(1\) through \(22\). The second part is an independently coded full rational cylinder-grid enumeration for indices \(1\) through \(6\), depths \(1\) through \(4\), compared with the transfer-matrix length formula.
+PASS
 
-The proof for every integer parameter is the indexed boundary/transition argument and Perron eigenvalue elimination in RESULT.md. Finite computations do not constitute an exhaustive proof of infinitely many parameters; numerical simulation is not used to justify dimension or asymptotic estimates. No independent mathematical audit has been performed. 
+The four exact affine branches of H=T² have slope magnitude 4; the forward-invariant dyadic hole-boundary partition produces the stated primitive adjacency matrix with exact transitions. Perron row elimination yields λ^k(4−λ)=2 or 1; graph-directed cylinder lengths give both Hausdorff dimension and the all-time tail. Solving δ(1−δ)^k=p yields γ=p+(k+1/2)p²+O(k²p³); the plateau image and critical orbit prove the odd superstable cycle versus even finite capture by the repelling fixed point. Independently rebuilt the exact rational Markov matrix and characteristic polynomial for m=1..11 and checked direct rational cylinder first-hit probabilities for m=1..4, n=1..3. Those bounded checks are not substituted for the indexed argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the explicit all-dyadic alternating controlled-return spectral polynomials, exact first-hit laws, second-order escape and parity capture. Earlier tent-map control literature defines the family and attractor mechanism; different negative-doubling and moving-hole problems do not establish these exact coordinates/quantifiers. The plausibly overlapping 2025 sequel was not readable in full because authorized institutional access reported a disconnected VPN, retained as a real priority risk.
+
+## value
+
+PASS
+
+These critical-preperiodic dyadic heights form a natural infinite class. The theorem provides all-time escape distributions, entropy/dimension and a qualitatively nontrivial parity change from a superstable finite cycle to a finite-capture basin of a locally repelling point, with a controlled second-order asymptotic. It is more than a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
