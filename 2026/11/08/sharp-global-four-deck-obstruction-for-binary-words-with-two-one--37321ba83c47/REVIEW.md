@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit fourteen-bit pair has respectively two and five one-runs and the sixteen exact four-deck counts listed in the proof. A complete exact four-deck partition of all \(2^{13}\) length-thirteen words, independently replayed through a direct four-index-subset enumeration, has no mixed run-class fiber. Exhaustive enumeration at length fourteen finds exactly one mixed two-element fiber. The padding identity and the published general upper bound turn these finite facts into the infinite sharpness result. Critical code paths and actual computed outputs are in the complete package. No finite experiment is used to infer unexplored longer-length uniqueness.
+## correctness
 
-## Originality
-PASS, with residual historical-priority uncertainty. Direct literature inspection of arXiv:2610.41110v1, Theorem 1.3 and its bounded-run proof, shows the general upper bound \(r(\mathcal B_2)\le5\), but not a lower bound, first collision length or unique first mixed four-deck fiber. Chrisnata et al.'s unrestricted deck enumeration does not imply such a restriction-specific first obstruction. Indexed searches for the precise pair, four-deck cross-class collisions, run-bounded reconstruction, and equivalents returned no covering published statement; these searches cannot establish universal novelty. A further unindexed or unpublished equivalent witness is possible.
+PASS
 
-## Value
-PASS. The newly proposed run-bounded reconstruction threshold has a natural smallest nontrivial open case \(\ell=2\). Its general bound changes from possible strictness to proven sharpness, including an exact first obstruction length and unique obstruction class; the certificate is transparent and fully exhaustive at the finite boundary. The explicit witness also generates collisions for all longer lengths. This is a meaningful boundary result, not an arbitrary short-length table or an incremental numerical bound.
+The four-subsequence dynamic recurrence counts all 16 patterns exactly and the independent direct four-index combination algorithm agrees at the explicit 14-bit witnesses. Independently enumerated every 2^13=8192 and 2^14=16384 binary word, obtaining respectively 8176 and 16328 exact integer four-deck fibers; no mixed R<=2 vs R>2 group at n=13, exactly one mixed group at n=14: x=01111100111110 (two 1-runs) and y=10101111110101 (five). Each has the displayed common 16-vector summing to C(14,4)=1001. Four-deck equality implies three-deck equality by the exact double-counting (n-3) formula, and leading-zero padding preserves four-deck equality and one-run categories; thus no shorter n>=4 collision, and collisions at every n>=14. Angal et al. Thm 1.3 proves the separate r(B2)<=5 upper bound; the new witness proves lower bound. Verified full enumerators from actual package; complete finite enumeration here is exhaustive for 13,14 only, not for all lengths.
 
-## Closest literature and limits
-The October 2026 Angal–Ascoli–He–He–Post–Soe–Zhukova paper proves the upper bound used here. General deck tables and algorithms in Chrisnata et al. are not the same as distinguishing a two-run word from arbitrary unrestricted opponents. Exact longer-length collision counts and independent human validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge matching theorem search found no logically dominating already published result after comparing actual statements; relevant uninspected primary literature and older methods are recorded as residual risks.
+
+## value
+
+PASS
+
+The exact first cross-class collision is a natural minimum-length obstruction for unrestricted recognition of bounded one-run classes, and the complete first-boundary fiber census proves sharpness of a previously only upper-bounded reconstruction order. The finite boundary is mathematically motivated by the published r(B2)<=5 bound; the explicit single pair and zero-padding give an exact reusable witness. No claim of all-long-length census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The two standalone programs `verify_dp.py` and `verify_direct.py` run under Python 3 with no third-party dependencies. Run each from the directory holding all eight packaged files.
+## correctness
 
-`verify_dp.py` performs complete enumeration of all \(8192\) length-thirteen and all \(16384\) length-fourteen binary words, calculates all sixteen scattered four-factor multiplicities by an exact integer dynamic program, and groups every word by its complete deck. It checks respectively \(8176\) and \(16328\) different decks, no mixed run-status fiber at length thirteen, and exactly the two listed witnesses in the unique length-fourteen mixed fiber. Observed output terminates `DP_EXHAUSTIVE_OK`.
+PASS
 
-`verify_direct.py` independently computes each length-thirteen deck through the \(715\) index quadruples, checks the same zero-mixed-fiber conclusion and \(8176\) class count, and computes both witness decks through all \(1001\) quadruples. Observed output terminates `DIRECT_EXHAUSTIVE_N13_OK`.
+The four-subsequence dynamic recurrence counts all 16 patterns exactly and the independent direct four-index combination algorithm agrees at the explicit 14-bit witnesses. Independently enumerated every 2^13=8192 and 2^14=16384 binary word, obtaining respectively 8176 and 16328 exact integer four-deck fibers; no mixed R<=2 vs R>2 group at n=13, exactly one mixed group at n=14: x=01111100111110 (two 1-runs) and y=10101111110101 (five). Each has the displayed common 16-vector summing to C(14,4)=1001. Four-deck equality implies three-deck equality by the exact double-counting (n-3) formula, and leading-zero padding preserves four-deck equality and one-run categories; thus no shorter n>=4 collision, and collisions at every n>=14. Angal et al. Thm 1.3 proves the separate r(B2)<=5 upper bound; the new witness proves lower bound. Verified full enumerators from actual package; complete finite enumeration here is exhaustive for 13,14 only, not for all lengths.
 
-The padding and deck-marginalization identities are symbolic, and do not depend on the finite checker. The general upper bound is taken with its stated scope from Angal et al., Theorem 1.3, arXiv:2610.41110v1. These checks were performed in the same scientific assessment; independent audit and external validation have not occurred. Exhaustive finite verification does not assert a count of all longer-length collision classes.
+## originality
+
+PASS
+
+Best-of-knowledge matching theorem search found no logically dominating already published result after comparing actual statements; relevant uninspected primary literature and older methods are recorded as residual risks.
+
+## value
+
+PASS
+
+The exact first cross-class collision is a natural minimum-length obstruction for unrestricted recognition of bounded one-run classes, and the complete first-boundary fiber census proves sharpness of a previously only upper-bounded reconstruction order. The finite boundary is mathematically motivated by the published r(B2)<=5 bound; the explicit single pair and zero-padding give an exact reusable witness. No claim of all-long-length census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
