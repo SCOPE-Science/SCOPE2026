@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem specifies the four-node path, full repeated-index triadic sum, rotating-frame quotient and positive gain domain. Direct differentiation gives a factored characteristic polynomial with one phase zero mode and one extra zero eigenvalue at the critical ratio. Reflection symmetry yields an exact two-dimensional invariant slice. A positive cubic term on its local center manifold proves nonlinear instability at equality, while an analytic implicit-function reduction produces precisely two off-axis equilibria on the stable side with the stated separate displacement exponents and saddle indices. The embedded checker verifies exact algebraic coefficients and tests the full vector field; numerical tests support but do not substitute for the analytical argument.
+
+## Originality — PASS within inspected evidence
+The strict exponential-stability threshold for the balanced barbell is earlier work, including this path as its smallest nontrivial case. The present claim is **only** the nonlinear critical instability, the subcritical saddle branches and the unequal vertex scaling. Sharma et al.'s 2026 study examines finite sparse networks numerically; Costa et al. 2025 derive bifurcations in an all-to-all thermodynamic reduction. These do not imply the particular critical cubic coefficient for this finite sparse graph. Signed-Laplacian effective resistance covers linear thresholds, not cubic normal forms. Targeted mathematical literature searches and published record comparisons found no dominating statement, but priority is not guaranteed. One closely related distinct-triad result uses a different triadic summation convention and a complete graph.
+
+## Mathematical value — PASS
+A zero eigenvalue at the known sharp threshold left the critical flow type unresolved, and linear analysis gave no local basin geometry. The positive cubic term distinguishes a nonlinearly repelling transition from a neutrally stable or supercritical onset. The two exact localization exponents quantify how phase deviations nucleate at the single intercommunity bridge. The path on four nodes is the smallest pair-of-pairs network with nontrivial within-group edges and a competing intergroup edge, rather than an arbitrary parameter slice. These provide a motivated local boundary classification, not a claimed global phase diagram.
+
+## Limitations and closest literature
+The nonlinear result is for identical frequencies, a unit-weight four-vertex path, an unrestricted-index asymmetric all-to-all triadic term, and a neighborhood of the specified antipodal orbit. Independent mathematical validation is absent. Closest references: Sharma et al., arXiv:2611.09564v1; Costa et al., arXiv:2501.05670v1; earlier finite barbell strict linear stability; Chen et al. on signed Laplacian effective resistance. Unindexed preprints and unpublished local-bifurcation analyses present residual historical-priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
