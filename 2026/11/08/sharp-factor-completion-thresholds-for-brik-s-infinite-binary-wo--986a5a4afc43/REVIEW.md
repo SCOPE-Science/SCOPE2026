@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nontrivial quantitative boundary-prefixing lemma follows from the exact block length and the terminal `01`; it transports each sufficiently late occurrence into new factors at explicitly controlled first positions. The finite bases at lengths three and four are exhaustive. A two-level safe-occurrence induction proves the non-all-ones bound for all lengths; the copied-zero argument establishes the matching earliest appearance of the sharp witness. The finite checker verifies all bases and the constructed length-five witnesses, while the general result rests on symbolic induction. Scope uses one-based positions and contiguous factors.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The inspected source arXiv:2605.07542v1, Proposition 1 and Theorems 4 and 7, provides the block recurrence, the first all-ones onset, and the legal language, but no maximum over first appearances of *all* factors, no penultimate-onset identity, and no exact finite-prefix saturation theorem. Related prior results on factor frequencies and subsequence universality do not imply this claim. Exact claim/alias comparisons and the residual possibility of an unindexed implicit result are documented in the structured scientific review.
+PASS
 
-**Value — PASS.** A fixed, naturally defined infinite word has exponentially many distinct legal factors yet a superexponentially distant last factor. Determining the sharp all-factor completion horizon and the next-to-last arrival yields a meaningful quantitative refinement of the first-run theorem. It is not merely a restatement of the known first-ones recurrence: it requires a uniform bound for every other legal factor.
+For B_1=101, B_{i+1}=B_i B_i[i+1..], positions one-based, n>=3, the boundary-prefixing construction takes a legal k-factor v safely starting at p>=k+2 to 1v at f(p)=2^(p-2)+p and to 01v at f(p)-1; the suffix containment inequality and B_{p-1}'s final 01 are verified algebraically. Explicit safe bases at lengths 3 and 4 initiate a simultaneous induction bounding every nonconstant length-n first occurrence by r_(n-1). The first all-ones run starts r_n, and its immediate next symbol is 0 by Shallit's boundary construction, so 1^(n-1)0 is sharp; hence U(n)=r_n+n-1 for n>=2, U(1)=2. Direct first-occurrence checks n=2,3,4 corroborate r2=5,r3=13,r4=2061; finite code is not the infinite induction.
 
-**Limits and priority risk.** The result is about one binary word and the first-arrival positions of its factors. Independent review has not been performed; implicit related combinatorics in unpublished work is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The evaluated two-level maximum of nonconstant factor onsets and exact factor-completion prefix are not stated by Shallit's factor-language/one-run theorems. Searches for equivalent prefix universality and Brik factor arrival instead found the source record and other, different spectra. Best-of-knowledge PASS; the proof critically credits Shallit's foundational results.
+
+## value
+
+PASS
+
+Natural completion-time invariant of a specific infinite word whose legal language is easy to describe but earliest complete representative prefix is enormous; the unique delayed all-ones factor and exact penultimate threshold sharpen a genuine quantitative gap, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
