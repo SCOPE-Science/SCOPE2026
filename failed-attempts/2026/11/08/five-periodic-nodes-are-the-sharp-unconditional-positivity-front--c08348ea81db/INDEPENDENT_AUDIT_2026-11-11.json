@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:59:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — The two-stage 4th-order Gauss-Legendre Padé end-step f(x)=(x²-6x+12)/(x²+6x+12) applied to cycle Laplacian is spectrally positive and mass-preserving. Exact kernels for n=3,4,5 are rational with nonnegative coefficient numerators; independent SymPy rational matrix calculation confirmed their positivity at representative h and their row sums. The all-n Green kernel G_{0,k}=(n²-1)/(12n)-k(n-k)/(2n), with zero row sums and LG=I-J/n, yields T=I-12G/h+O_n(h^-2). The adjacent coefficient is -(n-1)(n-5)/(nh), negative for all sufficiently large h when n>=6. Independent exact n6,h8 computation gives -6584/580537. This is a valid complete all-n proof rather than an extrapolation from examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both earlier results establish unconditional entrywise nonnegativity exactly for n=3,4,5 and eventual nearest-neighbor negativity for all n>=6.",
+          "Both also specify the same coefficient -(n-1)(n-5)/(nh); the Oct13 version proves a sharper complete six-cycle threshold."
+        ],
+        "reasoning": "Earlier full theorem has exactly the target graph and method class, all-n and all-step quantifiers, and stronger six-cycle coverage. It strictly dominates the new result; no separate remainder remains.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "Resultary Gauss-Legendre positivity cycle size 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: Gauss Legendre two stage fourth order RK positivity heat periodic cycle 5 nodes unconditional entrywise nonnegative",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+        "Pinned RESULT.md and artifacts/verify_gauss_cycle.py",
+        "Independent SymPy rational small-cycle checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 2026-10-13 universal Green-function identity G_01=(n-1)(n-5)/(12n) and spectral expansion T=I-12L^+/h+O_n(h^-2).",
+          "Submitted proof uses exactly the same Green-function sign argument and numerator positivity."
+        ],
+        "reasoning": "The published Oct13 mathematical statement directly implies every claim in the new RESULT.md, including the sharp unconditional size cutoff, asymptotics, mass conservation and h8 negativity. Since there is no genuine non-implied remainder, originality is rejected and scientific value is not separately rescued.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "Gauss Legendre two stage fourth order RK positivity heat periodic cycle 5 nodes unconditional entrywise nonnegative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Oct13 full RESULT.md: R(z)=(12+6z+z²)/(12-6z+z²), Q=-L, T_n(h)=R(hQ).",
+          "Prior Oct25 full RESULT.md: T=(12I+6hL+h²L²)^-1(12I-6hL+h²L²)."
+        ],
+        "reasoning": "Putting Q=-L and dividing the rational matrix numerator and denominator by 12 shows the submitted r(-hL) is exactly the previous propagator, without change of model, normalization, timestep or quantifiers.",
+        "searches": [
+          "Gauss Legendre two stage fourth order RK positivity heat periodic cycle 5 nodes unconditional entrywise nonnegative",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier n=3..5 rational kernel numerators and denominators match the newly submitted tables symbol by symbol.",
+          "Earlier six-cycle adjacent numerator is -2h(5h^4-12h^3-102h²-144h-72) divided by the identical positive denominator."
+        ],
+        "reasoning": "The exact expressions and threshold polynomial are contained in the earlier full papers. Substituting h=8 into the earlier formula immediately gives -6584/580537, so the purported finite certificate is also covered.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "Gauss Legendre two stage fourth order RK positivity heat periodic cycle 5 nodes unconditional entrywise nonnegative"
+        ]
+      },
+      "rationale": "FAIL — Published 2026-10-13 full theorem on the SAME two-stage Gauss-Legendre [2/2] Padé update and unit cycles proves the identical all-size iff n<=5, exact same small-cycle rational kernels and -(n-1)(n-5)/(nh) adjacent asymptotic, plus the stronger exact six-cycle positivity threshold. Published 2026-10-25 independently reiterates this identical conclusion and six-cycle quartic. Exact change of notation Q=-L, R(-hL)=T makes the prior and submission mathematically identical; the h=8 witness is a corollary of the stronger old threshold.",
+      "residual_risks": [
+        "No originality remains relative to two earlier complete published theorems; rejection is coverage, not a correctness defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_COVERAGE_STRONGER",
+          "evidence": "Same iff n<=5 and same adjacent asymptotic, stronger h6 positivity threshold; published 2026-10-13.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "material_read": "Entire published RESULT.md with Finding, n3–n6 exact kernels, Green-function derivation and sharp six-cycle quartic",
+          "method": "Read complete mathematical RESULT.md from pinned/published repository source",
+          "title": "Six-cycle threshold and all-size positivity dichotomy for fourth-order Gauss diffusion",
+          "trigger": "Earlier nearly identical all-cycle theorem"
+        },
+        {
+          "assessment": "DIRECT_COVERAGE",
+          "evidence": "Published 2026-10-25; same method and graph with stronger exact first failure time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "material_read": "Entire published RESULT.md: exact same rational update, all-n dichotomy, Green-kernel sign proof and n6 quartic",
+          "method": "Read complete mathematical RESULT.md from pinned/published repository source",
+          "title": "The six-cycle is the first cycle to lose fourth-order Gauss positivity",
+          "trigger": "Second older matching all-cycle theorem"
+        },
+        {
+          "assessment": "CLAIM_CORRECT_BUT_COVERED",
+          "evidence": "Proof and rational formulas reproduce the prior full results.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/five-periodic-nodes-are-the-sharp-unconditional-positivity-front--c08348ea81db",
+          "material_read": "Entire pinned RESULT.md, artifact verification source and METADATA.json",
+          "method": "Read complete mathematical RESULT.md from pinned/published repository source",
+          "title": "Five periodic nodes are the sharp unconditional-positivity frontier for Gauss–Legendre heat stepping",
+          "trigger": "Actual submitted scientific claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL — The mathematical classification is a known theorem, not a distinct valuable exact invariant. The added rational witness at h=8 and reproduced positive kernel identities do not extend earlier results; the October prior provides even the precise onset h_6≈6.36885. Technical correctness/reproducibility does not rescue value in a fully covered claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only uniform undirected periodic cycle Laplacians and endpoint positivity, not the general weighted-grid or internal-stage problem.",
+    "The all-n proof is analytic and finite checks are corroboration; scientific failure is solely O and V.",
+    "No originality remains relative to two earlier complete published theorems; rejection is coverage, not a correctness defect."
+  ],
+  "schema_version": 1
+}
