@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Execute `python3 verify_phase_transition.py` with standard-library Python 3.8 or later. The program requires no downloaded data or third-party packages. The run on the submitted script completed successfully with `ALL CHECKS PASSED`.
+# Independent mathematical audit
 
-The checker evaluates all ordered nonnegative four-part compositions of each required integer, computes each fiber product exactly, independently compares the three low-dilation values with their closed expressions, and forms numerator coefficients by the finite binomial transform. For every integer \(1\le m\le11\) it checks the complete set of distinct adjacent log-concavity minors, including the central minor under Gorenstein reflection. The numerical table in the proof lists the exact minimum of these checks for each parameter.
+## correctness
 
-For each integer \(12\le m\le20\), the checker tests the strict index-two failure and checks the printed exact value at parameter twelve. For larger parameters, the written analytic proof reduces failure to inequalities that are checked at integer 21 and propagated indefinitely by induction. The finite computation itself does not certify any untested parameter.
+PASS
 
-The source's Gorenstein symmetry and degree assertions are mathematical inputs from the cited primary theorem. No independent outside audit was performed. The claim is restricted to the explicitly defined one-parameter family.
+The Ehrhart lattice points are exactly counted by all four-part compositions and the stated 6m+4 binomial transform. Gorenstein palindromicity reduces strict LC to 3m independent minors, all of which were independently recomputed using exact integers for m=1..11, matching the displayed minima. For 12<=m<=20 the explicit first-three coefficient formulas give h1*h3-h2²>0. For m>=21 the inequalities 8^m>=2(6m+4), 6^m>=20(6m+4), 4^m>400*3^m propagate by induction and bound the obstruction below by 1728^m/4-100*1296^m>0. Finite data are not extrapolated to infinity.
+
+## originality
+
+PASS
+
+Ferroni 2026 defines the identical Cayley family and proves non-log-concavity at m=12; the complete positivity of every numerator minor for all m<=11 and strict index-two failure for every m>=13 do not follow from a single negative witness or the general Gorenstein IDP unimodality theorem without further mathematics.
+
+## value
+
+PASS
+
+Determining the exact first failure and permanent failure regime inside a canonical Gorenstein index-four counterexample family is a motivated, genuinely sharp phase boundary of a natural h*-vector property. The new content is not the old counterexample or polynomial counts, but the exhaustive two-sided classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

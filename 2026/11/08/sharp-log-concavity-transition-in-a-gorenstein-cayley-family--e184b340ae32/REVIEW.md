@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite half-coefficient calculation follows the exact fiber-count formula and finite binomial transform. Gorenstein symmetry reduces all internal inequalities to those checked. Exact enumeration proves strict positivity for every parameter from one through eleven, and the first-three-coefficient formulas prove strict failure for parameters twelve through twenty. For all larger integers, three explicit exponential bounds and a verified induction close the remaining infinite range. The standalone checker ran successfully, including the original source's index-two defect at parameter twelve. There is no appeal to sampled numerical behavior for a universal assertion.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. Ferroni's full preprint defines these same polytopes and proves the failure at parameter twelve, but does not state or prove that the full numerator is strictly log-concave for every earlier parameter or that every later parameter fails. These statements are logically stronger than one existing witness. The closest accessible mathematical-record searches concerned a log-concavity cutoff for Plücker degrees (unrelated objects), preservation by lattice segments (a different operation), and an earlier Gorenstein IDP unimodality theorem (which is weaker). The complete source and available earlier claims were compared by implications, not matching numbers or titles. The source's first published example at twelve prevents treating that example alone as original.
+PASS
 
-## Mathematical value
-PASS. The refinement identifies a sharp and exhaustive phase boundary in a canonical Gorenstein IDP counterexample family to a longstanding log-concavity conjecture. It establishes positivity of every relevant minor below the boundary and permanent failure above it. The cutoff is restricted to the named family; no global minimal-dimension claim is made.
+The Ehrhart lattice points are exactly counted by all four-part compositions and the stated 6m+4 binomial transform. Gorenstein palindromicity reduces strict LC to 3m independent minors, all of which were independently recomputed using exact integers for m=1..11, matching the displayed minima. For 12<=m<=20 the explicit first-three coefficient formulas give h1*h3-h2²>0. For m>=21 the inequalities 8^m>=2(6m+4), 6^m>=20(6m+4), 4^m>400*3^m propagate by induction and bound the obstruction below by 1728^m/4-100*1296^m>0. Finite data are not extrapolated to infinity.
 
-## Closest literature and limits
-L. Ferroni, arXiv:2609.10513v2, Theorem 1.4 and Section 6, provides the family, low-dilation formulas and a witness at the transition. Adiprasito et al., arXiv:2210.10734, prove unimodality for Gorenstein IDP polytopes, which does not cover strict log-concavity. Ferroni–Higashitani, DOI 10.4171/EMSS/86, discusses historical Ehrhart log-concavity questions but predates the specific family. Priority may still be affected by an unindexed or differently phrased calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ferroni 2026 defines the identical Cayley family and proves non-log-concavity at m=12; the complete positivity of every numerator minor for all m<=11 and strict index-two failure for every m>=13 do not follow from a single negative witness or the general Gorenstein IDP unimodality theorem without further mathematics.
+
+## value
+
+PASS
+
+Determining the exact first failure and permanent failure regime inside a canonical Gorenstein index-four counterexample family is a motivated, genuinely sharp phase boundary of a natural h*-vector property. The new content is not the old counterexample or polynomial counts, but the exhaustive two-sided classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
