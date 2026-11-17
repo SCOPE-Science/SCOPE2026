@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:59:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sharp-sampling-order-reversals-for-three-coordinate-descent--10cba4a4ee96/RESULT.md",
+        "Independent full 27-path exact symbolic enumeration /mnt/data/audit04_checks.py"
+      ],
+      "rationale": "With Hρ=(1−ρ)I3+ρ11^T and U_i=I−e_i(Hρ)_(i,*), direct independent SymPy multiplication of all 27 ordered triples at x0=1 yields exactly four objective expressions with multiplicities 3,12,6,6. Differences of iii and iij from any all-distinct path have strict positive factors; difference of iji is (1−ρ)²(1+2ρ)²(1−2ρ)/2, so exactly six of 27 paths win when ρ>1/2. Weighted enumeration independently factors EX−P=(2−ρ)(1−ρ)²(1+2ρ)²(4−5ρ)/18, proving second threshold 4/5. Positive-definiteness domain -1/2<ρ<1 and two-coordinate comparison are explicit, with n=3 minimal only within named symmetric family.",
+      "residual_risks": [
+        "Claim restricted to one epoch, consensus initialization and equicorrelated SPD three-coordinate systems; no arbitrary-start or long-run stochastic order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee–Wright proves expected epoch recurrences for permutation-invariant quadratic matrices and analyzes rates, but does not state a probability distribution of 27 three-step outcomes from consensus start.",
+          "Kim–Lee–Yun addresses upper/lower contraction-rate comparison; Euclidean reversal theorem controls expected Euclidean error for a different Hessian/start and not the stochastic objective law."
+        ],
+        "reasoning": "Expectations and rates cannot reconstruct all 27 outcomes or the probability that IID beats the deterministic permutation score; different metrics do not dominate an exact objective law.",
+        "searches": [
+          "Lee–Wright 2016 full HTML §2.2 and §3 recurrences",
+          "Kim–Lee–Yun PMLR 2025 paper abstract and theorem description",
+          "Resultary 2026 Oct25 Euclidean norm reversal full RESULT"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1607.08320v5",
+        "https://proceedings.mlr.press/v267/kim25x.html",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-dimension-sharp-reshuffling-reversal-in-euclidean-coordinate-d--1e26d5d8b110"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lee–Wright expected quadratic objective recurrences cover some mean-level questions but not a distribution or pathwise stochastic dominance, and do not give current fixed 3-step mean factor in the material read.",
+          "The Euclidean reversal explicitly shows opposite objective and Euclidean mean comparisons on a different Hessian; it cannot imply pathwise IID win probability 2/9 for consensus equicorrelation."
+        ],
+        "reasoning": "A general expectation formula may mechanically reproduce the mean once specialized, so novelty is not assigned to the mere ability to average. The exact four-atom law and two distinct pathwise/mean thresholds are not logical consequences of the cited expectations alone.",
+        "searches": [
+          "Lee–Wright 2016 Theorems 3.3–3.9 for permutation-invariant Hessians",
+          "Resultary Oct25 dimension-sharp Euclidean reversal full text",
+          "Kim–Lee–Yun ICML2025 convergence abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hessian (1−ρ)I+ρ11^T is permutation-invariant; uniform random permutation is RPCD/RR, while three independent uniform choices is RCD/IID.",
+          "One-time outcome distribution on fixed x0=1 differs from expectation over random initializations, convergence rates, and Euclidean error norms."
+        ],
+        "reasoning": "The same methods are compared, but the random variable Xρ itself—not merely its expectation or contraction factor—is the target. The four equality-pattern classes and the 2/9 event probability are not stated in materially read prior results.",
+        "searches": [
+          "Resultary search: randomized coordinate descent IID vs reshuffling 3-variable first epoch pathwise 2/9",
+          "Lee–Wright 2016 random-permutations cyclic coordinate descent permutation-invariant Hessian",
+          "Gürbüzbalaban–Ozdaglar–Vanli–Wright 2018 randomness permutations coordinate descent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four pattern multiplicities (3,12,6,6) and four closed polynomials were derived from exact 27-path enumeration in the submitted source and independently reconstructed.",
+          "No prior fixed-consensus, 3-coordinate full-path table located in the materially read primary text; a general method would permit computing it but does not state this table."
+        ],
+        "reasoning": "It is a complete table of an intrinsically natural minimal one-epoch experiment, rather than an arbitrary subset of paths. Failure to locate a table does not by itself prove novelty; the nonimplied ρ=1/2 and ρ=4/5 reversals are the substantive observations.",
+        "searches": [
+          "Resultary three-coordinate sampling exact pattern outcomes and one-epoch permutation",
+          "Lee–Wright §3.3 first iteration and appendices",
+          "Kim et al 2025 abstract"
+        ]
+      },
+      "rationale": "Broader coordinate-descent analyses establish mean/rate behavior and a separate Euclidean-risk dimension-three reversal, but no materially inspected theorem implies the fixed-initialization full four-atom loss law or its noncoincident stochastic/mean thresholds. Best-of-knowledge PASS with a substantial full-2025-PDF inspection risk explicitly retained.",
+      "residual_risks": [
+        "The full Kim–Lee–Yun 2025 PMLR PDF was not materially inspected; a specialized appendix may list three-coordinate finite outcomes.",
+        "Earlier finite one-epoch coordinate-descent examples may have been published in a different formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SHARES QUADRATIC FAMILY, addresses expected contraction, not identical one-epoch four-atom pathwise law",
+          "evidence": "Theorem 3.5 describes expected objective through a two-parameter recurrence; no 27-sequence four-class distribution or sharp ρ pathwise event threshold in inspected text.",
+          "identifier_or_url": "https://arxiv.org/html/1607.08320v5",
+          "material_read": "Relevant arXiv HTML excerpts from §2.2, §3.1–3.3 and theorems/first-iteration discussion; appendix headings noted, appendices not exhaustively read",
+          "method": "Primary arXiv HTML read",
+          "title": "Random Permutations Fix a Worst Case for Cyclic Coordinate Descent",
+          "trigger": "Permutation-invariant SPD Hessian and exact RPCD/RCD comparison"
+        },
+        {
+          "assessment": "DIFFERENT RISK METRIC AND INPUT",
+          "evidence": "Compares expected squared Euclidean error, with a 3-dimensional example where expected objective still favors reshuffling; does not quantify the fixed equicorrelation pathwise event.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-dimension-sharp-reshuffling-reversal-in-euclidean-coordinate-d--1e26d5d8b110",
+          "material_read": "Full published RESULT.md including Hessian witness and all proofs",
+          "method": "Full primary claim via GitHub connector",
+          "title": "A dimension-sharp reshuffling reversal in Euclidean coordinate-descent risk",
+          "trigger": "Same sampling protocols and dimensional minimality"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY, no whole-document NOT_COVERING conclusion",
+          "evidence": "Abstract focuses on contraction-rate upper versus lower bounds, not on a full fixed-three-step path distribution. Full 68-page paper is a residual priority risk.",
+          "identifier_or_url": "https://proceedings.mlr.press/v267/kim25x.html",
+          "material_read": "PMLR publisher page full abstract, bibliographic details and linked PDF metadata; full PDF not materially read",
+          "method": "Publisher OA article landing-page inspection",
+          "title": "Provable Benefit of Random Permutations over Uniform Sampling in Stochastic Coordinate Descent",
+          "trigger": "2025 direct comparison on permutation-invariant quadratics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/1607.08320v5",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-dimension-sharp-reshuffling-reversal-in-euclidean-coordinate-d--1e26d5d8b110",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sharp-sampling-order-reversals-for-three-coordinate-descent--10cba4a4ee96/RESULT.md"
+      ],
+      "rationale": "Three coordinates are a mathematically minimal natural family in which IID repetition can sometimes beat one full reshuffle. Exact probability 2/9 coexists with a worse mean through ρ<4/5 and then a better mean, separating chance of improvement from expected benefit. This exact self-contained finite classification is informative for sampling-order comparisons, without requiring a general algorithm-rate theorem.",
+      "residual_risks": [
+        "Specific symmetric toy model; does not justify algorithmic superiority in arbitrary problems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For one exact coordinate-descent epoch on Hρ=(1−ρ)I3+ρ11^T from x0=1, the IID sampler has four loss classes (3,12,6,6). It beats the permutation sampler with probability 2/9 iff ρ>1/2, while its expected objective beats permutation iff ρ>4/5.",
+  "limitations": [
+    "Originality is best-of-knowledge except where decisive full-text prior coverage is proven. No independent expert publication-priority guarantee.",
+    "Whole-tree Git object was not independently rehashed; only named frozen source blobs were read.",
+    "Existing published source package unchanged; no filesystem or GitHub modifications to research content, no formal/Lean or expert attestation invented."
+  ],
+  "schema_version": 1
+}
