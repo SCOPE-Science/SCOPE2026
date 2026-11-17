@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:18:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify_f4_cubic_census.cpp, verify_f4_cubic_geometry.py at frozen commit",
+        "Separate independently implemented full 349525-form C++ census reproduced exact counts",
+        "Resultary 2026-10-26 complete smooth-Hermitian/11368 census",
+        "Asgarli–Ghioca–Yip arXiv:2208.13299",
+        "Asgarli–Ghioca arXiv:2302.13420"
+      ],
+      "rationale": "The actual package fixes F4 polynomial basis and 10 cubic monomials, normalizes scalar classes via first nonzero coefficient, and tests every one of (4^10-1)/3=349525 forms on all 21 PG(2,4) points and 21 lines using gradients and field operations. Independently implemented a separate exact C++ incidence census: 248928 forms have only nonsingular rational zeros, precisely 6328 are each blocking and tangent-filling, intersection 6328, symmetric difference 0; 280 selected have 9 rational zeros and 6048 have 10. Inspected separate bundled geometric checker: 1008 nonsingular conics each with 6 disjoint rational lines yield exactly 6048 products LQ, while 280 nine-point unital configurations form Hermitian orbit; full PGL3(F4) order 60480 and orbit-stabilizer yield 216 and 10. Actual geometry explains Hermitian smoothness and LQ rational nonsingularity despite geometric reducibility. All finite forms, lines and projectivities exhaust the finite universes; this is a finite exhaustive theorem, not extrapolation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older exact full tangent-filling census has 11368 and Hermitian 280 but lacks the rational-smooth blocking iff tangent-filling statement or LQ 6048 orbit in its stated theorem.",
+          "Asgarli et al general blocking existence/nonexistence concerns broad q, and Asgarli–Ghioca develops tangent-filling curves but not this finite joint count."
+        ],
+        "reasoning": "Broader object coverage is not stronger invariant coverage: the intersection of these two incidence predicates on the rationally smooth cubic domain and all projective orbit sizes require the new finite classification.",
+        "searches": [
+          "Resultary 2026-10-26 Hermitian rigidity tangent-filling F4 cubics 11368",
+          "arXiv:2208.13299 plane curves giving rise to blocking sets",
+          "arXiv:2302.13420 tangent-filling plane curves"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify_f4_cubic_census.cpp, verify_f4_cubic_geometry.py at frozen commit",
+        "Separate independently implemented full 349525-form C++ census reproduced exact counts",
+        "Resultary 2026-10-26 complete smooth-Hermitian/11368 census",
+        "Asgarli–Ghioca–Yip arXiv:2208.13299",
+        "Asgarli–Ghioca arXiv:2302.13420"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier 11368 tangent-filling includes 11088 rational line-component cubics, but does not specify the 6048 distinct rational-pointwise smooth LQ subset or that blocking status agrees throughout.",
+          "The new theorem asserts equality of two tested sets of size 6328, and two exhaustive PGL3 orbits."
+        ],
+        "reasoning": "The implication from prior tangent filling alone to blocking is not automatic: the earlier theorem does not classify the remaining rationally smooth reducible locus. The known smooth Hermitian 280 subcase is explicitly prior, not independently novel.",
+        "searches": [
+          "Resultary 2026-10-26 Hermitian rigidity full RESULT.md",
+          "Asgarli Ghioca 2023 Hermitian tangent-filling example",
+          "Asgarli Ghioca Yip 2022 blocking curve F4 Hermitian example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blocking: every one of the 21 rational lines meets the 21-point plane cubic zero set. Tangent-filling: gradients at nonsingular rational zeros generate tangent lines covering all 21 points.",
+          "These are not logically dual in arbitrary fields or for singular rational zeros; the exact equivalence holds only after F4 cubic classification."
+        ],
+        "reasoning": "Examined incident, projective-dual and Hermitian-unital aliases; earlier Hermitian example is only one of two orbits.",
+        "searches": [
+          "Resultary F4 cubic tangent filling blocking Hermitian external line conic 6328",
+          "Asgarli Ghioca tangent-filling plane cubic over finite fields",
+          "blocking sets Hermitian unital PG(2,4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known earlier 11368 tangent-filling count and 280 smooth Hermitian subcase cover those portions only.",
+          "Independent complete form census obtains exactly 6328 with blocking equivalence; independent geometric code specifies 1008 conics times 6 exterior lines."
+        ],
+        "reasoning": "Counting 6048 external conic-line forms is not in itself new if trivial from conic counts, but identifying exactly those (and only those) as simultaneous blocking and tangent-filling in the rationally smooth cubic universe is the natural new classification.",
+        "searches": [
+          "F4 6328 cubic line conic tangent-filling blocking table",
+          "PG(2,4) 280 unitals 1008 conics 6048 external lines",
+          "published Resultary 11368 F4 cubics"
+        ]
+      },
+      "rationale": "Published October 26 full F4 cubic theorem already counts 11368 tangent-filling forms, proves 280 no-rational-line/smooth Hermitian and 11088 with rational line component. Those exact portions are acknowledged as known. Its result does not establish blocking equivalence on all rational-pointwise nonsingular cubics or the distinguished 6048 external line–conic projective orbit with two-sided equivalence. Primary Asgarli/Ghioca papers show Hermitian examples and general incidence frameworks, not the accessible exact joint classification. Originality PASS applies only to this surviving joint property and external-line/conic case, with older finite-geometric table risk.",
+      "residual_risks": [
+        "Historical PG(2,4) blocking-set and unital tables might already classify the joint rationally smooth reducible cubic locus; no exhaustive pre-digital literature claim is made.",
+        "The independent C++ census confirms the point/line classifications, while orbit transitivity and stabilizer 10 rely on inspected separate exact Python projective enumeration, not a second independent run of the complete PGL program.",
+        "All statements are over F4 and assume rational nonsingularity; no characteristic-free generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERING",
+          "evidence": "Smooth Hermitian 280 and general tangent count known; no prior full 6328 two-incidence and external LQ equivalence stated",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hermitian-rigidity-of-tangent-filling-plane-cubics-over-mathbf-f--93b3816f77da/RESULT.md",
+          "material_read": "Complete RESULT.md including exact 11368, 11088, 280 counts; proof, arithmetic and projective orbit",
+          "method": "Read full text and compare quantified candidate rational-smooth set and blocking classification",
+          "title": "Hermitian rigidity of tangent-filling plane cubics over F4",
+          "trigger": "Closest prior exact F4 tangent-filling census"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Shows Hermitian blocking example, not full rationally smooth F4 cubic orbit census",
+          "identifier_or_url": "https://arxiv.org/abs/2208.13299",
+          "material_read": "Accessible full primary PDF, relevant example and exceptional q=4 discussion",
+          "method": "Read relevant sections, inspected rendered PDF page and theorem vicinity",
+          "title": "Plane curves giving rise to blocking sets over finite fields",
+          "trigger": "Original blocking notion and F4 Hermitian example"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Establishes notion and examples, not joint exact F4 cubic blocking equivalence",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13420",
+          "material_read": "Accessible full primary PDF, definition and Hermitian example (including Example 3.1)",
+          "method": "Read relevant sections, inspected rendered PDF and theorem context",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Original tangent-filling notion and Hermitian example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify_f4_cubic_census.cpp, verify_f4_cubic_geometry.py at frozen commit",
+        "Separate independently implemented full 349525-form C++ census reproduced exact counts",
+        "Resultary 2026-10-26 complete smooth-Hermitian/11368 census",
+        "Asgarli–Ghioca–Yip arXiv:2208.13299",
+        "Asgarli–Ghioca arXiv:2302.13420"
+      ],
+      "rationale": "Blocking and tangent filling are two independently natural incidence properties; an exact equivalence inside the rationally nonsingular F4 cubic locus is a structural finite-geometric phenomenon. The complete 6328 forms and two projective orbits including rationally nonsingular but geometrically reducible external line-conics answer a motivated natural classification that earlier smooth-Hermitian-only counts cannot replace.",
+      "residual_risks": [
+        "Historical PG(2,4) blocking-set and unital tables might already classify the joint rationally smooth reducible cubic locus; no exhaustive pre-digital literature claim is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Geometrically smooth 280 Hermitian classification is earlier work and is not the novelty accepted here.",
+    "Finite exact census with transparent complete exhaustive enumeration, not a formalized proof."
+  ],
+  "schema_version": 1
+}
