@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The main universal proof is an analytic reduction: triangular stage elimination gives an exact stability function; strict monotonicity of the associated Möbius ratio establishes both sharp parity-dependent thresholds; \(s\operatorname{artanh}(1/s)\to1\) establishes the stiff-stage limit. No finite test is used to justify quantification over all stages.
+## correctness
 
-Run `python verify.py` from the directory containing the embedded files. With `mpmath`, the prepared checker returned `VERIFY_OK 864`. It independently uses stage-by-stage triangular forward substitution at stages 2 through 35, compares against the closed formula at ten step locations around each boundary, checks the endpoint parity and stiff-limit signs, and checks seven larger stage-count asymptotic instances. The tests use 90 decimal digits and relative equality tolerances, not formal interval enclosures.
+PASS
 
-Limits: the implementation samples finitely many stages and parameters; it is not a computer-assisted proof of the full theorem. The stability statement is exact arithmetic, scalar real decay only. The 2019 four-stage plotted stability-region endpoint is a comparison, not a numerical certificate for all stages. Independent audit has not been performed.
+For the lower-triangular optimal tableau A_ii=gamma_s, A_ij=delta_s (j<i), b_i=1/s, stage sums S_i satisfy a geometric recurrence with transfer t(z), yielding R_s(-x)=1-c_s+c_s t_s(x)^s. t_s strictly decreases from 1 to -q_s, so even s has unique stable endpoint t=-1 and odd s has unique endpoint t=-u_s, u_s^s=2/c_s-1, with no reentry. Algebra of delta/gamma yields the two explicit X_s, parity of stiff limits and X_s=4s²+O(1). Independently calculated the forward-substitution stability function for s=2..60 at six positive x per stage including both sides of the boundary; matches rational t^s expression and stability classification.
+
+## originality
+
+PASS
+
+Weng, Yu, Zhu prove SSP coefficient optimality of the tableau; Ferracina-Spijker and Ketcheson-Macdonald-Gottlieb give the family and generic scalar stability function. A specific four-stage absolute-stability plot exists, but the reviewed primary statements do not establish the all-stage parity-dependent sharp negative-real threshold and stiff ±e limit. No covering Resultary record identified in focused semantic searches. Best-of-knowledge PASS, not a claim of globally established priority.
+
+## value
+
+PASS
+
+The real negative-axis absolute stability boundary is an operationally natural sharp quantitative property of the uniquely SSP-optimal implicit family. It distinguishes SSP radius from scalar stiffness stability and gives a full parity phase diagram, quadratic stage scaling and asymptotic non-damping of stiff modes—useful exact properties not mechanically settled by the SSP-optimality statement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

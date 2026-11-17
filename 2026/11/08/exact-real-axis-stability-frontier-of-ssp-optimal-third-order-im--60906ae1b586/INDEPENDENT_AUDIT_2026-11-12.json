@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:15:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, triangular stage verification script and frozen tableau description",
+        "https://arxiv.org/abs/2610.37425",
+        "independent high-precision arithmetic stage recursion"
+      ],
+      "rationale": "For the lower-triangular optimal tableau A_ii=gamma_s, A_ij=delta_s (j<i), b_i=1/s, stage sums S_i satisfy a geometric recurrence with transfer t(z), yielding R_s(-x)=1-c_s+c_s t_s(x)^s. t_s strictly decreases from 1 to -q_s, so even s has unique stable endpoint t=-1 and odd s has unique endpoint t=-u_s, u_s^s=2/c_s-1, with no reentry. Algebra of delta/gamma yields the two explicit X_s, parity of stiff limits and X_s=4s²+O(1). Independently calculated the forward-substitution stability function for s=2..60 at six positive x per stage including both sides of the boundary; matches rational t^s expression and stability classification.",
+      "residual_risks": [
+        "Assumes the exact published tableau, not floating-point implementation or general nonlinear stability; original reference numbering should be checked against the current arXiv version (source Theorem 5.3 versus assigned Theorem 5.2)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weng proves SSP-optimality, not absolute-stability interval; Ferracina/Spijker supplies coefficients; Fekete/Horvath plots one s=4 member."
+        ],
+        "reasoning": "SSP-optimality and an s=4 plot do not imply exact all-stage X_s or stiff ±e limit without the geometric stage calculation.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37425",
+          "https://math.leidenuniv.nl/reports/files/2007-11.pdf",
+          "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.37425",
+        "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+        "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weng stage family and Ketcheson generic formula provide ingredients; Fekete image displays one stability region."
+        ],
+        "reasoning": "The specific formula follows by independent all-stage triangular transfer and parity analysis, not by merely changing the meaning of SSP radius.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37425",
+          "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+          "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General Runge–Kutta stability R(z)=1+zb^T(I−zA)^{−1}1 in Ketcheson et al.; Weng gives gamma_s,delta_s."
+        ],
+        "reasoning": "Generic stability function is standard, but its specialization here and complete parity-dependent boundary are not printed as equivalent theorem in inspected sources.",
+        "searches": [
+          "Resultary: optimal implicit third-order strong stability preserving Runge Kutta negative real axis stability interval stage parity",
+          "https://arxiv.org/abs/2610.37425",
+          "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four-stage stability-region image is compatible with the exact s=4 threshold approximately 60.98."
+        ],
+        "reasoning": "No systematic all-s real-axis endpoint table or exact universal theorem found; a plotted single s=4 intercept is not the all-s result.",
+        "searches": [
+          "Resultary: optimal implicit third-order strong stability preserving Runge Kutta negative real axis stability interval stage parity",
+          "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf"
+        ]
+      },
+      "rationale": "Weng, Yu, Zhu prove SSP coefficient optimality of the tableau; Ferracina-Spijker and Ketcheson-Macdonald-Gottlieb give the family and generic scalar stability function. A specific four-stage absolute-stability plot exists, but the reviewed primary statements do not establish the all-stage parity-dependent sharp negative-real threshold and stiff ±e limit. No covering Resultary record identified in focused semantic searches. Best-of-knowledge PASS, not a claim of globally established priority.",
+      "residual_risks": [
+        "A classical unindexed rational-stability analysis of the same family could contain the closed threshold; source theorem-number citation discrepancy must be corrected separately before release."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME FAMILY, not complete negative-real frontier; source version uses theorem numbering 5.3 in accessible text",
+          "evidence": [
+            "Optimal SSP coefficient family b_i=1/s, gamma_s and delta_s as used in proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.37425",
+          "material_read": "Accessible full arXiv text, theorem establishing s-stage family, coefficient equations (5.5)–(5.6), and surrounding sections",
+          "method": "Read source exact coefficient formulas and checked proof target vs theorems",
+          "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+          "trigger": "Exact optimal implicit third-order stage tableau"
+        },
+        {
+          "assessment": "Ingredient only, not equivalent all-stage parity frontier",
+          "evidence": [
+            "Generic R(z)=1+zb^T(I−zA)^(−1)1 and SSP coefficient optimisation."
+          ],
+          "identifier_or_url": "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+          "material_read": "Accessible full postprint, sections on generic scalar stability and SSP constructions, inspected relevant PDF page",
+          "method": "Compared generic R(z) and SSP conditions with explicit scalar decay threshold",
+          "title": "Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+          "trigger": "Classical source of same third-order implicit SSP family"
+        },
+        {
+          "assessment": "SINGLE-STAGE IMAGE; no exact all-stage threshold formula",
+          "evidence": [
+            "Figure 2 for four-stage case, approximate left negative intercept."
+          ],
+          "identifier_or_url": "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf",
+          "material_read": "Section 2.2 and Figure 2 including four-stage plot",
+          "method": "Compared plotted left crossing with exact formula and all-stage quantifier",
+          "title": "Some Embedded Pairs for Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+          "trigger": "Contains absolute-stability plots of the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.37425",
+        "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf"
+      ],
+      "rationale": "The real negative-axis absolute stability boundary is an operationally natural sharp quantitative property of the uniquely SSP-optimal implicit family. It distinguishes SSP radius from scalar stiffness stability and gives a full parity phase diagram, quadratic stage scaling and asymptotic non-damping of stiff modes—useful exact properties not mechanically settled by the SSP-optimality statement alone.",
+      "residual_risks": [
+        "Applicability is limited to scalar linear decay (normal selfadjoint spectra by functional calculus), not general A-stability or SSP/TVD."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; need bibliographic theorem-number correction in source metadata, but not scientific revision of correct formulas. No full complex stability proof."
+  ],
+  "schema_version": 1
+}
