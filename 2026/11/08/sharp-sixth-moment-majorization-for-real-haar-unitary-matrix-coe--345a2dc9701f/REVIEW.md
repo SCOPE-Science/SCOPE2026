@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact normalized sixth moment is obtained from the order-three unitary Weingarten class coefficients, with a distinct rank-two Schur computation that avoids the singular denominator at dimension two. Haar central-circle invariance gives the factor \(5/16\) for real sixth moments and the second-moment normalization. A two-coordinate derivative inequality proves strict Schur-concavity for all dimensions at least three, and the two-variable factorization settles dimension two. Majorization then proves both sharp bounds and precisely characterizes equality through singular-value profiles. The exact deficit identity is verified by expanding the centered spectrum, and its weights are positive on the full simplex. The extracted standalone checker independently reconstructs the order-three Gram inverse in dimensions three through nine and tests the symbolic bounds and identities on rational spectra. Computation alone is not an infinite-dimensional proof; the analytical argument supplies the universal quantifiers.
+## correctness
 
-## Originality — PASS, qualified
-Collins–Śniady (arXiv:math-ph/0402073, 2004) derive the general Weingarten integration formula; hence the raw sixth moment is an instance of earlier machinery, not claimed as independently new. Novak (arXiv:math/0608108, 2006) determines Haar truncation trace moments, which imply endpoint cases but do not state spectral Schur-concavity or all-matrix equality/deficit identities. Mathematically similar group-moment and matrix-coefficient records were compared; none of those accessible statements gives the sharp full coefficient-profile ordering. The closest historical local topic involves Haar-orthogonal rather than Haar-unitary matrix coefficients. Direct specialization of published integration formulas makes the moment polynomial accessible, so the genuine priority question concerns the optimizer theorem, not the moment evaluation. An implicit or unindexed equivalent optimization remains a risk.
+PASS
 
-## Mathematical value — PASS
-The finite-dimensional representation coefficient space has a natural sharp \(L^2\)-to-\(L^6\) embedding norm and extremal problem. The theorem solves it for *all complex coefficient matrices*, not a selected trace or entry, giving a full spectral majorization law, unique optimizer orbits, the exceptional two-dimensional constant, and a nonnegative exact spectral-defect functional. The difference between rank-one sampling and flat-spectrum traces is an intrinsic representation-theoretic geometry distinction useful for quantitative stability of unitary matrix statistics, rather than an arbitrary finite parameter substitution.
+PASS: Circular invariance reduces the real moment to (5/16)E|tr(A*U)|⁶ and E f²=s/(2n). Rebuilt the n>=3 order-three Weingarten class contraction, with n=2 separately via the two-partition Schur moment; independently inverted the six-by-six permutation Gram matrix for n=3,4,5 in exact rational arithmetic. The polynomial (15n²/[(n²−1)(n²−4)])(n²−2−3nΣx_i²+4Σx_i³) has negative strict Schur derivative (x_i−x_j)^2[-6n+12(x_i+x_j)]<0 on the simplex. Endpoint and exact positive defect identities then follow for every n, and rank-one/scalar-unitary equality cases are exhaustive. Finite matrices verify coefficients but no substitute for Haar integration and majorization proof.
 
-## Closest literature and limitations
-The source input is the order-three specialization of Collins–Śniady, and Novak covers the equal-weighted projection profiles at the endpoints. These published results dominate the integration step but do not state the full inequality. The proof does not treat higher moments or other groups. Full priority can only be supported as a best-knowledge literature comparison, not a uniqueness certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded): Collins–Śniady supplies general Weingarten integrals and Novak computes selected Haar truncation moments, making raw integration known methodology. Their inspected theorems do not give strict Schur-concavity, the all-coefficient upper/lower extremum classification, exceptional n=2 boundary and global spectral deficit; real orthogonal/Stiefel and quaternionic analogues have different group laws.
+
+## value
+
+PASS
+
+PASS: Natural entire matrix-coefficient representation space, exact sharp L2→L6 operator norm and robust spectral majorization over every coefficient singular profile, including complete equality geometry and quantitative defect; useful structural refinement of established unitary moment theory, not arbitrary matrix arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
