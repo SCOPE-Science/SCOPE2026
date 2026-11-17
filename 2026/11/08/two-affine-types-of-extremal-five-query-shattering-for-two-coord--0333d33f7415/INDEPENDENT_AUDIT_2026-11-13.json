@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:58:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 5bdd8bc075f0381546f7344e5b40e87d4d337b6e, proof affine normalization and orbit-stabilizer",
+        "verify_sparse_parity.py blob 0f56aa3ba617d5e6fcafe11f770cf608b73efb04, complete reference enumeration source",
+        "Fresh independent exact normalized 14950-candidate enumeration and 80640-frame orbit check: 80 covers, 1008 stabilizer, two orbits"
+      ],
+      "rationale": "Five query rows give eleven F2^5 coordinate profiles; each pair-of-coordinates parity returns their XOR. Shattering all 32 patterns requires zero from a duplicated profile plus all 31 nonzero differences from >=10 distinct profiles. Any ten-difference basis has full affine span and admits a six-point affine frame sent to (0,1,2,4,8,16); hence exactly C(26,4)=14950 normalized ten-sets and C(26,3)=2600 normalized nine-sets exhaust possibilities. Independent complete enumeration yielded exactly 80 covering ten-sets, no covering nine-set, and 80640 independent affine frames within A0; all 80 normalized images occur from A0. Exactly 1008 frame maps stabilize A0, with orbit size 317440 and point orbits sizes 7 and 3. Seven XOR-zero affine planes distinguish duplicate choices by 4 versus 0 incidences. The completeness reduction, not an incomplete brute force, justifies classification.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing minimum-size result Δ(F2^5)=10 only bounds the size, not orbit data",
+          "General VC results concern different hypothesis family"
+        ],
+        "reasoning": "The known broader group-family table covers minimum size only; it cannot imply unique affine orbit, 317440 sets, or two marked-duplicate types without separate classification.",
+        "searches": [
+          "Banakh–Gavrylkiv 2017 Table 3",
+          "Guingona et al 2021 shattering dimensions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query F2^5 ten point difference basis affine orbit extremal five query two-coordinate parity shattering classification",
+        "Banakh–Gavrylkiv, Difference bases in finite Abelian groups (2017), arXiv:1704.02471, primary PDF Table 3 inspected",
+        "Guingona et al, Littlestone and VC-dimension of families of zero sets, arXiv:2109.04805",
+        "Resultary affine-orbit Walsh-support record in F2^4 (different problem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum size ten plus 11 coordinate slots implies at most one duplicated profile, but does not force all ten-sets equivalent",
+          "Two orbit representatives A0+(0) and A0+(8) distinguished by plane incidence"
+        ],
+        "reasoning": "The orbit theorem implies the known minimum plus sharp extremal witness classification; the converse known minimum does not imply two marked affine types.",
+        "searches": [
+          "Banakh–Gavrylkiv 2017",
+          "Resultary: five-query shattering classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Five-query shattering ⇔ pairwise XOR cover of F2^5, including zero from duplicate",
+          "All 10-point difference bases form AGL(5,2) single orbit"
+        ],
+        "reasoning": "Compared the affine versus merely translation-normalized formulations and full-group orbit action; table minima do not encode the inequivalent repeated-profile orbits.",
+        "searches": [
+          "Resultary: affine classification additive difference bases binary five-space",
+          "Banakh–Gavrylkiv 2017 full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 explicitly contains minimum 10 for (C2)^5",
+          "Independent exact 14950 normalized candidates and 1008 stabilizing maps produce new finer data"
+        ],
+        "reasoning": "Exact table overlap is documented: cardinality ten is previously known. No inspected table gives the full orbit/stabilizer census; cannot claim worldwide absence.",
+        "searches": [
+          "Banakh–Gavrylkiv finite Abelian group difference basis tables",
+          "Resultary: F2^5 317440 affine orbit"
+        ]
+      },
+      "rationale": "Best-of-knowledge original affine orbit/stabilizer census and two inequivalent extremal duplication types, NOT minimum ten-element basis or sparse-parity VC threshold. Existing additive difference-basis tables give min cardinality 10 but no 317440/1008 affine-orbit classification in inspected paper.",
+      "residual_risks": [
+        "An older affine orbit enumeration for minimum difference bases of (Z/2)^5 under a different name may cover the exact count; priority not certified.",
+        "The known minimum difference basis size ten and induced VC threshold are excluded from originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MINIMUM_SIZE_NOT_AFFINE_ORBITS",
+          "evidence": "Table records Δ[(C2)^5]=10, but does not provide complete AGL(5,2) orbit sizes or duplicate-profile two-type classification in inspected content.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.02471",
+          "material_read": "Full lawful primary PDF and Table 3 page showing minimal cardinality 10",
+          "method": "Read and inspected relevant full-text/table content (including page screenshot)",
+          "title": "Difference bases in finite Abelian groups",
+          "trigger": "Same group F2^5 and minimum additive difference-basis table"
+        },
+        {
+          "assessment": "RELATED_FAMILY_NOT_EXACT_SPARSE_PARITY_CLASS",
+          "evidence": "General linear-zero-set family differs from exactly-two-coordinate parities with 11 inputs and affine profile multisets.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Abstract and described scope, full paper not inspected",
+          "method": "Accessible mathematical summary only",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Related shattering/VC dimensions of linear families"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_PARAMETER",
+          "evidence": "Walsh-support gap on F2^4, not minimum difference bases of F2^5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-affine-orbit-rank-census-for-the-5-9-walsh-support-gap-on--2a5eb96974d1",
+          "material_read": "Published record summary and indexed statement",
+          "method": "Resultary semantic inspection",
+          "title": "Exact affine-orbit rank census for the (5,9) Walsh-support gap on F2^4",
+          "trigger": "Related affine Fourier support enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivation and full statement in frozen RESULT.md at blob 5bdd8bc075f0381546f7344e5b40e87d4d337b6e",
+        "Frozen RESULT.md blob 5bdd8bc075f0381546f7344e5b40e87d4d337b6e, proof affine normalization and orbit-stabilizer"
+      ],
+      "rationale": "A natural extremal VC-shattering witness classification, not arbitrary numerical enumeration: it completely determines which minimal five-query supports occur for a sparse parity hypothesis class and the exact symmetry types of repeats. The affine normalization plus stabilizer-orbit structure is reusable for comparison of extremal binary additive designs.",
+      "residual_risks": [
+        "Only dimension five and eleven columns; does not imply an asymptotic classification, but exact first-threshold designs are meaningful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The ten-element additive-difference bases of F2^5 form a single affine orbit of 317440 sets (stabilizer 1008); extremal five-query shattering by 55 two-coordinate parities on 11 positions has precisely two affine classes of repeated profile, with stabilizer orbits of sizes seven and three.",
+  "limitations": [
+    "Classification only under AGL(5,2) and coordinate permutations, not five-query index permutations or arbitrary sparse degrees.",
+    "Some prior finite-difference-basis literature may have equivalent orbit counts not indexed by published title."
+  ],
+  "schema_version": 1
+}
