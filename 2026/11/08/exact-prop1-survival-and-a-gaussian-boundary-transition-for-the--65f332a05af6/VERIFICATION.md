@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-Run the included `verify.py` with standard Python 3 (no third-party packages):
+# Independent mathematical audit
 
-```sh
-python verify.py
-```
+## correctness
 
-The standalone checker (executed from the actual bundled source) reported:
+PASS
 
-```
-PASS: exact outcome enumerations, marginal-law identities, all-liked formula, symmetry, small-horizon identities
-Checks: 106
-Examples:
-p1=1/2, p2=1/2, m=5, success=4047/4096
-p1=1/3, p2=2/3, m=6, success=524998/531441
-p1=1, p2=1, m=5, success=5/8
-```
+For binary valuations, PROP1 is equivalent to D_i=T_i−2U_i≤2, and D_1+D_2=−E_1−E_2≤0 makes two failure events disjoint. Single-good trinomial steps yield exact finite m Laurent coefficient tails. For 0<p_i<1, exponential tilting to centered aperiodic random walks plus local CLT gives stated K_i rho_i^m/sqrt(m). A two-agent common jointly approved coin walk with E_i LLN yields the joint triangular-array Gaussian window Phi(d1)+Phi(d2)−1. The all-approve boundary follows from binomial central terms, zero-approval case trivial. Independent exact convolution versus direct five-outcome enumeration checked rational parameters and m<=6, not the asymptotic theorem.
 
-It explicitly enumerates valuation and recipient histories, rather than merely replaying the trinomial formula, for six exact-rational parameter pairs and each horizon from one to six. It checks the all-approved coin-toss formula at horizons through 34. The analytic theorem covers all nonnegative integer horizons specified in the result and the infinite-horizon limits; the finite checks do not constitute proofs of those infinite statements. The proofs of the sharp prefactors use standard aperiodic lattice local central limit estimates after exponential tilting, and the boundary-window proof uses the bounded triangular-array central limit theorem. Independent audit has not been performed.
+## originality
+
+PASS
+
+This exact stochastic two-agent Bernoulli approval law, its sharp exponential prefactors and nonuniform Gaussian critical window are not supplied by existing adversarial worst-case or distribution-free fairness guarantees; the mechanisms and metrics differ.
+
+## value
+
+PASS
+
+Exact probability law and critical scaling elucidate a well-known fairness allocation rule under a natural random-preference model; a discontinuous boundary diagram and sharp m−1/2 crossover offer concrete statistical benchmarks beyond worst-case approximation order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

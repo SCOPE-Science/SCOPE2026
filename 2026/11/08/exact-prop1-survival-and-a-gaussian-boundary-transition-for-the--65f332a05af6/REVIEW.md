@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact PROP1 for a binary two-agent allocation is the conjunction of two integer-deficit inequalities. The two failure events are disjoint because the deficits sum to minus the number of exclusively approved goods. The single-good increment table gives the stated Laurent-coefficient identity for every horizon and every allowed parameter. An explicit exponential tilt to a centered aperiodic trinomial law gives the nontrivial geometric-tail prefactor through the lattice local central limit theorem. The boundary half-normal laws and the Gaussian critical window follow from the decomposed common-good signed walk and counts of exclusive goods. The parity-sensitive fully approving case follows from binomial coefficients. The extracted `verify.py` independently enumerates per-good valuation and recipient histories and checks exact rational identities in 106 cases. These finite checks do not prove the asymptotic assertions; those have analytic proofs.
+## correctness
 
-**Originality — PASS, with publication-priority qualification.** The 2015 Like-rule paper establishes the mechanism, ex-ante envy-freeness, and possible unbounded ex-post envy; it does not give the claimed distribution. The relevant 2026 Neoh–Teh paper's Section 5 proves order-tight *worst-case approximate* PROP1 guarantees over fixed input sequences, not exact success probabilities under an independent Bernoulli input model. Choo et al. analyze chiefly uniform randomized allocation and advance-information guarantees. Chen–Long study other random rules and general expected/high-probability approximation measures. Research-record searches for the precise two-agent Bernoulli law, equivalent two-sided deficit random walks, and the Gaussian window yielded no exact equivalent. Titles, snippets, and unsuccessful searches cannot establish absolute novelty; unindexed literature and related probabilistic formulations remain residual risks.
+PASS
 
-**Value — PASS.** Exact realized fairness under repeated stochastic arrivals is a natural complement to adversarial approximation guarantees. The theorem locates a singular boundary in the canonical two-agent Like model: fixed non-unit approval rates imply exponentially likely PROP1, one fully approving agent yields limiting success one half, and both fully approving agents yield success tending to zero. The explicit Gaussian window quantifies the crossover on the natural square-root scale; exact finite laws and sharp interior prefactors permit calibrating finite-horizon fairness risk. This is a cohesive structural result, not a routine substitution into the worst-case bounds.
+For binary valuations, PROP1 is equivalent to D_i=T_i−2U_i≤2, and D_1+D_2=−E_1−E_2≤0 makes two failure events disjoint. Single-good trinomial steps yield exact finite m Laurent coefficient tails. For 0<p_i<1, exponential tilting to centered aperiodic random walks plus local CLT gives stated K_i rho_i^m/sqrt(m). A two-agent common jointly approved coin walk with E_i LLN yields the joint triangular-array Gaussian window Phi(d1)+Phi(d2)−1. The all-approve boundary follows from binomial central terms, zero-approval case trivial. Independent exact convolution versus direct five-outcome enumeration checked rational parameters and m<=6, not the asymptotic theorem.
 
-**Closest literature and limitations.** Aleksandrov–Aziz–Gaspers–Walsh (IJCAI 2015), Neoh–Teh (arXiv:2609.05310, first posted 2026-09-04), Choo et al. (arXiv:2508.03253), and Chen–Long (arXiv:2609.23577). The assertion is restricted to two agents, truthful independent binary valuations and independent uniform Like choices, and does not claim a worst-case online guarantee. Aperiodic local-limit constants apply only at strictly interior approval rates. Independent scientific assessment is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This exact stochastic two-agent Bernoulli approval law, its sharp exponential prefactors and nonuniform Gaussian critical window are not supplied by existing adversarial worst-case or distribution-free fairness guarantees; the mechanisms and metrics differ.
+
+## value
+
+PASS
+
+Exact probability law and critical scaling elucidate a well-known fairness allocation rule under a natural random-preference model; a discontinuous boundary diagram and sharp m−1/2 crossover offer concrete statistical benchmarks beyond worst-case approximation order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
