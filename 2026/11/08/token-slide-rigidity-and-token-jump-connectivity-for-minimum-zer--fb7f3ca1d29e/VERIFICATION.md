@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The mathematical argument in RESULT.md establishes the infinite-family claim. The computations here are finite reproducibility and model-consistency checks, not a substitute for the proof.
+# Independent mathematical audit
 
-From the directory containing all embedded artifacts, run `python3 exhaustive_check.py` and `python3 local_check.py`. Expected success markers are `EXHAUSTIVE_OK` and `LOCAL_CHECK_OK`, respectively. The first checker exhausts all size-four subsets for \(5\le n\le12\), plus size-three subsets through \(n=9\). The second checker generates only the symmetry-orbit templates for \(5\le n\le60\), checks their closures and all legal token slides, and verifies the proposed token-jump paths for representatives.
+## correctness
 
-The input graph is always the undirected Cartesian prism with \(2n\) labeled vertices and three neighbors per vertex. Each candidate move replaces exactly one selected vertex by a previously unselected vertex. All graph operations use the exact integer alphabet and no floating-point arithmetic.
+PASS
 
-The file content was checked for scientific scope and neutral publication wording. There is no external independent audit or scholarly certification.
+Read actual five-orbit classification and both exhaustive_check.py and local_check.py. Independent enumeration from ordinary forcing closure (not orbit templates) reproduced 13n minimum sets and token-slide components n=5: {1:15,4:10,5:2}, n=6,7,8 all isolated; independently constructed token-jump graph was connected for n=5..8. The all-n proof uses bounded local slide pattern comparisons, with periodic collision cases n=6,7,8 and stabilization for larger n; explicit D_i–E_i–D_{i+1} jumps connect the canonical square placements. Finite checks alone do not prove all n.
+
+## originality
+
+PASS
+
+PASS narrowly: already published n>=7 slide frozen states and n>=6 connected token-jump graph are NOT new. New natural sharp boundary information is the exact n=5 token-slide component decomposition, together with verification of sliding rigidity at previously uncovered n=6. This restricted surviving claim has genuine value.
+
+## value
+
+PASS
+
+Complete sharp small-girth mobility exception of a canonical zero-forcing configuration family is a natural nontrivial reconfiguration invariant; the exceptional n=5 graph distinguishes isolated vertices, paths and cycles, while the n=6 transition proves sharp freezing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
