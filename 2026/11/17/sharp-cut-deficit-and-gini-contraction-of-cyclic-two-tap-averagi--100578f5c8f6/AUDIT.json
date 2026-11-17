@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Exact per-pair Jensen deficit counts one conflict for each up/down cyclic transition pair, giving r^2. Coarea yields the all-real upper bound; balanced arcs attain. The n=2, boundary-parameter and n>=4 disjoint-support cases are handled. Standalone exact-rational checker verifies 40830 cut cases and 58500 nonbinary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Majorization of bistochastic operators proves \\(G_n(Pf)\\le G_n(f)\\) without an explicit gap.",
+        "The 2013 cone-operator theorem specializes to oscillation rather than complete-pair Gini."
+      ],
+      "reasoning": "Neither exact nonexpansivity from majorization nor the oscillation rate \\(1\\) yields the sharp strict \\(G_n\\) constant. The two-cell conditional expectation result treats a different operator and variation along cycle edges.",
+      "searches": [
+        "published-finding corpus: all pairs absolute differences Markov cycle one step contraction rate adjacent shift mixture",
+        "published-finding corpus: general exact pairwise Gini seminorm of row stochastic matrices max over binary cuts weighted column values Markov contraction",
+        "arXiv:1302.5226 Theorem 1.1",
+        "published-finding corpus: sharp cyclic variation stability of two-cell conditional expectations (2026/11/1/19779f163091)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1302.5226, Theorem 1.1, Sections 1 and 4, PDF pages 1,3,5,13–14",
+      "Published published-finding corpus indexed result 2026/11/1/19779f163091 (summary-level comparison)",
+      "published-finding corpus indexed cycle-convolution and Markov-chain search hits (summary-level)",
+      "Mathematical comparison of published general Gini–Dobrushin norm inequalities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A Dobrushin coefficient of one cannot imply an explicit strict Gini deficit.",
+        "The derived identity for each cut depends on exact counts of opposed cyclic transitions and is not a direct consequence of rowwise oscillation."
+      ],
+      "reasoning": "The primary source's oscillation coefficient is \\(\\max_{i<j}\\frac12\\sum_s|P_{is}-P_{js}|\\), equal to one for disjoint rows here when \\(n\\ge4\\). It does not imply the positive \\(G_n\\) cut deficit or its sharp optimized ratio. The general prior Gini–Dobrushin comparison only bounds possible relative magnitudes, not the precise coefficient of this operator. No nearby published record found states the exact cyclic two-tap \\(r^2\\) deficit or the balanced-arc extremizers; nonappearance is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: exact complete pairwise Gini contraction of cyclic nearest neighbour averaging (1-theta)I + theta shift",
+        "published-finding corpus: general exact pairwise Gini seminorm of row stochastic matrices max over binary cuts weighted column values Markov contraction",
+        "arXiv:1302.5226 Theorem 1.1 and Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1.1 concerns Hopf oscillation and dual TV; the present cut formula is for summed output pair differences.",
+        "For binary cyclic cuts, exact output loss is twice the smaller tap times the square of the number of runs."
+      ],
+      "reasoning": "The primary source's oscillation coefficient is \\(\\max_{i<j}\\frac12\\sum_s|P_{is}-P_{js}|\\), equal to one for disjoint rows here when \\(n\\ge4\\). It does not imply the positive \\(G_n\\) cut deficit or its sharp optimized ratio. The general prior Gini–Dobrushin comparison only bounds possible relative magnitudes, not the precise coefficient of this operator. No nearby published record found states the exact cyclic two-tap \\(r^2\\) deficit or the balanced-arc extremizers; nonappearance is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: exact complete pairwise Gini contraction of cyclic nearest neighbour averaging (1-theta)I + theta shift",
+        "published-finding corpus: two-tap cyclic average Gini norm 1 - 2 min(theta,1-theta)/floor(n^2/4) balanced arcs",
+        "Gaubert–Qu arXiv:1302.5226 §§1,4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned related cycle-contraction and Gini-inequality records but no table giving the two-tap coefficient.",
+        "Published results on general contraction bounds and other cyclic filters do not state this one-step two-tap coefficient."
+      ],
+      "reasoning": "No exact matching table or indexed record identified. Parameter coincidence alone would not settle equivalence; missing unindexed sources remain a risk.",
+      "searches": [
+        "published-finding corpus: two-tap cyclic average Gini norm 1 - 2 min(theta,1-theta)/floor(n^2/4) balanced arcs",
+        "published-finding corpus: coarea cut runs squared cyclic lazy random walk Gini coefficient",
+        "published-finding corpus: cyclic two-tap stochastic kernel contraction total pairwise absolute differences"
+      ]
+    },
+    "rationale": "Actual published-finding corpus searches and claim comparisons found no implication covering the sharp cut-run deficit or exact Gini norm. Primary Gaubert–Qu text was inspected in full-relevant sections and yields oscillation/TV coefficients, not the claimed unweighted pairwise-dispersion rate. Possible historical equivalent calculations are acknowledged.",
+    "residual_risks": [
+      "Unindexed or terminologically different historical cut-deficit calculations are possible.",
+      "The related published indexed records were compared by statements and summaries where their full text was not material to the closest comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new complete-pair Gini identity; DIRECTLY_COVERS the benchmark Dobrushin oscillation formula",
+        "evidence": [
+          "Theorem 1.1 states the oscillation contraction formula; the finite specialization is half the maximum row total-variation distance.",
+          "Section 4 Example 4.1 studies the oscillation diameter seminorm and dual measure total variation, not summed pairwise signal differences."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.5226",
+        "material_read": "PDF pages 1,3,5,13–14; abstract, main Theorem 1.1, classical stochastic specialization and Section 4 discussions",
+        "method": "Read extracted source text and inspected PDF page images; compared exact seminorm and quantified coefficient",
+        "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+        "trigger": "Same stochastic matrix class and contraction coefficient; potential stronger general result"
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR_AND_SEMINORM; no claim of full-text exclusion",
+        "evidence": [
+          "Record concerns two-cell conditional expectations and adjacent-edge total variation; the present operator is a directed stochastic two-tap convolution and complete-pair Gini variation."
+        ],
+        "identifier_or_url": "published-finding corpus-publication-index:19779f163091",
+        "material_read": "Indexed title and mathematical summary only, not primary full text",
+        "method": "Statement/implication comparison of indexed summary with current theorem; not treated as exhaustive full-text inspection",
+        "title": "Published records about cyclic two-cell variation and local averaging",
+        "trigger": "Cycle variation and conditional averaging have related keywords"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "100578f5-c8f6-4589-a80b-e19964188836",
+  "value": {
+    "rationale": "Gives an exact one-step contraction value, a complete binary extremizer classification, a unique optimal local mixing weight, and a strict Gini-versus-oscillation contraction separation for all n>=4. These quantify a natural discrete Markov smoothing operator beyond generic majorization.",
+    "status": "PASS"
+  }
+}
