@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python verify.py` using Python 3 and the standard library only. The program independently enumerates the inverse affine branches of each iterate, solves for their rational fixed points, orders the points and computes transport integrals by exact rational arithmetic.
+# Independent mathematical audit
 
-The checker tests every integer \(1\le n\le10\) against the proved fixed-point grid and exact \(W_1\), \(W_2^2\), \(W_\infty\) formulas, as well as exact largest neighbor gaps. It also tests the \(p=3\) and \(p=4\) rescaled cost against a deliberately loose but rigorously numerical error envelope in rational arithmetic. The expected terminal message is:
+## correctness
 
-`VERIFY_OK independent_inverse_branch_enumerations=10 W1_exact=10 W2_exact=10 Winfty_exact=10 max_gap_exact=10 higher_p_exact_Riemann_bounds=20`
+PASS
 
-These computations do not prove any all-\(n\) or all-real-\(p\) statement. The general theorem relies on the analytic semiconjugacy, monotone transport, elementary power sums and offset-grid Riemann limit proved in `RESULT.md`. Independent scientific validation has not been performed.
+The full tent map folding of doubling gives exactly m=2^n distinct fixed points, one in each interval [j/m,(j+1)/m], in the two interlaced 2k/(m-1),2(k+1)/(m+1) grids. Increasing 1D coupling sends each interval to its grid point and is optimal for all p>=1. Summing offsets gives W1=(2m^2-1)/(6m(m^2-1)), W2^2=1/(6(m^2-1)), Winfty=1/m; the offsets approach two uniform grids, producing limit m^p Wp^p=2/((p+1)(p+2)). Convex interval p-cost gives unrestricted m-atom quantizer lower bound 1/[2m(p+1)^(1/p)]. Independently enumerated exact inverse branches and rational W1,W2,Winfty for n=1..8. Finite verification is corroboration, while the quantile proof establishes infinite n/fixed p.
+
+## originality
+
+PASS
+
+Earlier generalized tent-repeller theorem gives the same exact W1 at slope H=2 and the period-prime theorem gives a distinct exact-period bottleneck distance. Thus W1 and grid coordinates cannot be claimed new. Neither prior theorem covers the all-finite-p Wasserstein asymptotic inefficiency factor relative to unrestricted optimal quantizers, nor the exact W2^2 for all n. The distinctive p-continuum comparison survives the checked published claims; earlier optimal quantization methods are acknowledged.
+
+## value
+
+PASS
+
+The exact price of using a dynamical fixed-point census rather than an optimally placed m-point quadrature/quantizer is a natural quantitative dynamical invariant; the continuum of sharp p-dependent constants, W2 identity and persistent factor gap supply a useful precise benchmark beyond ordinary equidistribution or an isolated W1 computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
