@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The explicit orbit-barycenter complex is exactly the geometric fixed-point set because invariant barycentric coordinates must be constant on complete arc orbits. For finite cyclic Cayley digraphs, strong connectivity is equivalent to the gcd of all steps with the group order being one; finite-semigroup generation suffices even for directed edges. Since the auxiliary prime divides none of the special steps, every non-strongly-connected step subset lies in at least one of the prime-indexed full simplices. Their finite intersections are either empty or simplices, with nerve exactly the original complex's face set, giving the homotopy equivalence by the nerve lemma. Symmetry of every arc and inclusion of unit steps verify both hypotheses of Hultman's 2-dense wedge theorem (Theorem 4.3). Five enumerated models passed independent reachability, cover, nerve and mod-two Betti checks. No finite enumeration is substituted for the all-input proof.
+
+## Originality — PASS relative to inspected evidence
+Hultman's Theorem 4.3 supplies the ambient wedge-of-spheres type, not any cyclic fixed-point classification; Björner–Welker's result is a nonequivariant complete-digraph case; and Ayzenberg–Beketov–Magai present a nonequivariant hemisphere nerve interpretation. The proposed assertion does not follow from their conclusions alone: it requires constructing a variable family of bidirected circulants whose *fixed* orbit-complex nerves range over all finite complexes. Literature and existing-result comparisons were made using the exact statement and aliases such as not-strongly-connected, cyclic rotation, Cayley digraph, prime support, fixed-point universality and nerve realization. The closest retrieved published statements concern narrower fixed-space families of different graph complexes. Failure to find an equivalent theorem is not proof of global priority; see the limitations.
+
+## Value — PASS
+The structural significance is universal realization: even among strongly connected 2-dense symmetric circulant sources, whose non-strongly-connected-subgraph complexes have torsion-free wedge-of-spheres topology, their full-rotation fixed spaces can have *any* finite simplicial homotopy type, including non-wedges and integral torsion. This is a qualitative contrast with ordinary topology and provides an explicit reduction from finite complex topology to symmetry-fixed graph-complex topology, rather than a tiny parameter refinement.
+
+## Closest literature and limitations
+The exact ambient wedge theorem is credited to Hultman [1]. The available abstract of Björner–Welker [2] concerns the complete-graph case; the full publisher text was not obtained. The arXiv manuscript [3] was examined for its statements on directed graph complexes and hyperplane-arrangement nerves. No exhaustive search of unindexed theses or unpublished sources is claimed. The fixed space is only proved homotopy equivalent to the prescribed input, not homeomorphic; construction size is not optimized.
+
+Self-review: passed. Independent audit: not yet performed.
