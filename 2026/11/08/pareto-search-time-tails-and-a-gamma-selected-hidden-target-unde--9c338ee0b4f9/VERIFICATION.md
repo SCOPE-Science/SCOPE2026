@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the analytical statement
+# Independent mathematical audit
 
-The analytical proof is given in `RESULT.md`: a regenerative Brownian Laplace transform gives the exact reset-count distribution and fixed-target moments; a uniform exponentially decaying bound justifies integrating the distant-target exponential limit; a stopped compensated-Poisson martingale gives conditional count/time locking; and a second dominated-convergence argument identifies the joint Gamma/exponential limit.
+## correctness
 
-Run `python verify.py` with Python 3 and the Python package `mpmath` available. The supplied checker uses 153 finite assertions covering beta-integral count probabilities, transformed annealed Laplace integrals, moment derivatives, negative-argument transform bounds, remote-target scaling and the \(a=2\) exact count identities. The check passed in the packaged source environment. These computations are diagnostic and do not certify every parameter or any infinite limit.
+PASS
 
-The stochastic model requires \(D,r,\beta>0\), a single fixed target drawn from an exponential law, resetting to the starting point with independent exponential clocks, and stopping at first absorption. The asserted asymptotic limits hold at fixed physical parameters. Scientific priority is assessed against accessible same-model and related primary literature but is not an independent publication-priority guarantee.
+PASS: fixed-target renewal transform Φ_p(s)=(r+s)p^sqrt(1+s/r)/(s+r p^sqrt(1+s/r)) with p=e^-kR, and p~Beta(a,1), imply beta-geometric reset counts. For X_p=rpT, Φ_p(srp)→(1+s)^-1 and MGF at θrp is ≤1/(1-θ), yielding uniform exponential survival envelope. Dominated-convergence integral over v=rtp gives Γ(a+1)(rt)^-a tail, all-real moment cutoff q<a. Stopped Poisson martingale has E[(N-rT)^2|p]=rE[T|p]=(1-p)/p, forcing scaled count/time locking; conditional posterior density factors v^(a-1)e^(-v-e) into Gamma(a) and independent Exp(1). Recomputed a=2 beta counts P(N=0)=2/3,P(N=1)=1/6, and scaled Laplace at p=e^-10,e^-20,e^-30 →.5. No claim of independent N and T at finite t.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge only for SHARP ANNEALED TIME TAIL CONSTANT, ALL-REAL MOMENT CUTOFF and JOINT CONDITIONAL GAMMA POSTERIOR/TIME/RESET COUNT. Earlier published October 25 SCOPE theorem covers the SAME model, integer-moment threshold, exact first two moments, and mean-vs-CV optimization; these are NOT original here. Evans–Ray supplies the fixed random-target and conjugacy/mean framework. The joint conditional law and time-tail constant were not located in inspected prior results.
+
+## value
+
+PASS
+
+PASS: the joint Gamma-selected location and asymptotically locked reset burden characterize which quenched targets cause exceptionally long searches, beyond known means and integer-moment criteria. The sharp time-tail constant is an independently useful risk measure; the beta-geometric count marginal alone is not claimed as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
