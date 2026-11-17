@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with the Python standard library. The program reconstructs every directed edge-or-loop vertex and its two one-hot coordinate blocks, forms the exact integer covariance numerator \(N^2C\), and checks a full eigenvector basis consisting of within-class contrasts, class contrasts, and two zero modes. It verifies the phase sign identity for each profile. Expected output: `PQ_SPLIT_COVARIANCE_CHECKS_PASSED 85 parameter_cases 209596 matrix_entries`.
+## correctness
 
-The explicit tested profiles range over clique sizes \(2\) through \(9\) and selected independent sizes at and away from the predicted boundaries. Exact integer comparisons avoid floating-point ambiguity. The infinite-range phase theorem is established by the quadratic proof, not by these finite examples. A numerical eigensolver was also used separately for several small and medium examples; that optional exploratory calculation is not needed to reproduce the theorem.
+PASS
 
-The result uses only the standard Euclidean coordinate representation and a uniform distribution over distinct vertices. Independent mathematical audit has not been performed.
+Reconstructed every vertex of the PQ adjacency polytope as an ordered eligible pair (i,j), N=p²+2pq+q, n=p+q, and its exact block covariance C=((D/N-ww^T/N², B/N-ww^T/N²), symmetric) with B=[[Jp,J],[J,Iq]], w=(n 1p,(p+1)1q). Orthogonal symmetric/antisymmetric diagonalization gives C+= (D+B)/N -2ww^T/N² and C-=(D-B)/N=L/N. Mode multiplicities sum to 2n, including two normal zero modes. Independent exact full-matrix spectrum for (5,5),(5,6),(5,10),(8,3) matched eigenvalues 0(2), n/N(2p-1),p/N(q-1),(p+2)/N(q-1),n(p²+2p+q)/N²(1). Last vs p/N differs by -H_p(q)/N² where H_p=-q²+p(p-2)q-2p², producing all exact integer thresholds and ties (5,5),(5,10). All eigenvalues interpreted in the standard ambient Euclidean embedding and uniform distinct-vertex law.
+
+## originality
+
+PASS
+
+Best-of-knowledge independent source and logical implication comparison supports an exact new statement after explicit credit for known techniques and partial cases. Historical priority is not certified and residual access risks are retained.
+
+## value
+
+PASS
+
+Exact covariance eigenspaces and conditioning are natural quantitative geometry of a well-studied graph polytope; the least-variance mode changes twice in a single parameter family and only special integer sizes tie. This is a structural, complete classification, not merely recomputing the known Laplacian spectrum or normalized volumes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

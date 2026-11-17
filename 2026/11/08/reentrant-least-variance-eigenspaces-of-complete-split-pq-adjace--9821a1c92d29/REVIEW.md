@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex set is exact because each ordered one-hot pair is uniquely exposed by a sum of two coordinate functionals. The moment matrix is obtained by uniform enumeration over the \(N=p^2+2pq+q\) directed edge-or-loop pairs. An orthogonal symmetric/antisymmetric change of variables gives the graph Laplacian block and a centered signless block. The resulting clique, independent, and class-contrast eigenspaces form an orthogonal basis of the intrinsic tangent space, giving all eigenvalues with their multiplicities and two null directions. Comparing the only two least-eigenvalue candidates gives the exact polynomial \(H_p(q)\); its discriminant and endpoint signs prove every claimed integer phase including the two ties. The standalone standard-library checker separately reconstructs exact covariance matrices from vertices for 85 parameter pairs and tests the full proposed eigenbasis.
+PASS
 
-## Originality — PASS with priority caveat
+Reconstructed every vertex of the PQ adjacency polytope as an ordered eligible pair (i,j), N=p²+2pq+q, n=p+q, and its exact block covariance C=((D/N-ww^T/N², B/N-ww^T/N²), symmetric) with B=[[Jp,J],[J,Iq]], w=(n 1p,(p+1)1q). Orthogonal symmetric/antisymmetric diagonalization gives C+= (D+B)/N -2ww^T/N² and C-=(D-B)/N=L/N. Mode multiplicities sum to 2n, including two normal zero modes. Independent exact full-matrix spectrum for (5,5),(5,6),(5,10),(8,3) matched eigenvalues 0(2), n/N(2p-1),p/N(q-1),(p+2)/N(q-1),n(p²+2p+q)/N²(1). Last vs p/N differs by -H_p(q)/N² where H_p=-q²+p(p-2)q-2p², producing all exact integer thresholds and ties (5,5),(5,10). All eigenvalues interpreted in the standard ambient Euclidean embedding and uniform distinct-vertex law.
 
-Primary full-text comparisons include Davis–Chen (arXiv:2007.11051), Ohsugi–Tsuchiya (arXiv:2103.15045), and Davis–Jakovleski–Pan (arXiv:2202.09853). These papers study the PQ polytope construction, Ehrhart theory and normalized volumes; none of their inspected statements identifies the vertex-uniform covariance spectrum or the two changes of its least-variance mode. The classical complete-split Laplacian spectrum is an input to only the antisymmetric block and does not itself determine the centered symmetric block. Published geometric work on balanced complete-bipartite PQ adjacency polytopes concerns a different polytope family and a minimum-volume enclosing ellipsoid, not the stated covariance distribution. A broader undiscovered equivalent statement remains possible; searches do not certify historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result computes an intrinsic vertex-distribution geometric invariant for every member of a natural two-parameter lattice-polytope family already studied for volume and applications in network power-flow equations. It establishes a genuinely reentrant change in principal eigenaxis type, all tie parameters and multiplicities, and a quadratic threshold for the second change. These structural facts are not determined by vertex counts, normalized volumes, or graph-Laplacian eigenvalues alone. The precise smallest eigenmode and condition number matter for geometric sampling and covariance ellipsoid comparisons; no downstream theorem is claimed.
+Best-of-knowledge independent source and logical implication comparison supports an exact new statement after explicit credit for known techniques and partial cases. Historical priority is not certified and residual access risks are retained.
 
-## Closest sources and limitations
+## value
 
-The full-text join-graph PQ paper (arXiv:2103.15045, Section 4) is the closest source on exactly the underlying graph family; its Theorem 4.1 computes different invariants. The earlier volume paper arXiv:2007.11051 defines the same polytope construction. Existing complete-split spectral graph results give related block eigenvalues but not the covariance decomposition and threshold polynomial. The work concerns the standard-coordinate embedding and the uniform distribution on distinct polytope vertices, not the volume-uniform law or arbitrary affine images. Independent historical priority and independent proof validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact covariance eigenspaces and conditioning are natural quantitative geometry of a well-studied graph polytope; the least-variance mode changes twice in a single parameter family and only special integer sizes tie. This is a structural, complete classification, not merely recomputing the known Laplacian spectrum or normalized volumes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
