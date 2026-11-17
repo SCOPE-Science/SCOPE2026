@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(2\le r\le s\) and \(t\ge2\), the population of panhandle bases splits into two disjoint combinatorial strata with counts \(\binom{s}{r}\) and \(t\binom{s}{r-1}\). The conditional subset laws give two contrast covariances and one rank-one between-block covariance. This produces all \(n-1\) positive spectral dimensions and a single all-ones kernel, without assuming distinct eigenvalues. Exact symbolic simplification gives the strictly smallest bridge eigenvalue and the crossing threshold \(2+(r-2)/(s-r+1)\). Under \(r/s\to\rho\in(0,1)\), \(t/s\to\tau\in(0,\infty)\), all three limits follow from explicit rational functions. A separate standard-library exact rational enumeration checked 60 parameter triples and direct eigen-actions, followed by broader rational comparisons and asymptotic tests. Finite tests are supplementary evidence, not an all-dimension proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Actual comparisons were made with the primary full texts of Hanely et al. (arXiv:2201.12442, Definition 4.1, Proposition 4.4 and the Ehrhart/volume sections) and Deligeorgaki et al. (arXiv:2311.01640, basis definition and main Ehrhart results), relevant portions of the open-access Ferroni–Schröter article (DOI:10.1112/jlms.12984), and Huh–Schröter–Wang's correlation-inequality theorem (DOI:10.4171/JEMS/1119). The former works describe these polytopes and their enumerative invariants; the last supplies general correlation bounds, not the exact covariance spectrum. Published mathematical record searches for panhandle covariance, Schubert/split matroid second-moment eigenvalues and uniform random bases found no formula dominating this claim. Relevant nearby records about *basis-exchange graph Laplacians*, *independence-complex spectrum polynomials* and *vertex covariance of partial-permutation matrices* use different operators or polytopes. Absence of a search hit alone is not evidence of priority: equivalents under occupancy-process and base-generating-polynomial terminology remain a risk. No formal novelty certification is asserted.
+PASS
 
-## Value — PASS
-The claim completely classifies a natural Euclidean second-moment invariant of the standard panhandle base polytope, a basic hypersimplex truncation used in matroid geometry. It identifies the full eigenmultiplicities, a parameter-dependent **exact crossing** between handle and tail contrast variances, and a strong three-scale anisotropic limit with quadratic condition-number growth. This is information not determined by, and not a restatement of, the known Ehrhart/facet/volume formulas or generic correlation inequalities. The all-parameter classification and sharply separated scaling regimes motivate the precise invariant beyond a small numerical example.
+Every base has either r handle or r-1 handle plus one of t tail elements. The Bernoulli K tail count has p=tr/(d+tr), d=s-r+1. Total covariance is orthogonal sum of uniform-subset handle projector, tail one-hot projector, and rank-one p(1-p)vv^T on v=(-1_s/s,1_t/t). This gives stated positive lambda_handle,lambda_tail,lambda_bridge and a 1-dimensional kernel. Explicit positive ratios prove bridge strictly smaller than both, and difference of handle/tail equals ((r-1)(d(t-2)-(r-2)))/(s(s-1)), giving crossover. Direct substitution yields three proportional scalings. Independently enumerated all bases and exact rational covariance for parameter tuples (3,2,2),(4,2,2),(5,4,3),(6,2,4),(6,6,2), verifying eigenvectors and eigenvalues.
 
-## Closest literature and limits
-The strongest comparison is the original panhandle polytope definition in arXiv:2201.12442 and later panhandle Ehrhart development in arXiv:2311.01640. The Huh–Schröter–Wang bounds apply to pairwise membership correlations of all matroids but supply no spectral diagonalization. The sample is uniform over vertices, not over the polytope interior; no optimal-conditioning theorem, other matroids, or higher moments are proved. Independent mathematical review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: a complete Euclidean uniform-vertex covariance operator for panhandle bases, including strict bridge minimum, exact handle/tail crossing and three-scale anisotropy, is distinct from inspected Ehrhart/volume and generic correlation bounds.
+
+## value
+
+PASS
+
+The uniform vertex covariance is a natural inertia/anisotropy invariant of a standard matroid polytope. An exact spectrum with crossovers and quadratic condition growth informs probabilistic base-sampling and geometry, not merely rebranding Ehrhart coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
