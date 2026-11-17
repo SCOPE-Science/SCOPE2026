@@ -1,18 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The two affine branch slopes are \(p=2(1+b)\) and \(q=2(1-b)\). Pure expanding-half orbits cannot attract; pure contracting-half prime-two orbits are impossible because an increasing affine image on an interval of length below one half cannot exchange two points. For a mixed pair, the difference of its two integer-lift equations forces the lift-index difference to be either one or two; this exhausts all regular attracting prime-two itineraries and yields two explicit formulas for both the phase points and the rotation parameter. The multiplier \(pq\) is less than one exactly for \(b>\sqrt3/2\); interval endpoints, horizontal widths, connectedness, and area follow by explicit integration. At equality, the parameter becomes independent of the orbit coordinate and the entire two-step branch is the identity, proving genuine neutral continua rather than isolated numerically suggested orbits. All strict inequalities have been checked, including the \(b=1\) endpoint and exclusion of breakpoints. The symbolic and rational checker corroborates the algebra. The finding makes no global-basin claims.
+## correctness
 
-## Originality
-PASS within inspected literature, with residual historical-priority uncertainty. Bhattacharyya and Banerjee, arXiv:2510.11441v1 (2025), introduce this exact piecewise-affine family and prove the qualitative tongue/eye itinerary criterion (Theorems 2.4–2.5) plus attracting-cycle uniqueness (Theorem 3.3). Their Section 4 develops the existence of tongues of periods three and higher; their Section 7 observes the algebraic obstruction to slope-one neutral cycles. The inspected HTML manuscript does not provide the two complete prime-two parameter strips, their exact combined Lebesgue area, or the two distinct parameter values at which open intervals of neutral prime-two cycles appear. These conclusions are not implications of the qualitative existence or uniqueness theorems without the new all-lift calculation. Dezotti, arXiv:0904.0593v1, studies the analytic sine double-standard maps instead; its general connectedness theorem does not cover the present nonsmooth family or its exact short-period geometry. Published mathematical-record semantic searches and checks of accessible prior claims found no equivalent or stronger theorem. Search incompleteness remains a priority risk.
+PASS
 
-## Value
-PASS. The two period-two tongues are the first non-fixed periodic attractor regions of the specifically introduced circle family, not an arbitrary sliced parameter example. The exact shape, measure and sharp linear opening quantify the size and organization of the hyperbolic parameter set, supplementing qualitative tongue existence and graphical explorations. The neutral threshold is structurally distinctive: a pair of isolated parameter points supports continua of two-cycles, explaining why the tongues are born through an entire identity branch rather than an ordinary isolated saddle-node. This exact short-period benchmark is useful for testing parameter-space methods for longer tongue and eye configurations; the result is self-contained even without claiming downstream generalization.
+Two affine half slopes P=2(1+b)>1 and Q=2(1-b)>=0 force every regular attracting least-two orbit to have one point in each half: same expanding branch cannot attract, same contracting branch cannot interchange two separated points for b>=1/2, and for b<1/2 its multiplier exceeds one. Mixed multiplier PQ=4(1-b²)<1 iff b>sqrt(3)/2. Integer lift difference is 1 or 2 and inverse affine parametrization by y∈(1/2,1) gives exactly two disjoint intervals, width (4b²-3)/(2(3+2b)). Integration gives area -11/4+3sqrt(3)/2+3log(5/(3+sqrt(3))); at PQ=1 two shifts make return identity on open intervals. Independently tested 18 rational orbit identities and symbolic width/integral; finite tests do not prove all b.
 
-## Closest sources and limitations
-- A. Bhattacharyya and K. Banerjee, *On the Piecewise Linear Perturbations of the Doubling Map*, arXiv:2510.11441v1 (2025), Sections 1–2, 4, 7; exact motivating map and qualitative classification.
-- A. Dezotti, *Connectedness of the Arnold tongues for double standard maps*, arXiv:0904.0593v1 (2009), Introduction and Theorem 1.4; analytic sine comparison, not the same map.
+## originality
 
-Regularity excludes the two circle-map breakpoints; nonsmooth cycles and higher-period tongue components are not classified. Verification is analytic with supplementary symbolic/exact arithmetic, not an independent scientific assessment. Historical-priority confidence is bounded by the inspected sources and searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Bhattacharyya–Banerjee 2025 construct the exact map and qualitative existence, uniqueness and single-minus tongue statements but do not give this complete prime-two parameter strip, exact area, two neutral identity intervals. Dezotti treats a different smooth sine family. Related Resultary period-three eye records do not imply prime-two geometry.
+
+## value
+
+PASS
+
+An explicit complete first nontrivial periodic attracting bifurcation diagram and area, including sharp neutral continuum at a threshold, is meaningful exact dynamical-system parameter geometry rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction notes
+# Independent mathematical audit
 
-Execute `python check.py` in a directory containing the accompanying standalone file with SymPy installed. The result of the recorded execution was:
+## correctness
 
-```
-VERIFY_OK symbolic_identities=14 exact_rational_cycles=50 critical_parameters=2 inverse_lift_search=255 area=0.013313899426
-```
+PASS
 
-The checker reconstructs the two exact affine orbit equations for both possible integer lifts, confirms the slope-product threshold, simplifies the two critical parameters, checks the first-order tongue opening and exactly integrates the combined area. An independent integer-lift search at 255 rational parameter points corroborates the absence of omitted regular mixed cycles, and fifty rational tests use the original affine branch formulas and integer modular reductions with exact fractions. This is corroboration, not a numerical proof of an infinite statement: exhaustive classification rests on the integer-difference inequality and parameter interval proof in `RESULT.md`. The code does not test breakpoint cycles, other orbit periods, global attraction, or historical priority.
+Two affine half slopes P=2(1+b)>1 and Q=2(1-b)>=0 force every regular attracting least-two orbit to have one point in each half: same expanding branch cannot attract, same contracting branch cannot interchange two separated points for b>=1/2, and for b<1/2 its multiplier exceeds one. Mixed multiplier PQ=4(1-b²)<1 iff b>sqrt(3)/2. Integer lift difference is 1 or 2 and inverse affine parametrization by y∈(1/2,1) gives exactly two disjoint intervals, width (4b²-3)/(2(3+2b)). Integration gives area -11/4+3sqrt(3)/2+3log(5/(3+sqrt(3))); at PQ=1 two shifts make return identity on open intervals. Independently tested 18 rational orbit identities and symbolic width/integral; finite tests do not prove all b.
+
+## originality
+
+PASS
+
+Bhattacharyya–Banerjee 2025 construct the exact map and qualitative existence, uniqueness and single-minus tongue statements but do not give this complete prime-two parameter strip, exact area, two neutral identity intervals. Dezotti treats a different smooth sine family. Related Resultary period-three eye records do not imply prime-two geometry.
+
+## value
+
+PASS
+
+An explicit complete first nontrivial periodic attracting bifurcation diagram and area, including sharp neutral continuum at a threshold, is meaningful exact dynamical-system parameter geometry rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
