@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The single-step pivot formula produces a Schur complement of magnitude \(D+qB\) under precisely half of the independent sign configurations, and row-order multiplicity cancels that half. An explicit Gaussian integral yields the full upper-tail law. The two near-maximal comparison branches give two triangles of area \(1/2\), and the remaining boundary where the first-column pivot dominates contributes only \(O(\varepsilon^3)\). Direct integration gives \(1/(2\pi^2)\) for normal and \(1/32\) for Laplace entries. The standalone executable verifies deterministic algebra and finite Gaussian comparisons; these are supporting checks, not replacements for the infinite-limit proof.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The original October 2026 works on Gaussian elimination growth analyze large-dimension tail bounds and the last Schur entry, rather than a sharp full-tail probability for the independent-entry two-dimensional model. The exact random-butterfly distribution of Peca-Medlin and Trogdon belongs to a different ensemble. Direct query comparisons and accessible primary-paper text reveal no equivalent sharp coefficient. However, a potentially relevant unpublished 1988 Macleod distribution report could not be read, and the complete Driscoll–Maki paper was inaccessible. No claim of proven uniqueness or first discovery is made.
+PASS
 
-## Value — PASS
-The probability law treats the canonical smallest nontrivial partial-pivoting system, giving a fully reproducible rare-event benchmark at the exact Wilkinson upper endpoint and distinguishing universal quadratic decay from its distribution-specific coefficient. It gives a calibration target for numerical rare-tail simulations and a baseline for extending such questions to larger systems without asserting those extensions have been solved. The result is substantially different from a textbook maximal-growth inequality, which gives no probability or coefficient.
+Reconstructed sign-case factor: two possible first-column row orderings times one-half reinforcing signs; on reinforcing outcome Schur magnitude D+(c/a)B, so 1<t<2 event is exactly the fourfold half-density integral. For Gaussian, polar (B,D) and c=qa yield exact angular integral 4/pi^2 * h^2/[t^2+(1+q^2)h^2]. At epsilon=2-t, the two max(B,D) cones each have scaled triangle area 1/2; the max-a region has three thin variables O(epsilon^3); exp envelope permits limit. Independent midpoint integration at t=1.5,1.9 gave 0.021940014849, 0.000560707810; exact Laplace K integral =1/32. Gaussian coefficient 1/(2pi^2) follows by gamma integral. The checked endpoints do not prove density-universal asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The genuinely new portion of the complete claim survived statement-level search and primary-source comparisons to best of knowledge; the named known special cases and inaccessible priority risks are explicit.
+
+## value
+
+PASS
+
+Exact distributional law for the smallest nontrivial partial-pivoting system gives a natural rare-event numerical-stability benchmark, with a substantive universality exponent and density-dependent coefficient; complete tail function and Laplace contrast go beyond a known Gaussian-edge constant. Fixed dimension is explicitly motivated, and high-dimensional or floating-point claims are not made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
