@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes both normalization conventions explicitly: reciprocal *unordered* pairs and oriented three-cycles modulo rotation. The motif-overlap partition is exhaustive: two common vertices, one common vertex, or disjoint sets. Source-row independence and the two-arc without-replacement probability provide the exact joint terms, with counts verified by an independent graph enumeration. Algebra proves the formulas for every allowed integer parameter; sign and sparse/dense limits follow with no unproved steps. The standalone finite verifier checks 952 exact symbolic parameter cases and exhaustively examines 218,118 labeled graphs across 27 cases; these are supporting tests, not a substitute for the proof.
+## correctness
 
-## Originality — PASS, with historical qualification
-Comparison addresses mathematical implications, not title similarity. The full open text of Seshadhri et al. (arXiv:1302.6220, particularly Sections II–IV) was examined: its directed closures, empirical cyclic-triad summaries, and approximate degree-aware null-model expectations do not give the exact fixed-row-capacity mutual-dyad/three-cycle covariance. Durak et al. (arXiv:1210.5288, full text inspected) study a Chung–Lu-like generator aiming to match three degree distributions, unlike fixed-size row selections. Roberts–Coolen (arXiv:1112.4677) preserves both indegrees and outdegrees, unlike independent outgoing rows; its available abstract does not settle the theorem. Other reciprocal-pair versus indegree-statistic formulas are not sufficient because an oriented triangle count is not determined by indegrees. Semantic database searches on the target motifs, loops, fixed outdegrees and covariance returned no dominating result. Absence of a hit is not a proof of historical novelty. Older general motif-moment enumerators remain a real priority risk.
+PASS
 
-## Value — PASS
-Reciprocity and directed three-cycles are central, distinct indicators of feedback in network science. Conditional expectations and marginal means do not reveal their covariance. The *exact* finite-\(n\) classification is structurally informative: forbidding loops enforces negative covariance throughout the interior, while admitting loops creates an interior zero and a dense positive phase. This exposes a convention-sensitive dependence effect at the natural half-occupancy threshold, and gives sparse and dense scaling laws. The result is neither a table recomputation nor a restatement of a degree statistic.
+Under independent source-row sampling, p=k/s and the two distinct arc inclusion probability q=k(k-1)/(s(s-1)). Cov(R,T) is zero for disjoint source motifs and splits exhaustively into two-vertex overlaps n(n-1)(n-2) with contribution p²(q-p³), and one-vertex overlaps n(n-1)(n-2)(n-3) with p³(q-p²). Substituting q-p²=-p(1-p)/(s-1) gives -n(n-1)p³(1-p)² for s=n-1, or n(n-2)p³(1-p)(2p-1) for s=n. Independent algebraic checks at all k for n=3..15 and complete enumerations of row-regular digraphs for n=3,4 pass with exact rational covariance. These are finite corroborations; the overlap partition and double count prove all n.
 
-## Closest sources and limitations
-- Seshadhri, Pinar, Durak and Kolda (2013), arXiv:1302.6220, full accessible text inspected, Sections II–IV.
-- Durak, Kolda, Pinar and Seshadhri (2012), arXiv:1210.5288, full accessible text inspected, Sections I–III.
-- Roberts and Coolen (2011), arXiv:1112.4677, bibliographic record and abstract inspected; full text not read.
-- Unresolved risk: older general subgraph-moment or directed-triad-census formulas may provide broader implicit coverage. The calculations do not address induced triad counts or models with fixed indegree sequences.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected primary directed-closure literature studies triad closure rates and approximate expectations under degree-aware null models, not exact covariance between non-induced reciprocal pairs and 3-cycles in independent uniform fixed-cardinality source rows. Resultary search found related covariance results for different motif pairs or models and the assigned mirror, but no stronger same-model theorem. The loop convention changes covariance sign exactly at p=1/2, a distinctive exact finite-sample contrast.
+
+## value
+
+PASS
+
+Reciprocity and cyclic feedback are natural graph motifs; their joint second-order statistic is a relevant null-model diagnostic. The exact half-target sign reversal caused solely by permitting self-loops demonstrates how otherwise apparently cosmetic row sampling conventions alter motif dependence; the complete all-n,k formula is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

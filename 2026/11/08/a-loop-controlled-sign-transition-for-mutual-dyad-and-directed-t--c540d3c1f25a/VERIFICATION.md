@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-Reproducible with the Python 3 standard library:
+## correctness
 
-```sh
-python verify_covariance.py
-```
+PASS
 
-The checker evaluates the exact motif-overlap covariance and its two simplified forms for 952 integer parameter settings spanning sizes from 3 to 30. It also enumerates every admissible directed graph for 27 manageable combinations of graph size, fixed outdegree and self-loop convention at sizes 3, 4 and 5. Across 218,118 graphs, it independently recomputes the exact rational means and covariance. All assertions passed. The exhaustive enumeration is finite supporting evidence only. The proof of the all-size identities is a symbolic double count in RESULT.md, and the large-size limits follow by algebra.
+Under independent source-row sampling, p=k/s and the two distinct arc inclusion probability q=k(k-1)/(s(s-1)). Cov(R,T) is zero for disjoint source motifs and splits exhaustively into two-vertex overlaps n(n-1)(n-2) with contribution p²(q-p³), and one-vertex overlaps n(n-1)(n-2)(n-3) with p³(q-p²). Substituting q-p²=-p(1-p)/(s-1) gives -n(n-1)p³(1-p)² for s=n-1, or n(n-2)p³(1-p)(2p-1) for s=n. Independent algebraic checks at all k for n=3..15 and complete enumerations of row-regular digraphs for n=3,4 pass with exact rational covariance. These are finite corroborations; the overlap partition and double count prove all n.
 
-The source date is verified from the original arXiv submission history, February 25, 2013, not a revision or journal date. Full primary-source text was compared for Seshadhri et al. (2013); Durak et al. (2012) was inspected in full text (Sections I–III in particular), while Roberts and Coolen (2011) was compared using its accessible abstract. Historical priority is not independently certified.
+## originality
+
+PASS
+
+The inspected primary directed-closure literature studies triad closure rates and approximate expectations under degree-aware null models, not exact covariance between non-induced reciprocal pairs and 3-cycles in independent uniform fixed-cardinality source rows. Resultary search found related covariance results for different motif pairs or models and the assigned mirror, but no stronger same-model theorem. The loop convention changes covariance sign exactly at p=1/2, a distinctive exact finite-sample contrast.
+
+## value
+
+PASS
+
+Reciprocity and cyclic feedback are natural graph motifs; their joint second-order statistic is a relevant null-model diagnostic. The exact half-target sign reversal caused solely by permitting self-loops demonstrates how otherwise apparently cosmetic row sampling conventions alter motif dependence; the complete all-n,k formula is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:07:12.560417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob b855f2893791ae955af2f0d771149a9618f02a33",
+        "independent_checks.py: exact pair-overlap algebra and labeled graph enumeration n=3,4",
+        "Seshadhri et al arXiv:1302.6220 full available text"
+      ],
+      "rationale": "Under independent source-row sampling, p=k/s and the two distinct arc inclusion probability q=k(k-1)/(s(s-1)). Cov(R,T) is zero for disjoint source motifs and splits exhaustively into two-vertex overlaps n(n-1)(n-2) with contribution p²(q-p³), and one-vertex overlaps n(n-1)(n-2)(n-3) with p³(q-p²). Substituting q-p²=-p(1-p)/(s-1) gives -n(n-1)p³(1-p)² for s=n-1, or n(n-2)p³(1-p)(2p-1) for s=n. Independent algebraic checks at all k for n=3..15 and complete enumerations of row-regular digraphs for n=3,4 pass with exact rational covariance. These are finite corroborations; the overlap partition and double count prove all n.",
+      "residual_risks": [
+        "The formula concerns NON-INDUCED triangles and independent fixed-size outgoing rows, not fixed in/out degree configuration models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Durak et al directed Chung–Lu-style null model matches target in/out/reciprocal marginals, not exact uniform k-element outgoing sets."
+        ],
+        "reasoning": "Different source-row dependence and indegree constraints change the joint motif measure, so results in those models do not dominate this exact formula.",
+        "searches": [
+          "Resultary search: random k-out directed graph covariance reciprocal mutual dyads directed triangles loops allowed sign transition",
+          "https://arxiv.org/abs/1210.5288"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1302.6220",
+        "https://arxiv.org/abs/1210.5288",
+        "Resultary search: mutual dyad triangle covariance k-out directed loops allowed uniform row sampling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected 2013 article reports directed closure and reciprocity in empirical and configuration-model settings; it does not give the source-overlap formula p²(q-p³)+(n-3)p³(q-p²)."
+        ],
+        "reasoning": "The row-wise without-replacement covariance is computed from shared sources, not inferred from empirical closure. A more abstract general motif covariance theorem may imply it, retained as risk.",
+        "searches": [
+          "https://arxiv.org/abs/1302.6220",
+          "Resultary search: random k-out directed graph covariance reciprocal mutual dyads directed triangles loops allowed sign transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Seshadhri et al distinguish directed closure configurations; the assigned R and T are both non-induced fixed-row counts and are not a published closure ratio."
+        ],
+        "reasoning": "Covariance of reciprocal dyads and oriented 3-cycles is not the same observable as directed closure fractions, indegree deficiency, or induced-triad ratios.",
+        "searches": [
+          "Resultary search: mutual dyad triangle covariance k-out directed loops allowed uniform row sampling",
+          "arXiv:1302.6220",
+          "arXiv:1210.5288"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact finite table for the pair Cov(R,T) in both loop conventions was identified; the assigned mirror should not be treated as earlier publication."
+        ],
+        "reasoning": "A finite symbolic function in (n,k) is not a standard database sequence; other covariance tables for different motifs do not determine this one.",
+        "searches": [
+          "Resultary search: mutual dyad triangle covariance k-out directed loops allowed uniform row sampling",
+          "https://arxiv.org/abs/1302.6220"
+        ]
+      },
+      "rationale": "The inspected primary directed-closure literature studies triad closure rates and approximate expectations under degree-aware null models, not exact covariance between non-induced reciprocal pairs and 3-cycles in independent uniform fixed-cardinality source rows. Resultary search found related covariance results for different motif pairs or models and the assigned mirror, but no stronger same-model theorem. The loop convention changes covariance sign exactly at p=1/2, a distinctive exact finite-sample contrast.",
+      "residual_risks": [
+        "Historical literature on general subgraph-count covariance in fixed-outdegree digraphs may contain an implicit equivalent and was not exhaustively indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Different observables and sampling mechanisms, no specified exact k-out loop-controlled Cov(R,T).",
+          "identifier_or_url": "https://arxiv.org/abs/1302.6220",
+          "material_read": "Full available textual rendition; definitions, Sections II-IV, closure measures and degree-aware null-model analysis",
+          "method": "Public full-text HTML rendition and keyword/section comparisons",
+          "title": "Directed closure measures for networks with reciprocity",
+          "trigger": "Primary paper studies the same directed reciprocal and cyclic patterns"
+        },
+        {
+          "assessment": "ASSESSED",
+          "evidence": "All covariances from exact two-arc finite-population joint probability and complete overlap enumeration.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-loop-controlled-sign-transition-for-mutual-dyad-and-directed-t--c540d3c1f25a/RESULT.md",
+          "material_read": "Complete overlap counting proof, definitions and asymptotics",
+          "method": "Frozen GitHub blob",
+          "title": "A loop-controlled sign transition for mutual-dyad and directed-triangle covariance",
+          "trigger": "Assigned claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob b855f2893791ae955af2f0d771149a9618f02a33",
+        "https://arxiv.org/abs/1302.6220"
+      ],
+      "rationale": "Reciprocity and cyclic feedback are natural graph motifs; their joint second-order statistic is a relevant null-model diagnostic. The exact half-target sign reversal caused solely by permitting self-loops demonstrates how otherwise apparently cosmetic row sampling conventions alter motif dependence; the complete all-n,k formula is independently useful.",
+      "residual_risks": [
+        "This diagnostic is not a causal claim about empirical networks and does not generalize automatically to degree-constrained ensembles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3, source rows independent and have exactly k distinct targets, both orientations counted modulo cyclic rotation.",
+    "No induced-triad or fixed-indegree results; residual priority uncertainty for general row-regular motif enumeration."
+  ],
+  "schema_version": 1
+}
