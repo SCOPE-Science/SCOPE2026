@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T00:11:00.175849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The precise objective is max_p lambda_min(C^(1/2) diag(p) C^(1/2)) for a unit-diagonal SPD 3x3 correlation C with a,b,c>0 and p on the probability simplex. Its reciprocal minimization over w>0, C-diag(w) positive semidefinite, has a unique optimizer from strict convexity and Slater. KKT gives Z>=0 with Z_ii=1/w_i^2 and MZ=0. Since M nonzero singular with positive off-diagonal entries, rank M is one or two. Rank-one M=rr^T forces r_i^2=ab/c,ac/b,bc/a and the triangle/Heron condition on lengths r_i/w_i; rank-two M forces a rank-one Z=vv^T, Cv=s, and the three sign vectors. The two ranks exhaust the exact global KKT candidates and all boundaries. Exact rational witness formulas in both branches agree with submitted rational verifier logic. The proof is universal; 1000-point grid is only supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior exact signed-triangle theorem includes all invertible normalized real 3x3 Gram systems, hence all SPD C with positive off-diagonals and many additional signs.",
+          "Prior result proves uniqueness in balanced, frustrated-cut and frustrated-triangle regimes."
+        ],
+        "reasoning": "The prior theorem strictly dominates the submitted positive-correlation classification by covering arbitrary unit-row Gram signs, not only the frustrated region.",
+        "searches": [
+          "Resultary record 2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5",
+          "arXiv:1402.2863 randomized Kaczmarz optimization"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md 1b7e6a741581dee38542cb59ddc6b373d4bb9ce0; verify.py 168f7fe79a9142d4f5c81f6a73d9bd50f363a86f",
+        "Resultary published 2026-11-02 signed-triangle exact theorem, full RESULT.md",
+        "Martinez–Wegman (2000) accessible publisher abstract",
+        "arXiv:1204.1220 SDP background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026-11-02 theorem supplies unique optimum p_i and optimal eigenvalue for every submitted C.",
+          "The E-optimal SDP and correlation duality are older background, not needed to prove the decisive newer coverage."
+        ],
+        "reasoning": "Take Gram square root A; substitute same C into prior exact formula. It implies submitted optimum p and rho for every a,b,c, so the full mathematical claim is a special case.",
+        "searches": [
+          "Resultary prior signed-triangle RESULT.md full text",
+          "arXiv:1204.1220 diagonal low-rank SDP and correlation matrices",
+          "Martinez Wegman 2000 exact E optimal design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Kaczmarz RESULT.md: min_p worst contraction = 1-lambda_min(A^Tdiag(p)A), with closed formula p_i=(C_inv)ii+q_i over sum, where inverse row Gram is C_inv."
+        ],
+        "reasoning": "Set A A^T equal to this submitted C and use singular-value equivalence: eigenvalues(A^T diag(p) A)=eigenvalues(C^(1/2)diag(p)C^(1/2)). Thus identical feasible p and objective for all submitted instances.",
+        "searches": [
+          "Resultary query: minimax single-coordinate sampling 3x3 positive SPD quadratic diagonal obstacle exact E-optimal KKT four candidates",
+          "Resultary record 2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier explicit closed formulas and transition example are an exact analytic database of all 3x3 Gram configurations; no distinct finite table claim here."
+        ],
+        "reasoning": "This is a global analytic theorem already listing closed optimizers, not merely an index matching parameter values; exact coverage exists without a numerical table.",
+        "searches": [
+          "Resultary search: minimax 3 row Kaczmarz three coordinate sampling signed triangle",
+          "prior 2026-11-02 published RESULT.md"
+        ]
+      },
+      "rationale": "FAIL. The earlier (2026-11-02) signed-triangle closed-form theorem for minimax three-row randomized Kaczmarz already solves precisely the same optimized one-step minimum-eigenvalue problem for EVERY real SPD unit-diagonal Gram matrix. For any C here, take invertible unit-row A with AA^T=C. Nonzero spectra of A^T diag(p) A and C^(1/2) diag(p) C^(1/2) coincide; therefore the already-published unique p*(C) and exact lambda*(C) cover the entire positive-correlation subclass. The submitted four-candidate representation is a change of coordinates for a known answer, not a novel additional theorem.",
+      "residual_risks": [
+        "The earlier theorem proves decisive coverage irrespective of any uninspected exact-design literature; no novelty can be inferred from a different four-certificate representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: all positive-correlation 3x3 matrices are Gram subcases, exact optimized p and eigenvalue given",
+          "evidence": "Theorem complete formula w_i=c_ii+q_i and p_i=w_i/sum w, lambda*=1/sum w for arbitrary invertible unit-row A.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5/RESULT.md",
+          "material_read": "Full RESULT.md: finding, complete formula, SDP reduction, dual proof, uniqueness, transition family, limitations",
+          "method": "GitHub frozen published primary RESULT text",
+          "title": "A signed-triangle formula for minimax three-row randomized Kaczmarz sampling",
+          "trigger": "Same normalized one-step eigenvalue optimization over three sampling probabilities"
+        },
+        {
+          "assessment": "Only general exact E-optimal method verified; cannot claim it excludes any special case",
+          "evidence": "Abstract describes global optimal design search, does not give the submitted specific 3x3 formula in available text.",
+          "identifier_or_url": "https://doi.org/10.1016/S0167-7152(99)00173-X",
+          "material_read": "Abstract, introduction and visible summary; not complete article",
+          "method": "Public publisher HTML",
+          "title": "An alternative criterion useful for finding exact E-optimal designs",
+          "trigger": "Potential older exact-design alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp worst-case expected decrease per exact coordinate step is a natural convergence-rate invariant; exact optimal sampling across frustrated sign patterns and a spectral multiplicity transition is mathematically useful and nontrivial. This would be valuable independent of the decisive priority rejection.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md 1b7e6a741581dee38542cb59ddc6b373d4bb9ce0; verify.py 168f7fe79a9142d4f5c81f6a73d9bd50f363a86f",
+    "Resultary published 2026-11-02 signed-triangle exact theorem, full RESULT.md",
+    "Martinez–Wegman (2000) accessible publisher abstract",
+    "arXiv:1204.1220 SDP background"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Dimension exactly 3, strictly positive correlations, fixed iid one-coordinate exact quadratic line minimization.",
+    "No new scientific files proposed because original is covered."
+  ],
+  "residual_risks": [
+    "The earlier theorem proves decisive coverage irrespective of any uninspected exact-design literature; no novelty can be inferred from a different four-certificate representation."
+  ],
+  "schema_version": 1
+}
