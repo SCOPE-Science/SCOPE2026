@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof's key invariant is the dimension of the solution space after each tridiagonal row. The packaged checker independently enumerates the unstructured free coefficients and calculates matrix ranks over finite fields, including nonprime \(\mathbb F_4\); a separate graph branch directly builds the alternating adjacency matrix. Exhaustive scopes and rank-cell comparisons appear in `checks/verification_output.txt` and finish with `LADDER_CHARACTER_RANK_TRANSFER_PASS`. The ranks are computed by finite-field Gaussian elimination, and this finite replay cannot establish an all-dimensional statement by itself.
+# Independent mathematical audit
 
-The self-contained argument in `RESULT.md` supplies the all-dimensional boundary propagation and the odd-characteristic group-theoretic justification. The checker verifies the degree-square identity in its odd-field graph cases; it does not independently construct character tables. The nonsingular coefficient comparison uses the published two-term tridiagonal determinant recurrence, checked symbolically for prime-power samples. All additional potential higher-width patterns remain outside scope.
+## correctness
+
+PASS
+
+For every finite field and n>=3, the bipartite ladder alternating weighted adjacency matrix is permutation-congruent to [0 T;-T^T 0], where T ranges bijectively over all unrestricted n-by-n tridiagonal matrices. The proof tracks the last-pair image of solutions to successive T rows; the five actual subspace types 0,H,V,O,F collapse into 0,H,X,F because V and oblique lines give equal aggregated transition weights. Explicit first/terminal row weights, including terminal dummy-variable normalization, produce u M^(n-2) v with nullity exponent n-rank(T). For odd q only, the twisted class-two group algebra of a central character with alternating rank 2r has q^(2n-2r) simple blocks of degree q^r, yielding the formula for all degrees. Independent brute-force ranks for q=2,n=3; q=3,n=3; q=2,n=4 exactly match, as do total edge-labeling counts. Finite checks are corroboration of, not proof for, arbitrary n or q; the n=2 known four-cycle boundary is excluded from claimed novelty.
+
+## originality
+
+PASS
+
+PASS on best-known mathematical statements: the exact new datum is the complete all-nullity polynomial of arbitrary tridiagonal finite-field matrices and the fixed four-state transfer evaluating it for every ladder length. Existing graphic-group rank/character correspondence, square-cactus rooted amalgamation, tree and cycle formulas, and tridiagonal determinant/nonsingularity formulas do not yield all these ladder coefficients under their hypotheses. A previously unnoticed general bounded-pathwidth rank-transfer theorem remains a real residual priority risk.
+
+## value
+
+PASS
+
+Ladders are canonical two-connected non-tree noncycle graphs with unboundedly many circuits; the exact character-degree distribution of the associated graphical nilpotent groups addresses a stated enumeration problem. A uniform four-state polynomial transfer across all field orders supplies all rank cells rather than a routine determinant specialization; the resulting exact invariants are useful for representation and sparse-matrix enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A permutation of the bipartite graph coordinates gives an arbitrary tridiagonal matrix block, so the skew rank is twice its ordinary rank. The boundary-subspace propagation uses all \(q^3\) choices of each interior row, with rank of a single linear constraint giving the kernel dimension increment. All five actual subspace types are enumerated, with the two line types sharing identical aggregated transitions. The first and final rows are handled separately; the dummy final variable cancels exactly. For odd characteristic, a central-character/twisted-group-algebra argument gives the precise character-degree factor. The stand-alone finite-field checker exhaustively reconstructs the tridiagonal and graph matrices in the listed test cases. It is evidence for, not a substitute for, the all-dimensional proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For every finite field and n>=3, the bipartite ladder alternating weighted adjacency matrix is permutation-congruent to [0 T;-T^T 0], where T ranges bijectively over all unrestricted n-by-n tridiagonal matrices. The proof tracks the last-pair image of solutions to successive T rows; the five actual subspace types 0,H,V,O,F collapse into 0,H,X,F because V and oblique lines give equal aggregated transition weights. Explicit first/terminal row weights, including terminal dummy-variable normalization, produce u M^(n-2) v with nullity exponent n-rank(T). For odd q only, the twisted class-two group algebra of a central character with alternating rank 2r has q^(2n-2r) simple blocks of degree q^r, yielding the formula for all degrees. Independent brute-force ranks for q=2,n=3; q=3,n=3; q=2,n=4 exactly match, as do total edge-labeling counts. Finite checks are corroboration of, not proof for, arbitrary n or q; the n=2 known four-cycle boundary is excluded from claimed novelty.
 
-Mainkar (arXiv:1010.4005) treats graph-associated Lie algebras, not degree-by-degree characters. Lewis et al. (arXiv:1011.4539, Sections 1 and 5) study broad support-restricted rank enumeration, but not the four-state ladder formula. Rossmann (2022, Section 1.6, Question 1.10) sets out the character-degree problem and a reduction to alternating rank; it does not state the ladder evaluation. Jitman and Sricharoen (2024, Section 3) provide a complete tridiagonal determinant census; our constant coefficient is covered by their result and is expressly credited. The other coefficients, and their graphical group interpretation, are the assessed advance. A more general unknown bounded-pathwidth rank-transfer theorem could subsume this result, and historical novelty has not been independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The ladder is a canonical two-connected graph family with a growing number of cycles, lying outside known tree, cycle, cone, and one-vertex bouquet cases. The four-state matrix is independent of ladder length and gives every irreducible degree multiplicity over all odd finite fields, directly addressing the rank-refinement problem articulated by Rossmann. A structural uniform transfer is materially stronger than a determinant-only count or a few numerical examples.
+PASS on best-known mathematical statements: the exact new datum is the complete all-nullity polynomial of arbitrary tridiagonal finite-field matrices and the fixed four-state transfer evaluating it for every ladder length. Existing graphic-group rank/character correspondence, square-cactus rooted amalgamation, tree and cycle formulas, and tridiagonal determinant/nonsingularity formulas do not yield all these ladder coefficients under their hypotheses. A previously unnoticed general bounded-pathwidth rank-transfer theorem remains a real residual priority risk.
 
-## Limitations and closest sources
+## value
 
-The rank formula includes characteristic two; the group-character formula requires odd characteristic. The work does not classify higher-width bands, automorphism orbits, or nonreduced rank schemes. Closest sources: Rossmann 2022; Jitman–Sricharoen 2024; Lewis et al. 2010; Mainkar 2010.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ladders are canonical two-connected non-tree noncycle graphs with unboundedly many circuits; the exact character-degree distribution of the associated graphical nilpotent groups addresses a stated enumeration problem. A uniform four-state polynomial transfer across all field orders supplies all rank cells rather than a routine determinant specialization; the resulting exact invariants are useful for representation and sparse-matrix enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
