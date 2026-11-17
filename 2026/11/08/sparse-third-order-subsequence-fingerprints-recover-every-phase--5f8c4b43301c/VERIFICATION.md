@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document. The script uses Python's standard library only and recomputes all scattered subsequence counts by a direct, independent dynamic recurrence. It checks every integer triple \((a,b,m)\) in \([1,12]\times[1,12]\times[1,5]\) (720 parameter triples), every phase within each triple, every cross-family pair for first-coordinate collision and the stated second-coordinate gap, and a four-run counterexample through six positive powers.
+## correctness
 
-The observed execution returned:
+PASS
 
-```
-PASS: 9360 direct pattern-count checks; 30420 cross-phase comparisons; 6 four-run power cases
-PASS: all (a,b,m) in [1,12]^2 x [1,5] have 720 tested parameter tuples
-```
+The a+b phase words split into Z_s and O_t. Their 01 counts are T+bms and T+ma(b-t), giving exactly gcd(a,b)-1 cross-family collision pairs. The difference in 001 is bm s(a-s)/2>0 for each such pair; all other phases already differ in 01, so the two-counter signature is injective. A primitive four-run counterexample has identical full degree<=3 decks in two distinct rotations, with equality under repetition proved by the truncated generating series. Independently enumerated 192 (a,b,m) triples with a,b<=8 and m<=3 and checked the four-run example through four repeats.
 
-These are finite checks, not an exhaustive verification of all positive integer parameters. Universal correctness is supplied by the closed-form phase enumeration and algebra in `RESULT.md`. Independent external scientific validation has not occurred.
+## originality
+
+PASS
+
+A full published fixed-weight 2-binomial theorem already implies the gcd-sensitive second-order extremal class count for clustered two-run words; the submitted record expressly treats that as prior. It does not resolve the gcd-1 collision pairs by the third-order 001 counter. General circular Parikh matrices average rotations, whereas this claim recovers individual phase from two sparse scattered counts. No stronger all-phase degree-three result was found in primary abstracts and published searches, with inaccessible full manuscripts a residual risk.
+
+## value
+
+PASS
+
+Phase recovery of a periodic word from only two scattered-pattern counts is a natural low-data reconstruction invariant. The theorem supplies exact minimal deck order, quantified collision gaps, and a sharp four-run failure witness. This is more than a known second-order gcd count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

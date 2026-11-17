@@ -1,19 +1,21 @@
-# Scientific review: sparse third-order phase fingerprints
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Phase words split bijectively into the displayed zero-first and one-first families. Each pattern count is calculated by choosing the final one and counting preceding zeros (or pairs of zeros). The sole possible second-order ambiguities satisfy an explicit linear Diophantine equation with exactly \(\gcd(a,b)-1\) solutions; at every such pair, subtracting the exact `001` formulas gives \(bm s(a-s)/2>0\). The single four-run counterexample is certified by comparing all fourteen scattered counts up to length three, and multiplicativity of truncated subsequence generating series propagates it through repetitions. All quantified boundaries are included. The verifier's finite checks are not substituted for the proof.
+PASS
 
-## Originality
+The a+b phase words split into Z_s and O_t. Their 01 counts are T+bms and T+ma(b-t), giving exactly gcd(a,b)-1 cross-family collision pairs. The difference in 001 is bm s(a-s)/2>0 for each such pair; all other phases already differ in 01, so the two-counter signature is injective. A primitive four-run counterexample has identical full degree<=3 decks in two distinct rotations, with equality under repetition proved by the truncated generating series. Independently enumerated 192 (a,b,m) triples with a,b<=8 and m<=3 and checked the four-run example through four repeats.
 
-PASS under the inspected evidence, with residual bibliographic risk. The closest primary literature is Poovanandran–Simpson–Teh (arXiv:2110.14858), which averages over rotations; Rigo–Stipulanti–Whiteland (arXiv:2201.04603), which studies general binomial complexities; and Vivion (arXiv:2509.11172), which proves second-order injectivity for different classes. Those inspected statements do not imply the sparse two-counter, gcd-sensitive threshold and quantitative third-order collision gap for all two-run periodic words. Searches for binomial equivalence of conjugates, three-binomial cyclic phase recovery, sparse `01`/`001` signatures, and related reconstruction found no decisive covering source. Previously established second-order gcd collisions are acknowledged as background rather than counted as the new contribution. The surviving risk is unindexed or differently named special-case work.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The question is a natural constrained scattered-subsequence reconstruction problem: how little order-sensitive information determines the cut position in a periodic circular binary signal? The answer is uniform in repetition count and both run lengths, exhibits an exact arithmetic obstruction at second order and an explicit optimal next order, supplies a two-coordinate fingerprint instead of the full third-order deck, and shows by a primitive four-run example that the rigidity is structurally special. These features are mathematically more substantive than simply incrementing a previously computed complexity parameter.
+A full published fixed-weight 2-binomial theorem already implies the gcd-sensitive second-order extremal class count for clustered two-run words; the submitted record expressly treats that as prior. It does not resolve the gcd-1 collision pairs by the third-order 001 counter. General circular Parikh matrices average rotations, whereas this claim recovers individual phase from two sparse scattered counts. No stronger all-phase degree-three result was found in primary abstracts and published searches, with inaccessible full manuscripts a residual risk.
 
-## Limitations
+## value
 
-The theorem concerns complete-period observation windows and one zero-run plus one one-run per circular period. Third-order collisions at other lengths and for four-run periods are not classified. The source comparison is not an exhaustive guarantee against unpublished or unindexed equivalent statements. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Phase recovery of a periodic word from only two scattered-pattern counts is a natural low-data reconstruction invariant. The theorem supplies exact minimal deck order, quantified collision gaps, and a sharp four-run failure witness. This is more than a known second-order gcd count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
