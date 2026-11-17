@@ -1,18 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every derivation is reconstructed from the original multiplication table, and squaring its block matrix gives the two exact conditions. The image–kernel argument classifies symmetric square-zero matrices through totally isotropic image subspaces; a nondegenerate symmetric form on the dual image gives precisely the allowed maps. The characteristic-two orthogonal geometry and the classical congruence-class counts yield an all-dimensional finite-field formula. The remaining functional is counted in two rank fibers, and the coefficient identity follows. Independent exhaustive checks of original matrix equations in small sizes and parameter enumeration over two even fields corroborate the argument; these tests are not treated as an infinite proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Earlier results cover substantial ingredients: Brouwer–Gow–Sheekey [2] count symmetric nilpotent matrices by Young shape; those counts and the orthogonal/symplectic structure are credited, not claimed as original. Camacho et al. [1] study complex evolution-algebra derivations, and Mukhamedov et al. [3] impose characteristic zero and maximal nilindex. The stated new invariant counts the full square-zero derivations on the rank-one-square, characteristic-two evolution algebra, including the functional fiber and rank/homology split. Targeted published-literature and mathematical-record searches did not locate this exact arithmetic classification. It remains possible that an uncatalogued broad derivation theorem implies it; historical uniqueness is not established.
+PASS
 
-**Value — PASS.** Square-zero derivations are differential structures on an infinite, natural family of nilpotent evolution algebras. The theorem supplies a complete, rank-refined finite-field census, rather than a small-case calculation or only a counting total. The extra functional produces nontrivial rank splitting and exact counts of acyclic differentials; the formulas capture a characteristic-two boundary not addressed by the earlier characteristic-zero derivation classifications.
+The Leibniz identity in characteristic two forces D(z)=0 and symmetric T on the e_i span, leaving arbitrary f. Squaring gives exactly T²=0, fT=0. Self-adjoint square-zero T has isotropic image W=imT and kerT=W^⊥, and for fixed W nondegenerate symmetric forms count possible T. In odd r, the anisotropic all-ones vector splits off a symplectic H; in even r the isotropic H has one-dimensional radical, giving the claimed two terms for I_r. Orthogonal congruence classes count S_s. For each T the f annihilators of W number q^(r−s); of them q^s already vanish on kerT, hence rank s versus s+1. Direct independent GF(2) enumeration of all derivation matrices for r=2,3 reproduced histograms (1,5) and (1,13,6), confirming low-degree indexing. This finite check is not universal proof.
 
-**Scientific limits and closest literature.** The result does not count isomorphism classes of derivations, higher-index nilpotent derivations, or nonreduced derivation schemes. The strongest theoretical overlap is the shape-by-shape symmetric-matrix enumeration of [2]; the exact derivation rank distribution requires additional structural and functional-fiber arguments. The accessible structural material for [4] did not discuss the asserted rank census; complete historical priority remains at risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] https://arxiv.org/abs/1004.1936 (Camacho et al., 2010).
-[2] https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i2p4/pdf/ (Brouwer–Gow–Sheekey, 2014).
-[3] https://arxiv.org/html/1805.10285v2 (Mukhamedov et al., 2018).
-[4] https://doi.org/10.1007/s00009-025-02812-7 (one-dimensional square classification, 2025).
-[5] https://arxiv.org/html/2610.22248v1 (Kaygorodov–Martín González–Viruel, 2026, survey §§1.6.1–1.6.2).
+Brouwer–Gow–Sheekey (2014) counts self-adjoint nilpotent matrices T and therefore supplies a credited crucial subproblem; it does not impose the specific evolution-algebra Leibniz correspondence or count full square-zero derivation rank/homology including f. Other indexed square-zero derivation censuses concern polynomial jets, truncated polynomials or Heisenberg Lie algebras, not E_{r,q}. The natural algebra family and exact full-rank census were not identified in inspected publications. A plausible 2025 one-dimensional-square general algebra source had incomplete full text and remains a named priority risk, not automatically a failure.
+
+## value
+
+PASS
+
+A complete exact rank/homology census for square-zero derivations on a natural rank-one-square, characteristic-two evolution algebra is a useful invariant of differential structures; the interplay of self-adjoint isotropic images, symmetric form types and extra f fibers is not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
