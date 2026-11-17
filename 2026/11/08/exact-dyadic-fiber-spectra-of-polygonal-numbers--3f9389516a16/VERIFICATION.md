@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Checked claims
+## correctness
 
-The algebraic argument is given in `RESULT.md`. A self-contained checker `check_polygonal.py` independently enumerates the complete residue-fiber map for every order \(3\le s\le140\) and every exponent \(1\le k\le9\), and eleven additional orders at exponent \(k=12\). For even orders congruent to two modulo four it checks bijectivity; for even orders divisible by four it checks each individual square-root count and the exact image-size formula; for odd orders it tests each predicted reflection partner, counts empty/singleton/double fibers, and checks both extremal congruences. Output:
+PASS
 
-`VERIFY_OK parameter_pairs= 1253 input_residues= 186092 odd_pairing=exact even_square_fibers=exact permutation_and_double_cover=checked`
+The integer identity 2(P_s(x)-P_s(y))=(x-y)((s-2)(x+y)-(s-4)) is valid for all x,y. If s=2 mod4 the difference has an odd multiplier and is injective mod 2^k. If s=0 mod4, completing a square with odd coefficient gives the standard square-root multiplicities; the zero/odd valuation and k=1,2 edge cases have been checked. For odd s, same-parity collision impossible, while opposite parity collision forces x+y=2m+1-2r, where r=(s-2)^(-1) mod m; disjoint pairs count d=min(r-1,m+1-r), yielding d holes/d doubles. Independent enumeration tested s=3..80,k=1..8, corroborating the proof, not exhausting parameters.
 
-The checker was also rerun after extraction from the saved package; the stated run checks the actual embedded source, not a path reference.
+## originality
 
-## Limits
+PASS
 
-Numerical enumeration is finite and alone does not prove an assertion for all polygonal orders or powers of two. Those claims rely on the explicitly presented difference factorization, parity argument, inverse formula and classical modular square-root count. External priority and independent mathematical validation were not performed. The classification is for the first full block of \(2^k\) indices, not automatically an entire period when the polygonal order is odd.
+Classical quadratic-congruence solvers cover each individual target, and Ulness already proves the s=3 triangular case. The assigned uniform s-dependent law on precisely n=0..2^k-1, particularly odd s where P_s has a potentially longer natural period, requires half-period cross-parity pairing/counting not supplied by the inspected individual-root solver. The new contribution is the closed histogram and extreme criteria, not square-root arithmetic alone.
+
+## value
+
+PASS
+
+Residue multiplicity and permutation behavior of polygonal number maps are natural finite-ring arithmetic properties; the global all-order dyadic spectrum, in particular the odd half-period reflection-pair law, gives an unknown exact classification not just a single worked polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

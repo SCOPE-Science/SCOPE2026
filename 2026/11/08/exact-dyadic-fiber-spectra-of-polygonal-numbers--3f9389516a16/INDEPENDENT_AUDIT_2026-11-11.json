@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:18:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/exact-dyadic-fiber-spectra-of-polygonal-numbers--3f9389516a16/RESULT.md",
+        "2026/11/08/exact-dyadic-fiber-spectra-of-polygonal-numbers--3f9389516a16/check_polygonal.py"
+      ],
+      "rationale": "The integer identity 2(P_s(x)-P_s(y))=(x-y)((s-2)(x+y)-(s-4)) is valid for all x,y. If s=2 mod4 the difference has an odd multiplier and is injective mod 2^k. If s=0 mod4, completing a square with odd coefficient gives the standard square-root multiplicities; the zero/odd valuation and k=1,2 edge cases have been checked. For odd s, same-parity collision impossible, while opposite parity collision forces x+y=2m+1-2r, where r=(s-2)^(-1) mod m; disjoint pairs count d=min(r-1,m+1-r), yielding d holes/d doubles. Independent enumeration tested s=3..80,k=1..8, corroborating the proof, not exhausting parameters.",
+      "residual_risks": [
+        "Finite independent computations are corroboration only; proof needs all parameter quantifiers and regularity hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dehnavi et al. 2019 Theorem 3.6",
+          "Ulness 2022 Proposition 1",
+          "Resultary polygonal residue search"
+        ],
+        "reasoning": "General 2-adic quadratic root solvers give individual full-modulus fibers but not this explicit half-period odd-order collision histogram as a stated theorem.",
+        "searches": [
+          "Resultary semantic search: polygonal numbers P_s(n) modulo 2^k fiber multiplicity image permutation odd even s quadratic congruences",
+          "primary broader theorem: https://doi.org/10.7546/nntdm.2019.25.1.75-83"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.7546/nntdm.2019.25.1.75-83",
+        "https://doi.org/10.3390/appliedmath2030020",
+        "https://doi.org/10.1006/ffta.2000.0282",
+        "https://github.com/Resultary/2026/search?q=Exact+dyadic+fiber+spectra+of+polygonal+numbers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dehnavi et al. 2019 Theorem 3.6",
+          "Ulness 2022 Proposition 1",
+          "Resultary polygonal residue search"
+        ],
+        "reasoning": "s=3 and 0 mod4 square-root component are known; neither the triangular special case nor a targetwise 2-adic quadratic solver states the odd-order pair-count law on a restricted index block.",
+        "searches": [
+          "Resultary semantic search: polygonal numbers P_s(n) modulo 2^k fiber multiplicity image permutation odd even s quadratic congruences",
+          "compare actual proof statement to published special/stronger theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dehnavi et al. 2019 Theorem 3.6",
+          "Ulness 2022 Proposition 1",
+          "Resultary polygonal residue search"
+        ],
+        "reasoning": "Polygonal half-integer polynomial reduces to an integral quadratic congruence after multiplication by two, but for odd s this changes modulus to 2^(k+1) and must be restricted to 2^k consecutive indices.",
+        "searches": [
+          "Resultary semantic search: polygonal numbers P_s(n) modulo 2^k fiber multiplicity image permutation odd even s quadratic congruences",
+          "published primary aliases: https://doi.org/10.7546/nntdm.2019.25.1.75-83"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dehnavi et al. 2019 Theorem 3.6",
+          "Ulness 2022 Proposition 1",
+          "Resultary polygonal residue search"
+        ],
+        "reasoning": "No single all-s and all-target polygonal-number table found in checked records. Classical square-residue counts are tabulated and excluded as original.",
+        "searches": [
+          "Resultary semantic search: polygonal numbers P_s(n) modulo 2^k fiber multiplicity image permutation odd even s quadratic congruences",
+          "database exact invariants of Exact dyadic fiber spectra of polygonal numbers"
+        ]
+      },
+      "rationale": "Classical quadratic-congruence solvers cover each individual target, and Ulness already proves the s=3 triangular case. The assigned uniform s-dependent law on precisely n=0..2^k-1, particularly odd s where P_s has a potentially longer natural period, requires half-period cross-parity pairing/counting not supplied by the inspected individual-root solver. The new contribution is the closed histogram and extreme criteria, not square-root arithmetic alone.",
+      "residual_risks": [
+        "Generic quadratic congruence formulas might implicitly recover the half-period census after nontrivial specialization; published novelty priority is not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers classical square roots and individual quadratic targets, not the half-period odd-polygonal global histogram without additional argument",
+          "evidence": [
+            "Quadratic solver treats full congruence root sets; submitted odd-order n range is a chosen half period."
+          ],
+          "identifier_or_url": "https://doi.org/10.7546/nntdm.2019.25.1.75-83",
+          "material_read": "Relevant root-count theorem including Theorem 3.6 and supporting cases, PDF page rendered",
+          "method": "primary PDF text and screenshot",
+          "title": "Dehnavi, Mirzaee Shamsabad and Mahmoodi Rishakani, Complete solving the quadratic equation mod 2^n",
+          "trigger": "general dominating quadratic-root theorem"
+        },
+        {
+          "assessment": "Known s=3 case, not arbitrary order s>=3 fiber spectra",
+          "evidence": [
+            "Triangular residues at 2-power moduli are bijective; this alone has no odd-s pairing parameter r."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/appliedmath2030020",
+          "material_read": "Proposition 1 and the triangular saturation statement in full accessible article HTML",
+          "method": "primary HTML theorem section",
+          "title": "Ulness, Structure of Triangular Numbers Modulo m",
+          "trigger": "s=3 triangular power-of-two permutation case"
+        },
+        {
+          "assessment": "Standard integral-polynomial permutation criteria do not directly classify odd integer-valued half-period fibers",
+          "evidence": [
+            "Odd s polynomials include half-integral coefficients as ordinary polynomials; no claim of complete Rivest-page inspection."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/ffta.2000.0282",
+          "material_read": "Bibliographic identity and scope, no full text inspected",
+          "method": "bibliography only",
+          "title": "Rivest, Permutation Polynomials Modulo 2^w",
+          "trigger": "general permutation polynomial criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/exact-dyadic-fiber-spectra-of-polygonal-numbers--3f9389516a16/RESULT.md",
+        "https://doi.org/10.7546/nntdm.2019.25.1.75-83",
+        "https://doi.org/10.3390/appliedmath2030020",
+        "https://doi.org/10.1006/ffta.2000.0282"
+      ],
+      "rationale": "Residue multiplicity and permutation behavior of polygonal number maps are natural finite-ring arithmetic properties; the global all-order dyadic spectrum, in particular the odd half-period reflection-pair law, gives an unknown exact classification not just a single worked polynomial.",
+      "residual_risks": [
+        "Exact result is specialized and mathematical value is judged for its natural object/invariant, not generality or a paper-sized consequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No scientific file replacements staged and no public modifications authorized.",
+    "Core infinite statement assessed from mathematical proof; independent finite tests are not exhaustive.",
+    "Scientific originality is a documented best-of-knowledge judgment, with residual source-access risks."
+  ],
+  "schema_version": 1
+}
