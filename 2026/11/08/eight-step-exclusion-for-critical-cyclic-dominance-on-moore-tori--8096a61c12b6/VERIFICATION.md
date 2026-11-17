@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verification/check_period_gap.py` with Python 3 standard library. The program performs 36 exhaustive local configurations, including 9 strictly slack cases, then checks every compatible-signature edge and all four-cliques across nine graphs for periods 3 through 8, finding none. Its separate period-nine probe returns a compatible four-clique: this demonstrates that the certificate does not simply assert global exclusion for all periods.
+## correctness
 
-Expected final line:
+PASS
 
-```
-VERIFY_OK local_cases=36 strict_cases=9 ruled_out_signature_graphs=9
-```
+Independently checked all 36 color/update choices for the local disagreement-potential inequality. Period-summing yields for each edge 2C_e<=U_v+U_w, while each update has at least four successor supports and degree eight forces equality on all edges and exact four supports. If an active vertex neighbors a frozen one, fixed neighbor supports only one third of updates, contrary to equality one half; connectedness forces global activity. Counts U_v multiples of three; integrality excludes edges connecting counts 3 and 6 for periods <=8. Independent exact signature graph enumeration for all nine (p,s) choices gives vertices/edges (3,3),(12,24),(30,120),(60,444),(3,3),(105,1323),(21,42),(168,3360),(84,372), and no K4, contradicting the graph 4-clique. Graph-wide infinite-size conclusion follows from combinatorial reduction plus exhaustive bounded signature search, not finite-size dynamical simulations.
 
-All arithmetic is exact integer/Boolean arithmetic. No floating-point approximation, random sampling, external data, or untrusted services enter this finite certificate. The source establishes its logical relevance to periodic trajectories; program output alone would not prove that reduction. The theorem does not establish global fixation or the existence of long periodic orbits. Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+Published Muñoz–Nuño October 2026 study examines threshold-four Moore tori empirically and by symmetry, not the graph-wide period-2..8 exact obstruction. Earlier threshold-range cellular automata theory and finite 11/8 Moore torus fixation results do not imply the stated bound for arbitrary connected 8-regular graphs with 4-cliques. Closest October paper could only be inspected at abstract/model level; lawful full-text retrieval was unavailable and is a stated priority risk, not proof of coverage.
+
+## value
+
+PASS
+
+The exact edge-support budget gives a structural theorem on nonfixed periodic orbit activity and threshold support for an infinite class of graphs, and a sharp finite range of impossible short temporal periods. This addresses interpretation of sampled apparent fixation and provides mathematically useful restrictions without claiming full convergence or existence of period 9.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

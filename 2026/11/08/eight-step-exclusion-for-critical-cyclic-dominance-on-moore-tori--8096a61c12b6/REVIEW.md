@@ -1,15 +1,21 @@
-# Self-review: eight-step exclusion for critical cyclic dominance
+# Independent mathematical audit
 
-## Correctness — PASS
-The directed support inequality \(2s_e(t)\le u_v+u_w+d_e(t)-d_e(t+1)\) is verified exactly for all 36 state/update combinations. Summing its disagreement potential over the period and combining with threshold-four support on an eight-regular graph forces equality on every edge and at every update. A frozen neighbor of an active vertex contradicts this equality, so any nonfixed periodic state must activate every vertex. For a period at most eight, the update number is 3 or 6 at each vertex and must be the same across edges by parity. Exactly nine exhaustive signature graphs cover all these possibilities. The provided standalone Python source constructs each graph and checks every potential K4 without sampling. Since the original graph has K4, all short-period possibilities are excluded. A signature identical to its neighbor is incompatible (zero support), so four distinct temporal signatures are indeed required. The result claims neither existence of long cycles nor global fixation.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The 2026 Muñoz–Nuño study numerically samples threshold-four periodic Moore cellular automata and reports no observed oscillating attractors. The theorem here excludes every short nontrivial cycle for *all* sizes and even all connected eight-regular graphs containing K4. The 1991 Fisch–Gravner–Griffeath foundational paper studies threshold-range scaling rather than establishing this precise graph-uniform forbidden-period interval in its inspected material. Semantically related published results on other cellular automata, random infinite trees, and strict-above-half-degree freezing do not logically cover the equality-threshold-four/graph-clique result. A non-exhaustive scholarly literature search cannot guarantee priority.
+PASS
 
-## Mathematical value — PASS
-The critical threshold four is explicitly singled out by the motivating study as the numerical fixation regime, but experiments cannot eliminate rare recurrent states on all lattice sizes. A graph-uniform finite-period exclusion, coupled with the structural all-vertex-activity/equality-of-support constraint, establishes a new exact dynamical restriction at this otherwise delicate equality boundary. The threshold-three construction gives a genuine three-cycle, confirming a meaningful parameter contrast. The period-nine signature graph admits K4, so the finite certificate has a nontrivial mathematical stopping point and is not a disguised proof of fixation. Its limitation to periods at most eight is stated plainly.
+Independently checked all 36 color/update choices for the local disagreement-potential inequality. Period-summing yields for each edge 2C_e<=U_v+U_w, while each update has at least four successor supports and degree eight forces equality on all edges and exact four supports. If an active vertex neighbors a frozen one, fixed neighbor supports only one third of updates, contrary to equality one half; connectedness forces global activity. Counts U_v multiples of three; integrality excludes edges connecting counts 3 and 6 for periods <=8. Independent exact signature graph enumeration for all nine (p,s) choices gives vertices/edges (3,3),(12,24),(30,120),(60,444),(3,3),(105,1323),(21,42),(168,3360),(84,372), and no K4, contradicting the graph 4-clique. Graph-wide infinite-size conclusion follows from combinatorial reduction plus exhaustive bounded signature search, not finite-size dynamical simulations.
 
-## Limits and closest literature
-The strongest directly relevant comparison is Muñoz–Nuño (arXiv:2610.37990v1), model §II and supplement §S3: their fixation evidence is statistical. Fisch–Gravner–Griffeath (1991) provides the earlier rule and scaling context. A tree-based stochastic phase-transition study (Bello–Sivakoff, arXiv:2108.06404) has different graph, initial-condition, and limiting hypotheses. Mathematical priority requires further specialist assessment. Exact graph checks do not independently establish theorem novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Muñoz–Nuño October 2026 study examines threshold-four Moore tori empirically and by symmetry, not the graph-wide period-2..8 exact obstruction. Earlier threshold-range cellular automata theory and finite 11/8 Moore torus fixation results do not imply the stated bound for arbitrary connected 8-regular graphs with 4-cliques. Closest October paper could only be inspected at abstract/model level; lawful full-text retrieval was unavailable and is a stated priority risk, not proof of coverage.
+
+## value
+
+PASS
+
+The exact edge-support budget gives a structural theorem on nonfixed periodic orbit activity and threshold support for an infinite class of graphs, and a sharp finite range of impossible short temporal periods. This addresses interpretation of sampled apparent fixation and provides mathematically useful restrictions without claiming full convergence or existence of period 9.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
