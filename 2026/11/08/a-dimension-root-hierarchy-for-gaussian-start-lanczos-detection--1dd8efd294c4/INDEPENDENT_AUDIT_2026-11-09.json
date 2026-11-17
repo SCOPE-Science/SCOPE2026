@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:47:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed spectral polynomial parametrization of exact Krylov space, full-rank positive Vandermonde moment B, strict rank-one Schur-downdate negativity equivalence, concentration Z_j/n->p_j, n^(1/(2ell-1)) highest-monomial scaling and chi-square strict-tail limit. Product polynomial annihilates q positive bands at step q+1; all q+1 spectral weights nonzero a.s. Normalizations and t=0/infinity cases checked. Independent Gaussian-weight Schur/Ritz test matched in 360 configurations. Logs not needed for infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CWI 1999 Section 5 Theorem 5.1 gives confidence bounds for spectral endpoints; Newton-CG paper uses modified algorithm."
+        ],
+        "reasoning": "General probabilistic upper/lower eigenvalue bounds do not algebraically fix the exact sign probability for this isolated-spike finite-spectrum ensemble.",
+        "searches": [
+          "https://ir.cwi.nl/pub/4505/04505D.pdf",
+          "arXiv:2610.31110",
+          "https://doi.org/10.1137/S0895479892230456"
+        ]
+      },
+      "checked_sources": [
+        "https://ir.cwi.nl/pub/4505/04505D.pdf",
+        "arXiv:2610.31110",
+        "https://doi.org/10.1137/S0895479892230456"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target event is iff a U u(-a)^T B^-1 u(-a)>1 with chi-square block weights; published CWI estimate bounds endpoint eigenvalues and an unknown step count."
+        ],
+        "reasoning": "A non-sharp probability bound or Newton safeguard does not imply a sharp chi-square-tail limit at every ell, although moment polynomial techniques are classical.",
+        "searches": [
+          "https://ir.cwi.nl/pub/4505/04505D.pdf",
+          "arXiv:2610.31110"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One negative band is rank-one downdate of positive spectral moment matrix; prior randomized Lanczos controls Ritz approximation errors."
+        ],
+        "reasoning": "Compared sign event and its distribution, rather than only the fact Lanczos detects negative eigenvalues; no matching exact event found.",
+        "searches": [
+          "Resultary semantic: random Gaussian start Lanczos isolated negative eigenvalue q bands Ritz negative curvature n root critical threshold chi square",
+          "https://ir.cwi.nl/pub/4505/04505D.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only exact target; related Gaussian-sketched harmonic Ritz and GMRES records concern different operators."
+        ],
+        "reasoning": "No exact same (q,ell,p_j,b_j,a_n) transition table identified, without treating a negative database search as proof of priority.",
+        "searches": [
+          "Resultary semantic isolated negative Lanczos mode n^(1/3)",
+          "Resultary semantic Gaussian-start Ritz sign finite spectral support"
+        ]
+      },
+      "rationale": "PASS on best-known preexisting coverage. Classical randomized Lanczos and newer modified Newton-CG bound eigenvalues or adjust curvature but do not establish the exact finite-band negative sign statistic and entire dimension-root hierarchy. This is a specific new stochastic detection threshold, not a renaming of generic eigenvalue bounds. Absence of a prior exact specialized law cannot be certified from keyword searches alone.",
+      "residual_risks": [
+        "Best-of-knowledge assessment is not historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides random-start bounds and step estimates for general matrices; not a finite-band exact negative-Ritz sign event or n^(1/(2ell-1)) threshold",
+          "evidence": "Abstract and Sections 3–6 bound unknown extreme eigenvalues using polynomial inequalities; Theorem 5.1 contains shifted spectral confidence bounds instead of the submitted chi-square sign law.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/4505/04505D.pdf",
+          "material_read": "Full 19-page PDF including sections 2 to 6, spectral bounds, Ritz polynomial and Chebyshev probability estimates",
+          "method": "Lawful open-access PDF text and page-3 screenshot",
+          "title": "Computing Probabilistic Bounds for Extreme Eigenvalues of Symmetric Matrices with the Lanczos Method",
+          "trigger": "Random-start Lanczos and extreme Ritz value probability is the closest older primary framework"
+        },
+        {
+          "assessment": "Relevant application, but incomplete access prevents whole-document negative novelty assertion; residual risk noted",
+          "evidence": "Discusses modified Newton-CG handling nonpositive curvature; target studies unmodified Ritz sign on a finite-band random-spike model.",
+          "identifier_or_url": "arXiv:2610.31110",
+          "material_read": "Abstract and publicly accessible synopsis only; full manuscript not read",
+          "method": "arXiv and literature search",
+          "title": "On Modified Newton Methods for Unconstrained Optimization Based on Lanczos Tridiagonalization",
+          "trigger": "Negative curvature detection in modified Newton and Lanczos"
+        },
+        {
+          "assessment": "Potential broader randomized start literature; cannot claim complete absence of hidden special model",
+          "evidence": "1999 full text cites this as probability inequalities for extremal eigenvalues, not an exact isolated negative-mode sign law.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479892230456",
+          "material_read": "Citation, summary and references from 1999 CWI primary; not entire 1994 paper",
+          "method": "Primary reference matching and external bibliographic search",
+          "title": "Probabilistic bounds on the extremal eigenvalues and condition number by the Lanczos algorithm",
+          "trigger": "Foundational randomized Lanczos accuracy results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Probability of detecting one true negative Hessian eigenvalue under random probe is an operationally motivated diagnostic. The l-dependent nontrivial scaling and deterministic terminal step give a sharp phase hierarchy distinguishing spectrally clustered Hessians beyond routine rank-one linear algebra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive bands and q fixed, each limiting mass p_j>0, one negative eigenvalue, exact arithmetic; no floating-point or adaptive Newton guarantee.",
+    "Older randomized Lanczos papers beyond inspected CWI primary may contain equivalent exact isolated-spike sign laws; full modified-Newton manuscript not read."
+  ],
+  "schema_version": 1
+}

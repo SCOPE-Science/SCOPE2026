@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact Rayleigh form on polynomial Krylov vectors is a signed spectral moment sum with a single negative rank-one term. The positive-band Gram is strictly positive definite for \(\ell\le q\) by Vandermonde rank. The rank-one inertia criterion gives an exact event, not merely a bound. Chi-square concentration and highest-degree asymptotics yield the three critical regimes, while a degree-\(q\) annihilating polynomial gives certain detection in \(q+1\) Krylov vectors. Normalization cancels in the sign test. The boundary is negligible because the negative-band Gaussian squared weight has a continuous law. Finite simulations verify representative cases but do not prove universal statements.
+## correctness
 
-## Originality: PASS, with historical-priority risk
-The 2026 modified Newton–Lanczos paper analyzes modified algorithms and stopping decisions, not an exact distributional sign test for an unmodified Krylov Ritz compression of a single negative spike against fixed positive bands. The full 1999 CWI probabilistic Lanczos paper provides one-sided spectrum bounds derived from Chebyshev, Lanczos and Ritz polynomials; these bounds do not state the exact random Gram downdate event and \(n^{1/(2\ell-1)}\) hierarchy. The accessible 1992 and 1994 abstracts discuss general extreme-eigenvalue approximation bounds, not this specialized distributional phase transition. The 1992 full text was not accessible using authorized channels, and unindexed specialized literature remains a priority risk. Related mathematical-record searches found nearby spectral and Lanczos findings, but no one that implies the stated exact probability law.
+PASS
 
-## Value: PASS
-The object is an early-terminated Krylov negative-curvature diagnostic for indefinite Hessians in Newton-type optimization. A one-dimensional negative eigenspace can be missed by short random-start Lanczos probes even though the Hessian is indefinite. The result supplies quantitative finite-sample error probabilities, explicit transition constants, and an iteration-versus-spike phase hierarchy, terminating at the number of distinct positive spectral levels plus one. This identifies precisely when a small number of Hessian-vector products is probabilistically trustworthy on a natural spectral benchmark, not simply a textbook property of a rank-one matrix.
+PASS: Reconstructed spectral polynomial parametrization of exact Krylov space, full-rank positive Vandermonde moment B, strict rank-one Schur-downdate negativity equivalence, concentration Z_j/n->p_j, n^(1/(2ell-1)) highest-monomial scaling and chi-square strict-tail limit. Product polynomial annihilates q positive bands at step q+1; all q+1 spectral weights nonzero a.s. Normalizations and t=0/infinity cases checked. Independent Gaussian-weight Schur/Ritz test matched in 360 configurations. Logs not needed for infinite proof.
 
-## Limitations
-The model assumes fixed finitely many positive spectral bands, one negative eigenvalue, standard Gaussian initialization, real arithmetic and exact Lanczos. No general spectral-distribution, finite precision, or modified-Newton convergence claim is proved. Independent priority verification remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-known preexisting coverage. Classical randomized Lanczos and newer modified Newton-CG bound eigenvalues or adjust curvature but do not establish the exact finite-band negative sign statistic and entire dimension-root hierarchy. This is a specific new stochastic detection threshold, not a renaming of generic eigenvalue bounds. Absence of a prior exact specialized law cannot be certified from keyword searches alone.
+
+## value
+
+PASS
+
+PASS: Probability of detecting one true negative Hessian eigenvalue under random probe is an operationally motivated diagnostic. The l-dependent nontrivial scaling and deterministic terminal step give a sharp phase hierarchy distinguishing spectrally clustered Hessians beyond routine rank-one linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
