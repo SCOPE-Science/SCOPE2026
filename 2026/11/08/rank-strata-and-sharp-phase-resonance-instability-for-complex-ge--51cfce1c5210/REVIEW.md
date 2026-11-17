@@ -1,15 +1,21 @@
-# Scientific review: complex-geometric cyclic Gabor rank and instability
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cyclic ambiguity sum follows by separating wrapped and unwrapped terms in a finite geometric series. Away from the unit circle, comparison of the absolute values of the two numerator terms forces any zero to have half-period translation, which is possible only in even dimension. Both parity branches then reduce to an explicit condition on the phase of the geometric ratio's full-period power. On the unit circle, root-of-unity cancellation and elementary greatest-common-divisor counting exhaust the zeros, including the additional exceptional even-dimensional zero. Standard Weyl-character diagonalization supplies each lifting singular value with its required \(\sqrt N\) factor. The near-resonance formula treats all \(N/2\) collapsing singular values and proves the condition-number coefficient from their individual slopes. The separately constructed direct-matrix checker passed 305 numerical assertions; finite tests are not used as proof of the universal statement.
+## correctness
 
-## Originality — PASS (provisional)
-The closest fully read primary works are Bojarovska--Flinth (2015), Führ--Oussa (2022), and Li (2026). The first develops the general Gabor ambiguity criterion and matrix-lifting mechanism; the second establishes broader group-frame phase retrieval with no geometric parameter stratification; the third gives a special nonresonant complex-geometric seed and an \(N^{-2}\) ambiguity-margin estimate, but not the rank on every complex parameter, its flat boundary, or the sharp singular-value opening on exceptional rays. Closest searchable mathematical records involve quadratic-exponent windows, one-coordinate perturbation windows, and two-site defects; their generating vectors and parameter loci differ. The strongest residual historical-priority risk is an older formula equivalent to the complete geometric-family discriminant, or the possibility that the 2026 geometric-seed computation was previously generalized elsewhere. Neither a failed search nor a change of parameterization alone establishes novelty.
+PASS
 
-## Mathematical value — PASS
-The result answers a natural entire-family question for an explicit causal-exponential-like cyclic Gabor generator: precisely which complex ratios permit complete linear recovery of all matrices, exactly how much rank is lost at each exceptional parameter, and how the reconstruction condition number diverges when the exceptional phase is crossed. The remarkable rank-defect independence of radius, the arithmetic jump at unit modulus, and the explicit full cluster of singular slopes are structural information needed for robust parameter selection. This is not merely a new numeric example, a relabeling of a previously solved window, or an unmotivated narrow slice.
+Finite Weyl orthogonality diagonalizes the full projector orbit with singular values sqrt(N)|A_z(a,b)|. For 0<|z|!=1 the split geometric-series numerator has two terms whose modulus balance requires r^(2a)=r^N; hence zero only when N even, a=N/2, with parity of b selected by the real sign of z^N. For |z|=1 the constant-phase split yields exactly gcd(a,N)-1 nonzero-modulation zeros per a, plus the even half-cycle sign correction; z=0 is handled directly. Differentiating the resonant half-translation numerator yields the individual linear slopes, and other finite singular values remain bounded below, giving the sharp condition-number limit. Independently computed ambiguity sums for N=2..6 and four parameter types each (20 cases) matched all piecewise rank formulas, including ray/unit-circle branches. This is finite corroboration of the analytic proof, not uniform large-N stability.
 
-## Scientific limitations and remaining risks
-The classification is for full unweighted observations of one finite geometric family, and the stability limit is at fixed nonunit radius and fixed dimension. Rank deficiency of matrix lifting is not claimed to imply nonlinear signal-phase noninjectivity. No full-spark result, arbitrary-window optimum, or uniform-in-dimension estimate is asserted. Earlier unindexed geometric-window calculations may affect historical priority, and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Weyl-projector diagonalization and a fixed geometric full-spark seed are expressly credited. The submitted two-dimensional complex parameter discriminant, exact rank of every boundary case, and individual singular-value slopes at all resonance rays are not established by the inspected 2015 general criterion or November 1 positive-real geometric nonlinear-fiber classification. Li 2026 supplies a potentially adjacent complex seed argument but its full primary text was inaccessible after lawful attempts; this is a named material priority risk, not grounds for inventing whole-document noncoverage.
+
+## value
+
+PASS
+
+An explicit phase plane and exact instability constant for a natural one-parameter Gabor window family distinguish generic informational completeness from finite-codimensional resonances and quantify proximity-to-failure without vague numerical thresholds. The unit-circle gcd phenomenon and individual collapsing slopes are useful for constructive window/stability selection; they are beyond the positive-real fiber subcase already published.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
