@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The zonotope determinant-volume identity gives four affine-in-scale functions. All their \(z\)-dependent slopes are sums of absolute linear minors and have breakpoints precisely among \(-1,0,1,2\). The self-contained determinant verifier establishes the slope coefficients; direct algebra yields the five displayed defect branches. Positivity analysis gives exactly the claimed open instability tongue, all equality cases, and the asymmetric unit-scale interval. The symbolic proof, not sampling, establishes all real parameters.
+## correctness
 
-## Originality — PASS, provisional priority
-Skorupinski's August 2026 original source supplies the discrete witness \((t,z)=(1,0)\), not the transverse phase. A separate October 2026 scale classification treats \(z=0\) only, and another October 2026 two-directional classification keeps the fourth coordinate zero throughout; neither implies the fourth-coordinate instability tongue. Available material from Averkov–von Dichter–Soprunov concerns a different inequality, and the broader Fradelizi et al. Rayleigh article supplies structural parameter restrictions but was not fully available for textual comparison. No source establishes this claim under an equivalent coordinate normalization in the inspected material. An unindexed calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-Robustness of a counterexample is not determined by the existence of a single violating point. This theorem provides the full sharp two-parameter boundary for scaling and tilting in the coordinate omitted from the original special generator, including a unique global scale ceiling, finite limiting tilt slopes, and asymmetric stability tolerances. It distinguishes exact failure, equality, and recovery of a natural convex-volume inequality along a motivated family rather than reporting an isolated extra numerical witness.
+The 4D zonotope volume equals the sum of absolute 4×4 maximal minors. With fixed generator G and added t h_z, each of four volumes is a constant (4,12,8,24) plus t times exact piecewise-linear determinant sum in z, whose only breakpoints are −1,0,1,2. Independent exact SymPy determinant enumeration at rational z,t (including (0,1), (0,2), (1/13,1)) agrees with piecewise polynomial defect. The sign inequalities give the complete positive region −1<z<1/3, 0<t<T(z), max T(0)=2, and at t=1, 2−3sqrt(2)/2<z<1/13. Product with unit cube preserves volume defect in all d≥4. Separate continuity checks justify all real z; finite samples alone are not a continuum proof.
 
-## Scope and residual risks
-The conclusion is not a full classification of all perturbations in the four-dimensional generator space. The result is relative to a precisely fixed list of generators; arbitrary affine changes of realization are not considered. Broad nonoverlap searches cannot prove universal priority. An independent audit remains necessary before external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original 4D counterexample and its scalar t-ray (z=0) were published, as was a 2D directional phase portrait varying negative coordinates at fourth component zero. Their exact formulas do not imply the transverse h_z=(1,−1,−1,z) boundary. Full earlier directional paper was read and has its fourth coordinate fixed at zero. This qualified extension identifies genuinely independent transverse instability and directional tolerance.
+
+## value
+
+PASS
+
+A mathematically motivated stability question for a canonical counterexample to zonotope-volume log-submodularity: an exact maximal scale and strongly asymmetric fourth-coordinate tolerances determine where the failure persists or disappears. A precise non-obvious perturbation boundary is useful without requiring a general conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
