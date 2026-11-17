@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 check_two_cauchy.py`. The executed standard-library checker returned `TWO_CAUCHY_PROTECTED_GAP_CHECKS_PASS 154988 cases 139`. It verified exact symbolic identities by direct arithmetic, sampled 139 sets of pole ratios with a nonempty protected gap, tested five residue choices and a grid of Zak variables for each, checked both claimed endpoint fibers, checked the unique max-min coefficient, and compared three single-pole closed-form Zak values with truncated Fourier series. The finite grid cannot prove absence of exceptional interior minima; this is proved by the concave-quadratic lemma in RESULT.md.
+## correctness
 
-A source overlap comparison examined the open-access original text of Belov–Kulikov–Lyubarskii's rational Cauchy frame study, including the explicit already-announced qualitative two-kernel classification, and the available abstract/introduction of their one-pole frame-operator study. The sharp signed two-pole lower bound is the claim reviewed here. No independent audit or external validation has been performed, and publication priority is not guaranteed.
+PASS
+
+The given Zak transform has an affine real numerator A−Bz divided by (1−uz)(1−vz), with correct critical-lattice lower-frame scaling alpha essinf|Z|². After y=cos angle, numerator minus a candidate endpoint minimum times denominator is concave in y, so an interior angular fiber cannot lower the minimum. On the protected interval L<R<H, one frequency endpoint branch rises, another is unimodal with minimum at an endpoint; its third candidate is globally dominated by the rising branch. This proves exact piecewise-quadratic A_R and unique balance R*. Independent parameters u=4/5,v=1/5 give L=8/3,H=4,R*=196/51, with grid of 5151 Zak fibers above predicted bound. Numerical sampling alone cannot prove the global result.
+
+## originality
+
+PASS
+
+General two-kernel qualitative frame set was announced by Belov et al; a published exact bound for two Cauchy poles on opposite sides of real line uses different Hardy components. Neither supplies the sharp *reentrant* protected-gap lower bound for two poles on the same side with opposite real residues.
+
+## value
+
+PASS
+
+Optimal frame stability margin for a natural signed rational Gabor family is an actionable spectral invariant. The existence of a protected stability island between two nonframe intervals and the unique sharp max-min residue are meaningful, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
