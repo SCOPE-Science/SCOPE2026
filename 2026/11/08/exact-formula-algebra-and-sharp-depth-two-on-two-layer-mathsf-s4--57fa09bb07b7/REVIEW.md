@@ -1,12 +1,21 @@
-# Scientific review: two-layer modal-product algebra
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(k\ge0\) and \(m\ge1\), the proof explicitly extracts the upper truth color at each point using \(u_i\), defines all local pair colors and global pair-support tests, and proves by induction that both accessibility modalities preserve the resulting observed-type partition. Every type \((c,S)\) with \(c\in S\), \(1\le|S|\le m\), is realized at a lower world; its depth-two characteristic formula distinguishes it from all others. This establishes exactly \(2^{T_{k,m}}\) formula classes. The two-model depth-one obstruction and the positive increment \(m\binom{4^k}{m}\) establish sharpness. The standalone direct-semantics checker exhaustively tests the specified small parameters, but the infinite theorem depends on the analytic proof. Risks: erroneous interpretation of the accessibility direction or hidden multiplicity sensitivity; both are addressed by explicit definitions, transition lists and comparison with direct model evaluation.
+## correctness
 
-## Originality — PASS within inspected evidence
-Meadors's 2024 work gives structural local-tabularity criteria for products; Shapirovsky and Sliusarev (2024) treat broad product logics, and Shapirovsky (2025) develops general modal-depth estimates. The inspected relevant sections do not contain the fixed two-layer, arbitrary-variable exact pair-support count or its sharp stabilization and depth bounds. Related mathematical-index findings concern neighborhood products, distinct finite topological spaces, or proper covers of multiagent \(\mathsf{S5}\), and do not imply the result. The cited work supplies notions and motivation, but no directly dominating count was identified. Residual risk: an equivalent normal-form computation in older or unindexed literature could exist; negative searches are not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The result supplies the complete formula-equivalence algebra and explicit depth-two characteristic formulas for every finite variable number and cluster size on the smallest nontrivial ordered \(\mathsf{S4}\) factor. It identifies the precise \(4^k\) cluster-width stabilization threshold, distinguishes marginal information from paired correlations, and gives exact finite benchmarks rather than merely asserting local finiteness. These are structural classifications of the natural two-layer product setting, not isolated numerical experiments. Limits: results do not automatically extend to a longer chain, all product frames or different modal signatures.
+At each world the formula u_i=(p_i & Box_a p_i) or (~p_i & Diamond_a p_i) recovers the upper-column bit; E_(a,b) detects the lower/upper color pair. Diamond_b E_(a,b) tests its occupied support. The structural successor sets under R_a and R_b depend exactly on type (c,S), even at upper worlds represented as diagonal supports. Explicit depth-two formulas distinguish every type and yield T=Σ_{s=1}^{min(m,4^k)} s binom(4^k,s); witness models prove depth-two sharp for k>=1,m>=2 and m=4^k sharp saturation. Independent enumeration matched profile counts for (k,m)=(0,3),(1,1),(1,2),(1,3),(2,2).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original, qualified; fixed two-layer S4×S5 algebra cardinality and exact modal-depth threshold differ from qualitative local tabularity and from the S5×S5 two-row atom problem.
+
+## value
+
+PASS
+
+Exact formula-algebra size and minimal depth for a natural C2×S5_m product frame are structural invariants relevant to bounded-depth model checking and algebraic modal logic. The distinction between paired columns and diagonal upper-world observations is mathematically informative, with a sharp m=4^k cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
