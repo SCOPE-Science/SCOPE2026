@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact positive-arc cap double integral and Frenet Taylor expansion give A(s,h)=\\(\\kappa h^3/12+(\\kappa_{ss}/480-\\kappa^3/240)h^5+O(h^7)\\). The series inversion and exact midpoint Jacobian yield the stated CDF with O(\\(t^{5/3}\\)); integration by parts produces \\(J=\\int\\kappa_s^2/\\kappa^3\\). Jensen proves the circle extremum; the closed Fourier curvature-radius family gives exact \\(J=2\\pi m^2((1-\\varepsilon^2)^{-1/2}-1)\\) and its unique threshold. Conditional signed gap is exactly uniform, hence Scheffe gives joint TV limit and the curvature inverse by total turning. High-precision independent Green-theorem computations on ovals and exact circle inversion passed SMOOTH_CAP_AREA_CHECKS_OK. No numerical step is used to prove the asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bárány–Fodor–Vígh analyze intrinsic volumes and variance of convex hulls of many interior-uniform points, not two boundary points.",
+        "Pardon studies central limit theorems for random polygons from interior-uniform samples, not a small two-site boundary chord cut.",
+        "No examined broad theorem asserts the t coefficient or conditional curvature reconstruction for this sampling model."
+      ],
+      "reasoning": "Many-point interior random-polytope cap techniques motivate but do not cover this single chord with endpoints sampled from arclength. Even the general small-cap geometric scaling by itself does not imply a second-order stochastic correction with global curvature-gradient energy.",
+      "searches": [
+        "arxiv:0906.0309 complete HTML, history/results and proof headings",
+        "arxiv:1003.4209 complete HTML, introduction and principal results",
+        "random chords cut off area convex smooth curve endpoints uniformly distributed asymptotics"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0906.0309v1",
+      "arxiv:1003.4209v3",
+      "arxiv:1103.2722v4",
+      "arxiv:1204.2707v2",
+      "git-blob:e599df055bef6383d9a61629a0c511bfbda03d8c",
+      "git-blob:f5daf1a5b235c0ef4d5c345f4fe89b73e752165f",
+      "doi:10.1016/j.aam.2014.05.003 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Craizer et al establish convex equal-area polygon approximation and affine arclength sampling, not the present independent random boundary endpoints.",
+        "Bäsel derives chord-length laws for motion-invariant random lines in regular polygons, not smaller cap area for smooth curves.",
+        "The three-point triangle area law has exponent 2/3 and optimal affine arclength density; our two-endpoint cap law has exponent 1/3 and a different sharp fixed-perimeter coefficient.",
+        "The two-point small Euclidean chord distance law has cubic and quintic corrections. It does not specify the cap-area transformation, marked inverse law or harmonic threshold."
+      ],
+      "reasoning": "The claims differ in sample number/measure, geometric observable and asymptotic coefficient. None of their theorem statements dominates the current \\(t^{1/3}+t\\) formula or its gradient-energy threshold; the standard local Frenet methodology is common background and is not itself claimed new.",
+      "searches": [
+        "arxiv:1103.2722 full text, Section 2 and Section 3.3, affine arclength",
+        "arxiv:1204.2707 full text, chord definition and distribution",
+        "Published full RESULT of small-area random inscribed triangles, identified by git blob e599df055bef6383d9a61629a0c511bfbda03d8c",
+        "Published full RESULT of fifth-order small-chord distance, identified by git blob f5daf1a5b235c0ef4d5c345f4fe89b73e752165f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Related full-text 2026 result on small chord Euclidean distance has an expansion with a fifth-order curvature-gradient correction to distance, not cap area.",
+        "Related full-text 2026 result on three-point inscribed triangle area has leading \\(t^{2/3}\\) tail from a two-dimensional cusp, not the two-point smaller-cap \\(t^{1/3}\\)+t law.",
+        "Exact circle cap area (h-sin h)/2 is classical; the circle special case alone is not novel."
+      ],
+      "reasoning": "A Euclidean chord-length sublevel event does not imply the cut-area sublevel expansion: both require different local Frenet determinant expansions and involve different curvature weights. A triangle area requires three points and different codimension. No equivalent formula for the integrated J=∫κ_s²/κ³ or inverse marked cap law was located.",
+      "searches": [
+        "two-term small cap area distribution for random chord endpoints sampled by arclength on smooth strictly convex planar oval, coefficient integral curvature squared derivative",
+        "random chord area distribution small cut cap local curvature κ^{-1/3} and second order curvature gradient term",
+        "random chord cap area curvature probability small convex body"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related polygonal boundary-chord cut result contains a zero atom and a \\(t\\log(1/t)\\) positive tail, not the smooth-oval law.",
+        "The exact circle formula provides a benchmark; an explicit probability table for all ovals and all second coefficients was not found."
+      ],
+      "reasoning": "No matching table or database entry located, but unsuccessful lookup is not evidence of definitive novelty. Existing polygon table does not imply a smooth-curvature coefficient as its boundary has zero curvature along edges and singular corners.",
+      "searches": [
+        "random boundary points divide convex planar body into two area fractions t^(1/3) asymptotic and rigidity",
+        "distribution area small circular segment chord endpoints uniformly random points on convex curve asymptotic",
+        "random inscribed chord divides convex body smaller area distribution oval"
+      ]
+    },
+    "rationale": "The final claim combines a two-term cap-cut area CDF, an inverse marked rare-event law and a sharp sign threshold for an explicitly closed family of ovals. Actual searches and direct comparisons found no stronger statement in examined material: the nearest sources treat interior random polytopes, three-point triangle areas, two-point chord lengths, or polygon corners. The polygon counterpart has a different atom and \\(t\\log(1/t)\\) regime. This is a best-knowledge original finding, not a priority guarantee.",
+    "residual_risks": [
+      "Historical small-segment area expansions in older unindexed integral-geometry monographs could contain an equivalent formula.",
+      "The 2014 Ren paper was not available for full-text inspection, although its abstract indicates a different random-line sampling measure.",
+      "Literature searching cannot establish uniqueness; independent priority audit remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: interior-uniform n-point hull intrinsic-volume results",
+        "evidence": "Theorem 1–3 and Sections 1–2 define independent interior-uniform samples and n→∞; no two-endpoint area cut.",
+        "identifier_or_url": "https://arxiv.org/html/0906.0309v1",
+        "material_read": "Full available HTML, introduction, results and cap-covering framework",
+        "method": "Read primary arXiv HTML, compared sample law and theorems",
+        "title": "Intrinsic volumes of inscribed random polytopes in smooth convex bodies",
+        "trigger": "Same smooth-curvature cap framework and verified archive anchor"
+      },
+      {
+        "assessment": "NOT_COVERING: convex hull area/vertex counts, interior sampling",
+        "evidence": "Theorems concern many points uniformly in K and asymptotic normality of their hull statistics.",
+        "identifier_or_url": "https://arxiv.org/html/1003.4209v3",
+        "material_read": "Primary full HTML including introduction and main theorems",
+        "method": "Checked scope and distribution under n→∞",
+        "title": "Central limit theorems for random polygons in an arbitrary convex set",
+        "trigger": "Potential stronger random polygon area theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: deterministic affine-geometry approximation",
+        "evidence": "Section 3.3 approximates a curve by convex equal-area polygons; no endpoint-pair cap-area law or gradient correction.",
+        "identifier_or_url": "https://arxiv.org/html/1103.2722v4",
+        "material_read": "Full available HTML, especially Sections 2,3,6",
+        "method": "Compared deterministic equal-area polygon design with stochastic two-point caps",
+        "title": "Affine Properties of Convex Equal-Area Polygons",
+        "trigger": "Local cap determinant and affine geometry comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: random line chord lengths in polygons and interior point distances",
+        "evidence": "Defines a different chord law and polygons with corners, not smooth cap cuts from independent perimeter points.",
+        "identifier_or_url": "https://arxiv.org/html/1204.2707v2",
+        "material_read": "Full available HTML including abstract and chord-length calculation sections",
+        "method": "Compared endpoint distribution, body geometry and observable",
+        "title": "Random chords and point distances in regular polygons",
+        "trigger": "Plausible prior random chord distributions"
+      },
+      {
+        "assessment": "NOT_COVERING: three boundary points produce triangle area, exponent 2/3",
+        "evidence": "The published theorem states Pr(triangle area≤t)~constant*t^(2/3)*∫f³κ^(-2/3), whereas current cut uses two endpoints and a separate two-term formula.",
+        "identifier_or_url": "git-blob:e599df055bef6383d9a61629a0c511bfbda03d8c",
+        "material_read": "Full RESULT.md including detailed determinant proof, verification, limitations",
+        "method": "Inspected the complete publicly available scientific result and compared implications",
+        "title": "A sharp small-area law for inscribed random triangles and the optimal affine sampling density",
+        "trigger": "Closest published small-area smooth-boundary statement"
+      },
+      {
+        "assessment": "NOT_COVERING: short Euclidean chord length, not small cap area",
+        "evidence": "Published fifth-order distance coefficient ∫(3κ^4/320−κ_s²/360); present area-cut t coefficient ∝2π−∫κ_s²/κ³, not an included specialization.",
+        "identifier_or_url": "git-blob:f5daf1a5b235c0ef4d5c345f4fe89b73e752165f",
+        "material_read": "Full RESULT.md with proof and all scopes",
+        "method": "Inspected the complete publicly available scientific result and compared observables/coefficient strength",
+        "title": "Fifth-order small-chord law and a sharp curvature-frequency transition for convex plane curves",
+        "trigger": "Closest published gradient-energy chord expansion"
+      },
+      {
+        "assessment": "LIKELY_DISTINCT: invariant random lines and chord lengths; full text not inspected",
+        "evidence": "Abstract states random chords intersected by random lines; does not state boundary endpoint-cut area statistic.",
+        "identifier_or_url": "doi:10.1016/j.aam.2014.05.003",
+        "material_read": "Abstract and bibliographic description, not full primary text",
+        "method": "Compared stated sampling model and explicitly recorded access limitation",
+        "title": "Random chord distributions and containment functions",
+        "trigger": "Potential chord-function general formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e12d71a-72ce-4c57-8c99-8d90205c3ec7",
+  "value": {
+    "rationale": "The smaller area removed by a random boundary chord is a natural local fragmentation invariant. Its leading small-cap probability is sharply circle-minimized, while the first correction measures a genuinely different nonnegative curvature-gradient energy, changes sign in a natural closed-oval family and is unbounded below. Rare-cut midpoint marks reconstruct arclength-labelled curvature, linking stochastic sampling to inverse rigidity; the exact threshold and inverse structure exceed a routine circle calculation or renaming of the short-chord distance law.",
+    "status": "PASS"
+  }
+}
