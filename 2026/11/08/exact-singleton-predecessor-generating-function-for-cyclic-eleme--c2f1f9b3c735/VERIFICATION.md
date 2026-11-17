@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and exact verification
+# Independent mathematical audit
 
-The standard-library program `verify_finite_state.py` builds the two four-state Rule 54 de Bruijn generators from the truth table, constructs all 410 reachable capped matrices by breadth-first closure, checks both successors for every state, reconstructs the indicator for exactly one cyclic predecessor, and checks the complete 410-coordinate identity leading to the order-14 recurrence after three steps. It then checks the exact numerator and denominator coefficients and series through degree 89. Successful execution prints `CERTIFICATE_OK`.
+## correctness
 
-The independent program `verify_direct.py` directly evaluates the local Boolean update on each of the \(2^n\) labeled inputs for every \(1\le n\le18\), counts predecessor multiplicities and checks the exact singleton sequence. It does not import or reference the matrix implementation. Successful execution prints `DIRECT_OK`.
+PASS
 
-To reproduce, extract all embedded files to the same directory and execute both scripts with Python 3; no external Python dependencies or hidden data files are required. The all-length theorem is deduced from the finite exact operator identity, not from agreement on a finite list of coefficients.
+PASS. Cyclic Rule54 output-target predecessor multiplicity equals trace of the integer product of actual four-by-four output-labeled de Bruijn adjacency matrices, including n=1,2 overlap conventions. Saturating integer sums/products at 2 is exact for singleton predicate. Independently rebuilt reachable 410 saturated matrices from identity and verified the componentwise T^3 sum_(j=0)^14 q_j T^(14-j) f=0 over all 410 states with exact integer arithmetic, not merely first coefficients; initial sequence matches claimed 0,0,3,12,15,24,49,96,... . The vector identity proves rational P(z)/Q(z) for all n, and the direct predecessor enumeration in package supplies finite corroboration. No unproved infinite extrapolation is used.
 
-Limits: no independent scientific audit has been performed. This certificate covers one synchronous elementary Rule 54 update on binary cyclic rings; it does not cover multi-step preimages, other rules, unindexed necklaces, or a full historical priority survey.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: singleton-predecessor count is a different fiber-multiplicity invariant from the published count of attainable Rule-54 outputs and from Jen classical block-preimage or periodic-lifting results. Complete 410-state finite semiring recurrence certificate supports a genuine all-ring rational identity. Historical specialized one-step fiber tables remain a risk.
+
+## value
+
+PASS
+
+PASS. One-step cyclic Rule54 map has many-to-one fibers whose exact singleton targets measure reversible observations. The complete all-length rational singleton census with reproducible 410-state vector annihilator fills a natural inverse-multiplicity question not settled by total image size. Finite semiring certificate is an exact all-length mathematical proof component rather than an arbitrary small computation; future image/fiber analyses can use the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
