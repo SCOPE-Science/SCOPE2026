@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical proof treats all nondegenerate triangles; the code supplies exact finite-case and independent numerical checks. Run `python verify.py` with a standard Python 3 installation. Expected successful output: `VERIFY_OK exact_occupancy_shapes=5 continuous_hull_trials=180000 nonidentifiability_pair=1`.
+# Independent mathematical audit
 
-The exact occupancy portion enumerates all 81 four-point side-label assignments for five exact rational triangular side profiles. The independent geometry portion samples actual Euclidean boundary coordinates and determines the convex-hull vertex count with a monotone-chain algorithm, comparing frequencies to all three theoretical probabilities. Floating-point collinearity is resolved by a fixed cross-product tolerance in the numeric checker; the proof is exact and does not rely on this tolerance.
+## correctness
 
-The inverse cubic, discriminant feasibility and endpoint inequalities are proven symbolically in `RESULT.md`. Simulation cannot certify a universal inequality or rule out unindexed prior results. No independent audit or external validation has been performed.
+PASS
+
+The supporting-side extreme-point identity V_4=sum_i min(2,K_i) is correct for iid boundary-arclength sampling. Multinomial occupancy gives h2=s4, h3=4(s3-s4), h4=6e2^2; Newton identities reconstruct e2>0 and e3, Vieta recovers unordered normalized sides. The cubic discriminant and signs e2,e3 plus f(1/2)>0 exactly enforce three positive real roots with all p_i<1/2, while Cauchy yields 3/8<h4<=2/3. The two distinct 61-denominator isosceles triples have equal s3, showing three samples insufficient. Independent rational occupancy checked three profiles and their exact h_j formulas.
+
+## originality
+
+PASS
+
+Published general polygon-boundary hull vertex laws already give the occupancy generating function and reconstruction from the entire infinite sample-size sequence. They do NOT assert a single fixed N=4 suffices for triangles, the exact feasible image, or that N=4 is minimal; these precise finite-shot inverse conclusions survive without claiming the basic occupancy identity as novel. Best-of-knowledge, with significant risk because the derivation is elementary from known formulas.
+
+## value
+
+PASS
+
+A minimum-sample inverse problem is a natural quantitative strengthening of general polygon side-length identifiability. Exact inversion and the full attainable-law inequality distinguish the 4-sample case from a mere table of one probability; the paired three-sample counterexample proves sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
