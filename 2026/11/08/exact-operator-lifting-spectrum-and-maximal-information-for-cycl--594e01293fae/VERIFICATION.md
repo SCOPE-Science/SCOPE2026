@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python CHECK.py` with `numpy` installed, using the dependency in `requirements.txt`. The test constructs each complex projector explicitly and compares nonzero singular values of the full lifted matrix with the residue-count prediction, including even and odd orders. Exhaustive subset checks through dimension 10 verify the maximum-rank inequality and canonical optimizer; small even dimensions additionally check every parity-saturation optimizer count. Direct augmented projector tests verify the rank increment from coordinate measurements, and a separate Hermitian orthonormal-basis construction checks the equality of complex and real singular-value normalization. In the checked environment the output was `QUADRATIC_CHIRP_PROJECTOR_SPECTRUM_CHECKS_PASSED 11651`.
+## correctness
 
-These finite tests corroborate the formulas but do not prove them for unbounded cyclic orders. The universal proof is supplied in `RESULT.md`, based on a unitary Fourier transform in the modulation index, geometric-series orthogonality, Euler-totient counting, and exact occupancy inequalities. Numerical singular comparisons use an absolute error tolerance of \(2\cdot10^{-10}\). No independent mathematical audit or external validation has been performed.
+PASS
+
+Unitary DFT in each modulation index k separates matrix cyclic lags d. The row for slope s has frequency 2ds, so slopes are orthogonal except when congruent modulo m_d=n/gcd(n,2d); each occupied residue class contributes squared singular value a_{m_d}(c). Since 2d ranges over subgroup of order h=n/gcd(n,2) with kernel size g, m_d=m appears gφ(m) times; rank and full kernel follow. Occupancy ≤min(r,m) saturates simultaneously for consecutive slopes. Even-n saturation and optimizer count reduce to choosing doubled antipodal pairs. Coordinate projectors supply n−1 additional diagonal dimensions and full Hermitian injectivity exactly for n odd prime. Independent complex Hermitian SVD checks on 26 small n, mask families match; no finite test substitutes for character orthogonality.
+
+## originality
+
+PASS
+
+Best-of-knowledge complete all-slope-set projector-lifting singular spectrum, modular multiplicities, optimal rank, and even-dimension saturation go beyond known pairwise Gauss magnitudes and fourth-overlap energy for odd cycles.
+
+## value
+
+PASS
+
+The exact singular values and nullspace quantify which Hermitian operator coordinates are linearly identifiable from the natural deterministic quadratic phase-mask family and with what conditioning. The optimal number of masks, parity transition, and all maximizing slope patterns are useful exact design information, not merely code checks or a known scalar overlap potential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
