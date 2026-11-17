@@ -1,96 +1,66 @@
-# Sharp affine projection on biased Boolean cubes: resonant norming corners and a Gaussian–Poisson crossover
+# Complete norming-corner resonance for affine projection on biased Boolean cubes
 
 ## Finding
-Let \(d\ge2\), \(0<p<1\), and give \(\{0,1\}^d\) the probability measure under which the coordinates are independent Bernoulli variables of success probability \(p\). Let \(P_{d,p}\) be the real \(L^2\)-orthogonal projector onto the affine functions \(y\mapsto a_0+\sum_{i=1}^d a_i y_i\), regarded as an operator on \(L^\infty\) of this finite probability space. Put \(u=\min\{p,1-p\}\), \(v=1-u\), and
-\[
- k=\lceil(d-1)u\rceil-1,\qquad
- B_{m,u}(j)=\binom mj u^jv^{m-j},\qquad
- F_{d,u}(k)=\sum_{j=0}^k B_{d,u}(j).
-\]
-Then the exact sharp norm is
-\[
- \boxed{\|P_{d,p}\|_{L^\infty\to L^\infty}=1+2\left[dvB_{d-1,u}(k)-F_{d,u}(k)\right].}
-\]
-Here \(k\ge0\) and \(k\le d-2\) for the stated domain. The norm is attained by the corner with all coordinates equal to the rarer Bernoulli outcome. When \(u<1/2\), that corner is the unique norming corner unless \((d-1)u\) is an integer; at exactly those resonances all \(d\) corners differing from it in precisely one coordinate are norming as well, and no others are. When \(p=1/2\), every corner is norming. For each norming corner the signs of the affine reproducing kernel supply an \(L^\infty\)-unit extremizer (arbitrary values are permitted where the kernel vanishes).
 
-The norms display two sharp distinct large-dimension regimes. For each fixed \(0<p<1\), with \(u\) as above,
-\[
- \boxed{\lim_{d\to\infty}\frac{\|P_{d,p}\|}{\sqrt d}=\sqrt{\frac{2(1-u)}{\pi u}}.}
-\]
-For each fixed \(\lambda>0\), setting \(p_d=\lambda/d\) for all sufficiently large \(d\),
-\[
- \boxed{\lim_{d\to\infty}\frac{\|P_{d,p_d}\|}{d}
- =2e^{-\lambda}\frac{\lambda^{\lfloor\lambda\rfloor}}{\lfloor\lambda\rfloor!}.}
-\]
-The latter limit is continuous and strictly decreasing in \(\lambda\), smooth between positive integers, and has an upward derivative jump of size \(2e^{-m}m^{m-1}/m!\) at each integer \(m\ge1\). [Equivalently this jump equals the common function value divided by \(m\).]
+Let \(d\ge2\), \(0<p<1\), and let \(\mu_p\) be the product Bernoulli\((p)\) probability measure on \(\{0,1\}^d\). Write \(P_{d,p}\) for the real \(L^2(\mu_p)\)-orthogonal projection onto the affine functions, including the constant. Let \(u=\min(p,1-p)\), and call a corner *rare* when every coordinate takes the less probable outcome. Every point is an evaluation site because \(\mu_p\) has full support.
 
-## Assumptions and scope
-All spaces are real, all measures assign strictly positive mass to every vertex, and the \(L^\infty\) operator norm is with respect to the same Bernoulli-product probability on both input and output. The projection is onto the entire \((d+1)\)-dimensional first Walsh band, including the constant, not solely the homogeneous first chaos. The rare-corner statements are interpreted after relabeling success/failure when \(p>1/2\). The claim is finite-dimensional for each \(d\), and the limiting statements are separately quantified.
+**Complete equality classification.** If \(p\ne1/2\), the rare corner is the **unique** evaluation point attaining the sharp \(L^\infty\)-projection norm, except when
+\[
+(d-1)u\in\mathbb Z.
+\]
+At precisely those resonances, exactly \(d+1\) corners attain the norm: the rare corner and the \(d\) corners differing from it in exactly one coordinate. No corner at Hamming distance two or more from the rare corner is norming. If \(p=1/2\), **every** one of the \(2^d\) corners is norming. At any norming corner \(x\), every norm-attaining real input at that evaluation is \(f(y)=\pm\operatorname{sgn}K(x,y)\) wherever the kernel is nonzero, with arbitrary values of modulus at most one at its zeros.
+
+The underlying **norm value and rare-corner existence are not claimed new**. Earlier published results give them, including the exact binomial identity
+\[
+\|P_{d,p}\|_{\infty\to\infty}=\frac1u\,\mathbb E|J-(d-1)u|,\qquad J\sim\operatorname{Bin}(d,u),
+\]
+and its fixed-bias Gaussian and sparse-bias Poisson limits. The independent contribution assessed here is the exhaustive equality classification and the arithmetic resonance criterion; this does not reannounce the known sharp norm or those asymptotics as novel.
 
 ## Proof
-**Kernel.** The constant and standardized coordinates \(\psi_i(y)=(y_i-p)/\sqrt{p(1-p)}\) form an orthonormal basis for the affine subspace. Hence the exact reproducing kernel is
-\[
- K_{d,p}(x,y)=1+\sum_{i=1}^d\frac{(x_i-p)(y_i-p)}{p(1-p)}.
-\]
-For any evaluation point \(x\), the evaluation norm is \(\mathbb E_y|K_{d,p}(x,y)|\), with equality attained by \(f(y)=\operatorname{sgn}K_{d,p}(x,y)\). Taking the largest evaluation norm therefore gives the operator norm without an approximation argument.
 
-**Which corners are norming.** By swapping labels if necessary assume \(0<p\le1/2\), and put \(q=1-p\). Conditional on \(x_i=1\), the random term \((x_i-p)(Y_i-p)/(pq)\) is \(-1\) with probability \(q\), or \(q/p\) with probability \(p\). Conditional on \(x_i=0\), it is \(-1\) with probability \(p\), or \(p/q\) with probability \(q\). For any fixed sum \(z\) from the constant and other coordinates, replacing \(x_i=0\) by \(1\) changes the expected absolute kernel by
+For \(x,y\in\{0,1\}^d\), the normalized affine reproducing kernel is
 \[
- \Delta_p(z)=q|z-1|+p|z+q/p|-p|z-1|-q|z+p/q|.
+K(x,y)=1+\sum_{i=1}^{d}\frac{(x_i-p)(y_i-p)}{p(1-p)},\qquad
+\|P_{d,p}\|=\max_x\mathbb E_{\mu_p}|K(x,Y)|.
 \]
-Directly splitting at \(-q/p\), \(-p/q\) and \(1\) gives
+The last identity follows by choosing the input sign of a maximizing kernel row. If \(p=1/2\), bit-flips act transitively and preserve \(\mu_p\); all rows therefore have the same norm.
+
+It remains to consider \(0<p<1/2\), with \(q=1-p\); interchanging zeros and ones proves the case \(p>1/2\). At an evaluation coordinate equal to one, its centered kernel summand has values \(-1\) (probability \(q\)) and \(q/p\) (probability \(p\)). At an evaluation coordinate equal to zero, the summand has values \(-1\) (probability \(p\)) and \(p/q\) (probability \(q\)). When the other coordinates and constant contribute \(z\), replacing an output zero by one increases the conditional absolute kernel expectation by
 \[
- \Delta_p(z)=\begin{cases}
- 2p(z+q/p),&-q/p<z<-p/q,\\
- 2(q-p)(1-z),&-p/q\le z<1,\\
- 0,&\text{otherwise}.
- \end{cases}
+D_p(z)=q|z-1|+p|z+q/p|-p|z-1|-q|z+p/q|.
 \]
-The two positive pieces match at their common boundary. Thus every replacement weakly increases the norm, and the all-ones corner is norming. At \(p=1/2\) every corner is equivalent under a measure-preserving cube symmetry.
-
-For the strict classification assume \(p<1/2\). Suppose there are \(r\) ones and \(s=d-1-r\) zeros among the other \(d-1\) coordinates. By selecting \(k'\) of their \(r\) rare-coordinate high outcomes and \(\ell\) of their \(s\) common-coordinate high outcomes (each such configuration has positive probability), one realizes
+Splitting at \(-q/p,-p/q,1\) gives the exact nonnegative piecewise formula
 \[
- z=2-d+k'/p+\ell/q.
+D_p(z)=\begin{cases}
+2p(z+q/p),&-q/p<z<-p/q,\\
+2(q-p)(1-z),&-p/q\le z<1,\\
+0,&z\le-q/p\text{ or }z\ge1.
+\end{cases}
 \]
-The strict region \(-q/p<z<1\) is equivalent to
+Thus every such replacement weakly increases the row norm, proving that the all-ones corner is norming. Strictness is equivalent to a positive-probability configuration of the remaining coordinates with \(-q/p<z<1\).
+
+Suppose among the other \(d-1\) evaluation coordinates, \(r\) are ones and \(s=d-1-r\) are zeros. Choose \(j\in\{0,\ldots,r\}\) high outcomes among the ones and \(\ell\in\{0,\ldots,s\}\) high outcomes among the zeros. All such configurations have positive probability, and their residual contribution is
 \[
- t-1<k'+(p/q)\ell<t,\qquad t=p(d-1).
+z=2-d+j/p+\ell/q.
 \]
-If \(s\ge1\), such integers always exist. Indeed \(r+s(p/q)>t\). If \(r<t-1\), fix \(k'=r\) and increase \(\ell\) from zero: the steps have size \(p/q<1\), so the first value above \(t-1\) is below \(t\). If \(r\ge t-1\) and \(t\) is nonintegral, take \(k'=\lfloor t\rfloor,\ell=0\). If \(t\) is integral, take \(k'=t-1,\ell=1\). In the remaining case \(s=0\), all possible middle quantities are integers, and the open interval \((t-1,t)\) contains an integer exactly when \(t\) is not integral. Consequently all replacements are strict except possibly the final replacement, and that one is an equality exactly for integral \(p(d-1)\). This proves the complete norming-corner statement.
-
-**Exact norm.** At the all-ones corner, let \(J\) be binomial with parameters \(d,p\). Then
+Writing \(t=p(d-1)\), the strictness window is exactly
 \[
- K=1-d+J/p,\qquad \mathbb EK=1,
+t-1<j+(p/q)\ell<t.
 \]
-and its negative part occurs precisely when \(J<p(d-1)\), or \(0\le J\le k\) with \(k=\lceil p(d-1)\rceil-1\). Therefore
-\[
- \mathbb E|K|=1+2\mathbb E(d-1-J/p)_+.
-\]
-Using \(\mathbb E[J\mathbf1_{J\le k}]=dp\,\mathbb P(\operatorname{Bin}(d-1,p)\le k-1)\) and the binomial recurrence gives
-\[
- \mathbb E(d-1-J/p)_+=d(1-p)B_{d-1,p}(k)-F_{d,p}(k).
-\]
-This gives the boxed exact norm, with \(u=p\) here and with the label-swap symmetry supplying the general case.
+If \(s\ge1\), this window always contains an admissible pair. Indeed \(r+s(p/q)>t\). If \(r<t-1\), take \(j=r\) and increase \(\ell\) in increments \(p/q<1\) until first exceeding \(t-1\); the crossing occurs below \(t\) and before \(\ell>s\). If \(r\ge t-1\) and \(t\notin\mathbb Z\), choose \(j=\lfloor t\rfloor,\ell=0\). If \(r\ge t-1\) and \(t\in\mathbb Z\), choose \(j=t-1,\ell=1\). Therefore **every coordinate replacement is strictly improving whenever another zero remains among the other evaluation coordinates**.
 
-**Large-dimension limits.** At the rare corner, \(K=1+\sum_{i=1}^d Z_i\) with independent identically distributed centered terms of variance \((1-u)/u\). At fixed bias, the ordinary central limit theorem applies and bounded normalized second moments give uniform integrability of absolute values. The limiting mean absolute normal law is \(\sqrt{2(1-u)/(\pi u)}\).
+When \(s=0\), the other \(d-1\) coordinates are all rare ones and the possible values of \(j\) are integers. There is an integer in the open interval \((t-1,t)\) exactly when \(t\notin\mathbb Z\). Hence this final replacement is strict in the nonresonant case and is an equality at resonance. Applying the coordinate replacements successively, any corner with two or more common zeros must undergo a strict improvement before reaching the all-ones corner; one with exactly one common zero ties precisely at resonance. This proves the complete equality classification for all \(d\ge2\) and \(0<p<1\).
 
-For \(p_d=\lambda/d\), the binomial count converges in law to a Poisson variable \(N_\lambda\) of mean \(\lambda\); the second moments of \(K/d=1/d-1+J/\lambda\) are uniformly bounded. Hence the scaled norms converge to \(\mathbb E|N_\lambda/\lambda-1|\). Splitting the Poisson sum at the integer part of \(\lambda\) and applying \(j\mathbb P(N_\lambda=j)=\lambda\mathbb P(N_\lambda=j-1)\) gives
-\[
- \mathbb E|N_\lambda/\lambda-1|=2\mathbb P(N_\lambda=\lfloor\lambda\rfloor).
-\]
-At an integer, the two adjacent Poisson masses coincide, proving continuity. Differentiating the explicit expression on each open unit interval proves strict decrease there and the one-sided derivative jump. This finishes the proof.
+Finally, at each maximizing row \(x\), equality in \(|\int Kf|\le\int|K|\) for real \(|f|\le1\) requires one globally consistent sign of \(K(x,\cdot)f(\cdot)\) on all nonzero kernel atoms. This gives the stated input characterization.
 
-## Verification
-Run `python3 check.py` using the standard library only. It independently enumerates complete signed kernels at every corner for a grid of dimensions and exact rational biases (including resonance values), verifies the norming-corner classification on that grid, checks the conditional absolute-value identity at exact-rational points, and corroborates the two distinct limiting regimes. The entire-dimension statements follow from the proof, not the finite tests.
+## Independent finite corroboration and limits
 
-## Relationship to prior work
-Keller introduced the normalized biased Fourier–Walsh framework and examined reductions to the fair cube, spectral weights, hypercontractivity, and influences; his main results do not determine the \(L^\infty\) norm of the first-band orthogonal projection. Nayar studied \(L^2\) proximity to the affine Walsh band and structural FKN stability for bounded Boolean functions; these are different objectives from the sharp \(L^\infty\) amplification of the projection itself. Earlier exact results for *second*-degree Hamming projectors and second homogeneous Walsh chaos do not imply the first-band biased Bernoulli formula; the homogeneous and inhomogeneous spaces and/or sampling measures differ. The unbiased specialization is classical Fourier–Walsh material and is not asserted to be new. The present distinctive conclusions are the exact biased norming-corner resonance rule and the sharp rare-event Gaussian-to-Poisson scaling crossover.
+An independent exact-fraction full-cube enumeration of all output Hamming classes for each dimension \(2\le d\le8\) and seven rational biases checked every claimed maximizing class, including resonances. These 49 finite cases corroborate, but do not prove, the universal statement; the piecewise increment and integer-window argument prove all dimensions and real biases. The theorem does not cover heterogeneous coordinate biases or non-affine Fourier masks, and does not assert new norm values, projection constants, or asymptotics. Historical priority of the equality classification remains a best-of-knowledge assessment rather than a certification.
 
-## Limitations
-The exact formula assumes identically distributed Bernoulli coordinates, product independence, affine rather than quadratic Walsh approximation, and the same probability measure on input and output. It does not provide sharp constants for heterogeneous biases, higher Walsh degrees, nonproduct measures, or continuous cubes. The asymptotics concern specified sequences of biases and do not assert a uniform two-parameter error bound. The source comparison is best-knowledge rather than proof of global literature uniqueness; the full text of all potentially related indexed 2026 results was not available, although their published indexed claims concern different degrees.
+## Prior mathematics
 
-## References
-1. N. Keller, *A Simple Reduction from a Biased Measure on the Discrete Cube to the Uniform Measure*, arXiv:1001.1167 (initial public version 7 January 2010), https://arxiv.org/abs/1001.1167 .
-2. P. Nayar, *FKN Theorem on the Biased Cube*, arXiv:1311.3179 (initial public version 13 November 2013), https://arxiv.org/abs/1311.3179 ; *Colloquium Mathematicum* 137 (2014), 253–261.
-3. *Exact Degree-Two Hamming Projection Norms and the Gaussian–Poisson Crossover*, published scientific record (2026), checked by its indexed statement only.
-4. *A Lattice-Phase Second Term for Second-Chaos Projection Constants on the Boolean Cube*, published scientific record (2026), checked by its indexed statement only.
+1. *Balanced bias minimizes sharp affine Fourier amplification on the Bernoulli cube*, published October 26, 2026, https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-balanced-bias-minimizes-sharp-affine-fourier-amplification-on-th--71f416ba0fcb. Establishes the exact affine-band norm, rare-corner maximization, and Gaussian/Poisson laws, but does not classify all maximizing corners.
+2. *A universal rare-vertex norming law for biased Boolean Fourier multipliers*, published October 25, 2026, https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-universal-rare-vertex-norming-law-for-biased-boolean-fourier-m--40f4b54b28c0. Establishes a broader convex-order maximization theorem; expressly does not classify uniqueness or ties.
+3. *A universal rare-vertex principle for Bernoulli first-chaos multipliers*, published October 18, 2026, https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-universal-rare-vertex-principle-for-bernoulli-first-chaos-mult--2d1e4412cee2. Treats the centered first chaos (without the constant) and does not classify the affine-band equality set.
+4. N. Keller, *A Simple Reduction from a Biased Measure on the Discrete Cube to the Uniform Measure*, arXiv:1001.1167 (2010), https://arxiv.org/abs/1001.1167. Provides the biased Walsh framework, not the extremal equality classification.
+5. P. Nayar, *FKN Theorem on the Biased Cube*, arXiv:1311.3179 (2013), https://arxiv.org/abs/1311.3179. Concerns \(L^2\)-approximation to affine Boolean functions rather than exact endpoint norming rows.

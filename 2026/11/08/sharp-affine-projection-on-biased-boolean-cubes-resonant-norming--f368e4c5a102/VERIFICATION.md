@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python3 check.py` using Python 3.10 or later, with only the standard library. The script independently builds the full signed projection kernel at each vertex and exactly sums over the entire \(2^d\)-point input space for the tested dimensions; it does not reuse the claimed closed formula in those kernel calculations.
+# Independent mathematical audit
 
-# Checks completed
-Exact finite-rational evaluation of 364 corner/dimension/bias combinations across dimensions 2–9 and seven rational biases, including resonant examples. Separate exact-rational spot checks of the piecewise conditional kernel increment. Numerical binomial-to-Poisson and central-limit corroboration samples in large dimensions. The universal all-dimensional conclusions follow from the written algebraic and probabilistic proof, not from those finite tests.
+## correctness
 
-# Scientific limits
-A finite batch of exact checks cannot certify all \(d\), all real biases or every limiting sequence; proof of those statements is analytic. External peer review and independent audit remain unperformed.
+PASS
+
+For the REPAIRED equality classification, normalized affine kernel is 1+sum((x_i-p)(y_i-p)/[p(1-p)]). Replacing a common row bit by rare bit has piecewise nonnegative conditional absolute increment; strictness window t-1<j+(p/q)ell<t, t=p(d-1). A common bit among the other d-1 coordinates always permits an integer/fractional configuration giving strictness. With all others rare, the increment ties iff t integral. This proves exactly 1 versus d+1 normers, or every corner when p=1/2. Direct exhaustive rational full-cube comparison for 2<=d<=8, 49 dimension/bias cases agreed; finite checks are corroborative, not proof.
+
+## originality
+
+PASS
+
+PASS for REPAIRED final claim only. October 18, October 25 and October 26 primary full mathematical results already cover rare-corner existence, sharp norm, and Gaussian/Poisson growth, all expressly excluded from novelty. They do not classify all maximizing rows. A strict conditional-increment integer-window proof establishes the exact d+1 resonance multiplicity and exhausts all equality cases; priority remains best-of-knowledge due to possible unindexed refinements.
+
+## value
+
+PASS
+
+PASS for REPAIRED claim. Once the sharp norm is known, exactly which evaluation sites achieve maximum is an independent natural extremal problem. The full classification detects abrupt arithmetic resonance: exactly one rare row generically and d+1 at integral (d-1)u. It is a complete structural equality classification across infinitely many dimensions and all biases, not a gratuitous small-parameter computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
