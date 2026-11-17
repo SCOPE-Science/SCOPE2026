@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the all-Hermitian, Frobenius-normalized Gaussian coherent-state map, the angular DFT yields one square radial Vandermonde block and two copies of every narrower lag block. Lagrange inversion gives an explicit rank-one inverse limit; the narrower blocks decay less quickly, proving that the radial diagonal mode sets the exact smallest singular value. Direct limiting block norms identify the largest singular value. The monic Chebyshev interpolation identity with weighted Cauchy–Schwarz proves both the sharp lower bound and the complete, unique positive-weight optimizer. The direct-matrix script passed 105 assertions; its tests do not replace these proofs.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The exact scalar Chebyshev optimal-design step is classical (Pukelsheim and Studden, 1993) and is not considered a new theorem on its own. The specific new claim combines the complete real-Hermitian Fock angular-block argument, the exact all-mode coalescence coefficient, and the unique radial-design classification. The 2017 continuous-variable Husimi tomography paper develops polynomial interpolation but not this coalescing-ring spectral result. The Gaussian multi-window and two-circle phase-retrieval sources prove different uniqueness statements. Clustered Fourier Vandermonde bounds concern a different operator and do not imply this coefficient. Closely ranked public mathematical research records on concentric Szegő frames and harmonic Bergman traces also concern different operators. Classical experimental design or quantum tomography may contain an equivalent formulation; independent historical priority checking is still needed.
+PASS
 
-## Mathematical value — PASS
-The result quantifies the central singularity of a natural radially compressed heterodyne experiment, distinguishes it from other Hermitian angular sectors, and supplies an exact sensor-radius and positive-budget prescription. These information-completeness and instability constants are motivated by finite-dimensional Gaussian tomography, not by a parameter chosen solely for computation.
+For the all-Hermitian Frobenius-normalized n-dimensional Fock truncation and M≥2n−1 equally spaced samples per circle, the angular DFT separates the diagonal radial n×n Vandermonde and two real copies of each (n−d)-column lag block. With fixed distinct offsets and strictly positive weights, Lagrange interpolation gives an operator-norm rank-one limit of ε^(n−1)A_0^(−1); its norm is exp(t)S_n(t)B(u,w). Smaller lag blocks have minimal singular values bounded below by c_d ε^(n−d−1), so cannot dominate the ε^(n−1) diagonal collapse. The largest singular value converges to exp(−t)H_n(t). The leading-coefficient Lagrange identity, monic Chebyshev bound and equality in weighted Cauchy–Schwarz prove B≥2^(n−2), uniquely at Lobatto offsets with endpoint-half weights, including n=2. Independent direct real-Hermitian sampling matrix SVDs for n=2,3,4 and shrinking ε corroborate both limiting constants; finite checks are not the infinite proof.
 
-## Scope and remaining risks
-All parameters are held fixed while the squared-radius band collapses; the proof does not establish finite-width optimality, adaptive weighting bounds, nonlinear pure-state reconstruction guarantees, or photon-counting noise accuracy. The classical Chebyshev ingredient must be credited. A quantum-design equivalence not located in the inspected literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: the scalar Chebyshev interpolation inequality and design weights are established classical facts, but the sharp finite-Fock full-Hermitian sampling singular spectrum, dominance of the diagonal lag and exact Fock-normalized coalescence coefficient are not implied by identified primary or published similar results. Quantum sampling literature remains a material priority risk because the 2017 tomography primary full text was inaccessible; this risk alone does not negate a defensible original combined theorem.
+
+## value
+
+PASS
+
+The full-Hermitian tomographic information loss as measurement radii coalesce is a natural stability and sensor-design problem. The exact ε^(n−1) exponent and normalized coefficient, identification of the worst harmonic sector, and unique optimal radial offsets and budgets give useful experiment-design information not supplied merely by Chebyshev polynomial regression. The scope excludes nonlinear pure-state estimation, vanishing weights, finite-width optimality and photon-counting noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
