@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T21:56:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 08c6c46825fde22add6418c88f45e6e22d603480, proof sections 1-6",
+        "Frozen verify_stumps.py blob 734f3a6297479839f92fa6c134821b171186cf60, independent DP and exhaustive trace masks",
+        "Independent mixed rare-trace probability and exact finite occupancy check, m=5,q=3,d=100"
+      ],
+      "rationale": "For each m-j target fiber, a coordinate hits it with exact p_j=(q-1)^j/q^(m-1); a binary coordinate selects one of 2^(m-1) complementary pairs, giving the classical coupon collector. For q>=3, intersecting distinct m-1/m-2 targets cannot occupy two different coordinate fibers. Exact mixed falling-factorial moments yield Z_1 -> Pois(e^-c) and for q=3, Z_2 -> Pois(e^-2c/2), independently. The uniform ratio bound for j>=3 (q=3) or >=2 (q>=4), with full-set absence treated separately, eliminates other trace failures for ALL j including j growing with m. Replacement sampling differs by at most binom(m,2)q^-d. The weighted fiber partition argument and explicit complementary-pair construction prove VCdim=1+floor(log2 d) for every q>=2,d>=1. This is an infinite proof, not extrapolated enumeration.",
+      "residual_risks": [
+        "The multinomial factorial-moment characterization relies on the fixed-q asymptotic; no claim for q growing with m.",
+        "The verifier proves small cases only; no formal proof certificate has been issued."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Decision-stump bounds count worst-case attainable bipartitions and use signed nominal splits rather than random unlabeled positive fibers.",
+          "The richer categorical-subcube class allows conjunctions of fixed coordinates and has a different private-outlier characterization and a universal single-Poisson critical law."
+        ],
+        "reasoning": "More expressive concepts and worst-case VC bounds address different probability events; neither has a stated hypothesis/conclusion dominating this single-literal shattering probability.",
+        "searches": [
+          "arXiv:2210.10781 decision tree categorical stump partitioning Section 5.3, Theorem 10",
+          "Resultary full published RESULT: Complete shattered-support census and mixed-alphabet critical window for categorical subcubes",
+          "Resultary full published RESULT: Exact finite-grid orthant shattering and coupon threshold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.10781",
+        "arXiv:1301.6371",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-shattered-support-census-and-mixed-alphabet-critical-wi--93e4efa2316a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=3 the submitted e^-2c/2 correction comes from missing m-2 traces; categorical subcube shattering needs only private exceptional coordinates for EACH sample, leaving a single obstruction family.",
+          "A worst-case VC dimension of floor(log2 d)+1 cannot imply a sharp random-support critical distribution."
+        ],
+        "reasoning": "Prior partition-count and richer-class limit statements are mathematically nonequivalent; their hypotheses cannot be specialized to obtain this double-Poisson factor.",
+        "searches": [
+          "arXiv:2210.10781v1 Theorem 10 nominal decision-stump counting",
+          "arXiv:1301.6371 word shattering setup",
+          "Resultary categorical-subcube RESULT full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the assigned concept class, coordinate columns are independent random partitions into q symbol fibers; exactly one fiber must realize each target trace.",
+          "Godbole–Pinella–Zhuang count word/covering-array pattern coverage with transposed quantification, not all row-subsets as single fibers."
+        ],
+        "reasoning": "Rewriting the event as missing coupons in a random partition is exact, but no checked equivalent formulation states the exceptional q=3 joint-Poisson limit.",
+        "searches": [
+          "Resultary semantic: random VC shattering uniformly sampled q-ary product categorical coordinate equality double Poisson near-full traces",
+          "Resultary semantic: categorical coordinate fibers random support shattering double Poisson exact ternary",
+          "arXiv:1301.6371 random word shattering and covering arrays"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest direct hit was this submitted 2026-11-08 theorem; other hits used different concept families or statistics.",
+          "The finite exact trace enumerations are corroboration, not a prior exhaustive table of the claimed infinite limit."
+        ],
+        "reasoning": "No identical known exact probability table or coefficient was located; this is bounded evidence, not a novelty proof.",
+        "searches": [
+          "Resultary search: ternary double Poisson coordinate-equality shattering",
+          "arXiv:1301.6371 covering arrays shattering thresholds"
+        ]
+      },
+      "rationale": "The sampled-event quantifier is for ALL 2^m subsets to occur as a single positive coordinate-symbol fiber; it is not interchangeable with covering every pattern on a FIXED coordinate set nor with allowing conjunctions, sign reversals or a learned stump polarity. The q=3 simultaneous two-size missing-obstruction limit differs essentially from the single-Poisson law for richer categorical subcubes. Searches found no prior theorem implying this positive-fiber double-Poisson law; priority is qualified, not certified.",
+      "residual_risks": [
+        "A deeper covering-array duality or an unindexed theorem on random partitions could imply the same limit; priority is best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the random positive-fiber limit",
+          "evidence": "Worst-case two-partitioning function and allowable polarity differ from the fixed hypothesis class.",
+          "identifier_or_url": "arXiv:2210.10781",
+          "material_read": "Section 5.3 and Theorem 10 (primary paper)",
+          "method": "primary full-text relevant theorem comparison",
+          "title": "Generalization Properties of Decision Trees on Real-valued and Categorical Features",
+          "trigger": "Same nominal decision stump domain"
+        },
+        {
+          "assessment": "Not a direct implication of the current row-subset fiber event",
+          "evidence": "The paper universally covers patterns on coordinate subsets, not single fibers representing every row subset.",
+          "identifier_or_url": "arXiv:1301.6371",
+          "material_read": "Primary paper word-shattering setup and main threshold statements",
+          "method": "primary source statements",
+          "title": "Shattering Thresholds for Random Systems of Sets, Words, and Permutations",
+          "trigger": "Random shattering and covering arrays"
+        },
+        {
+          "assessment": "Different concept family, different limit",
+          "evidence": "Conjunction-of-literals subcubes allow independent private-outlier witnesses; q=3 still has single-Poisson limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-shattered-support-census-and-mixed-alphabet-critical-wi--93e4efa2316a",
+          "material_read": "Entire published RESULT.md, including private-coordinate lemma and critical-window factorial moments",
+          "method": "direct GitHub published full result",
+          "title": "Complete shattered-support census and mixed-alphabet critical window for categorical subcubes",
+          "trigger": "Plausible same-day stronger product-class shattering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 08c6c46825fde22add6418c88f45e6e22d603480, proof sections 1-6",
+        "Frozen verify_stumps.py blob 734f3a6297479839f92fa6c134821b171186cf60, independent DP and exhaustive trace masks",
+        "arXiv:2210.10781",
+        "arXiv:1301.6371"
+      ],
+      "rationale": "Natural distributional counterpart of worst-case VC dimension with a universal binary coupon limit and an exceptional ternary double-obstruction transition. Exact full fixed-alphabet classification and joint independent Poisson coefficients expose mechanism not supplied by a deterministic dimension count.",
+      "residual_risks": [
+        "Restricted to uniformly sampled positive coordinate-equality concepts and fixed q; neither general decision-tree learning nor arbitrary product measures is resolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge historical-priority assessment, with explicitly specified inaccessible primary sources; no external certification.",
+    "Every assigned Git source-tree SHA was fetched and verified against the frozen source snapshot, and substantive RESULT.md and verification scripts were read.",
+    "Individual finite computations corroborate but do not prove unbounded claims.",
+    "No GitHub writes, dispatcher closeout or publication performed; metadata privacy prevents ready import."
+  ],
+  "schema_version": 1
+}

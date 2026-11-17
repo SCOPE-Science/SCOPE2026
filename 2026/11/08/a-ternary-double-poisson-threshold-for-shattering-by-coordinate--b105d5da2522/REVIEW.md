@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each coordinate partitions the sample indices into symbol fibers. A trace missing exactly \(j\) sample indices occurs in one coordinate with probability \((q-1)^j/q^{m-1}\). This gives an exact binary coupon-collector reduction and, for fixed \(q\ge3\), independent-Poisson factorial moments for the absence counts of size \(m-1\) and, only at \(q=3\), size \(m-2\) target traces. Because any two such large subsets intersect, they cannot simultaneously be different fibers within one coordinate, making the joint factorial-moment expression exact for \(m\ge5\). The remaining trace types disappear by a uniform union bound; the full-set trace is also present with high probability. The deterministic VC formula is established by a partition weight bound and binary-column construction. Twelve independently enumerated cases corroborate the exact trace model; the infinite theorem rests on proof, not extrapolation.
+## correctness
 
-**Originality — PASS, qualified by historical-access risk.** The closest primary full-text comparison is Leboeuf–LeBlanc–Marchand, arXiv:2210.10781v1, Section 5.3/Theorem 10: its nominal decision stumps allow signed splits and its partitioning bounds apply to worst-case supports, not a randomly drawn support; it does not yield the ternary two-Poisson limiting probability. The 2013 Godbole–Pinella–Zhuang paper gives shattering thresholds for random covering-array-style word systems under a distinct transposed quantifier structure. Its statements inspected did not imply the threshold here. The two-Poisson coefficient and unique alphabet-three effect were not found in direct published-finding corpus searches or aliases. Nonidentical title/terminology alone is not treated as novelty proof. A more exhaustive covering-array/occupancy bibliography could still change priority.
+PASS
 
-**Value — PASS.** Random-support shattering is a natural counterpart of the classical worst-case VC dimension. The sharp limiting probability identifies a genuinely non-universal alphabet-three critical regime caused by the simultaneous survival of two distinct missing-trace sizes. The result is an exact asymptotic classification for every fixed alphabet \(q\ge2\), with a proof that explains the critical multiplicities. It is neither a renaming of the deterministic VC bound nor a finite numerical exercise.
+For each m-j target fiber, a coordinate hits it with exact p_j=(q-1)^j/q^(m-1); a binary coordinate selects one of 2^(m-1) complementary pairs, giving the classical coupon collector. For q>=3, intersecting distinct m-1/m-2 targets cannot occupy two different coordinate fibers. Exact mixed falling-factorial moments yield Z_1 -> Pois(e^-c) and for q=3, Z_2 -> Pois(e^-2c/2), independently. The uniform ratio bound for j>=3 (q=3) or >=2 (q>=4), with full-set absence treated separately, eliminates other trace failures for ALL j including j growing with m. Replacement sampling differs by at most binom(m,2)q^-d. The weighted fiber partition argument and explicit complementary-pair construction prove VCdim=1+floor(log2 d) for every q>=2,d>=1. This is an infinite proof, not extrapolated enumeration.
 
-Scientific limitations: fixed alphabet; positive equality predicates without sign-reversals, complements or constants; uniform independent samples (or without-replacement by coupling); historical priority qualified by accessible full-text scope. Computational checks are finite and not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sampled-event quantifier is for ALL 2^m subsets to occur as a single positive coordinate-symbol fiber; it is not interchangeable with covering every pattern on a FIXED coordinate set nor with allowing conjunctions, sign reversals or a learned stump polarity. The q=3 simultaneous two-size missing-obstruction limit differs essentially from the single-Poisson law for richer categorical subcubes. Searches found no prior theorem implying this positive-fiber double-Poisson law; priority is qualified, not certified.
+
+## value
+
+PASS
+
+Natural distributional counterpart of worst-case VC dimension with a universal binary coupon limit and an exceptional ternary double-obstruction transition. Exact full fixed-alphabet classification and joint independent Poisson coefficients expose mechanism not supplied by a deterministic dimension count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
