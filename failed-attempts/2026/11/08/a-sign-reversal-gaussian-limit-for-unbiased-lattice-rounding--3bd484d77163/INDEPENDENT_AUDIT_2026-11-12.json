@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:46:49.363497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Common-uniform rounding couples two integer transition laws with W1 contraction r<1. The positive branch has closed states {0,1} and unique stationary Bernoulli(theta); the negative branch has stationary conditional variance identity (1-r^2)V=E psi(2theta+(1-r)(X-theta)). Tightness of (1-r)(X-theta) and continuity at noninteger 2theta give the proposed variance asymptotic. The adapted-noise coupling against i.i.d. Bernoulli(p) has mean-square vanishing normalized error, and a weighted triangular array with maximum coefficient sqrt(1-r^2)->0 proves the Gaussian limit, not merely a variance claim. Independently solved several finite rational chains and checked scaled variances; all-order conclusion rests on the coupling proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior published theorem gives error bound |(1-r^2)V-psi(2theta)|≤(1/2)sqrt((1-r)/(1+r)) and Gaussian limit, stronger than candidate asymptotic."
+        ],
+        "reasoning": "Broader coverage extends candidate central negative branch with rates, resonance, temporal covariances; the cited integer ARMA work is not required for the decisive failure.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md",
+          "https://arxiv.org/abs/2402.15772"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sign-reversal-gaussian-limit-for-unbiased-lattice-rounding--3bd484d77163/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sign-reversal-gaussian-limit-for-unbiased-lattice-rounding--3bd484d77163/verify.py",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md",
+        "https://arxiv.org/html/2402.15772v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute q=r in earlier X_{n+1}=R((1+q)theta-qX_n,U), identical conditional transition kernel.",
+          "Earlier stationary V_q~psi(2theta)/(1-q^2) and Gaussian normalized marginal; exact same negative branch."
+        ],
+        "reasoning": "Prior theorem logically implies negative stationary conclusions. Positive r gives two-state Bernoulli by invariance and mean and is not substantial enough for new combined science.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem uses R(floor predictor plus U), law equivalent to R(y;U)=floor(y)+1{U<frac(y)} for U uniform.",
+          "Both negative recurrences are theta-r(X-theta), and identical invariant Gaussian limit."
+        ],
+        "reasoning": "Prior paper already includes exact singular-limit stochastic-rounding branch. The added positive branch does not alter the prior equivalence for its central result.",
+        "searches": [
+          "Resultary: stochastic unbiased rounding negative contraction integer autoregression stationary weak contraction Gaussian limit",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same p={2theta}, same scaling sqrt(1-r^2), same limiting N(0,p(1-p)) for all theta except 1/2."
+        ],
+        "reasoning": "The published exact law and variance bound dominate the candidate parameters. Matching is equation-level, not merely numeric.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md",
+          "Resultary: lattice phase Gaussian flip boundary stochastic rounding"
+        ]
+      },
+      "rationale": "An earlier published result on 2026-11-02 proves the exact SAME negative-branch recursion R((1+q)theta-qX,U), q=r, the stationary measure, divergence constant psi(2theta) and the same Gaussian limit. It gives strictly stronger uniform error bounds, half-grid exception, and lag covariances. The only addition of this later work is the positive +r Bernoulli stationary law, an immediate elementary consequence of unbiased rounding and invariant {0,1}; it cannot sustain an original overall theorem. Relabeling q as r or describing the negative process as affine iteration rather than gradient descent does not evade prior implication.",
+      "residual_risks": [
+        "No apparent correctness failure; scientific rejection stems from full prior coverage of the central theorem and triviality of the only added positive branch.",
+        "Finite Monte Carlo is not a proof of Gaussian convergence; the proof was checked separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exactly identical negative branch, stronger conclusions",
+          "evidence": [
+            "Earlier proof handles stationary Gaussian with martingale triangular array and phase variance psi(2theta); q=r substitution yields candidate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md",
+          "material_read": "Complete published RESULT.md, theorem statement, proofs of invariant W1 and Gaussian limit, variance error bound and limitations",
+          "method": "Read primary full text and compare exact quantifiers/equations",
+          "title": "Lattice-phase Gaussian law at the flip boundary of stochastic-rounding descent",
+          "trigger": "Same mathematical transition kernel and same near-unit variance/Gaussian claims"
+        },
+        {
+          "assessment": "GENERAL PRECEDENCE for rounding; not essential to decisive duplicated flip theorem",
+          "evidence": [
+            "Same adjacent-grid mean-preserving quantizer and moment identities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.15772v1",
+          "material_read": "Full open-access main definitions (2.1),(2.4), stationary-moment and time-series section",
+          "method": "Read primary full text and compare exact quantifiers/equations",
+          "title": "Mean-preserving rounding integer-valued ARMA models",
+          "trigger": "Foundational unbiased rounding/AR(1) identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The near-critical Gaussian law and nonresonance constant are already published. The added positive-slope branch is a routine closed-two-state Bernoulli observation; the comparison is mathematically illustrative but not a new motivated gap once the stronger theorem is known.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sign-reversal-gaussian-limit-for-unbiased-lattice-rounding--3bd484d77163/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sign-reversal-gaussian-limit-for-unbiased-lattice-rounding--3bd484d77163/verify.py",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md",
+    "https://arxiv.org/html/2402.15772v1"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No apparent correctness failure; scientific rejection stems from full prior coverage of the central theorem and triviality of the only added positive branch.",
+    "Finite Monte Carlo is not a proof of Gaussian convergence; the proof was checked separately."
+  ],
+  "residual_risks": [
+    "No apparent correctness failure; scientific rejection stems from full prior coverage of the central theorem and triviality of the only added positive branch.",
+    "Finite Monte Carlo is not a proof of Gaussian convergence; the proof was checked separately."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING: exactly identical negative branch, stronger conclusions",
+      "evidence": [
+        "Earlier proof handles stationary Gaussian with martingale triangular array and phase variance psi(2theta); q=r substitution yields candidate."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619/RESULT.md",
+      "material_read": "Complete published RESULT.md, theorem statement, proofs of invariant W1 and Gaussian limit, variance error bound and limitations",
+      "method": "Read primary full text and compare exact quantifiers/equations",
+      "title": "Lattice-phase Gaussian law at the flip boundary of stochastic-rounding descent",
+      "trigger": "Same mathematical transition kernel and same near-unit variance/Gaussian claims"
+    },
+    {
+      "assessment": "GENERAL PRECEDENCE for rounding; not essential to decisive duplicated flip theorem",
+      "evidence": [
+        "Same adjacent-grid mean-preserving quantizer and moment identities."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2402.15772v1",
+      "material_read": "Full open-access main definitions (2.1),(2.4), stationary-moment and time-series section",
+      "method": "Read primary full text and compare exact quantifiers/equations",
+      "title": "Mean-preserving rounding integer-valued ARMA models",
+      "trigger": "Foundational unbiased rounding/AR(1) identity"
+    }
+  ]
+}
