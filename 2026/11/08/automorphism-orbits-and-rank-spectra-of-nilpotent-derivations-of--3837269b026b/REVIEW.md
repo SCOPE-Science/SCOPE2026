@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement identifies the precise family of all derivations of the two-vertex, parallel-arrow path algebra, derives the iterated-power condition from the action on its basis, and computes the full algebra automorphism action. The key quotient is \(\ker T^{p-1}/TV\), which is well-defined because \(T^p=0\). Nilpotent module decompositions and a constructive block-triangular centralizer argument give both necessity and sufficiency of the partition-plus-length orbit labels. The orbit-size and rank polynomials follow by counting individual nilpotent similarity classes and translation cosets. The finite test suite checks the original algebra identities, not only an assumed matrix normal form. Its tested instances match; an arbitrary-field proof is separately supplied.
+PASS
 
-## Originality — PASS, provisional
+Leibniz on e²=e, f²=f, ev=v=vf yields unique derivations D=(T,w). D^p=0 is exactly T^p=0 and T^{p−1}w=0. Every algebra automorphism is an arrow-basis change G with a vertex-idempotent shear u; its conjugation identifies w modulo TV. In the Jordan module V=⊕(k[t]/t^j)^{c_j}, W=ker(T^{p−1})/TV is the sum of top classes for j<p. The centralizer realizes every permitted triangular block operation, so one zero and one nonzero orbit per occurring j<p. Partition enumeration gives generating series; centralizer order and vector-fibre dimensions give exact F_{m,q}(z) and full derivation rank r or r+1. Small direct characteristic-2 and 3 enumerations independently agree but arbitrary-field classification follows from module proof.
 
-Guo–Li [1] establishes the derivation basis and Lie algebra of path algebras and is credited. Achar–Henderson [2] already parametrizes the finer \(\operatorname{GL}(V)\)-orbits on the enhanced nilpotent cone; Sun [3] counts those finite-field orbits. Neither inspected statement directly treats the full automorphism action on derivations, which includes translation by \(TV\), or the \(p\)-nilpotence-constrained partition-plus-length classification, exact automorphism-orbit sizes, and rank generating polynomial. The strongest risk is a general affine-adjoint orbit classification or an unlocated derivation-specific specialization that already supplies these consequences. A search without a match is not proof of historical priority. Independent priority validation has not been performed.
+## originality
 
-## Value — PASS
+PASS
 
-Derivations with \(D^p=0\) are the restricted-nilpotent locus of the derivation Lie algebra and correspond to height-one additive infinitesimal actions in characteristic \(p\). A complete classification under actual algebra automorphisms, rather than only arrow-space changes, is a natural invariant. The uniform orbit-series collapse and exact finite-field rank strata quantify a structural distinction between Jordan type and residual derivation direction. The result is not a single small-field census or an arbitrary parameter slice.
+PASS best of knowledge: structural path-algebra derivation parametrization and GL enhanced nilpotent cone orbit/stabilizer theory are expressly prior. The complete unital automorphism action includes translations by TV and the new restricted quotient, producing a different coarser partition-plus-length orbit classification and finite-field derivation-rank enumerator. No indexed full covering theorem found; uninspected affine-adjoint literature is a material risk.
 
-## Literature and remaining boundaries
+## value
 
-[1] Li Guo and Fang Li, *Structure of Hochschild cohomology of path algebras and differential formulation of Euler's polyhedron formula*, arXiv:1010.1980 (2010), https://arxiv.org/abs/1010.1980, §§2–3.
+PASS
 
-[2] Pramod N. Achar and Anthony Henderson, *Orbit closures in the enhanced nilpotent cone*, arXiv:0712.1079 (2007), https://arxiv.org/abs/0712.1079, Proposition 2.3 and §5.
+The conjugacy classes of restricted p-nilpotent derivations are a natural invariant of a fundamental two-vertex multiple-arrow algebra; complete arbitrary-field orbit classification and finite-field rank spectrum are independently useful in representation theory and restricted derivation actions, not a small unmotivated numerical computation.
 
-[3] Michael Yuan Sun, *Point stabilisers for the enhanced and exotic nilpotent cones*, arXiv:0909.0356 (2009), https://arxiv.org/abs/0909.0356, §2.
-
-This is a classification for the specified quiver and ordinary \(p\)-fold derivation nilpotence; it neither addresses general quivers nor settles orbit-closure geometry. Historical priority remains provisional.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

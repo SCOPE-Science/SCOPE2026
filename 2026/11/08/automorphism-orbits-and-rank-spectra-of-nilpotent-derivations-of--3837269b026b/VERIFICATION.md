@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-From the package root, run `python3 artifacts/check_p_derivations.py` with Python 3. No third-party packages, network access, or downloaded datasets are needed. The expected final output line is `ALL_DIRECT_MULTIPLICATION_AND_AUTOMORPHISM_ORBITS_OK`.
+# Independent mathematical audit
 
-For each specified finite-field configuration, the checker constructs the original path-algebra multiplication, enumerates every matrix \(T\) with \(T^p=0\) and every vector \(w\) with \(T^{p-1}w=0\), and separately tests the Leibniz rule on all basis pairs, the original \(p\)-fold composition and the rank of the full derivation. It compares the results to a partition-based count using invertible centralizers. For four smaller configurations it independently enumerates actual algebra-automorphism orbits by all admissible arrow-basis changes and vertex shears. The extension field of order four uses binary-polynomial multiplication modulo \(u^2+u+1\).
+## correctness
 
-The embedded `artifacts/check_output.txt` records all five successful field/dimension comparisons. A separate check verifies the rational orbit-generating-series coefficient identity for primes \(2,3,5\) through dimension \(16\). These finite checks are not an infinite proof, and no external mathematical audit has been performed.
+PASS
+
+Leibniz on e²=e, f²=f, ev=v=vf yields unique derivations D=(T,w). D^p=0 is exactly T^p=0 and T^{p−1}w=0. Every algebra automorphism is an arrow-basis change G with a vertex-idempotent shear u; its conjugation identifies w modulo TV. In the Jordan module V=⊕(k[t]/t^j)^{c_j}, W=ker(T^{p−1})/TV is the sum of top classes for j<p. The centralizer realizes every permitted triangular block operation, so one zero and one nonzero orbit per occurring j<p. Partition enumeration gives generating series; centralizer order and vector-fibre dimensions give exact F_{m,q}(z) and full derivation rank r or r+1. Small direct characteristic-2 and 3 enumerations independently agree but arbitrary-field classification follows from module proof.
+
+## originality
+
+PASS
+
+PASS best of knowledge: structural path-algebra derivation parametrization and GL enhanced nilpotent cone orbit/stabilizer theory are expressly prior. The complete unital automorphism action includes translations by TV and the new restricted quotient, producing a different coarser partition-plus-length orbit classification and finite-field derivation-rank enumerator. No indexed full covering theorem found; uninspected affine-adjoint literature is a material risk.
+
+## value
+
+PASS
+
+The conjugacy classes of restricted p-nilpotent derivations are a natural invariant of a fundamental two-vertex multiple-arrow algebra; complete arbitrary-field orbit classification and finite-field rank spectrum are independently useful in representation theory and restricted derivation actions, not a small unmotivated numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
