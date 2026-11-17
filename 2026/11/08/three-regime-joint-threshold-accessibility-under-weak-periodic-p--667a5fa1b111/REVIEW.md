@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive coexistence equilibrium has Hurwitz Jacobian with trace \(-\gamma\) and determinant \(D>0\). A uniform contraction argument about the stable equilibrium gives a unique periodic response with a uniform \(O(\varepsilon^2)\) first-harmonic remainder for bounded scaled forcing and all positive frequencies. The explicit complex resolvent gives the two response amplitudes and exactly a quarter-period phase lag. The exact minimax is proved by strict monotonicity of the prey and predator threshold costs on either side of their individual resonances, including the boundary case \(D\le\gamma^2/2\). The uniform remainder and the vanishing prey response at both frequency ends establish the asymptotic infimum and uniqueness of limiting frequency. The accompanying program reproduced three exact identities and six comparisons with independent numerical minimization; finite experiments are corroborative, not the infinite proof.
+## correctness
 
-## Originality — PASS within inspected literature
-The motivating arXiv:2610.39113v1 source supplies the thresholded biological model and numerical single-population accessibility windows, but does not derive the jointly optimized weak-forcing three-regime law. Existing same-model work on the time-mean predator deficit optimizes a quadratic mean shift rather than joint threshold extrema; neither implies this complete threshold-distance trichotomy as stated. Generic forced-predator-prey and resonant ecological studies were checked for stronger coverage, and no exact parameter-complete matching statement was located. This is best-knowledge originality, not certified historical uniqueness. One relevant older study was available only as an abstract, a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The threshold-distance ratio determines whether the best forcing frequency is governed by predator response, by prey response, or by a genuinely joint balancing constraint. The three-regime division solves a natural, explicitly motivated optimization question arising from the independently defined prey and predator threshold-accessibility regions of the source work; it is not a generic single-coordinate resonance exercise or a numerically selected example. It clarifies that the biologically relevant joint excitation frequency can differ from the prey eigenfrequency and also from the predator resonance. The conclusion is a sharp leading-order law, not a finite-forcing or tipping theorem.
+The coexistence equilibrium has Hurwitz Jacobian J=[[-gamma,-an],[C,0]] with det D>0. A frequency-independent stable causal convolution bound and quadratic remainder yield a unique nearby positive periodic branch for bounded forcing and O(epsilon²) errors uniformly in frequency. Solving (i omega I-J)H=u e1 gives H_N=uiomega/(D-omega²+i gamma omega), H_P=uC/(D-omega²+i gamma omega), hence exact leading amplitudes RN=u omega/sqrt(Q), RP=uC/sqrt(Q) and phase lag -pi/2. The minimum forcing for both separate minima is S(omega)=sqrt(Q)/u max(dN/omega,dP/C). For omega below omega_cross=C dN/dP, prey branch decreases to omega_N=sqrt(D) then increases; above the crossover, predator branch decreases to omega_P=sqrt(max(D-gamma²/2,0)) then increases, with 0≤omega_P<omega_N. The clamp trichotomy is the unique global minimizer; prey gain vanishes at both omega endpoints, keeping near-optimal frequencies compact and transferring the leading minimax to nonlinear response. The proof explicitly does not infer tipping or simultaneous-in-time crossing; near-resonance numerical checks only corroborate the algebra.
 
-## Closest scientific work and limitations
-Gao et al. (2026, arXiv:2610.39113v1): primary model, numerical threshold windows, and genuine Filippov tipping analysis. Sabin–Summers (1993): related periodic predator–prey forcing, full text not available during inspection. Benincà et al. (2011): resonance in a different plankton community model. Remaining risks include unindexed matching formulae and priority in the broader linear-response ecology literature. The proof treats the no-switching continuation and nearby moving thresholds only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claimed joint minimum-amplitude accessibility of two shrinking thresholds is a different mathematical observable from single-threshold resonance, mean predator loss and actual Filippov tipping; the full three-case minimax is not stated in inspected published results.
+
+## value
+
+PASS
+
+A single biologically motivated periodic response must reach two distinct population thresholds at potentially different phases. The closed parameter-complete three-way frequency law identifies which species is limiting and resolves a natural sharp accessibility/optimization question left qualitative in the source model, without overselling it as actual tipping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

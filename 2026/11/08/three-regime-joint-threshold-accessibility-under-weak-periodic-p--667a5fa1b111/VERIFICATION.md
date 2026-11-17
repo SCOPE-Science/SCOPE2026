@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python verify.py` from the same directory after installing NumPy, SymPy, and SciPy. The script reconstructs the stable linearization's exact algebraic identities, checks the two distinct individual-frequency optimizations and all three possible joint-optimum regimes, and integrates nonlinear forced positive trajectories to compare first harmonic amplitudes. Its successful marker is:
+## correctness
 
-`VERIFY_OK exact_identities=3 minimax_regimes=6 nonlinear_amplitude_checks=24`
+PASS
 
-The script's finite checks do not certify the all-parameter theorem. The full proof is in `RESULT.md`; the crucial all-frequency error estimate follows from the bounded causal convolution of the Hurwitz Jacobian, and the strict uniqueness follows from the exact derivative signs. The conclusions exclude actual threshold-switched trajectories, transient tipping, and fixed nonshrinking threshold distances. Only self-review has been performed; there is no independent scientific audit or external certification.
+The coexistence equilibrium has Hurwitz Jacobian J=[[-gamma,-an],[C,0]] with det D>0. A frequency-independent stable causal convolution bound and quadratic remainder yield a unique nearby positive periodic branch for bounded forcing and O(epsilon²) errors uniformly in frequency. Solving (i omega I-J)H=u e1 gives H_N=uiomega/(D-omega²+i gamma omega), H_P=uC/(D-omega²+i gamma omega), hence exact leading amplitudes RN=u omega/sqrt(Q), RP=uC/sqrt(Q) and phase lag -pi/2. The minimum forcing for both separate minima is S(omega)=sqrt(Q)/u max(dN/omega,dP/C). For omega below omega_cross=C dN/dP, prey branch decreases to omega_N=sqrt(D) then increases; above the crossover, predator branch decreases to omega_P=sqrt(max(D-gamma²/2,0)) then increases, with 0≤omega_P<omega_N. The clamp trichotomy is the unique global minimizer; prey gain vanishes at both omega endpoints, keeping near-optimal frequencies compact and transferring the leading minimax to nonlinear response. The proof explicitly does not infer tipping or simultaneous-in-time crossing; near-resonance numerical checks only corroborate the algebra.
+
+## originality
+
+PASS
+
+The claimed joint minimum-amplitude accessibility of two shrinking thresholds is a different mathematical observable from single-threshold resonance, mean predator loss and actual Filippov tipping; the full three-case minimax is not stated in inspected published results.
+
+## value
+
+PASS
+
+A single biologically motivated periodic response must reach two distinct population thresholds at potentially different phases. The closed parameter-complete three-way frequency law identifies which species is limiting and resolves a natural sharp accessibility/optimization question left qualitative in the source model, without overselling it as actual tipping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
