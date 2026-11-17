@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "On strict KKT regions the residual derivative is exactly one-block centering Q_S with zero off-block coordinates. Binary-cut coarea reduces its complete-pair Gini norm to a finite exact scalar maximization, yielding (m-1)(2n-m)/[m(n-1)]. The finitely many affine regions bound all two-input changes. Every pooled size is strictly realizable with all positive penalties, and a local one-leaf perturbation attains the formula. The integer difference identity establishes the maximizer and asymptotics; the packaged independent exact-KKT checker confirms small cases but does not substitute for the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kirisits, Scherzer and Setterqvist, arXiv:1807.10514v3, Theorem 3.2: for fixed input the fitted ROF signal is a simultaneous convex-function minimizer in its feasible translated set.",
+        "Tibshirani and Taylor, arXiv:1005.1971, Section 6: averaging projectors on fused components."
+      ],
+      "reasoning": "One-input universal minimality and fitted-map contractivity do not imply a sharp two-input bound for input minus fit: direct strict-complementarity examples give residual Gini amplification greater than one from four sites onward. The more general linear averaging structure supplies a starting point but leaves the complementary residual norm and sharp pooling geometry unresolved.",
+      "searches": [
+        "graph fused lasso proximal contraction all symmetric gauge norms majorization difference doubly stochastic",
+        "total variation proximal operator difference majorization contraction permutation invariant norms",
+        "Lovasz extension submodular proximal map doubly stochastic isotonic nonexpansive majorization"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1467-9868.2005.00490.x",
+      "arxiv:1005.1971",
+      "arxiv:1807.10514",
+      "semantic mathematical research records returned by the searches named above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tibshirani et al. (2004/2005) introduce the fused penalty, not this exact residual Gini calculation.",
+        "Tibshirani and Taylor (2011), full-text pages 19–21: the fitted map projects onto group-constant vectors; taking the complement and calculating its pairwise-Gini norm is a further step.",
+        "Kirisits et al. (2019), arXiv HTML Section 3: convex minimality of the denoised output for a fixed datum, not uniform two-input residual norm."
+      ],
+      "reasoning": "Even combining the foundational sources yields only a description of candidate local complementary projections, not the explicit maximum over integer block size, the sharp n=4 threshold, or actual input-pair attainment for each positive edge penalty vector. The computation and proof establish these missing implications without claiming a new fused-lasso model.",
+      "searches": [
+        "star-graph fused lasso denoising residual identity minus proximal Gini seminorm sharp Lipschitz",
+        "isotonic regression residual map sharp Lipschitz ell-infinity norm 1 minus projection",
+        "graph total variation denoising isotone contraction majorization submodular proximal maps norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic mathematical-index searches returned proximal shrinkage, star fractional gradients and unrelated projection calculations; no searched summary asserts an exact Gini residual coefficient for star TV fusion.",
+        "Tibshirani and Taylor (arXiv:1005.1971), Section 6.2: fitted connected components are averaged; residual is their complementary map."
+      ],
+      "reasoning": "The same residual can also be described as the Euclidean projection of the input onto the star-incidence dual zonotope. The claim is about its two-input operator Lipschitz coefficient under complete-pair Gini variation, not its Hilbert nonexpansivity or the fitted map. The inspected nearest documents state neither the complementary-cut norm nor the optimizing pooled-block size. Search absence alone is not evidence of uniqueness.",
+      "searches": [
+        "star-graph fused lasso denoising residual identity minus proximal Gini seminorm sharp Lipschitz",
+        "graph TV denoising residual complete-pair variation difference sharp bound",
+        "star graph generalized lasso residual graph incidence dual projection total variation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed research claims were checked by claims and titles rather than treating a lack of matching words as a novelty proof.",
+        "The accessible nearest indexed research record 2026/11/8/SCOPE-optimal-lipschitz-nearest-point-selections-for-real-ell-1-balls--77979dc14d49 concerns selections in ell-one balls with an unrelated Banach norm.",
+        "The nearest semantically relevant own historical claim concerns the fitted star-fusion proximal, rather than the residual."
+      ],
+      "reasoning": "No queried tabulation or exact-constant record had the same objective, quotient seminorm and map. A table of all block-centering Gini norms would cover this result if it explicitly maximized over star-active partitions, but no such table was identified. Unindexed tables remain a residual priority risk.",
+      "searches": [
+        "Gini variation norm of blockwise centering projection one block singleton",
+        "graph total variation denoising two input Gini variation contractive",
+        "star graph fused lasso dual zonotope projection Gini norm Lipschitz residual"
+      ]
+    },
+    "rationale": "The search and primary comparisons found block-average fits and one-input convex minimality but not the sharp two-input Gini norm of the complementary star-fusion residual. The mathematical distinction is implication-based and does not rely on different wording alone. Unindexed earlier solutions remain possible and independent historical assessment is still needed.",
+    "residual_risks": [
+      "Indexed technical reports on variable fusion from the mid-1990s were not fully accessible and may contain unindexed related lemmas.",
+      "Publisher delivery of the 2004 foundational article did not allow unrestricted whole-document search; no whole-document NOT_COVERING conclusion is made for it.",
+      "The closed form may exist elsewhere as a norm of a complementary block-centering projection under a different name, even though the searched claims did not imply it.",
+      "Independent historical priority and mathematical review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers group-constant fitted projections and dual path, not the exact Gini two-input norm of I minus those projections.",
+        "evidence": [
+          "Section 6.2, connected-components and block averaging, formula displayed on page 21.",
+          "Section 9.2 degrees-of-freedom corollary counts fused groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+        "material_read": "Full-text mathematical sections on graph fusion, dual projection and degrees of freedom (pages 4–5, 19–21, 31–32, 34–35); visual inspection of PDF page 21.",
+        "method": "ArXiv open-access PDF text and page-image inspection.",
+        "title": "The solution path of the generalized lasso",
+        "trigger": "Same graph-fusion object, proximal active-set geometry and potential covering derivative formulas."
+      },
+      {
+        "assessment": "Proves one-input convex minimality of fitted signal and identifies dual projection, but not the sharp star residual two-input Gini modulus.",
+        "evidence": [
+          "Theorem 3.2, equality (3.5), minimizes sums of convex coordinate functions for a fixed input.",
+          "Proposition 3.1, the residual is the projection to the divergence dual set."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1807.10514v3",
+        "material_read": "Introduction; Section 3.1, Proposition 3.1 and Theorem 3.2; Section 3.2 and terms residual/Lipschitz sought.",
+        "method": "Lawful arXiv full-text HTML reading, section and term search.",
+        "title": "Invariant φ-minimal sets and total variation denoising on graphs",
+        "trigger": "Potentially stronger graph-TV universal minimality and contraction properties."
+      },
+      {
+        "assessment": "Foundational model; the material read does not state the residual formula. Whole-document absence is not asserted.",
+        "evidence": [
+          "Publisher first-publication date 13 December 2004.",
+          "Section 6 discusses number of fused coefficient blocks, not a sharp residual Gini constant."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9868.2005.00490.x",
+        "material_read": "Indexed Oxford full-text search extract including Section 6 degrees of freedom, journal metadata and Wiley abstract; unrestricted publisher full-text retrieval redirected.",
+        "method": "Published full-text indexed results plus publisher abstract and date evidence.",
+        "title": "Sparsity and smoothness via the fused lasso",
+        "trigger": "Earliest precisely dated foundational source on fused-lasso penalty and feasible active structures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c867e77-4bdb-4615-b0bf-63f506d0e91a",
+  "value": {
+    "rationale": "Residual differences, rather than fitted differences, are used in outlier and suppression diagnostics. The sharp star-specific Gini sensitivity has an exact first-expansion threshold at n=4, a nontrivial optimal pooled-size law m approximately sqrt(2n), a dimension-growth asymptotic to two, and complete penalty-magnitude independence. These are natural, structurally explained finite-size and asymptotic invariants for this standard nonlinear operator, without any claim of a general graph theorem.",
+    "status": "PASS"
+  }
+}
