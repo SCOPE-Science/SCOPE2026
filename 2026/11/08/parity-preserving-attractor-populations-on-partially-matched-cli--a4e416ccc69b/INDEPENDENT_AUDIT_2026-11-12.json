@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:04:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/parity-preserving-attractor-populations-on-partially-matched-cli--a4e416ccc69b/RESULT.md",
+        "frozen RESULT.md and verify_components.py (blob cd45816d01c0c9d3af38bb3f15f854f8120842e7)"
+      ],
+      "rationale": "Cut energy cannot decrease under closed-neighborhood minority updates; a strict increase is available, possibly after one neutral flip, whenever a cross matching edge is uncut in balanced cliques. Balancing overfull cliques is always legal. The proof constructs a finite positive-probability route to a maximum cut from every state, ruling out other terminal components. For even n every maximum cut is absorbing; for odd n matched bits freeze and unmatched bits move by reversible adjacent-rank subset exchanges; each product of rank-inclusion graphs is connected with uniform invariant law. Binomial formulas follow from ranks and the bijection adding two unmatched vertices establishes R_(2k+1,t)=R_(2k+2,t) for t≤2k+1. A separate direct transition-graph construction and terminal strongly connected component calculation matched all 18 instances n=2..5 and all t; targeted n=6,t=2 gave 104 singleton absorbing states, matching the four odd classes (16,36,36,16). The graph tests are finite corroboration only.",
+      "residual_risks": [
+        "Only two equal n-cliques with disjoint unweighted cross matching, sequential closed-neighborhood minority and tie-retention.",
+        "No absorption-time or spectral-gap classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rouquier et al. provide general energy dynamics and isolated cliques, not a recurrence census for arbitrary t matching bridges.",
+          "Matching-deleted bicliques have no intra-clique edges and different traps."
+        ],
+        "reasoning": "General energy monotonicity and graph-specific classifications do not imply the exact absorbing versus neutral-class phenomenon.",
+        "searches": [
+          "minority dynamics asynchronous closed neighborhood two cliques connected by matching maximum cuts recurrent classes odd even attractor count",
+          "https://ar5iv.labs.arxiv.org/html/1011.5119",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-edge-restoration-threshold-for-minority-traps-in-matching--43e98fc7d753"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b",
+        "frozen RESULT.md and verify_components.py (blob cd45816d01c0c9d3af38bb3f15f854f8120842e7)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-clique results determine a disconnected product only at t=0.",
+          "Adding t>0 cross edges changes local minority decisions; an independent improvement argument is essential."
+        ],
+        "reasoning": "Proved the positive matching case directly rather than applying a disconnected-component theorem.",
+        "searches": [
+          "minority dynamics asynchronous closed neighborhood two cliques connected by matching maximum cuts recurrent classes odd even attractor count",
+          "https://ar5iv.labs.arxiv.org/html/1011.5119",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.1 of Rouquier et al. concerns one clique; at t=0 its product gives a special case but not a positive matching bridge.",
+          "Clique-bouquet model glues a common hub, whereas here the graphs have disjoint paired vertices."
+        ],
+        "reasoning": "Different graph couplings alter update neighborhoods and recurrent components, so ordinary clique or hub-bouquet formulas are not equivalent.",
+        "searches": [
+          "minority dynamics asynchronous closed neighborhood two cliques connected by matching maximum cuts recurrent classes odd even attractor count",
+          "https://ar5iv.labs.arxiv.org/html/1011.5119",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 4.1 gives binomial single-clique attractor count for t=0, but lacks the R_(n,t) and K_(n,t) tables for all t.",
+          "Private direct SCC comparisons verify the n=5,t=2 and n=6,t=2 counts."
+        ],
+        "reasoning": "The special t=0 table is known; arbitrary partial matchings and odd-even bijection are not furnished by it.",
+        "searches": [
+          "minority dynamics asynchronous closed neighborhood two cliques connected by matching maximum cuts recurrent classes odd even attractor count",
+          "https://ar5iv.labs.arxiv.org/html/1011.5119"
+        ]
+      },
+      "rationale": "Rouquier–Regnault–Thierry (2011), Theorem 4.1, already supplies the stochastic minority rule, energy monotonicity and isolated clique attractors. It does not analyze two equal cliques joined by an arbitrary disjoint matching or their recurrent-class vector and parity-preserving total count. Related clique bouquets share a hub; matching-deleted bicliques have a different interaction graph. Those named findings do not dominate this two-clique matching interpolation. Best-of-knowledge originality remains conditional on unindexed bridged-clique studies.",
+      "residual_risks": [
+        "A broader theorem for stochastic minority on two-community graphs might contain this matching family without matching terminology.",
+        "A finite SCC calculation verifies bounded n but the all-n transience proof requires the constructive strict-improvement argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_UNBRIDGED_CLIQUE_ONLY",
+          "evidence": "Theorem 4.1 explicitly states even-clique frozen balanced configurations and one odd-clique neutral component, but no coupled matchings.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1011.5119",
+          "material_read": "Full HTML source available; rule, energy analysis, Section 4.1 Theorem 4.1 and adjacent proof",
+          "method": "Read primary ar5iv text, compared graph hypotheses",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Original identical update rule and possible general attractor theorem"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GRAPH",
+          "evidence": "Bouquet cliques have a shared hub, whereas these two cliques are disjoint and linked by matching edges; residual comparison risk acknowledged.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b",
+          "material_read": "Resultary title and mathematical summary; full result not inspected",
+          "method": "Semantic published-record search",
+          "title": "One odd clique blade pins the hub: exact attractors of asynchronous minority on clique bouquets",
+          "trigger": "Recent closely related family in published corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b",
+        "frozen RESULT.md and verify_components.py (blob cd45816d01c0c9d3af38bb3f15f854f8120842e7)"
+      ],
+      "rationale": "The complete attractor classification, connected-class sizes, uniform stationary measures and explicit odd-even recurrent-population bijection expose a sharp structural dynamical transition: all recurrent states of the even enlargement are absorbing even as the population is preserved. This is a motivated all-n,t classification of a natural coupling deformation of cliques, not a sample simulation.",
+      "residual_risks": [
+        "A broader theorem for stochastic minority on two-community graphs might contain this matching family without matching terminology.",
+        "A finite SCC calculation verifies bounded n but the all-n transience proof requires the constructive strict-improvement argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two equal n-cliques with disjoint unweighted cross matching, sequential closed-neighborhood minority and tie-retention.",
+    "No absorption-time or spectral-gap classification."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the precise closed-neighborhood firing inequality, establishes a maximum-cut upper bound attained for every allowed matching size, and gives finite constructive legal paths to maximum cuts. The only subtle cases are neutral updates at even clique balance and unmatched-majority moves at odd balance: the pigeonhole argument proves each is followed by a strict cut improvement if an uncut cross edge remains. All recurrent states are therefore maximum cuts. Within those states the active vertices and matched-spin invariance yield an exact connected product decomposition. The odd-even correspondence is a direct reversible vertex-extension bijection. Exhaustive SCC analysis of 25 graphs and a separate 42-instance bitset census agree. Finite checks are confirmatory, not an infinite proof.
+PASS
 
-## Originality — PASS, with limits
+Cut energy cannot decrease under closed-neighborhood minority updates; a strict increase is available, possibly after one neutral flip, whenever a cross matching edge is uncut in balanced cliques. Balancing overfull cliques is always legal. The proof constructs a finite positive-probability route to a maximum cut from every state, ruling out other terminal components. For even n every maximum cut is absorbing; for odd n matched bits freeze and unmatched bits move by reversible adjacent-rank subset exchanges; each product of rank-inclusion graphs is connected with uniform invariant law. Binomial formulas follow from ranks and the bijection adding two unmatched vertices establishes R_(2k+1,t)=R_(2k+2,t) for t≤2k+1. A separate direct transition-graph construction and terminal strongly connected component calculation matched all 18 instances n=2..5 and all t; targeted n=6,t=2 gave 104 singleton absorbing states, matching the four odd classes (16,36,36,16). The graph tests are finite corroboration only.
 
-The foundational minority paper (Rouquier–Regnault–Thierry, arXiv:1011.5119, Sections 2 and 4.1, especially Theorem 4.1) determines ordinary clique attractors and supplies the model and monotonicity principle. It does not describe a continuum of two-clique graphs linked by a partial matching or prove the invariant matched-spin fibers and paired parity bijection. Gastner–Ishida (arXiv:1908.00849, Sections 1–2) concerns a voter-copying rule and asymptotic consensus times on randomly linked communities, not closed-neighborhood minority or exact recurrent classes. Closest other graph-specific comparisons involve synchronous two-clique majority and asynchronous minority on different graph constructions; their results do not imply the present rule-specific class decomposition. Historical priority cannot be guaranteed for material not indexed or inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The partially matched two-clique family is a standard two-community interpolation, with exactly controlled intercommunity degree. The theorem simultaneously shows global escape from all suboptimal traps, explicit proliferation of communicating classes as cross links are added, and the non-obvious preservation of *total* recurrent population under an odd-to-even two-vertex extension, despite destruction of every nontrivial recurrent motion. It is an exact infinite-family structural classification, not merely a numerical table or a rephrasing of a single-clique theorem.
+Rouquier–Regnault–Thierry (2011), Theorem 4.1, already supplies the stochastic minority rule, energy monotonicity and isolated clique attractors. It does not analyze two equal cliques joined by an arbitrary disjoint matching or their recurrent-class vector and parity-preserving total count. Related clique bouquets share a hub; matching-deleted bicliques have a different interaction graph. Those named findings do not dominate this two-clique matching interpolation. Best-of-knowledge originality remains conditional on unindexed bridged-clique studies.
 
-## Scope and remaining risks
+## value
 
-The claim is restricted to equally sized clique pairs, disjoint cross-link matching, the specified uniform asynchronous minority tie rule, and labelled spin states. No absorption-time or spectral-gap claim is made. An independently conducted mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete attractor classification, connected-class sizes, uniform stationary measures and explicit odd-even recurrent-population bijection expose a sharp structural dynamical transition: all recurrent states of the even enlargement are absorbing even as the population is preserved. This is a motivated all-n,t classification of a natural coupling deformation of cliques, not a sample simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
