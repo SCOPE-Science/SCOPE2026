@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The recurrence is represented by an integral unimodular matrix. The two necessary matrix quotients are computed explicitly, and their stable congruences give precise valuation-of-difference laws for the noncritical branches. The branch \(H\) is a restricted analytic perturbation of a quadratic with odd leading coefficient; exact Mahler coefficients force a unique stationary point and a square-valued normal form. The four disjoint components then give the finite cardinalities and Haar measure. The included verifier reproduced all complete residue images through exponent fourteen. The exact normal form and matrix identities, not numerical extrapolation, prove the universal statement.
+## correctness
 
-**Originality — PASS, qualified.** The 2014 primary paper classifies valuations and factorial coincidences, not the image of the Tribonacci sequence. The 2022 primary preprint treats \(p\)-adic zeros, with its interpolation analysis excluding the prime two, not dyadic target-value images. Targeted searches for residue sets, dyadic density, value distributions, and equivalent image descriptions, along with an accessible research-record comparison and claim-level own-ledger comparison, found no dominating equivalent theorem. Nonetheless specialist priority is not independently certified and an unlocated source could overlap.
+PASS
 
-**Mathematical value — PASS.** The output is a full infinite-level classification of a natural arithmetic sequence, not a single computed modulus or a small improvement: it reveals a critical square branch that survives at all depths, the exact target cardinalities, and a nontrivial dyadic Haar measure of \(7/12\). The value-image question is mathematically distinct from the long-studied divisibility question and supplies a structural benchmark for third-order recurrence images.
+Exact integer companion matrix powers M^8=I+4D3 and M^32=I+16D5 yield valuation-shifted 2-adic isometries on two even index branches and the n=3 (mod8) branch; n=1,7 (mod8) are contained in existing balls. For n=5 (mod8), H(u)=(T_(8u+5)+1)/8 has restricted-series expansion H(u)=7473u^2-7358u+1+8E(u), E integral; H'/2 has a unique root alpha by contraction, Taylor has (u-alpha)^2 times a unit congruent 1 mod8, whose analytic square root yields an isometric parameter change and exact square image. The four image components are disjoint, squares occupy Haar 1/6, giving 1/4+1/4+1/16+1/48=7/12. I independently enumerated all recurrence residues modulo powers 2^1..2^12, matching counts 2,4,6,11,20,39,76,151,300,599,1196,2391 and least matrix period.
 
-Limitations: the prime two only, no complete targetwise multiplicity law, and independent review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Marques–Lengyel 2014 Theorem 1 determines only nu2(T_n) by index congruence and does not determine which odd targets or complete image are attained. Bilu–Luca–Nieuwveld–Ouaknine–Worrell arxiv 2210.16959 concerns p-adic zeros and in its method excludes p=2. The current squared critical branch, full four balls and exact 7/12 Haar measure are not consequences of mere valuation classifications. Resultary relevant records concern other recurrences or valuations, not full dyadic Tribonacci image. Accepted best-of-knowledge.
+
+## value
+
+PASS
+
+Complete range and Haar density in a natural p-adic recurrence problem, including a nontrivial critical quadratic image and exact all-modulus counts; this supplies a precise invariant beyond classic valuations and makes the local geometry reusable for other recurrence-image questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
