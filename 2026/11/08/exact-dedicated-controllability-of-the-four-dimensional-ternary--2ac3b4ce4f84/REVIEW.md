@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence matrix is determined without ambiguity from four ternary point coordinates and one free coordinate for every axis line. The tensor decomposition of the ternary Hamming graph gives the singular-square values \(12,9,6,3,0\) with multiplicities \(1,8,24,32,16\), and therefore the Laplacian eigenvalues and the two disjoint-support kernel eigenspaces. Every controllable coordinate placement needs at least \(16\) point and \(43\) line actuators. The exact, extractable `verify.py` recomputes the 65 independent incidence columns, all five Gram spectral-projector observation ranks, and the zero-forcing stall. Nonzero minors modulo \(101\) imply nonzero rational minors, and the analytic eigenspace dimensions supply the rank upper bounds. For each positive singular value the line observation is merely rescaled in the two Laplacian eigenspaces. All PBH hypotheses and boundaries are checked. The proof establishes only this fixed \(189\)-vertex unweighted graph.
+PASS
 
-## Originality — PASS on inspected evidence, with priority caveats
+The 81x108 incidence matrix N has NN^T=4I+A_{H(4,3)}, hence eigenvalues 12(1),9(8),6(24),3(32),0(16) by tensor decomposition, rank N=65. Laplacian eigenspaces at eigenvalues 4 and 3 lie entirely on the point and line shores and have respective dimensions 16 and 43, so PBH requires at least 16 distinct point-actuated and 43 distinct line-actuated vertices. The proposed lexicographic pivot complement picks exactly 43 lines, and the binary-corner set has 16 points. Independent finite-field F101 elimination gives exact observation ranks for N, P_0 and each P_lambda (16,32,24,8,1); nonzero mod101 minors imply nonzero rational minors, with eigendim upper bounds, proving PBH for all modes. Also directly checked no initial marked vertex has one unmarked neighbor, so standard zero forcing stalls. All 5 ranks and source tree independently rebuilt, not relying on saved VERIFY_OK.
 
-Burgarth et al. (2011, arXiv:1111.1475) give the zero-forcing sufficient criterion and state that its converse is false; they do not evaluate this 189-vertex grid-incidence network. The constructed set cannot initiate zero forcing, so their sufficient condition does not yield its controllability. Yuan et al. (2013, DOI 10.1038/ncomms3447) give the maximum-multiplicity rule for unrestricted input matrices; our exact \(43\) versus \(59\) dedicated-coordinate gap shows why that theorem alone does not settle this allocation. Bouwer (1968) and the Gray-graph catalog describe the cubic 54-vertex three-dimensional incidence graph, whereas the object here is biregular on 189 vertices. Triantafillou (2014, DOI 10.26240/heal.ntua.1353) treats the ordinary Gray graph's nullity and zero-forcing number; the available abstract does not assert the four-dimensional dedicated-control count, but the restricted full thesis could contain additional material. The exact four-dimensional claim was compared to the available prior records on projective-plane incidence networks, rook graphs, binary hypercubes, and a weighted-hypercube dedicated-control obstruction, none of which logically implies the asserted 189-vertex result. Additional specialist coverage remains a risk; failed search was not treated as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 4-dimensional ternary point–axis-line graph is the first higher-dimensional extension of the classical Gray incidence construction, and the first where point and line degrees differ. That degree asymmetry splits the singular-vector kernels into two distinct Laplacian eigenvalues, forcing *additive* actuator demands instead of only the usual largest-eigenspace demand. The exact natural dedicated-actuator invariant \(59\), the constructive optimum, the non-zero-forcing witness, and the sharp gap \(59-43=16\) provide a concrete benchmark for graph-spectral leader selection and demonstrate a substantial topology-specific distinction. This is not a generalization to arbitrary grids or a claim that the existence of dedicated-input gaps is new.
+General results of Burgarth et al establish sufficiency of zero forcing, not necessity; Yuan et al max geometric eigenvalue multiplicity 43 concerns unrestricted B and does not imply 59 for dedicated point/line columns. The ordinary 54-vertex Gray graph is dimension three and 3-regular, unlike the 4D 189-vertex incidence network. Related precise controller classifications for affine plane incidence graphs and triangular graphs use different base graphs and spectra. No prior exact 59 count for this 4D ternary point–line graph found.
 
-## Limits and nearby sources
+## value
 
-Only the fixed four-dimensional ternary network is classified; other optimal sets and higher dimensions are not. Bouwer's original full article and Triantafillou's full thesis were not materially inspected because full retrieval was unavailable; their public descriptions were reviewed, and their possible additional coverage is retained as a priority risk. Monshizadeh, Zhang and Camlibel (2014, arXiv:1403.4868) study robust zero-forcing leader sets for families of matrices, a different quantifier than a specific Laplacian and a non-zero-forcing placement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dedicated coordinate controllability is an independently meaningful graph invariant. The 43 versus 59 separation displays an orthogonal two-shore obstruction invisible to a single unrestricted-input multiplicity bound; the explicit rank-certified optimum and its stalled zero-forcing behavior provide a useful exact small structural benchmark rather than an arbitrary parameter variant. A fixed finite natural Hamming incidence graph may have an exact valuable invariant without a whole higher-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

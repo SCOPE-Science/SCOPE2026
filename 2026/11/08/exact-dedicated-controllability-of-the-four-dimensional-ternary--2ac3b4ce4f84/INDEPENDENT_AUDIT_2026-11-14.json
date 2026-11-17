@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:08:52.410511Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 81x108 incidence matrix N has NN^T=4I+A_{H(4,3)}, hence eigenvalues 12(1),9(8),6(24),3(32),0(16) by tensor decomposition, rank N=65. Laplacian eigenspaces at eigenvalues 4 and 3 lie entirely on the point and line shores and have respective dimensions 16 and 43, so PBH requires at least 16 distinct point-actuated and 43 distinct line-actuated vertices. The proposed lexicographic pivot complement picks exactly 43 lines, and the binary-corner set has 16 points. Independent finite-field F101 elimination gives exact observation ranks for N, P_0 and each P_lambda (16,32,24,8,1); nonzero mod101 minors imply nonzero rational minors, with eigendim upper bounds, proving PBH for all modes. Also directly checked no initial marked vertex has one unmarked neighbor, so standard zero forcing stalls. All 5 ranks and source tree independently rebuilt, not relying on saved VERIFY_OK.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1111.1475 gives zero forcing as a sufficient condition, converse generally false",
+          "https://doi.org/10.1038/ncomms3447 gives maximum eigenvalue multiplicity lower bound for arbitrary B",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-dedicated-control-of-affine-plane-incidence-graphs-with--0e964082256e is a different incidence geometry"
+        ],
+        "reasoning": "Theorems of controllability existence/zero forcing and arbitrary-input multiplicity do not force the exact minimum coordinate actuator count 59. The two disjoint zero-spectral shores necessitate a stronger invariant; affine-plane graphs have other spectra.",
+        "searches": [
+          "Burgarth D Alessandro Hogben Severini Young zero forcing controllability 2011",
+          "Yuan et al Exact controllability of complex networks 2013",
+          "Resultary optimal dedicated control affine-plane incidence graphs"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-dedicated-controllability-of-the-four-dimensional-ternary--2ac3b4ce4f84",
+        "https://arxiv.org/abs/1111.1475",
+        "https://doi.org/10.1038/ncomms3447",
+        "https://doi.org/10.26240/heal.ntua.1353",
+        "https://jaanos.github.io/tables/graphs/Gray.html",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-dedicated-control-of-affine-plane-incidence-graphs-with--0e964082256e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted largest multiplicity is 43, strictly less than 59; shows old generic bound insufficient",
+          "Our 16-point plus 43-line disjoint-support PBH lower bounds cannot be deduced from a single multiplicity bound",
+          "https://doi.org/10.26240/heal.ntua.1353 thesis abstract only; 54-vertex Gray graph"
+        ],
+        "reasoning": "Even if the known 43-dimensional line-ker space were identified, an additional independent 16-dimensional point eigenspace and a constructive 59-coordinate PBH certificate are needed. No old result directly yields the exact count.",
+        "searches": [
+          "Burgarth et al zero forcing vs control",
+          "Yuan et al largest eigenvalue multiplicity",
+          "Triantafillou 2014 singular graph thesis Gray graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://jaanos.github.io/tables/graphs/Gray.html documents 54-vertex 3D Gray graph",
+          "Assigned 189-vertex 4D network has 81+108 vertices and degree pair 4/3"
+        ],
+        "reasoning": "The source graph is a higher-dimensional incidence extension, not isomorphic to ordinary Gray graph, so its controllability count is not a renaming of the classical graph.",
+        "searches": [
+          "Gray graph 3-dimensional ternary incidence 54 vertices",
+          "4D ternary point line incidence network dedicated Laplacian control 59"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only Resultary hit with same graph/count is assigned exact theorem",
+          "https://jaanos.github.io/tables/graphs/Gray.html ordinary Gray reference"
+        ],
+        "reasoning": "No complete published table with this 189-vertex dedicated minimum found. Smaller/different graph tables do not imply this number.",
+        "searches": [
+          "Resultary dedicated ternary point-line 189 59",
+          "Gray graph 54 vertices spectrum tables",
+          "small Hamming incidence graph actuator counts"
+        ]
+      },
+      "rationale": "General results of Burgarth et al establish sufficiency of zero forcing, not necessity; Yuan et al max geometric eigenvalue multiplicity 43 concerns unrestricted B and does not imply 59 for dedicated point/line columns. The ordinary 54-vertex Gray graph is dimension three and 3-regular, unlike the 4D 189-vertex incidence network. Related precise controller classifications for affine plane incidence graphs and triangular graphs use different base graphs and spectra. No prior exact 59 count for this 4D ternary point–line graph found.",
+      "residual_risks": [
+        "Triantafillou 2014 thesis complete text not examined; specialist control literature may use a different description of this 189-vertex graph",
+        "Only one optimal actuator placement certified; not a classification of all minima",
+        "Modular nonzero minors prove characteristic-zero rational PBH, not an assertion for arbitrary nonzero weights"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correct finite exact optimum for specified 189-vertex graph",
+          "evidence": "N rank65; modal observation ranks 16/32/24/8/1; no zero-forcing move",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-dedicated-controllability-of-the-four-dimensional-ternary--2ac3b4ce4f84",
+          "material_read": "Entire RESULT.md, spectral PBH proof, exact row/rank certificate, verify.py, 7-blob source tree",
+          "method": "Frozen Git read and independently programmed F101 ranks",
+          "title": "Exact dedicated controllability of the four-dimensional ternary point–line network",
+          "trigger": "Final theorem"
+        },
+        {
+          "assessment": "Provides sufficiency not necessity for coordinate controllability; source placement not zero forcing",
+          "evidence": "Sufficiency of zero forcing is not characterization for this fixed graph",
+          "identifier_or_url": "https://arxiv.org/abs/1111.1475",
+          "material_read": "Accessible abstract/material description, not complete primary text in this run",
+          "method": "arXiv indexed abstract",
+          "title": "Zero forcing, linear and quantum controllability for systems evolving on networks",
+          "trigger": "General link between zero forcing and control"
+        },
+        {
+          "assessment": "Arbitrary-input multiplicity criterion does not settle dedicated spatial sparsity",
+          "evidence": "Largest eigenspace 43 vs exact dedicated 59",
+          "identifier_or_url": "https://doi.org/10.1038/ncomms3447",
+          "material_read": "Accessible bibliographic summary and cited theorem, no full primary manuscript read in current run",
+          "method": "Primary DOI abstract search",
+          "title": "Exact controllability of complex networks",
+          "trigger": "Largest multiplicity lower bound"
+        },
+        {
+          "assessment": "Related Gray graph material; historical coverage not categorically excluded",
+          "evidence": "Original 54-vertex Gray graph distinguished from 189-vertex incidence extension",
+          "identifier_or_url": "https://doi.org/10.26240/heal.ntua.1353",
+          "material_read": "Thesis abstract only, full thesis not read",
+          "method": "Bibliographic/abstract search",
+          "title": "Singular graphs and the energy of singular graphs",
+          "trigger": "Possible old Gray graph spectrum/control thesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dedicated coordinate controllability is an independently meaningful graph invariant. The 43 versus 59 separation displays an orthogonal two-shore obstruction invisible to a single unrestricted-input multiplicity bound; the explicit rank-certified optimum and its stalled zero-forcing behavior provide a useful exact small structural benchmark rather than an arbitrary parameter variant. A fixed finite natural Hamming incidence graph may have an exact valuable invariant without a whole higher-dimensional theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-dedicated-controllability-of-the-four-dimensional-ternary--2ac3b4ce4f84",
+    "https://arxiv.org/abs/1111.1475",
+    "https://doi.org/10.1038/ncomms3447",
+    "https://doi.org/10.26240/heal.ntua.1353",
+    "https://jaanos.github.io/tables/graphs/Gray.html",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-dedicated-control-of-affine-plane-incidence-graphs-with--0e964082256e"
+  ],
+  "disposition": "passed",
+  "limitations": "Fixed finite unweighted H(4,3)-based incidence graph only; 59 dedicated vertex coordinate input count, not generic weighted systems or higher-dimensional formula.",
+  "residual_risks": [
+    "Triantafillou 2014 thesis complete text not examined; specialist control literature may use a different description of this 189-vertex graph",
+    "Only one optimal actuator placement certified; not a classification of all minima",
+    "Modular nonzero minors prove characteristic-zero rational PBH, not an assertion for arbitrary nonzero weights"
+  ],
+  "schema_version": 1
+}
