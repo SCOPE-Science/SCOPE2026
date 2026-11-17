@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:02:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I checked the symmetric uniform-stationary SLEM objective ||Q−J_m||_2. For noncomplete H a missing off-diagonal Q_ij forces |(Q−J)ij|=1/m; the centered basis vectors yield rho(H)>=1/(m−1). An explicit hub-edge weight 1/m and outer block (m−1)Q/m has radial eigenvalue −1/m and other eigenvalues (m−1)/m times nontrivial Q eigenvalues, proving universal <=; complete H is handled by J. For vertex-transitive H, average any feasible cone matrix over Aut(H): all hub edges equal b<=1/m; the zero-sum outer block is (1−b)Q_b, yielding rho(P)>= (1−b)rho(Q_b)>= (m−1)rho(H)/m. Disconnected H retains rho(H)=1. The four-path lower bound rho(P4)=sqrt2/2 follows from reflection modes; I independently exactly recomputed the stated five-state witness characteristic polynomial x(40x²−2x−7)(200x²−10x−33)/8000, with SLEM (1+sqrt281)/40≈0.444076<3sqrt2/8. The proof, not graph samples, covers every finite graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general fastest-mixing SDP formulation and symmetry averaging provide methods; the later double cone result concerns two NONADJACENT apices and requires additional radial modes and edge-transitivity."
+        ],
+        "reasoning": "The source techniques do not by themselves state the one-apex scalar transfer theorem for arbitrary vertex-transitive H. The double-cone theorem is a different construction and does not dominate the one-cone equality.",
+        "searches": [
+          "arXiv:0709.0955 full wheel and general symmetry reduction",
+          "Resultary 2026/11/2 double-cone law",
+          "Boyd et al. 2004 FMMC general SDP"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0955 full primary PDF",
+        "Boyd et al. SIAM Review 2004 objective/framework",
+        "Resultary published 2026/11/2 double-cone full RESULT.md",
+        "Resultary focused semantic cone/Markov searches",
+        "assigned RESULT.md, REVIEW.md, AUDIT.json and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior wheel statement already has factor (1−1/m); generic averaging permits invariant weights but does not rule out uneven core-edge orbit weights."
+        ],
+        "reasoning": "The nonedge witness lower bound and b<=1/m force the optimum for general transitive cores. These ingredients yield a genuine all-graph inequality and a sharp characterization not directly implied by the old cycle-only formula.",
+        "searches": [
+          "arXiv:0709.0955 §5.3.3 wheel derivation",
+          "Boyd et al. 2004 graph convex formulation",
+          "Resultary published double cone full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al. 2007 compute wheel (single cone on a cycle) formula and develop automorphism averaging."
+        ],
+        "reasoning": "The cone over a cycle specialization is covered and not counted as new. The claim for every vertex-transitive H with possibly multiple internal edge orbits and disconnected cores adds a uniform inequality and equality not stated in inspected prior source.",
+        "searches": [
+          "arXiv:0709.0955 §§2-3,5.3.3",
+          "Boyd-Diaconis-Xiao 2004 DOI 10.1137/S0036144503423264",
+          "Resultary query: cone graph fastest Markov mixing vertex transitive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest retrieved exact tables are wheels, crowns, coronas and distinct double cones; the assigned single-cone all-vertex-transitive law was not found in independent earlier retrieved tables."
+        ],
+        "reasoning": "Wheel numbers give only C_m bases; they do not enumerate bases with several edge orbits or disconnected transitive graphs. Failure to find a table is not absolute novelty evidence.",
+        "searches": [
+          "Resultary semantic query: fastest mixing cone graph join vertex-transitive transfer",
+          "Resultary 2026/11/2 double cones"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.",
+      "residual_risks": [
+        "Wheel formula is known prior; the general result must be interpreted as arbitrary vertex-transitive core transfer, not rediscovery of wheels.",
+        "Specialist earlier reductions or unindexed theses might independently state the one-apex general law.",
+        "Symmetric uniform-stationary Markov matrices with allowed holding only, no nonreversible/nonuniform-stationary extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Wheel case previously solved; no assertion of arbitrary vertex-transitive one-apex transfer found in inspected sections",
+          "evidence": "arXiv:0709.0955 (2007), §5.3.3",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Lawful complete arXiv PDF with Sections 2,3,5.3.3 and wheel formula inspected",
+          "method": "Primary PDF relevant passages and equations",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact old wheel formula and graph automorphisms"
+        },
+        {
+          "assessment": "Supplies the optimization framework but no all-vertex-transitive cone formula in relevant material",
+          "evidence": "Boyd-Diaconis-Xiao, SIAM Review 2004",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Original formulation, objective and graph-feasibility statements",
+          "method": "Lawful university-hosted primary manuscript",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational global SLEM convex optimization"
+        },
+        {
+          "assessment": "Nonadjacent double apex case is not the one-apex statement; distinct two-hub modes and stronger edge transitivity assumptions",
+          "evidence": "Git blob b45900fe7b103ad6796f58d60721c43e36462d9e",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a/RESULT.md",
+          "material_read": "Entire published RESULT.md including graph, main theorem, proof and old wheel comparisons",
+          "method": "GitHub full scientific source",
+          "title": "A three-phase fastest-mixing law for double cones over transitive graphs",
+          "trigger": "Related potentially stronger cone result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cone transfer reduces the global symmetric fastest-mixing optimization on every vertex-transitive graph to its base optimum regardless of the number of edge orbits, and the nontransitive P4 witness shows a substantive boundary. This is a motivated structural reduction for a universal graph construction, extending the known wheel case beyond edge-transitive cycles; not a fixed small graph calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0709.0955 full primary PDF",
+    "Boyd et al. SIAM Review 2004 objective/framework",
+    "Resultary published 2026/11/2 double-cone full RESULT.md",
+    "Resultary focused semantic cone/Markov searches",
+    "assigned RESULT.md, REVIEW.md, AUDIT.json and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Wheel formula is known prior; the general result must be interpreted as arbitrary vertex-transitive core transfer, not rediscovery of wheels.",
+    "Specialist earlier reductions or unindexed theses might independently state the one-apex general law.",
+    "Symmetric uniform-stationary Markov matrices with allowed holding only, no nonreversible/nonuniform-stationary extension."
+  ],
+  "residual_risks": [
+    "Wheel formula is known prior; the general result must be interpreted as arbitrary vertex-transitive core transfer, not rediscovery of wheels.",
+    "Specialist earlier reductions or unindexed theses might independently state the one-apex general law.",
+    "Symmetric uniform-stationary Markov matrices with allowed holding only, no nonreversible/nonuniform-stationary extension."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Wheel case previously solved; no assertion of arbitrary vertex-transitive one-apex transfer found in inspected sections",
+      "evidence": "arXiv:0709.0955 (2007), §5.3.3",
+      "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+      "material_read": "Lawful complete arXiv PDF with Sections 2,3,5.3.3 and wheel formula inspected",
+      "method": "Primary PDF relevant passages and equations",
+      "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+      "trigger": "Exact old wheel formula and graph automorphisms"
+    },
+    {
+      "assessment": "Supplies the optimization framework but no all-vertex-transitive cone formula in relevant material",
+      "evidence": "Boyd-Diaconis-Xiao, SIAM Review 2004",
+      "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "material_read": "Original formulation, objective and graph-feasibility statements",
+      "method": "Lawful university-hosted primary manuscript",
+      "title": "Fastest Mixing Markov Chain on a Graph",
+      "trigger": "Foundational global SLEM convex optimization"
+    },
+    {
+      "assessment": "Nonadjacent double apex case is not the one-apex statement; distinct two-hub modes and stronger edge transitivity assumptions",
+      "evidence": "Git blob b45900fe7b103ad6796f58d60721c43e36462d9e",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a/RESULT.md",
+      "material_read": "Entire published RESULT.md including graph, main theorem, proof and old wheel comparisons",
+      "method": "GitHub full scientific source",
+      "title": "A three-phase fastest-mixing law for double cones over transitive graphs",
+      "trigger": "Related potentially stronger cone result"
+    }
+  ]
+}
