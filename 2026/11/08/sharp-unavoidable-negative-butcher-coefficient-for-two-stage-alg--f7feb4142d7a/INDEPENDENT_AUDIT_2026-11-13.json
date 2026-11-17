@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:00:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md 4377e52b2b294a11175ee72374d1abd7dfca7345",
+        "verify.py blob 6ec0aefc2c74dfbe4c5a7b817e476ca48d41fb8a",
+        "independent root and tableau calculation"
+      ],
+      "rationale": "First three order-three moment equations give c1=1/2−sqrt(q/(12p)), c2=1/2+sqrt(p/(12q)), p∈[1/4,3/4]. PSD gives M11=2pa11−p²≥0, so a12=c1−a11≤−f(p). The derivative of f changes sign once when p³(1−p)=1/12 (strict monotonicity on this interval). The explicit A_p with diagonals p/2 and q/2 has M=0 and satisfies fourth order-three condition b^TAc=1/6, hence attains bound. At equality PSD and e^TMe=0 force all M=0 and unique A. Independently numerically solved p*=0.5861069554217851, δ=0.03563906993888327 and checked moment/order/symplectic matrix residual ≤6e−17. Finite check supplements all-parameter inequality.",
+      "residual_risks": [
+        "Requires two stages and normalized stage abscissas; without these assumptions quantitative bound may fail."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gottlieb et al. section 5 gives general nonnegative vs algebraically stable incompatibility; no sharp normalized negative-entry minimum in inspected relevant section.",
+          "Yu et al. optimize SSP/positive coefficient radii, a different feasible class and objective."
+        ],
+        "reasoning": "A general impossibility theorem does not give the optimal distance from the positive-coefficient cone or optimizer; no established dominating prior exact value.",
+        "searches": [
+          "two stage algebraically stable third order Runge Kutta negative Butcher coefficient sharp lower bound normalized abscissas",
+          "Gottlieb et al. arXiv:2611.07981v1",
+          "Yu–Zhu–Weng arXiv:2610.37425v1"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md/verify.py",
+        "Resultary semantic query two stage algebraically stable third order Runge Kutta negative Butcher coefficient sharp lower bound normalized abscissas",
+        "Gottlieb et al. 2026 full accessible Section 5",
+        "Yu–Zhu–Weng 2026 arxiv index",
+        "Ketcheson–Macdonald–Gottlieb 2007 bibliographic metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior necessary negative coefficient statement yields ν(A)>0 without a uniform quantitative lower bound on this compact normalized family or equality uniqueness.",
+          "SSP coefficient positivity is not algebraic-stability minimax negativity."
+        ],
+        "reasoning": "One cannot deduce exact δ or p* from the qualitative theorem without the new constrained optimization; no paper-wide NOT_COVERING assertion beyond material read.",
+        "searches": [
+          "two stage algebraically stable third order Runge Kutta negative Butcher coefficient sharp lower bound normalized abscissas",
+          "Gottlieb et al. full HTML Section 5",
+          "Ketcheson–Macdonald–Gottlieb 2007 implicit SSP"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonnegative coefficient restriction corresponds to ν(A)=0; algebraic stability obstruction ensures ν(A)>0 under certain conditions.",
+          "Present objective minimizes ν(A) over precisely two stages with bounded c."
+        ],
+        "reasoning": "Exact δ>0 and equality tableau strengthen a qualitative incompatibility but are not directly equivalent to a general SSP radius optimization.",
+        "searches": [
+          "two stage algebraically stable third order Runge Kutta negative Butcher coefficient sharp lower bound normalized abscissas",
+          "arXiv:2611.07981v1 Section 5",
+          "arXiv:2610.37425v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "δ is root-derived continuous parameter optimum, not a RK method coefficient drawn from a classical named tableau table.",
+          "Searches found SSP-optimal RK and stability-frontier theorems with other constraints, no exact matching δ table."
+        ],
+        "reasoning": "Even if symplectic two-stage tables are standard, minimizing maximum negativity under c∈[0,1] is a different global optimization, not automatic from listing tables.",
+        "searches": [
+          "two stage algebraically stable third order Runge Kutta negative Butcher coefficient sharp lower bound normalized abscissas",
+          "Resultary RK optimal positivity search",
+          "arXiv:2611.07981v1 Section 5"
+        ]
+      },
+      "rationale": "Known qualitative order-three/nonnegative-coefficient algebraic-stability incompatibility does not determine sharp two-stage least negative entry and unique optimizer. The direct moment/PSD optimization supplies new quantitative geometry at natural minimal stage count.",
+      "residual_risks": [
+        "Older algebraically stable Butcher-tableau parameterizations may contain equivalent one-dimensional optimizer without the current vocabulary.",
+        "Full SSP papers not universally inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing qualitative no-nonnegative third-order coefficient barrier, not inspected exact δ or normalized optimizer",
+          "evidence": [
+            "Section 5 establishes obstruction to positive coefficients, while proposed minimum uses 2-stage PSD M and moment variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07981v1",
+          "material_read": "Full accessible HTML opened; Section 5 and stated theorem about incompatibility inspected materially",
+          "method": "HTML full text + targeted Section 5",
+          "title": "A stability order barrier and SSP bound for Runge–Kutta methods with non-negative coefficients",
+          "trigger": "Direct strongest-looking positivity vs algebraic stability primary source"
+        },
+        {
+          "assessment": "Different SSP radius objective; uninspected sections remain priority risk",
+          "evidence": [
+            "Positive-coefficient/SSP optimality cannot attain ν(A)>0 symplectic minimax without additional argument."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.37425v1",
+          "material_read": "Publicly indexed abstract, optimization statement and method description, not fully inspected",
+          "method": "arXiv HTML search",
+          "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+          "trigger": "Recent optimal coefficient RK paper"
+        },
+        {
+          "assessment": "Background on SSP radius; not claimed to comprehensively exclude exact minimax δ",
+          "evidence": [
+            "Distinct SSP objective, coefficient sign constraint."
+          ],
+          "identifier_or_url": "https://www.cfm.brown.edu/people/sg/implicitSSP.pdf",
+          "material_read": "Bibliographic abstract and named SSP objective from indexed sources; full primary text not materially read",
+          "method": "Literature search",
+          "title": "Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+          "trigger": "Classical implicit RK/positivity precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "algebraic stability order conditions",
+        "recent general qualitative coefficient barrier"
+      ],
+      "rationale": "The smallest-stage algebraically stable third-order setting is a natural boundary between positive coefficients and stability; the exact optimal unavoidable negative entry, optimizer and uniqueness quantify this barrier instead of repeating a qualitative impossibility.",
+      "residual_risks": [
+        "Not a performance guarantee, does not extend to arbitrary stages or stage times outside [0,1]."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among real two-stage classical-order>=3 RK methods with positive weights, 0<=c1<c2<=1, and algebraic-stability matrix M=BA+A^TB−bb^T PSD, the sharp least maximum negative Butcher entry is δ*=sqrt((1−p*)/(12p*))−(1−p*)/2≈0.03563906994, where p*∈(1/4,3/4) uniquely solves p*³(1−p*)=1/12, attained by a unique symplectic tableau up to stage permutation.",
+  "limitations": [
+    "Only exactly two stages, positive b, c within normalized step",
+    "No positive SSP radius or practical stiffness guarantee."
+  ],
+  "schema_version": 1
+}

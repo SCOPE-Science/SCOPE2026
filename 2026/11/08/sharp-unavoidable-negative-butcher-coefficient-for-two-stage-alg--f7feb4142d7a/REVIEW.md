@@ -1,15 +1,21 @@
-# Review of the two-stage algebraic-stability negativity frontier
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every admissible two-stage order-three tableau, positive weights and the first three order conditions force a unique pair of nodes for each weight \(p\in[1/4,3/4]\). The positive semidefinite algebraic-stability matrix forces \(a_{11}\ge p/2\), hence \(a_{12}\le-f(p)\). A monotone quartic equation proves the unique global minimum of \(f\). The explicit symplectic family has all four classical third-order conditions, achieves equality, and the positive-semidefinite equality conditions prove uniqueness. The standalone exact-rational arithmetic tests and sampled checks passed. No numerical finite test is used for the infinite quantifier.
+## correctness
 
-## Originality
-**PASS, qualified.** The comparison is of implications, not titles: the phase-type study arXiv:2610.37425v1 optimizes SSP radii and positive coefficients; Ketcheson–Macdonald–Gottlieb 2007 discusses why negative Butcher entries rule out a positive SSP radius; Gottlieb et al. arXiv:2611.07981v1 (Section 5) proves a general qualitative nonnegative-coefficient/algebraic-stability incompatibility. None of the inspected relevant passages determines the exact two-stage, bounded-stage-time minimax negative-entry magnitude or equality tableau. published-finding corpus and accessible prior-claim checks gave no directly covering result. A hidden equivalent two-stage coefficient optimization remains a priority risk, especially because the proof is elementary.
+PASS
 
-## Value
-**PASS.** The problem naturally measures the strength of the incompatibility between inner-product contractivity through algebraic stability and nonnegative Butcher coefficients required by SSP. The normalized stage-time interval permits a dimensionless, finite, sharp quantitative separation, and the unique realizing symplectic integrator identifies the precise least-negative design. This is a complete extremal classification at the minimum stage count capable of order three, rather than an arbitrary example; it does not claim practical superiority or a general-stage theorem.
+First three order-three moment equations give c1=1/2−sqrt(q/(12p)), c2=1/2+sqrt(p/(12q)), p∈[1/4,3/4]. PSD gives M11=2pa11−p²≥0, so a12=c1−a11≤−f(p). The derivative of f changes sign once when p³(1−p)=1/12 (strict monotonicity on this interval). The explicit A_p with diagonals p/2 and q/2 has M=0 and satisfies fourth order-three condition b^TAc=1/6, hence attains bound. At equality PSD and e^TMe=0 force all M=0 and unique A. Independently numerically solved p*=0.5861069554217851, δ=0.03563906993888327 and checked moment/order/symplectic matrix residual ≤6e−17. Finite check supplements all-parameter inequality.
 
-## Limits
-Only two stages, positive weights, normalized stage abscissas and exact real coefficients are covered. The result does not establish positive SSP radius, unconditional monotonicity, or numerical superiority. The historical-priority comparison is limited to identified and inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known qualitative order-three/nonnegative-coefficient algebraic-stability incompatibility does not determine sharp two-stage least negative entry and unique optimizer. The direct moment/PSD optimization supplies new quantitative geometry at natural minimal stage count.
+
+## value
+
+PASS
+
+The smallest-stage algebraically stable third-order setting is a natural boundary between positive coefficients and stability; the exact optimal unavoidable negative entry, optimizer and uniqueness quantify this barrier instead of repeating a qualitative impossibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
