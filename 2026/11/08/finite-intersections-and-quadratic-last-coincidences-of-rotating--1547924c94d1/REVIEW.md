@@ -1,15 +1,21 @@
-# Assessment of finite intersections of rotating-memory Fibonacci sequences
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof derives a uniform exact \(2\)- and \(3\)-prime factorization from the source's recurrence ratios. Equality of the exponent pairs forces equality of indices; an exact disjoint interval count gives the general formula and every exceptional period-two and period-three case. All boundary indices and the duplicated \(1\) are treated explicitly. A recurrence-driven exact-integer verifier checks 820 parameter pairs and every predicted common value in its finite domain.
+## correctness
 
-## Originality: PASS
-The full motivating source addresses each recurrence period separately, including term formulas, valuations and tilings. The result here is not another individual-term formula: it determines the complete two-parameter intersection invariant, including all exceptional cases, monotonicity for \(k\ge4\), and the sharp \(k^2-1\) terminal overlap. The source's formulas are a key *premise*, not a theorem that states the intersection counts. Searches for cross-period value coincidences and relevant published records did not identify matching coverage. The concern that the enumeration is an accessible consequence of those formulas is an explicit residual risk, not erased by the absence of an exact phrase.
+PASS
 
-## Value: PASS
-Intersections of two integer recurrence sequences are a standard, naturally motivated arithmetic question, but common terms across periods here are unusually tractable despite the exponential growth and shared small-prime support. The exact all-parameter classification reveals a finite intersection for every distinct pair, an arbitrarily large quadratic count for neighboring periods, a sharp quadratic last-common-index phenomenon, and disappearance of all noninitial coincidences once \(\ell\ge2k\). This is more than recomputing the individual sequences or enumerating isolated examples.
+The closed form R_n^(s)=2^(n-2-2c_s(n))*3^c_s(n) for n>=2, with c_s(n)=max(0,floor(n/s)-1_{s=2,3}), follows by induction from the actual variable-order recurrence using reset multipliers 3/2 and ordinary multipliers 2. Positivity of exponents and strict increase from index 2 are checked at the starting values. Unique 2- and 3-adic valuations force common positive terms (including 1 counted only once) to occur at identical n. For 4<=k<ell matching floor quotients yield disjoint q=0 and q>=1 intervals of lengths k-2 and k-q(ell-k), giving the precise sum, last index k^2-1 for ell=k+1 and no later matches. The k=2,3 exceptional tables are explicitly verified by their shifted floor functions. Independent arbitrary-precision recurrence generation for s=2..13 and n<=249 reproduced the theorem across all 66 pairs. Those tests corroborate, not prove, the unrestricted interval argument.
 
-## Closest sources and limitations
-The 2026 source arXiv:2609.12569v1 proves the one-parameter formulas used in the proof and is the closest prior result. OEIS A038754 and A354541 concern individual small-period sequences; they do not establish the general two-period classification. Historical-priority uncertainty remains because an older independent equivalent might exist. The theorem is limited to period parameters at least two, and no external mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The September 11 Abdelaidoum–Mehiri–Belbachir paper establishes individual term formulas and prime valuations, but the exact two-period intersection problem, synchronized common indices, all-pair exceptional tables and quadratic last index are not asserted in the accessible abstract or indexed individual-sequence entries. A full source-text check could not be completed; therefore originality is qualified rather than claimed certain. The intersection classification is not a mere reprinting of a single sequence table.
+
+## value
+
+PASS
+
+Cross-intersections of recurrence value sets are a natural arithmetic invariant; here the all-parameter exact finite classification exposes a sharp quadratic number of common terms for neighboring periods, a quadratic terminal index, and disappearance of noninitial coincidences for ell>=2k. Those are meaningful structural answers to the two-sequence Diophantine comparison, not arbitrary isolated numerics, even though the calculation uses known closed forms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
