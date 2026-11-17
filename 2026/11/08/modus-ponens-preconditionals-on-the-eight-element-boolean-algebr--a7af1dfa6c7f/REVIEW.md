@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The normal form follows from (P2) and (MP) fixing the antecedent trace, (P3) and (P4) removing non-antecedent input information, and (P4) establishing monotonicity. Substitution into (P5) gives a necessary-and-sufficient compatibility law with no omitted cases. Two standalone exhaustive C++17 implementations agree on the \(19{,}127\) accepted tables and eight-way stratification, while the first computes all Burnside fixed-point counts. The argument distinguishes exact finite enumeration from proving the general symbolic reduction.
+## correctness
 
-## Originality
-**PASS, qualified by accessible literature.** Holliday's preconditional theory and Chen's 2026 completeness/finite-model results do not supply the explicit finite normal form plus labelled and unlabelled modus-ponens census in the inspected material. Published finite-chain preconditional classifications treat chains. A closely related eight-element census studies the distinct \(\mathsf F\)-preconditional axioms without imposing this precise modus-ponens restriction; the two axiom sets and counts are not interchangeable. No equivalent exact table was found in the targeted index and textual searches. Historical priority is not independently certified, and an unindexed table remains possible.
+PASS
 
-## Mathematical value
-**PASS.** This is a complete three-atom classification of an independently motivated logical axiom combination. The general compatible-monotone-map representation translates six universal equations into tractable finite data, and Burnside analysis removes the spurious label multiplicity. The precise count distinguishes a broad modus-ponens class from the uniquely determined Boolean Heyting implication; this distinction is not a renaming of an existing count.
+(P2)+MP force A∩(A→B)=A∩B. (P3)+(P4) give dependence only on T=A∩B; (P4) forces monotone σ_A:P(A)→P(X\A), and (P5) is equivalent, for all D⊆A and T⊆D, to σ_A(T∪(A∩σ_D(T)))⊆σ_D(T)\A. Every operation satisfying these is thus included; each choice is finite. Independently compiled enumerator traversed all 1,259,712 monotone row families and found 19,127 operations, with strata (864,509,509,843,509,843,843,14207), S3 fixed counts 19127,341,341,32,32,341, and Burnside quotient 3,369; an independent direct-axioms checker source was inspected. The symbolic normal form, not a finite extrapolation, covers arbitrary finite X.
 
-## Closest literature and limitations
-Holliday, *Preconditionals* (arXiv:2402.02296); Chen, *Fundamental Propositional Logic with Preconditional* (arXiv:2607.20221); *Fixed-point normal form for finite-chain preconditionals* (published mathematical-record link in `RESULT.md`). Exact numbers are limited to three atoms; no general enumerative formula or independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Holliday defines the axioms and MP; Chen concerns semantics and proof theory. The full published 1,235-operation eight-element result adds conditional identity and consequent meet preservation; the 1,021-operation F-preconditional census instead adds different F laws and is not this MP-only class. Neither count determines 19,127 or the general σ-compatibility normal form. Targeted semantic and published-result searches found no prior full theorem; originality is best of knowledge.
+
+## value
+
+PASS
+
+The eight-element Boolean algebra is a canonical first nontrivial finite Boolean case; its complete MP-only implication census and 3,369 isomorphism types separate it sharply from the unique Heyting conditional and stricter conditional varieties. The σ-normal form is a useful finite classification beyond this one count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
