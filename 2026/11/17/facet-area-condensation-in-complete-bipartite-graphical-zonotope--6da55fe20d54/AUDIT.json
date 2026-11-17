@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every integer q>=2, connected induced sides classify all facet cuts of K_{2,q}. A facet is a Euclidean orthogonal product of two induced graphical zonotopes, each with intrinsic volume sqrt(s) times its number of spanning trees. The two disjoint cut types yield 2q leaf facets of area (q-1)2^(q-2)sqrt(q+1) and 2 binomial(q,b) other facets of area sqrt((b+1)(q-b+1)) for b=0,...,q, with exact exhaustive counts. The resulting area and volume formulas follow. Binomial central moments through degree four and a deterministic square-root remainder bound prove the stated q^-3/2 surface concentration and surface/volume expansion. The packaged direct convex-hull program verifies all 74 individual facets for q=2,3,4, plus their total areas and volumes, and tests three larger binomial profiles; finite tests are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dall–Pfeifle, arXiv:1404.3876, proves a general zonotope-volume/matrix-tree relationship; it does not enumerate Euclidean facet sizes in K_{2,q}.",
+        "Padrol–Pilaud–Poullot, DOI:10.1007/s00454-023-00586-x, gives a deformation-cone classification and normal fan information, not the canonical surface-area spectrum.",
+        "published-finding corpus hit 2026/11/1/SCOPE-sharp-surface-area-extremizers-among-tree-graphical-zonotopes--5027be8c293d treats tree zonotopes; K_{2,q} has many 4-cycles."
+      ],
+      "reasoning": "The general spanning-tree volume formula applies after finding facet geometry, but neither it nor the general connected-cut classification states the specialized area distribution or the surface-area condensation. Tree extremizers are outside the non-tree K_{2,q} family.",
+      "searches": [
+        "graphical zonotope complete bipartite graph Euclidean facet surface area volume spanning trees intrinsic volumes",
+        "bipartite graphical zonotope surface volume complete bipartite Kmn",
+        "graphical zonotope K2n Euclidean surface-area asymptotic exposed face facet sizes",
+        "arxiv:1404.3876 Theorem 3 and Section 4",
+        "doi:10.1007/s00454-023-00586-x Sections 2.3 and 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.06896",
+      "arxiv:1404.3876",
+      "doi:10.1007/s00454-023-00586-x",
+      "2026/11/1/SCOPE-sharp-surface-area-extremizers-among-tree-graphical-zonotopes--5027be8c293d",
+      "2026/11/8/SCOPE-exact-intrinsic-covariance-and-a-five-leaf-inertia-transition-fo--80f9480897b5",
+      "2026/10/25/SCOPE-sharp-inballs-and-center-locus-rigidity-for-complete-bipartite-g--55e2f63af984"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known face-lattice theorem implies which cuts are facets, and the general zonotope-volume formula gives a way to compute their Euclidean areas. Both are used as ingredients, not claimed as discoveries.",
+        "Related indexed K_{2,q} studies of inballs, covariance and Löwner ellipsoids specify different metrics and do not determine area-weighted boundary sampling."
+      ],
+      "reasoning": "The specific full area spectrum requires carrying out the two-family facet decomposition and spanning-tree evaluation. The nonleaf binomial expectation and q^-3/2 loss then require a quantitative asymptotic argument. This is not a corollary that is simply a restatement of a prior theorem with renamed symbols; it is a specialized geometric and asymptotic result using known general tools.",
+      "searches": [
+        "graphical zonotope complete bipartite graph Euclidean facet surface area volume spanning trees intrinsic volumes",
+        "facet area condensation for K_2,n graphical zonotope singleton leaf facets concentration of Euclidean boundary measure",
+        "graphical zonotope K2n Euclidean surface-area asymptotic exposed face facet sizes",
+        "complete bipartite graphical zonotope surface area K2q facet-area statistics spanning trees",
+        "The graphical zonotope of the complete bipartite graph K_{2,q} has 2q leaf-cut facets of Euclidean area (q-1)2^{q-2} sqrt(q+1) and 2 binomial(q,b) other facets of area sqrt((b+1)(q-b+1)); leaf facets carry nearly all boundary area",
+        "facet-area condensation K2q complete bipartite graphical zonotope 2q rare facets surface area fraction 1-2 q^-3/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chapoton–Pilaud (arXiv:2201.06896), Section 1.4 describes graphical zonotope face labels by biconnected vertex cuts; Proposition 101 gives facet counts for joins, but no Euclidean facet measures.",
+        "Symmetric-edge convex hulls of ± roots are not the Minkowski-sum zonotopes even if both are built from the same graph edge roots."
+      ],
+      "reasoning": "Translation between sums of [e_u,e_v] and [0,e_u-e_v] preserves the area theorem; a symmetric ±root polytope is a different construction. No searched equivalent under these natural aliases stated both the individual-area spectrum and q^-3/2 condensation.",
+      "searches": [
+        "graphical zonotope complete bipartite graph Euclidean facet surface area volume spanning trees intrinsic volumes",
+        "facet area condensation for K_2,n graphical zonotope singleton leaf facets concentration of Euclidean boundary measure",
+        "complete bipartite graphical zonotope surface area K2q facet-area statistics spanning trees",
+        "arxiv:2201.06896 Proposition 36 and Proposition 101",
+        "The graphical zonotope of the complete bipartite graph K_{2,q} has 2q leaf-cut facets of Euclidean area (q-1)2^{q-2} sqrt(q+1) and 2 binomial(q,b) other facets of area sqrt((b+1)(q-b+1)); leaf facets carry nearly all boundary area",
+        "facet-area condensation K2q complete bipartite graphical zonotope 2q rare facets surface area fraction 1-2 q^-3/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chapoton–Pilaud, Appendix A Table 6, gives 12, 22, 40 facets for (m,n)=(2,2),(2,3),(2,4), corresponding to 2q+2^(q+1). This is the pre-existing combinatorial total, not a table of Euclidean facet areas.",
+        "No exact K_{2,q} Euclidean boundary-area or area-weighted facet table surfaced in the completed targeted searches."
+      ],
+      "reasoning": "Existing facet-count tables cannot settle the distribution of distinct Euclidean facet areas or the total area concentration. A failed indexed search does not exclude an unindexed table.",
+      "searches": [
+        "cycle graphical zonotope dihedral angles intrinsic volume geometry",
+        "complete bipartite graphical zonotope surface area K2q facet-area statistics spanning trees",
+        "arxiv:2201.06896 Appendix A Tables 5–6",
+        "complete bipartite graphical zonotope surface area K2q facet-area statistics spanning trees"
+      ]
+    },
+    "rationale": "Against the accessible primary texts, the two-hub facet-area spectrum and surface-area condensation are not supplied by prior face-count, matrix-tree, deformation-cone, vertex-radius, or inball results. Existing general facet and volume formulas are explicitly credited as inputs; the new claim is the computed metric classification and quantitative area condensation for this specific canonical infinite family. The search cannot establish absolute historical uniqueness, and unindexed equivalent literature is a residual risk.",
+    "residual_risks": [
+      "Generic zonotope and spanning-tree formulas make this special case computationally accessible; an earlier unindexed specialization or independently derived boundary area asymptotic remains possible.",
+      "Search results alone are not a uniqueness certificate; source inspections concentrated on papers with directly relevant objects."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Pre-existing biconnected-cut facets and counts, not the facet area spectrum or surface-area probability theorem",
+        "evidence": [
+          "Definition 34 Minkowski sum of [e_i,e_j].",
+          "Proposition 36 identifies facets with biconnected subsets.",
+          "Proposition 101 counts facets of shuffles; Appendix table counts the small K_{2,q} cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.06896",
+        "material_read": "Section 1.4, particularly Definition 34, Proposition 36, pages 9–12; Section 2.4, especially Proposition 101, page 19; Appendix A facet-count tables, page 46; title and MSC page",
+        "method": "Accessible arXiv PDF text with page screenshots on pages 1, 9–10 and 19; PDF extracted table text",
+        "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+        "trigger": "Defines the same complete-bipartite graphical zonotope and supplies the closest facet enumeration"
+      },
+      {
+        "assessment": "Supplies a known volume ingredient, not the K_{2,q} facet spectrum or asymptotic area concentration",
+        "evidence": [
+          "Theorem 3 relates zonotope volume of a unimodular representation to a Gram determinant.",
+          "No two-hub K_{2,q} facet-area measure asserted in examined sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.3876",
+        "material_read": "Introduction and Theorems 1–3, pages 1–2, including the matrix-tree theorem and unimodular zonotope-volume identity",
+        "method": "Accessible arXiv PDF text and screenshots of pages 1 and 2",
+        "title": "A Polyhedral Proof of the Matrix Tree Theorem",
+        "trigger": "General zonotope-volume / spanning-tree theorem could dominate a claimed new area computation"
+      },
+      {
+        "assessment": "Normal-fan and deformation-cone descriptions, not boundary-area spectrum or area condensation",
+        "evidence": [
+          "Section 2.3 defines graphical zonotopes and their graphical fans.",
+          "Proposition 2.4 concerns deformation-cone inequalities rather than Euclidean facet volumes."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-023-00586-x",
+        "material_read": "HTML abstract, introduction, Section 2.3 and Proposition 2.4 on deformation-cone inequalities",
+        "method": "Publisher-hosted open-access full-text HTML read for pertinent sections",
+        "title": "Deformed Graphical Zonotopes",
+        "trigger": "Plausible broader geometry of the exact graphical zonotope object"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6da55fe2-0d54-442f-9c74-3b749c06e5f2",
+  "value": {
+    "rationale": "The complete-bipartite two-hub graphical zonotope is a basic non-tree shuffle building block whose combinatorial facet count is known. The theorem determines every individual Euclidean facet measure and reveals that 2q facets, an exponentially vanishing fraction, carry 1-2q^(-3/2)+O(q^(-5/2)) of surface area. This resolves a natural geometric size-bias question with an exact quantitative rate and avoids asserting an arbitrary finite table or rebranding the known facet count as new.",
+    "status": "PASS"
+  }
+}
