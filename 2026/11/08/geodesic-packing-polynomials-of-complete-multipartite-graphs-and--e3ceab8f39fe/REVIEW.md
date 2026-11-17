@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every maximal graph geodesic must be a three-vertex shortest path with endpoints in the same part and middle vertex in another part: all edges can extend because the source parts have at least two vertices. The directed matrix of path types fixes all per-part endpoint and middle-vertex occupancies. Multinomial allocations, pairing and assignment give the stated integer multiplicity. Packing maximality is equivalent to absence of a free pair in one part together with a free vertex in another. In doubleton parts, each path consumes a whole endpoint part and one center in another part. Maximality then has precisely two disjoint unused-vertex profiles, yielding the two closed factorial terms. Their entire nonzero support is an integer interval; checking equality of endpoints yields exactly the five pure orders. The verifier independently enumerates disjoint shortest paths and confirms polynomials and maximality for finite graph profiles. The proof, not the finite verification, covers all positive part vectors in the specified domain.
+## correctness
 
-## Originality — PASS (provisional publication priority)
-The primary 2022 paper of Manuel, Brešar and Klavžar introduces geodesic packing, develops complexity and geodesic-transversal duality and proves a scalar balanced-complete-bipartite packing bound, but the inspected accessible preprint does not present the complete multipartite directed-array **all-packings and maximal-packings polynomials**, the doubleton coefficient formula, or the reentrant purity classification. Orlovich, Dolgui, Finke, Gordon and Werner discuss related dissociation and path-packing structures; bipartite path-packing enumeration is not treated as the novelty here. Searches for alternate names (vertex-disjoint maximal geodesics, length-two path packings, \(P_3\)-packings, matching-like packings in complete multipartite graphs), broader covering formulas, exact sequence/table values and directly implied results found no known dominance of the claimed full package. The nearest semantic research records concern vertex limited packings, geodesic edge partitions and geodetic sets, different objects and quantifiers. An equivalent unindexed theorem, especially under disjoint \(P_3\)-packing terminology, remains a material publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-The directed-array formula enumerates both **all** and **inclusion-maximal** vertex-disjoint maximal-geodesic families for every complete multipartite graph with part sizes at least two; it retains the labelled counts, not only an extremal scalar. The doubleton specialization produces a striking non-monotone topological boundary: the packing complex is nonpure at six parts, pure again at seven, and nonpure at every larger order. The exact facet-cardinality interval, the exceptional all-used versus two-unused maximal configurations and factorial coefficient formulas explain this phenomenon and support further comparisons with generalized matching and path-packing complexes. The computation is not the motivation; the structural classification of facets is.
+In a labelled K_{n1,...,nr} with every ni>=2, every maximal geodesic is precisely a length-2 path with two endpoints from part i and a center from a different part j, since every edge extends. A directed q_ij array of path types leaves u_i=ni-2sum_j q_ij-sum_j q_ji unused in part i; multinomial allocations, pairings and path-center bijections count it with A(q)=prod ni!/[2^k prod u_i! prod q_ij!]. A family is inclusion-maximal exactly when no unused two vertices in one part coexist with an unused vertex of another. This yields both exact integer polynomials over all feasible q and the maximality filter. For all doubleton parts, choosing k endpoint-pair parts and injecting k centers into the 2(r-k) other vertices gives the claimed falling-factorial P. Inclusion maximality gives two disjoint unused occupancy cases and exact M coefficient formula; its nonzero size spectrum is all integers ceil(r/2)..floor(2r/3), so purity iff r in {2,3,4,5,7}. Direct independent arithmetic confirmed M_6=960z^3+360z^4, M_7=12600z^4, plus all-doubleton coefficient formula through r=8. The argument proves all r and part vectors without relying on finite enumeration.
 
-## Sources and risks
-Primary source: P. Manuel, B. Brešar and S. Klavžar, *Geodesic packing in graphs*, arXiv:2210.15325 (first publicly submitted 2022-10-27), inspected accessible PDF including definitions and complete bipartite results. Related older path-packing literature: Y. Orlovich et al., *The complexity of dissociation set problems in graphs*, Discrete Applied Mathematics 159 (2011). Closest published research records on multipartite vertex-limited packing, geodesic edge partition, and geodetic vertex sets concern other invariants. An adjacent 2026 paper about geodesic transversals was inspected only at abstract level and is not used to assert full-text absence. Remaining risk: unindexed equivalent \(P_3\)-packing or path-hypergraph face enumeration. Independent priority and proof reviews have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Manuel–Brešar–Klavžar introduced geodesic packings, and an October 13 published complete-multipartite theorem already determines the exact maximum gpack for arbitrary part sizes, including doubleton max floor(2r/3). This prior maximum is not novel. Neither the inspected primary article nor the complete October 13 theorem enumerates all packings, inclusion-maximal packing families, their cardinality spectrum, or the reentrant purity set {2,3,4,5,7}. Those survive as the new mathematical claims. Related P3 packing, induced path cover, and geodesic transversal notions were distinguished.
+
+## value
+
+PASS
+
+Complete inclusion-maximal enumerators and a nonmonotone purity exception for a canonical multipartite family answer natural exact packing-complex questions unavailable from the earlier scalar optimum. The r=6 nonpure versus r=7 pure return is a meaningful structural classification, not an arbitrary finite sample or table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

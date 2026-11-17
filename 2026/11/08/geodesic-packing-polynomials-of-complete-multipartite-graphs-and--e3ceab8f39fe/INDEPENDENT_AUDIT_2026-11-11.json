@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:06:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a labelled K_{n1,...,nr} with every ni>=2, every maximal geodesic is precisely a length-2 path with two endpoints from part i and a center from a different part j, since every edge extends. A directed q_ij array of path types leaves u_i=ni-2sum_j q_ij-sum_j q_ji unused in part i; multinomial allocations, pairings and path-center bijections count it with A(q)=prod ni!/[2^k prod u_i! prod q_ij!]. A family is inclusion-maximal exactly when no unused two vertices in one part coexist with an unused vertex of another. This yields both exact integer polynomials over all feasible q and the maximality filter. For all doubleton parts, choosing k endpoint-pair parts and injecting k centers into the 2(r-k) other vertices gives the claimed falling-factorial P. Inclusion maximality gives two disjoint unused occupancy cases and exact M coefficient formula; its nonzero size spectrum is all integers ceil(r/2)..floor(2r/3), so purity iff r in {2,3,4,5,7}. Direct independent arithmetic confirmed M_6=960z^3+360z^4, M_7=12600z^4, plus all-doubleton coefficient formula through r=8. The argument proves all r and part vectors without relying on finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 theorem gives a general exact formula for gpack(K_{n_i}) via three capacities; the 2022 paper gives scalar balanced biclique values and NP-completeness."
+        ],
+        "reasoning": "A formula for maximum k only cannot determine the number of size-k families, full packing polynomial, number and possible sizes of inclusion-maximal families, or purity. The full October 13 proof was read and does not enumerate these objects.",
+        "searches": [
+          "Resultary:2026/10/13/SCOPE-geodesic-packings-of-complete-multipartite-graphs-three-sharp-ca--483fcd9cfba1",
+          "arXiv:2210.15325 §§1-4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md and independent direct-enumeration verify.py",
+        "Manuel–Brešar–Klavžar arXiv:2210.15325 complete preprint",
+        "Resultary Oct13 complete multipartite geodesic packing capacity theorem full RESULT.md",
+        "Orlovich et al 2011 dissociation packing adjacent literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result establishes the maximum number of path triples via Hall matching; current result enumerates directed pair-center assignments with 2^-k and factorial denominators and characterizes unused-part maximality."
+        ],
+        "reasoning": "Maximization of the same families is a strict projection of the submitted information. No reverse implication from a maximum to the entire enumeration and purity threshold exists; the latter remain distinct new conclusions.",
+        "searches": [
+          "Resultary Oct13 complete multipartite capacity proof",
+          "Manuel–Brešar–Klavžar arXiv:2210.15325 primary theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal shortest paths are exactly two-edge P3 paths centered outside the endpoints part when all ni>=2; this permits a path-packing alias."
+        ],
+        "reasoning": "Compared maximal-geodesic packings, ordinary vertex-disjoint P3 packings, inclusion-maximal face enumerators, and dissociation/induced path covers. The submitted complete distribution is not identical to a scalar packing maximum or a minimum path partition.",
+        "searches": [
+          "Resultary: geodesic packing polynomial complete multipartite maximal P3 pair-center purity",
+          "Manuel–Brešar–Klavžar arXiv:2210.15325",
+          "Resultary Oct13 complete multipartite geodesic capacity theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A known gpack scalar includes max floor(2r/3) for equal doubletons, and polynomial results for K2 Cartesian K_n concern a distinct graph."
+        ],
+        "reasoning": "Known maximum cardinality and unrelated host-graph enumerators cannot reconstruct the doubleton M_6 and M_7 coefficients or all configurations. The new complete polynomial is not a published exact database/table recomputation in the material inspected.",
+        "searches": [
+          "Resultary: geodesic packings of complete multipartite three sharp capacity constraints",
+          "Resultary: geodesic packing and transversal polynomials two-row rook graphs"
+        ]
+      },
+      "rationale": "Manuel–Brešar–Klavžar introduced geodesic packings, and an October 13 published complete-multipartite theorem already determines the exact maximum gpack for arbitrary part sizes, including doubleton max floor(2r/3). This prior maximum is not novel. Neither the inspected primary article nor the complete October 13 theorem enumerates all packings, inclusion-maximal packing families, their cardinality spectrum, or the reentrant purity set {2,3,4,5,7}. Those survive as the new mathematical claims. Related P3 packing, induced path cover, and geodesic transversal notions were distinguished.",
+      "residual_risks": [
+        "An unindexed enumeration of maximal vertex-disjoint P3 path packings in complete multipartite graphs might cover the polynomial under alternate terminology.",
+        "All part sizes >=2 essential: singleton parts have maximal edge geodesics absent from this formula.",
+        "Earlier scalar gpack formulas must be explicitly credited and must not be treated as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR DEFINITION AND SCALAR VALUES, not complete multipartite enumerators",
+          "evidence": "For every graph, gpack is maximum size of disjoint maximal shortest paths; paper studies balanced biclique maximum and broader complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15325",
+          "material_read": "Primary PDF: definition, complexity results, balanced biclique packing and related transversal results",
+          "method": "full preprint PDF/page-image inspection",
+          "title": "Geodesic packing in graphs",
+          "trigger": "original invariant and relevant complete bipartite examples"
+        },
+        {
+          "assessment": "EXACT PRIOR MAXIMUM; DOES NOT COVER COUNTS OR PURITY",
+          "evidence": "Theorem yields max_e min{floor((N+e)/3),N-M-e,P+e} and all feasible sizes t given edge count, but does not count path families.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-geodesic-packings-of-complete-multipartite-graphs-three-sharp-ca--483fcd9cfba1/RESULT.md",
+          "material_read": "Full published RESULT.md, all sections including capacity theorem and Hall-based matching proof, limitations and citations",
+          "method": "read full primary published mathematical result via GitHub",
+          "title": "Geodesic packings of complete multipartite graphs: three sharp capacity constraints",
+          "trigger": "exact same host family with a stronger all-part-size scalar optimum"
+        },
+        {
+          "assessment": "DIFFERENT GRAPH, not covering multipartite pure orders",
+          "evidence": "Two-row rook K2 square K_n path families not equal complete multipartite K_{2,...,2}.",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-complete-geodesic-packing-and-transversal-polynomials-of-two-row--d2c7f3606aa2",
+          "material_read": "Ranked semantic record statement, not full text",
+          "method": "Resultary primary record summary comparison",
+          "title": "Complete geodesic-packing and transversal polynomials of two-row rook graphs",
+          "trigger": "nearby exact polynomial in a different regular graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete inclusion-maximal enumerators and a nonmonotone purity exception for a canonical multipartite family answer natural exact packing-complex questions unavailable from the earlier scalar optimum. The r=6 nonpure versus r=7 pure return is a meaningful structural classification, not an arbitrary finite sample or table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md and independent direct-enumeration verify.py",
+    "Manuel–Brešar–Klavžar arXiv:2210.15325 complete preprint",
+    "Resultary Oct13 complete multipartite geodesic packing capacity theorem full RESULT.md",
+    "Orlovich et al 2011 dissociation packing adjacent literature"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed enumeration of maximal vertex-disjoint P3 path packings in complete multipartite graphs might cover the polynomial under alternate terminology.",
+    "All part sizes >=2 essential: singleton parts have maximal edge geodesics absent from this formula.",
+    "Earlier scalar gpack formulas must be explicitly credited and must not be treated as new.",
+    "Scientific originality is best of knowledge, not a worldwide priority certificate or formal-machine attestation.",
+    "No edits, publications or publisher attestations were made."
+  ],
+  "residual_risks": [
+    "An unindexed enumeration of maximal vertex-disjoint P3 path packings in complete multipartite graphs might cover the polynomial under alternate terminology.",
+    "All part sizes >=2 essential: singleton parts have maximal edge geodesics absent from this formula.",
+    "Earlier scalar gpack formulas must be explicitly credited and must not be treated as new."
+  ],
+  "schema_version": 1
+}
