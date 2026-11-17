@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(n\ge5\), the contour decomposition into surviving hub triangles and the single long five-cycle is a fundamental-cycle calculation. The signed three-colour contour is divisible by three, so a nonzero nontriangular contour with all triangular contours zero produces rate \(3/5\) exactly. The independent \(3\times3\) transfer count evaluates the full three-phase initial population, with recurrence initial conditions and full cardinality normalization. The pointwise CCA/GHM rate ratio follows from an explicitly telescoping potential. The separate nonadjacent-spoke phase spectrum accounts for both same-sign four-cycle resonances producing a rate-one six-cycle without any rainbow hub triangle and opposite-sign cancellations; the full case split is independently checked by simple-cycle enumeration. The accompanying programs reproduce all stated examples, all labelled trajectories for rim sizes 5–8 under both dynamics, and independent contour checks. Finite tests are corroboration, not a substitute for the all-size argument.
+## correctness
 
-## Originality — PASS, qualified
-Gravner–Lyu–Sivakoff [1], Theorem 3, gives the general cycle-mean framework but no exact population count for the two-spoke-deleted wheel. A related analysis of a single missing spoke yields a distinct four-cycle middle rate and different Pell–Lucas counts; its statement does not imply this adjacent-two-gap transfer calculation or the placement contrast. Explicit searches of equivalent wheel, fan, graph-circulation and automaton formulations, and searches of existing research claims, revealed no statement with broader implications covering this theorem. Priority remains qualified because the absence of a search match is not a proof of novelty, especially for unindexed graph-specific enumeration.
+PASS
 
-## Value — PASS
-The invariant is a basic asymptotic dynamical activity rate. Its exact initial-state population is intrinsic to probabilistic initialization. The new result demonstrates a structural distinction between networks with identical numbers of vertices, edges and degree multisets: adjacency of the missing spokes changes the only possible intermediate asymptotic rate from \(3/4\) to \(3/5\), and separated defects can jointly produce rate-one excitation without any rainbow triangle. The exact third-order recurrence and nontrivial limiting conditional phase probability quantify the phenomenon for an infinite family. The contribution is the exact classification and placement effect, not the general published cycle theorem or the Pell recurrence alone.
+The published finite-graph contour theorem identifies asymptotic CCA rate with the largest unsigned directed simple-cycle color-difference mean. The identity delta_C=3delta_G+phi(endpoint)-phi(start), phi=(0,-2,-1), telescopes, proving same-initial-state rate factor three. For two adjacent missing hub spokes, fundamental cycles are n-3 surviving triangles plus one length-five cycle. Any rainbow triangle gives maximal rate 1; otherwise all cycle integrals are 0 or the five-cycle integral ±3, so the only intermediate rate is 3/5. A 3x3 nonrainbow transfer M and endpoint-pair winding matrix N yield R_mid=3tr(M^(n-3)N), recurrence t_(j+3)=3t_(j+2)-t_(j+1)-t_j and the remaining R0, R1 formulas. Checked n=6 population (729,378,1080), sum=2187=3^7. For nonadjacent deleted spokes, two length-four fundamental cycles produce rates 0,3/4 or (if equal nonzero circulation signs) 1 on the six-cycle, yielding the claimed placement contrast. Bounds hold for all n>=5 adjacent, n>=6 separated by graph structure, not finite test extrapolation.
 
-## Closest literature and limitations
-The primary cycle-theorem source is [1] in the result document; earlier single-spoke results are mathematically narrower. Relevant Pell-number graph-colouring work addresses a different colouring invariant. No exact absorption-time or orbit-period distribution is asserted. An equivalent unindexed theorem remains possible, and a separate independent scientific audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gravner–Lyu–Sivakoff proves the general cycle-mean activity theorem used as a black-box input but does not enumerate this two-deleted-spoke wheel or its initial-state populations. Full published one-missing-spoke exact census gives the distinct 3/4 phase, and intact-wheel transfer work gives a different topology and observables; neither implies the adjacent 3/5 rate, the 3x3 N trace or the same-degree nonadjacent-omission comparison. Best-of-knowledge new topology-specific structural classification, with potential unindexed graph-specific census risk.
+
+## value
+
+PASS
+
+For excitable deterministic networks, asymptotic firing rates and their initial-state populations are direct natural invariants. The exact split 0,3/5,1 for adjacent missing spokes, versus 0,3/4,1 for nonadjacent gaps on same-degree-sequence graphs, is a structural counterexample to degree-based rate determination. The nontrivial all-n transfer recurrence and conditional positive middle-phase fraction quantify the effect and may guide network-specific activity analysis; this is an independent exact result beyond general circulation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
