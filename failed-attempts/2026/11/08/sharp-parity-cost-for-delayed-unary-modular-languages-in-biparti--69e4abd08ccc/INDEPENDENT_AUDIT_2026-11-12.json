@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:48:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For epsilon-free transition-bipartite unary NFA, any repeated-state subrun has even length; deleting it preserves acceptance and the parity of a run. The first word in each accepted parity therefore has a simple run. Shortest accepted length tn gives at least tn+1 states, and when n is odd the first opposite-parity accepted length (t+1)n requires at least (t+1)n+1 states. The explicit even-n path with return cycle n and odd-n path with return cycle 2n recognize exactly the requested length progressions in transition-bipartite cactus graphs, with all n>=2,t>=1 boundary cases including n=2. Independently reconstructed witness transitions at n=3,4 and verified the general path/cycle argument from actual RESULT.md and checker.py; finite checker ranges cannot be proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 theorem covers all p>=1,m>=0 whereas assigned result only p=n>=2,m=tn with t>=1.",
+          "Grobler–Koziel–Siebertz October 8 only provides qualitative existence, but the October 25 theorem already resolves the quantitative family."
+        ],
+        "reasoning": "The stronger 2026-10-25 family is a strict mathematical superset of all n,t here; a general existence theorem is not the decisive comparison.",
+        "searches": [
+          "unary modular language minimal number states bipartite cactus automaton parity delayed threshold",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d/RESULT.md",
+          "arxiv:2610.11717"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d/RESULT.md",
+        "https://arxiv.org/abs/2610.11717"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If n even, lcm(n,2)=n, so max{n,tn+n-n+1}=tn+1 for t>=1.",
+          "If n odd, lcm(n,2)=2n, so max{2n,tn+2n-n+1}=(t+1)n+1 for t>=1.",
+          "The prior proof of the odd bound uses the first opposite-parity accepted run, so its obstruction applies to any transition-bipartite NFA without needing cactus; the matched prior construction is a path with even directed cycle."
+        ],
+        "reasoning": "Each current component, including its no-cactus strengthening, is implied by the earlier complete proof. Claimed different wording cannot restore originality.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d/RESULT.md",
+          "unary modular language minimal number states bipartite cactus automaton parity delayed threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior L_{p,m}={a^{m+kp}:k>=0}; choose p=n,m=tn, yielding exactly submitted L_{n,t}.",
+          "Prior class: one initial state, epsilon-free, transition-compatible bipartite, undirected cactus; same as assigned class."
+        ],
+        "reasoning": "The change of letters p->n and the delay m=tn is a direct parameter specialization. No new invariant survives.",
+        "searches": [
+          "unary modular language minimal number states bipartite cactus automaton parity delayed threshold",
+          "Resultary 2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact symbolic prior bound max{lcm(p,2),m+lcm(p,2)-p+1} appears in full RESULT.md, not merely a database abstract."
+        ],
+        "reasoning": "This is a direct earlier exact theorem, so no search-absence inference is necessary. The precise all-parameter table is mechanically identical on the designated slice.",
+        "searches": [
+          "unary modular language minimal number states bipartite cactus automaton parity delayed threshold",
+          "published Resultary 2026/10/25/...--08999567f29d"
+        ]
+      },
+      "rationale": "The October 25, 2026 published theorem for all unary residue-delay languages has identical optimization hypotheses and strictly broader parameters. Its exact formula specializes algebraically to every submitted claimed optimum. Submitted formula, extra-cost parity law, construction and lower-bound implication are already covered; this is decisive prior mathematical coverage, not an unsuccessful novelty search.",
+      "residual_risks": [
+        "No originality residual ambiguity in the exact 2026-10-25 parameter implication. The earlier source has not been mechanically checked by executing its code; its symbolic proof was read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact stronger theorem dated 2026-10-25",
+          "evidence": "Formula max{lcm(p,2),m+lcm(p,2)-p+1} for all p>=1,m>=0 and same hypotheses; p=n,m=tn gives all assigned claims.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/25/SCOPE-exact-state-cost-of-thresholded-unary-residue-languages-in-bipar--08999567f29d/RESULT.md",
+          "material_read": "Entire RESULT.md, assumptions, lower-bound parity proof, explicit path/cycle construction, comparisons and limitations",
+          "method": "read-only GitHub public blob",
+          "title": "Exact state cost of thresholded unary residue languages in bipartite-cactus NFAs",
+          "trigger": "Resultary semantic search revealed same machine restriction and general delay parameter"
+        },
+        {
+          "assessment": "QUALITATIVE ONLY: not decisive coverage; superseded by explicit 2026-10-25 theorem",
+          "evidence": "Grobler–Koziel–Siebertz guarantee epsilon-free bipartite cactus NFA existence for every regular language, not the exact minimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11717",
+          "material_read": "Abstract and source RESULT.md relationship and statement of qualitative existence",
+          "method": "arXiv search and assigned Git source",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "Conceptual source of the cactus-restriction problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A delayed-modular unary family is natural and sharp state complexity would be worthwhile, but all exact bounds and witnesses in the submitted claim are a direct subfamily of the earlier all-residue-delay classification. The package supplies no unproved special boundary, tighter bound or new independent structural conclusion beyond that theorem. Correctness and independent rechecking of a known special case are not independent scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": "Reject originality and independent value for decisive coverage; preserved complete original package and did not try to repair by disclaimers.",
+  "schema_version": 1
+}
