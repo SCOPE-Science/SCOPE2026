@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-The bundled standalone Python 3 script `check_biclique_root.py` requires `numpy` and `scipy`. Execute `python check_biclique_root.py` to enumerate integer instances \(2\le p,q\le7\) with proper nonempty block sizes and independently optimize convex combinations of the graph-root vertices. It compares the optimizer's center and squared radius to the analytic formulas, and checks each predicted contact orbit and the positive squared-distance clearance where appropriate.
+## correctness
 
-The check succeeded for 441 parameter quadruples, including 205 strict-screening cases, with the marker:
+PASS
 
-`BICLIQUE_ROOT_MINIMUM_SPHERE_CHECKS_PASSED 441 screened_cases 205`
+For p,q>=2 and proper nonempty deleted blocks, every root has squared norm 2; the projection lemma identifies the unique minimum enclosing sphere center as the least-norm convex combination. The exact block-marginal feasible domain is the triangle x>=0,y>=0,x+y<=1. Minimizing its strictly convex quadratic gives the Hall threshold theta=a/p+b/q=1, R^2=2-1/p-1/q-[uv/(u+v)](theta-1)_+^2, the positive unique block coordinates and the sharp contact classes and clearance 2h(theta-1). Independent SLSQP optimization checked 225 parameter quadruples including strict threshold cases; the quantified proof is the projection/KKT calculation, not these experiments.
 
-The analytical proof, not these finite floating-point experiments, establishes the result for arbitrarily large integer parameters. Floating-point optimization may have numerical tolerances; the symbolic algebraic deductions in `RESULT.md` are the primary evidence. No external independent audit has been performed.
+## originality
+
+PASS
+
+PASS best of knowledge for the exact four-parameter Euclidean root-polytope minimum sphere and contact phase, not for the elementary equal-norm projection lemma. Previously published results about root-polytope dissections and faces, matching/transport polytopes and a superficially similar biclique-deleted perfectly-matchable-subgraph inball have non-equivalent ambient polytopes or optimize different metric invariants. No inspected source mathematically implies the stated squared outer radius and screened-contact counts.
+
+## value
+
+PASS
+
+Two-step Ferrers graphs are a canonical connected graph family exhibiting a single Hall-type obstruction to uniform edge marginals; the exact outer-radius drop, unique center and phase transition in which an entire surviving edge orbit leaves the boundary are useful structural Euclidean invariants rather than a random small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

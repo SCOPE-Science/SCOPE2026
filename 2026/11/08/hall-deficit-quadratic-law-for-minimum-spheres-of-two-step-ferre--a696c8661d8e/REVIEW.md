@@ -1,19 +1,21 @@
-# Scientific review: Hall-deficit minimum-sphere law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every vertex of the root polytope has squared norm two. The proof derives a universal equal-norm enclosing-ball principle directly from the nearest-point projection inequality, rather than assuming the circumcenter is the vertex average. It then uses the four coordinate-permutation blocks to reduce the nearest-point problem to a strictly convex quadratic on the exact triangle of feasible two-class marginals. The minimizer is explicitly evaluated on both sides of the threshold, including its nondegenerate interior coordinates on the active edge, and exact inner-product differences prove the contact classification and squared-distance clearance. Finite numerical optimization across 441 independent instances corroborates but does not establish the infinite-dimensional quantifiers.
+PASS
 
-## Originality — PASS, historical priority provisional
+For p,q>=2 and proper nonempty deleted blocks, every root has squared norm 2; the projection lemma identifies the unique minimum enclosing sphere center as the least-norm convex combination. The exact block-marginal feasible domain is the triangle x>=0,y>=0,x+y<=1. Minimizing its strictly convex quadratic gives the Hall threshold theta=a/p+b/q=1, R^2=2-1/p-1/q-[uv/(u+v)](theta-1)_+^2, the positive unique block coordinates and the sharp contact classes and clearance 2h(theta-1). Independent SLSQP optimization checked 225 parameter quadruples including strict threshold cases; the quantified proof is the projection/KKT calculation, not these experiments.
 
-The root-polytope dissection paper by Kálmán and Tóthmérész, the face classification of Setiabrata, the broader toric account by Rietsch and Williams, and the Ferrers-graph algebra of Corso and Nagel supply nearby objects and motivations. Their materially examined results address triangulations, faces, toric correspondences, and rings rather than this two-step exact Euclidean sphere and the quadratic transition of contact sets. Public research claims about minimum spheres of transitive-tournament roots and consistently oriented parallel paths concern different vertex sets; formulas for symmetric-edge polytope inballs and graphical-zonotope ellipsoids are not metric-equivalent reductions. A general nearest-point lemma alone would not imply the evaluated four-parameter threshold or contact classification without solving the constrained marginal problem. Equivalent statements under least-energy transportation or graph-edge-polytope terminology cannot be definitively excluded without independent priority research.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two-step Ferrers graphs are a natural first nontrivial graph family after complete bipartite graphs, with a precise Hall-type obstruction to uniform edge marginals. The finding determines the whole enclosing sphere and the vertex contact set for four unrestricted integer parameters, including a sharp threshold and quadratic loss, and distinguishes a combinatorially present vertex orbit that stops supporting the smallest ball. This is an exact geometric phase diagram for a motivated family, not an arbitrary low-dimensional numerical slice. It need not supply an additional unrelated theorem to be useful.
+PASS best of knowledge for the exact four-parameter Euclidean root-polytope minimum sphere and contact phase, not for the elementary equal-norm projection lemma. Previously published results about root-polytope dissections and faces, matching/transport polytopes and a superficially similar biclique-deleted perfectly-matchable-subgraph inball have non-equivalent ambient polytopes or optimize different metric invariants. No inspected source mathematically implies the stated squared outer radius and screened-contact counts.
 
-## Limits and closest literature
+## value
 
-The result is restricted to the standard Euclidean root embedding, and independent mathematical assessment and exhaustive historical priority review have not been performed. The broad equal-norm min-ball identity is not novel. See arXiv:2105.00960v1, arXiv:2001.05191v1, arXiv:2406.15803v1, and arXiv:math/0609371v1; the distinction from the origin-added root polytope in Setiabrata is material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-step Ferrers graphs are a canonical connected graph family exhibiting a single Hall-type obstruction to uniform edge marginals; the exact outer-radius drop, unique center and phase transition in which an entire surviving edge orbit leaves the boundary are useful structural Euclidean invariants rather than a random small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
