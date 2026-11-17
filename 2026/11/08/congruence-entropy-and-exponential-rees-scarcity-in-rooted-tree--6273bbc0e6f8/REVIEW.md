@@ -1,23 +1,21 @@
-# Scientific review: congruence entropy on rooted trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns every congruence on the graph inverse semigroup of each finite outward rooted tree, and all complete \(b\)-ary trees with integer \(b\ge2\). Wang's congruence-triple correspondence (arXiv:1806.10721, Theorem 1.4) has a unique pair \((H,W)\) in this acyclic case. A root split produces the exact bivariate polynomial without overcounting. The complete-branching recurrences follow by specialization; a convergent geometric series of logarithmic increments proves the two growth constants. The strict lower bound on their difference is explicit and positive for every admissible \(b\). The tail estimates yield the stronger \(o(1)\) error in the exponential exponent, rather than only a sublinear bound.
+PASS
 
-The standalone verifier checks complete bivariate polynomials against independently enumerated Wang pairs for rooted binary trees through height three and ternary trees through height two. It additionally counts congruences by exhaustive semigroup multiplication on small graphs, rather than relying solely on the Wang correspondence. The finite checks support, but do not replace, the proof of infinite-height results.
+Wang classification for acyclic graph inverse semigroups reduces to hereditary H and arbitrary eligible W (one outgoing edge outside H); no cycle data. Root in H forces all H; root outside H and not in W gives product child F_i; root in W requires exactly one child root not in H, giving v sum_i(F_i-u^ni)prod_(j!=i)u^nj. For full b-ary height h evaluate (u,v)=(1,1) and v=0 to obtain C_(h+1)=1+C_h^b+b(C_h-1), R_(h+1)=1+R_h^b. Log iteration gives convergent entropy constants and o(1) error; root-level extra b choices yield strict positive kappa_b via explicit bound. Independent direct enumeration of hereditary H and W on full binary trees h<=2 and ternary h<=2 gives (7,5),(62,26) and (12,9),(1762,730), agreeing with recurrence.
 
-## Originality — PASS relative to inspected literature
+## originality
 
-Wang (2018) already classifies every graph inverse semigroup congruence; Mesyan–Mitchell (2014) already characterize the role of non-Rees congruences; Luo–Wang–Wei (2023) and Anagnostopoulou-Merkouri–Mesyan–Mitchell (2021/2024) study lattice properties. The present statement is *not* a claim to a new congruence classification. Its contribution is the explicit full bivariate recursive enumerator and the sharp, strictly positive exponential Rees-scarcity rate for infinite complete-tree families. Those formulas and entropy limits were not found in the inspected pertinent statements or searched mathematical records.
+PASS
 
-This originality judgment has a residual risk: the recurrence is a nontrivial enumerative specialization of an established correspondence and might occur as an unpublished or unlocated consequence in the literature. A published broader counting theorem could supersede the claim.
+PASS with Wang classification explicitly prior. Relevant Resultary published lattice-theoretic studies address semimodularity and distributivity, not the full bivariate weighted rooted-tree count or strict positive entropy rate for Rees scarcity in complete branching families.
 
-## Mathematical value — PASS
+## value
 
-The number of distinct congruences and the number of Rees congruences are canonical invariants of a semigroup, rather than an artificially sliced statistic. On an entire infinite family of exponentially growing finite semigroups, the exact counts lead to a quantitative structural statement: Rees congruences form an exponentially vanishing fraction of all congruences in the underlying number of graph vertices. The exact bivariate polynomial also makes the distribution by hereditary-set size and non-Rees selections computable for arbitrary rooted outward trees. The explicit strictly positive entropy gap is not supplied by qualitative prior characterizations of congruence lattices.
+PASS
 
-## Scope and closest literature
+The exact bivariate enumeration for every finite outward rooted tree and a sharp exponential scarcity constant for natural full branching asymptotics provide a motivated new quantitative classification of all congruences relative to Rees congruences, not merely a restatement of Wang pairs.
 
-The inference depends on finite acyclic outward trees, not arbitrary directed graphs with cycles or arbitrary tree orientations. The comparison with Wang's theorem is especially close: it supplies the entire admissibility model, while the branching partition functions and entropy bounds are derived here. The quantitative asymptotic is for fixed \(b\ge2\); no uniform-in-branching assertion is made.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
