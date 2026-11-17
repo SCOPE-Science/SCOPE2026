@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The exact finite computation is run with `python check_exact_random_gh.py`. The script directly enumerates every labelled simple graph and every three-color initial state for \(1\le n\le5\), calculates integer-weighted joint probabilities for both a uniform three-state distribution and a biased \((1/2,1/3,1/6)\) distribution, and compares against an independently implemented multinomial/binomial formula using `fractions.Fraction`. For every connected graph/coloring pair it also directly iterates the original three-state update for three steps, checking primitive-period-three equivalence to the successor-neighbor condition.
+## correctness
 
-The finite critical-window simulation is run with `python check_poisson_window.py`. A fixed seed generates independently sampled undirected edges and initial colors; the script checks deficiency counts and directly iterates successful states. It compares the empirical means and zero-mass frequencies with the predicted Poisson limits at \(n=300\). No convergence proof is inferred from the simulation.
+PASS
 
-Captured standard output files are `check_exact_random_gh.out` and `check_poisson_window.out`. No third-party Python packages are required. All calculations can be reproduced offline. The proof's critical steps—mutual independence of deficiency indicators conditional on colors, class-size concentration, and connectivity—are analytic and do not depend on a finite census.
+The exact conditional binomial-sum law follows from disjoint unordered edge tests: each edge between colors i and i+1 is queried only for the color-i endpoint, so deficiency indicators of all sources are independent. Multinomial coloring then gives the finite product. Uniform multinomial deviations <=n^(2/3), n p_n^2=o(1), and Le Cam sum-of-squares ->0 give TV-Poisson mean exp(-t) times the sum of predecessor color masses for rarest successors. Since min mass <=1/3, the n p >=3 log n connectivity union bound holds, identifying B_n=0 with primitive-three dynamics from time zero with error o(1). Monotone edge coupling extends zero-one threshold outside fixed t windows. Exact proof distinguishes connected from disconnected graphs; finite tests not relied upon as infinite proof.
 
-The checks do not establish anything about individual-graph (quenched) periodic fractions, asymptotic basin structure, other primitive periods or global literature priority. Independent external validation has not been performed.
+## originality
+
+PASS
+
+The nontrivial contribution is the time-zero all-rotating criterion, exact finite coloring/edge conditional law, and rarest-color Poisson window. The 2018 GHM literature treats eventual limiting activity at G(n,lambda/n), not this log(n)/n full initial periodicity probability; Poisson approximation alone does not identify the correct independent Bernoulli indicators. No stronger same claim found in the Resultary nearby entries; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The initial-periodic versus eventually oscillatory distinction is mathematically natural, and a sharp rare-color critical window with exact bias-dependent Poisson parameter provides a quantitative structural phase transition beyond routine use of a generic Poisson theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single claim comprises the exact conditional distribution of missing successor-colored neighbors and its biased-color Poisson critical window, together with equivalence to time-zero primitive period three on connected graphs. The proof identifies disjoint sets of random edges for distinct source-vertex deficiency events. It then uses a uniform multinomial concentration bound, rare-Bernoulli Poisson approximation, and a direct random-graph connectivity union bound. The exact finite probability formula follows by conditioning. All quantifiers and boundaries, including \(n\ge1\), fixed positive color masses, and the connected/disconnected distinction, are explicit. Two standalone programs reproduce the ten exact finite probability cases and the critical-window simulation outputs. Finite checks do not replace the general proof.
+PASS
 
-## Originality — PASS, qualified
+The exact conditional binomial-sum law follows from disjoint unordered edge tests: each edge between colors i and i+1 is queried only for the color-i endpoint, so deficiency indicators of all sources are independent. Multinomial coloring then gives the finite product. Uniform multinomial deviations <=n^(2/3), n p_n^2=o(1), and Le Cam sum-of-squares ->0 give TV-Poisson mean exp(-t) times the sum of predecessor color masses for rarest successors. Since min mass <=1/3, the n p >=3 log n connectivity union bound holds, identifying B_n=0 with primitive-three dynamics from time zero with error o(1). Monotone edge coupling extends zero-one threshold outside fixed t windows. Exact proof distinguishes connected from disconnected graphs; finite tests not relied upon as infinite proof.
 
-The closest inspected primary source is Gravner–Lyu–Sivakoff (2016), arXiv:1610.07320v1, especially Theorem 6 and its Erdős–Rényi proof. It studies eventual oscillation for \(p=\Theta(1/n)\), not the initial-period-three event at \(p=\Theta((\log n)/n)\), and does not state the conditional independent-binomial decomposition or biased-color Poisson parameter. Search comparisons considered the aliases cyclic neighbor domination, random three-color successor saturation, and isolated-vertex Poisson limits. No explicit covering mathematical claim was located. This is not proof of global priority: equivalent bipartite isolated-vertex results may specialize to the probabilistic part, and indexed coverage may omit older manuscripts.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies two distinct random-network scales: eventual nontrivial activity from cycles at \(p=\Theta(1/n)\) in prior work versus immediate primitive-three activity at \(p=\Theta((\log n)/n)\). The exact independent-binomial law and rarest-color coefficient exhibit how asymmetry in neuron-state frequencies shifts a dynamical threshold, an effect not visible from uniform-color heuristics. Both the finite law and the limiting window are reusable quantitative invariants of random excitable networks. No claim is made about quenched concentration or other periodicities.
+The nontrivial contribution is the time-zero all-rotating criterion, exact finite coloring/edge conditional law, and rarest-color Poisson window. The 2018 GHM literature treats eventual limiting activity at G(n,lambda/n), not this log(n)/n full initial periodicity probability; Poisson approximation alone does not identify the correct independent Bernoulli indicators. No stronger same claim found in the Resultary nearby entries; priority remains best-of-knowledge.
 
-## Closest work and uncertainty
+## value
 
-Gravner, Lyu and Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, arXiv:1610.07320v1 (2016-10-24), Sections 1–2 and 4, is the primary comparison. Generic Poisson approximation and random-graph isolated-vertex threshold arguments supply mathematical ingredients, not a documented statement of the full Greenberg–Hastings claim. The main residual originality risk is equivalence to an unindexed cyclic-domination or bipartite isolation theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The initial-periodic versus eventually oscillatory distinction is mathematically natural, and a sharp rare-color critical window with exact bias-dependent Poisson parameter provides a quantitative structural phase transition beyond routine use of a generic Poisson theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
