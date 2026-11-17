@@ -1,11 +1,21 @@
-# Research review: reflection decomposition of scattered palindromes
+# Independent mathematical audit
 
-**Correctness (C): PASS.** A reflected pair of embedding positions for each left-half symbol can be replaced by the earlier of the two; both position lists increase, and the resulting positions lie in the left half of a symmetric host. Reflecting the whole embedding places every off-axis odd center in the left half. Conversely, reflected right-half positions complete every allowed left-half subsequence to the specified palindrome. Parity and center-letter cases make the language unions disjoint, yielding all graded coefficients. The extracted verifier independently compared exact finite languages and coefficients on 11,962 mirror-host instances.
+## correctness
 
-**Originality (O): PASS, with a close prior-mechanism risk.** Mahalingam–Pandoh (arXiv:2108.02729v1), Proposition 5.1, gives a binomial special case for all-distinct half-letters and general extremal bounds, not the arbitrary-half two-polynomial identities. Hasan et al. (CIAA 2013), §2, give a general palindromic-subsequence automaton and explicitly explain half-word representations; this is a genuinely close algorithmic mechanism. Specializing their automaton may reproduce the identities, so equivalence/rediscovery remains a residual risk, but the direct all-alphabet reflection classification and precise middle-letter correction were not stated in the examined text. Holub–Saari's binary reconstruction theorem does not supply these spectra. Search absence alone is not evidence of novelty.
+PASS
 
-**Value (V): PASS.** The precise question is to count all *distinct* palindromic subsequence strings of every length in arbitrary palindromic hosts. The theorem classifies their languages exactly, for all finite alphabets and arbitrary repetitions in the half, and reduces all counts to elementary subsequence polynomials on one half plus a single ending-letter correction. The even and odd cases are governed by different exact mechanisms; this is not merely the previously known distinct-letter extremizer, an arbitrary length cutoff, or positional-embedding count. It provides a directly reusable specialization of general palindrome-language algorithms.
+For a palindromic host H, any embedding of a palindromic scattered output has the termwise minima of each early embedded left-half symbol and the corresponding reflected late symbol as strictly increasing positions in the host left half A. Conversely any V subsequence in A completes by reflection to VV^R, and an allowed left-center Vd in A completes to VdV^R. In even AA^R, odd centers must lie in a half; for odd AcA^R the central c creates VcV^R for every V∈Sub(A), while off-center d≠c requires Vd∈Sub(A). The resulting disjoint language decompositions are injective by palindrome length and center, giving F_even=S_A(t²)+t^(-1)S_A(t²), F_odd=S_A(t²)+t(1+S_A(t²))+t^(-1)(S_A(t²)-E_{A,c}(t²)) for arbitrary finite alphabets and A including empty. Independent finite language enumeration corroborates exact languages but not the universal proof.
 
-**Limitations.** The theorem assumes mirror symmetry; generic non-palindromic words are not covered. All computational tests are finite; infinite validity comes from the proof. Previous general palindrome automata may contain an equivalent specialization not identified in this comparison. Independent external validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing statements, direct implications and inspected primary source material.
+
+## value
+
+PASS
+
+Distinct palindromic scattered subsequences are a natural but nontrivial language invariant. This classifies the entire graded palindrome language of all symmetric hosts over arbitrary alphabets in terms of just their half-word distinct subsequences and one end-letter correction, simplifying a general palindrome automaton to an exact reusable closed form. The arbitrary repetitions/central letter adjustment are not merely the known distinct-letter binomial case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

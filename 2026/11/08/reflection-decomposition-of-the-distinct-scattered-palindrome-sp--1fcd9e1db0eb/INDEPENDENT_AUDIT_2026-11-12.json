@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:57:38.337959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/11/08/reflection-decomposition-of-the-distinct-scattered-palindrome-sp--1fcd9e1db0eb/RESULT.md",
+        "frozen 2026/11/08/reflection-decomposition-of-the-distinct-scattered-palindrome-sp--1fcd9e1db0eb/verify.py"
+      ],
+      "rationale": "For a palindromic host H, any embedding of a palindromic scattered output has the termwise minima of each early embedded left-half symbol and the corresponding reflected late symbol as strictly increasing positions in the host left half A. Conversely any V subsequence in A completes by reflection to VV^R, and an allowed left-center Vd in A completes to VdV^R. In even AA^R, odd centers must lie in a half; for odd AcA^R the central c creates VcV^R for every V∈Sub(A), while off-center d≠c requires Vd∈Sub(A). The resulting disjoint language decompositions are injective by palindrome length and center, giving F_even=S_A(t²)+t^(-1)S_A(t²), F_odd=S_A(t²)+t(1+S_A(t²))+t^(-1)(S_A(t²)-E_{A,c}(t²)) for arbitrary finite alphabets and A including empty. Independent finite language enumeration corroborates exact languages but not the universal proof.",
+      "residual_risks": [
+        "Independent bounded checks are finite corroboration; infinite quantifiers depend on the reconstructed mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasan et al. CIAA 2013 Definition 1 and Algorithm 1 represent all palindromic subsequences for arbitrary hosts; a fully general algorithm may compute this special case but its formal results do not supply the closed reflection decomposition. The Resultary graded adjoint theorem counts ALL distinct subsequences of binary palindromic hosts, not only palindromic outputs."
+        ],
+        "reasoning": "General computability and a different output invariant do not mechanically entail the mirror-specific graded polynomial with repeated-letter end corrections.",
+        "searches": [
+          "doi:10.1007/978-3-642-39274-0_15",
+          "scattered palindromic subsequences palindrome mirror word A reverse A distinct strings length distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-graded-adjoint-identity-for-scattered-subsequences-of-binary-p--9ef98b7f10f8/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.02729",
+        "doi:10.1007/978-3-642-39274-0_15",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-graded-adjoint-identity-for-scattered-subsequences-of-binary-p--9ef98b7f10f8/RESULT.md",
+        "Resultary scattered-palindrome semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hasan et al. §2 give a palindromic subsequence automaton by matching an input and its reverse with 0/1/2 transition weights; extracting this specialized formula still requires the reflection-minimum embedding theorem and disjoint output classification. Mahalingam–Pandoh lacks the arbitrary repeated A and odd-center correction."
+        ],
+        "reasoning": "The general automaton supplies a close constructive antecedent but neither explicitly yields nor proves the specialized exact spectrum by immediate parameter substitution in inspected statements; close algorithmic-priority risk is retained.",
+        "searches": [
+          "arXiv:2108.02729",
+          "doi:10.1007/978-3-642-39274-0_15",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-graded-adjoint-identity-for-scattered-subsequences-of-binary-p--9ef98b7f10f8/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mahalingam–Pandoh Proposition 5.1 gives binomial counts for mirror halves with pairwise distinct letters; Hasan et al. build general palindrome-subsequence automata but do not state the present all-half-word graded reflection formula."
+        ],
+        "reasoning": "The older alphabet-restricted special case is included, but general arbitrary repeated A and central c require an exact reduction not stated in those propositions.",
+        "searches": [
+          "scattered palindromic subsequences palindrome mirror word A reverse A distinct strings length distribution",
+          "arXiv:2108.02729",
+          "doi:10.1007/978-3-642-39274-0_15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the distinct-letter symmetric-host binomial spectrum was found explicitly in checked source tables; no tabulated arbitrary-word half-subsequence all-length formula."
+        ],
+        "reasoning": "The arbitrary finite-alphabet language identity is not a mere recomputation of the known distinct-letter special-case table.",
+        "searches": [
+          "arXiv:2108.02729 Proposition 5.1",
+          "scattered palindromic subsequences palindrome mirror word A reverse A distinct strings length distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-graded-adjoint-identity-for-scattered-subsequences-of-binary-p--9ef98b7f10f8/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing statements, direct implications and inspected primary source material.",
+      "residual_risks": [
+        "The Hasan et al. 2013 weighted palindrome subsequence automaton might, after direct specialization, already encode an equivalent language decomposition: the present exact simplification is not stated but historical priority remains qualified.",
+        "Unindexed palindrome subsequence dynamic-programming recurrences might express the same half-word identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE_ANTECEDENT_NOT_EXPLICIT_COVERAGE",
+          "evidence": "The 0/1/2 weight automaton represents generic hosts and recognizes mirrored half strings; it does not state F_even or F_odd as a half-word distinct-subsequence polynomial for all symmetric hosts.",
+          "identifier_or_url": "https://cs.smu.ca/~stavros/papers/CIAA-2013.PROCEEDINGS.pdf",
+          "material_read": "Complete 2013 paper, proceedings pp.158–168, including §§1–3, Definition 1, Lemma 1, weighted automaton Algorithm 1, examples and applications",
+          "method": "Lawful openly accessible proceedings PDF text and page 161 screenshot",
+          "title": "On Palindromic Sequence Automata and Applications",
+          "trigger": "Direct primary predecessor represents all scattered palindrome languages"
+        },
+        {
+          "assessment": "SPECIAL_CASE_ALREADY_KNOWN",
+          "evidence": "Distinct-letter half produces binomial spectra; arbitrary repeated A and c correction are not the same assertion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "Full open-access article with Proposition 5.1 special mirrored distinct-letter case and general bounds",
+          "method": "arXiv PDF text and inspected proposition screenshot",
+          "title": "Counting Scattered Palindromes in a Finite Word",
+          "trigger": "Same counted observable and an arbitrary alphabet"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Counts all scattered subsequences of the palindrome host over a binary alphabet; current theorem counts palindromic scattered subsequences of any-alphabet symmetric host.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-graded-adjoint-identity-for-scattered-subsequences-of-binary-p--9ef98b7f10f8/RESULT.md",
+          "material_read": "Entire published RESULT.md and its exact algebraic polynomial identities",
+          "method": "Full GitHub source text",
+          "title": "A graded adjoint identity for scattered subsequences of binary palindromes",
+          "trigger": "Potential same-date reflected half-word enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reflection-normalization proof of exact two- and three-class decompositions; general PSA and special distinct-letter binomial comparison."
+      ],
+      "rationale": "Distinct palindromic scattered subsequences are a natural but nontrivial language invariant. This classifies the entire graded palindrome language of all symmetric hosts over arbitrary alphabets in terms of just their half-word distinct subsequences and one end-letter correction, simplifying a general palindrome automaton to an exact reusable closed form. The arbitrary repetitions/central letter adjustment are not merely the known distinct-letter binomial case.",
+      "residual_risks": [
+        "The Hasan et al. 2013 weighted palindrome subsequence automaton might, after direct specialization, already encode an equivalent language decomposition: the present exact simplification is not stated but historical priority remains qualified.",
+        "Unindexed palindrome subsequence dynamic-programming recurrences might express the same half-word identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only globally palindromic hosts AA^R and AcA^R; distinct output words, not embeddings; complete length spectrum for all finite A and alphabets.",
+  "schema_version": 1
+}
