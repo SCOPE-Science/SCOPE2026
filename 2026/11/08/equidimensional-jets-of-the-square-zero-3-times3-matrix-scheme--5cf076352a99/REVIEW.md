@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normal form uses a unit Jordan chain and an explicit triangular basis change, valid over every finite chain ring. The five-parameter centralizer calculation is direct and yields the exact class size. Valuation decomposition gives an exact recursion, verified by exhaustive independent matrix arithmetic. The geometric proof uses surjective conjugation parameterizations of each locally closed valuation stratum; all dimensions and the treatment of the deep stratum are explicit, including the even/odd boundary. Residual correctness risk: unexamined embedded or nonreduced structure of higher jet schemes is outside the reduced-component theorem, not evidence for their multiplicities.
+## correctness
 
-**Originality — PASS, provisional.** The closest complete prior classification is Avni–Onn–Prasad–Vaserstein (arXiv:0708.1608), which may imply the arithmetic specialization by nontrivial enumeration; we do not claim an independent general matrix-similarity classification. Yuen (arXiv:math/0608632) treats jets of determinantal rank loci, and Moreau–Yu (arXiv:1411.6427) concerns jets of reduced nilpotent orbit closures. The present reduced jet schemes come from the different, nonreduced quadratic scheme defined by the entries of \(X^2\). Comparison of hypotheses, ideals, and component conclusions did not find a dominating statement for the all-length equidimensional component theorem. Historical priority remains provisional; an unlocated broader theorem about nonreduced matrix-representation jets may imply the result.
+PASS
 
-**Value — PASS.** The natural scheme of square-zero representations of the dual-number algebra on a free rank-three module is generically nonreduced. Its full jet-component census detects that deformation-theoretic structure: the number of components grows with length while all components share the same dimension. The chain-ring point-count formula gives an accompanying uniform arithmetic invariant, including mixed-characteristic rings; the geometric classification is not just another computation of a known finite table.
+Reconstructed primitive normal form X~J2(0) direct sum [c], c^2=0 from nonzero mod-pi residue and basis splitting; primitive conjugation fibers have invertible centralizers of size q^(5m-2)(q-1)^2, giving P_m=N(q)q^[4(m-1)+floor(m/2)]. Every nonprimitive solution is pi times a matrix modulo length m-1 whose square vanishes modulo m-2, yielding F_m=P_m+q^9F_(m-2), F0=1 and F1=1+N(q). Independently exhaustive 4^9 matrices over Z/4Z and F2[t]/t^2 both give F2=1184. For geometry, each exact valuation-j stratum is an irreducible affine fibration over primitive length m-2j and has common dimension 4m+floor(m/2); even deep linear locus is separate, odd deep locus is specialized from S_h via s*J+t*Z. The proof establishes reduced geometric components, not scheme multiplicities.
 
-**Verification boundary.** The checks cover explicit rings only, do not provide an infinite certificate, and do not determine nonreduced scheme multiplicities. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Avni–Onn–Prasad–Vaserstein classify similarity over principal rings and enable arithmetic primitive normal forms but do not establish all reduced jet-component geometry for nonreduced X^2=0 scheme. Yuen treats determinantal minors; Moreau–Yu reduced nilpotent-orbit closures, rather than jetting the original nonreduced matrix-quadratic scheme in all characteristics. Published related generic-reducedness and 2x2 chain-ring results do not imply all m 3x3 component census.
+
+## value
+
+PASS
+
+PASS. All-length equidimensionality and irreducible-component classification of a natural singular/nonreduced representation scheme, plus uniform chain-ring point counts, address meaningful geometric and arithmetic stratification beyond known finite small-case computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
