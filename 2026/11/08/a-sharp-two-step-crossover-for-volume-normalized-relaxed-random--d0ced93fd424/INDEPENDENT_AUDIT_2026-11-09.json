@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:44:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The prescribed global-max norm relaxation for rows a1=(1,0), a2=√(1−τ²)(ρ,√(1−ρ²)), τ,ρ∈(0,1), is ω1=1 and ω2=1+τ. In exact arithmetic U=I−uuᵀ, V=I−vvᵀ, W=I−(1+τ)vvᵀ. Enumerating four iid uniform two-step words gives second-moment matrices B_Z=1/4[U(U²+Z²)U+Z(U²+Z²)Z], and difference D=B_W−B_V. Direct exact product yields tr D=τ²(τ²+2s²)/4>0, det D=(ρ²s²τ²/16)[τ⁴+τ(τ+2)s²−1], s²=1−ρ². A symmetric 2×2 matrix with positive trace has negative eigenvalue iff determinant<0; equality or reverse means positive semidefinite, proving the all-initial-errors classification including equality and strict worse directions. One-step difference τ²(eᵀQe)/2 is nonnegative for every e and strictly positive unless Qe=0; the source correctly says 'never better', not strictly worse for all. Independently enumerated exact rational four-word matrices for τ=s=3/5, ρ=4/5, e=(0,1) to get Eunit=1681/2500, Erel=10297/15625, difference −837/62500. The τ0 quartic derivative is positive, so unique threshold root. No claim beyond two steps or all initialization improvement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source algorithm's Theorem 2 establishes a uniform spectral contraction bound for its relaxation, not B_rel−B_unit definiteness after precisely two steps.",
+          "Repeat–alternate theorem allows arbitrary uniform marginal coupling but forces same h on both rows, unlike norm-driven unequal h here."
+        ],
+        "reasoning": "A broad rate convergence bound and a coupling minmax formula cannot determine the sign of this distinct two-step quadratic-form difference without new 2×2 matrix computation. Earlier exact MSE methods are background but could be extended; this remains an originality risk.",
+        "searches": [
+          "randomized Kaczmarz volume-normalized relaxation two rows exactly two iterations second-moment benefit crossover",
+          "two-row fixed norm relaxation exactly two independent draws expected squared error sign indefinite",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-repeat-alternate-transition-for-two-step-relaxed-kaczmar--98f608901237",
+          "https://arxiv.org/abs/2610.12346"
+        ]
+      },
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.12346",
+        "https://arxiv.org/abs/2610.12346",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-repeat-alternate-transition-for-two-step-relaxed-kaczmar--98f608901237",
+        "https://arxiv.org/abs/2202.12224",
+        "https://doi.org/10.1016/j.laa.2018.05.009",
+        "randomized Kaczmarz volume-normalized relaxation two rows exactly two iterations second-moment benefit crossover",
+        "two-row fixed norm relaxation exactly two independent draws expected squared error sign indefinite"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At (τ,ρ)=(3/5,4/5), source computes negative D_22=−837/62500 while one-step difference is positive for e=(0,1).",
+          "The related repeat–alternate result's q varies while relaxation h is the same on both row maps; volume-normalized policy fixes iid q=1/2 and h1≠h2."
+        ],
+        "reasoning": "No inspected earlier implication supplies the sign of D under the new policy; a separate operator-difference determinant is necessary. The immediate matrix algebra is reproducible but prior MSE methodology itself is not claimed novel.",
+        "searches": [
+          "randomized Kaczmarz volume-normalized relaxation two rows exactly two iterations second-moment benefit crossover",
+          "two-row fixed norm relaxation exactly two independent draws expected squared error sign indefinite",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-repeat-alternate-transition-for-two-step-relaxed-kaczmar--98f608901237",
+          "https://arxiv.org/abs/2610.12346"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Entezari–Banerjee–Kalantari (arXiv:2610.12346), §3.3, specifies ω=1+√(1−v_i/v_max); no exact two-step sign-indefinite moment comparison.",
+          "Resultary Nov8 repeat–alternate paper derives minimax two-update factor for common h and variable row-index coupling."
+        ],
+        "reasoning": "Overrelaxed Kaczmarz and two-step expectations are shared, but one result uses row-dependent h and compares with unit projections for SOME initial vectors; the other chooses joint index correlation at fixed common h and minimizes WORST-case risk. Not equivalent or a direct parameter specialization.",
+        "searches": [
+          "randomized Kaczmarz volume-normalized relaxation two rows exactly two iterations second-moment benefit crossover",
+          "two-row fixed norm relaxation exactly two independent draws expected squared error sign indefinite",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-repeat-alternate-transition-for-two-step-relaxed-kaczmar--98f608901237",
+          "https://arxiv.org/abs/2610.12346"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected related exact two-row formulae and rational witness; no previously published tabulation of τ⁴+τ(τ+2)(1−ρ²)=1 under volume-normalized row-dependent relaxation found."
+        ],
+        "reasoning": "The object is a semialgebraic parameter classification, not a finite database. Exact criterion, not coincident numeric constants, was the comparison target.",
+        "searches": [
+          "randomized Kaczmarz volume-normalized relaxation two rows exactly two iterations second-moment benefit crossover",
+          "two-row fixed norm relaxation exactly two independent draws expected squared error sign indefinite"
+        ]
+      },
+      "rationale": "PASS (qualified): The Oct 8 2026 Entezari–Banerjee–Kalantari source introduces the volume-normalized relaxation rule and provides generic contraction and simulations, but does not state this sharp two-step fixed-initial-error benefit region or the counterintuitive contrast with the nonimproving one-step effect. Published related two-row Kaczmarz studies optimize dependent row-selection coupling at a common relaxation or compare reshuffling and independent selection; those change the policy, objective, or parameterization. No exact equation for this specific unequal norm-induced ω1=1,ω2=1+τ comparison was found. Strong antecedent warning: all calculations are simple 2×2 second moments and might be derivable from general prior MSE formulas; no full historical exhaustion.",
+      "residual_risks": [
+        "Prior general exact MSE analysis might mechanically imply this 2-step 2×2 specialization even if not stated; full older literature not exhausted.",
+        "The value is limited to horizon two and existence of SOME favorable initial error; the relaxed rule never uniformly dominates the baseline.",
+        "Direct arXiv HTML source was inaccessible; full equivalent mathematical mirror text inspected and arXiv metadata checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes policy and general bounds, not this exact two-step 2×2 crossover",
+          "evidence": "Entezari et al., arXiv:2610.12346 §3.3: ω_i=1+sqrt(1−v_i/vmax).",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.12346",
+          "material_read": "Accessible full manuscript mirrored HTML, especially Theorem 2, §3.3 relaxation formula, §4 proof, §5 numerical experiments and §6 context; arXiv abstract independently verified",
+          "method": "Authorized public scholarly mirror of full mathematical text; arXiv metadata",
+          "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+          "trigger": "Exact newly proposed volume-normalized relaxed-uniform policy"
+        },
+        {
+          "assessment": "Minimax coupling at common relaxation h, distinct from independent uniformly sampled heterogeneous norms and pointwise relative benefit",
+          "evidence": "Resultary theorem formulas Λ±(q) and fixed h on both update maps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-repeat-alternate-transition-for-two-step-relaxed-kaczmar--98f608901237",
+          "material_read": "Full published RESULT.md, complete two-affine-eigenvalue proof and boundary conditions; blob 4338e17c510e5a8588df315323919f24087c9224",
+          "method": "GitHub published Resultary full file",
+          "title": "A sharp repeat–alternate transition for two-step relaxed Kaczmarz coupling",
+          "trigger": "Closest published two-row two-step theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The new adaptive overrelaxation is an actual recently introduced algorithmic policy; its apparent uniform one-step disadvantage makes the exactly characterized two-step strict-benefit and strict-harm region a meaningful cautionary finite-horizon boundary. The continuum of τ,ρ with an exact spectral if-and-only-if and a rational witness is motivated and not just an arbitrary isolated numerical example. It does not promise worst-case or asymptotic improvement, and mathematical utility is narrower than a general algorithmic convergence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Horizon exactly two, unequal-norm two-row real system, iid uniform indices, fixed global max; no full noise, asymptotic or online-maximum claim.",
+    "Connection with generic prior second-moment methods leaves a historical priority residual risk."
+  ],
+  "schema_version": 1
+}

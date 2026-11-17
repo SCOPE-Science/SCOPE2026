@@ -1,19 +1,21 @@
-# Review of the two-step randomized projection crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The row norms are exactly \(1\) and \(\sqrt{1-\tau^2}\), so the 2026 volume-normalized rule gives fixed relaxations \(1\) and \(1+\tau\). For independent uniform row selections, enumerate the four two-step matrix products and form the exact quadratic-form difference \(D\). In the orthonormal second-row basis, direct multiplication yields \(\operatorname{tr}D=\tau^2(\tau^2+2s^2)/4>0\) and \(\det D=\rho^2s^2\tau^2[\tau^4+\tau(\tau+2)s^2-1]/16\). The spectral sign test for a real symmetric two-by-two matrix proves both directions of the claimed if-and-only-if, including equality and every initial error. The sign of the one-step difference follows from orthogonality of \(I-Q\) and \(Q\). All 50,904 independent exact-rational checks, including enumerated words, passed. The proof covers an infinite open parameter domain; the finite checker is supplemental.
+PASS
 
-## Originality — PASS, qualified
+PASS: The prescribed global-max norm relaxation for rows a1=(1,0), a2=√(1−τ²)(ρ,√(1−ρ²)), τ,ρ∈(0,1), is ω1=1 and ω2=1+τ. In exact arithmetic U=I−uuᵀ, V=I−vvᵀ, W=I−(1+τ)vvᵀ. Enumerating four iid uniform two-step words gives second-moment matrices B_Z=1/4[U(U²+Z²)U+Z(U²+Z²)Z], and difference D=B_W−B_V. Direct exact product yields tr D=τ²(τ²+2s²)/4>0, det D=(ρ²s²τ²/16)[τ⁴+τ(τ+2)s²−1], s²=1−ρ². A symmetric 2×2 matrix with positive trace has negative eigenvalue iff determinant<0; equality or reverse means positive semidefinite, proving the all-initial-errors classification including equality and strict worse directions. One-step difference τ²(eᵀQe)/2 is nonnegative for every e and strictly positive unless Qe=0; the source correctly says 'never better', not strictly worse for all. Independently enumerated exact rational four-word matrices for τ=s=3/5, ρ=4/5, e=(0,1) to get Eunit=1681/2500, Erel=10297/15625, difference −837/62500. The τ0 quartic derivative is positive, so unique threshold root. No claim beyond two steps or all initialization improvement.
 
-Entezari, Banerjee and Kalantari (arXiv:2610.12346v1, 8 October 2026) specify the row-volume-based relaxation and its one-step expected progress; their §3.3, proofs, experiments and discussion do not give the exact **two-step, all-initial-error** comparison to unit-relaxation uniform sampling. Marshall and Mickelin (arXiv:2202.12224) analyze scheduled learning rates in a noisy regime; Dong et al. (arXiv:2512.09825) analyze a distinct averaged Bregman-block update; Bai and Wu (doi:10.1016/j.laa.2018.05.009) treat unrelaxed randomized Kaczmarz. A relevant publicly indexed result on **cyclic**, asymptotically optimized two-row Kaczmarz has a different update law and finite-horizon objective, so it does not imply the independent uniformly sampled result here. Other indexed results address reverse-order cyclic underrelaxation, not this precise policy. Searches for equivalent two-step moment and noncommuting-projection formulations did not locate direct coverage. The publisher full text of Bai–Wu and the full publicly indexed cyclic result could not be inspected; historical originality against an unindexed equivalent calculation remains a concrete residual risk. The originality assessment is a reasoned comparison, not a uniqueness guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a mathematically motivated question for a newly introduced computationally cheap rule: can a relaxation that can never improve **any conditional one-step expected squared error** nevertheless produce a strictly smaller expected error after two randomly composed steps? The answer has a complete sharp angular and norm-ratio phase boundary, a matching all-initial-error impossibility region, and a simple exact rational instance. The noncommutative memory of random projection compositions is essential; a one-step spectral bound does not decide this. The result is deliberately narrow but gives a concrete diagnostic for interpreting finite-horizon performance of the proposed norm-dependent policy. It is not a theorem of worst-case or per-gradient-evaluation superiority.
+PASS (qualified): The Oct 8 2026 Entezari–Banerjee–Kalantari source introduces the volume-normalized relaxation rule and provides generic contraction and simulations, but does not state this sharp two-step fixed-initial-error benefit region or the counterintuitive contrast with the nonimproving one-step effect. Published related two-row Kaczmarz studies optimize dependent row-selection coupling at a common relaxation or compare reshuffling and independent selection; those change the policy, objective, or parameterization. No exact equation for this specific unequal norm-induced ω1=1,ω2=1+τ comparison was found. Strong antecedent warning: all calculations are simple 2×2 second moments and might be derivable from general prior MSE formulas; no full historical exhaustion.
 
-## Limitations and closest literature
+## value
 
-The system is two-dimensional, homogeneous and consistent; two rows are sampled iid with equal probabilities, the global maximum row norm is known, and only the second iterate is compared. Neither a larger-system improvement nor any longer-time advantage follows. Related prior methods and sources are identified in RESULT.md and AUDIT.json. Independent mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The new adaptive overrelaxation is an actual recently introduced algorithmic policy; its apparent uniform one-step disadvantage makes the exactly characterized two-step strict-benefit and strict-harm region a meaningful cautionary finite-horizon boundary. The continuum of τ,ρ with an exact spectral if-and-only-if and a rational witness is motivated and not just an arbitrary isolated numerical example. It does not promise worst-case or asymptotic improvement, and mathematical utility is narrower than a general algorithmic convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
