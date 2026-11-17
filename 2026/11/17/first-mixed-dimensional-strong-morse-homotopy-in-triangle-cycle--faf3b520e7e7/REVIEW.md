@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+**PASS.** The proof treats all and only the four explicitly stated finite graphs, using the one-dimensional descending-link criterion derived from the definition of strong matching. Exhaustive vertex orderings generate the complete full complex, with independently traversed order-prefix agreement on facets. Each deterministic certificate pairs codimension-one faces of the full face poset; all arrows of its directed Hasse diagram are checked for acyclicity. Exact signed integer Morse-chain projection makes every relevant differential zero. The potentially delicate \(n=6\) case has one critical vertex, two critical 2-faces and eleven critical 3-faces; the zero degree-3-to-2 differential implies all attaching maps are zero in \(\pi_2(S^2\vee S^2)\cong\mathbb Z^2\). The embedded executable and its recorded output have been rerun. No larger graph length is inferred from the calculations.
+
+## Originality
+**PASS, with residual bibliographic risk.** Sections 3–4, 6–8 and 10 of Knudson–Owens-White's primary full-text paper were inspected for the construction and their graph classifications; they do not state the unequal two-petal results. The published friendship-graph formula covers the \(n=3\) boundary only, so that boundary is credited rather than presented as independently new. The published square-bouquet formula assumes all petals are quadrilaterals and cannot imply the mixed triangle/long-cycle rows. A theta graph result concerns a different two-pole gluing. Targeted phrase and conceptual/parameter searches located no equivalent mixed-bouquet classification; search incompleteness and incomplete primary access to the external research-record files are genuine residual risks.
+
+## Mathematical value
+**PASS.** Mixed cycle-length vertex-gluing is the first natural situation not covered by equal-petal bouquet formulas or the disjoint-union join theorem. The finite complete classification through \(n=6\) identifies a sharp topology transition: the first two positive-dimensional homology degrees coexist exactly at a hexagonal second petal, after circle-only and sphere-only cases. The complete integral homotopy types, especially the vanishing signed 3-cell attachments, provide a meaningful boundary phenomenon for ongoing structural classification of strong-Morse matching complexes and distinguish this invariant from simply applying the topology of the input graph. This is not just a single Betti-number recomputation.
+
+## Closest literature and limitations
+The defining primary source is arXiv:2609.06844v1 (2026-09-06); Fernández's theory and the older ordinary Morse complex supply background, not the computed mixed-bouquet values. Searchable published research records give the known all-triangle and all-square bouquet results; their text was not fully available and this limits the bibliographic conclusion. The work proves only the specified finite range; arbitrary lengths, petals and symmetry actions remain outside the claim.
+
+Self-review: passed. Independent audit: not yet performed.
