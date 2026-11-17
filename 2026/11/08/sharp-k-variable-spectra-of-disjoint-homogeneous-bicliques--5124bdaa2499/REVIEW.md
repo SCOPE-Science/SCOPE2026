@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** All three parameters and the side-swap symmetry are explicit. The proof handles \(k=1,2\) separately; for \(k\ge3\), the permanent partial-isomorphism invariant proves equivalence without a depth limit. The converse provides two concrete Spoiler strategies. Component collisions are exposed using a third movable pebble; side mismatches use the same witness mechanism after saturating one side. The minimum-order and counting formulas follow from distinct realizable invariants. Finite refinement comparisons at widths two through four agree with the prediction; they do not establish the unrestricted statement on their own.
+## correctness
 
-**Originality — PASS, qualified.** The closest retrieved published methodological sources give general pebble-game and logical-width machinery, not this exact three-parameter spectrum. Previously available specialized descriptions cover the connected biclique case and the repeated four-cycle case; neither implies the full result simply by specializing its statement. Searches did not identify a published exact classification for homogeneous disconnected bicliques. The principal unresolved risk is a stronger general composition theorem from which the present statement follows without being stated verbatim.
+PASS
 
-**Value — PASS.** The exact cutoff across three independently scalable structural parameters is a natural benchmark for expressive power on disconnected twin-rich graphs. It is not just a fixed small example: it yields all variable widths, the cubic theory-count formula, a unique canonical minimum representative of each theory and sharp defining widths. The proof isolates the finite-pebble 'collision-exposure' mechanism that prevents an expected one-variable penalty for unlabelled components and bipartition sides.
+The unlimited-round ordinary k-pebble strategy preserves occupied components, sides, and injections with at most k-1 survivors; the converse Spoiler strategy uses two retained vertices and a third to distinguish component coalescence and side truncation. Widths 1 and 2 see only equality and adjacency, not three-way component membership. Counting the k choices of truncated n and k(k-1)/2 unordered side pairs gives k²(k-1)/2 theories; the k-threshold establishes order 2k² and identifying width 1+max(n,a,b). Small k=3,4 tests in the package corroborate but are not the proof.
 
-**Closest literature and limits.** Pikhurko–Verbitsky (arXiv:1003.4865) surveys logical-width phenomena and repeated components, including repeated paths; Grohe–Otto (CSL 2012) develops non-counting pebble-game characterizations; Dawar–Holm (arXiv:1205.0913) generalizes the game framework. The inspected portions do not state this exact result. A relevant public summary on complete multipartite graphs addresses a connected family, not unions of multiple bicliques; its entire primary text was not available in this inspection. The theorem does not classify arbitrary unions of bicliques with different dimensions, and independent historical-priority verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected earlier theorem gives the simultaneous unrestricted-depth three-parameter k-truncation for unions of identical K_{a,b}. General pebble methods and other graph families overlap techniques but do not imply this enumerated invariant.
+
+## value
+
+PASS
+
+A complete sharp three-parameter FO^k invariant, exact number of theories, and defining-width threshold for a natural disconnected graph family is a substantive structural classification beyond textbook pebble equivalence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

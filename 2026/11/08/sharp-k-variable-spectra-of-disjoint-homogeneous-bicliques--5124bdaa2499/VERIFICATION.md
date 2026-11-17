@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Execute `python verify.py` with Python 3 and no third-party modules. The recorded `verify_output.txt` was produced by this command on the exact script accompanying the proof. The check implements colour refinement on all \(k\)-tuples using sets of colours attainable by replacements, with equality and adjacency as the initial atomic signature. It tests one- and multi-component bicliques at widths two, three and four, including beyond-threshold pairs. Expected equivalence is calculated independently from the displayed truncated invariants and compared against the observed stable colours.
+# Independent mathematical audit
 
-The replay is finite and does not enumerate every parameter or all quantified sentences; the unbounded conclusions require the proof in `RESULT.md`. The metadata and review fields report self-review only. Independent mathematical audit remains unperformed.
+## correctness
+
+PASS
+
+The unlimited-round ordinary k-pebble strategy preserves occupied components, sides, and injections with at most k-1 survivors; the converse Spoiler strategy uses two retained vertices and a third to distinguish component coalescence and side truncation. Widths 1 and 2 see only equality and adjacency, not three-way component membership. Counting the k choices of truncated n and k(k-1)/2 unordered side pairs gives k²(k-1)/2 theories; the k-threshold establishes order 2k² and identifying width 1+max(n,a,b). Small k=3,4 tests in the package corroborate but are not the proof.
+
+## originality
+
+PASS
+
+No inspected earlier theorem gives the simultaneous unrestricted-depth three-parameter k-truncation for unions of identical K_{a,b}. General pebble methods and other graph families overlap techniques but do not imply this enumerated invariant.
+
+## value
+
+PASS
+
+A complete sharp three-parameter FO^k invariant, exact number of theories, and defining-width threshold for a natural disconnected graph family is a substantive structural classification beyond textbook pebble equivalence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
