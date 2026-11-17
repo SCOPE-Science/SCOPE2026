@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing the embedded script. No third-party Python packages are needed. The script uses the exact quadratic integer ring \(\mathbb Z[\varphi]\), with \(\varphi^2=\varphi+1\). It reconstructs all twelve icosahedron vertices, thirty edges and twenty triangular faces; verifies that every original edge lies in two triangles; tests all four facet normals of each of the thirty rectified vertices against all twelve axial directions; checks fourfold exact coverage; exhausts all \(64\) antipodal sign transversals; identifies the twelve size-ten maximizers; checks their pairwise overlaps and a four-direction cover; and confirms the tight-frame matrix identity.
+## correctness
 
-Actual invocation: `python3 verify.py`. Actual result: `EXACT_OK vertices=30, faces=32, signed transversals=64, distribution={5: 12, 6: 20, 9: 20, 10: 12} fractional=3, ordinary=4, exact facet inequalities=1440`.
+PASS
 
-The finite checks are a complete certificate for the discrete claims only because every arbitrary real direction is analytically reduced to a six-pair transversal. Analytic arguments establish weighted optimality, ordinary optimality and illumination of all boundary points. The program does not certify historical novelty or independent audit.
+The original regular icosidodecahedron has thirty rectified edge-midpoint vertices, each with two pentagonal and two triangular active facet normals. Illumination forces both original endpoints strictly into the negative halfspace and hence into an antipodal transversal; exact 64-transversal induced-edge multiplicities {5:12,6:20,9:20,10:12} bound a direction by ten lit vertices. Twelve icosahedral axial directions each cover ten and cover each rectified vertex four times, giving known I*=3. Any ordinary three-direction cover must partition thirty vertices into three maximum-ten sets, and all maximum-ten sets are original closed-neighborhood induced-edge sets; their pairwise intersections vanish exactly at antipodal centers, so no three can be pairwise disjoint. Four explicitly stated original axial directions cover every edge midpoint, proving I=4. Independent fresh combinatorial enumeration independently checked all transversals, intersections, lack of 3-cover and existence of a 4-cover. Repaired full RESULT, SLOGAN, REVIEW and METADATA credit the already-published fractional half without changing the proof of the new ordinary half.
+
+## originality
+
+PASS
+
+The October 25 published same-solid note already proves I*=3, max-ten, identical 64-transversal distribution, and symmetry-average fractional construction; none of these is original. Its complete mathematical result explicitly excludes ordinary directional I(P). The later *ordinary* I=4 is not a corollary of I*=3 or of ten-vertex maximum (in principle a disjoint three-set cover could attain the fractional optimum). The extra classification of all maximizing cover sets and three-way intersection obstruction, plus explicit four-axis cover, establishes a genuine residual theorem. Repaired claim narrows scientific novelty to sharp ordinary value and integral/fractional 4/3 gap; O PASS best of knowledge, with explicit past credit.
+
+## value
+
+PASS
+
+For a named Archimedean rectification, determining whether fractional minimum three can be achieved integrally is a natural discrete geometry optimization question; a sharp 4 versus 3 gap is structurally explained by pairwise neighborhood intersections and is not determined by the earlier single-direction count. Value attaches to the genuinely new integrality obstruction, not reprinting known fractional value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
