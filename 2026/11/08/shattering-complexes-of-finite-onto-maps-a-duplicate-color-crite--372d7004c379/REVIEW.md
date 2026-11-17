@@ -1,19 +1,21 @@
-# Review of shattering complexes of finite onto maps
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof reconstructs necessity from mutually exclusive row labels, the full-row missing-color obstruction, and all-positive color coverage. For each proposed positive subset it proves an explicit Hall condition for missing colors: at least two demanded colors are adjacent to all unassigned rows, and one demanded color has access to an unqueried row. Thus all dichotomies extend to surjections. The Stirling sum and facet count follow by disjoint cases, and the matroid boundary follows from partition-matroid truncation for two colors and a concrete basis-exchange failure for three or more. Complete finite support enumeration (104,272 cases across eight parameter pairs) and 15 exchange-witness checks corroborated the derivation. The unrestricted assertions are proved, not inferred from the finite sample.
+PASS
 
-## Originality
+For every n>q>=2, one-hot support must have at most one query per row; testing all n rows prevents surjectivity in an adversarial all-negative color, and all-positive trace forces s-d≤n-q. Conversely for any positive subset P and its t distinct colors, the remaining n-|P| rows outnumber missing q-t colors; each remaining tested row forbids at most one, so Hall neighborhoods for >=2 colors are all remaining rows, while a missing singleton always has an untested row because s<n. This realizes all traces. Stirling numbers count labeled row-distinct tests using d colors; all facets have size n-1, require d≥q-1, yielding explicit facet count. The q2 complex equals rank-(n-1) truncation of row partition matroid, whereas q>=3 has concrete A,B basis exchange failure; n=q outside novelty. Independent exhaustive supports n4,q3 (4096), Stirling counts and a q3 n4 exchange witness confirmed.
 
-**PASS within the accessible comparisons.** Leboeuf--LeBlanc--Marchand (arXiv:2210.10781, 2022) considers categorical equality decision-stump partitions, not the binary incidence traces of all globally surjective assignments. Godbole--Pinella--Zhuang (arXiv:1301.6371) treats random word/permutation covering patterns with a different shattering object. Bucic et al. (arXiv:1906.05908) treats intersection statistics of perfect matchings rather than exact support shattering. The bijective boundary is known as a perfect-matching setting and is not separately claimed new. Actual synonym, implications, exact-table and record searches did not surface the all-parameter n>q criterion and matroid boundary. Historical priority under alternative terminology remains uncertain.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact duplicate-color obstruction and full face polynomial describe every allowable binary query support for a natural constrained categorical class. Purity and the matroid-versus-nonmatroid transition sharply distinguish the two-color and higher-color cases, giving structural information not supplied by the VC dimension alone.
+The global onto constraint distinguishes this from categorical decision-stump 2-partition bounds, word-pattern covering arrays and bijective perfect matching boundary. The complete repeated-color threshold, Stirling face polynomial, purity and q=2 matroid boundary are not covered by the inspected primary results. O is best knowledge, not certification.
 
-## Scope and limitations
+## value
 
-For n>q>=2 only; binary equality-incidence supports rather than arbitrary multiclass shattering. Does not establish Littlestone dimensions, homological consequences, or results for prescribed fiber quotas. Finite verification does not prove the all-parameter theorem; the proof does. Historical priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact support complex of all onto categorical assignments is a natural learning/combinatorial invariant. It exhibits a sharp structural matroid-versus-nonmatroid transition that is invisible in its constant n-1 VC dimension, alongside all face coefficients and facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

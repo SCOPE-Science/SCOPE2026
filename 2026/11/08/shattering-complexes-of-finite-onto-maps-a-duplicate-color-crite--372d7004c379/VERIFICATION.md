@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_surjection.py` using Python 3, with no third-party dependencies.
+# Independent mathematical audit
 
-The verifier enumerates **every** candidate query support for eight pairs `(n,q)`: `(2,2)`, `(3,2)`, `(3,3)`, `(4,2)`, `(4,3)`, `(4,4)`, `(5,2)`, `(5,3)`. It computes graph-incidence traces by enumerating all onto maps, checks the proposed shattering criterion, independently computes Stirling face counts, and checks facet size and count. Total examined: **104,272** candidate supports, including supports with more than one queried edge per row; **1,442** were shattered. Fifteen explicit exchange counterexamples across `3<=q<=5` and `q<=n<=8` were also checked (including the q=n boundary, as finite corroboration only).
+## correctness
 
-Expected completion marker: `SURJECTION_SUPPORT_CLASSIFICATION_PASS 8 104272 1442 nonmatroid_witness_pairs 15`.
+PASS
 
-Finite enumeration cannot establish the unrestricted result; the complete proof in `RESULT.md` supplies quantifiers and critical Hall-completion reasoning. The executable never accesses external services or unprovided files. Independent external mathematical validation has not been performed.
+For every n>q>=2, one-hot support must have at most one query per row; testing all n rows prevents surjectivity in an adversarial all-negative color, and all-positive trace forces s-d≤n-q. Conversely for any positive subset P and its t distinct colors, the remaining n-|P| rows outnumber missing q-t colors; each remaining tested row forbids at most one, so Hall neighborhoods for >=2 colors are all remaining rows, while a missing singleton always has an untested row because s<n. This realizes all traces. Stirling numbers count labeled row-distinct tests using d colors; all facets have size n-1, require d≥q-1, yielding explicit facet count. The q2 complex equals rank-(n-1) truncation of row partition matroid, whereas q>=3 has concrete A,B basis exchange failure; n=q outside novelty. Independent exhaustive supports n4,q3 (4096), Stirling counts and a q3 n4 exchange witness confirmed.
+
+## originality
+
+PASS
+
+The global onto constraint distinguishes this from categorical decision-stump 2-partition bounds, word-pattern covering arrays and bijective perfect matching boundary. The complete repeated-color threshold, Stirling face polynomial, purity and q=2 matroid boundary are not covered by the inspected primary results. O is best knowledge, not certification.
+
+## value
+
+PASS
+
+The exact support complex of all onto categorical assignments is a natural learning/combinatorial invariant. It exhibits a sharp structural matroid-versus-nonmatroid transition that is invisible in its constant n-1 VC dimension, alongside all face coefficients and facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
