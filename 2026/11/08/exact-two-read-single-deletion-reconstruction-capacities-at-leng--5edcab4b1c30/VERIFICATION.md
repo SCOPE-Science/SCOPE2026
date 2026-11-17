@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of finite certificates
+# Independent mathematical audit
 
-Run `python3 verify.py certificates.json` with Python 3. The checker requires no third-party dependencies and regenerates the exact confusability relation from deletion outputs. For each of seven canonical support graphs it verifies complete vertex membership, a pairwise nonconfusable set, a vertex-disjoint matching of forbidden pairs, and the equality `independent_count + matching_count = vertex_count`. The last equality proves sharpness of each table entry without assuming a graph optimizer is correct.
+## correctness
 
-The actual run returned `VERIFY_OK cases=7 independent_set_and_matching_certificates=7 q_formula_checks=48 direct_support_check_q=3`. Additional algebraic tests check the formula through alphabet size forty-nine, and an independent direct scan checks support separation for ternary words of lengths three and four. The finite checks are not used as a proof for infinitely many alphabet sizes; that extension follows from the symbol-support lemma and the binomial sum in the proof.
+PASS
 
-Limitations: no independent human or externally certified audit was performed. The set of possible traces is distinct, not a multiset of read multiplicities. The source model allows a word to have fewer than two distinct one-deletion traces; the requirement applies to any pair of traces if it exists.
+For distinct deletion outputs z,z′ of word w, any symbol absent from either output was deleted at its sole occurrence, hence it cannot be absent from both different outputs; therefore supp(z) union supp(z′)=supp(w). Two codewords with >=2 common distinct outputs have identical exact supports, decomposing the confusability graph into copies of seven canonical support graphs (n=3,4; support size k). Independently parsed the *actual* certificates.json Git blob and rebuilt every canonical graph directly from all words and their distinct deletion sets. In each of seven cases, verified every independent-set witness, all matching edges were genuine conflicts, all matching vertices disjoint and alpha+matching=#vertices. Exact certified alpha rows: n3 k1,2,3 ->1,4,3; n4 k1,2,3,4 ->1,8,18,12. A matching of size v-alpha gives the upper bound, independent set the lower bound. Binomial expansion yields the two formulas for ALL q>=2; finite support graphs are exhaustively certified independently of the alphabet parameter. No claims for n>=5 or identical outputs.
+
+## originality
+
+PASS
+
+The exact code sizes are not determined by published general two-read deletion asymptotic constructions, the stronger one-read disjoint-ball codes, or the complete all-length confusability EDGE count. The directly relevant Cai–Kiah–Nguyen–Yaakobi paper gives definitions, q-ary reconstruction constructions and asymptotic statements, not the seven exact short-class independence numbers. The known October edge-count result cannot determine alpha(G). The all-q short-block capacity formula and matching-independent finite certificates appear independently new subject to residual unindexed finite-length-coding risk.
+
+## value
+
+PASS
+
+The first two nontrivial short lengths of a natural adversarial multiread reconstruction channel have exact best code sizes for every alphabet size. Exact symbol-support decomposition and complementary graph witnesses make a useful all-q finite classification; no downstream all-length theorem is required for a meaningful sharp short-block capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
