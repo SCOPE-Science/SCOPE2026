@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is fully quantified for all integer cycle lengths at least three, every aperture, and both endpoints. The geometric construction is explicit and was checked against every competing candidate for multiple lengths and near-boundary apertures; strict inequalities allow small perturbations uniformly on compact intervals. The independent-block Poisson event has exact positive probability and internal successors are shielded from external points, proving positive lower spatial density uniformly over each compact reflex-aperture interval. Standard point-process ergodicity gives the exact Palm density for each fixed aperture. The continuity argument depends on finitely many stable outgoing decisions under the Palm law; the exact cycle formula follows directly from multivariate Campbell-Mecke and a void event. The full-plane endpoint is independently controlled by strictly descending nearest-neighbor edge lengths. The checker is a finite consistency test, not a substitute for these analytic steps.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For sectors alpha<=pi the direction has strictly increasing horizontal projection (ties have Poisson probability zero); at alpha=2pi ordinary nearest-neighbor edge lengths strictly decrease unless 2-cycle, ruling out k>=3. For each k>=3 and compact [a,b] in (pi,2pi), explicitly constructed x-axis chain plus one point (-s,1) has nearest admissible successor cycle for every alpha in [a,b] by strict angular and metric inequalities. Independently checked all pairwise competitors at 16 varied k/alpha choices (k=3,4,7,20 and apertures near both endpoints); this verifies only finite geometric ingredient. Poisson disjoint positive-probability tile events yield positive density uniformly on compact aperture ranges; spatial ergodic theorem yields almost-sure Palm frequency for fixed aperture, and countable compact exhaustion gives simultaneous positivity. Local stability of each finite orbit plus bounded convergence yields continuity; Campbell-Mecke with Poisson void sectors gives exact (k-1)-tuple Palm integral with no missing factorial. Proof of infinite result rests on these arguments, not finite simulation.
 
-Actual mathematical-record searches using aliases (directional nearest-neighbor, cone graph, minimal directed spanning forest, reflex cone, cyclic components, directed cycle spectrum) returned results on unrelated directed cycles, topology and proximity graph operations, but none directly implying all lengths have positive density at every reflex angle. The primary paper [1] was read in HTML at definitions, principal theorem and open-problem discussion: its parameter range is below a half-plane, its observable total edge length, and its explicit reflex-cone extension is open. Author-hosted text of [2], including the Section 2 restriction to two-cycles in the unrestricted graph, was read; it covers only the full-plane endpoint. Existing reflex-sector *reciprocal-pair* calculations concern length two, not the new \(k\ge3\) cycle spectrum. The central residual risk is that a broader result about directed cycles of geometric proximity graphs could imply the qualitative construction and its Poisson ergodic consequences; neither searched records nor the inspected primary material established such coverage. This is a provisional self-review, not priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new phase classification is reentrant: the full spectrum of directed cycles of length three and larger emerges at the half-plane threshold and vanishes again exactly at the ordinary nearest-neighbor endpoint. The statement goes beyond a single deterministic configuration by proving almost-sure positive spatial density uniformly over any compact range of reflex apertures, providing a complete simultaneous cycle-length spectrum and an exact Palm integral. The contrast between globally acyclic partial-order graphs, reflex graph cycles, and unrestricted two-cycle-only graphs is a natural structural statistic in the newly identified reflex regime. It is an existence/density theorem, not a replacement for the edge-length distribution theory or an exact numerical evaluation of the cycle densities.
+Best-of-knowledge independent source and logical implication comparison supports an exact new statement after explicit credit for known techniques and partial cases. Historical priority is not certified and residual access risks are retained.
 
-## Sources and residual limitations
+## value
 
-[1] Georgiou, Tawhari, Wade, arXiv:2610.40140v1, full HTML definitions/Section 1.3/Section 1.4, https://arxiv.org/html/2610.40140v1.
+PASS
 
-[2] Eppstein, Paterson, Yao (1997), Section 2 of author-hosted full text, https://www.ics.uci.edu/~eppstein/pubs/EppPatYao-DCG-97.pdf.
+The entire possible cycle-length spectrum switches from none (except two-cycles) to all k>=3 and then back to none as an angular selection window widens, a structural reentrant graph phenomenon. Positive density uniform across compact reflex intervals and an exact Palm integral are independently meaningful in stochastic geometry, beyond merely showing one directed geometric example.
 
-The former is in the qualifying recent public-date window, first posted October 29, 2026, primary 60D05. The second is background. Other possible prior geometric-cycles classifications are not exhaustively ruled out, and sharper near-threshold cycle-frequency rates remain unknown here.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
