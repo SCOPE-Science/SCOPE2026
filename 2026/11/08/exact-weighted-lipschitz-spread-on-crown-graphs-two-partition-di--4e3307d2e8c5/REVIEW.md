@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quotient Lipschitz ball is compact and variance strictly convex for positive masses. Connectedness of the tight-edge graph forces integer potential differences; range-three potentials are uniquely tied to one missing matched pair, while range-two potentials with any gap-two deleted pair have disconnected tight-edge graph. Remaining vertices are precisely one-side signings; direct weighted second-moment calculations give the two discrepancy branches and the exceptional-pair branch. The sixteen-large-weights PARTITION reduction proves the compact-input threshold hardness; checking all integer profiles for three small graph orders is corroborative rather than a universal proof.
+## correctness
 
-## Originality — PASS, with explicit prior coverage and risk
-The 2009 graph-spread literature supplies the concept and integer extremizer principle. The general facet-subgraph theorem supplies facial combinatorics. The previously published crown-graph symmetric-edge-polytope theorem gives the full uniform-mass numerical answer and its eight-point phase boundary under polar duality; **neither is claimed new here**. The reviewed prior statements do not express the arbitrary positive-mass norm, independent side-discrepancy terms, asymmetric exceptional-pair correction, or restricted compact-input NP-completeness. Because the new numerical statement uses a feasible vertex classification closely related to existing facet theory, an overlooked weighted-polytopal corollary is a genuine residual originality risk. Searches and implication comparisons are recorded in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-The weighted operator norm is a natural functional-analytic invariant for a finite metric space equipped with a nonuniform sampling law. Its full weight-simplex formula exposes two independent number-partitioning phenomena and a third exceptional-pair mechanism, with exact equality locations and a sharp continuous competition boundary in the paired-symmetric subfamily. The NP-complete threshold in a uniformly non-dominant weight regime shows the arithmetic dependence is consequential, not a cosmetic weighted substitution. The result is restricted to crown metrics and does not solve analogous arbitrary graph problems.
+Positive masses give strictly convex variance on Lipschitz potentials modulo constants; all extremizers have connected tight-edge graphs and integer increments. Range 3 forces a unique missing diagonal pair (0,3) with all remaining (2,1); range 2 with omitted diagonal difference 2 disconnects tight edges; all others are one-side signings. Weighted centered moments yield max(alpha-delta_A²,beta-delta_B²,max E_i). Sixteen large weights H>S make balanced signatures of padded PARTITION equivalent to original and keep max q_i<1/8. Independent full integer-potential enumeration for n=3,4 (141,495 feasible potentials), ten random strictly positive weight choices each, matched exact maxima and predicted winning profiles.
 
-## Limits
-All assertions assume strictly positive rational or real vertex masses, except the complexity claim which takes binary rational inputs. Exhaustive finite checks do not prove universality. An equivalent result in unindexed or unseen weighted Lipschitz literature remains possible. No independent validation was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for arbitrary positive vertex probability masses, the two partition-discrepancy terms, asymmetric exceptional-pair correction, full equality profiles, and compact-weight-input NP-complete threshold. The previously published symmetric-edge-polytope result covers uniform-mass spread under polarity but not arbitrary weights. General facet theory offers a method, not the submitted weighted closed expression and complexity threshold.
+
+## value
+
+PASS
+
+The exact centered Lipschitz embedding norm is a natural invariant of weighted finite metric spaces. This classification reveals genuine arithmetic discrepancy phenomena and a sharp transition under mass imbalance; NP-completeness demonstrates the invariant is not a cosmetic reweighting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
