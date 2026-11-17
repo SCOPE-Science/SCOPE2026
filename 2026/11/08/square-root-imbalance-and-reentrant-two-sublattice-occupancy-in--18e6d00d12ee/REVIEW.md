@@ -1,15 +1,21 @@
-# Review of the near-balanced two-species occupation crossover
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite configuration space partitions into vacant, left-only, right-only and both-parts-occupied classes. These give an exact fugacity-weight formula without overcounting. Fixed-parameter logarithmic expansions prove the three class weights in the \(n^{-1/2}\) activity/\(n^{1/2}\) imbalance window; conditional binomial concentration yields the two-site-count mixture. Strict monotonicity of \(\tanh(t)/t\) gives exactly one interior minimum when \(\kappa>\sqrt2\), and none when \(0\le\kappa\le\sqrt2\). A standalone exact enumeration reproduces all class weights in 64 cases. The infinite-size argument is an analytic proof, not an extrapolation from those tests.
+## correctness
 
-## Originality
-**PASS, subject to historical priority.** The model itself, its graph-homomorphism encoding, and the finite graph partition count are not new. The nearest examined work covers infinite-lattice crystalline and demixed phases, general graph-occupancy extremal inequalities, or reentrant Gibbs-measure symmetry breaking on modified trees. The specific three-way near-balance scaling, the exact limit \(1/(1+e^{-c^2}\cosh(\kappa c))\), and the sharp two-species occupancy reentrance threshold \(\kappa=\sqrt2\) were not found in examined sources. A published universal representation of the finite WR partition function is stronger than the finite counting step and presents a residual implication/priority risk. Its available summary was examined, not the inaccessible full text; the older nonmonotonic-tree article likewise could not be read in full.
+PASS
 
-## Mathematical value
-**PASS.** The result gives an explicit physical observable and a motivated sharp boundary in a dense graph gas: simultaneous occupation of both sides can first become less likely and then more likely as activity increases, despite unchanged hard-core constraints. The three-atom limit distinguishes competing mesoscopic patterns that have the same leading total number of particles. This provides a meaningful finite-size scaling benchmark rather than a reparametrization, known-table recomputation, or unsupported prediction of infinite-volume phase coexistence.
+Partition configurations on K_{a,b} into empty, left-only, right-only, both-nonempty classes, with exact disjoint weights 1, (1+2z)^a-1, (1+2z)^b-1, 2[(1+z)^a-1][(1+z)^b-1]. For a=n, b=n-floor(kappa sqrt n), z=c/sqrt n, Taylor logs yield three nonzero limiting weights exp(-2c²), exp(-2c²-2kappa c), 2 exp(-c²-kappa c), with empty weight vanishing. Normalizing gives P_B(c)=[1+exp(-c²)cosh(kappa c)]^{-1}. The derivative sign is the negative of -2c+kappa tanh(kappa c); since tanh(t)/t strictly decreases, the exact reentrance threshold is kappa>sqrt2 with a unique minimum c*. Conditional binomial laws and O(sqrt n) variances prove the three-atom count limit. Fixed-c pointwise convergence at three chosen c values proves nonmonotonicity of finite-n probability for all sufficiently large n in the supercritical case. Independent direct enumeration for all 1<=a,b<=3 and z=1/3,2/3 matched exact four-class partition weights. No claim of a thermodynamic phase transition or finite-n monotonicity below threshold.
 
-## Sources and limitations
-The main historical comparisons are Lebowitz–Mazel–Nielaba–Šamaj (1995; arxiv:cond-mat/9707009), Brightwell–Häggström–Winkler (1999), Cohen–Perkins–Tetali (arxiv:1512.06398), Krčmár–Šamaj (2015; arxiv:1601.00515), and Cohen–Csikvári–Perkins–Tetali's graph/hard-core correspondence. Their different graph families, observables and limit regimes are identified in `AUDIT.json`. The exact finite partition count is a routine starting identity and is not independently claimed as new. This work addresses fixed positive scaling parameter \(c\) and a growing-degree graph, not general graph families or thermodynamic Gibbs nonuniqueness. All tests and findings remain subject to independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite K_{a,b} partition enumeration and WR graph-homomorphism interpretation are familiar, but among the inspected full published primary and Resultary sources none established the simultaneous c/sqrt n fugacity and kappa sqrt n side-imbalance crossover, its three-atom occupation law, or the unique sharp kappa=sqrt2 reentrance boundary for a finite-volume observable. Earlier nonmonotonic WR papers analyze Gibbs symmetry-breaking on modified trees and unrelated bounded-degree lattices, while Cohen-Perkins-Tetali treat regular-graph occupancy extrema. This is best-of-knowledge originality with named inaccessible primary literature risk.
+
+## value
+
+PASS
+
+The precise competition of one-side/two-side occupancy sectors in a canonical high-degree bipartite WR model gives a motivated sharp critical window and previously nonobvious reentrant event-probability threshold. The three distinct normalized occupation-count atoms and the exact uniqueness of the reversal are coherent structural results; they do not purport to be thermodynamic phase transitions. A finite graph count alone would be standard, but the scaling classification is a useful natural asymptotic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T06:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Partition configurations on K_{a,b} into empty, left-only, right-only, both-nonempty classes, with exact disjoint weights 1, (1+2z)^a-1, (1+2z)^b-1, 2[(1+z)^a-1][(1+z)^b-1]. For a=n, b=n-floor(kappa sqrt n), z=c/sqrt n, Taylor logs yield three nonzero limiting weights exp(-2c²), exp(-2c²-2kappa c), 2 exp(-c²-kappa c), with empty weight vanishing. Normalizing gives P_B(c)=[1+exp(-c²)cosh(kappa c)]^{-1}. The derivative sign is the negative of -2c+kappa tanh(kappa c); since tanh(t)/t strictly decreases, the exact reentrance threshold is kappa>sqrt2 with a unique minimum c*. Conditional binomial laws and O(sqrt n) variances prove the three-atom count limit. Fixed-c pointwise convergence at three chosen c values proves nonmonotonicity of finite-n probability for all sufficiently large n in the supercritical case. Independent direct enumeration for all 1<=a,b<=3 and z=1/3,2/3 matched exact four-class partition weights. No claim of a thermodynamic phase transition or finite-n monotonicity below threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular-graph occupancy bound concerns average occupied fraction at fixed activity, not event E_B for asymptotically nearly balanced K_{a,b}.",
+          "Brightwell et al. 1999 nonmonotonic Gibbs symmetry breaking uses modified Cayley trees, not this finite-volume sector probability."
+        ],
+        "reasoning": "Broader lattice/Gibbs monotonicity results do not imply the present sqrt n finite-volume crossover. The standard graph-counting identity was not credited as new.",
+        "searches": [
+          "Resultary query: Widom-Rowlinson complete bipartite partial occupancy reentrant scaling",
+          "https://tetali.math.gatech.edu/PUBLIS/WidomRowlinson-CPT.pdf",
+          "https://www.nokia.com/bell-labs/publications-and-media/publications/nonmonotonic-behavior-in-hard-core-and-widom-rowlinson-models/",
+          "https://arxiv.org/abs/1601.00515"
+        ]
+      },
+      "checked_sources": [
+        "https://tetali.math.gatech.edu/PUBLIS/WidomRowlinson-CPT.pdf",
+        "https://www.nokia.com/bell-labs/publications-and-media/publications/nonmonotonic-behavior-in-hard-core-and-widom-rowlinson-models/",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+        "https://arxiv.org/abs/1512.06398",
+        "https://arxiv.org/abs/1601.00515"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact finite partition can be derived directly from the general encoding.",
+          "No theorem inspected gives P_kappa(c)=[1+e^{-c²}cosh(kappa c)]^{-1} or derivative threshold sqrt2."
+        ],
+        "reasoning": "The prior general identity is used as a starting point; a delicate two-parameter scale selection and derivative classification supply the surviving specific mathematical result.",
+        "searches": [
+          "https://tetali.math.gatech.edu/PUBLIS/WidomRowlinson-CPT.pdf",
+          "https://www.nokia.com/bell-labs/publications-and-media/publications/nonmonotonic-behavior-in-hard-core-and-widom-rowlinson-models/",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "https://arxiv.org/abs/1512.06398"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "WR model on K_{a,b} has exact three disjoint nonempty sectors with competing exponentials at b=n-kappa sqrt n and z=c/sqrt n.",
+          "Cohen-Perkins-Tetali main theorem maximizes expected occupied fraction on regular graphs by K_{d+1}, not the chosen K_{n,n-kappa sqrt n} event probability."
+        ],
+        "reasoning": "Graph homomorphism encoding translates the model but does not itself assert this asymptotic three-way mixture or its threshold.",
+        "searches": [
+          "Resultary semantic search: complete bipartite Widom Rowlinson reentrant occupancy sqrt n balance fugacity",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "https://tetali.math.gatech.edu/PUBLIS/WidomRowlinson-CPT.pdf",
+          "https://www.nokia.com/bell-labs/publications-and-media/publications/nonmonotonic-behavior-in-hard-core-and-widom-rowlinson-models/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact four-class partition polynomial is elementary and known in principle from graph-homomorphism representations; no source located a table or special-function formula for its critical simultaneous n-dependent side imbalance/activity."
+        ],
+        "reasoning": "The evaluated new object is the asymptotic sector mixture and its threshold, not a finite partition table or an unmotivated isolated numerical constant.",
+        "searches": [
+          "Resultary query: WR K n n-k square root fugacity binary species exact partition function",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "https://tetali.math.gatech.edu/PUBLIS/WidomRowlinson-CPT.pdf"
+        ]
+      },
+      "rationale": "The exact finite K_{a,b} partition enumeration and WR graph-homomorphism interpretation are familiar, but among the inspected full published primary and Resultary sources none established the simultaneous c/sqrt n fugacity and kappa sqrt n side-imbalance crossover, its three-atom occupation law, or the unique sharp kappa=sqrt2 reentrance boundary for a finite-volume observable. Earlier nonmonotonic WR papers analyze Gibbs symmetry-breaking on modified trees and unrelated bounded-degree lattices, while Cohen-Perkins-Tetali treat regular-graph occupancy extrema. This is best-of-knowledge originality with named inaccessible primary literature risk.",
+      "residual_risks": [
+        "The full Brightwell-Haggstrom-Winkler 1999 primary WR nonmonotonicity paper remains inaccessible; the abstract names modified-tree Gibbs symmetry breaking but cannot justify a whole-paper NOT_COVERING verdict.",
+        "No absolute historical-priority guarantee: unindexed asymptotic applications of WR complete-graph partition functions could imply the same scaling.",
+        "The current Resultary same-date archival copy is not independent prior evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background probability/graph-homomorphism model and regular graph extrema, not stated K_{n,n-kappa sqrt n} transition",
+          "evidence": [
+            "Theorem 1 and Corollary 1: d-regular occupancy upper bound achieved at K_{d+1}; distinct observable"
+          ],
+          "identifier_or_url": "https://tetali.math.gatech.edu/PUBLIS/WidomRowlinson-CPT.pdf",
+          "material_read": "Complete 11-page public PDF including theorem, proof, uniqueness and references",
+          "method": "Read full public PDF through web extraction; screenshot of page one and inspected later proof",
+          "title": "On the Widom-Rowlinson occupancy fraction in regular graphs",
+          "trigger": "Closest graph-theoretic WR occupancy/partition primary literature"
+        },
+        {
+          "assessment": "Not sufficient to assert whole-document noncoverage; reported modified-tree Gibbs setting differs, residual full-text priority risk",
+          "evidence": [
+            "Abstract: modified Cayley-tree examples of nonmonotone Gibbs symmetry breaking"
+          ],
+          "identifier_or_url": "https://www.nokia.com/bell-labs/publications-and-media/publications/nonmonotonic-behavior-in-hard-core-and-widom-rowlinson-models/",
+          "material_read": "Full author abstract and bibliographic pages only; full primary paper could not be extracted",
+          "method": "Bell Labs published abstract and author bibliography; no full text accessible",
+          "title": "Nonmonotonic Behavior in Hard-Core and Widom-Rowlinson Models",
+          "trigger": "Very closely related nonmonotonicity terminology and object"
+        },
+        {
+          "assessment": "Indicates general graph-encoding approach, does not by snippet alone rule out exact critical crossover",
+          "evidence": [
+            "Structured search summary: graph-to-partition function correspondence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "Resultary search record title/summary and mathematical scope; full text not inspected",
+          "method": "Resultary index semantic search (not full-text)",
+          "title": "Widom-Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space",
+          "trigger": "General representation potentially subsuming finite partition counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise competition of one-side/two-side occupancy sectors in a canonical high-degree bipartite WR model gives a motivated sharp critical window and previously nonobvious reentrant event-probability threshold. The three distinct normalized occupation-count atoms and the exact uniqueness of the reversal are coherent structural results; they do not purport to be thermodynamic phase transitions. A finite graph count alone would be standard, but the scaling classification is a useful natural asymptotic invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not a bounded-degree infinite-volume Gibbs phase transition; limiting result fixed c>0 and fixed kappa.",
+    "No joint asymptotic uniformity when c varies with n and no finite-n monotonicity claim for subcritical kappa."
+  ],
+  "schema_version": 1
+}
