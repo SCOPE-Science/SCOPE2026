@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact critical map is an amplitude contraction. Every orbit converges; non-finite-hit orbits have eventually alternating signs. The only nontrivial asymptotic step is controlling the memory relative to current amplitude. The explicit convolution bound with \(\sqrt{\beta}<\rho<1\) closes that step, after which reciprocal increments give the two constants. Rational and numerical verification from the bundled program supports, but does not replace, this analytic argument.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The close 2026 RMSProp paper proves strict subcritical convergence, supercritical instability, and critical boundedness but does not supply convergence at the equality \(h=2\varepsilon/a\) or its polynomial constants. A second 2026 stability paper and the 2025 sharp-rate analysis both impose strict step inequalities. Search of the research database for scalar RMSProp critical rates, memory asymptotics, and equivalent flip-boundary descriptions returned optimizer results on different algorithms rather than a covering theorem. The key full texts and their relevant theorems were inspected; a historical equivalence cannot be ruled out absolutely.
+PASS
 
-**Mathematical value — PASS.** This resolves the parameter left between strict global stability and strict instability for the primary model, proves the missing global behavior, and identifies sharp, universal rates that cannot be recovered from interior exponential-contraction estimates. The memory \(n^{-2}\) constant is independent of curvature and decay, a structural dynamical fact. The scalar restriction is deliberate: no result is asserted for coupled quadratic coordinates or general losses.
+The exact update multiplier is (sqrt(v_{n+1})-epsilon)/(sqrt(v_{n+1})+epsilon). Its strict magnitude below one when x!=0 forces |x_n| decreasing; geometric averaging forces v_n to the squared limiting gradient; a positive limit contradicts strict contraction. Thus x_n,v_n->0; either finite hit or eventual negative multiplier. The nontrivial memory tracking lemma follows by unrolling v_{n+1}, bounding old history with rho in (sqrt(beta),1), and dominated convergence so v_{n+1}/(a^2x_n^2)->1. Reciprocal increment of |x| tends to 2a/epsilon. Cesaro implies amplitude and memory constants. Independent numerical iteration at a=2,epsilon=3,beta=.6,n=80000 gives n|x_n|=0.74869, n^2v_n=2.24229 versus limits .75,2.25. Boundary initial x=0 and finite-hit handled.
 
-**Limitations.** All asymptotic claims exclude exact finite-hit orbits, which instead terminate. Finite experiments cannot prove convergence or novelty. No independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Loh et al. establish subcritical stability and supercritical trapping, instability and cycles, while the source explicitly distinguishes the equality case. The submitted exact equality global convergence and universal polynomial rates with memory tracking are not directly implied by the reported strict results. Earlier different memoryless Riemannian example is not the same recurrence. Best-of-knowledge given full recent primary could not be obtained with accessible tools.
+
+## value
+
+PASS
+
+The critical learning-rate boundary is a natural omitted case of nonlinear optimization stability; algebraic convergence where linearization has multiplier -1 and a universal memory-independent decay constant is useful for sharp step-size theory. Not merely a numerical threshold reproduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

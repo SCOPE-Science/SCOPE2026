@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T15:55:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact update multiplier is (sqrt(v_{n+1})-epsilon)/(sqrt(v_{n+1})+epsilon). Its strict magnitude below one when x!=0 forces |x_n| decreasing; geometric averaging forces v_n to the squared limiting gradient; a positive limit contradicts strict contraction. Thus x_n,v_n->0; either finite hit or eventual negative multiplier. The nontrivial memory tracking lemma follows by unrolling v_{n+1}, bounding old history with rho in (sqrt(beta),1), and dominated convergence so v_{n+1}/(a^2x_n^2)->1. Reciprocal increment of |x| tends to 2a/epsilon. Cesaro implies amplitude and memory constants. Independent numerical iteration at a=2,epsilon=3,beta=.6,n=80000 gives n|x_n|=0.74869, n^2v_n=2.24229 versus limits .75,2.25. Boundary initial x=0 and finite-hit handled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Memoryless Riemannian circle RMSProp has a critical 1/n rate; Loh et al. abstract describes beyond-threshold instability and trapping."
+        ],
+        "reasoning": "The former is an unrelated geometry and zero-memory algorithm; no inspected stronger theorem subsumes the scalar with 0<beta<1 at equality.",
+        "searches": [
+          "Resultary:RMSProp epsilon outside critical scalar quadratic 2026-11-13",
+          "Resultary:2026/10/25/SCOPE-sharp-global-phase-transition-and-attracting-two-cycles-for-memo--25f4b1ac7763"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.30078",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-global-phase-transition-and-attracting-two-cycles-for-memo--25f4b1ac7763"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Related paper discusses supercritical two-cycles; lagged update theorem concerns a different recurrence."
+        ],
+        "reasoning": "The equality law depends on memory tracking and reciprocal-increment proof, neither supplied by these different/supercritical conclusions.",
+        "searches": [
+          "arxiv:2610.30078 The Dynamics of RMSProp Beyond the Stability Threshold",
+          "Resultary:2026/11/2/SCOPE-sharp-update-order-instability-of-a-one-step-lag-rmsprop-two-cyc--779e48cdeae5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited 2026 RMSProp paper uses positive-definite quadratic losses and the epsilon-outside threshold."
+        ],
+        "reasoning": "Equality h=2epsilon/a has linear multiplier -1; strictly subcritical contraction does not cover its nonlinear decay.",
+        "searches": [
+          "Resultary:RMSProp epsilon outside critical scalar quadratic 2026-11-13",
+          "arxiv:2610.30078"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available results report above/below-threshold regimes, not a table of exact equality constants for epsilon-outside RMSProp."
+        ],
+        "reasoning": "No exact data-table or computational theorem found for the same critical boundary; this search is not proof of novelty.",
+        "searches": [
+          "Resultary:RMSProp epsilon outside critical scalar quadratic 2026-11-13",
+          "web arxiv:2610.30078 abstract"
+        ]
+      },
+      "rationale": "Loh et al. establish subcritical stability and supercritical trapping, instability and cycles, while the source explicitly distinguishes the equality case. The submitted exact equality global convergence and universal polynomial rates with memory tracking are not directly implied by the reported strict results. Earlier different memoryless Riemannian example is not the same recurrence. Best-of-knowledge given full recent primary could not be obtained with accessible tools.",
+      "residual_risks": [
+        "Loh et al. arXiv:2610.30078 full paper/appendices inaccessible; the Oxford job c78e3ca4329c8e3f94b78badbc803cdf reported vpn_disconnected, not a scientific failure.",
+        "Unindexed optimizer dynamical-systems analyses might have the equality n^-1 constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "priority risk; no claim to whole-document negative inspection",
+          "evidence": "Abstract distinguishes instability above threshold and trapping; no accessible full text to rule out appendix equality treatment.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30078",
+          "material_read": "arXiv abstract, detailed summary and source theorem/section descriptions in reviewed package; full primary PDF/HTML unavailable",
+          "method": "arXiv HTML/PDF and lawful OA attempted, Oxford institutional attempt returned vpn_disconnected",
+          "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+          "trigger": "most relevant exact algorithm and critical learning rate"
+        },
+        {
+          "assessment": "not sufficient to cover memory-bearing scalar quadratic; full mathematical text uninspected",
+          "evidence": "The source uses memoryless Riemannian circle dynamics, not scalar epsilon-outside quadratic with beta in (0,1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-global-phase-transition-and-attracting-two-cycles-for-memo--25f4b1ac7763",
+          "material_read": "Resultary published abstract/summary only",
+          "method": "semantic Resultary retrieval",
+          "title": "Sharp global phase transition and attracting two-cycles for memoryless Riemannian RMSProp on the circle",
+          "trigger": "similar n^-1 rate at critical threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical learning-rate boundary is a natural omitted case of nonlinear optimization stability; algebraic convergence where linearization has multiplier -1 and a universal memory-independent decay constant is useful for sharp step-size theory. Not merely a numerical threshold reproduction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.30078",
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-global-phase-transition-and-attracting-two-cycles-for-memo--25f4b1ac7763"
+  ],
+  "disposition": "passed",
+  "final_claim": "At h=2 epsilon/a the scalar deterministic epsilon-outside RMSProp quadratic is globally asymptotically stable, with either exact finite hit or n|x_n|->epsilon/(2a), n^2v_n->epsilon^2/4, eventual sign alternation.",
+  "limitations": [
+    "Loh et al. arXiv:2610.30078 full paper/appendices inaccessible; the Oxford job c78e3ca4329c8e3f94b78badbc803cdf reported vpn_disconnected, not a scientific failure.",
+    "Unindexed optimizer dynamical-systems analyses might have the equality n^-1 constant."
+  ],
+  "schema_version": 1
+}

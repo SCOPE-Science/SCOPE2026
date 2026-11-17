@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python checks/verify.py` using a Python 3 interpreter. It requires only the standard library. The checker verifies exact rational identities, a finite-hit initialization, amplitude inequalities in finite trajectories, eventual alternation in sampled non-finite-hit trajectories, and scaled convergence for five distinct choices of \(a\), \(\varepsilon\), and \(\beta\).
+## correctness
 
-Observed result: `EXACT_IDENTITIES 36`, `NUMERICAL_SCENARIOS 5`, and `VERIFY_OK finite_checks_only_analytic_proof_required`.
+PASS
 
-The theorem is not inferred from numerical sampling. Its infinite-time proof uses the exact critical multiplier, a stable linear memory recurrence, a dominated-convergence argument for weighted histories, and Cesàro averaging of reciprocal increments. The numerical sample sizes do not impose finite-time bounds and some initializations can exhibit exceptionally long transients near finite-hit resonance. Independent verification has not been performed.
+The exact update multiplier is (sqrt(v_{n+1})-epsilon)/(sqrt(v_{n+1})+epsilon). Its strict magnitude below one when x!=0 forces |x_n| decreasing; geometric averaging forces v_n to the squared limiting gradient; a positive limit contradicts strict contraction. Thus x_n,v_n->0; either finite hit or eventual negative multiplier. The nontrivial memory tracking lemma follows by unrolling v_{n+1}, bounding old history with rho in (sqrt(beta),1), and dominated convergence so v_{n+1}/(a^2x_n^2)->1. Reciprocal increment of |x| tends to 2a/epsilon. Cesaro implies amplitude and memory constants. Independent numerical iteration at a=2,epsilon=3,beta=.6,n=80000 gives n|x_n|=0.74869, n^2v_n=2.24229 versus limits .75,2.25. Boundary initial x=0 and finite-hit handled.
+
+## originality
+
+PASS
+
+Loh et al. establish subcritical stability and supercritical trapping, instability and cycles, while the source explicitly distinguishes the equality case. The submitted exact equality global convergence and universal polynomial rates with memory tracking are not directly implied by the reported strict results. Earlier different memoryless Riemannian example is not the same recurrence. Best-of-knowledge given full recent primary could not be obtained with accessible tools.
+
+## value
+
+PASS
+
+The critical learning-rate boundary is a natural omitted case of nonlinear optimization stability; algebraic convergence where linearization has multiplier -1 and a universal memory-independent decay constant is useful for sharp step-size theory. Not merely a numerical threshold reproduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
