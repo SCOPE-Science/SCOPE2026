@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy. The checker verifies by exact symbolic series that the reciprocal-square increment is \(2/3+3v^2/10+O(v^4)\), hence the logarithmic coefficient is \(9/20\); it additionally checks strict distance contraction at 4,995 sampled phase/parameter pairs, four large-iteration critical trajectories, and four near-critical crossover sequences. A successful execution prints:
+## correctness
 
-`VERIFY_OK exact_critical_coefficients=3 global_mesh_checks=4995 critical_orbits=4 crossover_sequences=4`
+PASS
 
-The numerical checks are not proofs of uniform contraction or infinite-time asymptotics. The independent mathematical arguments are the strict analytic sine inequality, a summable reciprocal-square recurrence remainder, and the uniform precritical linear-recurrence comparison in `RESULT.md`. The \(o(1)\) critical remainder excludes finite-hitting seeds; the crossover concerns fixed initial errors in \((0,1]\). No external independent assessment has been performed.
+For K=2h in (0,2], the error u=theta-pi satisfies |u-K sin u|<|u| for 0<|u|<pi; compact strict descent gives global attraction excluding the in-phase fixed point. At K>2 the multiplier 1-K<-1 yields local repulsion. For h=1, g(v)=2sin(v)-v=v(1-v^2/3+v^4/60+O(v^6)); independent exact Taylor expansion gives w_{n+1}-w_n=2/3+3/(10w_n)+O(w_n^-2). Summing after w_n=2n/3+O(log n) yields w_n=2n/3+(9/20)log n+C+o(1). For fixed v0 in (0,1], at h=1-eps the positive decreasing recursion and uniform affine reciprocal-square expansion give eps*w_floor(t/eps)->(exp(4t)-1)/6. Finite-hitting seeds are separately excluded. Checked RESULT.md and verify.py actual frozen blobs; numerical meshes are corroboration, not proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge matching theorem search found no logically dominating already published result after comparing actual statements; relevant uninspected primary literature and older methods are recorded as residual risks.
+
+## value
+
+PASS
+
+The dynamics at a nonhyperbolic flip boundary is a motivated spectral endpoint problem: exact all-initial global stability, the evaluated logarithmic inverse-square correction, and the finite-time subcritical scaling give genuinely distinct critical features on the physical iteration clock. Merely reproducing the local multiplier or the known leading parabolic exponent would not suffice; the sharp endpoint and two-scale law supply value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
