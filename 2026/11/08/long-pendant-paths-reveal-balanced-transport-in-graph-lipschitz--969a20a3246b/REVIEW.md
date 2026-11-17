@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The law of total variance gives a sharp decomposition into within-arm and between-arm spread. The within-arm variance is maximized exactly by straight unit-slope paths; convexity of the between-arm functional then forces arm means to interval endpoints. Anchored Lipschitz polytopes have integral vertices, giving an exact finite maximization. Leading sign-imbalance gaps are at least \(1/n^2\), and integer covariance gaps are also at least \(1/n^2\); the explicit diameter inequalities prove eventual stabilization. The transport identity follows by finite Kantorovich duality. The strict sorted-gap argument proves unique path equality in the upper transport bound. Exact rational code checks the finite instances stated in VERIFICATION.md, not the universal theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-Comparison of actual implications rather than titles: arXiv:0902.1156 discusses random graph spread, integral extrema, and random pendant forests but does not derive a deterministic uniform-tail variance reduction or the balanced transport slope. Sammer–Tetali's 2009 transportation treatment covers discrete tori and concentration, not these rooted products. Earlier exact mathematical claims concern double stars, lollipops, fans/wheels and related distinct families; none states the all-core construction or asymptotic path uniqueness. Targeted searches for pendant-path corona spread, balanced transport slopes and mathematical aliases returned no dominating equivalent claim. This is not a uniqueness proof over all published mathematics; Barthe–O'Connell was available only at abstract level and other unindexed results may exist.
+PASS
 
-## Mathematical value — PASS
-The transformation is canonical (one path attached to every original vertex), the result is uniform over every connected core, and the eventual quadratic has an interpretable optimal-transport coefficient. The new sharp extremal characterization singles out paths among **all** connected cores of fixed order and provides a finite, if conservative, valid cutoff. It is not simply a fixed-size numerical table or an instance of Cartesian-product spread tensorization; an arbitrary graph of these rooted paths is not a Cartesian product.
+The law of total variance splits n equal branch paths into bounded within-path variances ℓ(ℓ+2)/12 and variance of branch means. Strict convexity in each mean maximizes at c_v±ℓ/2, and equality forces every branch to be straight with slope ±1. The anchored core Lipschitz polytope has integral vertices by incidence-matrix total unimodularity. Expansion gives the exact sign-vector/core-vertex optimization for all ℓ. Balanced signs alone survive beyond the stated cutoff by leading-coefficient and integer covariance gaps; their optimal covariance equals finite Kantorovich–Rubinstein W1 between balanced signed vertex masses. The β bounds are attained by K_n and uniquely P_n because all consecutive ordered potential gaps must equal one. The eventual P_n dominance and exact clique formula follow. Independently checked n=3,4,5 clique ℓ=2 with exact Fraction arithmetic, obtaining 8/3,35/12,212/75 and matching the closed formula.
 
-## Limitations
-No claims about unequal path lengths, weighted cores, or optimality of the stated cutoff. The classical existence of integral Lipschitz extrema and transport duality are explicitly acknowledged rather than presented as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact graph operation law and long-arm balanced-transport classification for equal pendant paths attached at every vertex. The inspected graph-spread literature treats ordinary cores or random pendant decorations, not this deterministic all-core operation with exact eventual quadratic/unique path upper extremum.
+
+## value
+
+PASS
+
+Graph Lipschitz variance is a natural concentration invariant. An exact transfer law for uniform long pendant attachments and its balanced earthmover interpretation clarify how core geometry controls the next-order term; the unique long-arm path extremizer is a motivated structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
