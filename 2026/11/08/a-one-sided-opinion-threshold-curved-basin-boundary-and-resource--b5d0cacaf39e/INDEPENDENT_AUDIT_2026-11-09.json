@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 455af722b7752ff82ddbf1decc66534f1ebfb8b5; verify.py 0eb0586112e958180a47a700d97bc2c0e4213d37",
+        "Original Lorits/Gubar arXiv:2307.04902 equations (7)-(10), Table 1, Figure 1; independent sympy checks"
+      ],
+      "rationale": "Under exact Lorits–Gubar Table 1 v(y)=4+3y,c(y)=12-2y, the clipped payoff h satisfies -1<=h<=49/68, so saturation reduces to sign-dependent positive part. Behavior x'=x(1-x)(v-cx)/2, opinion y'=(1-y)[h]_+ - y[-h]_+, resource n'=n(1-n)(3x-1). The behavior nullcline x=v/c meets h=0 once at Q=(1/2,1/2); on trapping strip 1/3<=x<=7/10 two boundary sinks P0=(1/3,0),P1=(7/10,1), and Q saddle with Jacobian [[-11/8,1/2],[0,15/32]]. Planar index eliminates cycles and saddle loops; Poincare–Bendixson gives global convergence in the strip. Convexity and h(x,1/2)=-11(2x-1)^2/16 force the one-sided y<=1/2 low-basin rule. Stable graph invariance with h<0 yields 44/103 quadratic curvature; logistic resource integrates exactly, giving path-dependent n_infty in low basin and n->1 elsewhere. Independent symbolic check confirmed Jacobian and curvature; finite trajectories alone are not global proof.",
+      "residual_risks": [
+        "Global stable boundary is implicit, not globally expressed in elementary functions",
+        "Planar index proof relies on interior trapping and no boundary saddles under precisely the Table1 model"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paarporn et al. uses linear tracking of environment by opinion; Ito/Yamamichi classify games whose payoffs directly depend on environmental state"
+        ],
+        "reasoning": "Those broad environmental-feedback models do not dominate the opinion-dependent payoff / clipped imitation / passive resource triangular instance. Generic planar stable-manifold existence supplies a method but not this model-specific geometry.",
+        "searches": [
+          "Query Resultary: Hawk Dove Lorits Gubar evolutionary game opinion environment saddle stable manifold basin y half threshold curvature",
+          "arXiv:1803.06737",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11639210/"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search for exact Lorits–Gubar Hawk–Dove game stable separator",
+        "Original arXiv:2307.04902 equations/Table 1/Figure 1",
+        "Paarporn et al. arXiv:1803.06737; Ito–Yamamichi PNAS Nexus 2024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lorits and Gubar introduce the same dynamics and numerically demonstrate distinct outcomes; planar index and stable manifold are generic theorems"
+        ],
+        "reasoning": "The exact one-sided y<=1/2 barrier uses the specific polynomial h(x,1/2)<=0; the local curvature follows from its Hessian and saddle eigenvalues. Neither the prior numerical cases nor general existence theorems imply these exact quantitative constraints.",
+        "searches": [
+          "arXiv:2307.04902",
+          "arXiv:1803.06737",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11639210/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mathematical system is a triangular x,y subsystem with n driven by x and nonlinear clipped opinion imitation; initial paper reports two numerical regimes at initial y0=.45 and .7"
+        ],
+        "reasoning": "The novelty is not relabeling the original parameter data. Classification of the global basin boundary, rigorous exclusion of recurrent limit sets and 44/103 curvature are strictly new statements relative to a pair of numerical examples.",
+        "searches": [
+          "Query Resultary: Hawk Dove Lorits Gubar evolutionary game opinion environment saddle stable manifold basin y half threshold curvature",
+          "arXiv:2307.04902"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source Table1 fixes the numerical parameters and Figure1 displays two trajectories but does not tabulate any stable-manifold curvature"
+        ],
+        "reasoning": "The integer/rational 44/103 is derived from the local invariance equation and is not a known-table recomputation; a raw figure cannot give the global all-initial-state classification.",
+        "searches": [
+          "Query Resultary: Hawk Dove Lorits Gubar evolutionary game opinion environment saddle stable manifold basin y half threshold curvature",
+          "arXiv:2307.04902"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel complete global classification, exact one-sided half-opinion threshold, quadratic stable-manifold coefficient 44/103 and limiting environmental continuum for the precise published game. Original authors report illustrative bistability but not these rigorous all-initial-state claims; distinct game–environment dynamics in later analyses do not entail them.",
+      "residual_risks": [
+        "A full closed form for the basin separator remains unknown and is not claimed; other unpublished model analyses may exist"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows the same benchmark model and numerical bistability, but not the global separator/curvature theorem",
+          "evidence": "Table 1: v0=4,v1=7,c0=12,c1=10; confidence B=diag(1/2,1/2), resource theta=2,psi=-1",
+          "identifier_or_url": "https://arxiv.org/abs/2307.04902",
+          "material_read": "Accessible primary PDF key sections including equations (7)-(10), Table 1 and Figure 1; visually inspected model and example pages",
+          "method": "Read/visually inspected source PDF pages and compared exact coefficients",
+          "title": "An evolutionary game with environmental feedback and players’ opinions",
+          "trigger": "Same precise system, parameters and original numerical bistability"
+        },
+        {
+          "assessment": "Different feedback-coupling assumptions; not sufficient to imply this clipped opinion basin result",
+          "evidence": "Game payoff environment n acts directly there, unlike n-passive triangular coupling here",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11639210/",
+          "material_read": "Accessible primary metadata and abstract/model classification, not all supplemental appendix",
+          "method": "Inspected accessible abstract/model description",
+          "title": "A complete classification of evolutionary games with environmental feedback",
+          "trigger": "Potential stronger global phase-plane classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary original Table 1/figure; source RESULT and independent sympy identities"
+      ],
+      "rationale": "Transforms the source paper’s two sample trajectories into a complete rigorous all-initial-state dynamical trichotomy, a sharp, nonlinear one-sided decision threshold and a continuum of resource memory. Exact stable-curve curvature and clipped vector-field index analysis are substantive model-specific structural results, not just replotting bistability.",
+      "residual_risks": [
+        "Only one particular Hawk–Dove parameter set; global separator described geometrically, not explicit closed form"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Global stable boundary is implicit, not globally expressed in elementary functions",
+    "Planar index proof relies on interior trapping and no boundary saddles under precisely the Table1 model",
+    "A full closed form for the basin separator remains unknown and is not claimed; other unpublished model analyses may exist",
+    "Only one particular Hawk–Dove parameter set; global separator described geometrically, not explicit closed form"
+  ],
+  "schema_version": 1
+}

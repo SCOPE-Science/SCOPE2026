@@ -1,25 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The formal domain is the original Table 1 game with source payoffs \(u_H=v-(v+c)x/2\), \(u_D=v(1-x)/2\), and confidence matrix \(B=\operatorname{diag}(1/2,1/2)\). The source's \([\cdot]_0^1\) truncation reduces to the stated positive-part rule because \(-1\le h\le49/68\), as proved by the nonnegative degree-two Bernstein tensor for \(1+h\) and convexity in opinion fraction. Scalar comparison traps the strategy component in \([1/3,7/10]\). The exact nullcline identity shows only one interior equilibrium; exact Jacobians give two boundary sinks and one hyperbolic saddle. Positive scaling of the opinion component preserves equilibrium indices; the planar index/Poincaré–Bendixson argument rules out cycles and recurrent saddle connections. Convexity and explicit edge identities establish the one-way barrier. The invariant stable-graph equation gives coefficient \(44/103\); substitution checks that graph is on the appropriate clipped branch. The resource log-odds identity gives the limiting continuum. The symbolic verification program has passed; numerical trajectories are only illustrations.
+PASS
 
-## Originality — PASS on inspected evidence
+Under exact Lorits–Gubar Table 1 v(y)=4+3y,c(y)=12-2y, the clipped payoff h satisfies -1<=h<=49/68, so saturation reduces to sign-dependent positive part. Behavior x'=x(1-x)(v-cx)/2, opinion y'=(1-y)[h]_+ - y[-h]_+, resource n'=n(1-n)(3x-1). The behavior nullcline x=v/c meets h=0 once at Q=(1/2,1/2); on trapping strip 1/3<=x<=7/10 two boundary sinks P0=(1/3,0),P1=(7/10,1), and Q saddle with Jacobian [[-11/8,1/2],[0,15/32]]. Planar index eliminates cycles and saddle loops; Poincare–Bendixson gives global convergence in the strip. Convexity and h(x,1/2)=-11(2x-1)^2/16 force the one-sided y<=1/2 low-basin rule. Stable graph invariance with h<0 yields 44/103 quadratic curvature; logistic resource integrates exactly, giving path-dependent n_infty in low basin and n->1 elsewhere. Independent symbolic check confirmed Jacobian and curvature; finite trajectories alone are not global proof.
 
-The initiating preprint Lorits–Gubar (arXiv:2307.04902v1, Section 3 and Figure 1) already exhibits distinct numerical outcomes from initial opinion values 0.45 and 0.7. We do not claim numerical bistability or the classical stable-manifold/index theorems as new. Its accessible full text gives the equations and plot but no theorem on all interior initial states, no exact one-sided half-opinion barrier, no signed \(44/103\) local basin curvature, and no full resource-limit family. Paarporn et al. (arXiv:1803.06737v1, Section IV) use \(\dot o=-\gamma(o-n)\) rather than payoffs-based clipped opinion imitation; their control results do not cover the identified stable graph. Ito–Yamamichi (2024, doi:10.1093/pnasnexus/pgae455) classify directly environment-driven two-variable games, not this triangular three-state opinion–strategy system. Targeted published-research semantic comparisons and own recoverable claims found no theorem implying all four linked conclusions. This is best-knowledge originality, not a proof of absence in the full literature.
+## originality
 
-## Value — PASS
+PASS
 
-The source shows different outcomes for two sampled initial opinions but does not tell which mixed initial strategies select which outcome. Proving a sharp one-sided barrier and calculating that the basin boundary bends strictly above the naive half-opinion threshold turns the simulation into a structural initial-condition classification. The continuum of environmental memories proves that convergence to the same behavioral endpoint does not force environmental convergence to a single state. These are motivated, model-specific conclusions relevant to empirical basin estimation and interpretation of opinion-driven ecological feedback, rather than arbitrary numerical slices.
+Best-of-knowledge novel complete global classification, exact one-sided half-opinion threshold, quadratic stable-manifold coefficient 44/103 and limiting environmental continuum for the precise published game. Original authors report illustrative bistability but not these rigorous all-initial-state claims; distinct game–environment dynamics in later analyses do not entail them.
 
-## Closest literature and residual risks
+## value
 
-[1] Lorits and Gubar, *An evolutionary game with environmental feedback and players' opinions*, arXiv:2307.04902v1 (2023), equations (7)–(10), Section 3, Table 1 and Figure 1: the initiating equations and numerical examples, not the claimed classification.
+PASS
 
-[2] Paarporn, Eksin, Weitz and Wardi, *Optimal control policies for evolutionary dynamics with environmental feedback*, arXiv:1803.06737v1 (2018), Section IV: different linear opinion rule and controlled problem.
+Transforms the source paper’s two sample trajectories into a complete rigorous all-initial-state dynamical trichotomy, a sharp, nonlinear one-sided decision threshold and a continuum of resource memory. Exact stable-curve curvature and clipped vector-field index analysis are substantive model-specific structural results, not just replotting bistability.
 
-[3] Ito and Yamamichi, *A complete classification of evolutionary games with environmental feedback*, PNAS Nexus (2024), doi:10.1093/pnasnexus/pgae455: a broader title but structurally different ecological-payoff feedback; existence of multiple regimes is not a novelty claim here.
-
-Residual risk: another unindexed or inaccessible treatment may derive an equivalent all-initial-state basin classification; no independent external audit or publication-priority certification has been undertaken. Stable graph's global shape remains implicit, and the result is parameter-specific.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
