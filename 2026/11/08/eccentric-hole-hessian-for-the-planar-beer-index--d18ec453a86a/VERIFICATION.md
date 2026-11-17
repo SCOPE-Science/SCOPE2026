@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` supplies the line-coordinate Jacobian, full pair-crossing integral, exact quadratic Taylor coefficient, elementary definite integrals and uniform analyticity at every fixed positive radius. A separate symbolic differentiation checked the expression for the quadratic integrand; it simplified to zero difference. The numerical executable `verify_eccentric_visibility.py` uses a smooth sine substitution in deterministic quadrature and tests \(a=0.2,0.5,0.8\). It also generates independent area-uniform point pairs, computes their segment-to-hole-center minimum distance without relying on the line integral, and compares probabilities. The executable returned `ECCENTRIC_BEER_LOCAL_HESSIAN_AND_DIRECT_SEGMENTS_OK` in the actual source directory.
+## correctness
 
-Run: `python verify_eccentric_visibility.py` (Python 3 standard library only). The numerical tests illustrate the theorem but do not prove its all-radius or infinite-precision assertions. They are supplemental to the supplied elementary proof. No mathematical claim of a global hole-location optimizer, a fixed error constant uniform in radius, or a result in dimensions above two is made. Historical-priority assessment and independent audit are not performed.
+PASS
+
+Direct line-coordinate change of variables (p,theta,s,u) has pair Jacobian |s-u|. For every line intersecting the translated hole, the blocked ordered endpoint pairs lie across its two surviving segments, and their weighted integral is 2[(L-h)^2-e^2 sin²theta](L+h). Integrating signed q=p-e cos(theta) over [-a,a] and angle gives exact blocking probability with normalization π²(1-a²)². Differentiation at e=0 under the integral gives the analytic second-order integrand; its elementary antiderivatives total -5a sqrt(1-a²), implying b(a,z)=b(a,0)+[5a/(π(1-a²)^{3/2})]|z|²+O_a(|z|^4) and Hessian 10a/(π(1-a²)^{3/2})I. Odd terms vanish by rotational symmetry, with fixed-a analyticity (not uniform near endpoints). Independently compared midpoint/angle quadrature slopes at a=0.2,0.5,0.8, agreeing to better than 5e-6; computation corroborates analytic proof.
+
+## originality
+
+PASS
+
+The classical concentric-annulus Beer index is known in Hodge–Marshall–Patterson and in a later concentric-shell theorem. Neither a concentric radius derivative nor general convex visibility inequalities determine the Hessian for translation of the inner disk at fixed area. No exact earlier eccentric translational second-variation theorem located in inspected sources, with inaccessible 2010 primary full text retained as historical priority risk.
+
+## value
+
+PASS
+
+An explicit positive-definite shape Hessian determines strict local stability of a classic nonconvex visibility statistic under displacement, a natural optimization axis not reducible to changing annulus radii. Its divergence as the annulus becomes thin gives a mathematically meaningful sharp local sensitivity law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

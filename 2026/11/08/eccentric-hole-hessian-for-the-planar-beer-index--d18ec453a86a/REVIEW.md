@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The domain is an outer unit disk minus a fully contained radius-\(a\) disk with displacement \(\lVert z\rVert<1-a\). The direct line-coordinate Jacobian \(\lvert s-u\rvert\) gives an exact two-point event integral with normalization \(\pi^2(1-a^2)^2\). The two surviving line intervals have lengths \(L-h\mp e\sin\theta\), and their ordered opposite-side crossing weight is \(2[(L-h)^2-e^2\sin^2\theta](L+h)\). Differentiating only the outer half-chord \(L=\sqrt{1-(q+e\cos\theta)^2}\), while holding inner half-chord \(h=\sqrt{a^2-q^2}\) fixed, gives the coefficient integral \(-5a\sqrt{1-a^2}\). The normalized Beer index therefore has quadratic coefficient \(5a/[\pi(1-a^2)^{3/2}]\). Fixed-\(a\) uniform analyticity and evenness give the \(O_a(e^4)\) remainder and strict positive Hessian. Symbolic differentiation and an independent direct segment-sampling checker agreed with the proof. No unproved global minimum is claimed.
+## correctness
 
-## Originality: PASS (qualified by historical risk)
-The old concentric index is *not new*: Hodge--Marshall--Patterson explicitly calculated it. The exact radial-cap shell-visibility result for higher odd dimensions also concerns concentric domains; the 2014 Beer-index paper addresses general bounds. Changing the radius in those results does not change the hole position. An exact two-component displacement Hessian requires the new moving-chord geometry and is not covered by those inspected statements . Web and published-record searches used aliases including Beer index, convexity coefficient, punctured disk, circular-hole translation, and eccentric annulus. Negative search evidence does not prove worldwide originality; inaccessible early work remains a risk.
+PASS
 
-## Mathematical value: PASS
-Two-point mutual visibility is a natural quantitative nonconvexity functional with geometric and district-shape interpretations. Positioning a hole within a fixed disk is a natural shape parameter keeping both disk sizes and total area unchanged. The theorem provides the complete sharp quadratic response for *both* possible displacement directions, establishes strict local optimality of the concentric arrangement for **every** hole radius, and quantifies the singular sensitivity as the annulus becomes thin. This is a structural local extremal statement, not a radius substitution or an arbitrary finite constant. It makes no claim about arbitrary shapes or large displacements.
+Direct line-coordinate change of variables (p,theta,s,u) has pair Jacobian |s-u|. For every line intersecting the translated hole, the blocked ordered endpoint pairs lie across its two surviving segments, and their weighted integral is 2[(L-h)^2-e^2 sin²theta](L+h). Integrating signed q=p-e cos(theta) over [-a,a] and angle gives exact blocking probability with normalization π²(1-a²)². Differentiation at e=0 under the integral gives the analytic second-order integrand; its elementary antiderivatives total -5a sqrt(1-a²), implying b(a,z)=b(a,0)+[5a/(π(1-a²)^{3/2})]|z|²+O_a(|z|^4) and Hessian 10a/(π(1-a²)^{3/2})I. Odd terms vanish by rotational symmetry, with fixed-a analyticity (not uniform near endpoints). Independently compared midpoint/angle quadrature slopes at a=0.2,0.5,0.8, agreeing to better than 5e-6; computation corroborates analytic proof.
 
-## Closest literature and limits
-References: Beer (1973); Hodge, Marshall and Patterson (2010), concentric annulus and the convexity coefficient; Balko et al. (arXiv:1412.1769v1, first public 2014-12-04), Beer-index comparison theorems; "Exact visibility laws for concentric spherical shells in odd dimensions" (2026-10-11), concentric shell distributions. Beer (1974) parallel-body paper had only abstract-level inspection. Independent priority and mathematical assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical concentric-annulus Beer index is known in Hodge–Marshall–Patterson and in a later concentric-shell theorem. Neither a concentric radius derivative nor general convex visibility inequalities determine the Hessian for translation of the inner disk at fixed area. No exact earlier eccentric translational second-variation theorem located in inspected sources, with inaccessible 2010 primary full text retained as historical priority risk.
+
+## value
+
+PASS
+
+An explicit positive-definite shape Hessian determines strict local stability of a classic nonconvex visibility statistic under displacement, a natural optimization axis not reducible to changing annulus radii. Its divergence as the annulus becomes thin gives a mathematically meaningful sharp local sensitivity law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

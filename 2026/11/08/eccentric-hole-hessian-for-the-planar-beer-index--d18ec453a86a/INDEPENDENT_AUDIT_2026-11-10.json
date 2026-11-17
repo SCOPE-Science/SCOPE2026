@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:52:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct line-coordinate change of variables (p,theta,s,u) has pair Jacobian |s-u|. For every line intersecting the translated hole, the blocked ordered endpoint pairs lie across its two surviving segments, and their weighted integral is 2[(L-h)^2-e^2 sin²theta](L+h). Integrating signed q=p-e cos(theta) over [-a,a] and angle gives exact blocking probability with normalization π²(1-a²)². Differentiation at e=0 under the integral gives the analytic second-order integrand; its elementary antiderivatives total -5a sqrt(1-a²), implying b(a,z)=b(a,0)+[5a/(π(1-a²)^{3/2})]|z|²+O_a(|z|^4) and Hessian 10a/(π(1-a²)^{3/2})I. Odd terms vanish by rotational symmetry, with fixed-a analyticity (not uniform near endpoints). Independently compared midpoint/angle quadrature slopes at a=0.2,0.5,0.8, agreeing to better than 5e-6; computation corroborates analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Concentric shells result https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958 is radial across dimensions and explicitly excludes offcenter holes.",
+          "Balko et al study convexity/Beer index general bounds, not the exact eccentric annulus second derivative."
+        ],
+        "reasoning": "General upper/lower Beer bounds and radius-dependent concentric formulas do not determine the offcenter local Hessian.",
+        "searches": [
+          "Resultary: Beer index annulus translated inner disk eccentric hole visibility Hessian local minimum",
+          "Resultary: eccentric annulus Beer index off center hole displacement second variation Hessian 5 a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+          "Balko et al arXiv:1412.1769"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+        "Hodge–Marshall–Patterson 2010 DOI 10.4169/074683410X510317",
+        "Balko et al arXiv:1412.1769"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published shell result gives b_2(a) only at z=0, no directional translation information.",
+          "Changing z preserves area and hole radius, while changing a alters area; derivatives are inequivalent."
+        ],
+        "reasoning": "The Hessian is not a corollary of the centric expression. It follows by a new geometric line-integral second variation, although an inaccessible paper could independently have calculated it.",
+        "searches": [
+          "Resultary: Beer index annulus translated inner disk eccentric hole visibility Hessian local minimum",
+          "Resultary: eccentric annulus Beer index off center hole displacement second variation Hessian 5 a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+          "Hodge Marshall Patterson DOI 10.4169/074683410X510317"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact concentric planar formula b(a,0) in the submission is already published.",
+          "Translated-hole second derivative is with respect to z at fixed a and area; no varying-radius substitution yields this derivative."
+        ],
+        "reasoning": "Only the centric baseline is equivalent to prior published formula; the quadratic translational coefficient is the new assertion.",
+        "searches": [
+          "Resultary: Beer index annulus translated inner disk eccentric hole visibility Hessian local minimum",
+          "Resultary: eccentric annulus Beer index off center hole displacement second variation Hessian 5 a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+          "Hodge Marshall Patterson DOI 10.4169/074683410X510317"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known closed concentric Beer formula was checked against independently computed integral.",
+          "No matching eccentric-Hessian database/table located in targeted indexed searches."
+        ],
+        "reasoning": "No numerical table priority claimed; this is a fixed-a all-radius symbolic second-variation theorem, not a finite computation. Literature search is not a proof of priority.",
+        "searches": [
+          "Resultary: Beer index annulus translated inner disk eccentric hole visibility Hessian local minimum",
+          "Resultary: eccentric annulus Beer index off center hole displacement second variation Hessian 5 a",
+          "Hodge Marshall Patterson 2010 Gerrymandering and Convexity"
+        ]
+      },
+      "rationale": "The classical concentric-annulus Beer index is known in Hodge–Marshall–Patterson and in a later concentric-shell theorem. Neither a concentric radius derivative nor general convex visibility inequalities determine the Hessian for translation of the inner disk at fixed area. No exact earlier eccentric translational second-variation theorem located in inspected sources, with inaccessible 2010 primary full text retained as historical priority risk.",
+      "residual_risks": [
+        "Full primary 2010 article could not be retrieved through OA or authorized Oxford (VPN disconnected); potential off-center passage remains unchecked.",
+        "No global optimality in displacement claimed; thin-annulus remainder not uniform in a."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers concentric only; no eccentric variation",
+          "evidence": "Specifically specifies centered shells S_{d,a} and excludes off-center geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-visibility-laws-for-concentric-spherical-shells-in-odd-dim--611519ee4958",
+          "material_read": "Entire public RESULT.md theorem, geometric radial-cap proof, dimensional limits and limitations",
+          "method": "GitHub raw text read",
+          "title": "Exact visibility laws for concentric spherical shells in odd dimensions",
+          "trigger": "Nearest recent exact annulus Beer index calculation"
+        },
+        {
+          "assessment": "Concentric baseline covered, possible additional offcenter section remains unknown",
+          "evidence": "Journal College Mathematics 41 (2010); Oxford job 0c132034b38ab43ca82457613f736ad9 could not access PDF.",
+          "identifier_or_url": "10.4169/074683410X510317",
+          "material_read": "Bibliographic description and centric formula references; full primary text inaccessible",
+          "method": "Publisher/OA route unsuccessful; authorized Oxford retrieval yielded vpn_disconnected",
+          "title": "Gerrymandering and Convexity",
+          "trigger": "Published exact planar concentric formula and possible unindexed translation"
+        },
+        {
+          "assessment": "General bounds, no proved matching eccentric Hessian",
+          "evidence": "General Beer index theory is relevant but not evidence of offcenter exact formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.1769",
+          "material_read": "Accessible scholarly abstract and theorem descriptions only; complete primary not inspected this run",
+          "method": "Arxiv/bibliographic lookup",
+          "title": "On the Beer index of convexity and its variants",
+          "trigger": "General visibility-statistic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit positive-definite shape Hessian determines strict local stability of a classic nonconvex visibility statistic under displacement, a natural optimization axis not reducible to changing annulus radii. Its divergence as the annulus becomes thin gives a mathematically meaningful sharp local sensitivity law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific acceptance is a qualified best-of-knowledge assessment, not formal Lean verification, expert attestation or independent historical certification.",
+    "Independent finite tests corroborate only bounded examples; entire quantifier claim is established by the reviewed mathematical proof, with named inaccessible literature limitations in originality.residual_risks.",
+    "Public file publication is not_ready owing to verified operational identifiers in current METADATA.json and AUDIT.json; no sanitized replacements validated."
+  ],
+  "schema_version": 1
+}
