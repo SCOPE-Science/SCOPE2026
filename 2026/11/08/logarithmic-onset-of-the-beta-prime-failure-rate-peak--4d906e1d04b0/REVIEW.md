@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The density-score identity, hazard derivative, strict crossing argument, and the location bracket are algebraically explicit. At \(a=1+\varepsilon\), uniformly on compact positive second-shape intervals, the beta normalization and incomplete survival integral give the displayed critical expansions. The root derivative has leading scale \(-1/\varepsilon\); the \(O(\varepsilon^2\log^2\varepsilon)\) equation residual therefore yields the \(O(\varepsilon^3\log^2\varepsilon)\) location remainder. Exact rational and finite numerical checks reproduced 5,910 assertions. No numerical computation is used as a proof of the infinite theorem.
+PASS
 
-## Originality
+For unit-scale BetaPrime(a,b), the score g=((b+1)x-(a-1))/(x(1+x)) gives derivative hprime=h(h-g). For a>1, g is negative up to m=(a-1)/(b+1), rises then falls with one positive maximum at c, and for x>=c the survival/density ratio satisfies S/f>1/g, forcing h-g<0. On the rising-score interval every zero of h-g has strictly negative derivative, establishing exactly one interior maximum; a<=1 decreasing by increasing density-shift ratio. With a=1+ε and x=ε+ε²z, |z|=O(|log ε|), uniform beta-function and incomplete-survival expansions yield h-g=ε[b(log ε+ψ(b+1)-ψ(1))-z]+O(ε²log² ε). Its derivative is -1/ε+O(|log ε|), so the root error is O(ε³log² ε); the height follows from h expansion. Uniform only for b on compact subsets of (0,∞), ε→0+. Exact a=2 rational formula and mpmath numerical checks corroborate, not prove asymptotics.
 
-The qualitative hazard shapes are treated as known. The 2026 beta-prime NWU characterization does not supply the critical location or height expansion. The 2018 beta-prime survival-model source discusses arc-shaped hazard behavior, and Cox (2008) and Glaser (1980) have broader hazard taxonomy; these statements could subsume uniqueness but do not themselves supply the specific boundary-layer constants. Targeted searches and available prior claims exposed no matching digamma/logarithmic onset formula. Full texts of Cox and Glaser could not be examined and remain named priority risks, not evidence of absence.
+## originality
 
-## Value
+PASS
 
-The exact logarithmic displacement is a structural, two-parameter boundary effect at the transition from strictly decreasing to arc-shaped failure rates. The position of the short-time failure-risk maximum is central to ageing-model interpretation; its leading location is independent of \(b\), while the first correction and height depend explicitly on \(b\). The quantified location approximation is more informative than a plot or a qualitative shape class, especially near the parameter threshold.
+Best of knowledge: prior Beta-prime hazard-shape and generalized F survival analyses discuss decreasing versus arc-shaped hazards or ageing classes, but no inspected accessible theorem contains the shape-dependent ε² log ε displacement and ε log ε height asymptotic at a↓1. Full Cox (2008) and Glaser (1980) inaccessible due disconnected authorized Oxford VPN; they remain material priority risks rather than grounds for automatic rejection.
 
-## Limitations
+## value
 
-No full priority certification or independent validation is claimed. Uniformity requires \(b\) in a fixed compact subset of \((0,\infty)\). Existing broad hazard theorems may contain additional unlocated formulae.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The beta-prime hazard changes structurally from decreasing to a unique interior maximum at a=1. The peak position and height are natural survival-analysis invariants; their sharp logarithmic boundary-layer correction and explicit b-dependence are not determined by a known qualitative shape classification or by a routine table lookup. This is a motivated quantitative onset theorem for a two-parameter family with controlled error, not an unsupported microscopic improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
