@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is specified without ambiguity by its twelve cycle edges and six chords. A complete 4096-subset face enumeration agrees exactly with independent maximal-clique expansion at the crucial radius two. Two separately ordered face-poset matchings each account for all 196 faces, including 96 pairs and four critical two-cells, and pass a topological-sort acyclicity test of all 588 cover incidences. Deleting the augmented empty-face pair leaves one critical vertex; no one-cells exist, so the four 2-cells attach trivially and prove the integral wedge equivalence. Direct finite-field ranks corroborate. All 48 automorphisms are exhaustively enumerated, and signed Lefschetz traces and character inner products establish the rational isotypic split. The certificate is replayable using the accompanying program.
+PASS
 
-## Originality — PASS, subject to bibliographic limitations
+Explicit Franklin LCF graph has 12 vertices, 18 edges, diameter 3, no triangles. Hence R0 is 12 points, R1 connected cycle rank 18-12+1=7, R3 full simplex. Independent enumeration of all 4096 masks at scale 2 found 196 faces incl empty, f-vector (12,48,76,45,12,2). Reconstructed ascending-pivot matching on augmented face poset: 96 pairs, four critical 2-faces and no others, all 588 Hasse edges oriented, all 196 nodes topologically sorted, so Forman gives wedge 4 S². Independently enumerated all 48 graph automorphisms, computed signed Lefschetz trace for every one via fixed faces, got χ(1)=4, χ(z)=-2, central z(i)=i+6. + eigenspace trace identically 1, − eigenspace dimension 3 and character square sum 48/48=1, proving absolutely irreducible over C. Rational invariant rank 1. The distance-3 graph equality with Franklin ordinary independence complex is an equivalent model and not treated as a separate novelty claim.
 
-The hypercube theorem (Adamaszek--Adams, Theorem 1) applies to Hamming cubes, not the Franklin graph; the finite-subset theorem (Feng--Nukala, Theorems 11--16) applies to symmetric-difference metrics. The relevant indexed hexagon-packing theorem requires girth at least 6, but Franklin has girth 4. Indexed results on asymmetrical twelve-vertex cubic graphs cannot include a graph with 48 automorphisms. Existing Franklin matching-complex and higher-independence statements concern different objects. Both the graph-metric Rips and ordinary independence-complex formulations were searched; none of the inspected material implies the exact homotopy and representation conclusion. An equivalent unindexed source is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Franklin's twelve-vertex cubic graph is a natural highly symmetric test case with a classical Klein-bottle embedding. The full change from seven 1-spheres to four 2-spheres and the nontrivial decomposition of the four-dimensional rational symmetry module are exact topological and equivariant invariants, not just an Euler characteristic or face-count curiosity. In particular the central involution has 1-dimensional positive and 3-dimensional negative homology eigenspaces, an invariant unavailable from homology ranks. This graph-specific contribution does not require a general cubic-graph classification.
+Known Franklin Rips H2 rank 4 and octahedral generators are prior (Oct 25). The new full integral homotopy filtration and 48-automorphism rational character 1⊕W with W 3-dimensional absolutely irreducible are not entailed by the checked earlier rank and lattice-orbit theorem.
 
-## Limits
+## value
 
-The homotopy equivalences are nonequivariant, while only the induced *rational* group representation is determined. No integral lattice decomposition or uniform crossed-prism theorem is asserted. Bibliographic coverage may be incomplete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full integral Rips homotopy sequence and full rational automorphism-module decomposition of the natural 12-vertex Franklin metric graph are nontrivial, reusable finite topological invariants. The 3-dimensional irreducible component and invariant line refine previously known H2 rank and geometric integral generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
