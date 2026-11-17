@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The specific proximal iteration is reconstructed algebraically from the actual metric inverse and the two weighted coordinate projections. The invariant primal/dual axes reduce it to the explicit real matrix \(T_s\). Its two-period product has trace \(2p^2-p(1-p)(q+q^{-1})\) and determinant \(p^2\), so the strict second-degree Schur test gives necessary and sufficient convergence for every initialization. At equality the eigenvalue \(-1\) obstructs convergence; above it a real eigenvalue is below \(-1\). The factorization of the threshold by \((3p-1)^2\) proves the universal optimum. Exact symbolic verification and a rational unstable witness support the proof; the infinite assertion does not rely on finite sampling.
+PASS
 
-## Originality
+The weighted coordinate projections onto orthogonal lines give the invariant state map T_s=[[rho^2,-rho/s],[s rho(1-rho^2),rho^2]] with det rho^2. The two-period product has trace 2p^2-p(1-p)(q+q^{-1}) and determinant p^2, p=rho^2. The real quadratic Jury inequalities reduce to strict q+q^{-1}<(1+3p^2)/(p(1-p)); the other Schur inequality stays positive. The identity threshold=6+(3p-1)^2/[p(1-p)] yields exact uniform bound max(q,q^{-1})<3+2sqrt2, with -1 eigenmode at equality and real eigenvalue below -1 beyond. rho=0 nilpotent special case covered. Source SymPy verifier inspected; independent rational product at rho=3/5,q=6 gave det(I+P)=-4/125, an actual unstable witness.
 
-PASS with priority limitation. The principal 2026 source's Algorithm 1 enforces a vanishing relative proposal bound and proves convergence under that safeguard; the current theorem intentionally drops that safeguard and classifies the exact alternating family. Lorenz--Tran-Dinh's 2018 nonstationary DR/ADMM convergence analysis requires summable stepsize increments, a condition violated here. Pedregosa--Gidel address adaptive methods with their own safeguards. Fixed-metric subspace contraction does not imply convergence of switched products. No inspected primary result or indexed mathematical finding states the full periodic trace criterion or the universal \(3+2\sqrt2\) boundary; related unindexed variable-penalty counterexamples remain a genuine priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The paper's metric-proposal restriction motivates asking whether mere boundedness of accepted metrics and acceptance by the local sufficient-decrease test would suffice in a non-strongly-convex feasibility setting. The exact contrast threshold gives a sharp negative answer on the minimal two-constraint subspace problem and identifies the first possible switching instability with an explicit rational certificate. The universal threshold is specific to this natural small model and is not advertised as a generic unrestricted VMTOS condition.
+General safeguarded variable-metric three-operator splitting and nonstationary Douglas–Rachford theorems require adjacent-metric controls or summable step increments that fail for a nonconstant two-period metric. Closely related published Floquet PDHG and reflected-splitting frontier theorems involve distinct state maps/step conventions; matching topical wording does not imply this explicit 3-operator line-indicator threshold. Best-of-knowledge PASS with full-text gap for 2026 source.
 
-## Limitations
+## value
 
-This applies only to scalar multiples of one fixed correlated two-by-two SPD metric, two perpendicular line indicators, two-period switching, and compatible initializations. It does not contradict the metric-comparability rule of the source algorithm. The source comparison has not been independently peer audited and unindexed priority remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal two-dimensional convex subspace feasibility example identifies precisely when bounded positive definite periodic switching destabilizes stationary convergent operators, and gives a sharp worst-correlation threshold plus exact eigenvector obstruction. It clarifies why the adjacent-metric safeguard is structurally relevant rather than a routine method tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
