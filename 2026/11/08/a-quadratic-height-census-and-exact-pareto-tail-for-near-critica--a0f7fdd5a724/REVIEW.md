@@ -1,11 +1,21 @@
-# Scientific review — height and gap laws for four-runner speeds
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement explicitly assumes the complete primitive classification and exact value formulas in Yi--Gill--Bu (arXiv:2610.40694v1, Theorem 1.1 and Lemma 8.5). From those premises, the injection of the two-parameter family, the eight allowed mod-four classes, the coprime-lattice-point count by odd-divisor Möbius inversion, and the scaled-gap pushforward all follow with the stated quantifiers. The area calculation is exact: the eight rational polygons have areas \(1,1/3,2/3,13/15,7/15,1/3,4/3,1/3\), whose sum is \(16/3\), and their maximum \(u+2v\) is \(4\). The boxed tail and moment threshold follow without a numerical limiting assumption. The standalone exact-arithmetic program confirms the polygon calculations, published finite census, and selected individual loneliness values. Those finite checks do not prove the asymptotic or re-certify the source paper's exhaustive classification.
+## correctness
 
-**Originality — PASS (best-known literature comparison, not proof of priority).** The closest source, Yi--Gill--Bu, fully classifies primitive near-critical quadruples, gives individual mod-four formulas and reports finite censuses, but does not state the quadratic height constant or the normalized gap's exact Pareto tail. Jain--Kravitz (arXiv:2411.12684v2) studies which spectral values occur via residue sectors, not the distribution of primitive speed sets by their maximum entry. Beck--Everett (arXiv:2609.06259v2) gives general short linear relations and genericity rather than these sharp arithmetic constants. Specific searches for height census, gap scaling, inverse-square tails, equivalent formulations and dominating results found no direct coverage. The calculation genuinely **uses** the new classification and does not claim to improve or replace it; an unindexed prior asymptotic may still exist.
+PASS
 
-**Mathematical value — PASS.** This answers the motivated enumerative question left after a newly complete classification: how rare are the near-critical primitive four-runner instances at bounded height? The \(H^2\) order and exact \(1/\pi^2\) constant quantify a codimension-two exceptional population. The limiting distribution goes beyond counting: its tail is **exactly** inverse-square beyond a natural geometric threshold, and its variance is infinite even though its first moment is finite. Those quantitative facts distinguish uniform sampling of near-critical speed sets from studying only their attainable spectral values.
+PASS conditional on the explicitly stated published Yi–Gill–Bu classification, which was read in its primary full text and is NOT independently reproved here. The permitted primitive x,y pairs occupy eight mod-4 classes, each of density area/(2 pi²) after Möbius inversion; area(T)=1/4 gives H²/pi² with O(H log H). Their m formula scales to eight positive piecewise-linear forms L; exact rational clipping areas sum to 16/3 and max u+2v=4. Thus for z>=1/2, c=(8z)^-1 gives area tail (1/2)*c²*(16/3)=1/(24z²), and the layer-cake moment threshold s<2. The finite exceptional families contribute only O(H); small rational polygon/census tests corroborate, never replace, the argument.
 
-**Scientific limitations.** The sharp probabilities apply to primitive unordered sets with a maximum-coordinate cutoff. The Pareto identity is for the limiting distribution, and the fixed-threshold error may depend on the threshold. The October 2026 source classification is accepted as a stated published premise but has not been independently re-audited. Historical priority, especially outside indexed preprints, has not been externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior source provides individual near-critical four-runner classifications and individual ML values, but not a population height asymptotic or the exact eight-sector gap law; the derived census and tail survive best-of-knowledge comparison.
+
+## value
+
+PASS
+
+PASS. Primitive near-critical four-runner populations under a natural maximum-speed height cutoff are a motivated object. The leading H² density, explicit gap law, exact Pareto tail and sharp moment boundary quantify features not supplied by the existing per-instance classification; a researcher investigating rarity of near-tight speeds could use these precise constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
