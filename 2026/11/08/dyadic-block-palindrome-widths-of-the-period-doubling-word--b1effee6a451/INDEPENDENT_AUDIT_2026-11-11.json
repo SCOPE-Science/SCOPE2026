@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T02:16:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The shortest proper border of any word is unbordered and nonoverlapping; refining any longer chosen outer border forces lower maximum width, so greedily removing shortest borders is optimal. For binary period doubling p(i)=v2(i+1) mod2, the reflection p(n−1−a)=v2(a) mod2 for n=4^m classifies each remaining boundary group into either two mirrored single-symbol borders or one mirrored two-symbol border, ending in center 10. Counting even v2(j) produces L_{2m}=(2·4^m+1)/3. For odd exponent the injective uniform morphism maps borders to doubled borders and excludes odd lengths because intermediate centers end in 0. Thus L_{2m+1}=L_{2m}. Independently optimized all outer-border options by dynamic programming for k≤8; universal result rests on valuation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goto et al theorem on largest factorization gives a method for any finite word; Gabrić–Shallit enumerates general widths/average random-word sizes; Barro et al considers distinct palindromic sequential factorizations."
+        ],
+        "reasoning": "The universal algorithm computes any fixed k but does not imply the formula as an already known theorem, while different constrained palindromic factorizations cannot determine this width.",
+        "searches": [
+          "Resultary search: period-doubling word dyadic prefixes block palindrome maximum width shortest border 2/3",
+          "Goto I Bannai Inenaga block palindrome greedy",
+          "Gabric Shallit arXiv:2302.13147",
+          "Barro Kaboré Bognini period doubling 2022"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1806.00198",
+        "https://arxiv.org/abs/2302.13147",
+        "https://ajc.maths.uq.edu.au/pdf/83/ajc_v83_p435.pdf",
+        "Resultary mathematical record search query 3",
+        "Resultary 2026/11/8 unbounded shortest repetition factorization widths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shortest border optimum is prior common ingredient; the arithmetic reflection and valuation split supply the particular exact count."
+        ],
+        "reasoning": "Do not count the greedy lemma as new; mathematical novel contribution is the full period-doubling dyadic evaluation and uniqueness and limiting oscillation.",
+        "searches": [
+          "Resultary search: period-doubling word dyadic prefixes block palindrome maximum width shortest border 2/3",
+          "arXiv:1806.00198 theorem largest greedy factorization",
+          "arXiv:2302.13147 theorem word distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both block-palindrome papers define mirrored equal blocks and an optional center, matching the assigned invariant, and prove generic greedy optimality."
+        ],
+        "reasoning": "The invariant is identical, but the claim is an infinite closed form for a specific morphic family not given by generic algorithm/word counts.",
+        "searches": [
+          "Resultary search: period-doubling word dyadic prefixes block palindrome maximum width shortest border 2/3",
+          "arXiv:1806.00198",
+          "arXiv:2302.13147"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified previous table or generating function for exact L_{2m}, L_{2m+1} of dyadic prefixes; Resultary repetition-factorization width is different."
+        ],
+        "reasoning": "A general word-count distribution or finite dynamic-program table does not supply explicit all-k closed form and two distinct normalized limits.",
+        "searches": [
+          "Resultary search: period-doubling word dyadic prefixes block palindrome maximum width shortest border 2/3",
+          "Resultary dyadic block palindrome width",
+          "Resultary unbounded shortest repetition factorization widths classical period doubling"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Generic greedy largest block-palindrome factorization was already known from Goto–I–Bannai–Inenaga and Gabrić–Shallit, and is credited. The period-doubling word itself has established palindromic Ziv–Lempel and Crochemore factorizations, a different invariant. None of the inspected general block-palindrome statements yields the all-k exact dyadic formula or alternating normalized limits without nontrivial 2-adic boundary counting. Other Resultary period-doubling width results concern repetition factorization, not mirrored-equal blocks.",
+      "residual_risks": [
+        "Only prefixes of length powers of two; no formula for arbitrary n or factors.",
+        "Same-word 2022 article full PDF could not be materially read; historical implicit-coverage risk remains.",
+        "Greedy optimality is established earlier and receives no independent novelty credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic algorithm covers greedy step, not all dyadic widths.",
+          "evidence": "Theorem 1: largest factorization from repeated shortest borders.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.00198",
+          "material_read": "Inspected primary full PDF definition and greedy largest-block characterization, with page-image verification at theorem.",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Block Palindromes: A New Generalization of Palindromes",
+          "trigger": "same precise width definition and greedy optimization"
+        },
+        {
+          "assessment": "Counts general words by width; no specialized period-doubling family claimed in inspected theorem.",
+          "evidence": "General-width distributions/expectation are different from L(2^k).",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13147",
+          "material_read": "Inspected theorem on largest factorizations, combinatorial enumeration and random words in primary PDF with page-image screenshot.",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Smallest and Largest Block Palindrome Factorizations",
+          "trigger": "broadest all-word block palindrome classification"
+        },
+        {
+          "assessment": "Cannot certify its entire text excludes an implicit shortest-border formula; unresolved bibliographic risk.",
+          "evidence": "Its announced results concern palindromic Ziv–Lempel and Crochemore factorizations, not equal mirrored block factorization.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/83/ajc_v83_p435.pdf",
+          "material_read": "Bibliographic abstract and cited theorem topics only; full PDF unavailable to read in this execution.",
+          "method": "lawful PDF attempted / citation comparison",
+          "title": "On the palindromic zl-factorization and c-factorization of the generalized period-doubling sequences",
+          "trigger": "exact same automatic word but related palindrome invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The natural maximal block-palindrome width for a canonical automatic word is classified for every dyadic prefix with an explicit greedy structure and asymptotically alternating 2/3 and 1/3 normalized subsequential limits. This exact infinite family is not a generic algorithm restatement or tiny finite improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only prefixes of length powers of two; no formula for arbitrary n or factors.",
+    "Same-word 2022 article full PDF could not be materially read; historical implicit-coverage risk remains.",
+    "Greedy optimality is established earlier and receives no independent novelty credit."
+  ],
+  "schema_version": 1
+}
