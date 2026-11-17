@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:13:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Exact destination draws on each side of non-lazy K_(n,n) are iid uniform, so split/same CDFs at even N=2k are F(1,N)^2 and F(2,N)F(0,N); odd CDFs are F(1,N+1)^2 and F(2,N)F(0,N+2). In terms of surjection counts a_(N,j)=j!S(N,j), even difference is [a_(N,n-1)^2-a_(N,n-2)*a_(N,n)]/n^(2N). The sequence is strictly log-concave on positive support by a_(N+1,j)=j(a_(N,j)+a_(N,j-1)), and positivity begins exactly N>=n-1. First-draw identities show the odd difference is positive exactly N>=n-2. Same-vertex start is pathwise dominated by two distinct same-side seeds. Independently recomputed exact coupon recurrences for n=2..10, k=0..12 (234 comparisons) and the n=2 t=1,2 values; finite tests corroborate the self-contained all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior exact formula + classical log-concavity of surjection numbers makes the new threshold deducible, though not supplied as a result.",
+          "General multiple-walk expected cover time/range bounds are weaker for this all-deadline distribution comparison."
+        ],
+        "reasoning": "A strong prior formula nearly covers this submission, but determining strict sign for every possible N is precisely the additional nontrivial inequality; acknowledge substantial overlap and residual priority risk.",
+        "searches": [
+          "two synchronous random walks balanced complete bipartite deadline full coverage optimal initial vertices same side split parity",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-alternating-cover-time-order-and-the-absence-of-a-stochastically--963c5c050388",
+          "https://arxiv.org/abs/2302.14241",
+          "https://arxiv.org/abs/2011.07893"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-alternating-cover-time-order-and-the-absence-of-a-stochastically--963c5c050388",
+        "https://arxiv.org/abs/2302.14241",
+        "https://arxiv.org/abs/2011.07893"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior November 2 theorem proves odd strict iff N>=n-2 and eventual even dominance; it DOES NOT prove even dominance for EVERY N.",
+          "The sharpened even all-N criterion follows from strict log-concavity j!S(N,j), not from the prior asymptotic coefficient comparison alone."
+        ],
+        "reasoning": "Full prior RESULT.md was read and carefully compared statement to statement; accept only the genuinely stronger finite threshold, not the repeated no-stochastic-minimum conclusion.",
+        "searches": [
+          "two synchronous random walks balanced complete bipartite deadline full coverage optimal initial vertices same side split parity",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-alternating-cover-time-order-and-the-absence-of-a-stochastically--963c5c050388",
+          "https://arxiv.org/abs/2302.14241"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 theorem studies exactly the same two-walker non-lazy balanced-biclique process, defines identical seeded coupon function U_(n,c), and derives the same even/odd CDF formulas.",
+          "What remains is the assertion even_split >= even_same FOR EVERY 2k, strict iff 2k>=n-1, not just asymptotic."
+        ],
+        "reasoning": "The model reduction and asymptotic no-optimal-placement result are covered; the all-deadline even finite inequality is not stated and no proof of strict threshold was found in the inspected prior full RESULT.md.",
+        "searches": [
+          "two synchronous random walks balanced complete bipartite deadline full coverage optimal initial vertices same side split parity",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-alternating-cover-time-order-and-the-absence-of-a-stochastically--963c5c050388",
+          "https://arxiv.org/abs/2302.14241",
+          "https://arxiv.org/abs/2011.07893"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 previous result includes fixed-graph CDF formulas and asymptotic even/odd crossing constants, but not a finite-time strictness table.",
+          "Stationary-walk range inclusion is a different comparison to a pooled single walk."
+        ],
+        "reasoning": "No exact table of all even deadlines was separately located. Prior exact CDF formulas should be credited; do not treat numerical values for K2,2 as independently novel.",
+        "searches": [
+          "two synchronous random walks balanced complete bipartite deadline full coverage optimal initial vertices same side split parity",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-alternating-cover-time-order-and-the-absence-of-a-stochastically--963c5c050388",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-pathwise-range-inclusion-for-independent-stationary-walks-on-com--dd50d89845c9"
+        ]
+      },
+      "rationale": "PASS only for the exact finite all-even deadline threshold: The November 2 full primary prior RESULT.md proves IDENTICAL coupon CDF formulas, sharp odd strict threshold, eventual even strict ordering, asymptotic crossing rates and no stochastically best initial placement. Those portions are NOT original. The frozen November 8 claim adds the all-N even log-concavity comparison and exact first feasible strict threshold N=n-1; the earlier complete proof only gave eventual strict even and did not state/derive all finite even strict inequalities. Resultary and primary random-walk comparisons did not produce an earlier exact finite even cutoff. Material risk: because the earlier paper already provides the exact CDF formulas, known log-concavity makes the remaining result an accessible strengthening; broad coverage may be found elsewhere.",
+      "residual_risks": [
+        "Strong prior overlap: all CDF formulas and one strict parity bound are already published; the exact finite even threshold is a known-sequence log-concavity corollary and might be regarded as routine or separately known.",
+        "Prior November 2 proof did not include the entire even sign theorem; originality is strictly the sharpened finite classification, not the no-optimal-placement finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG PARTIAL COVERAGE: identical CDF reduction, odd strict cutoff, asymptotic crossings and no global best start; no full finite even sign theorem in read text",
+          "evidence": "Nov 2 Step 3 gives eventual even positivity via rho^(4s), while submitted result gives all even N positivity with sharp first strict index n-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-alternating-cover-time-order-and-the-absence-of-a-stochastically--963c5c050388",
+          "material_read": "Full published RESULT.md, including assumptions, formulas, proof of odd inequality and eventual even asymptotic, and limitations",
+          "method": "Direct GitHub primary full-result reading",
+          "title": "Alternating cover-time order and the absence of a stochastically optimal two-walker placement",
+          "trigger": "EXACT same graph, same two initial geometries and same cover-time CDFs"
+        },
+        {
+          "assessment": "Different functionals (expected union ranges/collaboration); does not state the submitted sharp finite cover-time placement threshold",
+          "evidence": "Expected-range inequality cannot decide a discrete all-cover CDF strictness threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.14241",
+          "material_read": "Accessible complete ar5iv HTML including mathematical model and main theorems/range comparison; relevant sections read",
+          "method": "Primary HTML full-text section inspection",
+          "title": "Collaboration of Random Walks on Graphs",
+          "trigger": "Same general initial-placement/range collaboration questions"
+        },
+        {
+          "assessment": "PRIOR broader cover-time bounds, no inspected exact bipartite CDF order",
+          "evidence": "General mixing/expected-cover comparisons do not mathematically fix all deadline probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.07893",
+          "material_read": "Available abstract/main result statements and bibliographic information; not complete paper reread",
+          "method": "ArXiv abstract/main theorem descriptions",
+          "title": "Multiple Random Walks on Graphs: Mixing Few to Cover Many",
+          "trigger": "Multiple-walk coverage and placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS narrowly: The newly sharp finite-time even deadline inequality completes a natural all-horizon initial-placement classification, closing the early-time uncertainty left by an otherwise closely related published theorem. Although mathematical ingredients are elementary, the exact strict cutoff for every n is a motivated, non-arbitrary optimal-start invariant (not merely repeating the already known no-dominance asymptotic). Mathematical value belongs to that finite sharp boundary ONLY.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two synchronous independent non-lazy walks and equal balanced parts; starts count at t=0.",
+    "Sharp even threshold interpreted as mathematically motivated complete finite cutoff; no claims of new asymptotic crossing or expected cover time result."
+  ],
+  "schema_version": 1
+}
