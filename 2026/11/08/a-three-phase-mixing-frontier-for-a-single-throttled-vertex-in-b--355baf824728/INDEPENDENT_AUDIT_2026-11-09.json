@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:54.915798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Convexity of ||P-J||_2 and automorphism averaging over U\\{u0} and V reduce every arbitrary feasible symmetric chain's optimum to scalar a in [0,1/m], preserving fixed escape b and all row-holding constraints. Complete decomposition gives two quotient nonstationary roots t± of x²-Tx+D and internal eigenvalues alpha=1-ma (mult m-2) and beta=1-b/m-(m-1)a (mult m-1), all others accounted for. Loewner monotonicity in a makes positive envelope decrease and negative eigenvalue modulus increase. For b<=1/(m+1), a=1/m saturates; in the middle a1 cancels T and internal modes stay below sqrt(-D) by the stated exact nonnegative factorizations; for b>2/3 a2 uniquely crosses alpha and -t_- in (a1,b/m), with q(alpha)=a(m-1)(b-ma)>=0 establishing t_+ does not dominate. Independent sympy algebra verified q(alpha), high-crossing polynomial and roots for m=3,4,10 and b=2/3,4/5,1; source script verifies more finite rational cases. Boundaries b=0,1/(m+1),2/3,1 consistent; m=2 expressly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted balanced biclique optimum is b=2/3, a=2/(3m), rho=1/3; all-b constrained curve is not stated."
+        ],
+        "reasoning": "Existing broad class of convex programs permits algorithmic solution but does not mathematically entail this all-m analytic active-set classification without carrying out this proof.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain complete bipartite distinguished vertex fixed transition budget throttled vertex SLEM three phase",
+          "Boyd et al. 2003,2007 complete-bipartite formulas",
+          "Resultary matched-edge law"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 878685c8a480e890332d34688375a08aa4e4c3fa",
+        "Git verify.py 85af2ab30d360780f97df0a2fbfc9e471c5cf4e5",
+        "Resultary: fastest mixing Markov chain complete bipartite distinguished vertex fixed transition budget throttled vertex SLEM three phase",
+        "https://arxiv.org/abs/0709.0955",
+        "https://statistics.stanford.edu/technical-reports/fastest-mixing-markov-chain-graph",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published unrestricted choice b=2/3 is only a feasible point in submitted optimization and is invalid at fixed b !=2/3."
+        ],
+        "reasoning": "No implication from one optimum point or a different edge constraint to the full one-vertex throttle solution; source findings mathematically distinguished.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain complete bipartite distinguished vertex fixed transition budget throttled vertex SLEM three phase",
+          "Boyd et al. full section 3.1.2",
+          "Resultary full matching-channel theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted feasible set fixes sum_{v in V} P_{u0,v}=b. Matching-channel work fixes P_{u_i,v_i}=a for every i, with simultaneous pair symmetry."
+        ],
+        "reasoning": "The one-row aggregate and one-edge-per-pair equalities are not equivalent by graph automorphisms; the spectral orbit decompositions and breakpoints differ.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain complete bipartite distinguished vertex fixed transition budget throttled vertex SLEM three phase",
+          "Boyd et al. 2007 arxiv:0709.0955",
+          "Resultary matched-edge Kmm source 5db86611e174"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact table for matched-edge capacity has two linear branches; the submitted a2(b) is radical and activates at b>2/3."
+        ],
+        "reasoning": "Neither published numerical/table row matches the complete marked-row rate frontier; common unrestricted endpoint explicitly credited.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain complete bipartite distinguished vertex fixed transition budget throttled vertex SLEM three phase",
+          "Resultary 2026-11-08 matching Kmm table",
+          "Boyd 2007 Kmn example"
+        ]
+      },
+      "rationale": "PASS on best knowledge, qualified. General fastest symmetric mixing as convex SDP and orbit averaging are due to Boyd and colleagues. Their unrestricted complete bipartite optimum at SLEM=1/3 is exactly the single b=2/3 point of this constrained frontier; it is not new. The published matching-edge capacity law prescribes m disjoint edges and has two affine regimes; it does not impose a single vertex's total escape rate, and the feasible slices differ, so neither is a reformulation or bound implying this three-phase b-frontier. Another result for two-mass complete bipartite stationary distributions changes invariant measure, not one distinguished-row constraint. No inspected older theorem covers the full constrained all-m,b optimizer, though alternative FMMC parametrizations may exist.",
+      "residual_risks": [
+        "Unindexed constrained-FMMC literature may have an equivalent one-marked-vertex SDP solution under alternative parametrization.",
+        "Global optimizer existence not uniqueness among arbitrary non-orbit-symmetric matrices.",
+        "No result for m=2, nonuniform stationary distributions, multiple throttles or nonreversible chains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING convex symmetry method and unrestricted point; no fixed-one-vertex escape frontier in inspected theorem",
+          "evidence": "Boyd–Diaconis–Parrilo–Xiao (2007) gives invariant K_{m,n} weights, balanced optimum 2/(3m) with SLEM 1/3. Here b=2/3 is that sole shared instance.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Full ar5iv/HTML primary article sections 3.1.2 and 5.3.1, definitions and complete-bipartite example",
+          "method": "Compared fixed-uniform-cross-edge b=2/3 to constrained exceptional-row family",
+          "title": "Fastest mixing Markov chain on graphs with symmetries",
+          "trigger": "Complete bipartite orbit averaging and fastest-mixing optimum"
+        },
+        {
+          "assessment": "NOT_COVERING the single-vertex throttle; constraints are not equivalent",
+          "evidence": "Matching problem symmetrizes all m pairs and gives a two-affine-line SLEM; the present one row sum fixes only u0 and has a three-regime a*(b).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174",
+          "material_read": "Complete published RESULT.md theorem, eigenspace proof, spectral envelope and limiting cases",
+          "method": "Compared m prescribed matching edges against one specified row aggregate",
+          "title": "Sharp matching-channel capacity law for fastest mixing on K_{m,m}",
+          "trigger": "Same graph plus a different edge-probability constraint"
+        },
+        {
+          "assessment": "COVERS convex program framework and unconstrained optimum, NOT a reported analytic fixed-row frontier",
+          "evidence": "An SDP permitting arbitrary edge constraints is not itself an evaluated three-phase constrained theorem.",
+          "identifier_or_url": "https://statistics.stanford.edu/technical-reports/fastest-mixing-markov-chain-graph",
+          "material_read": "Primary report formulation/complete-bipartite example material and cited statements inspected",
+          "method": "Checked whether a symbolic fixed-row constraint classification appears",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General SDP framework potentially covers as an implicit numerical optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Fixing the exit probability at one bottleneck vertex is a natural local mixing-control constraint. The all-size exact semidefinite optimum has three spectral activation regimes, sharp thresholds b=1/(m+1) and b=2/3, and explicit optimizer/robustness formula including the quadratic-root branch. This is more than restating the unrestricted uniform optimum or doing numerical SDP instances.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 878685c8a480e890332d34688375a08aa4e4c3fa",
+    "Git verify.py 85af2ab30d360780f97df0a2fbfc9e471c5cf4e5",
+    "Resultary: fastest mixing Markov chain complete bipartite distinguished vertex fixed transition budget throttled vertex SLEM three phase",
+    "https://arxiv.org/abs/0709.0955",
+    "https://statistics.stanford.edu/technical-reports/fastest-mixing-markov-chain-graph",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed constrained-FMMC literature may have an equivalent one-marked-vertex SDP solution under alternative parametrization.",
+    "Global optimizer existence not uniqueness among arbitrary non-orbit-symmetric matrices.",
+    "No result for m=2, nonuniform stationary distributions, multiple throttles or nonreversible chains."
+  ],
+  "residual_risks": [
+    "Unindexed constrained-FMMC literature may have an equivalent one-marked-vertex SDP solution under alternative parametrization.",
+    "Global optimizer existence not uniqueness among arbitrary non-orbit-symmetric matrices.",
+    "No result for m=2, nonuniform stationary distributions, multiple throttles or nonreversible chains."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIALLY_COVERING convex symmetry method and unrestricted point; no fixed-one-vertex escape frontier in inspected theorem",
+      "evidence": "Boyd–Diaconis–Parrilo–Xiao (2007) gives invariant K_{m,n} weights, balanced optimum 2/(3m) with SLEM 1/3. Here b=2/3 is that sole shared instance.",
+      "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+      "material_read": "Full ar5iv/HTML primary article sections 3.1.2 and 5.3.1, definitions and complete-bipartite example",
+      "method": "Compared fixed-uniform-cross-edge b=2/3 to constrained exceptional-row family",
+      "title": "Fastest mixing Markov chain on graphs with symmetries",
+      "trigger": "Complete bipartite orbit averaging and fastest-mixing optimum"
+    },
+    {
+      "assessment": "NOT_COVERING the single-vertex throttle; constraints are not equivalent",
+      "evidence": "Matching problem symmetrizes all m pairs and gives a two-affine-line SLEM; the present one row sum fixes only u0 and has a three-regime a*(b).",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-matching-channel-capacity-law-for-fastest-mixing-on-k-m-m--5db86611e174",
+      "material_read": "Complete published RESULT.md theorem, eigenspace proof, spectral envelope and limiting cases",
+      "method": "Compared m prescribed matching edges against one specified row aggregate",
+      "title": "Sharp matching-channel capacity law for fastest mixing on K_{m,m}",
+      "trigger": "Same graph plus a different edge-probability constraint"
+    },
+    {
+      "assessment": "COVERS convex program framework and unconstrained optimum, NOT a reported analytic fixed-row frontier",
+      "evidence": "An SDP permitting arbitrary edge constraints is not itself an evaluated three-phase constrained theorem.",
+      "identifier_or_url": "https://statistics.stanford.edu/technical-reports/fastest-mixing-markov-chain-graph",
+      "material_read": "Primary report formulation/complete-bipartite example material and cited statements inspected",
+      "method": "Checked whether a symbolic fixed-row constraint classification appears",
+      "title": "Fastest Mixing Markov Chain on a Graph",
+      "trigger": "General SDP framework potentially covers as an implicit numerical optimization"
+    }
+  ]
+}

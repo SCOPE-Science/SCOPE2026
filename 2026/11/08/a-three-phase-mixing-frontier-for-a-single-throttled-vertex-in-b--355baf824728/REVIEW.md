@@ -1,15 +1,21 @@
-# Scientific assessment: one-vertex-throttled bipartite mixing
+# Independent mathematical audit
 
-## Correctness — PASS
-Symmetry averaging preserves both the distinguished aggregate transition constraint and the centered spectral norm upper bound. The complete orthogonal eigenvalue decomposition is stated in `RESULT.md`, including multiplicities \(m-2\) and \(m-1\), so no eigenspace is omitted. The scalar parameter range \(0\le a\le1/m\) ensures every holding entry is nonnegative. Loewner monotonicity reduces global optimality to spectral-envelope crossings. At the lower boundary, the positive quotient eigenvalue is active; in the interior, the quotient eigenvalues oppose one another; above \(b=2/3\), the internal-class eigenvalue and negative quotient eigenvalue oppose each other. Exact polynomial identities, endpoint conditions and high-branch root selection prove all cases including \(b=0\), \(b=2/3\) and \(b=1\). The package's standard-library verifier passed rational identity and full-matrix checks and \(334411\) alternative parameter comparisons; it is corroboration, not a substitute for the continuum proof.
+## correctness
 
-## Originality — PASS on inspected evidence; residual priority risk
-Boyd, Diaconis and Xiao (2003) formulated the unrestricted fastest-mixing problem. Boyd, Diaconis, Parrilo and Xiao (2007) solved complete bipartite graphs with all cross-edges forced equal by symmetry; their result equals only the \(b=2/3\) point of the present frontier. Jafarizadeh and Jamalipour (2011) treated uniform optimum weights for four symmetric/semi-symmetric multipartite *topologies*, not a fixed aggregate probability at a singled-out vertex. Jafarizadeh (2020) treats unrestricted optimization on clique lifts and subgraphs with possibly nonuniform stationary distribution, but does not supply this fixed-row-probability frontier. A separately recorded matching-edge-constrained complete-bipartite frontier fixes \(m\) distinct matching-edge probabilities, not one row sum; the feasible slices are incomparable and neither formula implies this three-phase answer. Searches also tested one-vertex holding, fixed row sum, quotient eigenvalues, and the two transition locations. No explicit equivalent formula or stronger published statement was identified. Specialist unindexed sources and alternative parameterizations remain a real publication-priority risk; failed searches alone are not proof of novelty.
+PASS
 
-## Value — PASS
-A single vertex with a fixed escape/retention rate is a natural bottleneck in uniform-stationary, reversible network mixing. The global constrained optimum is not the unrestricted solution with one weight clipped: it has three spectral regimes, a size-dependent saturation point \(1/(m+1)\), a size-independent second transition \(2/3\), and a radical optimum after that transition. The exact construction solves an infinite family of constrained semidefinite programs without a per-instance numerical optimizer, and predicts which spectral mode determines robustness to the local throttle. The reduction and full frontier, rather than only a computed numerical instance, are mathematically substantial.
+PASS. Convexity of ||P-J||_2 and automorphism averaging over U\{u0} and V reduce every arbitrary feasible symmetric chain's optimum to scalar a in [0,1/m], preserving fixed escape b and all row-holding constraints. Complete decomposition gives two quotient nonstationary roots t± of x²-Tx+D and internal eigenvalues alpha=1-ma (mult m-2) and beta=1-b/m-(m-1)a (mult m-1), all others accounted for. Loewner monotonicity in a makes positive envelope decrease and negative eigenvalue modulus increase. For b<=1/(m+1), a=1/m saturates; in the middle a1 cancels T and internal modes stay below sqrt(-D) by the stated exact nonnegative factorizations; for b>2/3 a2 uniquely crosses alpha and -t_- in (a1,b/m), with q(alpha)=a(m-1)(b-ma)>=0 establishing t_+ does not dominate. Independent sympy algebra verified q(alpha), high-crossing polynomial and roots for m=3,4,10 and b=2/3,4/5,1; source script verifies more finite rational cases. Boundaries b=0,1/(m+1),2/3,1 consistent; m=2 expressly excluded.
 
-## Closest literature and limits
-Full material inspected: Boyd–Diaconis–Parrilo–Xiao (2007), especially sections 3.1.2, 4 and 5.3.1; Boyd–Diaconis–Xiao (2003), formulation and complete-bipartite example; Jafarizadeh–Jamalipour (2011), abstract, topology definitions and main families; Jafarizadeh (2020), extended text with contributions, constraints and investigated graph families. These works support the methods and unrestricted comparison but do not directly deliver the claimed constrained frontier. The proof does not classify nonsymmetric optimal matrices, nonreversible walks or multiple throttles. Independent external examination remains necessary for publication-level priority and proof assurance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best knowledge, qualified. General fastest symmetric mixing as convex SDP and orbit averaging are due to Boyd and colleagues. Their unrestricted complete bipartite optimum at SLEM=1/3 is exactly the single b=2/3 point of this constrained frontier; it is not new. The published matching-edge capacity law prescribes m disjoint edges and has two affine regimes; it does not impose a single vertex's total escape rate, and the feasible slices differ, so neither is a reformulation or bound implying this three-phase b-frontier. Another result for two-mass complete bipartite stationary distributions changes invariant measure, not one distinguished-row constraint. No inspected older theorem covers the full constrained all-m,b optimizer, though alternative FMMC parametrizations may exist.
+
+## value
+
+PASS
+
+PASS. Fixing the exit probability at one bottleneck vertex is a natural local mixing-control constraint. The all-size exact semidefinite optimum has three spectral activation regimes, sharp thresholds b=1/(m+1) and b=2/3, and explicit optimizer/robustness formula including the quadratic-root branch. This is more than restating the unrestricted uniform optimum or doing numerical SDP instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
