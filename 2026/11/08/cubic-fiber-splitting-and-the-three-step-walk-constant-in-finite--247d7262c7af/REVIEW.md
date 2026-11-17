@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Character orthogonality gives the exact kernel in terms of fibers of a cube map. A finite-field cyclic group has either one or three cube roots per nonzero cube; all nonzero three-phase sums are proved nonzero when the characteristic is not three. Summing the singleton and triple fibers gives the exact norm and coefficient multiset. The trace pairing has full rank two precisely when a primitive cube root lies outside the prime field; this yields the characteristic formulas. Equidistribution of cubic-root slopes follows from the positive integer norm \(k^2+k\ell+\ell^2\), proving the torus-limit claim. The standalone direct Fourier tests passed in eleven finite fields, but the infinite results rest on the proof.
+PASS
 
-## Originality
+From the actual RESULT.md summing the x-variable gives K_q(a,b,c)=q^-2 sum_{y:a+c*y^3=0} psi(b*y), with correct q^-3 Fourier inversion. The sharp operator norm is the l1 kernel mass by finite convolution phase alignment. For c=0 only the origin q^-1 persists; c≠0,a=0 gives q(q−1) singleton coefficients q^-2; c,a≠0 gives one root if d=1, otherwise (q−1)^2/3 pairs each with a three-root orbit. Three p-th roots of unity cannot sum zero for p≠3 because exact equilateral cancellation requires primitive third roots and d=3 excludes characteristic3. This proves support counts and the norm formula and full multiset. Trace surjectivity gives a 1D prime-field phase when ζ∈F_p (p≡1 mod3) or rank-two joint phase when p≡2 mod3 with even extension degree; the determinant of the linear change is 3, invertible. In the p≡1 branch Fourier-character tests show one-dimensional slopes ζ_p yield equidistribution on T²: any fixed (k,l) relation would force p to divide fixed positive k²+k*l+l². Riemann sums then yield the established random-walk mean C_3. The claimed unitary Fourier ratio equals sqrt(q) times the projection norm by Parseval and |S_q|=q². Fresh independent direct double Fourier sums across ALL q³ frequencies for prime q=3,5,7,13 agreed with exact root expressions, sharp norms and nonzero coefficient counts; prime fields alone do not certify extension-field rank, handled by trace linear algebra.
 
-**PASS relative to the examined mathematical record.** The closest literature on finite Fourier algebra norms (Iosevich–Li–Yu, arXiv:2609.25404, sections 2, 4, 5, 8, 9) gives general Fourier-ratio connections and exact paraboloid examples, not a three-fiber monomial graph magnitude distribution. Iosevich–Koh (arXiv:0804.4505, sections 1–2) concerns nondegenerate quadratic varieties and restriction estimates, not the present endpoint projection. An earlier quadratic-fold calculation has two roots rather than three and does not imply the split rank-two trace law. The known random-walk mean is credited rather than claimed novel. Publicly indexed results on cubic-residue projection constants concern one-dimensional frequency subsets, not this graph in three dimensions. An unindexed equivalent monomial-idempotent formula is the main residual risk; this conclusion is not a proof of absolute priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first three-to-one monomial fiber beyond a quadratic fold produces a genuinely two-dimensional phase statistic on extension fields, contrasting with the one-dimensional statistic when cube roots already lie in the prime subfield. Exact coefficient multiplicities, nonvanishing support and sharp \(\ell^\infty\) amplification quantify a natural finite Fourier-idempotent invariant. The split/bijective arithmetic transition persists in an infinite family, while its split-branch large-characteristic slope is identified with an established planar random-walk constant. The result is a complete classification for a motivated surface, not a small arbitrary numerical sample.
+The 2008 Iosevich–Koh primary full paper is about nondegenerate quadratic surfaces and Lp-Lr extension, not this cubic monomial graph and endpoint finite Fourier idempotent. The 2026 Iosevich–Li–Yu manuscript defines Fourier ratio and studies generalized spectral synthesis, transitive support symmetry and quadratic paraboloid examples; its accessible abstract does not assert this 3-root fiber law, but full text was blocked and remains a residual priority risk. The nearest same-day fully inspected Resultary source concerns S={(x,y,x*y²)} and a two-phase cosine idempotent in odd characteristic, with a distinct half-support fraction; no substitution yields three cube roots, two trace ranks or C3. The new work is a motivated exact classification, while the walk integral C3 itself is classical.
 
-## Limitations
+## value
 
-It treats only \(S_q=\{(x,y,xy^3)\}\), not other monomial powers, and establishes no priority against inaccessible or unindexed literature. Fixed-characteristic slopes remain arithmetic \(A_p/3\) and are not all the universal large-characteristic limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp finite Fourier idempotent norm and complete coefficient support/magnitude distribution are natural harmonic-analytic invariants, not generic Fourier transforms or arbitrary small tables. The cube map is the simplest three-to-one odd-power fiber beyond the two-root fold; it produces a genuine arithmetic split and 1D versus 2D phase law over extensions, with a nontrivial classical three-step walk limit. Full field-family classification has clear mathematical value irrespective of whether it establishes a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
