@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies all Lie subalgebras into the three disjoint types, derives exact necessary-and-sufficient bracket-in-sum tests for the two possible nonpermuting pair types, counts ordered central and subspace parameters, and takes fixed-central-rank Gaussian-leading-term limits. No unproved finite-to-infinite extrapolation is used. A separate RREF/bracket checker reproduces the finite formulas in nine complete small configurations, including nonprime \(q=4\) and the first new dimension \(r=3\). The calculations do not establish arbitrary-rank claims by themselves; those follow from the proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest motivating paper, Muhie–Otera–Russo (arXiv:2609.19086v1), establishes the invariant, basic bounds and Heisenberg examples but does not give these centrally stabilized affine rank formulas. A previous three-dimensional record covers the \(r=1\) case. A previously recorded four-dimensional diagonal-action family obtains the *same exact numerical* two polynomials as our \(r=2\) specialization; those are expressly excluded from the new-claim scope, and no inference from a fixed four-dimensional case establishes the all-rank expressions or odd/even rank transition. A four-dimensional central Heisenberg calculation instead has different multiplication and only a coincident limit. The inspected 2026 paper on comaximal graphs studies a distinct generation relation and does not imply the present rank-parity result. Searches for the synonymous algebra family, full Gaussian formula, and parity phase transition located no dominating theorem; this is a qualified priority assessment, not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-Subalgebra permutability is a newly quantified natural lattice invariant. The result provides all-rank exact cardinalities for a canonical central stabilization family and identifies an abrupt asymptotic parity phase transition: equal central-rank increments alternate between limiting zero and one-quarter, even though both families are solvable and have one-dimensional derived ideal. The complete normal-form method also makes the nonpermuting mechanisms transparent. This is a motivated infinite-family invariant and an asymptotic structural boundary, not a routine isolated small example.
+The theorem fixes the nonnilpotent bracket [h,e]=e and central rank r. Every subalgebra is classified by ideal subspaces, e-containing lifts, or graphs C(U,c,w); B-C and C-C nonpermuting criteria give mutually exhaustive disjoint cases. The Gaussian subspace-incidence factor W_{u,v,t} counts ordered U,V with intersection dimension t, yielding T_r and N_r without overcounting. The dominant exponent 1+(u+1)(r-u) has one maximizing rank for odd r and two for even r, and generic complementarity yields respectively limit 0 or 1/4 for fixed r. Direct independently written GF(2) enumeration counted all 374 vector subspaces at r=3 and verified 220 Lie subalgebras and 6636 nonpermuting ordered pairs; an independent finite-sum evaluator reproduced r=3,q=2 and numerically approached the parity limit for r=3..8 at q=1009. These finite checks do not establish arbitrary r or q; the analytic classification does.
 
-## Risks and limits
-The literature comparison cannot logically rule out implicit older formulas in the extensive study of Lie subalgebra lattices. Only small finite-field instances were exhaustively tested, and those computations are corroborative. The limit fixes central rank; no joint growth regime is claimed. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The main 2026-09-16 primary paper introduces this permutability probability and calculates Heisenberg/sl2 cases, not a centrally stabilized nonnilpotent affine family. The 2026-10-13 full-rank Heisenberg stabilization result has an analogous parity phenomenon but is based on a two-step nilpotent Lie bracket with central derived ideal, whereas the present [h,e]=e derived ideal is noncentral. Neither same dimensions nor swapping parity indices implies these T,N formulas. Existing dimension-three/four low-rank results are expressly excluded from novelty. No actually inspected source establishes the all-r affine T,N formula or rank parity law; residual risk of an older unindexed affine-subalgebra lattice formula remains.
+
+## value
+
+PASS
+
+An exact all-r nonnilpotent Lie-subalgebra-pair census, and the nontrivial alternating 0 versus 1/4 large-field limit, answer the natural structural question of how abelian central stabilization changes permutability. This requires a complete orbit-type classification and Gaussian incidence analysis, not just a parameter rename or a finite table. Distinct Heisenberg parity behavior motivates comparing nilpotent and nonnilpotent families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
