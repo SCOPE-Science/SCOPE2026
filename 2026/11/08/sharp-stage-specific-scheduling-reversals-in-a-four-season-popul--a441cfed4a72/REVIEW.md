@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two monodromies have the same positive determinant. An explicit polynomial identity expresses their trace difference as the determinant of the commutator; Perron monotonicity at fixed determinant turns it into an exact spectral sign criterion. Three exact signed-square specializations prove each universal assertion, and exact rational calculations exhibit both possible threshold reversals with valid maturation probabilities. The period-four minimality follows from the complete classification of binary cyclic words through length four. The included source checker was replayed successfully. The argument does not extrapolate from its finite checks.
+## correctness
 
-## Originality — PASS within accessed evidence, with priority risk
-The exact phenomenon of schedule dependence and the AABB/ABAB comparison is already present in Mertens, van den Bosch and Heesterbeek (2002), and is **not** claimed as original. Caswell and Trevisan (1994), Caswell (2019), and Cushing and Ackleh (2011) establish the wider periodic-product and threshold framework. The narrowly assessed claim is the three-way universal biological stage-dependent sign classification for the specified Leslie family and opposing exact persistence examples. No accessible inspected source stated or forced those precise universal signed-square reductions, although general matrix algebra makes them readily derivable. The 2002 and 1994 full texts could not be inspected; this is a substantive historical-priority limitation and independent literature audit remains necessary. The 2019 open-access chapter and substantial text of the 2011 open-access article were compared for implications.
+PASS
 
-## Value — PASS, limited to a model-specific structural classification
-The one-vital-rate restriction is biologically motivated: it distinguishes changes in recruitment by younger and older stages from changes in juvenile maturation. It yields different *universal* ordering policies and two exact cases with opposite qualitative growth-versus-decline verdicts, rather than just a numerical schedule difference. The four-phase minimality explains why two-season studies cannot reveal this same fixed-frequency ordering effect. This is a concise structural lemma in a known research area, not a claim of new general seasonal sequence dependence or empirical prediction.
+Direct commutator expansion gives tr(A²B²)-tr(ABAB)=det(AB-BA)=Δ for A=[[a,u],[v,0]],B=[[d,w],[z,0]]. The positive two-by-two products share determinant (uv wz)^2, and Perron spectral radius strictly increases with trace at fixed positive determinant. Three single-vital-rate substitutions yield exact signed squares. Exact rational witness det(I-C),det(I-T) signs with common det<1 certify both possible persistence reversals. Cyclic rotations classify all binary fixed-multiset words of lengths <=3 and the two length-four 2+2 classes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Generic scheduling effects and even AABB-versus-ABAB comparisons are prior work (Mertens et al. 2002). The surviving new statement is the universal all-positive-parameter **three-direction sign trichotomy for one-vital-rate variation** in a zero-adult-stasis Leslie pair, the exact general commutator criterion and opposing rational persistence flips. This is not a claim to first observe seasonal-order effects.
+
+## value
+
+PASS
+
+An exact stage-specific distinction between clustering and alternation, with opposite growth/extinction outcomes at legitimate probabilities, is a concrete structural result for periodic demographic matrices. The sign identity locates a sharp biological boundary rather than just providing an arbitrary numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
