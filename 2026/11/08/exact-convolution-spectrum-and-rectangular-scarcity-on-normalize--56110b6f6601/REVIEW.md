@@ -1,33 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS under same-model proof reconstruction. The normalization is a bijection; the coordinate map from the full matrix to \(B,\ell,h,c\) is an isomorphism; additive character orthogonality gives both independent image-membership conditions and all exact multiplicities. The determinant/rank-count product and dominated-convergence asymptotic were checked algebraically. Standalone checker output:
+## correctness
 
-```text
-PASS q=2 m=2 n=2 spectral_bands=3
-PASS q=2 m=2 n=3 spectral_bands=3
-PASS q=2 m=3 n=2 spectral_bands=3
-PASS q=2 m=3 n=3 spectral_bands=4
-PASS q=3 m=2 n=2 spectral_bands=3
-PASS q=3 m=2 n=3 spectral_bands=3
-PASS q=3 m=3 n=2 spectral_bands=3
-PASS q=5 m=2 n=2 spectral_bands=3
-NORMALIZED_SEGRE_CONVOLUTION_PASS cases= 8
-```
+PASS
 
-No finite check is used as an infinite proof.
+Each rank-one matrix with total sum 1 has a unique factorization u v^T with sum u=sum v=1. Splitting those affine hyperplanes reduces each Fourier multiplier to a bilinear sum over d=m-1,e=n-1. Summation over x then y gives nonzero q^(d+e-r) times a pth-root phase precisely when ell in im B and h in im B^T; for rank r, each admissible linear term has q^r choices and scalar constant c has q choices. Thus multiplicity q^(2r+1)N_de(r), with phases equally distributed. The rank-deficit distribution derived from the exact matrix-rank product and dominated convergence gives the sequential rectangular limit, not a joint uniform estimate. Independent full character enumeration at q=2 and dimensions 2x2,2x3,3x2,3x3 agrees including zeros. The proof (not enumeration) covers all finite fields.
 
-## Originality
-PASS under bounded comparisons, not a historical priority guarantee. Delsarte (1978) characterizes the unrestricted rank-metric association-scheme Fourier spectrum; Orel (2011) computes the spectrum of an unrestricted symmetric rank-one matrix graph. Both differ from the total-sum-one affine Segre patch. The closest indexed rank-one Riesz and Veronese Fourier records concern restricted character families, not the full convolution spectrum. The exact simultaneous image constraints and the aspect-ratio support law are not asserted by any inspected result. Delsarte's complete primary text was inaccessible, and some possibly dominating broad result may exist.
+## originality
 
-## Mathematical value
-PASS. Restricting to normalized rank-one factors is a natural discrete model of independent two-way arrays of fixed total mass. The exact complete Fourier singular spectrum identifies which modes cannot be recovered from such increments; the effective conditioning is sharp, and the fixed-width limit with its large-width decay captures a structural phase between balanced and highly rectangular arrays.
+PASS
 
-## Sources and limitations
-P. Delsarte, Bilinear forms over a finite field, with applications to coding theory, J. Combin. Theory A 25 (1978), 226–241, doi:10.1016/0097-3165(78)90015-8 (first-public-date evidence: 1978-11-01).
+Delsarte rank-metric association-scheme spectra classify GL-invariant unrestricted rank orbits; the affine hyperplane-normalized Segre patch is not such an orbit, and its bilinear Fourier transform yields separate row and column solvability conditions. Similar affine-Veronese and self-Fourier rank-one cone findings use symmetric matrices or different operators. No direct complete rank-stratified spectrum and rectangular scarcity formula was identified in the compared sources, subject to uninspected general bilinear-exponential-sum literature.
 
-M. Orel, Adjacency preservers, symmetric matrices, and cores, J. Algebraic Combin. 35 (2012), 633–647, doi:10.1007/s10801-011-0318-0 (online 2011-10-08).
+## value
 
-This work does not prove invertibility and makes no external certification claim. Unnormalized counting convolution is essential to the numerical factors, and the double limit is sequential.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The convolution operator is a canonical harmonic-analysis object on an affine rank-one slice. Its complete kernel dimension, sharp positive conditioning, and sparse Fourier-support asymptotics characterize exactly what frequencies survive under increasingly rectangular sampling. That is mathematical structure beyond a small finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
