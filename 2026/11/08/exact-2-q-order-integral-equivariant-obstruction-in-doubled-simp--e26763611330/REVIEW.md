@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact sequence is the relative homology sequence of the cross-polytope sphere and its codimension-one skeleton. The signed fundamental cycle and augmentation are explicit. Restriction to the regular \(\mathbb Z[(C_2)^q]\)-module computes the order exactly as \(2^q\); the equivariant augmentation annihilates the full-group class by the same integer. The checker's finite cases are corroboration, not the unbounded proof.
+## correctness
 
-**Originality — PASS (qualified).** The 2005 inflation formula proves ordinary homotopy and a characteristic-zero equivariant homology formula, not integral group-ring extension orders. The 2026 étale/generalized-inflation paper explicitly recovers these homotopy formulas; it does not state this obstruction in §§4.2, 5, 7.2. The 2020 functorial inflation paper studies other categories and notes failure of full functoriality; it neither asserts nor computes the specific canonical extension order. Direct mathematical-record queries for signed norms, cross-polytope skeleton lattices, and extension orders yielded no equivalent finding. The generality of group-cohomological folklore remains a residual originality risk.
+PASS
 
-**Value — PASS.** The sharp exponential-order obstruction addresses an integral equivariance gap left open by a rational decomposition on a fundamental family of inflated spheres. It is an invariant of a natural canonical chain extension, not an arbitrary cut of a computational dataset; its exact dependence on \(q\) explains why semisimplicity over characteristic zero does not supply an integral splitting.
+The pair (B_q,X_q) with B_q the join of q two-point sets and X_q its codimension-one skeleton gives 0→H_{q-1}(B_q)→H_{q-1}(B_q,X_q)=E→H~_{q-2}(X_q)→0. Orient facets by coordinate order; the signed fundamental cycle z=Σ_b (-1)^{|b|}e_b is primitive, and W_q acts on its line via det ε. E restricted to T=(C2)^q is a free regular lattice, hence projective, and Hom_T(E,Zε)=Z. The restriction of its generator a(e_b)=(-1)^{|b|} to z has multiplier 2^q; the Hom–Ext connecting long exact sequence therefore identifies Ext^1_T(M,Zε)=Z/2^q, with the actual extension a generator. The same a is equivariant for coordinate permutations with facet orientation sign and all flips, giving 2^q times the extension class zero over W; restriction forces order >=2^q, so its exact W order is 2^q. Dividing a by 2^q splits after inverting two. Independent finite signed-facet checks q=3,4,5 confirm face incidence cancellation and signed augmentation norm, but the all-q Hom–Ext proof supplies the quantifier.
 
-**Limitations.** This does not assert an equivariant homotopy splitting, and the ambient integral homology is torsion-free. Other presentations of the same group-ring norm extension may exist in general algebra literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Björner–Wachs–Welker gives the ordinary wedge formula (2^q−1 spheres) and an equivariant inflation representation over characteristic-zero fields, not the integral extension class order. Ayzenberg–Khoroshavkina and Ayzenberg–Rukhovich study generalized inflations/homotopy and functoriality; inspected relevant sections do not state this canonical Z[W_q]-module Yoneda class of exact order 2^q. No exact published signed augmentation order found. Best-of-knowledge PASS with group-ring folklore risk.
+
+## value
+
+PASS
+
+The exact exponential order of an integral equivariant extension is an independently meaningful obstruction to lifting rational equivariant splittings; it pinpoints what ordinary wedge homology cannot detect and supplies a reusable signed-norm calculation on a natural hyperoctahedral family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
