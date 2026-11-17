@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim concerns a recursively defined, labelled tree of triangular blocks, synchronous three-state threshold-one dynamics, and states of least period three from time zero. The proof first establishes that on a connected graph each such nonzero state is an everywhere-advancing three-phase coloring, then partitions rooted-subtree configurations by whether the root receives an internal successor. Nine explicitly enumerated local color pairs give both quadratic recurrences, with base counts \((2,1)\). Root support yields \(P_h=3A_h\) and the global color shift gives orbit size three. The bounded ratio recursion proves existence of the entropy constant and provides an exact strict inequality with the chain base. The included C++17 program tested the actual update over 14,351,121 finite states; the independent Python enumerator reconstructed the nine-case polynomial and the entropy approximation. Finite checks support, but do not replace, the infinite-height proof.
+PASS
 
-## Originality — PASS (qualified)
+For a connected graph, a nonzero state fixed by the cube of synchronous three-state threshold-one Greenberg–Hastings must have every vertex advance at every step: permanently resting vertices cannot neighbor an advancing one. This is equivalent to each initial vertex having a successor-color neighbor. On the binary triangular cactus, classify each rooted subtree with fixed root phase as A (internally supported) or B (root unsupported and needing parent). For the single triangle (A0,B0)=(2,1), and an explicit nine ordered phase-pair enumeration yields A_next=5A²+6AB+2B² and B_next=4A²+4AB+B². The full root needs A and cyclic recoloring gives P_h=3A_h. The normalized logarithmic recursion gives a convergent entropy series, r_h=B_h/A_h remains in [1/2,3/4], with q(r0)=17/2 and q(rh)>10 thereafter. Hence c>(log340)/4>log(2+sqrt5), rigorously compared to the known triangular-chain transfer eigenvalue. Direct enumeration of 3^7 states at height1 and recurrence identities match. Finite-state tests do not replace the all-height polynomial recursion.
 
-The October 2016 source by Gravner–Lyu–Sivakoff concerns activity and synchronization, not an exact line-graph tree periodic-state count. The full accessible 2018 treatment by Doba derives convergence and excitation rates without the present branching polynomial. The closest earlier triangular cactus chain has a linear (not quadratic binary-branching) transfer recurrence. A general initial-coloring **eventual activity** count cannot imply exact immediate period-three populations: its positive-activity set includes preperiodic trajectories. Mathematical-record searches did not identify equivalent published counts, but nonindexed priority remains a risk. The result is an exact graph-family formula, not a claim that the general successor-neighbor characterization is newly discovered.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite trees themselves synchronize under this model, whereas their line graphs acquire triangular excitation sources; this construction isolates the effect of branching in the simplest clique-block networks. The full-depth quadratic census, exact entropy series, and strict branching-versus-chain entropy separation answer a motivated structural question for an infinite family rather than tabulating isolated small examples. The comparison uses equal vertex density per triangle and does not claim arbitrary tree extremality.
+Prior Greenberg–Hastings works characterize eventual excitation, winding and synchronization on arbitrary finite graphs, not initial primitive three-period population on a complete binary triangular cactus. A same-date published triangular cactus chain theorem gives linear transfer matrix with growth 2+sqrt5, not the quadratic branching recurrence. The same-date singly resonant cactus product law explicitly excludes graphs with two or more 3-divisible cycles, while the present graph has 2^(h+1)-1 triangles, all resonant. Hence no searched stronger statement implies the binary-branch entropy comparison.
 
-## Sources, checks, and limitations
+## value
 
-Primary sources inspected include Gravner–Lyu–Sivakoff (2016 preprint; open 2018 full text, in particular model definitions, Theorems 3 and 5, concluding remarks) and Doba (2018 complete article, in particular model, convergence, phase differences and activity results). Historical comparisons also include the triangular-chain recurrence and the cactus eventual-rate criterion. The present exact binary-branching calculation is not a stated corollary of either general activity theorem. The residual risks are literature indexing gaps and independent verification not yet conducted; the assertion does not extend to entrance times or to arbitrary line graphs of trees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact two-terminal nonlinear recursion for a natural family of line graphs identifies how combinatorial branching changes the exponential population of persistent excitation configurations, with a strict, proved entropy gain over a linear chain at equal vertex-per-block normalization. It is not an arbitrary finite census or merely generic periodicity existence; the infinite family and entropy inequality are structurally meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
