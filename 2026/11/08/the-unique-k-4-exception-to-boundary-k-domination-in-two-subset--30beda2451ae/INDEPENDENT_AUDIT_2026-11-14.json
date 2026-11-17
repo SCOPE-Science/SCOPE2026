@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T14:14:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-unique-k-4-exception-to-boundary-k-domination-in-two-subset--30beda2451ae/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-unique-k-4-exception-to-boundary-k-domination-in-two-subset--30beda2451ae/verify.py"
+      ],
+      "rationale": "Translate an ordinary k-dominating edge family H of size t in KG(2k+3,2) to d_H(u)+d_H(v)<=t−k for every nonedge uv. At t=k+2, a vertex of degree>=3 would be universal and impossible; degree 2 forces <=3 total edges; degree <=1 is a matching of at most k+1: thus t>=k+3. At equality t=k+3, maximum degree <=3. A degree 3 vertex leads to a K4 or impossible K4−e, forcing k=3 and six K4 edges. Otherwise all degree-2 vertices form a triangle and remaining 2k degree-1 vertices form a perfect matching. Counts are binom(2k+3,3)(2k)!/(2^k k!) plus binom(9,4) at k3. K4 selected edges have only one selected open Kneser neighbor and two closed-neighborhood members, so fail both tuple variants. Independently checked literal domination for K4 and triangle+matching at k3; examined full exhaustive k2,k3 verification source, not claiming to rerun its >2m candidates.",
+      "residual_risks": [
+        "No complete rerun of 2.3 million finite candidate combinations; the symbolic proof covers all k>=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 9 gives gamma_k=gamma_{×k}=gamma_{t×k}=k+3 at n=2k+3, r=2."
+        ],
+        "reasoning": "Equality of three minimum *numbers* does not imply equality of all minimizer families. New classification supplies K4 discrepancy without contradicting known scalar theorem.",
+        "searches": [
+          "KG(2k+3,2) minimum ordinary k dominating set K4 exception triangle matching",
+          "Brešar et al arXiv:2312.15464 Proposition 9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.15603",
+        "https://arxiv.org/pdf/2312.15464"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published k-tuple classification gives the triangle portion, and equal minima permit but do not force additional ordinary sets; K4 violates tuple conditions."
+        ],
+        "reasoning": "The K4 exceptional family is not implied by the published tuple minimizer classification; the new degree-sum classification adds a non-corollary structure statement.",
+        "searches": [
+          "KG(2k+3,2) minimum ordinary k dominating set K4 exception triangle matching",
+          "arXiv:2308.15603",
+          "arXiv:2312.15464"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published minimum k-tuple sets are up to automorphism triangle plus a disjoint perfect matching."
+        ],
+        "reasoning": "Same graph and same optimal size, but k-tuple domination also constrains selected vertices; ordinary k-domination tests only outside. These are inequivalent, demonstrably by K4 for k3.",
+        "searches": [
+          "KG(2k+3,2) minimum ordinary k dominating set K4 exception triangle matching",
+          "Cornet–Torres arXiv:2308.15603 Theorem 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary results classify inclusion-minimal ordinary/total domination (k=1), (3,2)-geodesic domination, paired domination and distance equalizers, not ordinary variable-k optimum at n=2k+3."
+        ],
+        "reasoning": "No exact prior count for exceptional K4 k3 emerged. This is a bounded search, not a priority guarantee.",
+        "searches": [
+          "KG(2k+3,2) minimum ordinary k dominating set K4 exception triangle matching",
+          "Resultary search rank-two Kneser domination"
+        ]
+      },
+      "rationale": "The exact triangle-plus-matching minimum k-tuple structure is already published by Cornet–Torres Theorem 20 (and following paragraph); Brešar–Cornet–Dravec–Henning Proposition 9 already proves equal numeric minimum sizes for all three variants. Their theorems do not classify ordinary k-domination minimizers, which have an extra K4 at k3. Originality lies in distinguishing ordinary minimizers from tuple/total-tuple minimizers and counting 126 exceptions.",
+      "residual_risks": [
+        "Very specialized older ordinary k-domination minimizer enumeration may be unindexed.",
+        "No complete rerun of 2.3 million finite candidate combinations; the symbolic proof covers all k>=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only tuple minimum configurations triangle+matching, not all ordinary k-domination configurations.",
+          "evidence": "Theorem 20 and paragraph: all k-tuple minimizers have shape triangle plus disjoint matching.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+          "material_read": "Full relevant Theorem 20 proof and its immediately following uniqueness paragraph (PDF page 13, screenshot); surrounding section and definitions",
+          "method": "arXiv full PDF text with page screenshot",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Theorem 20 directly matches n=2k+3 and minimizer size"
+        },
+        {
+          "assessment": "Gives three minimum cardinalities, not complete all-ordinary minimizers.",
+          "evidence": "Proposition 9 equality gamma_k=gamma_{×k}=gamma_{t×k}=k+r+1 at n=r(k+r)−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.15464",
+          "material_read": "Section 3, Proposition 9 proof and definitions (PDF page 5, screenshot)",
+          "method": "arXiv full PDF with screenshot",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Potential stronger all-three-variants theorem"
+        },
+        {
+          "assessment": "Proof separates ordinary and selected-vertex tuple inequalities; no unproved large-graph enumeration is needed.",
+          "evidence": "Steps (1)–(4) and literal finite-check code.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-unique-k-4-exception-to-boundary-k-domination-in-two-subset--30beda2451ae",
+          "material_read": "Entire RESULT.md and verify.py source",
+          "method": "Frozen Git blob read",
+          "title": "Assigned K4 exception proof",
+          "trigger": "Exact new classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.15603",
+        "https://arxiv.org/pdf/2312.15464"
+      ],
+      "rationale": "The one-parameter boundary k-domination classification isolates a genuinely exceptional coincidence of optimum cardinalities but not optimum families. The complete minimizer characterization and the first/unique separating K4 are useful structural domination facts, not a trivial restatement of an already-known scalar threshold.",
+      "residual_risks": [
+        "Very specialized older ordinary k-domination minimizer enumeration may be unindexed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Very specialized older ordinary k-domination minimizer enumeration may be unindexed.",
+    "No complete rerun of 2.3 million finite candidate combinations; the symbolic proof covers all k>=2.",
+    "This review does not certify independent external publication priority or formal proof checking; no GitHub writes or dispatcher closeout.",
+    "Scientific PASS does not mean a publication-ready plan: administrative provenance sanitization was not staged."
+  ],
+  "schema_version": 1
+}

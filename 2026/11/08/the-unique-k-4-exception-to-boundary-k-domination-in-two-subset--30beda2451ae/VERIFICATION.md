@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python verify.py` with a standard Python 3 interpreter. The script uses the graph's literal disjointness adjacency, enumerates all candidate vertex sets of sizes \(k+2\) and \(k+3\) for \(k=2,3\), and separately tests ordinary, closed-neighborhood tuple, and open-neighborhood total-tuple requirements.
+# Independent mathematical audit
 
-The actual run produced:
+## correctness
 
-```text
-EXHAUSTIVE_OK k 2 n 7 candidate_k_plus_2 5985 candidate_k_plus_3 20349 types {'triangle_and_matching': 105, 'K4': 0, 'other': 0} variant_counts {'open_outside': 105, 'closed_all': 105, 'open_all': 105}
-EXHAUSTIVE_OK k 3 n 9 candidate_k_plus_2 376992 candidate_k_plus_3 1947792 types {'triangle_and_matching': 1260, 'K4': 126, 'other': 0} variant_counts {'open_outside': 1386, 'closed_all': 1260, 'open_all': 1260}
-CONSTRUCTIONS_OK k=2..14 exception_K4_verified=PASS
-VERIFY_OK exhaustive_k=2,3 minimum_classification=PASS all_three_variants=PASS exceptional_K4=PASS
-```
+PASS
 
-## Scope of verification
-Enumeration covers only \(k=2,3\), while constructive checks cover \(2\le k\le14\). The proof, not computation, establishes the result for every integer \(k\ge2\). Earlier literature already determines the scalar minimum and the tuple-minimum structural class. These checks do not establish publication priority or independent mathematical validation.
+Translate an ordinary k-dominating edge family H of size t in KG(2k+3,2) to d_H(u)+d_H(v)<=t−k for every nonedge uv. At t=k+2, a vertex of degree>=3 would be universal and impossible; degree 2 forces <=3 total edges; degree <=1 is a matching of at most k+1: thus t>=k+3. At equality t=k+3, maximum degree <=3. A degree 3 vertex leads to a K4 or impossible K4−e, forcing k=3 and six K4 edges. Otherwise all degree-2 vertices form a triangle and remaining 2k degree-1 vertices form a perfect matching. Counts are binom(2k+3,3)(2k)!/(2^k k!) plus binom(9,4) at k3. K4 selected edges have only one selected open Kneser neighbor and two closed-neighborhood members, so fail both tuple variants. Independently checked literal domination for K4 and triangle+matching at k3; examined full exhaustive k2,k3 verification source, not claiming to rerun its >2m candidates.
+
+## originality
+
+PASS
+
+The exact triangle-plus-matching minimum k-tuple structure is already published by Cornet–Torres Theorem 20 (and following paragraph); Brešar–Cornet–Dravec–Henning Proposition 9 already proves equal numeric minimum sizes for all three variants. Their theorems do not classify ordinary k-domination minimizers, which have an extra K4 at k3. Originality lies in distinguishing ordinary minimizers from tuple/total-tuple minimizers and counting 126 exceptions.
+
+## value
+
+PASS
+
+The one-parameter boundary k-domination classification isolates a genuinely exceptional coincidence of optimum cardinalities but not optimum families. The complete minimizer characterization and the first/unique separating K4 are useful structural domination facts, not a trivial restatement of an already-known scalar threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
