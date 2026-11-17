@@ -1,94 +1,73 @@
-# A quadratic minimum-width transition for hypersimplices and its weighted partition formula
+# Intrinsic Euclidean width of every positively diagonally scaled hypersimplex
 
-## Finding
+## Finding and scope
 
-For integers \(n\ge 2\) and \(1\le k\le n-1\), write
+For integers \(n\ge2\), \(1\le k<n\), and arbitrary positive real numbers \(s_1,\ldots,s_n\), define the *scaled hypersimplex*
 \[
-\Delta_{n,k}=\operatorname{conv}\{\mathbf 1_I:I\subseteq\{1,\ldots,n\},\ |I|=k\}
-=\{x\in[0,1]^n:\textstyle\sum_i x_i=k\}.
+K_s=\operatorname{diag}(s_1,\ldots,s_n)\Delta_{n,k},\qquad
+\Delta_{n,k}=\{x\in[0,1]^n:\sum_i x_i=k\}.
 \]
-Let \(s_i>0\) and put \(K_s=\operatorname{diag}(s_1,\dots,s_n)\Delta_{n,k}\), with the intrinsic Euclidean metric inherited from \(\mathbb R^n\). Define, for each nonempty proper \(S\subsetneq[n]\),
+Its affine-direction space, used throughout for *intrinsic* Euclidean width, is \(L_s=\{v:\sum_i v_i/s_i=0\}\). Set \(w_i=s_i^{-2}\), \(T=\sum_iw_i\), and for each nonempty proper \(S\subsetneq[n]\) set
 \[
-A_S=\sum_{i\in S}s_i^{-2},\quad B_S=\sum_{i\notin S}s_i^{-2},\quad T=A_S+B_S,\quad m(S)=\min\{|S|,n-|S|,k,n-k\}.
+A_S=\sum_{i\in S}w_i,\quad B_S=T-A_S,\quad
+m(S)=\min\{|S|,n-|S|,k,n-k\}.
 \]
-**Weighted theorem.** Its minimum directional width is exactly
+Then the **exact minimum intrinsic directional width**, for every positive anisotropic diagonal scaling, is
 \[
-\boxed{\operatorname{width}_{\min}(K_s)=
-\min_{\varnothing\ne S\subsetneq[n]}m(S)\sqrt{\frac{T}{A_SB_S}}.}
+\boxed{\min_{v\in L_s,\ \|v\|_2=1}
+ \Big(\max_{x\in K_s}\langle v,x\rangle-\min_{x\in K_s}\langle v,x\rangle\Big)
+ =\min_{\varnothing\ne S\subsetneq[n]}m(S)\sqrt{\frac{T}{A_SB_S}}.}
 \]
-Every minimizing unit normal is one of the following vectors \(\pm v^S\), and these are minimizing precisely for subsets \(S\) attaining the displayed minimum:
+**All** minimizing unit normals, with no others, are precisely the vectors \(\pm v^S\) for subsets attaining the minimum, where
 \[
 v_i^S=\begin{cases}
-\dfrac1{s_i}\sqrt{\dfrac{B_S}{A_ST}},&i\in S,\\[5pt]
--\dfrac1{s_i}\sqrt{\dfrac{A_S}{B_ST}},&i\notin S.
+ s_i^{-1}\sqrt{B_S/(A_ST)},&i\in S,\\
+ -s_i^{-1}\sqrt{A_S/(B_ST)},&i\notin S.
 \end{cases}
 \]
-Thus all minimizing normal directions have exactly two levels after multiplication of coordinate \(i\) by \(s_i\). There are no additional minimizers, even when several subsets tie.
-
-**Unweighted phase theorem.** Let \(q=\min\{k,n-k\}\), \(r=\lfloor n/2\rfloor\), \(t=\lceil n/2\rceil\). For the ordinary hypersimplex,
-\[
-\boxed{\operatorname{width}_{\min}(\Delta_{n,k})=
-\min\left\{\sqrt{\frac n{n-1}},\ q\sqrt{\frac n{rt}}\right\}.}
-\]
-When \(n<4q^2-1\), precisely the signed intrinsic coordinate normals minimize. When \(n>4q^2-1\), precisely the signed balanced bipartition normals minimize (their positive support has size \(r\) or \(t\)). At the equality threshold \(n=4q^2-1\), both families minimize and no other directions do. For \(q=1,n=3\) the two labels describe the same directions; for every \(q\ge2\) the families at equality are distinct. The equality threshold is attained at infinitely many integer pairs, for instance \((n,k)=(15,2),(35,3),(63,4)\).
-
-For \(q\ge2\), the number of unoriented minimizing lines is \(n\) below the threshold, \(\binom n{r}/2\) above it when \(n\) is even, \(\binom n{r}\) above it when \(n\) is odd, and \(n+\binom n{r}\) at equality. The sharp switch therefore changes the geometry and combinatorial multiplicity of all thinnest projections.
-
-## Assumptions and scope
-
-All coordinates use the original Euclidean embedding. Width is the separation of the two supporting hyperplanes orthogonal to a unit vector **parallel to the affine hull**, not the zero width obtained from a normal perpendicular to that affine hull. In the scaled case the direction space is \(L_s=\{v:\sum_i v_i/s_i=0\}\). The rank \(k\) is neither zero nor \(n\); those degenerate ranks yield points and are excluded. The scales are strictly positive, so the affine dimension is \(n-1\). Every theorem quantifies over all permitted integers and all positive real coordinate scales.
+The formula is a finite subset minimization, not an asserted polynomial-time algorithm. If all scales are equal it reduces to the known hypersimplex width theorem and its rank-dependent threshold. **The unweighted width formula, all unweighted minimizing directions, and the threshold \(n=4\min(k,n-k)^2-1\) were already published (2026-10-18 and 2026-10-25); they are cited here solely as a previously known specialization, not a new finding.** The distinct claim is the complete anisotropically scaled theorem with its exhaustive equality classification.
 
 ## Proof
 
-**1. Symmetry and support functional.** The affine transformation \(x\mapsto\mathbf1-x\) takes \(\Delta_{n,k}\) onto \(\Delta_{n,n-k}\) and preserves widths. Set \(q=\min(k,n-k)\). For a direction \(v\in L_s\), set \(y_i=s_iv_i\). The support function of \(K_s\) is the sum of the largest \(q\) coordinates of \(y\), and the negative support is the negative of the sum of its smallest \(q\). Hence its directional width is
+Write \(q=\min(k,n-k)\). Given an intrinsic vector \(v\in L_s\), put \(y_i=s_iv_i\). Thus \(\sum_iw_iy_i=0\) and \(\|v\|_2^2=\sum_iw_iy_i^2\). The width is
 \[
-W(y)=\sum_{i\text{ in top }q}y_i-\sum_{i\text{ in bottom }q}y_i.
+W(y)=\sum_{\mathrm{top}\ q}y_i-\sum_{\mathrm{bottom}\ q}y_i.
 \]
-Also \(\sum_i s_i^{-2}y_i=0\) and \(\|v\|_2^2=\sum_i s_i^{-2}y_i^2\). The function \(W(y)\) is unchanged under adding a constant to all \(y_i\).
+Indeed the support function of a hypersimplex selects the largest \(k\) entries, and subtracting the smallest \(k\) entries agrees with the expression for \(q=n-k\) by complementary sums. This support-width expression is invariant under adding a constant to every \(y_i\).
 
-**2. The strict two-level extremality lemma.** Fix any ordering of the coordinates and work within its closed cone \(y_1\ge\cdots\ge y_n\), after relabelling. For \(1\le j<n\), let \(\rho_j\) be the step vector with its first \(j\) entries equal to \(1\), its remaining entries \(0\), minus its weighted mean \(A_j/T\) in all coordinates, with \(A_j=\sum_{i\le j}s_i^{-2}\). Every weighted-mean-zero vector in this cone has the unique decomposition
+Fix a weak ordering of all \(n\) coordinates and relabel them in nonincreasing order. Define \(A_j=\sum_{i\le j}w_i\) and weighted-mean-zero step vectors
 \[
-y=\sum_{j=1}^{n-1}(y_j-y_{j+1})\rho_j,
+\rho_j=\mathbf1_{\{1,\ldots,j\}}-\frac{A_j}{T}\mathbf1,
+\qquad 1\le j<n.
 \]
-where all coefficients are nonnegative. The width functional \(W\) is linear on this cone, while \(\|y\|_{s^{-2}}=(\sum_i s_i^{-2}y_i^2)^{1/2}\) is the norm induced by the metric. Writing \(c=\min_j W(\rho_j)/\|\rho_j\|_{s^{-2}}\), the triangle inequality gives
+Every \(y\) in this ordered cone has the unique representation
 \[
-W(y)=\sum_j d_jW(\rho_j)\ge c\sum_jd_j\|\rho_j\|_{s^{-2}}
-\ge c\|y\|_{s^{-2}},\qquad d_j=y_j-y_{j+1}\ge0.
+y=\sum_{j=1}^{n-1}d_j\rho_j,\qquad d_j=y_j-y_{j+1}\ge0.
 \]
-If at least two \(d_j\) are positive, the last triangle inequality is **strict**: two distinct step rays are not positive collinear, and the metric is positive definite. Therefore every minimizing direction is a single two-level step ray. This proves both global reduction and exhaustive equality characterization, rather than just a candidate upper bound.
-
-**3. Evaluation of every step ray.** Let \(S\) be the indices of the higher level, \(j=|S|\). The difference of the levels equals \(1\) for the unnormalized mean-centered indicator. Its squared weighted norm is \(A_SB_S/T\). The top-minus-bottom \(q\)-sum counts the number of high coordinates gained when exchanging the top and bottom \(q\) ranks, namely
+The differences fix all coordinates up to a common additive constant, which the weighted-mean-zero condition fixes uniquely. The width functional \(W\) is *linear within this cone*; moreover,
 \[
-m(S)=\min\{j,n-j,q\}=\min\{j,n-j,k,n-k\}.
+W(\rho_j)=\min\{j,n-j,q\},\qquad
+\|\rho_j\|_w^2=\sum_iw_i\rho_{j,i}^2=\frac{A_j(T-A_j)}T.
 \]
-Thus the quotient of width by norm is \(m(S)\sqrt{T/(A_SB_S)}\). Normalizing the two levels gives the stated \(v^S\), which has Euclidean norm one and belongs to \(L_s\). Applying step 2 over all possible orderings and sets \(S\) proves the weighted formula and all minimizers.
-
-**4. Unweighted minimization.** With all \(s_i=1\), the squared candidate width for a split of cardinality \(j\) is
+Let \(c\) be the least ratio \(W(\rho_j)/\|\rho_j\|_w\) over the step rays in this chamber. Linearity followed by the norm triangle inequality gives
 \[
-f(j)=\frac{n\min\{j,n-j,q\}^2}{j(n-j)},\qquad 1\le j\le n-1.
+W(y)=\sum_jd_jW(\rho_j)\ge c\sum_jd_j\|\rho_j\|_w
+\ge c\|y\|_w.
 \]
-By the symmetry \(j\leftrightarrow n-j\), it suffices to consider \(j\le n/2\). For \(1\le j\le q\), \(f(j)=nj/(n-j)\) is strictly increasing, hence the unique minimum in this range is at \(j=1\). For \(q\le j\le n/2\), \(f(j)=nq^2/[j(n-j)]\) is strictly decreasing, hence the unique minimum in this range is at the balanced integer split \(j=r\). This proves that **no intermediate split** can minimize, and the two alternatives are exactly \(n/(n-1)\) and \(q^2n/(rt)\). (The two ranges touch when \(q=r\), without introducing an additional equality class.)
+Since all weights are strictly positive, the weighted Euclidean norm is strictly convex; any two distinct step rays have their nonzero gaps at distinct positions and are not positive collinear. If two coefficients \(d_j\) are positive, the last triangle inequality is strict. **Consequently, every global minimizer must be a single two-level step ray** in one of the ordered chambers; no mixture of tied rays can minimize. Conversely each normalized step ray attains its own ratio. Varying the ordering exhausts all subsets \(S\), and yields the displayed minimum and no additional directions.
 
-**5. Exact threshold and counts.** The balanced candidate is better exactly when \(rt>q^2(n-1)\). If \(n\) is odd, \(rt=(n^2-1)/4\); the difference factors as
-\[
-rt-q^2(n-1)=\frac{(n-1)(n+1-4q^2)}4.
-\]
-If \(n\) is even, \(rt=n^2/4\). For \(q\ge2\) the quadratic \(F(n)=n^2/4-q^2(n-1)\) is negative at both \(n=2q\) and \(n=4q^2-2\), so convexity makes it negative at every intermediate admissible even integer. It is positive at \(n=4q^2\) and strictly increasing thereafter. No even integer lies between the latter two endpoints. The only integer tie therefore occurs at odd \(n=4q^2-1\). For \(q=1\) the same conclusion follows directly, including \(n=2,3\). Step 2 makes the equality classification exhaustive. Complementary higher-level sets define antipodal directions, giving the stated unoriented counts.
+For a general subset \(S\), the unnormalized centered step equals \(B_S/T\) on \(S\) and \(-A_S/T\) on its complement. It has squared weighted norm \(A_SB_S/T\), hence normalizing \(v_i=y_i/s_i\) gives exactly \(v^S\). The proof covers all ranks \(1\le k<n\), ties, and all positive scales without appealing to finite experiments. \(\square\)
 
-## Verification
+## Interpretation and verification limits
 
-The standalone `verify.py` uses exact rational arithmetic. It recomputes the weighted subset formula and every small unweighted phase, enumerates a finite grid of normal directions in dimensions two through seven, checks four nontrivial positive rational inverse-squared-scale profiles, and verifies five exact transition equalities. A successful run prints `HYPERSIMPLEX_WIDTH_CHECKS_PASSED`. These checks are finite consistency tests; the all-dimensional correctness is furnished by the five proof steps above. The weighted part can be verified directly by enumerating at most \(2^n-2\) proper subsets; it is not claimed to give a polynomial-time algorithm for arbitrary scales.
+The formula determines the least metric thickness and all thinnest projections of any coordinate-anisotropic realization of a uniform-matroid base polytope. The threshold phenomenon in the unscaled specialization was known; anisotropic weights can break all its coordinate-permutation symmetries and select non-cardinality-determined subsets. For example, with inverse squared scales \(w=(1,2,3,5)\), rank \(k=2\), the optimum is obtained by evaluating the displayed rational squared-width ratios \(m(S)^2T/(A_SB_S)\) over the fourteen proper nonempty subsets. An independent exact-rational small-grid check of this example corroborates, but does not replace, the proof.
 
-## Relationship to prior work
+The argument does not extend directly to non-diagonal linear maps, non-Euclidean norms, or arbitrary matroid base polytopes. Strictly positive scales and intrinsic rather than ambient Euclidean width are essential. Historical priority of the weighted formula remains best-of-knowledge; a differently titled earlier weighted base-polytope theorem is a residual risk.
 
-Martínez-Sandoval and Padrol (2019) analyze strict preservation of hypersimplex skeleta under linear projections; their Proposition 3.1 and surrounding discussion concern combinatorial face preservation, not the *metric minimum* over all unit directions. Their hypersimplex model and face structure are used as background. Har-Peled and Robson (2023) give a self-contained proof of the classical minimum width of the regular simplex, which is exactly the \(q=1\) case after accounting for edge-length normalization; that case is **not** claimed as a new result. The new all-rank result identifies a sharp quadratic \(n\)-versus-rank transition, all minimizing directions for \(q\ge2\), and a formula valid for arbitrary positive diagonal scales. Earlier equivalent derivations may exist under `uniform-matroid base`, `hypersimplex thickness`, `top-k norm`, or `order-statistic norm` terminology.
+## Relation to earlier work
 
-## Limitations
-
-Historical priority is not independently certified. The theorem concerns intrinsic Euclidean width rather than lattice width, inradius, graph diameter, support-function averages, or projection-skeleton preservation. It does not claim a polynomial-time implementation of the weighted subset optimization or a full classification of other matroid base polytopes. No independent mathematical audit has been conducted.
-
-## References
-
-1. L. Martínez-Sandoval and A. Padrol, *The convex dimension of hypergraphs and the hypersimplicial Van Kampen-Flores Theorem*, arXiv:1909.01189, first public version 2019-09-03. https://arxiv.org/abs/1909.01189
-2. S. Har-Peled and E. W. Robson, *On the Width of the Regular n-Simplex*, arXiv:2301.02616, first public version 2023-01-06. https://arxiv.org/abs/2301.02616
-3. L. Ferroni, *Valuative invariants for large classes of matroids*, Journal of the London Mathematical Society (2024), https://doi.org/10.1112/jlms.12984 (background on matroid base polytopes, not a width theorem).
+1. *Euclidean thickness and a two-orbit phase transition for hypersimplices* (2026-10-18), https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-euclidean-thickness-and-a-two-orbit-phase-transition-for-hypersi--bde72189e441 . Earlier exact all-rank **unweighted** width, equality directions and quadratic transition.
+2. *Exact minimum Euclidean width and a quadratic phase transition for hypersimplices* (2026-10-25), https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-minimum-euclidean-width-and-a-quadratic-phase-transition-f--f678b57db834 . Earlier independent statement and proof of the same unweighted specialization.
+3. *Minimum Euclidean width of diagonally scaled polymatroid independence polytopes* (2026-11-08), https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimum-euclidean-width-of-diagonally-scaled-polymatroid-indepen--8ee77a677514 . This studies the *full-dimensional down-closed independence polytope* and its ambient normals, not the rank-equality base polytope or its intrinsic weighted-mean-zero normals; its minimization formula is different and does not imply the result here.
+4. S. Har-Peled and E. W. Robson, *On the Width of the Regular n-Simplex*, arXiv:2301.02616 (2023), https://arxiv.org/abs/2301.02616 ; the rank-one case is classical.
+5. L. Martínez-Sandoval and A. Padrol, *The convex dimension of hypergraphs and the hypersimplicial Van Kampen-Flores Theorem*, arXiv:1909.01189 (2019), https://arxiv.org/abs/1909.01189 ; hypersimplex projection-skeleton rather than weighted metric-width classification.

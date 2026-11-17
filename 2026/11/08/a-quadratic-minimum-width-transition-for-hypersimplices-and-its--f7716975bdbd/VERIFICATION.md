@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The exact proof is in `RESULT.md`, sections 1–5. The principal nonstandard lemma is the sharp two-level reduction: in each ordering chamber, top-minus-bottom support width is linear, every centered normal is a nonnegative sum of step rays, and strictness of the Euclidean triangle inequality excludes all combinations of two distinct rays as minimizers.
+# Independent mathematical audit
 
-To perform the finite replay, run `python verify.py` from a directory containing the embedded `verify.py`. The program uses exact rational arithmetic for all width comparisons and does not require external packages. Its output was:
+## correctness
 
-`HYPERSIMPLEX_WIDTH_CHECKS_PASSED grid_profiles= 566297 weighted_profiles= 4 phase_boundaries= 5`
+PASS
 
-Finite grid tests are not universal optimization proofs. The exhaustive subset minimization is used only for the small checker profiles. The infinite parameter domain is proved analytically in `RESULT.md`. No external independent audit has been performed.
+PASS for the supplied repaired *weighted* theorem, not for any novel unweighted transition claim. Given y_i=s_i v_i, the normal metric is sum_i s_i^-2 y_i² and intrinsic tangent restriction is weighted mean zero. On each ordered cone, unique nonnegative gap decomposition into weighted-centered steps rho_j makes top-q minus bottom-q width linear. Each step has norm²=A_j B_j/T and width min(j,n-j,q). The triangle inequality gives global lower bound and strict convexity eliminates multi-step equalities; normalized weighted steps give precisely all minimizing normals for arbitrary positive scales. Independent exact rational checks for inverse-squared scales (1,2,3,5) against non-step directions verified boundary cases; finite checks are not universal proof.
+
+## originality
+
+PASS
+
+PASS applies only to fully repaired distinct anisotropic theorem. The original unweighted phase formula is explicitly COVERED by October 18 and October 25 primary publications and is not accepted as novel. No checked source implies the weighted intrinsic base-polytope formula.
+
+## value
+
+PASS
+
+PASS for repaired weighted claim. The uniform-matroid base hypersimplex is natural, and anisotropic coordinate scales change the intrinsic metric and minimizing cut type. An exact finite weighted partition formula and all equality normals solve a motivated metric problem not answered by known unweighted phase diagram or by the full-dimensional independence-polytope theorem; no downstream theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
