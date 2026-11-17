@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:21:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct changed-position classification yields exact B=1+adjacent unequal pairs+distance-two unequal endpoints+2*(pairwise distinct triples), hence D=5U+3V-2*(E_1+E_(n-1))-4H. Pair-equality indicator covariances and triple collisions give the stated exact mean and variance; bounded two-dependent CLT applies at fixed q. When q grows with n/q->lambda, mixed factorial moments of edge equality indicators yield asymptotically independent Poisson U,V; triple and boundary corrections vanish in probability, giving 5Pois(lambda)+3Pois(lambda). Independent direct enumeration of actual q-ary output sets and exact rational moments for q=3,4,n=3..5 confirmed equations; all-n Gaussian/Poisson claims rely on analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier full theorem provides P_(q,n)(t) polynomial for all q>=2 and n>=3, hence full finite distribution",
+          "Current paper gives only mean/variance, fixed-q Gaussian and a growing-q special limit"
+        ],
+        "reasoning": "Complete distribution for all (q,n) strictly dominates these statistics and fixes the growing-q weak limit even if its earlier authors did not spell it out.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+          "Resultary search three-symbol permutation-burst sphere spectrum"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+        "substring permutation burst sphere volume variance central limit compound Poisson q ary window length 3",
+        "arXiv:2610.15701",
+        "Frozen RESULT.md and check.py 0650ab0b93bc4466cf46f506c04729d7738e3a31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given P_(q,n), the PGF of the deficit is z^(4n-6)P_(q,n)(z^(-1))/q^n for any q,n",
+          "Taking q=q_n and n/q_n->lambda of that known polynomial determines the compound-Poisson PGF exp(lambda(z^5+z^3-2))"
+        ],
+        "reasoning": "A previously proved exact formula that determines the law at every finite n also mathematically determines any limiting law in any scaling, meeting the owner rule for stronger prior implication. The earlier nonbinary sphere spectrum is the decisive source, not Chen–Milenkovic binary-only results.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+          "arXiv:2610.15701"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct 25 theorem uses precisely identical q-ary one-window length-three channel and outputs distinct word sets",
+          "Its displayed variance is (q-1)[n(34q²-88q+48)-75q²+208q-128]/q^4, identical here"
+        ],
+        "reasoning": "Channel model and finite variance/Gaussian statement are exactly equivalent, not merely similarly named.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+          "substring permutation burst sphere volume variance central limit compound Poisson q ary window length 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published earlier matrix M_q(t)=[[1,(q-1)t],[t²,t+(q-2)t^4]], initial v=(q,q(q-1)), terminal w=(1,t)",
+          "The same exact variance formula and fixed-q CLT appear in its Finding"
+        ],
+        "reasoning": "The exact distribution table-generating object already contains the newer central finite enumerations; no independent novelty for those numbers.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+          "substring permutation burst sphere volume variance central limit compound Poisson q ary window length 3"
+        ]
+      },
+      "rationale": "FAIL due to decisive complete stronger prior coverage. A published Oct 25 exact two-state population theorem for precisely the same non-wrapping arbitrary permutation of length-three windows gives P_(q,n)(t)=t v_q M_q(t)^(n-2) w(t) for EVERY q>=2,n>=3. It explicitly states the IDENTICAL variance and fixed-q Gaussian law. Moreover that complete distribution determines every n-dependent law at growing q and hence entails the proposed two-jump compound-Poisson limit as a corollary; different wording and lack of an explicitly stated asymptotic in the older RESULT do not restore originality. Current claim concerns no other independent observable.",
+      "residual_risks": [
+        "No claim that the older paper explicitly printed the two-jump limit; the decisive comparison is its complete all-q,n generating law and consequent implication.",
+        "Scientific correctness PASS does not license passing the already-covered original; adding a disclaimer would not repair originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE: earlier exact complete law and identical finite/CLT assertions",
+          "evidence": "Exact same variance polynomial and model, full distribution implies growth regime",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+          "material_read": "Entire RESULT.md: precise model, 2x2 matrix, complete variance and CLT, extremal counts, proof",
+          "method": "GitHub raw full primary published text",
+          "title": "Two-state sphere spectrum for three-symbol permutation bursts",
+          "trigger": "identical channel, stronger complete population law"
+        },
+        {
+          "assessment": "Binary general permutation channel is background; alone would not refute new q-ary statistics",
+          "evidence": "Do not rely on this source for rejection",
+          "identifier_or_url": "https://arxiv.org/html/2610.15701v1",
+          "material_read": "Abstract and cited sections via record; not needed for decisive full prior coverage",
+          "method": "source/abstract comparison",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "foundational channel and binary source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as independent contribution: the exact finite statistics and fixed-q Gaussian CLT are verbatim already known, while the two-jump limit is an asymptotic consequence of the older, complete finite distribution with the same two-state transitions and collision mechanism. The limit is mathematically meaningful but the submitted combined claim does not establish a distinct new exact invariant or classification beyond stronger prior coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No claim that the older paper explicitly printed the two-jump limit; the decisive comparison is its complete all-q,n generating law and consequent implication.",
+    "Scientific correctness PASS does not license passing the already-covered original; adding a disclaimer would not repair originality."
+  ],
+  "schema_version": 1
+}
