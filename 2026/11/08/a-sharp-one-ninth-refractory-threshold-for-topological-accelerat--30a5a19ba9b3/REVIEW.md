@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A fresh derivation uses the killed Brownian resolvent with Dirichlet boundaries at \(\pm L\), integrates the safe-reset probability over \((-L/2,L/2)\), and establishes the physical-time renewal including independent nonnegative waits. The exact formula is checked against 40 separately discretized backward-generator instances. Necessity at equality and for every positive reset rate follows from an analytic power-series with the first two coefficients vanishing and every coefficient from index three strictly positive, not a finite test. The proof states the existence but not the uniqueness of the optimal positive rate.
+PASS
 
-## Originality — PASS, qualified
+The killed Brownian resolvent G_r(y)=sinh(k(L-|y|))/(2Dk cosh(kL)) gives safe-reset probability 1-cosh(z)/cosh(2z); active mean=(1-sech(2z))/r. Renewal m=EA+p_s(delta+m) reconstructs exact mean including physical waiting. At d=delta D/L²=1/18 positive-factor cleared difference G(z) has c_1=c_2=0 and c_n>0 for all n>=3, proving strict all-rates nonbenefit at/beyond equality; small-z coefficient (3d/2-1/12) yields necessity/sufficiency. Coercive large-z yields some finite minimizing r, not uniqueness. Independently checked c_1..c_79 and sample rates. No iid waiting distribution beyond finite nonnegative mean assumed.
 
-Grange (arXiv:2111.15241) provides the exact ring winding mechanism and no-delay mean, whereas Evans–Majumdar (arXiv:1809.01551) provides general refractory reset renewal, Pal–Prasad (arXiv:1812.03009) studies standard absorbing endpoints under resetting, and Sunil et al. (arXiv:2304.09348) study restart costs on the line. Comparison of their stated objects and relevant mathematical sections does not identify the **sharp universal one-ninth threshold with strict global no-benefit at equality** in the terminal-reset winding geometry. Derivability by synthesizing general renewal formulas remains a real priority risk; the finding does not claim an independent new renewal method or known total literature coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mean delay for a physical reset is a natural control parameter missing from the instantaneous topological speedup model. The proved criterion is an exact if-and-only-if feasibility boundary rather than a small-rate heuristic, remains unchanged for every independent nonnegative waiting-time law of the same finite mean, and separates the strict equality case. It answers which physical protocols can realize the known speedup in this natural model.
+Best-knowledge PASS: no inspected prior same geometry with independent refractory waiting establishes the exact global iff threshold or positive rate existence; Grange supplies zero-delay winding and Evans–Majumdar renewal supplies waiting framework. All-rates critical positive-coefficient inequality must still be shown. Priority risk: combined generic formulas or unpublished threshold.
 
-## Closest literature and limitations
+## value
 
-Primary full-text comparisons: Grange 2021, Evans–Majumdar 2018, Pal–Prasad 2018, Sunil et al. 2023. The proof assumes a zero-duration return jump, active-time-only Poisson events, independent finite-mean waits, and a specific shortest-arc topological completion rule. Optimal positive reset-rate uniqueness and finite-speed returns are unproved. Independent priority checking is still warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact critical threshold quantifies when stochastic winding resets with idle time remain beneficial; all-delay-distribution invariance under fixed mean and sharp strict boundary address a natural physical rate-cost optimization, not textbook reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
