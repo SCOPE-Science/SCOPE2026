@@ -1,15 +1,21 @@
-# Scientific review: positivity recovery for directed-cycle Richardson extrapolation
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is about the unmodified rational map \(T_n(h)=2(I-hQ_n/2)^{-2}-(I-hQ_n)^{-1}\), not backward Euler itself. The closed cyclic-resolvent coefficient (1) is obtained by exact geometric sums. Multiplying by the strictly positive denominator yields the explicit integer polynomial (2); finite coefficient-sign checks establish unconditional entrywise positivity for all cyclic sizes two through four and show that, on the five-cycle, only the displacement-four coefficient can become negative. Its exact numerator is four times the displayed degree-eight polynomial; Descartes' sign rule, endpoint signs, and rational root brackets prove a unique positive threshold. The order-four Taylor coefficient is negative for every cycle with at least five states, and the Fourier spectrum proves eventual positive uniform mixing for each fixed finite size. No finite experiment is used to prove an all-dimension claim. A standalone standard-library verifier passed 1,476 exact-arithmetic checks and matched independent exact matrix inversions.
+## correctness
 
-## Originality — PASS, with residual precedence risk
-The closest published-finding corpus scalar study gives the sign boundary of a Richardson-extrapolated backward Euler step on \(y'=-\lambda y\); it does not determine entrywise signs of finite directed-cycle transition matrices. The scalar result cannot imply the dimension-four/five transition or the five-cycle recovery threshold, because signs of eigenvalues and signs of matrix entries are different properties. Constantinescu and Sandu establish the extrapolation tableau and its accuracy/stability, not this Markov-cycle entrywise sign law. Blanes–Iserles–Macnamara treat graph-Laplacian positivity through exponential and splitting/Magnus methods; Hadjimichael–Ketcheson–Lóczi study different circulant spatial generators with \(\theta\)-methods. The inspected relevant texts do not contain this combined cycle statement. An obscure equivalent rational-function calculation remains possible.
+PASS
 
-## Value — PASS
-Positivity of a Markov propagator is a necessary condition to keep every initial probability vector physically meaningful. The method is mass-preserving and second order, and each individual backward Euler substep is nonnegative, yet the extrapolated matrix fails at arbitrarily short steps on every directed cycle of at least five states. Identifying five as the first failing cyclic size, and its exact sharp recovery threshold, gives a directly useful finite-dimensional test case for extrapolation and positivity-limiter design. The surprising recovery at large steps shows that reducing a step does not always repair a positivity violation.
+The exact periodized resolvent expansion for c_{n,j}(h) with a=h/(h+2), b=h/(h+1) was reconstructed and the integer numerators for n=2..5 independently calculated: all are coefficient-positive except (5,4), whose numerator is four times p(h)=25h^8+300h^7+1300h^6+2850h^5+3450h^4+2240h^3+560h^2-160h-96. Descartes plus exact rational endpoint signs give its unique positive recovery root. For every n>=5, the coefficient of P^4 in the stability series is (2*5/16-1)h^4=-3h^4/8; for each fixed finite n, Fourier diagonalization gives T_n(h) tending to the strictly positive uniform projection as h→infinity. Mass conservation follows from Q1=0. This proves the infinite n conclusion rather than only checking finite samples.
 
-## Closest sources, limitations and remaining risk
-Relevant sources inspected: Constantinescu–Sandu (2008/2009), Blanes–Iserles–Macnamara (first public version 2021), Hadjimichael–Ketcheson–Lóczi (2021), and the public scalar Richardson positivity study (2026). The numerical root is a rigorously bracketed positive zero, not a floating-point-only assertion. The classification is restricted to unit-rate finite directed cycles and the standard two-level \(r=2\) extrapolation; recovery is not classified by an explicit threshold for all larger cycles. Equivalent specialist work under other terminology cannot be categorically excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An October 13 pure-birth Richardson result treats an absorbing, noncirculant generator, with its first five-state recovery near 0.3959 and an upper positivity cutoff at 2+2sqrt2. It does NOT imply the five-cycle unique threshold near 0.297835688, all-step positivity n<=4, or eventual recovery for every n. Implicit Taylor/Radau and centered-advection papers use other stability maps. The specific cycle coefficient classification is not covered by inspected sources.
+
+## value
+
+PASS
+
+Preservation of Markov positivity by higher-order extrapolation is a mathematically motivated structural question; a sharp size-four/five obstruction and a unique algebraic recovery boundary give exact, reusable cycle-test information beyond routine stability order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
