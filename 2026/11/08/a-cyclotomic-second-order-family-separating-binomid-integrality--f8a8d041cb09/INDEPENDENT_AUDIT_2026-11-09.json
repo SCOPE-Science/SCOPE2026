@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:54:47.413707Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md block-count proof; artifacts/check.py; independent rational recurrence and factorial-product checks"
+      ],
+      "rationale": "From prescribed recurrence, f_n=q^n u_n with 3-periodic u_{3j+1}=1,u_{3j+2}=t,u_{3j+3}=−(t+1). General binomids equal q^{k(n−k)} t^{E2} (−t−1)^{E0}; E0≥0, E2≥−1, and E2=−1 forces k,n−k≥2, hence t|q⁴ suffices. [4,2]_f=−q⁴(t+1)/t gives necessity using gcd(t,t+1)=1. Index pair f4/f2=q²/t gives t|q² necessity, and m mod3 case analysis suffices. Independently checked 156 (q,t) pairs through n=12 by exact integer products, not only closed-form formula; inspected standalone artifacts/check.py but did not execute it unmodified.",
+      "residual_risks": [
+        "No assertion of nonnegative terms or integrality at all pyramid levels; finite tests do not substitute for all-index proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary repeated-root theorem states binomid⇔divisible for repeated integer characteristic root; current roots are q exp(±2πi/3), distinct.",
+          "Earlier eventually-periodic second-order result covers bounded/periodic integer terms; these f_n have |f_n|≥q^n and are not eventually periodic.",
+          "Koshkin arXiv:2206.09493 studies cyclotomic divisibility sequences, whereas example is nondivisible."
+        ],
+        "reasoning": "No earlier stronger applicable hypothesis identified; a positive-family or Lucas zero-initial-term result cannot dominate an unrestricted signed nondivisible recurrence witness.",
+        "searches": [
+          "Shapiro binomid second order recurrence counterexample binomid not divisibility sequences cyclotomic recurrence",
+          "2026/10/12 sharp binomid classification for integer repeated root recurrences",
+          "2026/10/25 sharp four row binomid test for eventually periodic second order recurrences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.02243",
+        "arXiv:2206.09493",
+        "published Resultary 2026-10-12 repeated-root and 2026-10-25 eventual-periodic summaries",
+        "assigned RESULT.md and artifacts/check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shapiro asks whether binomid order-two implies divisibility and reports stronger open pyramid variants; current t=q³ violates f2|f4 while satisfying every binomid coefficient by block-count.",
+          "Koshkin classification has index divisibility as hypothesis/conclusion and does not yield a counterexample."
+        ],
+        "reasoning": "The new theorem supplies an actual counterexample to the negative-implication problem while not claiming to solve all-level binomid recurrence classification; prior theorems cannot imply both sharp thresholds without extending their scope.",
+        "searches": [
+          "arXiv:2302.02243",
+          "arXiv:2206.09493",
+          "Shapiro binomid second order recurrence counterexample binomid not divisibility sequences cyclotomic recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shapiro Section 4.4 Question 27(1) explicitly asks whether binomid order-two recurrent sequences must be divisibility sequences; theorem uses q≥2 and f_n=q^n u_{n mod3} with u=1,t,−(t+1)."
+        ],
+        "reasoning": "The recurrence is genuine order two with distinct complex roots of modulus q, not a disguised repeating order-one sequence; signed nonzero terms fall within Shapiro definitions.",
+        "searches": [
+          "Shapiro binomid second order recurrence counterexample binomid not divisibility sequences cyclotomic recurrence",
+          "arXiv:2302.02243"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The witness (q,t)=(2,8), f=(−9,2,32,−72,16,...) yields [4,2]_f=−18 although f2∤f4; integer recurrence with parameters classified at every index."
+        ],
+        "reasoning": "Neither an OEIS-style initial-value match nor finite integrality testing proves the universal equivalence t|q⁴; this theorem is a residue-block all-index proof not a known-table recalculation.",
+        "searches": [
+          "Shapiro binomid second order recurrence counterexample binomid not divisibility sequences cyclotomic recurrence"
+        ]
+      },
+      "rationale": "The signed growing second-order cyclotomic family gives a negative answer to a clearly stated Shapiro question for ordinary binomid (not all-level pyramid) integrality. Prior repeated-root and eventually-periodic recurrence classifications exclude nonperiodic q^n cyclotomic roots; divisibility-only classifications cannot encompass the explicit nondivisible examples.",
+      "residual_risks": [
+        "A distinct-root cyclotomic generalization or an unindexed explicit counterexample could precede the present family.",
+        "This does NOT answer the all-level binomid pyramid question; negative terms explicitly allowed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual open question applies to signed nonzero integer sequences; theorem answers base-level question negatively",
+          "evidence": "Question 27(1) asks whether an order-two binomid must be divisible; stronger levels separately formulated.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02243",
+          "material_read": "PDF sections defining binomid and Section 4.4 Question 27 on order-two recurrences",
+          "method": "Open-access arXiv PDF relevant complete question, definitions and context; rendered supporting page",
+          "title": "Divisibility Properties for Integer Sequences",
+          "trigger": "Direct original stated question, definitions, and prior Lucas cases"
+        },
+        {
+          "assessment": "Clearly incompatible distinct-root hypothesis; no whole-document noncoverage claim",
+          "evidence": "Title/summary: repeated nonzero integer characteristic root a, binomid iff index divisibility.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-binomid-classification-for-integer-repeated-root-recurrenc--d44d58770053",
+          "material_read": "Resultary returned title and substantive abstract summary; full text NOT read",
+          "method": "Resultary semantic search matched finding summary only",
+          "title": "Sharp binomid classification for integer repeated-root recurrences",
+          "trigger": "Potential stronger order-two classification"
+        },
+        {
+          "assessment": "Periodicity hypothesis fails for q≥2; cannot cover this growing sequence by given statement",
+          "evidence": "Result summary restricts to nonzero eventually periodic integer sequences satisfying second-order recurrence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-four-row-binomid-test-for-eventually-periodic-second-ord--076dbf2243ff",
+          "material_read": "Resultary summary of theorem and class; full text NOT read",
+          "method": "Resultary semantic search summary only",
+          "title": "A sharp four-row binomid test for eventually periodic second-order recurrences",
+          "trigger": "Possible complete low-index criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shapiro arXiv:2302.02243 Question 27; complete submitted proof"
+      ],
+      "rationale": "Directly answers the open base-level version of the binomid-versus-divisibility second-order recurrence question with an infinite, unbounded, genuinely second-order family and sharp necessary-and-sufficient parameters. The q³ witness is neither a constant recurrence nor a cheap definitional substitution.",
+      "residual_risks": [
+        "Novelty relies on broader historical coverage; negative terms may limit applicability to positive-only variants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge review; earlier published partial coverage and any inaccessible/undetected source are recorded explicitly, not treated as exhaustive novelty proof.",
+    "Actual immutable source proof and checker were inspected; independent bounded arithmetic tests verify selected claims only, not general mathematics.",
+    "No publication, certified external attestation, GitHub modification, or publisher action took place. Public operational provenance not sanitized; publication plan withheld."
+  ],
+  "schema_version": 1
+}

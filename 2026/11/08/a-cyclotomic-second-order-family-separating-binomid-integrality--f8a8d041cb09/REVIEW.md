@@ -1,15 +1,21 @@
-# Self-review: cyclotomic second-order binomid classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic roots are distinct and the three periodic weights \((1,t,-(t+1))\) sum to zero; the recurrence solution is exact for all indices. The generalized coefficient factors as \(q^{k(n-k)}t^{E_2}(-(t+1))^{E_0}\). The zero-class count is never negative, while the two-class count can be negative only by one unit, and only when \(k\ge2\) and \(n-k\ge2\). Hence every possible denominator \(t\) is canceled if and only if \(t\mid q^4\), as \({4\brack2}_f\) witnesses. Index divisibility reduces to the residue class of the divisor index, with \(f_2\mid f_4\) forcing precisely \(t\mid q^2\). The finite checker executes independently using full integer-product arithmetic; no finite experiment is used to prove infinite integrality.
+PASS
 
-## Originality — PASS within inspected evidence
+From prescribed recurrence, f_n=q^n u_n with 3-periodic u_{3j+1}=1,u_{3j+2}=t,u_{3j+3}=−(t+1). General binomids equal q^{k(n−k)} t^{E2} (−t−1)^{E0}; E0≥0, E2≥−1, and E2=−1 forces k,n−k≥2, hence t|q⁴ suffices. [4,2]_f=−q⁴(t+1)/t gives necessity using gcd(t,t+1)=1. Index pair f4/f2=q²/t gives t|q² necessity, and m mod3 case analysis suffices. Independently checked 156 (q,t) pairs through n=12 by exact integer products, not only closed-form formula; inspected standalone artifacts/check.py but did not execute it unmodified.
 
-Shapiro's primary 2023 text, Section 4.4 Question 27, poses the second-order binomid-versus-divisibility implication explicitly. Its proved Lucas/zero-initial and divisible-sequence cases cannot imply this construction, whose initial term is nonzero and divisibility fails. Caalim and Tanaka 2024/2025 characterize binomid *indices* and lexicographically minimal extensions for positive sequences; their stated results do not provide this signed order-two counterexample or the sharp constraints on the cyclotomic parameters. Koshkin 2022 concerns *divisibility* recurrences and likewise cannot imply binomid nondivisibility. Related accessible recurrence claims cover repeated-root, exactly eventually periodic, or companion Lucas cases, and a nonrecurrent binomid example; their hypotheses exclude this growing, distinct-root, order-two family. Searches of the mathematical index, related expressions, and publicly indexed mathematical records found no explicit equivalent claim. Residual risk: unindexed equivalent work and generic valuation principles may provide a shorter proof; absence from searches is not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A published order-two recurrence question asks whether binomid integrality forces index divisibility. This result gives a negative answer through infinitely many explicit recurrences, and classifies a natural two-parameter cyclotomic slice exactly. The thresholds are sharp and distinct: a fourth-degree cancellation makes the generalized coefficients integral even though the second-degree test for divisibility fails. The result does not claim pyramid-level binomid integrality, positivity of all terms, or a complete classification of every order-two recurrence.
+The signed growing second-order cyclotomic family gives a negative answer to a clearly stated Shapiro question for ordinary binomid (not all-level pyramid) integrality. Prior repeated-root and eventually-periodic recurrence classifications exclude nonperiodic q^n cyclotomic roots; divisibility-only classifications cannot encompass the explicit nondivisible examples.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Directly answers the open base-level version of the binomid-versus-divisibility second-order recurrence question with an infinite, unbounded, genuinely second-order family and sharp necessary-and-sufficient parameters. The q³ witness is neither a constant recurrence nor a cheap definitional substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
