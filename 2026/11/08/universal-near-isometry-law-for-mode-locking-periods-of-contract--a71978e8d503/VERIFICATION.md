@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-The included `verify.py` uses only the Python standard library. Execute `python verify.py` from the directory containing that file. During this review it printed `PASS: 628 exact-rational and numerical supporting checks`, `limiting mean=1.461525938803, limiting second moment=3.947841760436`.
+## correctness
 
-The checker compares the published plateau endpoint difference with the claimed closed width for three exact rational contraction parameters and every coprime numerator through denominator 18; it checks that those intervals lie in the parameter domain; it checks exact rational truncated mass sums with controlled finite remainders; and it verifies moment convergence numerically for four contraction parameters. This is reproducibility support, not an exhaustive check over all \(\lambda\), all denominators, or all test functions.
+PASS
 
-The proof's noncomputational dependencies are identified: Laurent--Nogueira Theorems 3 and 4 (exact plateau formula and exceptional-parameter nullity), the elementary divisor identity and Möbius inversion, the summatory totient bound, Abel summation, and the convergence of exponentially dominated moments. There is no finite numerical certificate purporting to establish the asymptotic theorem.
+The earlier Laurent–Nogueira plateau theorem gives exactly one mass 1−λ for zero rotation, and for every coprime p/q, q>=2, equal numerator-independent width w_q=(1−λ)²λ^(q−1)/(1−λ^q). Lambert totient identity verifies total mass. Writing τ=−log λ gives w_q=τ² Bτ/(exp(τq)−1), Bτ→1. Möbius inversion for reduced numerators gives discrepancy O(divisor_count(q)||F||C1), summing to O(τ log²(1/τ)); the elementary totient summatory law and Abel summation yield limit density t/(ζ(2)(exp t−1)). Exponential denominator controls rescaled-period tails for all fixed moments. Telescoping lift gives 0<=δ−ρ<=1−λ<=τ. Independent finite arithmetic for λ=.9,.97,.99 gave means 1.464718,1.461793,1.461555 converging to 2ζ(3)/ζ(2), with total mass ≈1. The proof, not those truncated sums, establishes all-orders convergence.
+
+## originality
+
+PASS
+
+Laurent–Nogueira (2017/2018) already supplies exact parameter plateaux and Hausdorff-null exceptional set; those are premises, not original. The present derived joint near-isometry denominator distribution with independence, smooth-test error and all-order moments does not appear in inspected theorem statements. Gaivão–Laurent–Nogueira generalizes map formulae without this statistical scaling. Historically plausible Bugeaud–Conze (1999) and Ding–Hemmer (1987) remain unverified in full; institutional retrieval disconnected. Inaccessible sources alone do not reject best-of-knowledge O, but priority must stay qualified.
+
+## value
+
+PASS
+
+The joint arithmetic universality law for a natural random-parameter mode-locking family, including explicit nondegenerate period density, rate and moments, is a substantive asymptotic classification rather than mere restatement of known plateau endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
