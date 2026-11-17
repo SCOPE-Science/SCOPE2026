@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The proof is analytic. Python 3 code in `verify.py` requires only the standard library and may be run with `python verify.py`. It computes the weighted Kronecker-sum Laplacian, constructs the degree-two Padé numerator and denominator as exact rational matrices, inverts the denominator by exact Gauss–Jordan elimination, and compares all computed entries against the four-eigenspace projector formula. It also tests the quartic coefficient identities for exact rational parameters and verifies representative positive and eventual-negative configurations, including \(K_2\square K_5\). The package replay output was `VERIFY_OK 2135`.
+## correctness
 
-The all-real-parameter assertion does not follow from these finite tests: it follows from the symbolic identities, positivity of each coefficient in the feasible cases, and the leading-term sign obstruction outside the feasible interval. The classification is of the **completed endpoint**, not of intermediate stage states. No assertion is made about arbitrary individual edge weights or about the number of finite positivity windows in excluded parameter regions.
+PASS
 
-This document records checks on the mathematical derivation and its reproducibility only. No independent mathematical audit has been performed.
+Four commuting tensor-projector blocks yield eigenvalues 0,P,Q,P+Q; the completed two-stage Gauss end step is F(hL). Independently expanded exact symbolic numerators for both neighboring orbits and the both-coordinate orbit; the latter is strictly positive. For the neighboring orbits, large-h coefficients give φ(p)≤P/Q≤1/φ(q). Only the five enumerated unordered factor shapes are feasible, and in each p,q≤5 the lower polynomial coefficients are positive including equality boundaries. Direct exact rational checks confirm positivity at 2×5 with a/b=25/16 and eventual negative neighbor at unweighted 2×5 and 2×4. Spectral scalar F>0 ensures diagonal positivity.
+
+## originality
+
+PASS
+
+The general unweighted complete-product classification and general SSP/rational positivity literature do not imply a sharp direction-weight inequality. The weighted two-factor decision, the 2×5 anisotropic restoration and the exact boundary signs are genuinely different from the earlier domains.
+
+## value
+
+PASS
+
+This determines a natural exact integrator-positivity threshold under two physically meaningful directional diffusion rates, including a surprising strict restoration of unconditional positivity on the largest 10-vertex feasible rook shape. The optimal shape cutoff and boundary algebra are reusable structural facts, not a small unmotivated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
