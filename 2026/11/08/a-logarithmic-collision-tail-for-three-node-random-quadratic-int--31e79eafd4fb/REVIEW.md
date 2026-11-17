@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** PASS: Ordered-node density 6; three exact rational Lagrange formulas; global bound W<=sqrt(3)/(st); hierarchy decomposition makes large-gap and comparable-gap regions O(1/T); each unbalanced small-gap region contributes half-log area times 6sqrt(2) integral, giving total 6sqrt(2)(z^2-z+1/3). Remainder near endpoints or z has arbitrarily small leading coefficient. Layer cake gives p<1; Gaussian conditioning gives corresponding error moment law. checker.py passed 12 symbolic identities and diagnostics for z=0 and 1/2. Proof of infinite T-tail does not rely on simulation.
+## correctness
 
-**Originality — PASS, qualified.** PASS with residual precedence risk: Compared actual published-finding corpus searches, own random quadratic interpolation/affine-exact claims, and inspected primary literature. Their settings or implications do not establish the iid three-node logarithmic tail coefficient. General interpolation identities and collision estimates are acknowledged; no claim of absolute literature uniqueness.
+PASS
 
-**Value — PASS.** PASS: Basic iid node sampling for quadratic interpolation has a different and much worse tail (log T)/T than stratified one-per-cell interpolation; even the mean absolute Gaussian-noise error is infinite. Exact coefficient reveals how evaluation location controls the risk and diagnoses a concrete reason to enforce spacing or conditioned designs. Natural complete minimal three-node classification, not a numerically arbitrary slice.
+Order three iid U(0,1) knots a=u<b=u+s<c=u+s+t; ordered density is 6. Substitution into the three exact Lagrange formulas gives reproduction of 1,z,z² (independently checked symbolically). In each region one small gap is much smaller than the other, W~sqrt(2)(z-u)^2/(s t). The one-gap area with 0<s<eta t<eta is C log T/(2T)+O_eta(1/T), twice for opposite hierarchy; events with a gap bounded away from zero or two comparable tiny gaps are only O(1/T), and exceptional u-regions contribute arbitrarily little after normalization. The coefficient is 6sqrt(2) int_0^1(z-u)^2du=6sqrt(2)(z²-z+1/3); at z=1/2 it is sqrt(2)/2. Layer cake yields p<1 precisely; independent centered Gaussian errors inherit the norm moments. Symbolic Lagrange reproduction, gap residues and midpoint coefficient were independently checked; Monte Carlo diagnostic not rerun.
 
-The nearest primary work is Kunis and Nagel, arXiv:1812.08645, deterministic Fourier Vandermonde near-collision conditioning; and Dolbeault and Chkifa, arXiv:2306.07435, designed stable sampling. The directly checked prior interpolation results differ in their random node constraints or polynomial exactness. The strongest residual risk is an unlocated equivalent tail calculation in probability or random Vandermonde literature. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The p<1 moment threshold for iid unrepelled nodes is ALREADY established in a stronger all-n Resultary result and is explicitly not independently new. The candidate survives only on its sharper exact n=3 logarithmically amplified tail with evaluated continuous z-dependent constant; the all-n criterion is a moment statement and does not imply that coefficient. A distinct same-day one-per-cell design instead has a t^-2 law; two sampling measures cannot be conflated.
+
+## value
+
+PASS
+
+An exact positive leading tail coefficient for the smallest nontrivial random quadratic interpolant is a natural quantitative instability invariant: it gives pointwise geometry-dependent risk beyond the already-known moment cutoff, distinguishes iid from stratified sampling by a log factor, and informs spacing/conditioning controls. It is not merely a table recomputation, although a broader all-n moment result already supplies the threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

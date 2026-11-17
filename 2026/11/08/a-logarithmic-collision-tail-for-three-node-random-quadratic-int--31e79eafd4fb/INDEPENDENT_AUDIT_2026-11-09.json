@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:52:12.186746Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md a97dad9868ae01eb5815697df81812e968613f76",
+        "Assigned checker.py a7adb1955949a9018feb73d3805ddfca10a9edd3",
+        "Independent symbolic Lagrange and pole-residue identities",
+        "Prior full Resultary all-n interpolation moment criterion"
+      ],
+      "rationale": "Order three iid U(0,1) knots a=u<b=u+s<c=u+s+t; ordered density is 6. Substitution into the three exact Lagrange formulas gives reproduction of 1,z,z² (independently checked symbolically). In each region one small gap is much smaller than the other, W~sqrt(2)(z-u)^2/(s t). The one-gap area with 0<s<eta t<eta is C log T/(2T)+O_eta(1/T), twice for opposite hierarchy; events with a gap bounded away from zero or two comparable tiny gaps are only O(1/T), and exceptional u-regions contribute arbitrarily little after normalization. The coefficient is 6sqrt(2) int_0^1(z-u)^2du=6sqrt(2)(z²-z+1/3); at z=1/2 it is sqrt(2)/2. Layer cake yields p<1 precisely; independent centered Gaussian errors inherit the norm moments. Symbolic Lagrange reproduction, gap residues and midpoint coefficient were independently checked; Monte Carlo diagnostic not rerun.",
+      "residual_risks": [
+        "The limit is pointwise in deterministic z and fixed n=3, with no uniform-in-degree or nonuniform-node-density result.",
+        "The proof has logarithmic boundary-layer exclusion steps; read and checked their scaling, but did not execute 1.2M-sample diagnostic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-n Vandermonde density exponent theta theorem yields E|noise(t0)|^p<infty iff p<theta+1; theta=0 covers the submitted moment consequence.",
+          "Kunis–Nagel full journal article works with rectangular Fourier Vandermonde on the circle, deterministic conditioning, not random ordered real quadratic interpolation."
+        ],
+        "reasoning": "The broader all-n theorem dominates moment finiteness but gives no exact tail coefficient. This audit credits covered corollaries and assesses only the surviving probability asymptotic as original.",
+        "searches": [
+          "three iid uniform nodes quadratic polynomial Lagrange interpolation weight heavy tail log T/T moments",
+          "Resultary published 2026/11/2 SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a",
+          "Kunis Nagel Fourier Vandermonde pairs near-colliding"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0/RESULT.md",
+        "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "https://arxiv.org/abs/2306.07435",
+        "Resultary three iid uniform nodes quadratic polynomial Lagrange interpolation weight heavy tail log T/T moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-n theta theorem proves the moment cutoff but no exact distribution of W_3(z).",
+          "Stratified one-per-cell rule excludes simultaneous three-node near-collision hierarchies and produces t^-2 rather than (log T)/T.",
+          "Deterministic unit-circle Fourier condition number cannot provide the iid real-node coefficient by direct specialization."
+        ],
+        "reasoning": "Known all-n moment criterion is implied by a tail of index one but conversely does not fix the log amplification or exact z coefficient. Sampling law/geometry differ in the other prior works.",
+        "searches": [
+          "Read full https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a/RESULT.md",
+          "Read full https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0/RESULT.md",
+          "Read full https://link.springer.com/article/10.1007/s11075-020-00974-x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lagrange weight norm, inverse Vandermonde evaluation operator, and conditional standard deviation of Gaussian observation-noise error describe the same random variable up to sigma.",
+          "The all-n Resultary theorem treats Lebesgue constant and pointwise Gaussian noise moments with theta=0 but not sharp n=3 logT/T leading asymptotic."
+        ],
+        "reasoning": "Equivalent formulation does establish the moment cutoff; do not count it as new. No theorem giving the pointwise sharp leading coefficient was found.",
+        "searches": [
+          "three iid uniform nodes quadratic polynomial Lagrange interpolation weight heavy tail log T/T moments",
+          "random inverse Vandermonde interpolation Gaussian evaluation noise tail",
+          "Resultary 2026/11/2 universal collision-exponent moment law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One-per-cell theorem has exact t^-2 coefficient K_m(z), distinct from iid logT/T.",
+          "The full all-n moment theorem has explicit two-node tail, but not the three-node logT/T constant."
+        ],
+        "reasoning": "Three-node iid exact coefficient 6sqrt(2)(z²-z+1/3) was not among searched tabulated quantities. Record of absent table is not proof of priority, and the known moment threshold is explicitly covered.",
+        "searches": [
+          "three iid uniform nodes quadratic polynomial Lagrange interpolation weight heavy tail log T/T moments",
+          "Resultary 2026/11/8 one-per-cell random Lagrange interpolation exact collision tail",
+          "Resultary 2026/11/2 all-n iid interpolation moments"
+        ]
+      },
+      "rationale": "The p<1 moment threshold for iid unrepelled nodes is ALREADY established in a stronger all-n Resultary result and is explicitly not independently new. The candidate survives only on its sharper exact n=3 logarithmically amplified tail with evaluated continuous z-dependent constant; the all-n criterion is a moment statement and does not imply that coefficient. A distinct same-day one-per-cell design instead has a t^-2 law; two sampling measures cannot be conflated.",
+      "residual_risks": [
+        "Equivalent inverse-Vandermonde random-tail asymptotic could exist in earlier statistics/approximation papers not sampled.",
+        "Moment threshold and infinite mean-error corollary have decisive prior coverage and must not be presented as independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY COVERING: p<1 cutoff and Gaussian-noise moment consequence already known. Does not give (log T)/T coefficient for W_3(z).",
+          "evidence": [
+            "Finding states E|noise(t0)|^q<infty iff q<theta+1; n=2 exact tail only."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-a-universal-collision-exponent-moment-law-for-random-node-polyno--a2d52188204a/RESULT.md",
+          "material_read": "Full published RESULT.md including theta-density model, exact moments, all-n Gaussian noise corollary and two-node exact tail.",
+          "method": "Fetched entire source text and compared θ=0 n=3 specialization against coefficient.",
+          "title": "A universal collision-exponent moment law for random-node polynomial interpolation",
+          "trigger": "Stronger all-n iid interpolation theorem could cover moments and tail."
+        },
+        {
+          "assessment": "NOT COVERING iid triple nodes: stratified full-cell sample is distinct and yields a different t^-2 tail.",
+          "evidence": [
+            "Finding limit t²P(W_m(z)>t)=K_m(z), m>=2."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-exact-collision-tail-law-for-one-per-cell-random-lagrange-interp--faf8bda6def0/RESULT.md",
+          "material_read": "Full published RESULT.md, law of one sample per cell, theorem for K_m(z), proof of t^-2 exponent.",
+          "method": "Fetched full original text and compared underlying node laws/collision codimension.",
+          "title": "Exact collision-tail law for one-per-cell random Lagrange interpolation",
+          "trigger": "Near-identical title with exact interpolation norm tail."
+        },
+        {
+          "assessment": "Bounds deterministic condition numbers under separation assumptions, not the iid real interpolation sharp probability coefficient.",
+          "evidence": [
+            "Introduction and Section 2, Theorems 2.1–2.2; title/published July 21 2020."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+          "material_read": "Open-access full HTML Introduction, model definitions and theorems for near-colliding Fourier Vandermonde nodes; methods and restrictions inspected.",
+          "method": "Read online article text and checked domain (unit circle, bandwidth, fixed nodes).",
+          "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+          "trigger": "General condition-number theory may dominate interpolation instability."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 2026-11-02 all-n moment theorem",
+        "Resultary 2026-11-08 one-per-cell exact tail",
+        "assigned RESULT.md"
+      ],
+      "rationale": "An exact positive leading tail coefficient for the smallest nontrivial random quadratic interpolant is a natural quantitative instability invariant: it gives pointwise geometry-dependent risk beyond the already-known moment cutoff, distinguishes iid from stratified sampling by a log factor, and informs spacing/conditioning controls. It is not merely a table recomputation, although a broader all-n moment result already supplies the threshold.",
+      "residual_risks": [
+        "New value is restricted to the coefficient and collision mechanism, not claimed moment cutoff or general-degree classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Partially covered moment consequence explicitly credited."
+  ],
+  "schema_version": 1
+}
