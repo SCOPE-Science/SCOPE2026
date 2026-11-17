@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit subtriangle has exactly the required fraction of area; the law-of-cosines/Stewart norm identity gives its perimeter. In the cone coordinates \(u=b-c\), \(v=a-b\), and \(w=b+c-a\), the displayed polynomial remainder is nonnegative for all admissible parameters. This proves the sharp bound and strict inequality for non-equilateral triangles. The published exact triangle-container theorem certifies equality for equilateral containers; nested-triangle perimeter monotonicity and the limit \(a=b=1,c\to0\) certify optimality of the constant. A compactness argument verifies uniqueness of that limiting extremal shape. The included checker successfully reproduced the identities. Residual risk: the equilateral maximality premise is taken from [1], not independently reproved here.
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The primary source [1] determines each fixed-container perimeter optimum. It does not perform the second-level minimax over triangle shapes, determine its sharp side-spread constant, or classify the constant's unique degenerating sharpness regime. The full main text of [1] and the relevant general-container sections of [2] were inspected. The stability result [3] concerns curvature-bounded bodies and a different deficit. Searches for equivalent minimax/stability formulations and related public geometric records found no encompassing result. Residual risk: historical literature could contain a sharp algebraically equivalent inequality; the existing complete profile provides a strong starting point for deriving this new optimization.
+PASS
 
-**Value — PASS.** The new theorem extracts a shape-independent, best-constant quantitative guarantee from a recently solved fixed-triangle reverse-isoperimetric problem. It answers which triangle is least permissive as a container at every area fraction, measures precisely how much non-equilateral side spread improves the achievable relative perimeter, and identifies the singular worst-case geometry governing the optimal constant. It is a sharp global stability statement, rather than a routine substitution of one fixed triangle into [1].
+For sorted triangle sides a≥b≥c, fixed 0<η<1, the explicitly placed area-η subtriangle with perimeter W=a+ηc+sqrt((1−η)a²+ηb²−η(1−η)c²) provides a universal witness for the maximum contained-perimeter profile. Coordinates u=b−c,v=a−b,w=b+c−a>0 yield an exact nonnegative quadratic identity q²−(u+dv+rw)²=2(1−r)uw+(2/3)(2−η−r)v[2u+(2−η+d)v+(2−η)w], r=sqrt(1−η+η²), d=(2−η+2r)/3. Thus R≥fP+κ(a−c), f=(1+η+r)/3, κ=2(1−f), strict for non-equilateral triangles. Known fixed-triangle theorem proves equality at equilateral. Perimeter monotonicity and (1,1,ε) degeneration prove κ best possible, and compact cone zero-locus proves unique degeneration. Independent SymPy identity and sampled positive-cone computations support the nonnegative remainder proof.
 
-Closest literature: [1] is the closest source and is expressly credited for the fixed-container extremal formula and equilateral equality; [2] treats general-container existence/polygonality; [3] treats a distinct curvature-constrained stability problem. Scope: planar Euclidean triangles, \(0<\eta<1\), with no Hausdorff stability of maximizing subsets. No claim of independent validation or established priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the exact fixed-triangle optimal perimeter is prior in Ait El Manssour–Fattah–Ftouhi (2026), but its minimization over triangle shapes with a sharp side-spread penalty κ, unique equilateral minimizer and only thin 1:1:0 sharpness are not stated in accessible primary abstract or indexed comparison. Full original primary text was not available; an implication of its stronger explicit formula remains a priority risk, but the new global inequality requires an additional nontrivial cone optimization.
+
+## value
+
+PASS
+
+An optimal stability coefficient measuring the exact penalty for departure from equilateral symmetry and its sole degenerating near-extremizers is a natural refinement of the known optimal-perimeter profile, with a globally sharp inequality over all triangular containers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

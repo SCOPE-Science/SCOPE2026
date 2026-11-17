@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:54:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For sorted triangle sides a≥b≥c, fixed 0<η<1, the explicitly placed area-η subtriangle with perimeter W=a+ηc+sqrt((1−η)a²+ηb²−η(1−η)c²) provides a universal witness for the maximum contained-perimeter profile. Coordinates u=b−c,v=a−b,w=b+c−a>0 yield an exact nonnegative quadratic identity q²−(u+dv+rw)²=2(1−r)uw+(2/3)(2−η−r)v[2u+(2−η+d)v+(2−η)w], r=sqrt(1−η+η²), d=(2−η+2r)/3. Thus R≥fP+κ(a−c), f=(1+η+r)/3, κ=2(1−f), strict for non-equilateral triangles. Known fixed-triangle theorem proves equality at equilateral. Perimeter monotonicity and (1,1,ε) degeneration prove κ best possible, and compact cone zero-locus proves unique degeneration. Independent SymPy identity and sampled positive-cone computations support the nonnegative remainder proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior fixed-triangle theorem is stronger for computing R(T), but does not provide a sharp universal lower-bound side-spread profile, optimal κ, or unique degeneration in the inspected accessible material.",
+          "Other stability theorems concern curvature-constrained bodies or different metrics/inequalities."
+        ],
+        "reasoning": "Exact R(T) permits derivation but is not identical to solving global triangle-shape constrained optimization with a sharp coefficient.",
+        "searches": [
+          "Resultary: sharp minimax reverse perimeter profile triangle container side spread eta coefficient",
+          "https://arxiv.org/abs/2610.36220",
+          "Bogosel 2024 reverse isoperimetric inclusion constraint",
+          "Drach–Tatarko 2024 plane reverse-isoperimetric stability"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.36220",
+        "https://arxiv.org/abs/2402.05648",
+        "https://arxiv.org/abs/2410.06096",
+        "Resultary: sharp minimax reverse perimeter profile triangle container side spread eta coefficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted lower bound uses just a feasible subtriangle, and adds an exact positivity decomposition on the ordered-triangle cone.",
+          "κ is forced from perimeter squeeze along (1,1,ε), and near equality requires a strict remainder analysis excluding equilateral approaches."
+        ],
+        "reasoning": "The earlier fixed-container result supplies a premise/equality certificate but not the displayed global coefficient or phase rigidity without additional analysis.",
+        "searches": [
+          "https://arxiv.org/abs/2610.36220",
+          "Resultary: sharp minimax reverse perimeter profile triangle container side spread eta coefficient",
+          "Exact fixed-container R(T) as longest-side subtriangle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior fixed-container theorem maximizes perimeter for each fixed T; it characterizes the best subtriangle and expresses R(T) exactly.",
+          "The current theorem minimizes that optimal profile over T with global optimal linear stability penalty κ(a−c)."
+        ],
+        "reasoning": "Container shape optimization is a second-stage extremal problem, not a different notation for fixed-container maximization; both do share the witness/perimeter formula.",
+        "searches": [
+          "Resultary: sharp minimax reverse perimeter profile triangle container side spread eta coefficient",
+          "https://arxiv.org/abs/2610.36220",
+          "Reverse isoperimetric convex inclusion in triangle fixed η",
+          "Triangle perimeter spread stability against equilateral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem applies to all real triangle shapes and η∈(0,1); no finite exact table is a dominating source.",
+          "The known formula for each triangle is prior and not by itself an extremal table for κ(η)."
+        ],
+        "reasoning": "No independent exact container-stability table found; failure to find is not a proof of absolute priority.",
+        "searches": [
+          "Resultary: sharp minimax reverse perimeter profile triangle container side spread eta coefficient",
+          "https://arxiv.org/abs/2610.36220",
+          "Triangle container perimeter extrema parameter η"
+        ]
+      },
+      "rationale": "Qualified PASS: the exact fixed-triangle optimal perimeter is prior in Ait El Manssour–Fattah–Ftouhi (2026), but its minimization over triangle shapes with a sharp side-spread penalty κ, unique equilateral minimizer and only thin 1:1:0 sharpness are not stated in accessible primary abstract or indexed comparison. Full original primary text was not available; an implication of its stronger explicit formula remains a priority risk, but the new global inequality requires an additional nontrivial cone optimization.",
+      "residual_risks": [
+        "The full original fixed-container paper was not read; its appendices could already optimize the container shape as a corollary.",
+        "Uniform global coefficient κ is sharp only along a degenerating shape; no strengthening on compact nondegenerate shape classes is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published theorem covers R_eta(T) at fixed T and confirms equilateral equality witness; extra global stability not established in accessible material.",
+          "evidence": [
+            "Abstract: every maximizing contained K is a triangle retaining a longest T side, third point chosen on shortest side."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.36220",
+          "material_read": "Title, full abstract, claimed best-contained-triangle characterization and bibliographic date; full primary PDF/HTML was unavailable.",
+          "method": "arXiv and lawful OA abstract lookup; not falsely treated as a whole-document read.",
+          "title": "The reverse isoperimetric inequality for convex shapes included in a triangle",
+          "trigger": "Same geometry and exact maximal-perimeter function could dominate."
+        },
+        {
+          "assessment": "General existence and polygonal extremizers; no accessible matching sharp triangle-shape side-spread coefficient.",
+          "evidence": [
+            "Prior inclusion-constrained reverse isoperimetry concerns fixed containers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.05648",
+          "material_read": "Abstract/bibliographic scope only.",
+          "method": "Source search with title/abstract comparison.",
+          "title": "A reverse isoperimetric inequality for convex shapes with inclusion constraint",
+          "trigger": "General polygonal-container prior."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An optimal stability coefficient measuring the exact penalty for departure from equilateral symmetry and its sole degenerating near-extremizers is a natural refinement of the known optimal-perimeter profile, with a globally sharp inequality over all triangular containers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Triangles planar, nondegenerate, fixed η∈(0,1), ordinary Euclidean area and perimeter.",
+    "Known fixed-container theorem is not claimed as novel; coefficient attained only in degenerating limit.",
+    "Primary reverse-perimeter full text unavailable, historical comparison qualified.",
+    "Scientific review complete; import/publication withheld for privacy. No GitHub write, dispatcher closeout or scheduling change."
+  ],
+  "schema_version": 1
+}
