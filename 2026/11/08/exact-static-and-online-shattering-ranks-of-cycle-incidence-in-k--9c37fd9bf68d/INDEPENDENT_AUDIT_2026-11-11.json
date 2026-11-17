@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T12:55:18.879260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_{3,b}, b>=3, every simple cycle has four or six edges. A 5-edge shattered support would be five edges of a 6-cycle, but its 4-positive/1-negative trace would require two same-side edges, impossible; hence VC<=4. A depth-6 online tree has an all-positive path of six edges of a hexagon; after its first five edges the closing sixth edge is forced, contradicting the zero sibling. The boundary K3,3 has exactly 15 cycles, excluding depth/VC 4, and supports shatter 3. For K3,4, an explicit 4-edge support shatters all 16 traces and a complete 32-leaf depth-five certificate is supplied; embedding proves all b>=4. Independent enumeration found exactly 15 and 42 cycles, exact VC 3,4 and Ldim 3,5; inspected Git certificate has 31 internal nodes, 32 distinct consistent leaves, no repeated queries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Circumference-based upper VC bound is <=5 in K3,b; reviewed claim gives sharp <=4 and adaptive Ldim exactly 5 for b>=4."
+        ],
+        "reasoning": "The earlier general bound is weaker and says nothing sharp about online dimension; generic upper bounds cannot imply the new pair.",
+        "searches": [
+          "VC Littlestone dimension simple cycle edge incidence K_{3,b} bipartite graphs shattering",
+          "https://doi.org/10.22190/FUMI210301011M"
+        ]
+      },
+      "checked_sources": [
+        "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+        "https://doi.org/10.22190/FUMI210301011M"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inspected Mofidi primary PDF section with cycle-hypergraph bounds and specialized other graphs; no K3,b VC4 plus Ldim5 formula."
+        ],
+        "reasoning": "The new sharp static/online gap is not a consequence of the older circumference bound. Related matching or cycle-convexity notions use different concept classes.",
+        "searches": [
+          "https://doi.org/10.22108/toc.2021.127880.1832",
+          "VC Littlestone dimension simple cycle edge incidence K_{3,b} bipartite graphs shattering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mofidi studies cycle edge-set hypergraphs (same objects) and general VC bounds, but not online mistake-tree exact K3,b result."
+        ],
+        "reasoning": "Same concept category warrants direct comparison; no equivalent full two-rank theorem appears in the inspected theorem statements and relevant PDF sections.",
+        "searches": [
+          "VC Littlestone dimension simple cycle edge incidence K_{3,b} bipartite graphs shattering",
+          "https://doi.org/10.22108/toc.2021.127880.1832"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K3,3 has 15 cycles, K3,4 has 42; the actual cycle_witness.json full depth-five tree has 31 internal/32 leaves, and separate exact recurrence matches Ldim 3,5."
+        ],
+        "reasoning": "Finite certificates establish the lower bounds uniformly by graph embedding, but the upper bounds require infinite-family proof. No prior published K3,b all-b exact table was located.",
+        "searches": [
+          "VC Littlestone dimension simple cycle edge incidence K_{3,b} bipartite graphs shattering"
+        ]
+      },
+      "rationale": "Mofidi 2022 provides general cycle-hypergraph VC bounds, with circumference six giving only the loose upper bound five, and specific other graph families, not the joint K_{3,b} exact VC/Ldim classification or b=3 threshold. The finite K3,4 online certificate is not merely extrapolation.",
+      "residual_risks": [
+        "Second Mofidi article read only bibliographically, and unindexed exact K3,b cycle incidence might exist.",
+        "Lower bound certificate checked for trace/structure, and independent exact minimax enumeration corroborates; all-b bound rests on combinatorial geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_BUT_ONLY_GENERAL_BOUND",
+          "evidence": "For K3,b circumference 6 so VC <=5, weaker than sharp VC4; no Ldim formula.",
+          "identifier_or_url": "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+          "material_read": "Primary PDF, cycle-hypergraph sections and circumference upper bound inspected, with page screenshot; not every page read",
+          "method": "Original full-PDF relevant sections and visual page",
+          "title": "On the VC-dimension, covering and separating properties of the cycle and spanning tree hypergraphs of graphs",
+          "trigger": "Same cycle-edge incidence object and general graph bounds"
+        },
+        {
+          "assessment": "UNCHECKED_FULL_TEXT_RISK",
+          "evidence": "General graph cycle counting and VC; possible unindexed K3,b specialization remains a priority risk.",
+          "identifier_or_url": "https://doi.org/10.22190/FUMI210301011M",
+          "material_read": "Bibliographic information and abstract/topic; full text not verified",
+          "method": "Indexed primary record/abstract",
+          "title": "On the Number of Cycles of Graphs and VC-Dimension",
+          "trigger": "Plausible related exact cycle hypergraph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simple-cycle incidence is a natural graph hypergraph. K3,b is the first complete-bipartite family supporting both four- and six-cycles; the stable Ldim=5 vs VC=4 gap and sharp b=3 transition give a motivated exact adaptive/static distinction for all b, beyond a finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+    "https://doi.org/10.22190/FUMI210301011M"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Second Mofidi article read only bibliographically, and unindexed exact K3,b cycle incidence might exist.",
+    "Lower bound certificate checked for trace/structure, and independent exact minimax enumeration corroborates; all-b bound rests on combinatorial geometry."
+  ],
+  "residual_risks": [
+    "Second Mofidi article read only bibliographically, and unindexed exact K3,b cycle incidence might exist.",
+    "Lower bound certificate checked for trace/structure, and independent exact minimax enumeration corroborates; all-b bound rests on combinatorial geometry."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME_OBJECT_BUT_ONLY_GENERAL_BOUND",
+      "evidence": "For K3,b circumference 6 so VC <=5, weaker than sharp VC4; no Ldim formula.",
+      "identifier_or_url": "https://toc.ui.ac.ir/article_25746_890e066e8b9dd269c189910e7e780475.pdf",
+      "material_read": "Primary PDF, cycle-hypergraph sections and circumference upper bound inspected, with page screenshot; not every page read",
+      "method": "Original full-PDF relevant sections and visual page",
+      "title": "On the VC-dimension, covering and separating properties of the cycle and spanning tree hypergraphs of graphs",
+      "trigger": "Same cycle-edge incidence object and general graph bounds"
+    },
+    {
+      "assessment": "UNCHECKED_FULL_TEXT_RISK",
+      "evidence": "General graph cycle counting and VC; possible unindexed K3,b specialization remains a priority risk.",
+      "identifier_or_url": "https://doi.org/10.22190/FUMI210301011M",
+      "material_read": "Bibliographic information and abstract/topic; full text not verified",
+      "method": "Indexed primary record/abstract",
+      "title": "On the Number of Cycles of Graphs and VC-Dimension",
+      "trigger": "Plausible related exact cycle hypergraph theorem"
+    }
+  ]
+}
