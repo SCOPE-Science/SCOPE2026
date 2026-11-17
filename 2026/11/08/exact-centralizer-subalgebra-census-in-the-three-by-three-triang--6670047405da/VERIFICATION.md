@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Direct finite-field verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with the standard library. For each \(q\in\{2,3,4,5,7\}\), enumerate all \(q^6\) upper-triangular matrices. Form the three linear commutator equations on the five-dimensional quotient by scalar matrices, reduce their coefficient rows to a unique canonical row echelon basis, and count distinct row spaces. Matching row spaces is equivalent to equal kernels and thus equal centralizer subalgebras.
+## correctness
 
-Observed output:
+PASS
 
-```
-q=2: 31 centralizers; commutator-rank census {0: 1, 1: 1, 2: 16, 3: 13}
-q=3: 91 centralizers; commutator-rank census {0: 1, 1: 1, 2: 33, 3: 56}
-q=4: 173 centralizers; commutator-rank census {0: 1, 1: 1, 2: 56, 3: 115}
-q=5: 291 centralizers; commutator-rank census {0: 1, 1: 1, 2: 85, 3: 204}
-q=7: 659 centralizers; commutator-rank census {0: 1, 1: 1, 2: 161, 3: 496}
-VERIFY_OK
-```
+The three displayed commutator equations are necessary and sufficient for Y in T3 to centralize X. Distinct eigenvalues give q^3 distinct conjugated diagonal subalgebras for q>=3 (unitriangular stabilizer trivial). Two equal eigenvalues give three choices of repeated pair, each with split/nonsplit normal form, q^2 orbit centralizers per form; scalar-diagonal nilpotent cases give 1+1+2q+(q-1). Codimension and diagonal-image projections separate the strata. Result: c0=c1=1,c2=3q^2+2q,c3=3q^2+q-1+1_{q>2}q^3; q2=31 and for q>2 total q^3+6q^2+3q+1. Independently recomputed the commutator rowspaces from explicit matrix equations over F2,F3,F5, obtaining 31,91,291 and codim spectra (1,1,16,13),(1,1,33,56),(1,1,85,204). The submitted standard-library checker additionally covers F4,F7; this independent finite work corroborates universal orbit reasoning.
 
-The arithmetic for \(\mathbb F_4\) explicitly uses its quadratic polynomial model. Every test iterates the entire specified finite algebra, not a sample. These checks establish the formula only in those five fields; the proof in `RESULT.md` establishes the all-prime-power statement using symbolic classification. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Słowik 2018 classifies maximal/minimal elements of the centralizer inclusion poset, not all equal embedded centralizer subalgebras or their finite-field count. Bhunia 2019 classifies conjugacy classes of group centralizers, mainly over infinite fields, with a quotient by conjugacy far coarser than literal embedded equality. Cheraghpour et al. study two-by-two triangular commuting graphs. Related published SCOPE 4x4 strictly-upper-triangular or twisted T3 invariants have different multiplication/statistics. Searches found no exact or stronger T3 embedded centralizer census; nonidentification does not prove absolute novelty.
+
+## value
+
+PASS
+
+PASS: distinct element-centralizer subalgebras and their codimensions are natural complete finite-algebra invariants, measuring distinct commuting-constraint kernels beyond conjugacy. The uniform finite-field classification exposes a genuine q=2 structural exception (no three distinct diagonal eigenvalues). It is a full small-rank classification rather than an arbitrary isolated count and can inform commuting-neighborhood or centralizer-lattice calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
