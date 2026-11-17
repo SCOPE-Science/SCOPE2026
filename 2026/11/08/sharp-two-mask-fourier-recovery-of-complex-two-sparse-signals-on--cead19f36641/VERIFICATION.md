@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. The Fourier inverse identity follows from standard character orthogonality; the support-uniqueness step uses invertibility of \(2\) modulo odd \(n\); zero-lag inversion uses strict monotonicity of the second mask. All allowed one- and two-sparse cases and the zero signal have been handled. The even-grid counterexample holds algebraically for every real mask, including negative and vanishing entries.
+## correctness
 
-`CHECK.py` (Python 3 with NumPy installed via `requirements.txt`) performs finite, supplementary tests for odd grid sizes \(3,5,7,9,11,15,21,31\) and even grid sizes \(4,6,8,10,12,16,28\). It checks 905 support signatures and 2,866 test cases, including randomized complex amplitudes, full intensity arrays, direct reconstruction up to a global phase and arbitrary real masks against the exact even-grid ambiguity.
+PASS
 
-Expected successful terminal line:
+The exact inverse DFT of each full unnormalized intensity is the weighted cyclic autocorrelation. In odd n, the two nonzero cross-lags +/-h differ; the positive geometric-mask autocorrelation ratio determines ordinary integer sum u+v, and sum plus difference modulo odd n uniquely determines unordered support by invertibility of 2. Two zero-lag equations then solve the squared magnitudes and one cross-lag solves relative phase; zero and one-sparse cases are separate. An arbitrary single mask cannot distinguish two scaled impulses, while even n real masks have explicit conjugate antipodal two-site ambiguity. Inspected CHECK.py demonstrates 905 finite support signatures and recovery/counterexample sampling; unrestricted correctness rests on the analytic proof.
 
-`CHECK_OK phase_recovery_tests=2866 exact_support_signatures=905`
+## originality
 
-Numerical tests do not prove the theorem; infinite-dimensional quantifiers in the statement are established by the proof. The analytic result does not establish stability or nonasymptotic error bounds. The literature overlap review is not an independent audit.
+PASS
+
+Unlike full-signal random-mask PhaseLift, Sidon-support phase-only masks, unmasked sparse Fourier recovery or complete translated-window Gabor measurements, the claim gives exactly two deterministic strictly positive bounded-contrast unoversampled masks for ALL odd-cycle complex two-sparse vectors, with a sharp one-mask lower bound. Li–Li 2021 is highly relevant but its full text was unavailable despite OA/preprint and authorized Oxford attempts; its accessible abstract gives a randomized-mask setting rather than this exact deterministic sparse theorem. Best-of-knowledge PASS with explicit high-priority residual risk and no invented full-text exclusion.
+
+## value
+
+PASS
+
+Exact universal support/amplitude/relative-phase recovery of a nontrivial sparse complex class with two elementary positive masks and explicit decoder identifies a minimal measurement-design threshold; parity obstruction gives a genuine acquisition boundary. This is meaningful beyond a generic phase-retrieval algorithm or finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
