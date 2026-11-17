@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact minimal-nilpotent product spectrum
 
-The proof is algebraic and applies to every finite field and matrix size at least two. Direct exhaustive matrix calculations were performed independently of the counting derivation, with standard-library Python `check_minimal_nilpotent_product.py`; its actual stdout is embedded as `verification_output.txt`.
+# Independent mathematical audit
 
-The program enumerates every nonzero normalized rank-one square-zero matrix, constructs all ordered products, then enumerates every matrix target and compares the observed fiber size with the piecewise formula. It implements multiplication in extension fields of orders 4 and 8 by polynomial reduction; order 8 is included for arithmetic support but not in the nine reported exhaustive settings.
+## correctness
 
-Executed complete checks: (2,2), (2,3), (2,4), (2,5), (3,2), (3,3), (3,4), (3,5), (4,2), where each tuple means (dimension, field order). Each output row records the number of nonzero rank-one nilpotents, all tested ordered pairs, the product-image size, the zero fiber, and the trace-zero and nonzero-trace nonzero target populations.
+PASS
 
-These are finite confirmations only, not formal proof of the general theorem. The general proof consists of the outer-product normalization, a restricted pairing rank computation, and a direct zero-product incidence count. No independent audit has been performed.
+Represent each minimal rank-one nilpotent A=u alpha, alpha(u)=0 modulo nonzero scalar. If AB=C=u0 beta0 is nonzero, normalized A=u0 alpha and B=x beta0 satisfy alpha(u0)=beta0(x)=0, alpha(x)=1; restricted pairing of two (n−1)-spaces is nondegenerate at tr(C)≠0 and has 1-d radicals at tr(C)=0, yielding both fiber sizes. Counting image lines in ker alpha yields F(0); reversal gives BA=tr(C)*x alpha. Independent literal matrix-product enumeration checked every target for (n,q)=(2,2),(2,3),(3,2),(3,3),(4,2), including nilpotent support obstruction for n=2. Algebra is valid all finite fields, including characteristic2.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The complete prescribed-target multiplication pushforward on a natural minimal conjugacy orbit is a structured enumerative matrix invariant. Exact multiplicities and the product-reversal zero criterion sharpen classical existence-only factorization and expose a genuine dimension-two boundary; the all-dimension closed law is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

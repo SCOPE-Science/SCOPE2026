@@ -1,11 +1,21 @@
-# Self-review: complete minimal-nilpotent product-fiber law
+# Independent mathematical audit
 
-**Correctness — PASS.** The algebraic proof gives a bijection between prescribed nonzero product factorizations and solutions of three explicit bilinear equations; trace stratification follows from the rank of a restricted perfect pairing. The zero-product count comes from choosing an image line in a fixed kernel. The reverse-product statement follows from the same normalized factor representations. All steps remain valid in characteristic two and for \(n=2\), with the expected vanishing of the nonzero trace-zero fiber. The independent exhaustive checker directly constructs and multiplies matrices in nine settings, including genuine extension-field arithmetic; it tests every target, not a sample of targets. Computation corroborates and is not used as an infinite proof.
+## correctness
 
-**Originality — PASS under best-knowledge comparison, provisional.** The closest primary nilpotent-factorization theorem is Wu (1987): it establishes existence with prescribed ranks over the complex numbers, not per-target finite-field multiplicities. Sourour (1992) establishes general-field existence; only its abstract was accessible, leaving a residual historical-comparison risk. Britnell–Wildon (2010 preprint), sections 1–4, studies **commuting** nilpotent classes, not products. published-finding corpus's closest findings address idempotent–nilpotent factorizations and nilpotent–involution factorizations (different input classes), not two rank-one square-zero factors. No exact table, equivalent form, or stronger multiplicity theorem was located by the documented searches. This is not a claim of independent priority verification.
+PASS
 
-**Value — PASS.** Products of nilpotents form an established matrix-factorization problem, but existence alone does not quantify the distribution of witnesses. The minimal nonzero nilpotent conjugacy class is the canonical smallest nontrivial nilpotent orbit, so its multiplication pushforward is a natural invariant rather than an arbitrary bounded slice. The result gives the full all-dimension/all-finite-field multiplicative convolution, detects a sharp \(n=2\) versus \(n\ge3\) representability boundary, and reveals that nonzero nilpotent products necessarily have zero reverse product. The quantitative and structural statements are not implied by existence-only theorems.
+Represent each minimal rank-one nilpotent A=u alpha, alpha(u)=0 modulo nonzero scalar. If AB=C=u0 beta0 is nonzero, normalized A=u0 alpha and B=x beta0 satisfy alpha(u0)=beta0(x)=0, alpha(x)=1; restricted pairing of two (n−1)-spaces is nondegenerate at tr(C)≠0 and has 1-d radicals at tr(C)=0, yielding both fiber sizes. Counting image lines in ker alpha yields F(0); reversal gives BA=tr(C)*x alpha. Independent literal matrix-product enumeration checked every target for (n,q)=(2,2),(2,3),(3,2),(3,3),(4,2), including nilpotent support obstruction for n=2. Algebra is valid all finite fields, including characteristic2.
 
-**Closest sources and limitations.** Wu 1987 (full 6-page primary text), Britnell–Wildon arXiv:1001.0811 (full available arXiv text), Sourour 1992 (abstract; full text unavailable), Botha 1994 (abstract only). General nilpotent matrix multiplication distributions may exist outside the inspected sources, and independent mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The complete prescribed-target multiplication pushforward on a natural minimal conjugacy orbit is a structured enumerative matrix invariant. Exact multiplicities and the product-reversal zero criterion sharpen classical existence-only factorization and expose a genuine dimension-two boundary; the all-dimension closed law is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
