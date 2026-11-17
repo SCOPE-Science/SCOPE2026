@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support-function distributional curvature measure is nonnegative throughout the stated parameter interval. The evenly spaced contact normals have an exact John decomposition, and the Euclidean support-function distance is exactly the parameter. The Lipschitz support-area formula, polar radial integral, tangent-half-angle primitive, and elementary rational identity prove all finite-parameter formulas. For the smoothed support, an explicit second derivative is bounded below by \(-4\), and the sharp quarter-turn Dirichlet inequality with \(H^1\)-convergence proves the cubic limiting coefficient. An independent numerical polygon/polar checker passed 122 supplementary checks; no finite tests substitute for the proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The distributional curvature of h=1+t|sin(mθ)| is density 1−(m²−1)t|sin(mθ)| plus upward atoms 2mt at contact normals; nonnegative precisely on stated bound. Uniformly distributed 2m contacts fulfill John identity, and max support gap is t. The support-area and polar radial integral yield the two exact area formulas and D=π(m²−4)t²/2+16t³/3+O(t⁴). m=2 cancels quadratic. Smooth fδ=sqrt(sin² 2θ+δ²)−δ (δ=t⁴) has curvature h+h″≥1−4t>0 and same John contacts; Dirichlet Poincaré and H1 approximation make quadratic deficit O(t⁴), leaving D/d_H³→16/3. Independently expanded exact polar integral with SymPy for m=2,4,7; inspected supplied polygon/checker code. Neither these finite checks nor smooth approximants prove a global cubic lower bound.
 
-The 2026 Böröczky–Makai theorem proves nonnegativity of the polar-area-sum deficit in John or Löwner position, while its stability example concerns the different area-product functional. It does not specify a cubic near-equality order, the regular fan two-regime formulas, or a smooth counterfamily to a quadratic area-sum Hausdorff lower bound. Published records about constant-width area stability or polar-product lower estimates concern different assumptions and functionals; their conclusions do not imply the exact construction. Targeted mathematical-index and literature searches did not identify covering statements, but universal absence from the literature cannot be certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The issue is the stability exponent of a new sharp planar polar-area inequality. The four-contact quarter-turn Dirichlet eigenmode cancels the quadratic term, while higher regular contact fans retain it. The rigorous smoothing preserves John normalization and shows that smooth positive curvature cannot restore a uniform quadratic Hausdorff deficit. This is a structural boundary for prospective quantitative strengthenings, not a routine numerical constant.
+Böröczky–Makai 2026 Theorem 1.1 proves the John/Löwner normalized area-sum upper bound, but their stability Theorem 1.3 and Example 1.4 address a different quantity, the area product. No inspected earlier source gives the smooth John-position cubic area-sum deficit witness or the precise four-contact frequency transition. Originality is best-of-knowledge subject to unindexed convex-geometric stability work.
 
-## Closest sources and limits
+## value
 
-Closest: Böröczky–Makai, arXiv:2602.14750v1, Theorem 1.1 and Theorem 1.3/Example 1.4 (full HTML inspected); Zhang, *Inequalities for curvature integrals in Euclidean plane* (2019, full HTML inspected for support-curvature and area formulas); Böröczky–Makai–Meyer–Reisner, arXiv:1507.01481 (abstract inspected, full HTML unavailable; lower area-product stability rather than upper area-sum stability). Research-record comparisons of related area stability and polar geometry were also considered. There is no claim of an independent audit or a global cubic stability theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp obstruction to a natural anticipated quadratic Hausdorff stability inequality for a newly strengthened Blaschke–Santaló area-sum inequality, with explicit smooth strictly convex examples. The transition at exactly four John contacts and cubic coefficient distinguishes an intrinsic local degeneration, not an arbitrary area calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
