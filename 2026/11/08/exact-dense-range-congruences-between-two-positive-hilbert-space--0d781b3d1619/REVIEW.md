@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two maps have explicit domain and codomain bases with a one-to-one and onto correspondence of basis coordinates, and the weights are strictly positive and bounded by one. Hence both are injective dense-range contractions; their pullback identities are checked coefficient-by-coefficient and their cross terms vanish. The spectral obstruction uses compactness of the second summand's diagonal part, the Calkin essential gap of an invertible congruence of a projection, and the infinite multiplicities of all positive dyadic levels.
+## correctness
 
-## Originality
-PASS on available evidence, without an independent priority certificate. The initiating paper (arXiv:2610.39002v1) explicitly asks for the dense-range status of this exact pair in Example 8.15 and Problem 11.9. It proves only related classifications for other comparison classes and distinguishes the invertible case. Targeted mathematical-record, web, and previous-claim searches found no covering solution. Classical theory of operator ranges (including Fillmore–Williams) is a residual possibility for an equivalent abstract formulation and is not claimed to have been exhaustively excluded.
+PASS
 
-## Value
-PASS. A named natural pair was the source's central unsolved test of the dense-range relation. Exact maps prove that the relation is strictly coarser than invertible comparison even for bounded injective frame operators without closed range. The construction also addresses the stronger variant requiring injective dense-range maps, without claiming a general classification.
+PASS: W selects one special Q basis index (j(n),n) with j(n)=ceil log2 n for each v_n and bijects the nonspecial indices to u_m; the weights squared produce n2^-j*(1/n)=2^-j or 2^-j*1. V writes n=2^j(2k-1), maps all u_m to odd row-zero coordinates, odd v_n to even row-zero, and v_n at j>=1 to (j,k); the squared weights produce P exactly. All weights are positive <=1, so both maps are contractive, injective and have dense range. P is a compact perturbation of the infinite projection onto the u-sector, whose invertible congruences have a uniform positive Calkin spectral gap; Q has essential positive spectrum 2^-j accumulating at zero, contradicting two-sided invertible comparability. Independent exact basis-index and rational-weight checks passed over >8000 indices. The proof, not finite tests, establishes density and spectral obstruction.
 
-## Evidence and limitations
-The proof gives all basis maps and their scalar bounds, the exact form identities, and a direct Calkin separation. The accompanying exact-rational checker tests finite instances only. The initiating paper and its Problem 11.9 were inspected in full text, including their mathematical implications; publication priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): the paper naming this very pair and posing its dense-range status as a question was located. No earlier source found supplies these two explicit inverse-direction diagonal-permutation pullbacks. General Douglas factorization and operator-range results are relevant but do not visibly specify these congruences. The original preprint full text, including the revised 6 Nov 2026 version, could not be inspected; this is a material residual priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+PASS: the construction resolves a named exact operator-range comparison problem and separates dense-range from invertible comparison for injective noncompact frame operators with nonclosed range. These are natural spectral configurations, and the two explicit dense-range congruences are useful beyond a small parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
