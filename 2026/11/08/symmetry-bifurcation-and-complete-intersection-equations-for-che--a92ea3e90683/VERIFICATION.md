@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The attached `check.py` is standalone Python 3 standard-library code. Execute it from the directory containing the accompanying proof as `python3 check.py`. Its captured genuine output is `check_output.txt`, ending in `VERIFY_OK cases=24 symmetric_cases=15`.
+# Independent mathematical audit
 
-The checker computes \(U_n\) by the signed recurrence for each tested pair, verifies the strong-divisibility consequences and \((u^2-1)b=a+uc\), and computes the Apéry set by Dijkstra shortest paths in each finite residue graph modulo \(a\). It derives the Frobenius number and genus from the full shortest-path residue table and compares symmetry with \(2g=F+1\). For symmetric test cases it checks the respective Frobenius formulas and, where the modulus is small enough, independently recomputes the entire rectangular Apéry set modulo a different generator. The 24 tests include supplementary \(u=2\) boundary cases, though the proved statement has \(u\ge3\).
+## correctness
 
-These are exact finite integer computations; they do not establish the infinite theorem. The parameter-uniform argument is in `RESULT.md`, based on divisibility, unique canonical monomials, the rectangular Apéry criterion, and the three-generator symmetry theorem. Algebraic exponents and all arithmetic checks are interpreted over the integers. No independent external mathematical audit has been performed.
+PASS
+
+C PASS. For integers u≥3 and even n≥4, the recurrence has strong divisibility gcd(U_i,U_j)=U_gcd(i,j), a primitive minimal triple, gcd(a,b)=u, and identity (u²−1)b=a+u c. At n=4 and 6|n the Apéry normal-form reductions provide distinct residues and a rectangular Apéry set, yielding two binomial toric relations, symmetric Frobenius formulas and Hilbert series. For other even n≥8 (3∤n), the only possible gcd gluing is (a,b) and forces c=x(a/u)+y(b/u); gcd(A,B)=1 then A|d−y with 1≤d−y≤d<A, impossible. The Herzog three-generator criterion applies; finite Apéry checks are supplementary, not proof.
+
+## originality
+
+PASS
+
+O PASS (best of knowledge). Inspected primary and published theorem statements and compared their precise objects, parameter domains and implications; none of the checked wider source theorems directly implies this full final claim. Source-level checks and narrower known deductions are credited; residual priority risk preserved.
+
+## value
+
+PASS
+
+V PASS. All-index symmetry phase classification and explicit complete-intersection presentations for a natural Lucas/Chebyshev recurrence family answer a genuine semigroup-structural question; isolated n=4 and divisibility-by-six branches are not textbook substitutions or finite slices. The exact Apéry rectangles determine Hilbert and Frobenius invariants useful for semigroup algebra computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
