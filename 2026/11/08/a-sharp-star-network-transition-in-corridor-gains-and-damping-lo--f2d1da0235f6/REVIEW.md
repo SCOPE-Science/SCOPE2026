@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the exact matrix, all quantifiers, admissible column-substochastic scaling, and asymptotic spectral objective. The three-dimensional equitable quotient determines all new eigenvalues, with the complementary antisymmetric and zero-sum eigenspaces explicitly included. Sign brackets locate the three real quotient roots; the exact \(2/5\) inequalities establish the entire \(m\ge4\) range, and rational sign brackets give the unique \(m=3\) crossing. The \(m=2\) formula is direct. Strict Perron improvement follows from nonnegative irreducible matrix comparison. The standalone verifier confirms 752 finite/exact checks and has been replayed. The checks are corroboration, not a substitution for the all-parameter proof.
+PASS
 
-## Originality — PASS within inspected sources, with priority risk
+PASS: Exact star adjacency spectrum ±sqrt(m),0 yields D=(c+sqrt(m))/c for c≥sqrt(m). Edge-added graph splits into a 3-class quotient with cubic x³−x²−mx+m−2, plus −1 and zeros. Root signs prove γ<−1<0<β<1<sqrt(m)<α, yielding D+=(c+α)/(c+β). For m≥4, rational tests f_m(2/5)>0 and f_m(sqrt(m)+2/5)>0 imply α−sqrt(m)<2/5<β, so damping strictly falls for all c≥sqrt(m). For m=3 exact root brackets give a single positive crossing c*=sqrt(3)β/(α−β−sqrt(3))≈4.245360630265; m=2 is the explicit triangle and always improves. PF strict increase of Perron root follows from added positive edges and connectedness. 56 independent exact-graph eigenvalue/range comparisons m=2..15 corroborated analytic inequalities.
 
-The closest ecological source is Shima, Noonburg and Phillips (2010), DOI 10.1890/08-2058.1: its full text was examined, including its connectivity-matrix and damping-ratio definitions, simulation methods, comparative figures, and discussion. It applies damping ratios to habitat dispersal but does not give this star-family corridor comparison. Stott et al. (2010) provide general primitive matrix-population theory; Stott (2016) reviews transient matrix perturbations. Eldan, Rácz and Schramm (2015), arXiv:1504.07669, study changes in the normalized Laplacian gap, not the Perron-to-subdominant eigenvalue modulus ratio of \(cI+A\). These works neither explicitly state this exact theorem nor imply it without a new graph-specific spectral computation. Similar constructions may occur in older graph-spectral sources not located in the search, so priority is provisional, not established by search failure.
+## originality
 
-## Value — PASS
+PASS
 
-The damping ratio has an explicit published ecological interpretation as the relaxation rate of spatial recruitment profiles. The theorem separates a permanent corridor-construction tradeoff from a parameter-dependent one in a natural family of hub-and-spoke habitats: with at least four spokes, adding a leaf corridor improves Perron recruitment yet always worsens relative spectral relaxation for all \(c\ge\sqrt m\). The contrast with smaller stars is sharp and the example is substantive (ratio \(2\) falls to approximately \(1.758\) at five habitats), rather than an arbitrary single numerical exception. The result is a constrained theoretical benchmark, not a statement about empirical extinction or short-time nonlinear dynamics.
+PASS best-of-knowledge: The damping-ratio metric and Braess-type spectral reversals are known, but the exact homogeneous-star dimension-by-dimension classification under one added leaf corridor is not implied by inspected general ecological matrices or normalized-Laplacian paradox results.
 
-## Residual limitations
+## value
 
-Historical priority in graph adjacency eigenratio literature needs independent checking. The underlying connectivity model has symmetric equal corridor effects, fixed pre-existing coefficients, and a homogeneous local recruitment term; it does not model a fixed total dispersal budget or detailed marine hydrodynamics. All conclusions concern asymptotic spectral ratios, not uniform finite-time mixing norms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A small explicit ecological-network intervention raises recruitment Perron growth while reducing asymptotic profile relaxation, with a complete sharp threshold in natural hub degree, including the exceptional unique crossing. This is a meaningful mechanistic counterexample and classification, not an arbitrary finite numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
