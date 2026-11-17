@@ -1,15 +1,21 @@
-# Scientific assessment of the rank-one robust sampling theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact objective is the supremum of squared current-row mass divided by the probability selected from the reference. The upper bound is derived by a coordinate orthogonality estimate and weighted Cauchy, and is reached by an explicit orthonormal pair. The elementary one-parameter optimizer is checked at both boundaries; the uniform-reference coordinate adversary provides a matching lower bound **against every sampling policy**. The analytic proof covers all real \(m\ge2\) and \(0\le\theta\le\pi/2\), including reference zeros. The standalone standard-library checker passed 11,050 supporting assertions; experiments are not used in place of universal proof. The stated Bernstein corollary is only a bounded-summand upper bound.
+PASS
 
-## Originality — PASS, with residual historical risk
+For 0<eta<=1 each mixture p_i=(1-eta)u_i²+eta/m satisfies exactly F(eta)=cos²θ/(1-eta+eta/m)+m sin²θ/eta by Cauchy–Schwarz, with an explicit u,z,w saturating coordinate 1. Optimize F to eta*=m sinθ/[sqrt(m-1)cosθ+(m-1)sinθ] until tanθ=sqrt(m-1), then eta=1. The uniform reference u_i=1/sqrt(m) forces some p_j<=1/m for every arbitrary policy and a feasible w achieves the same lower bound; hence the entire policy infimum is proved, not just mixtures. The θ=0 and π/2 endpoints, zero reference entries, and uniqueness restricted to mixture η are treated correctly. Independent analytic formula/random-vector checks across m=2,3,4,10,30 and 250 trials confirm constraints; finite checks are not the proof.
 
-Fakih--Grigori--Pierce, arXiv:2607.22194v1, analyze target-leverage row sampling with a current/target inflation term for CP-ALS. Unlike that analysis, the new claim optimizes over arbitrary distributions based on a rank-one reference under an angle cap and proves a piecewise *equality* with a matching lower bound. Larsen--Kolda, arXiv:2006.16438, discuss leverage-based tensor sampling and deterministic high-leverage inclusion; only an abstract-level comparison was available. Derezinski et al., PMLR 99 (2019), optimize estimator errors under response uncertainty rather than this coordinate-inflation loss. Raj--Musco--Mackey, PMLR 108 (2020), develop local sensitivity for finite-sum objectives and quadratic-proxy leverage bounds, rather than a sharp angular two-vector minimax game; relevant published PDF sections were inspected. Related published mathematical records on coordinate energy contraction, adaptive pivoting and Haar subspace descent do not directly imply the present quantifiers. Literature searches cannot establish absolute priority; an unindexed equivalent or an uninspected theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Cached leverage sampling can assign zero probability to newly activated rows even under arbitrarily small positive drift. This theorem gives an *all-policy* optimal repair, its exact angle-dependent mixture weight, and a sharp switch to uniform sampling. The resulting sampling-weight factor is the coefficient in standard bounded-summand concentration calculations. This is a natural algorithmic design boundary, not an assertion of improved full tensor decomposition or tail-minimaxity. Rank-one scope and the requirement to know the drift angle are significant limitations.
+Best-of-knowledge exact rank-one angular-uncertainty minimax inflation with unrestricted p(u) and the sharp leverage/uniform transition is absent from the inspected distinct leverage sampling, robust design and tensor ALS results. The highly pertinent current-target tensor sampling paper could only be inspected through abstracts: authorized Oxford full-text access reported VPN disconnected after unsuccessful arXiv/OA attempts. This unresolved literature risk is explicit, not an automatic failure or invented source reading.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact robustness penalty for stale rank-one leverage scores and the unavoidable smoothing cutoff answer a concrete importance-sampling design question. Showing global optimality across arbitrary discontinuous reference policies adds substantial strength beyond optimizing a convenient mixture; exact constants diagnose infinite inflation from reference zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

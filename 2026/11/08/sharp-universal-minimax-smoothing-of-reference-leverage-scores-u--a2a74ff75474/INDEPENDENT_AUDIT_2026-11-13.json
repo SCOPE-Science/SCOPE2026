@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:47:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<eta<=1 each mixture p_i=(1-eta)u_i²+eta/m satisfies exactly F(eta)=cos²θ/(1-eta+eta/m)+m sin²θ/eta by Cauchy–Schwarz, with an explicit u,z,w saturating coordinate 1. Optimize F to eta*=m sinθ/[sqrt(m-1)cosθ+(m-1)sinθ] until tanθ=sqrt(m-1), then eta=1. The uniform reference u_i=1/sqrt(m) forces some p_j<=1/m for every arbitrary policy and a feasible w achieves the same lower bound; hence the entire policy infimum is proved, not just mixtures. The θ=0 and π/2 endpoints, zero reference entries, and uniqueness restricted to mixture η are treated correctly. Independent analytic formula/random-vector checks across m=2,3,4,10,30 and 250 trials confirm constraints; finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://proceedings.mlr.press/v99/derezinski19b.html",
+          "https://arxiv.org/abs/1911.01575"
+        ],
+        "reasoning": "Prior minimax experimental design optimizes estimator risk and worst-case regression statistical criteria; those objectives and assumptions do not imply the pointwise row ratio optimum under angle uncertainty.",
+        "searches": [
+          "Resultary semantic: rank one leverage scores robust minimax sampling angular subspace drift uniform mixing worst coordinate inflation",
+          "minimax experimental design worst case importance ratio angular drift rank one",
+          "Derezinski Clarkson Mahoney Warmuth 2019 minimax experimental design"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.22194",
+        "https://proceedings.mlr.press/v99/derezinski19b.html",
+        "https://arxiv.org/abs/2006.16438",
+        "https://arxiv.org/abs/1911.01575"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.22194",
+          "https://proceedings.mlr.press/v99/derezinski19b.html",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-universal-minimax-smoothing-of-reference-leverage-scores-u--a2a74ff75474/RESULT.md"
+        ],
+        "reasoning": "Existing sampling bounds make leverage-score zeros a motivated failure mode, but do not yield the sharp mixture weight, uniform transition, and adversarial all-policies lower bound. The step requiring unrestricted p(u) uses a uniform-reference witness absent from that setting.",
+        "searches": [
+          "Resultary semantic: rank one leverage scores robust minimax sampling angular subspace drift uniform mixing worst coordinate inflation",
+          "tensor ALS target leverage ratio Fakih Grigori Pierce",
+          "rank one robust sampling cos theta sqrt m-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.22194",
+          "https://arxiv.org/abs/2006.16438"
+        ],
+        "reasoning": "Coordinatewise squared overlap under angular perturbation can be expressed as subspace leverage drift, but referenced ALS/tensor results bound specific sampling algorithms or current-target score ratios, not inf over all reference-dependent policies on the exact angular ball.",
+        "searches": [
+          "Resultary semantic: rank one leverage scores robust minimax sampling angular subspace drift uniform mixing worst coordinate inflation",
+          "robust principal angle leverage sampling m tan theta minimax row ratio",
+          "arXiv:2607.22194"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.22194",
+          "https://proceedings.mlr.press/v99/derezinski19b.html"
+        ],
+        "reasoning": "The theorem concerns a continuum minimax optimization, not a finite reference table. Neither searched paper nor indexed results supplied an exact matching piecewise formula.",
+        "searches": [
+          "Resultary semantic: rank one leverage scores robust minimax sampling angular subspace drift uniform mixing worst coordinate inflation",
+          "leverage uniform minimax mixing exact angle transition closed form"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact rank-one angular-uncertainty minimax inflation with unrestricted p(u) and the sharp leverage/uniform transition is absent from the inspected distinct leverage sampling, robust design and tensor ALS results. The highly pertinent current-target tensor sampling paper could only be inspected through abstracts: authorized Oxford full-text access reported VPN disconnected after unsuccessful arXiv/OA attempts. This unresolved literature risk is explicit, not an automatic failure or invented source reading.",
+      "residual_risks": [
+        "High relevance 2026 Fakih–Grigori–Pierce paper was not readable in full: arXiv/OA retrieval failed and institutional VPN disconnected. It might contain a stronger implication.",
+        "No theorem for higher-rank subspaces or actual optimal MSE/tail probabilities; the Bernstein consequence is a bound, not a sample-complexity minimax."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No precise implication can be asserted from unread full text; same-model general tensor ratio is a material priority risk",
+          "evidence": "arXiv:2607.22194, first public July 24 2026",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22194",
+          "material_read": "Accessible arXiv abstract/bibliographic and literature description, NOT the complete paper",
+          "method": "Searched arXiv and lawful OA; authorized institutional route returned VPN disconnected",
+          "title": "Accelerating the Canonical Polyadic Alternating Least Squares Optimization via a Randomized Interpolative Decomposition",
+          "trigger": "Closest actual reference/current target-leverage comparison"
+        },
+        {
+          "assessment": "Objective is estimator statistical risk, not coordinatewise reweighting inflation against a reference angular ball",
+          "evidence": "PMLR volume 99, 2019",
+          "identifier_or_url": "https://proceedings.mlr.press/v99/derezinski19b.html",
+          "material_read": "PMLR online article accessible description and problem formulation; not all supplementary material",
+          "method": "Read PMLR primary article material",
+          "title": "Minimax experimental design: Bridging the gap between statistical and worst-case approaches to least squares regression",
+          "trigger": "Potential broad minimax design theorem"
+        },
+        {
+          "assessment": "Tensor decomposition sampling, not exact all-reference-policy robust pointwise ratio game",
+          "evidence": "arXiv:2006.16438",
+          "identifier_or_url": "https://arxiv.org/abs/2006.16438",
+          "material_read": "Accessible abstract, sampling setup and quoted guarantees, not claimed whole-paper reading",
+          "method": "Read publicly available abstract/description",
+          "title": "Practical Leverage-Based Sampling for Low-Rank Tensor Decomposition",
+          "trigger": "Potentially similar leverage/uniform smoothing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact robustness penalty for stale rank-one leverage scores and the unavoidable smoothing cutoff answer a concrete importance-sampling design question. Showing global optimality across arbitrary discontinuous reference policies adds substantial strength beyond optimizing a convenient mixture; exact constants diagnose infinite inflation from reference zeros.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real rank-one subspaces and exact known principal-angle bound only.",
+    "Cannot infer optimal estimator tails or general rank-k sampling.",
+    "Material priority risk from inaccessible 2026 closely related manuscript; no human authorization bypass."
+  ],
+  "schema_version": 1
+}
