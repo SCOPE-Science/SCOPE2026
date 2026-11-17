@@ -1,19 +1,21 @@
-# Scientific review: ternary digit-two parity Abelian complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof covers every integer \(k\ge0\) and every factor length \(1\le n\le3^k\). The key prefix-extrema recurrence is exact because signed supertiles concatenate as \(W_kW_k(-W_k)\), with unit total sum; it yields \(M_k=k+1\) and \(m_k=\min\{0,2-k\}\). Every short factor crosses at most one aligned supertile boundary, so the three explicitly bounded cases cover all factors, including degenerate endpoint cases. The fixed-point factor language is complement closed; the observed opposite extremal windows and the sliding-window interpolation prove exactly \(2k+2\) Parikh classes at the geometric scales. The accompanying program reproduces finite boundary cases but is not used as an infinite proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+For tau(0)=001,tau(1)=110, writing +1 for zero and -1 for one gives W_(k+1)=W_k W_k (-W_k), with total weight one and exact prefix extrema M_k=k+1 and m_k=min(0,2-k). Every length-n<=3^k factor crosses at most one two-supertile boundary, so direct partial-prefix differences constrain its signed sum to [-2k-1,2k+1]. Fixed parity thus gives at most 2k+2 distinct Parikh vectors. The adjacent aligned block U_k overline(U_k), which occurs since 01 occurs in the underlying word, realizes signed weight -(2k+1) by choosing prefix maximizing P_k; complement closure of the factor language realizes +(2k+1). Sliding windows interpolate all intermediate counts, proving exact rho(3^k)=2k+2 and max for n<=3^k, hence global logarithmic envelope and limsup=2. Direct construction from the substitution independently confirmed counts at k=0..6; these finite checks do not replace the exact supertile argument.
 
-The October 2026 source addresses a different morphic parameter and asks about other parameters, including the studied binary specialization. The 2013–2014 general uniform-binary classification gives an asymptotic upper order in the positive-excess case but does not yield the exact sharp geometric-scale envelope or logarithmic coefficient. The 2016 general computation paper was identified, but its complete text could not be accessed; the accessible abstract describes an algorithmic regularity result, not the stated explicit formula. Searches for the exact substitution, its ternary-digit-parity equivalent, the power-of-three formula, and related general growth statements did not uncover covering results. Search incompleteness and possibly unindexed prior specific computations remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp constant and exact scale-by-scale maximum settle an infinite structured special case of the lower-growth issue for uniform binary substitutions with unit image-count difference and positive excess. This distinguishes actual logarithmic growth from the previously established generic upper estimate and links it to a concrete base-three automatic word. The proof gives an explicit structural mechanism, not an arbitrary finite table or numerical improvement.
+Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.
 
-## Scope and limitations
+## value
 
-The claim is not an all-length exact complexity formula, nor an all-parameter classification. An independent scientific audit and comprehensive publication-priority confirmation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural base-three binary digit-parity fixed point provides a sharp and quantitatively exact logarithmic Abelian-complexity envelope with a precisely attained scale subsequence. It resolves a motivated special morphism parameter within a broader automatic-complexity problem, and the simple supertile proof can serve as a structural benchmark for morphic discrepancy. No general all-n exact sequence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:07:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For tau(0)=001,tau(1)=110, writing +1 for zero and -1 for one gives W_(k+1)=W_k W_k (-W_k), with total weight one and exact prefix extrema M_k=k+1 and m_k=min(0,2-k). Every length-n<=3^k factor crosses at most one two-supertile boundary, so direct partial-prefix differences constrain its signed sum to [-2k-1,2k+1]. Fixed parity thus gives at most 2k+2 distinct Parikh vectors. The adjacent aligned block U_k overline(U_k), which occurs since 01 occurs in the underlying word, realizes signed weight -(2k+1) by choosing prefix maximizing P_k; complement closure of the factor language realizes +(2k+1). Sliding windows interpolate all intermediate counts, proving exact rho(3^k)=2k+2 and max for n<=3^k, hence global logarithmic envelope and limsup=2. Direct construction from the substitution independently confirmed counts at k=0..6; these finite checks do not replace the exact supertile argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier asymptotic framework includes O(log n) results in positive-excess morphism cases; that alone does not determine exact rho(3^k)=2k+2 or the sharp coefficient. Allouche et al. analyze a different alphabet/parameter r=3."
+        ],
+        "reasoning": "A general asymptotic upper bound is strictly weaker than the exact scale maximum and limsup constant. However the inaccessible full 2016 and 2019 papers could contain a specialized equality and remain named priority risks.",
+        "searches": [
+          "abelian complexity parity ternary digit 2 fixed point 0->001 1->110 logarithmic exact powers 3",
+          "Blanchet-Sadri–Fox–Rampersad (2014) asymptotic abelian complexity",
+          "Allouche et al. arXiv:2610.03837"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 6415fba29a2d66dd2d7bb6506de16365751fc059",
+        "Pinned verify.py blob b32c2fff1593c8af2100f6f4b51221df26c917c9",
+        "Allouche et al. arXiv:2610.03837",
+        "Complete Resultary Parikh-constant three-uniform theorem",
+        "Blanchet-Sadri et al. 2016 DOI 10.1016/j.tcs.2016.05.046 (full text inaccessible)",
+        "Whiteland 2019 (full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected published family with identical Parikh images excludes tau, and the more general O(log n) statements do not imply coefficient exactly two with equality at all powers 3."
+        ],
+        "reasoning": "No confirmed mathematical implication from the read earlier results determines the current exact scale theorem. The missing 2016 algorithmic full text and 2019 asymptotic full text retain plausible stronger implications requiring later human inspection.",
+        "searches": [
+          "abelian complexity parity ternary digit 2 fixed point 0->001 1->110 logarithmic exact powers 3",
+          "Allouche et al. arXiv:2610.03837",
+          "Resultary:2026/10/12/SCOPE-exact-abelian-complexity-trichotomy-for-every-binary-parikh-cons--fd4fbbd9fcc8",
+          "Whiteland (2019), Asymptotic Abelian Complexities of Certain Morphic Binary Words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map has |tau(0)|_1=1 and |tau(1)|_1=2, so it is NOT a Parikh-constant three-uniform morphism; the earlier nine-map classification requires equal image Parikh vectors."
+        ],
+        "reasoning": "The digit-two parity description is equivalent to the given substitution, but not to Thue–Morse binary digit parity or to the prior Parikh-constant three-uniform setting. Replacing these constructions by one another would change the word and its complexity.",
+        "searches": [
+          "abelian complexity parity ternary digit 2 fixed point 0->001 1->110 logarithmic exact powers 3",
+          "Allouche et al. arXiv:2610.03837",
+          "Resultary:2026/10/12/SCOPE-exact-abelian-complexity-trichotomy-for-every-binary-parikh-cons--fd4fbbd9fcc8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior nine-case table has bounded, eventually periodic abelian complexity, whereas this word has unbounded rho(3^k)=2k+2; the map is excluded by the equal-Parikh hypothesis. A directly relevant 2016 uniform-morphic computation full text was unavailable, so its exact table cannot be excluded."
+        ],
+        "reasoning": "No inspected exact database/table covers the submitted 3^k coefficients. This is best-of-knowledge rather than proof of absence; the inaccessible 2016 same-domain publication is a material residual risk.",
+        "searches": [
+          "abelian complexity parity ternary digit 2 fixed point 0->001 1->110 logarithmic exact powers 3",
+          "Resultary:2026/10/12/SCOPE-exact-abelian-complexity-trichotomy-for-every-binary-parikh-cons--fd4fbbd9fcc8",
+          "Blanchet-Sadri–Seita–Wise (2016) DOI:10.1016/j.tcs.2016.05.046"
+        ]
+      },
+      "rationale": "Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.",
+      "residual_risks": [
+        "The full 2016 article Computing abelian complexity of binary uniform morphic words was inaccessible; it could already give a specialized exact power-of-three table.",
+        "The 2019 Whiteland asymptotic paper was inaccessible and could imply the logarithmic coefficient.",
+        "A generic O(log n) theorem is insufficient to infer the exact scale equality, but unindexed sharper evaluations may exist.",
+        "No formula for every individual non-power-of-three length is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates other substitution parameters, not a demonstrated exact computation for binary 0->001,1->110",
+          "evidence": [
+            "The mentioned construction uses a three-letter r=3 variant; current theorem concerns binary r=2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03837",
+          "material_read": "Abstract, available theorem/remark references and bibliographic information; entire full text not verified in this audit",
+          "method": "Accessible arXiv publication metadata and focused result summaries",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Recent same general automatic-sequence/morphism-family problem"
+        },
+        {
+          "assessment": "Noncoverage is mathematically exact: equal image Parikh counts is violated by tau(0)=001,tau(1)=110",
+          "evidence": [
+            "Prior theorem assumes two length-three images with the same number of ones; current pair has counts 1 and 2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-abelian-complexity-trichotomy-for-every-binary-parikh-cons--fd4fbbd9fcc8/RESULT.md",
+          "material_read": "Entire prior RESULT.md: definitions, all nine morphisms, statement, proof, table and limitations",
+          "method": "Read complete connected GitHub source",
+          "title": "Exact abelian-complexity trichotomy for every binary Parikh-constant three-uniform morphism",
+          "trigger": "Same alphabet and uniform morphism length potentially stronger classification"
+        },
+        {
+          "assessment": "Potential exact-table coverage cannot be excluded and is an explicit residual risk, not a manufactured failed originality decision",
+          "evidence": [
+            "Published in Theoretical Computer Science 640 (2016), 41–51; DOI 10.1016/j.tcs.2016.05.046"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2016.05.046",
+          "material_read": "Title, abstract/bibliographic material and referenced scope; full text not obtained",
+          "method": "Lawful arXiv/OA search, followed by authorized institutional retrieval, which returned vpn_disconnected; no bypass",
+          "title": "Computing abelian complexity of binary uniform morphic words",
+          "trigger": "Same binary uniform-morphism framework, potentially exact specialized computation"
+        },
+        {
+          "assessment": "Cannot exclude a precise earlier coefficient formula; no whole-document noncoverage claimed",
+          "evidence": [
+            "Whiteland (2019) on asymptotic Abelian complexities of morphic binary words"
+          ],
+          "identifier_or_url": "https://www.utupub.fi/bitstream/10024/172354/1/final_version_for_personal_use.pdf",
+          "material_read": "Bibliographic description and limited summary; full PDF access returned 403",
+          "method": "Attempted lawful open-access download, unsuccessful",
+          "title": "Asymptotic Abelian Complexities of Certain Morphic Binary Words",
+          "trigger": "May contain a sharper logarithmic coefficient in same morphic family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural base-three binary digit-parity fixed point provides a sharp and quantitatively exact logarithmic Abelian-complexity envelope with a precisely attained scale subsequence. It resolves a motivated special morphism parameter within a broader automatic-complexity problem, and the simple supertile proof can serve as a structural benchmark for morphic discrepancy. No general all-n exact sequence is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 6415fba29a2d66dd2d7bb6506de16365751fc059",
+    "Pinned verify.py blob b32c2fff1593c8af2100f6f4b51221df26c917c9",
+    "Allouche et al. arXiv:2610.03837",
+    "Complete Resultary Parikh-constant three-uniform theorem",
+    "Blanchet-Sadri et al. 2016 DOI 10.1016/j.tcs.2016.05.046 (full text inaccessible)",
+    "Whiteland 2019 (full text inaccessible)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full 2016 article Computing abelian complexity of binary uniform morphic words was inaccessible; it could already give a specialized exact power-of-three table.",
+    "The 2019 Whiteland asymptotic paper was inaccessible and could imply the logarithmic coefficient.",
+    "A generic O(log n) theorem is insufficient to infer the exact scale equality, but unindexed sharper evaluations may exist.",
+    "No formula for every individual non-power-of-three length is claimed.",
+    "A public metadata sanitization process is operationally incomplete; this does not alter C/O/V conclusions or certify publication."
+  ],
+  "residual_risks": [
+    "The full 2016 article Computing abelian complexity of binary uniform morphic words was inaccessible; it could already give a specialized exact power-of-three table.",
+    "The 2019 Whiteland asymptotic paper was inaccessible and could imply the logarithmic coefficient.",
+    "A generic O(log n) theorem is insufficient to infer the exact scale equality, but unindexed sharper evaluations may exist.",
+    "No formula for every individual non-power-of-three length is claimed."
+  ],
+  "schema_version": 1
+}
