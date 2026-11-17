@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each complex maximizer reduces to a nonnegative signal by entrywise positivity, and every finite-exponent maximizer is strictly positive. For exponents above two, a strictly convex divided-difference argument forces two equal input coordinates. The derivative sign, unique minimum of the logarithmic critical-point ratio, exact factorization at exponent four, and strict log-convexity in the exponent prove the full stated transition. The critical optimizer equality is an exact logarithmic identity; finite checks are corroborative only.
+## correctness
 
-**Originality — PASS (best-knowledge, with priority risk).** The closest initiating published full text, Matveev's *Shapes and Norms of Random Pairs* (arXiv:2608.08039v1), proves a graph-to-Lebesgue-norm correspondence but does not compute this six-cycle exponent line. Matveev–Romashchenko's earlier shape framework supplies context; its complete text was not available for this comparison, and its abstract is not treated as proof of noncoverage. Relevant scientific records for graph-edge numerical radius, order-three Fourier character pairs, and finite-state cyclic \(\ell_4\) norms have different domains and optimizing variables. Alias/parameter/implication searches and accessible prior claim comparisons found no dominating theorem. Older three-state nonlinear norm/hypercontractive literature remains a genuine originality risk.
+PASS
 
-**Mathematical value — PASS.** The result evaluates a complete natural exponent line for the smallest non-complete connected homogeneous bipartite graph. It identifies an exact transcendental threshold with two separated equality orbits and a discontinuous symmetry change, giving concrete non-Hilbert shape behavior that endpoint spectral theory does not predict.
+For complex inputs, coordinatewise |Ax|≤A|x| and triangle equality at any full-support optimum force common phase. Every finite-q maximum has strictly positive entries; the q>2 Lagrange equations for y_i=S−x_i and strict convexity of s→s^(q−1) exclude three distinct input coordinates. Therefore the exact global maximization reduces to (t,1,1)/√(2+t²) and f_q(t)=[2^q+2(1+t)^q]/(2+t²)^(q/2). At q=2, A²=I+J yields spectral norm 2; at q=4 the displayed polynomial slack is (2/3)(t−1)²(5t²−2t+5)>0 off uniform. For q*=log4/log(4/3), the derivative sign function h_q and Q(u) have the asserted unique turning pattern (checked H′=G, G′′>0 and H(1/2)=(3/8)log(256/243)). Hence global equality only t=1/2 and t=1; exact tie (4/3)^q*=4, and strict log-convexity gives only uniform below q*. Test vector t=1/2 gives strict superiority above q*. ℓ∞ norm √2 from largest row length. Source finite verifier is corroborative only; continuum proof reconstructed.
 
-**Limits.** This is the unnormalized counting-measure matrix norm and the Euclidean-input line only. The nonuniform optimizer for all exponents above the threshold is specified through an exact scalar maximization, not claimed to have a global elementary closed form or unique root. The underlying shape-function normalization is not recomputed. No independent mathematical audit or publication-priority certification has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge explicit nonlinear q-threshold and complete equality-orbit classification for A=J3−I3, rather than the general association between bipartite graph shape functions and incidence operator norms. No equivalent exact transition discovered in named searches and related research catalogue; inaccessible initiating source is retained as a risk, not misrepresented as full negative evidence.
+
+## value
+
+PASS
+
+The exact first-order symmetry-breaking threshold and coexistence of two separated maximizing orbits are mathematically motivated by the smallest connected noncomplete homogeneous bipartite incidence graph. The result gives a nontrivial sharp, parameter-dependent operator norm and all equality types, not merely a numerical optimizer or a renaming of shape-functions. Useful as a benchmark for nonlinear induced norms and graph shape transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
