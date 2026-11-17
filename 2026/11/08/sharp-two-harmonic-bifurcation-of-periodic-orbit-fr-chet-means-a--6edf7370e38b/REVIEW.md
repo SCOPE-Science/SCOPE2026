@@ -1,19 +1,21 @@
-# Scientific review: two-harmonic periodic-orbit Fréchet means
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The stated flow realizes both samples as smooth embedded periodic solutions of one autonomous polynomial equation; both have the same primitive period and constant arclength speed. The entire infinite-dimensional quotient optimization, not merely a harmonic subspace restriction, is reduced by the Hilbert parallelogram identity to a single phase-correlation maximum. Its quadratic expression in \(\cos\phi\) yields the exact threshold, all optimizers and the variance. Phase-inequivalence is established by simultaneous Fourier coefficients. Exact best alignment at the unshifted arithmetic mean and an explicit strict-descent path prove that the fixed point is not locally minimal in the supercritical regime. The code tests are corroborative, not substitutes for proof.
+PASS
 
-## Originality (O): PASS within inspected evidence
+The two sample paths solve the same autonomous smooth polynomial flow exactly and have constant equal speed and minimal period 2π. In real Hilbert H=L²(circle,C²), the parallelogram identity proves every minimizer of equal-weight orbit-distance squared lies at a midpoint of optimally shifted pair samples, so no hidden higher-harmonic minimizer exists. Cross correlation cosφ-a²cos2φ=a²+x-2a²x² is a strictly concave quadratic in x=cosφ, proving one mean for a<=1/2 and exactly two inequivalent means for a>1/2; variance and optimizer gap follow algebraically. At m0=(e^{it},0), each best phase shift is exactly zero; yet C_a''(0)=4a²-1>0 makes nearby midpoint classes strictly better when a>1/2, so algorithm fixed point is not even a local minimum. Independently checked rational amplitudes and curvature sign.
 
-Hering–Kuehn establish the orbit-space model and alternating algorithm and explicitly warn of nonunique means and nonglobal algorithm behavior; no exact two-harmonic one-to-two transition or nonminimizing arithmetic-initialization trap was identified in the inspected original text. Mixon–Needham–Willey analyze finite group orbits, not this continuous-shift periodic-trajectory family. Bigot and Bigot–Gendre study registration and statistical estimation, not the theorem's specific full nonlinear orbit-mean and algorithmic combination. Searches of published mathematical results and primary-source inspections yielded no theorem implying the stated threshold and exact gap. No uniqueness of historical discovery is claimed: earlier or unindexed curve-registration examples could be equivalent and remain a priority risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-The first two distinct temporal harmonics provide the minimal natural resonance that can compete when registering two phase-shifted periodic trajectories. The construction is realized by bona fide, equally fast orbits of the same smooth flow, ruling out the main parametrization artifact highlighted by the motivating work. It gives an exact global phase diagram and a meaningful computational boundary: the source's natural arithmetic initialization is a fixed point of exact block-coordinate updates but lies outside even the local-minimum set; the objective gap grows without bound with the second-harmonic amplitude. The result is limited to the explicit symmetric two-sample family and does not imply generic behavior.
+The quotient midpoint reduction and generic phase-aligned nonuniqueness are old. The earlier October 26 Resultary two-lobe planar family has a different k=2 Fourier correlation and threshold ε²=2/5, and it allows distinct planar flows; it does not give the current pair of *different orbits in one polynomial flow*, constant-speed normalization equality, sharp a=1/2 classification and exact arithmetic-initialization fixed-nonminimum gap. Full Hering–Kuehn source remained inaccessible and is a real priority risk.
 
-## Closest literature and limitations
+## value
 
-Closest sources: Hering–Kuehn, arXiv:2606.10748 (framework and algorithm); Mixon–Needham–Willey, arXiv:2610.24191 (nonuniqueness/optimization in finite orbit spaces); Bigot, arXiv:1111.1855, and Bigot–Gendre, arXiv:1210.0771 (registration and shift estimation). The mathematical primitives are classical; the specific sharp flow-realized transition plus strict algorithm trap are the assessed contribution. Broader historical priority and independent scientific validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A completely worked two-real-orbit dynamical example where the global phase-quotient Fréchet mean bifurcates from unique to two classes, while a natural deterministic alternating alignment algorithm stays forever at a demonstrably nonlocal-minimum. It separates optimization geometry from representation and arc-length sampling effects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

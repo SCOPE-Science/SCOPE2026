@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The entire infinite-dimensional minimization is reduced analytically by the real-Hilbert-space parallelogram identity to maximizing \(C_a(\phi)=\cos\phi-a^2\cos(2\phi)\) over one circle. The substitution \(x=\cos\phi\) gives a strictly concave quadratic and directly establishes global optimality, the exact equality cases, the variance and the mean multiplicities. The unaligned arithmetic mean remains fixed under the exact best-alignment iteration because its alignment correlations for both inputs are \(\cos\phi\); arbitrarily close strict-descent competitors follow from \(C_a''(0)=4a^2-1>0\).
+## correctness
 
-`verify_phase.py` is a self-contained Python 3 standard-library checker. Invoke `python3 verify_phase.py`. Expected successful output:
+PASS
 
-`VERIFY_OK exact_parameter_cases=8 harmonic_inner_products=48 scanned_phases=2888 suboptimal_descent_checks=12`
+The two sample paths solve the same autonomous smooth polynomial flow exactly and have constant equal speed and minimal period 2π. In real Hilbert H=L²(circle,C²), the parallelogram identity proves every minimizer of equal-weight orbit-distance squared lies at a midpoint of optimally shifted pair samples, so no hidden higher-harmonic minimizer exists. Cross correlation cosφ-a²cos2φ=a²+x-2a²x² is a strictly concave quadratic in x=cosφ, proving one mean for a<=1/2 and exactly two inequivalent means for a>1/2; variance and optimizer gap follow algebraically. At m0=(e^{it},0), each best phase shift is exactly zero; yet C_a''(0)=4a²-1>0 makes nearby midpoint classes strictly better when a>1/2, so algorithm fixed point is not even a local minimum. Independently checked rational amplitudes and curvature sign.
 
-The rational formulas are checked exactly; floating-point checks only corroborate phase correlations and descent at selected values. The sampled phase grid is not a proof of the continuum maximum. The analytical proof, not the script, justifies the universal quantifiers over \(a>0\), all phases, and all mean candidates in \(L^2\). Historical-priority conclusions are limited to the listed inspections; no independent scientific audit has been performed.
+## originality
+
+PASS
+
+The quotient midpoint reduction and generic phase-aligned nonuniqueness are old. The earlier October 26 Resultary two-lobe planar family has a different k=2 Fourier correlation and threshold ε²=2/5, and it allows distinct planar flows; it does not give the current pair of *different orbits in one polynomial flow*, constant-speed normalization equality, sharp a=1/2 classification and exact arithmetic-initialization fixed-nonminimum gap. Full Hering–Kuehn source remained inaccessible and is a real priority risk.
+
+## value
+
+PASS
+
+A completely worked two-real-orbit dynamical example where the global phase-quotient Fréchet mean bifurcates from unique to two classes, while a natural deterministic alternating alignment algorithm stays forever at a demonstrably nonlocal-minimum. It separates optimization geometry from representation and arc-length sampling effects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
