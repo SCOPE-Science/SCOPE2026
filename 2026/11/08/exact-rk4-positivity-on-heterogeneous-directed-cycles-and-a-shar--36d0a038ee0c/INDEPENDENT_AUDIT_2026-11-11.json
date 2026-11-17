@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T05:46:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 with strictly positive vertex-specific one-way rates, the RK4 polynomial has no wrapped walks of <=4 jumps. Exact path expansion using complete homogeneous symmetric polynomials yields five entry types by forward distance. Distance 0,2,4 stay strictly positive (Taylor remainder/discriminant), while distance-one entry is hr_iF_{r_i,r_{i+1}}(h) and distance-three is h³Πr(4-hΣ_4r)/24. The negative discriminant for F' makes F strictly decreasing with one root and proves a single sharp intersection cutoff. Independently computed exact rational RK4 matrix powers for three heterogeneous/homogeneous n=5,6,7 examples and checked every entry against the symbolic formulas, all row sums one. Symbolically checked F(2/(a+b))=1/3 and the single-defect cubic substitution; these support the analytic no-reentry proof. The four-maximum plateau criterion follows because each one-jump root is >1/M and 4/W is =1/M iff W=4M. Diagonal <=1 in a nonnegative stochastic matrix gives Mh*<α, while the single-high-rate defect yields sharp supremum α; the changeover R_c is the unique root >1 of 3R³-9R²-15R-43. No correctness defect found.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published heterogeneous-cycle Crank–Nicolson result studies a rational second-order scheme, with different global-rate dependence.",
+          "General invariance results apply to broad polyhedral cones but provide computable sufficient polynomial thresholds, not the sharp nonreentrant local-rate theorem and plateau geometry."
+        ],
+        "reasoning": "Broader general-purpose RK positivity theory does not mathematically dominate the sharp all-step family; for this structure the value is precisely the simplified formula and matching upper/lower sign proof.",
+        "searches": [
+          "Resultary: RK4 positivity directed cycle heterogeneous rates exact bounds",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-crank-nicolson-positivity-horizon-for-heterogeneous-dire--432cd8c9b221/RESULT.md",
+          "arXiv:1406.6755v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.6755v2 Theorem 3.3/Corollary 1/section 3.3",
+        "2026-11-02 Resultary uniform directed RK4 full RESULT.md",
+        "Resultary directed heterogeneous RK4 and Crank–Nicolson semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horváth–Song–Terlaky Theorem 3.3 and corollary give first positive zeros of polynomials for valid invariance steps but the paper explicitly notes such bounds need not be maximal; it does not prove a local two-obstruction/no-reentry structural theorem for directed cycles.",
+          "Unit-rate Nov2 table is implied by setting all r_i equal, not vice versa; the R_c switch is invisible in that specialization."
+        ],
+        "reasoning": "The new theorem specializes to old uniform data but is not implied by it, and generic monotonicity theory does not force the exact componentwise sign simplifications. Searches were bounded and are not novelty proof.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff/RESULT.md",
+          "arXiv:1406.6755v2",
+          "Resultary: directed cycle heterogeneous rates Runge Kutta fourth order positivity local rate polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 2 homogeneous directed-cycle exact RK4 table has rate-one cutoff h=1 for n>=4, corresponding to the special case all r_i=1.",
+          "Horváth–Song–Terlaky 2014 supplies a general polynomial-first-zero invariance method, not an explicit rate-neighbor classification on directed cycles."
+        ],
+        "reasoning": "The all-uniform specialization is known, but variable r_i generates genuinely new local constraints, an exact global min of adjacent rate cubics and four-site sums, plus a nontrivial universal gain. The general first-zero algorithm alone is not the claimed closed classification.",
+        "searches": [
+          "Resultary: directed cycle heterogeneous rates Runge Kutta fourth order positivity local rate polynomial",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff/RESULT.md",
+          "arXiv:1406.6755v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact uniform-cycle table contains only the all-equal-rate subfamily.",
+          "No inspected published table includes the transition contrast R_c≈4.7084529666, four-rate plateau strict-Euler criterion, or maximal gain α approached as R→∞."
+        ],
+        "reasoning": "A numerical matrix-instance root table from generic algorithms cannot substitute for an exact all-n, all-positive-rate local expression with a sharp supremum.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff/RESULT.md",
+          "Resultary: directed cycle heterogeneous rates Runge Kutta fourth order positivity local rate polynomial",
+          "arXiv:1406.6755v2"
+        ]
+      },
+      "rationale": "The distinct final claim is the uniform-in-cycle-length heterogeneous positive-rate sharp local formula, all-step no-reentry, four-maximal plateau iff, optimal global gain and exact single-defect transition. The earlier unit-rate case is credited and not new, while the inspected general primary theorem gives a method but no such parametric identity. Best-of-knowledge originality passes with residual unindexed-source risk.",
+      "residual_risks": [
+        "Historical specialist numerical-analysis literature may have an equivalent explicit variable-rate directed cycle result that was not indexed.",
+        "Generic polynomial-invariance algorithms can produce numerical thresholds instance-by-instance; they do not establish novelty by themselves, and the assessment is conditional on bounded primary reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "General sufficient first-zero polynomial checks do not establish exact two-local-obstruction formula, nonreentry, or heterogeneous-cycle sharp gain.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6755",
+          "material_read": "Full accessible 17-page PDF; specifically read Theorem 3.3/Corollary 1 on page 7, Theorem 3.4 and section 3.3.1 discussing nonoptimal first roots",
+          "method": "Read searchable primary PDF and visually inspected the relevant mathematical page 7",
+          "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+          "trigger": "Highly relevant general Taylor-polynomial positivity root framework"
+        },
+        {
+          "assessment": "COVERING_SPECIAL_CASE_ONLY",
+          "evidence": "Uniform rate1 all n>=5 cutoff h=1 is a proper subfamily of new r_i-dependent theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff/RESULT.md",
+          "material_read": "Complete public RESULT.md: table for p=1..4, proof of n>=4 uniform horizon, short-cycle exceptions and spectral witness",
+          "method": "Fetched and read complete theorem and full proof",
+          "title": "Sharp cycle-length positivity frontiers for fourth-order Runge–Kutta",
+          "trigger": "Previously published same time integrator on uniform one-way cycles"
+        },
+        {
+          "assessment": "DIFFERENT_NUMERICAL_SCHEME",
+          "evidence": "Crank–Nicolson rational endpoint is not classical polynomial RK4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-crank-nicolson-positivity-horizon-for-heterogeneous-dire--432cd8c9b221/RESULT.md",
+          "material_read": "Resultary semantic title and detailed summary only; not used as full-text noncoverage claim",
+          "method": "Read search result and compared integrator definition from indexed summary",
+          "title": "A sharp Crank–Nicolson positivity horizon for heterogeneous directed cycles",
+          "trigger": "Same heterogeneous graph but different integrator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unmodified RK4 on finite nonreversible Markov cycles is a natural numerical diffusion problem. An exact timestep law valid for arbitrary heterogeneous rates, using only adjacent pairs and four consecutive rates rather than a full matrix positivity test, directly characterizes a meaningful CFL frontier. The exact plateau criterion explains when RK4 genuinely outperforms forward Euler; the sharp universal gain and one-defect phase switch reveal nontrivial structure. These are motivated complete family-level invariants, not arbitrary isolated calculations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=5 strictly positive one-way cyclic rates and classical RK4 completed endpoints; no internal stage positivity.",
+    "The sharp ratio α is a strict supremum approached by unbounded single-rate contrast, never attained.",
+    "Residual historical priority risk of unindexed specialized directed-generator literature."
+  ],
+  "schema_version": 1
+}
