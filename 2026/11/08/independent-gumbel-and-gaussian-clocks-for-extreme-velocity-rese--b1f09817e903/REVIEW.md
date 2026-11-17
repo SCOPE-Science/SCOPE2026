@@ -1,11 +1,21 @@
-# Scientific review: extreme completed flights under velocity-only resetting
+# Independent mathematical audit
 
-**Correctness (PASS).** The generator-free renewal construction gives independent Brownian-area marks and exponential durations with exact Gaussian conditional variance. A single strictly convex Laplace saddle supplies both the stretched-exponential survival constant and a conditional central limit theorem for flight length. The joint marked Gumbel–normal limit follows from rare-event multinomial convergence; a same-record coupling over a shrinking Poisson-count sandwich removes dependence between the observation-time count and flight durations. Symbolic and numerical checks were replayed using the standalone checker. These diagnostics are not treated as proof.
+## correctness
 
-**Originality (PASS, qualified).** The underlying frictionless velocity-only reset model is due to Olsen and Löwen (arXiv:2401.12685), the single-cycle Brownian-area law and asymptotic prefactor to Meerson (arXiv:1903.03963), and the renewal-area condensation picture to Smith and Majumdar (arXiv:2202.03546). Singh and Pal (arXiv:2102.07111) examine extrema and arg-max times of reset **positions**, including random acceleration, rather than the end-to-end completed-flight displacement with its duration marker when *only velocity* resets. Hartmann, Majumdar and Schehr (arXiv:2309.17432) likewise examine reset-path spatial maxima. The assessed additional statement is the explicit **joint**, asymptotically independent Gumbel and Gaussian law, including physical-time conversion and exact scale constants. Related general extreme-value/marked-renewal theorems are a priority risk.
+PASS
 
-**Value (PASS).** Rare large displacement events in an inertial transport system are driven by anomalously long reset-free flights. The theorem quantifies both the largest completed-flight displacement and the statistically independent length deviation of that exceptional flight, thereby separating rare transport risk from the familiar long-time mean-square diffusion law. The universal diffusivity-free Gaussian length scaling is a concrete physical prediction, rather than merely an alternative parameterization of the one-cycle area density.
+Directly reconstructs J|L=l normal variance 2Dl^3/3 with L exponential(r), exact erfc mixture, unique saddle l_x=(9/(4Dr))^(1/4)*sqrt(x), exponent (4r/3)l_x and Gaussian width sqrt(l_x/(4r)). Local Laplace expansion supplies exact tail prefactor sqrt(3/2) and conditional normal mark. Joint rare-event multinomial limit gives product marked Poisson process; deterministic-count sandwich with epsilon_t=(rt)^(-1/4) makes the random completed-flight count error and record switching vanish despite correlation between count and lengths. Verified independent quadrature at D=1.7,r=0.9,x=80: exact tail 8.916545493e-6 vs asymptotic 9.013700160e-6; finite test checks constants only.
 
-**Scope and residual risk.** The maximal quantity is **not** the running maximum of position, and the moment/area distributions in cited papers are not presented as new. The result uses exponential clock, driftless Brownian acceleration and fixed positive transport parameters. A previously unindexed marked extreme theorem might subsume the joint law; no claim of complete priority certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relative to inspected full relevant mathematical statements, the explicit marked independent Gumbel–Gaussian limit and renewal observation-time transfer were not previously established. Tail, marginal and generic extreme-value framework are credited; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A physically natural exceptional-flight observable separates rare displacement hazards from bulk diffusive behavior and quantitatively fixes the duration and fluctuations of the record flight; its diffusivity-independent normal marker is not a routine rephrasing of the known marginal tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

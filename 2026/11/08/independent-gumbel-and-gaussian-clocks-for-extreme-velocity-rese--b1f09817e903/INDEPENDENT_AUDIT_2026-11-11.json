@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:58:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructs J|L=l normal variance 2Dl^3/3 with L exponential(r), exact erfc mixture, unique saddle l_x=(9/(4Dr))^(1/4)*sqrt(x), exponent (4r/3)l_x and Gaussian width sqrt(l_x/(4r)). Local Laplace expansion supplies exact tail prefactor sqrt(3/2) and conditional normal mark. Joint rare-event multinomial limit gives product marked Poisson process; deterministic-count sandwich with epsilon_t=(rt)^(-1/4) makes the random completed-flight count error and record switching vanish despite correlation between count and lengths. Verified independent quadrature at D=1.7,r=0.9,x=80: exact tail 8.916545493e-6 vs asymptotic 9.013700160e-6; finite test checks constants only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith–Majumdar analyze deviations of sums and condensation, not arg-maximum flight duration; Singh–Pal study absolute position maxima under different reset models; Hartmann–Majumdar–Schehr study trajectory maxima."
+        ],
+        "reasoning": "Neither larger setting as published determines this end-to-end velocity-only flight record with independent normal duration.",
+        "searches": [
+          "arxiv:2202.03546 condensation self-similar Gaussian area resetting",
+          "arxiv:2102.07111 extreme random acceleration resetting",
+          "arxiv:2309.17432 maximum independent resetting Brownian"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2401.12685",
+        "https://arxiv.org/abs/1903.03963",
+        "https://arxiv.org/abs/2202.03546",
+        "https://arxiv.org/abs/2102.07111",
+        "https://arxiv.org/abs/2309.17432"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model has bulk displacement variance of order t; one-cycle area tail yields a Gumbel maximum marginal; neither yields an independent duration mark with explicit Gaussian variance as a stated theorem."
+        ],
+        "reasoning": "The proposed joint weak convergence strictly refines marginal tail knowledge and requires a separate local saddle and observation-time transfer.",
+        "searches": [
+          "arxiv:2401.12685 velocity-only resetting transport",
+          "arxiv:1903.03963 Brownian area death",
+          "arxiv:2202.03546 reset-area condensation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meerson derives one-flight Brownian area mixture and stretched-exponential tail, which implies the Gumbel marginal by iid extremes; does not state conditional duration normal mark or physical-time paired limit."
+        ],
+        "reasoning": "The already-known one-cycle tail and iid Gumbel limit are credited; the joint marked limit needs conditional length fluctuations and a dependent renewal-clock coupling.",
+        "searches": [
+          "arxiv:1903.03963 integrated Brownian area exponential mortality tail",
+          "Resultary semantic query joint Gumbel Gaussian flight length extremal Brownian reset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing area density is a known one-cycle table; no checked exact joint record-duration table or clock coupling found."
+        ],
+        "reasoning": "No discrete catalogue applies to the continuous pair limit; exact one-cycle formulas are inputs and not claimed original.",
+        "searches": [
+          "Resultary search completed-flight Brownian area maximum mark Gumbel Gaussian",
+          "Meerson 2019 area-at-death exact density"
+        ]
+      },
+      "rationale": "Relative to inspected full relevant mathematical statements, the explicit marked independent Gumbel–Gaussian limit and renewal observation-time transfer were not previously established. Tail, marginal and generic extreme-value framework are credited; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed general marked-renewal maximum theorem could imply the specialization; full historical priority not guaranteed.",
+        "The assertion is only about absolute end-to-end completed-flight increments, not within-flight or position-path maxima."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_NOT_RECORD_EXTREMES",
+          "evidence": [
+            "Studied typical transport and propagator, not maximum completed flight and duration mark."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "Model equations, velocity-only resetting, bulk transport/moment discussion",
+          "method": "arXiv full-text/HTML and comparison to RESULT.md",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "identical physical velocity-only reset model"
+        },
+        {
+          "assessment": "TAIL_COVERED_JOINT_NOT_SHOWN",
+          "evidence": [
+            "One-cycle tail including leading prefactor matches input."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.03963",
+          "material_read": "Relevant mortal-area density and tail calculations; authorized institutional download was blocked but open-access literature and source details were checked",
+          "method": "arXiv accessible source and formula matching",
+          "title": "Mortal Brownian motion: three short stories",
+          "trigger": "exact Brownian-area-at-exponential-death law"
+        },
+        {
+          "assessment": "DISTINCT_SUM_OBSERVABLE",
+          "evidence": [
+            "Conditioning on anomalous total area differs from unconditioned largest completed flight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.03546",
+          "material_read": "Area-sum and condensation statements and relevant model sections",
+          "method": "open-access preprint text",
+          "title": "Condensation transition in large deviations of self-similar Gaussian processes with stochastic resetting",
+          "trigger": "possible stronger extreme-cycle calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically natural exceptional-flight observable separates rare displacement hazards from bulk diffusive behavior and quantitatively fixes the duration and fluctuations of the record flight; its diffusivity-independent normal marker is not a routine rephrasing of the known marginal tail.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2401.12685",
+    "https://arxiv.org/abs/1903.03963",
+    "https://arxiv.org/abs/2202.03546",
+    "https://arxiv.org/abs/2102.07111",
+    "https://arxiv.org/abs/2309.17432"
+  ],
+  "disposition": "passed",
+  "final_claim": "For driftless Brownian velocity reset at Poisson rate r, largest absolute completed-flight displacement has a Gumbel law after square-root scaling; corresponding flight length has independent normal fluctuations centered at 3log(Art)/(4r), with A=sqrt(3/2) and explicit saddle scaling.",
+  "limitations": [
+    "No finite-time rates or non-exponential clock extension; numerical quadrature checks saddle only."
+  ],
+  "residual_risks": [
+    "An unindexed general marked-renewal maximum theorem could imply the specialization; full historical priority not guaranteed.",
+    "The assertion is only about absolute end-to-end completed-flight increments, not within-flight or position-path maxima."
+  ],
+  "schema_version": 1
+}
