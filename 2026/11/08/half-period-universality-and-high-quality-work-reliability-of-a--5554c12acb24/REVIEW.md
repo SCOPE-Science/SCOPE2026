@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim fixes a positive constant drive, deterministic initial phase-space state, the exact two-jump work convention, and the underdamped parameter range. The mean response follows from the homogeneous fundamental matrix; the variance follows both from the equilibrium-covariance subtraction identity and from the independent noise convolution. Strict log-concavity of the positive first-lobe impulse response proves the needed derivative inequality for the standardized displacement, while later times are dominated by the first global response maximum and the monotonically increasing accumulated variance. Algebra yields the exact Gaussian law and all small-friction constants. The supplied standalone code passed 421 symbolic/numerical diagnostics after execution; finite checks do not replace the continuum arguments.
+PASS
 
-## Originality
+The pinned RESULT derives Gaussian x(h) with mean (a+f/k)(1-g(h)), and variance (Theta/k)(1-g(h)^2-(k/m)b(h)^2)=(2gamma Theta/m²)int_0^h b(s)^2 ds. Controller work is k a x(h); its mean is strictly convex in a and minimized at -f/(2k). K(h)=1-g(h) has unique first global maximum at h*=pi/omega; over extracting -f/k<a<0 it minimizes mean work. For fixed a, success=Phi((a+f/k)K/sqrt(Var x)). On first lobe b(s)=exp(-alpha s)sin(omega s)/omega is positive strictly log-concave; differentiation of F²/G with F=int b,G=int b² and H=2G-bF>0 proves success strictly grows until h*. For later h, K strictly below its maximum and G strictly larger, excluding other global maxima. At h* g=-q,b=0 gives exact mean, variance and Gaussian complement; expansion of q=exp(-gamma pi/(2m omega)) and Mills ratio yields provided exp[-f²m omega0/(2pi k Theta gamma)] prefactor. Direct numerical calculations for two independent parameter sets corroborate first-half-period score and variance. Strict control constraints are exactly two instantaneous jumps, NOT finite slew.
 
-**PASS, with residual publication-priority risk.** Relevant direct comparisons are Yao--Bao--Hou's full 2026 source [1], Schüttler and collaborators' full 2025 source [2], and the 2008 optimal-control literature [3]. The general ideal-work and ideal-variance formulas, harmonic step response, and Gaussian oscillator covariance are explicitly acknowledged as prior. The new claim is the complete time-optimality theorem in a specified two-jump active-force protocol simultaneously for mean work and single-trial sign reliability, plus the universal near-ideal variance ratio and sharp rare-failure equivalent. The most relevant full-text comparisons do not state those pulse-restricted conclusions. An inaccessible or unindexed analysis of the exact same pulse protocol is the principal residual novelty risk, not proof of its absence.
+## originality
 
-## Value
+PASS
 
-**PASS.** The motivating study isolates physical implementability as an unresolved consideration: its unrestricted work optimizer requires ideal boundary impulses. The restricted two-jump protocol needs only a single held trap displacement (though jumps still have infinite bandwidth). Its exact optimal dwell time, its coincident mean/reliability timing, the relative variance penalty \(\pi^2/8\), and the exponentially small high-quality failure probability quantify a specific experimentally motivated performance tradeoff. The coupled mean-and-sign objective and universal asymptotic comparison make the result more than the textbook overshoot of a damped oscillator.
+The originating Yao-Bao-Hou 2026 underdamped active-force paper states unrestricted minimum-mean-work and ideal work variance, not an inspected theorem on two-jump held-pulse mean-and-sign time optima or its pi²/8 ratio. Its original full text was not accessible on this run: arXiv and lawful OA attempts failed; authorized Oxford returned vpn_disconnected, so priority is qualified. Schuettler et al. 2025 treats overdamped moving traps, Gomez-Marin et al. 2008 passive ideal underdamped control. No indexed identical joint pulse theorem returned by Resultary. Unavailable original source is a significant unresolved historical risk, not a mathematical falsehood or automatic novelty failure.
 
-## Sources and limitations
+## value
 
-[1] https://arxiv.org/html/2610.38653v1 (model, exact unrestricted work and variance, implementability discussion, Appendix C); [2] https://arxiv.org/html/2501.18613 (overdamped work and measurement efficiency); [3] https://pubmed.ncbi.nlm.nih.gov/18624523/ (ideal underdamped boundary operations, abstract-level inspection). There is no finite-bandwidth theorem, no work-cost accounting for force generation or initial state preparation, and no claim about repeating cycles with nonzero inherited velocities. Publication priority remains subject to independent examination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The proposed physical benchmark restricts an ideal distributional impulse controller to a single held trap displacement; finding one unique dwell time optimizing two distinct objectives (expected work and probability of extracting work) and exact exponentially rare failures is a motivated performance classification. The pulse still has instantaneous infinite-bandwidth jumps, so claims of implementable finite-slew control would be unsupported; they are not made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

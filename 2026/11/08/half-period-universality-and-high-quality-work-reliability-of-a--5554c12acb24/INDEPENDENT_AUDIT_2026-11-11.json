@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T15:52:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned RESULT derives Gaussian x(h) with mean (a+f/k)(1-g(h)), and variance (Theta/k)(1-g(h)^2-(k/m)b(h)^2)=(2gamma Theta/m²)int_0^h b(s)^2 ds. Controller work is k a x(h); its mean is strictly convex in a and minimized at -f/(2k). K(h)=1-g(h) has unique first global maximum at h*=pi/omega; over extracting -f/k<a<0 it minimizes mean work. For fixed a, success=Phi((a+f/k)K/sqrt(Var x)). On first lobe b(s)=exp(-alpha s)sin(omega s)/omega is positive strictly log-concave; differentiation of F²/G with F=int b,G=int b² and H=2G-bF>0 proves success strictly grows until h*. For later h, K strictly below its maximum and G strictly larger, excluding other global maxima. At h* g=-q,b=0 gives exact mean, variance and Gaussian complement; expansion of q=exp(-gamma pi/(2m omega)) and Mills ratio yields provided exp[-f²m omega0/(2pi k Theta gamma)] prefactor. Direct numerical calculations for two independent parameter sets corroborate first-half-period score and variance. Strict control constraints are exactly two instantaneous jumps, NOT finite slew.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yao-Bao-Hou derive unrestricted mean lower bound; it supplies a benchmark but not a restricted pulse optimizer nor a Gaussian sign success rate.",
+          "Other sources concern overdamped active or passive ideal trajectories rather than this constrained inertial pulse."
+        ],
+        "reasoning": "Unrestricted minimum mean work could dominate the achievable value but cannot imply restricted timing or failure probability; the restricted theorem is not a special-case optimizer from the published unrestricted control.",
+        "searches": [
+          "two jump inertial underdamped trap optimal half-period work success reliability quench force",
+          "arxiv:2610.38653 unrestricted optimal work variance",
+          "arxiv:2501.18613 overdamped moving trap",
+          "arxiv:0803.0269 ideal passive underdamped protocol"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify_pulse.py",
+        "Yao Bao Hou arxiv:2610.38653 abstract and pinned cited formulas",
+        "Schuettler et al arxiv:2501.18613 abstract/model",
+        "Gomez-Marin et al arxiv:0803.0269 abstract",
+        "Resultary time-optimal trap searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted ideal mean and variance formulas serve only as explicitly credited input to a ratio.",
+          "Logconcavity proof in pinned RESULT establishes the new probability ordering against all other h>0."
+        ],
+        "reasoning": "Existing work optimum does not imply new first-half-period and sign objective simultaneously, even if Langevin dynamics allow independent derivation; a currently inaccessible full primary could change that judgment.",
+        "searches": [
+          "Yao Bao Hou arxiv:2610.38653v1 Eq.(10)/(16) as stated in pinned RESULT.md",
+          "Schuettler et al arxiv:2501.18613",
+          "two jump inertial underdamped trap optimal half-period work success reliability quench force"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unrestricted ideal protocol and two-jump pulse use same inertial harmonic Langevin model, with different admissible controls.",
+          "No direct same-pulse sign-probability optimum located in indexed results."
+        ],
+        "reasoning": "A sinusoidal overshoot of the deterministic step response alone cannot identify success-probability optimum since noise variance grows; proving both objectives needs logconcavity and a global comparison.",
+        "searches": [
+          "two jump inertial underdamped trap optimal half-period work success reliability quench force",
+          "two jump harmonic trap Brownian underdamped finite pulse work sign reliability",
+          "arxiv:2610.38653"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returns present record and physically related oscillator studies but no exact two-jump finite-pulse classification or numerical table."
+        ],
+        "reasoning": "This is a uniform continuum parameter theorem and asymptotic prefactor, not a finite recomputation; search nonresponse is a residual priority limitation.",
+        "searches": [
+          "two jump inertial underdamped trap optimal half-period work success reliability quench force",
+          "Resultary two finite jump moving traps probability work extracted",
+          "high Q pulse first half-period pi squared over eight variance table"
+        ]
+      },
+      "rationale": "The originating Yao-Bao-Hou 2026 underdamped active-force paper states unrestricted minimum-mean-work and ideal work variance, not an inspected theorem on two-jump held-pulse mean-and-sign time optima or its pi²/8 ratio. Its original full text was not accessible on this run: arXiv and lawful OA attempts failed; authorized Oxford returned vpn_disconnected, so priority is qualified. Schuettler et al. 2025 treats overdamped moving traps, Gomez-Marin et al. 2008 passive ideal underdamped control. No indexed identical joint pulse theorem returned by Resultary. Unavailable original source is a significant unresolved historical risk, not a mathematical falsehood or automatic novelty failure.",
+      "residual_risks": [
+        "Most directly related same-model full primary arxiv:2610.38653 could not be read; Oxford job 61b06dddf09152d96b2fa5c79d6d1511 reported vpn_disconnected. Do not infer document-wide noncoverage from abstract.",
+        "Two finite instantaneous jumps are not true finite-bandwidth actuator controls; ideal comparison concerns minimum mean, not universal minimum variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_RESOLVED_FULL_TEXT; no affirmative coverage in accessible material",
+          "evidence": [
+            "Unrestricted ideal minimum mean work does not by itself evaluate two-jump sign reliability; institutional VPN disconnected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.38653",
+          "material_read": "Accessible arXiv abstract and source package quotations of Eq.10/16; arXiv HTML/PDF and lawful OA full-text attempts did not supply a readable full paper during run; authorized Oxford returned vpn_disconnected. No claim of reading its body.",
+          "method": "Compare stated global ideal protocol objective with restricted two-jump objective, record access limit",
+          "title": "Finite-time minimum-work protocols for underdamped traps driven by active forces",
+          "trigger": "Exact Langevin dynamics and strongest plausible broader optimum"
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICS",
+          "evidence": [
+            "Overdamped active controls do not have the same oscillatory first-half-period question."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.18613",
+          "material_read": "Accessible abstract and model description, distinct overdamped setup; entire original body not independently read",
+          "method": "Model and inertia comparison",
+          "title": "Active particles in moving traps: minimum work protocols and information efficiency of work extraction",
+          "trigger": "Possible prior constrained trap-controller result"
+        },
+        {
+          "assessment": "Background ideal control, no established exact two-jump sign theorem",
+          "evidence": [
+            "Classical work optimization involves boundary impulses, not a fixed-amplitude pulse reliability problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0803.0269",
+          "material_read": "Bibliographic abstract and result summary; no full paper access",
+          "method": "Compare ideal boundary impulses and passive forcing assumptions",
+          "title": "Optimal protocols for minimal work processes in underdamped stochastic thermodynamics",
+          "trigger": "Classical underdamped optimum may subsume constrained control"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proposed physical benchmark restricts an ideal distributional impulse controller to a single held trap displacement; finding one unique dwell time optimizing two distinct objectives (expected work and probability of extracting work) and exact exponentially rare failures is a motivated performance classification. The pulse still has instantaneous infinite-bandwidth jumps, so claims of implementable finite-slew control would be unsupported; they are not made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify_pulse.py",
+    "Yao Bao Hou arxiv:2610.38653 abstract and pinned cited formulas",
+    "Schuettler et al arxiv:2501.18613 abstract/model",
+    "Gomez-Marin et al arxiv:0803.0269 abstract",
+    "Resultary time-optimal trap searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a driven underdamped Langevin oscillator with a held trap offset between two finite instantaneous center jumps, first damped half-period uniquely optimizes mean extracted work and fixed-amplitude single-run success probability, with exact Gaussian work law and sharp low-friction variance/failure laws.",
+  "limitations": "No independent specialist priority certification; inaccessible sources named and not claimed read. Only submitted theorem domain; no GitHub or dispatcher writes. All existing scientific file bytes and external verification channels preserved.",
+  "residual_risks": [
+    "Most directly related same-model full primary arxiv:2610.38653 could not be read; Oxford job 61b06dddf09152d96b2fa5c79d6d1511 reported vpn_disconnected. Do not infer document-wide noncoverage from abstract.",
+    "Two finite instantaneous jumps are not true finite-bandwidth actuator controls; ideal comparison concerns minimum mean, not universal minimum variance."
+  ],
+  "schema_version": 1
+}
