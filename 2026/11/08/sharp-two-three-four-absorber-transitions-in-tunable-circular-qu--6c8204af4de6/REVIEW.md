@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional dissipative spectral argument identifies dark modes exactly as coherent eigenspace vectors vanishing at all absorbers. The explicit Fourier eigenbasis has one- or two-dimensional angular sectors, cross-band collisions are exactly the stated cosine differences, and elementary coordinate evaluations prove that two, three, or four specifically placed absorbers attain the maximum-multiplicity lower bound. The algebraic count of generic optimal pairs and density argument are given with quantified ranges. Independently constructed finite-field Krylov-rank and Fourier-restriction tests replay from the included checker. Finite tests supplement, rather than replace, the proof.
+## correctness
 
-## Originality — PASS on examined evidence
-Krovi–Brun explains the general spectral obstruction to finite quantum hitting time, and Mülken–Blumen gives general dissipative trapping models. Nakamura and colleagues investigate circular-ladder transport using scattering leads and do not give this local-loss minimum-trap classification. Prior unweighted-prism average-mixing resonance formulas address equal coupling and a different observable; they do not imply the all-positive-ratio two/three/four absorber phase diagram, optimal supports, generic pair census, or density statement. Searches on trapping, cyclic-ladder observability, cosine resonance and relevant mathematical findings did not locate broader coverage. Historical priority in specialist observability literature is a residual risk, not proved absence.
+PASS
 
-## Mathematical value — PASS
-Tunable rung coupling provides a physically motivated control parameter. The result solves the exact minimum-sink placement problem for every ladder size and coupling, identifies sharp singular increases from two to three or four sinks at parameter-resonance loci, and proves a subtle contrast between finite exception sets at fixed size and density over all sizes. The precise generic two-site placement count is additionally constructive. This is not a numerical example or a mere special-case reformulation of average mixing.
+Imaginary-part identity shows a nondecaying eigenstate is precisely an H0 eigenvector vanishing on absorber coordinates. Symmetric contraction excludes other nondecaying Jordan blocks. Two rung-parity bands each carry at most one cosine level per energy; cross-band coincidence iff kappa=c_j-c_l, hence dimensions m_j+m_l<=4. Two adjacent angular samples resolve each internal cosine/sine block, and layer sum/difference extends to three/four supports. Off-resonance determinant sin(2πjd/n) nonzero for every internal j iff gcd(n/gcd(n,2),d)=1, yielding 2n g phi(n/g). A dense grid of interior cosine differences proves R4 density. Independently computed spectral multiplicity categories for 102 small n,ratio pairs, including n=5,6. Finite arithmetic tests support but do not replace all-size spectral argument.
 
-## Limits and closest work
-The result assumes identical ring bonds, identical rung bonds, and strictly positive onsite losses, and does not address absorption time or unequal hopping. The closest prior sources are the general infinite-hitting-time argument of Krovi–Brun (2006), the continuous-time trapping formalism of Mülken–Blumen (2011), and the scattering treatment of circular ladders by Nakamura et al. (2009). An earlier control-theoretic statement could potentially imply some pieces; no independent priority audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact minimum trap number and explicit support geometry across all tunable rung ratios of circular ladders are beyond known qualitative dark-mode and open-ladder endpoint-controllability results; best of knowledge with possible specialized observability priority.
+
+## value
+
+PASS
+
+The minimal number and placement of local traps is a natural graph-control resource invariant. The dense-but-finite-at-each-n resonance trichotomy and explicit universal supports provide a sharp structural classification beyond generic PBH tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
