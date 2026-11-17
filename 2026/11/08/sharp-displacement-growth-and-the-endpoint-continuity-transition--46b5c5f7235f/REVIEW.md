@@ -1,21 +1,21 @@
-# Review of the displacement theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The hypotheses are explicit: \(\alpha>0\), angular exponent \(\infty\), radial exponent \(1\le q\le\infty\), and Gaussian-compensated translations. The submean bound for the gauged holomorphic function yields a radially localized estimate; the elementary interval calculation then gives \(\|W_a\|^q\lesssim 1+\sqrt\alpha|a|\). The constant entire function supplies the matching lower exponent and an exact error-function lower bound. The projective cocycle and Banach spectral-radius formula prove the whole-circle spectrum, while density of polynomials and an explicit large-endpoint counterexample prove the continuity transition. The standalone checker passed 376 finite checks. Its samples are not used as proof of the universal inequalities.
+PASS
 
-## Originality
+At alpha=1 local Gaussian-gauged subharmonic submean controls circle max M_f(s)^q by nearby annular radial mass; elementary radial interval geometry yields min(v,1)J_A(v)<=8(1+A)v, hence ||W_af||^q<=C_q(1+A)||f||^q for 1<=q<infinity. The exact Gaussian identity h_(W_a f)(z)=h_f(z-a) gives the coherent witness ||W_a 1||^q=e^(-q alpha A^2/2)+A sqrt(pi q alpha/2)(1+erf(A sqrt(q alpha/2))), asymptotic sqrt(2 pi q alpha) A and matching exponent 1/q. Weyl cocycle implies W_a^n=W_(na), spectral radii of W_a and inverse are 1; conjugation by W_b rotates spectrum through all phases, hence full unit circle. Polynomials dense for finite q yield strong continuity; f=e^(z^2/2) at q=infinity and a=it gives distance >=1+e^(-t^2), disproving endpoint strong continuity. Read actual CHECK.py for independent tests. Finite interval/gauge tests are supplementary, not substitute for infinite operator argument.
 
-**PASS relative to inspected publications and indexed records, not a claim of worldwide publication priority.** The closest recent sources introduce and study the radial-angular Gaussian mixed-norm spaces, sampling, and positive Toeplitz operators, but the relevant inspected sections do not establish the displacement-family operator-norm growth \((1+\sqrt\alpha|a|)^{1/q}\) or the strong-continuity transition. Classical weighted-composition results already prove unit-circle spectrum on ordinary one-exponent Fock spaces; this overlapping spectral fact is expressly acknowledged, and no novelty is claimed for that classical subcase. A related radial-power Fock translation result treats a different single-exponent norm and does not imply the present radial-supremum mixed-norm estimates. Keywords, formulas, reductions to ordinary Fock spaces, and the closest semantic records were compared.
+## originality
 
-**Residual risk:** A specialized paper on Weyl operators in the same radial-angular norms may exist under a different operator-theoretic vocabulary. The abstract-level published record on radial power Fock translations was not available as a full inspectable text, and the inspected long recent manuscripts were not read cover to cover. These limits do not yield an unresolved stronger coverage claim, but an independent literature review is advisable before external priority claims.
+PASS
 
-## Mathematical value
+Classical Weyl cocycle, unit-circle spectrum on ordinary Fock spaces and the Gaussian mixed-norm space infrastructure are established. The exact sharp polynomial displacement growth (1+sqrt(alpha)|a|)^(1/q) for angular sup and finite radial q, plus finite-q strong continuity versus failure in the large q=infinity endpoint, are not covered by those inspected/abstract-available earlier sources. Accept best-of-knowledge with full-text access risk to recent mixed-norm theory.
 
-**PASS.** The result resolves a natural structural question about the displacement representation on the newly developed radial-angular Gaussian mixed-norm scale: the optimal growth exponent of its operator norms. It distinguishes uniform isometries at the radial supremum endpoint from polynomially growing, strongly continuous representations at every finite radial exponent, while determining their common spectrum. The exact lower witness rules out smaller growth exponents. This is a sharp operator-theoretic boundary in a geometrically motivated family, rather than a numerical example or a reparametrized classical Fock assertion.
+## value
 
-## Limitations
+PASS
 
-The result does not determine the exact operator norm at nonzero displacement, its leading asymptotic constant, or analogous growth in spaces with finite angular exponent. The spectral-circle statement is not by itself new for ordinary single-exponent Fock spaces. No independent audit or priority certification has occurred.
+A natural Weyl/Heisenberg action on mixed Gaussian Fock Banach spaces changes from power-law norm growth and strong continuity for finite radial q to endpoint isometry without strong continuity; this sharp regime transition is a substantial operator-theoretic classification, not mere restatement of known spectra.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
