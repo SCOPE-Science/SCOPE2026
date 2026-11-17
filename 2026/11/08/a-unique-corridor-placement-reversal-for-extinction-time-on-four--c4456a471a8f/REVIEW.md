@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is the exact mean time to global extinction from full occupancy in a homogeneous continuous-time four-patch occupancy chain. The absorbing generator on all nonempty subsets gives a nonsingular 15-by-15 linear system. Automorphism quotienting reduces it to five equations for the four-cycle and eleven for the triangle-with-tail. The supplied rational expressions satisfy every exact backward equation when lifted to the full state space. Their difference has a strictly positive denominator and a ninth-degree numerator with one positive coefficient sign change; its negative value at zero and positive leading term establish exactly one positive root, including the boundary equality. The full-state rational checks and polynomial identities were reproduced from the supplied checker; finite examples are not used as proof of the universal sign law.
+PASS
 
-## Originality
+PASS. Four-patch occupied-subset process has exactly 15 transient states with death rate one and c births per occupied-vacant edge. The exact backward equations yield 5 and 11 orbit-state reductions and rational T_C,T_P. Direct independent rational full-generator inversions at four positive c values and symbolic rational subtraction verify T_C-T_P=c²P9(c)/[12(5c+3)H7(c)], with H7 positive coefficient polynomial. P9 coefficients show exactly one Descartes sign change, P9(0)=-684 and leading +648c^9, proving unique positive root and both strict sign intervals. Triangle-tail spectral radius exceeds C4=2 by strict Perron monotonicity, so a fixed spectral proxy fails to rank the finite extinction mean. Excluded c=0 is a degenerate common value.
 
-PASS on best available checked evidence, with historical risk. The equivalent contact-process/SIS language was searched explicitly, not treated as a separate literature. Mountford et al.'s asymptotic tree and random-graph persistence theorems do not compare two fixed four-node alternatives. Shtilerman and Stone's spectral-radius framework cannot imply the stated ranking because the spectral-radius ordering is constant while the exact absorption-time ordering changes. Van de Bovenkamp and Van Mieghem establish exact complete-graph and star expressions, not these graphs. Ross and Pollett study metapopulation management, but their full text was not accessible; that is a nonzero priority risk, not negative evidence from a full-paper comparison. No directly covering theorem or exact table was located in checked materials. More general finite-graph reliability or extinction-time tables could still contain the result.
+## originality
 
-## Value
+PASS
 
-PASS. A four-vertex path is the smallest connected path with two nonisomorphic ways to add one edge. In a cost- and edge-rate-matched intervention, the theorem determines the unique preferred topology over the entire positive-rate range, including the exact crossover and weak/strong-colonization scaling. It gives a concrete, ecologically interpretable reason not to optimize short-horizon or small-network persistence solely by spectral radius. It is a mathematical benchmark, not policy guidance.
+PASS. Contact-process/SIS is the equivalent formulation. A full inspected 2026-11-08 Resultary paper derives all-rate extinction-time separation for K1,3 versus P4 with three edges and a graph-motif Taylor hierarchy, not the present two unicyclic four-edge graphs. A 2026-11-02 corridor-investment paper instead ranks Perron eigenvalues of weighted four-node networks, not finite contact-process extinction time; its crossing cannot imply the opposite or corresponding mean persistence ordering. Older Mountford asymptotics, Shtilerman spectral ranking, and van de Bovenkamp star/complete graph formulas do not establish this exact comparison. Small-graph exact tables remain an explicit risk.
 
-## Limitations and related sources
+## value
 
-The exact classification is confined to four patches, uniform local extinction, additive independent edge colonization, and initial full occupancy. It does not generalize by assertion to other patch numbers, initial states, perturbation costs, or field ecology. Primary comparisons include https://arxiv.org/abs/1203.2972, https://doi.org/10.1098/rspb.2015.0203, https://doi.org/10.1103/PhysRevE.92.032806, and https://doi.org/10.1016/j.ecolmodel.2010.02.016. Some relevant publisher full texts remained inaccessible, so historical priority is provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. This is the smallest path whose one-edge augmentation yields two nonisomorphic cost- and strength-matched options. The exact all-rate unique switch demonstrates a concrete failure of static spectral prioritization for a natural finite Markov persistence measure; the ninth-degree polynomial and sharp threshold make an exact benchmark, without overstating ecological applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
