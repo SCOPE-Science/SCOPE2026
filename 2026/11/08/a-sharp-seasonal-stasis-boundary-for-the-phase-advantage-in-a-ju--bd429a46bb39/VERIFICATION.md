@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the two-season phase comparison
+# Independent mathematical audit
 
-Recreate the two-season products from the matrix definition in RESULT.md and verify the two polynomial identities for the trace and determinant differences. Evaluate their characteristic-polynomial difference at the Perron root of the aligned arrangement. Its sign converts to the eigenvalue-ordering sign because the opposite product's smaller eigenvalue lies strictly below the aligned product's Perron root. Strict monotonicity of the decreasing threshold \(K(F)\) and increasing Perron root then yields the exact unique switch.
+## correctness
 
-Run `python verify_phase.py` with Python 3 standard library. The reproducible verifier checks 4,000 rational parameter profiles for the polynomial identities, uses 70-digit decimal arithmetic to corroborate the Perron-order sign, verifies the rational example's exact entries and boundary determinants, and checks one later positive-fertility parameter for the returned opposite-phase advantage. The script finishes with two PASS lines if the tests succeed.
+PASS
 
-The verifier is finite corroboration, not a proof of the all-parameter theorem. No stochastic survival, general multiseason order, nonlinear density effects or empirical demographic calibration is certified. Historical scientific priority remains subject to independent assessment.
+PASS. For A=M2(f,s)M1(F,S), B=M2(f,S)M1(F,s), explicit multiplication gives tr(B)-tr(A)=(F-f)(S-s) and det(B)-det(A)=(S-s)(R2*F-R1*f), Ri=ai*di. Thus chi_B(z)-chi_A(z)=(F-f)(S-s)(K(F)-z). The smaller eigenvalue ell_B is below its diagonal B11 and hence below r_A, so sign(r_B-r_A)=sign(r_A-K(F)) exactly; no illegal use of determinant signs alone. If R2<=R1 then K<=R2<r_A by AM-GM/Perron, giving opposite phase for all F>f. If R2>R1, K(F) falls strictly from infinity to R2 while r_A rises strictly to infinity, giving exactly one F* with the asserted order. Independently exact-rational multiplication of the submitted witness reproduces both matrices and det(I-A)=-59/800, det(I-B)=23/1600, and all diagonals below one, hence r_A>1>r_B. The paper's finite verifier uses 4000 rational profiles, but the all-parameter law follows analytically.
+
+## originality
+
+PASS
+
+Compared actual 2×2 product characteristic polynomials and switch condition rather than topical similarity. Cushing's 2006 fundamental periodic juvenile–adult model sets juvenile diagonal stasis to zero, forcing R1=R2=0 and precluding this positive-stasis retention-product crossover; its anti-phase result is a noncovering special matrix structure. Other inspected Resultary 3-season and 4-season timing theorems fix different environmental parameters or orderings. The exact R2>R1 one-crossing law with separately fixed a1,d1,a2,d2 and reassignment of maturation across fertility seasons was not found in genuine searches. Historical priority remains qualified for general positive-matrix rearrangement results.
+
+## value
+
+PASS
+
+The exact retention-product inequality separates unconditional opposite-phase superiority from a unique fertility-dependent reversal in a natural positive juvenile–adult seasonal projection. It supplies a new structural classification and a biologically admissible rational witness in which only maturation phase changes the deterministic persistence side of spectral radius one. This matters for interpreting seasonal vital-rate interventions even without claiming empirical prediction or stochastic extinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
