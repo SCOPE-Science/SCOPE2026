@@ -1,19 +1,21 @@
-# Review of the reflected-gradient moment frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent, square-integrable random slopes with mean \(m>0\), second moment \(v\), and fixed \(h>0\), conditioning gives the displayed closed \(3\)-dimensional moment matrix. Its determinant identity \(\det(I-K)=h(2m-hv-3h^2mv)\) is checked symbolically. The operator on symmetric second-moment matrices preserves the positive semidefinite cone, so its spectral radius is a nonnegative real eigenvalue with a positive semidefinite eigenmatrix. Starting from stability at small steps and excluding intermediate eigenvalue-one crossings gives the *if* direction through the unique positive root; beyond the root a characteristic eigenvalue exceeds one. Positive semidefinite eigenmatrices decompose into deterministic initial-state rank-one tensors, ensuring the quantifier over initial pairs. The explicit binary-oracle block \((0,1,0)\) annihilates every state, establishing a geometric hitting-time tail and almost-sure finite termination, while exact moment algebra yields exponential squared-risk growth. The stdlib exact rational verifier reports 578 successful checks after replay. It is the analytic proof, not finite tests, that proves the universal and infinite-time conclusions.
+PASS
 
-## Originality — PASS, best-knowledge qualified
+For the iid scalar reflected update x[k+1]=x[k]-hU[k](2x[k]-x[k-1]), independently reconstructed the three-moment transfer K on (E x[k]^2,E x[k-1]^2,E x[k]x[k-1]); its polynomial determinant det(I-K)=h(2m-hv-3h^2mv). K is the restriction of a PSD-cone-preserving covariance map. Perturbation of the simple eigenvalue 1 at h=0 has slope -2m; its Perron spectral radius cannot cross 1 before the unique positive root, and det(I-K)<0 above that root gives a real eigenvalue >1. PSD spectral eigenvectors decompose into deterministic pair initializations, proving the quantifier, including equality/instability. For independent Bernoulli slopes 0 and 2m at h=1/(2m), symbol word 0,1,0 annihilates every augmented pair and gives P(T>3k)<=(7/8)^k; the exact second-moment recurrence S[n+1]=S[n]+S[n-1]/2 for initial (0,1) grows at root (1+sqrt3)/2 despite almost-sure finite hitting, whereas SGD risk is 2^-n. Read the full Fraction verifier; checked its exact enumerated conditions against the analytic derivation, but did not treat reported VERIFY_OK as a universal proof.
 
-The earliest directly relevant stochastic reflected-gradient construction inspected is Cui–Shanbhag, arXiv:1904.11076v1 (2019), which studies variance-reduced/increasing-sample projected stochastic variational inequalities. Dung–Vũ, arXiv:2102.08906v1 (2021), supply the unbiased single-oracle stochastic reflected-forward-backward update and convergence under different noise/step assumptions. Neither inspected full source establishes this exact general \(m,v,h\) second-moment necessity-and-sufficiency criterion or the striking finite-hit yet exponentially divergent second moment at the same one-oracle cost as SGD. A deterministic published affine reflected-gradient sharp-step result covers the zero-noise \(v=m^2\) specialization, not the random-multiplier case. The published finite-absorption result for an online-scaled SGD method uses an entirely different stochastic recurrence and persistent additive noise, and therefore cannot imply the present claim. The general Kronecker-product spectral criterion and non-implication of almost-sure to mean-square convergence are known; novelty is limited to their explicit sharp realization for this numerical method and the cost-matched counterexample. Specialist random-matrix-product literature may contain an equivalent result: no priority guarantee or independent confirmation is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This exact sharp numerical stability law distinguishes mere unbiasedness and individually monotone random oracle samples from global mean-square reliability. The binary example identifies a practically relevant logical failure of interpreting almost-sure convergence or robust-looking sample paths as evidence of mean-square control. Its exact cost-matched comparison to SGD makes the difference algorithmic rather than a generic probability example. The complete classification over all finite-second-moment scalar oracles is a concrete benchmark for selecting fixed steps or testing stochastic reflected methods. It does not assert applicability beyond the specified scalar independent oracle.
+The known deterministic reflected-gradient h m<2/3 case is precisely v=m^2 and is excluded from new priority. The inspected full prior deterministic affine and finite-absorption findings do not imply the first-two-moment random-curvature frontier or finite-hit exploding-risk example for this one-oracle two-step scheme. Published stochastic reflected update sources are algorithmic background under distinct noise assumptions. Best-knowledge only: inaccessible full primary texts and general stochastic recurrence literature remain priority risks.
 
-## Closest literature, risks and limits
+## value
 
-Publicly inspected full texts: Cui–Shanbhag arXiv:1904.11076, Dung–Vũ arXiv:2102.08906; published affine reflected-gradient full statement at the published-finding corpus repository and distinct finite-absorption OSGM-SGD full statement. Other related sources are cited in the finding. Residual risk is an older equivalent stochastic reflected-gradient or random second-order-recursion moment criterion not located by the bounded search. There is no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp necessary/sufficient stability frontier for the natural one-call stochastic reflected-gradient algorithm, dependent only on oracle mean/second moment and valid for every deterministic initial state, is a motivated rate-calibration fact. The explicit contrast between almost-sure exact finite hitting and exponentially divergent mean-square risk under the *same one-call oracle* reveals a nontrivial stability pitfall not explained by a routine scalar deterministic contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
