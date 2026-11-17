@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-To reproduce the finite checks, run `python3 verify_resistance_theta.py` from the package root. It has no third-party dependencies. The code independently forms a three-node subdivided electrical network, inverts a two-by-two grounded Kirchhoff system over exact fractions, and compares its effective resistances to the analytic edge formula.
+# Independent mathematical audit
 
-The run completed with:
+## correctness
 
-`VERIFY_OK exact_nodal_cases=120 random_global_bounds=8000 inverse_theta_cases=1000 four_arm_counterexample=1`
+PASS
 
-Critical proved steps in `RESULT.md`: (1) series/parallel reduction; (2) localization on the longest arcs, with a derivative sign and boundary cases; (3) quadratic inversion of \(m\); (4) Vieta inversion of the two remaining lengths, including equal roots; (5) explicit four-path ambiguity extended to all larger counts; (6) sharp fixed-length bounds via majorization and an exact positive factorization. The finite tests do not establish infinite quantifiers or historical originality.
+For k>=3 parallel positive-length arcs, direct-vs-other-path series-parallel reduction gives R(A,X_i(x))=x-(l_i-rho)x^2/l_i², rho=(sum l_i^-1)^-1. On long arcs l_i>2rho the unique interior maximum is l_i²/[4(l_i-rho)]; the longest m>=k rho is in this regime, and f(l) increases for l>2rho. Thus E=m²/[4(m-rho)]. The larger quadratic root m=2E+2sqrt(E(E-rho)) recovers maximal arc; k=3 the residual two lengths follow sum L-m and reciprocal C=rho^-1-m^-1. At k>=4 [5,1,2,3] versus [5,1.5,2.25±.75 sqrt(15/7)] share (L=11,rho=30/61,E) but are nonisometric; vary a shorter length locally to obtain continuum. Fixed-L bound L/[4(k-1)]<=E<L/4 by reciprocal convexity/majorization, equal-arc equality. Independently checked exact Kirchhoff reductions and scalar inversions and 4-arm example; simulations are not infinite proofs.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for minimal three scalar electrical observations (L,rho,E) reconstructing arbitrary positive theta lengths, the k=4 sharp failure threshold, and sharp L/[4(k-1)]<=E<L/4 with rigidity. Edgewise resistance quadratic is prior in Baker–Faber, not credited. Intrinsic distance histogram theta rigidity and H1 extremal norm theorems use different metrics and observables and do not directly imply the inverse three-scalar theorem.
+
+## value
+
+PASS
+
+PASS: The three-to-four arm threshold is a natural exact inverse-identifiability boundary: two-terminal parallel networks are a standard resistor graph family, while L, terminal rho, and resistance eccentricity are concrete scalar measurements. Explicit reconstruction and continuous isospectral-style ambiguity, plus sharp equal-length extremal bound, are useful independently of a broad arbitrary-network inverse theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
