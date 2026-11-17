@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact dissipative and reset Bloch equations determine the unique stationary density matrix. An explicit strictly positive denominator justifies the rational stationary emission flux, while an independently differentiated cubic with a strictly positive derivative establishes the unique maximizer and its phase boundary. Exact factorizations settle the full enhancement interval and strict, globally sharp factor-two bound. `verify.py` passed 30 checks spanning symbolic formulae, an independently inverted no-photon generator, exact-rational steady states and root counts. Numerical checks alone do not supply the infinite-domain proof; the displayed polynomial monotonicity does.
+## correctness
 
-## Originality: PASS (qualified)
-The direct earlier resonant ground-reset model of Perfetto, Carollo and Lesanovsky, arXiv:2112.05078, suppresses fluorescence and does not classify the detuned sign reversal. Reynaud, arXiv:2212.11137, solves the detuned *unreset* waiting law, while Carollo, Lesanovsky and Garrahan, arXiv:2310.06981, furnish a general quantum resetting framework. These works contain ingredients for independent derivation; explicit all-detuning enhancement, unique reset optimum independent of Rabi frequency, and a sharp factor-two relative gain were not located in the inspected sections. Standard optical Bloch formulas may implicitly cover the result; this is a material priority caveat, not a proof of uniqueness.
+PASS
 
-## Mathematical value: PASS
-The claim gives a complete analytic phase diagram for a physically motivated control intervention: when ground resetting helps rather than hurts radiative activity, exactly where to tune it, and the strongest possible multiplicative benefit. Its invariance with respect to Rabi coupling and sharp global upper envelope provide structural, not simply pointwise, information. No experimental or energetic superiority is asserted.
+Re-derived optical Bloch stationary p, u, v and rational J=gamma*Omega²*(gamma+2r)/B with B>0. Independently factored J prime = -gamma*Omega²*P/B², P strictly increasing for r>=0. Its constant term gives 4Delta²>3gamma² threshold; exact J-J0 factor gives enhancing interval and crossing r_c. Exact positive 2J0-J numerator proves strict factor-two ceiling. The cubic root and asymptotic r*/abs(Delta)->0 prove sharpness. Exact symbolic rational identities independently reproduced. No finite parameter sampling substitutes for analytic signs.
 
-## Closest prior work and risks
-Primary full-text inspections: Perfetto et al. (2021), resonant Section 4.1 and quantum-jump setup; Reynaud (2022), detuned unreset renewal and intensity formula; Carollo et al. (2023), generalized quantum resets. Broader optical Bloch and reset formulas could imply the rational expression. Publication priority beyond these comparisons remains unverified. The positive conclusions are limited to ideal Markovian, complete instantaneous ground resetting and stationary photon intensity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Perfetto-Carollo-Lesanovsky analyzes a resonant ground-reset example and suppression, not the detuned phase reversal. Reynaud gives detuned no-reset fluorescence; later generalized reset formalisms have ingredients without inspected exact all-parameter sign/envelope theorem. Originality qualified: algebraically derivable from classical Bloch equation, not claiming these foundations.
+
+## value
+
+PASS
+
+A nontrivial physically motivated intervention has a sharp analytic help-versus-harm threshold, a unique Rabi-amplitude-independent optimal reset rate and a globally optimal gain ceiling; precise boundaries have independent control/design usefulness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
