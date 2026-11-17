@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For each integer block size and every positive diffusivity parameter, the Brownian reflection formula gives the exact conditional survival. Independence within/among blocks gives an exact positive integral. The error-function expansion yields all three asymptotic regimes, including the critical logarithm. Layer-cake integration yields the complete moment threshold, and strict monotonicity of probability-space \(L^p\) norms proves fixed-population stochastic ordering. The six-particle example is a direct specialization of these proved general claims. The reproducible numerical checker passed 54 assertions; it does not constitute proof of an infinite limit.
+## correctness
 
-**Originality: PASS, with residual publication risk.** Published independent-searcher diffusion-mixture calculations (Sposini et al., PRL 132, 117101, 2024) and their companion one-particle results do not furnish shared-block-dependent moments. Lawley's iid fastest-passage theorem concerns independent times in a different asymptotic regime; Hass and collaborators address short-range spatiotemporal environments, not time-frozen block-shared coefficients. Classical \(L^p\)-norm comparison and Mellin-tail integration are credited. Unindexed shared-frailty results or stronger general dependent-lifetime theorems could partially or fully preempt the classification and require further human literature assessment.
+PASS
 
-**Mathematical value: PASS.** The sharp all-moment threshold quantifies a natural physical design question: independent environments, rather than sheer particle count, determine whether the mean of the fastest detection time is finite under arbitrarily slow quenched mobilities. A fixed six-particle population crosses the finite/infinite-mean boundary solely through regrouping, while all single-particle marginal dynamics remain unchanged. The exact logarithmic threshold and all-time stochastic order make the phenomenon testable and sharply delimited.
+Reflection gives survival s(Dt)=erf(a/(2sqrt(Dt))) for generator D ∂xx, and conditional Brownian-noise independence gives block law R=alpha*t^(-alpha)*integral_0^t u^(alpha-1)s(u)^k du; m independent groups give R^m. The asymptotic s(u)~a/sqrt(pi)*u^(-1/2) yields the three exact regular-variation regimes, positive constants and critical logarithm. Layer-cake yields finite q-moment iff q<m min(alpha,k/2), with divergence at equality. Since fixed-N survival equals ||s(Dt)||_k^N, strict Lp monotonicity establishes all-time stochastic order across equal group sizes dividing N. Boundary alpha=k/2 and fixed N=6 example are included.
 
-The result is restricted to the half-line, conditional independence of noises, and fixed Beta-distributed static diffusivities. General disorder tails and rapidly fluctuating environments are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior independent heterogeneous Brownian search assumes iid individual diffusivity/path pairs; grouping creates exchangeable dependence with non-iid first passages, changing the finite-moment threshold at fixed population. Earlier iid fastest-passage asymptotics do not imply fixed finite-N block structure, log-critical tail or strict grouping stochastic order. Best-of-knowledge historical priority is limited by possible general shared-frailty literature.
+
+## value
+
+PASS
+
+The sharp threshold for finite q-moment of first arrival is a natural detection-risk criterion. For exactly six particles and identical one-particle marginal laws, regrouping the shared disorder alone crosses from finite to infinite expected search time, with a precise critical log enhancement and monotone stochastic order. This is a structural finite-population dependence effect, not merely numerical asymptotic estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:17:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md reflection/integral and regimes; blob 8f2614ad6f65afb7bc69773f2800091f4004567a",
+        "Frozen checks.py e5aa0183b700e808ed09e68c5ddb1889305672ed",
+        "Sposini et al. arXiv:2403.10143 classical mixture survival"
+      ],
+      "rationale": "Reflection gives survival s(Dt)=erf(a/(2sqrt(Dt))) for generator D ∂xx, and conditional Brownian-noise independence gives block law R=alpha*t^(-alpha)*integral_0^t u^(alpha-1)s(u)^k du; m independent groups give R^m. The asymptotic s(u)~a/sqrt(pi)*u^(-1/2) yields the three exact regular-variation regimes, positive constants and critical logarithm. Layer-cake yields finite q-moment iff q<m min(alpha,k/2), with divergence at equality. Since fixed-N survival equals ||s(Dt)||_k^N, strict Lp monotonicity establishes all-time stochastic order across equal group sizes dividing N. Boundary alpha=k/2 and fixed N=6 example are included.",
+      "residual_risks": [
+        "Frozen static D per block is essential; time-changing diffusivity is not covered.",
+        "Use generator D ∂xx and error function argument a/(2 sqrt(Dt)); no hidden factor 2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lawley treats many iid search times and N→∞ extreme first arrival, not shared-block fixed N.",
+          "Sposini independent Brownian mixtures use individual random diffusivity; relevant k=1 specialization is covered."
+        ],
+        "reasoning": "No inspected theorem supplies entire k>1 beta tail triad with m and exact all-time stochastic order; k=1 is credited to prior foundations.",
+        "searches": [
+          "Resultary Block shared diffusivity Brownian first passage moment phase diagram clustered search static diffusion mixture",
+          "Lawley arXiv:1909.09883 fastest first passage",
+          "Sposini Phys Rev Lett 132 117101"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search Block shared diffusivity Brownian first passage moment phase diagram clustered search static diffusion mixture",
+        "arXiv:2403.10143",
+        "arXiv:2403.10138",
+        "arXiv:1909.09883",
+        "arXiv:2406.17733"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If k=1, survival reduces to [E s(Dt)]^m, aligned with iid heterogeneity.",
+          "For k>1 E[s(Dt)^k]^(N/k) differs from [E s(Dt)]^N and can have divergent fastest-arrival mean even when latter is finite."
+        ],
+        "reasoning": "The prior iid theorem does not imply the dependent-block formula, and the fixed-N qualitative moment transition is not a special case of iid-N→∞ asymptotics.",
+        "searches": [
+          "Sposini et al. 2024 PRL equation independent product survival",
+          "Lawley iid fastest passage theorem",
+          "Resultary search Block shared diffusivity Brownian first passage moment phase diagram clustered search static diffusion mixture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Block-survival R=E[s(Dt)^k] equals a frailty-mixture k-th moment; across m groups the minimum tail is R^m.",
+          "Independent-searcher formulation is [E s(Dt)]^(mk), which differs at each t for nondegenerate D by strict Lp inequality."
+        ],
+        "reasoning": "Correlation by a common time-frozen diffusivity within each block is not an iid search result in different notation.",
+        "searches": [
+          "Block shared diffusivity Brownian first passage moment phase diagram clustered search static diffusion mixture",
+          "shared frailty survival correlated Brownian first passage",
+          "Sposini arXiv:2403.10143"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A finite six-particle exponent table follows from a general exact analytic tail theorem, not a known catalog of diffusion states.",
+          "Different Resultary results study one-particle static-mixture crossing and other diffusion setups, not these shared-block moments."
+        ],
+        "reasoning": "The claim is a parameter-uniform theorem rather than a table or isolated computational value; no earlier exact database is applicable.",
+        "searches": [
+          "Resultary Block shared diffusivity Brownian first passage moment phase diagram clustered search static diffusion mixture",
+          "Brownian static diffusivity crossover first passage"
+        ]
+      },
+      "rationale": "Prior independent heterogeneous Brownian search assumes iid individual diffusivity/path pairs; grouping creates exchangeable dependence with non-iid first passages, changing the finite-moment threshold at fixed population. Earlier iid fastest-passage asymptotics do not imply fixed finite-N block structure, log-critical tail or strict grouping stochastic order. Best-of-knowledge historical priority is limited by possible general shared-frailty literature.",
+      "residual_risks": [
+        "General shared-frailty/disorder order-statistic results may imply the theorem without Brownian wording.",
+        "Other closely related papers were scoped by abstracts rather than complete full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related k=1 marginal, not k>1 shared-block dependence",
+          "evidence": "Prior product of iid mixture survival differs from grouped mean of k-th powers.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.10143",
+          "material_read": "Accessible 6-page preprint model and equation for independent heterogeneous searchers and results; reviewed abstract and model/results pages.",
+          "method": "Read model independence and formulas and compared conditioning order",
+          "title": "Being Heterogeneous Is Advantageous: Extreme Brownian Non-Gaussian Searches",
+          "trigger": "Exact same Brownian target and heterogeneous diffusivity objects"
+        },
+        {
+          "assessment": "Not shown to cover fixed-N shared block theorem; residual risk",
+          "evidence": "General iid regime excludes dependence within blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.09883",
+          "material_read": "Abstract and theorem-scope description; full paper not read in this execution",
+          "method": "Compared independent-times and N→∞ assumptions",
+          "title": "Universal Formula for Extreme First Passage Statistics of Diffusion",
+          "trigger": "General fastest arrival possible stronger coverage"
+        },
+        {
+          "assessment": "Different crossing of one-particle mixtures against matched mean",
+          "evidence": "The prior crossover involves two single-particle CDFs rather than grouped m,k first arrival.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-unique-brownian-first-passage-crossover-for-every-static-diffu--ef2108b88c43",
+          "material_read": "Resultary indexed title and summary; full text not read",
+          "method": "Compared observable and comparator",
+          "title": "A unique Brownian first-passage crossover for every static diffusivity mixture",
+          "trigger": "Another same-day static mixture result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned sharp beta law and moment criterion",
+        "2024 heterogeneity independent-search model for comparison"
+      ],
+      "rationale": "The sharp threshold for finite q-moment of first arrival is a natural detection-risk criterion. For exactly six particles and identical one-particle marginal laws, regrouping the shared disorder alone crosses from finite to infinite expected search time, with a precise critical log enhancement and monotone stochastic order. This is a structural finite-population dependence effect, not merely numerical asymptotic estimation.",
+      "residual_risks": [
+        "General shared-frailty/disorder order-statistic results may imply the theorem without Brownian wording.",
+        "Other closely related papers were scoped by abstracts rather than complete full text."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact tail law is for static Beta(alpha,1) diffusivities on half line and fixed m,k.",
+    "Strict group ordering extends to arbitrary nondegenerate positive D but only equal-size partitions k|N."
+  ],
+  "schema_version": 1
+}
