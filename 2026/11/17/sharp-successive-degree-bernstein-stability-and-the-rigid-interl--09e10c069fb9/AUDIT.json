@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For all integers n>=1 and x in [0,1], couple K~Bin(n,x) and U~Bernoulli(x) independently and set X=K/n,Y=(K+U)/(n+1). The expected absolute displacement is exactly 2x(1-x)/(n+1), giving the Lipschitz upper bound. The explicitly defined interlacing tent spline has f(Y)-f(X)=|Y-X| on every coupling atom, proving equality for all x and the global maximum at x=1/2. At interior x, full support forces saturation of every adjacent interlaced grid interval with one common sign; saturation plus Lipschitz continuity uniquely fixes the whole spline up to sign and constant. The same coupling and potential prove the W1 identity. Exact rational checks verify 184 (n,x) combinations via polynomial and independent cumulative-mass methods; no inference from finite checks to all degrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gonska et al. introductory Theorems A–E and their Theorem 1 bound approximation B_nf-f, not differences of successive Bernstein degrees.",
+        "Brown–Elliott–Paget (1987), DOI:10.1016/0021-9045(87)90087-6, attributed statement in Gonska et al. Lemma 4; complete original not accessed",
+        "Aldaz–Kounchev–Render, arXiv:0805.1618, abstract and main existence/convergence arguments, https://arxiv.org/abs/0805.1618"
+      ],
+      "reasoning": "Preservation of Lip(f) by B_n and generic O(n^-1/2) approximations to f do not imply the sharp O(n^-1) adjacent-degree difference or the unique common extremizer. Generalized Bernstein convergence does not contain a comparison of consecutive classical binomial grids. No stronger covering theorem in the inspected material was found.",
+      "searches": [
+        "classical Bernstein approximation operators adjacent degrees B_n B_(n+1) exact Lipschitz to sup norm 1/(2(n+1))",
+        "\"Bernstein operators\" \"difference\" \"n+1\" \"Lipschitz\"",
+        "\"Bernstein\" \"successive\" \"Lipschitz norm\" difference",
+        "\"B_{n+1}\" \"B_n\" \"Lipschitz\" sharp",
+        "Gonska–Prestin–Tachev–Zhou, Theorem 1, Theorem A, Lemma 4 (author PDF, pp. 1–10), https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+        "Brown–Elliott–Paget (1987), DOI:10.1016/0021-9045(87)90087-6, attributed statement in Gonska et al. Lemma 4; complete original not accessed"
+      ]
+    },
+    "checked_sources": [
+      "Gonska–Prestin–Tachev–Zhou, Theorem 1, Theorem A, Lemma 4 (author PDF, pp. 1–10), https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+      "Aldaz–Kounchev–Render, arXiv:0805.1618, abstract and main existence/convergence arguments, https://arxiv.org/abs/0805.1618",
+      "Brown–Elliott–Paget (1987), DOI:10.1016/0021-9045(87)90087-6, attributed statement in Gonska et al. Lemma 4; complete original not accessed",
+      "Vallender (1974), DOI:10.1137/1118101, general one-dimensional Wasserstein formula",
+      "Sharp bounded-input Lipschitz regularization by Jacobi Bernstein–Durrmeyer operators, public research record dated 2026-10-18 (different kernel and bounded-to-Lipschitz norm)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gonska et al. Theorem A yields pointwise single-degree approximation bound of order n^-1/2 for Lipschitz inputs; the triangle inequality consequently yields only order n^-1/2 for B_(n+1)-B_n. Their Lemma 4 concerns spatial increments of B_nf for the same n.",
+        "Aldaz–Kounchev–Render, arXiv:0805.1618, abstract and main existence/convergence arguments, https://arxiv.org/abs/0805.1618",
+        "Sharp bounded-input Lipschitz regularization by Jacobi Bernstein–Durrmeyer operators, public research record dated 2026-10-18 (different kernel and bounded-to-Lipschitz norm)"
+      ],
+      "reasoning": "Our claim gives exact pointwise 2x(1-x)/(n+1), norm 1/(2(n+1)), and unique extremizers. The inspected preceding results address different domain/codomain seminorms or single-degree errors; none yields these exact stronger statements by direct implication or specialization. The nearest modern record uses Bernstein–Durrmeyer integral smoothing, not classical sampling or adjacent degrees.",
+      "searches": [
+        "classical Bernstein approximation operators adjacent degrees B_n B_(n+1) exact Lipschitz to sup norm 1/(2(n+1))",
+        "Wasserstein binomial proportions n vs n+1 exact 2x(1-x)/(n+1) unique sawtooth maximizing Kantorovich potential",
+        "Bernstein successive sample size interlacing sawtooth common extremizer all evaluation points",
+        "Gonska–Prestin–Tachev–Zhou, Theorem 1, Theorem A, Lemma 4 (author PDF, pp. 1–10), https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+        "Aldaz–Kounchev–Render, arXiv:0805.1618, abstract and main existence/convergence arguments, https://arxiv.org/abs/0805.1618"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gonska–Prestin–Tachev–Zhou, Theorem 1, Theorem A, Lemma 4 (author PDF, pp. 1–10), https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+        "Aldaz–Kounchev–Render, arXiv:0805.1618, abstract and main existence/convergence arguments, https://arxiv.org/abs/0805.1618",
+        "Vallender (1974), DOI:10.1137/1118101, general one-dimensional Wasserstein formula",
+        "No binomial-proportion pair formula was identified in the available primary references; mathematical equivalence follows from Kantorovich Lipschitz duality and the explicit optimal coupling."
+      ],
+      "reasoning": "The statement is equivalent to the Wasserstein-1 distance between normalized Bin(n,x) and Bin(n+1,x) laws, including a maximizer potential independent of x. Search and compare that transport formulation, not just the Bernstein operator wording. The general Vallender identity computes W1 via CDFs but does not tabulate this pair or classify its maximizing Lipschitz potentials. The explicit interlacing proof is needed.",
+      "searches": [
+        "Wasserstein binomial proportions n vs n+1 exact 2x(1-x)/(n+1) unique sawtooth maximizing Kantorovich potential",
+        "Bernstein successive sample size interlacing sawtooth common extremizer all evaluation points",
+        "\"binomial\" \"Bernstein\" \"Wasserstein distance\" \"successive\"",
+        "\"Bernstein\" \"Wasserstein\" \"consecutive\" binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published indexed record is a Jacobi Bernstein–Durrmeyer bounded-input-to-Lipschitz regularization norm, involving a different operator, input class, and output norm.",
+        "Sharp bounded-input Lipschitz regularization by Jacobi Bernstein–Durrmeyer operators, public research record dated 2026-10-18 (different kernel and bounded-to-Lipschitz norm)"
+      ],
+      "reasoning": "Checked exact coefficients and parameter aliases, including 1/(2(n+1)) and 2x(1-x)/(n+1), rather than relying on title similarity. No table for the specific neighboring classical Bernstein difference was located. Nonappearance in search is evidence of coverage limits, not proof of absence.",
+      "searches": [
+        "classical Bernstein approximation operators adjacent degrees B_n B_(n+1) exact Lipschitz to sup norm 1/(2(n+1))",
+        "Wasserstein binomial proportions n vs n+1 exact 2x(1-x)/(n+1) unique sawtooth maximizing Kantorovich potential",
+        "\"Bernstein\" \"2x(1-x)\" \"n+1\" Lipschitz",
+        "\"Bernstein polynomials\" \"consecutive\" \"Lipschitz\" sharp difference approximation",
+        "Bernstein successive sample size interlacing sawtooth common extremizer all evaluation points"
+      ]
+    },
+    "rationale": "Primary full-text statements on single-degree Hölder approximation, constant-preservation, and generalized Bernstein convergence do not provide or imply the adjacent-degree Lipschitz-to-uniform sharp operator norm, the all-x common extremizer or its equality rigidity. Published record searches for both the Bernstein and binomial-Wasserstein formulations yielded no covering claim. Historical priority is qualified because the full original 1987 Lipschitz paper and some earlier material were not accessible; negative search is not proof of absolute novelty.",
+    "residual_risks": [
+      "The complete original Brown–Elliott–Paget (1987) paper was not available; comparison relies on the exact published theorem quoted in Gonska et al.",
+      "Some older approximation-operator and Bernoulli-transport results may be unindexed or inaccessible; historical equivalence has not been excluded exhaustively."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact consecutive-degree norm or equality rigidity; proves single-degree results.",
+        "evidence": "Theorem A p1; Theorem B p1; Theorem 1 p3; Lemma 4 pp4–5; Proof Section 3 pp6–10.",
+        "identifier_or_url": "https://www.math.uni-luebeck.de/mitarbeiter/prestin/ps/bernstein2.pdf",
+        "material_read": "Full text parsed (introductory Theorems A–E, main Theorem 1, Lemmas 2–4 and proof, ending references), including estimates for B_n f-f and preservation of Lipschitz constants.",
+        "method": "Direct primary-author PDF text inspection, checked definitions, theorem and lemma hypotheses, and full proof section; graphical screenshot retrieval unavailable.",
+        "title": "Simultaneous approximation by Bernstein operators in Hölder norms",
+        "trigger": "Same classical Bernstein operator and Lipschitz-input estimates"
+      },
+      {
+        "assessment": "NOT_COVERING; generalizes Bernstein bases and uniform convergence, not differences B_(n+1)-B_n.",
+        "evidence": "arXiv:0805.1618 submitted 2008-05-12; abstract and central operator results.",
+        "identifier_or_url": "https://arxiv.org/abs/0805.1618",
+        "material_read": "Full accessible manuscript portions on operator definition, main existence theorem and convergence results, plus precise arXiv submission record (2008-05-12).",
+        "method": "ArXiv HTML full-text and submission-history inspection.",
+        "title": "Bernstein operators for exponential polynomials",
+        "trigger": "Classical positive Bernstein benchmark and wider Bernstein family"
+      },
+      {
+        "assessment": "PARTIALLY_INSPECTED; published attribution covers one-degree Lipschitz preservation, but an uninspected stronger original statement remains a priority risk.",
+        "evidence": "Gonska et al. p1, p4–5 Lemma 4; Journal of Approximation Theory 49 (1987) 196–199.",
+        "identifier_or_url": "DOI:10.1016/0021-9045(87)90087-6",
+        "material_read": "Bibliographic metadata and the exact attributed Lipschitz-preservation theorem quoted as Lemma 4 in the full Gonska et al. text; original 1987 pages not obtained.",
+        "method": "Publisher and bibliographic search, secondary primary-publication statement comparison; institutional full-text attempt could not access.",
+        "title": "Lipschitz constants for the Bernstein polynomials of a Lipschitz continuous function",
+        "trigger": "Plausible exact Lipschitz estimates for classical operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09e10c06-9fb9-4c02-8a13-934bd99a1d03",
+  "value": {
+    "rationale": "The natural question of stability under degree refinement has an exact sharp O(1/n) answer and a pointwise profile, sharper than generic O(n^-1/2) separate Bernstein approximation bounds on the Lipschitz class. One explicit tent spline norms the entire parameter family, and equality at just one interior point rigidly identifies that spline up to sign and constants. This controls a canonical approximation process and gives exact adjacent-binomial W1 transport, rather than a renaming or arbitrary sampled invariant.",
+    "status": "PASS"
+  }
+}
