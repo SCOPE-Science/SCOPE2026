@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The exact matching number follows by splitting into matchings that use or omit the marked edge. All positive-valued proper coalitions satisfy the imputation and ratio rules. Graph-edge inequalities characterize the core by summing along disjoint matching edges. The proof identifies the entire core in four regimes and gives a positive fractional edge-weight dual certificate and a unique first-stage optimizer in the remaining, core-empty regime. In three nontrivial core families, explicit proper coalitions bound the first nonfixed ratio, while quantization of positive surpluses and relative-interior affine-slack arguments verify attainment. The small-graph exact checker tests 50 sizes and 74,142 ratios, with independently reconstructed matching numbers at up to ten vertices; no finite computation substitutes for the universal proof.
+## correctness
 
-## Originality (O) — PASS, qualified
-The 2026 primary full text defines the multiplicative nucleon and proves a generic polynomial-time combinatorial algorithm on arbitrary matching games, but does not state the closed form for the family consisting of \(K_{a,b}\) plus one intra-class edge. The earlier 1995/1998 general matching-game algorithm likewise supplies computability, not an identified five-regime symbolic formula in the material examined. Distinguish this claim from additive nucleolus results, assignment-game cores, and arbitrary matching-complex invariants. Targeted literature searches and semantic research-record searches did not return a direct formula; negative searches cannot establish absolute priority. An older full text was not read and unindexed equivalent formulas remain a publication-priority risk.
+PASS
 
-## Mathematical value (V) — PASS
-The family is the minimal non-bipartite edge perturbation of a canonical two-sided matching game. Its size imbalance completely changes bargaining power: a core singleton, fractional equal-split balance, a unique empty-core parity case, a nontrivial interior core selection, and an edge-surplus limit. The all-integer five-regime classification and explicit worst-ratio threshold quantify the economic effect of a single extra possible partnership, rather than just computing an arbitrary finite instance.
+Coalition maximum matching equals min(i,j) plus one when the marked pair is present and enough A-side members remain, giving the stated grand worth. Edge-pair coalitions characterize the core and the positive fractional edge matching gives a sharp dual first-ratio bound in the core-empty a=b+1 regime. In each core-bearing regime, explicit proper coalition upper constraints and relative-interior surplus quantization uniquely optimize the first variable lexicographic level, yielding exactly the five payoff regimes and core emptiness boundary. A separate direct exact-rational enumeration tested 35 parameter pairs and 11196 positive-valued proper-coalition ratios (including small matching examples); universality rests on the case proof, not these finite checks.
 
-## Limitations
-The model is unweighted and complete across the bipartition; there is exactly one intraclass edge. This proves no optimality under graph edits and no generic algorithmic speedup. The original 1995 manuscript was available by abstract but not read in full. Independent scientific review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the explicit five-regime, parameter-uniform nucleon formula for K_{a,b} with one added same-side edge is not a published special-case table in inspected materials. Both classic and October 2026 nucleon sources give general polynomial-time algorithms, not the complete symbolic phase breakpoints or core-emptiness transition for this perturbation. The relevant newer full primary manuscript was inaccessible in this run; its potential stronger statements are explicitly retained as residual priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+A complete bipartite matching market with one intra-side edge is a natural smallest non-bipartite deformation, exposing a sharp unique core failure when the side-size difference is one. The exact nucleon allocation changes in five structural regimes and provides a concrete comparison with generic multiplicative nucleon algorithms. Such complete all-parameter classifications are independently useful to cooperative game theory, beyond mere numerical instances or proof of computability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
