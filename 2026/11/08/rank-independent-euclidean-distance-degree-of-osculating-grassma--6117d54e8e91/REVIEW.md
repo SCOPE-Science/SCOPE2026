@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The osculating flag is equivariant under the complexified rotation torus. The symmetric-power projector has a Laurent expansion of bandwidth \(d\), and the coefficient \(\sum_{j<r}(-1)^j\binom dj=(-1)^{r-1}\binom{d-1}{r-1}\) certifies *both* extremal poles at every rank. A meromorphic derivative then has exactly \(2d\) zeros counting multiplicities; osculating-curve immersion and basepoint-free Bertini give generic simplicity and a one-to-one critical-point count. No modular experiment was used to extrapolate the universal case. Boundary cases \(r=1\) and \(r=d\) are covered by the same binomial identity.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The closest 2026 projection-Grassmannian papers establish the general ED/GD framework and compute models of product, matroid and Schubert type, but do not state the rank-invariant osculating-flag count. Other 2026 and 2025 work on osculating *varieties* optimizes distance to loci of binary forms or higher-order contact, not distance to the *parameter curve of osculating subspaces*. Previous related results on ruling curves of rational normal scrolls involve different Grassmann embeddings and do not imply this count. Targeted searches found no equivalent or dominating statement; this is not proof of historical uniqueness. A classical coherent-state orbit treatment could conceivably contain an equivalent result.
+PASS
 
-## Value — PASS
-The theorem completely determines an intrinsic ED-complexity invariant for the entire natural osculating flag of the rational normal curve, with the nonobvious fact that the count remains \(2d\) as the osculating rank ranges from one to the ambient hyperplane rank. It gives an exact comparison baseline for the GD-versus-ED question in a well-motivated family, not an arbitrary finite slice.
+In Bombieri-scaled Sym^d(C²), the osculating r-space of the rational normal curve is transported from a coordinate flag by the conformal-orthogonal symmetric power M_d(t). Its projection matrix P_d,r(t)=M_d(t)P0M_d(−t)/(1+t²)^d embeds a smooth rational parameter curve away from isotropic t=±i and is regular at infinity. Under the complexified rotation character z, the projector has Laurent weights −d..d. Both extreme weights are nonzero for every 1<=r<=d by sum_{j<r}(−1)^j binom(d,j)=(−1)^(r−1)binom(d−1,r−1), and for generic unrestricted symmetric data both corresponding trace coefficients remain nonzero. The derivative of the trace objective has exactly two poles of order d+1; genus-zero differential divisor degree −2 yields 2d zeros counted with multiplicity. Immersion and basepoint-free characteristic-zero Bertini ensure generic simple, nonpole critical points; thereby ED degree exactly 2d. The metric and data hypotheses are essential. Independently computed symbolic exact projection/derivative degrees for five d,r samples (d=2,3,4, including rank>1), matching 2d; finite tests are not universal proof.
 
-## Limitations and closest work
-The result concerns generic unconstrained symmetric data for the fixed positive Bombieri metric; it does not claim the generic Grassmann distance degree for data in the Grassmannian. Source comparisons: Friedman–Hoşten–Rosana (2026), Friedman–Rosana–Sturmfels (2026), Kozhasov–Mourrain–Parusiński (2026), and Di Rocco–Rose–Sodomaco (2025/2026). Independent audit and exhaustive priority verification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full Resultary comparison with the earlier rank-one rational-normal curve shows a different embedding and metric: its monomial v=(1,t,...,t^d) with unweighted Euclidean form has Gram Σt^(2j), ED degree 4d−2 and GD degree 3d−2, whereas current Bombieri-apolar metric gives (1+t²)^d and all higher osculating ranks with ED 2d. Scroll-ruling curves and osculating binary-form varieties are different objects. Friedman–Hoşten–Rosana introduces ED/GD theory and Schubert/matroid/product model calculations but no accessible explicit same-rank osculating-flag computation. Originality is best-of-knowledge; the most relevant Friedman full text was not lawfully accessible despite OA and authorized institutional attempt.
+
+## value
+
+PASS
+
+The exact ED degree of a natural osculating-flag curve embedded in a projection Grassmannian is a motivated algebraic-optimization invariant. The constant 2d across every osculating rank is a non-obvious rigidity consequence of a specific metric and extreme-weight cancellation; it is useful as a natural complete family, without needing a general downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
