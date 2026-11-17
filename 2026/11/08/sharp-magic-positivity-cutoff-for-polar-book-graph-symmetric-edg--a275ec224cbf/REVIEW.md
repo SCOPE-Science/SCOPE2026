@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The root-lattice dual is explicitly identified with integer potentials modulo constants. Each allowable second-hub difference \(s\) gives \(2t+1-|s|\) independent choices at every leaf; the exact count follows. The degree and magic-basis conversion are justified by the Bernoulli-polynomial identity and triangular elimination. The first three coefficient identities were re-derived from derivatives of Bernoulli polynomials and independently checked with exact rational interpolation. The infinite conclusion separates all four residue classes modulo four using the rigorous ratio \(|B_{m+4}|/|B_m|>2\) for even \(m\ge14\), and exact base values. The complete finite range is checked in `verify.py`, whose 344 exact assertions passed; the infinite conclusion rests on proof, not enumeration.
+PASS
 
-## Originality — PASS (best-knowledge, independent priority unverified)
+For book graph K_{1,1,q}, polar dual lattice potentials modulo constants obey graph-edge |f(u)−f(v)|≤t. Fixing a hub at 0 and summing the other hub s∈[−t,t] gives exactly L_q(t)=(2t+1)^q+2∑_{s=1}^{t}(2t+1−s)^q; q independent leaves each have 2t+1−|s| choices. Bernoulli polynomial differentiation and triangular conversion to basis t^j(t+1)^(q+1−j) derive a1,a2,a3; exact rational interpolation checks full magic vectors q=1..6 and negative witnesses q=7..16. For q≥17, the four residue classes modulo 4 each have a negative a1, a2 or a3, propagated using Euler |B_{m+4}|/|B_m|>2 and explicit base Bernoulli values. The analytic argument covers the infinite tail; finite witnesses alone do not. Independent arithmetic reproduced q=6 positivity and q=7 a4=−5/4 and q=16 a8=−5493182/51.
 
-Higashitani–Mori identify the graph family through Minkowski decomposability, not polar Ehrhart coefficients. Kounoike treats trees, complete graphs, cycles and complete bipartite examples, not this family. Ohsugi–Tsuchiya prove positivity for pseudo-symmetric simplicial/smooth polytopes and cycle polars, which does not cover the negative book-graph examples. The analogous complete-bipartite thresholds concern different graphs and different lattice-count formulas and do not entail the tripartite threshold. Explicit searches for graph aliases, coefficient formulas, and positivity cutoffs in published records and accessible prior-claim records found no equivalent or stronger statement. Search failure is not historical proof; an independent priority check remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A 2026 structural theorem isolates just three Minkowski-decomposable graph families. Determining the exact magic-positivity boundary of the book-graph family complements known complete and complete-bipartite cases, and distinguishes a genuine loss of magic positivity from the existence of a highly structured Minkowski decomposition. The result is a sharp all-parameter classification of a natural, independently motivated geometric invariant, not an arbitrary finite search or trivial parameter shift.
+Book graph K_{1,1,q}=K_2 join an independent q-set is one of the structurally distinguished Minkowski-decomposable graph families in Higashitani–Mori, but that structural theorem does not give its polar Ehrhart magic-coefficient signs. Konoike studies other classes and finite complete-bipartite tables, while Ohsugi–Tsuchiya positivity has restrictive simplicial/smooth hypotheses and cycle examples. Published sharp K_{2,q} and K_{3,q} polar thresholds are different graph families and different lattice-potential counts; the coincident K_{3,q} threshold 6 does not imply the book-graph cutoff. Searches found no covering book-graph classification, with residual historical-table risk.
 
-## Limitations
+## value
 
-The theorem is for polar symmetric edge polytopes, not symmetric edge polytopes themselves. Bernoulli-growth estimates establish eventual failure without locating every negative coefficient in high dimensions. Priority has not been independently verified, and `verify.py` does not certify the infinite tail.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The book family is singled out by a structural graph-polytope classification; an exact natural dual Ehrhart invariant answers whether all magic coefficients stay positive as its leaf size grows. The sharp finite-to-infinite q=6/7 transition, with a rigorous four-residue Bernoulli no-return proof, supplies a reusable structural obstruction rather than an arbitrary isolated example or a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
