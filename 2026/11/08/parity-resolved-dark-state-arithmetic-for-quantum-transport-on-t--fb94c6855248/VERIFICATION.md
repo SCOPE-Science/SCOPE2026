@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-This package includes `verify_theta.py` and `check_dynamics.py`. Execute from this directory using Python 3, NumPy and SciPy:
+## correctness
 
-```
-python verify_theta.py
-python check_dynamics.py
-```
+PASS
 
-The first program independently diagonalizes the full adjacency Hamiltonian on all 343 ordered length triples in \(\{2,\ldots,8\}^3\), resolves degenerate eigenspaces and projects onto the joint kernel of the two hub evaluations. It checks the analytic projector, its rank and idempotence, commutation with the Hamiltonian, the explicit gcd dimension, and the exact full-capture criterion. Its coverage includes 4116 internal-site comparisons and 126 complete-capture cases.
+For positive terminal sink rates the no-capture norm decreases and the only nondecaying subspace is the span of Hermitian adjacency eigenvectors vanishing at both terminals; all other finite-dimensional modes have strictly negative damping, even with Jordan blocks. Dirichlet path sine modes have distinct rational frequencies t=k/L. Endpoint cancellation splits resonant modes by parity and removes one dimension per nonempty group. For three paths, compatible pair counts minus triple overlap yields the exact gcd/parity formula. The coefficient-space orthogonal projector with weights sqrt(2/L_i)sin(pi*t) gives the localized noncapture probability. A direct independently written full adjacency eigenspace/sink-evaluation reconstruction matched both the entire dark projector and gcd dimension for all 125 ordered triples 2≤Li≤6; finite numerics do not replace the exact spectral argument.
 
-The second program constructs the actual no-capture non-Hermitian propagator with **unequal positive terminal loss rates** for 28 parameter cases. It compares 282 localized long-time survival values with the arithmetic projector prediction. The observed tolerance bound is \(8\times10^{-5}\); convergence at finite numerical time is not a proof of infinite-time disappearance of transients.
+## originality
 
-The mathematical proof in `RESULT.md` covers all integer path lengths at least two and every pair of strictly positive capture rates. The tests are finite corroboration and do not certify every parameter. Independent scientific audit has not been performed.
+PASS
+
+Caruso et al. (2009) establish the dark-subspace mechanism and Le et al. (2017) supply path sine modes and general graph methods; these well-known foundations are credited. An October 18 theta result treats a single sink at one terminal and initial state localized at the opposite terminal for (3,3,m), with a 12-periodic fraction. That result is not a theorem about every localized internal site, two simultaneous positive terminal sinks, or all three arbitrary path lengths and their pair/triple gcd compatibility. No reviewed primary source implies this full two-sink projector classification.
+
+## value
+
+PASS
+
+The formula determines exact infinitely surviving dimension, criterion for certain capture and a closed survival probability at every internal vertex for any three-path theta network. The gcd-two mod-four obstruction is a meaningful arithmetic boundary missed by naive nontrivial-gcd criteria. The result connects controllability/capture placement and spectral resonances in a natural graph family; not a generic restatement of dark-space definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
