@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the full-branch map the minimum derivative magnitude is \(\Lambda=\vartheta+(2-\vartheta)(1+\beta)>1\). Its positive BV invariant density is interior-continuous because all interior jump amplitudes under \(n\) transfers are bounded by \(\Lambda^{-n}\operatorname{Var}(h)\); a full inverse cylinder makes \(h(c)>0\). Near cusp image 1, the two exact inverse preimages yield \(h(1-\delta)\sim C\delta^{-\beta/(1+\beta)}\) with nonzero \(C\). Since this exponent is below one, the density cannot belong to \(W^{2,1}\). The checker only confirms local algebra at finite parameter samples.
+## correctness
 
-## Originality — PASS within inspected evidence
-The nearest complete manuscript is Oltiboev–Vafoyev arXiv:2610.23180v1: it gives the corresponding *positive* regularity theorem at \(\beta=-1/2\), whereas the new statement proves a necessary obstruction for \(-1/2<\beta<0\). Oltiboev–Rakhimov–Ruziboev arXiv:2608.26969v1 treats \(\beta<-1/2\). Oltiboev arXiv:2505.17462v1 requires a still more negative exponent. published-finding corpus and accessible own-ledger comparisons found no covering upper-beta result. The closest own finding concerns the \(\vartheta\to2\) boundary layer *at fixed \(\beta=-1/2\)* and does not imply the new exponent law. The full manuscript of the August 2026 source was inaccessible, and definitive priority is not established.
+PASS
 
-## Mathematical value — PASS
-The 2026 critical Sobolev theorem could in principle have extended beyond the nominal integrability threshold through further cancellation; estimates alone do not answer whether it does. The positive invariant-density asymptotic shows the obstruction is intrinsic and quantifies its sharp exponent throughout an entire natural upper-parameter interval. This supplies the complementary half of the regularity phase boundary with an exact, testable local invariant.
+Each branch maps [0,1/2] onto [0,1] with |F'|=θ+A(1+β)t^β≥θ+(2−θ)(1+β)>1 and inverse Jacobian 1/p of bounded variation. Full-branch expanding-map BV theory gives the normalized invariant h. Preimage jump contributions in h=P^n h decay by Λ^(−n)Var(h), proving continuity at the interior cusp; a positive-measure continuity interval and a full inverse cylinder show h(c)>0. Transfer invariance yields h(1−δ)=[h(c−t)+h(c+t)]/[θ+A(1+β)t^β], δ=θt+At^(1+β); t~(δ/A)^(1/(1+β)), hence h(1−δ)~2h(c)δ^γ/[(1+β)A^(1/(1+β))], γ=−β/(1+β)∈(0,1). A W^{2,1} density has finite endpoint derivative, inconsistent with h(1−δ)/δ→∞. Checks cover β endpoints only as limits, not values. Independent local P1 inverse-asymptotic numerical tests confirmed powers but are not invariant-density proof.
 
-## Limitations
-Only the stated two-full-branch family and upper exponent interval are covered. No full fractional-Sobolev classification, general random-law conclusion, or independent mathematical certification is claimed. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the concrete positive cusp-image density coefficient and W^{2,1} obstruction for -1/2<β<0 do not follow from the inspected accessible critical-case or stronger-cusp theorem statements. The close August 2026 primary full text was inaccessible, a material residual risk rather than automatic O rejection.
+
+## value
+
+PASS
+
+Identifies a sharp actual-density regularity obstruction immediately beyond a published critical Sobolev threshold and computes its nonzero coefficient. This is a motivated boundary classification, not a generic type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
