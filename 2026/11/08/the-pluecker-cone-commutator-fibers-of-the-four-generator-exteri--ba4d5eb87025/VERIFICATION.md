@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-This package includes complete standalone `verify.cpp` and `verify.py`. The former tests all \(3^{16}=43{,}046{,}721\) odd-component ordered pairs over \(\mathbb F_3\), each of the \(3^7=2187\) possible output values, and all four fiber categories. The latter independently counts the \(q^8\) ordered vector pairs over \(\mathbb F_q\) for \(q=3,5\) and compares 10,000 direct full sixteen-coordinate Grassmann products per field against the formula. Both checks returned `VERIFY_OK`.
+# Independent mathematical audit
 
-Commands, from the extracted package directory:
-```
-python3 verify.py
-g++ -O3 -std=c++17 verify.cpp -o verify
-./verify
-```
+## correctness
 
-No special external mathematical packages are needed. The C++ exhaustive test is for \(q=3\), not for infinitely many fields; the Python exhaustive vector wedge checks are for \(q=3,5\), with deterministic randomized full-product checks in both. All odd prime powers are covered by the written linear-algebra proof, not by finite extrapolation. Independent mathematical audit was not performed.
+PASS
+
+For E=Lambda(F_q^4), q odd, even components central and each input has 8 even coordinates, giving q^16 free pairs. Writing odd input u+alpha, v+beta, the commutator is exactly 2(u wedge v+u wedge beta+alpha wedge v). The six degree-two coordinates satisfy the one Plucker Pfaffian equation iff decomposable. A fixed nonzero bivector has q(q²−1) ordered u,v pairs, while the zero bivector has q^4+(q^4−1)q dependent pairs. The top-degree linear form on 8 alpha/beta variables is rank one for (u,v)!=(0,0), yielding q^7 inputs per t, and rank zero for the zero pair, yielding the exceptional zero-fiber q^8. These facts yield all four cases and commuting probability q^(-4)+q^(-5)-q^(-9). Alternating rank<=4 gives width two, and rank four forbids width one. An independently coded F3 wedge-frequency enumeration found exactly 261 output bivectors, zero pair count 321 and each nonzero simple fiber 24, matching q formulas. This finite test corroborates, not replaces, the proof for all odd prime powers.
+
+## originality
+
+PASS
+
+Earlier all-arity exterior-four commuting-variety theorem already supplies the commuting probability at m=2 and structural adjoint ranks; this portion is not new. Its actual full theorem does not compute the image of a NONZERO commutator, all nonzero fibers, or the Plucker image cone with free top coordinate. Classical Plucker relation and SL2 counting are known; the uniform full associative-commutator fiber distribution is best-of-knowledge original. Same-family five-generator enumerations and general polynomial-image papers do not logically imply the stated four-generator distribution without new specialization.
+
+## value
+
+PASS
+
+An exact, nontrivial finite-field commutator map image and every fiber for a familiar noncommutative sixteen-dimensional algebra is a natural complete classification, including central-axis exceptions and width. It gives quantitative refinements of the published commuting-tuple law. It is not merely rediscovering the Plucker equation or counting commuting pairs; its substantive object is full fiber geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
