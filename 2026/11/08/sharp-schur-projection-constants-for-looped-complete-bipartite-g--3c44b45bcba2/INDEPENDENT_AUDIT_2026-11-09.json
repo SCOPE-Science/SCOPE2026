@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T14:44:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the selfadjoint Schur mask, Haagerup order majorization reduces the norm to the least t with a Hermitian P of diagonal <=t and P±M positive. The displayed P has P−M=vww* with v=2(ab−1)/(2ab+a+b); its P+M zero-sum eigenvalues are 2, and the 2×2 constant-block determinant is exactly zero with positive diagonal. For arbitrary feasible P, part-permutation averaging and the two 2×2 PSD compressions force 2√(ab)≤√((p+1)(r+1))+√((p−1)(r−1)). Diagonal constraints p≤1+a(t−1), r≤1+b(t−1) imply t−1≥v for t<2. This independently reconstructs both bounds for all positive sizes. Symmetric limit checks agree. Independent finite PSD eigenchecks at (2,2),(2,3),(3,7),(5,9) are diagnostic, not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balanced a=b is transitive and therefore falls under the general transitive trace theorem; Levene 2014 analyzes small idempotent-mask values and graph patterns."
+        ],
+        "reasoning": "Known balanced and singleton boundaries are covered and explicitly excluded as novelty; a!=b retains two unequal orbits and is not a direct consequence of the transitive formula.",
+        "searches": [
+          "exact completely bounded norm Schur idempotent projection on complete bipartite graph with loops unbalanced parts a b formula",
+          "Davidson Donsig Norms of Schur Multipliers transitive equal part"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, VERIFY.py at Git commit 714ffe431fa275bea4d66401ea42cdcab136ef07",
+        "Christensen arXiv:2505.24670",
+        "Davidson–Donsig arXiv:math/0506073",
+        "Levene arXiv:1302.4849",
+        "Resultary query: exact completely bounded norm Schur idempotent projection on complete bipartite graph with loops unbalanced parts a b formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=b, the transitive trace approach is consistent with the formula; Christensen 2025 provides the SDP criterion but not the two-parameter optimizer."
+        ],
+        "reasoning": "No inspected earlier theorem with hypotheses covering all unequal pairs was located. This is a best-of-knowledge conclusion rather than a completeness assertion about all prior operator-space literature.",
+        "searches": [
+          "exact completely bounded norm Schur idempotent projection on complete bipartite graph with loops unbalanced parts a b formula",
+          "Davidson Donsig Schur multiplier 2005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Christensen arXiv:2505.24670 Thm 2.2 uses positive-order SDP; Davidson–Donsig arXiv:math/0506073 treats norm as factorization/trace in transitive orbit cases."
+        ],
+        "reasoning": "The selfadjoint gamma_2/Schur factorization is equivalent to the order-interval program, but general equivalence does not solve this two-orbit unbalanced mask. No encompassing closed formula identified.",
+        "searches": [
+          "exact completely bounded norm Schur idempotent projection on complete bipartite graph with loops unbalanced parts a b formula",
+          "Schur multiplier norm complete bipartite graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Levene 2014 small-norm idempotent graph patterns; no exact unbalanced two-parameter table shown in material reached."
+        ],
+        "reasoning": "The assertion is not a single finite graph row: a,b vary over all integers ≥2 and the formula is obtained by a closed SDP lower bound. A hidden graph table is a documented priority risk.",
+        "searches": [
+          "exact completely bounded norm Schur idempotent projection on complete bipartite graph with loops unbalanced parts a b formula",
+          "Levene norms of idempotent Schur multipliers finite graph tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge original full claim after comparing equivalent formulations, dominating results, exact tables and known theorem implications. Relevant inaccessible primary literature remains named as residual risk; no search absence is treated as a proof of novelty.",
+      "residual_risks": [
+        "Full earlier symmetric-graph Schur multipliers and old tables not exhaustively read; priority remains best-of-knowledge.",
+        "The norm=CB identification depends on standard finite Schur Haagerup theorem; no Lean/expert certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Balanced transitive subcase potentially covered; unbalanced a≠b not resolved by accessed material.",
+          "evidence": [
+            "Section 4 transitive pattern theory; known balanced evaluation."
+          ],
+          "identifier_or_url": "arXiv:math/0506073",
+          "material_read": "Abstract, indexed theorem/section descriptions and bibliographic context; complete PDF not obtained during this execution.",
+          "method": "arXiv bibliographic search and primary-paper identification",
+          "title": "Norms of Schur Multipliers",
+          "trigger": "A transitive permutation theorem might already imply the biclique constant."
+        },
+        {
+          "assessment": "Order-interval step consistent with standard selfadjoint Haagerup factorization.",
+          "evidence": [
+            "The positive 2×2 block Haagerup factorization yields P±M by averaging."
+          ],
+          "identifier_or_url": "arXiv:2505.24670",
+          "material_read": "Theorem 2.2 as stated/cited in frozen proof and bibliographic search; full paper not independently obtained.",
+          "method": "Source package theorem correspondence and arXiv search",
+          "title": "The Schur multiplier norm and its dual norm",
+          "trigger": "Order-interval identification is a critical lemma."
+        },
+        {
+          "assessment": "No demonstrated domination, but a material priority risk remains.",
+          "evidence": [
+            "Finite graph/idempotent multiplier table may contain additional instances."
+          ],
+          "identifier_or_url": "arXiv:1302.4849",
+          "material_read": "Index/abstract descriptions; full text not recovered this run.",
+          "method": "Primary bibliographic search",
+          "title": "Norms of idempotent Schur multipliers",
+          "trigger": "Could include same family in known graph tables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural graph Schur idempotent is a matrix norm projection; sharp unbalanced two-part constants quantify symmetry breaking beyond transitive balanced cases. Exact all-size formula and distinct asymptotic regimes are reusable operator-space invariants, not a relabeled known constant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, SLOGAN.txt, VERIFY.py at Git commit 714ffe431fa275bea4d66401ea42cdcab136ef07",
+    "Christensen arXiv:2505.24670",
+    "Davidson–Donsig arXiv:math/0506073",
+    "Levene arXiv:1302.4849",
+    "Resultary query: exact completely bounded norm Schur idempotent projection on complete bipartite graph with loops unbalanced parts a b formula"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer a,b>=2 the 0-1 mask retaining all diagonal and all cross-part entries has operator Schur-multiplier and CB norm (4ab+a+b-2)/(2ab+a+b), including unbalanced a!=b.",
+  "limitations": [
+    "Endpoint B(M_{a+b})/CB norm only; does not give interior Schatten-p norms or general bipartite masks.",
+    "Full earlier symmetric-graph Schur multipliers and old tables not exhaustively read; priority remains best-of-knowledge.",
+    "The norm=CB identification depends on standard finite Schur Haagerup theorem; no Lean/expert certification."
+  ],
+  "residual_risks": [
+    "Full earlier symmetric-graph Schur multipliers and old tables not exhaustively read; priority remains best-of-knowledge.",
+    "The norm=CB identification depends on standard finite Schur Haagerup theorem; no Lean/expert certification."
+  ],
+  "schema_version": 1
+}
