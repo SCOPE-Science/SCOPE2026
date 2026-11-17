@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python standard library). The verifier independently constructs all mappings with no fixed points on two to six labeled vertices, enumerates all specialized binary profiles, and checks against odd-cycle parity and rational coefficients from the tree-function Lagrange-inversion formula. It independently adds every possible reverse arc to each mapping with exactly one odd cycle component and checks full best-response feasibility against the cycle/direct-child criterion. A distinct two-odd-cycle test verifies the lower bound and the count of nine minimal repairs in two disjoint 3-cycles. The script produces PASS only after all assertions succeed.
+## correctness
 
-The infinite mapping enumeration, structural lower bound, general repair construction, and singularity-transfer asymptotics are supplied as proofs in RESULT.md, not inferred from finite computer checks. Independent audit: not performed. Inaccessible or unindexed overlapping mathematical literature is a residual risk.
+PASS
+
+Best-response binary equations give alternation along directed cycles; odd cycles require a new outgoing tail and a single reversed edge from a cycle/depth-one child suffices. Labeled rooted-in-tree EGF and singularity transfer give Q_n(u) and sharp n^-1/4 probability. Finite exact mapping enumeration n<=5 corroborates.
+
+## originality
+
+PASS
+
+No inspected broader prior statement implies the final exact claim; bounded best-of-knowledge originality with risks documented.
+
+## value
+
+PASS
+
+Exact minimal reciprocity repairs and sharp rare equilibrium law link natural functional-network equilibria to random-mapping combinatorics, with useful complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
