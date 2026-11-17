@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T15:13:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and SciPy verify.py blob SHAs",
+        "No-reset Bessel identities and local-limit tail",
+        "Karamata monotone Tauberian for D, renewal-density theorem for N",
+        "Mishra–Basu original full text sections 5–6 and Appendix A"
+      ],
+      "rationale": "For infinite-volume continuous-time SEP started at a step and reset by iid Pareto waiting times with support τ≥t0, no-reset mean current is j0(a)=e^(−2a)I0(2a), J0(a)=∫0^a j0~sqrt(a/π). Renewal measure U gives exact transforms Dhat(s)=[(q j0)^hat]/[s(1−ψhat)] and Nhat(s)=[(q J0)^hat]/(1−ψhat), where q is the Pareto survival function. At α=1/2 the numerator is logarithmic and denominator ~sqrt(πt0)s^(1/2), giving D~π^(−3/2)sqrt(t)log(t/t0). At α=1 the integrable current reward G(t0) and infinite-mean renewal denominator yield D~G(t0)t/(t0 log(t/t0)). At α=3/2 finite mean μ=3t0 and h=qJ0~t0^(3/2)/(sqrtπ a) give N~sqrt(t0)log(t/t0)/(3sqrtπ) by the renewal-density limit and convolution splitting, not by falsely asserting net-current monotonicity. The proof separates finite-time renewal and large-t asymptotics and matches normalization of one hop per direction.",
+      "residual_risks": [
+        "Asymptotic statement is mean current after thermodynamic limit; no finite-L uniform estimate or fluctuation distribution.",
+        "Renewal density convergence uses the continuous bounded nonlattice Pareto law; not automatic for an arbitrary power-law reset distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basu–Kundu–Pal treats exponential resetting; Masó-Puigdellosas et al. study renewal ages in related diffusion processes. Neither provides three critical mean currents for Pareto-reset SEP."
+        ],
+        "reasoning": "General renewal convolution tools alone do not explicitly include the nonuniform small-s constants and the three singular borderline scalings here.",
+        "searches": [
+          "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting",
+          "https://arxiv.org/abs/1906.11801",
+          "https://arxiv.org/abs/2205.01613"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting",
+        "https://arxiv.org/abs/2211.14120",
+        "https://arxiv.org/abs/1906.11801",
+        "https://arxiv.org/abs/2205.01613"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Eq.(30)/(34) holds separately on either side of α=1/2; Eq.(36) assumes α>1; Fig.7 and Appendix A split at α=3/2. At α=1/2 and 3/2, off-critical Gamma-function amplitudes diverge."
+        ],
+        "reasoning": "One cannot substitute the excluded index into off-critical results; the new theorem reconstructs asymptotics directly from singular transforms and a renewal-density limit. Exact master transforms permit derivation in principle, a recorded potential novelty qualification.",
+        "searches": [
+          "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting",
+          "https://arxiv.org/abs/2211.14120"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original paper models same Pareto-reset step SEP, with off-critical diffusive and total current. The exact transform at all α is a common starting identity, but its nonuniform marginal inversion is not presented in the paper."
+        ],
+        "reasoning": "These are genuinely the same physical model and observables; the comparison rests on the new boundary asymptotic statements and amplitudes, not naming differences.",
+        "searches": [
+          "Resultary: power law renewal resetting symmetric exclusion step current marginal alpha 1/2 alpha 1 alpha 3/2 logarithmic correction hopping current net current",
+          "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Fig.3 uses α=0.2,0.4,0.6,0.8 and Fig.7 separately α<1, 1<α<3/2, α>3/2; no exact coefficient table for the boundary log cases was located in inspected text."
+        ],
+        "reasoning": "Figures and numerical evidence cannot entail the specific asymptotic coefficient; model-specific critical renewal limits are needed.",
+        "searches": [
+          "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting",
+          "Resultary: power law renewal resetting symmetric exclusion step current marginal alpha 1/2 alpha 1 alpha 3/2 logarithmic correction hopping current net current"
+        ]
+      },
+      "rationale": "Mishra–Basu (2022) developed the exact SEP renewal transforms and off-critical power-law regimes; their actual full text Section 5 distinguishes α<1/2, 1/2<α<1, α>1 and Section 6 distinguishes α<1,1<α<3/2,α>3/2, without stating sharp logarithmic boundary terms and their constants. The three marginal limits require boundary-specific slowly varying Tauberian and finite-mean renewal-density arguments, so they are not valid by simply substituting a marginal parameter into an off-critical amplitude. Resultary searches found no earlier same-model critical log laws. Best-of-knowledge PASS is qualified by closely related standard renewal results from which the terms may be derivable.",
+      "residual_risks": [
+        "Earlier exact renewal transform is general and an expert may view singular inversion as an implicit standard asymptotic consequence; no explicit older boundary coefficients were found.",
+        "Authenticated Oxford PDF retrieval reported vpn_disconnected (no further retry or bypass); a lawful readable full-text version of same original preprint was instead inspected.",
+        "The original hosted PDF text extraction garbles some symbols, requiring care with parameter conditions; source paper’s limiting regimes and exclusions were identifiable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact three boundary logarithmic laws",
+          "evidence": "Section 5 Eq.(30) α>1/2 and Eq.(34) α<1/2; Section 6 Fig.7 strictly α<1, 1<α<3/2, α>3/2; no three boundary log coefficients.",
+          "identifier_or_url": "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting",
+          "material_read": "Material full extracted preprint text: model, diffusive Section 5, total-current Section 6, figures and Appendix A, especially α-range exclusions and transforms",
+          "method": "ResearchGate lawful full HTML text display, equations visually garbled in places but readable mathematically in context",
+          "title": "Symmetric Exclusion Process under Stochastic Power-law Resetting",
+          "trigger": "Precisely same model and original phase diagram"
+        },
+        {
+          "assessment": "SAME paper, not counted as independently read second source",
+          "evidence": "Full accessible hosted text provides substantive comparison; institutional PDF access separately reported disconnected.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.14120",
+          "material_read": "arXiv abstract and bibliographic entry, PDF route unavailable; ResearchGate hosted full text materially read separately",
+          "method": "arXiv record / lawful full HTML alternate",
+          "title": "Symmetric Exclusion Process under Stochastic Power-law Resetting",
+          "trigger": "Original primary preprint alternate full text route"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.researchgate.net/publication/365783894_Symmetric_Exclusion_Process_under_Stochastic_Power-law_Resetting",
+        "https://arxiv.org/abs/2211.14120"
+      ],
+      "rationale": "Sharp logarithmic boundary laws fill three naturally missing transition points of an established resetting-transport phase diagram. Their distinct sqrt(t)log(t), t/log(t), and log(t) scalings and exact amplitudes correct misleading pure-power extrapolations, and the renewal-density treatment avoids a genuine nonmonotonicity pitfall for net current.",
+      "residual_risks": [
+        "The results concern expectations for a specific pure-Pareto law and infinite volume first; practical finite-size or distributional results are not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Oxford institutional PDF delivery blocked by disconnected VPN; alternate full hosted primary text available and materially read.",
+    "No fluctuations/finite-size interpolation/theorem for arbitrary slowly varying reset laws."
+  ],
+  "schema_version": 1
+}
