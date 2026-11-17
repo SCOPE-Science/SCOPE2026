@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result applies to all finite unweighted trees with two distinct marked vertices. Directed-edge arrival and the initial unremembered step are separately handled. The branch-excursion induction establishes the critical expected return \(2b_v-1\), the child-arrival system has an explicit finite solution, and successive upward passages yield the claimed identity. The standard simple-walk recursion gives the comparison baseline. The equality characterization follows from strictly positive intermediate path terms. Separate exact-linear-system computations replayed for 4,202 cases from the packaged script. No finite test is presented as an infinite proof.
+PASS
 
-## Originality
+For target-rooted finite tree, a non-backtracking oriented arrival p(v)→v has expected first parent-return time F_v=2b_v−1 by induction: child excursions cost 2b_w and the linear child-arrival equations give U_w=1+2(k S_v−b_w)/(k+1), S_v=b_v−1, k=d_v−1. Fresh-start parent passage B_v=1+2kS_v/(k+1) handles the first step. Strong Markov decomposition along source-target path and SRW parent passage A_v=2b_v−1 give the exact difference 2[(b_s−1)/d_s+Σ_{i=1}^{ℓ−1}(b_{v_i}−1+b_{v_{i−1}})/d_{v_i}]. Every summand nonnegative and each intermediate strictly positive, so equality iff s leaf directly adjacent target. Independently rebuilt lifted directed-edge linear systems on 96 ordered-pair checks of finite trees, agreeing with formula. Uniform first neighbor, deterministic leaf reflection, and no-cycle hypotheses are essential.
 
-**PASS, qualified for priority.** The general inequality against simple random walk is **already proved**, in stronger graph-wide form, by Altisen et al. (2012), Corollary 9, using the same rule; it is not claimed as new. Their Proposition 14 gives facts about paths rather than the present arbitrary-tree quantitative formula. Fasino et al. (2021), specifically their second-order hitting-system treatment, and Matsuo et al. (2022 advance publication) do not give the exact target-rooted subtree-speedup identity or its equality characterization in their inspected portions. Searches of published mathematical records and relevant earlier claims did not surface an implication or exact table recovering the formula. No search proves exhaustive historical novelty; unknown earlier or equivalent derivations remain a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The literature's global speedup order does not say how large the improvement is at a particular source-target pair. The new explicit formula answers that natural quantitative question for all tree topologies, exposes the contribution of branches along the path, distinguishes exact equality from strict improvement, and permits direct comparisons without solving the directed-edge Markov system. It has substantive structural content beyond a small numerical example, while requiring no extension to general graphs to be useful.
+The known graph-wide improvement direction for FIFO1 tabu walks is expressly credited; the submitted all-tree target-rooted exact positive difference and equality classification are not contained in the inspected general inequality or no-dangling-edge second-order formulas. Best-of-knowledge PASS, allowing possible unindexed elementary tree identity.
 
-## Closest sources and limitations
+## value
 
-Altisen, Devismes, Gerbaud and Lafourcade, *Comparisons of mean hitting times for tabu random walks on finite graphs* (2012), Corollary 9; Fasino, Tonetto and Tudisco, *Hitting times for second-order random walks* (2021), sections on second-order hit formulas and no-dangling-edge model; Matsuo, Kawagishi and Ohsaki, *On the mean first passage time and mean cover time of a non-backtracking random walk on graphs* (2022 advance), sections on regular and configuration-model graphs. The theorem has not been extended to weighted trees, cycle-bearing graphs, or other leaf rules. Independent priority checking and mathematical auditing have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact amount of first-passage improvement at any prescribed tree vertices is a natural quantitative invariant beyond the known sign. The closed branch-size expression and sharp equality boundary permit computation without solving the lifted walk, and expose structural dependence on side branches across every finite tree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
