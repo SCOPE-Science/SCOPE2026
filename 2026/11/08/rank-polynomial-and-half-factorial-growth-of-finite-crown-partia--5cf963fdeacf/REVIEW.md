@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every proper induced subposet decomposes into alternating paths; singleton paths have one order-isomorphism type, even-sized nontrivial paths have one type with trivial automorphism group, and odd-sized nontrivial paths have two endpoint-color types each with reversal symmetry. These cases give the factorial automorphism weight. Marking one of the cyclic selected runs and dividing by the number of marked choices gives the exact trace formula, with the two starting parities counted separately. Full and empty subsets are handled independently. The special second-highest rank layer is checked by a disjoint two-hole distance classification. The factorial bounds prove both infinite logarithmic limits. Exact rational run/gap expansions and independent direct-map enumerations agree in every tested size; no finite extrapolation is used as proof.
+PASS
 
-## Originality
+PASS: Classified every proper induced subposet of an even crown (N>=4) by the multiset of selected cyclic path runs: isolated vertices type s, nontrivial even runs type e_l with trivial automorphism, odd runs with one of two endpoint parities and reversal symmetry 2. Isomorphisms between two identical multisets have multiplicity product c_t! h_t^{c_t}. Marking one selected run, choosing starting parity and dividing by r gives P_N(X)=N/2 sum_r (1/r)[z^N]tr(T^r); the coefficient A_N(c) is the number of labeled source subsets, so the squared A times automorphism factor gives the full rank polynomial. The full and empty source are separated correctly. Directly enumerated strict-comparability-preserving partial bijections for N=4 and N=6 independently, obtaining [1,16,24,16,4] and [1,36,198,204,90,36,6], agreeing with the formula and code. The two-missing-vertex classification supplies rank N-2=N^2(3N-8)/4 for N>=6; the factorial lower bound (N/2)! and upper 4^N 2^(N/2)(N/2)! imply both NlogN limits. Finite checks do not prove the infinite coefficient formula or limits.
 
-PASS on the inspected evidence, with publication-priority risk remaining. The closest work is Dimitrova–Koppitz, arXiv:2204.13961: its element criterion and smallest generating-set rank are prior work, but its inspected text does not give the complete domain-rank polynomial or the two logarithmic limits. The path-monoid cardinality theorem in arXiv:2101.12468 supplies a genuine related counting method, but not the cyclic, parity-sensitive crown profile. The general structure theory in arXiv:1809.04422 does not give the specialized enumeration. Uncolored cycle partial-automorphism counts, including related previous investigations, have a different target: their unrefined rank totals cannot alone supply the odd-component endpoint-color partition required here. Residual risk is an unlocated older crown-poset census or a general colored-cycle theorem that specializes to this formula.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact order and domain-rank distribution are natural invariants of the specific inverse monoid for which minimum generating-set rank was already studied. The formula resolves every rank in every even size, including an explicit defect-two polynomial and concrete totals. The logarithmic asymptotics reveal factorial-scale proliferation of partial symmetries and quantify the vanishing extendible fraction. These provide an object-level structural distinction rather than a routine check of the existing generator-rank theorem.
+PASS (best of knowledge): Prior work on the SAME crown monoid determines admissibility and the minimal size of a generating set, which is not its element-domain-rank distribution. A general undirected path monoid count and the wheel-rim cycle count omit the crown orientation parity in odd path runs. The new complete multitype polynomial, near-full-rank correction and log-asymptotic element counts survive those direct comparisons. The half-factorial exponent alone is known for related cycle objects, but is not claimed as novel in isolation.
 
-## Limits
+## value
 
-Only even crowns with at least four vertices are covered; no multiplicative asymptotic constant or independent validation is claimed. Publication priority remains subject to further external checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The graded size of the actual inverse monoid is a natural exact invariant complementary to its published generator rank. Counts every embedded partial isomorphism by domain size for every even N, identifies sharp defect-two coefficients and a quantified rarity of extendible partial maps. These are not unmotivated slices or routine exercises once the parity-sensitive cyclic path classification is accounted for.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

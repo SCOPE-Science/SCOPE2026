@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:13:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Classified every proper induced subposet of an even crown (N>=4) by the multiset of selected cyclic path runs: isolated vertices type s, nontrivial even runs type e_l with trivial automorphism, odd runs with one of two endpoint parities and reversal symmetry 2. Isomorphisms between two identical multisets have multiplicity product c_t! h_t^{c_t}. Marking one selected run, choosing starting parity and dividing by r gives P_N(X)=N/2 sum_r (1/r)[z^N]tr(T^r); the coefficient A_N(c) is the number of labeled source subsets, so the squared A times automorphism factor gives the full rank polynomial. The full and empty source are separated correctly. Directly enumerated strict-comparability-preserving partial bijections for N=4 and N=6 independently, obtaining [1,16,24,16,4] and [1,36,198,204,90,36,6], agreeing with the formula and code. The two-missing-vertex classification supplies rank N-2=N^2(3N-8)/4 for N>=6; the factorial lower bound (N/2)! and upper 4^N 2^(N/2)(N/2)! imply both NlogN limits. Finite checks do not prove the infinite coefficient formula or limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The crown source characterizes generators and their minimal cardinality.",
+          "The wheel paper has induced uncolored paths on an undirected rim, with 2n full automorphisms instead of N for a crown."
+        ],
+        "reasoning": "Neither gives the parity-sensitive trace polynomial or full ordered-poset partial-map counts; the common run/gap method and 1/2 factorial exponent do not imply the required exact coefficients.",
+        "searches": [
+          "arXiv:2204.13961 Theorems 2.18,2.22",
+          "arXiv:2101.12468 exact cardinality of path partial automorphisms",
+          "Resultary 2026/11/8 hub-avoiding wheel partial isometries"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.13961",
+        "https://arxiv.org/abs/2101.12468",
+        "https://arxiv.org/abs/1809.04422",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-exact-rank-spectrum-and-half-factorial-growth-of-hub-avoidin--b0b54abdb9ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Admissibility of a partial order isomorphism does not determine number of maps at each rank without enumeration.",
+          "The wheel result counts 2n automorphisms at full rank, while crown has N."
+        ],
+        "reasoning": "Crown generator-rank theorem and uncolored cycle enumeration are not stronger covering statements. New marked-run parity transfer and automorphism weights are necessary to compute the candidate polynomial.",
+        "searches": [
+          "Dimitrova–Koppitz arXiv:2204.13961 Proposition 2.1 and Theorem 2.18",
+          "Dimitrova–Fernandes–Koppitz–Quinteiro arXiv:2101.12468",
+          "Resultary 2026/11/8 exact rank spectrum of hub-avoiding wheel partial isometries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rank in Dimitrova–Koppitz is minimum generator number, not size of a partial map domain.",
+          "The crown poset is a cyclic orientation of an undirected even cycle, but odd path endpoint heights split one graph type into two poset types."
+        ],
+        "reasoning": "The candidate object matches the finite crown monoid of the primary source but its rank parameter does not; replacing by an undirected-cycle rank polynomial would count extra reversed poset isomorphisms.",
+        "searches": [
+          "Resultary: finite crown inverse semigroup partial automorphisms rank enumerator exact counts",
+          "arXiv:2204.13961 finite crown inverse monoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite tables were reconstructed from actual maps at N=4,6 and from package run transfers through N=16.",
+          "The available previously published crown result gives no comparable full domain-rank table; related wheel 2026/11/8 tables count different objects."
+        ],
+        "reasoning": "A complete exact table for this precise poset monoid was not found in checked records. Small counts are not by themselves novelty proof; the all-N formula is the claim.",
+        "searches": [
+          "Resultary Search crown partial automorphism domain rank polynomial",
+          "Resultary Search finite fences involutions cycle monoid spectra"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Prior work on the SAME crown monoid determines admissibility and the minimal size of a generating set, which is not its element-domain-rank distribution. A general undirected path monoid count and the wheel-rim cycle count omit the crown orientation parity in odd path runs. The new complete multitype polynomial, near-full-rank correction and log-asymptotic element counts survive those direct comparisons. The half-factorial exponent alone is known for related cycle objects, but is not claimed as novel in isolation.",
+      "residual_risks": [
+        "An earlier complete enumerator for crown-poset induced substructure isomorphisms, or a general bicolored-cycle theorem, may exist outside indexed primary results.",
+        "Logarithmic asymptotic growth exponents share a method and value with the previously published uncolored-cycle class; their standalone priority is limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_RANK_PARAMETER",
+          "evidence": [
+            "Published rank = minimum generating-set size; no graded element-count rank polynomial in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.13961",
+          "material_read": "Sections 2–3, Proposition 2.1, Theorems 2.18 and 2.22, conclusion",
+          "method": "Full OA PDF, parsed text and screenshot of relevant final theorem page",
+          "title": "The rank of the inverse semigroup of all partial automorphisms on a finite crown",
+          "trigger": "Same crown inverse semigroup, plausible dominating rank theorem"
+        },
+        {
+          "assessment": "RELATED_METHOD_DIFFERENT_ORDER",
+          "evidence": [
+            "Unoriented paths lack cyclic wrap and crown endpoint parity types."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.12468",
+          "material_read": "Structural interval component counts and cardinality methods",
+          "method": "Full OA PDF with screenshot of main enumeration section",
+          "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+          "trigger": "Closest finite path monoid cardinality theorem"
+        },
+        {
+          "assessment": "SHARED_EXPONENT_NOT_COVERING_CROWN",
+          "evidence": [
+            "Wheel graph metric reduces to uncolored induced cycle paths with full automorphism order 2N, not the oriented crown monoid."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-exact-rank-spectrum-and-half-factorial-growth-of-hub-avoidin--b0b54abdb9ab",
+          "material_read": "Complete published RESULT.md, formulas (1)–(9), all proof sections",
+          "method": "Published GitHub primary full text via connected GitHub read",
+          "title": "The exact rank spectrum and half-factorial growth of hub-avoiding wheel partial isometries",
+          "trigger": "Same half-factorial growth and cyclic run decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The graded size of the actual inverse monoid is a natural exact invariant complementary to its published generator rank. Counts every embedded partial isomorphism by domain size for every even N, identifies sharp defect-two coefficients and a quantified rarity of extendible partial maps. These are not unmotivated slices or routine exercises once the parity-sensitive cyclic path classification is accounted for.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only even N>=4 crowns; actual partial bijections are order-preserving and -reflecting, not arbitrary injections.",
+    "The transfer formula is a finite coefficient algorithm, not a simple single-variable rational generating function; no sharp multiplicative total asymptotic.",
+    "Prior search and primary reading were bounded; no claim of exhaustive historical novelty, publisher bypass, source-code-based proof, or formal independent certification.",
+    "Public file publication is withheld independently of scientific PASS."
+  ],
+  "schema_version": 1
+}
