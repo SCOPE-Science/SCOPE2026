@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the standard undirected zero forcing process on even helms and restricts the token-slide graph to minimum sets. The forcing-chain argument proves the known minimum-cardinality lower bound, the leaf-only necessity, and hub participation. The defect proof reduces every remaining rim force to a seeded auxiliary component of zeros connected across a single selected index. Adjacent 00 defect pairs are precisely unseeded components, and only a physically adjacent pair can be completed by the one hub force. The bidirectional criterion follows; the marked unique 111 pair and odd defect-gap compositions provide a bijective enumeration. The odd binomial sum is valid for the stated range and the exceptional smallest case is handled separately. Python and C++17 implementations independently test forcing and the criterion through twenty rim vertices. The finite tests are corroboration, not a substitute for the infinite proof.
+## correctness
 
-## Originality — PASS (with priority risk)
-Barioli et al. (2010) already prove the path-cover mechanism; Anderton et al. (2023), Section 3, already provide the helm zero forcing number and uniqueness-of-three-consecutive-leaves obstruction for even rim size. These results imply parts of the leaf-rigidity argument and are excluded from the originality claim. Their inspected helm section treats minimum size and propagation time, not the exact number of minimum sets or the complete cyclic-defect characterization. Geneson–Haas–Hogben (2020) treat the unrestricted token-jump zero forcing graph, not a constrained slide graph on even helms; search of the inspected full text found no helm-specific result. Relevant literature searches and comparisons with published mathematical records did not expose an equivalent formula. The novel scientific content is the exact configuration classification and enumerator, not merely that token slides are forbidden. A potentially unpublished equivalent count is a residual risk, not proof of uniqueness.
+PASS
 
-## Value — PASS
-The natural count of all *optimal* initial zero forcing configurations is absent from the cited helm-number/propagation-time treatment and is not implied by the size of the optimum. The exact exponential formula identifies the multiplicity of optimum strategies, while the defect criterion gives a direct local membership test on any balanced pendant selection. All these exponentially many strategies are mutually unreachable under local host-edge movement despite being individually effective, a meaningful sharp contrast between optimization and constrained mobility. This is an infinite family and a complete natural classification, not an arbitrary parameter slice.
+Forcing chains partition the 2k pendant vertices into chains having at most two pendants each, so any k-vertex minimum start is leaf-only. A forced hub first requires a 111 triple; chain endpoints imply exactly one such hub force. After hub coloration, zero-index rim vertices can only be seeded by neighboring 11 selected rims and propagated across isolated selected rims; all but one zero component must be seeded, and the final unseeded singleton is the physical 000. This is equivalent to one adjacent equal-type pair of each defect kind with all other defects alternating. Marking the unique 11 pair and distributing odd alternating gaps gives N_k=2k sum_{r>=2}(r-1) binom(k-2,2r-3) and hence 6 (k=3) or k^2 2^(k-4) (k>=4). Independent zero-forcing closure enumerated all leaf-balanced subsets for n=6,8,10,12,14 giving 6,16,50,144,392, confirming boundaries; full proof addresses unbounded k. The slide graph is edgeless because a leaf slide necessarily gives an internal selected vertex.
 
-## Sources and limitations
-Primary comparison: F. Barioli et al., arXiv:1003.2028v1 (path-cover/chain theorem); S. Anderton et al., arXiv:2310.18513v1, full Section 3 (helm minimum cardinality, groups of pendants, propagation-time bounds); J. Geneson, R. Haas, L. Hogben, arXiv:2009.00220v1 (token-jump formalism and structures). Scope is even helm graphs with at least six spokes; no claims about odd sizes, general forcing polynomials or token-jump connectivity. Database/online coverage does not eliminate unindexed historical priority risk. Finite programs do not independently certify an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the earlier helm treatment determines zero-forcing numbers and propagation times but not the all-minimum-set defect classification, exact number, or slide-reconfiguration order. Neighboring published zero-forcing censuses concern different graphs (subdivided helms, cycle powers, circular ladders).
+
+## value
+
+PASS
+
+The even helms are a natural infinite graph family already studied for zero forcing; exact enumeration and an if-and-only-if local defect description of every minimum configuration are significant structural invariants. They enable reconfiguration and sampling analyses and are not obtained from the known zero forcing number. The slide-isolation is a transparent but legitimate corollary, not the sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
