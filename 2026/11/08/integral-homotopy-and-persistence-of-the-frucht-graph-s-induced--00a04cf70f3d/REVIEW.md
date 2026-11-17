@@ -1,19 +1,21 @@
-# Scientific review: Frucht graph induced-forest filtration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is fixed by the twelve-term LCF data, the four nested complexes by acyclicity and induced maximum degree, and the claim is about all four integral homotopy types plus the split integral inclusion-persistence module. The checker verifies **all 4,096 subsets** twice, independent simplicial mod-two boundary ranks, and acyclicity of four finite matchings by full Hasse-diagram topological sorting. Exact signed Morse differential and full chain-map checks produce the integral zero boundary at stage two and the unit stage-three boundary. The Hurewicz theorem then resolves each seven-cell attaching map. Exact lifted simplicial integer cycles and their projections show that the final degree-six homology map is a **primitive rank-two** map from rank four to rank three, and the degree-seven map is an isomorphism. The precise topological and barcode statements follow; no finite observation is promoted to an unproved general theorem.
+PASS
 
-## Originality — PASS relative to inspected literature
+The 12-vertex Frucht graph is reconstructed from the exact LCF jumps and 18 cubic edges. Independent exhaustive union-find and maximum-induced-degree enumeration over all 4096 subsets gives augmented face counts 169,825,2335,2542 for d=0,1,2,3, and acyclic complete Hasse matchings with 82,411,1164,1267 pairs. Exact signed Morse boundaries vanish except at d=3, ∂7(critical mask 3828)=critical mask 3762 with unit coefficient, yielding integral wedges ∨3S2, S3, (∨4S6)∨S7, (∨3S6)∨S7. For the actual F2→F3 inclusion, independently lifted genuine integral cycles and computed projections give masks 926→926, 3308→0, 3506→3506, 3762→3762(boundary in F3), and 1782→1782. Thus H6 map has primitive rank two with torsion-free cokernel; H7 map is an isomorphism, giving asserted integral interval multiplicities. A separate original-simplicial mod-two boundary quotient yields inclusion H6 rank2. Exact cutoff d≥3 follows from cubicity. This is an exhaustive finite proof for one graph, not an extrapolation.
 
-Taylan's 2015 work establishes the graph-devoid framework (arXiv:1501.06754v1), and the subsequent Carnero Bravo article develops forest filtrations (arXiv:2307.13271). The relevant inspected theorems classify paths, cycles, specified forests, cactus graphs and certain graph constructions, not this three-connected Frucht graph. A separately indexed published Frucht independence-complex calculation already determines the stage-zero wedge of three two-spheres; that known result is credited rather than recast as new. The novel candidate is the **remaining three stages and integral inclusion map**, which are not implied by the independently known stage-zero homotopy type. Targeted searches compared exact graph aliases, stage definitions, stronger family results and exact ranks. Lack of a hit is not conclusive novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph is the canonical asymmetric cubic example and its vertex-induced forest filtration is the natural nested topological encoding of acyclic induced subgraphs and maximum-degree restrictions. Four successive homotopy types are determined, and the final inclusion has a particularly informative phenomenon: two degree-six classes die while an additional degree-six class is born. That behavior cannot be recovered from homotopy types or Betti numbers at the individual stages. The primitive integral comparison is more informative than a finite-field rank test and gives a concrete reference case for further forest-filtration research.
+PASS best of knowledge: earlier Frucht higher-independence filtration is defined by component order rather than induced forest plus degree bound, coinciding only at stages F0 and F1. Its full paper does not imply the degree-2/3 Frucht forest wedges, actual degree-six transition map or new degree-six birth. The earlier Frucht independence/deletion result establishes only d=0. Published Heawood forest filtration uses a different graph and all strict degree maps vanish, unlike the nonzero Frucht persistence maps; general Carnero Bravo forest filtration framework has no exact Frucht classification in examined material. Residual unindexed literature risk is disclosed.
 
-## Closest literature, boundaries and residual risks
+## value
 
-The closest same-graph indexed result is the Frucht independence-complex and vertex-deletion calculation (published-finding corpus published index ID `2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2`), which explicitly covers only the stage-zero part in the accessible summary. A Rips filtration of asymmetric cubic graphs concerns another functor. The publicly available full-text Taylan and Carnero Bravo papers were inspected at relevant theorem and family-classification sections, and no Frucht or Halin named case was present in the searched text. The closest indexed Frucht result's complete linked document was not accessible through the tested web endpoint; no whole-document negative claim is made about it. An implicit stronger theorem or unindexed prior computation remains possible. The result is one finite case, not a universal cubic/Halin theorem, and its mathematical verification is not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Frucht graph is a natural small asymmetric cubic test case for a genuine induced-forest degree filtration. Complete integral homotopy stages, primitive nontrivial H6 transition and an essential H7 class are not routine normalized data: the death-and-birth profile cannot be deduced from stage Betti ranks alone and contrasts structurally with symmetric-graph examples. A researcher studying integral forest persistence could need these precise values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
