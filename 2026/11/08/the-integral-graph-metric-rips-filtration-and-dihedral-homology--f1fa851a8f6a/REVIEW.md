@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, metric, threshold convention and symmetry generators are explicit. A standard-library program exhaustively checks all \(4095\) nonempty subsets, yielding the scale-two \(166\)-face complex and an acyclic matching with exactly one critical vertex and one critical two-cell; all \(460\) oriented cover relations are checked, proving the *integral homotopy type* via the discrete Morse theorem. Raw mod-two ranks independently corroborate Betti numbers. Eight automorphisms are exhaustively enumerated; two complete signed Lefschetz character tables and orthogonality give the module decomposition. No finite check is extrapolated to a graph family.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The primary full text of Adamaszek (arXiv:1104.0433v1, relevant §§1–3) studies all graph powers formally but computes cycle families; its graph-square girth collapse hypothesis is inapplicable, as girth \(4<7\). The MathWorld Bidiakis entry has the graph's LCF data but no Rips result. Closest indexed results concern an unrelated twelve-vertex graph family, other polyhedral Rips spheres, or a Bidiakis **edge-matching** complex, which is not a vertex-metric Rips complex. No inspected claim proves the exact dihedral representations. Unindexed or implicit coverage remains a risk; absence in a search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-A complete integral barcode together with the full dihedral action of a named, nonvertex-transitive convex-polyhedral graph supplies a natural benchmark that is not fixed by cubic regularity, diameter, ordinary Betti numbers, or the generic graph-power identities. The disappearance of seven degree-one generators as a new integral two-sphere appears at the next metric scale, and the nontrivial sign of both dihedral generators on its fundamental class, are precise homotopy/symmetry information of direct interest in graph-metric persistent topology. This is a finite structural classification, not an arbitrary parameter slice.
+Explicit LCF [-6,4,-4]^4 reconstructs a connected cubic triangle-free 12-vertex graph of 18 edges, diameter 3; an independent graph-isomorphism enumerator confirms exactly eight automorphisms. Integer graph distances make thresholds 0,1,2,3 exhaustive. At radius 1 the graph has cycle rank 18-12+1=7. At radius 2, independent 4095-mask enumeration gives 166 nonempty simplices with f=(12,46,68,36,4); independent deterministic Morse pairing has 82 pairs and an acyclic orientation of all 460 Hasse covers, with only one critical 0-cell and one 2-cell, proving integral S2. Radius 3 yields the full simplex. Independent signed Lefschetz traces under r:i->i+3 and s:i->-i give H1 (7,-3,1,-1,-1,-3,1,-1), H2 (1,-1,-1,1,1,-1,-1,1), matching the rational D4 decomposition and top integral sign. The inclusions kill positive homology at successive stages; the stated integral bars follow.
 
-## Closest literature and limits
-Adamaszek's general graph-square results and cycle calculations are the main conceptual antecedent; Weisstein fixes the graph identification. The checked nearby named-graph Rips computations and same-graph matching-complex information have different objects or weaker/orthogonal coverage. No equivariant sphere model, all-graph-family result, integral decomposition of the degree-one symmetry lattice, or independent proof is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adamaszek arXiv:1104.0433 defines graph-power clique complexes, equivalent to inclusive shortest-path Rips. Its high-girth collapse criterion (girth>=3r+1) does not apply at r=2 to this girth-4 graph; its (C4,C5,C6,S3)-free graph-square stability theorem also does not apply because Bidiakis has four-cycles. Its cycle-six S2 example is not the Bidiakis cube and gives no D4 representation or complete barcode. Resultary targeted Bidiakis, graph-metric Rips, alias graph power and dihedral character searches returned the current record but no earlier exact same-graph or stronger covering theorem. Best-of-knowledge O PASS with explicit index/alias limitations.
+
+## value
+
+PASS
+
+The Bidiakis cube is a canonical finite cubic polyhedral graph. Its full integer distance Rips homotopy, birth/death barcodes and nontrivial D4 symmetry orientation constitute an unknown motivated exact topological invariant, beyond simple graph f-vector or parameter substitution; the nonzero two-sphere stage and sign character are natural reusable tests for metric graph-power topology. A finite named example is worthwhile without an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
