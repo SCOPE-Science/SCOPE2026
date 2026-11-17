@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every deleted composition type produces a unique remaining multiset, and distinct lengths cannot collide. Prefix/suffix mirror symmetry reduces the deficit to walk returns, including the unpaired central length for even source lengths. First-return decomposition establishes both exact probability generating functions. Aperiodic full-lattice increments, their explicitly calculated covariance, and factorial-moment arguments establish the three limiting distributions with their constants. Exact exhaustive source-word comparisons and independently calculated renewal distributions cover 84,133 words; this does not substitute for the infinite mathematical proof.
+## correctness
 
-**Originality — PASS against reviewed evidence.** The most direct model reference, Chen (2025, arXiv:2503.12342), defines single-observation composition deletions but studies correction of erroneous spectra, not the distribution of distinct one-deletion outputs of an i.i.d. input. Ye–Elishco (arXiv:2208.14963) contains the underlying deterministic prefix/suffix symmetry, but not the multinomial return generating functions or the three fixed-alphabet limit laws. Gabrys–Pattabiraman–Milenkovic (arXiv:2110.02352) considers missing compositions for code reconstruction, without the distributional characterization. Closest indexed comparisons about substring two-multispectra or two-deletion spheres concern different observations or error operations. Ordinary random-walk renewal theory covers an intermediate stochastic object, not the assembled source-channel statement; priority risk remains for unindexed implicit derivations.
+PASS
 
-**Mathematical value — PASS.** Single missing mass/composition measurements are a natural finite-length error model in reconstruction. The exact parity-sensitive law gives every probability and mean, while the \(q=2\), \(q=3\), \(q\ge4\) split changes the order and the limiting type of the channel's deletion ambiguity. This is a structural all-parameter result, not a selected small-code census. It quantifies the typical number of genuinely distinguishable missing observations without asserting unproved coding bounds.
+I reconstructed the all-length prefix/suffix symmetry P_j=Q_j iff P_(n-j)=Q_(n-j): all length-j compositions have coordinate sum j, so distinct deletion choices are precisely distinct types. For n=2m+1 the duplicate count is D=1+2Z_m; for n=2m it is D=1+2Z_(m-1)+I_m. The return renewal F=1-1/U and first-return convolution give both parity-dependent PGFs. The projected difference walk has positive zero-step probability, full Z^(q-1) support and covariance determinant 2^(q-1)/q^q, yielding u_q,j ~ q^(q/2)/(4pi j)^((q-1)/2). Factorial moments give q=2 half-normal and q=3 exponential scales with correct n/2 substitution; q>=4 summability gives a geometric total return count. I independently enumerated input words directly for (q,n)=(2,7),(3,5),(4,4), finding deficit histograms respectively {1:40,3:40,5:32,7:16}, {1:144,3:72,5:27}, {1:180,2:12,3:48,4:16}; these are finite corroboration only.
 
-**Scientific limits and priority risks.** The distribution assumes complete original prefix/suffix coverage, one deleted observation, independent uniform letters, and fixed \(q\); it is not an optimal-code theorem. Earlier literature may contain an implicit or differently named equivalent formula. External mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+Complete parity-sensitive finite-length distribution of distinct single-missing composition observations quantifies redundancy in a natural sequencing/reconstruction error channel. The sharp dimension threshold distinguishes sqrt(n), logarithmic and tight regimes across all fixed alphabet sizes q; the precise scale and limit law cannot be inferred from a generic coding construction alone. This is a motivated structural channel-law classification, not a table or a rebranded local CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

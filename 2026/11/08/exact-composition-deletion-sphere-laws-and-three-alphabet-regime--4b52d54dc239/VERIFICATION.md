@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 checker.py` using Python 3 standard library. This computes direct deletion-sphere sizes from all prefix/suffix count vectors and compares the full exact distribution against the separate first-return convolution, for binary lengths through 14, ternary lengths through 9 and four-symbol lengths through 7. It compares rational mean formulas and checks renewal normalization through 13 for alphabet sizes 2–7. The completed run printed:
+## correctness
 
-```
-PASS exhaustive 84133 input words, q=2 through n=14; q=3 through n=9; q=4 through n=7
-PASS independent renewal normalization for q=2..7, m=0..13; exact means and distributions
-```
+PASS
 
-The proof in `RESULT.md` is necessary for arbitrary input length and the asymptotic limits; finite tests cannot establish either. The algebraic return series uses exact rational coefficients. The limiting arguments require an aperiodic, full-lattice random walk and fixed alphabet size. The reviewed evidence is not independent mathematical validation.
+I reconstructed the all-length prefix/suffix symmetry P_j=Q_j iff P_(n-j)=Q_(n-j): all length-j compositions have coordinate sum j, so distinct deletion choices are precisely distinct types. For n=2m+1 the duplicate count is D=1+2Z_m; for n=2m it is D=1+2Z_(m-1)+I_m. The return renewal F=1-1/U and first-return convolution give both parity-dependent PGFs. The projected difference walk has positive zero-step probability, full Z^(q-1) support and covariance determinant 2^(q-1)/q^q, yielding u_q,j ~ q^(q/2)/(4pi j)^((q-1)/2). Factorial moments give q=2 half-normal and q=3 exponential scales with correct n/2 substitution; q>=4 summability gives a geometric total return count. I independently enumerated input words directly for (q,n)=(2,7),(3,5),(4,4), finding deficit histograms respectively {1:40,3:40,5:32,7:16}, {1:144,3:72,5:27}, {1:180,2:12,3:48,4:16}; these are finite corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+Complete parity-sensitive finite-length distribution of distinct single-missing composition observations quantifies redundancy in a natural sequencing/reconstruction error channel. The sharp dimension threshold distinguishes sqrt(n), logarithmic and tight regimes across all fixed alphabet sizes q; the precise scale and limit law cannot be inferred from a generic coding construction alone. This is a motivated structural channel-law classification, not a table or a rebranded local CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

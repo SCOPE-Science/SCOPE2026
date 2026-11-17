@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:02:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the all-length prefix/suffix symmetry P_j=Q_j iff P_(n-j)=Q_(n-j): all length-j compositions have coordinate sum j, so distinct deletion choices are precisely distinct types. For n=2m+1 the duplicate count is D=1+2Z_m; for n=2m it is D=1+2Z_(m-1)+I_m. The return renewal F=1-1/U and first-return convolution give both parity-dependent PGFs. The projected difference walk has positive zero-step probability, full Z^(q-1) support and covariance determinant 2^(q-1)/q^q, yielding u_q,j ~ q^(q/2)/(4pi j)^((q-1)/2). Factorial moments give q=2 half-normal and q=3 exponential scales with correct n/2 substitution; q>=4 summability gives a geometric total return count. I independently enumerated input words directly for (q,n)=(2,7),(3,5),(4,4), finding deficit histograms respectively {1:40,3:40,5:32,7:16}, {1:144,3:72,5:27}, {1:180,2:12,3:48,4:16}; these are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical random-walk local CLT and renewal theory supply intermediate return laws. A related full Resultary RESULT.md enumerates length-six composition-deck reconstruction fibers, not deleted-type multiplicity for random words."
+        ],
+        "reasoning": "General probability tools and prior finite deck ambiguity classifications do not state the assembled exact random-source deletion-sphere law or the three q-dependent limit distributions; those need the parity-to-return reduction.",
+        "searches": [
+          "arXiv:1403.2439 random substring composition reconstruction",
+          "arXiv:2110.02352",
+          "Resultary: 2026/10/25/SCOPE-universal-length-six-classification-of-prefix-suffix-composition--174aa31b393b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2503.12342 (full text)",
+        "arXiv:2208.14963 (full text)",
+        "Resultary published 2026/10/25 length-six composition fibers (full RESULT.md)",
+        "arXiv:1403.2439 (lawful full PDF)",
+        "arXiv:2110.02352 (abstract/scope)",
+        "assigned RESULT.md, REVIEW.md, AUDIT.json and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ye-Elishco supplies the deterministic reflected-layer symmetry; Chen studies error-correcting codes; Acharya-type random substring work uses multinomial differences for different reconstruction objects."
+        ],
+        "reasoning": "From the prior mirror symmetry one must additionally identify all repeated observation types, construct the first-return renewal PGFs and prove the dimension-specific limits. Those implications are not given by the inspected earlier results.",
+        "searches": [
+          "arXiv:2208.14963",
+          "arXiv:2503.12342",
+          "arXiv:1403.2439"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen 2025 defines erroneous/deleted prefix-suffix composition observations; Ye-Elishco 2022 establishes symmetry and reconstruction, but not distribution of the number of distinct one-observation deletions for random words."
+        ],
+        "reasoning": "A deletion of an observation from a Parikh multiset is not deletion of a letter or a substring; the mirror symmetry is a prior ingredient, while renewal counts of repeated compositions across all lengths and q regimes are an additional result.",
+        "searches": [
+          "Resultary semantic query: prefix suffix composition multiset one deletion sphere",
+          "arXiv:2503.12342",
+          "arXiv:2208.14963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search returns the assigned result and nearby but nonmatching read-deletion and substring-ambiguity results; no checked table of the all-n parity-sensitive probabilities."
+        ],
+        "reasoning": "The named databases enumerate different observations, deletion operations or finite reconstruction fibers; none was observed to contain the claimed law. Search noncoverage alone is not proof of novelty.",
+        "searches": [
+          "Resultary semantic query: single composition deletion random word multiset",
+          "Resultary 2026/11/2 exact-composition-multiset-ambiguity-spectrum",
+          "Resultary 2026/11/8 binomial-read-deletion sphere law"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.",
+      "residual_risks": [
+        "Searches cannot rule out unindexed equivalent renewal/déletion counts.",
+        "Uniform i.i.d. letters, fixed q, one observed composition occurrence; not a coding-optimality or multiple-deletion theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same observation alphabet but coding constructions, not distributional deletion-sphere theorem",
+          "evidence": "arXiv:2503.12342; first public 2025-03-16",
+          "identifier_or_url": "https://arxiv.org/abs/2503.12342",
+          "material_read": "11-page lawful arXiv PDF, definitions and error correction statements",
+          "method": "primary PDF, sections directly relevant to deletion",
+          "title": "Coding methods for string reconstruction from erroneous prefix-suffix compositions",
+          "trigger": "Exact one-observation composition-deletion model"
+        },
+        {
+          "assessment": "Reflection symmetry prior, no full random deletion-count PGFs found in inspected text",
+          "evidence": "arXiv:2208.14963",
+          "identifier_or_url": "https://arxiv.org/abs/2208.14963",
+          "material_read": "25-page lawful arXiv PDF, reconstruction theorems and relevant symmetric-layer arguments",
+          "method": "primary PDF relevant sections",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Reflected prefix/suffix composition identities"
+        },
+        {
+          "assessment": "Finite reconstruction fibers, not random one-observation deletion-output counts",
+          "evidence": "Git blob b15cce888a3cde5045858b86b4bb682ce6e61cdc",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-universal-length-six-classification-of-prefix-suffix-composition--174aa31b393b/RESULT.md",
+          "material_read": "Entire published RESULT.md, full finding, proof, verification, literature section",
+          "method": "GitHub source read",
+          "title": "Universal length-six classification of prefix-suffix composition ambiguity",
+          "trigger": "Same full Parikh deck"
+        },
+        {
+          "assessment": "Related code/reconstruction problem; residual risk retained because full text not inspected",
+          "evidence": "arXiv:2110.02352",
+          "identifier_or_url": "https://arxiv.org/abs/2110.02352",
+          "material_read": "Reference statement/abstract and source scope, not full paper",
+          "method": "arXiv metadata search",
+          "title": "Reconstruction of Sets of Strings from Prefix/Suffix Compositions",
+          "trigger": "Missing composition measurements and code reconstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete parity-sensitive finite-length distribution of distinct single-missing composition observations quantifies redundancy in a natural sequencing/reconstruction error channel. The sharp dimension threshold distinguishes sqrt(n), logarithmic and tight regimes across all fixed alphabet sizes q; the precise scale and limit law cannot be inferred from a generic coding construction alone. This is a motivated structural channel-law classification, not a table or a rebranded local CLT.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2503.12342 (full text)",
+    "arXiv:2208.14963 (full text)",
+    "Resultary published 2026/10/25 length-six composition fibers (full RESULT.md)",
+    "arXiv:1403.2439 (lawful full PDF)",
+    "arXiv:2110.02352 (abstract/scope)",
+    "assigned RESULT.md, REVIEW.md, AUDIT.json and checker.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Searches cannot rule out unindexed equivalent renewal/déletion counts.",
+    "Uniform i.i.d. letters, fixed q, one observed composition occurrence; not a coding-optimality or multiple-deletion theorem."
+  ],
+  "residual_risks": [
+    "Searches cannot rule out unindexed equivalent renewal/déletion counts.",
+    "Uniform i.i.d. letters, fixed q, one observed composition occurrence; not a coding-optimality or multiple-deletion theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same observation alphabet but coding constructions, not distributional deletion-sphere theorem",
+      "evidence": "arXiv:2503.12342; first public 2025-03-16",
+      "identifier_or_url": "https://arxiv.org/abs/2503.12342",
+      "material_read": "11-page lawful arXiv PDF, definitions and error correction statements",
+      "method": "primary PDF, sections directly relevant to deletion",
+      "title": "Coding methods for string reconstruction from erroneous prefix-suffix compositions",
+      "trigger": "Exact one-observation composition-deletion model"
+    },
+    {
+      "assessment": "Reflection symmetry prior, no full random deletion-count PGFs found in inspected text",
+      "evidence": "arXiv:2208.14963",
+      "identifier_or_url": "https://arxiv.org/abs/2208.14963",
+      "material_read": "25-page lawful arXiv PDF, reconstruction theorems and relevant symmetric-layer arguments",
+      "method": "primary PDF relevant sections",
+      "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+      "trigger": "Reflected prefix/suffix composition identities"
+    },
+    {
+      "assessment": "Finite reconstruction fibers, not random one-observation deletion-output counts",
+      "evidence": "Git blob b15cce888a3cde5045858b86b4bb682ce6e61cdc",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-universal-length-six-classification-of-prefix-suffix-composition--174aa31b393b/RESULT.md",
+      "material_read": "Entire published RESULT.md, full finding, proof, verification, literature section",
+      "method": "GitHub source read",
+      "title": "Universal length-six classification of prefix-suffix composition ambiguity",
+      "trigger": "Same full Parikh deck"
+    },
+    {
+      "assessment": "Related code/reconstruction problem; residual risk retained because full text not inspected",
+      "evidence": "arXiv:2110.02352",
+      "identifier_or_url": "https://arxiv.org/abs/2110.02352",
+      "material_read": "Reference statement/abstract and source scope, not full paper",
+      "method": "arXiv metadata search",
+      "title": "Reconstruction of Sets of Strings from Prefix/Suffix Compositions",
+      "trigger": "Missing composition measurements and code reconstruction"
+    }
+  ]
+}
