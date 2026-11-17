@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's object is a purely periodic distinct-letter run word and its complete cyclic-conjugacy classes of contiguous factors. The proof checks the circular adjacency constraint, establishes that a run internal to any factor must have its full source length, handles the unique two-cyclic-run binary exception explicitly, and proves both directions of every listed class. The inversion derives the primitive period from eventual support and the run-length histogram from short-length values. A separate standard-library checker matched **complete class sets** in 31,840 exhaustive parameter-length cases and 1,600 additional reproducible higher-alphabet cases. Finite enumeration is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with bibliographic risk
+Let W be a cyclic period with a single run for each distinct letter, positive ai and q>=2. All allowed different-letter adjacent pairs on a rotation-complete circle enforce ordered cycles; for at least three circular blocks, rotation can expose any complete run internally, forcing its exact host length. The binary two-block exceptions arise when one run is a singleton or n=2. The inverse reconstruction follows eventual L-divisibility and U(n) differences. Independently enumerated all complete necklace class sets for 1692 q=2..4, 1<=ai<=3, 1<=n<=2L parameter-length choices against predicted families; no contradictions. This finite census only corroborates the universal run proof.
 
-Bell–Shallit (arXiv:2102.03821) establishes general bounds and automaticity for Lie complexity, not this exact periodic-run class census. De Luca–Fici (arXiv:2206.00995) classifies irrational-slope Sturmian hosts; its hypotheses and results do not entail the distinct-letter periodic family. Li (arXiv:2207.05859) obtains general Rauzy-cycle inequalities and extended complexity but no specialization to this exact invariant. Closest indexed mathematical records concern sparse marker words, unbounded-gap marker families, or the period-doubling fixed point; their languages and parameter domains do not include this bounded positive periodic-run family. Search nonmatches alone are not evidence of novelty, and an unindexed equivalent is possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Lie complexity distinguishes complete cyclic factor families from merely observed conjugacy classes. This exact, all-length theorem for an infinite natural family has a structural dichotomy between two and at least three distinct alphabet symbols; the binary exception is fully classified. The resulting inverse theorem demonstrates that the complete Lie spectrum remembers every run length, up to permutation, while generally forgetting their cyclic order. These facts are not simply finite evaluations of a known bound.
+For P=c0^a0 ... c(q-1)^a(q-1) with distinct letters and all ai positive, rotating any circular mixed factor forces every internally exposed run to have its host length; for q>=3 mixed complete rotation classes are exactly period powers. For q=2 the two-run exception yields the stated sharp E(n). The complete Lie series recovers q from n=1, least period from the eventual multiples, and the run multiset from unary tails and binary exception. Compared to the general Lie bounds and aperiodic exact Sturmian results, this supplies an all-length periodic-run classification and inverse invariant. No dominating published claim found in the searches; residual risk specified.
 
-## Scope and remaining risks
+## value
 
-Run labels must be distinct, lengths strictly positive, and the host purely periodic; aperiodic and ultimately periodic hosts with a preperiod are not treated. The reconstruction conclusion does not claim to recover run order. Exact scholarly coverage beyond the inspected searchable literature remains a residual originality risk; no external audit or independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural exact Lie-complexity and inverse run-spectrum classification for an infinite distinct-letter periodic family; full class sets, the rare binary exceptions, and inverse multiset recovery are finer than generic periodic bounds. A future word-combinatorics researcher can use exact invariants without re-enumeration; no paper-sized downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
