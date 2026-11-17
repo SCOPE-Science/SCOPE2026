@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:19:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-strict-clean-chain-current-ceiling-from-coherence-dissipation--460c73d67d85/RESULT.md",
+        "2026/11/08/a-strict-clean-chain-current-ceiling-from-coherence-dissipation--460c73d67d85/checks/coherence_current.py"
+      ],
+      "rationale": "On Hermitian matrices, i[H,X] is skew with respect to real Hilbert–Schmidt pairing, so homogeneous response energy forces boundary diagonals and every off-diagonal zero; bond equations then force all diagonals zero, establishing invertibility. Diagonal equations yield conserved j and X_11=1/2−j/Γ, X_NN=−1/2+j/Γ. Pairing with X yields source Γ/2−j and dissipative energy 2Γ(1/2−j/Γ)^2+[γ(N−1)+Γ]j²/(2t²)+E; rearrangement gives j(1−j/j0)=E≥0. j=0 contradicts source boundary values and zero coherences. E=0 kills real nearest-neighbor and all longer coherences; real bond equations then force v_k−v_{k+1}=0. A directly constructed constant-potential response attains equality. Independently solved N=3, t=Γ=γ=1, v=(0,1,2): j=6/25,j0=2/7,E=24/625. Entire check code inspected; all-N proof is the dissipative identity, not finite tests.",
+      "residual_risks": [
+        "Bounded tests and source verifier are supplementary; unrestricted claim relies on reconstructed mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior four-site results optimize dephasing at fixed field; target compares varied field at fixed γ for every N."
+        ],
+        "reasoning": "Dephasing-assisted increases of tilted current as γ changes do not imply violation of the clean same-γ ceiling; no covering all-N theorem found.",
+        "searches": [
+          "boundary driven dephased tight binding chain tilt disorder stationary current clean chain upper bound coherence dissipation",
+          "Lindblad dephasing tight-binding disorder arbitrary profile current comparison clean",
+          "Resultary Nov1 four-site sharp dephasing enhancement threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.21715",
+        "https://arxiv.org/abs/1207.5952",
+        "https://arxiv.org/abs/1005.1271",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-dephasing-enhancement-boundary-for-a-four-site-wannier-sta--03d9a1745f66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transport paper explicitly derives short-chain exact formulas and discusses tridiagonal approximation, while prior clean paper fixes j0 and general covariance equations define the response."
+        ],
+        "reasoning": "An exact all-size positivity identity could possibly be derivable with trace pairing from existing equations, but it requires a substantive global comparison and strict equality proof, not a mere numerical special case or tautological normalization; no earlier published statement implying it directly was identified.",
+        "searches": [
+          "boundary driven dephased tight binding chain tilt disorder stationary current clean chain upper bound coherence dissipation",
+          "Jacob et al full text 2407.21715 Section 4–5",
+          "Znidaric Horvat correlation matrix equations 1207.5952"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacob et al. give same physical model and clean n-independent benchmark but exact tilted currents only short chains and a tridiagonal approximation for larger N."
+        ],
+        "reasoning": "Models match after careful gamma_bath versus single-particle-coherence-rate normalization; current inequality j≤j0 with quantified excess terms is not the approximation itself.",
+        "searches": [
+          "boundary driven dephased tight binding chain tilt disorder stationary current clean chain upper bound coherence dissipation",
+          "Jacob dephasing-assisted transport linear potential 2024 paper complete",
+          "Znidaric Horvat transport disordered tight-binding dephasing 2012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The j0 clean expression is known; the new exact E(X) involves every long-range coherence and is not a tabulated finite-N current."
+        ],
+        "reasoning": "No exact database of arbitrary length and arbitrary onsite potential with the deficit identity was found; absence alone does not prove originality.",
+        "searches": [
+          "boundary driven dephased tight binding chain tilt disorder stationary current clean chain upper bound coherence dissipation",
+          "Znidarič 2010 exact diffusive clean open chain current",
+          "Resultary sharp four-site weak dephasing threshold"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Jacob et al. 2024 primary full article on exactly boundary-driven tilted XX chain reports exact n=2,3 currents and approximate tridiagonal construction for longer chains, not the arbitrary-N rigorous current ceiling at same dephasing, with exact nonnegative excess coherence certificate and equality iff constant onsite potential. Žnidarič–Horvat 2012 provides general covariance equations and disorder context; Žnidarič 2010 supplies clean-chain benchmark. Those premises alone do not make the specific sharp global energy identity a previously stated result, though their combination could be a prior implication specialist concern.",
+      "residual_risks": [
+        "The 2012 general covariance-equation paper was not fully read in this run, so an earlier trace-pairing argument might already imply the ceiling.",
+        "No claim at γ=0, with interacting chains, nonlocal hopping or asymmetric boundaries; the local dephasing convention must be carried literally into the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL AND BASELINE COVERED; not an all-size exact coherent deficit bound.",
+          "evidence": "Prior exact formulas N=2,3; larger chain discussion uses tridiagonal approximation, not the all-coherence Hilbert–Schmidt identity.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.21715",
+          "material_read": "Full accessible article HTML, including exact small-chain currents, general tridiagonal approximation and sections on dephasing enhancement and supplemental context.",
+          "method": "Open-access publisher primary full text, Sections 3–5 and discussion.",
+          "title": "Dephasing-assisted transport in a tight-binding chain with a linear potential",
+          "trigger": "Same physical XX chain and tilt/dephasing comparison."
+        },
+        {
+          "assessment": "Algebraically correct, limitations explicitly separate changing γ from changing tilt.",
+          "evidence": "j(1−j/j0)=2 Σ_{a<b} w_ab[(Re X_ab)²+1_{b>a+1}(Im X_ab)²].",
+          "identifier_or_url": "SCOPE2026 @ b0e95ae/2026/11/08/a-strict-clean-chain-current-ceiling-from-coherence-dissipation--460c73d67d85/RESULT.md",
+          "material_read": "Entire RESULT.md proof and entire checks/coherence_current.py.",
+          "method": "Frozen Git tree and source blob inspection.",
+          "title": "A strict clean-chain current ceiling from coherence dissipation in tilted quantum transport",
+          "trigger": "Assigned nonperturbative inequality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.21715",
+        "https://arxiv.org/abs/1207.5952",
+        "https://arxiv.org/abs/1005.1271",
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-dephasing-enhancement-boundary-for-a-four-site-wannier-sta--03d9a1745f66"
+      ],
+      "rationale": "An all-size sharp exclusion of tilt-enhanced current at fixed dephasing settles a natural nonperturbative transport comparison beyond short-chain formulas and uncontrolled coherence truncations. Its exact excess-coherence identity quantitatively identifies the obstruction and supplies equality characterization for every onsite profile; relates to noise-assisted transport without falsely asserting monotonicity in dephasing.",
+      "residual_risks": [
+        "The 2012 general covariance-equation paper was not fully read in this run, so an earlier trace-pairing argument might already imply the ceiling.",
+        "No claim at γ=0, with interacting chains, nonlocal hopping or asymmetric boundaries; the local dephasing convention must be carried literally into the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2407.21715",
+    "https://arxiv.org/abs/1207.5952",
+    "https://arxiv.org/abs/1005.1271",
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-dephasing-enhancement-boundary-for-a-four-site-wannier-sta--03d9a1745f66"
+  ],
+  "disposition": "passed",
+  "final_claim": "For positive uniform dephasing and boundary injection in a finite tight-binding chain, any nonconstant onsite potential strictly lowers stationary particle current below clean-chain j_0, with exact positive coherence-deficit identity.",
+  "limitations": [
+    "The 2012 general covariance-equation paper was not fully read in this run, so an earlier trace-pairing argument might already imply the ceiling.",
+    "No claim at γ=0, with interacting chains, nonlocal hopping or asymmetric boundaries; the local dephasing convention must be carried literally into the result."
+  ],
+  "residual_risks": [
+    "The 2012 general covariance-equation paper was not fully read in this run, so an earlier trace-pairing argument might already imply the ceiling.",
+    "No claim at γ=0, with interacting chains, nonlocal hopping or asymmetric boundaries; the local dephasing convention must be carried literally into the result."
+  ],
+  "schema_version": 1
+}
