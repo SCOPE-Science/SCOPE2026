@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-PASS. The classification follows from the uniqueness of every subdiametral shortest subpath, explicit witnesses for each antipodal triple, and a four-vertex obstruction. The complete f-vector follows by counting antipodal pairs. The homotopy equivalence uses a decomposition into tetrahedral boundaries, deletion of one two-simplex per boundary, contraction of disjoint pair edges, and null-homotopic two-cell attachments. A standalone program independently checked all supports of sizes one through four and mod-two Betti numbers for cycle orders three through eighteen; the infinite conclusions rest on the proof.
+## correctness
 
-## Originality
-PASS within accessible comparisons. Abraham et al. (2011) prove their bound only for unique-shortest-path systems; the 2022-12-15 preprint of Deng et al. (WADS 2023, Section 6) likewise assumes uniqueness and uses edge ranges. Zhu et al. (2019) study unique round-trip paths in directed graphs, not all vertex geodesics of a simple cycle. These source results do not imply the coefficientwise antipodal-triple classification or the integral homotopy type. Related cyclic-arc and geodesic-convexity systems have different concept sets. Exact earlier treatments using other terminology remain possible; no exhaustive-priority claim is made.
+PASS
 
-## Mathematical value
-PASS. The theorem isolates the exact effect of shortest-path ties on shattering: removing uniqueness changes VC dimension at even orders only, and raises the shattering complex from one to two dimensions with explicitly counted sphere summands. The coefficientwise and homotopy descriptions provide structural invariants beyond the scalar bound and a reproducible benchmark for discrete-geodesic range systems.
+A vertex-geodesic of C_n contains at most floor(n/2)+1 vertices. All singleton/pair traces occur. If three are shattered, a shortest path through them has outer extremes at distance exactly n/2; otherwise their shorter unique subpath forces the omitted middle point, contradicting one required trace. Thus n is even and an antipodal pair is necessary; the two distinct semicircles plus subpaths and singleton outside explicitly realize all eight traces. Four vertices ordered on any geodesic force an omitted-middle contradiction for the pair (second,fourth), excluding size≥4. Count m(n-2)=n(n-2)/2 triangles. Odd Δ_n is K_n with cycle rank C(n-1,2). For even n=2m, each pair of antipodal edges spans a tetrahedron boundary whose four faces are precisely those triangles, remove one face from each; contract disjoint antipodal edges and retract complementing disks to arcs of K_m; reattach omitted 2-cells along nullhomotopic loops, giving wedge C(m-1,2) S¹ and C(m,2) S² integrally. Boundary n=3,4 and all-n proof checked. Independent exhaustive trace search and GF2 Betti at n=3..18 match, but do not establish integral homotopy.
 
-## Limits and closest literature
-The result does not address weighted cycles, arbitrary graphs, unique path tie-breaking, edge-incidence ranges, or adaptive online dimension. The numerical cohomology checks are not an independent audit and do not prove the integral homotopy equivalence; that equivalence follows from the cell decomposition. Closest inspected material: Abraham et al. (2011), Deng et al. (2022/2023), and Zhu et al. (2019, abstract and definition only). Priority under unfamiliar terminology and unavailable older sources remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary earlier cycle geodesic convexity studies a DIFFERENT concept family containing convex vertex subsets, not the sets of all individually shortest paths. Its triple criterion and numbers differ, and its polynomial cannot be converted into this antipodal-pair and wedge theorem. Primary shortest-path VC results assume unique paths and sometimes edge queries, inapplicable at antipodal ties. No inspected equivalent all-tied vertex path homotopy classification.
+
+## value
+
+PASS
+
+This gives the entire simplicial complex of attainable traces and its integral homotopy type, not only the VC dimension. The parity-triggered S² summands quantify a genuinely topological jump from cycles with odd order to even order. Geodesic path range systems are natural combinatorial learning objects, and the exact homotopy classification is useful without a general-graph theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
