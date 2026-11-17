@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T07:43:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual RESULT.md proves the transfer map is piecewise triangular with unit Jacobian, so couples uniform order/chain volume. Conditioning on all other coordinates makes X_v uniform on [L_v,U_v] and Y_v uniform on [0,U_v−L_v], giving covariance exactly by total variance. Order-polytope lattice closure makes its uniform density MTP2; FKG implies covariance≥0. Conditional slices ordered by X_v satisfy Holley cross-lattice inequality, making ℓ(t)=E[L|X_v=t], ν(t)=E[U|X_v=t] monotone and nonconstant when v has both a predecessor and a successor. Strict Chebyshev covariance then yields strictness; at extreme vertices one endpoint is constant. Equal-volume linear-extension simplices with Dirichlet order statistics establish the rational formula and the 1/80 chain example. Independently recomputed exactly the three-chain gap 1/80; source check_order_chain_inertia.py enumerates 5230 naturally labeled posets to n=6 and 250 n=7 cases, not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published third-symmetric-polynomial inertia formula covers maximal ranked/ordinal-sum antichain layers; it lacks arbitrary-poset coordinatewise strictness.",
+          "Face-vector inequalities count faces rather than integrate x_v^2 over Euclidean interiors."
+        ],
+        "reasoning": "The arbitrary-poset theorem strictly extends the layered case; none of these broader-looking poset papers compares the same uniform-volume functional for all P.",
+        "searches": [
+          "order polytope chain polytope uniform volume coordinate variance covariance FKG inertia three chain equality",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1",
+          "arXiv:2309.01626",
+          "arXiv:2312.13890"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.07413",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-vertex-cloud-dispersion-of-order-and-chain-polytopes-exact-coord--228bf84e41c4",
+        "https://doi.org/10.1007/BF02187680",
+        "order polytope chain polytope uniform volume coordinate variance covariance FKG inertia three chain equality",
+        "variance inequality order polytope chain polytope uniform internal volume FKG covariance maximum predecessor minimum successor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lee proves edge-length dominance, strict at three chains, from a bijection on edges.",
+          "Here covariance positivity follows from MTP2/conditional monotonicity, unrelated to counting edges; both share a three-chain cutoff but one does not imply the other."
+        ],
+        "reasoning": "A statement about polytope edge lengths is not a second-moment inequality for uniform interior volume, and Stanley’s bijection supplies the coupling rather than its covariance sign.",
+        "searches": [
+          "order polytope chain polytope uniform volume coordinate variance covariance FKG inertia three chain equality",
+          "variance inequality order polytope chain polytope uniform internal volume FKG covariance maximum predecessor minimum successor",
+          "Jon Lee arXiv:2610.07413",
+          "Stanley 1986 Two poset polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stanley transfer is a volume-preserving map, but does not state the conditional-variance covariance inequality.",
+          "Published universal vertex-cloud dominance concerns uniform vertex coordinates, not Lebesgue interior-volume coordinates."
+        ],
+        "reasoning": "The theorem measures centered second moments of uniform full-dimensional volume; neither edge-length dominance nor uniform discrete vertex variance is an equivalent formulation.",
+        "searches": [
+          "order polytope chain polytope uniform volume coordinate variance covariance FKG inertia three chain equality",
+          "variance inequality order polytope chain polytope uniform internal volume FKG covariance maximum predecessor minimum successor",
+          "arXiv:2610.07413 order chain edge lengths",
+          "Resultary vertex-cloud dispersion order chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matching Resultary record is the current claim itself; a prior layered exact formula and a separate uniform-vertex dispersion result are related but not the same general table."
+        ],
+        "reasoning": "A same-title search hit for the claim itself is not independent evidence of prior coverage; existing finite or layered moment tables do not imply the all-poset sign and equality classification.",
+        "searches": [
+          "variance inequality order polytope chain polytope uniform internal volume FKG covariance maximum predecessor minimum successor",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-vertex-cloud-dispersion-of-order-and-chain-polytopes-exact-coord--228bf84e41c4"
+        ]
+      },
+      "rationale": "No directly dominating all-poset uniform-interior-volume coordinate-variance theorem was identified. The FKG/Holley inequalities and Stanley transfer are prior tools; a published layered-poset exact inertia identity is a special case, while vertex-cloud variance and edge-length comparison involve different measures or objects. Originality is best-knowledge, not an exhaustive priority certificate.",
+      "residual_risks": [
+        "Jon Lee complete article not retrieved; statement may include unpublished interior-moment implication, though abstract is edge-focused.",
+        "Published research indexing and older probabilistic covariance formulations need independent priority review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT MEASURE: no theorem about interior-volume coordinate covariance in material read; entire article not obtained",
+          "evidence": "Abstract names edge lengths, directions, combinatorial optimization, diameters and graph comparisons; no interior moments; full-text risk recorded",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+          "material_read": "ArXiv abstract/extended enumerated list of main results; arxiv HTML for v3 unavailable",
+          "method": "Read arXiv abstract; compared listed edge counts/directions/lengths with the proposed uniform-volume moment statement",
+          "title": "A refinement of the edge theorem for order and chain polytopes",
+          "trigger": "Same two posets and identical three-chain strictness threshold"
+        },
+        {
+          "assessment": "SPECIAL CASE, not general-poset coverage",
+          "evidence": "e3 formula specialized to ordered layers, not all posets",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1",
+          "material_read": "Published scientific result summary and identified formula e3(layer sizes)/((N+1)^2(N+2)); full RESULTS text not read",
+          "method": "Compared quantified domain of layered/ordinal sums with all-poset coordinatewise theorem",
+          "title": "A third-symmetric-polynomial law for the Euclidean inertia gap of order and chain polytopes",
+          "trigger": "Exact interior inertia comparison and same equality boundary"
+        },
+        {
+          "assessment": "PRIOR INGREDIENT, not asserted as new",
+          "evidence": "Stanley transfer sends order coordinates to nonnegative chain increments with unit Jacobian",
+          "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+          "material_read": "Transfer theorem and definitions as cited and restated with full proof in assigned RESULT; original full article not retrieved",
+          "method": "Checked mathematical transfer-map identity directly in source proof",
+          "title": "Two poset polytopes",
+          "trigger": "Foundational same object and transfer map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform-volume metric monotonicity for the two canonical polytopes of every finite poset, with exact per-coordinate strictness and a structural height-two equality classification, is a natural cross-polytope invariant and useful beyond specific enumerated posets. It is neither vertex-count bookkeeping nor a finite numerical census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.07413",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-vertex-cloud-dispersion-of-order-and-chain-polytopes-exact-coord--228bf84e41c4",
+    "https://doi.org/10.1007/BF02187680",
+    "order polytope chain polytope uniform volume coordinate variance covariance FKG inertia three chain equality",
+    "variance inequality order polytope chain polytope uniform internal volume FKG covariance maximum predecessor minimum successor"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any nonempty finite poset P and uniform interior-volume X on O(P), Y on C(P), Var(X_v)-Var(Y_v)=Cov(max_{u<v}X_u,min_{w>v}X_w)≥0, with strict positivity precisely at vertices lying between comparable predecessor and successor; total inertia equality iff poset height≤2, and an exact linear-extension rational moment expression.",
+  "limitations": [
+    "Canonical coordinate Euclidean metric and uniform full-dimensional volume only; no Loewner-positive covariance matrix comparison or affine-invariant isotropic statement.",
+    "Holley/FKG established theorems are externally supplied ingredients, with lattice hypotheses checked in proof."
+  ],
+  "residual_risks": [
+    "Jon Lee complete article not retrieved; statement may include unpublished interior-moment implication, though abstract is edge-focused.",
+    "Published research indexing and older probabilistic covariance formulations need independent priority review."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT MEASURE: no theorem about interior-volume coordinate covariance in material read; entire article not obtained",
+      "evidence": "Abstract names edge lengths, directions, combinatorial optimization, diameters and graph comparisons; no interior moments; full-text risk recorded",
+      "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+      "material_read": "ArXiv abstract/extended enumerated list of main results; arxiv HTML for v3 unavailable",
+      "method": "Read arXiv abstract; compared listed edge counts/directions/lengths with the proposed uniform-volume moment statement",
+      "title": "A refinement of the edge theorem for order and chain polytopes",
+      "trigger": "Same two posets and identical three-chain strictness threshold"
+    },
+    {
+      "assessment": "SPECIAL CASE, not general-poset coverage",
+      "evidence": "e3 formula specialized to ordered layers, not all posets",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-third-symmetric-polynomial-law-for-the-euclidean-inertia-gap-o--510023d084f1",
+      "material_read": "Published scientific result summary and identified formula e3(layer sizes)/((N+1)^2(N+2)); full RESULTS text not read",
+      "method": "Compared quantified domain of layered/ordinal sums with all-poset coordinatewise theorem",
+      "title": "A third-symmetric-polynomial law for the Euclidean inertia gap of order and chain polytopes",
+      "trigger": "Exact interior inertia comparison and same equality boundary"
+    },
+    {
+      "assessment": "PRIOR INGREDIENT, not asserted as new",
+      "evidence": "Stanley transfer sends order coordinates to nonnegative chain increments with unit Jacobian",
+      "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+      "material_read": "Transfer theorem and definitions as cited and restated with full proof in assigned RESULT; original full article not retrieved",
+      "method": "Checked mathematical transfer-map identity directly in source proof",
+      "title": "Two poset polytopes",
+      "trigger": "Foundational same object and transfer map"
+    }
+  ]
+}

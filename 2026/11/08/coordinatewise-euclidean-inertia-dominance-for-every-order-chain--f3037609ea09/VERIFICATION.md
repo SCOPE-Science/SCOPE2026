@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof covers every finite nonempty poset, without a size cutoff; it relies on precisely stated hypotheses for Stanley's transfer map, the continuous FKG theorem, Holley's stochastic monotonicity criterion and a strict scalar covariance lemma.
+## correctness
 
-The included `check_order_chain_inertia.py` script uses Python 3's standard library, with `fractions.Fraction` for exact arithmetic and a deterministic seed for supplemental cases. It independently enumerates all 5230 transitively closed, naturally labeled posets on two through six vertices; for each poset it enumerates linear extensions, computes first and second moments of the order and chain coordinates, computes the exact boundary covariance, and verifies every identity and the strictness classification. It also checks 250 generated seven-vertex posets and the three-chain gap \(1/80\). Expected terminal marker: `ORDER_CHAIN_INERTIA_FKG_CHECKS_PASSED 5230 3708 1522 250`.
+PASS
 
-Finite enumeration does not establish the universal inequalities. Proof of association and strictness is analytic, not computational. No independent mathematical audit has been performed.
+The actual RESULT.md proves the transfer map is piecewise triangular with unit Jacobian, so couples uniform order/chain volume. Conditioning on all other coordinates makes X_v uniform on [L_v,U_v] and Y_v uniform on [0,U_v−L_v], giving covariance exactly by total variance. Order-polytope lattice closure makes its uniform density MTP2; FKG implies covariance≥0. Conditional slices ordered by X_v satisfy Holley cross-lattice inequality, making ℓ(t)=E[L|X_v=t], ν(t)=E[U|X_v=t] monotone and nonconstant when v has both a predecessor and a successor. Strict Chebyshev covariance then yields strictness; at extreme vertices one endpoint is constant. Equal-volume linear-extension simplices with Dirichlet order statistics establish the rational formula and the 1/80 chain example. Independently recomputed exactly the three-chain gap 1/80; source check_order_chain_inertia.py enumerates 5230 naturally labeled posets to n=6 and 250 n=7 cases, not a universal proof.
+
+## originality
+
+PASS
+
+No directly dominating all-poset uniform-interior-volume coordinate-variance theorem was identified. The FKG/Holley inequalities and Stanley transfer are prior tools; a published layered-poset exact inertia identity is a special case, while vertex-cloud variance and edge-length comparison involve different measures or objects. Originality is best-knowledge, not an exhaustive priority certificate.
+
+## value
+
+PASS
+
+A uniform-volume metric monotonicity for the two canonical polytopes of every finite poset, with exact per-coordinate strictness and a structural height-two equality classification, is a natural cross-polytope invariant and useful beyond specific enumerated posets. It is neither vertex-count bookkeeping nor a finite numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
