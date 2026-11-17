@@ -1,15 +1,21 @@
-# Scientific review: extreme-priority envy cluster law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The event is defined at the exact rank threshold with strict inequalities, and all preferences, priorities, and the assignment mechanism are quantified. For each ordered pair, the exact event probability is the product of \(1/2\) and \(h(h-1)/(2n(n-1))\). A two-critical-school collision bound of \((h-1)^4/(2n)\) justifies coupling the correlated comparisons to independent school-specific binomial marks. Independent category counts converge to unit-rate Poisson counts, giving the complete generating function, the zero-event probability and the maximum-gap tail. The variance formula follows from binomial cluster moments and uniform exponential tails. The standalone finite verifier passed 93,328 exhaustive and 36,000 seeded comparisons. Remaining risk: the result only applies when priorities are independent across schools and the matching is exogenous.
+PASS
 
-## Originality
+For fixed exogenous matching, independent uniform priority rankings give h(h−1)/(2n(n−1)) for an extreme advantage per ordered pair; preference is an independent fair coin, proving exact expectation h(h−1)/4. Each school has probability 1/n to host one of t=1,…,h−1 critical candidate sizes, yielding independent school Binomial(t,1/2) clusters except where the same student appears in multiple critical lists. The collision bound ≤(h−1)^4/(2n) and rare-multinomial Poisson convergence give total variation PGF exp[Σ_t(((1+z)/2)^t−1)]. Thus P0→exp(−h+2−2^(−(h−1))) and Var→h(h−1)(h+1)/12. Independent exhaustive permutations for n=2 (16 markets) and n=3 (46656) checked both count definitions and exact mean. Fixed h, n≥h and fixed matching are essential.
 
-**PASS, with access risk.** The most closely related source is Hamdan (arXiv:2609.07682, 2026), whose available abstract introduces priority-gap severity, mechanisms, and simulations but does not state a compound-Poisson law for fixed exogenous matchings. The full text could not be accessed, so hidden equivalent material remains possible. Shen et al. (2023), inspected through their full accessible AAMAS PDF at the model and fairness definitions, instead investigate stochastic/likelihood envy with a single shared random priority. Ortega et al. (arXiv:2603.23385) analyze counts of unenvied agents for endogenous DA and RSD outcomes; their accessible abstract is not a stronger covering theorem. A targeted search of matching-market and compound-Poisson terms, published research records, and recoverable earlier in-scope claims yielded no direct implication. Search non-detection is not proof of absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Very justified envy is motivated by fairness restrictions on large matching markets. The theorem solves the baseline question of how many *extreme-severity* violations persist even when a fixed matching is independent of all preferences and priorities; it gives both the law of pair counts and the probability of a fully violation-free assignment. The non-Poisson cluster structure is substantive: at \(h=3\), the expected pair count is \(3/2\), but the probability of zero pairs approaches \(e^{-5/4}\), not the naive independent-event value \(e^{-3/2}\). The distribution of the largest rank advantage follows as an exact asymptotic tail. The result cannot be generalized to endogenous mechanisms without new work.
+PASS best of knowledge: Hamdan defines very justified envy (priority-gap threshold) but the complete main text was inaccessible; its abstract does not establish a fixed-matching extreme cluster PGF. Shen et al use uncertain common ranking and Ortega et al mechanism-generated assignments, not independent per-school ranks with an exogenous matching. Direct semantic published-result search did not reveal the same null-limit theorem. Inaccessible Hamdan full text remains a serious named priority risk, not a basis alone for scientific failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The exact compound-Poisson clustering distinguishes extremely severe envy pairs from independent Poisson events and yields the sharp probability of no violation and maximum priority gap. A fixed-matching null benchmark is a motivated reference point for analyzing endogenous school-assignment mechanisms, without claiming policy conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
