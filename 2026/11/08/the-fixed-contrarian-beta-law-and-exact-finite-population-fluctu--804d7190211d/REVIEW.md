@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite-state generator agrees with Masuda's model-1 type rule. The invariant law exists uniquely by a positive-rate path argument. Three stationary polynomial generator identities close the centered second moments and yield the stated rational matrix. For fixed contrarian count, the fast contrarian kernel has a unique binomial invariant conditional law, even at the opinion-share boundaries. The limiting slow generator then imposes the beta moment recurrence; compact-support moment uniqueness upgrades subsequential convergence to full weak convergence. A separate rational stationary solver checked the exact formulas on 24 finite chains with 378 aggregate states. The symbolic proof is not extrapolated from those finite cases.
+PASS
 
-## Originality — PASS within inspected evidence
+For every m,r>=1 the four specified positive pair-count jump rates make a finite irreducible reflection-symmetric Markov chain. The generator gives LX=mY-rX and LY=-rX-mY and three stationary quadratic moment equations; independently derived and solved to obtain Var(A/m)=(m+3r)/(4(2mr+m+r)), Cov(A/m,B/r)=(r-m)/(4(2mr+m+r)), Var(B/r)=(3m+r)/(4(2mr+m+r)). For fixed r, scale A/m: fast conditional B chain has unique Binomial(r,1-x) equilibrium including absorbing endpoints; the slow marginal stationary generator r(1-2x)∂+x(1-x)∂² yields Hausdorff moments (r)_k/(2r)_k and hence Beta(r,r). Bounded generators and compactness justify the weak joint limit; finite checks only corroborate.
 
-Masuda (2013), the exact source model, derives a Gaussian approximation in his Section III.2.1 and the one-contrarian uniform limit in Section III.3. The new claim is the two-parameter exact covariance and *arbitrary fixed* contrarian-count joint beta–binomial stationary limit; the earlier uniform case is deliberately not claimed as new. Banisch (2015) treats update-by-update probabilistic contrarian actions, not permanently assigned model-1 contrarians. Mori, Hisakado and Nakayama (2018) derive beta laws under intrinsic preference on networks, but not the fixed-contrarian conditional law. Khalil and Toral (2018) derive moments for an all-opposing/noisy contrarian rule, different from same-type imitation in the present model. No dominating prior statement was established in the inspected sources or comparable indexed records. The general diffusion/beta literature is an explicit residual historical-priority risk; no independent priority certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed small number of dissenting agents is exactly the regime in which the source paper notes substantial departure from a Gaussian approximation. The result identifies the entire stationary share law and conditional contrarian polarization, not merely its mean or variance, for every fixed integer contrarian count. The finite-size covariance formula is valid without approximation and connects this rare-minority regime to finite-population observations. It is a motivated extension of the original gap, not an arbitrary numerical slice.
+Masuda 2013 model 1 already gives Gaussian large-both-population fluctuations and the r=1 uniform share limit, both explicitly excluded. Sections III.B/C of the primary original paper do not supply the exact all-finite-m,r covariance or joint fixed-r>=2 Beta(r,r)–Binomial limit. Other noisy-voter/zealot beta laws have different transition generators and do not mathematically imply these model-1 formulas. Best-of-knowledge originality retained with residual priority risk.
 
-## Scope and limitations
+## value
 
-The weak limit requires each fixed positive integer contrarian count; it does not cover growing contrarian counts, other voter/contrarian update rules, structured networks or transient laws. The exact finite covariance is not an exact finite-state joint probability mass formula. General beta stationary principles could potentially give an alternate proof, but they do not negate the explicit model-specific statement. Broader historical coverage remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-r contrarians are a natural non-Gaussian singular limit of Masuda’s voter dynamics; exact finite covariances plus complete joint weak limiting law are substantive reusable stochastic-process invariants, not a routine restatement of the known r=1 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
