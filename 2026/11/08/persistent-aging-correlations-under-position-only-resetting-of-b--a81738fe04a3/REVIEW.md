@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final statement concerns position-only Poisson resets of the Brownian-squared diffusion coefficient model \(D_t=2\Lambda^2B_t^2\). The position integral after the most recent reset is exact. Gaussian Wick identities yield exact second/fourth/mixed moments and the conditional future second-moment semigroup gives an exact two-time formula. At proportional lags, the leading terms give the squared-correlation coefficient \(2/(17c)\). The multi-time weak limit follows from a vanishing local-Brownian-increment error, Poisson window separation and Brownian scaling. The product-of-normal-and-Laplace density, logarithmic central singularity and stretched-exponential saddle are independently reconstructed. The standalone checker verifies numerical consequences but is not a substitute for infinite-time arguments.
+PASS
 
-## Originality — PASS with stated residual risk
+Using last Poisson reset time A_t=min(E,t), X_t=2Λ∫_{t−A_t}^t B_s dW_s. Itô isometry gives E X_t²=4Λ² J_1(t), Wick integration yields E X_t⁴/t²→288Λ⁴/r² and Var(X_t²)/t²→272Λ⁴/r². Exact Markov conditional squared-moment closure with the unreset Ω_t gives the cross moment, so Corr(X_t²,X_{ct}²)→2/(17c) for fixed c>1; ordinary covariance has the factor e^(−r(c−1)t). For finitely many distinct positive macroscopic times, replacing Brownian B_s within each O(1) age window by B_{s_jT} has O(1/T) mean-square error after normalization, and disjoint Poisson windows give independent limiting ages/driving Gaussian factors. Laplace mixing yields product normal×Laplace and the density boundaries. Independent symbolic integration of the Wick polynomial confirmed the moment coefficients. Limit c=1 intentionally excluded.
 
-The original Brownian-diffusivity paper explicitly resets **both** the position and volatility and identifies position-only resetting as a future question (arXiv:2205.00549, Section 7). The strongest similar published prior, arXiv:1812.05664, leaves a **deterministic** diffusivity unreset and thus has a Gaussian conditional input with no common stochastic-volatility mixing. Targeted searches across aliases, scaling laws and squared-position aging found no stronger explicit matching theorem. Generic jump-SDE resetting theory is acknowledged and does not by itself state the explicit limit or constant. Unindexed literature remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The physically motivated question is whether resetting only a tracer, rather than its external diffusivity, thermalizes it. The answer is structurally negative, quantified by a nonstationary normal-Laplace product law with different tails from the simultaneous-reset case. The unexpected long-range squared-amplitude correlation persists despite exponentially extinguished linear position correlation; its parameter-independent coefficient is a natural, measurable signature of the unrejuvenated environment, not an arbitrary finite slice.
+Santra–Basu–Sabhapandit study the very same Brownian-square diffusivity but reset both particle and diffusivity; their conclusion identifies position-only resetting as distinct unstudied protocol. Bodrova–Chechkin–Sokolov study nonrenewal position resetting with deterministic time-dependent diffusivity, lacking correlated Brownian stochastic environment. Existing stationary two-clock diffusing-diffusivity results apply positive environment reset rate, not this nonstationary limit. The explicit shared-Brownian joint law and persistent 2/(17c) correlation survive those comparisons, with historical residual risk.
 
-## Limitations
+## value
 
-The stochastic diffusivity is Brownian squared and therefore unbounded; the reset clock must be independent Poisson. The time ratio \(c>1\) is fixed, not the equal-time limit. A singular environmental reset-rate limit is not claimed. Published-record searches cannot certify global publication novelty. Independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Aging without stationary distribution and persistent nonlinear memory despite vanishing linear memory give a motivated sharp distinction between partial and full resetting. The exact finite-dimensional law, logarithmic central singularity, stretched tail and two-time coefficient are natural quantitative observables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

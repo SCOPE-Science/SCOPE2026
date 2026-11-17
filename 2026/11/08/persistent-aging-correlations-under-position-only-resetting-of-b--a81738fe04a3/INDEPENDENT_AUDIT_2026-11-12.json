@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using last Poisson reset time A_t=min(E,t), X_t=2Λ∫_{t−A_t}^t B_s dW_s. Itô isometry gives E X_t²=4Λ² J_1(t), Wick integration yields E X_t⁴/t²→288Λ⁴/r² and Var(X_t²)/t²→272Λ⁴/r². Exact Markov conditional squared-moment closure with the unreset Ω_t gives the cross moment, so Corr(X_t²,X_{ct}²)→2/(17c) for fixed c>1; ordinary covariance has the factor e^(−r(c−1)t). For finitely many distinct positive macroscopic times, replacing Brownian B_s within each O(1) age window by B_{s_jT} has O(1/T) mean-square error after normalization, and disjoint Poisson windows give independent limiting ages/driving Gaussian factors. Laplace mixing yields product normal×Laplace and the density boundaries. Independent symbolic integration of the Wick polynomial confirmed the moment coefficients. Limit c=1 intentionally excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/10/25 two-clock diffusivity resetting has two independent positive reset clocks and stationary squared covariance.",
+          "General reset renewal representations give last-age integrals but do not produce the claimed nonstationary Brownian shared-bath asymptotics directly."
+        ],
+        "reasoning": "The zero environment reset boundary invalidates stationary arguments and changes the joint scaling; a positive-rate two-clock theorem is not directly dominating.",
+        "searches": [
+          "Brownian squared diffusivity position only stochastic resetting aging correlation two times",
+          "https://arxiv.org/pdf/2205.00549"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search Brownian squared diffusivity position only stochastic resetting aging correlation two times",
+        "Santra–Basu–Sabhapandit primary arXiv PDF",
+        "Bodrova–Chechkin–Sokolov primary arXiv PDF",
+        "related two-clock Resultary indexed summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exponentially distributed local reset age is independent of the unreset macroscopic Brownian level, producing independent E_j but a shared Brownian B across times.",
+          "Renewal of both coordinates destroys macroscopic environment memory; deterministic diffusivity cannot generate the random-level mixing."
+        ],
+        "reasoning": "Neither examined prior process law implies the stated multi-time limit or squared-position aging constant; model boundary difference is mathematically essential.",
+        "searches": [
+          "Brownian squared diffusivity position only stochastic resetting aging correlation two times",
+          "https://arxiv.org/pdf/2205.00549"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santra–Basu–Sabhapandit 2022 arXiv:2205.00549 uses Brownian-square diffusivity, but reset erases diffusivity as well as position.",
+          "Bodrova–Chechkin–Sokolov 2018 arXiv:1812.05664 uses fixed deterministic scaled Brownian D(t)."
+        ],
+        "reasoning": "Partial/position-only/nonrenewal resets are terminology aliases but model equality requires an unreset Brownian stochastic environment; neither cited process has that law.",
+        "searches": [
+          "Brownian squared diffusivity position only stochastic resetting aging correlation two times",
+          "https://arxiv.org/pdf/2205.00549"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Santra 2022 gives one-time stationary distribution under complete renewal, not squared lag-correlation coefficient 2/(17c).",
+          "Resultary semantic search returned no earlier exact 2/(17c) Brownian position-only reset table."
+        ],
+        "reasoning": "The exact continuous-time all-c positive function is not a finite tabular recomputation.",
+        "searches": [
+          "Brownian squared diffusivity position only stochastic resetting aging correlation two times",
+          "https://arxiv.org/pdf/2205.00549"
+        ]
+      },
+      "rationale": "Santra–Basu–Sabhapandit study the very same Brownian-square diffusivity but reset both particle and diffusivity; their conclusion identifies position-only resetting as distinct unstudied protocol. Bodrova–Chechkin–Sokolov study nonrenewal position resetting with deterministic time-dependent diffusivity, lacking correlated Brownian stochastic environment. Existing stationary two-clock diffusing-diffusivity results apply positive environment reset rate, not this nonstationary limit. The explicit shared-Brownian joint law and persistent 2/(17c) correlation survive those comparisons, with historical residual risk.",
+      "residual_risks": [
+        "Unindexed work on zero-bath-reset diffusing diffusivity and aging may still subsume portions of the formula.",
+        "The nonstationary zero-environment-reset limit is not uniform in a positive bath-reset rate; c=1 is excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINGUISHES protocol and explicitly suggests unreset diffusivity as different question",
+          "evidence": "Their position and diffusivity are reset together, unlike submitted one-coordinate reset.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.00549",
+          "material_read": "Primary model definitions, complete-reset equations and concluding position-only-reset discussion",
+          "method": "read full relevant primary RESULT or theorem sections",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "same Brownian-square diffusion and reset model"
+        },
+        {
+          "assessment": "NOT COVERING stochastic bath persistence",
+          "evidence": "Deterministic D(t)=α Kα t^(α−1); no shared Brownian volatility.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.05664",
+          "material_read": "Primary model assumptions, introduction and relevant moments sections",
+          "method": "read full relevant primary RESULT or theorem sections",
+          "title": "Non-renewal resetting of scaled Brownian motion",
+          "trigger": "position-only renewal nomenclature"
+        },
+        {
+          "assessment": "PRIORITY RISK only, no whole-document noncoverage conclusion",
+          "evidence": "Positive environment reset rates produce stationary regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-clock-diffusivity-resetting-has-a-sharp-spatial-memory-thres--0189122e6072",
+          "material_read": "Resultary indexed summary only; full text not inspected",
+          "method": "semantic index title and summary only",
+          "title": "Two-clock diffusivity resetting has a sharp spatial-memory threshold",
+          "trigger": "related prior Resultary two-clock squared correlation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Aging without stationary distribution and persistent nonlinear memory despite vanishing linear memory give a motivated sharp distinction between partial and full resetting. The exact finite-dimensional law, logarithmic central singularity, stretched tail and two-time coefficient are natural quantitative observables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed work on zero-bath-reset diffusing diffusivity and aging may still subsume portions of the formula.",
+    "The nonstationary zero-environment-reset limit is not uniform in a positive bath-reset rate; c=1 is excluded."
+  ],
+  "schema_version": 1
+}
