@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-**Exact domain.** The claim covers the unit-rate homogeneous row-conservative directed cyclic generator \(Q_n=P_n-I_n\) in each integer dimension \(n\ge2\), for every real \(h\ge0\), and only the two-stage Gauss endpoint rational map. The denominator's roots are in the right half-plane, ensuring all matrix inverses exist. The map exactly preserves mass, so positivity is the only relevant stochasticity condition.
+PASS
 
-**Proof reconstruction.** For two and three states, complete rational entries establish positivity with a manifestly positive discriminant or positive coefficients. For dimensions four through seven, exact elimination and Descartes' one-sign-change rule give a unique root of the neighboring-entry sign polynomial. All *other* entries have nonnegative-coefficient numerators for dimensions four and five; for dimensions six and seven the exact transformed-polynomial positivity certificate covers the interval through the root, which lies below four. For dimension at least eight, the coefficient of degree seven in the stability function is negative and the unique seven-edge path gives the leading entry sign. For arbitrary cycle dimension the cyclic group-inverse identity and rational-map Laurent expansion establish the negative nearest-neighbor asymptotic for \(n\ge4\). Each step is an analytic argument, not extrapolation from tests.
+For Q=P_n-I and Gauss-Legendre r(z)=(12+6z+z²)/(12-6z+z²), the inverse denominator has right-half-plane roots, so r(hQ) is well-defined and row-sum preserving for h>=0. Exact symbolic inversion of n=2..7 recovers unconditional positivity for 2,3 and neighbor numerator -c_n h F_n(h)/D_n(h) for n=4..7, positive denominator. Each F_n has one sign variation and a unique positive root (H4~6.1357203, H5~4.3143227, H6~3.8080105, H7~3.6119199); positive-coefficient/interval-transformed certificates keep other entries positive through each root. The Padé seventh coefficient is -1/1728, giving (0,7) negative for sufficiently small h for any n>=8; the cyclic group inverse yields adjacent coefficient -6(n-3)/(nh) for n>=4 at large h. Independently reproduced the exact symbolic n<=7 signs and small/large asymptotics from the frozen formula/artifacts/verify.py.
 
-**Reproduction.** The included Python/SymPy program passed 182 exact assertions involving the actual constructed matrices, rational sign brackets, polynomial positivity certificates, Taylor coefficients, and selected group-inverse checks. The bounded script does not purport to certify the unbounded quantifiers by enumeration. No other-run verification artifact is used.
+## originality
 
-## Originality — PASS, with residual precedence risk
+PASS
 
-**Equivalent forms.** Prior published records on the same Gauss rational map and on stochastic positivity were compared at the level of matrix class, all-step quantifier, and exact critical polynomial. The closest published conservative Markov result establishes *local* positivity in all dimensions at most seven, not the exact full-step positivity windows for the cyclic family. An existing symmetric-cycle Gauss result does not imply the directed-cycle result, because the matrices and spectrum are different. A directed-cycle Radau IIA classification uses a different rational map, with different thresholds and a different large-step sign.
+General finite-Markov [2/2] Padé result covers n<=7 local positivity and n=8 obstruction, and other published two-stage heat-cycle results concern undirected Laplacians. Neither derives the global sharp thresholds for each directed n=4..7. Exact directed eight-cycle re-entry findings concern n=8, not these four positive windows. PASS on best-of-knowledge; earlier unindexed directed-cycle threshold algebra remains a risk.
 
-**Broader coverage and databases.** General absolute-monotonicity/positivity obstructions and the eight-state pure-birth Padé result provide the \(n\ge8\) local-failure component already; it is explicitly attributed and not treated as new. No inspected source provided globally sharp values of \(H_4,H_5,H_6,H_7\) or the two/three-cycle unconditional contrast. An unidentified equivalent result in specialist Padé, circulant, or positivity literature remains possible. Inaccessible 2026 rational-propagator full text is a specifically noted residual risk.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The uniform directed-cycle generator is a canonical irreducible conservative test problem for Markov discretizations; exactly characterizing its fourth-order Gauss positivity provides an interpretable boundary between unconditional, finite-horizon and immediately failing stochasticity. The four complete sharp algebraic cutoffs are intrinsic answers to the nonnegativity problem—not arbitrary numerical samples—and the dimension transition complements general absolute-monotonicity results without claiming stronger generality than proved. This is useful for method-selection and checking step-size safety on cyclic transport test problems, while explicitly excluding nonlinear/general-generator conclusions.
+Sharp, fully algebraic positivity windows for an A-stable fourth-order conservative integrator on canonical nonreversible Markov cycles are a meaningful numerical-analysis benchmark; they discriminate unconditional, bounded-window and small-step failure regimes and provide exact endpoints beyond general local theory.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

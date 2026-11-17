@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T02:08:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q=P_n-I and Gauss-Legendre r(z)=(12+6z+z²)/(12-6z+z²), the inverse denominator has right-half-plane roots, so r(hQ) is well-defined and row-sum preserving for h>=0. Exact symbolic inversion of n=2..7 recovers unconditional positivity for 2,3 and neighbor numerator -c_n h F_n(h)/D_n(h) for n=4..7, positive denominator. Each F_n has one sign variation and a unique positive root (H4~6.1357203, H5~4.3143227, H6~3.8080105, H7~3.6119199); positive-coefficient/interval-transformed certificates keep other entries positive through each root. The Padé seventh coefficient is -1/1728, giving (0,7) negative for sufficiently small h for any n>=8; the cyclic group inverse yields adjacent coefficient -6(n-3)/(nh) for n>=4 at large h. Independently reproduced the exact symbolic n<=7 signs and small/large asymptotics from the frozen formula/artifacts/verify.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier general Markov theorem gives only sufficiently-small positive h for all n<=7; this does not imply maximal h for the directed cycles.",
+          "Older Gauss diffusion results use undirected periodic graph Laplacians, with different n=6 polynomial and distinct thresholds."
+        ],
+        "reasoning": "No inspected broader theorem implies all four precise algebraic horizons and upper/lower dimensional split on one-way Markov cycles.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+          "arXiv:2005.06268",
+          "Resultary: six-cycle threshold and all-size positivity dichotomy for fourth-order Gauss diffusion"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+        "https://arxiv.org/abs/2005.06268",
+        "https://arxiv.org/abs/2102.08242",
+        "https://doi.org/10.1016/j.laa.2011.12.021",
+        "Resultary: exact stochasticity reentry for fourth-order Gauss stepping on the directed eight-cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier local theorem has quantifier existence of ε_Q for each Q on n<=7, strictly weaker than exact all-h boundary on each Q=P_n-I.",
+          "Known a7=-1/1728 yields small-step failure in n>=8 but not n4..7 exact first-neighbor zero and positivity of other entries."
+        ],
+        "reasoning": "The sharp four boundary polynomials need independent rational matrix elimination and sign certificates. Other dimensions/negative large-step behaviors follow established Padé asymptotics but do not make the entire claim covered.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+          "DOI:10.1016/j.laa.2011.12.021",
+          "arXiv:2102.08242"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted r is the two-stage fourth-order Gauss–Legendre [2/2] Padé endpoint.",
+          "Prior eight-state Markov barrier uses the same rational map, but its generator is an absorbing pure-birth chain, not the irreducible cycle P_n-I."
+        ],
+        "reasoning": "The rational map is identical yet generator geometry and globally sharp step-set claims differ; sharing Padé coefficients alone does not cover H4..H7.",
+        "searches": [
+          "Resultary: directed cyclic Markov fourth order Gauss Legendre exact positivity n4 n5 n6 n7 thresholds",
+          "Resultary: exact Padé positivity horizons for finite directed Markov cycles",
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directed eight-cycle prior table has a disconnected intermediate step interval with small-step obstruction; the target n4..7 each has a single initial interval.",
+          "The submitted F4..F7 are new exact specific polynomials beyond the n8 tables inspected."
+        ],
+        "reasoning": "N=8 special-case data cannot imply n=4..7 exact horizon values; no covering table found in inspected records.",
+        "searches": [
+          "Resultary: a sharp finite stochasticity window for fourth-order Gauss steps on the directed eight-cycle",
+          "Resultary: exact stochasticity reentry for fourth-order Gauss stepping on the directed eight-cycle"
+        ]
+      },
+      "rationale": "General finite-Markov [2/2] Padé result covers n<=7 local positivity and n=8 obstruction, and other published two-stage heat-cycle results concern undirected Laplacians. Neither derives the global sharp thresholds for each directed n=4..7. Exact directed eight-cycle re-entry findings concern n=8, not these four positive windows. PASS on best-of-knowledge; earlier unindexed directed-cycle threshold algebra remains a risk.",
+      "residual_risks": [
+        "Full archival 2012 Padé positivity paper not read; possible exact one-way cycle computations may be embedded.",
+        "An independently published directed-cycle finite-n positivity table under Runge–Kutta/Padé terminology could cover the four thresholds despite no matching identified record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL prior coverage of local dimension result; does not establish H4..7 for directed cycles",
+          "evidence": "Theorem 1 n<=7 local positivity and n8 pure-birth obstruction; Theorem 2 n8 pure-birth positivity window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+          "material_read": "Entire published RESULT.md, Theorem 1 and Theorem 2 including Taylor and pure-birth matrix calculations",
+          "method": "Read complete frozen Resultary primary proof blob 92832796f25f69ca9a306f7f2351f9bc93bfbf5c",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Same rational map and sharp dimension 8 claim"
+        },
+        {
+          "assessment": "No whole-paper noncoverage verdict; possible supplementary bounds",
+          "evidence": "Modified weights and RK positivity; no explicit target thresholds found in available material.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+          "material_read": "Abstract/available indexed result, not full article proof",
+          "method": "Read abstract",
+          "title": "Positivity-preserving Runge–Kutta methods using adaptive weightings",
+          "trigger": "Generic Gauss-RK positivity literature"
+        },
+        {
+          "assessment": "Partial known negative-series obstruction; unresolved full-paper priority",
+          "evidence": "First negative Padé coefficient a7=-1/1728, not sufficient alone for global cyclic H4..H7.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.12.021",
+          "material_read": "Accessible abstract and earlier accurate primary citations of seventh Taylor coefficient; entire 2012 text not read in this run",
+          "method": "Read indexed description, compared Taylor calculation independently",
+          "title": "Essentially negative news about positive systems",
+          "trigger": "Negative Padé coefficient historical source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp, fully algebraic positivity windows for an A-stable fourth-order conservative integrator on canonical nonreversible Markov cycles are a meaningful numerical-analysis benchmark; they discriminate unconditional, bounded-window and small-step failure regimes and provide exact endpoints beyond general local theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+    "https://arxiv.org/abs/2005.06268",
+    "https://arxiv.org/abs/2102.08242",
+    "https://doi.org/10.1016/j.laa.2011.12.021",
+    "Resultary: exact stochasticity reentry for fourth-order Gauss stepping on the directed eight-cycle"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform one-way directed unit-rate Markov cycles; exact end-step real rational operator, not internal RK stages or general generators.",
+    "Small-step n>=8 and large-step all-n arguments analytic; n4..7 exact finite symbolic elimination is exhaustive for four individual matrices."
+  ],
+  "residual_risks": [
+    "Full archival 2012 Padé positivity paper not read; possible exact one-way cycle computations may be embedded.",
+    "An independently published directed-cycle finite-n positivity table under Runge–Kutta/Padé terminology could cover the four thresholds despite no matching identified record."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL prior coverage of local dimension result; does not establish H4..7 for directed cycles",
+      "evidence": "Theorem 1 n<=7 local positivity and n8 pure-birth obstruction; Theorem 2 n8 pure-birth positivity window.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+      "material_read": "Entire published RESULT.md, Theorem 1 and Theorem 2 including Taylor and pure-birth matrix calculations",
+      "method": "Read complete frozen Resultary primary proof blob 92832796f25f69ca9a306f7f2351f9bc93bfbf5c",
+      "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+      "trigger": "Same rational map and sharp dimension 8 claim"
+    },
+    {
+      "assessment": "No whole-paper noncoverage verdict; possible supplementary bounds",
+      "evidence": "Modified weights and RK positivity; no explicit target thresholds found in available material.",
+      "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+      "material_read": "Abstract/available indexed result, not full article proof",
+      "method": "Read abstract",
+      "title": "Positivity-preserving Runge–Kutta methods using adaptive weightings",
+      "trigger": "Generic Gauss-RK positivity literature"
+    },
+    {
+      "assessment": "Partial known negative-series obstruction; unresolved full-paper priority",
+      "evidence": "First negative Padé coefficient a7=-1/1728, not sufficient alone for global cyclic H4..H7.",
+      "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.12.021",
+      "material_read": "Accessible abstract and earlier accurate primary citations of seventh Taylor coefficient; entire 2012 text not read in this run",
+      "method": "Read indexed description, compared Taylor calculation independently",
+      "title": "Essentially negative news about positive systems",
+      "trigger": "Negative Padé coefficient historical source"
+    }
+  ]
+}
