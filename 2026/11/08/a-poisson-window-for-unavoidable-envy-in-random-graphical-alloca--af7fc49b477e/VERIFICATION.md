@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic proof derives the exact number of unavoidable envious agents, all fixed-order factorial moments of isolated-edge components, and uniform upper bounds for larger tree components. The Python checker is a supplementary independent enumeration of the finite definitions, not a substitute for analytic asymptotic proof or a formal theorem prover.
+## correctness
 
-Run `python verify_envy.py` with Python 3 and no third-party packages. The checker exhausts the \(1099\) labeled simple graphs on at most five vertices under all assignments of each good to one endpoint, and the \(75\) simple graphs on at most four vertices under all complete allocations to arbitrary agents. It also prints finite random-graph samples and factorial-moment diagnostics. All exhaustive comparisons passed in the self-review. Numerical simulations do not prove Poisson convergence.
+PASS
 
-Known scope boundary: a vertex's valuation of another agent's bundle is bounded by one only for simple graphs, so multiple parallel goods or nonbinary values require a different proof. The zero-deficit existence criterion is known from Misra–Sethia (2024); the exact positive deficit count and its critical-window law are the additional subject. Independent audit was not performed.
+For each nontrivial tree component with v vertices and v-1 edge goods, no allocation can give every component vertex even one personally valued edge, and a vertex with zero own valued goods envies the recipient of some incident edge even if assigned outside component. Thus every such component forces at least one distinct envious agent. Orient each tree away from a root, and any cyclic component along one cycle then outward, assigning every good to its head: all other nonisolated vertices receive a valued good. In a SIMPLE graph any vertex values at most one edge in any other vertex's bundle, so every positive-own-good agent is nonenvious; exactly T(G) envious roots remain, with welfare |E|. For G(n,p), r isolated-edge components have exact factorial moment (n)_(2r)/2^r p^r(1-p)^(2r(n-r-1)); at p=(log n+loglog n+c)/(2n) this tends (e^-c/4)^r. Expected tree components of orders 3,4, middle sizes, and >n/2 all vanish using Cayley, a geometric bound and Chernoff, yielding Poisson(e^-c/4) for the minimum count. Independent exhaustive unrestricted edge-to-any-vertex allocations for all simple graphs n<=4 confirmed the deterministic optimum; not a proof of asymptotics.
+
+## originality
+
+PASS
+
+PASS best-knowledge: Misra–Sethia established the deterministic ZERO-deficit criterion for binary graphical envy-free allocations, and that any feasible EF allocation can be nonwasteful; the thesis proof of EF orientations was read. It does not give the exact POSITIVE minimum envy count for every graph or the Poisson distribution of that optimized deficit in sparse G(n,p). Classical random-graph isolated-edge Poisson counts supply standard probabilistic ingredients, but not the fair-division optimization identity. Other papers on random relabeled valuations have different probability spaces. Priority remains conditional on missing full text of a recent different-model source and unindexed work.
+
+## value
+
+PASS
+
+PASS: The count T(G) is a natural exact fairness-loss invariant of an arbitrary binary graphical market, stronger than simply whether complete EF exists. Its near-connectivity-free sparse critical window identifies a robust probability of zero unavoidable envy with exact Poisson fluctuations, while retaining maximum welfare. This is a complete natural distributional answer rather than a renamed existence test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
