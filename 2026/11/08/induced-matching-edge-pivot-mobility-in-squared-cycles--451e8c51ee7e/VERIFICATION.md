@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of maximum induced-matching edge-pivot mobility
 
-The theorem is proved for all integer orders of squared cycles at least five by the cyclic-block decomposition, exact coefficient counting, and constructive legal-pivot paths. The computations below check particular finite orders only.
+# Independent mathematical audit
 
-Use Python 3 (standard library only) to execute `python3 check_direct.py` and `python3 check_gaps.py` in the directory containing the scripts. Their expected complete outputs are `direct_results.txt` and `gap_results.txt` respectively.
+## correctness
 
-`check_direct.py` independently constructs the original graph and pairwise induced-edge compatibility, enumerates all maximal compatible cliques without pre-fixing the optimum size, retains every maximum clique, and finds all incident-edge-pivot components for orders 5 through 23. A maximum clique in the compatibility graph corresponds exactly to a maximum induced matching.
+PASS
 
-`check_gaps.py` independently enumerates binary edge lengths and weak gap compositions, checks that each resulting edge set is an induced matching in the original graph, and explicitly constructs the pivot graph for orders 5 through 47. It verifies the four-residue formula and the number of components.
+PASS: For maximum induced matchings of C_n^2, clockwise edge lengths a_i in {1,2} and endpoint-separation gaps force sum_i(4+(a_i-1)+g_i)=n and k=floor(n/4); rooted cyclic compositions produce number (n/k)[x^r]((1+x)/(1-x))^k. If n multiple 4, no defect and exactly 4 frozen phases. For r=1..3, converting long edges to short pivots transfers slack into gaps; short incident-edge pivots transfer gap units, connecting canonical compositions and rotations. Independent direct edge-compatibility and exact pivot graph construction for all n=5..15 reproduced counts, four frozen vertices at n=8,12, and connectivity otherwise. All arithmetic is corroboration of unrestricted gap proof.
 
-The original embedded output files terminate with `DIRECT_EXHAUSTIVE_OK` and `GAP_ENUMERATION_AND_PIVOT_OK` respectively. Finite checks do not establish the infinite theorem by themselves. Independent scholarly audit is not performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for pivot mobility alone: published cycle-power polynomial already yields all maximum matching state counts, so count receives no originality credit. Neither that polynomial nor ordinary-cycle exchange result establishes incident-pivot connectivity for C_n².
+
+## value
+
+PASS
+
+PASS: Identifies a sharp modular mobility/frozen-state phase transition for maximum induced matchings under a genuinely restrictive incident-edge pivot rule. The slack transfer structural proof is useful beyond counting states; the earlier maximum-state count by itself is not valued as original.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For maximum induced matchings of C_n^2, clockwise edge lengths a_i in {1,2} and endpoint-separation gaps force sum_i(4+(a_i-1)+g_i)=n and k=floor(n/4); rooted cyclic compositions produce number (n/k)[x^r]((1+x)/(1-x))^k. If n multiple 4, no defect and exactly 4 frozen phases. For r=1..3, converting long edges to short pivots transfers slack into gaps; short incident-edge pivots transfer gap units, connecting canonical compositions and rotations. Independent direct edge-compatibility and exact pivot graph construction for all n=5..15 reproduced counts, four frozen vertices at n=8,12, and connectivity otherwise. All arithmetic is corroboration of unrestricted gap proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-cycle-power induced matching size polynomial covers maximum state cardinalities at r=2.",
+          "Full cycle-graph C_n exchange theorem addresses different graph and arbitrary one-edge exchanges, not the present C_n^2 incident-pivot graph."
+        ],
+        "reasoning": "Count result is already covered by the more general enumerator, but reconfiguration regime (four isolated phases at n=0 mod4 versus connectivity with slack) is not implied by enumerating states.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exchange-geometry-of-maximal-induced-matchings-on-cycles--42926378e1a1/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exchange-geometry-of-maximal-induced-matchings-on-cycles--42926378e1a1/RESULT.md",
+        "https://arxiv.org/abs/1812.05419"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New pivot proof encodes long edges and gaps with sum(b_i+g_i)=r, then shortens long edges and transfers slack by legal incident short-edge pivots.",
+          "In the no-slack r=0 case all configurations have frozen gaps; r>=1 all canonical rotations join by legal pivot moves."
+        ],
+        "reasoning": "A counting polynomial does not determine reconfiguration edges or connectivity; ordinary matchings and cycles C_n are not the same move/host, so substantive mobility theorem survives.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exchange-geometry-of-maximal-induced-matchings-on-cycles--42926378e1a1/RESULT.md",
+          "https://arxiv.org/abs/1812.05419"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Induced matchings in G correspond to independent sets of L(G)^2.",
+          "An incident-edge pivot on original G is a restrictive exchange defined by shared original endpoint; it is NOT arbitrary token-jump/sliding on L(G)^2."
+        ],
+        "reasoning": "Known matching-number and conflict graph descriptions are credited; novel claim is the precise maximum-state incident-pivot connectivity classification.",
+        "searches": [
+          "induced matching C_n squared edge pivot move connectivity maximum matching cycles",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+          "strong matchings reconfiguration line graph square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier cycle-powers coefficient formula yields all maximum-state counts n=4k+r; those scalar values do NOT receive novelty credit.",
+          "An independent direct pivot-component enumeration for n=5..15 matched the four isolated n divisible by four and single connected component otherwise."
+        ],
+        "reasoning": "Known maximum-size table is prior; no prior exact incident pivot COMPONENT table was found in the relevant queries.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+          "induced matching C_n squared edge pivot move connectivity maximum matching cycles"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for pivot mobility alone: published cycle-power polynomial already yields all maximum matching state counts, so count receives no originality credit. Neither that polynomial nor ordinary-cycle exchange result establishes incident-pivot connectivity for C_n².",
+      "residual_risks": [
+        "Unknown earlier squared-cycle incident-edge reconfiguration under induced-matching/strong-matching aliases remains possible.",
+        "Exact diameter, all degree distributions and powers other than square are outside claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: maximum cardinality and state count already covered",
+          "evidence": "At r=2 and k=floor(n/4), polynomial I_{n,2} coefficient n/k[x^n]B_2(x)^k gives the submitted four-residue maximum-state count. No pivot reconfiguration theorem appears in its complete claim or proof.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+          "material_read": "Complete RESULT.md and gap-encoding counting proof for all r>=1",
+          "method": "Full GitHub source read",
+          "title": "Complete induced- and maximal-induced-matching polynomials of cycle powers",
+          "trigger": "same host graph C_n^2 and exact maximum induced matching count"
+        },
+        {
+          "assessment": "DIFFERENT_HOST_AND_MOVE",
+          "evidence": "Earlier graph C_n (not squared) and arbitrary single-edge replacement among inclusion-maximal matchings; current host C_n^2 and incident-edge pivots among maximum matchings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exchange-geometry-of-maximal-induced-matchings-on-cycles--42926378e1a1/RESULT.md",
+          "material_read": "Complete RESULT.md and proof, degree and connectivity by gap sectors",
+          "method": "Full GitHub source read",
+          "title": "Exchange geometry of maximal induced matchings on cycles",
+          "trigger": "similar exchange reconfiguration on cycle graph"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_APPLICABLE on accessible material",
+          "evidence": "Ordinary matching reconfiguration does not impose nonadjacency among all endpoints of different edges, hence cannot directly imply induced-matching pivot theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.05419",
+          "material_read": "Abstract and theorem overview, not complete primary text",
+          "method": "ArXiv abstract",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "token jump / slide reconfiguration of ordinary matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Identifies a sharp modular mobility/frozen-state phase transition for maximum induced matchings under a genuinely restrictive incident-edge pivot rule. The slack transfer structural proof is useful beyond counting states; the earlier maximum-state count by itself is not valued as original.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exchange-geometry-of-maximal-induced-matchings-on-cycles--42926378e1a1/RESULT.md",
+    "https://arxiv.org/abs/1812.05419"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only maximum-cardinality induced matchings of C_n², n>=5, under incident edge pivot; not arbitrary edge jumps, and not graph diameter. Maximum-state counts are already implied by earlier cycle-power enumerator; accept only surviving mobility theorem.",
+    "Pre-publication confidentiality requirements not independently satisfied for the complete public-bound package; separate transport not_ready."
+  ],
+  "residual_risks": [
+    "Unknown earlier squared-cycle incident-edge reconfiguration under induced-matching/strong-matching aliases remains possible.",
+    "Exact diameter, all degree distributions and powers other than square are outside claim."
+  ],
+  "schema_version": 1
+}

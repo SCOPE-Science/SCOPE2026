@@ -1,19 +1,21 @@
-# Review: Induced-matching edge-pivot mobility in squared cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every selected edge of a squared cycle occupies a consecutive block of selected endpoints, and a cyclic gap of at least two unselected separator vertices separates it from the next selected edge. Hence each clockwise edge has length one or two and consumes four units plus one optional length unit and a nonnegative slack gap. It follows that every induced matching has at most \(\lfloor n/4\rfloor\) edges, attained by periodically spaced short edges. Exact counting of binary lengths and weak compositions yields the four-residue state formula. For zero slack the four possible phases have no legal incident-edge pivot. Positive slack allows elimination of long edges, transfer of units between adjacent gaps, and a constructive all-edge one-step cyclic shift, establishing connectedness for the other three residues. The argument covers the small one-edge cases \(n=5,6,7\). Direct exhaustive compatibility-clique and independent gap-generation/pivot traversals corroborate the theorem in their stated finite ranges. These experiments are not used as infinite proofs.
+PASS
 
-## Originality — PASS, qualified by historical-priority risk
+PASS: For maximum induced matchings of C_n^2, clockwise edge lengths a_i in {1,2} and endpoint-separation gaps force sum_i(4+(a_i-1)+g_i)=n and k=floor(n/4); rooted cyclic compositions produce number (n/k)[x^r]((1+x)/(1-x))^k. If n multiple 4, no defect and exactly 4 frozen phases. For r=1..3, converting long edges to short pivots transfers slack into gaps; short incident-edge pivots transfer gap units, connecting canonical compositions and rotations. Independent direct edge-compatibility and exact pivot graph construction for all n=5..15 reproduced counts, four frozen vertices at n=8,12, and connectivity otherwise. All arithmetic is corroboration of unrestricted gap proof.
 
-The comparison is about implications, not shared keywords. Maximum independent *vertex* sets in squared cycles are distinct from maximum induced *edge* matchings. Existing induced-matching algorithms provide maximum size methods and extremal counts in other graph classes, not the exact incident-edge pivot graph. Reconfiguration of ordinary matchings by edge token jumping, as in Bousquet and collaborators (arXiv:1812.05419), does not preserve the stronger induced-matching constraint and imposes no incident-edge rule. General token-sliding of independent *vertex* sets acts on adjacency of the state graph's underlying vertices, whereas the present move requires an incident pair of original-graph edges and preserves the stronger induced-matching constraint. Full-text versions of the accessible arXiv papers on maximal induced matchings and independent-set reconfiguration and the token-sliding tree paper were inspected in relevant sections; the original 2003 induced-matching algorithm paper was not fully accessible. No equivalent complete theorem was identified in the available literature or semantic mathematical records. Nonappearance is not a proof of priority: inaccessible sources and alternative terminology remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem separates two natural questions: how many optimum noninterfering edge placements exist, and whether one optimum can be changed locally without losing optimality. It supplies a sharp all-orders rigidity-versus-mobility boundary and exact optimum-state counts for a canonical cyclic network family. The obstruction is structural—absence versus transferability of slack—not a narrow ad hoc computation. No diameter or further dynamics are asserted.
+PASS best-of-knowledge for pivot mobility alone: published cycle-power polynomial already yields all maximum matching state counts, so count receives no originality credit. Neither that polynomial nor ordinary-cycle exchange result establishes incident-pivot connectivity for C_n².
 
-## Independent assessment and limitations
+## value
 
-The source date is the independently verifiable first arXiv posting of the 2013 literature lead; supporting more recent reconfiguration literature is used only for comparisons. Residual historical-priority risk and the absence of independent scholarly validation are explicit. The 2003 publisher-hosted full text could not be fully inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Identifies a sharp modular mobility/frozen-state phase transition for maximum induced matchings under a genuinely restrictive incident-edge pivot rule. The slack transfer structural proof is useful beyond counting states; the earlier maximum-state count by itself is not valued as original.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
