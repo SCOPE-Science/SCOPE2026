@@ -1,0 +1,11 @@
+# Scientific assessment: a strong-collapse boundary for short partitions
+
+**Correctness — PASS.** Each transfer in the length-three graph has at most three later neighbors in the order by increasing two largest parts; the explicit later vertex is adjacent to all of them. This yields a valid closed-neighborhood domination at every step for every positive size. The size-eight, four-part graph is completely enumerated, and nine explicit dominated-vertex deletions leave the six vertices of an octahedral graph. The complete finite certificate was replayed from the supplied verification code. Thus the scope is integral homotopy, not just numerical homology.
+
+**Originality — PASS, with risk.** The closest 2026 paper establishes the unrestricted two-sphere wedge theorem (and already records the full complex at size eight), while a companion local-morphology paper describes neighborhoods. Neither inspected statement supplies the length-three strong-collapse order or identifies the four-part induced octahedral core. Published positive sphere-count formulas for the unrestricted complex and an unrelated height filtration do not imply the length-filtration statement. Relevant text was compared by object, filtration parameter, and implication; unavailable full text for one broad synthesis and possible unindexed restricted-graph work remain residual risks. No independent novelty certification is claimed.
+
+**Value — PASS.** The number of parts is a canonical complexity filtration on partitions. A uniform strong-collapse result is more informative than vanishing Betti numbers: it provides an explicit topological reduction for all sizes. The exact four-part octahedral survivor shows that three parts is a sharp structural cutoff, making this the first nontrivial length stratum at the initial nonzero full-complex size. This can guide analysis of length-filtered homology without claiming a full persistence theorem.
+
+**Boundaries.** The unrestricted full-graph sphere rank is previously known. The contribution is only the induced length-filtration theorem and concrete sharp witness; no claim covers all four-part truncations. The results have not undergone independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
