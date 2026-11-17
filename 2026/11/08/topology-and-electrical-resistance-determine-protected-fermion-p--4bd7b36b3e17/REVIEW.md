@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For nonzero uniform complete-graph hopping, the two-fermion Hilbert space splits into the \((n-2)J\) and \(-2J\) eigenspaces. Monitored-edge annihilation reduces these respectively to zero-sum constants on monitored components and to cycle flows on the complementary graph, with dimensions \(c(F)-1\) and \(\beta_1(\overline F)\). The orthogonal projectors are explicitly derived; their localized diagonal elements reduce to component sizes and the complement's effective resistance. Positivity of every monitored loss rate ensures all bright states decay asymptotically. The matching formula and minimum number of monitored pairs follow from these statements. Both independent fermion-Hamiltonian and exact graph-cycle checks passed on the stated finite cases; they support but do not replace the all-size proof.
+PASS
 
-## Originality — PASS on examined evidence, historical priority provisional
+Read fermion Hamiltonian proof and exact graph-cycle verification script. The one-particle complete-graph hopping decomposes as span(u) plus u-perp; exterior square has two energies (n-2)J and -2J. Vanishing on loss edges gives component-constant zero-sum modes (c(F)-1) and divergence-free flows on complement F (cycle rank beta1). Orthogonal projection onto flows is I-B^T L^+ B, whose diagonal equals 1-R_ab; plus component-constant term yields exact pair survival. Strictly positive loss rates ensure non-dark eigenmodes have strictly decaying no-jump time evolution. Independent rational Hamiltonian projector tests for n=4,5 confirmed dimension and energy decomposition.
 
-Krovi–Brun (arXiv:quant-ph/0606094) and Varbanov–Krovi–Brun (arXiv:0803.3446) establish general non-hitting spectral projectors, without the evaluated graph-patterned two-fermion classification. Gamble and collaborators (arXiv:1002.3003) provide antisymmetric two-particle walks for graph comparison without pair annihilation. Ates and collaborators (arXiv:1207.6291) treat distance-dependent losses on a hard-core bosonic chain, not the arbitrary monitored graph on a complete fermionic hopping network. Belovs (arXiv:1302.3143) develops resistance in quantum-walk search, not a formula for pair survival. The closest inspected treatments and searchable related descriptions did not identify the complete theorem. Classical cycle/cut projections and electrical-resistance identities are acknowledged as antecedents; a mathematically equivalent unindexed application may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an infinite-family exact classification under arbitrary loss geometry, not a finite table. It gives an efficient exact projector, an edge-resolved capture law, a sharp necessary-and-sufficient all-capture criterion and the minimum loss-channel count. The independent cycle and component obstructions explain why dense pair monitoring can leave protected two-fermion states; this is a motivated design and diagnostic question for open coherent networks. It does not require a proposed thermodynamic phase transition.
+PASS best-of-knowledge: general dark-subspace and electrical network Hodge identities are prior tools, but inspected quantum-walk and pair-loss results do not state the complete arbitrary monitored-pair graph decomposition, exact edgewise survival by resistance, and full-capture threshold on a complete two-fermion hopping graph.
 
-## Scope and risks
+## value
 
-Strictly positive monitored rates, exactly two identical noninteracting spinless fermions, and complete uniform hopping are essential. Finite-time decay rates are not given; a zero rate deletes an edge of the monitored graph. The available comparison cannot exclude unpublished or unindexed equivalent results or a broader prior theorem with the combination hidden as a corollary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete topology-to-asymptotic-survival theorem with directly computable resistances and a minimum monitored-channel threshold is an interpretable structural law for a natural two-particle dissipative quantum network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

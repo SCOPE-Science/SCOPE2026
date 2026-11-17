@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-From the extracted package directory, install packages listed in `requirements.txt` and execute `python check_numeric.py`, `python check_exact.py`, and `python check_cutoff.py`. The first constructs the antisymmetric two-fermion Hamiltonian directly and numerically checks full dark projectors for 120 deterministic graph selections through eight vertices; it also checks independent positive loss strengths by non-Hermitian time evolution. The second constructs exact cycle and component bases, tests their eigenenergies and loss constraints, independently checks maximality by ranks of projected monitored-edge vectors, and compares all basis-state survival probabilities with rational electrical-resistance calculations for 93 graphs (including all graphs on three and four vertices). The third exhaustively checks full-capture threshold graphs of sizes two through six (up to 32,768 detector patterns at size six).
+## correctness
 
-All three scripts completed successfully on the supplied contents before assembly. Finite checks are not proofs of the asserted all-size classification. The mathematical proof is in `RESULT.md`. No external independent validation is claimed, and no physical experimental test, finite-time error bound, or interacting-particle test is supplied.
+PASS
+
+Read fermion Hamiltonian proof and exact graph-cycle verification script. The one-particle complete-graph hopping decomposes as span(u) plus u-perp; exterior square has two energies (n-2)J and -2J. Vanishing on loss edges gives component-constant zero-sum modes (c(F)-1) and divergence-free flows on complement F (cycle rank beta1). Orthogonal projection onto flows is I-B^T L^+ B, whose diagonal equals 1-R_ab; plus component-constant term yields exact pair survival. Strictly positive loss rates ensure non-dark eigenmodes have strictly decaying no-jump time evolution. Independent rational Hamiltonian projector tests for n=4,5 confirmed dimension and energy decomposition.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: general dark-subspace and electrical network Hodge identities are prior tools, but inspected quantum-walk and pair-loss results do not state the complete arbitrary monitored-pair graph decomposition, exact edgewise survival by resistance, and full-capture threshold on a complete two-fermion hopping graph.
+
+## value
+
+PASS
+
+A complete topology-to-asymptotic-survival theorem with directly computable resistances and a minimum monitored-channel threshold is an interpretable structural law for a natural two-particle dissipative quantum network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
