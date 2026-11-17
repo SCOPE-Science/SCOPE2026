@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized parameters and congruence conditions are explicit. The integer \(q\) has order three modulo \(e\), \(e_1=\gcd(e,q-1)=t\), and any zero-sum length must be a multiple of \(t\). Exact base-digit telescoping proves a complete 14-entry digit-sum spectrum with minimum \(2t\), attained only at multiples \(2e,4e,8e\). Every hypothetical \(t\)-term sum reduces to a genuine three-digit multiple of \(e\) with impossible digit sum; explicit coefficients for \(2e\) give equality and uniqueness up to cyclic rotation. Symbolic arithmetic gives the cubic-range inequality. Exact independent finite-state checks support the argument, with the infinite claim proved algebraically.
+## correctness
 
-## Originality — PASS within inspected literature
-The motivating Conjecture 4 of Jacob--Külshammer (arXiv:2204.09403v1, Section 2) and the more general digit-sum method of Breuer--Héthelyi--Horváth--Külshammer (arXiv:1912.03065v1, Proposition 2.22) were compared at statement and implication level. The latter directly supplies the orbit-minimization method; the fourteen-entry spectrum is therefore expressly attributed as an elementary specialization, not a new general method. The inspected sources do not assert the parameter-uniform three-minimizer rigidity or the identified infinite sharpness progression for Conjecture 4. Semantic mathematical-record and literature searches did not locate a prior covering formulation. Because the calculation is short once the general formula is known, independent priority assessment is especially relevant.
+PASS
 
-## Value — PASS
-The motivating open bound has a natural sharpness question at its first unproved level \(k=2\), and the quotient \(14\) is the smallest even index with a nontrivial order-three unit, making this a motivated rather than arbitrary residue slice. The uniform order-three family has moduli of cubic growth \(e/t^3\to4/7\), gives exact extremal lengths and only three possible reduced optimal configurations, and contains infinitely many prime bases. Its value is as a sharpness and rigidity family, not as an independent general algorithm.
+C PASS. t residue classes imply q mod14 is 9 or 11, e integral, gcd(q,e)=1 and ord_e(q)=3; e_1=gcd(e,q−1)=t. For j=1..13, residues r0=j,r1=[qj]14,r2=[q²j]14,r3=j give base-q digits of je via (q r_prev−r_next)/14 and s_q(je)=t/7*(j+[9j]14+[11j]14). The fourteen normalized digit sums are (3,2,3,2,3,4,3,2,3,4,3,4,3,6), uniquely minimized at j=2,4,8. Any zero-sum length is divisible by t. Length t would have genuine three-digit representation <q³ contradicting that digit minimum; coefficient triples of 2e attain 2t, and all optimal solutions reduce to the three cyclic rotations. The cubic inequality e<(t+1)³−1 holds for t≥4; Dirichlet gives infinitely many prime bases q≡11 mod14 (t=7u+5). Independent exact BFS for t=4,5,11,12 verifies finite shortest lengths; analytic modular orbit argument establishes the infinite family.
 
-## Closest sources and limitations
-The broader digit-sum identity and residue-orbit computation already appear in Breuer et al.; the result is a targeted application with a new articulated structural conclusion, not a replacement for that theorem. Inaccessible or unindexed equivalent specializations remain possible. The general Jacob--Külshammer conjecture is not resolved. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS, with a specific specialization risk. Breuer–Héthelyi–Horváth–Külshammer (Prop. 2.22, arXiv:1912.03065) already gives a general digit-sum minimization algorithm for all coprime (q,e). The 14-entry spectrum is an elementary evaluation of that method and must not be claimed as a new general algorithm. Jacob–Külshammer (arXiv:2204.09403, Conjecture 4) motivates the k=2 sharpness question but does not list the two complete progressions t≡4,5 mod7, the uniform 2t equality, or rigidity of all optimal triples. Evaluating the nontrivial parameter-uniform orbit and classifying minimizers provides a specific sharpness witness beyond an uncomputed general algorithm. Explicit caution: the prior formula may allow this computation with little extra work, and unindexed equivalent specializations could cover it.
+
+## value
+
+PASS
+
+V PASS. A proposed bound for zero sums of powers is naturally tested by infinite sharpness families, not merely isolated examples. The q³-level family has e/t³→4/7 and exactly three optimal configurations; it shows where the conjectured k=2 constant cannot improve even along prime q. The motivation is the conjecture's extremal boundary and rigidity, not novelty of the generic digit-minimization method; mathematical value here is a self-contained exact infinite family despite its short orbit enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

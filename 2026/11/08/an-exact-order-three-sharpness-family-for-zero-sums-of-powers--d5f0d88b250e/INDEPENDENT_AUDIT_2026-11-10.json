@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T03:15:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C PASS. t residue classes imply q mod14 is 9 or 11, e integral, gcd(q,e)=1 and ord_e(q)=3; e_1=gcd(e,q−1)=t. For j=1..13, residues r0=j,r1=[qj]14,r2=[q²j]14,r3=j give base-q digits of je via (q r_prev−r_next)/14 and s_q(je)=t/7*(j+[9j]14+[11j]14). The fourteen normalized digit sums are (3,2,3,2,3,4,3,2,3,4,3,4,3,6), uniquely minimized at j=2,4,8. Any zero-sum length is divisible by t. Length t would have genuine three-digit representation <q³ contradicting that digit minimum; coefficient triples of 2e attain 2t, and all optimal solutions reduce to the three cyclic rotations. The cubic inequality e<(t+1)³−1 holds for t≥4; Dirichlet gives infinitely many prime bases q≡11 mod14 (t=7u+5). Independent exact BFS for t=4,5,11,12 verifies finite shortest lengths; analytic modular orbit argument establishes the infinite family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.22 works for arbitrary coprime q,e and therefore dominates the calculation METHOD.",
+          "It does not in the inspected statement explicitly exhibit t≡4,5 mod7 as a sharp family or classify their optimal exponent triples."
+        ],
+        "reasoning": "General computational coverage weakens the novelty increment but does not automatically supply a named extremal witness without the parameter-specific modular-orbit evaluation; special-case priority remains real risk.",
+        "searches": [
+          "zero sums powers order three minimum length twice gcd q minus 1 sharpness Jacob Külshammer t 7u+4 7u+5",
+          "https://arxiv.org/pdf/1912.03065"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2204.09403",
+        "https://arxiv.org/pdf/1912.03065",
+        "Resultary semantic search: zero sums powers order three minimum length twice gcd q minus 1 sharpness Jacob Külshammer t 7u+4 7u+5",
+        "Assigned RESULT.md and artifacts/verify.py",
+        "Independent BFS all residue states for q,e in four admissible cases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jacob–Külshammer Conj.4 asks m(q,e)≤k e1 when e<(e1+1)^(k+1)−1; it is a conjectured bound, not a sharpness construction.",
+          "Breuer et al Proposition 2.22 allows evaluation of m from 14 digit sums, but does not present the two uniform equality sequences."
+        ],
+        "reasoning": "By explicit modular arithmetic and witness triples, the submitted family shows sharpness of the conjectural k=2 constant; this is an articulated extremal conclusion not stated in the inspected earlier source, although it is a small special-case calculation.",
+        "searches": [
+          "zero sums powers order three minimum length twice gcd q minus 1 sharpness Jacob Külshammer t 7u+4 7u+5",
+          "https://arxiv.org/pdf/2204.09403",
+          "https://arxiv.org/pdf/1912.03065"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Breuer et al. Prop. 2.22: m(q,e)=min_{1≤j≤(q^n−1)/e} s_q(je), n=ord_e(q).",
+          "In this family n=3 and (q³−1)/e=14, so only 14 digit sums remain; their residue orbit evaluates to the submitted spectrum."
+        ],
+        "reasoning": "The minimization formalism is a covered general theorem; the claim of novelty is restricted to specific infinite progressions saturating the conjectured k=2 upper bound and their three-minimizer rigidity.",
+        "searches": [
+          "zero sums powers order three minimum length twice gcd q minus 1 sharpness Jacob Külshammer t 7u+4 7u+5",
+          "https://arxiv.org/pdf/1912.03065",
+          "https://arxiv.org/pdf/2204.09403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Prop. 2.22 gives orbit digit-sum expressions but no explicit 14-tuple (3,2,3,2,3,4,3,2,3,4,3,4,3,6) for these two progressions in the material inspected.",
+          "Independent exact digit evaluations for t=4,5,11,12 produce this spectrum and shortest lengths 8,10,22,24."
+        ],
+        "reasoning": "No known exact table of the two infinite sequences and three minimizers identified; the existing algorithm is genuinely noted as possible implicit coverage.",
+        "searches": [
+          "zero sums powers order three minimum length twice gcd q minus 1 sharpness Jacob Külshammer t 7u+4 7u+5",
+          "https://arxiv.org/pdf/1912.03065"
+        ]
+      },
+      "rationale": "O PASS, with a specific specialization risk. Breuer–Héthelyi–Horváth–Külshammer (Prop. 2.22, arXiv:1912.03065) already gives a general digit-sum minimization algorithm for all coprime (q,e). The 14-entry spectrum is an elementary evaluation of that method and must not be claimed as a new general algorithm. Jacob–Külshammer (arXiv:2204.09403, Conjecture 4) motivates the k=2 sharpness question but does not list the two complete progressions t≡4,5 mod7, the uniform 2t equality, or rigidity of all optimal triples. Evaluating the nontrivial parameter-uniform orbit and classifying minimizers provides a specific sharpness witness beyond an uncomputed general algorithm. Explicit caution: the prior formula may allow this computation with little extra work, and unindexed equivalent specializations could cover it.",
+      "residual_risks": [
+        "General Prop. 2.22 already mathematically implies the min-length formula after an easy 14-term table; a different publication may have evaluated the same orbit and sharpness family.",
+        "A conservative novelty reader could regard the modular-orbit evaluation as a routine special case of the earlier algorithm; this is a specific priority/value vulnerability.",
+        "Oxford authorized institutional attempts returned vpn_disconnected but the relevant lawful arXiv PDFs were accessible and inspected, so not a scientific access blocker."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MOTIVATION_NOT_COVERING",
+          "evidence": "Proposes m(q,e)≤k gcd(e,q−1) under cubic threshold for k=2; no explicit two-progressions 2t sharpness construction in inspected claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.09403",
+          "material_read": "Full arXiv lawful PDF accessible; read Conjecture 4, Section 2 hypotheses and surrounding mathematical comparisons, including rendered PDF page 5 (zero-based 4)",
+          "method": "Public arXiv PDF, text and screenshot of relevant theorem",
+          "title": "Congruences for sums of powers of an integer",
+          "trigger": "Defines the k=2 sharpness question (Conjecture 4)"
+        },
+        {
+          "assessment": "METHOD_COVERING_SPECIALIZATION_NOT_EXPLICIT",
+          "evidence": "Proposition 2.22 yields min_j s_q(je) general algorithm. Submitted 14-entry evaluation and infinite optimal witness are direct specialization; novelty confined to sharpness family/rigidity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.03065",
+          "material_read": "Full lawful arXiv PDF available; inspected Proposition 2.22, Remark 2.23 and surrounding theorem/parameter assumptions (PDF pages 13–14 zero-based 12–13)",
+          "method": "Public arXiv PDF text and page screenshots",
+          "title": "The Loewy Structure of Certain Fixpoint Algebras, Part II",
+          "trigger": "General m(q,e) digit-sum formula and possible dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V PASS. A proposed bound for zero sums of powers is naturally tested by infinite sharpness families, not merely isolated examples. The q³-level family has e/t³→4/7 and exactly three optimal configurations; it shows where the conjectured k=2 constant cannot improve even along prime q. The motivation is the conjecture's extremal boundary and rigidity, not novelty of the generic digit-minimization method; mathematical value here is a self-contained exact infinite family despite its short orbit enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2204.09403",
+    "https://arxiv.org/pdf/1912.03065",
+    "Resultary semantic search: zero sums powers order three minimum length twice gcd q minus 1 sharpness Jacob Külshammer t 7u+4 7u+5",
+    "Assigned RESULT.md and artifacts/verify.py",
+    "Independent BFS all residue states for q,e in four admissible cases"
+  ],
+  "disposition": "passed",
+  "final_claim": "For t≡4,5 (mod 7), t≥4, q=2t+1 and e=(q³−1)/14, the minimal nonempty length m(q,e) of a zero sum of powers of q modulo e equals 2t=2gcd(e,q−1), with exactly three cyclically rotated reduced-exponent multiplicity vectors; this is an infinite k=2 cubic-range sharpness family.",
+  "limitations": [
+    "Does not prove Conjecture 4 for all q,e; general digit-sum method is existing work; prime subfamily uses Dirichlet only in q≡11 mod14."
+  ],
+  "residual_risks": [
+    "General Prop. 2.22 already mathematically implies the min-length formula after an easy 14-term table; a different publication may have evaluated the same orbit and sharpness family.",
+    "A conservative novelty reader could regard the modular-orbit evaluation as a routine special case of the earlier algorithm; this is a specific priority/value vulnerability.",
+    "Oxford authorized institutional attempts returned vpn_disconnected but the relevant lawful arXiv PDFs were accessible and inspected, so not a scientific access blocker."
+  ],
+  "schema_version": 1
+}
