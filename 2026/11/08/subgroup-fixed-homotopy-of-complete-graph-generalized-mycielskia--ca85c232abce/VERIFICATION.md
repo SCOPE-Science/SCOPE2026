@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Executable and mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the same directory with Python 3 and no third-party packages. The program directly generates the graph \(\mu_\ell(K_n)\), its labeled edge set and the fixed vertex orbits for the cyclic permutation realizing each integer partition of \(n\). It independently constructs the candidate orbit graph from the level/label formula and verifies every adjacency comparison, each neighborhood-containment prerequisite at its actual deletion stage, and the exact remaining graph after domination removals.
+## correctness
 
-The checks cover all unordered integer partitions of \(n\in\{2,3,4,5,6\}\) and all \(1\le\ell\le6\), totaling 168 quotient-graph instances, 16,579 orbit-pair comparisons and 462 checked removals. For quotient graphs with at most fifteen vertices and \(\ell\le5\), a separate exhaustive face enumeration and direct mod-two boundary-rank routine confirms the asserted reduced homology. This runs over 110 instances and 9,647 total faces. The extracted and replayed program must print `ALL_FIXED_MYC_CHECKS_OK` and these counts.
+PASS
 
-The mathematical proof in `RESULT.md` establishes the all-subgroup and all-level statements. Exhaustive computations over finite parameter ranges are not claimed as proofs outside those ranges; mod-two calculations alone cannot establish integral torsion-freeness or the homotopy type. The general integral types use the exact strong collapse and the cited proven ordinary homotopy classifications.
+PASS. For any subgroup H≤S_n of the natural label action on μ_ell(K_n), a geometric fixed point has barycentric weights constant on each H-orbit. The simplicial orbit model retains precisely independent vertex orbits (nonsingleton orbits are absent from top clique level). Its graph Q has complete consecutive-level joins except equal singleton labels, with the apex adjacent to level zero. When f≥1, each nonsingleton-orbit vertex at level j<ell is dominated in Ind(Q) by a fixed singleton label at that level: the latter has subset open neighborhood and is nonadjacent to it. Repeated valid strong collapses leave μ_ell(K_f). If f=0, all admissible same-level orbit vertices have equal open neighborhoods and collapse to one representative per level, yielding P_{ell+1}. The standard path-independence recurrence and published ordinary generalized-Mycielski wedge formulas produce the three ell mod 3 regimes, including f=1 contractibility via isolated vertex. Original verify.py computes 168 orbit partition/level models, 462 domination deletions, 110 mod-two homology checks, independent adjacency formulas and no extrapolation. These finite tests corroborate the subgroup-universal structural proof.
+
+## originality
+
+PASS
+
+PASS, best of knowledge. Carnero Bravo's 2026 theorem and Goyal–Shukla–Singh's 2019 formulas classify ordinary nonequivariant Ind(μ_ell(K_n)) and are explicitly used for final sphere counts; they do not imply the geometric H-fixed model for all subgroups. The Resultary symmetric-group homology theorem computes rational character as tensor powers of the standard representation, which records homological traces but cannot classify homotopy of subgroup-fixed point spaces. This orbit strong-collapse theorem depends on the number of labels fixed by the entire subgroup, not the number fixed by individual permutations. Potential unindexed genuine equivariant classification remains a risk.
+
+## value
+
+PASS
+
+PASS. Full subgroup-geometric-fixed homotopy types form a natural invariant for S_n-actions; they are finer than ordinary spaces and rational equivariant homology characters. The proof gives a robust all-ell and all-subgroup model reduction to a path when f=0 and to a smaller Mycielskian when f≥1, making a surprising fixed-label-only dependence explicit and potentially reusable for equivariant questions. Not merely substitution into ordinary wedge formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

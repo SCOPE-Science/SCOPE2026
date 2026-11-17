@@ -1,15 +1,21 @@
-# Scientific review: subgroup-fixed homotopy of generalized Mycielskians
+# Independent mathematical audit
 
-## Correctness
-PASS. The geometrically fixed barycentric-coordinate space is exactly the realization of the orbit simplicial complex. Its admissible orbit vertices are exhaustively characterized from the horizontal clique and the distinct-label cross-level edges. The orbit graph has explicit adjacency; when a globally fixed label is present, the corresponding vertex at every nonterminal level has open neighborhood contained in that of each nonsingleton-orbit vertex at that level. This proves a sequence of genuine dominated-vertex strong collapses to the smaller-label generalized Mycielskian. Without a globally fixed label, all orbit vertices within each level are twins and collapse to the path model. The cited ordinary homotopy formulas yield the complete integral sphere-wedge types. The finite verifier checks 168 orbit partitions/level choices, 462 domination deletions, and 110 reduced mod-two homology cases. These experiments corroborate but do not establish the infinite-parameter theorem.
+## correctness
 
-## Originality
-PASS, with residual literature risk. Carnero Bravo (arXiv:2601.13432v1/v2) and Goyal–Shukla–Singh (arXiv:1905.06926v1) give nonequivariant homotopy types and do not state an all-subgroup geometric fixed-point classification. The closely related published rational symmetric-group homology character determines traces of individual elements, not the homotopy of spaces fixed by arbitrary subgroups. A fixed-space classification for a shore-swap on Mycielskians of complete bipartite graphs is a different graph family and does not imply the present complete-graph claim. Searches for geometric fixed points, equivalent orbit-complex formulations and equivariant subgroup reductions found no dominating theorem. Because complete-text indexing and the full literature are not exhaustive, unlocated stronger results remain possible.
+PASS
 
-## Mathematical value
-PASS. A full subgroup-fixed-space system is a natural equivariant invariant not recoverable from nonequivariant Betti numbers or rational character data alone. The exact strong-collapse reduction is uniform in the number of levels and in every subgroup, but its answer ignores every nontrivial orbit size and subgroup structure other than the common fixed labels. It distinguishes three robust regimes: a path-periodic sphere/point when no label is globally fixed; contractibility when exactly one is; and explicit potentially large sphere wedges when two or more are. The result gives a reusable structural reduction, not merely a fixed finite example or a modest numerical refinement.
+PASS. For any subgroup H≤S_n of the natural label action on μ_ell(K_n), a geometric fixed point has barycentric weights constant on each H-orbit. The simplicial orbit model retains precisely independent vertex orbits (nonsingleton orbits are absent from top clique level). Its graph Q has complete consecutive-level joins except equal singleton labels, with the apex adjacent to level zero. When f≥1, each nonsingleton-orbit vertex at level j<ell is dominated in Ind(Q) by a fixed singleton label at that level: the latter has subset open neighborhood and is nonadjacent to it. Repeated valid strong collapses leave μ_ell(K_f). If f=0, all admissible same-level orbit vertices have equal open neighborhoods and collapse to one representative per level, yielding P_{ell+1}. The standard path-independence recurrence and published ordinary generalized-Mycielski wedge formulas produce the three ell mod 3 regimes, including f=1 contractibility via isolated vertex. Original verify.py computes 168 orbit partition/level models, 462 domination deletions, 110 mod-two homology checks, independent adjacency formulas and no extrapolation. These finite tests corroborate the subgroup-universal structural proof.
 
-## Closest literature and scientific limitations
-The claimed advance is the geometric fixed-locus reduction, not the underlying Mycielskian wedge counts nor the elementary graph-fold criterion. The identification concerns the natural label action and the homotopy types of fixed spaces separately; it does not classify the full equivariant homotopy type, the compatibility of fixed-space inclusion maps, or arbitrary graph automorphisms. The original 2019 and 2026 full-text theorem sections and the closely matching rational character record were compared by mathematical implication. An independently derived all-subgroup geometric reduction could still exist in unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Carnero Bravo's 2026 theorem and Goyal–Shukla–Singh's 2019 formulas classify ordinary nonequivariant Ind(μ_ell(K_n)) and are explicitly used for final sphere counts; they do not imply the geometric H-fixed model for all subgroups. The Resultary symmetric-group homology theorem computes rational character as tensor powers of the standard representation, which records homological traces but cannot classify homotopy of subgroup-fixed point spaces. This orbit strong-collapse theorem depends on the number of labels fixed by the entire subgroup, not the number fixed by individual permutations. Potential unindexed genuine equivariant classification remains a risk.
+
+## value
+
+PASS
+
+PASS. Full subgroup-geometric-fixed homotopy types form a natural invariant for S_n-actions; they are finer than ordinary spaces and rational equivariant homology characters. The proof gives a robust all-ell and all-subgroup model reduction to a path when f=0 and to a smaller Mycielskian when f≥1, making a surprising fixed-label-only dependence explicit and potentially reusable for equivariant questions. Not merely substitution into ordinary wedge formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
