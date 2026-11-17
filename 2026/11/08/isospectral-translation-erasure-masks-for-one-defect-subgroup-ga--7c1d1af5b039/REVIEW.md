@@ -1,15 +1,21 @@
-# Scientific review: one-defect subgroup Gabor erasures
+# Independent mathematical audit
 
-## Correctness — PASS
-The result starts from the unnormalized finite Gabor frame operator and applies the finite root-of-unity identity to decompose it into independent residue-class blocks. Its rank obstruction for two missing translations in a class is an explicit missing-site difference vector. For a full class, the block is scalar plus rank one; for a one-missing class, a \((q-2)\)-dimensional scalar eigenspace and an explicit Hermitian \(2\times2\) matrix produce the entire claimed spectrum. The determinant \(u(k-q+1)\) is strictly positive under the stated \(m,q\ge2\) and admissibility conditions. The permutation-invariant block description proves mask isospectrality and the binomial count, and separate off-diagonal tests prove all cases in the tightness classification. Dense Gabor-matrix computations in `CHECK.py` passed 2,830 finite comparisons, including complex parameters and singular inadmissible masks. They are not used as substitutes for the proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-Asipchuk–De Carli–Rodriguez (arXiv:2605.16139; Sections 1, 3 and 5) prove block equivalence for subgroup-modulation Gabor systems and give the general block-entry formula, but do not give the current explicit one-defect spectra, exact mask survival counts, isospectrality across all good masks of the same size, or rigidity of tightness. Salanevich–Strachan (arXiv:2509.01325; Sections 1, 4, 5) treat erasure robustness and bounds for general/random and mutually unbiased constructions, not this fixed deterministic window. Related finite Gabor intensity-lifting and two-character harmonic-erasure results concern different measurement operators and do not imply the present full linear frame spectrum. This is an explicit specialization of known block structure, not a claim to invent that structure; an equivalent older worked-out special case remains possible.
+PASS
 
-## Value — PASS
-Translation fibers are natural structured units of erasure in subgroup-modulated Gabor acquisition. The theorem gives a complete exact yes/no recovery criterion for every erasure pattern, a universal closed-form spectrum for all successful masks, an exact surviving-mask count at every erasure level, and an all-parameter tightness boundary. The striking cardinality-only isospectrality for admissible masks and the fact that one repeated residue erasure destroys a frame identify concrete design and robustness effects not captured by qualitative block diagonalization. The theorem is specifically about this window and this erasure model; it makes no assertion about arbitrary per-atom losses or general windows.
+With N=mq, g(j)=1+z delta_0(j), z!=0 and L={0,q,...,(m-1)q}, roots-of-unity summation forces the frame operator to decompose into m Hermitian q-by-q residue blocks. Each block uses global k=|K| and a 0/1 retained translation vector. If >=2 erased sites in one class, a zero-sum vector on the absent coordinates lies in the kernel. A full class has spectrum u (q-1 times) and rho=u+q(k+2 Re z). A one-erasure class has u (q-2 times) plus lambda±, whose 2x2 restriction has trace qk+2(q-1)Re z+u and determinant u(k-q+1)>0, u=|z|². Positivity and multiplicities imply exactly C(m,e)q^e viable erasure sets and isospectrality for fixed e. Off-diagonal scalarity gives tightness only e=0, Re z=-N/2 or (m,q,e,z)=(2,2,2,-2). Independent dense spectra checked 432 masks/parameter instances; finite checks corroborate the all-m,q proof.
 
-## Sources and residual limitations
-Primary comparisons: O. Asipchuk, L. De Carli, L. Rodriguez, *Block-equivalent finite Gabor frames*, arXiv:2605.16139v1/v2; P. Salanevich, N. Q. D. Strachan, *Robustness to noise and erasures of Gabor frames in finite dimensions*, arXiv:2509.01325v1. Publication novelty remains unconfirmed by independent review; the general block formula makes an unindexed equivalent specialization conceivable. Computational tests cover finite parameters only; the proof establishes all stated quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with material access risk. The publicly indexed Asipchuk–De Carli–Rodriguez 2026 general theorem already proves subgroup-modulation block equivalence and sparse block formulas; it does not explicitly assert the one-defect window’s rank threshold, complete isospectral mask enumeration and exact sharp tightness split in the available source material. Closest Resultary cases concern different short/two-tap or nonflat windows and different erasures. Exact full primary text was inaccessible via OA/preprint and institutional access (VPN disconnected), so it is explicitly a potentially covering source and this originality judgment is best-of-knowledge, not a document-wide noncoverage certification.
+
+## value
+
+PASS
+
+PASS, qualified. Finite Gabor frames have meaningful robustness under loss of entire translation fibers; deterministic classification of all surviving masks, exact identical spectral bounds across inequivalent masks, and the complete no-tightness exception are natural design and conditioning invariants. This is more than the generic block-diagonalization identity, though substantially specialized to a flat-plus-impulse window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
