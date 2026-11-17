@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of joint tangent-polygon fluctuations
+# Independent mathematical audit
 
-The geometric proof is provided in `RESULT.md`. It starts with support-contact tangent intersection geometry, derives the leading cubic-gap formulas for area and perimeter, evaluates exact first and second Poisson Palm moments, obtains the weighted joint central limit by independent truncated blocks, and reduces singularity of the limiting covariance to constant curvature radius by Cauchy–Schwarz.
+## correctness
 
-`verify_poisson_tangent.py` uses Python standard-library arithmetic to construct tangent polygons from actual sampled angles for the support family \(h(\theta)=1-\varepsilon\cos(2\theta)/3\), whose curvature radius is \(1+\varepsilon\cos(2\theta)\). It checks polygonal area and perimeter by independent vertex construction, the disk identities, the cubic local approximations, and leading means and scaled joint covariances for \(\varepsilon=0\) and \(0.55\). The deterministic-seed checker reports `POISSON_TANGENT_GEOMETRY_AND_COVARIANCE_CHECKS_PASSED`.
+PASS
 
-The simulation samples finitely many polygons and tolerates sampling errors; it is not proof of the central limit, the sharp covariance, or historical originality. The general theorem rests on the exact Palm covariance identity and the Poisson-block proof. The proof is restricted to the good-gap conditioning event, on whose complement a circumscribed polygon might not be bounded.
+For successive tangent angular gaps d, local area excess is r(theta)^2 d^3/24+O(d^4), perimeter excess r(theta)d^3/12+O(d^4), uniformly on the exponentially likely good-gap event. One-/two-point Poisson Palm covariance of cubic gap rewards gives local coefficient 720-108-108=504 times integral(wv). A truncated independent-block Lyapunov argument yields joint CLT with λ^(5/2) scaling; O(Σd^4) error is L2-negligible. Substituting w=r²/24 and r/12 gives Σ entries 7/8∫r4, 7/4∫r³, 7/2∫r²; determinant is 49/16[(∫r4)(∫r2)-(∫r3)²], zero iff r is constant, equivalent to h=R+a cosθ+b sinθ and thus a translated disk. Independently recomputed 504 and determinant cancellation at constant r.
+
+## originality
+
+PASS
+
+Best-of-knowledge precise model is Poisson sampling of EXACT supporting tangent normals, with conditional good gaps, and simultaneous area/perimeter fluctuations. Prior Bakó-Szabó-Fodor bounds mean-width variance for random offset hyperplanes, while Calka-Demichel-Enriquez and Hug-Schneider analyze Poisson-Voronoi/offset hyperplanes; they do not present this fixed-support cubic-gap covariance, Gaussian joint law or disk-rigidity determinant. Other published tangent-polygon results concern finite fixed-n heavy area tails, a different scaling regime.
+
+## value
+
+PASS
+
+Provides a concrete geometric statistical test of circularity in the high-intensity limit: separate Gaussian marginals cannot identify disk shape, but singularity of their joint covariance does. The explicit curvature moment matrix and condition of equality are natural shape invariants, not an unmotivated numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For successive tangent angular gaps d, local area excess is r(theta)^2 d^3/24+O(d^4), perimeter excess r(theta)d^3/12+O(d^4), uniformly on the exponentially likely good-gap event. One-/two-point Poisson Palm covariance of cubic gap rewards gives local coefficient 720-108-108=504 times integral(wv). A truncated independent-block Lyapunov argument yields joint CLT with λ^(5/2) scaling; O(Σd^4) error is L2-negligible. Substituting w=r²/24 and r/12 gives Σ entries 7/8∫r4, 7/4∫r³, 7/2∫r²; determinant is 49/16[(∫r4)(∫r2)-(∫r3)²], zero iff r is constant, equivalent to h=R+a cosθ+b sinθ and thus a translated disk. Independently recomputed 504 and determinant cancellation at constant r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bakó-Szabó-Fodor computes mean-width variance estimates for offset hyperplane model, not joint area/perimeter sharp covariance.",
+          "Hug-Schneider stationary Poisson hyperplanes outside K, and Calka et al. Poisson-Voronoi cells containing K, have nonzero offset."
+        ],
+        "reasoning": "Published general approximations do not imply these exact curvature cross-moments and shape-rigidity equality case under a singular tangent-normal measure.",
+        "searches": [
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12266",
+          "https://arxiv.org/abs/1908.09498",
+          "https://doi.org/10.5802/ahl.86"
+        ]
+      },
+      "checked_sources": [
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12266",
+        "https://arxiv.org/abs/1908.09498",
+        "https://doi.org/10.5802/ahl.86",
+        "https://arxiv.org/abs/1802.02808"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work does not use a homogeneous Poisson angular normal process supported on exact supporting lines or derive both area and perimeter joint Gaussian fluctuations.",
+          "The current proof explicitly calculates two negative neighboring-gap Palm boundary layers; replacing them with independent gaps would give incorrect 720 coefficient."
+        ],
+        "reasoning": "The shape test requires the new cross-covariance matrix for the exact tangent model; surveyed prior results do not yield it as a direct corollary.",
+        "searches": [
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12266",
+          "https://arxiv.org/abs/1908.09498"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact-support tangent-normal Poisson sampling differs from random halfplanes with positive offsets around K, and from fixed-sample uniform tangent polygons.",
+          "Different local gap laws and moment integrability invalidate transferring generic random-outer-polytope variance results directly."
+        ],
+        "reasoning": "Compared sampling measures, conditioning and observables; no model-equivalent general theorem located.",
+        "searches": [
+          "Poisson random supporting tangent circumscribed polygon smooth convex body joint area perimeter Gaussian covariance disk rigidity",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12266"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cubic-gap covariance 504 and 49/16 curvature covariance determinant are not in searched existing tables/polytopal spectra; exact unrelated fixed-n Pareto formulas concern different limits."
+        ],
+        "reasoning": "No finite database substitutes for the joint asymptotic CLT and analytic Cauchy-Schwarz equality criterion.",
+        "searches": [
+          "Poisson random supporting tangent circumscribed polygon smooth convex body joint area perimeter Gaussian covariance disk rigidity",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12266"
+        ]
+      },
+      "rationale": "Best-of-knowledge precise model is Poisson sampling of EXACT supporting tangent normals, with conditional good gaps, and simultaneous area/perimeter fluctuations. Prior Bakó-Szabó-Fodor bounds mean-width variance for random offset hyperplanes, while Calka-Demichel-Enriquez and Hug-Schneider analyze Poisson-Voronoi/offset hyperplanes; they do not present this fixed-support cubic-gap covariance, Gaussian joint law or disk-rigidity determinant. Other published tangent-polygon results concern finite fixed-n heavy area tails, a different scaling regime.",
+      "residual_risks": [
+        "A classic circular-spacing process or stochastic-geometry CLT may already contain a reformulation of the exact joint covariance.",
+        "Conditional good-gap model excludes heavy-tail unbounded polygon events; no unconditional area moments or fixed-sample coefficient claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_RANDOM_HYPERPLANE_MODEL",
+          "evidence": "Random offset hyperplanes outside body; no exact tangent-normal Poisson joint area/perimeter covariance.",
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12266",
+          "material_read": "Accessible full Mathematika 2024 HTML article, model definition, variance results and scope",
+          "method": "Web primary full-text reading",
+          "title": "On the variance of the mean width of random polytopes circumscribed around a convex body",
+          "trigger": "Recent full primary study of circumscribed random polytopes"
+        },
+        {
+          "assessment": "ACCESS_LIMIT_BACKGROUND",
+          "evidence": "Stationary Poisson hyperplanes around K, rather than exact tangent-normal sampling; no whole-text absence claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.09498",
+          "material_read": "Accessible arXiv abstract and public source metadata, not complete primary full text",
+          "method": "Abstract/metadata comparison",
+          "title": "Poisson hyperplane processes and approximation of convex bodies",
+          "trigger": "Plausible broader Poisson convex approximation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a concrete geometric statistical test of circularity in the high-intensity limit: separate Gaussian marginals cannot identify disk shape, but singularity of their joint covariance does. The explicit curvature moment matrix and condition of equality are natural shape invariants, not an unmotivated numerical constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Smooth C4 strictly convex with strictly positive curvature radius, and conditioning on all angle gaps <=π/2.",
+    "No fixed-n or unconditioned-moment assertion; no Berry-Esseen bound.",
+    "Exact primary stochastic geometry priority provisional."
+  ],
+  "schema_version": 1
+}

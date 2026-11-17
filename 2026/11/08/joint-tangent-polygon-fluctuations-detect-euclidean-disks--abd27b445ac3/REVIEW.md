@@ -1,15 +1,21 @@
-# Scientific review: joint tangent-polygon fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns homogeneous Poisson support-normal sampling, conditioned on a gap event of exponentially high probability. The exact one- and two-point Palm identities give the cubic-gap mean and covariance, including the two negative neighboring-gap boundary terms. This yields the constant \(504\), which differs from the fixed-sample-size coefficient. A block argument establishes the weighted Gaussian limit. The geometric area and perimeter errors admit local cubic-gap expansions with \(O_K(\sum d_i^4)\) remainders, and the remainder has \(L^2\) order \(O(\lambda^{-3})\), negligible at the claimed fluctuation scale. The Cauchy–Schwarz equality case and periodic support-function ODE prove disk rigidity. The standalone checker independently validates polygon geometry, mean coefficients, and covariance in the disk and noncircular cases; finite simulations do not establish an infinite theorem.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Bakó-Szabó and Fodor, *On the variance of the mean width of random polytopes circumscribed around a convex body* (DOI 10.1112/mtk.12266), analyze random-offset circumscribed halfspaces and provide mean-width variance estimates, not joint sharp covariance for exactly tangent, Poisson-angular halfplanes. Hug and Schneider, *Poisson hyperplane processes and approximation of convex bodies* (arXiv:1908.09498), study stationary hyperplanes and approximation bounds, likewise not this support-only sampling law. Calka, Demichel and Enriquez, *Large planar Poisson–Voronoi cells containing a given convex body* (DOI 10.5802/ahl.86), use a Poisson–Voronoi model. Existing related polygon sampling and random rotation results concern materially different random objects and observables. The claim is the explicit joint covariance and its vanishing-determinant characterization, not a general CLT technique. The main residual risk is an earlier equivalent result under Poisson-spacings or renewal-reward terminology.
+PASS
 
-## Mathematical value — PASS
-Area and perimeter are natural paired approximation errors. Their separate leading fluctuations cannot identify a circle, whereas the joint covariance determinant is exactly zero only for disks. The theorem therefore gives a quantitative, structural inverse-geometric characterization with a sharp covariance matrix and specifies when the conclusion does not transfer (fixed-count tangents and random-offset models). This is not merely a reparametrization of an existing scalar variance bound.
+For successive tangent angular gaps d, local area excess is r(theta)^2 d^3/24+O(d^4), perimeter excess r(theta)d^3/12+O(d^4), uniformly on the exponentially likely good-gap event. One-/two-point Poisson Palm covariance of cubic gap rewards gives local coefficient 720-108-108=504 times integral(wv). A truncated independent-block Lyapunov argument yields joint CLT with λ^(5/2) scaling; O(Σd^4) error is L2-negligible. Substituting w=r²/24 and r/12 gives Σ entries 7/8∫r4, 7/4∫r³, 7/2∫r²; determinant is 49/16[(∫r4)(∫r2)-(∫r3)²], zero iff r is constant, equivalent to h=R+a cosθ+b sinθ and thus a translated disk. Independently recomputed 504 and determinant cancellation at constant r.
 
-## Limitations
-The body must be strictly convex with \(C^4\) support and strictly positive curvature radius; the tangent normals follow a homogeneous Poisson process, and the polygon is conditioned on the good-gap event. No rate of Gaussian convergence or nonsmooth extension is proved. Historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge precise model is Poisson sampling of EXACT supporting tangent normals, with conditional good gaps, and simultaneous area/perimeter fluctuations. Prior Bakó-Szabó-Fodor bounds mean-width variance for random offset hyperplanes, while Calka-Demichel-Enriquez and Hug-Schneider analyze Poisson-Voronoi/offset hyperplanes; they do not present this fixed-support cubic-gap covariance, Gaussian joint law or disk-rigidity determinant. Other published tangent-polygon results concern finite fixed-n heavy area tails, a different scaling regime.
+
+## value
+
+PASS
+
+Provides a concrete geometric statistical test of circularity in the high-intensity limit: separate Gaussian marginals cannot identify disk shape, but singularity of their joint covariance does. The explicit curvature moment matrix and condition of equality are natural shape invariants, not an unmotivated numerical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
