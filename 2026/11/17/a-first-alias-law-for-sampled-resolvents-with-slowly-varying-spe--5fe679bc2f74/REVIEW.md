@@ -1,0 +1,11 @@
+# Review of the first-alias theorem
+
+**Correctness: PASS.** The multiplier identity is exact. The removable zero, off-resonance uniform bound, geometric denominator estimate and evaluation at the first alias give a proof for every continuous nondecreasing damping profile. Regular variation with index less than one supplies both the small-alias parameter and the ratio limit, leaving an exact leading coefficient of one. The supplied numerical checker is supplemental; it is not used for infinite quantifiers. A risk is that the theorem does not address arbitrary normal spectral supports, and this scope is explicit.
+
+**Originality: PASS (subject to bibliographic priority).** The full July 2026 dyadic-resolvent article establishes strong convergence in the unitary setting and no damping-dependent norm theorem. The relevant November 2026 sampled-resolvent article, published later, gives positive-power general upper rates and discrete sharpness examples but not the zero-power logarithmic boundary or this exact first-alias constant for continuous spectra. Searches for aliases involving Riemann-sum resolvents, impulse invariance, logarithmic damping and regular variation found no covering exact result. Unindexed equivalent treatments remain a risk.
+
+**Mathematical value: PASS.** The resolved question is whether a high-frequency damping profile with no positive polynomial smoothing can still make uniform sampled-resolvent recovery possible, and how accurately. The theorem answers the precise convergence question if and only if damping diverges, and provides a sharp quantitative law across the entire regular-variation regime, including logarithmic decay and a first-alias scale that changes numerical step-size requirements.
+
+**Closest literature and limits.** N. Castillo, arXiv:2607.21278 (2026-07-23), and N. Castillo, arXiv:2611.15563 (2026-11-11), are the most relevant fully inspected sources; the latter predates this analysis but postdates the specified anchor and is used for comparison, not eligibility. Scope is normal continuous-frequency multipliers with monotone damping, plus a regular-variation restriction for the sharp equivalent. Historical claims and indexed related literature were compared at the statement/implication level, not used as proof.
+
+Self-review: passed. Independent audit: not yet performed.
