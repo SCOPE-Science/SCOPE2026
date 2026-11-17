@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:57:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each good has ONE Bernoulli(p) common realized utility for every agent, independently across goods. Precommitted disjoint bundles produce independent Bin(k_i,p) success counts; realized EF1 is exactly range<=1. Transfer one Bernoulli from size b to a (b>=a+2), couple U~Bin(a,p), V~Bin(b-1,p) and apply antisymmetry plus monotone-likelihood-ratio order. The (U,V)=(0,1) all-other-zero event yields strict gain >=(b-a-1)p²(1-p)^(m-2). Iterated smoothing gives unique balanced bundle multiset, finite adjacent-interval inclusion-exclusion yields exact P*, and the binomial local CLT/Gaussian Riemann sum gives (2^n-1)/sqrt(n)*(2π q p(1-p))^(-(n-1)/2) for fixed n,p. The m<=n and n=2 boundaries are covered. Independent exact exhaustive small-allocation enumeration agrees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Igarashi–Oh appendix uses likelihood-ratio smoothing for an equality event, a technique reused in the submitted proof.",
+          "Other relevant fair-division publications address online randomized allocation or stochastic utilities sampled by agent, different models."
+        ],
+        "reasoning": "The general likelihood-ratio comparison is a method, not by itself a published theorem covering strict EF1 optimization or the decay constant. However lack of full Igarashi source inspection is a real possibility of broader coverage.",
+        "searches": [
+          "Igarashi–Oh 2026 arxiv2610.34906 EF log-concave smoothing",
+          "Fair division Bernoulli shared-value goods stochastic Schur concavity",
+          "Resultary strict balancing and EF1 outcomes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.34906",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-item-failure-of-expected-fair-optimality-for-ex-post--5030ed809a95",
+        "https://arxiv.org/abs/2609.23577",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/SLOGAN.txt",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Event E0={all Xi equal} is a strict subset of E1={max Xi-min Xi<=1}; its optimizer does not by itself determine E1 optimizer.",
+          "Candidate strict lower bound arises specifically from K(u+1,v,c)-K(u,v+1,c) with width-one range, not the equality indicator."
+        ],
+        "reasoning": "An equality-optimizer theorem does not logically entail strict optimization of the width-one event, nor the sharp Gaussian coefficient (2^n-1)/sqrt(n). No decisive stronger EF1 prior was identified, subject to full-text-access risk.",
+        "searches": [
+          "Igarashi–Oh paper abstract and available descriptions, EF proposition",
+          "Reviewed full candidate proof of range<=1 transfer inequality",
+          "Agent-specific versus common-value EF1 publications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Igarashi–Oh treats probability of ex-post exact EF (all bundle values equal), whereas EF1 allows a one-unit spread.",
+          "Same-day Resultary four-item failure of expected-fair optimality for ex-post EF1 samples agent-specific values; does not share each good realization among all agents."
+        ],
+        "reasoning": "There is no equivalence between maximizing probability of equality and probability of width at most one without extra theorem. The sampled-value correlation and fixed-allocation quantifiers distinguish this result from other EF1 counterexamples.",
+        "searches": [
+          "Resultary semantic search common Bernoulli EF1 shared realized values; range<=1 binomial optimization",
+          "Igarashi–Oh Fair Division of Lotteries arxiv2610.34906 and analogous binomial majorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Candidate supplies finite binomial interval sum for all n,m and p; small (n,m,p)=(3,6,1/2) gives 23/32 balanced versus 9/16 for sizes (1,2,3)."
+        ],
+        "reasoning": "The exact probability function is all-parameter and its optimizing configurations and leading scale are established analytically, not merely a previously known finite lookup table.",
+        "searches": [
+          "Exact realized EF1 success probabilities fixed identical Bernoulli goods",
+          "Resultary two-good EF1 phase and four-item stochastic lottery"
+        ]
+      },
+      "rationale": "PASS, qualified. Igarashi–Oh Fair Division of Lotteries centers exact ex-post envy-freeness with range=0, while this claim optimizes the larger range<=1 EF1 event under common item draws with a strict finite transfer inequality and fixed-population asymptotic. Later Resultary counterexamples with agent-specific Bernoulli realizations use a different stochastic model. General binomial likelihood-ratio arguments are prior tools, not claimed original. Full primary Igarashi–Oh source could not be retrieved through allowed routes (authorized institutional access blocked); compare known theorem descriptions only and retain risk that a hidden general likelihood-ratio lemma implies the EF1 result.",
+      "residual_risks": [
+        "Relevant 2026 Igarashi–Oh full text not read: arXiv/OA unavailable and institutional access returned vpn_disconnected, job 912fc9371f85569ccd82ebca4e7fe346.",
+        "A general unindexed binomial convolution majorization theorem might imply the strict width-one event and potentially remove novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL MATERIAL ONLY; cannot assert entire paper excludes EF1 transfer theorem",
+          "evidence": "Available descriptions emphasize exact envy-freeness and logarithmic/balancing probability; full theorem/appendix unverified.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+          "material_read": "Accessible abstract/bibliographic material and original candidate discussion of proposition and appendix; arXiv full PDF/HTML not retrievable",
+          "method": "arXiv/OA search then authorized institutional retrieval; job 912fc9371f85569ccd82ebca4e7fe346 returned vpn_disconnected",
+          "title": "Fair Division of Lotteries",
+          "trigger": "Same randomized uncertain goods and identical realized values"
+        },
+        {
+          "assessment": "Different model: independently realized agent-good utilities; not covering common realized values",
+          "evidence": "The counterexample allows values to differ by agent for a good, contradicting the candidate shared-value assumption.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-item-failure-of-expected-fair-optimality-for-ex-post--5030ed809a95",
+          "material_read": "Published result summary and model description, not whole scientific file",
+          "method": "Resultary semantic search",
+          "title": "Sharp four-item failure of expected-fair optimality for ex-post EF1 with Bernoulli lottery goods",
+          "trigger": "Potential negative counterexample to balanced EF1"
+        },
+        {
+          "assessment": "Different random online allocation protocol; full text not certified noncovering",
+          "evidence": "The fixed allocation and item-valuation stochasticity here is different from online allocation randomness.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+          "material_read": "Bibliographic/abstract-level scope comparison only",
+          "method": "Literature search",
+          "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+          "trigger": "Potential more general ex-post realized fair-allocation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The gap between ex-ante fairness and ex-post EF1 is a natural risk-of-fairness question; this theorem classifies every optimal pre-realization assignment, gives a sharp positive one-transfer improvement for all population and goods counts, and proves that even optimal eventual realized fairness decays polynomially with exact coefficient. It is an independently useful stochastic fair-division result beyond an elementary binary event probability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.34906",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-item-failure-of-expected-fair-optimality-for-ex-post--5030ed809a95",
+    "https://arxiv.org/abs/2609.23577",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8/REVIEW.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One binary realized good value shared identically by agents; fixed ex-ante allocation; iid p in (0,1); fixed n,p asymptotic. Does not claim agent-specific or heterogeneous probabilities."
+  ],
+  "residual_risks": [
+    "Relevant 2026 Igarashi–Oh full text not read: arXiv/OA unavailable and institutional access returned vpn_disconnected, job 912fc9371f85569ccd82ebca4e7fe346.",
+    "A general unindexed binomial convolution majorization theorem might imply the strict width-one event and potentially remove novelty."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model specifies a single realized Bernoulli value for each good, shared by all agents, and independent values across goods. With common binary utilities, realized EF1 is exactly the event that the largest and smallest realized bundle-success counts differ by at most one. The proof couples a move from bundle size \(b\) to size \(a\) by transferring one Bernoulli trial, compares the success-count distributions in monotone likelihood-ratio order, and pairs antisymmetric summands. It proves the strictly positive improvement \((b-a-1)p^2(1-p)^{m-2}\), including zero-size bundles, for every \(0<p<1\). Iteration gives the unique optimal bundle-size multiset. The exact finite expression follows from interval inclusion–exclusion, and the decay constant from a binomial local limit and a Gaussian Riemann sum. Direct finite enumerations and a separate independent binary-outcome implementation agree with the package's formula. The infinite conclusions rest on proof, not finite enumeration.
+PASS
 
-## Originality — PASS, qualified
+Each good has ONE Bernoulli(p) common realized utility for every agent, independently across goods. Precommitted disjoint bundles produce independent Bin(k_i,p) success counts; realized EF1 is exactly range<=1. Transfer one Bernoulli from size b to a (b>=a+2), couple U~Bin(a,p), V~Bin(b-1,p) and apply antisymmetry plus monotone-likelihood-ratio order. The (U,V)=(0,1) all-other-zero event yields strict gain >=(b-a-1)p²(1-p)^(m-2). Iterated smoothing gives unique balanced bundle multiset, finite adjacent-interval inclusion-exclusion yields exact P*, and the binomial local CLT/Gaussian Riemann sum gives (2^n-1)/sqrt(n)*(2π q p(1-p))^(-(n-1)/2) for fixed n,p. The m<=n and n=2 boundaries are covered. Independent exact exhaustive small-allocation enumeration agrees.
 
-The closest paper is Igarashi and Oh, *Fair Division of Lotteries* (arXiv:2610.34906v1), which studies exact envy-freeness (EF) and gives a binomial/log-concave balancing result for the probability of equality of realized bundles. Its proposition on identical valuations and appendix's likelihood-ratio lemma do not state this EF1 event or its strict finite-horizon optimizer and polynomial decay constant; the conclusion lists EF1 as future research. Chen and Long (arXiv:2609.23577v1) randomize online assignment under fixed valuations rather than the goods' realized common values. Halpern, Psomas and Zhang (arXiv:2602.12359v1) study truthful mechanisms under stochastic valuations. Aloisio et al. (AAMAS 2024) minimize expected maximum envy instead of maximizing the probability of realized EF1. Search queries targeting binomial range probabilities, majorization, identical-valued stochastic goods and EF1 did not expose an equivalent theorem. The stochastic-order ingredient is classical and is not claimed new. A general unindexed majorization theorem could still imply the finite claim, so publication priority requires external confirmation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new question is specifically motivated by the gap from exact EF to EF1 under unrevealed item values. Strict balancing classifies every optimizer for any population and number of goods, while a closed probability formula gives the exact risk. The sharp constant in the \(m^{-(n-1)/2}\) success decay makes precise the limit of guarantees obtainable by a fixed ex-ante EF1 allocation as more uncertain goods arrive. For three agents and six goods with fair Bernoulli values, balanced sizes attain \(23/32\), versus \(9/16\) for \((1,2,3)\). This is not a known-table recomputation, a parameter substitution, or an assertion of a general distribution-free result.
+PASS, qualified. Igarashi–Oh Fair Division of Lotteries centers exact ex-post envy-freeness with range=0, while this claim optimizes the larger range<=1 EF1 event under common item draws with a strict finite transfer inequality and fixed-population asymptotic. Later Resultary counterexamples with agent-specific Bernoulli realizations use a different stochastic model. General binomial likelihood-ratio arguments are prior tools, not claimed original. Full primary Igarashi–Oh source could not be retrieved through allowed routes (authorized institutional access blocked); compare known theorem descriptions only and retain risk that a hidden general likelihood-ratio lemma implies the EF1 result.
 
-## Scope and residual risks
+## value
 
-All goods are exchangeable, have the same fixed \(0<p<1\), and share their realized value across agents. Nothing here proves heterogeneous or correlated-good extensions, independently sampled agent-good values, or a joint limit as the population grows. A strong probabilistic majorization theorem outside the searched literature remains a possible route to coverage. The local central limit calculation is analytic and has not been independently peer-reviewed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The gap between ex-ante fairness and ex-post EF1 is a natural risk-of-fairness question; this theorem classifies every optimal pre-realization assignment, gives a sharp positive one-transfer improvement for all population and goods counts, and proves that even optimal eventual realized fairness decays polynomially with exact coefficient. It is an independently useful stochastic fair-division result beyond an elementary binary event probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

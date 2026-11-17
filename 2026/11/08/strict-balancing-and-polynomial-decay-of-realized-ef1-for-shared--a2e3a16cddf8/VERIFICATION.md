@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The direct exact count enumeration, finite outcome enumeration, and finite-sum formula are implemented separately, with integer arithmetic; the program also checks all tested pair transfers and their explicit positive lower bound. Actual run output:
+## correctness
 
-```
-PASS: exact formula/direct count comparison, optimum, uniqueness: 7920 instances
-PASS: independent complete binary-state enumeration: 1458 instances
-PASS: strict pair transfers and uniform lower bound: 30240 comparisons
-PASS: 3 agents / 6 goods with p=1/2: balanced 23/32; (1,2,3) 9/16
-```
+PASS
 
-The tests cover \(n\in\{2,3,4,5\}\), the finite ranges encoded in the script (up to ten goods for the first three population sizes and eight goods for five agents), and three rational success probabilities. The exact proof of the infinite theorem is contained in `RESULT.md`; enumeration alone establishes no untested case. The Gaussian asymptotic uses the standard local binomial central limit theorem and is not a computer-certified infinite assertion. Independent audit has not been performed.
+Each good has ONE Bernoulli(p) common realized utility for every agent, independently across goods. Precommitted disjoint bundles produce independent Bin(k_i,p) success counts; realized EF1 is exactly range<=1. Transfer one Bernoulli from size b to a (b>=a+2), couple U~Bin(a,p), V~Bin(b-1,p) and apply antisymmetry plus monotone-likelihood-ratio order. The (U,V)=(0,1) all-other-zero event yields strict gain >=(b-a-1)p²(1-p)^(m-2). Iterated smoothing gives unique balanced bundle multiset, finite adjacent-interval inclusion-exclusion yields exact P*, and the binomial local CLT/Gaussian Riemann sum gives (2^n-1)/sqrt(n)*(2π q p(1-p))^(-(n-1)/2) for fixed n,p. The m<=n and n=2 boundaries are covered. Independent exact exhaustive small-allocation enumeration agrees.
+
+## originality
+
+PASS
+
+PASS, qualified. Igarashi–Oh Fair Division of Lotteries centers exact ex-post envy-freeness with range=0, while this claim optimizes the larger range<=1 EF1 event under common item draws with a strict finite transfer inequality and fixed-population asymptotic. Later Resultary counterexamples with agent-specific Bernoulli realizations use a different stochastic model. General binomial likelihood-ratio arguments are prior tools, not claimed original. Full primary Igarashi–Oh source could not be retrieved through allowed routes (authorized institutional access blocked); compare known theorem descriptions only and retain risk that a hidden general likelihood-ratio lemma implies the EF1 result.
+
+## value
+
+PASS
+
+PASS. The gap between ex-ante fairness and ex-post EF1 is a natural risk-of-fairness question; this theorem classifies every optimal pre-realization assignment, gives a sharp positive one-transfer improvement for all population and goods counts, and proves that even optimal eventual realized fairness decays polynomially with exact coefficient. It is an independently useful stochastic fair-division result beyond an elementary binary event probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
