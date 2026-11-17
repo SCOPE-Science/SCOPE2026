@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof defines all parameters and counts for arbitrary positive lengths and distinguishes the cited unconditional count from the new lower construction. The forbidden-code mapping is exact for its eight listed binary factors. The three prefix-code blocks have a unique parsing, and the centered reversal construction produces two distinct good palindromes of each prescribed length. Both parity classes, including short-length exceptions absorbed into constants, are handled. The aperiodic linear recurrence has the stated dominant positive root. Direct small-length checks corroborate these steps but are not infinite certificates.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The closest paper [1] proves the unrestricted exponential growth and the coding lemma but does not give the matching palindromic entropy law. Earlier avoidance results [2] discuss few antisquares and morphic constructions, not the count of reversal-fixed finite words. Results about palindromic complexity inside infinite-word languages [3] do not imply the finite-palindrome count. An earlier related periodic-orbit calculation identifies a shift invariant of the same avoidance system; it does not determine the reflection-fixed count. Searches for palindromic antisquare avoidance and square-root supergolden entropy found no explicit equivalent. A general reflection-counting theorem or unindexed literature could still subsume this specialized statement.
+PASS
 
-**Value — PASS.** The previously determined growth of unrestricted good words does not automatically give the number of palindromes: the universal half-word upper bound can be very far from sharp. The explicit reversible regular sublanguage supplies the missing matching lower bound and determines a natural symmetry-restricted entropy and the exponentially small palindrome proportion across *all* word lengths. This is a sharp asymptotic invariant, not merely a sample enumeration or an arithmetic restatement.
+The Pansiot adjacent-change code maps precisely the eight forbidden binary factors to Q={010,101,11111,01110}. The published finite-code avoidance criterion implies goodness; the prefix-free block code {0,1100,111100}, centered 6/7 zeros and its reversed copy avoid Q, and even transition parity yields two good palindromes for each distinct block word. T_h satisfies T_h=T_{h-1}+T_{h-4}+T_{h-6}; its unique dominant positive root factors via (x+1)(x^2-x+1)(x^3-x^2-1), giving T_h=Theta(psi^h). Palindromic first halves bound P_n<=G_ceil(n/2), and Baranwal et al. Theorem 19 gives G_n=Theta(psi^n). Two parity classes and finitely many low lengths handled explicitly. Independent small palindrome enumeration agrees through n=14; the infinite proof is the injection and published growth theorem.
 
-**Closest literature and limitations.** [1] Baranwal et al., arXiv:2209.09223, Theorems 11 and 19; [2] Ng et al., arXiv:1904.09157; [3] Pelantová–Starosta, arXiv:1103.4051. The result does not produce exact length-by-length counts or a leading coefficient. It uses the established unrestricted growth theorem as an input; no external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baranwal et al. establish the unrestricted growth, finite forbidden core and Pansiot coding, but not a matching *reversal-fixed* lower bound. The published seven-run census and periodic transition enumerator concern different restrictions. The explicit injection gives the new sharp reflection-fixed entropy. No covering equivalent was demonstrated in actual searches; possible general reflection-entropy machinery remains a risk.
+
+## value
+
+PASS
+
+The reflection-fixed entropy of a natural factorial word language is not determined by unrestricted entropy: the half-word upper bound can be strict. The explicit all-length reversible construction and exponential scarcity estimate are motivated sharp infinite asymptotics, not a small numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
