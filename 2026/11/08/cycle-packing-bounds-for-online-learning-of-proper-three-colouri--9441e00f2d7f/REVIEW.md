@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-theoretic scope and equality-query concept class are explicit. The proof derives exact dimensions of trees and cycles by complete adaptive trees and independent counting obstructions, extends the construction to every attached tree, proves Cartesian additivity, and bounds arbitrary graphs via a disjoint-cycle spanning subgraph. Boundary cases include empty graphs, non-three-colourable graphs, isolated vertices, and both cycle parities. A standalone exhaustive finite recurrence corroborates the structural conclusions and the seven-vertex boundary example.
+## correctness
 
-**Originality — PASS within accessible comparisons.** Earlier cycle-only dimensions cover a special case, not the arbitrary-graph packing inequality or the full pseudoforest equality. The 2017 list-colouring obstruction work concerns minimal forbidden list assignments, and the 2017 VC/Littlestone complexity work concerns hardness for general represented concept classes. Neither inspected full text gives the stated graph invariant. Accessible research-index searches for exact equivalences and cycle-packing variants produced no stronger dominating statement. Residual historical-priority risk under other graph homomorphism/learning terminology remains.
+PASS
 
-**Mathematical value — PASS.** The theorem provides a sharp parameterized online-learning bound for every graph, a complete classification for pseudoforests, and an exact acyclicity criterion for maximal online dimension. Vertex-disjoint cycles, rather than total cycle count, are necessary: the seven-vertex two-square example has online dimension six. The statement is a natural structural bridge between graph cycles and online query complexity, beyond mere computation or a finite exercise.
+The query universe is Boolean colour-equality tests (v,a), not multiclass answers. An isolated vertex gives one bit of online depth, a tree with m vertices exactly m: an adaptive root query determines a color with two nonempty branches, then descendants can be queried against one of their two parent-allowed colors. For each cycle C_ell, the explicit complete tree achieves ell-1 levels, and the number of proper colorings 2^ell+2(-1)^ell, with colour-symmetric positive root branch size at most (2^ell+2)/3 < 2^(ell-1), precludes depth ell. The same cycle tree extends to attached trees, giving ell+m-1 for unicyclic connected graphs. Products of nonempty graph concept classes on disjoint query universes have additive Ldim; monotonicity under deletion of edge constraints and a spanning subgraph comprising nu disjoint cycles plus isolated vertices gives Ldim(C3(G)) <= n-nu. For pseudoforests additivity and exact component dimensions attain the bound. If G is not 3-colorable, its class is empty and the bound remains valid. Independently computed minimax dimensions for seven small path/cycle/unicyclic examples and the exact packing bound.
 
-The result has not undergone independent mathematical verification. The general cycle-packing bound is not asserted to be exact for arbitrary multiply cyclic graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact cycle-only Ldim=n-1 and path/forest dimensional facts are published earlier and receive no originality credit individually. No inspected earlier result states or implies the universal vertex-disjoint-cycle packing bound across every graph together with equality for all pseudoforests. It is a meaningful broad extension via cycle extraction and attached-tree constructions, though derivational proximity to known results and alternative teaching/graph-homomorphism terminology are residual priority risks.
+
+## value
+
+PASS
+
+Vertex-disjoint cycle packing is a natural obstruction to online identifiability of a proper 3-colouring via binary equality queries. The sharp graph-wide parameter bound and complete exact dimension on all pseudoforests connect online learning to topological cycle structure; the iff forest criterion is a useful structural classification. The result does not claim every graph saturates the bound or that a small finite computation is itself an infinite theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T13:50:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and check_cycle_packing.py; prior complete cycle-only theorem; independent full minimax checks of n<=5 examples."
+      ],
+      "rationale": "The query universe is Boolean colour-equality tests (v,a), not multiclass answers. An isolated vertex gives one bit of online depth, a tree with m vertices exactly m: an adaptive root query determines a color with two nonempty branches, then descendants can be queried against one of their two parent-allowed colors. For each cycle C_ell, the explicit complete tree achieves ell-1 levels, and the number of proper colorings 2^ell+2(-1)^ell, with colour-symmetric positive root branch size at most (2^ell+2)/3 < 2^(ell-1), precludes depth ell. The same cycle tree extends to attached trees, giving ell+m-1 for unicyclic connected graphs. Products of nonempty graph concept classes on disjoint query universes have additive Ldim; monotonicity under deletion of edge constraints and a spanning subgraph comprising nu disjoint cycles plus isolated vertices gives Ldim(C3(G)) <= n-nu. For pseudoforests additivity and exact component dimensions attain the bound. If G is not 3-colorable, its class is empty and the bound remains valid. Independently computed minimax dimensions for seven small path/cycle/unicyclic examples and the exact packing bound.",
+      "residual_risks": [
+        "The upper bound need not be tight on multiply cyclic graphs; proof of arbitrary-graph bound derives from a cycle-only theorem plus standard monotonicity/additivity but has a broad parameter domain.",
+        "Finite examples do not prove all graph classes; general proof is constructive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov8 cycle-only theorem is for connected simple cycles and supplies no general arbitrary-graph inequality.",
+          "Oct26 path theorem covers Ldim of a path but not graphs containing cycles or pseudoforests."
+        ],
+        "reasoning": "Neither the path theorem nor cycle theorem alone states the broad cycle-packing inequality; the extension requires monotonicity under a disjoint-cycle spanning subgraph and a proof of unicyclic attachments. It is a short but nontrivial natural structural synthesis.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+          "Resultary Oct26 proper three-color path Littlestone dimension",
+          "Resultary vertex-color equality query graph cycle packing upper bound"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+        "https://arxiv.org/abs/1705.09517",
+        "Resultary graph colouring online dimensions searches November 10 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior proves Ldim(C_ell)=ell-1; tree case can be recovered from earlier path cases only for paths, not arbitrary branching trees.",
+          "For general G, select vertex-disjoint cycles and discard other edges: then product additivity and subclass monotonicity yield n-nu; for unicyclic graphs extend an adaptive cycle tree through rooted trees."
+        ],
+        "reasoning": "These steps establish a new broadly quantified inequality and exact pseudoforest class beyond the prior cyclic statement. Because deductions are elementary once the cycle case is known, potential earlier implicit statement is explicitly reserved as a priority caveat.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+          "Resultary Oct26 three-colour path theorem",
+          "Assigned RESULT.md cycle packing proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Nov8 cycle paper defines the identical Boolean concept class h_f(v,a)=1[f(v)=a] and proves only Ldim(C_ell)=ell-1 (with a VC theorem).",
+          "Submitted bound involves maximum vertex-disjoint cycles nu(G) in arbitrary finite G, and equality on every tree/unicyclic component forest."
+        ],
+        "reasoning": "Same observable and feedback model, so earlier cycle theorem fully covers one proof ingredient, but not the new graph class and packing parameter statement; comparing parameters and objects avoids overstating novelty.",
+        "searches": [
+          "Resultary: Littlestone dimension proper three colorings graph cycle packing pseudoforest online equality query",
+          "Resultary: pseudoforest Littlestone proper three color query vertex online tree cycle n minus unicyclic",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact cycle-only ranks are known for every cycle; the assigned boundary example two C4 sharing one vertex has n=7, nu=1 and exact Ldim=6 by exhaustive minimax.",
+          "No inspected graph table supplies all-pseudoforest formula n-u(G) or the universal n-nu bound."
+        ],
+        "reasoning": "The theorem is not a finite census disguised as novelty: the precise graph parameter upper bound holds for every graph and the complete natural pseudoforest equality class is proved algebraically. The single bicyclic example illustrates the distinction between disjoint and total cycles.",
+        "searches": [
+          "Resultary cycle packing dimension graph 3 colour pseudoforest seven vertices two squares",
+          "Resultary exact shattering proper colouring cycle graphs"
+        ]
+      },
+      "rationale": "The exact cycle-only Ldim=n-1 and path/forest dimensional facts are published earlier and receive no originality credit individually. No inspected earlier result states or implies the universal vertex-disjoint-cycle packing bound across every graph together with equality for all pseudoforests. It is a meaningful broad extension via cycle extraction and attached-tree constructions, though derivational proximity to known results and alternative teaching/graph-homomorphism terminology are residual priority risks.",
+      "residual_risks": [
+        "Full literature on graph-homomorphism hypothesis classes and online teaching may encode the same packing bound; no global priority certification.",
+        "The arbitrary-graph inequality is an elementary deduction from known cycle result, monotonicity and additivity; value stems from natural quantified graph bound/classification, not new cycle formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: cycle subcase Ldim=n-1, NOT arbitrary-graph packing or full pseudoforest equality",
+          "evidence": "Prior theorem restricts to C_n and proves n-1 with same concept representation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+          "material_read": "Full 9,111-character RESULT.md including exact Ldim and VC proofs, assumptions, verification and limitations",
+          "method": "Connected GitHub fetch_file Resultary/2026 Nov8 RESULT.md, blob 0acde1e1b4055529e65c9b2f9a84c5db46b55c74",
+          "title": "Exact VC and Littlestone ranks for proper three-colourings of finite cycles",
+          "trigger": "Same ternary colouring hypotheses and binary vertex–colour equality queries"
+        },
+        {
+          "assessment": "BACKGROUND NONDECISIVE: not relied on for absence of structural bound",
+          "evidence": "General computational-hardness problem, not the exact proper-three-colour graph invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09517",
+          "material_read": "Public abstract and stated complexity focus, not complete primary theorem text",
+          "method": "Bibliographic/abstract comparison only",
+          "title": "Inapproximability of VC Dimension and Littlestone’s Dimension",
+          "trigger": "Potential dominating general complexity results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+        "Assigned all-graph proof and unicyclic extension."
+      ],
+      "rationale": "Vertex-disjoint cycle packing is a natural obstruction to online identifiability of a proper 3-colouring via binary equality queries. The sharp graph-wide parameter bound and complete exact dimension on all pseudoforests connect online learning to topological cycle structure; the iff forest criterion is a useful structural classification. The result does not claim every graph saturates the bound or that a small finite computation is itself an infinite theorem.",
+      "residual_risks": [
+        "Natural synthesis is close to established cycle-only case; residual question whether equivalent graph-wide theorem is already documented."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment; not a third-party historical-priority certification.",
+    "Independent finite diagnostics logged at independent_checks.log; finite checks do not replace all-domain mathematical proofs.",
+    "The complete 7–9 entry Git tree was retrieved and tree SHA matched at the frozen commit; publication files contain operational provenance and no public changes were made."
+  ],
+  "schema_version": 1
+}
