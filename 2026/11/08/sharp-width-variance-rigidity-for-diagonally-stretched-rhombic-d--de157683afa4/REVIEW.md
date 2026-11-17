@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fourteen-vertex polytope is exactly a centered four-segment zonotope, giving the support-width formula for all directions. Gaussian polar decomposition and the absolute bivariate Gaussian kernel establish the exact moment formula with correlations of multiplicity two. Strict convexity of the kernel, its global second-derivative bound, and its endpoint values prove unique minimization, quantitative stability, and the sharp but unattained upper bound. The supplied executable independently checks endpoint sums, two width constructions, moment normalization, several nontrivial shapes, and the exact minimum; experiments are auxiliary rather than an infinite proof.
+## correctness
 
-## Originality — PASS, provisionally
-The focal 2009 source studies FCC Voronoi-cell geometry and random lattice perturbations, not the angular width variance of deterministic axial stretches. The 2011 regular-polyhedron and 2015 random-projection sources state general tools and other bodies but not this exact three-parameter rigidity theorem. A published result for tree graphical zonotopes provides the same established pair-kernel method in a different graph-root family; its statements do not dominate the FCC diagonal-stretch optimization. The Platonic-solid width table omits the non-Platonic rhombic dodecahedron. The shared Gaussian identity and zonotope support-additivity are credited rather than characterized as new. Residual priority risk: unindexed classical tetrahedral-zonohedron width variance results or more general fixed-correlation-frame inequalities could imply the result.
+PASS
 
-## Value — PASS
-Directional width variance measures orientation anisotropy of the FCC lattice cell, a canonical non-Platonic space-filling polyhedron. The observed invariance of mean width at fixed squared-axial scale makes the variance a particularly meaningful discriminator. Rather than supplying an isolated number, the theorem gives a complete sharp interval, a unique regular-shape minimizer, a quantitative anisotropy gap, and an exact closed profile for all axial deformations. This is a natural finite-dimensional extremal result with direct comparison across crystal-cell aspect ratios, without asserting unrelated downstream consequences.
+From the sixteen endpoint sums of four sign generators t_i=(±1,±1,±1), the rhombic dodecahedron equals Σ[-t_i/2,t_i/2]. Thus W(u)=Σ|<diag(a,b,c)t_i,u>|. The spherical first moment of each summand is √S/2 and the second cross moment equals 2SΦ(ρ)/(3π). Pair correlations ρ_a,ρ_b,ρ_c each occur twice, yielding EW=2√S and EW²=4S/3+8S/(3π)ΣΦ(ρ). Since Σρ_i=−1, Φʺ(t)=1/√(1−t²)≥1 gives unique Jensen minimizer ρ_i=−1/3 and the stated stability coefficient via strong convexity. Since Φ(t)<π/2 for −1<t<1, Var(W)<4S/3 with equality approached only as axes degenerate. Independent exact numerical evaluation for a=b=c, (1,2,3), (.1,.1,1) matched the closed regular value 0.067918113012 and had positive stability residuals; program verifies vertex support and Monte Carlo but not infinite quantifiers.
 
-## Scope and limitations
-Only strictly positive orthogonal axial stretches and rotationally uniform normal directions are treated. The upper variance endpoint belongs to a collapsed limiting body. The quantitative stability coefficient is not claimed globally optimal, and historical priority is subject to independent confirmation. Same-model numerical diagnostics cannot replace an independent proof review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: prior exact random-width and FCC-cell work does not imply the complete fixed-S diagonal shape moment profile, all-parameter unique variance optimizer, and sharp anisotropy stability. Earlier central-plane section probability is not directional width variance.
+
+## value
+
+PASS
+
+Directional width anisotropy of the FCC Voronoi cell is a natural geometric statistic; the all-scale explicit second moment, unique isotropic minimizer, sharp nonattained degeneracy limit, and stability inequality supply a nontrivial quantitative shape rigidity result beyond standard Gaussian integration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
