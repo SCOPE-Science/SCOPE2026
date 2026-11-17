@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The unrestricted argument is the direct algebraic collision classification in `RESULT.md`. Its nonstandard steps are the factorization of the two-value collision equation, explicit exclusion of the fixed/extraneous points, conversion of the off-diagonal count to a quadratic-character sum, and its interpretation as an elliptic trace in characteristic at least five. The proofs for characteristics two and three avoid invalid elliptic smoothness assumptions.
+## correctness
 
-Execute `python3 verify.py` from a directory containing that standalone script. It uses only the standard library and constructs finite fields as polynomial quotients by explicit irreducible polynomials; it verifies that every nonzero field element has its asserted inverse. The program enumerates the two-point sum multiplicities and squares them to compute the actual ordered energy. It compares those counts with the formulas in the result for 23 prime fields and nine proper extension fields, and checks the Frobenius recurrence in two quadratic extensions.
+PASS
 
-Expected successful output is `VERIFY_OK prime_field_cases=23 extension_cases=9 direct_energies=32 Frobenius_recursions=2 characteristic_branches=2,3,>=5`. This is a finite cross-check of the formulas, not a proof for all finite fields. The elliptic trace recurrence uses the standard Frobenius-eigenvalue theorem for elliptic curves; its proof is not recreated here. Historical uniqueness is not certified, and no independent mathematical audit has been performed.
+For odd characteristic, ordered pairs with fixed first-coordinate sum s≠0 reduce to z=t(1-t), h(z)=1+χ(1-4z), f(z)=(1-2z)/z². The collision factors as (z-w)(z+w-2zw). Correct diagonal 2q-5 and off-diagonal character sum on cubic (1-4z)(1-4z²) yield the claimed elliptic trace; p=3 cubic degenerates; p=2 Frobenius identifies inverse-square and inverse-graph energies. Independent ordered pair-histogram checks q=5,7,11,13,17,19 and explicit GF9 give exact predicted energies. Finite tests do not prove all q.
+
+## originality
+
+PASS
+
+Exact fixed inverse-square graph energy and two-frequency fourth moment are not present in the Resultary matches or accessible earlier inverse-graph and general additive-energy literature. Prior quartic graph and inverse graph are different functions/constraints; their formulas do not imply this elliptic trace. Inaccessible plausible character-sum article remains a risk.
+
+## value
+
+PASS
+
+The fixed nonsingular genus-one trace controls energies over every extension field and yields a non-polynomial exact moment, a natural additive-combinatorial invariant beyond a small numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
