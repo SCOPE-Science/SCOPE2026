@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:45:26.030430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inspected RESULT.md and checker.py use the canonical full-Laplacian Euclidean simplex in 1^⊥, not lattice-equivalent coordinates. Verified the known vertex-transitive metric lemma: facet normals are L⁺ e_i, equal squared lengths tr((L⁺)²)/(2m), so R=√12 and r=(2m tr((L⁺)²))^(−1/2). The prism Laplacian spectrum is common cyclic band 2−2cos(2πj/m) (j=1..m−1) plus periodic 4−2cos(2πj/m); the Möbius ladder has the same first band and antiperiodic 4−2cos((2j+1)π/m). Their reciprocal-square traces are A_m and B_m from the theorem. The common band contributes (m²−1)(m²+11)/720. Sampling the absolutely summable cosine Fourier series of (4−2cos θ)^−2 gives the exact positive difference (m q^m/3)[2/(√3(1−q^(2m)))+m(1+q^(2m))/(1−q^(2m))²]. Independent exact rational matrix inversions for m=3,4,5,6 yielded trace gaps 2/25, 125/3528, 5570/393129, 179/33800 respectively and agreed with the displayed expression. Asymptotics A_m,B_m~m⁴/720 and A−B~m²q^m/3 yield relative gap 120q^m/m² and absolute gap 720√10 q^m m^(−9/2). Infinite m follows analytically; finite inversions only corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Azimi and Farrokhi Corollaries 4.7 and 5.4 provide entrywise pseudoinverse matrices for both graph families; those data can be squared and summed.",
+          "General simplex metric lemma covers any connected vertex-transitive graph but has no comparison for twisted/untwisted ladders."
+        ],
+        "reasoning": "Prior entrywise and all-graph formulas give tools or raw data, not the displayed positive closed difference without performing a nontrivial spectral sum and comparison. Stronger input data are noted rather than hidden.",
+        "searches": [
+          "https://arxiv.org/abs/2306.10497",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+          "https://arxiv.org/abs/2110.09931"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exponentially-small-inradius-gap-between-prism-and-m-bius-lap--fce010f93d91",
+        "https://www.researchgate.net/publication/371728286_Explicit_formulas_for_matrices_associated_to_ladder_circular_ladder_and_Mobius_ladder_graphs",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+        "https://arxiv.org/abs/2110.09931",
+        "https://arxiv.org/abs/1706.07085"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Metric lemma turns a reciprocal-square-trace gap into the inradius inequality; full prior identity has no closed comparison.",
+          "Exact positive difference comes from separating odd Fourier aliases in the sampling of (4−2cos θ)^−2, then deriving exponential asymptotics."
+        ],
+        "reasoning": "These steps are substantive new mathematics relative to the cited precursor statements, though in principle computable from Azimi’s stronger entrywise data.",
+        "searches": [
+          "https://arxiv.org/abs/2306.10497",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+          "https://arxiv.org/abs/2110.09931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The canonical Euclidean inradius is exactly (N∑λ^−2)^−1/2 by the earlier vertex-transitive theorem.",
+          "Periodic vs half-shifted second Laplacian bands are different, leading to a positive q^m gap."
+        ],
+        "reasoning": "Equivalent formulation through biharmonic index BH=N∑λ^−2 is acknowledged. The new claimed contribution is not the metric lemma but the explicit cross-family inequality and sharp rate.",
+        "searches": [
+          "Laplacian simplex prism Möbius ladder inradius biharmonic index reciprocal square trace exponential gap",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+          "https://arxiv.org/abs/2306.10497"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact computed squared-trace gap at m=3 is 2/25, independently reproduced with rational inverses; all-m formula includes q=(2−√3) exponential.",
+          "Existing circular/Möbius tables emphasize Kirchhoff indices, spanning trees and pseudoinverses, not a biharmonic-index ordering."
+        ],
+        "reasoning": "No identified exact prior table states the strict Euclidean inradius gap or asymptotic; a hypothetical unindexed biharmonic-index table could change priority.",
+        "searches": [
+          "Laplacian simplex prism Möbius ladder inradius biharmonic index reciprocal square trace exponential gap",
+          "https://arxiv.org/abs/2306.10497",
+          "https://arxiv.org/abs/2110.09931"
+        ]
+      },
+      "rationale": "PASS on best-of-knowledge priority for the precise two-family metric comparison. The known general vertex-transitive simplex theorem already supplies inradius in terms of tr((L⁺)²), and Azimi–Farrokhi supply exact pseudoinverse entries for circular and Möbius ladders. These establish ingredients from which the new traces can be computed, but their inspected formulas/results do not assert this squared-trace difference, its strict sign and sharp exponentially small inradius comparison. The nontrivial periodic/antiperiodic Fourier-aliasing identity provides the new comparison. An earlier unlocated closed-form biharmonic-index comparison remains a meaningful risk.",
+      "residual_risks": [
+        "A previously published explicit biharmonic-index/Frobenius-norm formula for circular vs Möbius ladders may implicitly establish the same strict sign; accessible Azimi paper does not state it.",
+        "The general inradius formula and entire pseudoinverse matrices are known; only the two-family metric comparison, positivity and sharp exponential difference are potentially new.",
+        "Proof concerns the intrinsic full-Laplacian metric; arbitrary unimodular simplex coordinates do not preserve Euclidean radii."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_PRECISE_COMPARISON",
+          "evidence": "Provides stronger entrywise pseudoinverse formulas but does not itself state Frobenius-square comparison, strict inradius ordering or q^m asymptotic.",
+          "identifier_or_url": "https://www.researchgate.net/publication/371728286_Explicit_formulas_for_matrices_associated_to_ladder_circular_ladder_and_Mobius_ladder_graphs",
+          "material_read": "Accessible full manuscript body, circular-ladder and Möbius-ladder sections, in particular Corollaries 4.7 and 5.4 giving pseudoinverse formulas and related Kirchhoff results",
+          "method": "full-text theorem and formula comparison",
+          "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Möbius ladder graphs",
+          "trigger": "same exact graph families and pseudoinverse data"
+        },
+        {
+          "assessment": "PARTIAL_GENERAL_COVERAGE",
+          "evidence": "Establishes r=(n∑_{j>1}λ_j^−2)^−1/2 and R=√k(k+1), not prism-vs-Möbius evaluation or sharp gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+          "material_read": "Full published RESULT.md, hypotheses and complete barycentric-facet proof",
+          "method": "full-text source proof read",
+          "title": "Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii",
+          "trigger": "general inradius/circumradius formula"
+        },
+        {
+          "assessment": "BACKGROUND_LIMITED",
+          "evidence": "Defines equivalent spectral quantity and does not by abstract establish the two-ladder strict order; no whole-document negative claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.09931",
+          "material_read": "Bibliographic abstract and accessible summary of BH(G)=N∑λ^−2; not full result-by-result inspection",
+          "method": "abstract comparison",
+          "title": "The biharmonic index of connected graphs",
+          "trigger": "equivalent spectral invariant"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Introduces simplex object, while target fixes canonical Euclidean metric and adds a very specific pair comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.07085",
+          "material_read": "Abstract and context that columns of graph Laplacian form simplices; specific full geometry not claimed as new",
+          "method": "bibliographic/full-text background comparison",
+          "title": "Laplacian Simplices",
+          "trigger": "geometric source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural pair of cubic vertex-transitive graphs with the same order and Euclidean circumradius provides a motivated test of whether a global spectral inradius detects a boundary twist. The strict all-m order and exponentially small sharp gap are an independently useful quantitative distinction not supplied by the general metric lemma, Kirchhoff indices or tree-count identities.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exponentially-small-inradius-gap-between-prism-and-m-bius-lap--fce010f93d91",
+    "https://www.researchgate.net/publication/371728286_Explicit_formulas_for_matrices_associated_to_ladder_circular_ladder_and_Mobius_ladder_graphs",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+    "https://arxiv.org/abs/2110.09931",
+    "https://arxiv.org/abs/1706.07085"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All graphs unweighted, connected and simple, m≥3; fixed canonical Euclidean embedding.",
+    "Exact matrix verifications for m=3..6 do not replace spectral proof for all m."
+  ],
+  "residual_risks": [
+    "A previously published explicit biharmonic-index/Frobenius-norm formula for circular vs Möbius ladders may implicitly establish the same strict sign; accessible Azimi paper does not state it.",
+    "The general inradius formula and entire pseudoinverse matrices are known; only the two-family metric comparison, positivity and sharp exponential difference are potentially new.",
+    "Proof concerns the intrinsic full-Laplacian metric; arbitrary unimodular simplex coordinates do not preserve Euclidean radii."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_PRECISE_COMPARISON",
+      "evidence": "Provides stronger entrywise pseudoinverse formulas but does not itself state Frobenius-square comparison, strict inradius ordering or q^m asymptotic.",
+      "identifier_or_url": "https://www.researchgate.net/publication/371728286_Explicit_formulas_for_matrices_associated_to_ladder_circular_ladder_and_Mobius_ladder_graphs",
+      "material_read": "Accessible full manuscript body, circular-ladder and Möbius-ladder sections, in particular Corollaries 4.7 and 5.4 giving pseudoinverse formulas and related Kirchhoff results",
+      "method": "full-text theorem and formula comparison",
+      "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Möbius ladder graphs",
+      "trigger": "same exact graph families and pseudoinverse data"
+    },
+    {
+      "assessment": "PARTIAL_GENERAL_COVERAGE",
+      "evidence": "Establishes r=(n∑_{j>1}λ_j^−2)^−1/2 and R=√k(k+1), not prism-vs-Möbius evaluation or sharp gap.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-vertex-transitive-laplacian-simplices-have-spectral-inradii-and--841b23980b76",
+      "material_read": "Full published RESULT.md, hypotheses and complete barycentric-facet proof",
+      "method": "full-text source proof read",
+      "title": "Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii",
+      "trigger": "general inradius/circumradius formula"
+    },
+    {
+      "assessment": "BACKGROUND_LIMITED",
+      "evidence": "Defines equivalent spectral quantity and does not by abstract establish the two-ladder strict order; no whole-document negative claim.",
+      "identifier_or_url": "https://arxiv.org/abs/2110.09931",
+      "material_read": "Bibliographic abstract and accessible summary of BH(G)=N∑λ^−2; not full result-by-result inspection",
+      "method": "abstract comparison",
+      "title": "The biharmonic index of connected graphs",
+      "trigger": "equivalent spectral invariant"
+    },
+    {
+      "assessment": "BACKGROUND",
+      "evidence": "Introduces simplex object, while target fixes canonical Euclidean metric and adds a very specific pair comparison.",
+      "identifier_or_url": "https://arxiv.org/abs/1706.07085",
+      "material_read": "Abstract and context that columns of graph Laplacian form simplices; specific full geometry not claimed as new",
+      "method": "bibliographic/full-text background comparison",
+      "title": "Laplacian Simplices",
+      "trigger": "geometric source"
+    }
+  ]
+}

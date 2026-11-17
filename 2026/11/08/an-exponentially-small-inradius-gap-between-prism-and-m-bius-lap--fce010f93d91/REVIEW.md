@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-Laplacian intrinsic metric is defined explicitly. The barycentric-coordinate argument proves a unique inball center for any vertex-transitive graph, and the average squared-radius identity proves the circumball. Fourier diagonalization identifies both graph spectra with one common low band and different periodic/antiperiodic high bands. The classical cotangent expansion evaluates the low band's reciprocal-square sum; an absolutely convergent differentiated Poisson kernel evaluates both high bands and gives a termwise positive difference. The leading asymptotic follows from its exponential factor and the fourth-order common term. Exact rational pseudoinverses independently corroborate eight parameter values (up to twenty vertices); their role is corroboration, not infinite proof.
+## correctness
 
-**Originality — PASS, historical priority provisional.** The graph Laplacian simplex and general transitive inradius formula are expressly credited to prior work. The two explicit pseudoinverses in Azimi–Farrokhi (Corollaries 4.7 and 5.4) could, after squaring and summing, be used to derive the two traces. But their examined comparison results concern Kirchhoff indices and spanning trees, not reciprocal *square* traces, explicit strict prism-versus-Möbius inradius order, or sharp exponentially small rate. The current exact two-family metric comparison is neither an identical statement nor an automatic quotation of a previously displayed number. Related graph-energy comparisons use a different spectral functional. A previous equivalent biharmonic-index calculation is an acknowledged residual risk; search results do not constitute proof of global novelty.
+PASS
 
-**Value — PASS.** The two canonical polytope families have equal dimension, graph regularity, unique centers, facet contact counts, and circumradius. The strict positive identity detects a geometric effect invisible to those coarse invariants; the exact exponential asymptotic identifies how quickly twisting an otherwise matching cyclic graph erases the difference. This is a motivated infinite-family metric separation, not an arbitrary small numerical gain. It does not imply analogous comparisons for arbitrary cubic graphs.
+The inspected RESULT.md and checker.py use the canonical full-Laplacian Euclidean simplex in 1^⊥, not lattice-equivalent coordinates. Verified the known vertex-transitive metric lemma: facet normals are L⁺ e_i, equal squared lengths tr((L⁺)²)/(2m), so R=√12 and r=(2m tr((L⁺)²))^(−1/2). The prism Laplacian spectrum is common cyclic band 2−2cos(2πj/m) (j=1..m−1) plus periodic 4−2cos(2πj/m); the Möbius ladder has the same first band and antiperiodic 4−2cos((2j+1)π/m). Their reciprocal-square traces are A_m and B_m from the theorem. The common band contributes (m²−1)(m²+11)/720. Sampling the absolutely summable cosine Fourier series of (4−2cos θ)^−2 gives the exact positive difference (m q^m/3)[2/(√3(1−q^(2m)))+m(1+q^(2m))/(1−q^(2m))²]. Independent exact rational matrix inversions for m=3,4,5,6 yielded trace gaps 2/25, 125/3528, 5570/393129, 179/33800 respectively and agreed with the displayed expression. Asymptotics A_m,B_m~m⁴/720 and A−B~m²q^m/3 yield relative gap 120q^m/m² and absolute gap 720√10 q^m m^(−9/2). Infinite m follows analytically; finite inversions only corroborate.
 
-The closest sources are Braun–Meyer (arXiv:1706.07085), Lin (arXiv:2110.09931), Azimi–Farrokhi (arXiv:2306.10497), and the published general vertex-transitive simplex formula. No independent evaluation of the proof or scientific priority has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-of-knowledge priority for the precise two-family metric comparison. The known general vertex-transitive simplex theorem already supplies inradius in terms of tr((L⁺)²), and Azimi–Farrokhi supply exact pseudoinverse entries for circular and Möbius ladders. These establish ingredients from which the new traces can be computed, but their inspected formulas/results do not assert this squared-trace difference, its strict sign and sharp exponentially small inradius comparison. The nontrivial periodic/antiperiodic Fourier-aliasing identity provides the new comparison. An earlier unlocated closed-form biharmonic-index comparison remains a meaningful risk.
+
+## value
+
+PASS
+
+A natural pair of cubic vertex-transitive graphs with the same order and Euclidean circumradius provides a motivated test of whether a global spectral inradius detects a boundary twist. The strict all-m order and exponentially small sharp gap are an independently useful quantitative distinction not supplied by the general metric lemma, Kirchhoff indices or tree-count identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
