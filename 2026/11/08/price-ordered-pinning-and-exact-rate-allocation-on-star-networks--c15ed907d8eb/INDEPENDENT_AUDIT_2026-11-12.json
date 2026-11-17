@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:52:03.298325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive Schur complement of pinned star L+diag u−λI makes t_i=1+u_i−λ>0 and hub constraint u0≥λ−m+Σ1/t_i necessary and sufficient. Convex target-cost minimization with 0≤α≤p0 produces t_i=max(1−λ,sqrt(α/p_i)); complementary slackness determines α as upper endpoint or unique interior gλ root. Irreducible Z-matrix ground vector has strictly positive coordinates, and equality in concavity of λ_min excludes distinct budget maximizers. gλ(p0) and αλ are nondecreasing in λ, proving irreversible hub/leaf activation. All-active α=p0 gives the affine cost F=(p0+Σp_i)λ−mp0−Σp_i+2sqrt(p0)Σsqrt(p_i). Independently computed secular eigenvalues and constrained numerical optima for four heterogeneous instances agree; numerical checks are bounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older polygon inequality results optimize EDGE conductances for λ2 of the unpinned Laplacian; this is diagonal vertex gains maximizing λ_min, so not equivalent.",
+          "General pinned-Laplacian SDP and finite-budget uniform-cost results are earlier work; heterogeneously priced star support laws not directly stated."
+        ],
+        "reasoning": "Do not mistake the natural star graph family for the earlier edge-weight optimization or treat general SDP solvability as exact support allocation. Same-date biclique source is closest and its p=1 extension must be disclosed.",
+        "searches": [
+          "Resultary: price-ordered pinning star spectral gain",
+          "Resultary: exact priced-star spectral-gap polygon threshold",
+          "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md",
+        "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-priced-star-spectral-gap-allocation-and-the-polygon-thresh--d350c417a5ce/RESULT.md",
+        "https://arxiv.org/abs/0710.2716"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026/11/8 Kp,q theorem covers p,q>=2 only, with p=1 algebraic extension plausible but not formally within hypotheses.",
+          "Jafarizadeh 2022 uses uniform total-gain budget and prespecified pin locations, not arbitrary independent per-vertex prices.",
+          "Zhou et al. give numerical LMI design with importance-based price coefficients, not the stated exact star activation theorem."
+        ],
+        "reasoning": "Star-specific hub activation monotonicity, distinct leaf price entry events, exact two-price critical budgets are proven by an independent direct Schur dual. Closely related general biclique derivation reduces the margin of novelty; accepted only as a motivated unaddressed boundary with additional support conclusions.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md",
+          "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Kp,q result explicitly assumes both part sizes p,q>=2; its stated theorem does not include K1,m.",
+          "Its Schur/KKT proof remains structurally applicable if one formally puts p=1; this is important near-overlap, not claimed absent."
+        ],
+        "reasoning": "The star is the one-vertex-part boundary of a biclique, but this boundary is excluded by the printed stronger theorem. The separate star theorem specifies irreversible leaf and hub support, and a simple dual scalar gλ, not explicitly stated by that prior theorem.",
+        "searches": [
+          "Resultary: exact budget optimal diagonal pinning star graph K1,m heterogeneous vertex prices",
+          "Resultary: exact heterogeneous-price pinning on complete bipartite networks",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed table with general p0,p1,...,pm and all budget phases located.",
+          "Two-price branch identifies different critical formulas depending P<Q or P>Q; generic eigenvalue spectral tables omit optimize-over-gains supports."
+        ],
+        "reasoning": "A graph-spectrum table or SDP numeric solver is not an exact all-price active-set census. Unindexed source risk retained.",
+        "searches": [
+          "Resultary: diagonal vertex pinning star exact thresholds tables",
+          "web: pinned star network optimal diagonal gains different node cost eigenvalue minimization analytical"
+        ]
+      },
+      "rationale": "Best-of-knowledge original star-specific all-budget arbitrary-vertex-price theorem with irreversible support transitions, subject to a serious near-coverage risk from a contemporaneous Kp,q bipartite-pinning theorem whose proof plausibly extends to p=1.",
+      "residual_risks": [
+        "A specialist may treat Kp,q p=1 as a routine extension and establish prior coverage; historical originality is accordingly most qualified.",
+        "Jafarizadeh and Zhou may have unindexed appendices with exact star-cost results not captured by bounded inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Near-coverage: explicit p,q>=2 excludes star but proof extends with modest work",
+          "evidence": "The proof x_i=q+u_i−t,y_j=p+v_j−t applies algebraically at p=1; novelty of mere two-root reduction is limited.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md",
+          "material_read": "Complete RESULT.md finding and analytic KKT/Schur complement and cost proof",
+          "method": "GitHub published full source",
+          "title": "Exact heterogeneous-price pinning on complete bipartite networks",
+          "trigger": "Potential general theorem subsuming star by p=1"
+        },
+        {
+          "assessment": "Uniform gain cost and fixed controlled set; does not prove arbitrary p_i support phase law",
+          "evidence": "Budget ∑d_i≤d_L and prespecified pinned set distinguish optimization domains.",
+          "identifier_or_url": "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+          "material_read": "Full accessible HTML text: problem (10), cost sum d_i, complete/star graph sections",
+          "method": "Published full-text ResearchGate HTML",
+          "title": "Pinning Control of Dynamical Networks With Optimal Convergence Rate",
+          "trigger": "Same rate objective with diagonal gains"
+        },
+        {
+          "assessment": "Same convex-design motivation but does not present exact arbitrary-price star classification",
+          "evidence": "Node-importance weighted budget and semi-definite/numerical allocation methods.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/",
+          "material_read": "Readable full PMC HTML: problem formulation and numerical strategies",
+          "method": "Primary full web HTML",
+          "title": "Enhancing speed of pinning synchronizability",
+          "trigger": "Explicit weighted gain budget and LMI"
+        },
+        {
+          "assessment": "Different fixed vertices and optimized edge conductances, not diagonal pinning",
+          "evidence": "Laplacian λ2 edge-price polygon condition cannot be substituted for λ_min(L+diag u).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-priced-star-spectral-gap-allocation-and-the-polygon-thresh--d350c417a5ce/RESULT.md",
+          "material_read": "Published RESULT theorem and description (Resultary search, not all full proof)",
+          "method": "Resultary indexed result",
+          "title": "Exact priced-star spectral-gap allocation and the polygon threshold",
+          "trigger": "Same graph called star but different variables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unweighted star with independently priced hub and leaves is a natural boundary network where support may change over budgets. Its exact unique allocation and irreversible activation, including hub turn-on and two-price transitions, give a meaningful complete structural solution instead of only a generic SDP. The value depends on the star-specific support and explicit phases, not on claiming the shared KKT machinery as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialist may treat Kp,q p=1 as a routine extension and establish prior coverage; historical originality is accordingly most qualified.",
+    "Jafarizadeh and Zhou may have unindexed appendices with exact star-cost results not captured by bounded inspection.",
+    "No Lean/expert verification is asserted; source VERIFICATION.md external channels remain unchanged.",
+    "Existing public metadata retain provenance; import is not ready."
+  ],
+  "schema_version": 1
+}

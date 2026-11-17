@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the price-ordered pinning theorem
+# Independent mathematical audit
 
-Run `python3 verify_star.py` with Python 3 and the standard library. The executable reconstructs the scalar hub/leaf dual allocation; separately obtains the smallest pinned-star eigenvalue using its secular equation; checks selected rational two-price identities with exact fractions; checks random heterogeneous gain assignments and budgets against the claimed optimum; and checks monotonic activation and affine behavior for randomly chosen positive prices.
+## correctness
 
-The packaged script reports 549 rational cases, 400 heterogeneous scalar/secular checks, 6,000 feasible competitor comparisons and 7,600 activation tests, totaling **14,549 supplemental checks passed**.
+PASS
 
-The script evaluates finite cases only; it does not prove the all-parameter theorem. The analytic proof is given in `RESULT.md`, via a positive leaf-block Schur complement, convex duality, the irreducible symmetric Z-matrix ground-state property and a convex projected epigraph. All costs, eigenvalues and normalization assumptions used in the script agree with the statement in that file. The literature comparison is a self-review and not an independent originality certificate.
+The positive Schur complement of pinned star L+diag u−λI makes t_i=1+u_i−λ>0 and hub constraint u0≥λ−m+Σ1/t_i necessary and sufficient. Convex target-cost minimization with 0≤α≤p0 produces t_i=max(1−λ,sqrt(α/p_i)); complementary slackness determines α as upper endpoint or unique interior gλ root. Irreducible Z-matrix ground vector has strictly positive coordinates, and equality in concavity of λ_min excludes distinct budget maximizers. gλ(p0) and αλ are nondecreasing in λ, proving irreversible hub/leaf activation. All-active α=p0 gives the affine cost F=(p0+Σp_i)λ−mp0−Σp_i+2sqrt(p0)Σsqrt(p_i). Independently computed secular eigenvalues and constrained numerical optima for four heterogeneous instances agree; numerical checks are bounded.
+
+## originality
+
+PASS
+
+Best-of-knowledge original star-specific all-budget arbitrary-vertex-price theorem with irreversible support transitions, subject to a serious near-coverage risk from a contemporaneous Kp,q bipartite-pinning theorem whose proof plausibly extends to p=1.
+
+## value
+
+PASS
+
+The unweighted star with independently priced hub and leaves is a natural boundary network where support may change over budgets. Its exact unique allocation and irreversible activation, including hub turn-on and two-price transitions, give a meaningful complete structural solution instead of only a generic SDP. The value depends on the star-specific support and explicit phases, not on claiming the shared KKT machinery as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical review: price-ordered star pinning
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a pinned star, eliminating its positive leaf diagonal block yields the necessary and sufficient inequalities \(t_i>0\), \(t_i\ge 1-\lambda\) and \(u_0\ge \lambda-m+\sum_i t_i^{-1}\). Minimize the priced gains subject to these inequalities. Strict feasibility proves strong convex duality; the leaf minimizers of \(p_i t+\alpha/t\) are \(t_i=\max\{1-\lambda,\sqrt{\alpha/p_i}\}\), and the hub multiplier is in \((0,p_0]\). The dual derivative identifies the unique scalar root or endpoint. Positive Perron eigenvectors exclude different optimal gains; the convex epigraph yields concavity of the budget-to-rate curve. Fixed-price activation follows from monotonicity in the rate, and the full-activation affine formula follows by substitution. No finite enumeration is used to prove this all-parameter claim. The provided source script reproduces 14,549 supplemental rational and numerical checks; it cannot provide independent verification or substitute for the proof.
+PASS
 
-## Originality — PASS on inspected evidence, with qualification
+The positive Schur complement of pinned star L+diag u−λI makes t_i=1+u_i−λ>0 and hub constraint u0≥λ−m+Σ1/t_i necessary and sufficient. Convex target-cost minimization with 0≤α≤p0 produces t_i=max(1−λ,sqrt(α/p_i)); complementary slackness determines α as upper endpoint or unique interior gλ root. Irreducible Z-matrix ground vector has strictly positive coordinates, and equality in concavity of λ_min excludes distinct budget maximizers. gλ(p0) and αλ are nondecreasing in λ, proving irreversible hub/leaf activation. All-active α=p0 gives the affine cost F=(p0+Σp_i)λ−mp0−Σp_i+2sqrt(p0)Σsqrt(p_i). Independently computed secular eigenvalues and constrained numerical optima for four heterogeneous instances agree; numerical checks are bounded.
 
-The strongest matching antecedent is Li–Duan–Chen, *Cost and Effects of Pinning Control for Network Synchronization* (arXiv:0710.2716, 2007-10-15), whose public text gives star gain-cost criteria for a pinned hub or uniform leaf gains. Those specialized controls do not give an optimum over all independent gains with arbitrary positive per-vertex prices, and do not imply the present price-sorted phase classification. Zhou et al., *Enhancing speed of pinning synchronizability* (Scientific Reports 5, 17459, 2015), give an LMI approach to choosing pinning gains, so the general SDP is known; the full readable public text was limited, and possible exact special-case overlap remains a priority risk. Shafi–Arcak–El Ghaoui, *Graph Weight Allocation to Meet Laplacian Spectral Constraints* (IEEE TAC 2012), was inspected in full, including its mathematical optimization constraints: it varies edge weights and node masses rather than additive diagonal independent pinning gains. Orouskhani–Jalili–Yu, *Optimizing Dynamical Network Structure for Pinning Control* (2016), optimize an eigenratio and graph structure. Boyd (ICM 2006) provides the general convex spectral-design framework; this is expressly prior work. The 2007 Sorrentino et al. pinning-controllability paper gives general motivation, but only its abstract was materially inspected. No inspected source proves the precise arbitrary-price star theorem; publication priority still requires specialist verification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-positive-price, all-budget and all-star-size classification solves a natural constrained spectral design problem. It replaces an SDP by nested scalar roots, proves uniqueness, specifies irreversible price-sorted leaf activation, separately tracks hub activation, and gives the exact high-budget linear regime and closed-form two-price transitions. These are useful structural design rules beyond the known fixed-hub or all-leaves strategies, not simply a single-instance calculation. The restriction to fixed stars and scalar pinned consensus limits the conclusion's generality appropriately.
+Best-of-knowledge original star-specific all-budget arbitrary-vertex-price theorem with irreversible support transitions, subject to a serious near-coverage risk from a contemporaneous Kp,q bipartite-pinning theorem whose proof plausibly extends to p=1.
 
-## Limits and residual risks
+## value
 
-The result does not cover directed, signed or non-unit spoke networks, gain caps, generalized masses, nonlinear plant models or general graphs. General convex SDP pinning allocation is already known. Access to a complete high-resolution rendering of the Zhou et al. article was limited, leaving a concrete specialist-priority risk. The finite verifier is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unweighted star with independently priced hub and leaves is a natural boundary network where support may change over budgets. Its exact unique allocation and irreversible activation, including hub turn-on and two-price transitions, give a meaningful complete structural solution instead of only a generic SDP. The value depends on the star-specific support and explicit phases, not on claiming the shared KKT machinery as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
