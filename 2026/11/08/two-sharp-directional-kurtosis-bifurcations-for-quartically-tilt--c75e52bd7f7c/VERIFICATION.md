@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python check_quartic_zonal.py` with Python 3 and SymPy. The script computes exact spherical even-monomial expectations independently and checks the proposed closed formula at rational parameters. It also checks all three structural symbolic identities and the contrasting quadratic-tilt strict-monotonicity identity as exact rational-function identities, and repeats a finite grid of sharpness diagnostics (not used as a proof). Actual successful execution recorded:
+## correctness
 
-```
-SYMBOLIC_DERIVATIVE_AND_ENDPOINT_DIFFERENCE_IDENTITIES_OK
-DIRECT_EXACT_INDEPENDENT_SPHERICAL_MONOMIAL_CHECKS_OK 352
-EXACT_FULL_CLASSIFICATION_GRID_DIAGNOSTICS_OK 20412
-EXACT_INTERIOR_STABILITY_IDENTITY_OK
-ALL_CHECKS_PASSED
-```
+PASS
 
-Proof beyond the finite grid is self-contained in RESULT.md. The verification does not certify all numerical data by exhaustive finite search, any arbitrary-weight extension, or independent mathematical audit.
+Normalized even sphere moments yield exact K(t)=C N/D². Differentiating yields N'D−2ND'=48u[((n+2)(n+4)−15u)t−6(n+4)], so at most one stationary point, a minimum. Exact endpoint numerator N(1)D(0)²−N(0)D(1)²=−24u B gives the separate max transition; the rational square deficit proves strict interior stability. n=3,4, n=5, u>0, all n≥11 and equality boundaries checked algebraically. Independent exact SymPy derivatives, endpoint identities, stability, and rational spherical moment tests all passed; finite checks corroborate, not prove infinite result.
+
+## originality
+
+PASS
+
+The fixed-sphere anisotropic quartic angular tilt produces two exact geometric transitions and a stability identity not implied by the inspected primary radial-kurtosis article, weighted-sphere general methods, or published nearby fourth-moment claims. Best-of-knowledge PASS, with explicit unindexed-identity risk.
+
+## value
+
+PASS
+
+The first positive even zonal tilt beyond quadratic has a nontrivial oblique minimizer and high-dimensional independent endpoint exchange, both of which are absent for the lower quadratic tilt; complete sharp directional L4/L2 equivalence and strict stability are mathematically informative exact invariants, not numerical samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
