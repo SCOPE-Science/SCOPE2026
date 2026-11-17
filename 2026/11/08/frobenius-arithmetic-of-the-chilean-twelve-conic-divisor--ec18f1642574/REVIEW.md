@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof separates established geometric facts from new arithmetic deductions. The nondegenerate nine-point dual-flex geometry and the twelve-conic incidence are specified for smooth cubics of nonzero \(j\)-invariant in characteristic at least five. A complete check of 84 dual Hesse determinants verifies that no triple-collinearity degeneration occurs away from the explicitly excluded Hesse factors. The normalization is a finite union of smooth conics and is therefore a \(\mathbf P^1\)-bundle over a finite étale base over finite fields. The normalization fiber and singular-point Galois sets are explicitly enumerated; the Grothendieck identity and all-extension zeta formula follow from scissors and cycle-count identities. An exhaustive finite group enumeration verifies all ten types, and the explicit elliptic curves satisfy the necessary Frobenius and degree-three-embedding conditions. Characteristic-two/three and zero-\(j\) boundary cases are excluded rather than extrapolated.
+PASS
 
-## Originality
+The established Chilean geometry gives exactly 12 smooth conics indexed by complementary affine lines in F3^2, meeting at 9 eight-branch flex-tangent dual points plus 12 ordinary nodes indexed by parallel pairs. The inspected exact dual-Hesse determinant algorithm excludes extra degeneracy under smoothness, char>=5 and j!=0. Normalization scissors gives [D]=(L+1)[12 conics]+[9 flex]+[12 parallel pairs]-[72 nonincidences]-[24 ordered parallel pairs]. Smooth conics over finite fields are P1, so Frobenius fixed-point and zeta identities hold over all extensions. Independent generation of all 432 AGL(2,3) affine maps and all five incidence sets reproduced the nine distinct first-degree count polynomials; separately inspected source verifier enumerates the ten full cycle signatures, with both order-eight classes sharing one. Explicit E5 and E7 point counts, 3-torsion trace and flex torsor explain one- and zero-point examples. Verified proof hypotheses exclude j=0, p<=3 and standard embedding in the F7 example. No finite sampling substitutes for all-extensions scissors proof.
 
-PASS, conditional on the documented priority risk. Pokora--Szemberg, Kohel--Roulleau--Sarti, and Dolgachev--Laface--Persson--Urzúa develop the geometric Chilean conic configuration and its singularities, but the inspected relevant sections do not provide the finite-étale motivic class or the complete arithmetic point-count and zeta formulas, nor the two explicit one-point and zero-point realizations. Dedicated comparisons to related conic-arrangement, Halphen, and dual-Hesse records disclosed no equivalent arithmetic classification. The arithmetic statements are not claimed to make the underlying twelve-conic geometry original. An earlier unlocated arithmetic deduction is still possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The natural reduced divisor has a configuration of twelve components and twenty-one singular points, and its arithmetic varies sharply under Frobenius despite fixed geometric incidence. The ten conditional point-count polynomials and the exact all-extension zeta rule distinguish descent of components, branches, and singular points. Two explicit smooth plane cubics realize unusually extreme rational-point behavior: one point over \(\mathbb F_5\) without a rational component and zero points over \(\mathbb F_7\). Such distinctions are not recoverable from geometric component counts alone, and are potentially useful in arithmetic studies of Halphen/Hesse configurations.
+PASS best of knowledge: the earlier primary works construct and classify the Chilean geometric conic configuration, not the full finite-field Frobenius-fixed-point class, complete ten-type arithmetic table, or explicitly realized point-free and one-point twists of that divisor. The affine flex torsor rather than a linear E[3] representation is essential. The general normalization identity is standard, but its application and exhaustive Galois incidence classification to this natural configuration constitute a distinct result. A previously unnoticed arithmetic specialization in the primary works remains a risk.
 
-## Sources and limitations
+## value
 
-The three original 2020 preprints cited in `RESULT.md` supply the geometric arrangement. The present result remains conditional on characteristic at least five and nonzero \(j\)-invariant, does not claim every affine Frobenius signature is realizable, and has not undergone independent audit. Finite certificates do not independently establish the cited geometric incidence. Historical priority cannot be ruled out absolutely.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Chilean configuration is a natural classical algebraic-geometric divisor; explicit zeta functions and fields with no rational components or no rational points give meaningful arithmetic and descent invariants. The complete 432-element affine-type classification and exceptional realized twists are useful, rather than a random table slice; no general theorem beyond this natural configuration is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
