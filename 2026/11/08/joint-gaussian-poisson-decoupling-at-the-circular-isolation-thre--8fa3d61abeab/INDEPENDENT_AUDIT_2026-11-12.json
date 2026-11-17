@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:00:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform n-point circular spacings, a graph is connected unless at least two gaps exceed r, hence K=max(1,H), while each isolated vertex corresponds exactly to two adjacent long gaps. With E_i independent Exp(1), gaps E_i/S_n, t_n=nr_n=(log n+x)/2, the fixed-threshold binomial exceedance B has mean c sqrt(n) and variance asymptotic c sqrt(n), with normalized CLT. The random-threshold discrepancy is O_P(log n)=o_P(n^(1/4)), via |S_n−n|=O_P(sqrt(n)); thus K has the stated Gaussian limit. Given H=h long gaps, long-gap locations are uniform and the kth falling factorial moment of singleton vertices is (h)_k(h−1)_k/(n−1)_k, tending c^(2k) when h/sqrt(n)→c. Conditional Poisson and unconditional Gaussian therefore decouple. Dirichlet simplex gives a_j=(1−jr)_+^(n−1); E[HI]=2n a2+n(n−2)a3, E[H]=n a1, E[I]=n a2 and Cov(K,I)=Cov(H,I)−P(H=0)E I→2c². Independent exact evaluation at x=0 for n=100,1000,10000,100000 showed covariance 0.714,1.168,1.551,1.783 approaching 2. This convergence experiment does not prove the limit; analytic expansion does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huillet treats connected component length distributions for arcs on a circle; the nearby Resultary statement treats two-vertex component covariance at r=c/n, not this isolate window."
+        ],
+        "reasoning": "Broader exact finite distribution may imply the current result after asymptotic analysis, but the inspected full-text earlier theorems do not explicitly provide the new mixed-scale convergence and 2e^(−x) covariance.",
+        "searches": [
+          "circle geometric random graph joint normal component count poisson isolates covariance gaps",
+          "https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-covariance-crossover-for-two-vertex-components-on-a-random-geo--4982033b033b"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components",
+        "https://doi.org/10.1239/aap/1059486818",
+        "https://doi.org/10.2307/3213617",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-covariance-crossover-for-two-vertex-components-on-a-random-geo--4982033b033b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huillet uniform compositions give E[(I)_k|H=h]=(h)_k(h−1)_k/(n−1)_k; applying h~c sqrt(n) yields Poisson isolates while independently controlling the exponentially-normalized long-gap count yields Gaussian components."
+        ],
+        "reasoning": "These calculations show the conditional composition premise can be transformed into the new mixed-limit theorem; a known premise is not automatically a stated earlier consequence, but priority risk of an implicit derivation remains.",
+        "searches": [
+          "circle geometric random graph joint normal component count poisson isolates covariance gaps",
+          "https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huillet 2003 establishes the conditional uniform-composition distribution of component sizes and asymptotic Poisson/normal regimes for other radius scalings. The submitted conditional singleton factorial moments specialize that known finite distribution."
+        ],
+        "reasoning": "The finite conditional composition identity is covered. The mixed n^(1/4)-Gaussian component and finite-Poisson isolate joint limit at nr=(log n+x)/2 with residual covariance is an additional double scaling, not one of the inspected regimes.",
+        "searches": [
+          "circle geometric random graph joint normal component count poisson isolates covariance gaps",
+          "https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite conditional singleton laws and exact gap-exceedance probabilities were previously known; no inspected exact limit table for this window and this pair of counts matched the theorem."
+        ],
+        "reasoning": "The exact finite identities alone are not claimed new. The contribution is the asymptotic joint scaling and residual raw covariance, which are not static-table values.",
+        "searches": [
+          "circle geometric random graph joint normal component count poisson isolates covariance gaps",
+          "circular random geometric graph component isolate mixed Gaussian Poisson independent limiting covariance"
+        ]
+      },
+      "rationale": "Huillet (2003) gives exact uniform conditional cyclic compositions and different asymptotic regimes, which are credited. The inspected primary full text does not identify this critical intermediate joint limit or its residual cross-covariance, while other circular results concern edge–isolate or two-vertex-component covariance rather than K versus I.",
+      "residual_risks": [
+        "Holst–Hüsler (1984) complete article was unavailable and may contain an earlier joint intermediate-scale limit; requires later human priority check.",
+        "Huillet’s finite composition law is prior; the submitted joint limit and raw covariance are a new derived specialization, potentially implicit in an older theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FINITE_DISTRIBUTION_AND_OTHER_LIMIT_REGIMES_PRIOR",
+          "evidence": "Derives exact cyclic gap/composition law. Inspected scaling sections distinguish its Poisson-component regime nr~log n and fixed-intensity Gaussian regime nr~constant from this mixed isolates threshold nr=(log n+x)/2.",
+          "identifier_or_url": "https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components",
+          "material_read": "Accessible complete author-uploaded 2003 primary full-text transcription including finite conditional composition distribution, limit regimes, and propositions on component sizes",
+          "method": "lawful full-text online HTML transcription and in-document section searches",
+          "title": "Random covering of the circle: the size of the connected components",
+          "trigger": "same uniform fixed-n circular gaps and component-size distribution"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNRESOLVED_ACCESS",
+          "evidence": "Cannot exclude a joint intermediate-scale gap statistic implicit in its full text; not used as a negative full-text comparison.",
+          "identifier_or_url": "https://doi.org/10.2307/3213617",
+          "material_read": "Full article unavailable; accessible abstract/bibliography only, with no interior theorem texts read",
+          "method": "primary bibliographic abstract only",
+          "title": "On the random coverage of the circle",
+          "trigger": "possible earlier coverage limits involving vacancy and large gaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half-connectivity logarithmic window yields two different physically natural scales—mesoscopic components of order sqrt(n) with n^(1/4) Gaussian noise and order-one Poisson isolates—and reveals asymptotic independence despite a nonzero raw covariance. This sharp mixed-limit and residual dependence invariant is meaningful in continuum geometric probability, not a routine small-n sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components",
+    "https://doi.org/10.1239/aap/1059486818",
+    "https://doi.org/10.2307/3213617",
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-covariance-crossover-for-two-vertex-components-on-a-random-geo--4982033b033b"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Holst–Hüsler (1984) complete article was unavailable and may contain an earlier joint intermediate-scale limit; requires later human priority check.",
+    "Huillet’s finite composition law is prior; the submitted joint limit and raw covariance are a new derived specialization, potentially implicit in an older theorem."
+  ],
+  "schema_version": 1
+}

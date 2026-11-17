@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved by a Dirichlet–exponential spacings coupling, a binomial triangular-array CLT with an \(O_{\mathbb P}(\log n)\) comparison error, an exact uniform-composition factorial-moment identity, and a Dirichlet mixed-moment computation. The covariance limit includes the exceptional zero-long-gap event. The 1048 actual finite/numerical checks in the bundled verifier corroborate the identities; no finite experiment is presented as proof of the infinite claims.
+PASS
 
-## Originality — PASS (qualified)
+For uniform n-point circular spacings, a graph is connected unless at least two gaps exceed r, hence K=max(1,H), while each isolated vertex corresponds exactly to two adjacent long gaps. With E_i independent Exp(1), gaps E_i/S_n, t_n=nr_n=(log n+x)/2, the fixed-threshold binomial exceedance B has mean c sqrt(n) and variance asymptotic c sqrt(n), with normalized CLT. The random-threshold discrepancy is O_P(log n)=o_P(n^(1/4)), via |S_n−n|=O_P(sqrt(n)); thus K has the stated Gaussian limit. Given H=h long gaps, long-gap locations are uniform and the kth falling factorial moment of singleton vertices is (h)_k(h−1)_k/(n−1)_k, tending c^(2k) when h/sqrt(n)→c. Conditional Poisson and unconditional Gaussian therefore decouple. Dirichlet simplex gives a_j=(1−jr)_+^(n−1); E[HI]=2n a2+n(n−2)a3, E[H]=n a1, E[I]=n a2 and Cov(K,I)=Cov(H,I)−P(H=0)E I→2c². Independent exact evaluation at x=0 for n=100,1000,10000,100000 showed covariance 0.714,1.168,1.551,1.783 approaching 2. This convergence experiment does not prove the limit; analytic expansion does.
 
-Huillet (2003), Sections 3–5, supplies the exact conditional long-gap and component-composition law and gives limit theorems at two **different** scalings; this known exact conditional law is explicitly attributed. The accepted statement is restricted to a distinct intermediate scaling and the joint **independent Gaussian–Poisson limit plus residual covariance**. Zhao–Yağan–Gligor (2015) establish the threshold separation for uniform interval graphs but do not claim this joint circular law. Decreusefond–Ferraz (2011) use Poissonized point counts; Penrose (2018) gives Poisson bounds for bounded-size components. Holst–Hüsler (1984) is the closest older joint-coverage comparison; its abstract concerns gap count, vacancy and extreme gap lengths, not singleton-component count, but the full paper was inaccessible and implicit coverage remains a material risk. Published-literature comparisons did not identify a dominating statement. This is not a guarantee of novelty from search failure; the proof and scaling distinctions are the substantive basis.
+## originality
 
-## Value — PASS
+PASS
 
-The isolation threshold of one-dimensional geometric graphs is sharply separated from the connectivity threshold. Exactly at the former, two natural network-quality measurements coexist at different scales. Showing their asymptotic independence **despite a nonvanishing raw covariance** gives a concrete structural statement about how local rare defects interact with the global component count; the critical Poisson parameter and residual covariance constant are explicit and testable.
+Huillet (2003) gives exact uniform conditional cyclic compositions and different asymptotic regimes, which are credited. The inspected primary full text does not identify this critical intermediate joint limit or its residual cross-covariance, while other circular results concern edge–isolate or two-vertex-component covariance rather than K versus I.
 
-## Closest literature and limitations
+## value
 
-Huillet's 2003 exact finite component-size laws dominate the conditional-composition lemma; the intermediate joint asymptotic is not asserted there. Holst–Hüsler's 1984 complete paper could not be inspected after open-access retrieval failed and institutional full text remained unavailable. No rate, dimension extension, or independent external validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The half-connectivity logarithmic window yields two different physically natural scales—mesoscopic components of order sqrt(n) with n^(1/4) Gaussian noise and order-one Poisson isolates—and reveals asymptotic independence despite a nonzero raw covariance. This sharp mixed-limit and residual dependence invariant is meaningful in continuum geometric probability, not a routine small-n sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
