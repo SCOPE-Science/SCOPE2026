@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The four-cut definition, graph adjacency, and all quantifiers are explicit. Two full acyclic matchings and the exact primitive integer Morse boundary yield the homotopy type \(S^2\), not merely its homology. An independent integer unit-minor certificate, mod-two chain ranks, octahedral-cycle projection, and exact character checks corroborate the calculation. The proof and complete reproducer are in `RESULT.md` and `verify.py`.
+## correctness
 
-## Originality
-PASS against checked sources, with residual bibliographic risk. The closest original cut-complex articles classify squared cycles (not the Wagner graph), prisms over cliques, squared paths, and rectangular grids. The public upper four-cut computation of the three-cube concerns another graph. The nearest Wagner calculation treats the **total** three-cut complex, not the ordinary four-cut complex. No inspected stronger statement or exact record implies the present sphere, primitive octahedral class, and complete dihedral sign action. This is not a claim of exhaustive coverage of unindexed literature.
+PASS
 
-## Value
-PASS. The Wagner graph is a canonical vertex-transitive nonplanar cubic graph; a complete integral and symmetry-sensitive ordinary four-cut classification gives a natural comparison with the previously studied cube and provides a concrete non-shellable pure three-complex. The primitive six-vertex octahedral subcycle explains the surviving topology geometrically. This is an exact finite classification, not a general family theorem.
+Independently enumerated disconnected induced quadruples of the eight-vertex Wagner graph (rim edges and opposite chords): 26 tetrahedral facets; 111 faces including the empty face with nonempty f=(8,28,48,26). Reconstructed the vertex-pivot acyclic matching with 53 pairs, critical cells one vertex, two triangles masks 38/50 and tetra mask 180; topological sort checks all 304 Hasse incidences. Exact algebraic Morse reduction gives integral top attaching vector (-1,1), primitive gcd 1, so the three-cell cancels one of two two-spheres by the integral degree/Hurewicz argument. Independently evaluated the oriented octahedron boundary on vertex pairs (0,1),(2,3),(4,5) with projection (1,0), a primitive generator. Signed simplex Lefschetz traces for rim rotation r and reflection s are both -1 in rank-one H₂; group invariance and rim/chord structural distinction support full D8 character. All mathematical claims are for this single finite graph, no sampled-to-infinite inference.
 
-## Remaining scientific boundaries
-Only the stated graph and cut parameter are classified. There is no asserted equivariant homotopy equivalence, generalization to larger ladders, or independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the closest published all-n ordinary four-cut Möbius-ladder theorem explicitly assumes n≥5, whereas the Wagner graph is n=4. The theorem’s n=4 formal polynomial is negative and cannot be extended by substitution. Earlier Wagner total three-cut, ordinary three-cut and matching/Morse complex theorems concern different complexes; primary cut-complex works cover distinct squared cycle, squared path or rectangular grid families, not this exceptional Wagner four-cut homotopy and full integral orientation character.
+
+## value
+
+PASS
+
+The Wagner graph is the smallest Möbius ladder and an exceptional parameter boundary omitted by the natural uniform ordinary four-cut theorem. Its integral S² type, concrete primitive octahedral carrier and nontrivial dihedral orientation character are motivated exact structure, not a random small numerical count; a future Möbius-ladder equivariant classification needs this exceptional base case. This is not a claimed family-wide theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
