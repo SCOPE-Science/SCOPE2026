@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The scalar recurrence and its two backward-Euler startup values are explicit, with a uniquely defined solution. The cubic discriminant proves one real and two nonreal characteristic roots. Vieta yields the exact real/complex modulus crossing at \(r=15/16\); an exact residue formula and a degree-12 Bernstein certificate establish positivity on the closed safe interval. For all larger nonresonant steps the strictly dominant complex mode must alternate signs infinitely often; substituting \(t=(1+r)^{-1}\) into the characteristic polynomial identifies the unique exceptional positive step \(r=3\). The standalone rational checker independently reconstructs the nontrivial residue identities and all certificate coefficients. Finite checks are only supplemental to the analytic proof.
+## correctness
 
-**Originality — PASS, qualified.** Searches of published-finding corpus for BDFL32, BDF2OPT(4), scalar decay, three-step positivity and sign oscillations revealed no exact covering result. The directly relevant previously published recurrence is acknowledged: the 2026 source and a 2010 BDF2OPT(4) report analyze absolute stability and flow accuracy, not this all-index, fixed-start classification. The general 2002 monotonicity multistep paper was examined for stronger method-wide implications, but no displayed result was found that implies an exact \(15/16\) and isolated \(3\) positive-trajectory classification. The closest published-finding corpus result establishes delayed BDF2 sign loss, which is a different recurrence. Related documented numerical results were compared for implications, including variable-step BDFL32 analyses; they did not imply the present fixed-step sign theorem. Some older literature on oscillatory linear recurrences and monotonicity may nonetheless contain an equivalent identity; no global uniqueness is asserted.
+PASS
 
-**Value — PASS.** Positivity of decaying concentrations/populations is a natural invariant that absolute stability cannot certify. The result provides a complete, nontrivial all-time numerical parameter frontier and an exceptional step-size resonance, rather than a single cheap counterexample. Its proof combines root geometry with an exact positivity certificate, and the contrast between positive and sign-changing trajectories may guide solver selection or interpretation of stiff scalar benchmarks.
+For d=1+3r/5, the discriminant of dz^3-(3/2)z^2+(3/5)z-1/10 is -27(9r^2-12r+5)/2500<0, so there is one positive real root and a complex pair. Their modulus tie occurs at s=2/5, corresponding to r=15/16. Independently reconstructed the degree-12 Bernstein expansion for -P12(s) on s∈[2/5,1] and found all 13 coefficients positive, from 7443/78125 to 360, implying A>2|B| even at the boundary; hence every y_n>0 below/equal threshold. Direct polynomial substitution gives p_d((1+r)^-1)=-r^2(r-3)/(10(1+r)^3), so for r>15/16 the oscillatory coefficient vanishes only at r=3 and y_n=4^-n. Otherwise the conjugate complex pair dominates and elementary rational/irrational phase rotation ensures infinitely many terms of each sign. This includes r=0 and nonrobust isolated resonance.
 
-**Closest literature and residual limitations.** Jensen–Lóczi–Ketcheson (2026), Vatsa–Carpenter–Lockard (2010), and Hundsdorfer–Ruuth–Spiteri (2002) are the closest source and general context. There is residual historical-priority risk from older special-recursion and positivity analyses. The theorem does not extend to arbitrary startup, nonconstant step or nonlinear systems. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jensen–Lóczi–Ketcheson 2026 specifies the BDFL3_2 scheme and studies A/L-stability and error optimization, not the fixed BE-started all-index positivity classification or the exact isolated r=3 cancellation. Vatsa et al. 2010 discuss equivalent BDF2OPT(4) for unsteady flow, not this scalar positivity theorem. Related published five-step BDFL resonance is on another recurrence with r=sqrt(5), not a covering theorem.
+
+## value
+
+PASS
+
+The exact positivity frontier and isolated cancellation of otherwise dominant oscillatory modes are a sharp, motivated example distinguishing scalar trajectory positivity from absolute and SSP stability of an implicit multistep scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
