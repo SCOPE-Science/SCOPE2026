@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The proof in RESULT.md is the certificate for the universal characteristic-\(p\) statement. The standalone `verify.py` uses only Python's standard library and direct modular Gaussian elimination. From a directory containing that file, execute `python3 verify.py`. The exact output generated for the listed tests is embedded as `verification_output.txt`.
+## correctness
 
-The verifier constructs coefficients of \(f_\lambda^3\) by two independent degree-three binomial expansions, builds the central graded matrix explicitly, computes its rank at \(\lambda=0,-1,2,1/2,3\), and checks the nonzero Toeplitz minor and the triangular determinant at the degeneration \(\lambda=0\). It also checks every graded map of multiplication by \(f_0^3\) has maximal rank. The tested primes are \(7,11,13,17,19,23,29,31\). Finite tests corroborate but do not prove all prime characteristics or assert complete classification of exceptional cross-ratios.
+PASS
 
-No independent validation, independent audit, or externally certified proof is claimed.
+For each prime p>=7, central map R_{p-7}->R_{p+5} has dimension n=p-6 with Toeplitz entries c_{6+j-i}(lambda) from f_lambda^3. Opposite triangular forms at lambda=0 and leading lambda^3 coefficient give constant and leading determinant (-1)^n and degree exactly 3n. At lambda=-1 parity of the socle pairing yields a rectangular odd/even coupling block; the explicitly computed m x m Toeplitz minor satisfies D_m=(-1)^m binom(m+2,2)= +/-15/8 mod p, nonzero. This proves exact corank 1, including p=7. GL_2 change of variables induces a truncated ring automorphism by Frobenius and transports to lambda=2 and 1/2. The lambda=0 triangular witness in every graded piece yields generic rank (p-6)^2 for full multiplication, but only <=(p-6)^2-1 at harmonic parameters; no assertion about other zeros. Independent modular elimination checked seven primes across harmonic and nonharmonic parameters.
+
+## originality
+
+PASS
+
+PASS best of knowledge for the modular multiplication determinant degree and harmonic corank of the third power of a squarefree binary quartic. Cook and Lundqvist–Nicklasson concern linear Lefschetz elements and algebra-level existence; Glasby et al concern modular Jordan tensors of linear nilpotents, and Dimca–Sticlaru harmonic cross-ratios concern complex Waring rank (a different invariant and characteristic). No inspected stronger theorem supplies this cross-ratio-parametrized map or its corank.
+
+## value
+
+PASS
+
+The finite characteristic regular module of k[C_p x C_p] is naturally k[x,y]/(x^p,y^p); the rank jump inside the squarefree quartic moduli locus shows Jordan type depends on cross-ratio, not just root multiplicities. The all-prime exact determinant degree and harmonic corank form a structural modular Lefschetz boundary, not a gratuitous finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
