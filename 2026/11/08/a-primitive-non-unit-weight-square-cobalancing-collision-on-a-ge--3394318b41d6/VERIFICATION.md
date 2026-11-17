@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python checker.py` using Python 3 with no third-party dependencies. It independently evaluates square sums by both direct summation and the exact cubic formula and verifies all four endpoint values and both weighted equalities for the primitive coefficient pair \((563,11)\). It checks the corresponding cubic equations with exact integers.
+## correctness
 
-The independent bounded exploration of \(n=1,\ldots,10000\) returns only the displayed indices within that finite interval. No claim is made that the full infinite set of solutions is exhausted. Smoothness of the cubic follows from the partial-derivative argument in `RESULT.md`, not from numerical enumeration. The output captured in `verification_output.txt` was produced by executing the embedded checker against the actual candidate files.
+PASS
 
-No independent audit or external validation has been performed.
+For P(n)=n(n+1)(2n+1)/6 and a=563,b=11, square-cobalancing is precisely 574P(n)=11P(n+r). Direct integer evaluation gives P(5)=55, P(20)=2870, P(142)=964535, P(532)=50331190, so 574·55=11·2870=31570 and 574·964535=11·50331190=553643090; r=15,390. gcd(563,11)=1 and both indices >1. Setting X=2n+1,Y=2(n+r)+1 gives 11Y(Y²−1)=574X(X²−1) and rational integral points (11,41), (285,1065). Homogenized cubic is nonsingular: at Z=0 derivatives imply X=Y=0, impossible; for Z≠0 derivatives impose X²=Y²=Z²/3 and 11Y=574X, a contradiction. Thus smooth plane genus-one curve with rational point. The bounded scan n≤10000 in checker cannot prove global completeness, which is not claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS only for explicit *nontrivial* primitive coefficient collision with b>1 and both indices n>1, not broad existence of any nonunique pair. Cui et al. Definition 5.2 and Figure 2 record no multiple cases for a,b≤120 and speculate uniqueness; present a=563 lies outside the search. OEIS A374500 square-pyramidal product P(115)=P(11)P(14) yields weaker b=1 / index1 collisions and does not imply the given 574:11 ratio. Direct ratio equations are checked; Resultary searches found only the same record for exact parameters, not a dominating table or Diophantine classification.
+
+## value
+
+PASS
+
+A concrete exact counterexample to the published apparent one-solution phenomenon in the natural square-cobalancing problem, satisfying stronger nondegeneracy b>1 and two non-unit indices; a specialized but mathematically motivated witness to an explicit open experimental conjecture. The independent exact cubic rational-point structure makes the pair useful for further Diophantine analysis. No misleading claim of global uniqueness, minimal coefficients, or an exhaustive integral-point census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

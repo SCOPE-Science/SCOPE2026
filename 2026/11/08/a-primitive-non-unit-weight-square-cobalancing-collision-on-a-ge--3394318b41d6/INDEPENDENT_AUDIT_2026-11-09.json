@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T12:50:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e2996959790ce0ab55aaab5b2fd58f53f25558d7 and checker.py blob 3139320d7e2526dbf2594d7bc03a6b706dda9bdb",
+        "Two independent exact cross-product identities and smoothness partial-derivative argument, not reliance on bounded scan"
+      ],
+      "rationale": "For P(n)=n(n+1)(2n+1)/6 and a=563,b=11, square-cobalancing is precisely 574P(n)=11P(n+r). Direct integer evaluation gives P(5)=55, P(20)=2870, P(142)=964535, P(532)=50331190, so 574·55=11·2870=31570 and 574·964535=11·50331190=553643090; r=15,390. gcd(563,11)=1 and both indices >1. Setting X=2n+1,Y=2(n+r)+1 gives 11Y(Y²−1)=574X(X²−1) and rational integral points (11,41), (285,1065). Homogenized cubic is nonsingular: at Z=0 derivatives imply X=Y=0, impossible; for Z≠0 derivatives impose X²=Y²=Z²/3 and 11Y=574X, a contradiction. Thus smooth plane genus-one curve with rational point. The bounded scan n≤10000 in checker cannot prove global completeness, which is not claimed.",
+      "residual_risks": [
+        "No proof there are only two positive indices for (563,11), no all-integral-points classification",
+        "Genus-one identification uses smooth cubic argument only; it does not imply finite integral-point census"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing 120×120 figure enumerates a,b≤120, so misses a=563. OEIS A374500 gives a product witness implying cobalancing with b=1 and n=1; neither entails a primitive pair with b=11 and n=5,142.",
+          "Page 29 Eq.(5.2), page 30 Figure 2: 120×120 bounded search finds no pair with >1 solution and expressly discusses speculative uniqueness"
+        ],
+        "reasoning": "A broad existential claim is known, but the specified strengthened nondegenerate witness remains independent of that result.",
+        "searches": [
+          "Resultary semantic query: square cobalancing indices square pyramidal numbers 563 11 5 142 20 532 collisions",
+          "Resultary semantic alias query: cobalancing square pyramidal 563 11 collision genus one 5 20 142 532 nonuniqueness",
+          "OEIS A374500 sequence entry",
+          "Cui et al. 2022 original Figure2 and §6 question",
+          "https://oeis.org/A374500",
+          "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Cui et al., Sums of Reciprocals of Recurrence Relations — https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf",
+        "OEIS A374500, Square pyramidal numbers that are products of smaller square pyramidal numbers — https://oeis.org/A374500",
+        "Resultary queries: square cobalancing indices square pyramidal numbers 563 11 5 142 20 532 collisions / cobalancing square pyramidal 563 11 collision genus one 5 20 142 532 nonuniqueness",
+        "OEIS A374500 sequence entry",
+        "Cui et al. 2022 original Figure2 and §6 question"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known P(115)=P(11)P(14) implies nonuniqueness with n=1, b=1, but there is no implication to pair (563,11), since the underlying required ratio equality is numerically different.",
+          "Page 29 Eq.(5.2), page 30 Figure 2: 120×120 bounded search finds no pair with >1 solution and expressly discusses speculative uniqueness"
+        ],
+        "reasoning": "The prior bounded absence conjecture is contradicted by exact evaluated integer witnesses beyond its tested coefficients; no false claim of a complete family.",
+        "searches": [
+          "Resultary semantic query: square cobalancing indices square pyramidal numbers 563 11 5 142 20 532 collisions",
+          "Resultary semantic alias query: cobalancing square pyramidal 563 11 collision genus one 5 20 142 532 nonuniqueness",
+          "OEIS A374500 sequence entry",
+          "Cui et al. 2022 original Figure2 and §6 question",
+          "https://oeis.org/A374500",
+          "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation aP(n)=b(P(n+r)−P(n)) is equivalent to (a+b)P(n)=bP(m) and to 11Y(Y²−1)=574X(X²−1). This is the same mathematical square-cobalancing notion as Cui et al. Definition 5.2 (with positive r, a subset of their r≥0).",
+          "Page 29 Eq.(5.2), page 30 Figure 2: 120×120 bounded search finds no pair with >1 solution and expressly discusses speculative uniqueness"
+        ],
+        "reasoning": "Exact witness corresponds to two ratios P(m)/P(n)=574/11 at n=5,142, distinct from product P(115)=P(11)P(14).",
+        "searches": [
+          "Resultary semantic query: square cobalancing indices square pyramidal numbers 563 11 5 142 20 532 collisions",
+          "Resultary semantic alias query: cobalancing square pyramidal 563 11 collision genus one 5 20 142 532 nonuniqueness",
+          "OEIS A374500 sequence entry",
+          "Cui et al. 2022 original Figure2 and §6 question",
+          "https://oeis.org/A374500",
+          "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cui et al. Figure2 does not contain coefficient a=563; OEIS A000330 tabulates all P(n), but a table of individual values alone does not state their exact repeated ratio 574:11.",
+          "OEIS A374500 sequence entry"
+        ],
+        "reasoning": "A database listing all P(n) could permit recomputing the cross-product, but no checked exact database of ratio collisions or two-index coefficient pairs records the claimed fact.",
+        "searches": [
+          "Resultary semantic query: square cobalancing indices square pyramidal numbers 563 11 5 142 20 532 collisions",
+          "Resultary semantic alias query: cobalancing square pyramidal 563 11 collision genus one 5 20 142 532 nonuniqueness",
+          "OEIS A374500 sequence entry",
+          "Cui et al. 2022 original Figure2 and §6 question",
+          "https://oeis.org/A374500",
+          "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS only for explicit *nontrivial* primitive coefficient collision with b>1 and both indices n>1, not broad existence of any nonunique pair. Cui et al. Definition 5.2 and Figure 2 record no multiple cases for a,b≤120 and speculate uniqueness; present a=563 lies outside the search. OEIS A374500 square-pyramidal product P(115)=P(11)P(14) yields weaker b=1 / index1 collisions and does not imply the given 574:11 ratio. Direct ratio equations are checked; Resultary searches found only the same record for exact parameters, not a dominating table or Diophantine classification.",
+      "residual_risks": [
+        "Other unindexed square-pyramidal rational-product collisions might encode the same pair; no exhaustive specialized integral-point literature search",
+        "OEIS product case already defeats weak uniqueness but not this non-unit-right-coefficient and nontrivial-index variant"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition 5.2 matches the same weighted sum; Figure 2 reports no nonuniqueness within a,b≤120, not a theorem ruling out the (563,11) collision",
+          "evidence": "Page 29 Eq.(5.2), page 30 Figure 2: 120×120 bounded search finds no pair with >1 solution and expressly discusses speculative uniqueness",
+          "identifier_or_url": "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf",
+          "material_read": "Full 32-page author-hosted PDF available; inspected Definition 5.2 page 29, Figure 2 and §6 Future Work page 30 and scanned main text; visually checked pages 29–30",
+          "method": "Lawful author-hosted OA PDF text and PDF page screenshots",
+          "title": "Cui et al., Sums of Reciprocals of Recurrence Relations",
+          "trigger": "Original square-cobalancing definition and apparent uniqueness question"
+        },
+        {
+          "assessment": "Gives nonuniqueness for b=1 with an index 1, so weaker existential claim covered; does not imply pair (563,11) with both indices >1",
+          "evidence": "P(1)=1 permits ratio pairing for (n,m)=(1,14) and (11,115), with right coefficient unity",
+          "identifier_or_url": "https://oeis.org/A374500",
+          "material_read": "Sequence values and explicit P(115)=P(11)P(14)=506×1015 checked",
+          "method": "Public integer sequence entry and direct polynomial identity",
+          "title": "OEIS A374500, Square pyramidal numbers that are products of smaller square pyramidal numbers",
+          "trigger": "Possible prior weaker ratio collision from products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cui et al. Definition5.2 and Figure2 on bounded multiplicity",
+        "OEIS A374500 known product and P(1) identity"
+      ],
+      "rationale": "A concrete exact counterexample to the published apparent one-solution phenomenon in the natural square-cobalancing problem, satisfying stronger nondegeneracy b>1 and two non-unit indices; a specialized but mathematically motivated witness to an explicit open experimental conjecture. The independent exact cubic rational-point structure makes the pair useful for further Diophantine analysis. No misleading claim of global uniqueness, minimal coefficients, or an exhaustive integral-point census.",
+      "residual_risks": [
+        "No proof there are only two positive indices for (563,11), no all-integral-points classification",
+        "Other unindexed square-pyramidal rational-product collisions might encode the same pair; no exhaustive specialized integral-point literature search"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No proof there are only two positive indices for (563,11), no all-integral-points classification",
+    "Genus-one identification uses smooth cubic argument only; it does not imply finite integral-point census",
+    "Other unindexed square-pyramidal rational-product collisions might encode the same pair; no exhaustive specialized integral-point literature search",
+    "OEIS product case already defeats weak uniqueness but not this non-unit-right-coefficient and nontrivial-index variant"
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The cobalancing definition is equivalent to \((a+b)P(n)=bP(n+r)\), where \(P(t)=t(t+1)(2t+1)/6\). Direct exact arithmetic proves both cases for \((a,b)=(563,11)\): the endpoints \((n,n+r)\) are \((5,20)\) and \((142,532)\). The coefficient gcd is one, all indices and cobalancers are positive, and the displayed partial derivatives rigorously exclude singular projective points on the cubic. Independently computed direct sums corroborate the proof; no finite scan is used as an infinite argument.
+## correctness
 
-## Originality: PASS within accessible evidence
-The motivating 2022 article's Definition 5.2 and open question are exact matches for the concept but not for the two new nontrivial instances. An OEIS product identity published in 2024 **already implies a weaker nonuniqueness claim** with right coefficient one and initial index one; hence mere existence of any two indices is **not** presented as novel. OEIS A374500 does not cover the \((563,11)\) primitive ratio collision with both indices greater than one. Related unsquared cobalancing and searchable mathematical records did not reveal the refined claim. Unindexed work remains a risk.
+PASS
 
-## Mathematical value: PASS
-The example resolves a meaningful nondegenerate version of the explicit existence question in the motivating work: the phenomenon persists with coprime nonunit right coefficient and two strictly nontrivial square-cobalancing indices. Its smooth genus-one Diophantine model supplies a structural context beyond an unexplained numerical coincidence. An isolated witness is a legitimate answer to this existential question; no general classification or minimum is inferred.
+For P(n)=n(n+1)(2n+1)/6 and a=563,b=11, square-cobalancing is precisely 574P(n)=11P(n+r). Direct integer evaluation gives P(5)=55, P(20)=2870, P(142)=964535, P(532)=50331190, so 574·55=11·2870=31570 and 574·964535=11·50331190=553643090; r=15,390. gcd(563,11)=1 and both indices >1. Setting X=2n+1,Y=2(n+r)+1 gives 11Y(Y²−1)=574X(X²−1) and rational integral points (11,41), (285,1065). Homogenized cubic is nonsingular: at Z=0 derivatives imply X=Y=0, impossible; for Z≠0 derivatives impose X²=Y²=Z²/3 and 11Y=574X, a contradiction. Thus smooth plane genus-one curve with rational point. The bounded scan n≤10000 in checker cannot prove global completeness, which is not claimed.
 
-## Boundaries and residual risk
-No other integral points are ruled out. Related literature could contain this primitive pair under an alternate parametrization, and no independent scientific review has been performed. The difference from the published OEIS \(b=1\), \(n=1\) example is essential to the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS only for explicit *nontrivial* primitive coefficient collision with b>1 and both indices n>1, not broad existence of any nonunique pair. Cui et al. Definition 5.2 and Figure 2 record no multiple cases for a,b≤120 and speculate uniqueness; present a=563 lies outside the search. OEIS A374500 square-pyramidal product P(115)=P(11)P(14) yields weaker b=1 / index1 collisions and does not imply the given 574:11 ratio. Direct ratio equations are checked; Resultary searches found only the same record for exact parameters, not a dominating table or Diophantine classification.
+
+## value
+
+PASS
+
+A concrete exact counterexample to the published apparent one-solution phenomenon in the natural square-cobalancing problem, satisfying stronger nondegeneracy b>1 and two non-unit indices; a specialized but mathematically motivated witness to an explicit open experimental conjecture. The independent exact cubic rational-point structure makes the pair useful for further Diophantine analysis. No misleading claim of global uniqueness, minimal coefficients, or an exhaustive integral-point census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
