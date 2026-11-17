@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact excitation-block reduction of the eight-dimensional Hamiltonian yields the two endpoint populations and the phase cross term. For a normalized pure two-qubit charger, each reduced Bloch-vector length is \(\sqrt{1-c^2}\); the sum of their transverse coherences gives a sharp universal upper bound, attained continuously by simultaneous local rotations of Schmidt states. A constructive local-product measurement lemma ensures conditional energy equalization at each cascade step. Maximally mixed charger marginals imply the full maximally entangled phase-blindness and half-charging recurrence; the singlet and full-swap endpoint are handled separately. The packaged executable independently checks the full unitary against the reduction and the equalizing measurements.
+PASS
 
-## Originality
+The RESULT.md proof reduces the number-conserving eight-dimensional Hamiltonian to two symmetric bright blocks and antisymmetric dark sectors; with s=(b+c)/sqrt(2) its output-phase coefficient Z=conj(xi)*chi*(conj(s)a+conj(d)s), and the phase swing is 4sqrt(e(1-e))|Z|. For any pure two-qubit state of concurrence c, the two marginal Bloch-vector lengths both equal sqrt(1-c^2), giving |conj(s)a+conj(d)s| <= sqrt(1-c^2)/sqrt(2). Identical local y-rotations of a Schmidt state attain every swing from zero to the bound. The traceless two-qubit Hermitian T construction has a product basis with every diagonal zero: diagonalize the first reduced block in a transverse basis, then choose the common perpendicular to the two conditional Bloch vectors. This proves local branch-energy equalization without a global entangled measurement. Maximal concurrence forces vanishing local Bloch vectors and |a|=|d|, hence E_{n+1}-1/2=(1-LQ)(E_n-1/2) for Q in [0,2], including the singlet and L=1 endpoint exceptions. Independently synthesized full Hamiltonians agree in 48 random cases at 1.5e-15 absolute population error. Finite trials do not prove the all-state quantifier; the Bloch and measurement arguments do.
 
-PASS, qualified. Gong, Zhang and Li's October 22, 2026 paper supplies the same Hamiltonian, generic excitation recurrence and Bell-like deterministic examples; this result does not reassert those. The present claim determines the complete sharp *fixed-concurrence* range of phase swings and finds the full maximally entangled phase-blind orbit together with its exceptional dark and period-two dynamics. The October 1, 2026 precursor treats a single-qubit rather than an entangled two-qubit charger. The May 2026 coherent-ancilla study has a different multilevel-battery regime. Indexed results and accessible previous claims were compared by implication. Residual risk: algebraic ingredients are present in the parent general recurrence, and a more exhaustive publication-priority check may uncover an earlier constrained optimization.
+## originality
 
-## Value
+PASS
 
-PASS. This is a sharp resource-dependent stability constraint: pure-state concurrence exactly limits how strongly stored energy can react to unknown battery phase, and maximal entanglement enforces zero phase sensitivity without selecting a special Bell computational-basis family. Both endpoints and all intermediate sensitivities are physically realized, while the dark-singlet exception prevents confusing phase robustness with successful charging. The half-charge convergence law identifies the precise operating regime of such robust repeated-collision chargers. It is distinct from minimizing single-shot quantum energy variance.
+The original Gong–Zhang–Li article treats the identical Hamiltonian, arbitrary fixed-charger recurrence, adaptive measurement and selected Bell-like examples. The fixed-concurrence *attainable interval*, all maximally entangled four-amplitude phase blindness and their sharp deterministic half-charge classification were not established in the accessible abstract or matched Resultary records. The result has distinct optimized quantifiers, not just a renaming of Bell states. Priority is qualified because the relevant primary full text could not be read: novelty is best-of-knowledge, not an assertion of absence from unread sections.
 
-## Limitations and closest literature
+## value
 
-The model is noiseless, symmetric, finite dimensional, and uses ideal adaptive product projective measurements and pure charger pairs. The parent arXiv:2610.31242v1 provides the general recurrence and specific fluctuation-free cases. arXiv:2610.01332v1 provides the earlier one-charger protocol. Li et al. Phys. Rev. A 113, 052437 studies phase-controlled ancilla charging under a different setup. A separate independent publication-priority or mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete concurrence-resolved energy-phase susceptibility frontier connects an entanglement invariant to robust charging design; phase blind behavior of every maximally entangled charger and the dark/period-two boundary separate meaningful dynamical regimes. The branch-equalizing local-product measurement lemma supplies nontrivial exact experimental structure. None of this asserts zero single-shot energy variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

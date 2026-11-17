@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Executable verification and proof boundary
+# Independent mathematical audit
 
-Run `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python checker.py` in a directory containing the embedded `checker.py`, with NumPy and SciPy installed. It independently builds the eight-dimensional tensor Hamiltonian, exponentiates it, and reconstructs each qubit's excited-battery probability. It checks random complex pure chargers, both signs of detuning, nonzero coupling and collision duration; it verifies concurrence-resolved upper bounds, three attaining rotations, and equalized local product measurement probabilities. A specified four-component maximally entangled non-Bell charger is checked over several input phases and eight consecutive exact recurrences.
+## correctness
 
-Observed: `PASS: 525 independent checks; 75 random full-Hamiltonian comparisons, 75 local measurement equalizations, concurrence sharpness at 3 angles each`, followed by `PASS: 24 additional maximally-entangled closed-recursion checks; non-Bell charger converges to half-charge`. In the explicit example the phase-swing roundoff was \(2.22\times10^{-16}\) and the one-step excitation with the documented parameters was \(0.40588235294117636\).
+PASS
 
-These randomized finite checks are corroboration, not an exhaustive certificate or an independent audit. The exactness and all-parameter conclusions rest on the analytic excitation-sector reduction, the pure-state concurrence/Bloch argument, the equality construction and the local-product zero-diagonal lemma in `RESULT.md`. No claims are made for noisy dynamics or mixed charger states.
+The RESULT.md proof reduces the number-conserving eight-dimensional Hamiltonian to two symmetric bright blocks and antisymmetric dark sectors; with s=(b+c)/sqrt(2) its output-phase coefficient Z=conj(xi)*chi*(conj(s)a+conj(d)s), and the phase swing is 4sqrt(e(1-e))|Z|. For any pure two-qubit state of concurrence c, the two marginal Bloch-vector lengths both equal sqrt(1-c^2), giving |conj(s)a+conj(d)s| <= sqrt(1-c^2)/sqrt(2). Identical local y-rotations of a Schmidt state attain every swing from zero to the bound. The traceless two-qubit Hermitian T construction has a product basis with every diagonal zero: diagonalize the first reduced block in a transverse basis, then choose the common perpendicular to the two conditional Bloch vectors. This proves local branch-energy equalization without a global entangled measurement. Maximal concurrence forces vanishing local Bloch vectors and |a|=|d|, hence E_{n+1}-1/2=(1-LQ)(E_n-1/2) for Q in [0,2], including the singlet and L=1 endpoint exceptions. Independently synthesized full Hamiltonians agree in 48 random cases at 1.5e-15 absolute population error. Finite trials do not prove the all-state quantifier; the Bloch and measurement arguments do.
+
+## originality
+
+PASS
+
+The original Gong–Zhang–Li article treats the identical Hamiltonian, arbitrary fixed-charger recurrence, adaptive measurement and selected Bell-like examples. The fixed-concurrence *attainable interval*, all maximally entangled four-amplitude phase blindness and their sharp deterministic half-charge classification were not established in the accessible abstract or matched Resultary records. The result has distinct optimized quantifiers, not just a renaming of Bell states. Priority is qualified because the relevant primary full text could not be read: novelty is best-of-knowledge, not an assertion of absence from unread sections.
+
+## value
+
+PASS
+
+A complete concurrence-resolved energy-phase susceptibility frontier connects an entanglement invariant to robust charging design; phase blind behavior of every maximally entangled charger and the dark/period-two boundary separate meaningful dynamical regimes. The branch-equalizing local-product measurement lemma supplies nontrivial exact experimental structure. None of this asserts zero single-shot energy variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
