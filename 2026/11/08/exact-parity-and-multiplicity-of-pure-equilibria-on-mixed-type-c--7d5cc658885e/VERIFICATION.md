@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no external dependencies. The script uses exhaustive direct utility-sign checks for all \(1\le a,b\le5\), for all possible conformist counts on both sides, to compare 400 distinct side-composition cases and 102,400 action profiles against the theorem's closed expression. It separately compares the random-type no-equilibrium probability by exact binomial aggregation for 64 pairs of side sizes in \(1\le a,b\le8\), using rational arithmetic. Its expected success output contains `VERIFIED` lines for these counts.
+## correctness
 
-The proof of the unbounded result is the exhaustive four-case argument in `RESULT.md`; the finite computation is a consistency check and cannot independently certify the infinite assertion. The uploaded package is self-reviewed only. Independent audit and external validation have not been performed.
+PASS
+
+Fix a,b>=1, c,d type counts; best-response inequalities t_i s_i S_opposite>=0 decompose exhaustively by (S_A=0)/(S_B=0). The four contributions are Z_aZ_b, 1_{Delta_A=0}(2^b-Z_b), 1_{Delta_B=0}(2^a-Z_a), and 2 1_{Delta_A Delta_B>0}. Integer parity and random types follow from binomial symmetry; all tie boundaries are explicit. Independent direct payoff enumeration checked 196 compositions with 1<=a,b<=4, using physical labeled actions.
+
+## originality
+
+PASS
+
+Four disjoint sign classes give a complete mixed-type exact count; the closest full-text prior Result 3 proves only a role-segregated existence condition. The novelty is a new mixed-side census and random-type parity consequence, subject to historical-priority risk.
+
+## value
+
+PASS
+
+A natural complete exact PNE count on a canonical dense heterogeneous game answers multiplicity and type-robust existence questions beyond known segregated existence; the equal 1/2 random-type failure probability for odd-odd side sizes is useful and nonmechanical from prior role-segregated statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
