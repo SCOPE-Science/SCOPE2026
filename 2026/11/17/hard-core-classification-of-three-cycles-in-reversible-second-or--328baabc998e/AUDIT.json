@@ -1,0 +1,177 @@
+{
+  "correctness": {
+    "rationale": "The full three-row recurrence reduces exactly to p_i=x_{t,i-1} OR x_{t,i+1}. Any p_i=0 forces complete zero columns at neighbors, and propagates; otherwise p_i=1 gives the four odd temporal columns. All three OR equations hold if and only if no two one-hot columns are separated by two spatial sites. Both directions and the injective row-pair reconstruction are proved. The step-two graph is C_n on odd n or two C_{n/2} on even n; the independent-set trace yields the closed polynomial. Two independent executable checks fully match their finite domains.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Toffoli–Margolus, Physica D 45 (1990), §5.4, states the reversible second-order construction for arbitrary local rules, with no exact periodic sector census.",
+        "Vlasov, arXiv:1311.4297, introduces generalizations of second-order reversible cellular automata.",
+        "Martínez et al., arXiv:1410.3096, fully treats glider/collision structure for ordinary synchronous Rule54, with no second-order-memory enumeration.",
+        "Buča–Klobas–Prosen, arXiv:2103.16543, analyses transport and time-states for its separately specified staggered RCA54."
+      ],
+      "reasoning": "General reversibility and construction theorems do not count period-three points of a nonlinear instance, and the separately defined integrable staggered automaton is not a stronger theorem about this labelled two-register map. The sources and returned indexed records supply no equivalent all-length weighted formula.",
+      "searches": [
+        "second-order reversible cellular automata nonlinear Rule 30 XOR previous row exact temporal two three four periodic orbit count on finite cyclic rings",
+        "second order reversible Rule 54 Fredkin reversible extension F(a,b)=(b,a xor rule54(b)) exact period three primitive orbit count transfer zeta Lucas recurrence",
+        "reversible second order elementary cellular automaton rule 54 3-step fixed points spatial entropy",
+        "Rule 54 reversible memory cellular automata period 3 Fibonacci",
+        "exact period-3 points of Fredkin second-order reversible extension of elementary cellular automaton Rule 54 on a cyclic ring, hard core gas exclusion distance two"
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "Wolfram 1983",
+        "url": "https://doi.org/10.1103/RevModPhys.55.601"
+      },
+      {
+        "title": "Toffoli–Margolus 1990",
+        "url": "https://people.csail.mit.edu/nhm/ica.pdf"
+      },
+      {
+        "title": "Vlasov 2013",
+        "url": "https://arxiv.org/abs/1311.4297"
+      },
+      {
+        "title": "Martínez–Adamatzky–McIntosh 2014",
+        "url": "https://arxiv.org/abs/1410.3096"
+      },
+      {
+        "title": "Buča–Klobas–Prosen 2021",
+        "url": "https://arxiv.org/abs/2103.16543"
+      },
+      {
+        "identifier": "2026/11/2/SCOPE-periodic-lifting-and-exact-one-step-image-enumeration-for-rule-5--3615c2fb7c1d",
+        "title": "Exact synchronous Rule54 image law"
+      },
+      {
+        "identifier": "2026/10/11/SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf",
+        "title": "Reversible Rule115 finite support periods"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wolfram 1983 §2 and §4 provides the ingredients and generic reversible rule, but no claimed nonadjacent-defect classification.",
+        "Toffoli–Margolus 1990 §5.4 discusses generic reversibility, not a count of period-three states.",
+        "Martínez–Adamatzky–McIntosh 2014 full text (arXiv:1410.3096) classifies gliders of synchronous Rule 54, not the reversible memory map.",
+        "Buča–Klobas–Prosen 2021 §2 staggered update and §7 time-states have a different temporal center dependence.",
+        "published-finding corpus 2026/10/26: SCOPE-exact-temporal-three-cycle-census-and-golden-ratio-growth-for-ru--68d26b2851c0 is ordinary synchronous Rule 62, not reversible Rule 54."
+      ],
+      "reasoning": "The present theorem is not a simple specialization of the general reversible map definition: the parity-zero propagation and distance-two exclusion derive from the specific nonlinear Rule54 local term. The prior listed theorems have different state spaces, update rules, times or objects and no stated implication of this weighted formula.",
+      "searches": [
+        "second order reversible Rule 54 Fredkin reversible extension F(a,b)=(b,a xor rule54(b)) exact period three primitive orbit count transfer zeta Lucas recurrence",
+        "reversible second order elementary cellular automaton rule 54 3-step fixed points spatial entropy",
+        "Rule 54 reversible memory cellular automata period 3 Fibonacci",
+        "exact period-3 points of Fredkin second-order reversible extension of elementary cellular automaton Rule 54 on a cyclic ring, hard core gas exclusion distance two",
+        "temporal 3-cycle count on finite 1-dimensional reversible rule 54, Lucas polynomial x^2-x-3, periodic spatial configurations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wolfram 1983 DOI:10.1103/RevModPhys.55.601, Boolean local rule and §4 two-row construction; these are definitions, not the claimed three-cycle classification.",
+        "arXiv:2103.16543, §2 eqs. (1)-(2) and §7.2: the similarly named RCA54 is a staggered light-cone automaton without the present-center term of the current map.",
+        "published-finding corpus 2026/10/11: SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf concerns a different local rule and period 9/18."
+      ],
+      "reasoning": "The current exact statement concerns third-iterate fixed states of the everywhere-synchronous two-register map R(u,v)=(v,u xor F54(v)). The published staggered RCA54 and the different Rule 115 extension do not specify the same global map, so their theorems cannot be substituted without an additional proved conjugacy or reduction. None was given or found.",
+      "searches": [
+        "second order reversible Rule 54 Fredkin reversible extension F(a,b)=(b,a xor rule54(b)) exact period three primitive orbit count transfer zeta Lucas recurrence",
+        "reversible second order elementary cellular automaton rule 54 3-step fixed points spatial entropy",
+        "Rule 54 reversible memory cellular automata period 3 Fibonacci",
+        "exact period-3 points of Fredkin second-order reversible extension of elementary cellular automaton Rule 54 on a cyclic ring, hard core gas exclusion distance two",
+        "temporal 3-cycle count on finite 1-dimensional reversible rule 54, Lucas polynomial x^2-x-3, periodic spatial configurations",
+        "reversible memory cellular automata Rule 54 three-time odd-parity columns nonadjacent at distance two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Two direct complete finite-ring enumerations, embedded as verify_direct.py and verify_transfer.py, independently produce the odd/even formula on tested lengths.",
+        "published-finding corpus 2026/11/2: SCOPE-periodic-lifting-and-exact-one-step-image-enumeration-for-rule-5--3615c2fb7c1d enumerates synchronous one-step images, not the second-order third-iterate sector.",
+        "published-finding corpus 2026/11/8: SCOPE-exact-cyclic-image-counts-and-entropy-for-elementary-rule-54--aad019a92dcc counts cyclic outputs of the ordinary Rule 54 map."
+      ],
+      "reasoning": "No inspected exact table or indexed result describes the same third-iterate fixed-space polynomial. A finite numerical match alone would not decide coverage, so both map definitions and claim implications were checked.",
+      "searches": [
+        "second order reversible Rule 54 Fredkin reversible extension F(a,b)=(b,a xor rule54(b)) exact period three primitive orbit count transfer zeta Lucas recurrence",
+        "reversible second order elementary cellular automaton rule 54 3-step fixed points spatial entropy",
+        "temporal 3-cycle count on finite 1-dimensional reversible rule 54, Lucas polynomial x^2-x-3, periodic spatial configurations",
+        "reversible memory cellular automata Rule 54 three-time odd-parity columns nonadjacent at distance two",
+        "reversible Rule 54 temporal three fixed counts 11 50 62 101 338 962"
+      ]
+    },
+    "rationale": "No equivalent or dominating statement was found in the actual indexed and primary-source searches. The 1983 and 1990 general second-order reversibility work and 2013 generalization do not state the Rule54 three-periodic sector. The 2021 RCA54 model is staggered, not the present everywhere-synchronous two-register map. Residual historical search uncertainty is disclosed.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier papers might contain an equivalent specialized third-iterate classification; absence from search is not proof of first discovery.",
+      "A currently unknown conjugacy or structural reduction to a separately defined reversible Rule54 variant could yield implied coverage; no such reduction was demonstrated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines Rule54 and generic reversible memory but does not state the exact temporal period-three hard-core theorem in inspected relevant portions",
+        "evidence": [
+          "https://content.wolfram.com/sw-publications/2020/08/statistical-mechanics-cellular-automata.pdf, §2 and §4",
+          "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.55.601, published 1983-07-01"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.55.601",
+        "material_read": "Full accessible author text, Rule 54 Boolean rule in §2 and memory-reversible construction in §4; surrounding periodicity discussion",
+        "method": "Read web-rendered author-hosted full text and publisher dated record",
+        "title": "Statistical mechanics of cellular automata",
+        "trigger": "Earliest day-verified source for both Rule54 and generic second-order reversible extension; strongest possible source overlap"
+      },
+      {
+        "assessment": "Proves general inverse construction, no explicit Rule54 period-three classification",
+        "evidence": [
+          "Toffoli and Margolus, Physica D 45 (1990), §5.4, especially Eqs. (12)-(17)"
+        ],
+        "identifier_or_url": "https://people.csail.mit.edu/nhm/ica.pdf",
+        "material_read": "Full-text §5.4, pages 238–240, update equations (11)–(17)",
+        "method": "Opened author-hosted paper and visually inspected relevant pages",
+        "title": "Invertible cellular automata: A review",
+        "trigger": "General reversible second-order covering theorem"
+      },
+      {
+        "assessment": "Construction and extensions only, no Rule54-specific third-iterate census observed",
+        "evidence": [
+          "arXiv:1311.4297, first public 2013-11-18"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.4297",
+        "material_read": "Accessible arXiv full HTML/abstract and general model description",
+        "method": "Read arXiv preprint metadata and available parsed full text",
+        "title": "On generalization of reversible second-order cellular automata",
+        "trigger": "Same second-order family and potential stronger classification"
+      },
+      {
+        "assessment": "The paper studies ordinary first-order synchronous Rule54 and its glider tilings, not the second-order reversible memory map or the claimed three-iterate sector",
+        "evidence": [
+          "https://uwe-repository.worktribe.com/file/810658/1/regLagR54v04.pdf, especially §2 and §3",
+          "arXiv:1410.3096, first posted 2014-10-12"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.3096",
+        "material_read": "Author full-text 2014 paper, including full introductory definition, glider classification, de Bruijn construction and period cycles",
+        "method": "Read lawful university-repository PDF as parsed full text, compared global map and periodic definitions",
+        "title": "Complete Characterization of Structure of Rule 54",
+        "trigger": "Strong apparent coverage from a paper titled complete structural classification of exactly Rule54"
+      },
+      {
+        "assessment": "Different staggered RCA54 update; analysis of stationary ensembles and transport cannot be applied directly to the simultaneous two-row memory map",
+        "evidence": [
+          "arXiv:2103.16543 §2 equations (1)–(2), Figure 1, §7.2 equations around (118)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.16543",
+        "material_read": "70-page open paper: title/contents, §2 full local model and updating convention, §7.1–7.2 time-state definitions and relevant periodic transfer formulas",
+        "method": "Parsed full OA PDF, visually inspected PDF page 4 to check local recurrence",
+        "title": "Rule 54: Exactly solvable model of nonequilibrium statistical mechanics",
+        "trigger": "Plausible same-named reversible Rule54 source with time-state and spatial transfer results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "328baabc-998e-4d11-a624-caf6502e5298",
+  "value": {
+    "rationale": "The period-three subsystem of a canonical nonlinear reversible memory automaton admits a complete natural classification as a three-colored step-two hard-core lattice gas. The all-size polynomial detects ring-parity decomposition, gives exact strict three-orbit counts and spatial entropy, and is not a mere single-number computation or generic reversibility restatement.",
+    "status": "PASS"
+  }
+}

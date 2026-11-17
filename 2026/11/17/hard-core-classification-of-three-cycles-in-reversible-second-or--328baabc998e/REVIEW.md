@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The Rule 54 normalization was checked directly against Wolfram's eight-bit truth table and an independent truth-table program. The third-iterate condition gives the three simultaneous equations \(p_i=x_{t,i-1}\lor x_{t,i+1}\). A zero-parity site forces both neighbors to be all-zero columns and propagates around the connected ring; otherwise the odd-parity one-hot or all-one columns satisfy the equation exactly when defects do not occur at displacement two. The converse reconstructs a valid orbit. The step-two graph has one or two cycles according to parity of the circumference; the independence-polynomial trace formula proves the weighted enumeration at all lengths. The only temporal fixed points are the two constant pairs. Independent exhaustive dynamics through circumference ten and an independent temporal-history graph through circumference twenty-four match the proof. The scripts are reproducing checks, not substitutes for the infinite theorem.
+
+## Originality — PASS, with bounded historical risk
+Actual mathematical-record queries and accessible source inspections were compared by the configuration space and update equation, not by the shared name “Rule 54.” Wolfram 1983 states the general reversible-memory construction and Rule 54 separately; Toffoli–Margolus 1990 and Vlasov 2013 state construction results. Buča–Klobas–Prosen 2021 analyze the staggered RCA54 model and its time-states, which use a different local update prescription and state space. The full 2014 glider/tiling paper studies ordinary synchronous Rule 54 rather than the two-register memory map. Published indexed one-step image findings for synchronous Rule 54 describe predecessor sets, not the third-iterate sector of this two-row memory map. No inspected statement implies the all-circumference three-cycle hard-core classification. Historical priority remains limited by unindexed works and the impossibility of exhaustively reading every source.
+
+## Value — PASS
+The classification reveals an exact and non-obvious interaction constraint in a nonlinear, globally reversible automaton: temporal three-cycles are equivalent to a three-color hard-core gas on a graph that splits into two parity classes on even rings. It determines the entire defect-count generating polynomial, a strict period-three orbit census, a new spatial-entropy rate, and a strong even–odd structural difference, for every ring circumference rather than a small computational window. These are natural dynamical invariants of a canonical reversible completion of an elementary cellular automaton.
+
+## Scientific limitations
+Only third-iterate fixed states, not the full temporal orbit spectrum, are classified; no equivalence is asserted with the distinct staggered RCA54. The novelty conclusion is a best-knowledge assessment using checked published and archival material, not a formal uniqueness guarantee. No independent external validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
