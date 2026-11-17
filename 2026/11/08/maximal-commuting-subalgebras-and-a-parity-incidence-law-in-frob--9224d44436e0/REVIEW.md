@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the commutator coefficients directly from \(ta=\sigma(a)t\), solves the nonzero first-coefficient centralizer exactly using the fixed field of Frobenius, proves that each such centralizer is a commutative subalgebra, and classifies all inclusion-maximal commuting subsets. The projective parameter quotient and the parity-dependent power-map fiber count are explicit. The centralizer spectrum follows from the norm criterion for a linearized Frobenius equation; an independent reversal of summation gives the commuting-pair count. The provided self-contained finite-field verifier exhaustively confirms four tested field orders, including direct maximal-clique enumeration at smaller orders. The proof does not infer infinite validity from those tests. Risks: none identified in the coefficient and norm calculations; code verifies prime-based field models rather than arbitrary prime-power bases.
+## correctness
 
-## Originality — PASS, provisional publication priority
-The primary skew-polynomial source (Pumplün–Thompson, arXiv:2006.10418, inspected through its lawful published PDF) addresses factorization and reduced norms rather than fourth-order nilpotent radical commutants. Cheraghpour et al. (arXiv:2402.12619, original arXiv full HTML, Sections 1–2) classify graph components of triangular matrix rings rather than this Frobenius-twisted radical, and their disjoint clique geometry cannot directly yield the intersecting projective incidence structure here. Broad mathematical record searches found related but non-dominating commutant formulas for different finite algebras. Residual risk: an unlocated general theorem for algebra groups or twisted finite chain rings could imply part of the formulas. The full text of Nath et al. 2021 was not accessible during this review, so its applicability was assessed only as a specified risk, not declared absent.
+PASS
 
-## Mathematical value — PASS
-Maximal abelian subalgebras and maximal abelian algebra-group subgroups are natural structural invariants of finite noncommutative local rings. The classification gives every maximal object, its exact size, a complete pairwise intersection rule, a previously unaccounted extension-degree parity transition, and the centralizer spectrum in arbitrary finite characteristic. The same formulas give an exact, nonconstant commuting probability. This is a nontrivial finite-field family of growing dimensions, not an isolated small example or an arbitrary parameter slice.
+In J=Kt+Kt^2+Kt^3 with sigma(a)=a^q, m>=2, direct Ore multiplication gives commutation iff a sigma(A)=A sigma(a) and a sigma(B)+b sigma²(A)=A sigma(b)+B sigma²(a). When a!=0, A/a lies in F_q and B=ub+v a sigma(a), v in F_q, giving the entire commutative associative centralizer H(a,b) of size q²Q. J² is a maximal commuting clique because sigma is nontrivial. Distinct H are parametrized by projective [a] and b modulo F_q a^{q+1}. Intersections governed by [a] to [a^{q+1}], with kernel gcd((Q-1)/(q-1),q+1) = 1 odd m, q+1 even m. First-coefficient-zero centralizer spectrum follows the sigma² norm equation; double counting all commuting pairs yields Q³[(q²+q+1)Q-q(q+1)]. The algebra group 1+J preserves commutation. Independent GF4 quotient arithmetic yielded centralizer sizes 16 (56 elements) and 64 (8 elements), 1408 ordered commuting pairs, seven maximal commuting classes, agreeing with the formulas. Small computations corroborate, not certify, all q,m.
 
-## Scientific limitations
-The algebra is specifically a Frobenius-skew Ore quotient truncated at degree four and the result applies to its nilpotent radical. No assertion is made for other nilpotence lengths, for all elements of the full unital quotient, or for uniqueness in the literature. External independent review and full publication-priority resolution remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: no earlier statement in inspected sources gives a full maximal commuting-subalgebra classification, parity-dependent projective incidence, and joint centralizer-size distribution for this precise Frobenius-skew nilpotent t^4 radical. The closest triangular-ring commuting graph has different algebra and noncentral-vertex convention. The cyclic field norm/projective map tools are classical; those alone do not state the joint count and intersection classification. No guaranteed global priority.
+
+## value
+
+PASS
+
+Maximal commuting subsets and their intersections are natural structural invariants of nilpotent algebra groups; the odd/even extension-degree incidence change is a sharp field-theoretic boundary, with exact centralizer and commuting-pair distributions. This is not just an arbitrary numerical slice or a relabeling of generic commuting probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
