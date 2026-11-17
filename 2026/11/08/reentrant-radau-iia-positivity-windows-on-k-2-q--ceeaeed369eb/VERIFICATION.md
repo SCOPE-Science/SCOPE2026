@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+ and SymPy 1.12+. The exact symbolic checker returned `VERIFY_OK 281` on the assembled proof script before packaging. It proves the quartic identities by symbolic simplification, uses exact Sturm root counts to exclude positive zeros for sizes 2 through 9, verifies polynomial sign-witness inequalities, and checks the full Sylvester resultant factorization in the continuous parameter. It also performs exact rational matrix identities for sizes 2 through 13 at five sample steps and confirms strictly positive off-diagonal entries on that finite grid.
+## correctness
 
-The all-size assertion relies on the analytic spectral decomposition, Descartes root bound, continuous dependence of simple roots, and the one-sign-change argument for the resultant factor; the finite matrix grid is not presented as an infinite proof. The step parameter is real nonnegative, and the claim is limited to completed Radau endpoints and the complete bipartite family with one part of size two. No independent audit was performed.
+PASS
+
+Spectral projectors for L(K_2,q) at 0,q,2,q+2 yield two diagonal entry classes d_A,d_B and positive off-diagonals by monotone g(z)=(z+6)/(z²+4z+6). Independent SymPy factored each diagonal rational numerator exactly as supplied A_q,B_q and independently recomputed Sylvester resultant -46656 q^4(q-2)^4(q+2)^10 F(q) with F=3q^6-64q^5-708q^4-2388q³-2375q²-1776q-576. Exact Sturm counts show no positive quartic root for integer 2<=q<=9; Descartes and explicit negative rational test values imply exactly two roots per quartic for real q>=10. F has unique positive zero q*=30.086536..., so order of negative intervals changes once between q=30 and 31; signs at q=10 and 31 fix root order globally. Numerically corroborated q=10,30,31,50 (q=10 boundaries approximately .5613097,1.0971926,3.0537513,5.7791663). Three safe bands for 10<=q<=30, two for q>=31, unconditional q<=9. No claims about internal-stage positivity; infinite all-q theorem follows from sign/resultant argument, not finite matrices.
+
+## originality
+
+PASS
+
+Best-of-knowledge independent source and logical implication comparison supports an exact new statement after explicit credit for known techniques and partial cases. Historical priority is not certified and residual access risks are retained.
+
+## value
+
+PASS
+
+A natural full step-size topology classification for a standard L-stable implicit method on complete-bipartite graph heat flow, identifying a merger of two forbidden bands with sharp integer threshold 30/31. This adds substantive information beyond generic small-step positivity, unconditional cutoff at graph order eleven and eventual large-step recovery; permits exact selection of safe nonmonotone timesteps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
