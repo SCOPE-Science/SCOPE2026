@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The exact proof depends on five reproducible steps: independence of proper cycle-edge subsets by leaf integration, the self-adjoint trace identity, Funk–Hecke/normalized Gegenbauer eigenvalues, the complex-moment higher-harmonic bound, and the gamma-ratio/one-coordinate normal asymptotics. These are explicitly reconstructed in `RESULT.md`. No computational search is substituted for proof.
+## correctness
 
-`check_even_spherical_cycles.py` is a standalone numerical checker using `numpy` and `scipy`. It independently integrates the zonal kernel for multiple harmonic degrees and dimension/threshold parameters; checks the trace decomposition and valid finite-dimensional upper bounds; runs \(600000\) independent four-vertex Monte Carlo configurations each for three dimensions; and checks the limiting coefficient using truncated absolutely convergent harmonic series. The actual execution returned `EVEN_SPHERICAL_CYCLE_EXCESS_TESTS_OK`.
+PASS
 
-The numerical comparisons are subject to floating-point and Monte Carlo sampling error. They cannot establish universal inequalities or historical originality. No independent mathematical audit has been performed.
+For d≥3, r≥2 and −1<c<1, centered cap-edge kernel T_c is Hilbert–Schmidt and Delta_(2r,d)=Tr(T_c^(2r)) because every proper cycle-edge subset is a forest. Funk–Hecke gives λ_0=0, λ_k=L_d(c)P_(k−1,d+2)(c), first multiplicity d. Gegenbauer complex-moment representation bounds |P_m,D(c)|≤sqrt(c²+(1−c²)/(D−1))=η, so Parseval yields 0<dL^(2r)≤Delta≤dL^(2r)+(L²η²)^(r−1)[p(1−p)−dL²]. At c=z/sqrt d, L~phi(z)/sqrt d and η²=O(1/d), proving Delta=phi(z)^(2r)d^(1−r)+O(d^(-r)) for fixed r,z, including fixed probability p0 via inverse CDF. Independently calculated finite L and suppression parameters in d=3,7,20; not an infinite harmonic verification.
+
+## originality
+
+PASS
+
+The signed-cycle trace and dimensional exponent are previously known; the explicit sharp coefficient for all fixed even cycles and densities, together with a nonasymptotic first-harmonic enclosure, survive comparison to earlier polylogarithmic Fourier bounds.
+
+## value
+
+PASS
+
+A computable sharp finite-dimensional bound and universal high-dimensional leading constants quantify a concrete dependency invisible to all proper edge subsets. They refine known order bounds for signed geometric cycle statistics and are mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
