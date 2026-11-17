@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:46:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact uncovered-voter characterization JR(W) iff every candidate d has fewer than q=ceil(n/k) supporters outside the committee's covered voters follows by taking an uncovered cohesive group of q voters. Every DR winner must have exactly q approvals. If no ordered pair of distinct candidates (c,d) has |S_c|=q and |S_d\\S_c|>=q, every k-selection from the Z quota-sized columns is JR; a union bound gives P[T != binom(Z,k)] <= m(m-1)b tau, with b=Pr(Bin(n,p)=q), tau=Pr(Bin(n-q,p)>=q). Independent columns imply Z~Bin(m,b). In the fixed-k window p=1/k+beta/sqrt(n)+o(n^-1/2), m/sqrt(n)->c, local CLT gives m b->mu=c*k exp[-k^2 beta^2/(2(k-1))]/sqrt(2 pi (k-1)), while the JR obstruction is exponentially small via q-(n-q)p ~ n/k^2. Thus T converges to binom(Poisson(mu),k), including the zero and off-window regimes for polynomial m. This is an analytic proof; a separate literal-voter-cohesion vs compact-JR exhaustive check over 512 small approval profiles found zero discrepancies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SJR/SSJR source proves a private-supporter reduction with fixed m and an entirely different binomial committee proxy.",
+          "Laminar DR enumeration requires nested/disjoint supporter sets; independent Bernoulli columns are generically crossing."
+        ],
+        "reasoning": "Neither theorem has hypotheses covering all iid Bernoulli support columns with m~sqrt(n), nor implies the full DR number-law.",
+        "searches": [
+          "distinctive representation random approval Bernoulli elections JR Poisson critical window exact quota committees",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-bernoulli-transition-and-counting-law-for-strong-committ--ad36ee933b71/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-and-exact-enumeration-of-distinctive-representation-com--ddd402427ad2/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "distinctive representation random approval Bernoulli elections JR Poisson critical window exact quota committees",
+        "https://arxiv.org/abs/2609.29332",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-bernoulli-transition-and-counting-law-for-strong-committ--ad36ee933b71/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-and-exact-enumeration-of-distinctive-representation-com--ddd402427ad2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chingoma et al. define DR and prove NP-completeness; this supplies the object and motivation but not Bernoulli probability or Poisson laws.",
+          "SJR result yields an unrelated proxy binom(m-Z,k-Z), with Z popularity >= quota; the submitted proxy is binom(Z,k), with Z popularity = quota."
+        ],
+        "reasoning": "Neither the known deterministic definition nor SJR's full solution-family theorem implies the claimed finite DR coupling and Poissonized committee count without the new JR obstruction analysis.",
+        "searches": [
+          "https://arxiv.org/abs/2609.29332",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-bernoulli-transition-and-counting-law-for-strong-committ--ad36ee933b71/RESULT.md",
+          "distinctive representation random approval Bernoulli elections JR Poisson critical window exact quota committees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DR is justified representation plus exactly Hare-quota approvals of every winner; the random critical result handles m scaling as sqrt(n).",
+          "The fixed-candidate SJR and SSJR Bernoulli theorem concerns different stronger representation axioms and popularity >= quota, not DR exact quotas."
+        ],
+        "reasoning": "An exact quota requirement and its JR coupling cannot be identified with SJR/SSJR feasibility; the probabilistic window concerns candidate-pool growth, not only a relabeling.",
+        "searches": [
+          "distinctive representation random approval Bernoulli elections JR Poisson critical window exact quota committees",
+          "https://arxiv.org/abs/2609.29332",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-bernoulli-transition-and-counting-law-for-strong-committ--ad36ee933b71/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant published family counts are for laminar support and general DR complexity, not the critical random iid joint committee-count distribution."
+        ],
+        "reasoning": "No exact matching table/formula found; index absence does not establish historical novelty. The all-quota coupling is mathematically compared with the near but distinct known formulas.",
+        "searches": [
+          "distinctive representation random approval Bernoulli elections JR Poisson critical window exact quota committees",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-and-exact-enumeration-of-distinctive-representation-com--ddd402427ad2/RESULT.md",
+          "https://arxiv.org/abs/2609.29332"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the complete distributional count law in the growing-candidate square-root window for Distinctive Representation is neither the deterministic worst-case DR complexity theorem, fixed-m SJR/SSJR Bernoulli result, nor laminar-profile deterministic enumeration. The previously published ingredients local CLT and Poisson thinning are acknowledged, while the finite all-quota JR validity coupling and full committee-count phase transition are not implied by those prior statements.",
+      "residual_risks": [
+        "Unindexed recent random-approval DR results could potentially yield the same coupling; negative corpus search is not proof of global priority.",
+        "The present result does not treat growing committee size, correlated ballots, or exponential candidate pools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_RANDOM_LAW",
+          "evidence": [
+            "DR is JR plus a per-winner exact quota; NP-completeness of general DR does not give a random n->infinity critical committee-count law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.29332",
+          "material_read": "Accessible full primary text including Definition 25, Theorem 28, Sections 6–8 and Appendix D",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "Diverse Representation in Approval-Based Committee Voting",
+          "trigger": "Defines same DR axiom and worst-case complexity"
+        },
+        {
+          "assessment": "DIFFERENT_REPRESENTATION_AXIOMS",
+          "evidence": [
+            "SJR/SSJR forces all cohesive candidates into winning sets and keeps candidate count fixed; not the DR exact-quota Poisson window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-bernoulli-transition-and-counting-law-for-strong-committ--ad36ee933b71/RESULT.md",
+          "material_read": "Full published RESULT.md including proof and asymptotic phase diagram",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "A sharp Bernoulli transition and counting law for strong committee representation",
+          "trigger": "Same iid Bernoulli approvals and Hare quota"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "DR is a computationally difficult representation axiom in general approval elections. The explicit finite reduction to column-sum quotas, an exponentially small JR obstruction and the complete Poisson-binomial critical window answer a natural and quantitatively sharp random-instance feasibility/counting problem. That is a motivated probabilistic classification, not an unmotivated parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed recent random-approval DR results could potentially yield the same coupling; negative corpus search is not proof of global priority.",
+    "The present result does not treat growing committee size, correlated ballots, or exponential candidate pools."
+  ],
+  "schema_version": 1
+}

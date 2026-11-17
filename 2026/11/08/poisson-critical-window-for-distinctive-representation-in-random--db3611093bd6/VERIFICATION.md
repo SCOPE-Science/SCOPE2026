@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3.10 or later; the implementation uses only the standard library. The executable is self-contained and reads no external inputs.
+## correctness
 
-It enumerates each binary approval matrix for five finite instances: \((n,m,k)=(3,3,2),(4,3,2),(4,4,2),(5,3,2),(6,3,3)\). These contain \(512+4096+65536+32768+262144=365056\) profiles. The program computes the true DR count, quota candidate count, and pair obstruction event; verifies that a count mismatch entails the obstruction; and verifies the exact rational probability bound under independent fair approvals.
+PASS
 
-For the first two cases (\(4608\) profiles), a separate implementation directly enumerates *all cohesive groups of voters*, without using the uncovered-voter characterization, and checks identical DR counts. An additional weighted enumeration for \((4,3,2)\) at \(p=1/3\) verifies the bound with the true nonuniform profile probabilities. The program also evaluates critical-window constants and verifies convergence of several finite binomial local masses to their stated analytic leading term.
+The exact uncovered-voter characterization JR(W) iff every candidate d has fewer than q=ceil(n/k) supporters outside the committee's covered voters follows by taking an uncovered cohesive group of q voters. Every DR winner must have exactly q approvals. If no ordered pair of distinct candidates (c,d) has |S_c|=q and |S_d\S_c|>=q, every k-selection from the Z quota-sized columns is JR; a union bound gives P[T != binom(Z,k)] <= m(m-1)b tau, with b=Pr(Bin(n,p)=q), tau=Pr(Bin(n-q,p)>=q). Independent columns imply Z~Bin(m,b). In the fixed-k window p=1/k+beta/sqrt(n)+o(n^-1/2), m/sqrt(n)->c, local CLT gives m b->mu=c*k exp[-k^2 beta^2/(2(k-1))]/sqrt(2 pi (k-1)), while the JR obstruction is exponentially small via q-(n-q)p ~ n/k^2. Thus T converges to binom(Poisson(mu),k), including the zero and off-window regimes for polynomial m. This is an analytic proof; a separate literal-voter-cohesion vs compact-JR exhaustive check over 512 small approval profiles found zero discrepancies.
 
-All assertions passed in the executed checker. The finite enumerations do not prove the results for unbounded \(n\); the infinite statements depend on the complete proof in `RESULT.md`, including the rare-event coupling and the binomial local central limit theorem. No independent scientific audit was performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the complete distributional count law in the growing-candidate square-root window for Distinctive Representation is neither the deterministic worst-case DR complexity theorem, fixed-m SJR/SSJR Bernoulli result, nor laminar-profile deterministic enumeration. The previously published ingredients local CLT and Poisson thinning are acknowledged, while the finite all-quota JR validity coupling and full committee-count phase transition are not implied by those prior statements.
+
+## value
+
+PASS
+
+DR is a computationally difficult representation axiom in general approval elections. The explicit finite reduction to column-sum quotas, an exponentially small JR obstruction and the complete Poisson-binomial critical window answer a natural and quantitatively sharp random-instance feasibility/counting problem. That is a motivated probabilistic classification, not an unmotivated parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
