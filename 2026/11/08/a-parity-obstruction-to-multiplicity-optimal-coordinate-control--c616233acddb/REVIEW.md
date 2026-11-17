@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Walsh basis diagonalizes the exact integer-weighted Laplacian, with eigenvalues twice the corresponding subset sums. The displayed 64-term generating-polynomial identity establishes precisely 20 double and 24 singleton fibers. The five explicitly occurring difference masks have odd cardinality and XOR to zero, making the pairwise PBH constraints inconsistent. Each double mask meets coordinate one or two, so the three prescribed vertices give rank two on every double eigenspace, and rank one on singleton eigenspaces. The extra-weight strict superincrease proves spectral-block separation for every higher dimension. The packaged integer checker independently confirms all 4096 Laplacian/Walsh identities, all 2016 failed two-point choices, and the constructive three-point criterion. No experimental observation is used as an infinite proof.
+PASS
 
-## Originality — PASS, on inspected evidence
+Walsh characters diagonalize L_w with eigenvalues 2 sum_i w_i a_i. Independent exact integer enumeration of 2^6 subsets verified exactly twenty double fibers, no triples, six published difference masks {15,23,27,30,59,61}. A two-vertex PBH restriction requires v·delta=1 modulo2 for each mask; xor of five masks 15,23,30,59,61=0 contradicts odd count five. Set {0,e1,e2} separates every double fiber since each delta has at least one of first two bits set; singleton fibers never vanish. New superincreasing weights preserve all old collisions and prohibit new ones, yielding every dimension d>=6. Finite enumeration establishes exact six-dimensional base, mathematical separation proves arbitrary d.
 
-The existing 2013 maximum-multiplicity framework (https://arxiv.org/abs/1310.5806, Sections on PBH and driver identification) supplies the unrestricted-channel comparison but does not state this weighted-hypercube coordinate example or its odd-parity obstruction. The inspected relevant preliminaries and grid eigenspace arguments in https://arxiv.org/abs/1203.0129 concern unweighted Cartesian-product Laplacians. The qualitative-family/zero-forcing equivalence of https://arxiv.org/abs/1403.4868 does not settle a single prescribed weighted Laplacian. The inspected accessible 2019 threshold-graph paper (https://doi.org/10.1049/iet-cta.2018.5875) explicitly distinguishes terminal inputs from general control and therefore preempts any claim that this distinction is new, but its threshold-graph results do not cover the vertex-transitive weighted cubes here. The exact six-mask collision table and five-mask circuit were not identified in targeted searches. This is not proof of worldwide priority; other specialized coverage remains a live risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Dedicated vertex control is a natural constrained actuator design problem in a connected homogeneous network. This infinite family shows that the spectral multiplicity lower bound may be strictly unattainable by independent coordinate controls even with vertex transitivity and no isolated vertices, while providing an exact three-site design. The GF(2) parity obstruction explains the mechanism and supplies a short auditable certificate rather than just a rank-search result. The choice of weights produces an interpretable collision configuration with six distinct difference masks and an odd dependency; a small perturbation generally destroys the resonance, which limits but does not erase its boundary value.
+PASS best of knowledge: prior multiplicity principle concerns unconstrained input channel count; published unweighted cube coordinate placements and grid graph controllability do not cover the fixed positive anisotropic weighted example or its parity circuit. Exact 2-to-3 dedicated-input gap is not implied by stronger-looking scalar multiplicity statements.
 
-## Limits and priority risk
+## value
 
-No statement is made that the six-dimensional instance has smallest possible dimension, or that the gap is robust under perturbations. Arbitrary dense input matrices can attain the maximum-eigenspace-dimension channel budget; they are a different admissible class. Related articles on grid controllability and terminal inputs were inspected, but unindexed dedicated-actuation work may contain an equivalent or stronger example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: explicit robust-in-dimension family displaying a structural obstruction to simultaneously controlling all double Walsh eigenspaces with the minimum number of dedicated coordinate inputs; parity certificate and explicit achieving actuator placement are meaningful, not merely a routine rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
