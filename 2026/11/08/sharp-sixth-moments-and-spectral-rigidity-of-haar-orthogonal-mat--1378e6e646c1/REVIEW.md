@@ -1,15 +1,21 @@
-# Scientific review: sharp sixth moments on real orthogonal frames
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is for every integer \(n\ge3\), \(1\le k\le n\) and all nonzero real \(n\times k\) matrices. The proof reconstructs the exact sixth moment from the inverse of the 15-pairing orthogonal Gram matrix, confirms the second-moment normalization and supplies two exact identities with strictly positive coefficients on the probability simplex. The first vanishes precisely on rank-one matrices, the second precisely on equal singular squares. The \(k=1\) endpoint coincidence and all boundary cases are addressed. The Euclidean distance is proved by averaging quadratic forms under independent orthogonal row and column transformations. SymPy and an independent conditional-sphere integration corroborate critical algebra; neither finite numerical sampling nor program execution is used as an all-dimensions proof.
+## correctness
 
-## Originality
-**PASS, with bibliographic risk.** The most relevant original papers are Gorin (2001), arXiv:math-ph/0112012, and Collins–Śniady (2004), arXiv:math-ph/0402073. Gorin's equation (33) already computes the diagonal sixth-monomial pairing coefficient, and Collins–Śniady supply the complete integration calculus; therefore the moment polynomial is only a known-method deduction. Their examined results do not state the sharp two-sided sixth-moment coefficient-space optimization, equality families, two positive spectral-deficit decompositions or optimal Banach–Mazur distance. Nearby fourth-moment problems on \(\mathrm{SO}(4)\), signed-permutation groups, Grassmannian coefficients and Gaussian chaos do not imply the sixth-moment statement for the full orthogonal Stiefel family. An unindexed equivalent optimization remains a possible risk.
+PASS
 
-## Mathematical value
-**PASS.** The norm geometry of the complete real \(nk\)-dimensional first matrix-coefficient space on each orthogonal Stiefel manifold is a natural functional-analytic invariant, not an arbitrarily selected numerical case. At sixth order the moment polynomial has competing negative quadratic and positive cubic spectral terms, so optimizing it is not a direct application of ordinary convexity. The two exact deficit formulas prove global spectral rigidity despite this competition, and characterize the optimal Euclidean ellipsoid across every frame size. These conclusions can be used as benchmarks for matrix-coefficient norm estimates and higher-moment comparisons. The results do not purport to advance the already-established orthogonal integration algorithms.
+PASS: For full Haar O(n), n>=3, 1<=k<=n and all nonzero real n-by-k coefficients, the 15-pairing sixth-order Weingarten inverse was reconstructed exactly using the three cycle-component types (3,2,1). Contracting gives E F^6 =15[(n^2+3n-2)S^3-6(n+2)ST+16U]/[n(n-2)(n-1)(n+2)(n+4)] with S=tr G,T=tr G^2,U=tr G^3 and E F^2=S/n. On normalized squared singular values x_i, the submitted two exact pairwise nonnegative deficit sums show rank-one minimum and k-equal positive singular-value maximum, with strict equality geometry. Averaging an arbitrary Euclidean comparison quadratic over O(n) times O(k) proves the Frobenius ellipsoid optimal and the Banach–Mazur formula, including k=1 and k=n boundary cases. Independently inverted the symbolic 15x15 pairing Gram matrix in exact arithmetic; finite integrations are corroboration rather than proof of all n.
 
-## Limitations and closest literature
-The theorem is limited to real coefficients and sixth moments with full \(\mathrm O(n)\) Haar measure in dimensions at least three; other compact groups and exponents may behave differently. Gorin's monomial recursion and Collins–Śniady's Weingarten calculus are stronger as methods for arbitrary polynomial integration, but they do not state or imply the sharp optimization without further argument. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Gorin and Collins–Śniady provide the underlying orthogonal Weingarten calculus and even a specific entry of its sixth-order inverse, but the full coefficient-space sharp two-sided sixth norm geometry, spectral equalities, two deficits and optimal Euclidean distortion were not supplied in their inspected full texts. The matching Resultary item is the same source blob and not independent prior art; unitary/Sp analogues integrate different Haar spaces.
+
+## value
+
+PASS
+
+PASS: The rectangular real Stiefel manifold and first-order linear statistics are canonical in random matrix theory. A sharp rank-dependent all-coefficient norm range plus exact equality classes and Banach–Mazur invariant are useful independently of merely computing a Weingarten coefficient; both rank-one and equal-spectrum endpoints are structurally characterized for every n,k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
