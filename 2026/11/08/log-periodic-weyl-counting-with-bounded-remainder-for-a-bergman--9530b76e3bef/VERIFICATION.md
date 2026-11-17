@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The normalized monomial basis reduces the commutator exactly to a one-step weighted shift. The gamma recurrence and the fixed-frequency Stirling ratio yield a uniform \(O(n^{-2})\) coefficient expansion. A strict threshold-map Lipschitz inequality supplies the root and bounded counting error; harmonic averaging plus Ky Fan rearrangement bounds yields the logarithmic singular-value limit.
+# Independent mathematical audit
 
-Run `python check.py` with NumPy and SciPy to reproduce finite numerical checks of the exact matrix coefficients, asymptotic profile, counting discrepancy, and root extrema. Numerical tests are diagnostics only; they cannot certify the infinite-dimensional theorem or establish novelty. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+Exact beta/gamma moments diagonalize the radial Toeplitz symbol; a gamma recurrence gives the one-step weighted commutator with coefficient a_n=tau n^{-1}|1+b e^{-i tau log n}|+O(n^{-2}). The sufficient bound b<1/(1+tau) ensures a unique, uniformly transverse threshold root H(theta). Sorting errors can alter only O(1) lattice indices uniformly in the log phase; all smaller/greater indices are controlled by the fixed amplitude envelope. Harmonic summation and a Ky Fan sandwich convert the unsorted periodic n^{-1} sequence to the sorted singular logarithmic average; elliptic substitution gives the stated Dixmier residue.
+
+## originality
+
+PASS
+
+An earlier broader real-profile Bergman theorem establishes the same type of critical trace for log-periodic commutators, so the residue and Schatten cutoff alone are not novel. However it does not imply the phase-specific O(1) counting law for this non-selfadjoint two-frequency complex symbol; the sharp root and entire cluster envelope survive as original best knowledge.
+
+## value
+
+PASS
+
+The O(1) remainder is quantitatively sharper than generic weak-Schatten/asymptotic trace information and resolves full phase-dependent eigenvalue counting for a natural bounded radial two-frequency commutator; a future researcher may need this exact root and sharp envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
