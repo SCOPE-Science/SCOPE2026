@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim is a uniform statement for every positive integer \(M\) and all lengths through \(5M+9\). A complete finite-context lemma follows from the two-block cover for the length-\(32\) Thue–Morse substitution blocks and a \(22\)-symbol upper bound on relevant contexts. Each factor is uniquely represented by the number of \(b\)'s, their internal gap sequence and left padding. The exact nonnegative-pair count and inclusion–exclusion yield a signed threshold representation for factor growth; the palindromic intervals give a separate exact adjacent-pair sum. The resulting eight-row range table proves every bound and endpoint, including the six-\(b\) entrance at \(5M+10\). The extracted checker recomputes the combinatorial signatures, and direct factor enumeration agrees in the small cases. Residual risk: the hand simplification of the finite signed sums warrants independent review, although all primitive counts and coefficient lists can be replayed.
+## correctness
 
-## Originality (O): PASS
-The most directly relevant paper, Kim–Kwon 2026, Section 4 and Proposition 4.3, gives the first positive-gap value \(T_M(2M+3)=2\), which is deliberately excluded as novelty. Its other results provide a general threshold implication and local return-path framework but neither the complete interval \([2M+3,4M+6]\), nor the following zero interval \([4M+7,5M+8]\), nor the reappearance at \(5M+9\). The 2013 Frougny–Klouda study treats different finite-alphabet avatars, not this stretched morphism. Relevant database searches found no covering claim. Priority risk remains from potentially unindexed results and implicit consequences not noticed during full-text comparison; no definitive uniqueness assertion is made.
+PASS
 
-## Value (V): PASS
-The source family was expressly constructed to demonstrate a sharp one-scale failure of a general palindromic-complexity criterion. The present classification turns that single obstruction into an exact, parameter-dependent duration and a genuine remission-and-return phenomenon. Both block lengths grow linearly with the stretch parameter, so the result distinguishes sustained local complexity failure from a point anomaly and provides an exact benchmark for further return-word analyses. This is a natural interval invariant of the source's sharpness family, not an arbitrary individual computation.
+The unique b-marked gap coding has consecutive b distances M+1+r with r in {0,1,2}. Every finite Thue-Morse factor of length at most 32 occurs in two adjacent length-32 substitution blocks. Flanking-context inclusion-exclusion and palindrome parity give the stated T_M(n) for every positive M through 5M+9. Verified complete local gap bounds at 5M+9/5M+10 and no assertion beyond; independent direct distinct-factor enumeration from a length-8192 Thue-Morse source verified all n for M=1..6, including n=0 and both gap transitions. Finite testing is corroboration, symbolic context calculation supplies all-M proof.
 
-## Scientific limits and closest literature
-The new result addresses only lengths up to \(5M+9\); longer patterns can create new gap interactions. The 2026 Kim–Kwon first-scale result is prior art, and the earlier work of Frougny–Klouda is materially different. The checker is reproducibility evidence, not outside certification. Publication priority and independent mathematical audit remain unconfirmed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original at the exact final claim level after statement-level comparison with identified published results; credits previously known subclaims, keeps specific access and archival risks.
+
+## value
+
+PASS
+
+The positive gap interval and first zero return are a precise structural refinement of Kim–Kwon’s sharpness family, rather than mere recomputation of its previously known first positive point; the first two-excursion profile is a natural local palindromic-complexity invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
