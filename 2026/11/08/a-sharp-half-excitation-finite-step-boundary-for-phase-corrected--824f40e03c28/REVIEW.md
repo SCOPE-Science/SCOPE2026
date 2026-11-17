@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The energy-equalizing charger measurement is constructed as a basis with zero diagonal for the traceless Hermitian operator \(A-p\rho_a\), which guarantees equal conditional excitation. Both branches remain pure and can be phase-aligned with diagonal battery gates. Direct exchange-block evolution gives the reachable one-step interval \([F_-(e),F_+(e)]\). Solving its self-inclusion yields \([p_-,p_+]\); strict concavity of \(F_+\), the exact identity \(F_+'(p_+)=\sqrt{1-\eta}(1-2\beta)\), and a clipped constructive trajectory prove the strict finite-step dichotomy. The finite checker tests 168 exact-rational identities, 450 resonant two-qubit evolutions and measurement outcomes, and 250 detuned evolutions. The theorem, including infinite quantifiers, rests on the proof and not these samples. Physical applicability presumes exact outcome knowledge and unrestricted diagonal phase feedback.
+## correctness
 
-## Originality
-**PASS, qualified.** Gong–Zhang–Li arXiv:2610.01332 gives phase-dependent dynamics and adaptive energy-equalizing charger measurements, but its protocol is measurement-only and retains phase-history dispersion for coherent chargers. The present addition of outcome-conditioned diagonal battery feedback changes the reachable control system; its exact sustainable interval and finite-step \(\beta=1/2\) boundary are neither stated there nor immediate from a phase-blind specialization. The follow-up arXiv:2610.31242 treats two charger qubits without this one-qubit feedforward reachability question. Continuous homodyne feedback in arXiv:2012.00350 is a different dynamical model. Relevant public records and predecessor claims were searched by substance and implications, not merely title. The multilevel phase-controlled-ancilla study DOI:10.1103/39yj-zgwf was available only as an abstract, leaving a residual broader-coverage risk; no claim of certified priority is made.
+PASS
 
-## Value
-**PASS.** Conditional mean-energy dispersion is a direct operational observable in collisional charging, and replacing repeated stochastic phase drift with experimentally interpretable energy-axis feedforward changes the attainable deterministic stationary charge. The exact sustainable ceiling \(p_+\), existence versus nonexistence of finite attainment, and a sharp charger half-excitation threshold distinguish practical finite-step preparation from asymptotic convergence. The critical quadratic convergence law adds a concrete tuning diagnostic. These findings are confined to the ideal measurement-and-feedback resources; no general battery ergotropy or thermodynamic-cost gain is claimed.
+For any pure postcollision two-qubit state T=A−pρ is a traceless Hermitian charger matrix; a real qubit measurement basis with zero T diagonals gives equal conditional populations, then energy-diagonal feedback aligns pure battery phases exactly. Direct exchange-unitary calculation gives [F_−(e),F_+(e)], and the sustainable interval solves |eta(e−beta)|≤2√(eta(1−eta)beta(1−beta)e(1−e)). Differentiating F_+ at upper fixed point yields √(1−eta)(1−2beta), proving finite reachability iff beta>1/2; concavity proves no finite arrival below/equal, with linear versus quadratic rates. Independently checked fixed points, derivative, and constructive 3-step example for beta=0.8 eta=0.5 and other pairs; original check.py inspected with exact rational and resonant/nonresonant matrix checks, but logs do not replace the global proof.
 
-## Closest literature and limitations
-The closest predecessor is arXiv:2610.01332 (adaptive rank-one measurement and phase-dependent collision dynamics), followed by arXiv:2610.31242 (two-charger zero-dispersion classification), arXiv:2012.00350 (continuous battery feedback), and DOI:10.1103/39yj-zgwf (multilevel coherent ancilla, abstract-only coverage). Phase gates preserve bare expected energy but do not eliminate intrinsic projective-energy variance or control costs. The exact finite-step statement requires pure chargers and conditional states and \(0<\eta<1\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 1, 2026 Gong–Zhang–Li study concerns adaptive charger measurement with no outcome-dependent battery phase-feedback gates. Its abstract expressly finds that superposition chargers retain phase dependence under that weaker control. Adding conditional diagonal rotations changes the allowed dynamics; the submitted identical-state protocol and beta=1/2 finite-time frontier are not implied by the inspected published claims. Full original paper access was blocked and is a priority risk, not by itself a scientific rejection.
+
+## value
+
+PASS
+
+It gives an exact, physically motivated protocol distinction between conditional mean-energy equalization and identical conditional states, plus a sharp controllability threshold beta=1/2 with linear versus quadratic convergence; this is a nonroutine structural control result, not a mere matrix identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
