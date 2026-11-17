@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no external packages. The observed result, from the distributed standalone script, is `VERIFY_OK 202`.
+## correctness
 
-The verifier constructs the complete \(2n\)-vertex weighted Laplacian from its edge definition and performs exact rational Gauss–Jordan inversion of \(L+J/(2n)\). For 54 cases, the exact Kirchhoff index equals \(2n[1/(2b)+(n-1)/(na)+(n-1)/(na+2b)]\). It separately finds numerical approximations to the unique positive scalar root and verifies exact rational derivative signs on both sides and the full-budget identity for 36 parameter pairs (144 assertions), then compares four large-network instances with the three asymptotic constants.
+PASS
 
-The proof of existence and uniqueness uses strict convexity of \(\operatorname{tr}(L+J/(2n))^{-1}\) under independent conductance variation, connectivity at the optimizer, and symmetry. The infinite-family formula uses spectral decomposition. The asymptotic assertions follow by analytic scaling limits of the exact derivative, each with a unique positive sign-change point. No numerical test is claimed to establish a theorem for infinitely many sizes, all prices, or all budgets.
+For each connected allocation, K=N(Tr(L+J/N)^(-1)-1). Its Hessian is strictly positive on nonzero individual edge variations, and disconnected limits blow up; symmetry thus forces two positive edge orbits. Laplacian tensor spectrum 0,2b,na (n-1 copies),na+2b (n-1 copies) yields the exact scalar objective, budget and unique stationary root. Independently simplified all three rescaled derivative limits with SymPy to the claimed sign-changing rational functions; the unique-zero trapping argument establishes all fixed-price asymptotics, not just finite cases.
 
-The date on the relevant 2006 conference lecture is day-precise (August 29). The related general resistance optimization work has a July 2006 conference version, whose precise public-release day has not been established. No independent mathematical audit was carried out.
+## originality
+
+PASS
+
+The general convex resistance optimizer and the one-edge barbell are prior; they neither determine the matching-linked K_n product spectrum nor the price-one n^(2/3) critical regime. Bounded published-search results for priced K_(n,n) and circular ladders have different graph structures/objectives. No inspected statement dominates all three priced complete-prism asymptotics; best-of-knowledge PASS with unindexed-priority risk.
+
+## value
+
+PASS
+
+The full-matching joining of dense communities is a canonical intercommunity electrical design. Sharp three-phase price sensitivity and optimal budget shares are specific usable facts, not mere routine convexity or a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
