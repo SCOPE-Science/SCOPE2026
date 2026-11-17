@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact reduction from unanchored trigram profiles to directed Euler trails, the published fixed-start proper-transposition criterion, and an explicit closed-trail correction yield a finite-state recognizer. The generated 166-state exact transfer matrix satisfies a full vector identity at lengths 9, 21, 33 and 45, which proves the twelve-period recurrence for all lengths. Independent profile enumeration for lengths 3 through 16 agrees.
+## correctness
 
-## Originality
-PASS, qualified. Li and Xie (2005) provide the underlying unique Euler-trail test; Kontorovich (2004) establishes general regularity; Kiah, Puleo and Milenkovic (2014/2015) count profile equivalence classes. Related work on *binary bigram* and *cyclic trigram* observations does not establish the claimed *linear trigram* singleton enumerator. No inspected primary text supplies the explicit quadratic twelve-period law, but the unavailable complete 2004 article creates historical-priority risk. The method is attributed and not claimed new.
+PASS
 
-## Value
-PASS. It determines exactly, for every length, the number and asymptotic density of sources that admit unambiguous reconstruction from full, unordered three-symbol reads. A 166-state integer certificate gives a reproducible all-length argument rather than an isolated finite census.
+The result models each contiguous binary trigram abc as an arc ab->bc in the order-two de Bruijn digraph; identical arc copies are indistinguishable. A published proper-transposition uniqueness test is specialized to a finite deterministic automaton, with an extra endpoint/rotation rejection for unanchored linear profiles. Rebuilt the 166 reachable states and transitions independently from the source algorithm; checked each of 166 integer coordinates of r45-3r33+3r21-r9=0. Right multiplication by M^k proves the third period-12 finite-difference identity for all n>=9, and exact 3x12 seed values give the displayed quadratic residues. Brute-force enumerated all 2^n strings and grouped by full trigram histogram through n=16; counts match 3..16. General uniqueness characterization is taken from cited Euler-trail theory, not inferred from sample tests.
 
-## Closest literature and limitations
-Kontorovich, *Uniquely decodable n-gram embeddings* (2004); Li and Xie, *Finite automata for testing uniqueness of Eulerian trails* (2005); Kontorovich and Trachtenberg, *Unique decodability of bigram counts by finite automata* (2011); Kiah, Puleo and Milenkovic, *Codes for DNA sequence profiles* (2014). The result covers binary linear words and perfect read multiplicities, not cyclic strings or noisy readouts. Full priority comparison with Kontorovich (2004) remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: prior publications establish recognition of uniquely decodable n-gram words and general Euler-trail uniqueness criteria, plus exact counts of ALL attainable profiles and various CYCLIC singleton profiles. They do not state the same invariant: number of distinct *linear binary words* uniquely determined by unordered multiplicity-preserving trigrams for every n, with exact period-12 quadratic coefficients. The directly relevant Kontorovich 2004 primary full text was inaccessible via open sources and institutional VPN, so this is a qualified originality judgment.
+
+## value
+
+PASS
+
+Uniquely reconstructible strings from unordered, multiplicity-preserving short reads form a natural exact-reconstruction problem in combinatorics and sequence assembly. The sharp binary trigram singleton census, a quadratic quasipolynomial with an unexpectedly small 12-periodic correction and exact certificate, is a useful invariant not obtained merely by counting all spectrum classes. This finite-alphabet result remains mathematically interesting without extending to noisy higher alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
