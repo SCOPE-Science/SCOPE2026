@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T09:13:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For synchronized nearest-neighbor walks starting at 0, the union of lifted visited sites is exactly the integer interval from the global negative minimum to the global positive maximum; cycle coverage is M_t^++M_t^-≥n−1. Reflection gives P(H_t≥a)=P(S_t≥a)+P(S_t≥a+1). Stirling with adjacent-binomial geometric-tail ratio proves the moderate-deviation factor sqrt(2/pi)/z exp(−t I(a/t)) under a/sqrt t→∞, a/t→0. The rate I(v)=v²/2+v⁴/12+O(v⁶) gives each extreme a shift δ=b_n^6/[3(n−1)^2]→8c³/3, while joint opposite crossings by one walker are exponentially negligible relative to k_n independent walkers. Hence two independently shifted Gumbel extremes yield Z_n⇒16c³/3−G1−G2. If n^(2/3)≪log k≪n, the quartic rate penalty diverges and a union bound forces Z_n→+∞, while exact large-deviation upper/lower bounds retain leading T_n~n²/[8 log k]. Independent brute-force reflection counts checked t=7,8,15 at levels a=1..4, agreeing with binomial tails, and symbolic expansion confirms coefficient 8c³/3 per direction. No finite test is used as an infinite limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rivera–Sauerwald–Sylvester Theorem 5.2 treats worst-start k≤n and derives Θ(n²/log k), not second-order law for exponentially large k.",
+          "Brownian primary PDF has fixed continuum process and no n^(2/3) lattice correction."
+        ],
+        "reasoning": "Broad finite-graph coverage bounds cannot imply the sharp coefficient and transition in this outside-range regime.",
+        "searches": [
+          "simultaneous exponential number of random walks on discrete cycle cover time Gumbel correction log k n^(2/3) Cramer rate",
+          "https://arxiv.org/pdf/2011.07893",
+          "exponentially many random walkers cycle moderate deviations cover times"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1609.06325",
+        "https://arxiv.org/pdf/2011.07893",
+        "https://arxiv.org/abs/1302.2452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brownian Gumbel sum has no quartic correction because its quadratic rate is exact.",
+          "Discrete Cramér I(v) has v^4/12; at v~log k/n, the exponent contribution 8(log k)^3/(3n²) per side is order one precisely at log k~n^(2/3)."
+        ],
+        "reasoning": "This new term changes the limit by 16c³/3 and diverges beyond the threshold; neither source implies that quantitative discrete joint asymptotic.",
+        "searches": [
+          "https://arxiv.org/pdf/1609.06325",
+          "https://arxiv.org/pdf/2011.07893",
+          "simultaneous exponential number of random walks on discrete cycle cover time Gumbel correction log k n^(2/3) Cramer rate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Majumdar–Sabhapandit–Schehr §periodic, Eqs (20)–(26), use Brownian motions started at a common point and obtain span cover and two-Gumbel limiting shape.",
+          "Submitted model has simultaneous lattice spacing and k_n=e^{Theta(n^(2/3))}; its rare path tail requires nonquadratic discrete rate."
+        ],
+        "reasoning": "Brownian two-Gumbel limit is prior and credited, but it does not control lattice rare-event corrections at this joint scale.",
+        "searches": [
+          "simultaneous exponential number of random walks on discrete cycle cover time Gumbel correction log k n^(2/3) Cramer rate",
+          "https://arxiv.org/pdf/1609.06325",
+          "discrete random walk circle coverage n^(2/3) extreme two Gumbel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned the Nov 8 source archive of the same finding but no independently earlier specific n^(2/3) lattice crossover theorem.",
+          "Primary PDF descriptions of cover time list order-scale / Brownian limit, no exact discrete rate crossover table."
+        ],
+        "reasoning": "The search is not a novelty proof; explicit statement comparison with relevant primary text supports best-of-knowledge novelty.",
+        "searches": [
+          "simultaneous exponential number of random walks on discrete cycle cover time Gumbel correction log k n^(2/3) Cramer rate",
+          "https://arxiv.org/pdf/1609.06325",
+          "https://arxiv.org/pdf/2011.07893"
+        ]
+      },
+      "rationale": "Majumdar–Sabhapandit–Schehr already establish the two-Gumbel convolution for the large-number Brownian ring and the span-to-cover identity. Rivera–Sauerwald–Sylvester prove finite-cycle multirandom-walk bounds up to constants in polynomial walker regimes, not exponential joint n and k limits. Neither primary text inspected supplies the discrete Cramér quartic correction, the sharp n^(2/3) transition or loss of second-order tightness at larger k. Resultary searches identified only this result for the exact crossover.",
+      "residual_risks": [
+        "Unindexed refined random-walk moderate-deviation results could recover the same coefficient, though not located in inspected primary publications.",
+        "The source proves limiting distribution, not moment convergence or a replacement law for larger k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BROWNIAN_SHAPE_ONLY",
+          "evidence": "Two-Gumbel convolution and span identity are prior; no discrete n^(2/3) quartic crossover.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.06325",
+          "material_read": "Primary arXiv PDF including pages 0,2–3; periodic §, Eqs (20)–(26), two-Gumbel convolution; relevant pages inspected via rendered screenshots",
+          "method": "lawful arXiv PDF full relevant sections plus screenshots",
+          "title": "Exact distributions of cover times for N independent random walkers in one dimension",
+          "trigger": "Exact Brownian multiwalker ring analogue"
+        },
+        {
+          "assessment": "NOT_COVERING_THE_JOINT_LIMIT",
+          "evidence": "Worst-start k≤n order bound, no exponentially many walkers or second-order limiting law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.07893",
+          "material_read": "Primary 53-page PDF abstract and §5.1 on pages 28–31; page 29 screenshot; Theorems 5.1 and 5.2",
+          "method": "lawful arXiv PDF target chapter plus screenshots",
+          "title": "Multiple Random Walks on Graphs: Mixing Few to Cover Many",
+          "trigger": "Same finite cycle and multiple walkers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1609.06325",
+        "https://arxiv.org/pdf/2011.07893",
+        "https://arxiv.org/abs/1302.2452"
+      ],
+      "rationale": "This is a sharply motivated lattice-versus-continuum universality boundary for cycle coverage with exponentially many searchers; it quantifies when Brownian cover-time approximations fail in the second-order window, identifies a universal correction 16c³/3, and proves a sharp transition. These are genuinely new asymptotic scale and constant questions, beyond routine applications of the existing Brownian law.",
+      "residual_risks": [
+        "Unindexed refined random-walk moderate-deviation results could recover the same coefficient, though not located in inspected primary publications.",
+        "The source proves limiting distribution, not moment convergence or a replacement law for larger k."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to independent synchronous simple symmetric random walks from a common cycle vertex; no moment convergence or post-critical recentering."
+  ],
+  "schema_version": 1
+}
