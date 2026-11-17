@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the stated finite classification
+# Independent mathematical audit
 
-Use standard Python 3.10 or later, without external packages. In the directory containing these files, run `python3 verify_local.py` and `python3 verify_matching.py`; both are complete standalone programs that end in assertions and print their successful checks.
+## correctness
 
-`verify_local.py` independently constructs all proper edge-colour assignments by depth-first search and tests every one-edge recolouring. It asserts the exact state/edge counts, component lengths, degrees, local-sign invariance, and distinct signs on the mobile components; it also checks the frozen missing-colour patterns and the enumeration of automorphism-group orbits. For the metric calculation it performs one complete BFS for every nonfrozen orbit representative, **40 full BFS traversals**, yielding the exact radius, diameter and eccentricity counts without sampling. Group generators act by concrete automorphisms of the graph and permutation of colour names, justifying this finite reduction.
+PASS
 
-`verify_matching.py` independently enumerates a partition of the Petersen graph's 15 edges into four matchings, recovering 2080 unlabelled partitions and 49920 named assignments. It constructs single-edge moves by moving individual edge bits between matchings and independently verifies the two components, frozen count, degrees and parity.
+The graph is KG(5,2) with 15 edges, four *named* edge colours, and adjacency by one legal edge recolour. At each cubic vertex, recolouring an edge swaps its local colour with the missing one, changing each endpoint permutation sign; their product is invariant. The move criterion is equality of endpoint missing colours; frozen maps have pattern (4,2,2,2). Two exhaustive verifiers were inspected (DFS colour assignments versus four matching-class partitions). Independently generated 49,920 states, 109,440 edges, 960 isolated and two connected components of 24,480; verified degree/sign profiles. An independently constructed complete A5 x S4 orbit enumeration gave 42 orbits and 40 full BFS over mobile representatives, radius 24, diameter 25, eccentricity census 38,880 at 24 and 10,080 at 25. These finite computations are exhaustive over THIS graph, not a general cubic theorem.
 
-**Actual checked results:** both files executed and printed their PASS outputs from their complete source code. The metric claims depend on the first program, while adjacency, component, and parity claims have independent algorithmic cross-checks. Checks are exhaustive for this ten-vertex graph, not infinite-theorem certification or independent audit. Proof-based claims concerning general cubic graphs are limited to the local-sign invariance lemma; no global cubic-graph classification is asserted.
+## originality
+
+PASS
+
+OEIS A159233 already counts the 49,920 named edge-colourings; explicitly prior. McDonald–Mohar–Scheide 2010 proves Kempe connectivity for all subcubic four-edge-colourings, but a Kempe switch along an alternating path/cycle is not a single-edge move. Ito–Kamiński–Demaine study exactly one-edge recolouring in general but not this exhaustive Petersen metric. The fully inspected Resultary Petersen vertex-colouring reconfiguration concerns a different configuration space, not edge-colourings (or vertex colouring of the line graph). Exact mobile sectors, sign completeness and radius/diameter remain independently qualified.
+
+## value
+
+PASS
+
+The single-edge reconfiguration geometry of a canonical non-three-edge-colourable cubic graph is a natural finite boundary for recolouring dynamics. Exact connectivity obstruction and shortest-path metrics under the strict elementary move supply interpretable nontrivial data distinct from known Kempe connectivity and counting. The finite census is exhaustive and meaningfully structured by parity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
