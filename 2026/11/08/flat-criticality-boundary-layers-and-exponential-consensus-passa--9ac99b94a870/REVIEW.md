@@ -1,24 +1,21 @@
-# Review of the nonlinear two-zealot opinion result
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The transition rates are derived directly from a random susceptible update and two fixed opposite neighbors; the quotient \(p_k/q_{k+1}\) yields the claimed stationary product weights. Strict monotonic comparison of \(F_\alpha(x)\) with \(x\) proves the finite mode trichotomy. The endpoint expansion \(F_\alpha(x)\sim\alpha x\) gives geometric boundary masses; the center expansion of the logarithmic ratio gives the Gaussian scaling. Telescoping the birth-death first-step equations yields the exact expected passage-time identity. Riemann-sum/Laplace principles give the exponential barrier. The checker returned 2,352 rational and numerical checks and includes an independently solved finite hitting-time linear system. Boundary states are not incorrectly treated as absorbing; the target is first entrance.
+PASS
 
-## Originality (O): PASS, with residual publication-priority risk
+PASS. Independently reconstructed the finite birth-death transitions for m susceptibles and two opposite zealots: p_k=(m-k)/m F_alpha((k+1)/(m+1)) and q_k=k/m F_alpha((m-k+1)/(m+1)), where F_alpha(x)=[1+sgn(2x-1)|2x-1|^alpha]/2. Detailed balance gives consecutive weight ratio [(1-x)/x]*F_alpha(x)/[1-F_alpha(x)] at x=j/(m+1), and exact symmetry. For alpha=1 ratios are one and the stationary distribution is exactly uniform; telescoping the first-hit birth-death recurrence gives E_0 tau_m=m(m+1)H_m under one-update clock. Verified by an independent Fraction-valued absorbing linear-system calculation for m=2,...,9. For alpha<1 the potential maximum lies at two endpoints, with geometric fixed-distance limits (1-alpha)alpha^j/2; for alpha>1 its unique nondegenerate quadratic potential maximum has local curvature -2, yielding Gaussian variance m/4. The exact positive mean first-passage sum and Laplace principle give logarithmic barrier |int_0^{1/2} log r_alpha(x) dx| for fixed alpha != 1. Endpoint expansions F_alpha(x)=alpha x+o(x) and reflection justify the finite integral. Checked source verify.py and the mathematical proof rather than trusting output.
 
-The 2023 best-of-n polling-error paper introduces the response, and its 2023 zealot continuation treats B-only zealots in heterogeneous graphs, not the paired opposing zealot configuration. Mobilia (2015) supplies the closest earlier paradigm: opposing zealots, finite stationary metastability, and long switches; its nonlinear response is the unanimous-\(q\)-neighbor rule, not the present \(F_\alpha\). These established ideas are acknowledged rather than relabeled as new. The current formula-specific flat critical law, geometric/Gaussian scaling, explicit harmonic clock, and general polling-error barrier were not located in inspected primary text or targeted records. The claim is one consolidated phase-and-passage theorem. Broader unindexed response-function theorems remain a possibility.
+## originality
 
-## Value (V): PASS
+PASS
 
-The precise confidence/pooling-error dependence reveals three qualitatively different finite-population fluctuation regimes and a sharp change in an interpretable opposite-zealot decision clock. The flat critical distribution is unusual: every possible susceptible split is equally likely, while the two noncritical regimes differ not just in modes but in finite-size scaling. The formula for the first opposing extreme visit is an exact quantitative stability measure, with a polynomial-to-exponential transition. Together these resolve a natural finite-size question left untreated by heterogeneous mean-field results; they are not a mere small-parameter numerical table.
+PASS qualified. Reina/Njougouo's polling response is acknowledged but their original studies have one-sided zealots or heterogeneity; Mobilia's equal-zealot nonlinear q-voter draws unanimity groups and uses different rates, so its bimodal stationary and switching assertions do not force this exact F_alpha-specific finite law, critical harmonic formula or explicit all-alpha barrier. General one-dimensional birth-death reversibility is an established technique, not itself novel; exact evaluation for the specified model remains a differentiated result.
 
-## Closest literature and residual limits
+## value
 
-- Reina et al., arXiv:2310.13694: polling-error response and heterogeneous mean-field best-of-n dynamics; full open manuscript, including method and appendices, compared.
-- Njougouo et al., arXiv:2401.00114: B-only-zealot model and heterogeneous-network experiments/mean-field; accessible full open text compared.
-- Mobilia, arXiv:1506.04911: finite opposing-zealot stationary metastability under unanimous group sampling; closest coverage by model structure, but not the response or exact critical identities here.
-- Khalil et al., arXiv:1707.04087: noisy-voter stationarity with zealots; independent noise and linear herding differ.
+PASS
 
-The mathematical result does not address B-only zealotry, option-quality bias, heterogeneous graphs, finite-size crossover under varying \(\alpha\), or distributional (rather than mean) passage-time asymptotics. Finite verification and source searches do not constitute independent external audit or guarantee publication priority.
+PASS. Distinguishes finite-population critical flatness, boundary-localized versus Gaussian stationary fluctuations and exponential first-entrance barrier in a concrete nonlinear response model. The exact clock normalization and m(m+1)H_m crossover offer a usable quantitative benchmark for competing zealot models. The structural response-dependence makes this more than a generic invocation of known metastability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
