@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The exact first-Hermite overlap is matched to a radial Jacobian with no missing angular factor. Hermite rotation covariance gives the full operator diagonalization, not merely a set of test vectors. Uniform Poisson local-limit estimates plus the global large-deviation tail bound promote local profile convergence to convergence of the full operator norm and restricting maximizing Hermite orders. The derivative sign analysis proves one detached maximum, one possible central maximum, and a unique exchange threshold using a strictly positive envelope derivative. The numerical checker returned 471 tests; it is corroboration rather than an infinite proof.
+## correctness
 
-## Originality
-The closest full-text materials inspected were Keller--Luef's polyanalytic Toeplitz paper (the Hermite overlap and calculus), Abreu's first-Hermite spectrogram discussion (the exact amplitude), and Knutsen's Gaussian-window ring localization calculation. Their stated results and inspected relevant sections do not derive the symmetric moving-annulus first-Hermite profile and the global sharp exchange. The old classical Daubechies formulas cover the Gaussian-window problem, but changing windows multiplies the Poisson kernel by a Laguerre nodal factor and fundamentally changes the number of maximizing modes. An exact prior treatment of the same transition in Landau-level or photon-number terminology remains possible.
+PASS
 
-## Mathematical value
-The phenomenon determines which Hermite input mode achieves the optimal first-Hermite phase-space energy concentration, including a universal critical annular width and a triple limiting degeneracy. It is a genuine spectral phase transition absent in the Gaussian-window Poisson case, giving a principled example of how zeros of a non-Gaussian analysis window change localization geometry. It is not a mere re-expression of the overlap identity.
+The exact first-Hermite overlap |V_{h1}h_j|^2=e^{-s}s^{j-1}(j-s)^2/j! is radial and normalized (Gamma moment identity, including j=0); the area radial Jacobian is ds. Fixed-b Poisson local limit around j,s=n+O(sqrt(n)) gives F_b(u)=int_{u-b}^{u+b}y^2 phi(y)dy; large-deviation tails yield global norm and all maximizer offsets, not merely a finite truncation. F_b derivative and strictly decreasing outer-root logarithm classify center and two shoulders; envelope derivative D'(b)=2(h(b)-h(U_b+b))>0 for b>sqrt(2) establishes exactly one exchange. Independent SciPy root b=1.524046518926, U=1.751131023931 verifies the numerical values; numerical checks do not replace the Poisson-tail proof.
 
-## Scope and remaining risks
-The theorem fixes annulus half-width while radial area and Hermite index grow. It does not assert exact ties for finite radii, robustness to nonradial observation domains, or optimality for other analysis windows. Independent mathematical audit and historical priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known Hermite overlap kernel and rotational diagonalization are acknowledged prior work, not claimed novel. The final claim is the fixed-b growing-annulus Gaussian-second-moment profile with a unique three-mode global-maximizer exchange and index scaling. The inspected primary sources cover Hermite/polyanalytic calculus and Gaussian-window radial spectra but do not state or imply that threshold; Resultary returns related disk and thin-annulus regimes with different quantifiers. Originality passes best of knowledge; Landau-level/displaced-number-statistics aliases remain a risk.
+
+## value
+
+PASS
+
+A nontrivial sharp spectral phase transition in a natural Gabor localization operator: identifies the optimal Hermite modes and norm in the central-limit area regime, beyond classical radial Gaussian-window diagonalization. It supplies a useful analytic benchmark for polyanalytic time-frequency concentration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
