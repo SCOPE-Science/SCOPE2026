@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every integer \(n\ge5\) and every nonzero real trace-free symmetric \(A\), evaluated on a Haar-uniform rank-two orthogonal projector. The proof conditions on the first spherical frame column, uses the exact rank-one compression traces, and integrates the next column on its orthogonal sphere. The resulting rational fourth-moment identity is reconstructed symbolically for an indeterminate \(n\), with independently computed exact Dirichlet cases. The \(L^2\) normalization is separately checked. A compactness and Lagrange-multiplier argument excludes three-value extremizers, and the remaining two-level multiplicities give both sharp spectral endpoints. The coefficient changes sign strictly from \(n=7\) to \(n=8\). Orthogonal averaging proves the optimal Euclidean structure. Full assumptions, boundaries, and equality cases are explicit; the finite tests are corroborative.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+PASS: Reconstructed two-column Haar-Stiefel conditional integration: second moment 4(n-2)S2/[n(n-1)(n+2)] and fourth numerator coefficient in S2^2,S4; checked against independent general-rank beta/Dirichlet witness calculation specialized to rank k=2 with exact SymPy identities in symbolic n. Trace-free rho range via constrained spectral extrema; negative slope for 5<=n<=7 and positive for n>=8; O(n)-averaging proves optimal Euclidean comparison and all equality spectra.
 
-Ehler–Gräf–Király, arXiv:1505.05003v1, Theorem 7.2, is the nearest general source: zonal polynomials provide in principle fourth moments of arbitrary Haar-invariant projection distributions. Its Section 7.3 computes only moments through order three explicitly, and the inspected work develops phase retrieval rather than the two-sided optimal \(L^4/L^2\) inequality, equality spectra, dimension-seven/eight reversal, or sharp Euclidean distortion. Grinberg–Rubin (2004) concerns Radon inversion; Bodmann–Ehler–Gräf (2017) concerns reconstructing high-dimensional moments from projection measurements. Existing dimension-four Grassmannian norm classifications are not a theorem for all \(n\ge5\), and spherical rank-one or finite-field Grassmannian results are different measures and function spaces. The general zonal moment formula can be specialized to compute our raw fourth moment, so *that method* is prior knowledge; obtaining its optimized classification requires the additional exact simplification, spectral extremal analysis and dimension-switch comparison. Equivalent optimized theorems under different terminology may exist outside the inspected material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The functions are the first nonconstant orthogonally invariant matrix-coefficient band of real \(\operatorname{Gr}(2,n)\). Their exact norm-equivalence geometry and optimal Euclidean Banach–Mazur distortion are natural, intrinsic invariants. The sharp optimizer changes from the nearly balanced spectral orbit to the extreme single-outlier orbit between dimensions seven and eight, and both sharp deficits are explicit nonnegative multiples of the corresponding spectral fourth-power gaps. This is a complete infinite-dimensional-parameter-family classification, not a selected finite numerical example. The result does not claim improvements for other projector ranks or exponents.
+PASS with explicit temporal duplicate caveat. The strongest known general-rank real Grassmannian moment reversal directly IMPLIES every rank-two target conclusion, but source commit 2026-11-08T23:29:41Z is 59 seconds AFTER the target source commit 2026-11-08T23:28:42Z. A second even-dimensional stronger formula commit at 23:32:49Z is later still. Neither is evidence of earlier published priority. Ehler et al. 2015 general integration theorem supplies moments algorithmically but no optimized spectral n7/8 sharp reversal or Banach–Mazur classification. Publication-history uncertainty remains.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Exact all-direction rank-two fourth moment with rigid maximizers/minimizers, sharp seven/eight extremizer switch and optimal Banach-Mazur distortion are mathematically meaningful harmonic/spectral norm classifications. The transition is not solely the routine ability to integrate by zonal polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
