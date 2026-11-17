@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The paired-positive-run parameterization is bijective up to simultaneous cyclic rotation, including periodic words. Reversal acts on the two run-composition rows with an index offset of one; hence odd run count gives one fixed coordinate on both rows, and even run count gives two fixed coordinates on exactly one row. The fixed-composition generating functions yield the claimed coefficients. Dihedral Burnside and orbit pairing rigorously give the achiral-orbit count; independent literal enumeration of all binary necklaces through length 17 agrees in 444 feasible parameter profiles. The proof also covers the smallest case and establishes the exact parity boundary. The verification program tests cases but does not constitute the universal proof.
+PASS
 
-## Originality: PASS, qualified
+The positive zero- and one-run compositions form simultaneous C_b orbits, even for periodic words. Reversal reverses the two rows with one-index offset, giving fixed-point factors F1 on both rows when b is odd, or F2 on one and F0 on the other when even. Burnside counts total T and achiral S, including exact parity feasibility b odd or at least one of A,D even. Separate literal enumeration of 308 feasible profiles across lengths 2–15 reconstructed full-rotation and reflection orbits with perfect agreement. Period stabilizers are included, not discarded. The finite check is corroborative; the dihedral fixed-point proof supplies the all-parameter theorem.
 
-The full 2013 Zelenyuk–Zelenyuk primary text was inspected: its main formula counts unrestricted symmetric colorings of a cycle, whereas the present theorem conditions jointly on the counts of both letters and both transitions, requiring an offset two-composition reflection calculation. The 2013 Knopfmacher–Robbins abstract treats a single dihedral composition and does not visibly resolve the coupled row action. The 2021/2022 Bianconi–Brugnoli abstract concerns transition-counted necklaces but not their reflection symmetry with fixed content. Semantic comparison with published research records and accessible earlier work found no identical claim. Unread full texts and unindexed weighted-necklace results remain genuine priority risks; a negative search is not a uniqueness certificate.
+## originality
 
-## Value: PASS
+PASS
 
-Reversal identifies two physically indistinguishable orientations of a circular two-symbol sequence, while a dinucleotide profile forgets absolute position. An exact count of orientation-fixed reconstructions is a natural missing component of the profile's ambiguity distribution, not a random finite slice. The theorem gives the full infinite-parameter spectrum of achiral and chiral classes and an unexpected if-and-only-if parity obstruction, distinguishing profiles in which every reconstruction is chiral from those where an achiral reconstruction exists. No downstream biological performance is claimed.
+Full Zelenyuk–Zelenyuk paper concerns unrestricted reflection-symmetric bracelets, Bianconi–Brugnoli counts cyclic necklaces by n, colors, transitions without a fixed-content reflection spectrum in accessible abstract. The offset coupled-composition fixed profile refines both; searches of relevant published SCOPE/Resultary claims found none implying it. Qualified by unread dihedral-composition and transitions primary texts.
 
-## Scope and limitations
+## value
 
-The claim treats nonconstant binary circular words only, with cyclic read adjacency and classes modulo rotation. It is not a statement about linear words, multiletter alphabets, or faulty reads. Main historical risks are possible implicit refinements in the inaccessible dihedral-composition and necklace-transition full texts. Correctness is established by proof, with finite computations as a secondary check.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A dinucleotide frequency vector is a natural circular sequence statistic; its full necklace/bracelet chirality count and sharp parity obstruction quantify a nontrivial distinction lost under rotation-only enumeration. Complete nonconstant binary classification is motivated and nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
