@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction of the integral homotopy computation
 
-Run `python3 verify_clebsch_cut.py` from the directory containing that file, using Python 3.10 or later. Only the standard library is needed. The program terminates with `ALL CHECKS PASSED` if and only if every assertion and the full acyclicity, signed boundary and independent dual-field checks succeed. `verification_output.txt` is the complete recorded execution output.
+# Independent mathematical audit
 
-The exact domain is the sixteen even-weight five-bit words, with edges at Hamming distance four, and ordinary disconnected-triple complements. The program reconstructs all 400 facets and 65,198 nonempty faces, verifies a fixed 32,590-pair matching and examines all 519,776 nonempty Hasse incidences. A complete topological sort certifies acyclicity. An explicit recursion over directed gradient paths, with signs induced from increasing vertex order, computes the sole nonzero possible Morse differential, whose entries have gcd two. In high dimensions the Hurewicz isomorphism identifies this differential with the homotopy attaching degree, proving the stated sphere-plus-Moore wedge.
+## correctness
 
-The independent Alexander-dual code does not reuse the cut-complex face enumeration: it tests all candidate subsets against the condition that every induced triple be connected. It builds finite-field boundary matrices from the resulting 337 dual faces and confirms the characteristic-two rank drop. Field calculations alone cannot establish the integral attaching degree; the separate exact signed Morse computation does so. The program does not constitute independent human review, does not verify unexamined external claims and does not extend this finite graph result to other graphs.
+PASS
+
+For the 5-regular (not complementary 10-regular) Clebsch graph on even-weight five-bit words, all disconnected triples number 400, so cut facets are 400 complements of triples. Inspected complete 65199-face construction and scripted 32590-pair acyclic matching with all 519776 Hasse incidences, yielding critical cells one vertex, sixteen 11-cells and one 12-cell. The exact signed Morse projection code (read explicitly, not just its success line) computes boundary D=(0,0,2,-2,-2,2,-2,0,0,0,0,-2,-2,0,-2,0); gcd=2. As the resulting CW 11-skeleton is wedge16 S11, Hurewicz π11 is Z16 and an integral basis change sends the attaching map to twice one generator, giving 15 S11 ∨ M(Z/2,11). Independently regenerated dual small complex has (16,120,160,40) simplex counts and boundary ranks 15,104,40 over F2 versus 15,105,40 over F3, consistent with torsion. Finite-field ranks do not by themselves establish integral Moore attaching map.
+
+## originality
+
+PASS
+
+Previously established two-cut triangle-free theorem and three-cut torsion results for other graphs do not compute the folded five-cube ordinary three-cut complex. New explicit 15-sphere-plus-Moore homotopy equivalence survives.
+
+## value
+
+PASS
+
+An explicit Moore summand in a canonical 5-regular, triangle-free strongly regular graph cut complex is a motivated integral/homotopical boundary case beyond generic sphere-wedge results; exact free rank 15 and attaching degree two classify this natural finite object, rather than merely detect a mod-two anomaly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
