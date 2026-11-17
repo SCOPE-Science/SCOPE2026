@@ -1,15 +1,21 @@
-# Review of a sharp ternary Haar endpoint law with middle-digit rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
-The basis has exactly \(3^d\) orthonormal members under uniform probability. The kernel row identity follows by multiplying the two local contrasts and scaling by the prefix mass. The scalar recurrence (1) partitions the integration into the two sibling subtrees and the distinguished descendant subtree, with the essential factor \(1/3\) inside its inherited state. Its four real sign actions are exhaustive. Even convexity and a sharp unit-Lipschitz comparison select the two branches at \(z=1/2\); the closed envelope is then proved by induction. Strictness at all reachable nonterminal states gives the complete maximizing-row criterion. Exact rational direct-kernel enumeration corroborated the formula and row sets through depth four, and independent Bellman enumeration checked 222 rational states. The proof, not the enumeration, covers every positive integer depth. The result is for the specified pair of contrasts, not all rotations.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant accessible full work, Kazarian–Kazaryan–San-Antolín (2014, arXiv:1410.4888), establishes the construction of higher-rank Haar systems and finite-\(p\) unconditional-basis results; its Sections 3.2 and 4 do not calculate finite-depth signed \(L^\infty\) norms or classify maximizing leaves for the specified contrast pair. Osękowski (2013, DOI:10.1155/2013/646012), in the inspected Introduction and martingale sections, determines restricted weak-type inequalities, not this fixed finite-tree endpoint quantity. General martingale inequalities may imply nonsharp bounds but do not supply the exact correction or digit-location criterion. Searches for ternary Haar/three-adic sign multipliers, associated formulas, finite-level unconditional constants, and equivalent row-\(\ell^1\) norms located no dominating result in the examined sources and records. Lack of a match does not exclude unindexed or terminology-shifted priority.
+PASS
 
-## Mathematical value — PASS
-Higher-rank Haar systems are a natural basis family, but unrestricted endpoint unconditionality fails as depth increases. An exact all-depth truncation constant gives the rate and finite correction, while the middle-digit restriction identifies which atoms experience maximal endpoint amplification. The proof requires competition among independent signs of two local contrasts, not a binary scalar-sign substitution. The result resolves a natural exact invariant for a full nested family rather than an arbitrary small-depth table. The exact norm can serve as a benchmark for other contrast rotations and arities; those extensions are not claimed.
+Reconstructed normalized orthonormal ternary contrasts and exact signed kernel rows. Scalar dynamic program F_m(z) splits a row at a ternary node and carries inherited z; symmetry, convexity and 1-Lipschitz comparison reduce four local actions to B for |z|<1/2 and D for |z|>1/2, with boundary tie. Induction yields the claimed piecewise affine formula and U_d=d+5/6−1/(2·3^d). For m>=2 the strict Lipschitz bound forces intermediate visited digits 1 or 2, while first and last are unrestricted; hence 9*2^(d-2) norming words. Independently brute-forced all ancestral sign assignments for every kernel row through depth 4, reproducing norms 5/3,25/9,103/27,391/81 and norming counts 3,9,18,36. All-depth conclusion rests on Bellman induction, not low-depth enumeration.
 
-## Sources and residual limitations
-The two primary texts are (i) *Wavelets in weighted norm spaces*, arXiv:1410.4888, and (ii) *Sharp Inequalities for the Haar System and Fourier Multipliers*, DOI:10.1155/2013/646012. The investigated nearest earlier result is the finite-\(p\) higher-rank unconditional-basis framework, not an exact finite-depth endpoint statement. Unindexed equivalent endpoint computations and other orthonormal contrast conventions remain residual originality risks. All assumptions, finite-check limitations, and the dependence on the chosen local frame appear in RESULT.md. Independent audit is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Despite closely related published higher-arity martingale endpoint formulas, the strongest checked prior permits one predictable sign per complete difference and therefore does not contain the independent-per-contrast ternary sign class; numerical formulas and row classifications differ. Classical m-adic unconditionality estimates are finite-p/weak-type rather than this exact finite L∞ constant.
+
+## value
+
+PASS
+
+The result quantifies frame-sensitive real L∞ signed unconditional growth and completely classifies extremizing rows for a nonbinary two-contrast filtration. The middle-digit rigidity is structurally nontrivial and not implied by the earlier predictable single-sign martingale transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

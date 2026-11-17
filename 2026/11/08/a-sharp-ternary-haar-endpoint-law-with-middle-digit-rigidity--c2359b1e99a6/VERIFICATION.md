@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The provided `checker.py` uses only Python standard-library exact rational arithmetic. Executing `python checker.py` from the directory containing the file gave:
+## correctness
 
-```text
-EXACT_INDEPENDENT_BELLMAN_BRANCH_CHECKS_PASSED 222
-DEPTH 1 NORM 5/3 MAXIMIZING_LEAVES 3
-DEPTH 2 NORM 25/9 MAXIMIZING_LEAVES 9
-DEPTH 3 NORM 103/27 MAXIMIZING_LEAVES 18
-DEPTH 4 NORM 391/81 MAXIMIZING_LEAVES 36
-EXACT_FULL_KERNEL_ROW_SEARCHES_PASSED 120
-ALL_TERNARY_HAAR_ENDPOINT_CHECKS_PASSED
-```
+PASS
 
-The direct-kernel path is computed from the original two local contrast-product matrices, independently of the closed Bellman envelope. At depths one through four all leaf rows and all local ancestral sign assignments are examined exhaustively. The other path directly enumerates every evaluated-child/sign branch in the Bellman recursion for 222 exact rational arguments, to depth six. Neither finite test establishes the universal all-depth theorem; that is supplied by the complete induction and strict comparison proof in RESULT.md.
+Reconstructed normalized orthonormal ternary contrasts and exact signed kernel rows. Scalar dynamic program F_m(z) splits a row at a ternary node and carries inherited z; symmetry, convexity and 1-Lipschitz comparison reduce four local actions to B for |z|<1/2 and D for |z|>1/2, with boundary tie. Induction yields the claimed piecewise affine formula and U_d=d+5/6−1/(2·3^d). For m>=2 the strict Lipschitz bound forces intermediate visited digits 1 or 2, while first and last are unrestricted; hence 9*2^(d-2) norming words. Independently brute-forced all ancestral sign assignments for every kernel row through depth 4, reproducing norms 5/3,25/9,103/27,391/81 and norming counts 3,9,18,36. All-depth conclusion rests on Bellman induction, not low-depth enumeration.
 
-# Review boundary
+## originality
 
-The formulas depend on real signs, the ordered ternary contrast frame, and complete levels with uniform probability. They are not asserted for arbitrary contrast rotations or for infinite expansions. Independent audit is not performed.
+PASS
+
+Despite closely related published higher-arity martingale endpoint formulas, the strongest checked prior permits one predictable sign per complete difference and therefore does not contain the independent-per-contrast ternary sign class; numerical formulas and row classifications differ. Classical m-adic unconditionality estimates are finite-p/weak-type rather than this exact finite L∞ constant.
+
+## value
+
+PASS
+
+The result quantifies frame-sensitive real L∞ signed unconditional growth and completely classifies extremizing rows for a nonbinary two-contrast filtration. The middle-digit rigidity is structurally nontrivial and not implied by the earlier predictable single-sign martingale transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
