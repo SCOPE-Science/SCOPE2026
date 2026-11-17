@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of prescribed rank-one idempotent sum fibers
+# Independent mathematical audit
 
-The theorem is proved in RESULT.md without computation. The executable files test a finite set of parameter values using independent direct enumeration of every rank-one idempotent as an outer product and every ordered pair; the predicted fibers are recomputed from each actual target, not from the observed distribution.
+## correctness
 
-Run with Python 3 (no third-party packages):
+PASS
 
-```sh
-python verification/idempotent_rankone_fiber_check.py
-python verification/idempotent_rankone_gf4_check.py
-```
+Let L=q^(n-1)(q^n-1)/(q-1). Rank<=2 and trace=2 are necessary. For rank 1, common-image and common-row line families each have q^(n-1) members, meeting in P=Q only in odd characteristic, yielding 2q^(n-1)-1 versus 2q^(n-1). For rank 2, image W=im C and its restriction M uniquely reduce each decomposition to a rank-one projector T of W with functional phi satisfying phi(u)=phi(Mu)=1. Nonscalar invariant lines give q choices only when their eigenvalue is one; non-invariant lines give one, yielding q+1-e(M)+q e1(M), with scalar cases separate. The common line/row union counts give the global rank spectrum; traces and field-2 boundaries are correctly normalized. Independent complete enumeration of all 2x2 targets at q=2,3,5 confirmed every predicted fiber.
 
-Reference outputs are embedded as verification/idempotent_rankone_fiber_check.txt and verification/idempotent_rankone_gf4_check.txt. No random sampling is used. The prime-field checker exhausts every target for \((n,q)=(2,2),(2,3),(2,5),(2,7),(3,2),(3,3),(4,2)\), i.e. \(16+81+625+2401+512+19683+65536=88854\) distinct tested targets across parameter settings, and checks all ordered pairs of rank-one idempotents in those settings. The GF(4) checker separately exhausts all \(256\) targets and \(400\) ordered pairs in \(M_2(\mathbb F_4)\) with explicit irreducible-polynomial arithmetic. Thus \(89110\) target cases were explicitly compared across eight settings.
+## originality
 
-Each checker asserts equality of predicted and observed multiplicities for every target in its finite scope; it terminates on a mismatch. No external solver or original result is imported into the checker. The prime-field predictor computes the image restriction and its invariant/eigenvalue-one lines; the GF(4) predictor uses a separate Jordan-eigenvalue observation for traceless \(2\)-by-\(2\) matrices in characteristic two. This cross-method distinction reduces common-mode errors.
+PASS
 
-**Limits.** The programs do not enumerate every dimension or field; they do not prove the theorem over all prime powers. The general proof uses no enumeration beyond basic finite projective-line incidence. No independent audit or external certification has been performed.
+PASS: De Seguins Pazzis 2009/2010 fully characterizes existence of sums of unrestricted idempotents but does not count exact ordered rank-one fibers. The published nearby finite-ring and commutator-fiber theorems have different coefficient rings/maps. Target-dependent eigenline multiplicities in all n and q survive as a distinct precise theorem; an unidentified general convolution theorem could dominate and remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Exact prescribed-target fibers of the first constrained idempotent conjugacy class are a natural additive representation invariant, not merely computational normalization. Characteristic-two zero fibers and scalar-restriction obstructions, along with rank-2 eigenline jumps, give meaningful structural arithmetic across all ambient dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

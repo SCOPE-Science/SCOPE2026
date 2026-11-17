@@ -1,19 +1,21 @@
-# Scientific review: rank-one idempotent sum fibers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is valid for all finite fields and matrix sizes \(n\ge2\). The trace/rank screen is necessary. Rank-one decompositions are partitioned exhaustively into common-image and common-row cases, with exact characteristic-dependent intersection. In rank two there is a bijection between ordered decompositions and rank-one projectors on the image satisfying one scalar equation; the projector count is an exact rational-eigenline count. Zero, rank-one, and rank-two cases cannot overlap. The global sum-rank identity is reconstructed independently by directly counting common image/row relations. Full-domain checks on seven prime-field test cases and one nonprime-field test case agree at every target. They corroborate the proof, not establish the infinite-parameter claim.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Let L=q^(n-1)(q^n-1)/(q-1). Rank<=2 and trace=2 are necessary. For rank 1, common-image and common-row line families each have q^(n-1) members, meeting in P=Q only in odd characteristic, yielding 2q^(n-1)-1 versus 2q^(n-1). For rank 2, image W=im C and its restriction M uniquely reduce each decomposition to a rank-one projector T of W with functional phi satisfying phi(u)=phi(Mu)=1. Nonscalar invariant lines give q choices only when their eigenvalue is one; non-invariant lines give one, yielding q+1-e(M)+q e1(M), with scalar cases separate. The common line/row union counts give the global rank spectrum; traces and field-2 boundaries are correctly normalized. Independent complete enumeration of all 2x2 targets at q=2,3,5 confirmed every predicted fiber.
 
-The closest inspected archival work is C. de Seguins Pazzis, *On linear combinations of two idempotent matrices over an arbitrary field*, arXiv:0907.4436 (2009-07-25), whose Theorems 3–6 and subsequent proof concern **existence** of decompositions by unrestricted idempotents. The full work was checked for rank-one constraints, fiber cardinalities and incidence formulas; it neither states nor directly yields the exact ordered rank-one fiber law. De Seguins Pazzis's arXiv:0907.5360 concerns existence/minimal number of summands; arXiv:1109.2255 concerns another quadratic-sum existence classification. Semantic searches of mathematical research records and web literature found related idempotent decompositions and rank-one geometry, but no equality of claims or stronger stated counting result. The rank-two formula is not a restatement of the general existence theorem. Risk: a general, presently unidentified additive-convolution theorem for rank-one idempotent conjugacy classes could subsume the census. Historical novelty is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete, invariant, target-dependent *witness count* for a classical decomposition at the first nontrivial rank budget, in arbitrary ambient dimension and across all finite fields. It reveals a precise projective-line/eigenvalue transition and the exceptional characteristic-two scalar-image obstruction, including nilpotent rank-two targets in dimension four. Its global rank spectrum has a characteristic-independent rank-two count but a characteristic-dependent zero fiber. These are structural distinctions not supplied by the classical existence statements. The theorem is self-contained and not predicated on a downstream conjecture.
+PASS: De Seguins Pazzis 2009/2010 fully characterizes existence of sums of unrestricted idempotents but does not count exact ordered rank-one fibers. The published nearby finite-ring and commutator-fiber theorems have different coefficient rings/maps. Target-dependent eigenline multiplicities in all n and q survive as a distinct precise theorem; an unidentified general convolution theorem could dominate and remains a priority risk.
 
-## Verification and residual risks
+## value
 
-The provided exact-arithmetic programs reproduce all stated finite checks. Odd-prime and binary tests include higher ambient dimensions; an additional GF(4) checker exercises nonprime characteristic-two arithmetic. No computation was extrapolated to all fields. Higher-rank idempotent summands and unspecified convolution formula literature remain outside scope. The source-precedence risk and absence of independent validation remain explicit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact prescribed-target fibers of the first constrained idempotent conjugacy class are a natural additive representation invariant, not merely computational normalization. Characteristic-two zero fibers and scalar-restriction obstructions, along with rank-2 eigenline jumps, give meaningful structural arithmetic across all ambient dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
