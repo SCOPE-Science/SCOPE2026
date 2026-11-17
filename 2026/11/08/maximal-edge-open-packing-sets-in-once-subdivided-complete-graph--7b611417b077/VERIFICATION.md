@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Use the accompanying `verify.py` with Python 3; it requires no nonstandard packages. It constructs each subdivision directly and detects forbidden pairs by searching for a third edge joining distinct endpoints of two selected edges. This is independent of the arc decomposition used in the proof.
+## correctness
 
-For orders \(n=2,3,4,5\), all \(2^{n(n-1)}\) possible edge subsets are tested against the original definition and one-edge addition maximality, and the actual complete maximal families are compared, not merely their sizes. For \(2\le n\le8\), every predicted maximal set is constructed, directly validated, and counted coefficientwise.
+PASS
 
-Verified output:
+For n>=3, incidences i--s_ij encode directed arcs i->j. Two distinct chosen arcs conflict iff nonreciprocal and they form a length-two directed walk with three distinct old vertices, because this creates a three-edge path whose outer edges are selected. A reciprocal pair i<->j excludes any further incidence at i or j, so such pairs are vertex-disjoint. Remaining arcs must run from sources to targets with no vertex both a head and tail. Inclusion-maximality forces every old vertex to be used, every source-target arc present, and excludes the single 1x1 block since its reverse remains feasible; without block, reciprocal pairs must be perfect or near-perfect. The disjoint structural census yields n!/(2^c c!a!u!) for c reciprocal pairs and complete a-by-u block, plus perfect/near-perfect pairings. Size 2c+au=n-1+(a-1)(u-1) and maximum floor(n²/4); odd n implies even sizes. Raw 3-edge-path bridge tests and exhaustive subset enumeration independently reproduce n=3:9z², n=4:8z³+9z⁴, n=5:85z⁴+20z⁶. Finite test not universal proof.
 
-```
-n= 2 poly= [(2, 1)] generated= 1 exhaustive= True
-n= 3 poly= [(2, 9)] generated= 9 exhaustive= True
-n= 4 poly= [(3, 8), (4, 9)] generated= 17 exhaustive= True
-n= 5 poly= [(4, 85), (6, 20)] generated= 105 exhaustive= True
-n= 6 poly= [(5, 132), (6, 105), (8, 30), (9, 20)] generated= 287 exhaustive= False
-n= 7 poly= [(6, 959), (8, 420), (10, 42), (12, 70)] generated= 1491 exhaustive= False
-n= 8 poly= [(7, 2032), (8, 1365), (10, 840), (11, 560), (12, 56), (15, 112), (16, 70)] generated= 5035 exhaustive= False
-VERIFY_OK raw_bridge_conflicts=PASS exact_families_n2_to5=PASS maximal_generated_n2_to8=PASS subset_masks= 1052740 exhaustive_maximal= 132 generated= 6945
-```
+## originality
 
-The exact theorem holds for all \(n\ge3\) by the proof in `RESULT.md`, not by finite computation. No exhaustive search was performed beyond \(n=5\); all larger-order checks are constructive and only confirm the predicted configurations. Scientific publication priority remains provisional.
+PASS
+
+Earlier October26 exact S(G) theorem already gives a matching-plus-oriented-cut decomposition of ALL edge-open packings and their all-size generating polynomial, and determines maximum size and maximizing cuts for S(K_n); these are credited, not original. It does not state saturation/maximality rules, perfect/near-perfect reciprocal-pair or complete-block facet classification, nor the polynomial counting ALL inclusion-maximal sets. Primary edge-open-packing graph literature addresses complexity and trees, not this exact facet spectrum in material read. Best-of-knowledge O with risk that facet derivation from all-sets decomposition is implicit.
+
+## value
+
+PASS
+
+The exact facet structure of a natural graph packing complex is independently useful beyond the all-packing enumerator: it classifies irredundant maximal configurations and full size spectrum, including parity restrictions and exact lower bound n-1. The new maximality saturation argument is necessary, not a mere substitution of known all-set polynomial coefficients. The value bar allows self-contained exact structural finite-family classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
