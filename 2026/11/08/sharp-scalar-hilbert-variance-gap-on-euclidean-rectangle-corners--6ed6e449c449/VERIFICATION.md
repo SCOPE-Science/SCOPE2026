@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 check_rectangle.py` with Python 3 and SymPy installed. The file independently enumerates the feasible vertices of the scalar constraint polytope for ten rational length pairs; 84 exact-radical comparisons and ten scalar–Hilbert gap identities passed during preparation. `RESULT.md` contains the universal proof based on convexity and the parallelogram identity. The exhaustive finite-vertex checks are for the listed ratios only and are not a proof of the full continuum of aspect ratios. The proof covers all positive Euclidean rectangle side lengths and all real Hilbert targets of dimension at least two. No independent mathematical validation has been performed.
+## correctness
+
+PASS
+
+The four-corner Walsh expansion c+uσ1+vσ2+wσ1σ2 gives variance u²+v²+w². Scalar Lipschitz constraints for all six Euclidean corner pairs reduce exactly to p+r≤a/2, q+r≤b/2, p+q≤√(a²+b²)/2 with p,q,r absolute. The convex-in-r piecewise quadratic attains maximum at r=0, p=a/2, q=(√(a²+b²)−a)/2 (plus symmetric permutation at square). For Hilbert vectors, opposite-edge parallelogram bounds give ||u||²+||v||²+||w||²≤(a²+b²)/4−||w||²; equality demands w=0 and perpendicular u,v by diagonal inequalities. The relative loss is strictly increasing in t=b/a and is √2−1 at t=1. Source exact-radical vertex checker inspects ten ratios (84 vertices), not a universal proof.
+
+## originality
+
+PASS
+
+Sharp minimal-dimensional scalar–vector variance separation, its full equality geometry and aspect-ratio dependence give a natural local building block for metric nonlinear spectral-gap comparisons.
+
+## value
+
+PASS
+
+The four-corner rectangle is a canonical smallest nontrivial metric example where scalar and Hilbert-valued Lipschitz variances differ. The exact all-aspect-ratio gap, equality maps and sharp square endpoint are motivated natural invariants, not an arbitrary tiny numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

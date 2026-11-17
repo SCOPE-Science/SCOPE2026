@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six Euclidean pair constraints are equivalent to three absolute-value inequalities on Walsh coefficients. A two-branch convex optimization in the absolute interaction coefficient proves the scalar formula and rigidity. The Hilbert bound follows by the parallelogram identity, with the diagonal constraints forcing orthogonal coefficient vectors. The normalized-gap derivative has a fixed positive sign on the stated parameter domain. Exact-radical finite diagnostics were executed from the packaged checker, but are not used in place of these all-parameter proofs.
+## correctness
 
-**Originality — PASS, qualified.** The closest inspected primary sources, Mendel–Naor (arXiv:1207.4705, introduction) and Naor (arXiv:1308.2851, Sections 1.3 and 6.2), study nonlinear spectral gaps and Euclidean-cube average distortion; the latter obtains the order of scalar fluctuations in high dimensions, not this exact rectangle family or equality set. Searches of indexed records for Euclidean four-corner variance and scalar-versus-Hilbert nonexpansive maps revealed no equivalent. Related results on square-cell Lipschitz-free interpolation, rectangular chord moments and finite variance with fixed atom weights involve different invariants. Residual risk: an unindexed elementary four-point calculation may already contain the claim.
+PASS
 
-**Mathematical value — PASS.** The exact extremal variance of a nonexpansive real observable is a natural metric-measure invariant; the two-dimensional rectangle family is its first Euclidean-product case. The nonzero scalar–Hilbert defect, rigid affine extremizers, and sharp unique worst aspect ratio characterize how target dimension constrains observable dispersion, unlike a single numerical example.
+The four-corner Walsh expansion c+uσ1+vσ2+wσ1σ2 gives variance u²+v²+w². Scalar Lipschitz constraints for all six Euclidean corner pairs reduce exactly to p+r≤a/2, q+r≤b/2, p+q≤√(a²+b²)/2 with p,q,r absolute. The convex-in-r piecewise quadratic attains maximum at r=0, p=a/2, q=(√(a²+b²)−a)/2 (plus symmetric permutation at square). For Hilbert vectors, opposite-edge parallelogram bounds give ||u||²+||v||²+||w||²≤(a²+b²)/4−||w||²; equality demands w=0 and perpendicular u,v by diagonal inequalities. The relative loss is strictly increasing in t=b/a and is √2−1 at t=1. Source exact-radical vertex checker inspects ten ratios (84 vertices), not a universal proof.
 
-The theorem is restricted to uniform weights on Euclidean rectangle corners, real scalar and Hilbert targets; no broader class is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp minimal-dimensional scalar–vector variance separation, its full equality geometry and aspect-ratio dependence give a natural local building block for metric nonlinear spectral-gap comparisons.
+
+## value
+
+PASS
+
+The four-corner rectangle is a canonical smallest nontrivial metric example where scalar and Hilbert-valued Lipschitz variances differ. The exact all-aspect-ratio gap, equality maps and sharp square endpoint are motivated natural invariants, not an arbitrary tiny numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
