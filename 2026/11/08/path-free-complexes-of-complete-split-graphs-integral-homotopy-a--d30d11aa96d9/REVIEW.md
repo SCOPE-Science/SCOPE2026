@@ -1,19 +1,21 @@
-# Scientific assessment: path-free complexes of complete split graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The longest-path formula \(\ell(p,q)=\min(p+q,2p+1)\) follows from mandatory separation of independent vertices and an explicit alternating path construction. The star of one fixed leaf is a cone. Its complement in the face poset consists exactly of size-\(t-1\) simplices with sufficiently many clique vertices, and all of their proper faces lie in the star. Quotienting this contractible subcomplex proves the sphere wedge and the integral chain model. The relative chain module proves the signed exterior-power decomposition for the leaf stabilizer. The augmented simplicial Hopf trace formula proves the full cycle-type character; a transposition argument proves vanishing global invariants. Independent graph-DFS enumeration, chain-rank calculations and signed character comparisons reproduce all reported finite instances. The proof is for arbitrary integer parameters, and no finite census is invoked as its replacement.
+PASS
 
-## Originality — PASS, qualified
+In a selected K_r clique plus n independent leaves, the longest simple (not necessarily induced) path on p clique and q leaf vertices has order min(p+q,2p+1): leaves must be separated by clique vertices, and alternating with adjacent clique insertions achieves the bound. Thus the t-path-free faces satisfy min(p+q,2p+1)<t for r,n>=2,t>=5. The closed star at a chosen leaf v is a cone, and its complementary simplices are exactly size t−1 and p>=ceil((t−1)/2), with boundaries entirely in the star. The quotient is a wedge of B(r,n,t) spheres S^{t−2}; the relative integral oriented facet chains yield the S_r×S_{n−1} exterior-power direct sum. For S_r×S_n the augmented Hopf trace on invariant faces and cycle-polynomial weights gives the stated rational character, and each p>=2 wedge exterior power has no S_r invariant via a transposition of two selected clique labels. Independent separate graph-DFS enumeration and mod-two chain ranks agree for four small (r,n,t) triples; that does not prove the quantified integral statement. Edge cases t>r+n and B=0 are covered by the cone.
 
-The closest primary source is Deshpande, Goyal and Sawant, *On a complete characterization of path-free complexes associated with complete multipartite graphs*, arXiv:2607.05358 (initial posting July 6, 2026). Its accessible abstract describes decomposability criteria for complete multipartite graphs and an explicit full homotopy classification for complete bipartite graphs. These do not themselves state the present split-graph all-\(t\geq5\) formula, integral leaf-stabilizer module, or full part-preserving character. Four-path-free results are excluded by the chosen path-length range. The classical shifted-complex wedge principle does not specify the displayed module or character. Searches for direct specializations, equivalent and stronger formulations, and earlier tables found no decisive covering result. **Residual risk:** the inaccessible 19-page full manuscript could contain a covered special case or stronger theorem; its abstract alone cannot exclude that possibility. Independent literature review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The family has a natural forbidden-path definition and varying independent-set size, clique size and forbidden path length. A single contraction provides an exact integer sphere count, a concrete integral representation with orientation signs, a full symmetric-group character for automorphisms moving the chosen leaf, and vanishing invariant homology despite nonzero Betti numbers. Those symmetry statements do not follow from ordinary sphere counts and are relevant to equivariant graph-complex topology. The result is not based on an arbitrary finite parameter slice or an unexplained numerical improvement.
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
 
-## Boundaries
+## value
 
-The homotopy equivalence is not asserted to be equivariant. The theorem does not treat general split graphs, path lengths below five, or automorphisms of other graph types. The motivating paper's whole text could not be inspected; this leaves qualified originality risk. The executable checks cover finite instances only. Independent mathematical audit is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All path lengths t>=5 across natural complete split graphs receive an exact integral homotopy classification plus an explicit integral stabilizer module and full group cycle-type character. The latter symmetry data and vanishing invariant lattice are not determined by the wedge multiplicity, making the result useful to equivariant graph-complex topology, beyond routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
