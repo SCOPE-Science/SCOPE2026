@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:43:18.756630Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each generator is 1-Lipschitz on L_m, and finite McShane representation f(x)=min_a min(1,f(a)+|x-a|), with |x-a| definable by max of two truncated subtractions, expresses every discrete 1-Lipschitz map. An idempotent map has interval image [a,a+d] and fixes that image pointwise. Its two exterior tails are independent lazy walks with steps -1,0,1 confined to the interval, yielding I_m=sum_{d=0}^m sum_{a=0}^{m-d}F_d(a)F_d(m-d-a), F_d(t)=(A_d^t 1)_0, with A_d the looped path adjacency. The Perron root is lambda_d=1+2 cos(pi/(d+2)); its squared first-coordinate weight 2 sin²(pi/(d+2))/(d+2) is bounded below by 8/(d+2)^3. Returning walks at even times and one self-loop at odd times provide a uniform polynomial spectral lower bound, while the spectral norm gives the upper bound. Thus log I_m=max_d[(m-d)log lambda_d]+O(log(m+2)). Minimizing B_m(d)=d log3+(m-d) log(3/lambda_d) gives the unique width t=(2*pi²/(3log3))^(1/3) and deficit C=(3/2)t log3; polynomial prefactors cannot prevent convergence in probability of d/m^(1/3). Counting all 1-Lipschitz maps by increment words with valid starts gives log N_m=m log3+O(log m). Independent brute-force enumerated m=1..5, counts 3,8,21,56,149; exact all-map counts matched 4,17,68,259,950. These finite checks do not prove the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 26 cycle theorem has log I_n=n log3-C n^(1/3)+o(n^(1/3)) and width law with the same t and C.",
+          "Strict ordinary path endomorphisms have log 2 base growth and different t."
+        ],
+        "reasoning": "These closely related spectral-walk limit laws do not directly enumerate a retraction of a line with two independent boundary arms; same exponent is not a direct mathematical implication. The shared spectral mechanism is fully credited.",
+        "searches": [
+          "Resultary: idempotent weak endomorphisms undirected path count nonexpansive fuzzy chain stretched exponential cube root image size",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-rank-polynomials-and-cube-root-concentration-for-weak-cycle-retr--ce7f902feb65/RESULT.md",
+          "Resultary Gaussian fluctuations of retraction ranks in finite path endomorphism monoids"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: retraction unary Lipschitz finite path weak endomorphism idempotent chain cube root image distribution",
+        "Resultary: idempotent weak endomorphisms undirected path count nonexpansive fuzzy chain stretched exponential cube root image size",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-rank-polynomials-and-cube-root-concentration-for-weak-cycle-retr--ce7f902feb65/RESULT.md",
+        "https://research.unl.pt/ws/files/18723855/endpn.pdf",
+        "https://admjournal.luguniv.edu.ua/index.php/adm/article/view/349",
+        "https://arxiv.org/abs/2112.13427",
+        "https://arxiv.org/abs/2610.32335"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cycle rank polynomial requires a single complementary walk from endpoint to endpoint constrained by a fixed arc.",
+          "Path retraction has two independently positioned exterior walks and an interval shift a, which changes the coefficient convolution and finite counts."
+        ],
+        "reasoning": "Identical lambda_d and saddle point show common technique, but the exact cycle formula is not an identity for the path count, and neither a total-map count nor strict-path idempotents imply the submitted precise law.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-rank-polynomials-and-cube-root-concentration-for-weak-cycle-retr--ce7f902feb65/RESULT.md",
+          "Knauer and Pipattanajinda 2018 full-monoid count",
+          "Dimitrova et al arXiv:1810.09307"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unary fuzzy functions equal weak endomorphisms of the UNDIRECTED reflexive path, i.e. discrete maps with adjacent differences in {-1,0,1}.",
+          "Directed weak path maps must be order-preserving; ordinary loopless graph path endomorphisms require +-1 and forbid 0."
+        ],
+        "reasoning": "The reflexive weak path identity is precisely the appropriate algebraic alias. Related papers address total maps, monoid generator rank or different edge-preserving conventions rather than this exact idempotent image-width count.",
+        "searches": [
+          "Resultary: retraction unary Lipschitz finite path weak endomorphism idempotent chain cube root image distribution",
+          "2018 Knauer–Pipattanajinda weak path endomorphism count",
+          "arXiv:1810.09307",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-rank-polynomials-and-cube-root-concentration-for-weak-cycle-retr--ce7f902feb65/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted first values m=1..11 are outputs of a closed all-m exact convolution, not alleged new entries without derivation.",
+          "Earlier published tables address total weak path maps or strict endomorphism genera."
+        ],
+        "reasoning": "No identified published exact I_m table or generating polynomial of the same reflexive path idempotents; prior total-map enumeration only supplies N_m.",
+        "searches": [
+          "Resultary: retraction unary Lipschitz finite path weak endomorphism idempotent chain cube root image distribution",
+          "Resultary: idempotent weak endomorphisms undirected path count nonexpansive fuzzy chain stretched exponential cube root image size",
+          "arXiv:1810.09307"
+        ]
+      },
+      "rationale": "The October 26 weak-CYCLE retraction paper proves the same cube-root scaling constants and uses looped path transfer matrices; that METHOD and spectral exponent are known, not original here. The present finite fuzzy CHAIN/weak PATH has a different interval-with-two-exterior-walk convolution and exact counts, as opposed to a single complementary cycle walk, and also proves definability as unary fuzzy terms and rarity versus all such terms with an O(log m) remainder. The Knauer–Pipattanajinda undirected-path paper counts all weak endomorphisms; Dimitrova et al study monoid generator ranks; Fernandes–Paulista counts directed-path idempotents with monotone maps. None of the inspected statements supplies this exact fuzzy-chain idempotent census and probability law. Very close known circle method remains an explicit originality risk.",
+      "residual_risks": [
+        "The same t and C and spectral-walk mechanism are already published for weak CYCLE idempotents; no novelty claim for the general method or cube-root phenomenon.",
+        "Complete Knauer–Pipattanajinda primary text was not readable via the retrieved PDF route; unindexed weak-path idempotent results might contain this exact enumeration.",
+        "Proof does not determine multiplicative asymptotic prefactor or fluctuations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED STRONG spectral law, not an exact path enumeration",
+          "evidence": "E_n(z)=z^n+nz+n sum_l (B_l^(n-l))_(l,0) z^(l+1); same t and C, but different cycle image geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-rank-polynomials-and-cube-root-concentration-for-weak-cycle-retr--ce7f902feb65/RESULT.md",
+          "material_read": "Full RESULT.md read: coefficientwise looped-cycle walk formula, Perron estimate, Laplace principle and limitations",
+          "method": "Resultary published pinned Git blob",
+          "title": "Rank polynomials and cube-root concentration for weak cycle retractions",
+          "trigger": "Extremely close same exponent, walk matrix and idempotence"
+        },
+        {
+          "assessment": "No complete idempotent interval-width asymptotic or stated submitted count in inspected material",
+          "evidence": "Focus is generating sets and monoid ranks, not a probability distribution of weak-path idempotents.",
+          "identifier_or_url": "https://research.unl.pt/ws/files/18723855/endpn.pdf",
+          "material_read": "Open full 2018/2020 primary PDF; inspected definitions, weak/strict endomorphism distinctions, monoid-rank results and idempotent context",
+          "method": "Open PDF pages and searchable text",
+          "title": "Ranks of monoids of endomorphisms of a finite undirected path",
+          "trigger": "Same finite undirected path transformation monoid"
+        },
+        {
+          "assessment": "Known total weak-endomorphism count, cannot assert whole-paper absence of idempotent enumeration",
+          "evidence": "Work counts all weak endomorphisms; a full-text priority recheck remains valuable.",
+          "identifier_or_url": "https://admjournal.luguniv.edu.ua/index.php/adm/article/view/349",
+          "material_read": "Publisher abstract and page investigated; PDF retrieval exposed website HTML rather than readable paper full text",
+          "method": "Publisher record and abstract; full text not obtained",
+          "title": "A formula for the number of weak endomorphisms on paths",
+          "trigger": "Same weak-path transformations and possible total-count prior"
+        },
+        {
+          "assessment": "DIFFERENT ordered map class",
+          "evidence": "Counts idempotents of order-preserving directed weak-path transformations, which forbid nonmonotone walks.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13427",
+          "material_read": "Abstract and original definitions/scope as cited; directed path not the undirected reflexive metric chain",
+          "method": "arXiv bibliographic and abstract",
+          "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+          "trigger": "Prior explicit idempotent count under similar terminology"
+        },
+        {
+          "assessment": "LOGIC infrastructure, not claim of idempotent unary enumeration",
+          "evidence": "Uniform interpolation rather than counting induced unary term operations.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32335",
+          "material_read": "arXiv abstract and construct signatures; full text not available in inspected source",
+          "method": "arXiv abstract",
+          "title": "Non-Expansive Fuzzy Modal Logic Has Uniform Interpolation",
+          "trigger": "Original finite fuzzy connective language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural, intrinsically motivated count and image-width probability law for idempotent/nonexpansive finite fuzzy unary operations (equivalently reflexive path retractions). The exact finite census, stretched-exponential rarity among all unary maps and typical fixed-interval scale are independently usable invariants, despite a similar cycle model exhibiting the same universal scaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No analytic prefactor, local fluctuations, higher-variable or continuum fuzzy operator result.",
+    "The overlapping prior weak-cycle theorem is a real historical-priority qualification; novelty is only the distinct chain census/interpretation."
+  ],
+  "schema_version": 1
+}
