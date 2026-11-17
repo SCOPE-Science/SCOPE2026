@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the finite \(p\)-closed foliation fiber theorem
+# Independent mathematical audit
 
-The written proof in `RESULT.md` is the source of the infinite, scheme-theoretic conclusion. The standalone `CHECK.py` uses only Python's standard library. It enumerates the nonzero zero-sum residue tuples for selected primes and degrees, verifies their closed count, verifies the length-versus-geometric-point predictions, and checks the characteristic-two formulas in the split ordinary and supersingular elliptic examples.
+## correctness
 
-Command executed on the actual included source file: `python CHECK.py`.
+PASS
 
-Observed output:
+For the precisely defined p-curvature coefficient subscheme on split E×Y with E ordinary and Y elliptic, the restricted Jacobson identity gives T(f)=f^p+delta^(p-1)f-hf=0. Riemann–Roch on genus-one Y gives dim H^0(Y,O(D))=d, with residue map kernel constants and image the zero-sum hyperplane. For each F_p-valued residue vector, p-surjectivity of Pic^0(Y)(k) constructs a log-derivative f_j solving T=0. Writing f=c+sum b_j f_j, additive p-polynomial and independence of 1,f_j^p produce exact polynomial ideal (c^p-hc,b_j^p-b_j). Requiring every residue nonzero leaves N_p(d)=((p-1)^d+(p-1)(-1)^d)/p residue-indexed torsor summands, each length p. Ordinary Y has p geometric points per summand; supersingular Y has one nonreduced point per summand, even in p=2 and with no points if p=2,d odd. IMPORTANT TERMINOLOGY: residue-indexed summands are not necessarily connected components: for ordinary Y each Z/p summand is p separate connected points; the stated explicit scheme decomposition and geometric point count distinguish this. Independent exact finite enumeration reproduced residue formula for p=2,3,5,7 and small d; universal proof is scheme-theoretic, not derived from tests.
 
-```text
-RESIDUE_CENSUS_OK
-CHARACTERISTIC_TWO_FIBER_WITNESSES_OK
-SCHEME_LENGTH_AND_GEOMETRIC_POINT_PROFILES_OK
-CERTIFICATE_OK
-```
+## originality
 
-The checker is not a proof for all primes or divisors. The critical unrestricted steps are the Jacobson restricted-power identity, the surjectivity of multiplication by \(p\) on \(\operatorname{Pic}^0(Y)(k)\), the global residue theorem, and the displayed equality of coefficient ideals. These are supplied with their hypotheses in `RESULT.md`. The geometric structure is asserted for the expressly defined restricted-Lie equation scheme, not an unidentified alternative moduli scheme. No independent mathematical audit has occurred.
+PASS
+
+Andreatta–Goren (Oct 23 2026) already describe smooth turbulent p-closed foliations and moduli by Cartier criteria; a November 2 Resultary theorem already counts ordinary×ordinary p-closed foliation points with reduced poles and supplies Kummer étale covers for p>=3. These established ordinary geometric-point formulas are not credited new. The proposed contribution is the explicit restricted-Lie coefficient-scheme fiber with nonreduced alpha_p factors when Y is supersingular, and uniform scheme length independent of ordinarity. The November 2 source explicitly DOES NOT assert that full scheme structure. Full Andreatta–Goren text remained inaccessible after direct arXiv/OA and authorized Oxford disconnection; this genuine plausible stronger-coverage priority risk is recorded, not falsely excluded by abstract alone.
+
+## value
+
+PASS
+
+The exact finite scheme fiber of the natural p-curvature equation is a motivated local moduli invariant, distinct from bare existence or geometric point counts. The uniform length pN_p(d) and the ordinary étale versus supersingular infinitesimal degeneration (Z/p versus alpha_p factors) are structurally relevant to studying the geometry and nonreduced loci of foliations across p-rank boundaries. The all-prime, arbitrary reduced-divisor formula is a natural classification, not an arbitrary computational slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
