@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The ordinary orbit-space assertion follows from a dihedrally equivariant identification of the noncrossing-diagonal complex with the boundary sphere of a regular-polygon secondary polytope. Its representation is the complement of the constant and first-harmonic summands of the polygon vertex-permutation module. The geometric fixed spheres are obtained by counting vertex orbits and subtracting the appropriate invariant affine dimensions. All nonidentity rotations fix points precisely when their exponent has a nontrivial gcd with the polygon length; each reflection has a fixed point. Armstrong's theorem on orbit-space fundamental groups then yields the full classification. These implications were independently reconstructed including the six-vertex boundary, proper cyclic subgroups, exceptional two-powers, and groups with individually fixed reflections but empty common fixed space. The packaged checker corroborates all fixed-dimension equalities for even polygon sizes through one hundred; no finite range is used as the proof of the universal quantifier.
+
+## Originality — PASS relative to inspected evidence
+Reiner's 2002 full manuscript was read in the sections describing the secondary polytope and equivariant fixed polytopes. Chapoton–Fomin–Zelevinsky establish the associahedral model, and Armstrong proves a general orbit-space formula. They do not explicitly state the evaluated even-polygon subgroup-by-subgroup fundamental groups. A relevant published prime-power statement treats the distinct bidirected multipath complex; a harmonic-sphere statement concerns a cyclic nonmatching complex whose representation does not include the alternating real line. The already recorded odd-prime polygonal diagonal lens quotients and graph-associahedral cases have different scope. The theorem draws known ingredients together in a new explicit even-size arithmetic classification. Priority against unindexed or inaccessible combinations of these ingredients remains uncertain.
+
+## Value — PASS
+The full classification answers a natural geometric question about unlabeled polygonal triangulations: precisely which subgroup symmetries leave a nontrivial loop in the topological orbit space. The answer has a sharp, unexpectedly restrictive power-of-two exception and gives complete simultaneous fixed-point spaces for all cyclic and dihedral subgroups, including distinctions invisible to rational homology. It does not claim higher quotient homotopy or a new general orbit-space theorem; its value is the complete natural family classification, rather than the elementary arithmetic or software in isolation.
+
+## Limitations
+The construction concerns even polygon sizes at least six and ordinary orbit spaces. The full homotopy types and higher integral homology groups of the orbit spaces remain unclassified. The integer tests are corroboration, not an independent proof. The literature search cannot rule out unindexed equivalent work or a more general uninspected theorem which directly specializes to this case.
+
+Self-review: passed. Independent audit: not yet performed.
