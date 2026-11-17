@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies four candidates, three positions, nonempty ballots, all greedy tie branches, the Kelly extension, and the electorate-size range. The recurrence in `RESULT.md` enumerates every greedily reachable set, and integer marginal weights scaled by six are exact because the only denominators are one, two and three. Every anonymous multiset profile appears exactly once among \(\binom{n+14}{14}\) multiplicity vectors and each occupied ballot-type deletion is exhaustively checked. Running `verify.py` produced 170543 profiles and 813960 such deletion tests, identified twelve seven-voter paradox profiles and zero through six voters, and verified a single symmetry orbit. An independent exact-rational recursion agreed in 5075 selected cases. The explicit representative's scores and winning sets were also checked directly. There is no inference from a partial enumeration: the whole finite domain was enumerated by construction. The generalization beyond this finite domain remains unproved.
+PASS
 
-## Originality — PASS, subject to literature-priority uncertainty
+For four candidates and k=3, each greedy marginal equals a sum of weights 1,1/2,1/3, so integer scaling by 6 permits exact tie tests. Enumerating all multisets of 15 nonempty ballot masks with n=1..7 gives precisely 170543 profiles; removing one occurrence of each present type yields 813960 comparisons. Independent implementation of all winning branches and Kelly min/max checks found anomalies 0,0,0,0,0,0,12; all twelve are one S4 orbit of 2ab+2ac+bd+cd+bcd. Full-profile winners are abc,abd,acd and abstention on ab/ac leads only abc. Thus each has two profitable types occurring twice. This is a logically exhaustive FINITE classification; it makes no claim for other candidate/committee counts or deterministic tie-break rules.
 
-Bullinger et al. (arXiv:2312.08798v1, Theorem 2, Corollary 1, Remark 1) prove general existence of sequential-rule participation failure and the boundary at committee size two; this entails that failure is possible for some instances with three seats, but not that seven voters are minimal or that all four-candidate minimal profiles form the enumerated twelve-element orbit. Their construction uses general profiles and does not provide the claimed finite census. Sánchez-Fernández and Fisteus (arXiv:1710.04246) investigate support-monotonicity and give different, larger examples; Lackner and Skowron (2023, Proposition A.3) analyze related sequential-rule monotonicity, not this exact Kelly no-show census. Relevant mathematical-record comparisons involved no-show, committee, Thiele and participation aliases and identified only distinct single-winner records, not a covering statement. This negative search is not proof of priority: inaccessible or unindexed equivalences remain possible. The precise comparison and residual risks are in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-An initial impossibility theorem leaves unanswered the smallest electorate at which its phenomenon can occur in the smallest natural three-seat, four-candidate committee cell. The proved seven-voter threshold, one-orbit structure and exact incidence \(12/116280=1/9690\) quantify that boundary and identify the specific tie mechanism responsible. This is a motivated complete finite classification, not an arbitrary parameter slice or routine rephrasing of non-participation. It informs minimal-counterexample testing and participation robustness for irresolute multiwinner rules. The result is limited in scope and does not claim a general theorem for larger committees or fixed tie-breaking.
+A precisely defined seven-voter minimal boundary and complete 12-profile orbit classification go beyond established general seqPAV participation failure, which does not enumerate or bound this finite four-candidate three-seat cell. Searches yielded no competing full exact classification, subject to unindexed-computational-work risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first nontrivial four-candidate, three-seat cell of a standard committee rule has a meaningful sharp lower bound on electorates and a complete classification of minimal paradox profiles, enabling exact benchmarking of participation and ties. The 12-profile orbit is a natural complete finite invariant not obtained as a textbook deduction from general impossibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

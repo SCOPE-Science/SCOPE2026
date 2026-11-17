@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No external packages, datasets or network resources are required. The script enumerates all multisets of nonempty ballots for \(n=1,2,3,4,5,6,7\) and all present-ballot deletions, explores every seqPAV tie branch, compares the before/after committee sets by Kelly's exact strict criterion, and asserts the precise profile count and one candidate-permutation orbit.
+## correctness
 
-Expected output profile totals are \(15,120,680,3060,11628,38760,116280\); paradox totals are \(0,0,0,0,0,0,12\). The check handles 170543 complete anonymous profiles and 813960 distinct ballot-type deletions. Independent exact rational scores agree in 5075 selected cases. The displayed seven-voter witness has before-set \(\{abc,abd,acd\}\) and after-set \(\{abc\}\) when one \(ab\) or \(ac\) ballot abstains. The program terminates with `PASS` if and only if its assertions succeed.
+PASS
 
-The exhaustive enumeration is finite and not a theorem about arbitrary electorate sizes or arbitrary numbers of candidates. The independent rational implementation checks only a subset; its role is cross-implementation corroboration, whereas completeness follows from the exact all-multiset/all-deletion loops and the integer greedy recurrence. The result is inherently set-valued and tied; no tie-breaking-independent phenomenon is claimed. Literature-priority uncertainty remains. No independent audit has been performed.
+For four candidates and k=3, each greedy marginal equals a sum of weights 1,1/2,1/3, so integer scaling by 6 permits exact tie tests. Enumerating all multisets of 15 nonempty ballot masks with n=1..7 gives precisely 170543 profiles; removing one occurrence of each present type yields 813960 comparisons. Independent implementation of all winning branches and Kelly min/max checks found anomalies 0,0,0,0,0,0,12; all twelve are one S4 orbit of 2ab+2ac+bd+cd+bcd. Full-profile winners are abc,abd,acd and abstention on ab/ac leads only abc. Thus each has two profitable types occurring twice. This is a logically exhaustive FINITE classification; it makes no claim for other candidate/committee counts or deterministic tie-break rules.
+
+## originality
+
+PASS
+
+A precisely defined seven-voter minimal boundary and complete 12-profile orbit classification go beyond established general seqPAV participation failure, which does not enumerate or bound this finite four-candidate three-seat cell. Searches yielded no competing full exact classification, subject to unindexed-computational-work risk.
+
+## value
+
+PASS
+
+The first nontrivial four-candidate, three-seat cell of a standard committee rule has a meaningful sharp lower bound on electorates and a complete classification of minimal paradox profiles, enabling exact benchmarking of participation and ties. The 12-profile orbit is a natural complete finite invariant not obtained as a textbook deduction from general impossibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
