@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global feasibility inequality follows from completion of every unit-demand agent and satisfaction of all lower quotas with nonbinding upper capacities. For a single positive quota, the first-choice count gives a complete, explicit time trajectory and lottery; examining reports that do or do not rank the quota object first proves truthful SD dominance for every profile. The three-by-three manipulation is verified by direct eating paths and a positive, rational expected-utility difference. Two-object lotteries are totally ordered by SD, so published weak strategyproofness suffices for the minimality argument. The finite census evaluates exactly \(216\) profiles and \(3\cdot5\) alternative reports per profile; exact arithmetic, two independent implementations, and the utility-prefix criterion establish its completeness. Residual scientific risk: the claimed equivalence of the published MPS and lower-quota PS paths is scoped to the explicit unit-demand, nonbinding-upper-capacity rules stated in the proof, not assumed in unrelated constraint families.
+PASS
 
-## Originality — PASS, with qualifications
+For one positive lower quota L at a, the global feasibility slack is n-[L+(n-s)t] until an object a quota is filled. Hence if s>=L no restriction before time 1; otherwise the only breakpoint is tau=(n-L)/(n-s), and non-a-first agents receive tau at reported favorite plus 1-tau at a. Any unilateral report ranking a first gets a surely; a report ranking another first preserves s and tau and substitutes an object weakly worse than truthful top. This proves full first-order stochastic-dominance strategyproofness for all stated n,m. With two minima, the explicit 3-by-3 profile (A>B>C,A>C>B,C>B>A) and report C>A>B for agent 2 yields utility gain 5/12 for (uA,uC,uB)=(12,11,1). Two-object SD is a complete lottery order and weak strategyproofness excludes improvement; with n=2 both unit minima exhaust feasible demand and exclude other objects, establishing minimality. An independent exact Fraction event-integrator exhausted 216 strict profiles and all 3*5 alternative reports: 30 vulnerable, 36 profitable triples, multiplicities 186/24/6. The enumeration is finite only; the universal single-minimum assertion rests on the analytic formula.
 
-The Sandholtz–Tai 2026 MPS model and Bojko's 2020 minimum-quota PS model were inspected, with special attention to the mechanism, weak strategyproofness, and Bojko's larger manipulation example. Both pre-existing algorithm definitions and the weak strategyproofness theorem are credited. The new assertion is a stronger full-SD truthfulness guarantee for the structural one-minimum domain, its sharp failure at two minima with minimal agent/object counts, and the complete exact small-market incidence. Relevant research-record queries recovered classical PS and other assignment boundaries but no result implying these quota-specific statements. A negative search is not a proof of absolute originality; future discovery of an equivalent theorem in unindexed or ancillary literature remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The difference between weak and full strategyproofness is central to random-assignment incentive design. The theorem isolates a natural quota-complexity boundary where truthful reporting is SD dominant, and establishes precisely where even the simplest nonbinding-upper-capacity instance ceases to have that property. Its exact \(5/36\) susceptibility incidence is a reproducible benchmark for random-market incentive risk, and the closed-form one-minimum allocation is useful for checking algorithms and limiting cases. This is more than a normalization check or a recomputation of an existing table.
+Prior Bojko (2020) and Sandholtz–Tai (2026) introduce the minimum-quota eating process and prove weak strategyproofness, not universal full SD strategyproofness for one positive quota or the minimal two-quota 3x3 vulnerability census. Prior classical 3x3 PS vulnerability counts involve binding unit upper capacities and a different mechanism. Novelty is narrowly the full-incentive boundary, sharp witness and exact specified finite census, not creation of MPS or its general weak strategyproofness.
 
-## Closest literature and limits
+## value
 
-Bojko (2020), arXiv:2012.11028v1, already gives weak strategyproofness and a four-agent manipulation; neither fact is claimed as new. Sandholtz and Tai (2026), arXiv:2605.26367v1, establish the general MPS setting and weak strategyproofness. The general-market and first-failure threshold asserted here require the separate proofs in RESULT.md. The exact enumeration is limited to \(n=m=3\), quotas \((1,1,0)\), and upper capacities \((3,3,3)\). Independent review of these results has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp distinction between weak and full stochastic-dominance truthfulness is consequential for fairness and incentive analysis. The minimal 3-agent/3-object quota witness and exhaustive 30/216 incidence quantify how a second positive lower quota changes incentives. This is neither a renaming of generic weak strategyproofness nor an arbitrary chosen profile: it is a natural smallest failing boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
