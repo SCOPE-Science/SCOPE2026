@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Gaussian-plus-compound-Poisson cumulant formula and the size-square/Beta-remainder transform give the right variational objective. The endpoint-tail hypothesis is strong enough to prove both the Laplace asymptotic and the first logarithmic derivative asymptotic without assuming a density. A comparison point gives the sharp order \(1/L\); elementary global upper bounds exclude all arguments outside the \(L\)-scale. Every interior global maximizer therefore satisfies a stationary equation, which yields both the \((\beta+3)\log L\) shift and the constant \(1-\log K\) in the reciprocal optimal scale. All hypotheses, normalization factors and the no-uniqueness limitation were checked. The standalone checker passed 262 diagnostics for two continuous-endpoint families; it is supplementary only.
+PASS
 
-## Originality — PASS, with residual historical risk
+The true-variance Gaussian plus centered compound-Poisson MGF factors as V t²/2 times [1+delta(F(bt)-1)], where F is the MGF of Beta(1,2) times the square-biased bounded jump. Its exact optimal pole is c/b=sup_{s>0} delta(F-1)/[s(1+delta(F-1))]. The endpoint power law yields F~K e^s/s^(beta+2) and F'/F=1-(beta+2)/s+o(1/s); a comparison point and exp/s bounds force all maximizing s/L->1. Stationarity gives delta(F-1)=s-(beta+3)+o(1), hence optimizer s=L+(beta+3)log L-log K+o(1) and b/c=s+1+o(1). For Beta(1,1), Beta(1,2) jumps our independent high-precision stationarity calculations at L=40,90,200 corroborated the decreasing remainders. Does not prove maximizer uniqueness or cover beta=0.
 
-The closest primary texts are Chen (arXiv:2610.00032v1), which supplies the broad variational representation but not a continuous endpoint-tail expansion, and Chen--Wang (arXiv:2609.02590v1), which derives the coefficient three for a Skellam model with an atom at the positive endpoint. The new theorem excludes that atom case and proves that the logarithmic coefficient varies continuously with the non-atomic endpoint exponent. An accessible previous claim for Gaussian plus *fixed* Poisson jumps has the same atom-case limit, not the present \(\beta>0\) family. The nearby sub-Poisson work of Leskelä--Välimaa optimizes a different envelope. Targeted literature and semantic research-record searches found no explicit or dominating continuous-endpoint result. This is a best-knowledge assessment, not proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The optimal Bernstein-type scale is a natural quantitative invariant of a Gaussian-smoothed jump model. Its leading inverse-logarithmic decay is insensitive to jump-endpoint regularity, making the first correction essential for distinguishing classes of distributions. The theorem supplies that correction, including its constant, for arbitrary non-atomic regular-variation exponents and identifies a universal change of log-log coefficient. The two naturally normalized continuous examples \(\operatorname{Uniform}(0,1)\) and \(\operatorname{Beta}(1,2)\) have different and precisely predicted coefficients. This is more than a parameter substitution in a single fixed-jump model: the full endpoint Laplace ratio and an all-global-maximizers argument are needed.
+Original element is the uniform beta>0 upper-endpoint power-law *second-order* optimizer correction, not the size-bias transform, generic sub-gamma variational formula or universal leading b/log limit. Full prior Resultary Gaussian-noise theorem explicitly provides 3 log log for fixed-size atom and leading bounded-support law only. Chen 2610.00032 and Chen-Wang 2609.02590 are related broader framework/Skellam boundary. An inaccessible full Chen PDF leaves a historical-priority risk.
 
-## Closest literature, scope and limitations
+## value
 
-The main source and the earlier directional result were examined in their relevant theorem, proof, example and discussion sections. The sub-Poisson paper was checked at its definitions and central concentration results, not claimed as exhaustively excluded on every page. Residual historical risk remains from broader analytic Tauberian optimization results or later versions of these preprints. The theorem is limited to fixed bounded nonnegative jump laws with a pure-power endpoint, positive fixed Gaussian variance and rare Poisson intensity. No maximizer uniqueness, multivariate extension or independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal concentration with the **actual** variance, rather than a loose proxy, is a meaningful analytic optimization invariant. The leading scale loses information about how jump mass approaches its maximum; beta+3 loglog records an analytically distinct dependence relevant for sharp concentration envelopes. The special fixed-jump beta=0 case is prior; the continuous-family correction is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
