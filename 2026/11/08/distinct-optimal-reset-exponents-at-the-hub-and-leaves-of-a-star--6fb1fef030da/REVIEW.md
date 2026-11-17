@@ -1,15 +1,21 @@
-# Scientific review: distinct optimal-reset exponents on a star
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns the vertex-observed entropy rate, not the entropy of labeled reset decisions. The stationary center mass is exactly \(1/(2-p)\) when resetting to the hub and \((1-p)/(2-p)\) when resetting to a leaf. The resulting row entropies give formulas (1)--(2) in `RESULT.md`. Their strict comparison follows from maximum entropy of a uniform distribution on \(m\) leaves. The hub derivative has precisely one zero. The peripheral derivation keeps the collision correction \(G_m\) and proves that every global optimizer lies between \(m^{-4/5}\) and \(m^{-7/10}\) for large \(m\), allowing a uniform derivative expansion that determines its sharp \(m^{-3/4}\) scale and the unit leading entropy-gain constant. All endpoint and fixed-degree existence arguments are explicit. `verify.py` passed 185 direct stationary-matrix, derivative and asymptotic assertions; numerical checks are not substituted for the all-\(m\) proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest inspected source, Wang and Chen (arXiv:2208.05665, 2022), supplies the general entropy-rate definition and reset transition rule, and explores node-location dependence numerically for a finite Cayley tree. It does not explicitly give the sharp difference between central and peripheral star-reset scales, or the peripheral leading gain. Burda et al. (arXiv:0810.4113) already prove the entropy-maximizing Perron-walk principle: the hub maximum is therefore an implied benchmark from a loop-augmented star, **not itself a new independent theorem**. The assessable addition is the peripheral-root \(m^{-3/4}\) rate and gain and its all-node-location comparison. Chen and Ye (arXiv:2208.06212) consider time-dependent reset probabilities for mean first passage rather than these entropy optima. Relevant searches also considered alias language around rooted stars, Cayley one-shell graphs, maximal path entropy and collision/merged-edge entropy. No stronger covering result was found; published priority is not certified and an unlocated equivalent asymptotic remains possible.
+PASS
 
-## Mathematical value — PASS
-A rooted star is the smallest nonregular, high-degree family with two inequivalent reset-site choices and is the first shell of a Cayley tree, not a selectively engineered graph. Wang and Chen explicitly motivate reset-site-dependent entropy optimization; this theorem supplies sharp, contrasting large-degree control scales and exact leading entropy gains. The \(m^{-1/2}\) versus \(m^{-3/4}\) distinction is not a mere numerical refinement: the exponent differs because reset and hop destinations coincide at one leaf, and the proof quantifies this entropy-information loss. The result is relevant to designing restart rates on hub-periphery networks, without claiming a general theorem for all network families.
+With the observed-vertex transition kernel, direct stationary balance gives pi_c=1/(2-p) for hub resetting and pi_c=(1-p)/(2-p) for leaf resetting. Row-entropies give (H+(1-p)log m)/(2-p) and (H+(1-p)F_m)/(2-p), where F_m is entropy of (p+(1-p)/m,(1-p)/m,...). F_m<log m gives strict hub advantage. The hub derivative is log[(1-p)/(m p^2)]/(2-p)^2, uniquely zero at 1-p=m p^2. At leaf, the exact collision loss G_m, positive trial gain at p=m^-3/4, global localization m^-4/5<p_opt<m^-7/10, and uniform derivative log(1/p)-(3/4)log m+o(1) prove every optimum p~m^-3/4 and gain~m^-3/4; the hub gain~m^-1/2/2. Independent full-state stationary matrix calculations checked both roots for m=2,4,11 and three p values each (18 values); this corroborates, not proves, the limits.
 
-## Remaining risks and scope
-It remains possible that other works imply the peripheral asymptotic through general graph entropy asymptotics. Finite-degree uniqueness of the peripheral optimizer is not claimed. The analysis excludes multiple reset sites, node-dependent reset rates, nonuniform local steps, and entropy of hidden event labels. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Perron maximal-entropy walk theorem accounts for the hub optimized benchmark, and Wang–Chen provide the general resetting entropy framework and investigate root dependence on Cayley trees. Neither the accessible scientific statements nor the published Resultary regular-graph and complete-graph findings imply the globally optimized leaf-star p~m^-3/4 law. This is a qualified best-of-knowledge PASS for the leaf contribution, not a claim that the hub benchmark is new.
+
+## value
+
+PASS
+
+The loopless star is the first-shell Cayley tree and has exactly two inequivalent root sites; the difference between optimizing exponents 1/2 and 3/4 identifies a real entropy collision mechanism, providing motivated sharp parameter selection rather than an arbitrary degree slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
