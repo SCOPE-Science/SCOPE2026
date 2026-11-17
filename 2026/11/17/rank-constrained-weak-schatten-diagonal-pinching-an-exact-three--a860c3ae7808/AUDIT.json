@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For a rank-r matrix A with weak-Schatten norm one, Ky Fan bounds the kth diagonal modulus by H_min(k,r)(q)/k. The Laplace integral proves k^(q-1) H_k(q) strictly increases for every q>0; the upper envelope therefore maximizes at n if q>1, at r if q<1, and all k>=r if q=1. Fourier-conjugated harmonic spectra attain each value. Saturation of the diagonal trace-norm bound forces the exact harmonic singular spectrum and diagonal-unitary times positive semidefinite form, giving all equality cases. Verified finite checker: 22604 checks; universal proof does not rely on diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.07564v2, Theorems 2.3 and 4.1, qualitative characterizations for Schur patterns and ideals; Section 4 proves submajorization.",
+        "Banks--Harcharras (2004), published abstract/introduction, treats idempotent Schur multipliers on strong Schatten classes 1<p<infinity, not rank-limited weak Schatten quasi-norms.",
+        "Levene (2014), published abstract, computes selected Schur idempotent norms on B(H), not weak Schatten rank-constrained multipliers."
+      ],
+      "reasoning": "General Schur-Horn and Ky Fan theorems cover the majorization step and are expressly credited. They do not, in the inspected source material, assert the exact rank-budget three-phase factor, the p=1 flat support plateau, or the described equality strata. The source theorem 2.3 concerns whether infinite patterns are bounded, not finite amplification rates.",
+      "searches": [
+        "Schur bounded patterns submajorisation operator Lipschitz McDonald Sukochev Zanin 2026",
+        "conditional expectation diagonal rank constrained weak Schatten p-infinity norm",
+        "Schur multipliers in Schatten-von Neumann classes diagonal operator ideals",
+        "Pinchings and Norms of Scaled Triangular Matrices"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.07564v2, Theorems 2.3, 4.1 and Sec. 4",
+      "arXiv:0710.5566, Theorem 1.1 and Sections 1--3",
+      "Banks--Harcharras (2004) published abstract/introduction",
+      "Levene (2014) published repository abstract",
+      "Published records 7059c6e10268, 7ef05af50a3c, e934b396deea (scientific statements compared)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.07564v2, Eq. (4.1): |diag A| is weakly majorized by the singular-value sequence, giving the upper bound after weak-Lorentz normalization.",
+        "arXiv:0710.5566, Theorem 1.1 and introductory finite Schur--Horn theorem: constant diagonals for a prescribed positive spectrum are admissible; a Fourier matrix gives explicit witnesses.",
+        "The claimed result additionally proves the strict monotonicity of k^(1/p-1) H_k(1/p), determines which rank/support index wins, and classifies all equality matrices via trace duality."
+      ],
+      "reasoning": "The previous theorems are not treated as unrelated; both supply essential hypotheses and the inequality scaffold. Their statements do not explicitly fix the extremal weak-Lorentz factor under a rank restriction or the optimizer-support phase boundary. The result is a finite sharp quantitative refinement, not a claim of new majorization. A reviewer may regard the calculation as a corollary of known majorization plus a discrete Hardy maximization; this is the principal residual originality risk.",
+      "searches": [
+        "arXiv:2605.07564v2 Section 4 diagonal Schur majorisation",
+        "arXiv:0710.5566 Schur Horn finite diagonals majorization",
+        "weak L1 pinching diagonal conditional expectation operator norm harmonic sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McDonald--Sukochev--Zanin, arXiv:2605.07564v2, Theorem 4.1 and Eq. (4.1): diagonal weak submajorization and bounded-pattern characterization, but no finite weak-Schatten rank-budget constant or extremizer support transition.",
+        "Kaftal--Weiss, arXiv:0710.5566, Introduction, Theorem 1.1: Schur--Horn descriptions of possible diagonals; no rank-restricted weak-Schatten diagonal multiplier formula in inspected material."
+      ],
+      "reasoning": "The natural equivalent formulations are finite diagonal conditional expectation, diagonal Schur idempotent amplification, and a rank-constrained sharp Hardy majorization problem. Existing majorization is a key prior tool and implies an upper envelope, but the inspected statements do not provide its explicit maximizing index for all p or classify the rank-limited equality matrices. A classical implicit reformulation remains possible.",
+      "searches": [
+        "diagonal pinching weak Schatten L_1 infinity exact norm harmonic number H_n conditional expectation finite matrix",
+        "Schur diagonal projection harmonic number log n finite weak trace class diagonal conditional expectation",
+        "rank constrained Schur-Horn extremal diagonal Lorentz norm",
+        "Finite rank r matrices diagonal pinching in weak Lorentz Schatten S_{p,infty}: exact best constant r^(1/p-1) harmonic sum if p>1 and n^(1/p-1) harmonic sum if p<1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest published record published record 7059c6e10268 studies a one-row/one-column Schur mask in strong quasi-Schatten S_p, with dimension-free constant: different mask and norm.",
+        "Published results published record 7ef05af50a3c and published record e934b396deea concern singular spectra of Rhaly matrices, not this projection.",
+        "Searches on finite pinching, harmonic sums, Lorentz and rank budget produced no directly matching exact table."
+      ],
+      "reasoning": "Neither matching parameter labels nor nonmatching titles decide coverage. Compared operators, source and target ideals, and implication strength: none of the nearest records computes the claimed rank-conditioned weak-Schatten diagonal extraction factor. Absence of a hit is not proof of publication priority.",
+      "searches": [
+        "weak Schatten diagonal projection rank r p infinity generalized harmonic",
+        "Generalized harmonic numbers sharp projection norm weak trace ideal rank bound extremizers Fourier matrices",
+        "Exact finite-dimensional weak Schatten Lorentz p-infinity norm of diagonal pinching conditional expectation equal n^(1/p-1) generalized harmonic number with extremizers"
+      ]
+    },
+    "rationale": "The inspected 2026 primary paper classifies boundedness of diagonal Schur patterns and states the submajorization inequality but does not give finite rank-dependent weak-Schatten amplification and all equality strata. Classical Schur-Horn provides the spectral input, not the completed rank-support optimization. A close published strong-Schatten row-column Schur projection result addresses another mask and norm; targeted record/literature searches found no direct coverage. Priority remains qualified, especially via classical Hardy-Lorentz sequence estimates.",
+    "residual_risks": [
+      "A classical finite Hardy operator or weak-Lorentz rearrangement theorem may already encode exactly this harmonic constant; database searches do not rule out unstated corollaries.",
+      "Exact rank-budget classification is short once Schur--Horn majorization is granted; its novelty and mathematical significance may be judged differently by independent experts.",
+      "Older selected Schur idempotent papers were not all inspected in complete full text; the closest fully inspected primary papers are those on diagonal majorization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains qualitative diagonal boundedness equivalence and majorization, not explicit finite rank-constrained weak-Schatten constants or equality support law",
+        "evidence": "Theorem 2.3 at main results, Theorem 4.1 and equation (4.1) in Section 4, public submission May 8, 2026.",
+        "identifier_or_url": "https://arxiv.org/html/2605.07564v2",
+        "material_read": "Abstract, introduction, Theorems 2.3 and 4.1, proof of 4.1, portions of sections 3 and 5; checked original v1 public date on arXiv record",
+        "method": "Read HTML theorem statements, inequalities and proofs; compare exact operator, norm and rank parameter",
+        "title": "Schur bounded patterns, submajorisation and operator Lipschitz functions",
+        "trigger": "Same diagonal Schur patterns and quasi-Banach operator ideals"
+      },
+      {
+        "assessment": "Supplies Schur-Horn theory and orthostochastic diagonal realizations, without the specific finite weak-Schatten rank-limited extremum in inspected material",
+        "evidence": "Introduction Theorem 1.1; finite Schur-Horn discussion and orthostochastic construction.",
+        "identifier_or_url": "https://arxiv.org/abs/0710.5566",
+        "material_read": "Full-text HTML-rendered source introduction, Theorem 1.1, Sections 2--3 on majorization and finite Schur-Horn; sought Lorentz and weak-Schatten terminology",
+        "method": "Read public full-text extraction and searched relevant terminology",
+        "title": "An infinite dimensional Schur-Horn theorem and majorization theory with applications to operator ideals",
+        "trigger": "Potential stronger diagonal-spectrum coverage"
+      },
+      {
+        "assessment": "Focuses on strong Schatten classes 1<p<infinity, not weak quasi-Schatten diagonal extraction with rank budget",
+        "evidence": "Published abstract and introduction.",
+        "identifier_or_url": "https://doi.org/10.2307/4097188",
+        "material_read": "Abstract and beginning of publicly indexed article",
+        "method": "Compared stated setting and strong Schatten parameter range",
+        "title": "On the norm of an idempotent Schur multiplier on the Schatten class",
+        "trigger": "Older idempotent Schur multiplier constants"
+      },
+      {
+        "assessment": "Concerns B(H) norm spectrum and specific off-diagonal patterns; not the weak ideal rank restriction",
+        "evidence": "Repository abstract dated 2014.",
+        "identifier_or_url": "https://researchrepository.ucd.ie/entities/publication/c3083113-0ac9-472d-8359-f352a2ccf188",
+        "material_read": "Repository abstract and results description",
+        "method": "Compared supported spaces and evaluated masks",
+        "title": "Norms of idempotent Schur multipliers",
+        "trigger": "Possible published idempotent Schur-multiplier norm tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a860c3ae-7808-4d6e-a7d3-f870ab2764d7",
+  "value": {
+    "rationale": "Canonical diagonal pinching is the central pattern in the recent qualitative classification of Schur-bounded quasi-Banach ideals. The exact n/r/p invariant sharply distinguishes polynomial dimension amplification by rank-one matrices for p<1, logarithmic rank-dependent amplification at p=1, and dimension-uniform bounds for p>1; it also locates a complete jump in extremal coordinate support and determines every equality matrix. Thus the rank budget is motivated by the minimum matrix complexity needed to witness failure of weak-ideal boundedness, not an arbitrary numerical slice. This is a self-contained exact classification, not merely a known boundedness verdict.",
+    "status": "PASS"
+  }
+}
