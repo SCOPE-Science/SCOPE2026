@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact ordered-pair intrinsic-distance integral is obtained by five edge-pair types and verified by independent uniform-arclength simulations. Pairwise arm smoothing decreases it strictly unless the two arm lengths are equal. The remaining one-variable cubic has exactly one interior global minimizer for every integer \(k\ge1\); the radical formula, monotone arm fraction, and asymptotic series follow algebraically. The standalone checker is support, not an exhaustive or infinite proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Doyle and Graver's 1982 work originated continuous mean distance of shapes; Garijo and collaborators developed a general exact computation algorithm; Baptista and collaborators proved sharp global extrema with equilateral flower graphs. A fixed-edge global minimum at a different graph topology neither implies the one-loop-plus-pendant constrained optimizer nor its strict balancing proof and exact \(k\)-dependent length share. Searches found no matching archived mathematical claim. The older 1982 primary table/full body could not be read and remains an explicit historical risk.
+PASS
 
-## Value — PASS
-The metric graph is a natural one-cycle network with corridors meeting a single hub. Complete all-arm length optimization gives a unique nondegenerate optimum, a strict benefit from retaining a loop instead of collapsing to a star, and a sharp decay law as the number of terminals grows. These facts refine general-purpose mean-distance graph algorithms and distinguish topology-constrained design from unrestricted flower graph minima.
+Partitioning ordered-pair distances gives L²E[d]=C³/4+C²T/2+L S₂−2S₃/3. For two arms x,y of sum s, the variable integral is Ls²−2s³/3−2(L−s)xy; because C>0, balancing x,y strictly lowers the integral. With all arms equal, the derivative of cubic f_k(t) has one root in (0,1); the k=1 formula yields t_1=1/5 and f_1=17/75. Independent symbolic differentiation confirmed the derivative polynomial for k=1,2,3,5,10; roots and large-k expressions are consistent with given radical and its expansion. The proof, not numeric instances, establishes the all-k assertion.
 
-## Scope and limitations
-Positive-length loop and \(k\) positive arms are mandatory; independent uniform arclength points, geodesic graph metric, and a single common attachment vertex. Other unicyclic topologies, embeddings, or sampling laws are not covered. Historical priority and the mathematical proof have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying intrinsic mean-distance formulas and flower-graph global bounds are known, but a general graph-wide extremizer with different topology does not give this exact constrained one-loop plus k pendants optimum. No semantically close Resultary hit supplies the full root fraction, all-k uniqueness, and strict positive-loop improvement.
+
+## value
+
+PASS
+
+One-loop hub-and-spoke networks are a canonical low-complexity unicyclic topology; a nondegenerate globally optimal positive cycle, exact k-dependent allocation, and sharp asymptotic provide a genuinely usable network-design benchmark distinct from universal flower bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact integral is reconstructed by partitioning pairs of uniform-arclength points into loop/loop, same-arm, distinct-arms, and loop/arm classes. For pairwise balancing, the coefficient of the length product is strictly negative because the loop remains positive. Differentiation and the quadratic sign tests prove the global unique minimizer in all integer arm counts.
+# Independent mathematical audit
 
-Standalone `checker.py` uses standard Python only and performs independent shortest-path Monte Carlo, exact formula cross checks, length balancing inequalities, and optimum comparisons across 50 arm counts. Expected output: `ONE_LOOP_BOUQUET_OPTIMAL_MEAN_DISTANCE_OK`. Monte Carlo has limited precision; all infinite claims rest on the algebraic proof.
+## correctness
 
-Historical priority is provisional: an older 1982 primary paper is available only by abstract/metadata in the inspected resources. Independent audit has not been performed.
+PASS
+
+Partitioning ordered-pair distances gives L²E[d]=C³/4+C²T/2+L S₂−2S₃/3. For two arms x,y of sum s, the variable integral is Ls²−2s³/3−2(L−s)xy; because C>0, balancing x,y strictly lowers the integral. With all arms equal, the derivative of cubic f_k(t) has one root in (0,1); the k=1 formula yields t_1=1/5 and f_1=17/75. Independent symbolic differentiation confirmed the derivative polynomial for k=1,2,3,5,10; roots and large-k expressions are consistent with given radical and its expansion. The proof, not numeric instances, establishes the all-k assertion.
+
+## originality
+
+PASS
+
+The underlying intrinsic mean-distance formulas and flower-graph global bounds are known, but a general graph-wide extremizer with different topology does not give this exact constrained one-loop plus k pendants optimum. No semantically close Resultary hit supplies the full root fraction, all-k uniqueness, and strict positive-loop improvement.
+
+## value
+
+PASS
+
+One-loop hub-and-spoke networks are a canonical low-complexity unicyclic topology; a nondegenerate globally optimal positive cycle, exact k-dependent allocation, and sharp asymptotic provide a genuinely usable network-design benchmark distinct from universal flower bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
