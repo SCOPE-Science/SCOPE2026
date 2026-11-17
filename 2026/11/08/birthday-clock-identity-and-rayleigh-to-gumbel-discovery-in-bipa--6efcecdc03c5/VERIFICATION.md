@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with the unmodified standard library. In the verified execution it printed `VERIFY_OK 1516 exact assertions`. The checker derives a direct rational transition kernel between successive newly occupied vertices, computes its class-completion CDF by dynamic programming, and separately computes the inclusion-exclusion product expression. It compares every case with \(2\le a\le8\), \(1\le b\le16\), and \(0\le j\le b\), tests monotonicity and endpoints, checks the union-bound envelope, and verifies the geometric failure moment formulas. These tests are finite and are not an exhaustive proof of the theorem for arbitrary parameters.
+## correctness
 
-The complete general proof is in `RESULT.md`. The exponential-clock and Poisson approximations rely on an independent geometric-block representation; the growing-class limit also invokes the classical coupon-collector Gumbel theorem. Neither an independent audit nor automated formal proof is claimed.
+PASS
+
+At every visit to A the opposite-class draw is fresh uniform on B, even after restart from root; when the B draw repeats an independent uniform A label follows. This proves independent geometric failures F_r with P(F_r=j)=(1-r/b)(r/b)^j. Coupon inclusion-exclusion produces the exact product CDF for J (including j=0 and the final b boundary). The rare-repeat marked Poisson coupling gives independent Rayleigh first-occupation levels after scaling by sqrt(b); a union bound controls the mean. In the growing-a window, independent coupon collection C_a and geometric collision count M_b(j) with correct moment estimates prove the Gumbel limit under a(log a)^3=o(b). Finite rational comparisons confirm only finite cases, not the limiting statements.
+
+## originality
+
+PASS
+
+The exact bipartite internal DLA class-completion collision clock and its two asymptotic families are not implied by the inspected prior dispersion-time, coupon-cover or boundary-edge-growth theorems. Existing coupon-collector Gumbel law is used only after establishing the distinct graph-specific geometric clock. Best-of-knowledge priority, not exhaustive historical certification.
+
+## value
+
+PASS
+
+Source-class completion in a canonical irreversible growth process is a natural exact statistic; the new birthday collision clock gives a finite-size distribution and two distinct Rayleigh and Gumbel universality windows with precise regimes. Neither the marginal finite case nor the asymptotic crossover is a renaming of ordinary walk cover time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
