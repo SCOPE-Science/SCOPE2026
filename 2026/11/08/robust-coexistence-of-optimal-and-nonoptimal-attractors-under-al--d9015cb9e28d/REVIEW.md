@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The epoch map is an explicit ninth-degree polynomial. Its factored fixed-point polynomial proves exhaustively that there are nine distinct real epoch-fixed points, not merely numerical observations. Exact differentiation gives the two zero-multiplier attracting pairs, the repelling zero and the two repelling pairs with multipliers \(27\pm18\sqrt2\). The chain identities give a genuinely nonconstant two-phase orbit with mean loss \(5/32\). All nine roots are simple and all multipliers avoid the unit circle, so the real implicit-function theorem and degree preservation prove robust persistence, including the exact number of real fixed points. A standalone exact-arithmetic program independently recomputes each critical identity. The proof does not classify higher-epoch-period attractors.
+## correctness
 
-## Originality — PASS within checked literature
-The closest model source, Hofmann (2026), treats the **constant-step** cubic family and identifies the rate-\(2\) Chebyshev endpoint; the exact composition of unequal learning steps and the simultaneous attracting minimizer/nonminimizer points do not follow from that constant-step classification. The full available text was examined in relevant scalar-map and related-work sections. Goujaud et al. (2022) and Oymak (2021) address **cyclical** learning rates chiefly through quadratic spectral contraction and local convergence, not this off-minimum fixed-point census in a quartic landscape. The available complete primary texts and targeted searches supplied no implication of the exact claim; this does not certify global historical uniqueness. Nearby records on different optimizers and a generic cyclically coupled map were compared by mathematical statement, not by title.
+PASS
 
-## Mathematical value — PASS
-The pair of rates is not an arbitrary slice: the large rate \(2\) is the original system's exact Chebyshev (chaotic) endpoint, while the small rate \(1/2\) is its local superstable-minimizer step. Their composition unexpectedly has **simultaneously** four robust attracting epoch-fixed states, two of which trap a positive-measure set of initial conditions at a strictly positive asymptotic objective loss, even though the same schedule is locally superstable at both global minima. The result is a complete exact finite classification at distinguished dynamical parameters plus persistence in a genuinely open two-parameter region, giving a concrete boundary to what local learning-rate stability can predict about nonlinear optimization. The open region's maximal size and full nonlocal dynamics remain unresolved.
+Independently expanded g_s(x)=(1+s)x−s x³ and composed g_(1/2)∘g_2. Exact SymPy factorization yields F(x)−x=x(x²−1)(2x²−1)(4x⁴−12x²+7)/2, with nine real distinct roots 0, ±1, ±1/√2, ±√((3±√2)/2). Exact derivative has multipliers 9/2 at 0, 0 at ±1 and ±1/√2, and 27±18√2 at other roots, all repelling (the smaller >1). Phase identities g2(1/√2)=√2, g1/2(√2)=1/√2 imply nonoptimal 2-cycle with losses 1/16 and 1/4, average 5/32. Each root simple as fixed-point equation (F′−1≠0); all multipliers avoid unit circle; implicit-function continuation and degree-9 leading coefficient b a³≠0 prove exactly nine real roots with same stability in a small open rate neighborhood, and both nonoptimal branches remain distinct from minima. The proof does not assert no higher-epoch-period attractors.
 
-## Prior literature and residual risks
-Hofmann (2026) is the motivating real cubic-gradient dynamics source. Goujaud et al. (2022) and Oymak (2021) supply the nearest cyclic-step literature, but the reported convergence controls near minimizers do not exclude separate attracting off-minimum cycles. The exact present composition could conceivably have appeared in a specialized preexisting nonautonomous-cubic-map calculation not located by searches; independent bibliographic verification remains warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary cyclic-learning literature in checked material discusses local or quadratic rates; constant-step Chebyshev dynamics alone does not imply the exact alternating two-rate ninth-degree root classification. Resultary semantic query found no earlier full same-model statement. Hofmann full source was not accessed; priority expressly qualified.
+
+## value
+
+PASS
+
+Rates 2 and 1/2 are dynamically motivated (Chebyshev endpoint and local minimizer superattraction), and their composition yields a complete exact classification plus open coexistence of locally stable loss-zero and positive-loss outcomes. This is a meaningful structural obstruction to relying only on optimizer-local stability for cyclic schedules, not an arbitrary tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
