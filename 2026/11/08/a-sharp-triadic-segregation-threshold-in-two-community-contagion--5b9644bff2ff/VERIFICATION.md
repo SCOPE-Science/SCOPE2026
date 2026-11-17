@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3.9 or newer. No third-party library is required. The script checks the source-model equilibrium equations with exact rational arithmetic in quadratic extensions, independently differentiates the source vector field and verifies the symbolic Jacobian trace and determinant identities. It enumerates 544 physical parameter pairs and reports 120 stable and 424 saddle cases. It also checks the exact rational witness \(\varepsilon=9/10\), \(s=1/3\), \(d^2=2/27\), \(\lambda=9/2\), yielding trace \(-1\) and determinant \(6/25\).
+## correctness
 
-The written proof supplies the all-parameter argument: physical interior conditions, determinant sign reduction, exact minimum of the stability boundary and a sum-of-squares proof that positive determinant forces negative trace. A separate symbolic identity check verified the displayed derivative, factorization and sum-of-squares identities. Finite computations alone do not establish the infinite theorem. No assessment is made of nonlinear stability at the critical nonhyperbolic equilibrium, basin volumes, stochastic dynamics, or independent external validation.
+PASS
+
+Starting from the actual equal-community pure-triangle two-dimensional field, exact s=(x+y)/2,d=(x−y)/2 reduction gives d²=s²[2ε(1−s)−1]/[ε(1−2s)], λ=[2εs((1−s)²−d²)]⁻¹ at every unequal interior equilibrium. Positivity restricts 1/2<ε<1 and 0<s<1−1/(2ε)<1/2. Independently recomputed symbolic Jacobian gives trace T/D, determinant [2ε(1−s)−1]P/D², with P=ε(12s³−17s²+8s−1)+4s³−3s²; the exact polynomial identities cancel to zero. On the potentially stable interval P>0 iff ε>F(s)=s²(3−4s)/(12s³−17s²+8s−1), whose unique minimum at s=(3−√3)/4 equals (9+24√3)/61. Verified the sum-of-squares positivity used to force negative trace; at ε=9/10,s=1/3, the witness trace is −1 and determinant 6/25. Hyperbolic local only; equality nonhyperbolic, λ selected as needed, and other contagion models are excluded.
+
+## originality
+
+PASS
+
+Landry–Restrepo derives exactly these pure-triadic equations as a restriction, including numerical disparity regimes, but does not state an all-positive-λ necessary-and-sufficient stable unequal-endemic threshold at (9+24√3)/61 in inspected text. Broader simplicial SIS sufficient criteria and an earlier Resultary equilibrium-existence barrier do not imply HYPERBOLIC stability of the same branch; mathematical comparison is made at the trace/determinant level.
+
+## value
+
+PASS
+
+A natural open question in the original numerical phase diagrams is the exact least triangle assortativity enabling a STABLE asymmetric endemic state at any strength. An algebraic global lower boundary, exclusion beneath and feasible stable construction above is a meaningful sharp phase transition not supplied by local numerical examples or general sufficient criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
