@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is proved by centralizer and rank-one-image arguments in `RESULT.md`, not by extrapolation from finite samples. Execute the two Python-standard-library checkers next to this document:
+## correctness
 
-```sh
-python check_aff2.py
-python check_aff2_extension.py
-```
+PASS
 
-`check_aff2.py` directly multiplies each pair of six-coordinate mirabolic elements over \(\mathbb F_2\) and \(\mathbb F_3\). It examines exactly \(4096\) and \(531441\) input pairs, then checks every target, including targets outside the trace-zero hyperplane. `check_aff2_extension.py` uses explicit polynomial arithmetic modulo a quadratic irreducible polynomial in characteristic two to implement \(\mathbb F_4\); it enumerates all \(65536\) first matrix pairs and computes translation image spaces, testing all \(1024\) target pairs, accounting for \(16777216\) inputs. Their output appears in `verification_output.txt`.
+For every finite field F_q, the trace pairing on M2 is nondegenerate even when char=2. Non-scalar A has 2-dimensional centralizer kI+kA; for nonzero trace-zero Z the admissible A count is q^3-q, each with q^2 solutions B, yielding G_q(Z)=q^5-q^3. The zero target has G_q(0)=q^6+q^5-q^3. A common one-dimensional image for A and B forces Z to be rank-one nilpotent with image that line; prescribed nonzero determinant count K=q(q^2-1), and commuting shared-line count D=q^3+q^2-q (including the unique zero pair). Translation rank two contributes q^2 preimages and rank one q^3 only on its line, giving five target classes. The populations sum q^5 and their fiber-weighted sum q^12. Independent direct enumeration of ALL ordered inputs q=2 (4096) and q=3 (531441) agrees target-by-target, including trace-nonzero impossibility; these checks do not prove the all-field theorem.
 
-The programs are distinct: the first directly enumerates all translation pairs; the second computes images and ranks to sum over translations. Finite computations cannot certify a statement about all prime-power fields or publication priority. Independent audit status remains not performed.
+## originality
+
+PASS
+
+Best-of-knowledge novel full prescribed-output five-stratum census, not the known gl2 commutator existence, affine-Lie structure, or commuting zero fiber.
+
+## value
+
+PASS
+
+The prescribed Lie-bracket fiber distribution is a natural complete arithmetic invariant for a specified finite-dimensional Lie algebra. The nilpotent image-line incidence is a nontrivial structural singularity not recoverable from a commuting probability. It gives all output multiplicities and characteristic-two boundaries; a future word-map or Lie-algebra researcher can use these precise counts without new general machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

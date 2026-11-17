@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonstandard steps are the dimension-two cyclic centralizer lemma, the prescribed nonzero determinant count \(q(q^2-1)\), and unique common-image-line counting, including the one zero pair. From these, the five formula cases follow without characteristic assumptions. All targets are accounted for, with total weighted fiber population \(q^{12}\). Direct full enumeration in two prime fields and an independent full extension-field computation corroborate the argument.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For every finite field F_q, the trace pairing on M2 is nondegenerate even when char=2. Non-scalar A has 2-dimensional centralizer kI+kA; for nonzero trace-zero Z the admissible A count is q^3-q, each with q^2 solutions B, yielding G_q(Z)=q^5-q^3. The zero target has G_q(0)=q^6+q^5-q^3. A common one-dimensional image for A and B forces Z to be rank-one nilpotent with image that line; prescribed nonzero determinant count K=q(q^2-1), and commuting shared-line count D=q^3+q^2-q (including the unique zero pair). Translation rank two contributes q^2 preimages and rank one q^3 only on its line, giving five target classes. The populations sum q^5 and their fiber-weighted sum q^12. Independent direct enumeration of ALL ordered inputs q=2 (4096) and q=3 (531441) agrees target-by-target, including trace-nonzero impossibility; these checks do not prove the all-field theorem.
 
-Kirillov (2014) treats the same mirabolic Lie algebra, identifies its coadjoint form and Pfaffian, and studies real open orbits; it does not state the present finite-field element-bracket fiber distribution. Stasinski (2016) proves matrix-commutator existence, not the semidirect matrix-vector fiber distribution. Britnell–Wildon (2010) studies commuting similarity-class types and centralizers, not this fixed-target census. The novel component assessed is the complete five-class distribution and the incidence phenomenon for nonzero nilpotent matrix targets. A broader unlocated theorem could cover it; published priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete invariant of a natural six-dimensional Frobenius Lie algebra, separating the generic nonzero matrix targets, the nilpotent target-image incidence boundary, and the zero matrix target. It goes substantially beyond a matrix-commutator existence theorem or a single commuting probability and applies uniformly in all characteristics.
+Best-of-knowledge novel full prescribed-output five-stratum census, not the known gl2 commutator existence, affine-Lie structure, or commuting zero fiber.
 
-## Limitations
+## value
 
-No higher-rank mirabolic algebra, group-commutator fiber, or witness-orbit classification is asserted. The direct exhaustive checks cover exactly three finite fields; independent mathematical validation has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prescribed Lie-bracket fiber distribution is a natural complete arithmetic invariant for a specified finite-dimensional Lie algebra. The nilpotent image-line incidence is a nontrivial structural singularity not recoverable from a commuting probability. It gives all output multiplicities and characteristic-two boundaries; a future word-map or Lie-algebra researcher can use these precise counts without new general machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
