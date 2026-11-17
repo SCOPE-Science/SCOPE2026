@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification details
+# Independent mathematical audit
 
-Run `python check_bitmask.py` and `python check_sets.py` in a fresh Python 3 environment. Neither uses external libraries, network access or solver calls. Both enumerate every one of the \(2^{16}=65536\) vertex subsets in each graph. The first stores sixteen 16-bit open-neighborhood masks, applies the exact total-domination predicate, and computes induced perfect matchability by the standard recursive partner decomposition for a fixed selected vertex; it also independently checks all 256 entries in the neighborhood-incidence equivalence and the two exceptional claws per center. The second constructs graphs with coordinate-pair sets, enumerates by `itertools.combinations`, applies direct set-intersection predicates and an independently written recursive matching search.
+## correctness
 
-Expected total-domination coefficients in degree order 0 through 16: `0,0,0,0,80,1056,4768,9520,12150,11280,7992,4368,1820,560,120,16,1` for both graphs. Expected paired-domination coefficient arrays: Shrikhande `0,0,0,0,48,0,4384,0,12054,0,7992,0,1820,0,120,0,1`; rook `0,0,0,0,80,0,4464,0,12150,0,7992,0,1820,0,120,0,1`. The two programs check these arrays or their differences and assert the key combinatorial identities.
+PASS
 
-The finite sample space is completely exhausted, so no larger-graph extrapolation is necessary or asserted. The calculations confirm exact integers for these graph definitions, but no external independent scholarly validation has been performed. The primary historical-priority risk is inaccessible or unindexed literature, not an unfinished computational search.
+All 2^16 subsets of each 16-vertex graph were independently enumerated using direct adjacency, total-domination predicates and an exact finite perfect-matching recurrence; verified 256 p/q incidence equalities, 80 four-set minima, 32 Shrikhande unmatched claws, and the full stated P_S/P_R vectors. The finite state space is exhausted, so this verifies the fixed-graph theorem rather than extrapolating.
+
+## originality
+
+PASS
+
+The all-order Shrikhande paired-domination polynomial and explicit comparison of two SRG parameter twins are not supplied by the known rook-only polynomial or general graph product bounds. Earlier exact Shrikhande studies concern other invariants. Originality is best-of-knowledge, not inferred solely from unsuccessful searches.
+
+## value
+
+PASS
+
+Paired domination is a natural structure-sensitive refinement of total domination. A complete exact finite census on the canonical nonisomorphic strongly-regular (16,6,2,2) pair exhibits how equal total-domination statistics mask induced matching obstructions; the 32-claw explanation and full polynomial discrepancy form a reusable benchmark, not a random toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
