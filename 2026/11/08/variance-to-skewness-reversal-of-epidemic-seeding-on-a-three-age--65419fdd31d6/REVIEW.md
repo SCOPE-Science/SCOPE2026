@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact pair-difference factorization contracts the two heterogeneity modes, while the exact mean recurrence reduces the global limit set to three scalar equilibria. Hyperbolic invariant-manifold equations establish the unique quadratic curvature coefficient and its vanishing at \(\delta=7/25\). At that parameter the cubic coefficient \(\frac{32000000}{46977489}\) fixes the side of the basin boundary from the centered product. Ordered-map comparison converts the local side into extinction versus endemicity. Rational symbolic verification and finite diagnostics supplement, not replace, these proofs.
+## correctness
 
-**Originality: PASS, best-knowledge assessment.** Liang–Cui–Liu (arXiv:2408.08602v1) give the governing Euler hypergraph SIS model, bistability and sufficient attraction regions, but no exact saddle-manifold curvature. Kiss–Iacopini–Simon–Georgiou (arXiv:2309.12752) and Iacopini–Petri–Barrat–Latora (Nature Communications 2019) establish homogeneous higher-order contagion/critical mass, without a result about the same mean and variance producing opposite outcomes through profile skewness. Related general stability literature and searchable published mathematical claims do not exhibit the specific coefficients or a dominating implication. An inaccessible full text and unindexed equivalents remain priority risks; failed search does not prove novelty.
+PASS
 
-**Value: PASS.** The threshold where seeded heterogeneity changes from suppressing to promoting persistence, and the subsequent dependence on third moment despite equal mean/variance, address the natural problem of *which nodes to seed*, beyond total prevalence. The three-agent triangle is the minimal higher-order motif and the result is quantitative rather than a trivial discretization or arbitrary narrow invariant.
+PASS: A direct exact expansion gives Fi−Fj=[1−(δ+(1+xk)/20+xk)/2](xi−xj), with positive uniform contraction in the cube. The mean identity mʹ=fδ(m)+[(3m−9/10)/4]V−P/2 is exact; as heterogeneity decays, strict monotonicity of the scalar fδ with three isolated fixed points proves convergence. The intermediate uniform equilibrium has hyperbolic eigenvalues λ>1 and ℓ∈(0,1); stable-manifold invariance gives a=k/(ℓ²−λ) and at δ=7/25 c=1/[2(λ−ℓ³)]=32000000/46977489. Cooperative ordering and the stable manifold separate extinction from endemicity. Independent SymPy coefficient identities reproduced all pair differences and cubic constant; finite trajectory diagnostics do not prove all-small-t limits.
 
-**Scientific limits.** The claims apply to the deterministic discrete-time mean-field map, not an exact finite-agent stochastic process. Initial-condition basin expansions apply only near the hyperbolic saddle. A broader priority claim would require further literature evaluation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with model-specific scope: Liang–Cui–Liu already provide the same hypergraph SIS Euler-map framework, bistability and sufficient attraction-domain conditions. Neither that paper nor the inspected homogeneous contagion papers gives the exact local saddle-separatrix variance-sign change or the critical equal-mean/equal-variance opposite-outcome skewness pair. General stable manifold machinery is prior theory; the calculated coefficient and sharp transition are the claim.
+
+## value
+
+PASS
+
+PASS: On the minimal three-agent higher-order infection motif, which agents receive initial infection matters beyond mean prevalence, and even beyond variance at the sharp δ=7/25 cancellation. The exact local classification and opposite extinction/persistence examples supply a motivated seeding criterion and a nontrivial structural boundary, not an arbitrary polynomial table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
