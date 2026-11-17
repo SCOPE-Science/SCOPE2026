@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS (self-review).** The core is a complete five-dimensional exact spectrum. The cap tensor coefficients follow from three elementary spherical integrals with full-sphere normalization, and the direct exact-rational program reconstructs the Gram form independently. The two-dimensional diagonal block has explicit trace and determinant. A strict inequality rules out the remaining off-diagonal sector from the least eigenvalue, and a characteristic-polynomial comparison proves strict monotonicity with the absolute center inner product on the entire disjoint-cap domain. The optimal angular separation follows from the geometric feasibility interval; the exact transition follows from the factor \(9t^2-5\). Boundary contact carries zero area, while degenerate zero-radius caps are excluded. Finite tests are only corroboration.
+## correctness
 
-## Originality
-**PASS (qualified, self-review).** The 2004/2006 spherical Slepian framework defines concentration matrices for arbitrary regions, so no novelty is asserted for that general setup or for rotating cap matrices. The 2006 polar-gap study analyzes antipodal caps, not angular optimization of a non-antipodal pair. The genuinely compared new statement is the **global E-optimal separation angle for two disjoint equal caps on the real degree-two subspace**, together with the exact least-eigenvalue formula and the sharp geometric mode transition. Searches for two-cap angular E-optimality and semantic database matches did not identify an equivalent statement; negative searches are not a novelty proof. A stronger unindexed or differently formulated sensor-design result remains a residual risk.
+PASS
 
-## Mathematical value
-**PASS (self-review).** Exact least singular values measure worst-case noise amplification in incomplete spherical sampling. The problem fixes both the total measured area and the harmonic resolution, and optimizes the physically meaningful **relative placement** of the observation regions. The abrupt change from tangent to orthogonal optimal geometry at radius \(\pi/4\), followed by a distinct one-to-two dimensional worst-mode transition at \(\arccos(\sqrt5/3)\), is structural information not contained in the general Gram-matrix setup. The result is an all-radius theorem rather than an arbitrary finite table or routine restatement.
+The one-cap Frobenius tensor follows from exact fourth spherical moments in the axial angular-order 0,1,2 sectors. The full two-cap operator is a 2x2 diagonal block plus three off-diagonal quadratic modes with stated beta,gamma,trace T and determinant D. The xz mode exceeds the smaller xy/yz mode by a strictly positive expression in every disjoint admissible configuration. The lower diagonal root and the competing off-diagonal mode strictly decrease with |cos theta|, yielding the unique geometric optimum; beta+gamma>0 ensures root and positivity. At q=0 the diagonal and mixed modes cross exactly at t^2=5/9. Endpoints t in (0,1), caps tangent and antipodal, and no constant/linear harmonics are correctly scoped. Independent fourth-moment numerical integration tested several t and q; finite integrals corroborate but do not prove the all-angle statement.
 
-## Closest literature and limits
-Simons–Dahlen–Wieczorek, arXiv:math/0408424v1 (2004), provides the general Slepian matrix and axisymmetric cap machinery; Simons–Dahlen, doi:10.1111/j.1365-246X.2006.03065.x (2006), treats antipodal double caps. A later localized spherical polynomial construction by Erb–Mathias, arXiv:1307.3862, uses a different operator. A relevant general sensor placement paper (Jiang–Soh–Li, arXiv:1506.00747) gives algorithms, not the closed two-cap quadratic-harmonic optimum in its abstract. The present scope excludes intersecting cap interiors and all other spectral bands. Independent verification and exhaustive historical priority checking remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-angle maximin geometry is not a restatement of the general spherical Slepian Gram-eigenvalue setup: the latter fixes observation regions and prescribes computation. Published antipodal quadratic papers fix theta=pi and often optimize maximum rather than minimum eigenvalues. The inspected accessible full Simons et al. preprint supports the general setup but does not state this geometry/equality theorem. Novelty remains best-of-knowledge rather than proof of priority because one double-cap primary full text was unavailable.
+
+## value
+
+PASS
+
+The best-conditioned placement for a natural finite harmonic reconstruction space, including its sharp worst-direction eigenspace bifurcation, gives a motivated all-parameter optimization and nontrivial spectral geometry result, not a numerical cap table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
