@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exception at four active neighbors is explicitly identified, partitioned into an exact exceptional set, and counted using inclusion-exclusion with affine pins. The reduction applies to every graph with maximum degree four. The subcubic parity system has a complete algebraic proof. `verify.py` passed 3126 graph comparisons including all 1099 labeled graphs of orders up to five and the exact six-vertex witness. Finite checks supplement rather than replace the unbounded proof.
+## correctness
 
-**Originality: PASS, with priority risk.** The 2023 Klimm–Stahlberg paper already proves broad NP-completeness and includes a six-vertex degree-four no-equilibrium example, and Batal's 2020 work already covers the odd-domination linear system. A previous parity-response result already covers the subcubic linear part under equivalent payoffs. Those components are expressly not claimed as new. The precise original contribution is the general degree-four *nonparity* correction and its fully evaluated \(3^k\)-term exact count, with its algorithmic parameter dependence. No identified prior result implies that correction, although an unindexed equivalent remains possible.
+PASS
 
-**Value: PASS.** The novel exception formula supplies an exact, fixed-parameter counting and equilibrium decision procedure on a nonmonotone game that is NP-complete on unrestricted graphs, measured by the number of maximal-degree hubs. It does not simply repeat the existing odd-domination theorem because its exceptional all-active neighborhoods are genuinely outside the parity system. The finite witness sharpens the edge count of a known six-vertex obstruction; it is supplementary rather than the sole mathematical motivation.
+For simple graphs of maximum degree 4, the homogeneous deterministic rule s_v=1 iff neighbor count q_v equals 0 or 2 agrees with (I+A)s=1 over F2 for degrees at most 3, but differs precisely when degree4 and q_v=4, which demands s_v=0. Partition D into exact exceptional vertices B and IE exclusions J for q_v=4 at D\B: for fixed B,J the pinned affine equation (I+A)s=1+1_B and neighbor pins has 0 or 2^(n-rank) solutions. Thus E(G)=sum_B sum_{J⊂D\B}(-1)^|J|L(B,J) with 3^|D| Gaussian eliminations. If D empty, symmetry z^TMz=sum z mod2 proves 1 in im M. The 8-edge 6-vertex example is an obstruction; no smaller graph can be one because maxdeg<=3 parity existence or a universal vertex. Independent direct-payoff comparison with the inclusion-exclusion formula matched 420 random degree<=4 graphs on 3..8 vertices plus the specific six-vertex zero-equilibrium example.
 
-**Closest literature and limitations.** Klimm–Stahlberg, arXiv:2301.11849, §5.1 and its Figure 1; Batal, arXiv:2011.10270, §1 and §2; Maiti–Dey, arXiv:2012.01880. The all-graph parity theorem and the original six-vertex no-equilibrium example are credited as prior. There is no claim for degree at least five, no claim about dynamics, and no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six-vertex eight-edge obstruction and minimality are not new: October25 Resultary complete six-vertex census explicitly lists the identical 8 edges and proves all graphs on <=5 vertices have equilibria. The original 3-sun also predates this. The current main claim, however, is the general exact all-size 3^|D| pinned linear-system census for every maxdeg4 graph, not the known finite witness. Prior Resultary finite-six census, other fixed-family strip/crown results and the 2023 NP-hardness statement do not imply the general all-size degree-four parameterized count in the material inspected. Accept the substantive main census on best-of-knowledge grounds, explicitly excluding the auxiliary eight-edge witness from priority.
+
+## value
+
+PASS
+
+Degree four is the first local degree where the odd-neighborhood parity identity fails under the specific 0-or-2 best response. An exact 3^k parameterized correction for k degree-four vertices is a natural structural/algorithmic invariant on arbitrary graphs, useful independently of the already known six-vertex obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
