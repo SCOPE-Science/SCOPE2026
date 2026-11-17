@@ -1,19 +1,21 @@
-# Research assessment: Thirty-three vertices mark the first endpoint-neighbor sign loss for TR-BDF2 diffusion on paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit partial-fraction reduction, tridiagonal Neumann Green kernel, strict path-order monotonicity lemma, size-32 Bernstein positivity certificate and size-33 rational sign witness jointly cover every \(n\ge2\) and every positive timestep. The separate endpoint limits establish the bounded sign-loss window's existence, not uniqueness. The standalone verifier reproduces the exact-rational inequalities from source and tests small matrices independently. Finite arithmetic alone is not treated as an infinite proof.
+PASS
 
-## Originality — PASS, with specified source risk
+For the graph-Neumann unweighted path P_n, n>=2, write s=(1-1/sqrt(2))h and R=(I+sL)^(-1); the L-stable TR-BDF2 end step satisfies T=(1+sqrt2)R^2-sqrt2 R. The endpoint-neighbor entry has sign rho_n(s)-(2-sqrt2), rho=(R^2)_{01}/R_{01}. The tridiagonal hyperbolic Green kernel and s*dtheta/ds=-tanh(theta/2) yield rho_n=1/2+tanh(theta/2)[n coth(n theta)-(n-3/2)tanh((n-3/2)theta)]. The A(x)<B(y) derivative argument makes rho strictly decreasing with path n>=3, so the sharp all-h safe boundary reduces to n=32. Reconstructed degree-125 rational Bernstein polynomial 50000 A32-8579 B32 had strictly positive exact Bernstein coefficients on [0,1/2], [1/2,3/4], [3/4,7/8], [7/8,1]; independently computed positive minima approximately 124263,89947.21,24330.08,1154.04. At n=33,r=10/11 (s=110) the rational witness 50000 A33-8578 B33 is negative (approximately -2373.96). Rational sqrt(2) bounds separate threshold; n=2 direct calculation is positive. Hence iff 2<=n<=32 positive for all h>0; every n>=33 negative at stated h yet positive near endpoints. This proves only entry (0,1), not whole-matrix positivity or the exact number of negative h-bands.
 
-Bonaventura and Della Rocca (2015, arXiv:1510.04303v1) analyze method-wide absolute monotonicity and SSP variants, not the exact path-specific endpoint-neighbor sign boundary in examined sections. Hosea and Shampine (1996) derive the scheme and analyze stability and implementation. No inspected source implies the exact all-step boundary at 32/33. The directly relevant Carroll (1993) one-dimensional parabolic composite-solver paper was identified, but full primary text could not be accessed; its possible coverage remains an unresolved publication-priority risk. Absence from searches is not taken as proof of uniqueness. The exact comparison dimensions are path length, the boundary-adjacent entry and all positive timesteps.
+## originality
 
-## Value — PASS
+PASS
 
-Positive neighbor transport is a natural mass-transfer property of Neumann path diffusion. The result identifies the minimum path length for its breakdown under L-stable TR-BDF2, a quantified boundary-layer sign defect not provided by general timestep-conditional SSP results. It provides a complete infinite-family yes/no classification for this exact entry, not an arbitrary table slice.
+Classical TR-BDF2 stability/absolute-monotonicity theory and positivity counterexamples in general positive systems do not fix the endpoint-neighbor matrix entry on graph-Neumann paths. Resultary TR-BDF2 complete-multipartite result concerns diagonal entries of a different graph family. The exact sharp 32/33 cutoff survives available comparison. The plausible Carroll 1993 one-dimensional composite integration paper remained inaccessible: lawful OA/arXiv attempts failed and authorized institutional access returned VPN disconnected; source priority remains qualified, not auto-failed.
 
-## Scientific limits and closest literature
+## value
 
-The theorem does not classify the full transition matrix, stagewise positivity or the number of negative intervals. It assumes unit edge conductances. Sources: Bonaventura–Della Rocca (2015), arXiv:1510.04303v1; Hosea–Shampine (1996), DOI 10.1016/0168-9274(95)00115-8; Carroll (1993), DOI 10.1016/0377-0427(93)90030-F (uninspected primary text). Other previously published complete-multipartite TR-BDF2 claims do not imply arbitrary path cases of length at least four.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantity is a motivated positivity check on the nearest-neighbor heat transfer of a widely used L-stable discretization. A sharp 32/33 graph-size frontier for all positive timesteps, derived by monotonic Green-kernel analysis and a nontrivial rational Bernstein certificate, is a meaningful exact boundary despite only testing one entry; it is not a tiny-instance test or numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

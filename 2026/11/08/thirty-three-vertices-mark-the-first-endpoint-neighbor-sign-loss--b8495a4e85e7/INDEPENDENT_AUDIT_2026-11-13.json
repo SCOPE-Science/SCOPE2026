@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:50:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the graph-Neumann unweighted path P_n, n>=2, write s=(1-1/sqrt(2))h and R=(I+sL)^(-1); the L-stable TR-BDF2 end step satisfies T=(1+sqrt2)R^2-sqrt2 R. The endpoint-neighbor entry has sign rho_n(s)-(2-sqrt2), rho=(R^2)_{01}/R_{01}. The tridiagonal hyperbolic Green kernel and s*dtheta/ds=-tanh(theta/2) yield rho_n=1/2+tanh(theta/2)[n coth(n theta)-(n-3/2)tanh((n-3/2)theta)]. The A(x)<B(y) derivative argument makes rho strictly decreasing with path n>=3, so the sharp all-h safe boundary reduces to n=32. Reconstructed degree-125 rational Bernstein polynomial 50000 A32-8579 B32 had strictly positive exact Bernstein coefficients on [0,1/2], [1/2,3/4], [3/4,7/8], [7/8,1]; independently computed positive minima approximately 124263,89947.21,24330.08,1154.04. At n=33,r=10/11 (s=110) the rational witness 50000 A33-8578 B33 is negative (approximately -2373.96). Rational sqrt(2) bounds separate threshold; n=2 direct calculation is positive. Hence iff 2<=n<=32 positive for all h>0; every n>=33 negative at stated h yet positive near endpoints. This proves only entry (0,1), not whole-matrix positivity or the exact number of negative h-bands.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unconditional positivity of an entire integrator class is impossible generally; the theorem classifies one offdiagonal entry of paths. Complete multipartite negative diagonal classes do not include long paths. Carroll full paper could not be checked."
+        ],
+        "reasoning": "Neither available method-wide general result nor different-graph classification implies this exact all-h cutoff.",
+        "searches": [
+          "Bonaventura-Della Rocca full 2015 arXiv article",
+          "Resultary five-vertex complete-multipartite TRBDF2 positivity",
+          "Carroll 1993 journal article citation"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git TR-BDF2 RESULT.md and exact Bernstein verifier source",
+        "Full-text Bonaventura-Della Rocca arXiv article",
+        "Resultary path and composite integrator queries",
+        "Carroll arXiv/OA attempted and authorized Oxford request (VPN disconnected)",
+        "Independent exact rational Bernstein subinterval certificates and negative witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General scalar stability-function and method positivity results give the algebraic R combination but do not imply rho_n decreases in n or verify n=32 positive for all h. Carroll inaccessible full text is a residual risk, not affirmative coverage."
+        ],
+        "reasoning": "The exact one-entry sharp graph-size theorem needs new Green-function and Bernstein analysis beyond inspected primary results.",
+        "searches": [
+          "Bonaventura-Della Rocca 2015 monotonicity results",
+          "Hosea-Shampine 1996 stability article",
+          "Carroll 1993 plausible one-dimensional PDE scheme"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient concerns (0,1) of the completed TR-BDF2 amplification matrix, equivalently a resolvent-square ratio test on reflecting paths. Known absolute-monotonicity radius is a method-wide sufficient/necessary condition for arbitrary positive systems, not this graph-specific property."
+        ],
+        "reasoning": "Alternative endpoint transfer/resolvent ratio and 1D composite method vocabulary searched; no accessible exact 32/33 theorem found.",
+        "searches": [
+          "Resultary TR-BDF2 path endpoint-neighbor positivity search",
+          "Bonaventura-Della Rocca arxiv:1510.04303",
+          "Carroll 1993 DOI 10.1016/0377-0427(93)90030-F"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational degree-125 Bernstein certificate and n=33 witness are newly verified and no located table of path endpoint coefficients supplies all 2<=n boundary."
+        ],
+        "reasoning": "No source table was identified that would simply be copied; a rigorous analytic path-size monotonicity is essential.",
+        "searches": [
+          "Resultary path graph and TR-BDF2 search",
+          "TR-BDF2 PDE implementation literature"
+        ]
+      },
+      "rationale": "Classical TR-BDF2 stability/absolute-monotonicity theory and positivity counterexamples in general positive systems do not fix the endpoint-neighbor matrix entry on graph-Neumann paths. Resultary TR-BDF2 complete-multipartite result concerns diagonal entries of a different graph family. The exact sharp 32/33 cutoff survives available comparison. The plausible Carroll 1993 one-dimensional composite integration paper remained inaccessible: lawful OA/arXiv attempts failed and authorized institutional access returned VPN disconnected; source priority remains qualified, not auto-failed.",
+      "residual_risks": [
+        "Carroll 1993 full text unavailable due to institutional VPN disconnected; possible directly relevant 1D positivity analysis unknown",
+        "Other path transport entries not classified and no uniqueness assertion on negative interval",
+        "Bernstein finite certificate applies only to n=32 and infinite conclusion rests on proved monotonicity"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General absolute monotonicity; no path endpoint-neighbor 32/33 rank cutoff in examined content.",
+          "evidence": "Method-level positivity radius and stability constraints, not specific path graph Laplacian coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+          "material_read": "Complete open arXiv HTML article including numerical method, absolute-monotonicity calculations and positivity bounds",
+          "method": "Full-text arXiv reading",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Primary TR-BDF2 positivity paper"
+        },
+        {
+          "assessment": "Institutional access returned vpn_disconnected; cannot conclude whole paper is not covering.",
+          "evidence": "1993 Journal of Computational and Applied Mathematics 46:327-343; title pertains to 1D parabolic composite stepping.",
+          "identifier_or_url": "doi:10.1016/0377-0427(93)90030-F",
+          "material_read": "Citation, abstract/metadata and OA search results only; complete original paper unavailable",
+          "method": "Search of arXiv and lawful OA; authorized institutional paper request",
+          "title": "A composite integration scheme for the numerical solution of systems of parabolic PDEs in one space dimension",
+          "trigger": "Plausible earlier same 1D parabolic composite solver"
+        },
+        {
+          "assessment": "Entire different graph family and different diagonal rather than endpoint-neighbor offdiagonal entry.",
+          "evidence": "Threshold five vertices for complete multipartite graph diagonal, not path nearest-neighbor classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-five-vertex-positivity-boundary-and-one-band-sign-recovery-for--dc2fd2585c8b",
+          "material_read": "Published mathematical theorem summary",
+          "method": "Resultary semantic search",
+          "title": "A five-vertex positivity boundary and one-band sign recovery for TR-BDF2 heat flow on complete multipartite graphs",
+          "trigger": "Closest published SCOPE TR-BDF2 positivity boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quantity is a motivated positivity check on the nearest-neighbor heat transfer of a widely used L-stable discretization. A sharp 32/33 graph-size frontier for all positive timesteps, derived by monotonic Green-kernel analysis and a nontrivial rational Bernstein certificate, is a meaningful exact boundary despite only testing one entry; it is not a tiny-instance test or numerical experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Carroll 1993 full text unavailable due to institutional VPN disconnected; possible directly relevant 1D positivity analysis unknown",
+    "Other path transport entries not classified and no uniqueness assertion on negative interval",
+    "Bernstein finite certificate applies only to n=32 and infinite conclusion rests on proved monotonicity",
+    "No complete publication-facing provenance sanitization was performed; this is an operational publication blocker, not a new scientific verdict."
+  ],
+  "schema_version": 1
+}
