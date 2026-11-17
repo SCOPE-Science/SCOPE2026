@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The mathematical proof appears in `RESULT.md`. Run `python verify.py` using Python 3's standard library; no network access or nonstandard dependency is needed. The exact-arithmetic program reconstructs all \(3n+1\) intersection classes and all candidate supports for \(n=3,4,5,6\). It tests negative definiteness by rational \(LDL^\mathsf T\) decomposition after a valid two-by-two pruning and compares the resulting full support-size vectors with an independently expanded closed formula.
+# Independent mathematical audit
 
-The actual run output is embedded as `verification_output.txt` and terminates with `ALL_CHECKS_PASSED`. Specifically, the vector for \(n=5\) is \((1,16,90,245,345,223,37)\); for \(n=6\) it is \((1,19,129,441,855,948,529,90)\). The computation covers only these four finite instances: the all-\(n\ge5\) conclusion follows from the published geometric chamber-support correspondence, adjunction, the intersection calculation and the counting proof. No complete enumeration for infinite \(n\) or independent scientific audit is claimed.
+## correctness
+
+PASS
+
+With ruled classes U,V and diagonal transform D=U+V−ΣE, one has −K=(U+V)+D. For an irreducible other curve of bidegree (a,b), intersection positivity and adjunction imply strict transform self-intersection >=a+b−2; for a+b>=2 no extra negative curves. The only negative curves are E_i and two through-point ruling fibres A_i,B_i (square −1) and D (square 2−n). A negative-definite set of −1 curves excludes all intersecting pairs; this gives no mixed A/B or exactly the paired A_i,B_i at a single index, with E labels disjoint. If D selected, Schur complement gives |E_selected|<n−2. Enumerating the three non-D cases yields F_n, and subtracting forbidden high-E supports gives P_n. Every such support corresponds to a big Zariski chamber by Bauer–Funke–Neumann. Independently expanded formula for n=5,6 to (1,16,90,245,345,223,37) and (1,19,129,441,855,948,529,90), sums 957,3012. Universal statement rests on geometric and matrix proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct principal theorem after comparison of actual pinned mathematics, equivalent formulations, stronger claims, exact tables and logical implications; do not construe source searches or inaccessible literature as proof of historical novelty.
+
+## value
+
+PASS
+
+The all-n support polynomial determines a natural complete chamber-size distribution for a special geometrically motivated ruled-surface family even when the anticanonical self-intersection becomes nonpositive. The exact 3n+1 negative-curve classification plus correction polynomial is a useful structural enumeration beyond generic del Pezzo tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

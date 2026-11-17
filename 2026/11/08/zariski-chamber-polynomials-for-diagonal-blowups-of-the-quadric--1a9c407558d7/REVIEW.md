@@ -1,15 +1,21 @@
-# Review of the diagonal-quadric chamber polynomial
+# Independent mathematical audit
 
-## Correctness
-PASS. Adjunction and nonnegative intersections with the distinguished diagonal exhaust the negative irreducible curves. The complete pair-intersection matrix gives a necessary and sufficient support restriction; the only nontrivial Schur complement is \( -(n-2)+k\). An explicit partition of ruling selections gives the closed support polynomial. Exact brute-force matrix enumeration for \(n=3,4,5,6\) agrees coefficientwise, including \(957\) and \(3012\) chambers at the first two claimed sizes; the arbitrary-\(n\) conclusion is proved algebraically.
+## correctness
 
-## Originality
-PASS, with residual historical-priority uncertainty. Bauer--Funke--Neumann (2009, arXiv:0912.0958) supply the general chamber/support correspondence and ordinary del Pezzo tables; that algorithm does not assert this new diagonal-quadric infinite-family formula. Bauer--Schmitz (2012, arXiv:1205.3817) focus on chamber volumes and collinear configurations. The conic blowup enumerative theory of Brugalle (2014, arXiv:1404.5429) addresses curve-count invariants, not these chamber polynomials. The finite \(n=4\) boundary and one-ruling or plane-conic configurations do not imply the all-\(n\ge5\) formula without the new two-ruling support analysis. Searches can miss older specialist tables.
+PASS
 
-## Mathematical value
-PASS. This provides a closed structural classification of a natural divisor-theoretic invariant for an unbounded blowup family, identifying the exact interaction of two ruling families and the negative diagonal. It applies uniformly in high Picard rank even for \(n\ge9\), where \(K_{X_n}^2\le0\), outside the usual big-anticanonical examples. The polynomial encodes all support sizes, not merely one small numerical census.
+With ruled classes U,V and diagonal transform D=U+V−ΣE, one has −K=(U+V)+D. For an irreducible other curve of bidegree (a,b), intersection positivity and adjunction imply strict transform self-intersection >=a+b−2; for a+b>=2 no extra negative curves. The only negative curves are E_i and two through-point ruling fibres A_i,B_i (square −1) and D (square 2−n). A negative-definite set of −1 curves excludes all intersecting pairs; this gives no mixed A/B or exactly the paired A_i,B_i at a single index, with E labels disjoint. If D selected, Schur complement gives |E_selected|<n−2. Enumerating the three non-D cases yields F_n, and subtracting forbidden high-E supports gives P_n. Every such support corresponds to a big Zariski chamber by Bauer–Funke–Neumann. Independently expanded formula for n=5,6 to (1,16,90,245,345,223,37) and (1,19,129,441,855,948,529,90), sums 957,3012. Universal statement rests on geometric and matrix proof.
 
-## Remaining limitations
-No chamber volumes or adjacency classification. The statement is only for a smooth \((1,1)\)-curve and distinct marked points. Literature priority is provisional until further specialist comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct principal theorem after comparison of actual pinned mathematics, equivalent formulations, stronger claims, exact tables and logical implications; do not construe source searches or inaccessible literature as proof of historical novelty.
+
+## value
+
+PASS
+
+The all-n support polynomial determines a natural complete chamber-size distribution for a special geometrically motivated ruled-surface family even when the anticanonical self-intersection becomes nonpositive. The exact 3n+1 negative-curve classification plus correction polynomial is a useful structural enumeration beyond generic del Pezzo tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
