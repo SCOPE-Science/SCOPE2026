@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Exact verification
+# Independent mathematical audit
 
-Run `python verify.py certificate.json` with Python 3 and SymPy. The verifier computes the rational Ehrhart expressions from the two five-facet classification branches, reconstructs the full Ehrhart numerator, computes the cubic discriminant both directly and through symbolic algebra, and checks all coefficients against `certificate.json`. The expected complete positive monomial lists contain 139 and 338 entries, respectively; no negative or missing monomial coefficients occur. The four-facet simplex discriminant identity is checked separately. The script also independently enumerates a finite set of lattice slices as supplementary consistency checks; these finite tests are not used to infer the theorem for arbitrary parameters.
+## correctness
 
-## Boundaries
+PASS
 
-The proof assumes the smooth threefold classification and standard nonnegativity of lattice-polytope Ehrhart numerators, both cited in `RESULT.md`. Exact certificate verification requires SymPy; the certificate itself consists entirely of integer exponents and exact rational coefficients and requires no floating point. It does not establish a claim for arbitrary nonsmooth polytopes or for polytopes with more than five facets. Independent mathematical validation has not been performed.
+The Kleinschmidt smooth four/five-facet classification reduces the full three-dimensional claim to a dilated unimodular tetrahedron aΔ3 (a≥1) and two lattice-simplex bundles with p+q=3, a,b≥1, nonnegative integral twists. Reconstructed exact lattice-slice sums L12=(bk+1)(bk+2)[1+k(a+bC/3)]/2 and L21=(bk+1)[(ak+1)(ak+2)+Cbk(2ak+3)/2+C²bk(2bk+1)/6]/2. Independently built degree-three h* by fourth finite differences and computed its cubic discriminant in SymPy: precisely 139 and 338 nonzero positive rational monomials after A=a−1,B=b−1,C≥0. Verified strict boundary factorizations, degree-drop linear cases, and simplex discriminant; Stanley h*-nonnegativity makes all simple real roots strictly negative. The symbolic identity checks cover infinite parameter ranges, not just numerical enumeration; the classification and nonnegativity are imported theorems.
+
+## originality
+
+PASS
+
+The all-width five-facet smooth threefold h*-simple-root conclusion is not implied by known large-width root theorems, Ehrhart-coefficient positivity, or prism product cases. Positive-twist simplex bundles are essential and survive comparisons. Primary full Liu–Tang–Tao–Zhang text remained inaccessible; accept as best of knowledge with explicit priority risk, not certified global novelty.
+
+## value
+
+PASS
+
+The facet-count classification describes a fundamental smooth toric threefold class. Uniform simple real-rootedness of h* in all lattice-width and twist regimes is a natural algebraic/combinatorial invariant, strengthens positivity and entails strong coefficient restrictions; the exact discriminant certificate resolves a nontrivial uniform inequality rather than sampling small polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
