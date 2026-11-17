@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and scope
+# Independent mathematical audit
 
-The standalone exact verifier `bounded_cycle_verifier.py` requires Python 3 and only the standard library. Execute `python3 bounded_cycle_verifier.py` in a directory containing the script. Compare its stdout to `checks.txt`. It reconstructs the graph from cyclic distances, enumerates all independent triples and every bounded-independence face, generates all cover relations in the nonempty face poset, applies the fully specified lexicographic pivot matching, and verifies the **entire** reversed-arrow Hasse diagram is acyclic by a topological sort. Its own mod-two boundary-matrix ranks provide an additional arithmetic check, and every dual face of dimensions zero, one and two is explicitly verified.
+## correctness
 
-The complete computed counts for \(n=13,14,15\) are respectively: independent triples \(13,28,50\); total faces including empty \(2757,3277,3964\); Hasse cover edges \(13663,16100,19500\); matched pairs \(1377,1637,1980\). Critical-cell patterns are \(\{0:1,5:1\}\), \(\{0:1,5:1\}\), and \(\{0:1,4:2\}\), where each key denotes cell dimension. The independent mod-two homology checks identify precisely one generator in degree five, one in degree five, and two in degree four. No randomized tests, samples, timeouts, or external assertions replace the exhaustive finite verification.
+PASS
 
-The leap from the finite certificate to integral homotopy requires two standard theorems, both applied explicitly in `RESULT.md`: Forman's acyclic discrete Morse theorem and combinatorial Alexander duality together with simple connectivity and Hurewicz/Whitehead. The verifier itself does not certify any work outside the three specified lengths, any general recurrence, or an independent audit.
+Independent exact enumeration for n=13,14,15 found 13/28/50 independent triples and 2757/3277/3964 bounded-independence faces including empty. A newly written ascending-mask element matcher on all nonempty faces gives 1377/1637/1980 pairs, every oriented Hasse cover topologically sorts (no gradient cycles), and exactly critical 0+5, 0+5, and 0+4+4 cells. Thus Forman gives integral wedge homotopy, not merely F2 ranks. Every subset of <=3 vertices was separately tested as an Alexander-dual face, giving full 2-skeleton and simple connectivity. Alexander duality then yields integral homology in degrees 5/6/8 with free ranks 1/1/2; Hurewicz and Whitehead imply the dual sphere wedges. Their top dimensions are 9/10/11, so lower homology forbids pure shellability.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: the exact final claim and its critical new proof or torsion representation are not logically implied by checked stronger/related sources; known numerical/theorem components are explicitly attributed. Inaccessible plausible primary full text is recorded as residual risk and never represented as read.
+
+## value
+
+PASS
+
+The parameter window 13<=n<=15 for d=r=3 is exactly the natural missing three-length window in Carnero Bravo Question 49. The result closes a clearly specified problem at fixed minimal simultaneous parameters, with integral homotopy information for both dual constructions rather than only tabular Betti ranks; it claims no general d,r resolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
