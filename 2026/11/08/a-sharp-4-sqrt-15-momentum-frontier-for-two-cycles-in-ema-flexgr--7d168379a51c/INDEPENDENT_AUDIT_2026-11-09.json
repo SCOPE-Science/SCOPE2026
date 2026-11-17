@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T13:55:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned-source RESULT.md blob 6fbf5becbf4fec9982c33b606ea27244d60e7ec2",
+        "Source tree 8118e1be9ff9d1dc1703ba3462998975f7eae7a4",
+        "Inspected package verifier and relevant direct independent checks"
+      ],
+      "rationale": "For the explicit equal-moment EMA scalar rule s+=beta s+(1-beta)kappa x, v+=beta v+(1-beta)kappa² x², x+=x-eta |s+|s+/v+, a sign-symmetric orbit must have moments ±kappa c a and constant v=kappa²a², c=(1-beta)/(1+beta), forcing a=eta c²/2. The normalized branch derivative at (1,-c,1) is J+=[[1-8beta,-4beta/c,2beta],[1-beta,beta,0],[2(1-beta),0,beta]], with J-=TJ+T, T=diag(-1,-1,1). Two-step determinant calculation yields the stated cubic and Schur reduction A=1-beta^8, B=a2+beta^4 a1, C=a1+beta^4 a2. The factorizations for A-C, A+C, A±B+C yield strict Schur stability exactly beta²-8beta+1>0, i.e. 0<beta<4-sqrt(15); above it a multiplier leaves the unit disk; at equality the cubic is (z+1)^2(z-beta^4). The local objective gap kappa eta² c^4/8 is positive. No claim about nonlinear stability at boundary, global basins or other cycles.",
+      "residual_risks": [
+        "Finite experiments do not prove unrestricted statements; proof deductions above carry general assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203",
+          "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam Optimizer, arXiv:2210.02070",
+          "Fong and Yang, Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic, arXiv:2608.20638"
+        ],
+        "reasoning": "General nonconvergence and cycle existence in adaptive optimizers does not classify this particular normalized three-state local monodromy polynomial across all beta.",
+        "searches": [
+          "Resultary semantic query: EMA FlexGrad adaptive optimization two-cycle momentum 4 minus sqrt15 Schur stability",
+          "Public primary literature search by title/parameter/related concepts: Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203"
+        ]
+      },
+      "checked_sources": [
+        "Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203",
+        "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam Optimizer, arXiv:2210.02070",
+        "Fong and Yang, Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic, arXiv:2608.20638",
+        "Itin, Physics-Inspired Optimizers beyond the Edge of Stability, arXiv:2610.27321",
+        "Resultary: scalar Padam and SAM EMA cycle frontiers, different algorithms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203",
+          "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam Optimizer, arXiv:2210.02070",
+          "Fong and Yang, Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic, arXiv:2608.20638"
+        ],
+        "reasoning": "Earlier EMA FlexGrad definition supplies the recurrence premise; it does not directly imply a unique sign-symmetric cycle or the beta-only stability frontier. Adam cycle theorems do not imply the same by parameter substitution because their denominator is sqrt(v).",
+        "searches": [
+          "Resultary semantic query: EMA FlexGrad adaptive optimization two-cycle momentum 4 minus sqrt15 Schur stability",
+          "Public primary literature search by title/parameter/related concepts: Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203",
+          "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam Optimizer, arXiv:2210.02070",
+          "Fong and Yang, Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic, arXiv:2608.20638"
+        ],
+        "reasoning": "The rule here is the equal-buffer, uncorrected root-free mirror EMA specialization, not primary cumulative FlexGrad or Adam with square-root normalization; relating the update precisely prevents false equivalence.",
+        "searches": [
+          "Resultary semantic query: EMA FlexGrad adaptive optimization two-cycle momentum 4 minus sqrt15 Schur stability",
+          "Public primary literature search by title/parameter/related concepts: Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203",
+          "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam Optimizer, arXiv:2210.02070",
+          "Fong and Yang, Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic, arXiv:2608.20638"
+        ],
+        "reasoning": "No prior characteristic-polynomial or beta=4-sqrt(15) stability table was found for this exact equal-buffer map. Numerical training charts are not a substitute for a sharp analytical Schur condition.",
+        "searches": [
+          "Resultary semantic query: EMA FlexGrad adaptive optimization two-cycle momentum 4 minus sqrt15 Schur stability",
+          "Public primary literature search by title/parameter/related concepts: Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203"
+        ]
+      },
+      "rationale": "The FlexGrad source introduces EMA signal and square buffers, but its documented convex convergence theorem covers cumulative updates rather than this equal-buffer noncumulative mirror specialization. Prior Adam/SAM/Padam two-cycle results concern different normalization and state recurrences; their stability polynomials do not logically yield the exact beta-only 4-sqrt(15) cutoff here. Semantic searches yielded no earlier identical three-state polynomial or cycle frontier. PASS best-of-knowledge with primary-section access limitation.",
+      "residual_risks": [
+        "Full original FlexGrad Section 5 was not obtained; the public abstract and detailed indexed exposition confirm EMA update but could omit an exact appendix analysis.",
+        "Other specialized preprints may independently compute the equal-decay zero-epsilon EMA Floquet polynomial under a different optimizer label."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the named method and buffer recurrences; no explicit Floquet boundary seen, but unread original appendix is a real limitation",
+          "evidence": "Abstract; public secondary EMA description",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09203",
+          "material_read": "Original arXiv abstract and openly indexed detailed literature review describing EMA recurrences and cumulative guarantee; full original Section 5 not read",
+          "method": "Public abstract plus detailed indexed secondary analysis; arXiv HTML request inaccessible",
+          "title": "Barros, Defazio and Guigues, FlexGrad: a root-free approach to adaptive step sizes",
+          "trigger": "Identical EMA optimizer and precise borrowed update"
+        },
+        {
+          "assessment": "Adam square-root normalization differs from linear-v FlexGrad update; no exact equivalence established",
+          "evidence": "Title and abstract-scope description",
+          "identifier_or_url": "https://arxiv.org/abs/2210.02070",
+          "material_read": "Public bibliographic description and assigned source discussion, not primary full proof",
+          "method": "Literature search/abstract",
+          "title": "Bock and Weiss, Non-Convergence and Limit Cycles in the Adam optimizer",
+          "trigger": "Closest known adaptive-optimizer two-cycle theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Barros, Defazio, Guigues, FlexGrad: a root-free approach to adaptive step sizes, arXiv:2610.09203, https://arxiv.org/abs/2610.09203",
+        "Bock and Weiß, Non-Convergence and Limit Cycles in the Adam Optimizer, arXiv:2210.02070",
+        "Fong and Yang, Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic, arXiv:2608.20638",
+        "Itin, Physics-Inspired Optimizers beyond the Edge of Stability, arXiv:2610.27321",
+        "Resultary: scalar Padam and SAM EMA cycle frontiers, different algorithms"
+      ],
+      "rationale": "A sharp analytic momentum threshold separating a locally attracting nonoptimal two-cycle from linear instability in a named practical optimization variant is a motivated model-specific dynamical classification. It is neither the trivial existence of cycles nor an unsupported global claim; it distinguishes EMA from cumulative convex guarantees.",
+      "residual_risks": [
+        "Full original FlexGrad Section 5 was not obtained; the public abstract and detailed indexed exposition confirm EMA update but could omit an exact appendix analysis.",
+        "Other specialized preprints may independently compute the equal-decay zero-epsilon EMA Floquet polynomial under a different optimizer label."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full original FlexGrad Section 5 was not obtained; the public abstract and detailed indexed exposition confirm EMA update but could omit an exact appendix analysis.",
+    "Other specialized preprints may independently compute the equal-decay zero-epsilon EMA Floquet polynomial under a different optimizer label."
+  ],
+  "schema_version": 1
+}
