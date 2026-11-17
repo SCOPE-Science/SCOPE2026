@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:00:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md a849f5eda1944b3b21fe6ed0a86df617ca504287",
+        "verify_unbordered.py blob 3e4ea256009f8e3e940c54902ec8f818b3f536b4",
+        "independent exhaustive short binary enumeration"
+      ],
+      "rationale": "Greedy complete-alphabet arch factorization proves every k-universal word has ≥qk symbols. For q>=3, (01...q−1)^(k−1)(0 2...q−1 1) is qk long and unbordered because any suffix beginning in 0 starts at a block boundary while nonempty block-aligned prefixes finish q−1 rather than 1. For binary length 2k, every arch is an opposite-bit pair; comparing first/last arches forces a border of length 1 or 2 when k>=2. A normalized extra-symbol first arch starts 001 and remaining arches pair, and explicit even/odd border comparison yields C_k constraints. Complements and reversals yield four disjoint families. Independent direct enumeration through k=7 recovered minimum lengths and counts k1..7: (2,2),(5,4),(7,4),(9,8),(11,12),(13,24),(15,44), with no shorter unbordered k-universal words. Infinite proof supplied by arch/border arguments.",
+      "residual_risks": [
+        "No closed asymptotic expression for normalized C_k count; proofs do not cover cross-bifix-free sets or longer-than-minimal words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lyndon implies unbordered, so its two k-universal extremizers show an upper bound 2k+1 but cannot classify all unbordered extremizers (4,4,8,12,... counts).",
+          "Adamson gives general subsequence-universal word ranking; Gabric treats general borders."
+        ],
+        "reasoning": "The Lyndon special case cannot imply the stronger all-unbordered classification, and generic algorithms do not supply q>=3 vs q=2 exact threshold without additional proof.",
+        "searches": [
+          "unbordered k subsequence universal binary words shortest length 2k+1 complete optimal classification",
+          "Resultary:2026/11/8/SCOPE-the-one-symbol-lyndon-penalty-for-binary-subsequence-universalit--104bf07ea6a0",
+          "Adamson 2023",
+          "Gabric 2023"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md/verify_unbordered.py",
+        "Resultary semantic query unbordered k subsequence universal binary words shortest length 2k+1 complete optimal classification",
+        "Adamson 2023 arXiv full PDF",
+        "Gabric 2023 arXiv full PDF",
+        "Resultary Lyndon-classification full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adamson material covers greedy arch indexing, ranking and unranking general k-universal words, without unbordered classification.",
+          "Gabric material covers borders without subsequence universality.",
+          "Lyndon theorem yields exactly two special witnesses at 2k+1, but broader unbordered enumeration has more witnesses."
+        ],
+        "reasoning": "The shared generic lemmas do not logically imply exact intersection classification or C_k constraints. The narrower Lyndon result confirms feasibility only, not necessity for all unbordered words.",
+        "searches": [
+          "unbordered k subsequence universal binary words shortest length 2k+1 complete optimal classification",
+          "Adamson full arXiv:2304.04583",
+          "Gabric full arXiv:2305.03000",
+          "Resultary Lyndon theorem full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Universality = number of greedy full-alphabet arches; unbordered = avoidance of proper prefix/suffix match.",
+          "The conjunction is a constrained word-language intersection not directly an instance of either isolated ranking problem."
+        ],
+        "reasoning": "Arch factorization and border testing are standard, but existence and classification at the first common length require a separate binary obstruction and explicit border constraints.",
+        "searches": [
+          "unbordered k subsequence universal binary words shortest length 2k+1 complete optimal classification",
+          "arXiv:2304.04583",
+          "arXiv:2305.03000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite counts k2..9 4,4,8,12,24,44,88,168 are consequences of an all-k normalized Boolean criterion, not a preexisting table.",
+          "Exhaustive enumeration through k=7 independently checked, but finite tables do not establish the all-k theorem."
+        ],
+        "reasoning": "No matching published table was located; claim is structural exact classification, not novelty inferred from missing table.",
+        "searches": [
+          "unbordered k subsequence universal binary words shortest length 2k+1 complete optimal classification",
+          "Resultary unbordered subsequence search",
+          "assigned verify_unbordered.py"
+        ]
+      },
+      "rationale": "Combines two natural, separately developed word constraints; exact q-dependent length obstruction and complete binary shortest boundary are not implied by generic arch ranking or generic border ranking, or by the narrower Lyndon optimum theorem.",
+      "residual_risks": [
+        "Other studies of simultaneous unbordered/subsequence-universal words under variant terminology may be unindexed.",
+        "Literature priority is best knowledge rather than a proof from negative searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General arch factorization and ranking; no inspected shortest unbordered-universal classification",
+          "evidence": [
+            "Its universality arch decomposition is used as known input; no combined boundary theorem in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+          "material_read": "Full PDF opened and relevant arch/ranking sections 3–4 read, PDF page images inspected",
+          "method": "arXiv PDF with page-image inspection",
+          "title": "Ranking and Unranking k-subsequence Universal Words",
+          "trigger": "Direct greedy-arch/subsequence universality predecessor"
+        },
+        {
+          "assessment": "Border algorithms independent of scattering-universality arch index; no inspected joint criterion",
+          "evidence": [
+            "General unbordered ranking does not imply the explicit halfword C_k constraints without extra analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.03000",
+          "material_read": "Full PDF opened and relevant border/ranking sections 4–6 read, page images inspected",
+          "method": "arXiv PDF with page-image inspection",
+          "title": "Ranking and Unranking Bordered and Unbordered Words",
+          "trigger": "Direct unbordered-word classification predecessor"
+        },
+        {
+          "assessment": "Strict Lyndon subclass; its two extremizers do not cover all unbordered words",
+          "evidence": [
+            "For k>=2 exactly two Lyndon minimizers, while unbordered minimizers include 4|C_k| words, starting at four for k=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-one-symbol-lyndon-penalty-for-binary-subsequence-universalit--104bf07ea6a0",
+          "material_read": "Full RESULT.md complete finding/proof/equality classification",
+          "method": "GitHub fetch_file",
+          "title": "The one-symbol Lyndon penalty for binary subsequence universality",
+          "trigger": "Very close stronger-looking word constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arch/border structural argument",
+        "primary arch and border ranking research",
+        "Lyndon subclass prior theorem"
+      ],
+      "rationale": "Minimum word length under simultaneous subsequence coverage and border avoidance is a canonical intersection of two well-motivated combinatorics-on-words constraints. Its alphabet-dependent threshold and entire boundary classification are useful exact finite-language invariants, not a tiny instance or a routine renaming.",
+      "residual_risks": [
+        "Does not solve asymptotic counting of C_k or nonminimal lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For alphabet size q>=3 and every k>=1 the shortest unbordered k-scattered-subsequence universal word has length qk. For binary, length is 2 at k=1 and 2k+1 for k>=2; all binary shortest witnesses are exactly T(c)=001 c1(1−c1)...c_(k−1)(1−c_(k−1)) and its bit-complement/reversal under explicit halfword border tests, with 4|C_k| witnesses.",
+  "limitations": [
+    "k>=1 q>=2 fixed labeled alphabet, scattered subsequences",
+    "Counts are for literal distinct binary minimizers; no cross-bifix-family implication."
+  ],
+  "schema_version": 1
+}
