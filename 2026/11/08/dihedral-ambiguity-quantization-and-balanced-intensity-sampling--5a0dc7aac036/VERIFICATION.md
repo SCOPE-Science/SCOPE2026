@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,6 +18,7 @@
   "schema_version": 1
 }
 ---
-The proof of the rational-quotient classification uses two reflection identities, an exact fixed subfield computation, and degree multiplicativity for rational maps. The scalar profile dimension is a bidegree computation in a polynomial ideal. The finite sampling classification uses a matching-traces description plus a sine-product determinant.
 
-`python verify.py` performs an exact nontrivial degree-two ambiguity identity at right-angle crossings, two exact Hermitian-lift rank tests at degree two, and a series of floating-point sanity checks for additional degrees and crossing angles. Numerical tests and finite examples are not proofs of the universal statements. No independent mathematical audit has been performed. The theorem does not provide uniform stability, a nonlinear minimum sampling count, or an exhaustive historical priority certification.
+# Verification scope
+
+The corrected theorem is proved in `RESULT.md` by a bidegree kernel calculation, a matching-traces dimension argument, and a determinant criterion for the two remaining trigonometric null directions. Independent direct Hermitian-lift rank checks at degrees 1, 2, and 3 confirm generic full rank for balanced sites. The existing `verify.py` supplies additional examples concerning the earlier circle-ambiguity geometry, not a proof of the corrected all-degree statement. No formal Lean or expert attestation is claimed, and an execution log by itself is not proof.
