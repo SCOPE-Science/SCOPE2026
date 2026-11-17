@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact finite-CRT calculation separates a uniform first residue from all floor residues using total homogeneous equidistribution. The key infinite tail uses Holdridge's Theorem 1.3 (nonlinear) and Champagne's linear case, applied independently to every shifted integer factor. Translating a real polynomial preserves its top irrational nonconstant coefficient; shifting the summation range affects only finitely many endpoints. Finite union and density sandwich give the asserted absolutely convergent product. The direct finite computations are corroboration only.
+PASS
 
-## Originality
+For finite prime set and squarefree D their CRT residue classes on each progression n=Dm+u are uniform by the stated total homogeneous equidistribution: floor f_j mod D corresponds to half-open torus intervals. At prime p the first product coordinate vanishes at exactly ρ_H(p) residues, giving local bad probability ρ_H(p)/p^s. The infinite step is NOT extrapolation from finite CRT: if p divides P_H(n) then p divides n+h for some fixed h∈H. Replacing m=n+h translates one irrational-nonconstant-coefficient polynomial without losing its irrational highest nonconstant coefficient; Holdridge Theorem 1.3 supplies the nonlinear polynomial large-prime estimate, with Champagne covering linear degree. A finite union over h makes the tail negligible; density sandwich yields the product and absolute convergence since ρ_H(p)≤|H|. The source verify.py exact CRT and irrational sqrt(2) finite checks were read. Independent CRT H={0,1}, primes {2,3} computed 7/18, and exact Beatty sample 6437/20000; neither proves the large-prime theorem.
 
-PASS, qualified. Holdridge's theorem includes a distinguished \(n\) and its Section 1 explicitly flags rational polynomial first coordinates as unresolved in general. The new claim concerns every fixed *split* first polynomial and produces local root-count Euler factors, which are not the same as the published \(1/\zeta(s)\). Champagne's and Banks--Shparlinski's results likewise feature \(n\) and do not assert the split-first-coordinate product. The argument is deliberately dependent on Holdridge's large-prime result; older equivalent statements could exist, and the searched bibliographic record is not exhaustive. The searched consecutive polynomial paper by Sanna--Szikszai addresses a different condition.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a complete natural subclass of the open rational first-coordinate problem identified in the motivating paper. It covers arbitrary many shifts and polynomial floors with no Diophantine approximation restriction, supplies an exact local-factor classification and non-zeta examples, and pinpoints why splitting into integral linear factors evades the general large-prime obstruction. It is not asserted to solve arbitrary rational polynomials.
+Holdridge 2026 proves the distinguished first-coordinate n case and a substantial large-prime tail theorem; the full article and explicit open rational first-polynomial direction were read. The split integer polynomial product produces genuinely different local factors and is proved by a finite union of shifted Holdridge/Champagne tails; the reduction is simple and dependent on the prior deep theorem but yields a natural exact subclass not stated there. The known H={0} case and standard equidistribution are acknowledged, and priority is best-knowledge.
 
-## Limitations
+## value
 
-The tail theorem is taken from published work rather than reproved. Prior full-text inspection is concentrated on the motivating paper; older papers were located by abstracts and indexing, leaving historical-priority risk. No effective convergence rate or nonsplit case is established. The reviewer is not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The density for a fixed product of distinct affine integer factors is a natural, explicitly motivated solvable subclass of a broader rational-polynomial gcd question; exact local root-count factors differ from 1/ζ(s) and make the density computable for arbitrarily many shifts without Diophantine-type restrictions. It is a substantive reusable extension despite short finite-union reduction from a deep published lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T07:43:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite prime set and squarefree D their CRT residue classes on each progression n=Dm+u are uniform by the stated total homogeneous equidistribution: floor f_j mod D corresponds to half-open torus intervals. At prime p the first product coordinate vanishes at exactly ρ_H(p) residues, giving local bad probability ρ_H(p)/p^s. The infinite step is NOT extrapolation from finite CRT: if p divides P_H(n) then p divides n+h for some fixed h∈H. Replacing m=n+h translates one irrational-nonconstant-coefficient polynomial without losing its irrational highest nonconstant coefficient; Holdridge Theorem 1.3 supplies the nonlinear polynomial large-prime estimate, with Champagne covering linear degree. A finite union over h makes the tail negligible; density sandwich yields the product and absolute convergence since ρ_H(p)≤|H|. The source verify.py exact CRT and irrational sqrt(2) finite checks were read. Independent CRT H={0,1}, primes {2,3} computed 7/18, and exact Beatty sample 6437/20000; neither proves the large-prime theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holdridge Section 1 discusses rational first-polynomial issue and Theorem 1.3 eliminates large p for gcd(n, floor f(n)).",
+          "Banks–Shparlinski focuses on distinguished n and Diophantine coefficient conditions."
+        ],
+        "reasoning": "The split-product subclass has an elementary factor-by-factor route, not covered by the existing n-first-coordinate theorem statement. It does NOT solve the irreducible rational polynomial case, where factorwise translations fail.",
+        "searches": [
+          "Holdridge rational first polynomials open problem 2026",
+          "gcd product shifted n+h with floors irrational polynomial density Euler product local root counts"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.02223v1",
+        "https://arxiv.org/abs/2607.27533",
+        "https://arxiv.org/abs/2205.00253",
+        "gcd product shifted n+h with floors irrational polynomial density Euler product local root counts",
+        "split polynomial gcd floor alpha n shifted product primes Euler density n(n+1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Holdridge Theorem 1.2 controls coprimality with n and polynomial floors; Theorem 1.3 supplies exactly the large-prime estimate needed after a fixed shift.",
+          "The current finite CRT and shift-union reduction adds first-coordinate P_H and factors 1−ρ_H(p)/p^s instead of 1−1/p^s."
+        ],
+        "reasoning": "The proof critically imports Holdridge and Champagne, but no logical inference from their *density conclusion alone* gives the changed Euler factors. The tail lemma plus new elementary CRT reduction suffices and is fully credited.",
+        "searches": [
+          "Holdridge arxiv:2611.02223 Theorem 1.2 Theorem 1.3",
+          "gcd product shifted n+h with floors irrational polynomial density Euler product local root counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holdridge main theorem takes first coordinate n; its published rate is 1/ζ(s), while split polynomial P_H has root-count factors ρ_H(p).",
+          "Translation of each polynomial coordinate connects the large prime tails but does not turn the finite-prime local root frequencies into those of n."
+        ],
+        "reasoning": "For |H|>1 distinct roots mod most primes yield a genuinely different Euler product; generalizing the distinguished integer coordinate is not just renaming the parameter n.",
+        "searches": [
+          "gcd product shifted n+h with floors irrational polynomial density Euler product local root counts",
+          "split polynomial gcd floor alpha n shifted product primes Euler density n(n+1)",
+          "Holdridge 2611.02223 Sections 1 and 6",
+          "Champagne 2607.27533"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search retrieved this exact candidate as its top hit, rather than an independent older table.",
+          "A 20-case exact CRT verification and a finite-n frequency cannot establish novelty or infinite density."
+        ],
+        "reasoning": "No independently published identical root-count Euler-product table was identified; limited indexing remains a residual priority risk.",
+        "searches": [
+          "split polynomial gcd floor alpha n shifted product primes Euler density n(n+1)",
+          "Euler products gcd of floor(alpha n) n(n+1) split polynomials",
+          "Resultary semantic search: split polynomial coprimality"
+        ]
+      },
+      "rationale": "Holdridge 2026 proves the distinguished first-coordinate n case and a substantial large-prime tail theorem; the full article and explicit open rational first-polynomial direction were read. The split integer polynomial product produces genuinely different local factors and is proved by a finite union of shifted Holdridge/Champagne tails; the reduction is simple and dependent on the prior deep theorem but yields a natural exact subclass not stated there. The known H={0} case and standard equidistribution are acknowledged, and priority is best-knowledge.",
+      "residual_risks": [
+        "Application depends on exact hypotheses of published large-prime tail theorem and its linear predecessor; no new proof of those deep results was attempted.",
+        "Other indexed or unindexed rational-first-polynomial corollaries could predate this factorwise reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR COMPONENT (deep tail) but not split first polynomial theorem",
+          "evidence": "Theorem 1.2 gives 1/ζ(s) with n; Theorem 1.3 is large-prime elimination for n and a single irrational polynomial; introduction remarks on rational first coordinate",
+          "identifier_or_url": "https://arxiv.org/html/2611.02223v1",
+          "material_read": "Full 799-line arXiv HTML, read introduction/statement of Theorems 1.2–1.3, open polynomial first-coordinate discussion and Section 6 proof",
+          "method": "Direct full primary-text inspection, checked shifted-coordinate applicability and scope of tail bound",
+          "title": "On the probability that the integer parts of polynomials are coprime",
+          "trigger": "Identical gcd-with-floors problem and decisive large-prime theorem"
+        },
+        {
+          "assessment": "NEEDED LINEAR PRIOR LEMMA; incomplete direct inspection is residual risk",
+          "evidence": "Holdridge Introduction attributes linear case to Champagne; current RESULT cites arXiv:2607.27533",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27533",
+          "material_read": "ArXiv public abstract and dependence as explicitly cited by Holdridge; complete primary full text not retrieved",
+          "method": "Compared cited linear case scope against current shifted linear-polynomial step",
+          "title": "On the greatest common divisor of n and integer parts of polynomial expressions",
+          "trigger": "Provides published degree-one endpoint of large-prime elimination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The density for a fixed product of distinct affine integer factors is a natural, explicitly motivated solvable subclass of a broader rational-polynomial gcd question; exact local root-count factors differ from 1/ζ(s) and make the density computable for arbitrarily many shifts without Diophantine-type restrictions. It is a substantive reusable extension despite short finite-union reduction from a deep published lemma.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2611.02223v1",
+    "https://arxiv.org/abs/2607.27533",
+    "https://arxiv.org/abs/2205.00253",
+    "gcd product shifted n+h with floors irrational polynomial density Euler product local root counts",
+    "split polynomial gcd floor alpha n shifted product primes Euler density n(n+1)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed finite distinct shifts H and s≥2 integer-part coordinates satisfying progression-wise total homogeneous equidistribution, one being a polynomial with an irrational nonconstant coefficient, the density of gcd(P_H(n),⌊f_1(n)⌋,...)=1 is the positive Euler product ∏_p(1−ρ_H(p)/p^s); for H={0,1} and floor αn+β with irrational α the product is ∏(1−2/p²).",
+  "limitations": [
+    "P_H must split into finitely many fixed distinct integer shifts; no irreducible factor theorem or effective finite-N error term.",
+    "Relies on Holdridge/Champagne external large-prime estimates, not numerical simulation."
+  ],
+  "residual_risks": [
+    "Application depends on exact hypotheses of published large-prime tail theorem and its linear predecessor; no new proof of those deep results was attempted.",
+    "Other indexed or unindexed rational-first-polynomial corollaries could predate this factorwise reduction."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR COMPONENT (deep tail) but not split first polynomial theorem",
+      "evidence": "Theorem 1.2 gives 1/ζ(s) with n; Theorem 1.3 is large-prime elimination for n and a single irrational polynomial; introduction remarks on rational first coordinate",
+      "identifier_or_url": "https://arxiv.org/html/2611.02223v1",
+      "material_read": "Full 799-line arXiv HTML, read introduction/statement of Theorems 1.2–1.3, open polynomial first-coordinate discussion and Section 6 proof",
+      "method": "Direct full primary-text inspection, checked shifted-coordinate applicability and scope of tail bound",
+      "title": "On the probability that the integer parts of polynomials are coprime",
+      "trigger": "Identical gcd-with-floors problem and decisive large-prime theorem"
+    },
+    {
+      "assessment": "NEEDED LINEAR PRIOR LEMMA; incomplete direct inspection is residual risk",
+      "evidence": "Holdridge Introduction attributes linear case to Champagne; current RESULT cites arXiv:2607.27533",
+      "identifier_or_url": "https://arxiv.org/abs/2607.27533",
+      "material_read": "ArXiv public abstract and dependence as explicitly cited by Holdridge; complete primary full text not retrieved",
+      "method": "Compared cited linear case scope against current shifted linear-polynomial step",
+      "title": "On the greatest common divisor of n and integer parts of polynomial expressions",
+      "trigger": "Provides published degree-one endpoint of large-prime elimination"
+    }
+  ]
+}
