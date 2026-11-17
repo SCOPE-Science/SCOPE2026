@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:02:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the categorical (not Cartesian) product C_n x K_q, n>=6,q>=3, every three consecutive layers contain at least two selected vertices in an independent dominating set. Summing yields |S|>=ceil(2n/3); explicit k=floor(n/3) empty layers alternating with monochromatic runs achieves this. A partial occupied layer of size 2,..,q-1 contradicts adjacent domination; a full q-vertex layer forces three local excesses >=1, contradicting total excess <=2. Thus all occupied layers in minimum sets are singletons, organized into k positive monochromatic runs of sizes 2+e_i, sum e_i=r. Neighboring run colors must differ. Cyclic compositions count n/k binom(k+r-1,r); proper color cycle contributes (q-1)^k+(-1)^k(q-1), with k=2 specifically checked. Independent graph-based exhaustive subset enumeration n=6,7,8 q=3 reproduced 18,42,72 minima, while unrestricted proof is combinatorial.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuenzel–Rall give general maximal-independent-set characterization; extracting the exact cyclic constrained optimizer count still requires three-window tightness, structural rigidity and chromatic-polynomial enumeration.",
+          "General independent domination polynomial framework does not supply the specific cycle product closed polynomial/count."
+        ],
+        "reasoning": "Inspect whether general weak-partition parametrization mechanically includes all optimizer counts.",
+        "searches": [
+          "independent domination minimum sets direct product cycle complete graph C_n x K_q enumeration multiplicity"
+        ]
+      },
+      "checked_sources": [
+        "Kuenzel–Rall, arXiv:2203.12397, Section 3 Proposition 6",
+        "Kuenzel–Rall, arXiv:1901.03218; general layer-size background",
+        "Bakal–Mane, arXiv:2506.11865; scalar domination bounds",
+        "Published Resultary search query: independent domination minimum sets direct product cycle complete graph C_n x K_q enumeration multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substantive count uses bounded total window excess <=2 and impossibility of q-full layers for q>=3, n>=6.",
+          "Cyclic proper-coloring count is a classical chromatic polynomial applied to the newly classified k positive runs."
+        ],
+        "reasoning": "Knowing minimal size and a broad weak-partition characterization does not directly entail the exact count without proving saturation and eliminating full layers.",
+        "searches": [
+          "independent domination minimum sets direct product cycle complete graph C_n x K_q enumeration multiplicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuenzel–Rall 2022 Proposition 6 gives i(C_n x K_q)=ceil(2n/3), not the submitted labelled count.",
+          "2026-11-02 path–clique tensor-product polynomial is not the cycle product and changes boundary constraints."
+        ],
+        "reasoning": "Compare product conventions, weak-partition model and independent domination polynomials.",
+        "searches": [
+          "independent domination minimum sets direct product cycle complete graph C_n x K_q enumeration multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Scalar optimum ceil(2n/3) is prior; exact n mod 3 multiplicity n/k binom(k+r-1,r)((q-1)^k+(-1)^k(q-1)) not seen in inspected sources.",
+          "Independent small n q=3 extrema 18,42,72 match both graph-search and formula, but finite checks alone would not imply global classification."
+        ],
+        "reasoning": "Check known tabulations of minimum independent dominating configurations versus published scalar values.",
+        "searches": [
+          "independent domination minimum sets direct product cycle complete graph C_n x K_q enumeration multiplicity"
+        ]
+      },
+      "rationale": "Kuenzel and Rall (2022) establish the scalar independent domination number for these products and a general weak-partition description of maximal independent sets; these are explicitly known. Their inspected Section 3 does not provide the exact cardinality-minimal class rigidity, labelled count or cyclic color-gap enumeration. The 2026-11-02 related Resultary polynomial treats P_n x K_q (path), not cyclic C_n x K_q. The remaining exact optimizer classification and count are best-of-knowledge new.",
+      "residual_risks": [
+        "General weak-partition literature might contain the cyclic enumerator as a not-obvious special case; best-of-knowledge priority qualified.",
+        "The statement must not confuse categorical tensor product with Cartesian product, and k=2 proper-coloring convention is important."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Known scalar i and broad weak-partition setup; not the complete optimizer multiplicities/rigidity.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12397",
+          "material_read": "Primary article relevant Section 3, Proposition 6, weak-partition structure for maximal independent sets",
+          "method": "lawful arXiv full-text relevant portions",
+          "title": "On independent domination in direct products",
+          "trigger": "Exact same direct product family and potentially dominating theorem"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY",
+          "evidence": "Treats path P_n, not C_n; no whole-document noncoverage claim from snippets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-domination-polynomials-and-gaussian-size-laws-for-pa--e8b2d0c2ff73",
+          "material_read": "Published record search summary and stated path boundary, not full text",
+          "method": "Published Resultary summary only",
+          "title": "Independent-domination polynomials and Gaussian size laws for path–clique tensor products",
+          "trigger": "Same invariant on related tensor product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural infinite family of highly symmetric direct-product graphs has an exact minimum-set classification, including the strong monochromatic-gap rigidity and an explicit exponential-color multiplicity with sharp n mod 3 geometry. This is useful finite graph-enumeration data not recoverable from the scalar independent-domination number alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kuenzel–Rall, arXiv:2203.12397, Section 3 Proposition 6",
+    "Kuenzel–Rall, arXiv:1901.03218; general layer-size background",
+    "Bakal–Mane, arXiv:2506.11865; scalar domination bounds",
+    "Published Resultary search query: independent domination minimum sets direct product cycle complete graph C_n x K_q enumeration multiplicity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=6 and q>=3 only; q=2 and shorter cycles are excluded.",
+    "Counts labelled minimum independent dominating sets, not all maximal independent sets or symmetry orbits."
+  ],
+  "residual_risks": [
+    "General weak-partition literature might contain the cyclic enumerator as a not-obvious special case; best-of-knowledge priority qualified.",
+    "The statement must not confuse categorical tensor product with Cartesian product, and k=2 proper-coloring convention is important."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": "Known scalar i and broad weak-partition setup; not the complete optimizer multiplicities/rigidity.",
+      "identifier_or_url": "https://arxiv.org/abs/2203.12397",
+      "material_read": "Primary article relevant Section 3, Proposition 6, weak-partition structure for maximal independent sets",
+      "method": "lawful arXiv full-text relevant portions",
+      "title": "On independent domination in direct products",
+      "trigger": "Exact same direct product family and potentially dominating theorem"
+    },
+    {
+      "assessment": "DIFFERENT_FAMILY",
+      "evidence": "Treats path P_n, not C_n; no whole-document noncoverage claim from snippets.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-independent-domination-polynomials-and-gaussian-size-laws-for-pa--e8b2d0c2ff73",
+      "material_read": "Published record search summary and stated path boundary, not full text",
+      "method": "Published Resultary summary only",
+      "title": "Independent-domination polynomials and Gaussian size laws for path–clique tensor products",
+      "trigger": "Same invariant on related tensor product"
+    }
+  ]
+}
