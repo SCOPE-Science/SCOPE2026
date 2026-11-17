@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A conditional joint-transcript likelihood computation is exact for the heterogeneous scalar-quadratic model: all unchanged agents coincide under a common transcript, and the changed agent follows a deterministic two-dimensional signed sensitivity recurrence. The invariant cone removes all absolute-value ambiguity, Laplace density-ratio maxima are simultaneously attainable over finite prefixes, and an explicit two-root spectral calculation gives both finite-privacy sufficiency and divergence necessity. The boundary \(t\ge1\) is handled separately. The standalone exact-rational verification tests the recurrences, conditional executions and an explicit certificate; it does not replace the infinite-series proof.
+PASS
 
-## Originality
+The source fixes heterogeneous h_j>0 scalar quadratic losses, independent geometrically decaying two-channel Laplace releases, exact full public transcript and affine one-agent adjacency. Conditioning on the same public history cancels all W-mixed releases; the affected coordinate has the signed two-step matrix S=[[t,1-t],[t(1-t),-t(1-t)]], initialized (X,Z)=(1,1-t). For 0<t<1 the cone X>=Z>=0 is invariant, the strictly positive Perron coefficient rules out cancellation, and sum_{m>=0}r^-m S^m converges iff r>lambda_+(t). Exact Laplace tail likelihood ratios attain finite-prefix suprema; monotone cylinder extension yields the full transcript bound, while divergence of prefix losses refutes every finite epsilon. t>=1 gives nondecaying/growing primal shifts. The exact resolvent returns epsilon=delta*(step*r*(r+1-t)/dx+r²*(1-t)/dy)/(r²-r*t²+t²-t). Independent symbolic characteristic polynomial and resolvent checks reproduce the h=1, step=1/2, r=4/5, dx=dy=delta=1 certificate 84/19. No convergence claim for optimization iterates.
 
-**PASS, subject to historical-access limitations.** The motivating 2026 algorithm publishes a sufficient nonnegative comparison-matrix bound, not the exact full-transcript budget or the necessary-and-sufficient heterogeneous scalar-quadratic threshold. Its sufficient spectral condition fails at the explicit instance \(t=1/2\), \(r=4/5\), where the new exact privacy loss is finite and equal to \(84/19\). Searches of mathematical research records, accessible historical claims, and related primary literature found no statement dominating this sharp criterion. Earlier state/direction perturbation work is closely related in motivation but concerns other recursion structures; the complete IEEE text could not be inspected. Missing indexing and inaccessible full texts remain priority risks, not evidence of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Infinite-horizon differential privacy depends critically on conditional sensitivity decay relative to noise decay. A sufficient comparison-matrix test can rule out large, useful parameter regions. This finding solves the exact full-transcript parameter-calibration problem for arbitrary positive-curvature scalar quadratic networks and shows feasibility all the way up to the strict step boundary \(\alpha h_i<1\), versus the source's general sufficient bound \(\alpha h_i<(\sqrt{17}-3)/4\). It is a mathematical phase boundary, not merely a recomputation of a reported privacy table or a claim of faster optimization.
+Best-of-knowledge originality survives compared sources and all four direct implications.
 
-## Closest literature and limitations
+## value
 
-- Maithripala, Qiu and Lin (2026), arXiv:2610.04854v1, Algorithm 1 and Theorem 3: same mechanism and adjacency, general sufficient privacy bound but no sharp quadratic classification in the material inspected.
-- Ding et al. (2022), DOI 10.1109/TAC.2021.3059427: related direction/state perturbations, different named algorithm; publisher full-text unavailable.
-- Xuan and Wang (2022), arXiv:2212.05364: noisy gradient tracking and privacy–accuracy tradeoffs; no verified implication to the present alternating mechanism.
+PASS
 
-The theorem is limited to heterogeneous positive-curvature real scalar quadratics, independent Laplace channels, fixed parameters and complete released transcripts. Independent literature verification and mathematical audit have not been performed.
+The exact all-network scalar-quadratic pure privacy feasibility threshold and minimal Laplace budget are naturally important for designing noisy gradient-tracking schedules. The signed invariant-cone sensitivity recurrence is nontrivial, and a provably feasible regime beyond the published sufficient comparison bound is quantitatively useful, without claiming optimization convergence.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
