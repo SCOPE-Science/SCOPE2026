@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The state recursion comes directly from normalized exponential infection and recovery event rates. It terminates because vertices never return to susceptibility, and exact symbolic comparison reduces all small connected graphs to nine classes. The only parameter-dependent optimum is on the paw's three-case peak capacity: the sign of the exact rational difference is that of a quartic with exactly one positive root (Descartes' rule). Strict dominance of the other vertices is shown by positive-coefficient rational functions. Independent rational event-path enumeration agrees for all 12 paw seed/threshold values at a rate ratio of 18. The attached script executes these checks without stochastic approximation.
+PASS
 
-## Originality
+For a CTMC SIR model with beta>0 edge transmission and rate-one recovery, the first-event recursion for f_k(S,I)=P(ever at least k concurrent infectives) follows from event clocks and terminates since each vertex moves S to I to R only. Independently derived symbolic rational risks for every seed/threshold in K2, P3, K3, P4, K1,3, paw, C4, diamond and K4, verifying only the paw has threshold-dependent optimizer and every connected graph of n<=3 has consistent optimizer. On paw edges 03,12,13,23, R3(triangle)-R3(hub) has sign of q(beta)=2beta^4-32beta^3-58beta^2-33beta-6; its coefficients have exactly one sign change and q(17)<0<q(18). R2 and R4 always uniquely favor hub 3, while R3 favors hub below root and vertices 1,2 above. This proves continuous all-beta regimes, not just sampling.
 
-PASS within checked evidence, with unresolved historical-priority risk. Van Mieghem (2014) studies exact SIR equations and maximum expected prevalence rather than realized peak-threshold probabilities. Economou, Gómez-Corral and López García (2015) study an SIS maximum-count distribution, so the permanent-removal state space and specific graph ranking are not covered. Holme (2017) studies small-network SIR importance but only final size, vaccination and sentinel time. Bucur and Holme (2020) focus on expected final outbreak size. The accessible prior claims closest to this result concern disagreement between final-size and expected-peak rankings on five vertices, and contact-addition effects on epidemic duration; neither implies threshold-indexed peak-risk rankings or the paw quartic. The full historical literature may still contain an equivalent formula or table.
+## originality
 
-## Value
+PASS
 
-PASS. The three peak-capacity events represent distinct resource-pressure levels and lead to a unique, sharp change in which starting site is riskiest. The minimum graph order and the complete four-vertex classification are natural structural benchmarks, not an arbitrary parameter slice. The mechanism differs from rankings by mean final size or expected maximum. The small rational comparison at a single rate is evidence of a parameter-wide change, not the result's sole content.
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
 
-## Boundaries
+## value
 
-The theorem is a finite-graph classification and does not establish behavior on larger, weighted or directed networks. It is not a prescription for epidemic intervention. Similar SIS methods and possible unpublished or unlocated exact tables remain provenance risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp smallest-graph event-overload reversal is a motivated, exact capacity-risk threshold in stochastic epidemics, distinct from seed rankings by expected prevalence or eventual outbreak size. The unique algebraic switching point and exhaustive small-graph boundary are useful precise facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
