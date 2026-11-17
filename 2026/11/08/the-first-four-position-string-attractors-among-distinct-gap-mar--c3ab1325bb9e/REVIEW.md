@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly partitions factors by their number of 1-markers, verifying the four-position attractor for the length-18 example. The six listed factor coverage sets force a contradiction for every three-position candidate. The length inequality bounds the remaining universe to ordered injective gap vectors with at most four entries and total length at most 18. The standalone enumerator exhausts exactly 528 such vectors and checks all factor coverages by the definition of a string attractor; a separate exact integer-programming formulation agreed on all 528 cases. The finite classification is valid for the bounded domain, not extrapolated to longer words. Risk: ordinary implementation errors remain possible; recurrence-free algorithms, direct witness checking, and a second formulation mitigate this.
+## correctness
 
-## Originality — PASS, qualified
-The exact first-attainment problem for unordered but distinct positive gaps is not established by the inspected foundational work, combinatorial reversal theorem, infinite-word complexity paper, general optimization work, or unrestricted OEIS tabulation. In particular, reversal invariance predicts equal attractor sizes for the two words but not the size or sharp 18 cutoff. The unrestricted minimum length 12 for a size-four binary word does not determine the restricted minimum length 18. The previously considered increasing-gap restriction excludes the new exceptional word. Bibliographic risk: an unindexed specialized computation or another published table might already contain this restricted census; no assertion of absolute priority is made.
+PASS
 
-## Value — PASS
-The family is natural in sparse-marker word combinatorics. The classification isolates the first exact point where gap order can drive the string-attractor minimum above the increasing-gap case, and uniquely characterizes the shortest two exceptions. The result combines a structural finite obstruction with a complete and independently checkable bounded classification. It is not promoted as an asymptotic theorem or a universal result about binary words.
+The displayed 18-symbol word has a four-position attractor at {0,3,8,13}; a six-factor coverage family has no three-position transversal. For length<=18, distinct positive gaps imply k<=4 and each gap is at most 17; complete ordered-vector enumeration covers exactly 528 cases. An independent implementation from the factor-occurrence and hitting-set definitions checked all 528 words; 156 have gamma=2, 370 gamma=3 and exactly 2 have gamma=4, the stated reversals. This is exhaustive after a proved length bound, not a sampling extrapolation. Computation source verify.py and detailed proof were inspected.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh best-of-knowledge comparison for Sharp length-18 first four-attractor distinct-gap marker words: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.
+
+## value
+
+PASS
+
+The string-attractor parameter is central to dictionary-compression repetitiveness, and sparse marker words are a natural controlled family; removing the strictly increasing order restriction creates the first genuinely order-dependent four-attractor examples. The sharp cutoff and unique reversal class are concrete, non-implied finite boundary data, without claims about general long strings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

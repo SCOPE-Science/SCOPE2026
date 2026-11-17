@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-From a folder containing `verify.py`, execute `python3 verify.py`. The script uses the Python standard library only and completes the exact search over 528 eligible words. It checks that exactly the two reversed gap vectors `(1,3,2,7)` and `(7,2,3,1)` have a minimum attractor of four, validates factor coverage for each selected optimum using a second direct occurrence-search implementation, verifies 117 factors for the displayed word, and proves that the six required factors have no three-position transversal by exhaustive combinations of the 18 positions.
+## correctness
 
-The exhaustive parameter range is proved by the inequality in `RESULT.md`; the computation does not claim to cover any longer word. A separate mixed-integer optimization cross-check agreed for all 528 words, but its code is not required by this package. No independent scientific audit has been performed.
+PASS
+
+The displayed 18-symbol word has a four-position attractor at {0,3,8,13}; a six-factor coverage family has no three-position transversal. For length<=18, distinct positive gaps imply k<=4 and each gap is at most 17; complete ordered-vector enumeration covers exactly 528 cases. An independent implementation from the factor-occurrence and hitting-set definitions checked all 528 words; 156 have gamma=2, 370 gamma=3 and exactly 2 have gamma=4, the stated reversals. This is exhaustive after a proved length bound, not a sampling extrapolation. Computation source verify.py and detailed proof were inspected.
+
+## originality
+
+PASS
+
+Fresh best-of-knowledge comparison for Sharp length-18 first four-attractor distinct-gap marker words: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.
+
+## value
+
+PASS
+
+The string-attractor parameter is central to dictionary-compression repetitiveness, and sparse marker words are a natural controlled family; removing the strictly increasing order restriction creates the first genuinely order-dependent four-attractor examples. The sharp cutoff and unique reversal class are concrete, non-implied finite boundary data, without claims about general long strings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

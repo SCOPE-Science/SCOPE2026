@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:52:18.858833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed 18-symbol word has a four-position attractor at {0,3,8,13}; a six-factor coverage family has no three-position transversal. For length<=18, distinct positive gaps imply k<=4 and each gap is at most 17; complete ordered-vector enumeration covers exactly 528 cases. An independent implementation from the factor-occurrence and hitting-set definitions checked all 528 words; 156 have gamma=2, 370 gamma=3 and exactly 2 have gamma=4, the stated reversals. This is exhaustive after a proved length bound, not a sampling extrapolation. Computation source verify.py and detailed proof were inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Increasing-gap theorem gamma=ceil(k/2)+1 covers monotone gap order, whereas exceptional gap sequence (1,3,2,7) is nonmonotone. General factor covering and infinite-word results do not specify this ordered-gap finite threshold."
+        ],
+        "reasoning": "Permuting gaps changes word factors and attractor number, so the all-increasing theorem does not cover the unrestricted distinct-gap case.",
+        "searches": [
+          "Resultary: Exact minimum string attractors of increasing-gap binary words (2026/11/8)",
+          "Mantaci et al A Combinatorial View on String Attractors 2021",
+          "Restivo/Romana/Sciortino arXiv:2206.00376"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1709.05314",
+        "arXiv:2206.00376",
+        "OEIS A339391",
+        "Mantaci et al 2021 full OA",
+        "https://github.com/Resultary/2026/2026/11/8/SCOPE-the-first-four-position-string-attractors-among-distinct-gap-mar--c3ab1325bb9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reversal invariance forces the two exceptional gap vectors to share size but cannot imply their minimality; monotone gap theorem imposes stronger order and circular formulas use circular rather than finite-linear factors."
+        ],
+        "reasoning": "The sharp unordered family cutoff requires the new independent finite exhaustion and six-factor obstruction.",
+        "searches": [
+          "Mantaci et al Combinatorial View 2021",
+          "Resultary monotone gaps theorem",
+          "Resultary circular three-gap attractor threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General string-attractor hitting-set formulation and reversal symmetry are known; unrestricted binary length-12 words already need 4, but do not obey distinct-positive-gap marker restriction."
+        ],
+        "reasoning": "The family-specific minimal-length threshold is different from unrestricted binary table, and reversal symmetry alone does not determine its exact members.",
+        "searches": [
+          "Resultary query binary marker string words distinct gaps attractor threshold length 18 reversal pairs",
+          "Kempa/Prezza arXiv:1709.05314",
+          "OEIS A339391"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier binary/generalized pseudostandard censuses use larger/different families; none yields uniqueness for 528 distinct-gap marker instances."
+        ],
+        "reasoning": "A close precomputed table may be present in unpublished software; searched tables do not by themselves establish novelty.",
+        "searches": [
+          "OEIS A339391 overall binary maximum attractor",
+          "Resultary string attractor 12-length full binary census",
+          "Resultary first 4-attractor generalized pseudostandard words length15"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge comparison for Sharp length-18 first four-attractor distinct-gap marker words: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.",
+      "residual_risks": [
+        "An unindexed parametric gap-word enumeration may predate the exact threshold.",
+        "The result is limited to distinct positive gaps and length <=18; it does not classify long words or circular attractors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No exact length-18 distinct-positive-gap marker uniqueness in inspected material.",
+          "evidence": [
+            "Reversal invariance is a general property and does not fix gamma for a gap permutation."
+          ],
+          "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c92f-ec13-fcf8-e053-d805fe0aa794/MRRRS_TCS2021.pdf",
+          "material_read": "Full 29-page OA PDF inspected and first-page screenshot; relevant definitions and combinatorial properties compared.",
+          "method": "Read original authors full text on factor coverage/reversal; compared scope.",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "General finite string attractor structural results including reversal invariance."
+        },
+        {
+          "assessment": "Infinite-word regularities are not a theorem on this finite injective gap-vector family.",
+          "evidence": [
+            "Scope is factors and attractors of infinite words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.00376",
+          "material_read": "Full accessible ar5iv HTML introduction and major infinite-word attractor statements.",
+          "method": "Read accessible full-text rendering and compared finite cutoff/domain.",
+          "title": "String Attractors and Infinite Words",
+          "trigger": "Related regularity and attractor complexity in infinite words."
+        },
+        {
+          "assessment": "It covers only strictly increasing, not arbitrary pairwise distinct gap arrangements.",
+          "evidence": [
+            "gamma(W)=ceil(k/2)+1 under g1<...<gk."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-minimum-string-attractors-of-increasing-gap-binary-words--1bf4d16be1fa",
+          "material_read": "Published result’s exact indexed theorem statement and summary, not the full Git proof for this comparator.",
+          "method": "Mathematically compared strict increasing hypothesis with nonmonotone witness.",
+          "title": "Exact minimum string attractors of increasing-gap binary words",
+          "trigger": "Natural strongly related parameter and object with monotone gaps."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The string-attractor parameter is central to dictionary-compression repetitiveness, and sparse marker words are a natural controlled family; removing the strictly increasing order restriction creates the first genuinely order-dependent four-attractor examples. The sharp cutoff and unique reversal class are concrete, non-implied finite boundary data, without claims about general long strings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed parametric gap-word enumeration may predate the exact threshold.",
+    "The result is limited to distinct positive gaps and length <=18; it does not classify long words or circular attractors.",
+    "The original publication-facing provenance fields are not privacy-safe. The completed scientific decision is not a publication authorization; no GitHub write or status certificate was made."
+  ],
+  "schema_version": 1
+}
