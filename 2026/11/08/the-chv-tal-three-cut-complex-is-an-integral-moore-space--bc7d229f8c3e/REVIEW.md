@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The result is a statement about a fixed explicitly encoded graph, not an extrapolation. Exhaustive comparison of two face criteria checks all 4,095 nonempty subsets; the face-vector certificate covers all 3,927 complex faces. The 1,962-pair matching is independently checked for directed acyclicity on all 22,976 Hasse incidences. It leaves one critical cell in each of dimensions zero, seven and eight. Two independent exact signed integer reductions give the degree-two attachment, identifying the Moore-space homotopy type. Mod-two and mod-three simplicial boundary calculations cross-check the torsion-sensitive conclusion but are not used as infinite or integral proofs.
+## correctness
 
-**Originality (PASS against inspected evidence).** The closest source is Bayer et al., arXiv:2304.13675, whose full searchable text, stated families, skeleton hypothesis, examples, and theorems do not determine the Chvátal three-cut complex. Bayer et al., arXiv:2407.08158, studies disjoint unions, squared paths and grids. Previously indexed edge-disjoint-square and four-cycle-free classifications do not apply because Chvátal has 17 squares, with overlapping edges. An indexed homotopy result on the same graph instead treats independence and neighborhood complexes. The previously observed Grötzsch three-cut Moore space concerns a different graph and cannot imply this result. The absence of a match in indexed searches is evidence of noncoverage in inspected material, not a proof of global novelty. An unindexed prior calculation remains possible.
+PASS
 
-**Value (PASS).** This is a complete homotopy classification of a natural invariant on the smallest four-regular triangle-free four-chromatic graph. The nontrivial integral two-torsion is a concrete obstruction to extending torsion-free, sphere-wedge and shellability results across overlapping four-cycles. It also shows that the Moore-space phenomenon is not confined to the nonregular eleven-vertex Grötzsch graph. The value rests on this canonical graph and its actual torsion, not on routine enumeration alone. No infinite-family extension is asserted.
+Reconstructed Chvátal 12-vertex 24-edge graph and all 220 3-subsets: 148 disconnected triples, 3927 nonempty faces, f=(12,66,220,495,792,924,792,478,148). Reimplemented listed vertex-order matching; 1962 pairs with critical vertex mask2, 7-simplex mask3572 and 8-simplex mask1981, complete acyclicity on all 22976 oriented Hasse incidences. Reconstructed integer Morse gradient-path differential and obtained +2 from critical 8-cell to critical 7-cell, giving one 0-cell and degree-2 attached 8-cell on S7. Forman CW theorem plus π7(S7)=Z determines M(Z/2,7), not just torsion rank. Read entire `verify.py`; original second integer unit-pivot calculation inspected in source but not independently rerun. Nonshellability follows from torsion of pure 8-dimensional complex.
 
-**Limits.** Only the single graph and the ordinary three-cut complex are addressed; no equivariant character or general family classification is claimed. External independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Chvátal three-cut construction is not covered by published cut-complex shellability/wedge results: Bayer et al Theorem6.1 assumes full codimension-one skeleton, whereas exactly 17 7-faces are missing (478 rather than 495), Theorem6.4 is for two-cut, and continuation II treats disjoint unions, squared paths and grids. Prior Chvátal matching/independence/neighborhood complexes are different functors; earlier Grötzsch 3-cut Moore outcome is another graph, not an implication of Chvátal. No prior exact Chvátal degree-2 attachment located; global indexing incomplete.
+
+## value
+
+PASS
+
+Chvátal is the canonical smallest 4-regular triangle-free 4-chromatic graph, and its three-cut complex lies outside existing torsion-free families because 4-cycles overlap. A complete explicit Moore M(Z/2,7) homotopy determination gives a natural integral torsion/non-shellability boundary case; the signed degree-two attachment has genuine structure not implied by face count or rational homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
