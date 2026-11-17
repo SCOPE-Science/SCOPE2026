@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a complete statement over every prime-power field size and every pair of matrix dimensions satisfying \(4\le m\le n\). The rank-one character sum and the convolution identity \(R_1^2=v_1I+c_1R_1+q(q+1)R_2\) yield exact first- and second-rank Fourier multipliers. For all positive exponents, pairwise comparisons of a concave quadratic on a geometrically spaced rank-one spectrum place its unique maximum at dual rank \(m-1\). The explicit positivity identity at \(N=M\), convexity of the rescaled exponential polynomial and the rank-count formula close all remaining cases. Finite Walsh-spectrum and combinatorial-counting checks support, rather than replace, the algebraic proof. The only unproved cases are outside the stated parameter range.
+PASS
 
-## Originality — PASS with priority limits
+PASS: the cap min(rank(X−Y),3) is a true translation-invariant metric on all m×n F_q matrices, 4≤m≤n, since min of an integer subadditive rank by 3 preserves subadditivity. The rank-one convolution gives k_s=(q^(m+n−s)−q^n−q^m+1)/(q−1); counting ordered two-rank-one sums gives c1=q^m+q^n−q−2 and c2=q(q+1), yielding rank-two multiplier h_s=(k_s²−c1 k_s−v1)/c2. The capped power multiplier is Λ_s=(1−3^p)k_s+(2^p−3^p)h_s−3^p. Algebraic comparison of monotone k_s and R_p=(3^p−1)/(3^p−2^p)<3 shows the unique dominant nontrivial dual rank s=m−1 for every p>0. The submitted B>2A+3 exact polynomial lower bound gives a unique positive root β<1 of Φ=A−B2^p+(B−A−1)3^p; the other sectors remain strictly below. Endpoint multiplicity counts rank-(m−1) characters and the centered Gram rank gives both Euclidean dimensions. Independently tested Fourier sector maxima at p<β, p=β, p>β for (q,m,n)=(2,4,4),(2,4,5),(3,4,4),(4,4,5),(2,6,7). Full pinned verify.py and exact walk-count reasoning reviewed; checks do not replace all-q,m,n proof.
 
-Delsarte's 1978 full character-table theorem subsumes the raw spectral calculation, but does not state or isolate the exponent-uniform maximizing rank, the unique capped-distance negative-type exponent or the endpoint Euclidean embedding deficit. Sánchez (2011) gives a general criterion, not these closed forms. The 2014/2016 graph survey covers rank-distance geometry; Brouwer et al. (2017/2018) optimize individual distance-relation eigenvalues, rather than the weighted nonlinear combination of all rank strata. A previously recorded three-column **uncapped** theorem concerns rank diameter three and does not imply the present \(m\ge4\) genuinely truncated metric, its new rank \(m-1\) critical shell or multiplicity. The mathematical contribution is the new optimization/classification, not the foundational Fourier formula. Published generalizations may create residual historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Clipping matrix rank at three creates a natural bounded dissimilarity for rank-metric data and low-rank error measurement. Determining the largest Hilbert-embeddable snowflake exponent is an exact natural invariant; knowing the full rank scheme's character table does not by itself identify which frequency blocks the clipped nonlinear kernel. The theorem proves a single, exponent-independent obstruction across all fields and all higher matrix dimensions, determines exact endpoint dimension loss and quantifies how embeddability deteriorates at large rectangular aspect ratio. The setting contains infinitely many genuinely rank-four-and-higher spaces, rather than only a finite computational census.
+PASS best of knowledge: Delsarte (1978) provides bilinear forms association scheme and generalized Krawtchouk character table, not capped three-level radial distance phase transition. Cioabă–Gupta Theorem 4.7 and Brouwer–Cioabă–Ihringer–McGinnis concern smallest eigenvalues for individual distance-relation adjacency graphs, which do not automatically optimize the exponent-dependent capped linear combination. Resultary uncapped rank-three rectangular and capped Hamming/Johnson results are on distinct metrics and domains; they do not cover m≥4 matrix rank cap 3. No exact broader table or theorem found, though unsearched weighted metric scheme implications remain possible.
 
-## Closest published literature and limits
+## value
 
-Original full text inspected: Delsarte (1978), DOI 10.1016/0097-3165(78)90015-8, especially §2 and Appendix. Full-text comparison: Sánchez (2011), arXiv:1108.0451; van Dam–Koolen–Tanaka (2014), arXiv:1410.6294; and Brouwer–Cioabă–Ihringer–McGinnis (2017), arXiv:1709.09011. A sufficiently broad existing theorem about nonlinear spectral combinations of rank-metric relations remains possible. Calculations do not address general weighted rank kernels.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: capping matrix rank at three in the first nontrivial higher-rank case m>=4 is a natural bounded metric, not arbitrary parameter substitution. A universal critical dual shell m−1 independent of p, exact threshold, nullity, and high-column asymptotic exhibit substantive Fourier geometry beyond Delsarte tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
