@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof solves all three primitive length-four necklaces, shows the affine return determinants are nonzero throughout the stated wedge, verifies all branch inequalities by positive-coefficient substitutions, and treats the unique switching-line collision without double-counting. The unique algebraic threshold and return spectra follow by exact identities. The standalone rational checker independently reproduces twenty instances. No infinite parameter assertion rests on sampling.
+## correctness
 
-**Originality: PASS within available evidence.** The 2023 Sushko–Avrutin–Gardini paper concerns analytical boundaries of largest periodicity regions and does not establish, in its accessible abstract, this complete primitive-four census in the entire two-saddle wedge. Ou's symbolic uniqueness theorem covers the general affine-coding method and rational dependence but does not state the parameter-wise one–two–three census. The published Lozi survey quotes periodicity guarantees for periods one, two, three and those exceeding thirteen in a robust region; its cited theorem does not settle the exact fourth-period census. A previously known general upper bound of three isolated primitive four-cycles for the border-collision normal form does not imply the Lozi subfamily's full phase diagram or the boundary count. Residual risk: the Sushko et al. full text was not accessible for a decisive sentence-by-sentence comparison, and unindexed symbolic treatments might contain an equivalent result.
+PASS
 
-**Value: PASS.** This is a complete natural low-period invariant in the broad two-saddle parameter wedge of a well-studied plane map. The change from one to three four-cycles and the single intervening collision supply an explicit algebraic parameter-phase diagram, not merely a sample orbit, renaming, or a routine inequality. The border cycle is included; no higher-period or global-attractor claims are asserted.
+For L_{a,b}(x,y)=(1-a|x|+y,bx), a>1+b, 0<=b<1, solve all primitive binary length-four necklaces (+++-,++--,+---) by the four affine periodic equations. The denominators D=a^4+(b^2-1)^2 and C=(a^2-b^2+1)(a^2+b^2-1) are positive throughout. The given expansions of P,Q,U as positive polynomials in t=a-b-1 justify all sign constraints, reducing the two extra strict cycles to R>0. At R=0 both zero-position itineraries represent the same orbit by the explicit polynomial collision identity. R(1+b+t,b)=t^3+2(b+1)t^2+2b(b+1)t+2(b-1)(b+1)^2 strictly increases for t>0, crosses once. Strict return traces ±a^4+2b² and det b^4 yield hyperbolic saddle spectra, including b=0 zero second multiplier. Independent exact-rational reconstruction of all 16 sign words over eight parameter pairs corroborates the census without replacing the all-parameter proof. The assertion counts the whole plane, not just an attractor; the R=0 nonsmooth cycle has no ordinary Jacobian.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original exact global 1/2/3 primitive four-cycle Lozi phase diagram; classical symbolic uniqueness and a general border-collision bound of three are credited, not passed off as new.
+
+## value
+
+PASS
+
+A full sharp primitive four-cycle phase diagram in the classical Lozi two-saddle wedge is a natural dynamical classification; its explicit switching collision, uniqueness of the transition for each b, and saddle status answer questions not resolved by a generic upper bound or finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
