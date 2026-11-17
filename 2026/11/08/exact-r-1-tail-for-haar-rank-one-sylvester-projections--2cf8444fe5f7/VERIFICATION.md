@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact rank-one projection tail
 
-The standalone `verify.py` was run against the displayed fixed \(2\times2\) matrices. SymPy checked the exact original coupled equations, the positive definiteness of each coefficient matrix, the four nonzero Sylvester spectral gaps, the projected scalar denominator and the integral substitution. SciPy then numerically integrated the **exact conditional tail formula**, giving
+# Independent mathematical audit
 
-| \(R\) | \(R\Pr(\|\widetilde X\|_F>R)\) |
-|---:|---:|
-| 10 | 0.178764655840 |
-| 20 | 0.178643789318 |
-| 50 | 0.178610051269 |
-| 100 | 0.178605235264 |
-| 500 | 0.178603694339 |
+## correctness
 
-The analytic limit is \(2\operatorname{arsinh}(1)/\pi^2\approx0.178603630136\). This quadrature is supplementary; it does not verify the infinite tail or moment boundary without the proof in `RESULT.md`. All computations are reproducible with `python verify.py` and standard NumPy, SciPy, SymPy. No independent mathematical audit has been performed.
+PASS
+
+The displayed coupled Sylvester system has exact X=e₁e₁ᵀ and operator gaps −1,−3,1,−1, so its minimum singular value is one. Independent Haar u,v yield s=u₂²,t=v₂² independent arcsine. Reduced x=−u₁v₁/[2(s−t)−1] and Z=√((1−s)(1−t))/|2(s−t)−1|. Conditional on t<1/2, the r=√(1−s) tail interval has exact width √(1−t)/(2R), yielding RPr(Z>R)→(1/π²)∫₀^{1/2}dt/√(t(t+1/2))=2asinh(1)/π². The t>1/2 part is O(R⁻³); dominated convergence and layer cake prove p-moment finiteness iff p<1 for Z and error. Fresh symbolic/minimal-gap/integral checks support analysis, not simulation of infinite moments.
+
+## originality
+
+PASS
+
+The original generalized Sylvester Petrov–Galerkin work requires disjoint numerical ranges to guarantee projected solvability; its [1,3] and [2,4] ranges overlap here. Positive-definite Kronecker-operator Galerkin bounds concern another hypothesis and structured Krylov spaces; other published sketching inverse tails reflect a related denominator mechanism but do not give the same independently Haar-projected coupled Sylvester matrix or explicit arcsinh constant. Best-of-knowledge originality, not independence/proven priority; abstracts of relevant secondary papers only.
+
+## value
+
+PASS
+
+Even in a uniformly separated exact rank-one system, arbitrary independent Haar rank-one trial spaces have almost-sure solvability but infinite expected projected norm and error. The exact tail coefficient and sharp p=1 cutoff are a meaningful probabilistic robustness benchmark, explicitly not an assertion about structured Krylov algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

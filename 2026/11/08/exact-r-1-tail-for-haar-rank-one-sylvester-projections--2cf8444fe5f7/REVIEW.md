@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two original matrix equations have exact rank-one solution and a four-dimensional Sylvester operator with absolute eigen-gaps \(1,3,1,1\), hence minimal singular value one. Independent Haar coordinates give two arcsine variables; elimination of the scalar projected equations yields the stated reciprocal gap. Changing the conditional variable to \(r=\sqrt{1-s}\) produces a root interval of **exact width** \(\sqrt{1-t}/(2R)\). Bounded convergence on \(t<1/2\) and an \(O(R^{-3})\) estimate on \(t>1/2\) prove the coefficient \(2\operatorname{arsinh}(1)/\pi^2\). Tail comparison and layer cake prove both error tails and moment classification. Exact symbolic checks and numerical quadrature were run. No finite simulation is used as an infinite-tail proof.
+## correctness
 
-## Originality — PASS (with residual priority risk)
-The motivating full-text source proves disjoint-field-of-values sufficiency, while its global spectral-disjointness hypothesis holds here but its field-of-values condition fails. It does not provide an independent Haar projection probability or inverse-moment law. The accessible full text of Beckermann–Kressner–Tobler (2013) proves results for a positive definite Kronecker operator and rational Krylov subspaces; those assumptions exclude this indefinite Sylvester difference. The Beckermann (2011) paper concerns rational Krylov residual bounds, while Fasi–Hashemi (2026) concerns conditioning of the exact solution; only abstracts of those two papers were accessible in this review. Their uninspected details and less direct inverse-moment literature are residual historical-priority risks. The novelty asserted is the concrete exact tail constant and moment frontier, not the familiar small-denominator principle.
+PASS
 
-## Mathematical value — PASS
-Random trial bases are a natural benchmark for projection robustness. This exact, already-rank-one problem separates full-system conditioning (operator separation one), almost-sure projected solvability, and the much stronger integrability required by expected-error guarantees. The sharp cutoff and explicit constant provide a test case for probabilistic well-posedness safeguards; a prescribed structured trial basis would instead avoid the failure. The theorem is scoped to this precise mechanism and is not represented as a guarantee about an actual Krylov algorithm.
+The displayed coupled Sylvester system has exact X=e₁e₁ᵀ and operator gaps −1,−3,1,−1, so its minimum singular value is one. Independent Haar u,v yield s=u₂²,t=v₂² independent arcsine. Reduced x=−u₁v₁/[2(s−t)−1] and Z=√((1−s)(1−t))/|2(s−t)−1|. Conditional on t<1/2, the r=√(1−s) tail interval has exact width √(1−t)/(2R), yielding RPr(Z>R)→(1/π²)∫₀^{1/2}dt/√(t(t+1/2))=2asinh(1)/π². The t>1/2 part is O(R⁻³); dominated convergence and layer cake prove p-moment finiteness iff p<1 for Z and error. Fresh symbolic/minimal-gap/integral checks support analysis, not simulation of infinite moments.
 
-## Closest literature and limitations
-See the four sources in `RESULT.md`; the field-of-values hypothesis and the positive-definite-operator hypothesis are decisive differences, rather than merely differing titles. The infinite moment claims concern independent real Haar one-dimensional trial spaces and exact arithmetic only. Broad historical-priority uncertainty remains, and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original generalized Sylvester Petrov–Galerkin work requires disjoint numerical ranges to guarantee projected solvability; its [1,3] and [2,4] ranges overlap here. Positive-definite Kronecker-operator Galerkin bounds concern another hypothesis and structured Krylov spaces; other published sketching inverse tails reflect a related denominator mechanism but do not give the same independently Haar-projected coupled Sylvester matrix or explicit arcsinh constant. Best-of-knowledge originality, not independence/proven priority; abstracts of relevant secondary papers only.
+
+## value
+
+PASS
+
+Even in a uniformly separated exact rank-one system, arbitrary independent Haar rank-one trial spaces have almost-sure solvability but infinite expected projected norm and error. The exact tail coefficient and sharp p=1 cutoff are a meaningful probabilistic robustness benchmark, explicitly not an assertion about structured Krylov algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

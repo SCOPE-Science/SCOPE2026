@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T04:51:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed coupled Sylvester system has exact X=e₁e₁ᵀ and operator gaps −1,−3,1,−1, so its minimum singular value is one. Independent Haar u,v yield s=u₂²,t=v₂² independent arcsine. Reduced x=−u₁v₁/[2(s−t)−1] and Z=√((1−s)(1−t))/|2(s−t)−1|. Conditional on t<1/2, the r=√(1−s) tail interval has exact width √(1−t)/(2R), yielding RPr(Z>R)→(1/π²)∫₀^{1/2}dt/√(t(t+1/2))=2asinh(1)/π². The t>1/2 part is O(R⁻³); dominated convergence and layer cake prove p-moment finiteness iff p<1 for Z and error. Fresh symbolic/minimal-gap/integral checks support analysis, not simulation of infinite moments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zulfiqar numerical-range disjointness is sufficient for all compressions but its hypothesis fails ([1,3]∩[2,4]≠∅).",
+          "Beckermann–Kressner–Tobler positive-definite Kronecker operator hypothesis fails for this indefinite Sylvester operator."
+        ],
+        "reasoning": "Neither general estimate dominates this fixed example; adjacent sketched Krylov tails concern different random projections/operator schemes.",
+        "searches": [
+          "Haar random rank-one Petrov Galerkin Sylvester projection unstable heavy tail inverse gap arcsinh",
+          "arXiv:2610.30804",
+          "DOI:10.1137/120900204",
+          "published sketched Galerkin inverse tails"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.30804",
+        "DOI:10.1137/120900204",
+        "DOI:10.1137/110824590",
+        "arXiv:2609.04050",
+        "Resultary search on random Sylvester projection tails"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact solution condition/separation does not imply integrable norm of randomly compressed solution.",
+          "Standard rational Krylov residual bounds refer to structured chosen spaces, not independent Haar trial spaces."
+        ],
+        "reasoning": "No inspected prior theorem determines the exact tail/moment frontier; a general 1/gap principle alone does not fix this coefficient. Unread full texts remain a priority risk.",
+        "searches": [
+          "Haar random rank-one Petrov Galerkin Sylvester projection unstable heavy tail inverse gap arcsinh",
+          "arXiv:2610.30804",
+          "DOI:10.1137/110824590",
+          "arXiv:2609.04050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Denominator 2(s−t)−1 is a difference of two independent Haar Rayleigh quotients for diagonal matrices.",
+          "Reciprocal random projected operator gap gives the heavy-tail behavior."
+        ],
+        "reasoning": "Generic inverse-denominator phenomena are conceptually known, but no inspected source states the exact given 2×2 coupled Sylvester/Haar constant and error moment cutoff.",
+        "searches": [
+          "Haar random rank-one Petrov Galerkin Sylvester projection unstable heavy tail inverse gap arcsinh",
+          "difference independent Haar Rayleigh quotients near resonance",
+          "probabilistic inverse projected Sylvester gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The specific exact constant 2asinh(1)/π² and diagonal pair (1,3),(2,4) were not in inspected indexed result hits.",
+          "Known Gaussian sketch examples have different denominators/Student laws."
+        ],
+        "reasoning": "No identified direct table covers this benchmark; database nonfind is not a novelty proof.",
+        "searches": [
+          "Haar random rank-one Petrov Galerkin Sylvester projection unstable heavy tail inverse gap arcsinh",
+          "2x2 Sylvester Haar rank-one arcsinh tail constant table",
+          "Resultary tail 1/R random sketch inverse moment"
+        ]
+      },
+      "rationale": "The original generalized Sylvester Petrov–Galerkin work requires disjoint numerical ranges to guarantee projected solvability; its [1,3] and [2,4] ranges overlap here. Positive-definite Kronecker-operator Galerkin bounds concern another hypothesis and structured Krylov spaces; other published sketching inverse tails reflect a related denominator mechanism but do not give the same independently Haar-projected coupled Sylvester matrix or explicit arcsinh constant. Best-of-knowledge originality, not independence/proven priority; abstracts of relevant secondary papers only.",
+      "residual_risks": [
+        "A general inverse-moment theorem may imply this explicit special case without matching keywords.",
+        "Relevant primary full texts partially inaccessible (Oxford VPN disconnected); best-of-knowledge only.",
+        "The finite exact example does not establish any weakness of the structured extended or rational Krylov algorithms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient disjoint-field-of-values condition is inapplicable; structured Krylov methods are not Haar.",
+          "evidence": "Zulfiqar 2026 Thm 2.1; [1,3] versus [2,4].",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30804",
+          "material_read": "Theorem 2.1 field-of-values condition and general compression relation as cited in full record; full article not reobtained.",
+          "method": "Read assigned source mathematical comparison and attempted arXiv+Oxford; VPN disconnected.",
+          "title": "Numerical Solution of Large-Scale Low-Rank Coupled Generalized Sylvester Equations",
+          "trigger": "Identical coupled Petrov–Galerkin compression framework"
+        },
+        {
+          "assessment": "Full global operator here is indefinite; the positive-definite theorem does not dominate.",
+          "evidence": "Beckermann–Kressner–Tobler 2013 Kronecker operator setting.",
+          "identifier_or_url": "https://doi.org/10.1137/120900204",
+          "material_read": "Relevant positive-definite hypothesis/abstract and statements in examined source dossier; no full-document reread.",
+          "method": "Compared mathematical hypothesis to signed Sylvester spectrum.",
+          "title": "An Error Analysis of Galerkin Projection Methods for Linear Systems with Tensor Product Structure",
+          "trigger": "Potential general Galerkin stability/condition theorem"
+        },
+        {
+          "assessment": "Cannot assert whole-paper noncoverage; residual risk preserved.",
+          "evidence": "Beckermann 2011 rational Galerkin.",
+          "identifier_or_url": "https://doi.org/10.1137/110824590",
+          "material_read": "Abstract and source bibliography only; full text unavailable.",
+          "method": "Bibliographic/abstract comparison.",
+          "title": "An Error Analysis for Rational Galerkin Projection Applied to the Sylvester Equation",
+          "trigger": "Plausible original randomized inverse bound"
+        },
+        {
+          "assessment": "Exact solution conditioning differs from random compressed solution risk; no full noncoverage claim.",
+          "evidence": "Fasi–Hashemi 2026.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.04050",
+          "material_read": "Public abstract and source description; full text inaccessible.",
+          "method": "Abstract-level comparison.",
+          "title": "Conditioning of solutions to the Sylvester equation",
+          "trigger": "Nearby exact Sylvester conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even in a uniformly separated exact rank-one system, arbitrary independent Haar rank-one trial spaces have almost-sure solvability but infinite expected projected norm and error. The exact tail coefficient and sharp p=1 cutoff are a meaningful probabilistic robustness benchmark, explicitly not an assertion about structured Krylov algorithms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Specific real 2×2 diagonal pair, independent rank-one Haar directions, exact arithmetic only; full 2011/2026 nearby papers not available, unrelated structured Krylov algorithms not implicated.",
+  "schema_version": 1
+}
