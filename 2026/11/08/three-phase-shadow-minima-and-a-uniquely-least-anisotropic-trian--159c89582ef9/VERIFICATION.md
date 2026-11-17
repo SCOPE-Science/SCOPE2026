@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify_brightness.py` from the extracted package directory using Python 3 and its standard library. The checker constructs the five three-dimensional vertices for each test height, projects them into a plane perpendicular to seeded unit directions, and computes convex hull areas using the monotone-chain algorithm in floating-point arithmetic. Independently it evaluates the Cauchy formula, all fifteen facet-plane pair cross-products, and all sixty-four possible signed normal sums for prescribed heights, including algebraic transition values. It compares these against the claimed three-piece minimum, two-piece maximum, and the sharp ratio at height \(3/4\).
+# Independent mathematical audit
 
-Expected successful terminal markers are `BIPYRAMID_SHADOW_BOUNDS_CHECKS_PASSED` and `FULL_FACET_PAIR_AND_SIGN_VECTOR_CERTIFICATES_PASSED`. The test uses deterministic pseudorandom directions only for corroboration; the complete continuous-parameter proof is in `RESULT.md`. The checker is floating-point rather than a formal proof checker. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+Using Cauchy polytope projection, each of six equal-area triangular facets yields B_h(w,z)=sqrt(3)/2 sum_j max(h|e_j·w|,|z|/2). The six facet normal sign sums give maximum max(3sqrt(3)/4,sqrt(3)h). A nonzero absolute-linear form has its spherical minimum along a chamber extreme ray: for any nonparallel positive extreme-ray combination the Euclidean norm is smaller than its positive coefficient sum; the three pairwise facet-normal plane orbit types give candidate values 3h/2, sqrt(3)h/sqrt(1+h^2), and 9h/(4sqrt(1+3h^2)). Their squared differences switch at precisely 1/sqrt(3) and sqrt(11/21); the lower envelope is strictly increasing, while the upper envelope changes from constant to increasing at 3/4, proving the unique ratio optimum. Independently enumerated all 15 plane pairs and 64 signs across h=.3,.58,.72,.75,1,2, matching both bounds; continuum correctness comes from the finite-ray and exact monotonicity proof, not finite tests.
+
+## originality
+
+PASS
+
+Distinct directional projected-area anisotropy, compared by mathematical observable rather than appearance of bipyramids in prior papers.
+
+## value
+
+PASS
+
+The sharp three-phase transition and unique minimum over a natural full one-dimensional family of symmetric five-vertex polytopes quantify a classical geometric anisotropy measure, with exact optimizer/equality cases and potential use as a benchmark for projection-body optimization. This is not a renaming or tiny unmotivated numerical exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

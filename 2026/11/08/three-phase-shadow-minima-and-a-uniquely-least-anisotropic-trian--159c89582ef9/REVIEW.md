@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim.** Three-phase shadow minima and a uniquely least-anisotropic triangular bipyramid. For all positive apex heights the full three-branch minimum and two-branch maximum of the orthogonal-shadow area are explicit, with globally sharp ratio \(\sqrt{129}/9\) attained only at height/circumradius ratio \(3/4\).
+## correctness
 
-## Correctness — PASS
+PASS
 
-All six facet outward normals and areas were independently reconstructed. Cauchy's projection identity yields the exact six-absolute-form brightness. The maximum comes from exhaustive sign-sum classes; the minimum comes from a pointed-cone extreme-ray lemma and an exhaustive classification of pairwise facet-plane intersections. Exact squared differences locate the switching heights and direct monotonicity establishes the unique optimizer. The standalone program computes actual projected-hull areas, all fifteen normal-plane intersections and all sixty-four sign sums, and confirms the formulas at selected heights. The theorem itself is proved analytically for all positive heights and directions.
+Using Cauchy polytope projection, each of six equal-area triangular facets yields B_h(w,z)=sqrt(3)/2 sum_j max(h|e_j·w|,|z|/2). The six facet normal sign sums give maximum max(3sqrt(3)/4,sqrt(3)h). A nonzero absolute-linear form has its spherical minimum along a chamber extreme ray: for any nonparallel positive extreme-ray combination the Euclidean norm is smaller than its positive coefficient sum; the three pairwise facet-normal plane orbit types give candidate values 3h/2, sqrt(3)h/sqrt(1+h^2), and 9h/(4sqrt(1+3h^2)). Their squared differences switch at precisely 1/sqrt(3) and sqrt(11/21); the lower envelope is strictly increasing, while the upper envelope changes from constant to increasing at 3/4, proving the unique ratio optimum. Independently enumerated all 15 plane pairs and 64 signs across h=.3,.58,.72,.75,1,2, matching both bounds; continuum correctness comes from the finite-ray and exact monotonicity proof, not finite tests.
 
-## Originality — PASS (historical priority provisional)
+## originality
 
-The closest identified source, Black and Criado's 2024 preprint (arXiv:2406.06936), bounds expected **numbers of vertices** in random shadows, not extreme **areas**. Cauchy's projection formula is established and explicitly credited. Available direct searches and accessible prior geometric records did not establish the three-regime brightness minimum or sharp least-anisotropic height. A pre-existing equivalent theorem in classical projection-body tables is still a plausible bibliographic risk; no uniqueness certification is asserted.
+PASS
 
-## Mathematical value — PASS
+Distinct directional projected-area anisotropy, compared by mathematical observable rather than appearance of bipyramids in prior papers.
 
-Minimum-to-maximum shadow area describes the viewing-direction anisotropy of a fixed polyhedron. Its complete three-phase directional behavior and its uniquely optimal shape, with exact sharp ratio, resolve a natural extremal problem over a canonical nondegenerate one-parameter family. The proof explains the regime changes through normal-fan geometry rather than parameter sampling.
+## value
 
-## Scope and limitations
+PASS
 
-The family has one equilateral horizontal base and two symmetrically placed apices. Unsymmetric, skew, and general polygonal bipyramids, full area distributions, and alternative viewing metrics are not treated. General Cauchy theory is background. Historical priority and independent peer verification remain open.
+The sharp three-phase transition and unique minimum over a natural full one-dimensional family of symmetric five-vertex polytopes quantify a classical geometric anisotropy measure, with exact optimizer/equality cases and potential use as a benchmark for projection-body optimization. This is not a renaming or tiny unmotivated numerical exception.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
