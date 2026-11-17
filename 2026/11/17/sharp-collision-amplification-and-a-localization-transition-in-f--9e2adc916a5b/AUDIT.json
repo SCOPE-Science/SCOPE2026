@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact 6-by-6 interpolation matrix has a simple factor epsilon and an invertible confluent divided-difference limit, giving uniform operator-norm convergence after multiplication by epsilon. Explicit piecewise-quadratic Hermite solution and two competing extrema yield the exact constant and unique threshold 2+sqrt(3). Standalone exact-rational solver checked 427 constraints/samples; numerical sampling is only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Greene arXiv:2610.32044 §§1–4 (especially introduction and convergence theorem) proves C3 smooth interpolation error O(h^3) independent of mesh ratio, not a raw-data interpolation operator bound.",
+        "Greene introduction attributes qualitative unboundedness of this operator across grids to Powell 1981.",
+        "Powell book catalog and preview accessible; relevant detailed chapter text unavailable."
+      ],
+      "reasoning": "Smooth input approximation estimates are not a sharper statement about arbitrary bounded data. Qualitative failure of uniform boundedness is compatible with any divergence rate and does not fix the coefficient or competing norming locations. The Powell full text gap is explicitly a publication-priority risk.",
+      "searches": [
+        "quadratic mid-knot spline interpolation unbounded operator norm node clustering leading coefficient two point collapse",
+        "Powell quadratic spline midpoint-knot interpolation unbounded Lebesgue constant colliding adjacent data nodes",
+        "https://arxiv.org/abs/2610.32044 sections 1–4",
+        "Powell Approximation Theory and Methods 1981 chapter 21.2 Cambridge catalog"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.32044",
+      "https://www.cambridge.org/core/books/abs/approximation-theory-and-methods/index/22049512F07F9896BC4819641D2A48C3",
+      "2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb",
+      "2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b",
+      "2026/11/2/SCOPE-exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9",
+      "2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Greene 2026 introduces the precise knot scheme and says the raw operator norm is not uniformly bounded for arbitrary data, while establishing mesh-independent convergence for C3 inputs.",
+        "The closest records analyze stochastic polynomial-node collisions, projections or least squares rather than this six-constraint C1 spline interpolation."
+      ],
+      "reasoning": "The new statement gives a uniform rank-one scaled operator limit, a sharp closed-form function of the outer geometry R and a necessary/sufficient location transition. No available prior statement implies these. Detailed Powell 1981 may change publication priority if shown to contain the formula.",
+      "searches": [
+        "https://arxiv.org/abs/2610.32044 full rendered text",
+        "Powell quadratic spline midpoint-knot interpolation unbounded Lebesgue constant colliding adjacent data nodes",
+        "Published-record 2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb 2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b 2026/11/2/SCOPE-exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9 2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb: random three-node quadratic polynomial interpolation noise-tail law, not a deterministic C1 two-piece quadratic spline.",
+        "2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b: periodic linear-spline projection operator, not four-site interpolatory quadratic midpoint knot."
+      ],
+      "reasoning": "The equivalent view is the sharp collision limit of the norm of a four-dimensional Lagrange interpolation map or a confluent Hermite norm. The returned findings use different operators; neither implies this rank-one limit or its exact maximum.",
+      "searches": [
+        "quadratic not-a-knot spline interpolation four points coalescing first two points sharp Lebesgue constant asymptotic 2+sqrt3",
+        "four node C1 quadratic spline with knot midpoint of interior observation pair interpolation Lebesgue constant singular collision epsilon leading rate",
+        "Published-record IDs 2026/11/8/SCOPE-a-logarithmic-collision-tail-for-three-node-random-quadratic-int--31e79eafd4fb, 2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/11/2/SCOPE-exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9: quadratic least-squares graph splines, different sampling operator and setting.",
+        "2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7: cubic polynomial four-node shape-preservation optimization, not midpoint-knot C1 quadratic spline.",
+        "Searches supplied no checked table for the coefficient or the value 2+sqrt(3)."
+      ],
+      "reasoning": "No accessible directly equivalent exact coefficient or finite table was identified, but database nonreturn is not uniqueness proof.",
+      "searches": [
+        "quadratic spline Lagrange fundamental functions endpoint coalescence Lebesgue maximum localization transition",
+        "quadratic not-a-knot interpolation four samples at 0 epsilon 1 R instability peak switches from first piece to second at 2 plus sqrt 3",
+        "Published-record IDs 2026/11/2/SCOPE-exact-leaf-sensitivity-and-positivity-loss-for-quadratic-least-s--94d5d6b58ac9, 2026/10/26/SCOPE-optimal-symmetric-four-node-cubic-interpolation-for-monotone-ran--7f9a4d5c7ee7",
+        "web: quadratic spline midpoint knots Lebesgue function sharp constant asymptotic adjacent nodes collision"
+      ]
+    },
+    "rationale": "Greene 2026 establishes well-posedness and C3 approximation, and cites Powell 1981 for qualitative lack of uniform interpolation-operator boundedness. Neither inspected Greene result implies the exact collision coefficient or peak-localization transition. Published-record and published-source searches found only different interpolation operators/metrics. Earlier Powell treatment may have a stronger uninspected calculation and remains a priority risk.",
+    "residual_risks": [
+      "Powell 1981, especially §§18.40 and 21.2, could contain a stronger explicit collision calculation than the qualitative unboundedness reported in Greene 2026; its detailed full text was unavailable.",
+      "Unindexed or terminology-shifted classical interpolation stability work may express an equivalent result.",
+      "No claims about finite positive-epsilon exact maximizing data or many-node splines are established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact scheme, qualitative citation to unbounded Lebesgue operator norms, and C3 convergence, but no fixed-four-node collision constant or 2+sqrt(3) norming transition",
+        "evidence": [
+          "arxiv:2610.32044 intro lines 20–32, Proposition 2.1 lines 33–56, Section 3 lines 57–161, Section 4 lines 162–295"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32044",
+        "material_read": "Rendered full paper sections 1–4: introduction, node/knot definition, Proposition 2.1 and its Schoenberg–Whitney proof, interpolation system equations, normalized inverse lemma and main convergence argument",
+        "method": "Source full text rendered by arXiv; mathematically compared statements and parameterizations",
+        "title": "Optimal Convergence of Quadratic Not-a-Knot Spline Interpolation on Arbitrary Partitions",
+        "trigger": "Identical four-node midpoint not-a-knot construction and sharp smooth-data convergence claim"
+      },
+      {
+        "assessment": "Potentially covering older treatment remains unresolved as a priority risk, but only qualitative result is specifically attributed by accessible Greene text",
+        "evidence": [
+          "M. J. D. Powell, Approximation Theory and Methods, CUP 1981; Greene 2026 introduction citation"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/books/approximation-theory-and-methods/",
+        "material_read": "Catalog, chapter table of contents and public bibliographic preview; detailed relevant §21.2 not available",
+        "method": "Searched accessible open web preview and catalog, not represented as whole-book inspection",
+        "title": "Approximation Theory and Methods",
+        "trigger": "Greene cites Powell Eq. 18.40 and §21.2 for construction and prior unboundedness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e2adc91-6a5b-4ae5-8984-6d44d58943f2",
+  "value": {
+    "rationale": "The minimal non-polynomial spline knot system gives a natural stability invariant: worst-case noise amplification as two adjacent observations collide. The exact coefficient and change of spatial noise hotspot at the sharp algebraic threshold are structural and may guide adaptive meshing; unlike a mere unboundedness example, the result quantifies both size and location for a continuous parameter family.",
+    "status": "PASS"
+  }
+}
