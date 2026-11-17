@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses only exact `fractions.Fraction` arithmetic and Laurent-polynomial dictionaries; it constructs the eight carry/adjacency states directly from their definitions. It checks \(T_0g=g\), the nontrivial polynomial-vector identity \((T_1^4-\tfrac z2T_1^3)(T_1-I)g=0\), the exact base numerator and first difference, and the initial negative-mass proportions. Each polynomial test is exhaustive over every nonzero monomial coefficient in eight finite state coordinates. It independently compares the finite dyadic sample for eight shifts, which is only corroborative. The infinite claim uses the exact matrix identity plus induction and the geometric carry-tail argument, not enumeration.
+## correctness
 
-Command: `python3 verify.py`
+PASS
 
-Expected stdout: `VERIFY_OK states=8 zero_suffix=invariant polynomial_identity=exact G4=exact recurrence=exact sharp_thresholds=1..4 negative_tail=45/(128*2^j) finite_integer_samples=8x524288`
+The eight-state (carry, previous input, previous output) transfer matrix T_b(z) weights each new pair increment qy−px. The zero-shift tail vector g accounts exactly for the infinitely continuing carry with geometric probability 2^{−h}; hence natural densities follow from dyadic cylinder frequencies plus vanishing tail. The inspected rational Laurent-polynomial verify.py constructs T_1, g and w=(T_1−I)g independently; its finite algebraic identities show (T_1^4−(z/2)T_1^3)w=0, G_4 numerator, and e0^T T_1^4 w=(z−1)^2(z+1)(2z²+z+2)/128. These imply the claimed exact G_{k+1}−G_k polynomial for every k≥4, stable negative coefficients, and sharp initial values by coefficient extraction. Independent counts of 2^19 consecutive inputs at k=4,5,6 give nondecrease 83/128, negative−1=45/256 and negative−2=45/512, matching the analytic coefficients; finite counts are not proof.
 
-Limitations: the algorithm is not an independent peer audit and does not assess bibliographic priority. The symbolic recurrence is specific to the digit pattern and shift family stated in the theorem.
+## originality
+
+PASS
+
+PASS best-of-knowledge with prominent overlap: published October 25 Resultary result already proves the exact nondecrease density 83/128 and sharp threshold k=4; that is NOT newly claimed independently. Its full primary text explicitly disclaims determination of the complete distribution. The additional stable coefficient formula for every negative j and exact polynomial generating-function recurrence are not entailed by the one scalar survival probability. General Sobolewski–Spiegelhofer recurrences could computationally yield the distribution, so the overlap remains a priority/implication risk but no explicit prior full-tail result was identified.
+
+## value
+
+PASS
+
+The genuinely new portion is the *entire* geometrically decaying negative tail, which resolves an infinite collection of exact conditional probabilities with one sharp k cutoff, and structural Laurent transfer recurrence explaining its stability; these are motivated finer statistics of a natural binary block-counting difference beyond the already known scalar bias. The theorem also acknowledges that nondecrease=83/128 itself is previously established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

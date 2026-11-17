@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:19:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-stable-negative-tail-for-the-binary-11-block-increment-at-mers--f87456c5a480/RESULT.md",
+        "2026/11/08/a-stable-negative-tail-for-the-binary-11-block-increment-at-mers--f87456c5a480/verify.py"
+      ],
+      "rationale": "The eight-state (carry, previous input, previous output) transfer matrix T_b(z) weights each new pair increment qy−px. The zero-shift tail vector g accounts exactly for the infinitely continuing carry with geometric probability 2^{−h}; hence natural densities follow from dyadic cylinder frequencies plus vanishing tail. The inspected rational Laurent-polynomial verify.py constructs T_1, g and w=(T_1−I)g independently; its finite algebraic identities show (T_1^4−(z/2)T_1^3)w=0, G_4 numerator, and e0^T T_1^4 w=(z−1)^2(z+1)(2z²+z+2)/128. These imply the claimed exact G_{k+1}−G_k polynomial for every k≥4, stable negative coefficients, and sharp initial values by coefficient extraction. Independent counts of 2^19 consecutive inputs at k=4,5,6 give nondecrease 83/128, negative−1=45/256 and negative−2=45/512, matching the analytic coefficients; finite counts are not proof.",
+      "residual_risks": [
+        "Bounded tests and source verifier are supplementary; unrestricted claim relies on reconstructed mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Many-one-block Gaussian approximation concerns shifts with many separated runs, while Mersenne 2^k−1 is exactly one run; two-one-bit family is a distinct shift."
+        ],
+        "reasoning": "Broader general recurrence technology is prior and might imply the special family after nontrivial transfer reduction; no dominating theorem yielding the exact negative-tail identity was found.",
+        "searches": [
+          "binary 11 block counting difference Mersenne shift 2^k-1 distribution negative tail 45/128",
+          "Sobolewski 2024 behavior binary block-counting functions under addition",
+          "two-one-bit shift distribution 2^a+1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+        "https://arxiv.org/abs/2309.00142",
+        "https://arxiv.org/abs/2412.15851",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-stabilization-of-nonnegative-binary-11-block-changes-under--0e6436a87f51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published October 25 source expressly states: “It does not determine the complete distribution of r(n+2^k−1)−r(n).”"
+        ],
+        "reasoning": "The new recurrence permits coefficient extraction at each negative j and is not logically fixed by total negative mass. However already published general algorithmic recurrences are a material residual implication risk requiring specialist priority check.",
+        "searches": [
+          "binary 11 block counting difference Mersenne shift 2^k-1 distribution negative tail 45/128",
+          "Oct25 RESULT.md complete proof and limitations",
+          "arxiv 2309.00142 general recurrences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+          "Sobolewski–Spiegelhofer 2023 supplies general distribution recurrences for binary block counts, not an explicit infinite-family negative coefficient law in the inspected description."
+        ],
+        "reasoning": "Same binary 11 count and shift family in Oct25, but prior principal theorem only P(Δ≥0), one aggregate. Coefficientwise tail and generating recurrence are genuinely stronger than that number alone.",
+        "searches": [
+          "binary 11 block counting difference Mersenne shift 2^k-1 distribution negative tail 45/128",
+          "Resultary Oct25 exact Mersenne-shift bias",
+          "Sobolewski Spiegelhofer Block occurrences binary expansion arxiv 2309.00142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+          "Oct25 exact table P_k=13/16,47/64,87/128,83/128 was fully inspected."
+        ],
+        "reasoning": "The sign table is already known. The current formula µ_k(−j)=45/(128·2^j) gives infinitely many exact point masses; no matching negative-tail table found. Mere absence from search is not originality proof.",
+        "searches": [
+          "binary 11 block counting difference Mersenne shift 2^k-1 distribution negative tail 45/128",
+          "Resultary Oct25 exact Mersenne bias 83/128",
+          "Resultary Nov2 nonnegative 11 block changes under two-bit shifts"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with prominent overlap: published October 25 Resultary result already proves the exact nondecrease density 83/128 and sharp threshold k=4; that is NOT newly claimed independently. Its full primary text explicitly disclaims determination of the complete distribution. The additional stable coefficient formula for every negative j and exact polynomial generating-function recurrence are not entailed by the one scalar survival probability. General Sobolewski–Spiegelhofer recurrences could computationally yield the distribution, so the overlap remains a priority/implication risk but no explicit prior full-tail result was identified.",
+      "residual_risks": [
+        "An earlier general block-difference recurrence may imply negative-tail stabilization by a short specialization; highly relevant 2023 and 2024 manuscripts were not fully inspected.",
+        "Total nonnegative mass and k=4 stabilization were already proved October 25, 2026; cannot be presented as newly discovered here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE ONLY: scalar nonnegative mass known, not full negative tail.",
+          "evidence": "Its limitations explicitly disclaim complete increment distribution; same P_k=83/128 as new corollary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+          "material_read": "Entire RESULT.md theorem, binary carry-class proof, exact P_k table, limitations and references.",
+          "method": "GitHub published primary full text.",
+          "title": "Exact Mersenne-shift bias for adjacent-one counts in binary expansions",
+          "trigger": "Identical function, shifts, and nondecrease probability."
+        },
+        {
+          "assessment": "POTENTIAL stronger recurrence implication, NOT asserted whole-paper noncoverage.",
+          "evidence": "General fixed-shift recurrence may generate the Mersenne coefficients, but no explicit uniform infinite k tail was verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.00142",
+          "material_read": "Accessible abstract and cited proposition/theorem descriptions, not entire primary full manuscript.",
+          "method": "Public arXiv metadata and search content; full primary not retrieved.",
+          "title": "Block occurrences in the binary expansion",
+          "trigger": "Same arithmetic statistic and general recurrences."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+        "https://arxiv.org/abs/2309.00142",
+        "https://arxiv.org/abs/2412.15851",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-stabilization-of-nonnegative-binary-11-block-changes-under--0e6436a87f51"
+      ],
+      "rationale": "The genuinely new portion is the *entire* geometrically decaying negative tail, which resolves an infinite collection of exact conditional probabilities with one sharp k cutoff, and structural Laurent transfer recurrence explaining its stability; these are motivated finer statistics of a natural binary block-counting difference beyond the already known scalar bias. The theorem also acknowledges that nondecrease=83/128 itself is previously established.",
+      "residual_risks": [
+        "An earlier general block-difference recurrence may imply negative-tail stabilization by a short specialization; highly relevant 2023 and 2024 manuscripts were not fully inspected.",
+        "Total nonnegative mass and k=4 stabilization were already proved October 25, 2026; cannot be presented as newly discovered here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+    "https://arxiv.org/abs/2309.00142",
+    "https://arxiv.org/abs/2412.15851",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-stabilization-of-nonnegative-binary-11-block-changes-under--0e6436a87f51"
+  ],
+  "disposition": "passed",
+  "final_claim": "For overlapping binary 11-block count and Mersenne shifts 2^k−1, the full negative increment tail stabilizes at k=4 with masses 45/(128·2^j) for −j and G_k polynomial recurrence.",
+  "limitations": [
+    "An earlier general block-difference recurrence may imply negative-tail stabilization by a short specialization; highly relevant 2023 and 2024 manuscripts were not fully inspected.",
+    "Total nonnegative mass and k=4 stabilization were already proved October 25, 2026; cannot be presented as newly discovered here."
+  ],
+  "residual_risks": [
+    "An earlier general block-difference recurrence may imply negative-tail stabilization by a short specialization; highly relevant 2023 and 2024 manuscripts were not fully inspected.",
+    "Total nonnegative mass and k=4 stabilization were already proved October 25, 2026; cannot be presented as newly discovered here."
+  ],
+  "schema_version": 1
+}

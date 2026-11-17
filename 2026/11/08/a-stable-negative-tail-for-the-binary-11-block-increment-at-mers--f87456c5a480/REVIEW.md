@@ -1,19 +1,21 @@
-# Review of the Mersenne-shift binary \(11\)-block theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every integer \(k\ge4\) and every negative difference \(-j\) for \(j\ge1\); the sharpness comparison covers \(k=1,2,3\). The proof defines the carry/adjacency states, proves limiting frequency by a geometric carry bound, explicitly computes the tail vector and checks that it is stationary for zero shift bits. The exact identity \((T_1^4-\tfrac z2T_1^3)(T_1-I)g=0\) is verified coefficient by coefficient by the bundled standalone checker; the induction establishes every \(k\ge4\), and Laurent extraction gives the stated negative tail. Exact initial probabilities and integer samples corroborate, but finite sampling is not used as an infinite proof. The common-denominator method avoids numerical roundoff.
+PASS
 
-## Originality — PASS within inspected evidence
+The eight-state (carry, previous input, previous output) transfer matrix T_b(z) weights each new pair increment qy−px. The zero-shift tail vector g accounts exactly for the infinitely continuing carry with geometric probability 2^{−h}; hence natural densities follow from dyadic cylinder frequencies plus vanishing tail. The inspected rational Laurent-polynomial verify.py constructs T_1, g and w=(T_1−I)g independently; its finite algebraic identities show (T_1^4−(z/2)T_1^3)w=0, G_4 numerator, and e0^T T_1^4 w=(z−1)^2(z+1)(2z²+z+2)/128. These imply the claimed exact G_{k+1}−G_k polynomial for every k≥4, stable negative coefficients, and sharp initial values by coefficient extraction. Independent counts of 2^19 consecutive inputs at k=4,5,6 give nondecrease 83/128, negative−1=45/256 and negative−2=45/512, matching the analytic coefficients; finite counts are not proof.
 
-Sobolewski–Spiegelhofer arXiv:2309.00142 Section 2 explicitly poses the strict-majority problem and proves a Gaussian theorem for many separated one-blocks. Its Proposition 3.2 provides general recurrences but does not establish the present stable negative tail or exact one-block family. Sobolewski arXiv:2204.05287 Theorem 1.7 treats parity-progressions at precisely the same Mersenne step; it does not imply a frequency law for additive increments. The 2024 general block-counting preprint arXiv:2412.15851 is a relevant possible broader source, but only its abstract was accessible in this comparison; its reported many-block Gaussian theorem is not the same exact claim. Searches of available mathematical research records and accessible earlier claims did not identify an equivalent or dominating theorem. Residual uncertainty: unindexed exact results or uninspected later full text.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves an infinite natural family of the explicit strict-majority question rather than an isolated parameter; it reveals an unexpected *full geometric negative-tail stabilization* despite changing nonnegative distributions. The eight-state transfer identity gives a structural explanation and a sharp threshold. This is mathematically distinct from a routine single-shift numerical evaluation and useful for understanding limitations of Gaussian approximations in the one-block regime.
+PASS best-of-knowledge with prominent overlap: published October 25 Resultary result already proves the exact nondecrease density 83/128 and sharp threshold k=4; that is NOT newly claimed independently. Its full primary text explicitly disclaims determination of the complete distribution. The additional stable coefficient formula for every negative j and exact polynomial generating-function recurrence are not entailed by the one scalar survival probability. General Sobolewski–Spiegelhofer recurrences could computationally yield the distribution, so the overlap remains a priority/implication risk but no explicit prior full-tail result was identified.
 
-## Scope and limitations
+## value
 
-This is not a proof of the strict-majority conjecture for every shift or every binary block. The distribution for \(k\ge4\) is not entirely constant; only its negative side is. Originality review is not a proof of priority, and independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The genuinely new portion is the *entire* geometrically decaying negative tail, which resolves an infinite collection of exact conditional probabilities with one sharp k cutoff, and structural Laurent transfer recurrence explaining its stability; these are motivated finer statistics of a natural binary block-counting difference beyond the already known scalar bias. The theorem also acknowledges that nondecrease=83/128 itself is previously established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
