@@ -1,19 +1,21 @@
-# Review of the local chirped-tone spectral transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complex Gaussian integral produces the normalized even intensity in `RESULT.md` without asymptotic approximation. Exact derivatives give the critical quartic coefficient \(q(r)\), the sixth-order coefficient \(-8/45\), and the positive derivative \(Q=(4+2\sqrt2)/3\) at \(r_*=\sqrt2-1\). The local stationary equation is analytic in squared frequency. The ordinary implicit-function theorem proves the square-root branch away from the critical chirp, while a rescaled double-root system with nonzero Jacobian proves the quartic-root branch and the quadratic fold coefficient. Strict local concavity of the reduced derivative establishes the stated multiplicities. The supplied executable independently checks analytic coefficients, direct Gaussian integration, and representative root types; it is not an infinite proof.
+PASS
 
-## Originality
+The Gaussian integral provides exact central-slice intensity H_{r,eps}(z)=exp(-z²)[cosh(2 sqrt((1+eps)/(1-r²)) z)+cos(2r sqrt((1+eps)/(1-r²)) z)] up to a positive scalar. Independently symbolically recomputed the Taylor z² coefficient 2eps, q(r)=(-1+6r²-r⁴)/(3(1-r²)²), r*=sqrt(2)-1, q'(r*)=(4+2sqrt2)/3, v(r*)=-8/45 and quadratic fold coefficient -(5/2+5sqrt2/3). Implicit function theorem, scaling y=z²=delta Y and epsilon=delta² E and local concavity give exactly the local square-root, fourth-root and saddle-node structures. Scope explicitly restricts local near-zero peaks and c/a<1, avoiding unsupported global ridge counts.
 
-**PASS relative to the inspected evidence, with a specified residual risk.** Chand–Nolen–Wu, arXiv:2601.10910, investigates two-component harmonic spectral interference, not a common linear-chirp deformation with a sixth-order central degeneracy. Li–Cai–Han–Jiang–Ji, arXiv:1812.11292, §§3–4.2, develops Gaussian linear-chirp STFT and sufficient support-zone separation estimates, which do not imply the local exact multi-peak classification or its fold coefficient. Searches for common chirp, quartic-root, sixth-order spectral bifurcation, two-component STFT interference, and saddle-node alternatives produced no equivalent indexed statement. The Chand–Nolen–Wu full text was inaccessible; its public abstract and journal metadata were compared, but a buried equivalent theorem cannot be excluded with certainty. Independently written work can also remain unindexed.
+## originality
 
-## Value
+PASS
 
-**PASS.** Spectral peak count is a natural observable for frequency-component resolution. The result identifies an explicit, previously unaccounted-for chirp-dependent transition between continuous side-peak onset and hysteretic three-peak coexistence. The exact critical ratio, universal local exponents, and quadratic fold constant resolve a motivated structural question rather than a sample-specific numerical feature. The scope is deliberately local; no unsupported finite-resolution or global-ridge conclusion is claimed.
+Best of knowledge: the most relevant 2026 Chand–Nolen–Wu analysis concerns interference of *unmodulated/harmonic* two-tone STFT components and related ridge behavior, corresponding to the r=0 slice. The submitted exact *common nonzero chirp* tricritical ratio, sixth-order local degeneracy, fourth-root law and fold coefficient are not directly provided by that special case or by general Gaussian STFT formulas; no stronger covering all-r formula found. The Chand–Nolen–Wu full manuscript remained inaccessible/oversized in this run, so priority is explicitly provisional.
 
-## Limitations
+## value
 
-The literature comparison does not establish formal publication priority. Other chirp rates, unequal component amplitudes, different analysis times or windows, and measurement noise are not treated. The linear-chirp source is not square-integrable, but the defining windowed Fourier integral converges absolutely.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact switch between supercritical square-root ridge splitting and tricritical fourth-root splitting, with a computable subcritical coexistence interval, is a meaningful local-bifurcation boundary for Gaussian time-frequency analysis. The model is physically motivated two-tone coherent chirping rather than a cosmetic parameter substitution; analytic fold coefficients can guide stability and resolution research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
