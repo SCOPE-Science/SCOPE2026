@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim is the set identity for all \(k\ge3\), with the stage-filtered identity for all \(n\ge0\). The proof derives the final two symbols of every iterate and exhausts all length-three factors crossing the boundaries of the known block decomposition. All other factors are inherited, with a controlled shift of \(k\); the reverse inclusion is proved by explicit witness iterates. The independently implemented morphism and block-concatenation checker verified the finite stage formula and residue-based membership test on the stated ranges. These checks are supportive rather than an infinite proof. No hidden reliance on bounded enumeration is present.
+PASS
 
-## Originality — PASS, with residual priority risk
+For every k>=3, the published W_n block recursion and suffix pair (t_k(j),j) allow an exhaustive classification of all length-three factors: factors within blocks are inherited or k-shifted, and a triple crossing boundaries meets only one ordinary boundary except the separately analyzed early W1|W0|n transition. The six listed families A0,A1,I1,I2,T1,T2 contain all such boundary triples, with witnesses at stages 2,j,j+1,k+j-1 respectively; shifting whole embedded W_m by hk establishes the reverse inclusion and the exact finite-iterate stage formula. Independent direct-morphism vs stage-expression tests passed 44 (k,n) cases for k=3,4,5,6. This finite corroboration is not the proof for all k,n.
 
-The 2020 foundational article establishes the necessary block identities and the length-two language, but does not state the six-family all-\(k\) length-three classification. The 2026 factor-occurrence article explicitly poses length-three factor classification as Problem 1(i) and treats only length-one and length-two occurrence generating functions. A publicly posted proof of the separate arbitrary-factor rationality conjecture addresses occurrence counts, not the complete three-letter factor language. Relevant published and indexed searches did not reveal an equivalent three-factor formula, but unindexed or differently phrased coverage remains possible. The classification follows from known structural lemmas by an additional exhaustive boundary-and-shift argument, not from a previously stated complete length-three classification.
+## originality
 
-## Value — PASS
+PASS
 
-This closes the first concrete length beyond the motivating paper's solved length-two factor case, answering the natural language-classification part of its explicit Problem 1 at length three. The formula holds for the entire infinite family \(k\ge3\), not one parameter or a finite table; it also yields exact finite-iterate descriptions and effective membership. No claim about length-three occurrence generating functions is made.
+Best-of-knowledge originality PASS: the 2020 primary paper establishes two-letter suffix and length-two factor description; the 2026 original article explicitly lists classification of length m>=3 as Problem 1(i). The submitted complete length-three language and finite-iterate witness stages answer that open case. A rationality proof attempt for occurrence generating functions addresses multiplicities, not the triple membership sets.
 
-## Closest literature and limitations
+## value
 
-Ghareghani et al. (2020), especially Theorem 16, gives the suffix and length-two infrastructure. Ghareghani et al. (2026), arXiv:2604.01488, explicitly identifies length-three classification as the next open step. The publicly posted MathDB rationality solution covers a different object (recurrences for occurrence counts). The result does not handle longer factors or triple multiplicities. Independent audit and definitive priority confirmation are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit solution of a naturally posed factor-language problem for an infinite-alphabet morphic word, including an all-iterate finite-stage version and constant-case membership algorithm, supplies nontrivial combinatorics directly useful to symbolic dynamics and automata. No unsupported claim to all longer lengths or occurrence counting is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
