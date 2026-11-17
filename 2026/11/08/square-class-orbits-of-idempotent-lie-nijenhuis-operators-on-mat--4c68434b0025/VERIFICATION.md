@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible checks
-Run \(`python3 verify.py`\), requiring only Python 3 standard library. The attached \(`verification_output.txt`\) is the exact script output.
+# Independent mathematical audit
 
-The script independently enumerates reduced row-echelon subspaces of \(k^3\), directly evaluates the \(\mathfrak{sl}_2\) bracket and idempotent Nijenhuis torsion for all operators obtained from complementary pairs over \(\mathbb F_3\) and \(\mathbb F_5\). It independently enumerates all \(3^9=19683\) endomorphism matrices over \(\mathbb F_3\) without starting from any subalgebra parameterization; only 74 satisfy both required equations and the rank counts are \((1,36,36,1)\). The derived orbit classification is also checked by direct conjugation of all upper-triangular matrices on complement lines for each field. The outputs include sizes \((12,12,12)\) for rank one at \(q=3\) and \((30,60,60)\) at \(q=5\).
+## correctness
 
-The general-field classification rests on the symbolic argument in RESULT.md; small-field exhaustive enumeration cannot certify all odd prime powers. The script does not assert historical uniqueness, scheme-theoretic reducedness, or independent proof verification.
+PASS
+
+Expanding the Nijenhuis identity on image×image, kernel×kernel and mixed pairs shows equivalence to complementary Lie subalgebras. All 2-dimensional sl2 subalgebras in char!=2 are Borels: their nonzero derived element has trace-square zero and is nilpotent, giving a unique rational invariant line. Each Borel plane has exactly q² complementary projective lines, so ranks 1 and 2 both count q²(q+1). In Borel coordinates F+aH+bE, projective upper triangular conjugation sends a′=ta+u and b′=t²b−2tau−u², so discriminant a²+b scales by t² and yields three orbits with stated sizes. Independent symbolic conjugation and finite-field class sums at q=3,5,7 corroborate algebraic proof; no reliance on stored VERIFY_OK.
+
+## originality
+
+PASS
+
+Complex splitting operator classifications and general Nijenhuis concepts are acknowledged prior. Distinct finite-field zero/square/nonsquare rational PGL2 orbit splitting, exact all-odd-q rank counts and reduced geometric bundle decomposition are the surviving claims. Published Resultary rank-one weight-zero Rota–Baxter results on sl2 are a different operator identity and are not a direct specialization. Historical specialist finite-field factorization priority remains an explicit risk, particularly inaccessible source full text.
+
+## value
+
+PASS
+
+A complete labeled census, rational conjugacy orbit sizes and geometric families for a natural low-rank Lie algebra form a meaningful modular classification. Square-class splitting is arithmetically sensitive, not furnished by merely complexifying a known two-orbit description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

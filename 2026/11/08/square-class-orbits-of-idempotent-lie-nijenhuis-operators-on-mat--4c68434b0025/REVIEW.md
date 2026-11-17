@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct-sum reduction of the Nijenhuis identity identifies two subalgebras; a trace-invariance argument proves every proper two-dimensional subalgebra of split \(\mathfrak{sl}_2\) in odd characteristic is a rational Borel. Complementary lines form affine-plane fibers and the upper-triangular action gives three discriminant classes and their exact sizes. The packaged checker independently verifies every complement in fields of order 3 and 5 and independently enumerates all 19,683 endomorphisms over the field of order 3.
+## correctness
 
-## Originality
-PASS to best knowledge; the 2016 archived operator paper formulates Nijenhuis theory without this finite-field count. The closely relevant 2024 full-text classification addresses three *distinct* eigenvalues and real/complex Lie algebras, not idempotent projections with two eigenvalues over finite fields. Related symplectic/Heisenberg and almost-abelian results do not cover simple \(\mathfrak{sl}_2\). The classic Borel classification is prior art and is used, not claimed new. Residual risk: a broad treatment of factorizations into two Lie subalgebras could imply the orbit census without naming Nijenhuis operators.
+PASS
 
-## Value
-PASS. The enumeration and rational square-class splitting provide a complete arithmetic/operator classification in the smallest split simple Lie algebra; the orbit-size and three-dimensional irreducible parameter-space information are useful for distinguishing finite-field forms invisible to complex classifications. The exact orbit stratification, not the elementary subalgebra count alone, motivates the work.
+Expanding the Nijenhuis identity on image×image, kernel×kernel and mixed pairs shows equivalence to complementary Lie subalgebras. All 2-dimensional sl2 subalgebras in char!=2 are Borels: their nonzero derived element has trace-square zero and is nilpotent, giving a unique rational invariant line. Each Borel plane has exactly q² complementary projective lines, so ranks 1 and 2 both count q²(q+1). In Borel coordinates F+aH+bE, projective upper triangular conjugation sends a′=ta+u and b′=t²b−2tau−u², so discriminant a²+b scales by t² and yields three orbits with stated sizes. Independent symbolic conjugation and finite-field class sums at q=3,5,7 corroborate algebraic proof; no reliance on stored VERIFY_OK.
 
-## Limits
-Only odd characteristic, split form and idempotent operators; geometric assertion concerns the reduced variety. No exhaustive historical-priority certification and no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Complex splitting operator classifications and general Nijenhuis concepts are acknowledged prior. Distinct finite-field zero/square/nonsquare rational PGL2 orbit splitting, exact all-odd-q rank counts and reduced geometric bundle decomposition are the surviving claims. Published Resultary rank-one weight-zero Rota–Baxter results on sl2 are a different operator identity and are not a direct specialization. Historical specialist finite-field factorization priority remains an explicit risk, particularly inaccessible source full text.
+
+## value
+
+PASS
+
+A complete labeled census, rational conjugacy orbit sizes and geometric families for a natural low-rank Lie algebra form a meaningful modular classification. Square-class splitting is arithmetically sensitive, not furnished by merely complexifying a known two-orbit description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
