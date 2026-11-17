@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_gap_flux.py` with Python 3 and no dependencies. Expected final line: `ALL_CHECKS_PASSED`.
+## correctness
 
-The program independently constructs the derivative numerator from the rational Gibbs current, checks the exact polynomial coefficient list, computes the Möbius-transformed polynomial coefficient signs and three Descartes sign changes, and evaluates the four rational sign brackets. It also enumerates all compositions with three or four labelled particles and 7–12 holes, checking weighted balance for both jump directions at jump length two. The 24 finite-state direction/batch cases support but do not establish stationarity on every ring.
+PASS
 
-For general jump length, the proof uses the finite-range Gibbs pairwise-balance identity, canonical-to-grand-canonical equivalence, and a strict-variance monotonicity argument for density. The all-jump-length two-peak conclusion follows from C1 convergence on compact fugacity intervals on either side of the critical scale and strict derivative sign changes; the verifier does not extrapolate the finite witness to an infinite theorem. The three-root classification relies on Descartes' rule and exact rational values, not numerical root finding.
+The gap transfer rate u(n)w(n)=w(n-I) makes the conditioned product Gibbs law stationary in both oriented jump directions; the grand-canonical identity E[u]=z^I and strictly positive headway variance establish the current/density parametrization. The k→infinity C1 asymptotics on either side of e^-theta force four alternating derivative signs. Independently derived the exact I=2,k=7,s=100 rational derivative numerator P, its three transformed Descartes sign changes, and strict rational signs at 2/5,1/2,3/4,19/20, proving precisely three simple critical roots for this witness. Does not claim all finite parameters or dynamic selection from every reducible chain.
 
-The supplied code is the entire reproducibility dependency. Numerical extrema and densities quoted in the result are illustrative, not proof data. Independent verification has not been performed.
+## originality
+
+PASS
+
+The originating exact look-ahead Gibbs/current paper gives the general mechanism and a headway-bimodality example, not two maxima of this exact single-preferred-gap current or the all-jump-length construction. Multiple peaks are known in other interacting traffic/oligomer models and are not claimed universally new; the mathematical specialization and exact existence theorem are not implied by those other rate laws.
+
+## value
+
+PASS
+
+Nonconcavity and two local current maxima within an exactly solvable single-preferred-gap Gibbs model are a substantive counterexample to a single-peak traffic-current heuristic; the all-I mechanism and exact root certificate make the boundary reusable rather than an arbitrary parameter plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
