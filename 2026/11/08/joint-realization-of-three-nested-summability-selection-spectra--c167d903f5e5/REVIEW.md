@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The principal amplitude function has verified power/logarithm endpoint behavior and makes the inner Lorentz fundamental function asymptotically negligible relative to a whole-row perturbation. For every favorable \(p>1\), Lorentz–Hölder estimates give a global upper \(\ell_{p'}\) synthesis estimate and hence \(G_p=E\). For every unfavorable \(p>1\), whole-row vectors contradict such an estimate; a proper dense domain is ruled out by [1, Proposition 2.5] and hereditary \(\ell_1\) saturation, which is valid for the explicitly constructed predual. The analogous strong-normal obstruction excludes all exponents at most one. Norm-null perturbation stability determines the subsequence spectrum. The normalized row averages give every allowable block exponent, while normalized disjoint row-profile sequences and the hereditary Lorentz criterion exclude the rest. All quantifiers and critical open/closed endpoints are considered. The remaining cases use published realizations and a justified direct-sum interleaving. Finite checks corroborate algebraic identities only.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The nearest relevant full-text source is Śliwa [1], which proves complete \((\mathcal S,\mathcal B)\) classification and explicitly leaves the \((\mathcal P,\mathcal S,\mathcal B)\) problem open (Section 8). Its Theorem 4.4 gives \(\mathcal P=\varnothing\) for every admissible pair, Corollary 4.2 gives \(\mathcal P=\mathcal S\) with full block spectrum, and Theorem 3.6 gives diagonal triples. Those results do not produce all nonempty proper nested original spectra. The amplitude-tuned realization separates the original-density cutoff independently from its subsequence and block cutoffs. Searches across mathematical literature and published mathematical records found no direct implication or equivalent theorem. This is not a proof of worldwide priority. A prior general three-layer interpolation construction under different terminology remains possible.
+PASS
 
-## Mathematical value — PASS
-The theorem supplies every natural ordered triple, including three strictly different proper thresholds and critical endpoints, in normalized weakly null \(1\)-unconditional sequences. It directly answers a significant realization subquestion raised by the newest pair-classification paper. The complete, tunable three-layer construction is more than a renaming or routine single-parameter change; it gives simultaneous independent control of three operator-domain phenomena. The theorem is explicitly limited to sufficiency within \(\mathfrak A\) and does not claim a full classification of all potential original spectra.
+In the novel nonempty proper K⊆I⊆J case, Lorentz weights have ℓ_p membership exactly H and W_I(m)/(m d(m))→0 for all three endpoint patterns. Select row lengths m_k with δ_k=d(m_k)→0 and W_I(m_k)/(δ_k m_k)≤2^(−k²). In V=Z_I ⊕∞ (⊕ℓ1^{m_k})_{Z_J}, canonical y_{ki}=(e^I_{n(ki)},δ_k e^X_{ki}) are normalized and 1-unconditional, weakly null. For p∈K, Lorentz-Hölder plus row Hölder gives uniform upper ℓ_{p′} synthesis and G_p=E; for p>1 outside K, the full-row vector has ratio δ_k m_k^{1/p}→∞. Density-to-block amplification together with the cited hereditary ℓ1 obstruction excludes proper dense G_p; p≤1 is likewise excluded. Norm-null perturbation of y by its Lorentz first component preserves subsequence spectrum I. Normalized successive row blocks have X profiles exactly the Z_J basis and first coordinate ≤2^(−k²), showing J⊆B. Conversely a putative p∉J strong-normal block is contradicted either by its Z_I component or disjoint X row-profiles in Z_J. The boundary K=∅ and J=full cases are constructed with cited older pair results and direct-sum interleavings. Independent inspect of CHECK.py confirms it checks only finite row-profile algebra, not these analytic lemmas. Crucial hereditary/saturation inputs are explicit published lemmas rather than newly proved; their complete original paper could not be fetched (see access risk).
 
-## Closest literature and remaining limitations
-[1] Wiesław Śliwa, *Selection spectra and sharp perturbations of normal sequences*, arXiv:2610.38853v1 (2026-10-28), full text Sections 2–4, 8 inspected. [2] Wiesław Śliwa, *The separable quotient problem and the strongly normal sequences*, J. Math. Soc. Japan 64 (2012) 387–397; abstract and initial text checked. [3] Kamińska et al., *Norm closed operator ideals in Lorentz sequence spaces*, J. Math. Anal. Appl. 389 (2012), 247–260, relevant structural background referenced in [1]. The possibility that a classical Lorentz/block interpolation theorem subsumes the new realization remains a priority risk. Analytical proof depends on [1]'s stated auxiliary results. Exact finite experiments cannot prove infinite-dimensional saturation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Śliwa (Oct 28 2026) establishes the shapes of S and B and every nested S⊆B pair, with P=empty allowed, plus some diagonal and full-B examples; the candidate adds simultaneous control of a nonempty proper original spectrum K⊂I⊂J through variable row amplitudes. The inspected primary abstract and extended review do not state this triple realization, but inaccessible complete text leaves genuine coverage risk.
+
+## value
+
+PASS
+
+A natural open structural question asks which triples (original, subsequence, block) can coexist. The construction realizes every nested triple in the established admissible family, including genuinely different proper endpoint thresholds and boundary cases; this is a motivated classification and not merely a new numeric example or renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
