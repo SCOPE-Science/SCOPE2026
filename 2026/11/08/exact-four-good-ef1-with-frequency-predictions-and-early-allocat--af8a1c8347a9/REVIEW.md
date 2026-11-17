@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For strictly positive valuations, terminal EF1 with four goods and three agents forces bundle sizes \((2,1,1)\). The only nontrivial comparisons are singleton value versus the smaller item in the doubled bundle, reducing every numerical prediction profile to a four-rank game. The exact finite minimax recurrence covers every possible adaptive arrival vector and every legal online response. Independent C++ and Python implementations agree on all four initial game values. Complete adversary trees for both restricted losses have 27 and 18 terminal paths, respectively, and are checked in full. Ties are handled by deterministic strict refinement; rank EF1 implies actual EF1. Risk: correctness of the finite implementations remains subject to independent reproduction, not to numerical approximation.
+## correctness
 
-**Originality: PASS, qualified.** Neoh and Teh (arXiv:2610.34625, Sections 2–4 and 7) give general \(1/2\)-EF1 for three agents, not the exact first-surplus guarantee or the necessary early decision pattern. Neoh, Peters and Teh (arXiv:2505.24503, Sections 1 and 5 and its proof discussion) transfer share guarantees and leave three-agent exact EF1 unresolved. Amanatidis et al. (arXiv:2505.22174) and Wang–Wei (arXiv:2505.24321) focus on binary/two-value instances and different information models. The direct prior small-horizon no-prediction result does not imply the richer-information guarantee and is not restated as a new result. Research-database and primary-literature searches did not reveal a dominating four-good result, but absence from a search index does not establish publication priority. The main residual risk is an unindexed or implicitly stated small-market lemma.
+PASS
 
-**Mathematical value: PASS.** Four goods are the first nontrivial horizon for three agents: at most three goods can be assigned to distinct agents without any envy after removing one good. At four goods, exact frequency information restores an exact fairness property beyond the available general approximation theorem, and the two restricted-policy losses show why the structure of early choices matters. The theorem provides a precise, reusable finite boundary rather than an arbitrary table cell. It does not establish a general longer-horizon theorem.
+Three agents and four strictly positive additive goods imply every EF1 terminal bundle cardinality is (2,1,1); the singleton holder i must value her own good at least the smaller (in her values) of the doubled holder’s two goods. Because only order matters, exact four-value multisets reduce to four agent-specific ranks used once each; tied values can be tie-broken conservatively. The finite perfect-information game has adversary arrival triple first and recipient response second, so the forall-arrival/exists-recipient Bellman recursion proves policy existence or adversarial obstruction. An independently reimplemented memoized rank recursion returned unrestricted=True (115651 states), first_two_distinct=True (104443), first_two_together=False (24681), first_three_distinct=False (21189), precisely matching source Python counts. Inspected paired C++ numeric checker and negative witness tree path conventions, though not independently replayed 52-kB tree file. The finite game exhausts all possible predicted order assignments and is not merely a horizon sample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Neoh–Peters–Teh 2025/ICML2026 and Neoh–Teh October2026 establish the frequency prediction model and share/approximation results, not exact terminal EF1 with these sharp four-good early-allocation restrictions. The November 8 published three-level/no-prediction theorem has different information and a sharp four-level impossibility only when future multisets are unknown; it does not contradict or subsume an exact-multiset prediction win for four arbitrary levels. Best-of-knowledge priority qualified because full arXiv 2610.34625 manuscript was not retrieved.
+
+## value
+
+PASS
+
+The first horizon with one surplus good is a natural finite boundary of a major online fair-division open problem; it provides an exact positive EF1 guarantee with precise prediction information and shows two natural universal early-allocation policies fail despite unrestricted achievability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
