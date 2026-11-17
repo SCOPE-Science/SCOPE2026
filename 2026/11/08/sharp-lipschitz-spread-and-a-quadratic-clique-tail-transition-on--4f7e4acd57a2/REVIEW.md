@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equality case is reduced to vertices of a strictly convex clique-coordinate optimization, whose tight-edge graph must connect the distinguished root. This gives only the two signed binary families. A pairwise-distance domination argument forces the tail to be straight and oriented away from all values \(-1\); the all-zero clique pattern is excluded by the strictly positive first finite difference. The remaining quadratic has a proved exact nearest-integer optimum and the threshold \(m=\ell(\ell+2)+3\). Direct exact rational enumeration is supplemental rather than a substitute for these universal steps.
+PASS
 
-## Originality — PASS, qualified
+On K_m with a single attached ell-edge tail, independent clique feasible variables are vertices of a root-anchored clique Lipschitz polytope under strictly convex centered variance. Each such vertex has signed 0/1 clique levels. Pairwise graph-distance domination straightens every maximizing tail away from negative clique values; positive finite differences exclude the all-zero clique pattern. The remaining quadratic N(B+k)-(A-k)^2, k=0..m-1, has exact nearest-integer maximum at (m+ell(ell+2))/2. The boundary m=ell(ell+2)+3 ties k=m-2 and m-1 and yields all claimed equality types. Independent exact computations for m,ell=(3,3),(4,3),(5,4),(8,3) agree with the variance formula and enumeration. Universal validity comes from strict convexity and exact algebra, not finite sampling.
 
-The introduction and graph-spread proof of Alon–Boppana–Spencer (1998), and the graph-spread introduction and random-graph analysis of Addario-Berry–Janson–McDiarmid (2009), do not give the stated full lollipop formula or quadratic phase boundary. The previous two-clique barbell case contains the tail-length-two specialization; that case is expressly excluded from the new claim. A recorded lollipop metric-base result concerns a different invariant. Search and review cannot rule out an equivalent formula in unindexed sources, and there is no claim of independent certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact sharp spread and optimizer classification are natural concentration-geometry data for the standard lollipop graph family. The nontrivial boundary at clique order \(\ell(\ell+2)+3\) determines precisely when the maximizer stops placing every nondistinguished clique vertex at one extreme and instead uses a mixed clique; for fixed tail length, the mixed regime eventually has nearly half of its clique vertices on each level. This is a complete structural two-parameter classification, not a small numerical improvement or a rescaling of the earlier bridge-barbell case.
+PASS best of knowledge: general graph-spread integral extremizers, random-graph concentration bounds, and distinct clique-bouquet/bridge-barbell graph computations do not imply this serial-path lollipop variance maximization. The short-tail ell=2 specialization is known and expressly excluded. No direct earlier equivalent long-tail formula was found in the actual searched materials; unindexed literature risk remains.
 
-## Closest literature and limitations
+## value
 
-Alon–Boppana–Spencer (1998), Theorem 2.1, provides general integral extremizer structure, while Addario-Berry–Janson–McDiarmid (arXiv:0902.1156) treats random graph spread. Neither result immediately yields the lollipop-specific integer optimization. The short-tail barbell specialization is previously covered and excluded. Scope is restricted to uniform vertex measure, unit edges, one attached path, and real quadratic variance; complete uniqueness in all external literature has not been verified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the exact spread for a canonical clique-with-one-long-tail graph is a natural concentration invariant; the nontrivial quadratic boundary and complete optimizer geometry distinguish polarized and mixed potentials throughout a two-parameter infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
