@@ -1,12 +1,21 @@
-# Review of integral multipath homology and affine four-point symmetry
+# Independent mathematical audit
 
-## Correctness: PASS
-The twelve arcs and no-cycle definition specify one finite complex. The complete 4096-subset census is checked by independent successor and forest methods; the resulting 278 nonempty faces produce consistent signed integer simplicial boundaries with all consecutive compositions zero. Two integer unit-pivot cancellation orders each leave ranks \(1,0,1,4,4\) in degrees zero through four, with zero differential; this proves the integral groups and no torsion. The ambient threefold matching join is homotopy \(S^2\), and an explicit embedded octahedral sphere generates its second homology. All 24 automorphisms are checked on every face. The rational homology character is uniquely recovered from exact mod-1009 signed chain traces and the proven integral ranks. These procedures have a standalone verifier.
+## correctness
 
-## Originality: PASS against accessible evidence
-The closest actual literature includes Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1; Caputi–Collari–Ramos, arXiv:2401.01248v1; and Caputi–Collari–Smith, arXiv:2601.05670v1. The matching-complex comparison requires absence of directed cycles, while this graph contains many. Bidirectional polygons and previously studied standard path homology of cyclic blow-ups use different objects. A related accessible exact integral calculation for the fully bidirected octahedral graph uses 24 arcs instead of twelve and does not imply the induced directed-orientation homology. Exact-claim, alias, parameters, broader-result and database searches disclosed no covering theorem. Unindexed literature and independent expert comparison remain material residual risks; lack of a search hit is not proof of uniqueness.
+PASS
 
-## Value: PASS
-The three uniformly doubled layers of a directed triangle are the smallest symmetric cyclic test of how the directed-cycle prohibition changes the otherwise simple threefold matching join. The new homology in degrees three and four, together with a parity-twisted four-point representation, supplies a geometric and algebraic explanation not obtainable from face counts alone. The exact natural object can be used for future structural comparisons, but neither a general blow-up classification nor a homotopy sphere-wedge is established.
+Two independent combinatorial validity predicates in the package cover all 2^12=4,096 arc masks and agree. An independent implementation reproduced 278 nonempty faces, f=(12,54,104,84,24), and mod-two reduced Betti ranks (1,4,4) in degrees (2,3,4). The package verify.py was read: integer signed boundary columns satisfy d²=0 and Schur-complement cancellations use only unit ±1 pivots (counts 11,43,60,20 in degrees 1..4), leaving free zero-differential groups Z,Z4,Z4; this excludes hidden torsion. Every one of 24 vertex symmetries induces an oriented simplicial permutation. The checker calculates their chain-boundary-image traces over p=1009 and recovers the rational homology character; dimensions at most 4 uniquely fix integer traces from residues. Character is (1,q,epsilon*q) for q the action on F2^3/<111>. Its averages yield fixed dimensions (1,1,0). No infinite family or integral lattice representation is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Specific exhaustive Resultary searches for cyclic tripartite blow-ups, affine four-coset representations, 12-arc multipath complexes, and homology ranks (1,4,4) found no earlier covering record; the only exact match indexed was this assigned 2026-11-08 finding. The checked general multipath frameworks concern different directed paths, polygons and acyclic comparison theorems. Originality is best-of-knowledge, not a consequence of an empty search.
+
+## value
+
+PASS
+
+A natural minimal cyclic layered digraph demonstrates how excluding directed cycles produces higher integral homology and a nontrivial full finite-group representation, separating the degree-limited join S2 from the actual complex. These exact invariant and symmetry facts answer a motivated structural question beyond a routine textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
