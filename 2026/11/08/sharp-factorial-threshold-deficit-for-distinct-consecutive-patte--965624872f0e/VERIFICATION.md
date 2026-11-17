@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Checks performed
-Replayed `verify_patterns.py` with Python 3 standard library. The script passed 362934 exact assertions: every permutation through order eight, deterministic pattern-cardinality bounds, aligned-shift matchings through length seven, and exact equality-event probabilities for every feasible pair of windows of total length at most eight. The exact output at order eight was \(\mathbb E X_8=27823/1260\), agreeing numerically with the previously reported value near 22.08.
+# Independent mathematical audit
 
-## Proof boundary
-The general theorem is established by deterministic factorial cutoffs, an alternating-matching argument for overlapping windows, factorial tail sums and Stirling's formula. Finite enumeration is a consistency check only. No independent mathematical audit, concentration proof, or publication-priority certification has been performed.
+## correctness
+
+PASS
+
+Let D_n=n(n+1)/2-E X_n where X_n sums distinct consecutive relative-order patterns over all lengths. For k <=(1-eps)log n/loglog n deterministic U_(n,k)<=k! yields D_n>= (1-eps-o(1))nlog n/loglog n. For two length-k windows overlapping at shift d<k, edges (j,j+d) on 1..k+d form disjoint paths; alternate-edge matching of size >= floor(k/2) gives disjoint value sets whose restricted order types are independent, so collision prob <=1/floor(k/2)!. Disjoint windows collide with probability 1/k!. Number of duplicate appearances <= number colliding pairs; summing for k>=(1+eps)log n/loglog n has tails O(n^2/b! +nb/floor(b/2)!)=o(nlog n/loglog n). Taking eps down to zero proves sharp coefficient one. Independent permutation counts n=3..8 and matched-forest checks corroborate.
+
+## originality
+
+PASS
+
+Prior Allen et al. gives only E X_n=(1/2)n^2(1-o(1)) and a cruder overlap bound; Godbole–Swickheimer improves error to O(nlog n) and explicitly asks for better error. Their inspected exact statements do not give the first-order deficit coefficient at log n/loglog n. Best-of-knowledge PASS for sharp expectation correction, not for known factorial crossover scale.
+
+## value
+
+PASS
+
+Natural quantitative refinement of a well-studied random-permutation statistic: identifies exactly how many potential consecutive windows are lost to duplicate order patterns, with coefficient 1 rather than a crude order bound. The overlap matching proof separates dependent from independent windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

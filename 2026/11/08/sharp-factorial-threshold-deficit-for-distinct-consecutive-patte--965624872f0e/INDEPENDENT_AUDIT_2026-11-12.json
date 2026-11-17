@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:58:44.585290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen SCOPE RESULT.md and verify_patterns.py",
+        "https://arxiv.org/abs/2011.12179",
+        "https://arxiv.org/abs/2310.14071"
+      ],
+      "rationale": "Let D_n=n(n+1)/2-E X_n where X_n sums distinct consecutive relative-order patterns over all lengths. For k <=(1-eps)log n/loglog n deterministic U_(n,k)<=k! yields D_n>= (1-eps-o(1))nlog n/loglog n. For two length-k windows overlapping at shift d<k, edges (j,j+d) on 1..k+d form disjoint paths; alternate-edge matching of size >= floor(k/2) gives disjoint value sets whose restricted order types are independent, so collision prob <=1/floor(k/2)!. Disjoint windows collide with probability 1/k!. Number of duplicate appearances <= number colliding pairs; summing for k>=(1+eps)log n/loglog n has tails O(n^2/b! +nb/floor(b/2)!)=o(nlog n/loglog n). Taking eps down to zero proves sharp coefficient one. Independent permutation counts n=3..8 and matched-forest checks corroborate.",
+      "residual_risks": [
+        "Uniform random permutations, consecutive order-isomorphism and expected distinct-count deficit only; no variance, concentration or next asymptotic term."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing expectation bounds E X_n=n²/2+o(n²) and E X_n>=n²/2-O(n log n) are strictly weaker than a sharp first-order deficit."
+        ],
+        "reasoning": "Neither prior result dominates the coefficient-one asymptotic; known lower bounds leave a logarithmic factor uncertainty.",
+        "searches": [
+          "https://arxiv.org/abs/2011.12179",
+          "https://arxiv.org/abs/2310.14071"
+        ]
+      },
+      "checked_sources": [
+        "Frozen SCOPE RESULT.md and verify_patterns.py",
+        "https://arxiv.org/abs/2011.12179",
+        "https://arxiv.org/abs/2310.14071"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior order-nlogn error bound does not imply o(nlogn) or loglogn denominator. The new forest matching selects >=floor(k/2) disjoint aligned pairs controlling overlap collisions, permitting threshold b~logn/loglogn."
+        ],
+        "reasoning": "The submitted upper and deterministic lower meet at a previously unresolved first-order scale; not a routine restatement of the prior theorems.",
+        "searches": [
+          "https://arxiv.org/abs/2011.12179",
+          "https://arxiv.org/abs/2310.14071"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allen et al gives leading n^2/2 and a cutoff strategy; Godbole–Swickheimer gives O(nlog n) deficit bound rather than asymptotic with coefficient one."
+        ],
+        "reasoning": "Both use same statistic X_n, but neither inspected theorem is equivalent to D_n~nlog n/loglog n.",
+        "searches": [
+          "permutation consecutive pattern distinct expected deficit factorial threshold n log n log log n",
+          "https://arxiv.org/abs/2011.12179",
+          "https://arxiv.org/abs/2310.14071"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published small-n expected values include ~22.08 at n=8; current exact E X_8=27823/1260 agrees, but one finite table cannot establish asymptotic coefficient."
+        ],
+        "reasoning": "No identified exact all-n enumerator or finite table implies the claimed scale; finite agreement supports normalization only.",
+        "searches": [
+          "permutation consecutive pattern distinct expected deficit factorial threshold n log n log log n",
+          "https://arxiv.org/abs/2011.12179"
+        ]
+      },
+      "rationale": "Prior Allen et al. gives only E X_n=(1/2)n^2(1-o(1)) and a cruder overlap bound; Godbole–Swickheimer improves error to O(nlog n) and explicitly asks for better error. Their inspected exact statements do not give the first-order deficit coefficient at log n/loglog n. Best-of-knowledge PASS for sharp expectation correction, not for known factorial crossover scale.",
+      "residual_risks": [
+        "Possibility of a later unindexed sharper asymptotic; no exhaustive literature priority guarantee.",
+        "Only expectation shown, not concentration or samplewise fluctuation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_STATISTIC_WEAKER_RESULT",
+          "evidence": [
+            "Obtains (1/2)n²(1-o(1)), does not state the deficit scale constant one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.12179",
+          "material_read": "Public PDF: theorem, overlap treatment, factorial cutoff and stated leading expectation result; page screenshot of relevant proof page.",
+          "method": "ArXiv PDF text with screenshot.",
+          "title": "The Expected Number of Distinct Consecutive Patterns in a Random Permutation",
+          "trigger": "Exactly the same sum over distinct consecutive order patterns"
+        },
+        {
+          "assessment": "SAME_STATISTIC_WEAKER_RESULT",
+          "evidence": [
+            "Proves O(nlog n) expectation deficit, not (1+o(1))nlogn/loglogn."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.14071",
+          "material_read": "Complete accessible HTML including Theorem 1.2, its proof and proposed improvement question.",
+          "method": "Full article HTML.",
+          "title": "An Alternative Proof for the Expected Number of Distinct Consecutive Patterns in a Random Permutation",
+          "trigger": "Same statistic, known improved lower bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen SCOPE RESULT.md and verify_patterns.py",
+        "https://arxiv.org/abs/2011.12179",
+        "https://arxiv.org/abs/2310.14071"
+      ],
+      "rationale": "Natural quantitative refinement of a well-studied random-permutation statistic: identifies exactly how many potential consecutive windows are lost to duplicate order patterns, with coefficient 1 rather than a crude order bound. The overlap matching proof separates dependent from independent windows.",
+      "residual_risks": [
+        "Possibility of a later unindexed sharper asymptotic; no exhaustive literature priority guarantee.",
+        "Only expectation shown, not concentration or samplewise fluctuation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Uniform random permutations, consecutive order-isomorphism and expected distinct-count deficit only; no variance, concentration or next asymptotic term.",
+  "schema_version": 1
+}

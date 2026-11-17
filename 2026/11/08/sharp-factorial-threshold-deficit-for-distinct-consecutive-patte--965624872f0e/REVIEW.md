@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The key observation is that, at shift \(d<k\), the \(k\) aligned index pairs form a forest of paths; an alternating edge color class supplies at least \(\lfloor k/2\rfloor\) disjoint pairs. Equal full patterns force equal order types on the two disjoint matched index sets, whose relative orders are independent uniform permutations. This proves the factorial collision bound and, combined with elementary collision-count and factorial-tail inequalities, closes a two-sided asymptotic proof. The included exact checker passed 362934 assertions; it is not used to infer the infinite limit.
+## correctness
 
-## Originality
-PASS with historical-priority qualification. Allen et al. (arXiv:2011.12179, 2020) prove a quadratic first order and find the deterministic factorial threshold, but their expectation lower bound loses order \(n\log n\). Godbole and Swickheimer (arXiv:2310.14071, first posted 2023, Theorem 1.2 and Section 3) give a sharper yet still order-\(n\log n\) loss and ask for improvement. Neither inspected text states an expected deficit asymptotic to \(n\log n/\log\log n\) or entails its coefficient by the displayed bounds. Comparable records about ordinary substrings of independent words concern a different equivalence relation and source model. An unindexed independent derivation remains possible.
+PASS
 
-## Value
-PASS. The motivating studies established near-maximal random permutation pattern diversity but left a factor of \(\log\log n\) between an unavoidable pigeonhole deficit and their expectation estimates. The theorem exactly closes that gap and gives a universal coefficient, revealing that the factorial crossover dictates the dominant expected loss.
+Let D_n=n(n+1)/2-E X_n where X_n sums distinct consecutive relative-order patterns over all lengths. For k <=(1-eps)log n/loglog n deterministic U_(n,k)<=k! yields D_n>= (1-eps-o(1))nlog n/loglog n. For two length-k windows overlapping at shift d<k, edges (j,j+d) on 1..k+d form disjoint paths; alternate-edge matching of size >= floor(k/2) gives disjoint value sets whose restricted order types are independent, so collision prob <=1/floor(k/2)!. Disjoint windows collide with probability 1/k!. Number of duplicate appearances <= number colliding pairs; summing for k>=(1+eps)log n/loglog n has tails O(n^2/b! +nb/floor(b/2)!)=o(nlog n/loglog n). Taking eps down to zero proves sharp coefficient one. Independent permutation counts n=3..8 and matched-forest checks corroborate.
 
-## Limitations
-Uniform one-line permutations, distinct consecutive relative-order patterns, and the expectation only. No variance, concentration or finer error term. Literature and record search do not substitute for independent priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Allen et al. gives only E X_n=(1/2)n^2(1-o(1)) and a cruder overlap bound; Godbole–Swickheimer improves error to O(nlog n) and explicitly asks for better error. Their inspected exact statements do not give the first-order deficit coefficient at log n/loglog n. Best-of-knowledge PASS for sharp expectation correction, not for known factorial crossover scale.
+
+## value
+
+PASS
+
+Natural quantitative refinement of a well-studied random-permutation statistic: identifies exactly how many potential consecutive windows are lost to duplicate order patterns, with coefficient 1 rather than a crude order bound. The overlap matching proof separates dependent from independent windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
