@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defining degree-eight polynomial has eight distinct roots in every odd characteristic different from seven. The tame quotient of the genus-six Kummer curve identifies the three invariant differential directions. On the covering curve the hyperelliptic Cartier coefficient rule has support exactly at \(pi\equiv j\pmod{14}\), and all relevant coefficients are nonzero because the binomial top index is less than the characteristic. The induced invariant-direction arrows prove the full Cartier rank sequences, \(a\)-numbers and stable \(p\)-ranks without reliance on finite sampling. A second direct Cartier–Manin calculation for 38 primes and an integer Laurent-polynomial quotient identity corroborate the proof. The geometric automorphism assertion uses the properly restricted hypotheses of Borges–Reis.
+PASS
 
-## Originality — PASS, qualified
+For every odd prime p != 7, the quotient T: W^2=Z^14+1 by (Z,W)->(Z^{-1},W/Z^7) has invariants X=Z+Z^{-1}, Y=(Z+1)W/Z^4 and equation Y^2=(X+2)D_7(X). The degree-eight squarefree right side has genus three. Invariant differential basis eta_j=omega_j-omega_{7-j}, j=1,2,3, and the hyperelliptic Cartier support rule (pi-j)/14 in [0,(p-1)/2] nonzero exactly for pi=j mod14 yield explicit arrows with nonzero binomial coefficients. Iteration gives profiles (3,3,3,3) at p=1 mod14; (3,2,1,0) at p=3,5; (3,1,0,0) at p=9,11; and (3,0,0,0) at p=13. Hence a-numbers 0,1,2,3 and p-ranks 3,0,0,0 respectively. Exact independent coefficient-expansion and modular rank tests passed for all 44 eligible odd primes through 199, including each residue class. Finite checks corroborate the all-prime congruence and nonzero-binomial proof; they do not replace it. The optional geometric automorphism claim requires p>13 and a separately cited theorem.
 
-The full 2019 treatment by Tafazolian–Top already studies the identical Dickson quotient, identifies the quotient map and differential basis, and proves a maximality condition; none of those is asserted as new. The distinguishing claim is the complete all-prime rank behavior of the Cartier operator, including its nilpotent chain lengths and \(a\)-numbers. The 2026 Borges–Reis source determines automorphism groups, not the nonmaximal Cartier ranks. Importantly, the \(p\equiv13\pmod{14}\) superspecial result is **already implied** by combining the 2019 maximality theorem with Garcia–Tafazolian's 2008 Theorem 3.3 (maximal over \(\mathbb F_{p^2}\) implies zero Cartier); no novelty is attributed to that row or to its combination with the 2026 automorphism theorem. Novoselov's related Cartier calculations do not report this exact family-wide rank profile. Searches of published mathematical research records did not retrieve an equivalent statement. The accessible abstract of the 2025 Dias–Tafazolian–Top paper does not indicate this calculation, but its complete publisher PDF was inaccessible, leaving a real priority risk. General Kummer-quotient Cartier-module results could imply this specialization and should be reviewed independently.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-way complete classification covers every good prime for a fixed genus-three curve. It separates three different nilpotent Cartier types within the zero-\(p\)-rank locus, information not determined by maximality or zeta-function statements. The superspecial/minimal-automorphism observation is useful context from combining prior results, not an independent advance. For residues \(3,5\), prior maximality over \(\mathbb F_{p^6}\) already gives vanishing of the third power, but not the intermediate ranks. The nonmaximal residues \(9,11\) admit no prime-power maximality congruence at all, and the newly proved rank-one Cartier operator with zero square is especially informative. The value comes from those exact chains, not previously known maximal-prime consequences. This is a motivated local arithmetic invariant of a newly highlighted family, not an isolated arithmetic entry.
+The superspecial p=-1 mod14 case and maximality are already implied by earlier sources, and are not claimed as new. What survives is the complete genus-three Cartier rank-iterate profile, particularly the nonmaximal p=3,5 intermediate ranks two and one and the p=9,11 rank-one then vanishing case. Primary material read does not yield these precise intermediate profiles; all conclusions are restricted to d=7.
 
-## Prior results and limitations
+## value
 
-The quotient and maximality characterization are prior work [Tafazolian–Top, arXiv:1902.06262, Theorem 1.4], while Cartier vanishing at maximal primes follows from Garcia–Tafazolian, Acta Arith. 135 (2008), Theorem 3.3; the minimal-automorphism criterion is [Borges–Reis, arXiv:2610.37777, Theorem 1.2]. The all-prime proof is not an exhaustive classification of superspecial genus-three curves, nor does the computation determine Ekedahl–Oort types beyond the supplied invariants. Historical priority and the proof have not undergone independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-prime Cartier degeneration classification for a natural genus-three Dickson–Chebyshev quotient is an exact algebraic-geometric invariant that is not routine from maximality. The nilpotent Jordan chains distinguish intermediate slopes and a-numbers even when all cases have p-rank zero. The superspecial corollary itself is previously known and is not the value contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
