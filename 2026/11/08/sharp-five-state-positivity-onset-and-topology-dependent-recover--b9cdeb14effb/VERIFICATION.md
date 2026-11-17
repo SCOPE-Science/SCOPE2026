@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python checker.py` with SymPy installed. The accompanying `checker_output.txt` was produced by executing this exact script. It reports 239 exact symbolic/rational assertions, the algebraic cycle threshold, and the isolated positive absorbing threshold. The script computes exact inverse matrices in dimensions two through five for cycles and through six for pure-birth chains, checks rational entry formulas, and tests exact rational points across the two boundary values.
+## correctness
 
-The all-dimensional conclusions are **analytical**. The coefficient \(-1/4\) of \(z^4\) in \(r(z)=(1-z+z^2/2)^{-1}\) gives a negative distance-four coefficient for every sufficiently small step on all larger cycles and birth chains. For every fixed finite cycle, all nonconstant Fourier modes vanish in the large-step limit, yielding the strictly positive uniform rank-one projector. For every fixed finite birth chain, transient forward-distance coefficients are asymptotically \(2(j+1)/h^2>0\), and absorption probabilities tend to one. Those are mathematical arguments, not claims that a finite test enumerated all sizes.
+PASS
 
-The self-review assessed correctness, originality and mathematical value; it is not independent scientific verification. Source text comparisons were performed with arXiv:2102.11939 (2021), arXiv:1303.6651 (2013), and arXiv:2412.15142 (2024), and analogous published research summaries. The conclusion is restricted to the unit-rate graph families stated in RESULT.md. No formal proof certificate or external certification was produced.
+PASS: The stability function r(z)=1/(1-z+z^2/2) has coefficients (1,1,1/2,0,-1/4) through degree four. Directed four-jump entries in C_n, B_n with n>=5 are -h^4/4+O(h^5), but n<=4 cases have explicit nonnegative rational transition entries for all h. For 5-cycle only the fourth-forward numerator may be negative, with root sqrt(1+2/sqrt(5))-1; the 5-birth threshold is root of h^2(h+2)(h+6)-4. Numerator sign monotonicity proves complete n=5 positivity sets and rho_C<rho_B; spectral convergence to positive stationary projection for cycles, and Jordan asymptotic for births, prove eventual recovery for each fixed n. Independent exact symbolic inversion of C5 and B5 checked the critical entries and h=2/5 topology contrast; source checker has additional finite symbolic identities. All-n statements are based on analysis, not finite sampling.
+
+## originality
+
+PASS
+
+PASS qualified: the exact B5 root and generic four-state/local/acyclic results are explicitly covered by the published [0/2] Padé Markov theorem, so cannot be counted new. The residual distinct claim is complete unit directed-cycle small-step onset for every n, exact first cyclic recovery root rho_C, strict comparison against the known birth-chain root and topology-dependent contrast at h=2/5. The earlier undirected graph heat-cycle theorem uses same rational function but L of a different generator and a C8 onset, not a reduction implying the directed C5 value.
+
+## value
+
+PASS
+
+PASS: Exact topology-dependent Markov positivity boundaries for the same rational integrator are motivated numerical-analysis/positive-systems invariants. The cycle/birth contrast and sharp cyclic onset are independently useful; this value does not rest on republishing the already-known birth threshold or on generic eventual positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
