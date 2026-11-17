@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The nonreal-eigenvalue criterion follows by computing the discriminant of the stated two-by-two matrix; the positive trace and determinant ensure damped oscillations. The chosen Gaussian-mixture Fourier transform is exact in two dimensions. A positive peak at each interaction scale and a strict intervening valley provide \(2K\) zero crossings. The elementary real-exponential-polynomial zero bound, applied with exponents of multiplicity two, shows exactly \(2K\) simple zeros. Local monotonicity and the controlled positive tail show exactly \(2K+1\) open bands for sufficiently small nonzero propulsion. The verifier passes 97 finite checks; the infinite result does not rely on numerical extrapolation.
+PASS
 
-## Originality
+For the 2x2 density–polarization matrix, discriminant exactly (Dr-rho Vtilde(q)q^2)^2-2v^2q^2, hence oscillatory iff |(1-T(q))/q|<sqrt(2)v/Dr. The equal-amplitude radial Gaussian transform yields T(q)=2e sum_j (q/q_j)^2 exp[-(q/q_j)^2], q_j=(32K)^j. T(q_j)>=2 and each geometric-midpoint T<=e/16<1; endpoints T->0, forcing 2K positive crossings of T-1. Writing y=q^2, the real exponential-polynomial Chebyshev/Rolle zero bound yields at most 2K real zeros counted with multiplicity (one constant plus K degree-one exponential terms). Thus exactly 2K simple positive zeros. Small positive propulsion makes one bounded |G|<P interval around each, no others on middle compacts, and an extra unbounded q-tail since G(q)~1/q tends to zero monotonically; total exactly 2K+1. Independent high-precision sign brackets for K=1..6 and finite discriminant code corroborate but do not prove all K.
 
-PASS, qualified. The closest source is arXiv:2610.41613v1, equations (33), (43), (47), and (48), which already supplies the complete pointwise criterion for an arbitrary Fourier potential. That criterion implicitly fixes the spectrum for any selected potential; the new structural claim is the **absence of any uniform finite component bound**, with an explicit all-positive equal-amplitude Gaussian-mixture construction and exact count, not another derivation of the pointwise criterion. Searches of indexed mathematical findings and relevant primary publications located no stronger covering component-count theorem. Residual priority risk: an unindexed treatment of multiscale wave-number band topology may exist, and the pointwise parent formula makes the construction mathematically accessible.
+## originality
 
-## Value
+PASS
 
-PASS. Multiple repulsive interaction lengths are a natural modeling choice, and the number and separation of oscillatory spectral windows are global qualitative invariants of the linear response. The theorem rules out any bounded-band principle based solely on positive repulsion, positive Fourier transform, and Gaussian linear stability. It also diagnoses a limitation of extending the closure to high wave numbers. It does not assert microscopic or experimental visibility of all formal bands.
+Soriani et al 2026 provides the Gaussian density–polarization matrix and pointwise oscillation criterion (Eq.47), including one Gaussian core. The new theorem constructs arbitrarily many separated peaks and proves a global exact 2K+1 connected-component count using a real exponential-polynomial zero bound; a pointwise discriminant condition does not itself state or prove global all-K realizability. Other indexed active-particle scattering and Gaussian mixture records are different models or invariants. Full Soriani manuscript could not be accessed through public routes or authorized institutional access (VPN disconnected), so mathematical comparison with all its uninspected passages remains a concrete originality risk. Best-of-knowledge accept with that limitation, not whole-text noncoverage.
 
-## Closest literature and limits
+## value
 
-The 2026 Soriani–Cameron–Markovich–Tjhung source is the direct parent of the linearized matrix; the 2017 Kurzthaler–Leitmann–Franosch work treats isolated active-particle scattering; Bickmann–Wittkowski (2019) concerns a more general field-theoretic framework and a stability/spinodal analysis. The actual approximation may fail at large wave numbers. No independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-K connected-component classification in the specified linearized active-matter closure is a motivated structural theorem: arbitrarily many isolated oscillatory windows are possible using positive radial repulsions with a fixed equal amplitude, despite a single-Gaussian baseline. Separation and real zero-count give a sharp 2K+1 answer with honest high-wave-number model limitations. The result is mathematical and valuable even without a microscopic experimental prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
