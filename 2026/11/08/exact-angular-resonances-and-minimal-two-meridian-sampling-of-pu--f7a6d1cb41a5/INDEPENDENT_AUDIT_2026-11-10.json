@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:01:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Associated Legendre cosine/sine basis spans complex H_l with dimension 2l+1. On a fixed meridian, restriction of homogeneous degree-l harmonic is a parity-restricted trigonometric polynomial with exponent frequencies l,l-2,...,-l, so the l+1 half-circle nodes s_j=πj/(l+1) yield a DFT after column phases. P_l^m(cos s) have distinct nonzero leading s^m orders and thus form a basis: A invertible. For m>=1 functions vanish at the north pole; unisolvency on all l+1 nodes implies B of remaining l nodes invertible. Evaluation M is block-upper/lower triangular with sine block B diag(sin(mtheta)), giving exact determinant, null modes, rational denominator floor(l/q), and minimal cardinality. Near resonance, uniformly invertible block transforms isolate simple sine factors; exactly floor(l/q) singular values vanish linearly. Independently evaluated numerical Legendre sample matrices at l=1,2,3,4,6; ranks and determinants match, including q=3 resonances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General nonuniform spherical harmonic transforms provide fast numerical synthesis, not exact rank formulas for this fixed minimal two-meridian sampling set.",
+          "Interpolation theorems on multiple horizontal circles have distinct N=(n+1)^2 cardinality and no exact q-denominator null count."
+        ],
+        "reasoning": "A general-purpose interpolation framework does not imply the explicit arithmetic determinant/rank without a specialized argument not present in inspected claims.",
+        "searches": [
+          "Resultary search: pure degree spherical harmonics restriction two meridians rank resonances sin m theta sampling determinant",
+          "arxiv:math/0407448",
+          "doi:10.1093/rasti/rzae045"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0407448",
+        "https://doi.org/10.1093/rasti/rzae045"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No quoted earlier theorem specifies detM=detA detB∏_{m=1}^l sin(mtheta), which is a block separation-specific phenomenon."
+        ],
+        "reasoning": "The proposed explicit two-meridian determinant and nullity do not follow from the named prior latitude interpolation theorems without a new mode-by-mode meridian analysis.",
+        "searches": [
+          "Resultary search: pure degree spherical harmonics restriction two meridians rank resonances sin m theta sampling determinant",
+          "arxiv:math/0407448",
+          "doi:10.1093/rasti/rzae045"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "zu Castell et al. use latitude circles and polynomials up to degree n with (n+1)^2 unknowns; submitted H_l is a pure eigenspace with 2l+1 unknowns and longitude meridians.",
+          "Published latitude-ring determinant sin²(Lδ) belongs to a symmetric two-ring sampling design and cumulative degree cutoff, not this sine product for all m."
+        ],
+        "reasoning": "Neither geometric transformation nor a basis substitution converts cumulative latitude sampling into the present pair of intersecting meridians and pure-degree all-m resonances.",
+        "searches": [
+          "Resultary search: pure degree spherical harmonics restriction two meridians rank resonances sin m theta sampling determinant",
+          "arxiv:math/0407448",
+          "Resultary: 2026/11/1/SCOPE-sharp-angular-offset-determinant-and-conditioning-for-two-spheri--35d45a63d3a2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite numerical ranks for l<=8 are new finite corroboration, not comprehensive known exact table for every l and every theta."
+        ],
+        "reasoning": "The claim has universal integer degree and continuous-angle quantifiers with exact rational-rotation resonance classes.",
+        "searches": [
+          "Resultary search: pure degree spherical harmonics restriction two meridians rank resonances sin m theta sampling determinant",
+          "Resultary: 2026/11/1/SCOPE-sharp-angular-offset-determinant-and-conditioning-for-two-spheri--35d45a63d3a2"
+        ]
+      },
+      "rationale": "Prior latitude-ring interpolation of all degrees ≤n uses (n+1)^2 samples and a different geometry; prior two-latitude angular staggering gives sin²(Ldelta) for a different cumulative degree space, not pure-degree two intersecting meridians. Other exact spherical harmonic sampling on S³ grids or Platonic vertex sets has distinct point geometry and rank issues. No inspected published prior yields this two-meridian all-l rational-denominator rank and sine-product determinant; possible older nodal reflection/dihedral alias remains a residual originality risk.",
+      "residual_risks": [
+        "An unlocated classical dihedral-reflection/nodal-set result could imply pure-meridian angle resonances.",
+        "No conditioning uniform in l or unknown degree mixtures is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SPACE_AND_GEOMETRY",
+          "evidence": "Cumulative polynomial degree up to n, points on multiple latitude circles, unlike 2l+1 samples of a pure degree on two meridians.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+          "material_read": "Abstract and relevant full-text description of (n+1)^2-point spherical polynomial interpolation on latitude rings; no exhaustive check of every lemma in this run",
+          "method": "arXiv bibliographic and accessible research-paper description",
+          "title": "Polynomial Interpolation on the Unit Sphere II (zu Castell, Laín Fernández, Xu, 2004)",
+          "trigger": "Potential general interpolation theorem implying sampling rank"
+        },
+        {
+          "assessment": "NO_IDENTIFIED_COVERAGE",
+          "evidence": "Computational fast synthesis does not establish sharp meridian-angle arithmetic determinant.",
+          "identifier_or_url": "https://doi.org/10.1093/rasti/rzae045",
+          "material_read": "Relevant methodological context for fast nonuniform spherical harmonic synthesis; no complete full-text coverage claim",
+          "method": "publication bibliographic/method comparison",
+          "title": "cunuSHT: GPU accelerated spherical harmonic transforms on arbitrary pixelizations (2024)",
+          "trigger": "General meridian-based Fourier transform possible prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact, cardinal-minimal measurement design for Laplace eigenspaces with a precise arithmetic failure locus and explicit blind harmonics; determinant and first-order singular-value losses provide useful conditioning geometry. This is an all-degree classification, not a few computed sample ranks or a generic unisolvence statement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/math/0407448",
+    "https://doi.org/10.1093/rasti/rzae045",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-angular-resonances-and-minimal-two-meridian-sampling-of-pu--f7a6d1cb41a5"
+  ],
+  "disposition": "passed",
+  "final_claim": "For pure degree l complex spherical harmonics, the specified cardinal-minimal 2l+1 samples on two meridians have rank 2l+1 minus the count of m<=l with sin(m theta)=0, determinant detA detB product sin(m theta), and linear singular-value resonances.",
+  "limitations": [
+    "An unlocated classical dihedral-reflection/nodal-set result could imply pure-meridian angle resonances.",
+    "No conditioning uniform in l or unknown degree mixtures is claimed.",
+    "No full-document claim is made for sources inspected only by abstracts or selected sections; finite computations are corroboration, not infinite proofs.",
+    "Source material and metadata remain unchanged; status not_ready is a publication/privacy constraint, not a scientific axis."
+  ],
+  "residual_risks": [
+    "An unlocated classical dihedral-reflection/nodal-set result could imply pure-meridian angle resonances.",
+    "No conditioning uniform in l or unknown degree mixtures is claimed."
+  ],
+  "schema_version": 1
+}
