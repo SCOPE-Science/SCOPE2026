@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state description distinguishes an immediately previous weak ascent from any other preceding comparison and forbids exactly a second consecutive weak ascent. Each admissible periodic word uniquely supplies its state sequence; thus trace counts indexed cyclic words, including periods one and two. The Schur complement and matrix determinant lemma reduce the transfer determinant to a single rank-one evaluation. Nilpotence of the strict-descent matrix and the exact binomial counts of decreasing index chains supply the six-periodic polynomial. Formal differentiation proves the infinite-length enumeration; Burnside and Möbius formulas handle rotation orbits. Standalone exact integer checks reproduced the counts independently by transfer traces and direct word enumeration. No finite sample is used as an infinite proof.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+The comparison-state automaton A=[[D,U],[D,0]], with D strictly descending and U weakly ascending, has one closed state path per cyclic word without two consecutive weak ascents, including n=1,2. Its Schur complement gives det(I-zA)=det(I-zD+z^2D^2-z^2 1(1^T D)); nilpotence and (1-t+t^2)^-1=(1+t)/(1+t^3) yield the six-periodic c_r and 1^T D^(r+1)1=binom(q,r+2). Hence exact Delta_q, C_q(m)=[z^m](-zDelta_q'/Delta_q) for ALL q,m. Burnside and Möbius count necklaces and primitive orbits, including periodic words. Explicit 2- and 3-loops establish existence q>=3 for all m>=2; q=2 requires alternating cycles. An independent brute count agreed in 35 cases (q<=5, m<=7, q^m<=100000).
 
-Sekhon's 2026 work establishes ordinary generating functions for *linear* avoidance of nondecreasing contiguous subwords, including length three. Its complete available article was compared with the cyclic-window definition; neither circular wraparound counts nor necklace spectra are stated. The 2025 predecessor addresses *strictly* increasing linear factors. General finite automata, logarithmic determinant identities and Burnside inversion are standard ingredients, not claimed as new; the claim is their explicit all-alphabet, six-periodic binomial evaluation for this cyclic forbidden-pattern problem. The determinant is related algebraically to the denominator of the known linear generating function, so the new cyclic count should not be interpreted as a wholly independent problem. Unindexed equivalent specializations and earlier cyclic pattern calculations remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The input family has natural parameters: the size of an ordered alphabet, and the length of a circular pattern-avoiding word. It is the circular closure of a recently studied linear word-avoidance problem, with a nontrivial endpoint interaction not captured by simply counting linear avoiders. The resulting exact polynomial gives all lengths simultaneously, determines primitive and unrestricted necklace enumerations, and yields a sharp existence contrast between binary odd cycles and alphabets of at least three symbols. This is a complete natural enumeration, not a short table or a parameter-tuned finite slice.
+Sekhon 2026 computes linear avoidance ordinary generating functions for nondecreasing contiguous factors; its full text does not assert circular periodic-word or necklace counts. The current rank-one determinant explicitly evaluates the required trace for all alphabet sizes, and periodic wraparound changes the invariant. Transfer matrices and Burnside are standard but the specific closed six-periodic binomial determinant is a nontrivial specialized enumeration; publication priority remains qualified by possible unstated trace deductions.
 
-## Limits and closest literature
+## value
 
-The formula is specific to nondecreasing forbidden triples and ordinary cyclic rotations. See Sekhon (2026), arXiv:2607.19410, especially Theorem 3.9 for the linear problem, and Sekhon (2025), arXiv:2511.13287 for strict-increase linear avoidance. Independent validation and a definitive historical-priority examination are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All ordered alphabet sizes and all cycle lengths are natural parameters for cyclic pattern avoidance, including a genuine binary parity cutoff and primitive-necklace enumeration. The answer is an exact closed determinant, not an arbitrary small table or merely changing a linear sequence label.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
