@@ -1,11 +1,21 @@
-# Review of the crown metric-basis token-slide diameter
+# Independent mathematical audit
 
-**Correctness: PASS.** The vertex-distance argument classifies the minimum resolving sets; the resulting vacancy/side transition exactly models each allowable token slide. The finite base is a 12-cycle. The induction uses a shared fixed vertex or one of two explicit all-parameter routes, giving the \(n+3\) upper bound. The two compulsory reverse-color moves give a sharp lower bound for the all-opposite equal-vacancy pair. The direct graph and independent state verifiers reproduce exact predictions in their stated finite domains; these are corroborations, not substitutes for the proof.
+## correctness
 
-**Originality: PASS, subject to stated priority risk.** The published edge-metric crown theorem already gives the optimum cardinality and all basis states. Those facts are not claimed as new. The inspected 2016 foundational edge-metric full text and the directly read crown edge-basis theorem do not determine the adjacency-constrained diameter. Broader claims about metric-basis reconfiguration in a 2026 thesis remain unverified because its full text was unavailable, and the 2018 crown-subdivision paper was accessible only in abstract. Search absence cannot prove global novelty.
+PASS
 
-**Value: PASS.** The result gives a sharp, all-parameter distance for relocating optimal metric sensor sets while never losing distinguishability. The additive cost is explained by an exact combinatorial obstruction, and the constructive algorithm reaches every target. It is more informative than an optimum count, a simple connectivity yes/no statement, or a finite table.
+For the connected crown H_n n>=3, ordinary graph distances distinguish same-index endpoint by 3, same-side distinct indices by 2, and opposite-side unmatched by 1. Every resolving set meets at least n-1 pairs; exactly one-hole transversals of n-1 matched pairs form all metric bases. Legal slides swap the hole with an occupied index and flip the selected side at the old hole. Thus there are n·2^(n-1) states, degree n-1. An induction freezing a shared token, plus explicit n+3-step same-hole complement route and n+2-step no-common unequal-hole route, prove all-pairs upper bound n+3; to reverse all n-1 signs and restore the same hole requires at least two reverse-color slides, giving matching lower bound. Independently constructed the entire vacancy-side graph and performed BFS from every state for n=3..7, giving diameters 6,7,8,9,10, including the C12 base case. The source artifacts/verify_state.py paths were inspected; finite BFS corroborates, not proves, all n.
 
-**Limitations.** Only simple connected crown graphs for \(n\ge3\) and ordinary metric bases under edge-restricted token sliding are covered. A full pairwise distance formula and priority clearance against all unindexed literature are not established. The evidence supports a self-review only; independent mathematical review remains pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full vertex-metric basis set and n·2^(n-1) count were established earlier and are not claimed as novel. The specific legal-slide graph and exact unbounded diameter n+3 are not consequences of that state count or the different minimum closed-neighborhood identifying-code slide graph. An inaccessible 2026 metric-basis reconfiguration thesis presents a real residual risk but no inspected theorem contradicts priority; best-of-knowledge PASS limited to diameter/routes.
+
+## value
+
+PASS
+
+The diameter of the natural reconfiguration graph of all optimal resolving landmark placements is a structural invariant useful for routing optimal configurations, and n+3 is a nontrivial sharp overhead beyond Hamming/one-token exchange counts. The all-parameter classification and explicit shortest worst-case obstruction constitute a motivated exact result, not a mere basis-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
