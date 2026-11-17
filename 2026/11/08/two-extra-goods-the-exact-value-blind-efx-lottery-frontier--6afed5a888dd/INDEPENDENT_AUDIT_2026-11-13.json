@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:18:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/2504.03951",
+        "https://arxiv.org/abs/2609.28333",
+        "https://arxiv.org/abs/2610.34625",
+        "SCOPE frozen RESULT.md ec8dad0654cecf89418bccbf386850d031a90803"
+      ],
+      "rationale": "C: Strict positivity forbids empty bundles in an EFX allocation with m=n+2, so only one triple or two double bundles are possible. Sorting four smallest goods a>=b>=c>=d, triple shape succeeds for the bottom triple if a>=b+c, and double shape with (a,d)|(b,c) succeeds if a<=b+c. Thus a uniform surjection always has at least n! successes among n![C(m,3)+3C(m,4)] allocations. Symmetrization of any value-independent lottery preserves/improves worst-case success; adversarial bottom values (10,4,3,1) and (6,4,3,1), all other values larger, force exclusively one triple or one double pairing, giving upper min(t/C(m,3),d0/[3C(m,4)])<=1/H. Independent exhaustive EFX allocation recomputation for n=2,m=4 reproduced exactly two winning labelled allocations in each adversarial case, one occupancy type each. Boundary n=2 and tie permissiveness follow from inequalities; infinite n uses the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The related online reference considers exactly n+1 goods in its cited theorem, and the counting theorem establishes counts rather than the n+2 value-independent lottery upper bound."
+        ],
+        "reasoning": "Broader algorithms with observed values or different goods counts do not logically imply the stated minimax equality. The full Cohen paper could not be read and priority remains provisional.",
+        "searches": [
+          "Cohen Teh Wooldridge 2609.28333 online fair division oblivious adversary",
+          "Neoh Teh 2504.03951 counting and variants"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/2504.03951",
+        "https://arxiv.org/abs/2609.28333",
+        "https://arxiv.org/abs/2610.34625",
+        "SCOPE frozen RESULT.md ec8dad0654cecf89418bccbf386850d031a90803"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neoh–Teh Theorem 3.13 implies at least n! EFX assignments per valuation. Combined with count n!H, it supports only the candidate lower guarantee for uniform surjections."
+        ],
+        "reasoning": "The candidate upper bound against arbitrary lotteries needs separate symmetrization and witnesses; earlier n! lower-bound statements do not entail that upper bound.",
+        "searches": [
+          "Full Neoh Teh §3 identical valuations",
+          "Candidate closed-form proof of 1/H"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neoh–Teh prove a minimum n! count of EFX assignments for identical valuations; candidate minimizes worst-case success of a single distribution across all valuations."
+        ],
+        "reasoning": "Existence of at least one matching allocation for each valuation does not imply a fixed value-independent random allocation has sharp worst-case probability; the minimax dual is new.",
+        "searches": [
+          "Resultary semantic value blind fair division EFX lottery two extra goods identical valuations minimax n+2",
+          "Neoh Teh 2504.03951 Theorem 3.13 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A lower bound n! from 2025 is mathematically reused, but no checked prior exact two-shape saddle-point table or 1/H frontier was found."
+        ],
+        "reasoning": "The number 1/H involves two adversarial valuation regimes and all surjective recipient sequences, not only an existing enumeration of EFX allocations for one instance.",
+        "searches": [
+          "Neoh and Teh Theorem 3.13 and Appendix primary full HTML",
+          "Resultary semantic EFX minimax lottery"
+        ]
+      },
+      "rationale": "O: PASS best-of-knowledge. Neoh–Teh (2025) full available primary §3 Theorem 3.13 proves at least n! EFX allocations under identical valuation, but not the *value-blind minimax upper bound* or optimal mixed T/D lottery. Cohen–Teh–Wooldridge (2026) studies n+1 goods and more general value-aware/heterogeneous settings; its complete text was inaccessible, so implications remain a named risk, not a fabricated absence claim.",
+      "residual_risks": [
+        "Online Fair Division under an Oblivious Adversary full text unavailable with Oxford VPN disconnected, leaving possible hidden general-theorem implication.",
+        "Unindexed value-blind minimax formulations might overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Theorem 3.13 supplies n! EFX-count lower bound; its sharp example allows zeros and the paper does not optimize a valuation-independent lottery over strict-positive vectors.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2504.03951",
+          "material_read": "Full accessible ar5iv HTML, §§1–3, Definition 2.2, Lemmas 3.9–3.12, Theorem 3.13 and proof lines 233–244",
+          "method": "Public lawful ar5iv HTML full paper",
+          "title": "Understanding EFX Allocations: Counting and Variants",
+          "trigger": "Same EFX and identical-valuations m=n+2 counting"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Potentially related randomized online EFX; cannot assert that full document lacks an equivalent bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28333",
+          "material_read": "ArXiv abstract and cited §5.4/App. D.5 source descriptions only; full HTML and ar5iv OA failed; Oxford access returned vpn_disconnected",
+          "method": "ArXiv/OA attempts followed by authorized Oxford download",
+          "title": "Online Fair Division under an Oblivious Adversary",
+          "trigger": "Closest online randomized EFX model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/2504.03951",
+        "https://arxiv.org/abs/2609.28333",
+        "https://arxiv.org/abs/2610.34625",
+        "SCOPE frozen RESULT.md ec8dad0654cecf89418bccbf386850d031a90803"
+      ],
+      "rationale": "V: PASS. A sharp probability frontier for valuation-independent online allocations at exactly two extra goods, including an implementable symmetric lottery and competing valuation regimes, is a motivated information-restriction boundary. Its exact 24/[(n+2)(n+1)n(3n+1)] law is not merely the previously known EFX existence/count lower bound.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All values strictly positive and common to agents; lottery cannot condition on numeric values; exactly two extra goods.",
+    "Oxford source job for arXiv:2609.28333 returned vpn_disconnected.",
+    "Direct finite EFX checks on the two n=2 adversarial profiles corroborate only those cases, not the universal minimax argument."
+  ],
+  "schema_version": 1
+}
