@@ -1,11 +1,21 @@
-# Review of the source–sink Gaussian correlation theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** Edge-level products yield exact site covariances, means, variances and total covariance. An incoming-edge exposure martingale has explicitly verified conditional quadratic variations; its normalized predictable variations converge in probability by a rowwise independence and \(L^2\) argument. Uniform fourth-moment bounds prove conditional Lindeberg. The resulting Gaussian matrix is positive definite because an explicit derivative proves \(0<\rho(c)<1\). Independent exact finite enumeration and martingale-step moment checks are packaged as additional evidence, not as substitutes for infinite proofs.
+## correctness
 
-**Originality (PASS, qualified).** The 1984 Barak–Erdős work uses the same random graph but estimates the largest strongly independent set. The 2010 Denisov–Foss–Konstantopoulos full-text HTML uses the same construction but studies longest paths and regeneration. The 2022 Ralaivaosaona paper was inspected through its PDF and studies a different conditioned-DAG ensemble, whose source-density limit is demonstrably unequal. Searches for joint source–sink counts and equivalent Barak–Erdős/random-order formulations did not identify the explicit covariance matrix or strict monotonicity. The incomplete 1997 Bollobás–Brightwell comparison remains a genuine priority risk. General central limit methods alone do not give the explicit constants and strict density-response law without further model-specific analysis.
+PASS
 
-**Value (PASS).** Both source and sink counts measure entry and exit bottlenecks in acyclic random networks. The result provides their joint uncertainty, not just separate marginal normality, and identifies a sharp monotone transition from nearly perfectly coupled counts at low mean degree to weakly correlated counts at high mean degree. The finite covariance formula makes the asymptotic statement testable on every finite network size. This is a natural parameter-dependent structural statistic, not an arbitrary finite slice.
+U_j=product of absent incoming edges and V_i=product of absent outgoing edges. Each U_j family and each V_i family are independent separately, while Cov(U_j,V_i)=p q^{n+j-i-2} for i<j and 0 otherwise. Summing geometric series produces E=(1-q^n)/p, Var=E-(1-q^{2n})/[p(1+q)] and Cov=q^{n-1}(np-1+q^n)/p>0. At p=c/n, finite formulas give A=(1-e^{-c})^2/(2c) and B=e^{-c}(c-1+e^{-c})/c. Target-edge filtration martingale increments have predictable covariance sums concentrating by Var(R_j)<=n, p=c/n; Lindeberg from uniformly bounded conditional fourth moments and Cramér-Wold gives joint CLT. Symbolic derivative of rho matches -2 exp(c)[c(exp(c)+1)-2(exp(c)-1)]/(exp(c)-1)^3<0 by tanh(x)<x. Fresh independent exact enumeration on n=3..5 at p=1/3,1/2 verified all 1st/2nd moments. Endpoint rho limits 1 and 0; no other DAG sampling law is claimed.
 
-**Closest literature and limitations.** See the four principal primary references in RESULT.md. The Gaussian limit fixes \(c>0\), does not address simultaneous varying-\(c\) regimes, and has no stated rate. Full text of the 1997 random-graph-order article was not accessible for conclusive priority assessment. These limits do not affect the independent mathematical reconstruction of the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same preordered Bernoulli DAG model is classical, but inspected Barak–Erdős and Denisov–Foss–Konstantopoulos studies concern maximal strongly independent sets and longest-path/regeneration, respectively; Ralaivaosaona works with different conditioned ensemble and source means. The explicit bivariate source/sink CLT and strictly monotone sparse correlation curve were not established in those texts. Bollobás–Brightwell random graph orders primary full text inaccessible (Oxford VPN disconnected), a named significant implicit-coverage risk. Best-of-knowledge qualified PASS.
+
+## value
+
+PASS
+
+Identifies an exact dependence law and nontrivial bivariate Gaussian fluctuation regime for two fundamental extremal vertex statistics in a natural classical ordered DAG, with an explicit strictly decreasing correlation curve across every fixed positive sparse density; relevant for probabilistic combinatorics and random orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

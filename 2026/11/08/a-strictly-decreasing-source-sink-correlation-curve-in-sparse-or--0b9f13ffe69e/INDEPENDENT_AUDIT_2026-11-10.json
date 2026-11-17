@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T04:16:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-strictly-decreasing-source-sink-correlation-curve-in-sparse-or--0b9f13ffe69e/RESULT.md (blob 7694ba555545f28b147f7f176c21eb806c5efe0f)",
+        "2026/11/08/a-strictly-decreasing-source-sink-correlation-curve-in-sparse-or--0b9f13ffe69e/verify.py"
+      ],
+      "rationale": "U_j=product of absent incoming edges and V_i=product of absent outgoing edges. Each U_j family and each V_i family are independent separately, while Cov(U_j,V_i)=p q^{n+j-i-2} for i<j and 0 otherwise. Summing geometric series produces E=(1-q^n)/p, Var=E-(1-q^{2n})/[p(1+q)] and Cov=q^{n-1}(np-1+q^n)/p>0. At p=c/n, finite formulas give A=(1-e^{-c})^2/(2c) and B=e^{-c}(c-1+e^{-c})/c. Target-edge filtration martingale increments have predictable covariance sums concentrating by Var(R_j)<=n, p=c/n; Lindeberg from uniformly bounded conditional fourth moments and Cramér-Wold gives joint CLT. Symbolic derivative of rho matches -2 exp(c)[c(exp(c)+1)-2(exp(c)-1)]/(exp(c)-1)^3<0 by tanh(x)<x. Fresh independent exact enumeration on n=3..5 at p=1/3,1/2 verified all 1st/2nd moments. Endpoint rho limits 1 and 0; no other DAG sampling law is claimed.",
+      "residual_risks": [
+        "Graph is Bernoulli edges i→j only for i<j; not uniform random DAG or conditioned digraph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier graph-order theory has broad path/height/linear-extension asymptotics; plausible implicit degree-zero count formulas but inaccessible full text."
+        ],
+        "reasoning": "Even broad random-order results do not logically entail exact source/sink covariance without specific joint formula; an uninspected stronger theorem remains priority risk rather than an invented not-covering proof.",
+        "searches": [
+          "Bollobás–Brightwell 1997",
+          "Barak–Erdős 1984",
+          "arxiv:1005.4806"
+        ]
+      },
+      "checked_sources": [
+        "Barak–Erdős 1984 author paper",
+        "Denisov–Foss–Konstantopoulos arXiv:1005.4806",
+        "Ralaivaosaona DOI:10.4230/LIPIcs.AofA.2022.17",
+        "Bollobás–Brightwell DOI:10.1137/S0895480194281215 abstract (full text inaccessible)",
+        "Resultary query source sink count joint central limit theorem covariance ordered random directed acyclic graphs p=c/n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent forward edge model is shared only with first two; their theorems are about independent sets and longest paths.",
+          "Ralaivaosaona subcritical conditioned law gives different mean from (1-exp(-c))/c."
+        ],
+        "reasoning": "Existing stated main results neither contain the off-diagonal covariance B(c) nor imply strict rho(c) derivative as a direct corollary; hidden stronger older result remains possible.",
+        "searches": [
+          "Barak–Erdős 1984",
+          "Denisov–Foss–Konstantopoulos 2010",
+          "Ralaivaosaona 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Denisov et al. same Bernoulli ordering but longest directed paths.",
+          "Ralaivaosaona conditional-on-acyclicity model has different marginal source-density limit."
+        ],
+        "reasoning": "Identical word random DAG conceals distinct laws; ordered Bernoulli model and conditioned random digraph are not equivalent. No inspected theorem directly asserts joint source/sink CLT for ordered model.",
+        "searches": [
+          "source sink count joint central limit theorem covariance ordered random directed acyclic graphs p=c/n",
+          "arxiv:1005.4806",
+          "doi:10.4230/LIPIcs.AofA.2022.17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary records for randomly oriented trees concern a different graph measure, and conditioned directed DAG covariance concerns a different law; no exact matching table was retrieved."
+        ],
+        "reasoning": "No indexed exact source-sink covariance database or table seen; unsuccessful search is not novelty proof.",
+        "searches": [
+          "source sink count joint central limit theorem covariance ordered random directed acyclic graphs p=c/n",
+          "ordered random DAG source sink correlation covariance table"
+        ]
+      },
+      "rationale": "The same preordered Bernoulli DAG model is classical, but inspected Barak–Erdős and Denisov–Foss–Konstantopoulos studies concern maximal strongly independent sets and longest-path/regeneration, respectively; Ralaivaosaona works with different conditioned ensemble and source means. The explicit bivariate source/sink CLT and strictly monotone sparse correlation curve were not established in those texts. Bollobás–Brightwell random graph orders primary full text inaccessible (Oxford VPN disconnected), a named significant implicit-coverage risk. Best-of-knowledge qualified PASS.",
+      "residual_risks": [
+        "Bollobás–Brightwell 1997 full text inaccessible due Oxford VPN disconnected, may implicitly give source/sink moment asymptotics.",
+        "Other degree-profile CLTs on ordered graph models may entail current off-diagonal formula.",
+        "Only fixed c>0 sparse n→∞, no uniform varying-c regime/rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph law, different maximal independent set statistic",
+          "evidence": [
+            "Maximal strongly independent vertices"
+          ],
+          "identifier_or_url": "https://www.renyi.hu/~p_erdos/1984-14.pdf",
+          "material_read": "Full author accessible seven-page article primary theorem sections",
+          "method": "Inspected model and principal statements",
+          "title": "On the Maximal Number of Strongly Independent Vertices in a Random Acyclic Directed Graph",
+          "trigger": "Original ordered independent-edge model"
+        },
+        {
+          "assessment": "Same graph model but longest path/regenerative structure rather than joint terminal degrees",
+          "evidence": [
+            "Longest path and skeleton regeneration theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.4806",
+          "material_read": "Full HTML introduction and relevant longest-path and regenerative results; source/sink search",
+          "method": "Read open primary article sections",
+          "title": "Limit theorems for a random directed slab graph",
+          "trigger": "Same Bernoulli ordered edge construction"
+        },
+        {
+          "assessment": "Different conditioned random digraph and asymptotic source-density formula",
+          "evidence": [
+            "Source density e^-c for c<1 differs from ordered model (1-e^-c)/c"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2022.17",
+          "material_read": "Open LIPIcs primary PDF initial definitions, theorems and generating function discussion",
+          "method": "Read primary PDF relevant pages, compared ensemble",
+          "title": "The Number of Sources and Isolated Vertices in Random Directed Acyclic Graphs",
+          "trigger": "Plausible stronger source count limit theorem"
+        },
+        {
+          "assessment": "ACCESS RISK: no full article not-covering assertion",
+          "evidence": [
+            "Abstract names height, posts, linear extensions and incomparable-pair counts"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895480194281215",
+          "material_read": "Public abstract/bibliography only; lawful OA and arXiv alternatives unavailable; authorized Oxford returned VPN disconnected",
+          "method": "Read abstract and attempted institutional route, no circumvention",
+          "title": "The Structure of Random Graph Orders",
+          "trigger": "Same transitive-closure random-order model and possible implicit coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Barak–Erdős 1984 author paper",
+        "Denisov–Foss–Konstantopoulos arXiv:1005.4806",
+        "Ralaivaosaona DOI:10.4230/LIPIcs.AofA.2022.17",
+        "Bollobás–Brightwell DOI:10.1137/S0895480194281215 abstract (full text inaccessible)",
+        "Resultary query source sink count joint central limit theorem covariance ordered random directed acyclic graphs p=c/n"
+      ],
+      "rationale": "Identifies an exact dependence law and nontrivial bivariate Gaussian fluctuation regime for two fundamental extremal vertex statistics in a natural classical ordered DAG, with an explicit strictly decreasing correlation curve across every fixed positive sparse density; relevant for probabilistic combinatorics and random orders.",
+      "residual_risks": [
+        "Bollobás–Brightwell 1997 full text inaccessible due Oxford VPN disconnected, may implicitly give source/sink moment asymptotics.",
+        "Other degree-profile CLTs on ordered graph models may entail current off-diagonal formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Graph is Bernoulli edges i→j only for i<j; not uniform random DAG or conditioned digraph.",
+    "CLT for fixed c>0 only; no error rate or simultaneous c→0/∞."
+  ],
+  "schema_version": 1
+}
