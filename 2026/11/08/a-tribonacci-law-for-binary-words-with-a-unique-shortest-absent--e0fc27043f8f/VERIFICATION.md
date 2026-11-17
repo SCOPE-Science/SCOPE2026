@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-`verify.py` performs literal set-of-absent-subsequences testing on all nonempty binary words through length \(12\), checks membership in the recursive grammar and compares each universality-index coefficient. It printed `DIRECT_GRAMMAR_VERIFY_OK`.
+## correctness
 
-`verify_fast.cpp` performs an independently written shortest-absent dynamic program over first occurrences for every binary word through length \(22\). It compares every length/index coefficient against the recurrence \(U_{n,k}=U_{n-1,k}+U_{n-2,k-1}+U_{n-3,k-1}\) with \(U_{1,0}=2\), where absent entries are zero. It printed `DYNAMIC_CENSUS_VERIFY_OK`.
+PASS
 
-Commands: `python3 verify.py` and `g++ -std=c++17 -O3 verify_fast.cpp -o verify_fast && ./verify_fast`.
+For any nonunary binary word x^r y t (y opposite x), the first-occurrence recurrence partitions absent subsequences by first letter. The missing-length recurrence is L(w)=1+L(t) and c(w)=c(t)+1_{L(w[2..])=L(t)}c(w[2..]). The proof correctly characterizes uniqueness by a nonempty unique-SAS tail with r>=2, or r=1 and the tail beginning with x; unary words supply the base. The exact unambiguous grammar yields F=z/(1-z)+uz²F+2uz³/(1-z)F, hence 2F=2z/(1-z-uz²-uz³) and coefficient formula. Independently re-enumerated literal absent binary subsequences and all n,k counts through length 10; all matched. The all-length claim follows from the grammar, not finite checks.
 
-The all-length identity relies on the displayed first-occurrence proof; finite tests do not certify infinitely many lengths. No external independent scientific audit has been performed.
+## originality
+
+PASS
+
+Best of knowledge: earlier general-alphabet characterizations establish membership of 1-nearly k-universal words, and existing sequences exhibit tribonacci coefficients in other meanings. None of the accessible relevant prior statements examined gives the exact number of individual binary source words refined simultaneously by length n and universality k or the bivariate rational series. General membership algorithms do not by themselves state the evaluated enumerator. Residual risk remains that this series is implicit in unexamined Simon-congruence class counts.
+
+## value
+
+PASS
+
+Unique shortest absent subsequences are a natural boundary of substring/subsequence universality; the exact number of binary words of each length and universality level, together with a clean constructive grammar and exponential rarity constant, is a motivated useful counting invariant. The scalar tribonacci sequence alone is familiar, but the interpretation and bivariate refinement are not merely an arbitrary numeric coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

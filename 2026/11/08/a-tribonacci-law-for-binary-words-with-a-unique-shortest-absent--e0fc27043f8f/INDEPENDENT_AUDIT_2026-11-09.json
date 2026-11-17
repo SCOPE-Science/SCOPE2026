@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:03:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nonunary binary word x^r y t (y opposite x), the first-occurrence recurrence partitions absent subsequences by first letter. The missing-length recurrence is L(w)=1+L(t) and c(w)=c(t)+1_{L(w[2..])=L(t)}c(w[2..]). The proof correctly characterizes uniqueness by a nonempty unique-SAS tail with r>=2, or r=1 and the tail beginning with x; unary words supply the base. The exact unambiguous grammar yields F=z/(1-z)+uz²F+2uz³/(1-z)F, hence 2F=2z/(1-z-uz²-uz³) and coefficient formula. Independently re-enumerated literal absent binary subsequences and all n,k counts through length 10; all matched. The all-length claim follows from the grammar, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleischmann et al 2022 gives a stronger q-ary *structural* description; Resultary Oct 26 finding gives total SAS multiplicity series 2/(1-z-uz²(3-z)), not the distribution of words with exactly one SAS. Adamson et al provide extremal missing-count bounds."
+        ],
+        "reasoning": "Broader membership coverage does not exhibit the exact n,k individual-word count; stronger first-moment results generally cannot recover a singleton subpopulation.",
+        "searches": [
+          "https://arxiv.org/abs/2202.07981",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c",
+          "https://arxiv.org/abs/2407.18599"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.07981",
+        "https://arxiv.org/abs/2108.13968",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c",
+        "https://oeis.org/A135491",
+        "https://arxiv.org/abs/2407.18599"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 16 gives qualitative membership; no explicit count 2z/(1-z-uz²-uz³) or coefficients in material inspected. The earlier SAS-multiplicity generating function counts sum_w |SAS(w)|, not # {w: |SAS(w)|=1}."
+        ],
+        "reasoning": "Cannot differentiate total missing-count enumerators to recover the exact singleton census; the submitted recurrence is a new enumerative derivation under present comparisons.",
+        "searches": [
+          "https://arxiv.org/abs/2202.07981",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fleischmann et al Theorem 16 characterizes 1-nearly k-universal membership for arbitrary alphabets; submitted property c(w)=1 is its binary specialization, but the submitted object is the full bivariate length/index *cardinality* of qualifying words."
+        ],
+        "reasoning": "Equivalent terminology 1-nearly k-universal, unique SAS and scattered-subsequence universality was compared. Recognition/classification and explicit n,k enumeration are different conclusions.",
+        "searches": [
+          "binary words exactly one shortest absent subsequence counting tribonacci generating function length universality index",
+          "https://arxiv.org/abs/2202.07981"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Scalar tribonacci totals are already OEIS sequences, as acknowledged. Resultary other papers enumerate counts of all shortest absent subsequences and restricted words, not the present specific full-length singleton bivariate census."
+        ],
+        "reasoning": "The scalar recurrence alone is not novel; comparing exact n,k counts and definition of the source-word class is essential.",
+        "searches": [
+          "binary words exactly one shortest absent subsequence counting tribonacci generating function length universality index",
+          "https://oeis.org/A135491",
+          "https://oeis.org/A354784"
+        ]
+      },
+      "rationale": "Best of knowledge: earlier general-alphabet characterizations establish membership of 1-nearly k-universal words, and existing sequences exhibit tribonacci coefficients in other meanings. None of the accessible relevant prior statements examined gives the exact number of individual binary source words refined simultaneously by length n and universality k or the bivariate rational series. General membership algorithms do not by themselves state the evaluated enumerator. Residual risk remains that this series is implicit in unexamined Simon-congruence class counts.",
+      "residual_risks": [
+        "General-alphabet characterization or a Simon-congruence class enumerator might imply the binary formula after nontrivial specialization; comprehensive prior literature is not certified.",
+        "Only relevant portions, not every page of the 2022 general characterization, were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MEMBERSHIP_PRIOR_NOT_KNOWN_EXPLICIT_ENUMERATOR",
+          "evidence": [
+            "Theorem 16 supplies membership characterization but does not state the submitted bivariate individual-word count in passages examined."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.07981",
+          "material_read": "PDF abstract and Theorem 16 with nearby discussion around page 7, Theorem 28 / Simon-congruence discussion around page 13, and paper introduction; not every page read.",
+          "method": "Open-access arXiv PDF and page screenshots.",
+          "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+          "trigger": "Highly relevant exact unique-SAS structural characterization."
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": [
+            "Series counts sum of SAS sizes over binary words, not the number of singleton words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c",
+          "material_read": "Published title, mathematical summary and explicit generating series in Resultary search result; full article not material-read.",
+          "method": "Resultary semantic query.",
+          "title": "Exact mean and universality-index distribution of shortest absent subsequences in binary words",
+          "trigger": "Resultary nearby prior with same objects and variables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unique shortest absent subsequences are a natural boundary of substring/subsequence universality; the exact number of binary words of each length and universality level, together with a clean constructive grammar and exponential rarity constant, is a motivated useful counting invariant. The scalar tribonacci sequence alone is familiar, but the interpretation and bivariate refinement are not merely an arbitrary numeric coincidence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2202.07981",
+    "https://arxiv.org/abs/2108.13968",
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c",
+    "https://oeis.org/A135491",
+    "https://arxiv.org/abs/2407.18599"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed binary alphabet, indexed linear nonempty source words, uniquely shortest absent *scattered* subsequences.",
+    "Membership of nearly-universal words is covered by prior general structural work; only exact distribution assessed as original."
+  ],
+  "residual_risks": [
+    "General-alphabet characterization or a Simon-congruence class enumerator might imply the binary formula after nontrivial specialization; comprehensive prior literature is not certified.",
+    "Only relevant portions, not every page of the 2022 general characterization, were inspected."
+  ],
+  "schema_version": 1
+}
