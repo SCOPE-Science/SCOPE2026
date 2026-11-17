@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric fixed-point model is established by orbitwise barycentric coordinates. A selected independent prism vertex corresponds bijectively to an induced bipartite subgraph of the base. Exactly one odd cycle forces the claimed one-vertex deficit. The extra top-dimensional simplices have distinct unit-coefficient boundary faces, providing an integral primitive boundary matrix. The skeleton connectivity and Hurewicz–Whitehead argument, with separate low-dimensional cases, prove the homotopy classification. A standalone exhaustive verifier checks all graph/parameter cases stated in the verification file.
+## correctness
 
-**Originality — PASS, with limitations.** Targeted research-record searches for geometric layer-swap fixed points, robust clique prisms, induced bipartite subgraphs, one-odd-cycle correction formulas and possible equivalences found no previously established implication. Filakovský's primary preprint treats ordinary robust clique complexes of square-sequence graphs, not these prism-fixed models; classical skeleton homotopy facts alone do not imply the graph-theoretic orbit-to-bipartiteness result. Closest abstract-only results on ordinary homotopy and symmetry have not been asserted to exhaust their full texts. Unindexed results about odd-cycle transversals or fixed simplices remain a residual risk.
+PASS
 
-**Value — PASS.** The statement is a complete, integral, all-parameter fixed-space homotopy classification over an infinite graph family, not a numerical instance. The cycle-length correction is sensitive to the first odd-cycle obstruction, and the answer is independent of attachment details. The result can be used to calculate geometric Lefschetz characteristics and locate exact parity transitions.
+A fixed geometric point under prism layer swap has equal barycentric weights on each rung, so its simplicial fixed-face model has a vertex for each base vertex v and S is a face precisely when alpha(P[S×{0,1}])<k. Every independent selection chooses at most one endpoint per rung and its labels form a 2-coloring, so alpha(P[S×2])=max order of an induced bipartite subgraph H[T] with T⊆S. If H is bipartite this equals |S|, giving full (k-2)-simplex skeleton. If H has exactly one odd simple cycle C, beta(S)=|S|-1 when C⊆S, else |S|. Thus the fixed complex is the skeleton plus all (k-1)-simplices C∪T (T of size k-|C|). For any c∈C, each such added simplex has unique facet (C\{c})∪T, giving a primitive diagonal ±1 pivot block; kills exactly binom(N-ℓ,k-ℓ) generators. Skeleton connectivity, Hurewicz–Whitehead and separate k=2,3 arguments establish the integral wedge type, with k>N contractible. Fresh direct examples include 3-,5-cycles, bipartite paths, and all k through N+1; no extrapolation is used for proof.
 
-**Limits.** No assertion for two distinct odd cycles or for unrelated automorphisms. No independent assessment has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The November 1 prior Resultary theorem ALREADY establishes the complete general geometric rung-orbit PL model for arbitrary H and the bipartite simplex-skeleton sphere count; these parts are acknowledged covered. However that earlier work explicitly leaves nonbipartite fixed-space homotopy unclassified. The surviving assertion identifies the unique-odd-cycle nonbipartite family by the one-vertex bipartization defect, proves a primitive independent filling of skeleton spheres, and obtains the exact wedge rank for all k. Existing Filakovský grid ordinary homotopy is not geometric fixed topology. This is a best-knowledge narrow extension with residual risk of an unindexed unique-odd-cycle corollary.
+
+## value
+
+PASS
+
+An odd simple cycle is the minimal obstruction to the earlier all-bipartite prism fixed-skeleton topology. Its exact effect—filling a family of independent top-dimensional cells and reducing the number of spheres by binom(N-ℓ,k-ℓ)—is a natural sharp boundary classification and an integral fixed-space homotopy invariant that cannot be inferred from ordinary prism Betti counts. This provides motivated structure beyond the known PL model, with all k and graph sizes covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The accompanying standalone `verify_prism_fixed.py` recomputes the prism independence number directly by complete independent-set enumeration, and independently via maximum induced bipartite order, for all subsets of nine explicit test graphs. It then enumerates every fixed simplex for each robust level, builds simplicial chain boundary matrices, and verifies reduced homology over \(\mathbf F_2\) against the asserted integral-wedge ranks. The cases cover triangle, pentagon and heptagon bases, even cycles, a path, and several one-odd-cycle graphs with tree attachments, with parameters \(2\le k\le N+1\).
+# Independent mathematical audit
 
-Run with `python3 verify_prism_fixed.py`. Recorded output is in `verification_output.txt`; successful output ends with `ALL_PRISM_FIXED_CHECKS_OK 9 graph_cases 52 k_values`. Computational checks provide corroboration, not proof of the universal quantifiers. The integral primitive-boundary argument and homotopy passage are in `RESULT.md`. No external verification has been performed.
+## correctness
+
+PASS
+
+A fixed geometric point under prism layer swap has equal barycentric weights on each rung, so its simplicial fixed-face model has a vertex for each base vertex v and S is a face precisely when alpha(P[S×{0,1}])<k. Every independent selection chooses at most one endpoint per rung and its labels form a 2-coloring, so alpha(P[S×2])=max order of an induced bipartite subgraph H[T] with T⊆S. If H is bipartite this equals |S|, giving full (k-2)-simplex skeleton. If H has exactly one odd simple cycle C, beta(S)=|S|-1 when C⊆S, else |S|. Thus the fixed complex is the skeleton plus all (k-1)-simplices C∪T (T of size k-|C|). For any c∈C, each such added simplex has unique facet (C\{c})∪T, giving a primitive diagonal ±1 pivot block; kills exactly binom(N-ℓ,k-ℓ) generators. Skeleton connectivity, Hurewicz–Whitehead and separate k=2,3 arguments establish the integral wedge type, with k>N contractible. Fresh direct examples include 3-,5-cycles, bipartite paths, and all k through N+1; no extrapolation is used for proof.
+
+## originality
+
+PASS
+
+The November 1 prior Resultary theorem ALREADY establishes the complete general geometric rung-orbit PL model for arbitrary H and the bipartite simplex-skeleton sphere count; these parts are acknowledged covered. However that earlier work explicitly leaves nonbipartite fixed-space homotopy unclassified. The surviving assertion identifies the unique-odd-cycle nonbipartite family by the one-vertex bipartization defect, proves a primitive independent filling of skeleton spheres, and obtains the exact wedge rank for all k. Existing Filakovský grid ordinary homotopy is not geometric fixed topology. This is a best-knowledge narrow extension with residual risk of an unindexed unique-odd-cycle corollary.
+
+## value
+
+PASS
+
+An odd simple cycle is the minimal obstruction to the earlier all-bipartite prism fixed-skeleton topology. Its exact effect—filling a family of independent top-dimensional cells and reducing the number of spheres by binom(N-ℓ,k-ℓ)—is a natural sharp boundary classification and an integral fixed-space homotopy invariant that cannot be inferred from ordinary prism Betti counts. This provides motivated structure beyond the known PL model, with all k and graph sizes covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
