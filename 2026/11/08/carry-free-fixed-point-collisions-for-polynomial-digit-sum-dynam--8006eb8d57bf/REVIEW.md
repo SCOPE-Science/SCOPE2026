@@ -1,15 +1,21 @@
-# Review of carry-free digit-sum collisions
+# Independent mathematical audit
 
-## Correctness: PASS
-The statement concerns positive-integer digit sums, nonnegative-coefficient polynomials of degree at least two, and a base that varies with the input. Every coefficient in \(g(Y+a-1)\) is a nonnegative integer. The leading monomial alone leaves a complementary sum of at least \(a\) outside any selected coefficient; hence each coefficient is at most \(g(a)-a=b-1\), and the expansion at \(Y=b\) is genuinely carry-free. This proves both fixed-point equations for all permitted polynomials and all integers \(a\ge2\). Both square-map arithmetic progressions have exact base-digit expansions with legal digits. The two disjoint progressions give lower natural density \(2/9\) without assuming a total density exists. Exact finite computations test these identities but do not supply the infinite proof.
+## correctness
 
-## Originality: PASS, with priority limits
-The directly relevant 2026 primary article on digit-sum maps proves finite cycle localization and arithmetic semiconjugacy, and tabulates injectivity for a finite range of bases and exponents. Its complete accessible source text, especially the semiconjugacy, basin and base-dependence sections, was examined. It does not state the all-polynomial collision construction or the positive-density square-base obstruction. The finiteness theorem for fixed-base generalized Dudeney roots in Koppelaar–Nasehpour is a different assertion and does not imply uniform identities at varying bases. The decimal-only cycle source and an overview survey give historical context without supplying a stronger covering result in the accessible material. Searches for generalized Dudeney roots, carry-free fixed-point pairs, polynomial digit sums, and exceptional-base density found no equivalent theorem. An unindexed earlier identity or unexamined survey section remains a real risk; this is a best-knowledge comparison, not a claim of certified historical priority.
+PASS
 
-## Mathematical value: PASS
-A recent arithmetic-dynamics study poses base-dependence of the modular cycle projection as a structural phenomenon and supplies a finite table. An explicit collision mechanism for **every** nonnegative polynomial generator of degree at least two shows that this projection cannot remain injective over all large bases. The stronger square-map statement forces noninjectivity on two complete arithmetic progressions, giving a positive lower density \(2/9\) rather than an isolated example or an arbitrary finite cutoff. These are natural quantified answers about the source paper's central semiconjugacy and basin structure. The proof is elementary, but the uniform quantifiers and positive-density consequence make the result more than a single substitution or table entry.
+From g(Y+a-1), coefficient positivity and the leading monomial guarantee the sum of all coefficients other than any specified one >=a; hence every coefficient <=g(a)-a=b-1. Because g(a)=b+(a-1), its base-b digit sum is a. Substitute Y=b: g(g(a)) is carry-free and its digit sum equals g(a). Differences exactly b-1 imply separate fixed cycles and non-injective semiconjugacy; square-progression expansions in RESULT.md each have legal digits and give disjoint residues 4,7 mod9. Recomputed exactly 2880 polynomial/base examples and 200 progression examples. These finite tests corroborate algebra, not infinite validity.
 
-## Boundaries
-No claim is made for signed-coefficient polynomials, for the exact density of all exceptional bases, for individual basin densities, or for a complete cycle census. The cited survey PDF was not accessible for full-text comparison; its abstract and bibliography were examined. Independent mathematical review is still required before publication or attribution of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The uniform all-polynomial carry-free collision and positive-density square-map progression theorem go beyond the primary source’s arithmetic semiconjugacy and finite base tables. Earlier generalized Dudeney fixed-point bounds treat fixed bases and do not imply the constructed varying-base families. Resultary hits for positive-density digit-sum products concern a different map n*s_b(n), not s_b(g(n)). Unindexed equivalent constructions remain possible.
+
+## value
+
+PASS
+
+The finite tables and open base-dependence problem are naturally strengthened to a constructive obstruction for every positive polynomial generator and positive lower density in the square case, showing a structural failure of residue-class basin decomposition rather than one isolated counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

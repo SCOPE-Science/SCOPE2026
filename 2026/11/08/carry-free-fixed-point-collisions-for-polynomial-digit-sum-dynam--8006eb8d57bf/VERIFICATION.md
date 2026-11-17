@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The proof uses an explicit carry-free base expansion of the composition \(g(g(a))\) and direct three-digit expansions for the two square-map arithmetic progressions. No limiting computation or assumption on unobserved cycles is required.
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted directory. The checker independently constructs the translated polynomial coefficient vector and compares its genuine base digits to direct evaluations across 11,880 cases. It checks both square-base progressions at 3,999 parameter values. A further 124,251 direct comparisons test an auxiliary first-two-lift arithmetic criterion as an additional cross-check; that criterion is not required for the theorem. All calculations are exact integers.
+## correctness
 
-Expected output:
+PASS
 
-```
-POLYNOMIAL_FAMILY_OK 11880
-SQUARE_ARITHMETIC_PROGRESSIONS_OK 3999
-TWO_LIFT_CRITERION_CHECK_OK 124251
-VERIFY_OK exact_integer=yes independent_formula_crosschecks=yes finite_tests_not_infinite_proof=yes
-```
+From g(Y+a-1), coefficient positivity and the leading monomial guarantee the sum of all coefficients other than any specified one >=a; hence every coefficient <=g(a)-a=b-1. Because g(a)=b+(a-1), its base-b digit sum is a. Substitute Y=b: g(g(a)) is carry-free and its digit sum equals g(a). Differences exactly b-1 imply separate fixed cycles and non-injective semiconjugacy; square-progression expansions in RESULT.md each have legal digits and give disjoint residues 4,7 mod9. Recomputed exactly 2880 polynomial/base examples and 200 progression examples. These finite tests corroborate algebra, not infinite validity.
 
-The checker is finite; it does not certify the unrestricted quantifiers. The correctness argument rests on the coefficientwise noncarry inequality and explicit digit decompositions, with no external computational dependency. Historical priority and external independent audit remain unresolved.
+## originality
+
+PASS
+
+The uniform all-polynomial carry-free collision and positive-density square-map progression theorem go beyond the primary source’s arithmetic semiconjugacy and finite base tables. Earlier generalized Dudeney fixed-point bounds treat fixed bases and do not imply the constructed varying-base families. Resultary hits for positive-density digit-sum products concern a different map n*s_b(n), not s_b(g(n)). Unindexed equivalent constructions remain possible.
+
+## value
+
+PASS
+
+The finite tables and open base-dependence problem are naturally strengthened to a constructive obstruction for every positive polynomial generator and positive lower density in the square case, showing a structural failure of residue-class basin decomposition rather than one isolated counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
