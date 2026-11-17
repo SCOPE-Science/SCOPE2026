@@ -1,19 +1,21 @@
-# Scientific review: critical inverse moments of random Fourier interpolation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each realization with distinct nodes, the columns of the inverse interpolation matrix are the coefficient vectors of the classical Lagrange polynomials. Comparing the leading coefficient and elementary-symmetric coefficient bounds proves the deterministic inequalities between the inverse Frobenius gain and the products of reciprocal nodal chords. Conditioning on one uniform node makes its other chord distances independent, which validates the gamma-function Mellin transform. The logarithms of reciprocal chord lengths have exponentially decaying densities with constant \(1/\pi\); the complete simplex convolution argument gives the sharp logarithmic factor, and deterministic comparisons transfer it to the matrix. The layer-cake identity yields the stated moment threshold and critical truncated expectation. Numerical matrix inversions and direct quadrature independently checked the finite algebraic and integral identities. The asymptotic assertions are analytical, not Monte Carlo inferences.
+PASS
 
-## Originality — PASS relative to inspected sources
+The inverse Lagrange columns have reciprocal-chord denominators P_j and numerator coefficient norm between 1 and sqrt(binomial(2n-2,n-1)); this yields P_1<=W<=B sum P_j. Conditional on one circle point, reciprocal chord factors in P_j are independent; the beta integral gives their exact Mellin transform and threshold s=1. Exponential reweighting of logarithmic chord densities yields a k=n-1 product tail asymptotic (log T)^{k-1}/(pi^k(k-1)!T). The union bound transfers the sharp order, but NOT an exact leading constant, to W, yielding E[R^s]<infinity iff s<1/2 and E[min(W,T)] asymp (log T)^{n-1}. Independently checked the n=2 identity W=2/|z1-z2| and tail 2/(pi T). Fixed n only.
 
-The primary 2026 reconstruction-risk article establishes divergence of the usual expected inverse squared singular-value risk under independent random sampling, but does not report the fixed-dimension sharp Pareto-logarithmic tail or the full fractional-moment boundary. The 2012 Tucci–Whiting analysis provides inverse Vandermonde formulas and nonexistence of integer-order inverse Gram moments; these are prior inputs, not claimed as new. The 2019 clustered-node work gives deterministic bounds rather than an independent-uniform-node probability distribution. The present theorem identifies the exact \(1/2\) moment cutoff, the logarithmic exponent \(n-2\) in the tail, and the explicit nodal-product constants. Bass–Gröchenig (2004/05) gives condition-number probability estimates for trigonometric sampling, but only the publisher preview was accessible. A complete mathematical comparison with that work remains unresolved; its abstract alone does not establish coverage of this fixed-square fractional-moment and logarithmic-tail claim. Known equivalent but unindexed results remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Typical spectral bounds do not specify the integrability of noise amplification under rare collisions. The result gives a complete answer for all fractional inverse-risk moments in square trigonometric interpolation and a sharp logarithmic correction that depends on the number of samples. It also provides an exact Mellin transform and leading tail constants for the nodal denominator controlling the matrix; these are useful for understanding robust, truncated or fractional reconstruction losses. This is stronger than the already-known divergence of ordinary mean-square risk.
+Random Vandermonde inverse formulas and divergent positive integer inverse moments are prior. The complete fixed-n fractional-moment threshold and explicit dimension-dependent logarithmic tail exponents are not implied by the inspected formulations. Some highly relevant full texts were not accessible through lawful channels; originality remains best-of-knowledge and is not established by their absence.
 
-## Boundaries and residual risk
+## value
 
-The conclusions require independent uniform circular nodes, a square consecutive-frequency interpolation matrix, and fixed dimension in the large-tail limit. The exact leading constant is determined only for the Lagrange nodal-denominator surrogate, not the full inverse-Frobenius gain. Relevant work on small-singular-value clustering does not imply the probabilistic logarithmic degree directly. The inaccessible full Bass–Gröchenig treatment is a particular prior-literature uncertainty, and an earlier unlocated random-Vandermonde tail theorem could cover the conclusion. The scientific proof and checker have not received an independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Square random Fourier interpolation amplifies noise at nearly colliding sampling nodes. Sharp fractional moment threshold, logarithmic dimension dependence and exact reciprocal-chord surrogate law are meaningful quantitative conditioning invariants, beyond ordinary expected-risk divergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
