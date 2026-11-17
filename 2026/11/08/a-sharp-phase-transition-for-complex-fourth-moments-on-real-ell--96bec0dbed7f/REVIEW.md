@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The normalized real-ball monomial moments follow from an explicit orthant-to-Dirichlet substitution; their second- and fourth-order combinations produce the precise phase-sensitive identity (1). The gamma ratio's change of sign is certified by a strictly positive convergent digamma series. Exact nonnegative expressions prove both endpoints and classify every equality case, including \(p=2\) and the cube limit. Signed-permutation averaging proves optimality among all complex Hilbert comparison norms. The included checker independently expands all quartic coordinate monomials in selected rational cases and tests the full deficit identities. No empirical computation is treated as an infinite proof.
+## correctness
 
-**Originality: PASS with residual bibliographic risk.** The closest full primary source inspected is Barthe--Guédon--Mendelson--Naor, *A probabilistic approach to the geometry of the \(\ell_p\) ball* (arXiv:math/0503650), especially §2.2, pp. 10–14. It treats real coefficient vectors and gives the underlying ball-moment framework, but the inspected claims do not classify sharp complex coefficient phases, the change from full support to two-coordinate quadrature at \(p=2\), the nonnegative complex deficits, or the optimal complex Euclidean distortion. Publicly indexed calculations for complex zero-sum \(\ell_4\) coefficient hyperplanes and for centered simplex functions concern different coefficient constraints/measures, with no implication of this theorem. An equivalent historical analysis under alternative language may exist; the assessment does not assert proven uniqueness.
+PASS
 
-**Mathematical value: PASS.** The problem is a natural sharp complex Khintchine and Euclidean-distortion problem on the complete continuous family of real \(\ell_p\) balls. The minimizer undergoes a structurally distinct sparsity and phase transition at \(p=2\), and the exact endpoint deficits quantify both phase cancellation and coefficient equidistribution. This complete all-dimension/all-parameter classification is useful as a complex counterpart of established real ball-moment inequalities, not merely as a table of isolated values.
+Dirichlet integration gives gamma-coordinate moments and E|sum z_jX_j|^4=gamma(2S^2+|Q|^2)+(beta-3gamma)T, hence K/H=2+|Q|^2/S^2+d_p T/S^2. Independently reduced the digamma derivative to positive summands 8kx/((k+x)(k+3x)(k+5x)), so d_p changes sign exactly at p=2. Nonnegative deficit identities use S^2/n<=T<=S^2 and |Q|^2+S^2-2T=4sum_{i<j}Re(z_i conj z_j)^2>=0. Equality forces equal-modulus phase balance below 2, two equal quadrature coordinates above 2, and aligned phases for maxima. Signed-coordinate-permutation averaging of any candidate Hermitian comparison form makes it a scalar multiple of S without worsening distortion, proving optimal complex-linear Banach–Mazur fourth power Kmax/Kmin. Endpoints p=1,2,infty and n=2 are included.
 
-The results apply only to degree-one complex functionals and fourth moments of normalized real-volume measure. The Dirichlet moment ingredients are known, and the bibliography need not be exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barthe–Guédon–Mendelson–Naor 2005 supplies normalized real ell_p ball representations and coordinate/real-functional moments; its stated Proposition 7 concerns real nonnegative coefficient magnitudes, and the examined primary pages do not yield exact complex phase-sensitive K extrema or best Hermitian Euclidean distortion. Complex Khintchine product-measure results concern a different probability measure. Novelty is of complex optimization and equality classification, not Dirichlet moments.
+
+## value
+
+PASS
+
+Natural sharp fourth-moment geometry of complex-linear functionals on real ell_p bodies, with all equality cases and an optimal complex Hilbert distortion formula, has independent geometric utility beyond a known moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
