@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T06:48:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K3□Kn, pairwise distance≤2 makes a triple illegal exactly when the selected K_{3,n} edges contain a three-edge path. Legal states are bipartite star forests. All maximal states have 3,n,n+1 edges. Two-in-one-row play has high locks at a column pair plus third-row edge (n+1) and middle locks with three occupied distinct columns (n). Responding to off-row deviations and who moves at n−1 filled columns gives the parity outcome for each opening player. Independent exact minimax recurrence over all legal selected subsets for n=3,4,5,6 gives (4,3),(4,5),(6,5),(6,7) matching formulas; infinite proof is the exhaustive strategic case reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klavžar–Tian–Tuite studies game numbers on several graph families but no K3□Kn theorem in inspected relevant text. Resultary earlier rook enumeration gives all maximal possible scores {3,n,n+1}, not the minimax selection; Di Stefano et al. give lower extremal 3, not game values."
+        ],
+        "reasoning": "These broader game definitions and static classifications do not force the precise parity reversal of opening-player advantage, because game order is additional information.",
+        "searches": [
+          "Builder Blocker general position game rook graph K3 cartesian Kn parity game numbers",
+          "arxiv:2310.19949 Builder Blocker General Position Games",
+          "Resultary complete rook maximal spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2310.19949",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-general-position-enumerators-and-gapped-maximal-spectra--809e96679882/RESULT.md",
+        "arxiv:2306.09965",
+        "Resultary semantic search Builder Blocker general position game rook graph K3 cartesian Kn parity game numbers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier static theorem determines extremal sizes including 3 and n+1, but not forced scores. Submitted row-phase high/middle lock strategy proves Builder chooses n+1 precisely for odd n when Builder opens and for even n when Blocker opens."
+        ],
+        "reasoning": "The earlier maximal-set theorem supplies only reachable outcomes, not which player controls them; an explicit turn-parity strategy is needed and not an immediate consequence.",
+        "searches": [
+          "Klavzar Tian Tuite Builder Blocker General Position Games 2023 Theorem",
+          "Resultary 2026 11 08 complete rook general-position enumerators",
+          "Builder Blocker general position game rook graph K3 cartesian Kn parity game numbers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rook vertex (i,j) is an edge of K_{3,n}; its general-position vertex sets correspond exactly to edge-disjoint star forests. The static star-forest equivalence is earlier known, but adversarial minimax values are different invariants."
+        ],
+        "reasoning": "We checked the line-graph/star-forest alias. Static maximal-set spectrum {3,n,n+1} leaves open which score Builder can force under two move orders; the submitted game theorem addresses this missing strategic question.",
+        "searches": [
+          "Builder Blocker general position game rook graph K3 cartesian Kn parity game numbers",
+          "Builder Blocker minimax on line graph K3,n general-position star-forest game",
+          "arxiv 2310.19949 rook"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded independent minimax for n=3,4,5,6 returns respectively Builder-first 4,4,6,6 and Blocker-first 3,5,5,7. A preceding general-position enumeration table lists static maxima but no matching parity game table."
+        ],
+        "reasoning": "A small computed game table is not the infinite theorem. No earlier exact table implying all n or identical game values was located.",
+        "searches": [
+          "rook K3 cartesian Kn Builder Blocker gp_g gp_g prime exact table",
+          "Builder Blocker general position game rook graph K3 cartesian Kn parity game numbers"
+        ]
+      },
+      "rationale": "No comparable exact Builder-first and Blocker-first minimax values on K3 square Kn were found. The primary Builder–Blocker general-position game paper treats other graph families. Earlier general-position enumeration on rook graphs describes feasible and maximal sets but not adversarial move-order choice. The distinct parity-dependent strategic theorem is not implied by static extremal set sizes.",
+      "residual_risks": [
+        "An unindexed direct rook-game evaluation may exist.",
+        "Finite minimax checks reach n=6, whereas universal n≥3 relies on the row-phase strategy proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_INSPECTED_MATERIAL",
+          "evidence": "Provides game notation and results for other graph classes, not exact three-row rook minimax values.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.19949",
+          "material_read": "Introduction, definitions, relevant Sections 2 and 4 on analyzed families",
+          "method": "Open-access arXiv PDF text and page screenshot",
+          "title": "Builder-Blocker General Position Games",
+          "trigger": "Original game definition and closest broad family theorems"
+        },
+        {
+          "assessment": "RELATED_STATIC_NOT_GAME",
+          "evidence": "All reachable maximal scores {3,n,n+1}, but no adversarial game computation or parity effect.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-general-position-enumerators-and-gapped-maximal-spectra--809e96679882/RESULT.md",
+          "material_read": "Entire RESULT.md: static star-forest correspondence, maximal cases, generating functions and score spectrum",
+          "method": "GitHub full source text read",
+          "title": "Complete general-position enumerators and gapped maximal spectra of rook graphs",
+          "trigger": "Same graph and possible terminal sizes"
+        },
+        {
+          "assessment": "SUBMITTED_STRATEGY_CHECKED",
+          "evidence": "High and middle locks and turn at n−1 row occupancy checked, finite n3..6 agrees.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/parity-reversal-in-builder-blocker-general-position-games-on-k-3--a77d86d92129/RESULT.md",
+          "material_read": "Entire source game proof, assumptions, cases and verification",
+          "method": "GitHub frozen file/blob read and independent finite minimax",
+          "title": "Parity reversal in Builder–Blocker general-position games on K3 square Kn",
+          "trigger": "Assigned strategy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adversarial general-position games ask for forced terminal sizes rather than static extremal sizes. The natural narrow family K3□Kn has a complete parity-reversing optimal-play classification, with explicit high and middle locking strategies, a structural behavioral distinction not mechanically inferable from known maximal-set cardinalities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only three-row rook products, n≥3, and specified alternating-maximize/minimize game.",
+    "No full move-tree classification for larger rook products."
+  ],
+  "schema_version": 1
+}

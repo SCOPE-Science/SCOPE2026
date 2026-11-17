@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 artifacts/verify.py` with Python 3.9 or newer. The verifier constructs each rook graph metric directly by row and column equality, enumerates forbidden geodesic triples and computes both minimax scores by exhaustive recursive search with memoization. It tests every first move and every same-row second reply, without using the proof's star-forest reduction to decide legality.
+# Independent mathematical audit
 
-The verified finite output for \(n=3,4,5,6,7,8\) was:
+## correctness
 
-```text
-GRAPH_OK n=3 forbidden_triples=36 B=4 Bprime=3 solved_states=206 legality_states=103
-GRAPH_OK n=4 forbidden_triples=72 B=4 Bprime=5 solved_states=712 legality_states=356
-GRAPH_OK n=5 forbidden_triples=120 B=6 Bprime=5 solved_states=2538 legality_states=1269
-GRAPH_OK n=6 forbidden_triples=180 B=6 Bprime=7 solved_states=9356 legality_states=4678
-GRAPH_OK n=7 forbidden_triples=252 B=8 Bprime=7 solved_states=35470 legality_states=17735
-GRAPH_OK n=8 forbidden_triples=336 B=8 Bprime=9 solved_states=137232 legality_states=68616
-VERIFY_OK graph_orders=3..8 independent_distance_triples=PASS adversarial_minimax=PASS same_row_best_reply=PASS solved_states=185514
-```
+PASS
 
-This is a finite test only; it neither proves the unrestricted theorem nor constitutes independent validation. The proof in `RESULT.md` supplies the parameter-uniform strategy arguments and terminal-state classification.
+For K3□Kn, pairwise distance≤2 makes a triple illegal exactly when the selected K_{3,n} edges contain a three-edge path. Legal states are bipartite star forests. All maximal states have 3,n,n+1 edges. Two-in-one-row play has high locks at a column pair plus third-row edge (n+1) and middle locks with three occupied distinct columns (n). Responding to off-row deviations and who moves at n−1 filled columns gives the parity outcome for each opening player. Independent exact minimax recurrence over all legal selected subsets for n=3,4,5,6 gives (4,3),(4,5),(6,5),(6,7) matching formulas; infinite proof is the exhaustive strategic case reasoning.
+
+## originality
+
+PASS
+
+No comparable exact Builder-first and Blocker-first minimax values on K3 square Kn were found. The primary Builder–Blocker general-position game paper treats other graph families. Earlier general-position enumeration on rook graphs describes feasible and maximal sets but not adversarial move-order choice. The distinct parity-dependent strategic theorem is not implied by static extremal set sizes.
+
+## value
+
+PASS
+
+Adversarial general-position games ask for forced terminal sizes rather than static extremal sizes. The natural narrow family K3□Kn has a complete parity-reversing optimal-play classification, with explicit high and middle locking strategies, a structural behavioral distinction not mechanically inferable from known maximal-set cardinalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
