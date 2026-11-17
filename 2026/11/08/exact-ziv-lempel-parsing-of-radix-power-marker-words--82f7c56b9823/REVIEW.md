@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the infinite binary indicator of positions \(b^j-1\), \(j\ge0\), with zero-based indexing. The parsing is explicitly the shortest prefix that has no occurrence starting earlier, with overlapping historical occurrences allowed. The formulas cover each base, all levels, and all prefixes because the supplied phrases are consecutive and their endpoints diverge. In bases at least three, the zero-run gaps prove the exact phrase length at \(b^s\), and the first occurrence of \(0^d1\) at \(B_s\) proves the alternating phrase length. In base two, a previous factor agrees for one less than \(B_s\) symbols and differs at the second marker; the first marker rules out every other earlier start. Initial phrases are separately checked for bases two, three, and at least four. A standalone exact search independently verified 115 phrases over eleven bases against all earlier starts, while the stated proof applies at all levels. The logarithmic leading constants follow by counting start levels.
+## correctness
 
-## Originality — PASS, qualified
-The directly relevant Jahannia–Stipulanti 2024 paper, first public 2024-03-22, was checked in its definition, examples, theorems and closing discussion. It gives other automatic words and the general first-order predicate approach, but does not state the radix-power marker family or this closed-form two-versus-one phrases-per-level phenomenon. The prior Constantinescu–Ilie growth-order classification gives \(\Theta(\log N)\) regimes, not the exact phrase starts or both sharp leading constants in the material accessible. Index queries for geometric markers, Ziv–Lempel, parsing and equivalent terminology yielded no matching result; the closest accessible findings use different invariants, including sparse-support envelopes and greedy attractors. The full Constantinescu–Ilie text was inaccessible for this comparison, and an unindexed identical theorem remains possible. A general algorithm capable of checking an already guessed family is not itself a closed uniform all-base formula.
+PASS
 
-## Mathematical value — PASS
-This is a complete explicit factorization for a classical, natural, infinite automatic-word family indexed by an arbitrary radix. It identifies the sharp transition in the logarithmic phrase-count constant from one phrase per radix scale at base two to two at every greater base. That exact dichotomy is not implied by a general logarithmic-complexity bound and informs how sparse self-similar marker sequences are incrementally parsed. Neither a new compression algorithm nor a claim about all automatic sequences is asserted.
+Marker positions b^j-1 create explicit zero-runs. For b>=3, the newly maximal zero run beginning at b^s yields the first phrase; the next 0^d1 ends at the next marker and is absent at any earlier start by monotonic gaps. For b=2, the longest previous factor at start 2^(s-1) agrees until the second marker, where the next bit differs; all shorter prefixes occur earlier. Initial b=2,b=3,b>=4 cases and contiguous endpoints verified. Independent brute scan of all earlier starts and shorter-prefix occurrence for 96 complete phrases over bases 2..10 up to endpoint 5000; packaged 115-phrase checker source separately inspected. Finite checks corroborate the all-level gap proof.
 
-## Closest work and limitations
-Jahannia and Stipulanti, *Exploring the Crochemore and Ziv-Lempel factorizations of some automatic sequences with the software Walnut*, arXiv:2403.15215 (2024), treat several other explicit sequences and the same parsing convention. Constantinescu and Ilie, *The Lempel–Ziv Complexity of Fixed Points of Morphisms*, SIAM J. Discrete Math. 21 (2007), offer general growth-order classification; their full text was unavailable to inspect. The only verification code checks finite instances and does not replace the symbolic argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The dyadic b=2 phrase ends ARE already covered: a November 8 published exact online greedy-attractor theorem finds marks 0,2,5,11,23,... and Whittington’s 2024 Theorem 5 proves such marks exactly equal the ends of self-referencing novel z-phrases. The surviving newly assessed contribution is the exact complete b>=3 radix-power marker parsing, including the distinct b=3 initial regime, and its two-per-scale leading constant. Broader old morphic-complexity work gives only Theta(log n) classes in accessible abstract; full text inaccessible, residual risk recorded.
+
+## value
+
+PASS
+
+Explicit z-factorization of a canonical sparse b-automatic word for every radix, with the sharp base-two versus larger-base change in leading phrase count. The exact phrase starts and coefficient are not mechanically implied by the old generic Theta(log N) growth class and are natural coding/word-combinatorics invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
