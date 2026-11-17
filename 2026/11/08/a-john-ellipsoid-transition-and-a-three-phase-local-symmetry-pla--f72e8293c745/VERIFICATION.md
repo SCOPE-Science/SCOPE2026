@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3.10 or newer. The program needs only the standard library and prints `VERIFY_OK checks 971598`. It performs exact-fraction identities for phase endpoints and candidate coefficients, and many finite numerical checks of containment and the one-dimensional volume objective. Its random sampling uses a fixed seed for reproducibility.
+## correctness
 
-These computations do **not** prove correctness for arbitrary real parameters and dimensions. The analytical proof uses the precise support-function constraints, differentiates a strictly unimodal objective, establishes exact reflection inequalities for all directions, and checks cone/cylinder endpoints separately.
+PASS
 
-Source comparison is claim-based, using the motivating 2026 paper, older truncated-cone optimization work, and published mathematical records. A possible unlocated historically equivalent formula is a literature-priority limitation. No independent external mathematical audit has been performed.
+PASS: symmetry/uniqueness reduces all candidate John ellipsoids to E(a,b,s); support-function inequalities imply optimal s=b and a²=1-2(1-r)b. Log volume maximization gives b=min(1/2,1/((d+1)(1-r))); cap/contact transition follows. For any center halfspace reflection gives exact bottom/top and lateral bounds; at axial b, local sigma=min(b/(1-b),(1-kb)/(1+kb)), yielding three branches with thresholds (d-2)/d and (d-1)/(d+1), including d=2 and cone/cylinder. Independent exact fractions checked boundary/internal points d2..14; finite tests are not full-real proof.
+
+## originality
+
+PASS
+
+PASS for surviving local John-centered reflection phase diagram; explicitly not novel: entire John ellipsoid, contact transition and global Minkowski center are all established by stronger earlier frusta theorems. No located earlier statement of local three-branch coefficient/plateau.
+
+## value
+
+PASS
+
+PASS narrowly: fixing the canonical John center rather than globally optimizing reflection measures a natural gap between two geometric centers, with exact plateau and coincidence thresholds. Although the John/global formulas are known and the arithmetic short, the fixed-center three-phase invariant is motivated and not merely a parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
