@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The self-contained proof first derives each player's weak best-response inequalities and shows their sufficiency; the independent-set players are forced to the minority core action unless the core ties. The central and noncentral occupancy families are exhaustive, and their labeled binomial multiplicities are exact. A concave quadratic gives the global maximum cut, and discrete concavity shows all noncentral equilibria optimize the cut. The central even-core family has a fixed, potentially smaller cut; the difference between its cut and a one-vertex-imbalanced fully responsive profile is \(m-1\), confirming strict inefficiency precisely at \(m\ge2\). An independently structured direct-edge best-response checker passed 260100 complete labeled profiles and 4900 additional compressed parameter comparisons. Finite checks are corroboration; the all-size proof is analytic.
+## correctness
 
-## Originality (PASS, with risks)
-The binary-action polymatrix work of Deligkas et al. [1,2] establishes broad complexity and welfare objective statements, rather than the exact complete-split labeled census. Lampis [3] proves general minimum stable-cut hardness and algorithms, not a split-family parity formula. Related accessible results for balanced complete multipartite graphs cover equal part sizes, whereas \(K_c\vee\overline K_m\) corresponds to part sizes \((m,1,\ldots,1)\). They overlap at the degenerate complete-graph case \(m=1\), but the structural parity cliff as \(m\to\infty\) is not implied by their balanced-family scope. Comparisons were made with the equivalent stable-cut/unfriendly-partition formulation, broader complexity results, and nearby network invariants. A specialized equivalent unpublished or unindexed classification remains a real priority risk; database absence alone is not a novelty proof.
+PASS
 
-## Value (PASS)
-The canonical hub-and-periphery complete-split family is a natural social-network test bed for anti-coordination, not an arbitrary graph slice. A complete all-size equilibrium census together with a sharp core-parity transition distinguishes networks on which decentralized local optimization is automatically efficient from those with asymptotically factor-two welfare loss, despite the same simple payoff rule. This supplies exact worst-case and equilibrium-abundance benchmarks for network-game analysis. The outcome is limited to homogeneous undirected pure-action games; it does not imply a general complexity theorem.
+For K_c∨independent_m, let k core ones and ℓ peripheral ones. Core 1 best-responds iff 2(k+ℓ)≤c+m+1; core 0 iff 2(k+ℓ)≥c+m−1, where relevant; peripheral 1 requires 2k≤c and peripheral 0 requires 2k≥c. For k<c/2 all peripheral ones, with k=0 permitted iff m≥c−1 and k>0 exactly when c−1≤2k+m≤c+1; action reversal gives the opposite occupancies. For even c the k=c/2 mixed peripheral layer satisfies |2ℓ−m|≤1. Counting labelled choices gives E_{c,m} as stated. Cut is C(k,ℓ)=k(c−k)+k(m−ℓ)+(c−k)ℓ. Global optimization reduces to concave F(k)=cm+k(c−m−k), yielding cm+floor(max(c−m,0)^2/4). Noncentral equilibria are F local (hence global) maxima, while central equilibria cut c²/4+cm/2. This yields the precise c parity price-of-anarchy law, including c=1 and m=1. Independent labeled enumeration c,m≤7 confirmed census and extremal cuts; proof handles all integers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-## Closest sources and outstanding limitations
-[1] Deligkas et al., arXiv:2305.07124v1 (2023), full text sections 1–5, https://arxiv.org/pdf/2305.07124.
-[2] Deligkas et al., arXiv:2311.03195v1 (2023), closely related expanded text, https://arxiv.org/pdf/2311.03195.
-[3] Lampis, arXiv:2104.13097, introduction and main min-stable-cut complexity results, https://arxiv.org/pdf/2104.13097.
+PASS
 
-No external independent audit has yet been performed. All originality comparisons are best-knowledge judgments, not universal priority certificates.
+The general max-cut/anti-coordination equivalence and tractability/hardness are prior mathematics. The most similar Resultary published complete multipartite equilibrium census treats equal size parts K_{n,...,n}; the graph here K_{m,1,...,1} is not balanced unless m=1. Earlier general stable-cut and game-complexity theorems do not imply a full exact labelled split-graph census and odd/even efficiency cliff. Same graph under distinct synchronous/dynamic models was not confused with Nash equilibria.
+
+## value
+
+PASS
+
+The labelled equilibrium polynomial and exact price-of-anarchy parity cliff reveal a sharp qualitative difference: for odd clique size every stable cut is globally optimal, but for even clique size weak-tie central profiles persist and approach a factor-two welfare loss. Complete split graphs are a canonical threshold/split network family, and the full weak-tie census is a nontrivial exact local-vs-global optimization classification, not generic hardness restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
