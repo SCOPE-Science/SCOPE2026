@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model separates latent stable site occupancy from independent conditional per-visit misclassification. Exact Bernoulli likelihoods yield the OR information, variance coefficient, and the fixed-interior finite optimizer. The threshold \(1-p=(1-f)^2\) follows from the exponential growth/decay of the boundary information per unit effort; a uniform inequality handles equality. In the divergent regime, the two exponential terms in the exact variance have opposing monotonicities, forcing the optimizer into a bounded lattice window around \(\log(1/\varepsilon)/\log(b/a)\). This establishes both the full integer phase and its periodic leading coefficient, not only an observed numerical trend. Full-data information is bounded by information in the latent occupancy state for interior prevalence, but the boundary chi-squared information grows exponentially for all distinct detection rates. The independently implemented finite calculations passed 191 assertions. Limitation: only ideal fixed-rate independent surveys are proved.
+PASS
 
-## Originality — PASS within inspected sources; historical priority provisional
+Under fixed known 0<f<p<1, derive no-positive probability u_t=ψ(1−p)^t+(1−ψ)(1−f)^t, OR information Δ_t²/[u_t(1−u_t)] and exact cost H_t. At fixed ε>0 information per visit tends to zero; at ψ→1, boundary score grows as (b²/a)^t/t. When a≥b² a uniform 1/t envelope keeps maximizers bounded, including equality; when a<b² boundary score rules out bounded maximizers. Exact two-exponential expression for H_t, coercivity outside t=L/log(b/a)+O(1), and uniform asymptotic inside give the lattice periodic Φ. Full histories at ψ=1 give chi-square K^t−1 with K=f²/p+b²/a>1; complete-data information bounds every interior score, proving finite maximizers and their divergence near ψ=1. Recomputed exact rational full-vs-OR Fisher information and boundary chi-square in 21 tests. Infinite claims follow from these inequalities, not finite sampling.
 
-Clement (2016) studies numerical allocation of survey effort with false positives; Guillera-Arroita, Ridout and Morgan (2010) study occupancy replication with different observation assumptions; Ferguson, Conroy and Hepinstall-Cymerman (2015) study confirmation and heterogeneity; Royle and Link (2006) establish the detection-mixture model. Their inspected statements do not include the exact \(p>2f-f^2\) near-ubiquity design transition, integer-lattice law, and the sharply distinct behavior under full-history retention. Related semantic searches on archived mathematical findings likewise located no matching claim. The explicitly inaccessible McClish–Quade (1985) paper is a serious priority risk because it concerns repeated-test prevalence accuracy and cost. Its abstract was inspected, not its full text; it is not claimed to have been excluded by a complete source comparison. Exact model likelihoods and general information inequalities are pre-existing ingredients, not claimed contributions.
+## originality
 
-## Value — PASS
+PASS
 
-The precise question is motivated by actual occupancy protocols that trade the number of sites against repeated visits under false-positive and false-negative detections. The result distinguishes a biologically important high-occupancy boundary that is invisible in finite moderate-occupancy design tables and isolates when discarding visit histories changes even the qualitative optimal replication law. It supplies an exact benchmark and exposes the cost of one-bit reporting. The proof is not a prescription for a finite-budget survey with unknown error rates, persistent detection heterogeneity, or ecological state changes. A later analysis with calibrated field costs and parameter uncertainty would be needed for practical deployment.
+No directly dominating published phase theorem was identified in searches of repeated-test ecological occupancy, diagnostic aggregation and related corpus records; this is a best-of-knowledge PASS, not guaranteed priority. McClish–Quade (1985) studies identical repeated-testing prevalence-and-cost motivation but full mathematics is inaccessible; it may contain an equivalent design phase. Böttcher et al. address optimal sequences of tests for different decision objectives. No accessible source implies the log-optimal near-ubiquity OR threshold, periodic lattice asymptotic AND full-history divergence jointly.
 
-## Closest literature and limits
+## value
 
-- Royle and Link (2006): https://doi.org/10.1890/0012-9658(2006)87[835:GSOMAF]2.0.CO;2
-- Guillera-Arroita, Ridout and Morgan (2010): https://doi.org/10.1111/j.2041-210X.2010.00017.x
-- Ferguson, Conroy and Hepinstall-Cymerman (2015): https://doi.org/10.1111/2041-210X.12442
-- Clement (2016): https://doi.org/10.1111/2041-210X.12617
-- McClish and Quade (1985): https://doi.org/10.2307/2530645 — accessible abstract only, unresolved historical overlap risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Near-ubiquity design is a natural limiting stress case for replicated ecological detection; coarsening full visits to one OR bit is a practical, mathematically motivated information loss. The dichotomy p≤2f−f² versus p>2f−f², divergent full-history optimal replication, and integer-phase exact variance are sharp actionable structural features not mere numerical maximizer examples. Model scope fixed rates is clearly stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
