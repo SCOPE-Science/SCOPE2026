@@ -1,19 +1,21 @@
-# Review: sharp metric-graph evaluation localization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The norm is the diagonal of the centered effective-resistance Green kernel under unnormalized arclength, because evaluation differences have squared dual norm equal to effective resistance. Integrating the explicit edgewise resistance identity reduces the full continuum maximization to three strictly concave edge profiles. The rank-one Laplacian perturbation yields the three endpoint resistances. All orbit peak differences are exact rational identities, independently reproduced symbolically. Their sign analysis is complete for all integer \(n\ge4\) and real \(h>0\): the decisive quadratic is convex, strictly negative on \((0,1)\) for \(n\ge5\), and equals \(16(h^2+4h-1)\) in dimension four. Both the exact extrema and Green-representer equality cases follow. The accompanying exact checker validates the symbolic formulas and six independently formed subdivided resistance networks; finite checks do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+Evaluation differences in the unnormalized arclength mean-zero H^1 energy Hilbert space have squared norm equal to effective resistance, giving Green diagonal F(x)/L-J/(2L^2), F(x)=integral r(x,y)dy. For an edge of length ell, F interpolates endpoint values plus [L(ell-r_e)-ell^2]z(1-z), so every edge orbit has a strictly interior quadratic maximizer for n>=4,h>0. Rank-one inversion of the complete-graph Laplacian gives r_d=2h/(2+(n-2)h), r_m=(2nh-3h+3)/(n[2+(n-2)h]), r_o=2/n. Exact rational peak differences compare distinguished, mixed and ordinary edges: at n=4, M_m-M_o=-(h-1)(h^2+4h-1)/(4(3h^2+12h+17)), giving unique h=sqrt(5)-2 transition in (0,1); at n>=5 convex Q_n(h) has negative endpoint values and stays negative for 0<h<1; h>1 selects distinguished edge. Equality functions are centered Green representers. Independently checked the n=4 symbolic factor and rational peak order for n=4 and 5 with h=1/10,1/2,2; finite checks are not the universal sign proof.
 
-Baker–Faber (arXiv:math/0407428), Baker–Rumely (arXiv:math/0407427) and Cinkir (arXiv:0901.0407) supply established resistance, Green and graph-operation machinery. The inspected material gives no one-edge-defect, mean-zero arclength Sobolev extremizer classification for complete graphs and no dimension-four cutoff \(\sqrt5-2\). Takemura–Kametaka–Nagai (DOI:10.3390/sym10010001) treat *discrete* weighted complete graphs, i.e. finitely supported vertex functions; their abstract was inspected, but their full article could not be obtained, so possible implied coverage remains a priority risk. Searches in mathematical records and accessible previous claims did not identify a direct/stronger statement. Lack of an index hit alone does not establish novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact all-dimensional continuous family of sharp Sobolev embedding constants and complete equality classifications on a natural network-surgery model. It isolates a dimension-four-only localization transition from an unaffected edge to four mixed edges, while higher complete graphs resist that relocation. The threshold is a structural boundary, not an arbitrary finite sample or minor numerical gain; the answer also determines how lengthening selects the defective edge.
+Classical metric-graph Green/resistance theory already supplies the evaluation framework. A distinct Nov 8 general Resultary finite-quadratic-envelope theorem gives a universal algorithm for arbitrary metric graph lengths (a strong broader ingredient and potential same-day priority), but does not state the exact one-edge-deformed complete-graph phase diagram, all equality locations, or the exceptional n=4 radical threshold. The nontrivial all-n/h sign classification is assessed as a specialized original result, with qualified priority because the broader theorem could be specialized algebraically and same-day order is unresolved.
 
-## Limitations
+## value
 
-The result concerns the real first-order unweighted mean-zero Sobolev space on one-edge-deformed complete metrized graphs, not arbitrary graph measures, vertices-only discrete inequalities, Robin problems, multiple defects or spectral-gap optimization. Literature priority is qualified by potential unindexed broad formulae and one full-text access limitation. No external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exceptional n=4 critical length h=sqrt(5)-2 separates two different global extremizer edge orbits, whereas every n>=5 has different rigidity. A complete global location classification with sharp constant and equality functions is a motivated and nontrivial graph-parameter bifurcation, even though a general finite optimization envelope is already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
