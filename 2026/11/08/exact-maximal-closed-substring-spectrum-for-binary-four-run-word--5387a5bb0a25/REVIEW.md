@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed classification is proved by an exhaustive partition according to the number of letter transitions in a factor (zero through three), with border existence, uniqueness, and both one-letter maximality conditions checked in each class. The two endpoint deletions are forced by closed extensions that cross an adjacent run boundary. The resulting disjoint endpoint families imply the exact count; a two-variable floor bound gives the sharp maximum, and explicit positive compositions give every intermediate count. The independent literal-factor checker passed 4,096 parameter quadruples with all four run lengths at most eight and checked lengthwise attainable spectra through 32. Finite computation is corroborative, not the proof of unbounded claims.
+PASS
 
-## Originality — PASS, with residual priority risk
+For every positive a,b,c,d the word 0^a1^b0^c1^d has at most three transitions in a factor. Zero-transition maximal closed occurrences are precisely four whole runs; one-transition factors are not closed; two-transition closed words require balanced outer unary runs, with exactly one deletion at the crossing extension when c≤a or b≤d; three-transition closed words have border 0^x1^y for x≤c and y≤b and a unique maximal occurrence at x=min(a,c), y=min(b,d). These disjoint exhaustive cases give K=5+min(a,c)+min(b,d)−I(c≤a)−I(b≤d). Compositional floor inequalities, explicit upper/lower witnesses, and a continuous intermediate family prove the complete fixed-n interval {5,...,floor(n/2)+4} for n≥5 and {5} for n=4. Independent direct factor-and-overlap border enumeration reproduced every endpoint for all 1296 tuples with a,b,c,d≤6 and all attainable spectra n=4..19; this is supplemental to the all-length proof.
 
-The closest general source is Umezaki et al. (arXiv:2607.02838), whose run-length encoded framework includes unary-border interval families and a valid-pair classification. These broader lemmas cover the structural *method* for individual MCSs, but the inspected text does not state or directly evaluate the exact four-run endpoint list or the sharp attainable spectrum at fixed total length; deriving those requires specializing the endpoint cases and a separate extremal argument. Fischer–Köppl (arXiv:2610.38114) treats output-sensitive enumeration for arbitrary strings with its output count left instance-dependent. Jain–Mhaskar (arXiv:2506.06452) discusses exact counting for Fibonacci words instead. Search-index and locally available prior-claim comparisons found no explicitly equivalent symbolic four-run result. An unindexed earlier specialization, or an interpretation of the broader run-length lemmas as making this a routine corollary, remains a priority/value risk.
+## originality
 
-## Value — PASS
+PASS
 
-The four-run family is the first binary run composition admitting both two-transition unary-border and three-transition mixed-border MCS occurrences. It gives a natural boundary case for output-sensitive compressed enumeration. Beyond a closed form, the exact all-length interval spectrum shows how much the occurrence output can vary with fixed input length and fixed number of runs, with witnesses for all attainable values. This is a complete motivated structural classification rather than a recomputation of a short table.
+General run-length encoded MCS enumeration and valid-pair/unary-border structure preexist (Umezaki et al. 2026), as do general output-sensitive MCS algorithms. Those sources are algorithmic and do not visibly state a direct four-run endpoint list, the corrected min formula, or the fixed-length gapless extremal output spectrum. The latter involves an additional integer composition optimization beyond running a generic enumerator. Because the highly relevant 2026 run-length paper full text could not be retrieved and some of its structural lemmas may imply the count routinely, this is a specifically identified material originality/value risk; best-of-knowledge acceptance is limited to the all-n explicit classification and attainable spectrum, not the general MCS mechanism.
 
-## Limitations and closest evidence
+## value
 
-The theorem applies to occurrence counts for exactly four positive runs, not general RLE strings or circular words. There has been no independent audit. Most important sources: https://arxiv.org/abs/2607.02838 (general RLE structure, especially Lemma 4), https://arxiv.org/abs/2610.38114 (new output-sensitive framing), https://arxiv.org/abs/2506.06452 (distinct family), and https://arxiv.org/abs/2209.00271 (original MCS definition).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four alternating runs are the first natural binary run class simultaneously exhibiting two-transition unary-border and three-transition mixed-border maximal-closed occurrences. The exact endpoint structure and gap-free sharp range of output counts at fixed length give a small but genuinely useful analytic benchmark for compressed/output-sensitive substring enumeration, not a known table, incidental fixed tiny instance, or alphabet renaming. Extending general procedures to a sharp symbolic family and all attainability values is mathematically motivated even without a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
