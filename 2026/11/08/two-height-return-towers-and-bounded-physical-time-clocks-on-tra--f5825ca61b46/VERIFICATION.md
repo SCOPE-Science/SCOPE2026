@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem is a quantified analytic statement for every integer \(n\ge1\), every \(L,\eta>0\), every base point \(x\in[0,L+\eta)\), and every integer horizon \(k\ge1\). Its principal proof is in `RESULT.md`; the computational checks are supplemental, finite, and exact rational. No external symbolic-algebra package or downloaded source code is required.
+## correctness
 
-Run the standalone verifier from the extracted package with `python checker.py`. The verified execution completed with:
+PASS
 
-```
-PASS exact cases 54 exact return samples 3456 rational orbit periods 700 two-atom moment checks 180
-```
+The four explicit translations map the long corridor through exactly 4n exterior indices: the nonzero index permutation is j->j+(2n-1) mod 4n and gcd(2n-1,4n)=1. The short corridor returns after 2 steps. Total tower lengths 2L+(4n+1)eta fill the original interval, so no omitted excursion. The induced rotation has wrap count floor((x+kL)/(L+eta)); consequently the long count is k minus that wrap count and t_k=2k+(4n-1)H_k, giving a bounded coboundary. A direct independently implemented exact-Fraction four-piece IET verified the return and roof across 1200 representative base states, n=1..4; the unrestricted proof is the permutation arithmetic. Uniform x has two possible wrap counts, giving the advertised mean/variance; rational u/v rotation has u+v returns with v long and u short excursions, so least original period exactly 2u+(4n+1)v. The original half-open map handles endpoints; geometric statement excludes ambiguous planar branch endpoints.
 
-The code's first test compares **direct iterations** of the full original four-interval exchange to both return-time branches and the cumulative-time identity, using exact fractions. The next checks least periods by iterating the original map from rational points until return. The final tests integrate the two-atom clock law over uniform rational grids and check its means and variances exactly. The integration grids are selected so the rational phase discontinuities are resolved exactly; this does not claim exhaustive verification for all real parameters.
+## originality
 
-Critical mathematical checks: the nonzero outside-index walk is addition by \(2n-1\) modulo \(4n\), which is a full cycle because the two numbers are coprime; the first-return map is rotation by \(L\) modulo \(A=L+\eta\); the number of wraps after \(k\) rotations is exactly \(\lfloor(x+kL)/A\rfloor\); and the full original-map period is the sum of \(u\) short excursions and \(v\) long ones for \(L/\eta=u/v\) reduced. The finite tests do not certify these universal implications; they are proved directly in the theorem.
+PASS
 
-Limits: polygonal endpoints are branch-ambiguous in the planar map, so geometric interpretations are stated for regular cap points; the half-open interval-exchange formulas themselves are exact. Uniqueness of invariant measures on the full ambient planar phase space is neither required nor claimed. The comparison to published work is a self-review and does not constitute independent publication-priority certification.
+PASS, limited to the explicit physical-time return roof, two-point clock law and realization of least original-map periods. The original geometric construction and induced circle rotation are already published and not novel. Mechanical/Sturmian balanced coding follows from classical rotation arithmetic; the model-specific return height and global integer original-time law are substantive additional facts, not simply restatements of an induced map.
+
+## value
+
+PASS
+
+Original physical time and induced-return time differ by long excursions 4n+1, so the two-tower roof and uniformly bounded clock variance answer a mathematically meaningful dynamical question ignored by a bare circle-rotation classification. The exact least-period spectrum in the original nonuniform-time map is useful for classifying actual cap orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
