@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In the unique decomposition w=1^a0 0 1^a1 ... 0 1^at, a one after j zeros accounts for C(j,2) 001-subsequences. A fixed positive-weight profile fixes J zero positions and ell marked ones; precisely three independent nonnegative free slots a0,a1,h remain. Therefore GF exactly P_k/(1-z)^3. The all-ones-at-gap-2 profile has unique largest core k+2; any J>=3 has length at most k+1 because ell<=k-C(J,2)+1. Thus n>=k has exact quadratic binomial extrapolation (missing terms at d=n+1,n+2 vanish), whereas at k-1 the degree k+2 term adds exactly 1. This reconstructs quantifiers and boundary cases; k=0 is explicitly excluded. Finite independently implemented direct counting checks n<=11, k<=7 agree, but the bijection supplies the all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem: every 0^a1^b has rational GF with denominator (1-z)^(a+b) and explicit finite positive profile numerator, including a=2,b=1. Bruda Theorem 1.4 supplies a weaker eventual degree bound."
+        ],
+        "reasoning": "The general 0^a1^b theorem strictly dominates the submitted 001 all-length enumeration; specialization and elementary degree-max bound imply the claimed sharp threshold. Bruda alone would not cover the sharp result, but that is immaterial given the stronger prior source.",
+        "searches": [
+          "Resultary 2026/11/2 SCOPE-exact-fixed-frequency-enumeration-for-every-binary-two-run-subse--618e49d0888b",
+          "arXiv:2607.02578 (Bruda), general fixed-frequency polynomiality"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026, 2026/11/2 general two-run full RESULT.md",
+        "arxiv:2607.02578",
+        "arxiv:2306.07870",
+        "arxiv:2507.03205",
+        "SCOPE2026 pinned RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, verify_scattered001.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier numerator h=q+t_q specializes to ell+J; its largest term is at q=k,t_q=2 and equals k+2, other terms <=k+1; the (1-z)^-3 coefficient polynomial for d=k+2 first differs at n=k-1 by 1."
+        ],
+        "reasoning": "This is an explicit deduction of EVERY final component, including the emphasized new-looking onset, from an already published stronger exact GF plus a routine bound; no surviving result remains.",
+        "searches": [
+          "Resultary general two-run theorem full proof section 1-4 compared term-by-term with submitted RESULT.md proof section 1-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier P_{a,b}(k) profiles record q ones after the a-th zero and nondecreasing t_i earlier zero counts; for (a,b)=(2,1), q=ell, t_q=J and k=sum_i C(t_i,2), giving the same monomial z^(ell+J) and denominator (1-z)^3."
+        ],
+        "reasoning": "The earlier formula is algebraically identical after a straightforward profile coordinate change. It covers every word length and every fixed positive frequency, not only eventual degree.",
+        "searches": [
+          "Resultary semantic search: binary scattered subsequence 001 fixed occurrence count triangular partitions sharp quadratic stabilization rational generating function",
+          "Resultary 2026/11/2 exact fixed-frequency enumeration for every binary two-run subsequence pattern; full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Menon–Singh lists low-frequency cases; the decisive earlier all-k two-run theorem supplies a formula rather than a finite table."
+        ],
+        "reasoning": "The objection is prior mathematical coverage, not merely matching finitely many sequence values; low-k tables are subsumed by both earlier and current exact enumerations.",
+        "searches": [
+          "Menon–Singh 2023 arXiv:2306.07870 low-frequency k<=4",
+          "Resultary search 001 exact frequency leading coefficients"
+        ]
+      },
+      "rationale": "FAIL: The published 2026-11-02 general two-run theorem establishes the EXACT all-length rational GF for 0^a1^b, all attainable k. At a=2,b=1, its canonical profile of ones after the second zero is bijective to the current triangular-partition profile, with q=ell, t_q=J and h=q+t_q; its numerator is exactly P_k, not merely same eventual degree. The remaining n=k onset and discrepancy at k-1 follow mechanically by bounding the maximum monomial degree of this already-known numerator. Absence of an explicitly printed threshold in that earlier statement is not new mathematical content independent of the stronger exact enumeration. The earlier general theorem is more encompassing, so this full final claim is covered by implication.",
+      "residual_risks": [
+        "Earlier full-text source includes all enumerated 001 parameters; the source document does not separately state n=k in its heading, but the implication was derived mathematically.",
+        "The current work is still correct; rejection is scientific originality/value, not a transport or computational failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the submitted all-length 001 rational series and, by direct specialization and degree-bound algebra, its stabilization conclusion.",
+          "evidence": "Theorem has GF numerator sum_{profiles} z^(q+t_r), denominator (1-z)^(a+b); set (a,b)=(2,1), q=sum r_j, t_r=J.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-fixed-frequency-enumeration-for-every-binary-two-run-subse--618e49d0888b",
+          "material_read": "Full RESULT.md including theorem, canonical zero-count profiles, unique factorization, example and proof steps 1-5.",
+          "method": "Direct read of published original Git source file.",
+          "title": "Exact fixed-frequency enumeration for every binary two-run subsequence pattern",
+          "trigger": "Exact same pattern class and positive k, dominating parameters a,b."
+        },
+        {
+          "assessment": "Background general eventual polynomial bound; does not itself decide sharp onset; stronger previous Resultary coverage decisive.",
+          "evidence": "Degree bound pattern length minus number of runs plus one, giving at most degree two for 001.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+          "material_read": "Published theorem description and its comparison in source RESULT and REVIEW; full primary not independently reconstructed in this audit.",
+          "method": "Theorem-level material comparison, not a claimed whole-PDF negative search.",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Potentially broader theorem for all patterns."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as a purported new contribution: the all-length distribution and partition profile were already provided for the full two-run class. Extracting the special parameter a=2,b=1 and the routine maximal-core threshold is not a distinct motivated gap after the exact all-k numerator is known. Correct and reproducible computations do not rescue a previously implied specialization; preserve entire source package.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Resultary/2026, 2026/11/2 general two-run full RESULT.md",
+    "arxiv:2607.02578",
+    "arxiv:2306.07870",
+    "arxiv:2507.03205",
+    "SCOPE2026 pinned RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, verify_scattered001.py"
+  ],
+  "disposition": "failed",
+  "final_claim": "For binary scattered 001 occurrence multiplicity k>=1, the all-length GF is P_k(z)/(1-z)^3, where P_k enumerates partitions of k into triangular weights C(j,2) with core length max(j)+sum r_j. The exact length count agrees with one quadratic for n>=k, with one-unit overextrapolation at n=k-1 and leading coefficient half the number of these triangular partitions.",
+  "limitations": [
+    "k=0 and alternate 010 class are out of scope. Published general theorem is exact coverage; no repair supplied."
+  ],
+  "schema_version": 1
+}
