@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The standalone `checker.py` ran successfully with Python 3 and no third-party dependencies. It enumerated exactly 44,168 ordered partition pairs on nonempty carriers of sizes at most six and independently evaluated both relation composites for each pair. The recorded output was `RANK_TWO_COMMUTATION_SHARP_OK partition_pairs 44168 optimal_signatures 3`. Separate two-round back-and-forth game evaluation confirmed the explicit four- versus six-point witness. The exhaustive finite part proves only the certified bounded-size statement; analytical lemmas in RESULT.md eliminate all larger cases relevant to a combined-size threshold of ten. Agreement on all rank-two sentences follows from the stated EF theorem; no finite experiment is treated as an infinite proof. There is no independent external audit, no formal proof assistant verification, and no assertion of historical priority outside inspected sources.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For two named equivalence relations E and F on nonempty finite universes, the rank-two first-order sentence theory is exactly the set of pointed rank-one atomic witness masks; the EF two-pebble back-and-forth argument proves this without a bounded-size assumption. A 4-point complete 2x2 incidence grid has commuting composites, while a 6-point cycle does not, yet both realize mask (120). The defining biconditional ∀x∀y[(∃z E(x,z)∧F(z,y))↔(∃z F(x,z)∧E(z,y))] has rank 3. Complete restricted-growth enumeration of all 44168 ordered partition pairs of carrier sizes 1..6 (independently reproduced in audit code) proves no opposite-status mask collision for total size<10 and precisely (4,6):(120), (6,4):(56,120),(88,120) at total 10. The proof separately excludes noncommuting structures ≤3 from sharing any commuting mask, covering all omitted asymmetric size pairs. The finite enumeration is exhaustive only for the stated bounded sizes; the EF equivalence and size cutoff are analytic.
+
+## originality
+
+PASS
+
+PASS, qualified. The earlier exact pointed-type theorem classifies maximal 8 distinct pointed types occurring in ONE 12-element equivalence-pair structure, with its own rank-two common theory, but does not relate commutation to noncommutation nor determine the two-structure minimum 10 and three joint signatures. Counts of commuting S5 frames and two-variable counting logic do not imply the ordinary FO quantifier-rank-two optimal opposing-status pair. The same-frame Rumenova–Tinchev full journal text was inaccessible, preserving a specified priority risk but not decisive coverage.
+
+## value
+
+PASS
+
+PASS: The exact least total countermodel size and complete three-theory rank-two boundary solve a natural finite-model-theoretic indistinguishability problem for the commuting-square axiom; the rank-three threshold is logically meaningful and small-model extremizers can be useful as hard finite witnesses, beyond an isolated ad hoc enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

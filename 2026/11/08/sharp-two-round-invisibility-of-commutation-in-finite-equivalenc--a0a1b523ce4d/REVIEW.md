@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-round EF correspondence is proved from the four possible off-diagonal atomic pair patterns, so the signature is logically complete. The four-world grid and six-world incidence cycle have the same signature but different composite relations; the rank-three defining sentence is explicit. A complete, standalone restricted-growth-word enumeration checks 44,168 ordered partition pairs through size six and all three total-ten signature intersections. Analytical lemmas exclude every larger carrier pair of combined size ten or less. Both the program and finite proof were replayed from the actual standalone source path. **Risk:** the finite boundary is dependent on the exhaustiveness of the transparent enumerator; the program is included and the search space is derived, not inferred from logs.
+## correctness
 
-**Originality — PASS with qualified historical priority.** The same frame class, complete rectangle normal form, EF-game method and general decidability are already present in Rumenova–Tinchev (2022). Ding–Yang (2026) discusses S5 modalities but a different expressivity question. Pratt-Hartmann (2015) treats finite satisfiability complexity with two equivalences and counting. Searches using aliases for commuting/permutable partitions, quantifier rank, two-round EF games, complete grids and six-cycles found no matching ten-world sharp statement or three-signature boundary. These prior structural facts alone do not determine the numerical extremal cutoff. **Risk:** the full 2022 journal treatment was not inspected; an older equivalent extremal statement may exist.
+PASS
 
-**Value — PASS.** It is natural to measure how much first-order quantifier depth is required to recognize commutation of two S5 accessibilities; the first depth failing to see commutation and the smallest opposing-status witness are intrinsic expressivity resources. The exact ten-world cutoff and classification into three optimal low-rank theories make this a complete and reproducible **natural boundary**, not an arbitrary truncated sample or merely a reformulation of a known defining axiom. It gives minimal finite test instances for limited-depth equivalence games; no larger application is claimed.
+For two named equivalence relations E and F on nonempty finite universes, the rank-two first-order sentence theory is exactly the set of pointed rank-one atomic witness masks; the EF two-pebble back-and-forth argument proves this without a bounded-size assumption. A 4-point complete 2x2 incidence grid has commuting composites, while a 6-point cycle does not, yet both realize mask (120). The defining biconditional ∀x∀y[(∃z E(x,z)∧F(z,y))↔(∃z F(x,z)∧E(z,y))] has rank 3. Complete restricted-growth enumeration of all 44168 ordered partition pairs of carrier sizes 1..6 (independently reproduced in audit code) proves no opposite-status mask collision for total size<10 and precisely (4,6):(120), (6,4):(56,120),(88,120) at total 10. The proof separately excludes noncommuting structures ≤3 from sharing any commuting mask, covering all omitted asymmetric size pairs. The finite enumeration is exhaustive only for the stated bounded sizes; the EF equivalence and size cutoff are analytic.
 
-The theorem is only about ordinary first-order quantifier rank; it does not assert a new modal-completeness theorem, a model-checking complexity improvement or historical priority beyond the inspected evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. The earlier exact pointed-type theorem classifies maximal 8 distinct pointed types occurring in ONE 12-element equivalence-pair structure, with its own rank-two common theory, but does not relate commutation to noncommutation nor determine the two-structure minimum 10 and three joint signatures. Counts of commuting S5 frames and two-variable counting logic do not imply the ordinary FO quantifier-rank-two optimal opposing-status pair. The same-frame Rumenova–Tinchev full journal text was inaccessible, preserving a specified priority risk but not decisive coverage.
+
+## value
+
+PASS
+
+PASS: The exact least total countermodel size and complete three-theory rank-two boundary solve a natural finite-model-theoretic indistinguishability problem for the commuting-square axiom; the rank-three threshold is logically meaningful and small-model extremizers can be useful as hard finite witnesses, beyond an isolated ad hoc enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
