@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a stationary symmetric rate-\(\gamma\) telegraph forcing shared by the two stable unit-gain filters, the generator recurrence is triangular in total polynomial degree and determines every moment through degree four exactly. The fourth cumulant factorizes as a strictly positive prefactor times a quartic with positive constant and four strictly negative higher coefficients, so the positive sign, unique zero, and negative sign are proved globally for all unequal positive relaxation rates. Stationary existence and all needed moment bounds follow directly from the causal exponential convolutions. `check.py` independently reproduces the exact factorization and solves eight full rational moment systems. The checks support the proof but do not replace it.
+PASS
 
-## Originality — PASS with residual risk
+The two stable causal convolutions have bounded stationary solutions and identical sign-flipping Markov source. Stationary generator on X^iY^j sigma^k yields exact triangular recurrence with denominator ia+jb+2k gamma; summing alternating binomial moments reconstructs Var(Z) and kappa4(Z). Independently implemented symbolic SymPy recurrence yielded exact zero after subtracting displayed variance and quartic kappa4 rational factorization; denominator factors are positive for a,b,gamma>0, a!=b. Q_eta has positive constant and negative coefficients of every positive power, so it decreases strictly from positive to minus infinity and has one simple positive root. Scaling x=eta*c gives limit (sqrt13-1)/4. Each individual linear marginal fourth cumulant is negative; equal-rate Z=0 is appropriately excluded.
 
-Inspected full texts arXiv:2210.09035 and arXiv:2207.10445 discuss telegraph-driven harmonic systems and higher moments, but do not present the unequal-rate, same-drive **difference** and its unique quartic crossover. The established all-nonnegative-response fourth-cumulant sign result is stronger for positive observables yet does not imply the sign of the signed difference, whose response kernel changes sign. Targeted searches for common telegraph forcing, differential relaxation filters, kurtosis transition and equivalent formulations did not return the same all-parameter sign classification. This is a best-knowledge originality judgment, not proof of absence from all literature; earlier general telegraph moment calculus could implicitly yield the rational formula.
+## originality
 
-## Value — PASS
+PASS
 
-The effect is a meaningful observable distinction: each individual harmonic response is strictly negatively kurtotic while subtracting the same two signals produces a strictly positively kurtotic contrast at slow switching. The exact boundary for all pairs of rates resolves whether a two-channel differential measurement can be interpreted using the componentwise negative-kurtosis rule. The limiting extreme-rate slope adds a parameter-free asymptotic diagnostic. This is not merely a recomputed marginal moment or an arbitrary finite numeric example.
+General negative-sign theorems for nonnegative telegraph response kernels and four-time cumulant sign fingerprints do not cover the sign-changing impulse ae^(-at)-be^(-bt). The 2026/10/18 published network theorem supplies an explicit positive signed-probe example but neither states nor implies by an immediate parameter substitution a unique all-parameter quartic sign transition for the normalized two-filter difference. A 2026/11/02 one-crossing transport result concerns asymmetric time-integrated velocity, not the stationary equal-time common-drive filtered contrast. Standard generator methods may implicitly compute it, so this is best-knowledge originality.
 
-## Closest literature and limitations
+## value
 
-Sarkar, Santra and Basu, arXiv:2210.09035, compare non-Gaussian active and Gaussian colored boundary reservoirs in harmonic chains; Smith et al., arXiv:2207.10445, derive confined RTP laws and treat interacting particles with independent propulsion noises. Neither inspected source states the signed common-drive crossover. General sign-rigidity applies to nonnegative transfer kernels, whereas the contrasting kernel has opposite-signed lobes. The result concerns a particular difference of unit-gain overdamped filters and an equal-time fourth cumulant; it makes no statement about arbitrary filter shapes or finite-time moments. Broader published analysis may include this as an implicit special case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The effect separates marginal and contrast non-Gaussian signatures: two strictly platykurtic common-source responses can yield a positive-kurtosis difference, with a universal unique switching frontier for every pair of relaxation rates and a singular limiting slope. It resolves an interpretable physical probe question, not a random example or mere marginal recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
