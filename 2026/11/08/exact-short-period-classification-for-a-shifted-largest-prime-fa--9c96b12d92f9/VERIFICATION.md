@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof covers all \(k\ge1\) and all starting integers \(n\ge2\). Its exhaustive short-cycle case split is symbolic; a composite maps immediately to a prime, and every block of consecutive prime states increases by the same positive shift. Conditions on multipliers in the four-cycle parameterization are exact largest-prime-factor tests, with both multipliers required to exceed one.
+# Independent mathematical audit
 
-Run `python3 verify.py` from the folder containing the script. The accompanying `verification_output.txt` is the recorded stdout from this checker. The program compares independently observed trajectories and candidate-generating arithmetic formulas for \(1\le k\le160\), including the boundary shifts \(k=1,2\), with a specified finite set of starting primes. This is a regression of the proof, **not** a finite proof of completeness for all parameters or all start values. No external certificate, independent audit, or formal proof-assistant validation has been performed.
+## correctness
+
+PASS
+
+PASS: Prime steps strictly add k and every composite step maps to a prime; no fixed points, no adjacent composite states, and every cycle contains a composite. Period two has (p,pm) with k=p(m−1) and P⁺(m)≤p; period three has one composite and p,p+k,p+2k, forces p|2k and p=2 by the primality obstruction, so k=2^a−1 with 2^a+1 prime (Fermat exponent). Period four has two composites alternating or one composite after three primes. The former gives distinct p,q, CRT k=tpq−p−q and necessary/sufficient two smooth multipliers; latter forces p=3, k=3^u−1, primality of 3^u+2 and 2·3^u+1. Each converse proves least period four. Independent bounded trajectory calculations confirmed observed short cycles for tested k; they do not establish global completeness.
+
+## originality
+
+PASS
+
+PASS qualified: Das introduced the exact shifted-largest-prime-factor system and proved global eventual periodicity and bounds, but inspected original discussion and published Resultary prime-locator bound do not classify all primitive cycles of length ≤4 at every shift. New exact smoothness/Fermat arithmetic types are a distinct full natural low-period classification. Unindexed special-period tables could exist.
+
+## value
+
+PASS
+
+PASS: A necessary-and-sufficient classification of all shortest primitive orbits for a named natural prime iteration answers a specific source dynamical classification problem, revealing Fermat-prime and simultaneous power-of-three primality phenomena without asserting infinitude. All k≥1 quantified, no arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

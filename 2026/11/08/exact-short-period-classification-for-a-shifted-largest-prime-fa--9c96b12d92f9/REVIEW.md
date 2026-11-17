@@ -1,11 +1,21 @@
-# Mathematical review of the short-period classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The argument exhausts the possible prime/composite patterns of primitive cycles of lengths two, three, and four. Period three forces its initial prime to be \(2\), giving an exact Fermat-number condition; period four forces either two distinct prime entries with the congruence \(k=tpq-p-q\) and exact smoothness constraints, or three consecutive prime entries beginning with \(3\), giving the powers-of-three family. Converse transitions are checked explicitly. The independent finite regression agrees on every short cycle observed from the specified starts for \(1\le k\le160\). There is no extrapolation from finite tests to the unrestricted theorem.
+## correctness
 
-**Originality (PASS within inspected evidence).** The full arXiv text of Das (2023) describes this map, its eventual periodicity and finiteness of cycles, and open questions on possible periods. Dubickas (2024) gives a broader boundedness theorem and a prime-compressed iteration, but not the exact uncompressed period-three/four arithmetic classification. Two relevant public mathematical records on an even-shift locator bound and a finite 36-loop computation were compared by implication and do not cover the universal criterion. Queries by Fermat primes, prime-smooth multipliers, cyclic three/four transitions and the congruence \(k=tpq-p-q\) did not reveal a covering result. Unindexed equivalent work is a residual risk.
+PASS
 
-**Mathematical value (PASS).** The source explicitly raises a period-spectrum question. Rather than merely displaying short examples, the theorem gives necessary-and-sufficient criteria for every positive shift and exposes two distinct four-cycle mechanisms. It connects period three to Fermat-number primality and period-four alternation to a Frobenius-number shift governed by smooth prime predecessors, creating an exact foundation for investigating longer periods. The proof is elementary and does not settle the general period-spectrum questions; no paper-sized contribution is asserted.
+PASS: Prime steps strictly add k and every composite step maps to a prime; no fixed points, no adjacent composite states, and every cycle contains a composite. Period two has (p,pm) with k=p(m−1) and P⁺(m)≤p; period three has one composite and p,p+k,p+2k, forces p|2k and p=2 by the primality obstruction, so k=2^a−1 with 2^a+1 prime (Fermat exponent). Period four has two composites alternating or one composite after three primes. The former gives distinct p,q, CRT k=tpq−p−q and necessary/sufficient two smooth multipliers; latter forces p=3, k=3^u−1, primality of 3^u+2 and 2·3^u+1. Each converse proves least period four. Independent bounded trajectory calculations confirmed observed short cycles for tested k; they do not establish global completeness.
 
-**Closest sources and limits.** Das, arXiv:2312.06629v1 (11 December 2023); Dubickas, *Axioms* 13 (2024), 107; the public records *Thirty-six distinct loops for Das's map at \(k=20735\)* and *Even-parameter cycle bound from the least missing prime \(\rho(k)\)*. The finite checker is supporting regression only; originality remains conditional on the inspected record.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Das introduced the exact shifted-largest-prime-factor system and proved global eventual periodicity and bounds, but inspected original discussion and published Resultary prime-locator bound do not classify all primitive cycles of length ≤4 at every shift. New exact smoothness/Fermat arithmetic types are a distinct full natural low-period classification. Unindexed special-period tables could exist.
+
+## value
+
+PASS
+
+PASS: A necessary-and-sufficient classification of all shortest primitive orbits for a named natural prime iteration answers a specific source dynamical classification problem, revealing Fermat-prime and simultaneous power-of-three primality phenomena without asserting infinitude. All k≥1 quantified, no arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
