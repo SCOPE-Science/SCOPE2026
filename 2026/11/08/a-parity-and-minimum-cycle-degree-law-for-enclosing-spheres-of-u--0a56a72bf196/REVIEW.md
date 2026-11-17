@@ -1,19 +1,21 @@
-# Review of the enclosing-sphere parity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Central symmetry uniquely fixes the minimum-ball center at zero. Strict convexity reduces contacts to signed zonotope endpoints, for which the exact objective is \(\sum_v(|\operatorname{outdeg}(v)-\operatorname{indeg}(v)|+t)^2\). An even cycle admits two globally pure orientations; an odd cycle forces at least one mixed cycle vertex. A mixed degree-\(d\) vertex incurs at least \(4(d+t-1)\) squared-radius loss. Orientations with one defect of minimum cycle degree attain the bound. The equality analysis yields four distinct contacts per admissible defect vertex. The standalone verifier passed 8,490 formula/contact comparisons and 216 independent full-endpoint enumerations.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The reduction to endpoints is valid by strict convexity and full-dimensional coordinate boxes (t>0); for a chosen signed edge orientation, maximizing independent box signs yields sum_v(|outdeg-indeg|+t)^2. On a bipartite unicyclic graph exactly two all-pure source/sink orientations saturate every coordinate. On an odd cycle at least one cycle vertex is mixed; the single-vertex square loss is >=4(deg(v)+t-1), and a one-defect alternating cycle orientation with attached tree edges consistently oriented realizes equality at any minimum-degree cycle vertex. Equality forces exactly one such defect, giving four distinct contacts per defect, also when defect degree two because the zero-imbalance box sign doubles the two cycle choices. Center 0 follows from antipodal radius equality; diameter endpoints are antipodal contacts. Independently constructed signed-endpoint searches checked C3,C4,C5 and a branched triangle at positive integer t, matching radius and contact counts. The finite search does not prove all unicyclic graphs or real t.
 
-The complete accessible motivating paper by Glew introduces the Minkowski sum, facets, and face factorization, but not these Euclidean radius/contact formulas. The closest published geometrical comparisons are the full-coordinate cone-zonotope law and the edge-only complete-multipartite graphical zonotope theorem; neither includes the unicyclic in-in norm or its parity/degree law. The cone comparison is not an isometry: in the triangle example the squared full-cone radius is 20 versus 19 in the in-in coordinate metric. Prior literature on maximum *minimum* imbalance addresses a different objective. Targeted primary-literature, published mathematical-record, and accessible existing-claim comparisons found no covering result. Unindexed equivalent orientations or later literature remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete and exact Euclidean extremal classification for a natural infinite graph-indexed family introduced in recent literature. Cycle parity and a single graph-theoretic local statistic control both the entire radius defect and a sharp two-versus-many contact transition, including all equality cases and diametral pairs. The result is not a generic symmetric-body bound or a computation of a small isolated instance; it persists under arbitrary pendant tree attachments and a continuous positive segment-length parameter.
+The graph-orientation objective is the sum of squared imbalances with separate coordinate boxes; it differs from geometric inradius problems, ordinary graphical-zonotope cones in one extra coordinate, and most-imbalanced orientation min-objective. Primary Glew manuscript introduces the in-in Minkowski realization without this exact enclosing radius/equality-contact classification. No stronger Resultary theorem found covering unicyclic degree-loss formula in this metric. Best-of-knowledge, not certified priority.
 
-## Limits
+## value
 
-The theorem is realization-specific; it does not cover multiple cycles, arbitrary edge weights, or vanishing coordinate half-length. Exact finite verification corroborates the proof but does not replace it. Priority is provisional and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp metric extremal formula for a naturally defined zonotope, with a discrete parity defect and explicit equality geometry, yields exact farthest-vertex and diameter classifications beyond routine scalar radius estimation. The odd cycle minimum-degree statistic connects graph topology with a Euclidean objective; a researcher studying in-in zonotope geometry could use the exact contact set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
