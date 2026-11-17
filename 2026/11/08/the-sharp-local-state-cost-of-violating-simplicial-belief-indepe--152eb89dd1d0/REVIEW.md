@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The lower bound uses the forced occurrence of each agent and rigidity when each color has exactly one local vertex. The explicit two-facet construction has upward directions and makes the antecedent true and each individual necessity claim false. The standalone checker replays the exact weak-Kleene face semantics and exhausts the entire three-color, three-vertex base case. The general theorem does not rest on finite experiments.
+## correctness
 
-**Originality: PASS within inspected evidence.** The source's Figure 3(b) supplies a five-vertex counterexample but no optimality proof or arbitrary-arity threshold. The new four-vertex construction and the general sharp lower bound do not follow from the existence of its five-vertex witness alone. Targeted mathematical research records, indexed literature, and accessible earlier local findings have been compared for the same object, aliases, and stronger implications; no covering claim emerged. Historical priority in unindexed or unavailable literature is not certified.
+PASS
 
-**Value: PASS.** Independence is a central axiom separating the new cup semantics from impure belief models. The result measures precisely how many distinct local states are needed before that axiom can fail even under upward closure: only one extra vertex, at *every* arity. The sharp threshold is a natural model-size invariant and an explicit benchmark for finite countermodel generation, not an arbitrary choice of a fixed size.
+At least one vertex of color a and one of each b_i are necessary for the boxed subformulas to be defined and false, giving k+1. With only k+1 total, every p_bi has one fixed value and every Box_a p_bi being false forces it to be false; any accessible face defining the full disjunction then falsifies it, contradicting a true antecedent. For k+2, root r plus false states f_i and one true t_k, with maximal faces {r,f_1,...,f_(k-1),t_k} and {r,f_k}, all faces at root accessible and singleton directions elsewhere, are upward; weak-Kleene disjunction is defined only on top face where t_k is true; every consequent box has a defined false witness. Independently constructed/checked k=2..12, but general argument works without finite cutoff.
 
-**Closest literature and limitations.** van Ditmarsch et al. (arXiv:2610.35106v1), especially Section 3 and Figure 3(b), establish the background semantics and the five-vertex example. This classification concerns the particular local-atom schema in upward impure models, not arbitrary formulas, cups, or minimal face counts. Earlier equivalent representations cannot be ruled out beyond the inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A primary preprint Unbelievably Complex (2026) introduces upward directed simplicial models and displays a larger illustrative binary independence failure, as stated in submitted work; the paper itself could not be read in full from attempted OA/arXiv or authorized institutional access. Search of published Resultary returned no prior theorem of a sharp k+2 local-vertex threshold. This supports only qualified best-of-knowledge originality, not a negative whole-paper priority assertion.
+
+## value
+
+PASS
+
+The smallest concrete Kripke-like simplicial countermodel for a standard distributivity/independence axiom is a natural semantic model-size threshold, with a uniform arity-dependent exact law and a specific one-agent-state duplication mechanism. Distinguishes falsity from undefinedness, an essential subtlety of the semantics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
