@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses all \(64\) hit traces, obtains private coordinates and three unused coordinates, then proves the four-point residual core must be a three-arm star with multiplicities \((2,2,2)\). It constructs all patterns in the converse direction. Distinct incidence degrees prevent counting duplicates, yielding \(21{,}621{,}600\). The two included independently implemented finite checks agree on all \(462\) four-core edge multisets; computational checks corroborate, but do not replace, the elementary proof.
+PASS
 
-## Originality — PASS under accessible comparisons
+For six shattered KG(13,3) support triples, singleton hit traces force six distinct private coordinates; the empty trace requires three unused coordinates; hence the residual two-element edges span ≤4 coordinates. With ≤3 residual coordinates, a four-hit trace avoiding two residual edges cannot be realized by a three-point center. With exactly four, any two residual edges must intersect or a four-hit trace is impossible. A pairwise-intersecting 2-edge multigraph spanning four vertices is a common-center star, with arm multiplicities m1+m2+m3=6. Omitting one support from each of two arms forces each remaining arm multiplicity ≥2, giving (2,2,2). Conversely each hit trace uses at most one coordinate per arm and pads with three unused, proving shattering. Orbit-stabilizer gives 13!/288=21,621,600 unordered six-supports and unique orbit. Independently enumerated all 286 three-point centers for canonical support to verify all 64 traces; also recomputed count 13*C(12,3)*C(9,6)*90.
 
-An existing exact rank-three Kneser VC-dimension classification already gives the onset at thirteen and one three-doubled-arm witness. Neither is claimed as new. The new theorem proves **every** six-support at that order has this form, hence computes an exact top-degree shattering coefficient. The inspected disjointness and Johnson/Hamming papers do not provide that enumeration, and the searched semantic research records reveal no covering result. Historical priority remains conditional on incomplete indexing and alternative terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This identifies the complete maximum shattering layer of a canonical distance-regular graph at its first extremal order, not merely its VC dimension or one witness. The orbit rigidity and exact count measure the rarity of the optimal configurations and form a natural fine invariant.
+The October 25 rank-three Kneser theorem proves the exact VC dimension and minimal ground order n=13 and constructs one doubled-spoke witness. It does not classify all shattered six-sets or count their complete orbit. Exact uniqueness and coefficient 21,621,600 are additional finite structural conclusions, not consequences of dimension six alone.
 
-## Limits
+## value
 
-Only \(\operatorname{KG}(13,3)\), its open neighborhoods, and six-element supports are classified. Nothing is proved about the full coefficient sequence at higher orders. The attached exhaustive checks use all actual finite query centers and independent multigraph signatures. Independent historical-priority and mathematical verification remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The top coefficient and orbit count of the natural VC-shattering polynomial at the first possible ambient order quantify witness rigidity rather than mere existence. An exact symmetry-class classification is a motivated finite invariant, potentially useful for checking extremal constructions and density computations, not an arbitrary list of tiny graph examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

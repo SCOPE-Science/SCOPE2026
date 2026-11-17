@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:10:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For six shattered KG(13,3) support triples, singleton hit traces force six distinct private coordinates; the empty trace requires three unused coordinates; hence the residual two-element edges span ≤4 coordinates. With ≤3 residual coordinates, a four-hit trace avoiding two residual edges cannot be realized by a three-point center. With exactly four, any two residual edges must intersect or a four-hit trace is impossible. A pairwise-intersecting 2-edge multigraph spanning four vertices is a common-center star, with arm multiplicities m1+m2+m3=6. Omitting one support from each of two arms forces each remaining arm multiplicity ≥2, giving (2,2,2). Conversely each hit trace uses at most one coordinate per arm and pads with three unused, proving shattering. Orbit-stabilizer gives 13!/288=21,621,600 unordered six-supports and unique orbit. Independently enumerated all 286 three-point centers for canonical support to verify all 64 traces; also recomputed count 13*C(12,3)*C(9,6)*90.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem gives VCdim KG(n,3) for every n, stronger in ambient range but weaker for all extremal-support orbits at n=13. Johnson graph adjacency means intersecting in two coordinates, not Kneser disjointness."
+        ],
+        "reasoning": "Neither prior all-n VC dimension statement nor Johnson adjacency results dominate the six-support classification at the sharp ground size.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md",
+          "https://arxiv.org/abs/2007.16042"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md",
+        "https://arxiv.org/abs/2007.16042",
+        "SCOPE-Science/SCOPE2026 pinned RESULT.md, verify.py and independent_check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous n=13 existence implies at least one support of 3 doubled spokes; current all-support proof derives pairwise intersecting residual edges and forced (2,2,2) arm multiplicities, then exact orbit-stabilizer."
+        ],
+        "reasoning": "An existence theorem and VC dimension do not imply uniqueness or labeled count. The new classification proof is required for the count.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md",
+          "https://arxiv.org/abs/2007.16042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Kneser theorem uses complementary disjointness/hit traces and the same three doubled spokes as a witness, but only dimension/onset is asserted."
+        ],
+        "reasoning": "The current use of open neighborhood hit traces is exactly equivalent to disjointness traces under complement; the novelty must lie in classifying/counting all witnesses.",
+        "searches": [
+          "Resultary semantic KG(13,3) six-shattered support exact orbit count",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier primary theorem supplies 9177 seven-edge obstruction profiles and an explicit six-edge witness but no exact 21,621,600 count or complete 462-profile classification at n=13."
+        ],
+        "reasoning": "A computational listing of nonshattered seven-sets does not count every shattered six-set. The top coefficient is not mechanically read off the earlier VC-dimension table.",
+        "searches": [
+          "Resultary semantic six point shattered Kneser coefficient",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md"
+        ]
+      },
+      "rationale": "The October 25 rank-three Kneser theorem proves the exact VC dimension and minimal ground order n=13 and constructs one doubled-spoke witness. It does not classify all shattered six-sets or count their complete orbit. Exact uniqueness and coefficient 21,621,600 are additional finite structural conclusions, not consequences of dimension six alone.",
+      "residual_risks": [
+        "Broader graph-VC or finite extremal-hypergraph literature might contain an unindexed equivalent six-support classification.",
+        "The independent 64-trace check validates a witness, while unrestricted classification follows from the structural proof, not finite sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Six first exists at n=13 with one doubled-spoke example; no complete count/classification of all six-supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md",
+          "material_read": "Entire RESULT.md including private-coordinate proof, seven-edge obstruction, all n threshold and witness construction",
+          "method": "Full primary published theorem fetched from GitHub",
+          "title": "Exact open-neighborhood VC dimension of Kneser graphs on triples",
+          "trigger": "same graph, sharp VC dimension and witness type"
+        },
+        {
+          "assessment": "DIFFERENT GRAPH RELATION; PRIORITY RISK",
+          "evidence": "Johnson triples adjacency by |intersection|=2, not Kneser disjointness, so claims do not directly establish the new top coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "Title/abstract and the target paper’s precise adjacency-scope comparison; full original not acquired",
+          "method": "arXiv indexed metadata and related-source comparison",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "possible equivalent neighborhood VC theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The top coefficient and orbit count of the natural VC-shattering polynomial at the first possible ambient order quantify witness rigidity rather than mere existence. An exact symmetry-class classification is a motivated finite invariant, potentially useful for checking extremal constructions and density computations, not an arbitrary list of tiny graph examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md",
+    "https://arxiv.org/abs/2007.16042",
+    "SCOPE-Science/SCOPE2026 pinned RESULT.md, verify.py and independent_check.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; inaccessible plausible sources documented and not treated as automatic failure.",
+    "No claim of formal proof-assistant certification or independent external attestation; no publication operations supplied."
+  ],
+  "residual_risks": [
+    "Broader graph-VC or finite extremal-hypergraph literature might contain an unindexed equivalent six-support classification.",
+    "The independent 64-trace check validates a witness, while unrestricted classification follows from the structural proof, not finite sampling."
+  ],
+  "schema_version": 1
+}
