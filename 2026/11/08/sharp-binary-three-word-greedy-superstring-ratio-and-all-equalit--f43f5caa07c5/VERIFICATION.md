@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-`verify.py` and `verify_independent.cpp` are standalone source files. Their algorithms use no external datasets, packages, network connections, or random inputs. The full finite observation is supplied in `census.csv`.
+## correctness
 
-The Python executable independently computes the worst legal greedy outcome by recursive merges of actual strings and by a path-endpoint recursion. It computes optimal superstring length by a maximum-overlap Hamilton-path dynamic program and checks every answer independently against all permutations of the original words. The C++17 executable independently reconstructs the direct greedy recursion and permutation optimum from scratch.
+PASS
 
-In actual checks, the Python program reported `BINARY_3MER_GREEDY_VERIFY_OK masks=255 ratio=10/7 maximizers=4`; the C++ program reported `BINARY_3MER_INDEPENDENT_CPP_OK masks=255 maximizers=4`. The \(255\) complete rows from both implementations were compared and were identical. The four equality masks are \(31,87,234,248\); explicit witnesses for mask \(31\) were validated step by step.
+The finite model contains precisely the 255 nonempty subsets of the 8 binary words of length three. Direct literal string-state recursion examines every ordered maximum-overlap pair and all legal tie breakings, while an independent Hamilton-path/permutation recurrence computes true shortest-superstring length; distinct equal-length originals are substring-free. Reimplemented both independent recurrences over all 255 masks and confirmed max G/OPT=10/7 and exact masks 31,87,234,248, each |S|=5, OPT=7,G=10. Explicit S* has optimal witness 0100011 and legal 10-letter greedy chain. Independent C++ verifier and full census.csv were inspected. This is genuine finite exhaustion, not extrapolation to longer words.
 
-The computer-assisted upper bound is limited to three-letter binary input sets, not all alphabets or lengths. This is a self-review only; no independent mathematical audit was performed.
+## originality
+
+PASS
+
+The closest Chukhin-Kulikov-Mihajlin-Smal 2026 theorem establishes unrestricted-alphabet length-three greedy ratio 9/5, not the fixed binary sharp 10/7; arbitrary-alphabet upper bounds cannot determine equality and its four-word-set orbit. Resultary search found no other covering binary length-three theorem beyond this target. Historical priority remains conditional: inaccessible full Chukhin et al. text and possible prior unindexed finite tables must be disclosed.
+
+## value
+
+PASS
+
+Binary is the smallest nontrivial alphabet, and 3-mers are the first regime where nontrivial ordered overlaps matter. The strict decrease from unrestricted 9/5 to 10/7 and a full classification of all equality sets supply a natural benchmark for fixed-alphabet shortest-common-superstring approximations, useful independently of any larger theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The result has a finite domain of exactly \(255\) nonempty subsets of the eight binary three-words. The optimal-length Hamilton-path recurrence and the worst legal greedy-merger recurrence exhaust their spaces exactly. Separate direct-string and original-endpoint-path greedy dynamic programs, permutation and Held–Karp optimum computations, and an independently written C++ implementation agreed on all \(255\) rows. The four maximizing cases were also checked by explicit optimal and legal greedy witnesses. Finite exhaustion proves this particular finite statement; it is not an extrapolation to other input lengths.
+## correctness
 
-**Originality (O): PASS, with priority risk.** The closest 2026 paper proves \(\rho_3=9/5\) allowing arbitrary alphabets, which does not imply the exact fixed-binary ratio or classify binary equality cases. The 2019 work treats more general superstring algorithms and gives weaker length-three bounds; the 2026 disproof uses even input lengths beginning at ten. Searches for the exact ratio, binary length-three aliases, and equivalence through substring/overlap graph formulations identified no covering publication or recorded claim. Unindexed exhaustive calculations remain a risk; priority is not certified.
+PASS
 
-**Value (V): PASS.** Fixed alphabet size is a mathematical restriction central to practical short-read reconstruction and to understanding the worst-case greedy approximation gap. The binary alphabet is the first nonunary case; length three is the first nontrivial regime singled out by recent sharp unrestricted results. The exact constant and single-orbit equality classification are a natural smallest-alphabet benchmark for subsequent fixed-alphabet studies, not an arbitrary parameter slice. The improvement is qualitative: the binary sharp ratio \(10/7\) is strictly below the unrestricted \(9/5\), and the extremal sources are completely characterized.
+The finite model contains precisely the 255 nonempty subsets of the 8 binary words of length three. Direct literal string-state recursion examines every ordered maximum-overlap pair and all legal tie breakings, while an independent Hamilton-path/permutation recurrence computes true shortest-superstring length; distinct equal-length originals are substring-free. Reimplemented both independent recurrences over all 255 masks and confirmed max G/OPT=10/7 and exact masks 31,87,234,248, each |S|=5, OPT=7,G=10. Explicit S* has optimal witness 0100011 and legal 10-letter greedy chain. Independent C++ verifier and full census.csv were inspected. This is genuine finite exhaustion, not extrapolation to longer words.
 
-The closest literature is listed in `RESULT.md`. The finite range, possible unindexed prior enumerations, and lack of independent mathematical validation are material limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Chukhin-Kulikov-Mihajlin-Smal 2026 theorem establishes unrestricted-alphabet length-three greedy ratio 9/5, not the fixed binary sharp 10/7; arbitrary-alphabet upper bounds cannot determine equality and its four-word-set orbit. Resultary search found no other covering binary length-three theorem beyond this target. Historical priority remains conditional: inaccessible full Chukhin et al. text and possible prior unindexed finite tables must be disclosed.
+
+## value
+
+PASS
+
+Binary is the smallest nontrivial alphabet, and 3-mers are the first regime where nontrivial ordered overlaps matter. The strict decrease from unrestricted 9/5 to 10/7 and a full classification of all equality sets supply a natural benchmark for fixed-alphabet shortest-common-superstring approximations, useful independently of any larger theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
