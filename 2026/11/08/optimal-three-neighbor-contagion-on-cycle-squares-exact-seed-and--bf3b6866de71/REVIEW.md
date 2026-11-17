@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** On a four-regular graph, the threshold-three rule deletes precisely the vertices of inactive degree at most one; consequently completion is equivalent to initial inactive vertices inducing a forest. For the cycle square, cyclic-gap words have an induced forest precisely when they have neither neighboring unit gaps nor an absence of a gap of length at least three (apart from the explicitly checked two-white-vertex boundary). The proof bounds the forest size, exhausts all equality/slack gap patterns, counts the patterns without symmetry loss, and derives completion times from induced path lengths. Direct exhaustive dynamics for orders \(5\)–\(18\) and an independent gap/acyclicity algorithm for orders \(5\)–\(32\) agree with all closed formulas. The computations are corroborative finite checks, not the proof of the unbounded statement.
+## correctness
 
-**Originality — PASS, historically qualified.** The closest full-text source, Guggiola–Semerjian (2014), develops minimal contagious sets on random regular graphs and explicitly relates threshold-three dynamics in four-regular graphs to decycling, but does not imply the exact cyclic-square optimum-state and time histogram. Macêdo Filho et al. (2012) treat powers of cycles for biclique-coloring, a different invariant. Beineke–Vandell (1997), Pike–Zou (2005), and older induced-subgraph papers are relevant to graph decycling and cycle powers but accessible abstracts do not establish this same counting/time claim; unavailable full text remains a priority risk. Searches also compared feedback vertex sets, induced linear forests, dynamic monopolies, cycle-square bootstrap percolation, and exact count tables; no dominating formula was identified. The known general equivalence between decycling and bootstrap percolation is not claimed new.
+PASS
 
-**Value — PASS.** The exact count of all optimal initial configurations and their optimal-seed completion-time spectrum gives natural structural information beyond the scalar decycling number. The sharp speed variation at fixed minimum seed cost when the cycle order is two modulo three, versus rigid completion time in the other two classes, is directly motivated by optimal target selection in contagion and is not a routine renaming of the forest-size lower bound.
+Pinned proof reduces threshold-three activation on 4-regular C_n^2 to simultaneous leaf/isolate pruning of initially inactive induced subgraph: whole activation iff it is a forest. Cyclic white-vertex gaps have no adjacent unit gaps and at least one gap >=3 (the m=2 n=5 boundary is handled separately). Slack n=2m-u+e with e>=1 gives m_max=floor(2(n-1)/3) and mu=ceil((n+2)/3). For n mod3=0,1,2 the proof exhausts slack classes A,B,C and derives exact labelled counts and per-path leaf-stripping completion times; for n=3k+2 classes with two cuts yield times max(r,k-r). Independently enumerated original synchronous infection subsets for every 5<=n<=12 and matched optimum/time histograms. Finite confirmation not proof for arbitrary n.
 
-**Limitations.** The infinite proof applies to labeled cycle squares only, synchronous threshold three and orders at least five. Historical priority is contingent on accessible full texts and records; an independent scholarly audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equivalent decycling/maximum induced forest interpretation is known, and earlier threshold regular graph literature is not claimed as new. Published Resultary searches for cycle-square induced-forest/contagion/forts located related graph invariants but not exact labelled optimal seed-plus-round census. The stated complete optimal-state and completion-time formula appears to survive the inspected comparisons on a best-of-knowledge basis.
+
+## value
+
+PASS
+
+A natural benchmark in deterministic bootstrap percolation: besides the minimum infectious seed size, it classifies every optimal seed and records the exact time-to-infect histogram, including variable completion times in one congruence class. This is a substantive complete classification rather than a single small simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
