@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim reviewed:** For two periodic words built from the same cyclic sequence of pairwise distinct letters, the intersection of their contiguous factor languages is exactly the union of the factor languages of the mismatch-gap words \(F_i\); these are precisely the inclusion-maximal common factors. The number of maximal words is the number of unequal run lengths, and the maximum common length has an exact cyclic-sum expression. The identical-profile case has no maximal finite common factor.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The proof is a complete argument for every alphabet size at least two and all positive integral profiles, not an extrapolation from finite data. Unique letter transitions align run phases across the two input words. Interior full runs of a shared factor must have identical lengths. All mismatches therefore bound the possible common factors, giving an explicit union of factor languages. Each candidate's two endpoint extensions disagree in the two sources, establishing maximality; distinct starts establish uniqueness. An independent finite oracle checks all factors and all maximal factors across 2684 pairs, including single mismatches, adjacent mismatches and all runs mismatching. Scientific limit: this assumes a fixed distinct-letter cyclic order.
+For q>=2 distinct letters each occurring in exactly one positive-length cyclic run, a two-letter boundary transition identifies the run phase uniquely. An interior run in a common factor must therefore be the full run of the same letter in both periodic words; no unequal run may occur internally. Between consecutive mismatches i,j, the word F_i uses the suffix of the shorter i-run, all equal interior runs, and prefix of the shorter j-run; it appears in each word. Every common factor must be a factor of some such interval, including constant-letter factors; each F_i cannot extend at either end because immediately across its boundary the shorter and longer profiles show distinct next/previous letters. Since F_i begins with distinct letter c_i, words are different and give exactly |D| maximal common factors. One mismatch case j=i traverses a complete period and D empty is separately excluded (infinite common language). Independent brute word-factor enumeration on 1542 profile pairs found exact language equality, maximal words and no missing factors through L+1; source checker covers 2684 cases. Infinite theorem uses transition proof, not finite sample.
 
-## Originality — PASS with stated bibliographic risk
+## originality
 
-The closest full-text primary literature includes Amir–Boneh (2018) on locally maximal *occurrences* for dynamic factor problems; Alzamel and coauthors (2019) on cyclically shifted finite common factors; Charalampopoulos and coauthors (2021) on fast general finite LCS; and Lee–Lin (2023) on finite RLE LCS algorithms. They do not explicitly state an antichain of exactly one inclusion-maximal common *word* per mismatched run type, nor the complete finite-language basis. General algorithms alone do not supply the symbolic theorem without a further argument. Equivalent-formulation, broader-coverage and exact-database searches were carried out; unindexed equivalents remain possible. No universal claim that the result has never appeared anywhere is made.
+PASS
 
-## Mathematical value — PASS
+The exact finite mismatch-gap basis for *all inclusion-maximal common words* of two infinite cyclic-run words has distinct content from finite dynamic locally maximal occurrence factors, circular factors, or generic LCS algorithms. Originality remains best-of-knowledge due to broad unindexed word-combinatorics literature.
 
-The theorem completely describes a natural two-input, infinite-periodic factor-language intersection in an arbitrary number of unequal-length runs. It gives a sharp cutoff and the full set of maximal common words using an O(q)-sized run representation, unlike a single numerical example or merely finite enumeration. It explains why mismatched runs block long common substrings and identifies each mismatch-free gap as one exact maximal generator.
+## value
 
-## Limitations and nearest literature
+PASS
 
-The theorem is not about approximate matching, scattered subsequences, unrelated cyclic orders, or arbitrary run-length-compressed finite strings. This statement does not claim faster algorithms for unrestricted LCS. See DOI 10.4230/LIPIcs.CPM.2018.11 and arXiv:1901.11305, arXiv:2105.03106, arXiv:2310.00966 for the closest studied problems. A genuinely equivalent unindexed result would supersede the novelty assessment.
+The exact structure and size of the antichain of maximal common factors under a natural shared cyclic run-order hypothesis gives a concise basis and explicit LCS length for all positive run profiles, a reusable fact for compressed periodic strings. Neither an arbitrary numeric slice nor routine relabeling; transition-phase structure underlies proof.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

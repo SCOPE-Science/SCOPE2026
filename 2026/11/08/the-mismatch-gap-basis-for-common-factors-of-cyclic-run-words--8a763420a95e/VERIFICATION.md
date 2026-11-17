@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The complete proof establishes all positive integral run profiles and all alphabet sizes at least two. `verify.py` is a standalone Python 3 standard-library finite oracle test and can be run using `python3 verify.py`.
+# Independent mathematical audit
 
-Actual output: `PASS 2684 independent finite pairs (all maximal factors and whole common language up to L+1)`.
+## correctness
 
-The 2684 comparisons comprise 600 exhaustive ordered pairs of distinct two-run profiles with entries from 1 through 5; 1934 ordered pairs for q=3 with entries from 1 through 3 and q=4,5 with entries from 1 through 2; and 150 additional deterministic seeded comparisons with up to nine runs and run lengths up to eight. The program builds each infinite periodic word through enough repeated periods to enumerate every starting phase and every factor length up to the claimed maximal length plus one. It directly computes intersection, coverage by the proposed words, and the inclusion-maximal factors.
+PASS
 
-Finite enumeration is not a proof for arbitrary parameters. The result depends on the mathematical alignment and mismatch-endpoint arguments in `RESULT.md`; the checker is an independent finite consistency test. No separate independent scientific audit has been performed.
+For q>=2 distinct letters each occurring in exactly one positive-length cyclic run, a two-letter boundary transition identifies the run phase uniquely. An interior run in a common factor must therefore be the full run of the same letter in both periodic words; no unequal run may occur internally. Between consecutive mismatches i,j, the word F_i uses the suffix of the shorter i-run, all equal interior runs, and prefix of the shorter j-run; it appears in each word. Every common factor must be a factor of some such interval, including constant-letter factors; each F_i cannot extend at either end because immediately across its boundary the shorter and longer profiles show distinct next/previous letters. Since F_i begins with distinct letter c_i, words are different and give exactly |D| maximal common factors. One mismatch case j=i traverses a complete period and D empty is separately excluded (infinite common language). Independent brute word-factor enumeration on 1542 profile pairs found exact language equality, maximal words and no missing factors through L+1; source checker covers 2684 cases. Infinite theorem uses transition proof, not finite sample.
+
+## originality
+
+PASS
+
+The exact finite mismatch-gap basis for *all inclusion-maximal common words* of two infinite cyclic-run words has distinct content from finite dynamic locally maximal occurrence factors, circular factors, or generic LCS algorithms. Originality remains best-of-knowledge due to broad unindexed word-combinatorics literature.
+
+## value
+
+PASS
+
+The exact structure and size of the antichain of maximal common factors under a natural shared cyclic run-order hypothesis gives a concise basis and explicit LCS length for all positive run profiles, a reusable fact for compressed periodic strings. Neither an arbitrary numeric slice nor routine relabeling; transition-phase structure underlies proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T12:14:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-mismatch-gap-basis-for-common-factors-of-cyclic-run-words--8a763420a95e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-mismatch-gap-basis-for-common-factors-of-cyclic-run-words--8a763420a95e/verify.py",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf"
+      ],
+      "rationale": "For q>=2 distinct letters each occurring in exactly one positive-length cyclic run, a two-letter boundary transition identifies the run phase uniquely. An interior run in a common factor must therefore be the full run of the same letter in both periodic words; no unequal run may occur internally. Between consecutive mismatches i,j, the word F_i uses the suffix of the shorter i-run, all equal interior runs, and prefix of the shorter j-run; it appears in each word. Every common factor must be a factor of some such interval, including constant-letter factors; each F_i cannot extend at either end because immediately across its boundary the shorter and longer profiles show distinct next/previous letters. Since F_i begins with distinct letter c_i, words are different and give exactly |D| maximal common factors. One mismatch case j=i traverses a complete period and D empty is separately excluded (infinite common language). Independent brute word-factor enumeration on 1542 profile pairs found exact language equality, maximal words and no missing factors through L+1; source checker covers 2684 cases. Infinite theorem uses transition proof, not finite sample.",
+      "residual_risks": [
+        "Requires pairwise distinct cyclic run letters, same order; cannot assert for repeated symbols, arbitrary permutations, or subsequences.",
+        "Finite tests cannot replace proof for unbounded run lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General LCS algorithms locate a maximum string for arbitrary inputs, but do not provide entire maximal common-factor antichain for this infinite periodic family.",
+          "Amir–Boneh periodic dynamic algorithm has O(p log log n) queries and does not give exactly |D| maximal common words independent of run lengths."
+        ],
+        "reasoning": "An algorithm that could calculate individual common factors after finite truncation is not a theorem determining every infinite common word, its complete basis and exact cardinality.",
+        "searches": [
+          "periodic run length words common factors mismatch gaps maximal factors cyclic profiles",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf",
+          "arXiv:2105.03106",
+          "arXiv:2310.00966"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf",
+        "https://arxiv.org/abs/1901.11305",
+        "https://arxiv.org/abs/2105.03106",
+        "https://arxiv.org/abs/2310.00966"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Amir–Boneh Definition 1 and Observation 3 bound occurrences in finite D by n; candidate number is |D| independent of total period lengths and produces explicit words."
+        ],
+        "reasoning": "The source dynamic LMCF results do not force the stated combinatorial formula without additional phase-alignment argument. The restricted finding survives.",
+        "searches": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf",
+          "arXiv:1901.11305",
+          "arXiv:2105.03106"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amir–Boneh define an occurrence-based locally maximal common factor in finite D against S (Definition 1), allowing dynamic maintenance.",
+          "Candidate is a set of distinct common words maximal under substring inclusion across two purely periodic infinite words."
+        ],
+        "reasoning": "A finite-string occurrence triple is not the same invariant as a phase-free word basis; no explicit mismatch-gap parametrization is in the inspected Amir–Boneh definitions.",
+        "searches": [
+          "periodic run length words common factors mismatch gaps maximal factors cyclic profiles",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf",
+          "arXiv:1901.11305"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieval returns the candidate and distinct periodic Abelian/subsequence/antidictionary problems, not an earlier shared-run-word mismatch-basis table."
+        ],
+        "reasoning": "Infinite parameter structural language identity rather than a known tabular recomputation.",
+        "searches": [
+          "periodic run length words common factors mismatch gaps maximal factors cyclic profiles",
+          "periodic distinct-letter run word maximal common factor exact basis"
+        ]
+      },
+      "rationale": "The exact finite mismatch-gap basis for *all inclusion-maximal common words* of two infinite cyclic-run words has distinct content from finite dynamic locally maximal occurrence factors, circular factors, or generic LCS algorithms. Originality remains best-of-knowledge due to broad unindexed word-combinatorics literature.",
+      "residual_risks": [
+        "A specialized combinatorics-on-words result on periodic intersection languages may establish an equivalent factor basis under another name.",
+        "Some general LCS sources were not read in full; this does not establish a whole-document novelty guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL overlap of terminology only, no exact identical classification in inspected material",
+          "evidence": "Definition 1 gives D[i..j] occurrences in a finite updated string; candidate concerns all distinct inclusion-maximal words in two infinite periodic run-order sequences.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf",
+          "material_read": "Open 13-page primary PDF, pp.1–4 including Definition 1, Observations 2–4, and period-based dynamic problem framing",
+          "method": "Open-access publisher full PDF, text extraction and rendered p.3",
+          "title": "Amir and Boneh, Locally Maximal Common Factors as a Tool for Efficient Dynamic String Algorithms",
+          "trigger": "Very similar terminology and periodic algorithm"
+        },
+        {
+          "assessment": "Different finite circular-shift maximization; residual full-text gap",
+          "evidence": "Addresses finding a longest common circular factor, not the complete unbounded periodic common-factor antichain.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.11305",
+          "material_read": "Accessible source record/title/abstract, NOT claimed as full-text review",
+          "method": "Bibliographic and result statement inspection",
+          "title": "Alzamel et al., Quasi-Linear-Time Algorithm for Longest Common Circular Factor",
+          "trigger": "Circular-factor alias could directly imply periodic equality"
+        },
+        {
+          "assessment": "Does not itself specify all maximal words or |D| formula",
+          "evidence": "General finite-string longest-substring query algorithms use different outputs.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.03106",
+          "material_read": "Available title and algorithmic statements only",
+          "method": "Abstract/result comparison, not full document",
+          "title": "Faster Algorithms for Longest Common Substring",
+          "trigger": "General LCS methods could dominate restricted problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.11/LIPIcs.CPM.2018.11.pdf",
+        "https://arxiv.org/abs/1901.11305"
+      ],
+      "rationale": "The exact structure and size of the antichain of maximal common factors under a natural shared cyclic run-order hypothesis gives a concise basis and explicit LCS length for all positive run profiles, a reusable fact for compressed periodic strings. Neither an arbitrary numeric slice nor routine relabeling; transition-phase structure underlies proof.",
+      "residual_risks": [
+        "No faster arbitrary-input algorithm claimed, and explicit expanded output can be large."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized combinatorics-on-words result on periodic intersection languages may establish an equivalent factor basis under another name.",
+    "Some general LCS sources were not read in full; this does not establish a whole-document novelty guarantee.",
+    "Requires pairwise distinct cyclic run letters, same order; cannot assert for repeated symbols, arbitrary permutations, or subsequences.",
+    "Finite tests cannot replace proof for unbounded run lengths.",
+    "No faster arbitrary-input algorithm claimed, and explicit expanded output can be large."
+  ],
+  "schema_version": 1
+}
