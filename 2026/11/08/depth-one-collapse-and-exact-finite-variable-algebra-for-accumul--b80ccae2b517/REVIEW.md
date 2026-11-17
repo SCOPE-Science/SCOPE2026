@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The topology makes the derivative of every set either empty or the unique nonisolated point; the criterion is infinitude of its isolated trace. Induction on formulas gives a propositional isolated skeleton and an arbitrary Boolean function on the independently realizable limit type and nonempty recurrent-type set. Depth-one formulas using \(\Diamond\chi_t\), Boolean combinations, and a limit-point guard construct all such functions. Distinct semantic coordinates are distinguishable by genuine valuations; the count \(2^{m2^m}\), with \(m=2^k\), follows exactly. The bound one is sharp by \(\Diamond\top\). The checker was executed from its actual standalone source and passed all 1,680 finite periodic-model comparisons and the single-variable separation check. No finite test is treated as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+On X=N∪{∞} with isolated naturals and cofinite neighborhoods of ∞, omega(A) is {∞} iff A contains infinitely many natural numbers; otherwise empty. All modal subformulas vanish at isolated points. For k atoms, m=2^k isolated truth types, the isolated propositional skeleton b_phi(t) and at-limit function F_phi(a,I), with a the valuation type at ∞ and nonempty I the set of types recurring infinitely often, determine formula truth under every valuation. Structural induction gives F_{◇ψ}(a,I)=1 iff I intersects {t:b_ψ(t)=1}. Conversely all (a,I) are realized by independent limit value and periodic isolated tail, and any isolated t can be inserted finitely. The depth-one generators χ_t and ◇χ_t identify each I; δ=◇top singles out ∞. Boolean combinations therefore realize arbitrary independent functions b on m isolated types and F on m(2^m−1) limit coordinates. Hence the complete finite-variable Boolean algebra has m2^m independent atoms and exactly 2^(m2^m) classes. At k=0 the isolated and limit points are distinguished by ◇top, proving depth one sharp; formulas of depth0 cannot. Explicit log2 class counts for k=0,1,2 are 2,8,64, i.e. class counts 4,256,2^64. Source checker inspected; its 1680 trials only corroborate induction.
 
-The direct source establishes the \(\omega\)-accumulation modality and class-level completeness, not this fixed convergent-sequence all-variable quotient. The earlier derivative-topology study explicitly encompasses scattered spaces and ordinals, which poses a serious possibility of implicit equivalent results; its inspected material does not give these concrete quotient counts or normal forms. Searches covering one-point compactification, locally tabular derivative logic, finite-variable Lindenbaum algebras, and alternate terminology did not identify an exact source. A failure to find a source alone does not establish priority; an equivalent specialist calculation remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete all-arity exact formula algebra and a sharp depth-collapse theorem for the simplest compact scattered space supply a usable boundary condition for the 2026 \(\omega\)-accumulation semantics. In contrast to merely observing that nested diamonds vanish, the constructive characterization determines every distinguishable semantic coordinate and every exact finite-variable count; it yields a finite, explicit decision procedure for formula equivalence under all valuations. It does not claim a general-space completeness theorem.
+PASS best knowledge for exact all-k finite-variable quotient and sharp depth-one normal form on this fixed convergent-sequence space. Montacute defines omega-accumulation and proves broad modal completeness; older derivative logic literature covers Stone/scattered spaces and ordinals. These foundational tools do not in inspected primary sections explicitly compute the independent isolated/limit semantic coordinates and exact quotient for this fixed topology. Strong residual risk remains that the count is implicit in locally tabular modal-algebra work under different nomenclature.
 
-## Closest sources and limitations
+## value
 
-Montacute (2026) provides the modal operator and general-space completeness; Bezhanishvili–Esakia–Gabelaia (2010) provides older derivative-modal treatment of Stone spaces and ordinals. Both are acknowledged. The result is restricted to one topology and unrestricted valuations, and another historical formulation may subsume it.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the entire finite-variable Lindenbaum/semantic formula algebra on the simplest compact scattered space, with explicit depth-one representatives and an exact decision procedure for equivalence under all valuations. This is an all-arity structural boundary classification and not merely the elementary observation that nested diamonds evaluate false. Natural benchmark for halo/cantor-derivative modality and scattered-space logics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
