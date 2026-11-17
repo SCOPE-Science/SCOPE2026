@@ -1,11 +1,21 @@
-# Scientific review: cuboctahedral ordinary five-cut complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact construction gives twelve vertices, 24 edges, 516 disconnected induced five-sets, 516 seven-element facets and 2,974 faces including the empty face. Two independently ordered exhaustive Morse matchings cover and orient every one of the 15,576 face-incidence relations, with no directed cycle. The forward 15-by-121 Morse boundary has rank three with a +1 maximal-rank minor; the reverse 13-by-119 boundary has rank one with a +1 minor. Therefore all nonzero Smith factors are units. As the five-skeleta are wedges of five-spheres and all attaching maps are classified by their integral degree vectors, the cell-pair cancellations prove \(\bigvee^{12}S^5\vee\bigvee^{118}S^6\) integrally. Independent mod-two chain ranks 462 and 398 agree. The argument is finite but exhaustive, not a numerical extrapolation.
+## correctness
 
-**Originality — PASS against inspected evidence.** Bayer et al. [1] define this exact ordinary cut construction. Their high-skeleton theorem does not apply because this complex lacks 52 six-vertex faces. The sequel [2] concerns other graph families. The closest same-graph published record treats the ordinary **three-cut**, \(S^7\vee\bigvee^6S^8\), with different facets; matching, Čech, and independent-set complexes have different face definitions. Searches using cuboctahedron, the cube line graph, disconnected five-subsets, five-cut and numerical sphere counts found no covering statement. An unindexed equivalent result remains a residual risk.
+PASS
 
-**Value — PASS.** The cube line graph is a canonical Archimedean graph, and the topological effect of moving to five-cut constraints is natural. The 12 lower-dimensional and 118 top-dimensional sphere classes are a complete homotopy classification, rather than a routine Euler-characteristic calculation. Because the complex is pure and its fifth homology is nonzero, this supplies an exact non-shellability example. No generalization to other hypercubes, all cut parameters or equivariant sphere splittings is asserted.
+Rebuilt the cube's 12 edge-vertices and 24 cuboctahedral adjacencies from bit arithmetic, tested all 792 five-subsets for connectedness (516 disconnected), generated 2,973 nonempty faces with f-vector (12,66,220,495,792,872,516). Independently implemented staged toggling on all faces: 1,418 matched pairs; critical cells in dimensions 0:1,5:15,6:121; verified all 15,576 oriented Hasse covers acyclic. Exact integral gradient boundary is a 15-by-121 matrix of rank 3 with determinant +1 on rows and columns (0,1,6). Thus 12 free degree-five and 118 free degree-six generators, no torsion; the 5-skeleton wedge and degree classification of pi_5 permit unit cancellations and the claimed INTEGRAL homotopy wedge. Fifty-two size-six faces are missing, excluding the high-skeleton shortcut. Pure dimension six with H5 nonzero is nonshellable. This is a complete finite result, not an infinite extrapolation.
 
-**References.** [1] Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675v1 (2023). [2] Bayer et al., *Topology of Cut Complexes II*, arXiv:2407.08158v1 (2024). [3] *The cuboctahedral three-cut complex is a mixed-dimensional sphere wedge*, published mathematical-result record (2026).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best available evidence: the published cuboctahedral three-cut is a different Delta_3 (different facets and sphere degrees); other cut families and cube line-graph matching/independence/Čech complexes have nonidentical face definitions. Primary Bayer et al. high-skeleton theorem is inapplicable at k=5 because 52 six-vertex faces are absent. This is not a claim that failed searching proves novelty; the actual 5-cut homotopy classification was not implied by the inspected primary statements or indexed other published records.
+
+## value
+
+PASS
+
+PASS: the ordinary five-cut complex of the canonical cuboctahedral line graph is a natural exact topological invariant; the unexpected two adjacent sphere dimensions, non-shellability of a pure complex, absence of torsion and failure of a general high-skeleton shortcut are mathematically motivated facts beyond a small arbitrary calculation. Complete finite homotopy classification can serve as a concrete boundary example in cut-complex topology, without needing a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
