@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 and its standard library only. The printed result is `VERIFY_OK 2175 exact assertions`.
+## correctness
 
-The checker constructs all spanning trees for seven small \(K_{a,b}\) examples independently by examining edge subsets and testing connectivity/acyclicity. It compares all edge-set inclusions of size at most three against rational transfer-current determinants, including matching-forest formulas and the Hadamard bound; it independently compares ordered second factorial moments against the three-case formula for two, three, and four tree layers. Full tuples of three and four trees are also enumerated on small examples and their overlap moments compared with the formulas. Exact arithmetic is used throughout.
+PASS
 
-An additional finite sequence of cases checks that critical-window factorial-moment lower/upper bounds are ordered and positive. This finite evidence does not establish convergence in total variation, the supercritical threshold, or universality. Those follow from the proof's determinant identity, factorial-moment bounds and inversion, negative pair dependence, and symmetry/collision argument. The proof is self-contained conditional on the classical weighted matrix-tree theorem and elementary determinant identities.
+The spanning-tree probability of containing edge set F is the determinant of the unit-conductance transfer-current kernel K_F, obtained by differentiating the matrix-tree polynomial. Explicit solution of the K(a,b) Laplacian gives K_(uv,u'v')=1_(u=u')/b+1_(v=v')/a-1/(ab), diagonal p=(a+b-1)/(ab). Hadamard bounds arbitrary r-edge inclusion by p^r; a disjoint r-matching has exact probability q_r=(a+b)^(r-1)(a+b-r)/(ab)^r. Independence of k trees gives EX=ab p^k and exact second factorial moment. Negative pair dependence yields Var X<=EX, proving the supercritical nonempty event; factorial moment sandwiches for b/a^(k-1)->theta give all Poisson moments and dominated factorial inversion proves TV convergence. Overlap collision estimates and S_a×S_b symmetry prove asymptotic uniform bipartite matching edge set. Independent exact small K(a,b) tree enumeration checked determinants, pair moments and matching formulas, not asymptotic truth.
 
-No independent mathematical audit has been performed. Historical-priority coverage is limited to the specified inspected publications and searches.
+## originality
+
+PASS
+
+PASS best-knowledge: Dong–Ge supplies the exact one-tree fixed-forest containment factor, an ingredient transparently credited, but not k-fold random intersection distribution. Bóna–Burghart–Wagner study pairs of spanning trees in complete multipartite graphs under positive limiting proportions; their k>=3 remark concerns complete graphs, where the intersection vanishes, not b~a^(k-1) highly unbalanced bipartite graphs. Bender–Canfield independent random graph embeddings change the sampling space. None of these statements directly specializes to the fixed-k>=3 unbalanced Poisson-uniform-matching law. Relevant full primary texts could not be reopened in this run; risk explicit.
+
+## value
+
+PASS
+
+PASS: Agreement edges shared by multiple random spanning-tree layers are a natural connectivity/reliability statistic. In the nearly complete balanced setting three layers typically have empty intersection; the highly unbalanced K(a,b) threshold b proportional a^(k-1) creates nontrivial Poisson survival. The theorem describes not only existence but a full count distribution and uniform matching spatial structure at the sharp boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
