@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Homogeneity and vanishing on the unit equator rigorously yield linear divisibility; the product Laplacian computes the exact symmetric matrix \(A_c=cI+vu^T+uv^T\). Its three invariant sectors give every nullity for distinct equators. A separate one-equator coefficient argument determines the coincident case, and the harmonic cubic dimension calculation gives all ranks. The exact symbolic checker passed 291 assertions from its packaged source. All real angles and complex coefficients are covered analytically, not inferred from tested examples.
+## correctness
 
-**Originality — PASS, provisional.** The \(60^\circ\) cubic sectoral nodal example is existing mathematics (Han; Olofsson–Wittsten), and Gröchenig–Jaming (2016), Theorem 4.2, already provides the broad generic-angle uniqueness theory for all sphere-supported measures via Coxeter reflection groups. The contribution is only the *pure cubic degree-specific* exact rational-angle refinement: among rational angles, \(60^\circ\) and \(90^\circ\) alone are blind, with different multiplicities in all \(d\ge3\). Finite-ring and random-point harmonic reconstruction are also known. The inspected sources do not state this degree-three full two-equator rank table. An equivalent refinement implicit in older reflection literature is a real priority risk.
+PASS
 
-**Mathematical value — PASS.** The question specifies a natural minimal angular measurement architecture. The theorem simultaneously proves exact two-equator sufficiency for generic orientations, proves its sharp minimality, and identifies both a dimension-growing orthogonal blind family and a dimension-independent \(60^\circ\) blind line. These are diagnostic obstructions to geometric reconstruction, not arbitrary numerical slices. Stability near resonance is open here; no claim is made about finite sampling or mixed degrees.
+A homogeneous polynomial zero on full E_u vanishes on the entire hyperplane, so linear factor u·x divides it; for two nonparallel hyperplanes the factors are coprime and a cubic is uniquely (u·x)(v·x)(w·x). Its Laplacian equals 2[(cI+vu^T+uv^T)w]·x, whose eigenvalues are c (d−2-fold), 1+2c, 2c−1; therefore singular only c=0 or ±1/2. For coincident equators write p=t(at²+t b·y+yᵀCy); harmonicity gives b=0, tr C=−3a, hence d(d−1)/2 free parameters. Independent exact SymPy determinant/rank reconstructions for d=3,4,5,6 and special/generic angles corroborate but do not replace the algebraic all-d proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of knowledge: standard planar 60° nodal example, general irrational-angle reflection-group uniqueness, and published quadratic two-equator formulas are known; none inspected supplies this exact all-dimensional pure-cubic angle/nullity classification.
+
+## value
+
+PASS
+
+The minimal number of full hyperplane traces and exact exceptional acquisition angles are natural questions in harmonic tomography. A complete all-d cubic rank/nullity atlas, especially distinct right-angle and 60° resonance multiplicities, is a useful structural design fact despite a short linear-algebra proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

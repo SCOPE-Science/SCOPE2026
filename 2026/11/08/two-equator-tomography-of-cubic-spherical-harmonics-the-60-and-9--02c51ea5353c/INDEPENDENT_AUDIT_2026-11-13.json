@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T13:11:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A homogeneous polynomial zero on full E_u vanishes on the entire hyperplane, so linear factor u·x divides it; for two nonparallel hyperplanes the factors are coprime and a cubic is uniquely (u·x)(v·x)(w·x). Its Laplacian equals 2[(cI+vu^T+uv^T)w]·x, whose eigenvalues are c (d−2-fold), 1+2c, 2c−1; therefore singular only c=0 or ±1/2. For coincident equators write p=t(at²+t b·y+yᵀCy); harmonicity gives b=0, tr C=−3a, hence d(d−1)/2 free parameters. Independent exact SymPy determinant/rank reconstructions for d=3,4,5,6 and special/generic angles corroborate but do not replace the algebraic all-d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gröchenig–Jaming Theorem 4.2 classifies Heisenberg uniqueness of sphere-supported measures from hyperplane observation via infinite reflection group, implying recovery at irrational angles but excluding all rational-angle cases in the all-measure setting."
+        ],
+        "reasoning": "The general theorem cannot distinguish rational angles where the cubic trace is injective (e.g. 45°) from precisely 60° and 90° where it is not, nor can it determine finite-degree multiplicities.",
+        "searches": [
+          "cubic spherical harmonics two hyperplane equator restriction injectivity 60 90 angle nodal set",
+          "https://arxiv.org/html/1608.06738v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1608.06738v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md",
+        "https://www.csun.edu/~xiaolong/Han_Nodal.pdf",
+        "arXiv:2201.04575"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known planar cubic harmonic Re((x+iy)^3) supplies the standard 60° example, not proof that all other distinct angles inject or that nullity at 90° is d−2 for every d."
+        ],
+        "reasoning": "The complete rank classification requires factoring the two hyperplane equations, diagonalizing cI+vu^T+uv^T and treating coincident hyperplanes separately; the prior sampled/averaged/all-measure results do not give this all-d, all-angle table.",
+        "searches": [
+          "https://arxiv.org/html/1608.06738v1",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The restriction kernel is exactly the harmonic homogeneous cubics divisible by the two independent real hyperplane equations; harmonicity is (cI+vu^T+uv^T)w=0. The two full continuous traces are not Funk averaging or finite point samples."
+        ],
+        "reasoning": "Rephrased as nodal-hyperplane factorization and a 3-eigenvalue linear-algebra system; all d≥3, all angles. This exact harmonic-degree statement is narrower than uniqueness for all sphere-supported measures but has different rational resonances.",
+        "searches": [
+          "cubic spherical harmonics two hyperplane equator restriction injectivity 60 90 angle nodal set",
+          "two equator tomography cubic spherical harmonic rank nullity 60 90 hyperplanes",
+          "https://arxiv.org/html/1608.06738v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published two-equator quadratic harmonic spectral theorem proves degree-two full restriction loses injectivity at orthogonal/coincident equators, not 60°; it works on H_2, not H_3."
+        ],
+        "reasoning": "Different harmonic degree produces a different divisible-polynomial harmonicity equation and resonance set; quadratic rank tables cannot be used as cubic tables.",
+        "searches": [
+          "cubic spherical harmonics two hyperplane equator restriction injectivity 60 90 angle nodal set",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md"
+        ]
+      },
+      "rationale": "Best of knowledge: standard planar 60° nodal example, general irrational-angle reflection-group uniqueness, and published quadratic two-equator formulas are known; none inspected supplies this exact all-dimensional pure-cubic angle/nullity classification.",
+      "residual_risks": [
+        "Exact same rank formula may be implicit in older harmonic polynomial nodal-set or Coxeter reflection literature; Han PDF not fully read in this run.",
+        "The result concerns exact injectivity, not quantitative conditioning near singular angles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Gives irrational-angle uniqueness at stronger all-measures level; leaves finite-degree rational-angle cubic kernel dimensions unresolved.",
+          "identifier_or_url": "https://arxiv.org/html/1608.06738v1",
+          "material_read": "Accessible full arXiv HTML, especially Theorem 4.2 and its reflection-group uniqueness criterion",
+          "method": "Web arXiv HTML theorem and argument inspection",
+          "title": "The Cramér–Wold theorem on quadratic surfaces and Heisenberg uniqueness pairs",
+          "trigger": "Strong general theorem on two hyperplanes and sphere-supported measures"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Degree two not degree three; no cubic 60° blind spot follows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-two-equator-frames-for-quadratic-spherical-harmonics-gener--f1a2fb2e4db0/RESULT.md",
+          "material_read": "Complete RESULT.md including full quadratic Gram spectrum, c=0 degeneracy and optimal oblique angle",
+          "method": "GitHub full file read",
+          "title": "Sharp two-equator frames for quadratic spherical harmonics",
+          "trigger": "Same full-equator measurement with different harmonic degree"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_RISK",
+          "evidence": "The explicit planar cubic witness is standard; absence of full text precludes a whole-document novelty claim.",
+          "identifier_or_url": "https://www.csun.edu/~xiaolong/Han_Nodal.pdf",
+          "material_read": "The published assigned result cites the standard cubic witness; no fresh full PDF page examination in this run",
+          "method": "Cited primary reference and mathematical direct identity",
+          "title": "Harmonic functions and nodal sets (Han), Section 3.1",
+          "trigger": "Known planar harmonic nodal lines potentially containing 60° example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal number of full hyperplane traces and exact exceptional acquisition angles are natural questions in harmonic tomography. A complete all-d cubic rank/nullity atlas, especially distinct right-angle and 60° resonance multiplicities, is a useful structural design fact despite a short linear-algebra proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Two full equatorial restrictions determine all complex homogeneous harmonic cubics in R^d, d≥3, for distinct equators except right angle (nullity d−2) and 60° (nullity 1); coincident equators nullity d(d−1)/2.",
+  "limitations": [
+    "Requires complete noiseless equatorial traces, pure degree 3, d≥3; no finite sampling or stability bound.",
+    "Normal orientations produce signed c, whereas unoriented plane angles use |c|."
+  ],
+  "schema_version": 1
+}
