@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:15:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual Git RESULT.md and verify.py at tree 2bfc1124b3bc5305eda8dc1a1c06346f7e0f8bd8",
+        "/tmp/bug_check.py independent SymPy exact Galerkin reconstruction",
+        "Git source VERIFICATION.md"
+      ],
+      "rationale": "For rank one, both K and J resolvents are inverse-positive irreducible M-matrices, and the S-step denominator 1+h(delta_x,+delta_y-alpha)>0. This proves all h>0 and graph sizes, not merely tested ones. Rank-two input F G^T has rank 2 and nonnegative entries. I independently assembled three rational Galerkin systems in SymPy (6x6,6x6,4x4) from the displayed Lx,Ly,F,G,h=20; the exact (3,3) output equals -594033061301428469823221753304439853683600602652582704940168750296800744522344351667480732497359830640303101165879631698969889519347925460619/6743357461779123941078498750026274375875445328946828328427350132661856787252531551389817715438793173726702157409367346355113640112458374247401, approximately -0.0880915871164129, verifying the claimed strict rational interval. Basis covariance of the Galerkin equations justifies unnormalized exact bases. Connected diffusion makes full backward Euler positivity improving.",
+      "residual_risks": [
+        "No assertion for arbitrary higher-order finite-element stiffness or all rank-two inputs; full source method paper was not available to compare exact implementation beyond the displayed equations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/10/25 projected exponential Lyapunov rank-one immunity studies PSD rather than entrywise positivity; BUG rank-two witness is untruncated."
+        ],
+        "reasoning": "No identified result covering this specific implicit BUG graph-diffusion all-step rank-one guarantee and rank-two failure.",
+        "searches": [
+          "implicit BUG dynamical low rank diffusion positivity rank 1 rank 2 counterexample",
+          "positivity preserving low rank integrators Vlasov nonnegative correction"
+        ]
+      },
+      "checked_sources": [
+        "Git package RESULT.md, REVIEW.md, VERIFICATION.md; Saha-Yang-Yin arXiv:2610.18419 abstract",
+        "Resultary semantic search implicit BUG dynamical low rank diffusion positivity rank 1 rank 2 counterexample",
+        "Resultary published projected-exponential Lyapunov 2026/10/25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Saha-Yang-Yin arXiv:2610.18419 (2026-10-13) establishes implicit solver and L2 stability in its accessible abstract; no abstract positivity assertion."
+        ],
+        "reasoning": "Energy stability and well-posedness do not force nonnegativity under projected low-rank updates. Earlier different-method positivity examples do not imply the actual BUG-specific rational witness.",
+        "searches": [
+          "arXiv:2610.18419",
+          "Resultary implicit BUG dynamical low rank diffusion positivity rank 1 rank 2 counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saha-Yang-Yin arXiv:2610.18419 abstract discusses implicit BUG discretization, stability and convergence, not componentwise monotonicity."
+        ],
+        "reasoning": "Same K,L,S method but positivity is not a consequence of Galerkin energy contraction; matrix positivity and norm stability are logically different.",
+        "searches": [
+          "implicit BUG dynamical low rank diffusion positivity rank 1 rank 2 counterexample",
+          "implicit BUG positivity nonnegative graph Laplacian exact untruncated low rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hit is this candidate, whereas older hits are distinct Lyapunov and parallel low-rank integrators."
+        ],
+        "reasoning": "This is a theorem-plus-finite rational certificate, not a known tabulated exact invariant; matching parameter/search language alone cannot establish coverage.",
+        "searches": [
+          "implicit BUG dynamical low rank diffusion positivity rank 1 rank 2 counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the motivating BUG-MLFEM article addresses well-posedness, Sylvester solvers and L2 stability, whereas componentwise rank-one positivity and an untruncated rank-two sign-loss witness are different properties. Other indexed low-rank positivity results concern different numerical schemes/truncated PSD or Vlasov corrections. No implication-equivalent rank-specific positivity result located; full primary manuscript not inspected due access outage.",
+      "residual_risks": [
+        "Important original BUG paper full text inaccessible due arXiv display failure and institutional VPN disconnected; cannot make full-text NOT_COVERING inference.",
+        "No independent survey of nonindexed implicit BUG positivity examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No checked all-text priority exclusion; likely methodological source, not proof of positivity",
+          "evidence": "Explicit abstract concerns solvers, WDLRA well-posedness and L2 convergence; Oxford returned vpn_disconnected job 6c25d13adfd228ae4396ee825c820cc3",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18419",
+          "material_read": "arXiv abstract, submission date and claimed method/energy-stability scope; full 33-page text not accessible",
+          "method": "web arXiv metadata plus attempted arXiv PDF/HTML and Oxford retrieval",
+          "title": "Low-cost non-iterative Sylvester solvers for dynamical low-rank approximation of reaction-diffusion equations",
+          "trigger": "Exact underlying implicit BUG method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact positive-generator theorem in Git RESULT.md",
+        "Independent rational rank-two reproduction /tmp/bug_check.py"
+      ],
+      "rationale": "The matrix heat equation preserves nonnegative concentrations; practitioners need to know whether a fixed-rank implicit subspace integrator preserves the invariant cone. The exact all-step rank-one guarantee and smallest demonstrated rank-two failure reveal a substantial method- and rank-specific structural boundary, not a generic negative matrix entry or textbook positivity exercise.",
+      "residual_risks": [
+        "The counterexample does not identify a sharp step threshold or repair scheme; these are outside the claimed scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Oxford authorized paper retrieval: vpn_disconnected; no authentication bypass.",
+    "No new public files; source package unchanged."
+  ],
+  "schema_version": 1
+}
