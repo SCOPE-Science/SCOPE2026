@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python check_twisted_joint.py` with Python 3. The program was executed from the package source and printed `CHECK_OK 4083 finite word/periodic geometry/spectrum identities across n=1..11`. For each word up to length eight, it independently solves the affine periodic-point equation with exact fractions and verifies the branch signs and return. For lengths through eleven it checks the integer derivative products, both gap indices, and complete joint binomial histograms. The mathematical proof above establishes the arbitrary-length statement via exact parity and binomial identities; finite tests cannot establish it alone.
+## correctness
 
-Mathematical inputs: the symbolic fixed-point coding and absence of periodic boundary points in Saiki--Takahasi--Yorke, arXiv:2202.04304, Lemmas 2.4--2.6. Independently derived: signed monomial stretch coding, binomial histogram symmetry, one-word correction, joint Gaussian weak limit. The result covers iterate-fixed-point counting, not just primitive periods. No external mathematical audit has been performed.
+PASS
+
+Full RESULT.md, exact Jacobian product rule L=diag(2,1), R=[[0,-2],[1,0]], and one-to-one Saiki–Takahasi–Yorke symbolic periodic coding checked. Cumulative right-visit parities are a bijection of F_2^n; the monomial Jacobian has singular magnitudes 2^A,2^(n-A), where A is the parity-zero occupancy. Conditional absolute binomial histograms match for even/odd right parity; odd parity creates imaginary conjugate eigenvalues, even parity produces real diagonal eigenvalues. Removing the sole all-L fixed-face word subtracts one real maximal-gap point. The independent all-word calculation exactly multiplies the Jacobians for n=1..10; finite verification corroborates, but the bijection and binomial proof establish all n.
+
+## originality
+
+PASS
+
+The precise all-length class-conditioned singular-gap census plus coupled eigen/singular-gap weak limit at iterate-fixed points is distinct from already known spectral-parity margins and from Lebesgue-sampled singular-value central limits. This is best-of-knowledge with historical priority risk.
+
+## value
+
+PASS
+
+The first exact all-n spectral-class and singular-anisotropy joint distribution is a natural invariant of periodic-point derivative dynamics; it sharply distinguishes eigenvalue-based expansion from singular-value nonnormal expansion at the same return points, and its one-word extreme defect prevents a naive independence assertion on actual fixed points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

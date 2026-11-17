@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-dimensional branch Jacobians are an exactly signed monomial cocycle. The cumulative parity representation is an invertible transform of all \(n\) fair word bits; its first \(n-1\) output bits determine a binomial stretch count, independent of the final parity class. Exact symmetry of the binomial law gives matched conditional singular-gap histograms. A one-word correction accounts for the nonisolated fixed face, while the central limit theorem and exponentially small conditioning error establish the joint asymptotic. This proof covers each \(n\ge1\). The standalone exact verifier checked 4083 valid words and actual periodic geometry for word lengths through eight; it is supporting evidence rather than an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2022/2023 originating paper establishes geometry, coding, equidistribution and spectral-type density. The closest public 2026 result establishes a complete eigenvalue real/nonreal residue classification and exact counts, but not the singular-gap **joint conditional** law. Earlier exact eigen-minimum formulas and stationary tangent-stretch central limits yield separate marginals or different sampling ensembles; they do not provide the finite-period parity-versus-anisotropy matching with its single extreme defect. The 2024 Dyck/heterochaos result studies different maps and observables. Publication-priority risk remains because this relation is elementary once the signed cocycle is written in parity coordinates, and generic monomial-matrix literature was not exhaustively indexed.
+PASS
 
-## Mathematical value — PASS
-A central issue motivating twisted baker maps is the coexistence of periodic orbits with complex and entirely real derivative spectra despite differing transient stretching. The result gives an exact finite-period answer to whether the two spectral types are distinguished by **singular anisotropy**: their entire histograms match level by level, except one geometrically forced boundary defect. The coupled half-normal limit makes precise the large nonnormal transient stretching coexisting with exactly equal eigenvalue moduli on half the periodic-point ensemble. This is a substantive structural distribution law, rather than merely a new real/nonreal count, a single sample mean, or a routine rescaling of a known estimate.
+Full RESULT.md, exact Jacobian product rule L=diag(2,1), R=[[0,-2],[1,0]], and one-to-one Saiki–Takahasi–Yorke symbolic periodic coding checked. Cumulative right-visit parities are a bijection of F_2^n; the monomial Jacobian has singular magnitudes 2^A,2^(n-A), where A is the parity-zero occupancy. Conditional absolute binomial histograms match for even/odd right parity; odd parity creates imaginary conjugate eigenvalues, even parity produces real diagonal eigenvalues. Removing the sole all-L fixed-face word subtracts one real maximal-gap point. The independent all-word calculation exactly multiplies the Jacobians for n=1..10; finite verification corroborates, but the bijection and binomial proof establish all n.
 
-## Primary comparisons and limits
-Saiki--Takahasi--Yorke, arXiv:2202.04304, Sections 2.1--2.3 and Appendix A: symbolic coding and real/nonreal distinction, but not joint singular/eigen gap histograms. Published note *Exact real-spectrum residue law for the twisted baker map* (11 October 2026): full eigenphase classification and marginal real/nonreal counts, not joint singular-gap matching. Takahasi, arXiv:2409.01261, Theorem 1.1: different heterochaos system. Independent audit remains unperformed; the self-review does not establish publication priority against every unindexed source. The statement excludes a nonisolated fixed face and does not address least-period-only sampling or higher dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise all-length class-conditioned singular-gap census plus coupled eigen/singular-gap weak limit at iterate-fixed points is distinct from already known spectral-parity margins and from Lebesgue-sampled singular-value central limits. This is best-of-knowledge with historical priority risk.
+
+## value
+
+PASS
+
+The first exact all-n spectral-class and singular-anisotropy joint distribution is a natural invariant of periodic-point derivative dynamics; it sharply distinguishes eigenvalue-based expansion from singular-value nonnormal expansion at the same return points, and its one-word extreme defect prevents a naive independence assertion on actual fixed points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
