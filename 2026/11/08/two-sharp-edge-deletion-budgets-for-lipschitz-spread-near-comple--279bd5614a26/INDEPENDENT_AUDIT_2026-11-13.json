@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T18:51:21.130773Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Graph diameter≤2 follows from Δ(H)<n/2. Strictly convex variance on anchored Lipschitz polytope forces connected tight-edge spanning graph at a maximizing vertex and integral 0/1/2 values. Opposite levels A,B form an H-biclique and have exact n² variance numerator n(a+b)−(a−b)². For ab≤k≤(n−2)/2, t=a+b≤ab+1≤n/2 and monotonicity proves star envelope and unique strict extremizers. For a,b≤r<n/2, equality at a=b=r forces an isolated H-Krr component. Floor threshold and n=4 boundary hold. Independent exact enumeration and symbolic/integer checks corroborate all formulas; proof is all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published C4-free-complement theorem gives per-graph spread in terms of maximum H degree when H has no K2,2; thus it covers special deleted stars but expressly excludes missing Krr for r≥2. Alon et al gives integrality only."
+        ],
+        "reasoning": "The C4-free hypothesis fails for the adversarial extremal degree-budget missing K_{r,r}. The present statement optimizes over ALL complements satisfying total edge or maximum-degree bounds, so it is not implied by the stronger-sounding C4-free per-graph statement.",
+        "searches": [
+          "Resultary direct search: \"near complete graph spread under maximum missing degree complete bipartite missing edge Krr\"; published 2026/11/8/SCOPE-largest-missing-degree-determines-sharp-lipschitz-spread-for-gra--ee57e440d59e"
+        ]
+      },
+      "checked_sources": [
+        "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "https://arxiv.org/abs/0902.1156",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-largest-missing-degree-determines-sharp-lipschitz-spread-for-gra--ee57e440d59e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact reduction n² Var=n(a+b)−(a−b)² with missing K_{a,b}; total-edge ab≤k forces star equality; degree bound a,b≤r forces Krr. Old integer-extreme lemma is used as a tool; old C4-free result does not apply to Krr."
+        ],
+        "reasoning": "Prior integrality plus generic graph-spread bounds alone do not imply which deletion arrangement is extremal under both constraints, or exact equality graph shapes.",
+        "searches": [
+          "Full published Resultary C4-free RESULT.md; Alon, Boppana, Spencer, An Asymptotic Isoperimetric Inequality Theorem 2.1; Addario-Berry–Janson–McDiarmid arxiv:0902.1156"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alon–Boppana–Spencer Theorem 2.1 proves integer extremizer principle. Other Resultary record Largest missing degree determines sharp Lipschitz spread for graphs with square-free complements excludes all K_{2,2} in H."
+        ],
+        "reasoning": "The variational quantity is equivalently the squared Lipschitz-to-centered-L² norm. Integer extreme potential and missing complete bipartite opposite levels allow the exact deletion-budget problem. No prior source inspected states that full two-budget extremal optimization and rigidity.",
+        "searches": [
+          "Resultary searches \"graph spread of diameter two graphs complement biclique variance formula\"; \"graph Lipschitz spread near complete graphs deleting k edges star missing Krr maximum degree budget\"; Alon–Boppana–Spencer 1998"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Alon–Boppana–Spencer 1998 spread theorem and published star-forest Lipschitz volume record do not tabulate both budget envelopes. Independent n≤6 exact graph enumeration checks only finite cases."
+        ],
+        "reasoning": "No exact database/table identified which already tabulates the infinite-n k/r thresholds; a finite checker neither proves nor establishes novelty for them.",
+        "searches": [
+          "Resultary queries for dense graph spread deletion budget, star, biclique, sqrt threshold; small graph direct combinatorial enumeration"
+        ]
+      },
+      "rationale": "The two exact adversarial budget envelopes and strict equality rigidity survive literature comparison. Prior no-K2,2 complement theorem contains star specializations but is inapplicable to the r≥2 biclique extremizer; classical integrality is credited. Best-knowledge originality PASS.",
+      "residual_risks": [
+        "Unindexed stability/deletion extremal inequalities may be equivalent under different graph metric norm terminology.",
+        "The published C4-free graph theorem overlaps on star deletions; no novelty is claimed for integer extreme-potential principle or graph spread definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS integer extreme potential lemma, NOT the two deletion envelopes",
+          "evidence": "Theorem 2.1 gives integer-valued extremal graph Lipschitz functions.",
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "material_read": "Theorem 2.1 and spread definition, supporting pages including visual PDF page; no deleted-edge optimization in theorem",
+          "method": "Author-hosted original PDF, text and screenshot",
+          "title": "Alon, Boppana and Spencer, An Asymptotic Isoperimetric Inequality",
+          "trigger": "Original spread and integer extreme-potential lemma"
+        },
+        {
+          "assessment": "COVERS missing stars and C4-free graph spread; does NOT cover general missing Krr budgets",
+          "evidence": "Hypothesis no K2,2 subgraph of H; present strict degree-budget optimizer requires H component Krr.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-largest-missing-degree-determines-sharp-lipschitz-spread-for-gra--ee57e440d59e/RESULT.md",
+          "material_read": "Full RESULT.md including proof and boundary assumptions, original value and equality classes",
+          "method": "Published original result via GitHub file",
+          "title": "Largest missing degree determines sharp Lipschitz spread for graphs with square-free complements",
+          "trigger": "Closest published same-metric exact graph family"
+        },
+        {
+          "assessment": "Random-graph/asymptotic spread context; no verified exact adversarial budget",
+          "evidence": "Random graph spread estimates are distributional, not extremal removal count statements.",
+          "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+          "material_read": "Source introduction and published results as cited; full proof not re-inspected in this run",
+          "method": "arXiv primary source cited in package",
+          "title": "Addario-Berry, Janson and McDiarmid, On the spread of random graphs",
+          "trigger": "Potential random high-degree uniform comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp resilience budgets explain how many arbitrary missing edges or missing neighbors a complete graph tolerates before its Lipschitz variance can increase, with extremal star versus balanced biclique geometry. Two different natural perturbation norms, exact transition and rigidity make this a meaningful infinite-graph-family classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+    "https://arxiv.org/abs/0902.1156",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-largest-missing-degree-determines-sharp-lipschitz-spread-for-gra--ee57e440d59e/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Connected unweighted simple graphs, uniform vertex probabilities, n≥4; edge budget k≤floor((n−2)/2), degree budget r<n/2; no larger budgets or weighted metrics."
+  ],
+  "residual_risks": [
+    "Unindexed stability/deletion extremal inequalities may be equivalent under different graph metric norm terminology.",
+    "The published C4-free graph theorem overlaps on star deletions; no novelty is claimed for integer extreme-potential principle or graph spread definition."
+  ],
+  "schema_version": 1
+}
