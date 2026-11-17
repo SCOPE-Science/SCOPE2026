@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:15:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed hub, leaves independently wait their first rate-one copy; T is max of n+1 Exp(1) with CDF (1-e^-t)^(n+1), mean H_(n+1), centered Gumbel. For fixed positive leaf, the (hub state h, number k of positive ordinary leaves) generator is exact. From all-negative ordinary state F, the only changing exit has rate 1/(n+1); an excursion from (1,0) has uniformly bounded expected duration O(log n) by geometric spell completion. Degree-weighted M=h/2+(k+1)/(2(n+1)) has generator (1-h)/(2(n+1)), giving (2n+1)q=n+1+EB and q=1/2+O(log n/n). Geometric compounding of Exp(1/(n+1)) holding times gives exact exp(q/(n+1)) wait, and O(log n) excursions vanish at n scale. Reconstructed reduced finite-state rational generator and independently solved small n hitting times (n=1..6) as a bounded cross-check, not an asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1504.03638",
+          "https://arxiv.org/abs/1404.6360",
+          "https://arxiv.org/abs/cond-mat/0304670"
+        ],
+        "reasoning": "General voter/zealot papers and unpinned star consensus bound or describe distinct models. No dominating theorem producing both the rate-one hub exact CDF and the pinned-leaf exponential time n/2 was identified.",
+        "searches": [
+          "Resultary semantic search: zealot star voter model fixed center fixed leaf consensus Gumbel exponential n rate 1/2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/zealot-placement-changes-star-network-voter-consensus-from-gumbe--2551722f2bda/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/zealot-placement-changes-star-network-voter-consensus-from-gumbe--2551722f2bda/verify.py",
+        "https://arxiv.org/abs/1404.6360",
+        "https://arxiv.org/abs/1504.03638",
+        "https://arxiv.org/abs/cond-mat/0304670",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-beta-binomial-discord-and-rare-logarithmic-dissent-on-a-ze--7c65b141acc9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1404.6360",
+          "https://arxiv.org/abs/cond-mat/0304670"
+        ],
+        "reasoning": "Even with a known general finite-graph voter duality, deriving the fixed-leaf rare excursion success q->1/2 and O(log n) excursion duration requires the assessed model-specific argument; a bare fixation probability alone does not imply the full hitting-time weak limit.",
+        "searches": [
+          "Resultary semantic search: zealot star voter model fixed center fixed leaf consensus Gumbel exponential n rate 1/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1504.03638",
+          "https://arxiv.org/abs/cond-mat/0304670"
+        ],
+        "reasoning": "Star external opinion-maker models pin extra nodes or connect external influences; their stationary distributions are not equivalent to first absorption with an internally pinned vertex. Standard voter duality is a candidate alternative representation but no exact same law is found in inspected sources.",
+        "searches": [
+          "Resultary semantic search: zealot star voter model fixed center fixed leaf consensus Gumbel exponential n rate 1/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1504.03638",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-beta-binomial-discord-and-rare-logarithmic-dissent-on-a-ze--7c65b141acc9"
+        ],
+        "reasoning": "The claimed exponential constant 1/2 is an asymptotic transition-rate invariant, not a finite table; the closest exact Resultary star records involve two opposing zealots or noisy stationary processes, not single-pinned consensus.",
+        "searches": [
+          "Resultary semantic search: zealot star voter model fixed center fixed leaf consensus Gumbel exponential n rate 1/2"
+        ]
+      },
+      "rationale": "Pinned internal star center versus leaf, with first all-positive passage and rate-one node clocks, is not the same as external opinion maker dynamics, unpinned star consensus or competing zealots. The surveyed primary literature and Resultary records address these related but different observables; no exact rate-1/2 leaf-pinned exponential first-passage law was found in material inspected. A finite-graph duality derivation remains a possible alias, openly recorded as residual risk.",
+      "residual_risks": [
+        "Finite-graph random-walk duality or old star fixation results could encode the same leaf-pinned exponential scale under a different observable or clock convention.",
+        "The external-perturbation paper was materially inspected but not every appendix; no document-wide noncoverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "External opinion-maker attachment and stationary behavior differ from internally fixed single hub/leaf absorbing first-passage theorem",
+          "evidence": "Perturbing nodes are external to the star voters, so network dynamics and marked absorption observable are different.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.03638",
+          "material_read": "Author-uploaded substantive text including introduction, model definition and dynamics/observables; not asserting total access to all appendices",
+          "method": "Accessible full-text author upload and comparison of model sections",
+          "title": "Binary Dynamics on Star Networks under External Perturbations",
+          "trigger": "Highly plausible star consensus and fixed opinion sources"
+        },
+        {
+          "assessment": "Without fixed zealots; no covering location-switch law",
+          "evidence": "All vertices participate in voter updates.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.6360",
+          "material_read": "Paper abstract and referenced model/consensus theorem portions",
+          "method": "Primary text/metadata comparison",
+          "title": "Networks Maximizing the Consensus Time of Voter Models",
+          "trigger": "Star graph consensus-time comparisons"
+        },
+        {
+          "assessment": "Different graph topology and observable; no claim of whole-document exclusion",
+          "evidence": "Infinite Euclidean lattice zealotry is not finite star first absorption.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0304670",
+          "material_read": "Accessible abstract/setting (infinite lattice and density)",
+          "method": "Primary paper summary and setting",
+          "title": "Does a Single Zealot Affect an Infinite Group of Voters?",
+          "trigger": "Potential general one-zealot result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zealot placement is a natural structural variable of voter dynamics. Switching the pinned positive vertex between the hub and a leaf changes not only expected scaling logarithmic versus linear but the entire limiting law Gumbel versus exponential; the precise 1/2 hazard constant makes it a meaningful boundary result for network consensus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite-graph random-walk duality or old star fixation results could encode the same leaf-pinned exponential scale under a different observable or clock convention.",
+    "The external-perturbation paper was materially inspected but not every appendix; no document-wide noncoverage claim is made.",
+    "No GitHub publication was attempted. Existing Lean verification and expert attestation channels remain untouched."
+  ],
+  "schema_version": 1
+}

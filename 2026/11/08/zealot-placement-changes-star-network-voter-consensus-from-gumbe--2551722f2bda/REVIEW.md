@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The frozen-hub case is the maximum of independent first-copy exponential times. For a frozen leaf, exact generator reduction, finite uniform geometric spell bounds and a stopped degree-weighted-magnetization identity give \(q_n=1/2+O((\log n)/n)\). A regenerative decomposition then gives the exponential weak limit and the mean estimate. The independent rational checker verifies both descriptions at small orders; finite checks are not substituted for the analytical proof.
+PASS
 
-## Originality — PASS, conditional on searched sources
+For fixed hub, leaves independently wait their first rate-one copy; T is max of n+1 Exp(1) with CDF (1-e^-t)^(n+1), mean H_(n+1), centered Gumbel. For fixed positive leaf, the (hub state h, number k of positive ordinary leaves) generator is exact. From all-negative ordinary state F, the only changing exit has rate 1/(n+1); an excursion from (1,0) has uniformly bounded expected duration O(log n) by geometric spell completion. Degree-weighted M=h/2+(k+1)/(2(n+1)) has generator (1-h)/(2(n+1)), giving (2n+1)q=n+1+EB and q=1/2+O(log n/n). Geometric compounding of Exp(1/(n+1)) holding times gives exact exp(q/(n+1)) wait, and O(log n) excursions vanish at n scale. Reconstructed reduced finite-state rational generator and independently solved small n hitting times (n=1..6) as a bounded cross-check, not an asymptotic proof.
 
-The closest directly relevant literature concerns single-zealot Euclidean-lattice magnetization (Mobilia, 2003), standard voter consensus without fixed vertices (Iwamasa–Masuda, 2014), star dynamics with externally connected fixed opinion makers and nonabsorbing equilibrium behavior (Moreira et al., 2015), and discordant star voting protocols (2024). None of the inspected statements or substantive manuscript passages implies the fixed-internal-leaf consensus-time distribution or the hub-vs-leaf scaling dichotomy. Searches of published mathematical research records under zealot, star, stubborn, leaf, hub, and equivalent fixed-boundary terminology did not surface covering results. Non-indexed equivalent formulas and incompletely inspectable portions of the 2015 manuscript remain priority risks; missing search hits are not treated as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The degree classes of a star are a basic, motivated comparison for location-sensitive influence. The result gives exact asymptotic time constants and different limiting distributions, not merely a finite statistic or numerical ratio. It provides a useful solvable benchmark for fixation with an internal boundary source; it is not extrapolated to other graphs or update normalizations.
+Pinned internal star center versus leaf, with first all-positive passage and rate-one node clocks, is not the same as external opinion maker dynamics, unpinned star consensus or competing zealots. The surveyed primary literature and Resultary records address these related but different observables; no exact rate-1/2 leaf-pinned exponential first-passage law was found in material inspected. A finite-graph duality derivation remains a possible alias, openly recorded as residual risk.
 
-## Limitations and external status
+## value
 
-No independent scientific audit has been performed, and no uniqueness of the finding within all literature is asserted. The theorem concerns one fixed positive agent, all other agents initially negative, and rate-one node-update copying. The computable bounds are not estimates for arbitrary zealot placements on general graphs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Zealot placement is a natural structural variable of voter dynamics. Switching the pinned positive vertex between the hub and a leaf changes not only expected scaling logarithmic versus linear but the entire limiting law Gumbel versus exponential; the precise 1/2 hazard constant makes it a meaningful boundary result for network consensus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
