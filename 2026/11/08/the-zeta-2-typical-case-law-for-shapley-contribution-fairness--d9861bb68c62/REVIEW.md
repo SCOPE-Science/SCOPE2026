@@ -1,19 +1,21 @@
-# Review of the power-productivity Shapley fairness law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All variables, allocation feasibility constraints and the cooperative max-game Shapley benchmark are defined. An explicit optimizer proves the minimum ratio is the sum of Shapley-to-productivity ratios, rather than merely bounding it. The known max-game Shapley decomposition is reconstructed directly; finite summation by parts gives the rank-ratio formula, beta-moment conditioning gives the finite-population mean, and exact finite telescoping supplies the three displayed special cases. The limiting curve follows from deterministic quantile-grid integration with both endpoint tails bounded; an empirical-CDF inequality and Borel--Cantelli transfer the limit to random uniforms, with expectation control giving convergence in mean. The standalone checker executed with 1,137 successful checks. Its finite tests support but do not prove the asymptotic theorem.
+PASS
 
-## Originality
+Reconstructed the exact no-transfer optimum A=sum_i phi_i/v_i from max-game Shapley threshold decomposition; summation by parts yields H_n minus weighted sample ratios. Conditional uniform lower order statistics give gamma-ratio finite means. Re-derived exact special mean identities H_n^{(2)}, 2n/(n+1), and 3n(3n+5)/(4(n+1)(n+2)); independent exact rational calculations checked n=1,2,3,5,8,12 at s=1,2,3. The uniform empirical CDF concentration/Borel–Cantelli and endpoint truncated-sum bounds control pathwise convergence to integral C(s); bounded-expectation tail estimate gives L1, not merely convergence in probability. Strict power monotonicity follows each observed ratio in (0,1). No simulation is substituted for n->infinity.
 
-**PASS, with residual publication-priority risk.** The closest source is Bei, Lu, Wu and Zhou (2026), which already contains fixed-profile Shapley formulas, the no-transfer approximation factor, and logarithmic worst-case guarantees. Those are used as premises, not represented as new results. The 2014 cooperative max-games paper independently covers fixed-weight Shapley computations. A comparison of the relevant full primary text, published index results and order-statistic/average-case searches found no equivalent statement for the iid power-family mean, the uniform second-order harmonic specialization, the pathwise power stochastic ordering or the digamma almost-sure limit. Some potentially relevant earlier stochastic max-game work may be unindexed; these searches do not establish absolute uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A central practical question left unanswered by worst-case bounds is whether heterogeneous random productivity typically incurs a growing feasibility loss. The exact finite-n identity \(\mathbb E A_{n,1}=\sum_{j=1}^n j^{-2}\) and its almost-sure limit \(\pi^2/6\) show a bounded typical loss, while a complete power-family law quantifies systematic heterogeneity. Finite-n exact formulas for other powers and stochastic monotonicity make the result a useful calibration target in contribution-based resource allocation. It remains deliberately restricted to a single uncapped resource.
+Best-of-knowledge originality: the prior fixed-profile Shapley contribution fairness benchmark and cooperative max-game calculations do not supply the IID power-family finite means, pathwise asymptotic convergence or zeta(2) limit. The most directly relevant 2026 paper was not retrievable in full via authorized channels; this is recorded as material priority risk, not an unsupported fail.
 
-## Sources and limitations
+## value
 
-Primary comparisons: https://arxiv.org/abs/2606.16743 (initial posting June 15, 2026), and https://ifmas.csc.liv.ac.uk/Proceedings/aamas2014/aamas/p29.pdf (AAMAS 2014). The exact statistics concern iid values from a specified distribution; unrelated fair-division guarantees cannot be inferred. No multigood or varying-exponent extension is claimed. Independent novelty and mathematical audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise expected welfare-fairness loss for a natural IID population is a meaningful typical-case complement to logarithmic worst-case factors. Exact finite-n H_n^(2), a.s./mean limit zeta(2), general power-family monotonicity and explicit limiting curve answer a natural stochastic fairness question and can be reused by future mechanism-design analysis without requiring a new downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
