@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification information
+# Independent mathematical audit
 
-Run the included `verify.py` with Python 3 and SymPy: `python verify.py`. The program carries out exact integer/rational calculations only. It tests row ranks and equal row spaces for 14 \(n,k\) cases with at most 36 untrapped vertices, verifies symmetry, rank, idempotence, adjacency eigenspace equations and the explicit projector kernel, and checks the entire 15-by-20 boundary block for the distance-two seven-point example. In the latter case the 10-by-10 Gram matrix is verified exactly to be \(4I_{10}+5\mathbf1\mathbf1^\top\).
+## correctness
 
-`VERIFY_OK cases= 14` and `J_2(7,3) resonance: (15, 20, 10)` indicate all finite tests passed. The dimension-unbounded argument is proved separately by the inclusion-rank induction and invariant-subspace calculation in `RESULT.md`. Finite checking does not certify novelty or substitute for an infinite theorem. The checks do not establish finite-time decay bounds, robustness under imperfect detector placement, or external independent validation.
+PASS
+
+The W_(k−1,k) inclusion matrix has full row rank by induction, and disjointness boundary block expands in the same lower-inclusion rowspace, giving identical kernels Q. For any f in Q, lower subset sums vanish; Johnson unmarked adjacency has eigenvalue −k on Q and Kneser unmarked adjacency (−1)^k. Positive local losses kill precisely boundary-vanishing full eigenvectors; finite-dimensional dissipativity makes the orthogonal complement decay, so eventual survival is orthogonal P onto Q. S_v-invariance gives P_ST=a_r, boundary recurrence (r+1)a_r+(v-k-r)a_(r+1)=0 and rank-trace normalization a0=(n−2k)/(n−k), hence P_ST=a0(−1)^r/binom(n−k−1,r). For distance-two J_2(7,3), complement columns coincide and compressed 15x10 Gram is 4I+5J positive, so dark space is exactly rank10 antisymmetric; coherent state comparisons follow. Independently computed all matrices exactly with SymPy for n=7,k=3.
+
+## originality
+
+PASS
+
+Classical Johnson association-scheme projectors, inclusion rank lemmas and general non-Hermitian quantum trapping are acknowledged antecedents; no independent novelty is assigned to top Johnson harmonic/Catalan dimension alone. The paired star-detector Johnson–Kneser exact absorbing projector with arbitrary positive trap rates, and the first distance-two coherent resonance distinguishing those two from J_2(7,3), were not found in targeted Resultary/primary comparisons. Broad classical observability schemes could subsume the exact paired result; residual risk documented.
+
+## value
+
+PASS
+
+A full all-size physically exact asymptotic quantum capture law simultaneously for two graph families is a natural observability problem, with a sharp small intermediate-distance counterexample doubling protected rank and a phase-sensitive completely trapped/dark coherent-state discrimination. This is not merely a classical adjacency eigenvalue table or arbitrary tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

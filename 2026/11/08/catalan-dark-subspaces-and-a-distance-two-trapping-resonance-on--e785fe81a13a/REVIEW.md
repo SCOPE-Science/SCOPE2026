@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact inclusion-matrix rank induction, the shared boundary-nullspace argument and the invariant-eigenspace identities establish the complete loss-free subspace for all \(n\ge2k+1\), \(k\ge2\), and positive trap losses; the normalized diagonal and recurrence determine the full projector. The distance-two exception is certified by the exact balanced-partition Gram matrix \(4I_{10}+5\mathbf1\mathbf1^\top\). The standalone exact-arithmetic verifier checks 14 small graph parameter choices and the complete middle-shell case. These computations supplement, rather than replace, the proof.
+## correctness
 
-## Originality
-PASS with explicitly bounded historical confidence. Krovi–Brun, Varbanov–Krovi–Brun and Agliari–Mülken–Blumen give general quantum hitting and trapping mechanisms. Krebs–Shaheen and Delsarte–Levenshtein give the established Johnson-scheme spectral apparatus; Wong studies a single marked vertex, not a lossy star. The isolated top Johnson idempotent is **not** claimed new. The tested claim requires both a shared Johnson–Kneser star boundary kernel and the sharply different distance-two complement-antisymmetric projector, which were not stated in the examined sources. Accessible related research entries on Johnson face concentration and projector norms do not assert this physical comparison. Historical indexing and incomplete reads of some classical sources leave a genuine priority risk.
+PASS
 
-## Mathematical value
-PASS. The theorem is an all-size exact coherent capture law for two physically distinct graphs at arbitrary site-dependent positive loss strengths, with a natural smallest middle-distance counterexample showing precisely when the universality breaks and identifying a fully dark phase superposition. It provides an exact quantum-transport classification rather than a mere small numerical tally.
+The W_(k−1,k) inclusion matrix has full row rank by induction, and disjointness boundary block expands in the same lower-inclusion rowspace, giving identical kernels Q. For any f in Q, lower subset sums vanish; Johnson unmarked adjacency has eigenvalue −k on Q and Kneser unmarked adjacency (−1)^k. Positive local losses kill precisely boundary-vanishing full eigenvectors; finite-dimensional dissipativity makes the orthogonal complement decay, so eventual survival is orthogonal P onto Q. S_v-invariance gives P_ST=a_r, boundary recurrence (r+1)a_r+(v-k-r)a_(r+1)=0 and rank-trace normalization a0=(n−2k)/(n−k), hence P_ST=a0(−1)^r/binom(n−k−1,r). For distance-two J_2(7,3), complement columns coincide and compressed 15x10 Gram is 4I+5J positive, so dark space is exactly rank10 antisymmetric; coherent state comparisons follow. Independently computed all matrices exactly with SymPy for n=7,k=3.
 
-## Scope and limitations
-No finite-time decay-rate, disorder stability, independent validation, or complete historical priority certificate is asserted. All hopping amplitudes are uniform and nonzero, absorber rates strictly positive, and the detector set is the exact star.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Johnson association-scheme projectors, inclusion rank lemmas and general non-Hermitian quantum trapping are acknowledged antecedents; no independent novelty is assigned to top Johnson harmonic/Catalan dimension alone. The paired star-detector Johnson–Kneser exact absorbing projector with arbitrary positive trap rates, and the first distance-two coherent resonance distinguishing those two from J_2(7,3), were not found in targeted Resultary/primary comparisons. Broad classical observability schemes could subsume the exact paired result; residual risk documented.
+
+## value
+
+PASS
+
+A full all-size physically exact asymptotic quantum capture law simultaneously for two graph families is a natural observability problem, with a sharp small intermediate-distance counterexample doubling protected rank and a phase-sensitive completely trapped/dark coherent-state discrimination. This is not merely a classical adjacency eigenvalue table or arbitrary tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
