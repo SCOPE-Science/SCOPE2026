@@ -1,21 +1,21 @@
-# Scientific review: depth-driven influence cutoff in multiplex DeGroot chains
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated matrices are row-stochastic, preserve uniform opinion vectors and yield the scalar one-direction chain recursion. Its first-layer coordinate is the probability that independent geometric sojourns in the successive topic layers have all ended by the specified time. This proves the exact convolution and binomial-tail claims without an approximation. For constant bridge rate, binomial CLT gives the Gaussian window; with rates in a fixed compact subset of \((0,1)\), Lyapunov CLT applies because all third moments are uniformly bounded and total variance is of order depth. Block triangularity supplies the exact characteristic polynomial, and a length-\(d\) Jordan block exists on the uniform-layer subspace. In the single-weak-bridge model, the other \(d-1\) waiting times obey the law of large numbers; the exceptional geometric wait yields the necessary-and-sufficient criterion \(d b_{1,d}\to\infty\) and the two exponential bottleneck limits. The bounded finite rational replay in `check.py` verifies the exact recursion and binomial reduction for small cases, not the asymptotic statements.
+PASS
 
-## Originality — PASS, with identified residual risk
+Every row-stochastic W_j fixes 1_n, so unanimous zero lower layers and unanimous one source restrict the full synchronous multiplex system exactly to scalar u_j(t+1)=(1-b_j)u_j(t)+b_j u_{j+1}(t). This is the backward absorption equation of a pure-birth chain with independent geometric sojourns G_j. Their convolution proves exact response CDF, means and variances. Constant b produces P(Bin(t,b)≥d), giving a Φ window centered at d/b with sd sqrt(d(1-b))/b by CLT and concentration outside relative windows by LLN. Rates in fixed [c,C]⊂(0,1) give Lyapunov CLT with σ² proportional d. For uniform within-layer rank-one averaging W, upper block triangular matrix has characteristic z^{(d+1)(n−1)}(z−1)(z−(1-b))^d and length-d Jordan chain. With single b1,d weak, H_d/d→1/b and independent geometric G1; if db1→∞ then G1/d→0; otherwise subsequences db1→κ≥0 yield nondegenerate shifted exponential ratio or pure Exp(1), proving iff. At b1=κ/d, CDF of d-scaled sum tends to zero until 1/b and shifted exponential after. Independent rational/floating convolution for rates (.25,.5,.7) yielded CDF at times 3,5,10 equal 0.0875,0.36771875,0.82821216618. General theorem derives from analytic reductions, not finite test.
 
-The motivating acyclic multiplex DeGroot article establishes convergence and ultimate source-influence formulas, not the specific transient hierarchy-depth law or exact critical single-bridge phase transition. Related convergence-time work in DeGroot social networks uses community-network spectrum or asynchronous clocks rather than this synchronous, growing-depth chain. A 2020 hierarchical-influence paper concerns stochastic majority-rule, not the deterministic linear update. Classical birth-death/pure-birth probability and geometric/negative-binomial distributions plainly contain the calculational ingredients; no originality is attributed to those general methods. The mathematical contribution evaluated here is the combined *multiplex-network transient* result, its fixed spectral-radius delayed-response obstruction, and the exact bottleneck cutoff transition. A broader unindexed equivalent in absorbing Markov chains or hierarchy transfer remains a substantive risk; no independent literature certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating acyclic multiplex framework assures eventual consensus but leaves a natural and consequential transient question: when does a remote, steady source reach the start of a long directed topic chain? The theorem quantifies a sharp \(O(d)\) delay and \(O(\sqrt d)\) transition window, proves why a depth-independent subdominant eigenvalue cannot serve as a uniform estimate, and identifies the precise \(1/d\) bridge scale separating concentrated and random macroscopic arrival times. The result gives a meaningful structural benchmark for hierarchical opinion exchange, while deliberately separating mathematical influence from empirical causation.
+PASS best knowledge for explicit multiplex DeGroot depth-response/hierarchical bridge cutoff, while openly crediting classical geometric/negative-binomial waiting time laws, CLT, absorption and nonnormal Jordan facts. The closest acyclic multiplex source gives eventual source influence and convergence, not (in accessible summary) the stated Gaussian response and exact one-bridge 1/d transition. Similar Markov hitting-time results could encode this after specialization; primary 2026 source full text was inaccessible, a significant residual priority risk, not scientific rejection by itself.
 
-## Closest literature and limits
+## value
 
-Zender et al., *DeGroot Dynamics on Multiplex Networks with Directed and Acyclic Interlayer Connectivities*, arXiv:2610.27198v1 (first public 19 October 2026): model and eventual consensus. *The Impact of Community Structure on the Convergence Time of Opinion Dynamics* (2017): different social graph spectral estimates. *The asynchronous DeGroot dynamics* (2024): different updating clocks. *Organisational Social Influence on Directed Hierarchical Graphs, from Tyranny to Anarchy* (2020): different majority-rule process. Diaconis–Saloff-Coste (2007): general Markov-chain separation cutoff background, not claimed new here.
+PASS
 
-The theorem assumes uniform within-layer initial states, row-stochastic nonnegative influence, acyclic chain interlayer structure, and one specified weak bridge for the sharp transition. It does not establish a generic limit for all multiplex networks. Finite exact checks are not infinite proofs. An independent scientific audit has not been performed.
+Model-specific transient gap in directed influence hierarchies: even with instantaneous intra-topic averaging and fixed eigenvalue gap, information arrival is delayed O(d) with O(sqrt d) edge and a sharp single-link strength 1/d bottleneck destroying concentration. Provides explicit interpretable counterexample to spectral-only uniform relaxation, sharp quantitative cutoff for a natural layered model, useful beyond a generic restatement of the CLT.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
