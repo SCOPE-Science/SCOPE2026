@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python verify.py` in a directory containing that single standalone file, with Python 3, NumPy, SciPy, and SymPy installed. It checks exact characteristic-polynomial algebra under \(s^2=c^2-1\), the derivative identity for the hyperbolic threshold function, and the neutral Perron eigenvalue. At \((\beta,\gamma)=(1,4/5)\), it evaluates the right and left positive eigenvectors, compares the explicit coefficient \(q\) against high-order Gaussian quadrature, and integrates 1500 periods of the nonlinear vector field to check the finite-time approach toward \(n p(nT)\to v/q\).
+## correctness
 
-The exact symbolic identities are reproducible computational checks. Numerical quadrature and finite-time integration only corroborate, rather than certify, the theorem's \(t\to\infty\) quantifiers. Those follow from the positive adjoint Lyapunov argument and a one-dimensional neutral-mode reduction described in `RESULT.md`. No external independent audit has been performed.
+PASS
+
+The two half-period linear propagators multiply to H with eigenvalues 1,e^{±2 arcosh((1+cosh βh)/2)}, and Floquet exponent -γ+F(βh)/h. F(x)/x increases from 1/sqrt2 to 1, giving the unique h_c in the stated rate ratio interval. Strict positivity/subhomogeneity yield global endemic unique period orbit above threshold; periodic positive adjoint provides strict Lyapunov extinction at criticality. The Poincare stable-complement expansion r_{n+1}=r_n-q r_n²+o(r_n²) with q>0 proves all nonzero initial conditions share phase-dependent t^-1 profile. For β=1, γ=0.8, independently computed h_c=3.03490842766049 and q=1.924264168024 from direct two-stage variational integral and the elementary closed expression; agreement to 1.4e-15. These checks corroborate, do not prove, all-time convergence.
+
+## originality
+
+PASS
+
+Established temporal-network propagator threshold and switched-SIS stability are recognized background. Prasse–Van Mieghem full article treats static heterogeneous NIMFA near the threshold and expressly describes time-varying parameter extension as future work; its static near-threshold closed solution does not imply this phase-resolved, globally attracting critical amplitude under alternating contacts. No earlier published Resultary theorem supplied the identical q coefficient for this exact model; residual generic parabolic Floquet normal-form risk acknowledged.
+
+## value
+
+PASS
+
+Critical extinction profile is a natural transition invariant for a minimal nontrivial temporal network. The exact phase-dependent universal shape and positive computable nonlinear amplitude connect linear threshold to long-time dynamics; a generic threshold inequality alone would not answer this. No stochastic epidemic claim or unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
