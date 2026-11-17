@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The geodesic-free auxiliary representation is not needed: the closed neighborhood in the line graph of a complete graph leaves precisely edges on auxiliary isolated labels. This proves the power-domination criterion by an exact zero/one/multiple unobserved-neighbor analysis. Deletion criticality gives a complete star-forest or odd-order matching classification. The one-spare-edge star reductions and matching reconfiguration switches give the unrestricted connectivity theorem. Exact independent finite verification supports every boundary case tested. The proof concerns all integers \(n\ge4\), not only the computed orders.
+PASS
 
-## Originality
+PASS: In T_n=L(K_n), a selected edge set S initially observes every K_n edge touching an S endpoint, leaving only edges among isolated vertices U; if |U|≤2 one forcing step completes, while |U|≥3 no observed edge has a unique unobserved neighbor. Minimal successful S are a one-isolate matching (odd n) or two-isolate star forest. The exponential formula counts each labeled star/matching minimal set and inclusion-exclusion counts all valid sets. The TAR proof connects every smaller minimal configuration by bounded add-then-delete exchanges, first reducing large stars to minimum matchings and then connecting exposed-label matchings with one spare edge, while minimal sets at current maximum budget k are isolated. This yields c_n(q_n)=m_n,q_n, c_n(k)=1+m_n,k for q_n<k≤n−3, and c_n(k)=1 for k≥n−2. Independent direct power-domination and TAR graph BFS checks for n=4,5,6 reproduced every budget profile through n−2.
 
-PASS, with residual priority risk. Bjorkman et al. [1] provide the general TAR framework and permanent connectivity lower bound, but their inspected §§2–3 and exact examples involve different graph families and do not give the triangular-graph components or rooted edge-cover classification. Curtis, Flagg and Hogben [3] survey and extend general TAR mechanisms, not this family-specific formula in inspected sections. Brimkov et al. [2] introduce the power-domination polynomial, but full-text access to their 2018 article was unavailable; the auxiliary polynomial's exact prior coverage is therefore not certified. Searches also considered line graphs, Johnson graphs, matchings, edge-cover reconfiguration and equivalent incidence formulations. The central exact component formula is not a direct instance of the available general bounds, and no covering statement was found. Negative searches are not proof of absolute priority.
+## originality
 
-## Value
+PASS
 
-PASS. Reconfiguration budgets quantify whether sensor placements can be transformed without temporarily exceeding a given budget. The theorem determines every component at every budget in a classical strongly regular graph family, not just minimum size or a bound. Its exact isolated-component enumerator links rooted labeled star forests and near-perfect matchings, and it proves sharp attainment of a general connectivity bound with a large last-step component collapse.
+PASS, qualified: published Oct26 full result already establishes the identical power-domination criterion, exact star-forest/matching minimal classification, and complete set polynomial, so none of those foundational components is novel. The surviving theorem is the entire budget-indexed TAR component profile and exact first/permanent connected budget n−2. Bjorkman et al. 2026 general bounds imply only a lower bound via upper-minimal size plus one, not the intermediate component counts or a family-specific connectedness proof. Resultary searches found no earlier triangular-graph power-domination TAR profile.
 
-## Scientific limitations
+## value
 
-The two cited general TAR papers do not certify priority, and exhaustive independent literature discovery is impossible. The 2018 abstract does not establish absence of the ancillary polynomial; publication-priority uncertainty remains. No claim about independent mathematical audit is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A complete reconfiguration component phase diagram for a natural infinite graph family is mathematically useful in its own right. The exact number of isolated minimal configurations at each budget, connectivity of all other configurations, and sharp threshold n−2 go substantially beyond the known enumeration of feasible placements and general TAR bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

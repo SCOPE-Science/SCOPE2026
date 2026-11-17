@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Compile and run the standalone program from the extracted files:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 verify.cpp -o verify
-./verify
-```
+PASS
 
-The checker enumerates subsets in the exact finite domains stated below. It does not certify the unrestricted theorem, which is proved in `RESULT.md`.
+PASS: In T_n=L(K_n), a selected edge set S initially observes every K_n edge touching an S endpoint, leaving only edges among isolated vertices U; if |U|≤2 one forcing step completes, while |U|≥3 no observed edge has a unique unobserved neighbor. Minimal successful S are a one-isolate matching (odd n) or two-isolate star forest. The exponential formula counts each labeled star/matching minimal set and inclusion-exclusion counts all valid sets. The TAR proof connects every smaller minimal configuration by bounded add-then-delete exchanges, first reducing large stars to minimum matchings and then connecting exposed-label matchings with one spare edge, while minimal sets at current maximum budget k are isolated. This yields c_n(q_n)=m_n,q_n, c_n(k)=1+m_n,k for q_n<k≤n−3, and c_n(k)=1 for k≥n−2. Independent direct power-domination and TAR graph BFS checks for n=4,5,6 reproduced every budget profile through n−2.
 
-Expected final status from the executed program:
+## originality
 
-```
-VERIFY_OK orders=4..8 budget_component_cases=14 exact_minimal_sets=5784 direct_PDS_checked=40650 full_direct_orders=4..7 matching_partition_counts=PASS components=PASS
-```
+PASS
 
-Detailed budget-component checks include \(n=6\): \(45,61,1\) at budgets \(2,3,4\); \(n=7\): \(735,106,1\) at budgets \(3,4,5\); and \(n=8\): \(420,4201,169,1\) at budgets \(3,4,5,6\). These counts are verified by BFS over feasible sets, not inferred from the theorem. Direct power-domination simulation is exhaustive for every subset at orders four through seven, and additionally applied to selected feasible subsets of order eight. A separate rooted-star-partition enumeration matches the analytic minimal-set counts. All arithmetic involved in the finite checker is integer/bitwise. No source downloaded from the web is required to execute it.
+PASS, qualified: published Oct26 full result already establishes the identical power-domination criterion, exact star-forest/matching minimal classification, and complete set polynomial, so none of those foundational components is novel. The surviving theorem is the entire budget-indexed TAR component profile and exact first/permanent connected budget n−2. Bjorkman et al. 2026 general bounds imply only a lower bound via upper-minimal size plus one, not the intermediate component counts or a family-specific connectedness proof. Resultary searches found no earlier triangular-graph power-domination TAR profile.
 
-The standalone checker has a finite scope: it cannot rule out a counterexample at higher order. Missing independent peer assessment and publication-priority uncertainty are distinct from computational correctness checks.
+## value
+
+PASS
+
+PASS: A complete reconfiguration component phase diagram for a natural infinite graph family is mathematically useful in its own right. The exact number of isolated minimal configurations at each budget, connectivity of all other configurations, and sharp threshold n−2 go substantially beyond the known enumeration of feasible placements and general TAR bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In T_n=L(K_n), a selected edge set S initially observes every K_n edge touching an S endpoint, leaving only edges among isolated vertices U; if |U|≤2 one forcing step completes, while |U|≥3 no observed edge has a unique unobserved neighbor. Minimal successful S are a one-isolate matching (odd n) or two-isolate star forest. The exponential formula counts each labeled star/matching minimal set and inclusion-exclusion counts all valid sets. The TAR proof connects every smaller minimal configuration by bounded add-then-delete exchanges, first reducing large stars to minimum matchings and then connecting exposed-label matchings with one spare edge, while minimal sets at current maximum budget k are isolated. This yields c_n(q_n)=m_n,q_n, c_n(k)=1+m_n,k for q_n<k≤n−3, and c_n(k)=1 for k≥n−2. Independent direct power-domination and TAR graph BFS checks for n=4,5,6 reproduced every budget profile through n−2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General TAR result gives upper-minimal-size-plus-one as a lower bound on permanent connectivity; for T_n upper minimal n−3 so k0≥n−2.",
+          "It does not show the bound attained or enumerate components at intermediate budgets."
+        ],
+        "reasoning": "Submitted constructive exchanges prove k0=n−2 and all remaining non-isolated configurations connected, not implied solely by general proposition.",
+        "searches": [
+          "Bjorkman et al. Power Domination Reconfiguration arXiv:2201.01798, Proposition 2.8 (2026 journal)",
+          "Resultary 2026-10-26 triangular graph power domination full enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen SCOPE source tree bab4267924a09d9b85f5ff8022c93a4b9e206a16 and full RESULT.md/verify.cpp",
+        "Resultary Oct26 complete triangle-graph feasible/minimal census",
+        "Bjorkman et al. Power Domination Reconfiguration Springer 2026 full accessible article",
+        "Brimkov et al. arxiv:1805.10984 abstract",
+        "Resultary thematic TAR/triangular search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining upper-minimal-size n−3 with Prop2.8 gives lower bound k0≥n−2, not equality by itself.",
+          "The new result proves a constructive bounded reduction and matching-switching connectivity using one spare edge."
+        ],
+        "reasoning": "Precisely the needed connectivity and sharp middle-budget structure are absent from inspected preceding theorems; known polynomial and criterion are credited.",
+        "searches": [
+          "Full Oct26 SCOPE triangular graph power-domination RESULT.md",
+          "Bjorkman et al. La Matematica 2026 Sec 2.2 Prop 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct26 prior proves S succeeds iff at most two isolated K_n vertices; complete inclusion-minimal polynomials and matching/star-forest classification.",
+          "Current new object is bounded TAR graph on valid placements, with connectivity and component-size profile."
+        ],
+        "reasoning": "Exact feasible-set/ideal enumeration is not equivalent to the full adjacency and component structure of the TAR reconfiguration graph.",
+        "searches": [
+          "Resultary semantic: power domination token addition removal reconfiguration triangular graphs line graph complete graph exact component counts star forests matching",
+          "Resultary 2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Oct26 gives the full polynomial P(T_n;z) and minimal-set size polynomial M_n(z), but not c_n(k).",
+          "Fresh BFS n4..6 gives component profiles [6,1], [45,1], [45,61,1] for budgets from q_n to n−2."
+        ],
+        "reasoning": "An enumeration of minimal sets predicts potential isolated vertices but not connectivity among all other sets; no prior component-count table identified.",
+        "searches": [
+          "Resultary previous power-domination polynomial triangular graphs",
+          "Resultary previous TAR triangular graph component counts"
+        ]
+      },
+      "rationale": "PASS, qualified: published Oct26 full result already establishes the identical power-domination criterion, exact star-forest/matching minimal classification, and complete set polynomial, so none of those foundational components is novel. The surviving theorem is the entire budget-indexed TAR component profile and exact first/permanent connected budget n−2. Bjorkman et al. 2026 general bounds imply only a lower bound via upper-minimal size plus one, not the intermediate component counts or a family-specific connectedness proof. Resultary searches found no earlier triangular-graph power-domination TAR profile.",
+      "residual_risks": [
+        "The 2018 power-domination polynomial primary full text was not retrieved; ancillary polynomial historical priority remains qualified.",
+        "An unindexed direct exact reconfiguration enumeration may exist, although earlier published framework lacks it.",
+        "Fresh exhaustive component checks limited to n≤6; infinite result relies on exchanges."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: all feasible/minimal-set enumeration known; no bounded TAR component connectivity",
+          "evidence": "S succeeds iff ≤2 isolates; full minimal-size polynomial; no c_n(k) or matching exchange proof.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-power-domination-of-triangular-graphs-star-forest-rigidity-and-f--b7c1b689a10e",
+          "material_read": "Entire RESULT.md, including feasible-set criterion, inclusion-exclusion, minimal star/matching class, EGF and limitations",
+          "method": "Full published GitHub file",
+          "title": "Power domination of triangular graphs: star-forest rigidity and full enumerators",
+          "trigger": "identical triangular graph objects and minimal placements; earlier October26"
+        },
+        {
+          "assessment": "RELATED BROADER FRAMEWORK, NOT COVERING family-specific complete component law",
+          "evidence": "Proposition 2.8 gives bounds on k0 from upper-minimal size, not c_n(k).",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "Full accessible Springer open HTML with focus on setup, power-domination TAR definitions and Section 2.2 Proposition 2.8",
+          "method": "Primary publisher full text inspected",
+          "title": "Power Domination Reconfiguration (Bjorkman et al.)",
+          "trigger": "general TAR connectedness threshold and bounds"
+        },
+        {
+          "assessment": "POSSIBLE PRIOR ANCILLARY POLYNOMIAL COVERAGE, not a material source for budget-indexed TAR components",
+          "evidence": "No evidence in accessible abstract of triangular-graph TAR component counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "Abstract and bibliographic description; full original 2018 manuscript not obtained",
+          "method": "arXiv indexed abstract",
+          "title": "Power domination polynomials of graphs (Brimkov et al.)",
+          "trigger": "possible prior enumerators and tiny triangular cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A complete reconfiguration component phase diagram for a natural infinite graph family is mathematically useful in its own right. The exact number of isolated minimal configurations at each budget, connectivity of all other configurations, and sharp threshold n−2 go substantially beyond the known enumeration of feasible placements and general TAR bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard closed-neighborhood power domination and TAR moves only; not arbitrary Johnson graphs or token jumping.",
+    "Previously known feasible/minimal polynomial receives no novelty credit.",
+    "Publication withheld pending public metadata privacy sanitization."
+  ],
+  "schema_version": 1
+}
