@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The proof differentiates the explicitly stated polynomial vector field, parametrizes all positive equilibria by prey frequency, computes the cubic characteristic polynomial and proves by an exact Sturm count that there is one imaginary-pair candidate on that branch. Rational isolating brackets and outward-rounded interval calculations verify positive Routh coefficients, a transversal crossing, and a strictly negative first Lyapunov coefficient in its stated normalization. The attracting periodic orbit is a local consequence of the classical Hopf theorem, not of numerical integration. The standalone checker rederives and verifies the critical algebra rather than assuming precomputed eigenvalues.
+
+**Originality (O): PASS within inspected evidence.** Cruz–Neves (arXiv:2607.13281v1) report this parameter regime and numerical evidence of Hopf near carrying capacity \(1.66\), but explicitly leave rigorous existence of the periodic solution unproved. The new result is the certified, nondegenerate, supercritical Hopf theorem at an algebraically isolated threshold, not the underlying model, equilibrium branch, or classical Hopf machinery. Braga–Wardil's earlier general model and a published boundary-collision stability-exchange result were compared: neither supplies a cubic normal-form sign at this interior Hopf point. Searches of the original model, aliases and threshold did not locate a prior proof of the precise claim. Historical priority remains provisional, especially in broader Hopf/replicator literature.
+
+**Value (V): PASS.** Stable oscillatory coexistence near the numerical transition is an explicit analytical question raised by the motivating paper. Establishing the sign of the first Lyapunov coefficient, rather than only the existence of imaginary eigenvalues, distinguishes the emergence of a stable periodic orbit from an unstable one. The result supplies a concrete rigorous benchmark for the model and an exact interval for the onset parameter.
+
+**Limits.** Local statement for the two specified positive-payoff matrices and \(\beta=2\), with carrying capacity near the unique critical value. No global attractivity, absence of remote cycles, full parameter classification, or independent certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
