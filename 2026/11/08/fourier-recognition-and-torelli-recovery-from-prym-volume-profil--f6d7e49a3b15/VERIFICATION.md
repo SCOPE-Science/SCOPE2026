@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`VERIFY.py` uses only Python's standard library and exact `fractions.Fraction` values. Run:
+## correctness
 
-```sh
-python3 VERIFY.py
-```
+PASS
 
-It independently evaluates every sign-cut squared volume for selected examples with \(3\le n\le7\), recomputes all quadratic Walsh coefficients, checks the single/double-cut inverse, and verifies that every higher even Walsh coefficient vanishes. It checks the positive rank-one tetrad equations and the reconstruction identity \(\prod_{i<j}w_{ij}=(\prod_i\ell_i)^{\binom{n-1}{2}}\), including nonuniform rational inputs. An additional positive weighted-cut profile violates the tetrad constraint and is correctly rejected as a graph-volume profile.
+For n≥3 banana graphs with positive lengths, the Len–Zakharov Kirchhoff–Prym formula reduces on a signed cover to the weighted cut Q(s)=sum_{i<j} w_ij(1−s_i s_j)/2, w_ij=prod_{k≠i,j} ell_k. For the disconnected all-equal class Q=0 is an explicitly formal extension. Singleton/doubleton cuts recover w_ij=(Q_i+Q_j−Q_ij)/2; product over pairs yields P=(prod w)^{1/binom(n−1,2)}=prod ell; positive ell_i=sqrt(P w_jk/(w_ij w_ik)). Walsh support in degrees 0,2, positivity and rank-one tetrads are necessary and sufficient for realizability; rank-one factorization is unique even at n=3 where tetrads vacuous. In n=2 cover Prym has dimension 0 and scalar volume cannot recover lengths. Independent rational all-pair inversion tested n=3,4,5,6.
 
-The script's final line is `EXACT_PROFILE_CHECKS_PASS`. Its examples are finite tests and do not prove all-\(n\) uniqueness or characterization. The unrestricted theorem is proved symbolically in `RESULT.md`, conditional only on the cited published Kirchhoff–Prym forward-volume theorem. The proof does not address independent historical priority, unlabelled spectra, ramified covers or more general graphs.
+## originality
 
-Independent audit: not performed.
+PASS
+
+Len–Zakharov provides the forward scalar Prym-volume Kirchhoff formula, but the simultaneous all-cover volume-to-edge-length inverse and positive quadratic Walsh/tetrad image characterization are not established by the primary results inspected. Relation to tropical Torelli and signed matroids is acknowledged rather than relabeled.
+
+## value
+
+PASS
+
+The all-cover scalar measurement problem is a natural inverse tropical geometry/Torelli question. Exact edge reconstruction and a decidable semialgebraic image test from only volume data are complete, non-routine structural facts for every banana genus ≥2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:17:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 banana graphs with positive lengths, the Len–Zakharov Kirchhoff–Prym formula reduces on a signed cover to the weighted cut Q(s)=sum_{i<j} w_ij(1−s_i s_j)/2, w_ij=prod_{k≠i,j} ell_k. For the disconnected all-equal class Q=0 is an explicitly formal extension. Singleton/doubleton cuts recover w_ij=(Q_i+Q_j−Q_ij)/2; product over pairs yields P=(prod w)^{1/binom(n−1,2)}=prod ell; positive ell_i=sqrt(P w_jk/(w_ij w_ik)). Walsh support in degrees 0,2, positivity and rank-one tetrads are necessary and sufficient for realizability; rank-one factorization is unique even at n=3 where tetrads vacuous. In n=2 cover Prym has dimension 0 and scalar volume cannot recover lengths. Independent rational all-pair inversion tested n=3,4,5,6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zakharov (2025) studies Prym second moments for genus ≤4, signed matroids, Voronoi data; general moment study."
+        ],
+        "reasoning": "Second moments of individual Pryms do not logically dominate recovering every banana edge from the collection of scalar zeroth moments at arbitrary n.",
+        "searches": [
+          "https://arxiv.org/html/2507.06401",
+          "Prym Torelli banana graph full double cover volumes inverse reconstruction cut metric"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/fms.2021.75",
+        "https://arxiv.org/html/2507.06401",
+        "Resultary semantic search for banana Torelli inversion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the forward Kirchhoff formula, the package proves w_ij=(Q_i+Q_j−Q_ij)/2 and reconstructs the positive ell vector, and iff Fourier-image criteria."
+        ],
+        "reasoning": "The prior volume theorem implies cut data with a specialization, but does not explicitly imply uniqueness and semialgebraic image without reconstruction and factorization arguments; both are proved in the package.",
+        "searches": [
+          "https://doi.org/10.1017/fms.2021.75",
+          "https://arxiv.org/html/2507.06401"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.4 of Len–Zakharov supplies weighted odd genus-one decompositions and forward volume; weighted cuts arise for banana cycles."
+        ],
+        "reasoning": "A single cover volume is not enough; a labeled vector of all connected covering volumes is a different inverse-data problem. The inverse formulas use singleton/doubleton relationships not in the general forward statement.",
+        "searches": [
+          "tropical Prym Kirchhoff volumes banana graphs inverse edge length Torelli Fourier Walsh cuts",
+          "https://doi.org/10.1017/fms.2021.75"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2020/2022 forward theorem is an edge-weight sum, not an inverse table; 2025 second-moment paper focuses on genus≤4 and different invariant."
+        ],
+        "reasoning": "No exact all-n inverse table or 4-tetrad characterization identified in material read. Failed search alone is not proof of novelty.",
+        "searches": [
+          "Prym banana graph all cover volume tetrad Plücker Fourier image conditions"
+        ]
+      },
+      "rationale": "Len–Zakharov provides the forward scalar Prym-volume Kirchhoff formula, but the simultaneous all-cover volume-to-edge-length inverse and positive quadratic Walsh/tetrad image characterization are not established by the primary results inspected. Relation to tropical Torelli and signed matroids is acknowledged rather than relabeled.",
+      "residual_risks": [
+        "Full inverse classification elsewhere in Prym–Torelli/signed-cut literature could cover a banana specialization.",
+        "Source formula normalization must refer to principally polarized tropical Prym and formal disconnected class only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR FORWARD formula; no direct all-cover banana inverse established by inspected theorem",
+          "evidence": "Theorem 3.4 and proof, banana specialization of genus-one complement; factors 4^{r(F)-1}.",
+          "identifier_or_url": "https://doi.org/10.1017/fms.2021.75",
+          "material_read": "Primary full HTML including Theorem 3.4, odd genus-one decompositions and proof via Gram determinants",
+          "method": "Cambridge Core primary open full text",
+          "title": "Kirchhoff's theorem for Prym varieties",
+          "trigger": "Identical Prym volume normalization"
+        },
+        {
+          "assessment": "DIFFERENT MOMENT/DOMAIN; no asserted global whole-paper NOT_COVERING",
+          "evidence": "Introduction: I_0 is known from Len–Zakharov; I_2 computed genus at most four, extension of Torelli morphism.",
+          "identifier_or_url": "https://arxiv.org/html/2507.06401",
+          "material_read": "Primary open HTML abstract, introduction, contents, signed-matroid and moment discussion including genus≤4 scope",
+          "method": "arXiv full HTML sections inspected; not an exhaustive all-section exclusion",
+          "title": "The trigonal construction and the second moment of the tropical Prym variety",
+          "trigger": "Closest metric Prym moment/Torelli source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-cover scalar measurement problem is a natural inverse tropical geometry/Torelli question. Exact edge reconstruction and a decidable semialgebraic image test from only volume data are complete, non-routine structural facts for every banana genus ≥2.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Cover sign classes must be identified relative to edge labels; arbitrary unlabeled multiset of volumes is not enough.",
+    "Only banana graphs and free unramified covers; disconnected-class zero is formal, not geometric."
+  ],
+  "schema_version": 1
+}
