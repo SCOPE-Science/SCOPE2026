@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+With \(d\mu(z)=(2\pi)^{-1}e^{-|z|^2/2}dA(z)\), Gaussian integration gives the normalized backward-shift coefficient \((1+2n^2)^{-k}\sqrt{\binom{n+k}{k}}\), including the unit \(k=0\) coefficient. The opposite angular mode has zero coefficient in the selected matrix entry. Completing the square gives the exact critical heat profile; Stirling gives a summable \(j/(j+1)^3\) majorant for packets of degree \((j+1)^{12}\). Every finite-stage center test eventually holds by Gaussian overlap decay, so the integer rule is total. Smooth local convergence, admissibility for every coherent kernel, inclusion of each witness vector in the natural Toeplitz domain, interchange of the heat convolution with the series, and divergence of the selected unit-vector matrix coefficients are established separately in the proof. The finite checker exercises packet normalizations and bounds but is not used as an infinite proof.
+
+## Originality — PASS, qualified
+Virtanen's 2026 reverse-endpoint existence theorem already obtains a **real admissible** symbol with critical heat in \(C_0\) and an unbounded Toeplitz operator; Remark 1.2 explicitly says these examples are nonconstructive. The present contribution is a **specified smooth real series** built from exact Gaussian-antiholomorphic monomials and an effective finite-test center rule, with an explicit uniform heat-tail bound. Looi's 2026 translated-block counterexample is for the opposite implication. The closest identified explicit Gaussian–Laguerre and derivative-mollified constructions likewise concern bounded Toeplitz operators with unbounded critical heat transforms. Searches did not identify an explicit smooth reverse-endpoint example, although equivalent constructions under pseudodifferential or Weyl notation remain a publication-priority risk. The existence phenomenon itself is not claimed as new.
+
+## Mathematical value — PASS
+The source's explicitly nonconstructive reverse implication leaves a practical gap: how to exhibit a concrete, smooth real symbol while controlling the **critical**, not merely a subcritical, heat transform. The construction resolves that gap with elementary closed-form packets, a finite-stage executable selection prescription, a quantitative summable \(C_0\) heat estimate, and unit-vector witnesses with matrix coefficients diverging at least linearly. It makes a sharp endpoint pathology reproducible from formulas, without a Baire existence argument. Center growth may be enormous and is not optimized; the symbol is not claimed to be bounded or unweighted integrable.
+
+## Relevant literature and limitations
+J. A. Virtanen, arXiv:2609.11853v3, Theorem 1.1(iii), Remark 1.2 and Section 3; S. Looi, arXiv:2601.20859v1, Theorem 1.2 and translated-block construction; Berger and Coburn (1994) for the endpoint. No independent audit, exhaustive global priority check, or practical performance guarantee for the center search is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
