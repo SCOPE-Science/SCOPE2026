@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every integer \(n\ge3\), \(r\ge2\), on the power of the simple \(n\)-cycle. The decisive lemma is that a pair at underlying cycle distance at most \(2r\) has a common internal neighbour in the powered graph (when distance is at least two), and repeated midpoint forcing reaches a consecutive pair. For \(r\ge2\), that pair propagates around the entire underlying cycle. Conversely a \((2r+1)\)-packing admits no outside vertex with two selected neighbours by the triangle inequality. Cyclic gaps of length at least \(2r+1\) yield the exact \(n/k\) multiplicity formula; the empty set, singleton sets and full set are separately counted. A direct adjacency checker, independent closure simulator, and independent cyclic-composition computation corroborate the proof. The radius-one counterexample shows why the hypothesis matters.
+PASS
 
-## Originality — PASS, provisional
+Any selected pair at underlying cyclic distance 2..2r has an outside-or-selected common neighbor on a shortest arc, forcing a closer selected pair under threshold-two convex closure, ultimately adjacent cyclic vertices; r>=2 then forces both outer neighbors repeatedly and hence the full cycle. Conversely, separated selected pairs have distance >2r, so any outside vertex cannot have two selected neighbors by metric triangle inequality. Ordering k>=2 selected points around labelled C_n gives all positive gaps >=2r+1, with weak compositions and n/k unmarking giving the binomial coefficient. n small and complete powers correctly give only empty/singleton/full; r=1 has a C7 counterexample. Independently enumerated all subsets n3..18 selected radii and matched adjacency definition and polynomial; proof is universal.
 
-The relevant complete 2026 primary manuscript examines tree/ordinary-path recurrences, threshold graphs, graph-wide algorithms and complexity but does not give the cycle-power structural characterization or all-cardinality formula. The 2021 unit-interval-graph paper quotes a known stronger percolation theorem for 2-connected chordal graphs; that **covers the corresponding path-power observation**, which is therefore excluded from this claim. Theorem 3.2 does not cover nonchordal cycle powers, including \(C_6^2\). Queries using ordinary and induced convexity, distance packing, cycle powers, threshold-two bootstrap percolation, and graph polynomials revealed no covering result; this is evidence but not a uniqueness proof. Relevant indexed mathematical findings on cycle powers concern different topological complexes. An undiscovered older result or an unrecognized equivalent formulation remains a genuine historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Counting \(P_3\)-convex sets was recently shown computationally hard even on restricted graphs; an entire nonchordal two-parameter graph family now has a complete characterization and closed all-cardinality polynomial. The structural reduction to cyclic packings is stronger than a numerical optimum and identifies every feasible set and the exact number of maximum proper sets. The key dynamics hinge on radius at least two; the cycle geometry and periodic gap combinatorics supply a natural, not arbitrarily selected, enumeration problem.
+Dourado–Grippo–Lin–Protti 2026 full manuscript proves general complexity, generic exact algorithms and special tree/threshold cases, but not cycle-power structural characterization. González–Grippo–Safe 2020/2021 full arXiv text studies caterpillars/unit interval graphs; its cited 2-connected chordal pair-hull result covers analogous path powers but not nonchordal cycle powers such as C6². Prior antiprism/cyclic prism P3 results concern different graph families. No dominating polynomial identified after checking threshold-two bootstrap and cyclic packing equivalent formulations, with residual hidden-prior risk.
 
-## Sources and remaining risks
+## value
 
-The principal complete source inspected was the 2026 Dourado–Grippo–Lin–Protti arXiv manuscript; the 2021 González–Grippo–Safe PDF was inspected through its definitions and unit-interval/2-connected-chordal Section 3. The known 2-connected-chordal theorem and its inability to cover \(C_6^2\) are disclosed explicitly. Direct experiments only cover finite ranges, while the written proof is universal. Independent audit and comprehensive external priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete natural P3-convex set classification and all-cardinality polynomial on a nonchordal infinite two-parameter cycle-power family, reducing convexity to cyclic packing geometry. It gives meaningful counts beyond general algorithms or a scalar hull number and sharp r=1 boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
