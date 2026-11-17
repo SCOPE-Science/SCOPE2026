@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-In the same directory as `verify.py` and `verify.cpp`, run `python3 verify.py`. The script independently enumerates every unital algebra endomorphism of the four-dimensional characteristic-two algebra with two square-zero generators, over both \(\mathbb F_2\) and \(\mathbb F_4\). It composes generator images, tests idempotency, and counts induced cotangent rank. Its exhaustive histograms are `(1,12,1)` and `(1,80,1)` for ranks zero through two. The Python script also evaluates the closed formula at these parameters and checks the deterministic exponent-window bounds at three larger dimensions.
+# Independent mathematical audit
 
-With `g++` installed, the script additionally builds and runs `verify.cpp` under C++17. That code exhaustively enumerates all generator-image choices with up to three variables over \(\mathbb F_2\), independently testing the polynomial substitutions. Its histograms for one, two and three variables are `(1,1)`, `(1,12,1)`, and `(1,448,3584,1)` in ascending cotangent rank. The successful run ends with `VERIFY_OK`. If a C++ compiler is unavailable, that particular exhaustive three-variable test is skipped and explicitly reported.
+## correctness
 
-These tests do not cover every dimension or finite field and are not an infinite proof. The all-parameter theorem follows from the conjugacy, centralizer and exponent-difference arguments in `RESULT.md`. No independent audit or external certification is claimed.
+PASS
+
+The corrected theorem explicitly starts with the earlier published exact Gaussian-binomial rank multiplicities. Write N_{n,n-s}=q^{Phi(s)} B_{n,s}, with Phi=(n-s)2^n+(2s-n)2^{n-s}-s and 1<=B<=C_q. Exact adjacent difference Phi(s+1)-Phi(s)=2^(n-s)(n/2+1-s-2^s)-1 is >=2^(n-1) below T-2 and <-2^(n-1) from T+2 onward for T=floor(log2 n), n>=64. Comparison of each tail weight to a window endpoint proves P(|S-T|<=2)>=1-(n+1)C_q q^(-2^(n-1)). Window exponent and bounded Gaussian factor prove total-count log asymptotic. This is an infinite proof using the prior finite rank theorem, not finite extrapolation.
+
+## originality
+
+PASS
+
+The original exact all-rank enumerator and conjugacy classification are fully covered by the 2026-10-12 same-algebra published theorem; neither is a new contribution. The corrected final claim is specifically the quantitative asymptotic typical corank/logarithmic image-dimension law and uniform tail bound. The earlier primary full result gives the rank enumerator but no asymptotic concentration or total count. Best-of-knowledge O passes for the genuinely new probabilistic asymptotics; a general coefficient/saddle-point analysis elsewhere may cover them.
+
+## value
+
+PASS
+
+A uniform random algebra retraction is natural in a finite algebra with exponentially many nilpotent monomials. The exact finite counts (previously known) do not themselves quantify typical image size: a five-index cotangent-corank window at log2 n and a superexponential tail give a genuine structural probability law and total-count entropy. Because image dimension is exponential in retained generators, this is a precise invariant another researcher could need. This value does not rest on rebranding a prior rank polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

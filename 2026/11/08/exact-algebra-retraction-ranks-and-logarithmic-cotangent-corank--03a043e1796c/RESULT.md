@@ -1,70 +1,86 @@
-# Exact algebra-retraction ranks and logarithmic cotangent corank in characteristic two
+# Logarithmic cotangent corank of random algebra retractions in characteristic two
 
 ## Finding
-Let \(k=\mathbb F_q\), where \(q=2^e\) and \(e\ge1\), and for each integer \(n\ge2\) let
+
+Let \(q=2^e\) with \(e\ge1\), \(k=\mathbb F_q\), and \(A_n=k[x_1,\ldots,x_n]/(x_1^2,\ldots,x_n^2)\). Choose uniformly among all unital \(k\)-algebra endomorphisms \(P:A_n\to A_n\) satisfying \(P^2=P\). The image has dimension \(2^{r(P)}\) for some integer \(0\le r(P)\le n\). Define the cotangent corank \(S_n=n-r(P)\) and \(T_n=\lfloor\log_2 n\rfloor\). Put
 \[
-A_n=k[x_1,\ldots,x_n]/(x_1^2,\ldots,x_n^2).
+C_q=\prod_{j=1}^{\infty}(1-q^{-j})^{-1}<\infty.
 \]
-An **algebra retraction** means a unital \(k\)-algebra endomorphism \(P:A_n\to A_n\) satisfying \(P^2=P\). For \(0\le r\le n\), the number \(N_{n,r}(q)\) of retractions whose \(k\)-linear image has dimension \(2^r\) is
+**Concentration theorem.** For every \(n\ge64\),
 \[
-\boxed{N_{n,r}(q)=\frac{|\mathrm{GL}_n(q)|}{|\mathrm{GL}_r(q)|\,|\mathrm{GL}_{n-r}(q)|}\,q^{E_{n,r}},}\qquad
-E_{n,r}=n(2^n-1-n)-r(2^r-1-r)-(n-r)(2^n-2^r-(n-r)).
+\boxed{\Pr\{T_n-2\le S_n\le T_n+2\}\ge1-(n+1)C_q q^{-2^{n-1}}.}
 \]
-Here \(|\mathrm{GL}_0(q)|=1\). These are all possible image dimensions. Thus the complete ordinary linear-rank enumerator is
-\[
-\boxed{F_{n,q}(z)=\sum_{r=0}^{n}N_{n,r}(q)z^{2^r}.}
-\]
-Equivalently, with \(s=n-r\) and Gaussian binomial coefficients,
-\[
-N_{n,n-s}(q)={n\brack s}_q q^{(n-s)2^n+(2s-n)2^{n-s}-(n-s)s-s}.
-\]
-If \(S_n=n-\dim_k\bigl((\operatorname{im}P\cap\mathfrak m)/(\operatorname{im}P\cap\mathfrak m)^2\bigr)\), where \(P\) is uniformly chosen among all retractions and \(\mathfrak m=(x_1,\ldots,x_n)\), then \(S_n=n-r\), where \(2^r=\dim_k\operatorname{im}P\). Set \(T_n=\lfloor\log_2 n\rfloor\) and \(C_q=\prod_{j\ge1}(1-q^{-j})^{-1}<\infty\). For every \(n\ge64\),
-\[
-\boxed{\Pr(T_n-2\le S_n\le T_n+2)\ge1-(n+1)C_q q^{-2^{n-1}}.}
-\]
-Hence a uniformly chosen retraction has \(k\)-linear image dimension \(\Theta(2^n/n)\) with probability tending to one. If \(H_n(q)=\sum_{r=0}^nN_{n,r}(q)\), then for fixed even prime power \(q\),
+Therefore \(S_n=\log_2 n+O(1)\) with probability tending to one, and \(\dim_k\operatorname{im}P=\Theta(2^n/n)\) with probability tending to one. If \(H_n(q)\) denotes the total number of retractions then, for each fixed \(q\),
 \[
 \boxed{\log_q H_n(q)=(n-\log_2 n)2^n+O_q(2^n).}
 \]
+These are consequences of an **already published exact rank enumerator**, not a new retraction-orbit classification. The mathematical contribution asserted here is the quantitative five-index logarithmic-corank concentration and total-count asymptotic; the pre-existing finite counts and conjugacy theorem are explicitly credited below.
 
-## Assumptions and scope
-All maps are **unital and \(k\)-linear algebra maps**, not merely linear projections and not necessarily Hopf-algebra maps. Their rank is their dimension as \(k\)-linear maps on the \(2^n\)-dimensional algebra. The algebra is local, with unique maximal ideal \(\mathfrak m\) and cotangent space \(\mathfrak m/\mathfrak m^2\) of dimension \(n\). The restriction to characteristic two is essential to the argument: every element of \(\mathfrak m\) has square zero, so every assignment of generators to elements of \(\mathfrak m\) gives a unital algebra homomorphism. Over characteristic two \(A_n\) is also the group algebra of the elementary abelian group \((C_2)^n\), under \(x_i\leftrightarrow g_i-1\). No claim about arbitrary characteristic or noncommutative groups is made.
+## Assumptions and prior exact enumeration
 
-## Proof
-**1. Automorphisms.** Write \(d_n=2^n-1-n\). Each \(a\in\mathfrak m\) has \(a^2=0\) because in characteristic two cross terms vanish and every positive-degree squarefree monomial squares to zero. An endomorphism is specified by an arbitrary ordered tuple of \(n\) elements of \(\mathfrak m\). It is an automorphism if and only if its linear terms yield an invertible map on \(\mathfrak m/\mathfrak m^2\): necessity follows from passage to the quotient; sufficiency follows by Nakayama's lemma and finite dimensionality, because the images generate \(\mathfrak m\) and hence the algebra. Each fixed invertible cotangent matrix has \(q^{nd_n}\) lifts. Therefore
+All maps are unital, multiplicative, and \(k\)-linear; they need not preserve grading or be Hopf maps. The characteristic-two assumption ensures that every element of the maximal ideal \((x_1,\ldots,x_n)\) has square zero. The image-rank classification and the following exact multiplicities were proved earlier in *Automorphism orbits and rank counts of characteristic-two square-zero-variable algebra retractions* (12 October 2026): for \(s=n-r\),
 \[
-|\operatorname{Aut}_k(A_n)|=|\mathrm{GL}_n(q)|q^{n(2^n-1-n)}.
+N_{n,n-s}(q)={n\brack s}_q q^{(n-s)2^n+(2s-n)2^{n-s}-(n-s)s-s}.
+\tag{1}
 \]
-**2. Conjugacy of retractions.** An idempotent \(P\) induces an idempotent linear map \(\bar P\) on the cotangent space, with some rank \(r\). By a linear change of the generators, which itself extends to an algebra automorphism in characteristic two, assume \(\bar P(x_i)=x_i\) for \(i\le r\), and \(\bar P(x_j)=0\) for \(j>r\). Let \(y_i=P(x_i)\) for \(i\le r\) and \(z_j=x_j-P(x_j)\) for \(j>r\). These elements have independent cotangent classes, so the substitution \(\phi(x_i)=y_i\) and \(\phi(x_j)=z_j\) extends to an algebra automorphism. By idempotence, \(P(y_i)=y_i\) and \(P(z_j)=0\), so \(P\circ\phi=\phi\circ P_r\), where \(P_r\) fixes the first \(r\) variables and kills the remaining variables. Every retraction is therefore conjugate to exactly one of the \(n+1\) standard maps \(P_r\). The image of \(P_r\) is canonically \(A_r\) and has dimension \(2^r\).
+Here \({n\brack s}_q\) is a Gaussian binomial coefficient. The corresponding rank is \(2^{n-s}\); the exact formula counts **labeled endomorphism maps**. In particular, (1) is input from prior work, not claimed novel. Its derivation uses automorphism conjugacy to coordinate deletion and the orbit-stabilizer count of the retraction stabilizer. Our analysis requires no classification stronger than this established formula.
 
-**3. Stabilizer enumeration.** Put \(s=n-r\). An automorphism \(\phi\) commutes with \(P_r\) precisely when the images of the first \(r\) variables lie in \(\operatorname{im}P_r\cap\mathfrak m\), and those of the remaining \(s\) variables lie in \(\ker P_r\). The two spaces have dimensions \(2^r-1\) and \(2^n-2^r\), respectively. Invertibility on the cotangent space requires independent diagonal blocks in \(\mathrm{GL}_r(q)\) and \(\mathrm{GL}_s(q)\). Choosing all higher coefficients freely gives the exact centralizer order
-\[
-|C_{\operatorname{Aut}_k(A_n)}(P_r)|=
-|\mathrm{GL}_r(q)|\,|\mathrm{GL}_s(q)|\,
-q^{r(2^r-1-r)+s(2^n-2^r-s)}.
-\]
-Orbit–stabilizer yields \(N_{n,r}(q)\). The Gaussian-binomial version follows from the standard identity \(|\mathrm{GL}_n(q)|/(|\mathrm{GL}_r(q)||\mathrm{GL}_s(q)|)={n\brack s}_q q^{rs}\). This proves all finite counts.
+## Proof of the concentration theorem
 
-**4. Logarithmic cotangent corank.** Define
+For \(0\le s\le n\), define
 \[
-\Phi_n(s)=(n-s)2^n+(2s-n)2^{n-s}-s,
-\qquad B_{n,s}(q)=q^{-s(n-s)}{n\brack s}_q.
+\Phi_n(s)=(n-s)2^n+(2s-n)2^{n-s}-s,\qquad
+B_{n,s}(q)=q^{-s(n-s)}{n\brack s}_q.
 \]
-Then \(N_{n,n-s}(q)=q^{\Phi_n(s)}B_{n,s}(q)\). The product formula for Gaussian binomials yields \(1\le B_{n,s}(q)\le C_q\). Direct subtraction gives
+The exact enumerator (1) is equivalent to
 \[
-\Phi_n(s+1)-\Phi_n(s)=2^{n-s}(n/2+1-s-2^s)-1.
+N_{n,n-s}(q)=q^{\Phi_n(s)}B_{n,s}(q).
+\tag{2}
 \]
-For \(n\ge64\), \(T=\lfloor\log_2 n\rfloor\), and \(0\le s\le T-3\), we have \(2^s\le n/8\), \(s\le T\le n/8\), so the difference is at least \(2^n-1\). For \(T+2\le s<n\), \(2^s>2n\), so the difference is at most \(-(3/4-1/(2n))2^n-1\), strictly smaller than \(-2^{n-1}\). Thus every term with \(s<T-2\), respectively \(s>T+2\), is at most \(C_q q^{-2^{n-1}}\) times the term at \(s=T-2\), respectively at \(s=T+2\). Summing at most \(n+1\) outlying terms proves the probability bound. Within the five-index window \(s=T+O(1)\), \(\Phi_n(s)=(n-\log_2 n)2^n+O(2^n)\). The bounds on \(B_{n,s}\), the tail estimate, and at most \(n+1\) terms establish the asserted logarithmic total-count asymptotic.
+The Gaussian-binomial product representation implies
+\[
+1\le B_{n,s}(q)\le C_q
+\tag{3}
+\]
+for every \(s,n\) (empty products included). Exact subtraction gives
+\[
+\Phi_n(s+1)-\Phi_n(s)
+=2^{n-s}\bigl(n/2+1-s-2^s\bigr)-1.
+\tag{4}
+\]
+Fix \(n\ge64\) and set \(T=\lfloor\log_2 n\rfloor\). In the lower tail, \(0\le s\le T-3\) implies \(2^s\le n/8\) and \(s\le T\le n/8\). Thus (4) is at least \(2^n-1\), in particular at least \(2^{n-1}\). Iterating from any \(s<T-2\) to \(T-2\) yields
+\[
+\Phi_n(s)\le\Phi_n(T-2)-2^{n-1}.
+\tag{5}
+\]
+In the upper tail, for \(T+2\le s<n\), \(2^s>2n\). Therefore
+\[
+\Phi_n(s+1)-\Phi_n(s)
+\le -\bigl(3/4-1/(2n)\bigr)2^n-1<-2^{n-1}.
+\tag{6}
+\]
+Iterating back from \(s>T+2\) to \(T+2\) gives the analogous upper-tail inequality. Comparing the resulting weights with the corresponding boundary-window terms by (2) and (3), every outlying probability is at most \(C_q q^{-2^{n-1}}\). There are at most \(n+1\) terms, which proves the displayed concentration bound.
+
+Within the five-index window, \(s=T+O(1)\), so \(s=\log_2 n+O(1)\) and
+\[
+\Phi_n(s)=(n-\log_2 n)2^n+O(2^n).
+\]
+By (3), the logarithmic correction from \(B_{n,s}(q)\) is bounded by \(\log_q C_q\). Summing at most \(n+1\) terms and using the concentration estimate proves
+\(\log_q H_n(q)=(n-\log_2 n)2^n+O_q(2^n)\).
+Finally, the image of a retraction with corank in the window has dimension \(2^{n-s}\), and \(2^T\le n<2^{T+1}\) makes this \(\Theta(2^n/n)\). This completes the proof.
 
 ## Verification
-Finite validation is independent of the orbit–stabilizer proof. The self-contained `verify.py` enumerates every algebra homomorphism of the four-dimensional algebra \(A_2\) over \(\mathbb F_2\) and \(\mathbb F_4\), tests \(P^2=P\), computes cotangent ranks, and compares multiplicities. It obtains respectively \((1,12,1)\) and \((1,80,1)\). The accompanying `verify.cpp`, when compiled with a C++17 compiler, directly enumerates all \(2^{21}\) generator-image triples for \(A_3\) over \(\mathbb F_2\) and obtains \((1,448,3584,1)\), again matching the theorem. The executable also verifies the one- and two-variable cases. Run `python3 verify.py` from the directory containing both files; output ends in `VERIFY_OK`. Finite experiments do not establish the all-dimensions theorem; Steps 1–4 provide that proof.
 
-## Relationship to prior work
-The classification of idempotent *matrices* over finite local rings and their number is part of the established study of finite-ring idempotents (Dolžan, 2021); these are not the same as multiplicative algebra self-retractions. Erdmann and Holloway (2006, Section 5) study precisely the truncated square-zero polynomial algebras \(A_n\), chiefly for support varieties of modules; their paper explicitly identifies the characteristic-two group-algebra realization. Neither paper, in the material inspected, provides the present full enumeration of **idempotent algebra endomorphisms** and its logarithmic cotangent-corank concentration. The proof here uses standard finite linear-group counts and Nakayama's lemma, and does not claim those tools as new.
+The exact differences in (4), bounds in (5)–(6), and the prior enumerator are symbolic/integer equalities. An independent small-parameter replay computes the published rank multiplicities \((1,12,1)\) at \((n,q)=(2,2)\), \((1,80,1)\) at \((2,4)\), and \((1,448,3584,1)\) at \((3,2)\). An additional exact-exponent calculation locates a maximal corank inside the asserted window for \(n=64,65,128\). These finite checks corroborate formula handling; the preceding inequalities, not the finite examples, prove the all-\(n\) claim.
+
+## Relationship to prior work and value
+
+*Automorphism orbits and rank counts of characteristic-two square-zero-variable algebra retractions* (12 October 2026) already proves **every finite-rank coefficient** in (1), the conjugacy of all unital retractions to coordinate deletions and the cotangent-rank/image-rank relation. Consequently no novelty is claimed for these exact counts, for the Gaussian-binomial formula, or for automorphism orbit-stabilizer arguments. The October result does not state a random-retraction logarithmic-corank concentration theorem, its explicit superexponential tail, or this total-count asymptotic. The new analysis quantifies the typical dimension of a retraction of a natural, highly nonreduced local algebra, where the image rank is exponentially sensitive to generator-rank changes. It is not a new classification of finite retractions.
 
 ## Limitations
-The result is restricted to unital endomorphisms of \(A_n\) over finite fields of characteristic two. It does not classify Hopf retractions, arbitrary truncated complete intersections, endomorphisms in odd characteristic, or module-theoretic rank varieties. The asymptotic probability bound is stated for \(n\ge64\) and fixed \(q\). While exact literature searches found no direct identity, broad unpublished or poorly indexed results on retractions of local complete intersections may imply this formula; independent priority review is outstanding.
 
-## References
-1. D. Dolžan, *Bounds for the number of idempotents in finite rings*, Communications in Algebra; first published online May 28, 2021. DOI: 10.1080/00927872.2021.1929277.
-2. K. Erdmann and M. Holloway, *The Avrunin and Scott theorem and a truncated polynomial algebra*, Journal of Algebra **299** (2006), 344–373, especially Section 5. DOI: 10.1016/j.jalgebra.2005.12.031. Authorized full text: https://ora.ox.ac.uk/objects/uuid:8df88d72-35f0-43fc-9955-98055912ff5d.
+The theorem concerns only uniform sampling among all unital algebra retractions of the specified characteristic-two complete intersection, with fixed finite \(q\) for the asymptotic total count. It gives an \(O(1)\)-window for the corank, not a limiting local probability law or a finer classification within that window. The numerical checker is not an all-dimensions proof. The possibility that an older general theorem on random algebra endomorphisms implies the concentration law remains an explicit historical-priority risk.
+
+## Reference
+
+*Automorphism orbits and rank counts of characteristic-two square-zero-variable algebra retractions*, published 12 October 2026, https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-automorphism-orbits-and-rank-counts-of-characteristic-two-square--256249efd1a0 (complete finite enumeration used in equation (1)).

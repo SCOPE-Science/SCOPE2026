@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The characteristic-two hypothesis makes every element of the maximal ideal square to zero and makes arbitrary choices of generator images legitimate algebra endomorphisms. Nakayama's lemma gives precisely the invertible cotangent substitutions. For a retraction, conjugacy follows from the fixed generators \(P(x_i)\) and killed generators \(x_j-P(x_j)\), whose cotangent classes give a full basis. The stabilizer has two independent general-linear blocks and the specified numbers of higher-degree coordinates. Taking the quotient of the exact automorphism and centralizer orders proves the finite rank polynomial. The Gaussian-binomial product and the explicit adjacent-exponent difference rigorously imply the five-index logarithmic concentration window and the entropy law. Exhaustive independent finite checks over \(\mathbb F_2\) through three variables and over \(\mathbb F_4\) through two variables agree. Risk: computational coverage is finite, and the general formulas depend on the algebraic proof rather than enumeration.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest primary object match is Erdmann–Holloway (2006), which treats the same truncated square-zero polynomial algebras in a module-theoretic support/rank-variety context; its consulted introduction and Section 5 do not enumerate multiplicative algebra retractions. Dolžan (2021) counts idempotent elements of finite rings and idempotent matrices, not self-multiplicative idempotent maps. A published summary on truncated coordinate-cross algebras studies a different algebra (mixed products killed), not the present complete-intersection algebra (mixed squarefree monomials survive). Accessible scientific record searches using synonyms, equivalents, automorphism-group reductions and finite counts found no encompassing retraction-count result. An automorphism-group order alone does not imply this rank enumerator without a classification of retraction conjugacy classes and their centralizers. Risk: full publisher access to the 2021 article was incomplete, and a general algebra-retraction classification could subsume the theorem; novelty is not asserted as publication-priority proof.
+PASS
 
-## Mathematical value — PASS
-Splittings of unital algebras are natural structural invariants, and this family is simultaneously a finite complete intersection and the modular group algebra of an elementary abelian two-group. The complete enumerator distinguishes image dimensions for every field and all \(n\), not an arbitrary numerical slice. The sharp logarithmic deficiency \(n-r=\log_2n+O(1)\), a linear image dimension of order \(2^n/n\), and the superexponential tail bound give non-obvious behavior for uniformly selected retractions. These are meaningful algebraic asymptotics beyond the automorphism-group formula. Risk: these results address only characteristic-two coordinate-square truncations and have not been independently prioritized.
+The corrected theorem explicitly starts with the earlier published exact Gaussian-binomial rank multiplicities. Write N_{n,n-s}=q^{Phi(s)} B_{n,s}, with Phi=(n-s)2^n+(2s-n)2^{n-s}-s and 1<=B<=C_q. Exact adjacent difference Phi(s+1)-Phi(s)=2^(n-s)(n/2+1-s-2^s)-1 is >=2^(n-1) below T-2 and <-2^(n-1) from T+2 onward for T=floor(log2 n), n>=64. Comparison of each tail weight to a window endpoint proves P(|S-T|<=2)>=1-(n+1)C_q q^(-2^(n-1)). Window exponent and bounded Gaussian factor prove total-count log asymptotic. This is an infinite proof using the prior finite rank theorem, not finite extrapolation.
 
-## Closest literature and limits
-D. Dolžan, *Bounds for the number of idempotents in finite rings* (online May 28, 2021), DOI: 10.1080/00927872.2021.1929277. K. Erdmann and M. Holloway, *The Avrunin and Scott theorem and a truncated polynomial algebra* (2006), DOI: 10.1016/j.jalgebra.2005.12.031. The cited 2006 source supplies prior knowledge of the specific algebra and its characteristic-two group-algebra interpretation, not the enumeration claimed. The proof does not apply to odd characteristic, general finite groups or non-unital self-maps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original exact all-rank enumerator and conjugacy classification are fully covered by the 2026-10-12 same-algebra published theorem; neither is a new contribution. The corrected final claim is specifically the quantitative asymptotic typical corank/logarithmic image-dimension law and uniform tail bound. The earlier primary full result gives the rank enumerator but no asymptotic concentration or total count. Best-of-knowledge O passes for the genuinely new probabilistic asymptotics; a general coefficient/saddle-point analysis elsewhere may cover them.
+
+## value
+
+PASS
+
+A uniform random algebra retraction is natural in a finite algebra with exponentially many nilpotent monomials. The exact finite counts (previously known) do not themselves quantify typical image size: a five-index cotangent-corank window at log2 n and a superexponential tail give a genuine structural probability law and total-count entropy. Because image dimension is exponential in retained generators, this is a precise invariant another researcher could need. This value does not rest on rebranding a prior rank polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
