@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is an exact theorem for a specified nonatomic two-resource game. Its proof first establishes strict fixed-point uniqueness for every positive noise level using the derivative identity \(F'(q)=p(0)-p(1)\in(0,1)\), then solves a positive-root quadratic to obtain the inverse-hyperbolic-sine formula. The full continuum of zero-noise equilibria follows by checking the optimal threshold partition. Comparing exponential scales in the closed form proves the joint limit and its refined corrections. The included standard-library numerical verification passed 38 finite comparisons in three categories; it is not a substitute for proof.
+## correctness
 
-**Originality — PASS, qualified.** The strongest direct source is Dupont, Petit and Séguret, arXiv:2610.18035v1, Remark 2.3 and equation (3.12). Their source exposes the base equilibrium continuum and logit-response definition but does not give a positive-noise formula or the exponentially small perturbation selection. Their uniqueness theorem assumes nondecreasing interaction costs, absent here. Relevant research-record searches for equivalent, dual, and stronger statements found no matching coverage. General equilibrium-selection studies by Carlsson and Ganslandt (1998), Anderson, Goeree and Holt (2002), and Lahkar, Mukherjee and Roy (2023/2024) were compared at the accessible abstract level; these pose residual full-text coverage risks rather than being declared comprehensively ruled out.
+PASS
 
-**Value — PASS.** The originating paper's explicit continuum of pure equilibria raises a natural question: what the regularized population game selects, and how stable that selection is when preferences are slightly misspecified. The result gives a complete and quantitatively sharp answer, including a noncommuting zero-noise/zero-bias limit. Every member of the equilibrium continuum can be selected by an arbitrarily small bias whose exponent encodes the chosen mass. This gives a concrete mathematical boundary to the robustness of entropy-style regularization in positive-feedback population games.
+In the uniform nonatomic two-resource affinity game C1-C2=2(x-q)+δ, the positive-noise logit fixed-point derivative F'(q)=p(0)-p(1) belongs strictly to (0,1), giving existence and unique q. Integrating the logistic response and eliminating z=e^(2q/σ) gives az²+(e^(δ/σ)-1)z-e^(δ/σ)=0, a unique positive root and the stated exact asinh formula. At σ=δ=0 every threshold allocation [0,s] has mass s and is a pure equilibrium; conversely all PNE are such thresholds. For δσ→0 and α=-σlog|δσ|, asymptotic asinh gives q→min(α,1)/2 for positive offset and its reflection for negative; zero bias always q=1/2. For α=1 the σlogσ correction is still valid. These formulae hold on δ∈(-1,1) and all positive σ. Independently evaluated closed-form fixed-point residuals on 15 separate (σ,δ) configurations and checked asymptotic scaling analytically; finite tests alone do not prove limits.
 
-**Scope and limitations.** These statements do not concern dynamic revision protocols, arbitrary population densities, more than two resources, or standard increasing congestion. Partial accessibility of older equilibrium-selection papers leaves unindexed duplication as a risk. The proof and code have not received independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2026 Dupont–Petit–Séguret study already gives the *same unperturbed continuum* in Remark 2.3 and a general Gumbel-logit fixed point, but its nondecreasing-interaction uniqueness theorem does not apply to negative popularity costs, and its inspected theorem does not determine the positive-noise asinh branch or the joint exponentially small bias selection diagram. Semantically compared equivalent equilibrium-selection formulations and the closely related 2026 noisy two-resource findings; no inspected result entails the exact joint (σ,δ) selection. Acceptance is best-of-knowledge only.
+
+## value
+
+PASS
+
+This computes how entropy/Gumbel regularization selects one of an entire interval of Nash equilibrium masses, and how arbitrarily tiny deterministic preferences can select *every* point. The exactly characterized exponential scale of bias is a natural, noncommuting-noise robustness boundary for the motivating model, not just a numerical fixed point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
