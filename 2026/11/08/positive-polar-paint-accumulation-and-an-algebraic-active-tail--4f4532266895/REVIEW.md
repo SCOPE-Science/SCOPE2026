@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The backward first-passage boundary-value problem yields the exact signed-color transform, independently cross-checked by decaying-mode calculations. A Pick-function argument proves the transform is completely monotone and decomposes it into a known strictly positive density plus nonnegative measures; a monotone Tauberian theorem yields the precise active tail from its square-root singularity. All domain restrictions and normalizations are given in RESULT.md. The auxiliary checker performed 297 finite numerical assertions; it is not an infinite-proof substitute.
+## correctness
 
-**Originality — PASS, qualified.** The parent work (Sezik et al., arXiv:2603.24277 and the 2026 journal revision) already supplies the full state-resolved Laplace transform. Thus the exact transform and the previously derived passive error-function result are not original. The new assessed theorem is the positive-measure/strict-monotonicity classification in both time and propulsion and the nonzero-activity \(t^{-1/2}\) saturation law with coefficient. Relevant parent pages and journal Appendix B were inspected directly. Separate first-passage literature (Malakar et al.) and targeted semantic and exact-term searches revealed no recorded proof of that classification. Because the stronger parent transform encodes these conclusions and other unindexed derivations may exist, independent publication priority remains uncertain; this is not an assertion of absolute novelty.
+PASS
 
-**Value — PASS.** The underlying polar deposition observable is motivated by persistent first-passage orientation marks. The theorem exhibits a finite residual orientation memory and sharp change of asymptotic decay class at zero self-propulsion; these are not consequences of comparing only the leading colored-volume \(\sqrt t\) coefficients. The positive-measure mechanism simultaneously proves unexpected sign and parameter monotonicity. This is a structural, testable restriction on the entire time-dependent process, not a routine table entry.
+PASS: Directly reconstructed the backward first-hit ODE and two decaying exponents with physical generator D∂xx±v∂x+alpha/2 switching. The transformed signed paint excess is F_v(s)=2 sqrt(v^2+D(sqrt(s)+sqrt(s+alpha))^2)/(sqrt(s+alpha)(sqrt(s)+sqrt(s+alpha))). Complete Bernstein/Pick arguments make the derivative-in-v² integrand a positive completely monotone kernel, establishing strict time and speed monotonicity. Independent symbolic expansion in q=sqrt(s) verified F_v(0)=2sqrt(alpha D+v²)/alpha and -dF/dq|0=2v²/[alpha^(3/2)sqrt(alpha D+v²)]. Monotone Karamata yields the sharp t^-1/2 residual for each fixed v>0. The v=0 inverse Laplace is the known error-function/exponential endpoint. No uniformity as v down to 0, no a.s. signed-color theorem.
 
-**Limits and risks.** The parent general transform is a strong predecessor, which bounds claims of priority. The theorem is expectation-level and limited to independent Brownian diffusion and a two-state telegraph orientation. The asymptotic is fixed-positive-propulsion, not uniform near the passive endpoint. No independent expert or mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Sezik–Britton–Touma–Pruessner introduce the identical model and state-resolved first-visit transform, and the journal Appendix B already establishes v=0 passive excess. Those ARE prior. Their inspected leading separately colored volume asymptotics do not state all-time strict ordering in both time and propulsion or the full active algebraic residual coefficient. Resultary query returned no earlier identical completed tail and monotonicity classification; that absence alone is not novelty proof. Distinct qualitative regime transition remains, subject to possible implicit derivation from parent formula.
+
+## value
+
+PASS
+
+PASS: The signed difference of two growing colored volumes need not itself be monotone, and deciding its sign and strict speed response for all positive times is a mathematically meaningful qualitative question. The exact finite saturation and singular change from exponential passive relaxation to active algebraic t^-1/2 persistence, with nonzero prefactor, is a useful sharp invariant even though the original transform is known. Mere numerical re-evaluation of the transform would not be enough; the positive-measure theorem supplies substance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
