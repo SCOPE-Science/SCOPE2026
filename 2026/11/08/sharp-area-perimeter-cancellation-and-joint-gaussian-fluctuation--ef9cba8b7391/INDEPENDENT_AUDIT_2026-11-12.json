@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:00:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniformly chosen m-subsets correspond, after cyclic rooting, to uniform positive integer compositions of n; exactly the law of m iid geometric(p_n=m/n) gaps conditioned on total n. Exact chord and shoelace gap expressions give D_P=π³(S_3−n)/(3n³)−π⁵(S_5−n)/(60n⁵)+O(n^-7 S_7) and 2D_P−D_A=π⁵(S_5−n)/(10n⁵)+O(n^-7 S_7). The strict inequality 0<D_A<2D_P for proper selections is equivalent to strict concavity of f(t)=4sin t−sin(2t)/2; deleting one vertex yields limiting ratio 2. Under m/n→α∈(0,1), geometric moment identities determine the stated c3,c5. Conditioning on total n removes regression on G from (G³,G⁵), producing the Schur-complement residual covariance C_ij(p), a nonsingular matrix since no nontrivial cubic/quintic combination is affine on all positive integers. Fourier local CLT supplies the two-scale joint Gaussian, not just an unconditioned CLT. Independently exhaustively checked strict finite inequality for all 3≤m<n≤9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Bernoulli theorem proves a two-scale Gaussian law without fixing retained count and also a covariance-determinant correction.",
+          "The submitted theorem uses exact hypergeometric sampling and the conditional local CLT with different C_ij."
+        ],
+        "reasoning": "Unconditioned convergence does not by itself imply a point-conditioned limit on an event with probability O(n^-1/2); an additional local conditioning theorem and normalization are essential.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f",
+          "2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3",
+          "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f",
+        "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+        "https://doi.org/10.19139/soic-2310-5070-1193",
+        "https://arxiv.org/abs/2204.11316"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bernoulli theorem uses sigma_ij=p E[(G^i−pEG^i·G)(G^j−pEG^j·G)].",
+          "The fixed-count covariance removes Cov(G^i,G) terms by explicit linear regression; coefficients and conditioning are demonstrably different."
+        ],
+        "reasoning": "Earlier Bernoulli and Dirichlet results contain key standard techniques but do not state this precise fixed-size law; no direct theorem-level implication without new conditional analysis.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f",
+          "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Bernoulli thinning has random binomial retained count; the submitted sampling has fixed m=⌊αn⌋ and uniform-composition spacings.",
+          "Wang–Li–Xu use continuous Dirichlet spacings and nonlinear estimators; discrete integer gaps have conditioned geometric law."
+        ],
+        "reasoning": "Conditioning changes the limiting covariance by projecting out fluctuations of total gap length/retained count; identical leading exponents are not equivalent distributions.",
+        "searches": [
+          "uniform subset vertices regular n gon deficits perimeter area two scale central limit geometric gaps conditioned compositions",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f",
+          "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite population composition-marginal formula can generate exact expectations but not the full n→∞ Schur-complement covariance.",
+          "No exact table of all retained subsets is used for an infinite central limit."
+        ],
+        "reasoning": "The new claim is a functional infinite family and a nondegenerate asymptotic law, not a few recomputed table entries.",
+        "searches": [
+          "uniform subset vertices regular n gon deficits perimeter area two scale central limit geometric gaps conditioned compositions",
+          "regular polygon thinning fixed retained count exact area perimeter covariance"
+        ]
+      },
+      "rationale": "PASS for a fixed-retained-count (hypergeometric/composition-conditioned) two-scale covariance theorem, not for the older Bernoulli independently thinned lattice or continuous-Dirichlet polygon model. The existing Bernoulli result has random retained count and renewal covariance p E[(G^i−rho_i G)(G^j−rho_j G)], whereas fixed m conditions total gap and uses Schur complement Cov(G^i,G^j)−Cov(G^i,G)Cov(G^j,G)/Var(G). Both the finite deterministic inequality and precise conditional Gaussian joint law survive that comparison. General conditional CLT methods are standard; historical exact model coverage remains possible.",
+      "residual_risks": [
+        "A broad conditional local central-limit theorem could make the new covariance a relatively immediate consequence of Bernoulli results; current full-statement literature search did not find such exact implication.",
+        "The 2021 primary continuous-circle study was not read in full; novelty remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG RELATED prior but only unconditioned Bernoulli sampling",
+          "evidence": "Its sigma_ij is renewal covariance, whereas the new C_ij is a Schur-complement under fixed sample size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f",
+          "material_read": "Full published RESULT.md including exact renewal covariance, moment constants, proof and hypotheses",
+          "method": "GitHub full scientific text",
+          "title": "Two-scale Gaussian geometry of Bernoulli-thinned regular polygons",
+          "trigger": "Same regular-polygon thinning, cubic/quintic cancellation and Gaussian covariance"
+        },
+        {
+          "assessment": "RELATED Dirichlet distribution; different discrete finite-population sample",
+          "evidence": "Continuous symmetric Dirichlet circular spacings; no m fixed of n grid vertices.",
+          "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+          "material_read": "Full HTML primary paper, model and limit statements, proof discussion",
+          "method": "Read accessible full journal HTML",
+          "title": "Nonlinear random extrapolation estimates of pi under Dirichlet distributions",
+          "trigger": "Continuous cyclic polygon area-perimeter cancellation"
+        },
+        {
+          "assessment": "Plausible priority risk; no claim of full-document noncoverage",
+          "evidence": "Earlier circle-continuous sampling differs from grid-subset representation in inspected material.",
+          "identifier_or_url": "https://doi.org/10.19139/soic-2310-5070-1193",
+          "material_read": "Bibliography and abstract/model description only; entire text not obtained",
+          "method": "Published page and citations",
+          "title": "Random Polygons and Optimal Extrapolation Estimates of pi",
+          "trigger": "Early cyclic area-perimeter dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The area-perimeter ratio reaches a sharp global deterministic boundary and the first nontrivial residual geometric noise is four powers below the main perimeter scale in a natural finite-population sample. Conditioning on exact sample size is common in geometric design and materially changes covariance, making the exact two-scale result useful independently of Bernoulli thinning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f",
+    "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+    "https://doi.org/10.19139/soic-2310-5070-1193",
+    "https://arxiv.org/abs/2204.11316"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A broad conditional local central-limit theorem could make the new covariance a relatively immediate consequence of Bernoulli results; current full-statement literature search did not find such exact implication.",
+    "The 2021 primary continuous-circle study was not read in full; novelty remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}

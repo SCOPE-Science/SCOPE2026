@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polygon chord and shoelace formulas hold for all allowed cyclic gaps, including gaps longer than half the circle. Strict concavity of \(4\sin t-\tfrac12\sin2t\) gives the sharp deterministic comparison. The uniform subset induces a uniform positive-integer composition, exactly a geometric sample conditional on its sum. Fifth-order Taylor cancellation and a two-coordinate conditional Gaussian limit yield the stated scales and covariance; the conditioning projection is explicit. Infinite-dimensional claims are analytically proved, not inferred from enumerations. Independent Cartesian geometry and symbolic-moment checks in `check.py` pass.
+PASS
 
-## Originality — PASS, provisional priority
+Uniformly chosen m-subsets correspond, after cyclic rooting, to uniform positive integer compositions of n; exactly the law of m iid geometric(p_n=m/n) gaps conditioned on total n. Exact chord and shoelace gap expressions give D_P=π³(S_3−n)/(3n³)−π⁵(S_5−n)/(60n⁵)+O(n^-7 S_7) and 2D_P−D_A=π⁵(S_5−n)/(10n⁵)+O(n^-7 S_7). The strict inequality 0<D_A<2D_P for proper selections is equivalent to strict concavity of f(t)=4sin t−sin(2t)/2; deleting one vertex yields limiting ratio 2. Under m/n→α∈(0,1), geometric moment identities determine the stated c3,c5. Conditioning on total n removes regression on G from (G³,G⁵), producing the Schur-complement residual covariance C_ij(p), a nonsingular matrix since no nontrivial cubic/quintic combination is affine on all positive integers. Fourier local CLT supplies the two-scale joint Gaussian, not just an unconditioned CLT. Independently exhaustively checked strict finite inequality for all 3≤m<n≤9.
 
-The closest inspected continuous-angle literature includes Wang–Xu–Liu (2021), Wang–Li–Xu (2023), and the random interior-point convex hull work of Gusakova–Reitzner–Thäle (2022). The 2023 paper explicitly addresses area–perimeter cancellation, so cancellation alone is not asserted new. Its continuous Dirichlet spacings do not imply the fixed-retention positive-integer composition covariance matrix or the grid-relative strict finite bound without a distinct limit and proof. Comparable mathematical records on regular-polygon sampling mostly address center-containing triangles, antipodal constrained subsets, or Hausdorff error, rather than this two-scale Gaussian law. Earlier discrete versions may exist, especially under conditional allocation terminology; complete historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite-grid random hull is a natural model of sub-sampling a prescribed convex polygon. The theorem couples an all-sample sharp inequality to exact two-scale area–perimeter asymptotics, retaining an explicit nondegenerate covariance after cancellation of the dominant cubic-gap term. The fifth-order residual distinguishes shapes that have nearly the same leading perimeter/area defect, and its positive finite-sample sign gives geometric meaning to this smaller scale.
+PASS for a fixed-retained-count (hypergeometric/composition-conditioned) two-scale covariance theorem, not for the older Bernoulli independently thinned lattice or continuous-Dirichlet polygon model. The existing Bernoulli result has random retained count and renewal covariance p E[(G^i−rho_i G)(G^j−rho_j G)], whereas fixed m conditions total gap and uses Schur complement Cov(G^i,G^j)−Cov(G^i,G)Cov(G^j,G)/Var(G). Both the finite deterministic inequality and precise conditional Gaussian joint law survive that comparison. General conditional CLT methods are standard; historical exact model coverage remains possible.
 
-## Limits and risks
+## value
 
-The asymptotic regime keeps the retention fraction strictly inside \((0,1)\). Comparison with the full text of Bélisle (2011) was unavailable; only the continuous-circle model described in its abstract could be assessed. This is a self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The area-perimeter ratio reaches a sharp global deterministic boundary and the first nontrivial residual geometric noise is four powers below the main perimeter scale in a natural finite-population sample. Conditioning on exact sample size is common in geometric design and materially changes covariance, making the exact two-scale result useful independently of Bernoulli thinning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
