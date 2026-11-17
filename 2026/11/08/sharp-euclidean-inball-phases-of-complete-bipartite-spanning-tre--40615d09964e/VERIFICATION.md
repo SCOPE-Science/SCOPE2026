@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` covers every integer pair \(2\le p\le q\), including the case \((p,q)=(2,2)\) and all possible rank-inequality support-plane equalities. The computational tests below corroborate specific finite instances only.
+## correctness
 
-Run `python3 verify.py` using Python 3. The script depends only on the standard library (`fractions`, `math`). Its expected terminal marker is `BICLIQUE_TREE_INBALL_CHECKS_PASSED` with 704 profiles, 187924 rank-orbit distance checks, and eight finite scaling checks. In each profile the checker derives the slack of every subset-rank orbit from its definition and compares the resulting squared support distance using exact rational arithmetic. It additionally checks every orbit attaining the least rank distance, the exceptional four-cycle, the two inradius candidates and the circumradius algebraic identity.
+PASS
 
-A separate independent numerical optimization check constructed the full matrix of nonnegativity and subset-rank constraints in affine coordinates and maximized the inscribed-ball radius using a linear program (SciPy's `linprog`, HiGHS). The ten tested bipartitions were \((2,2),(2,3),(2,4),(2,6),(3,3),(3,4),(3,5),(4,4),(4,5),(5,5)\). Every optimized radius matched the formula with absolute discrepancy below \(10^{-12}\); returned optimizers showed displaced centers in several predicted nonunique cases. This numerical cross-check is described, not used as an infinite certificate.
+Reconstructed the spanning-tree base-polytope rank constraints x_e>=0 and x(E(U))<=|U|-1 on sum_e x_e=p+q-1. Edge symmetry makes the uniform center optimal. Orthogonal projection onto sum-zero tangent hyperplane gives exact coordinate distance d0=t/sqrt(m(m-1)) and rank-orbit distance D(r,s)=(r+s-1-(t/m)rs)/sqrt(rs(1-rs/m)). The proof treats r=1, r=p and 2<=r<p separately, including the critical AM–GM bound and 2r>=q+1 cases, establishing the nearest degree constraints and K2,2/K3,3 exceptions. Active normalized-facet equalities force the claimed incenter affine dimensions; vertex averaging proves the circumradius. Independent exact Fraction arithmetic checked 319-plus size pairs and rank-orbit minimizers, supporting but not replacing all-size inequalities.
 
-The central analytic lemma reduces each subset-rank inequality to the function \((A(1-z)+Bz)^2/[mz(1-z)]\), and partitions on the exact relation \(2r\ge q+1\). This is the nonstandard step on which the global result depends. The checker cannot establish the inequalities for untested values, nor can it establish historical novelty. No independent audit or independent validation of this mathematical result has been performed.
+## originality
+
+PASS
+
+Edmonds supplies the H-description but not the Euclidean distances and global rank-orbit minimizer. Aprile et al address extension complexity and facet slacks; Dong/Ge count trees with specified forests. A previously published biclique in-in zonotope inball theorem was read completely but defines an ambient vertex-space Minkowski sum, not this edge-indicator graphic base polytope; no isometric implication. Exact Euclidean inball and all center-locus phase dimensions remain independently meaningful absent a located stronger same-body metric theorem. Historical matroid-Chebyshev literature risk explicit.
+
+## value
+
+PASS
+
+Exact intrinsic Euclidean inball geometry and all incenter dimensions are natural structural invariants of a canonical infinite family of graphic matroid base polytopes. The proof screens all exponentially many rank inequalities, identifies just coordinate and degree facets, exceptional low graphs and a sharp p^(3/2) phase; center dimensions can jump from zero to order pq. This is not a mere arithmetic table or a standard inequality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
