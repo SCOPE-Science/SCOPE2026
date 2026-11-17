@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T04:45:51.760265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-mixed-length-palindromic-duplication-spheres-over-distinct--98b3f3e1cf47/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-mixed-length-palindromic-duplication-spheres-over-distinct--98b3f3e1cf47/checker.py",
+        "independent_checks.log: DUPLICATION"
+      ],
+      "rationale": "For length-n source and ordered palindromic duplicate lengths k then ell, the two legal start counts multiply to bound descendants by (n−k+1)(n+k−ell+1). On an all-distinct-letter word, every original first occurrence remains first after insertions, so the final word uniquely partitions into copy gaps. If two gaps are occupied, their unequal sizes k,ell identify the first gap and site, then recover the intermediate word and second site. If only one gap, its index identifies the first duplication; the h copies before second insertion give pairwise distinct outputs: for 1<=h<hprime compare at gap position h, and compare h=0 separately using ell>=2. Therefore no two histories collide. Exact independent enumeration checked 369 legal (n,k,ell) triples and 7227 outputs. Boundary counterexamples for ell=1 and ell=k correctly delimit the theorem. This is a uniform proof for q>=n, not just the finite enumeration.",
+      "residual_risks": [
+        "No assertion for q<n, equal prescribed lengths, second length one, unordered operations, or more than two steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full prior fixed-length odd-k result gives (n−k+1)(n+1)−choose(max{0,n−2k+2},2) due to two-order collisions. Sun–Ge address disjoint or one-operation coding constructions."
+        ],
+        "reasoning": "A general history-count upper bound is trivial but does not imply collision-free attainment; the compared strong same-length theorem cannot imply the unequal-length injectivity. Zabokritskiy full text was unavailable for complete coverage inspection.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+          "https://arxiv.org/abs/2609.00779",
+          "https://arxiv.org/abs/2602.01151"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+        "https://arxiv.org/abs/2609.00779",
+        "https://arxiv.org/abs/2602.01151"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior full proof identifies doubleton history fibers from commuting disjoint fixed-length operations; present proof distinguishes first and second copies by sizes k≠ell and recovers insertion offset in single-gap case for ell>=2."
+        ],
+        "reasoning": "The claimed no-collision formula is a new structural property under changed channel hypotheses, not a direct known equal-length corollary. Possible general multiple-length theorem remains a named risk.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+          "https://arxiv.org/abs/2609.00779"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier exact-two sphere notation D^2_{k,pal} fixes both operations to equal length k; the submitted B_{k,ell} uses ordered unequal k,ell and may duplicate inserted symbols at step two."
+        ],
+        "reasoning": "An equal-length operation channel cannot be reparameterized into an unequal-length ordered channel; their collision structure differs (disjoint-copy commutations only with same lengths).",
+        "searches": [
+          "Resultary: palindromic duplication unequal lengths distinct source injective two ordered positions sphere size",
+          "two-step exact descendant sphere palindromic duplication distinct alphabet injectivity",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published fixed-length k=ell=2 or odd k tables include collisions; candidate independent checks cover 369 admissible unequal-length canonical triples."
+        ],
+        "reasoning": "An equal-length table cannot determine mixed ordered length spheres, because unequal copied-block lengths distinguish occupied gaps and remove commuting degeneracy.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+          "Resultary exact two palindromic duplication spheres unequal lengths q>=n"
+        ]
+      },
+      "rationale": "All distinct-letter sources have collision-free histories for ordered unequal prescribed duplication lengths (with second length >=2), whereas the closest full fixed-equal-length sphere theorem has unavoidable commuting-disjoint collisions and a strictly smaller formula. The source alphabet/length and ordered-history scopes were compared explicitly. The inaccessible full Zabokritskiy general treatment is acknowledged as a possible historical risk.",
+      "residual_risks": [
+        "Full-text Zabokritskiy 2026 source inaccessible; might contain unindexed mixed-length extension.",
+        "The sphere maximum requires q>=n, exactly two operations, ordered unequal lengths, and second length at least two; it does not optimize codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING unequal prescribed k!=ell: fixed k=k throughout and collisions remain",
+          "evidence": "Equality formula subtracts disjoint commuting histories; unlike product attained for unequal lengths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+          "material_read": "Complete RESULT.md, history fiber classification and exact formula, including one-/two-gap cases",
+          "method": "Read complete published Resultary RESULT.md SHA c0e7be66737a9bae985a01354808e8383bb00bc5",
+          "title": "Sharp exact-two palindromic-duplication spheres for odd block lengths over large alphabets",
+          "trigger": "Closest same channel family, strongest potentially covering exact-two theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMIT: potentially broader unpublished/appendix mixed-length statements cannot be excluded",
+          "evidence": "Abstract states fixed block length k for two-step result.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "Public dated abstract describing repeated operations of one fixed length; full primary paper not accessible",
+          "method": "ArXiv abstract and research-record references, no invented full read",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Possible general two-operation maximum classification"
+        },
+        {
+          "assessment": "No whole-document noncoverage asserted; accessible descriptions concern one arbitrary-length or disjoint long duplications",
+          "evidence": "Different recovery/coding criterion from exact sequential mixed-length sphere size.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.01151",
+          "material_read": "Public title/abstract and relevant theorem descriptions; full PDF not freshly inspected",
+          "method": "Scholarly record lookup",
+          "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+          "trigger": "Potential mixed-length duplication coding work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-mixed-length-palindromic-duplication-spheres-over-distinct--98b3f3e1cf47/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1"
+      ],
+      "rationale": "Exact descendant sphere size and history ambiguity are fundamental to duplication-channel combinatorics and coding. The unequal-length ordered regime has a genuinely different collision mechanism than fixed-length duplication; reconstructing both sites yields an exact extremum for every n,k,ell over large enough alphabets.",
+      "residual_risks": [
+        "Product upper bound alone is trivial; value rests on the nontrivial injectivity theorem and exact extremum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality, not independent historical-priority certification; exact source and comparison risks in originality object.",
+    "Independent finite checks corroborate but do not establish infinite claims.",
+    "Publication not ready due to preexisting operational provenance and lack of complete sanitized guarded replacements."
+  ],
+  "schema_version": 1
+}
