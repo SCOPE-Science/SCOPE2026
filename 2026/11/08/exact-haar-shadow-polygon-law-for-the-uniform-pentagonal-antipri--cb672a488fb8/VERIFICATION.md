@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_pentagonal_antiprism.py` from the directory containing the file, using Python 3 standard library only. The actual checker was executed on the packaged source and returned the following successful checks:
+## correctness
 
-```
-EXACT_PENTAGONAL_ANTIPRISM_CHAMBERS_OK rays=30 cells=32
-signature_counts {8: {'CCE': 10, 'DDE': 10}, 6: {'ABBPP': 10}, 10: {'AAAAA': 2}}
-probabilities {'6': 0.659378121806623, '8': 0.3201882582698952, '10': 0.02043361992348188} expected 6.722110996233718
-PENTAGONAL_ANTIPRISM_SILHOUETTE_OK
-INDEPENDENT_PROJECTED_HULL_CROSSCHECK_OK 10000
-MEAN_FROM_TWO_EDGE_ORBITS_OK 6.722110996233717
-```
+PASS
 
-The exact part does not rely on floating-point tolerances to decide algebraic signs; it uses arithmetic in \(\mathbb Z[\varphi]\), with \(\varphi^2=\varphi+1\), and exhausts the 64 sign masks and 30 directed great-circle-intersection rays. All 32 nonempty chambers and physical-angle types are enumerated. Girard's theorem supplies the continuous spherical areas. The last two lines independently test geometric 2D convex hulls for 10,000 seeded Haar viewing directions and reproduce a previously known mean, but these numerical checks alone are neither exhaustive nor an infinite proof.
+The 12 facet normals give six antipodal normal axes; their six great circles are nontriple-concurrent, yielding 30 directed intersection rays. Every 6-bit sign mask is tested against these rays in exact Z[phi], giving precisely 32 nonempty chambers with side counts 10/20/2 for 6/8/10 projected vertices. Physical normal dot products yield four spherical-angle signatures (ABBPP,CCE,DDE,AAAAA); Girard excess gives stated exact masses, summing to one. Independent LP checked 64 patterns and found exactly 32, and 16000 direct convex-hull shadows corroborated distribution. Genericity excludes circle boundaries. Simulations are supplementary, not proofs.
 
-No independent mathematical audit has been performed. The complete archival Kettner–Welzl (1997) article was not accessible; historical priority remains uncertain. The theorem excludes great-circle boundary views and is specific to the uniform pentagonal antiprism under Haar orientation.
+## originality
+
+PASS
+
+No inspected same-object published shadow PMF dominates this exact 32-cell distribution. Closest November 1 pentagonal-antiprism theorem is for CENTRAL SECTIONS, where octagons are forbidden, whereas these are orthogonal projected SHADOWS with a positive octagon mass. General antiprism expected shadow count 6.7221109962 only fixes one linear combination of three masses; generic shadow algorithms and silhouette complexity bounds do not give three atom masses. Kettner/Welzl 1997 complete content remains inaccessible and is a priority risk.
+
+## value
+
+PASS
+
+A canonical ten-vertex uniform solid, natural Haar shadow size statistic, exact nontrivial 32-chamber stratification and a rare 2% decagon event not determined by the mean. The complete finite law distinguishes geometry of projections from central sections and is a reusable small-solid normal-fan example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
