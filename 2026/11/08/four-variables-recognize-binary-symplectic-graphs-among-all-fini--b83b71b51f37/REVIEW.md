@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-variable sentence states exactly nonzero adjacency rows and closure under row XOR. Its proof constructs a vector space from the rows, derives an alternating nondegenerate form from symmetric loopless adjacency, and identifies its nonzero-vector graph. The converse is bilinearity. The sharpness argument uses the published 63-vertex strongly regular switch, its documented rank change, and explicitly positive two-vertex extension counts, which support an unrestricted three-pebble strategy. The included executable reproduces its small-graph, switched-graph, rank, and local extension checks. Tests are corroboration, not a substitute for proof.
+## correctness
 
-**Originality — PASS, qualified.** Abiad--Haemers (arXiv:1412.2945) explicitly use failure of binary row addition to prove nonisomorphism after switching; Peeters' related characterization assumes specified strongly regular parameters and minimal binary rank. Kubota (arXiv:1606.03442) distinguishes switched graphs by triple common-neighbor counts. These are strong adjacent results and make the algebraic ingredients familiar. The inspected material did not give a single parameter-free four-variable sentence recognizing the full symplectic graph family **among all finite simple graphs**, nor the matching three-variable inexpressibility bound. The result is not being claimed as a new 2-rank or switching construction; equivalent earlier logical or algebraic characterization remains a genuine historical-priority risk.
+PASS
 
-**Value — PASS.** Exact dimension-free first-order recognition of a classical infinite graph family is natural: it turns its linear representation into a local fixed-width logical property without any degree, size, rank or field predicates. The optimal width is structural, not a routine parameter substitution: the indistinguishability counterexample is cospectral and strongly regular with the same parameters, and the proof shows why three pebbles cannot see the row-space difference. This gives a sharp logical boundary between an algebraically defined family and its switched relatives.
+The actual RESULT.md sentence has four variable names and rank four, expresses no isolated vertices and closure of distinct adjacency rows under XOR. Distinct rows follow since an equal pair would force the forbidden zero row; adjoining zero makes a vector space over F2. Symmetric, loopless adjacency defines an alternating bilinear form, nondegenerate because each nonzero row has a neighbor. Even-dimensional symplectic graphs satisfy the sentence in reverse. Optimality: the explicitly published 63-vertex Godsil–McKay switch has the same (63,32,16,16) strongly regular parameters, binary adjacency ranks 8 versus 6 and all two-fixed-vertex adjacency cells nonempty, yielding unrestricted three-pebble equivalence but nonmembership. Independently built the 63-vertex graphs, switched edges, verified rank 6/8 and row XOR closure discrepancy. The finite verification corroborates the unrestricted-depth pebble proof, not a substitute for it.
 
-**Scope and risks.** Only nonempty finite simple graphs in counting-free pure adjacency/equality logic are covered. The least quantifier rank and smallest separating switched graph are not determined; historical priority is not independently certified. Main comparisons are to the inspected Abiad--Haemers and Kubota full texts and the Grohe--Otto methodology source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
+
+## value
+
+PASS
+
+A parameter-free, counting-free finite-model-theoretic characterization and an optimal variable-width obstruction are structural facts beyond the known SRG parameter-plus-rank characterization; useful for definability and finite-variable equivalence in a natural graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

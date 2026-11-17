@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The theorem is proved in `RESULT.md` by algebraic reconstruction and an unrestricted three-pebble game. Run `python3 verify.py` using Python 3 and its standard library; the output must match `verify_output.txt` byte for byte. The program constructs three binary symplectic graphs, independently applies the cited explicit switch, checks its parameters, binary rank, failure of row closure and all two-fixed-vertex extension patterns, and exhaustively checks every labelled simple graph of orders one through five. Finite checks do not prove the universal theorem or any assertion of infinite game length. Independent mathematical audit is not performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The actual RESULT.md sentence has four variable names and rank four, expresses no isolated vertices and closure of distinct adjacency rows under XOR. Distinct rows follow since an equal pair would force the forbidden zero row; adjoining zero makes a vector space over F2. Symmetric, loopless adjacency defines an alternating bilinear form, nondegenerate because each nonzero row has a neighbor. Even-dimensional symplectic graphs satisfy the sentence in reverse. Optimality: the explicitly published 63-vertex Godsil–McKay switch has the same (63,32,16,16) strongly regular parameters, binary adjacency ranks 8 versus 6 and all two-fixed-vertex adjacency cells nonempty, yielding unrestricted three-pebble equivalence but nonmembership. Independently built the 63-vertex graphs, switched edges, verified rank 6/8 and row XOR closure discrepancy. The finite verification corroborates the unrestricted-depth pebble proof, not a substitute for it.
+
+## originality
+
+PASS
+
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
+
+## value
+
+PASS
+
+A parameter-free, counting-free finite-model-theoretic characterization and an optimal variable-width obstruction are structural facts beyond the known SRG parameter-plus-rank characterization; useful for definability and finite-variable equivalence in a natural graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
