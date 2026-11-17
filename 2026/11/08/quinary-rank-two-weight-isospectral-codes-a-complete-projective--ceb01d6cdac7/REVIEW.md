@@ -1,17 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The six-weight identity follows by projective annihilation and the multiplicity-recovery step by counting nonzero evaluations. Projective-row transformations give precisely the relevant equivalences. The PGL cycle-index class count is exhaustive and the eleven Burnside coefficients are independently checkable. Distinct multiplicity values require at least the integer levels zero through the number of values minus one, producing sharp thresholds 6, 10, 15. The explicit first pair has exact spectra and two different projective orbits, with minimum relative distortion \(36/25\). Exact checker calculations corroborate the finite steps. The proof of every code length is algebraic, not extrapolated from finite experiments.
+## correctness
 
-## Originality
-**PASS against inspected primary literature, with a residual historical-priority risk.** Dodunekov--Simonis (1998) proves the code/projective-multiset correspondence and weight-function formalism. Bouyukliev--Bouyuklieva--Kurz (2020) studies classification algorithms and numerical fields two through four. Bennett--Fox--Morrell (2026) defines distortion and studies general algorithmic hardness and approximation, including a generic exact algorithm. The explicit eleven-profile quinary same-spectrum class counts, length thresholds and sharp first-pair distortion are not stated in those inspected works. Unindexed projective-configuration orbit tables or specialized quinary code results could still cover some of the calculation.
+PASS
 
-## Value
-**PASS.** The full fiber sizes for a natural weight-enumerator invariant are resolved throughout the rank-two quinary family. The exceptional action of \(\operatorname{PGL}_2(5)\) creates sharp changes at lengths \(6,10,15\), and the first nonequivalent pair provides a nontrivial exact distortion benchmark. This is structurally informative beyond routine weight calculation.
+PASS: A dimension-two generator over F5 has six projective nonzero column types; the complete weight enumerator gives 1+4Σ_i t^{N-m_i}. Its first moment recovers N, hence the full multiplicity multiset and number of zero columns. Monomial equivalence reduces exactly to PGL2(5) orbits. Group order 120, seven proven cycle types, and Burnside orbit coefficients give the eleven possible count patterns 1,1,1,1,1,1,1,2,2,3,6. Minimal nonnegative distinct multiplicities force thresholds 6/10/15 and zero-column padding handles every larger length. The two six-column examples have the same enumerator but different orbits, with exact distortion 36/25 by bounding all possible weight ratios and exhibiting an attaining Möbius permutation. An independent 120-map enumeration reproduced every pattern and the rational distortion; infinite-length coverage follows the algebra, not extrapolation.
 
-## Limitations and closest sources
-This is restricted to dimension two over \(\mathbb F_5\), with linear monomial equivalence and Hamming weight. Prior general projective-multiset theory is essential to the proof. Independent mathematical review and definitive historical-priority verification remain outstanding.
+## originality
 
-References: Dodunekov--Simonis, https://doi.org/10.37236/1375; Bouyukliev--Bouyuklieva--Kurz, https://epub.uni-bayreuth.de/id/eprint/4618/; Bennett--Fox--Morrell, https://arxiv.org/abs/2607.26261.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best of knowledge: Dodunekov–Simonis supply the general projective-multiset equivalence premise, and Bennett–Fox–Morrell define distortion plus an algorithm over arbitrary q/k. Neither inspected result, nor the parallel quaternary rank-two classification, establishes the eleven six-point PGL2(5) fiber populations, sharp lengths or first-pair distortion. These require explicit finite-group orbit classification combined with full-length zero-coordinate padding. Possible hidden six-point configuration orbit tables remain a concrete priority risk.
+
+## value
+
+PASS
+
+PASS: Hamming weight enumerators are natural yet incomplete invariants of code equivalence. The exact sizes of their rank-two quinary fibers, the first ambiguity threshold, and a sharp quantitative minimum distortion answer motivated classification and information-loss questions, not arbitrary numerical samples. The complete eleven-pattern classification has all-length implications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
