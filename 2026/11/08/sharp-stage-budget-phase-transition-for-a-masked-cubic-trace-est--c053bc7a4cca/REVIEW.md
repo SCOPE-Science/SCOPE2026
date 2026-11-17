@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The factorization into independent mask-count and probe-coupled factors follows directly from the projector identity. Exact binomial and Rademacher fourth-moment calculations give the stated variance formula. Strict convexity plus the capped simplex KKT conditions prove existence, uniqueness and the output-stage saturation threshold; asymptotic substitution proves the limiting budget gain. The standalone program evaluates the original masked matvecs by finite enumeration and exact rational arithmetic independently of the moment formula. Tests are supporting evidence, not infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest motivating full text is Ghosh et al. (2026, arXiv:2606.22629), sections 2–3 and conclusion: its equal-law incomplete-row estimator and general second moment do not state the distinct Bernoulli stage probabilities, globally optimal budget split, unique saturation boundary or strict asymptotic variance difference. Hutch++ (Meyer et al., 2020) and improved variants (Persson et al., 2022) allocate full matvecs across distinct estimation phases, not independent incomplete rows of a single cubic trace. No covering indexed claim was found in targeted searches. Existing general moment algebra may simplify the moment computation; the allocation theorem is the substantive claimed new result. Exhaustive historic priority is unproved.
+PASS
 
-## Value — PASS
-When the last row mask is coupled to the same probe used in the terminal quadratic form, its variance cost differs from earlier masks. A communication-budget optimizer must therefore use stage-aware allocation even on a canonical low-rank spectral-moment test, and the exact saturation transition gives a useful nonasymptotic design boundary. The gain survives at fixed total sampling rate in arbitrarily high dimension. This is not a claimed triangle-count guarantee for graph adjacency matrices.
+For A=uu^T, Z factors into two independent normalized Bernoulli counts and a probe-coupled final factor. Exact Rademacher pairing gives E[H²]=2-2/n+1/p3; the product of moments gives the displayed variance for all p_j>0. Strict convexity of log(c+1/p) on (0,1], budget KKT and monotone s(1+(n-1)s)=t(1+(2-2/n)t) give a unique optimizer, t cap, and high-n limits. Independent exact rational enumeration of all original masks/probes for n=2,3 and symbolic/numerical KKT checks agreed.
 
-## Limitations and risks
-The theorem is exact for one rank-one constant projector, independent Bernoulli masks, Rademacher probes, expected row budgets and variance loss. Higher rank, graph adjacency matrices, fixed mask sizes, correlated outages, adaptive rules, throughput costs, and distributional tails are unaddressed. Unindexed equivalent classical allocation results remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ghosh et al. already introduce independently masked incomplete-product cubic trace estimators and variance expansions. Their available primary full text does not state the heterogeneous-stage Bernoulli minimizer, strict preference for final-stage sampling, exact cap transition or asymptotic threefold comparison on this rank-one benchmark.
+
+## value
+
+PASS
+
+Variance-optimal allocation with a finite-budget saturation threshold is a substantive design fact for incomplete-product estimators: final-stage probe coupling makes equal mask budgets strictly suboptimal. The test matrix is deliberately a tractable rank-one projector, not a general adjacency or universal optimizer; the explicit gap remains a meaningful method diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

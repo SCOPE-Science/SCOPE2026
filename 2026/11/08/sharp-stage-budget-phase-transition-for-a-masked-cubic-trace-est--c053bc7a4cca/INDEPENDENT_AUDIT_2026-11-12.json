@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:58:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=uu^T, Z factors into two independent normalized Bernoulli counts and a probe-coupled final factor. Exact Rademacher pairing gives E[H²]=2-2/n+1/p3; the product of moments gives the displayed variance for all p_j>0. Strict convexity of log(c+1/p) on (0,1], budget KKT and monotone s(1+(n-1)s)=t(1+(2-2/n)t) give a unique optimizer, t cap, and high-n limits. Independent exact rational enumeration of all original masks/probes for n=2,3 and symbolic/numerical KKT checks agreed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh et al. arxiv:2606.22629 present a general incomplete-matvec estimator and variance bound; Hutch++ arxiv:2010.09649 optimizes full-matvec query complexity."
+        ],
+        "reasoning": "Broader estimator generality does not imply optimization over asymmetric Bernoulli stage row probabilities; Hutch++ uses a different resource/observation model.",
+        "searches": [
+          "Resultary query: three stage Bernoulli masked cubic trace Hutchinson rank one projector optimal allocation stage budget",
+          "arxiv:2606.22629",
+          "https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+          "arxiv:2606.22629; https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+          "arxiv:2010.09649"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.22629",
+        "https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+        "arxiv:2010.09649",
+        "Resultary exact semantic search: three stage Bernoulli masked cubic trace Hutchinson rank one projector optimal allocation stage budget"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghosh et al. full primary preprint Sections 2–3 and conclusion derive unbiasedness, general second moments, and suggest adaptive sampling as future work; they do not assert last-stage saturation P* or limit 1+1/P versus 1+3/P."
+        ],
+        "reasoning": "The variance identity partly follows by specialization; the unique cap-constrained solution and quantitative stage-asymmetry result are additional implications requiring a new proof.",
+        "searches": [
+          "Resultary query: three stage Bernoulli masked cubic trace Hutchinson rank one projector optimal allocation stage budget",
+          "arxiv:2606.22629",
+          "https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+          "arxiv:2606.22629; https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+          "arxiv:2010.09649"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The estimator specializes incomplete-product Hutchinson cubics with stage-specific Bernoulli row probabilities; the matrix A is the all-ones rank-one projector."
+        ],
+        "reasoning": "Same masked trace product as Ghosh et al. with unequal p_j rather than equal-law masks. Their moment expansion can imply the specialized moment but not the optimized KKT theorem without additional constrained analysis.",
+        "searches": [
+          "Resultary query: three stage Bernoulli masked cubic trace Hutchinson rank one projector optimal allocation stage budget",
+          "arxiv:2606.22629",
+          "https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary topic search returned this exact finding as highest match and nonoverlapping budget optimization results; no exact stage-rate table identified."
+        ],
+        "reasoning": "Absence from index is only supplementary; classical sampling allocation literature can include related convex-KKT patterns.",
+        "searches": [
+          "Resultary query: three stage Bernoulli masked cubic trace Hutchinson rank one projector optimal allocation stage budget",
+          "arxiv:2606.22629",
+          "https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products"
+        ]
+      },
+      "rationale": "Ghosh et al. already introduce independently masked incomplete-product cubic trace estimators and variance expansions. Their available primary full text does not state the heterogeneous-stage Bernoulli minimizer, strict preference for final-stage sampling, exact cap transition or asymptotic threefold comparison on this rank-one benchmark.",
+      "residual_risks": [
+        "A previous classic stratified allocation result might imply this convex KKT expression, though no matching stage-coupled theorem was located.",
+        "The example is a rank-one PSD projector, not a loopless graph adjacency or a universal optimal policy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_PREDECESSOR_NOT_DIRECT_OPTIMUM",
+          "evidence": "Unbiasedness/second moment under incomplete row observations; Section 5 suggests adapting number/location of entries as future work.",
+          "identifier_or_url": "arxiv:2606.22629; https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+          "material_read": "Accessible complete 22-page text including derivations in Sections 2–3 and concluding future directions, lines 2527–2571",
+          "method": "Read publicly accessible HTML full-text rendering",
+          "title": "Counting Triangles of Graphs via Randomized Trace Estimation with Incomplete Matrix-Vector Products",
+          "trigger": "Original same-estimator incomplete products"
+        },
+        {
+          "assessment": "DISTINCT_BUDGET_MODEL",
+          "evidence": "Low-rank/sketch matrix-vector queries, not heterogeneous Bernoulli row observation fractions inside a single cubic trace product.",
+          "identifier_or_url": "arxiv:2010.09649",
+          "material_read": "Abstract and estimator model; not full paper",
+          "method": "ArXiv abstract",
+          "title": "Hutch++: Optimal Stochastic Trace Estimation",
+          "trigger": "Stochastic-trace allocation alternatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variance-optimal allocation with a finite-budget saturation threshold is a substantive design fact for incomplete-product estimators: final-stage probe coupling makes equal mask budgets strictly suboptimal. The test matrix is deliberately a tractable rank-one projector, not a general adjacency or universal optimizer; the explicit gap remains a meaningful method diagnostic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2606.22629",
+    "https://www.researchgate.net/publication/407508979_Counting_Triangles_of_Graphs_via_Randomized_Trace_Estimation_with_Incomplete_Matrix-Vector_Products",
+    "arxiv:2010.09649",
+    "Resultary exact semantic search: three stage Bernoulli masked cubic trace Hutchinson rank one projector optimal allocation stage budget"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One probe, independent masks, exact arithmetic and expected (not deterministic) row budget; asymptotic P restricted 0<P<1."
+  ],
+  "residual_risks": [
+    "A previous classic stratified allocation result might imply this convex KKT expression, though no matching stage-coupled theorem was located.",
+    "The example is a rank-one PSD projector, not a loopless graph adjacency or a universal optimal policy."
+  ],
+  "schema_version": 1
+}
