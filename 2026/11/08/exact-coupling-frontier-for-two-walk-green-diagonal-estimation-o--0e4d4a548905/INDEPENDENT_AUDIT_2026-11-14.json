@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T23:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The number K=floor(L/2) of extra starting-vertex visits has tails P(K≥j)=t^j with t=(1−p)². For any two-walk coupling, Var((K1+K2)/2)=(μ+E K1K2)/2, μ=t/(1−t). Layer-cake and Fréchet give E K1K2 ≥ J(t)=Σ_{j,k≥1}(t^j+t^k−1)_+, and the inverse-CDF antitone coupling attains each event intersection bound simultaneously. Stagewise survival has P(L1≥u,L2≥v)=r^{min(u,v)}q^{|u−v|}, r=(1−2p)_+; summing even tails yields M_stage=r²(1+t)/((1−r²)(1−t)). The strict p<1/2 loss follows already from j=k=1 excess (with no negative excess elsewhere). The p=1/3 triple (2/5,9/16,18/25) and 5 rational cases were independently checked. With ε=1−t, εK(U)→−log(1−U), εK(1−U)→−log U and dominated convergence gives ∫log u log(1−u)du=2−π²/6. Universal optimality rests on the full Fréchet proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General OT permits coupling of geometric lengths on any graph; Fréchet–Hoeffding provides classical countermonotone monotone-cost optimum.",
+          "Reid et al. use quantile permutations and approximations and do not supply the all-p exact stepwise comparison on the two-state linear Green objective."
+        ],
+        "reasoning": "The general technique is broader than the model class, but does not give the bespoke exact stepwise collision term, two thresholds or 2−π²/6 ratio without further calculation.",
+        "searches": [
+          "arXiv:2405.16541v2",
+          "arXiv:2305.12470"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2405.16541v2",
+        "https://arxiv.org/abs/2305.12470",
+        "https://arxiv.org/abs/2305.00156"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global quantile coupling is prior known; direct theorem reduces K=floor(L/2) to monotone geometric tails.",
+          "Stepwise overlap M_stage and the rare-stopping limit require independent moment summation/integral."
+        ],
+        "reasoning": "Existing general coupling results imply possibility of improvement but do not, as stated, dominate this all-p exact numerical benchmark. Retain precedence uncertainty for uninspected specialized appendices.",
+        "searches": [
+          "arXiv:2405.16541v2",
+          "arXiv:2305.12470"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reid et al. section 4 approximates optimal transport for graph random features and feature-pair bilinear kernel estimates.",
+          "Current objective is (Z1+Z2)/2 of one Green-resolvent diagonal, not a graph-kernel bilinear form."
+        ],
+        "reasoning": "The same random-walk length marginal and antithetic terminology do not identify different cost functionals; no equivalence between the claimed exact M=E K1K2 and their nonlinear objective was shown.",
+        "searches": [
+          "Green diagonal graph two vertex stopped random walk antithetic geometric length coupling inverse CDF variance stepwise termination",
+          "arXiv:2405.16541v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact infinite family for real 0<p<1, not a numerical graph benchmark; p=1/3 is a witness not full theorem."
+        ],
+        "reasoning": "Finite quantile/permutation tables or experiments cannot imply the all-real-p Fréchet sum and phase boundaries.",
+        "searches": [
+          "Green diagonal graph two vertex stopped random walk antithetic geometric length coupling inverse CDF variance stepwise termination",
+          "arXiv:2405.16541v2"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete sharp benchmark, not for global antithetic coupling as a method: inverse-CDF rearrangement and graph-walk OT are explicitly known. Earlier graph-feature papers optimize a bilinear kernel/feature cost, not this single-walk linear Green diagonal with exact unrestricted p thresholds and rare-stopping ratio. A hidden specialized marginal coupling example remains possible.",
+      "residual_risks": [
+        "Global countermonotonicity is classical and not original here.",
+        "Earlier graph-feature OT appendices or specialized examples may encode a related one-edge Green formula under different normalization.",
+        "All comparisons are variance per two walks, not runtime; no arbitrary-graph optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General quantile-permutation graph random-feature optimization already known; cost and exact all-p one-edge linear Green thresholds not supplied as the inspected stated result.",
+          "evidence": [
+            "Reid–Markou–Choromanski–Turner–Weller, section 4, theorem 4.1, Appendix C.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2405.16541v2",
+          "material_read": "Complete open HTML: main sections 4/4.1, graph-feature OT Eq.13, theorem 4.1, Appendix C.3 and its proof discussion; neighboring appendix navigation",
+          "method": "Primary preprint HTML, theorem/method/appendix comparison",
+          "title": "Variance-Reducing Couplings for Random Features",
+          "trigger": "Direct global OT and antithetic walk-length coupling"
+        },
+        {
+          "assessment": "Stagewise antithetic method treated as pre-existing; no whole-paper noncoverage claimed.",
+          "evidence": [
+            "Reid–Choromanski–Weller 2023, graph feature kernel context"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12470",
+          "material_read": "ArXiv abstract and baseline description; full paper not read this run",
+          "method": "Bibliographic and model comparison",
+          "title": "Quasi-Monte Carlo Graph Random Features",
+          "trigger": "Stagewise antithetic termination baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact optimization over ALL legal joint length laws on the simplest nontrivial walk gives a reference benchmark for stagewise antithetic algorithms, identifies two distinct parameter thresholds and quantifies the asymptotic efficiency gap. The two-state graph is motivated as the minimal nontrivial resolvent test, and explicit sharp all-p comparisons are not merely a renamed textbook formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2405.16541v2",
+    "https://arxiv.org/abs/2305.12470",
+    "https://arxiv.org/abs/2305.00156"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a two-walker unbiased diagonal Green entry estimator on one edge with geometric walk lengths, inverse-CDF countermonotonicity gives the unrestricted minimal variance V*=(μ+J(q²))/2; stagewise half-cycle antithetic stopping is strictly worse exactly for p<1/2, with a separate p=1−1/√2 no-joint-revisit boundary.",
+  "limitations": [
+    "Global countermonotonicity is classical and not original here.",
+    "Earlier graph-feature OT appendices or specialized examples may encode a related one-edge Green formula under different normalization.",
+    "All comparisons are variance per two walks, not runtime; no arbitrary-graph optimality."
+  ],
+  "residual_risks": [
+    "Global countermonotonicity is classical and not original here.",
+    "Earlier graph-feature OT appendices or specialized examples may encode a related one-edge Green formula under different normalization.",
+    "All comparisons are variance per two walks, not runtime; no arbitrary-graph optimality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General quantile-permutation graph random-feature optimization already known; cost and exact all-p one-edge linear Green thresholds not supplied as the inspected stated result.",
+      "evidence": [
+        "Reid–Markou–Choromanski–Turner–Weller, section 4, theorem 4.1, Appendix C.3"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2405.16541v2",
+      "material_read": "Complete open HTML: main sections 4/4.1, graph-feature OT Eq.13, theorem 4.1, Appendix C.3 and its proof discussion; neighboring appendix navigation",
+      "method": "Primary preprint HTML, theorem/method/appendix comparison",
+      "title": "Variance-Reducing Couplings for Random Features",
+      "trigger": "Direct global OT and antithetic walk-length coupling"
+    },
+    {
+      "assessment": "Stagewise antithetic method treated as pre-existing; no whole-paper noncoverage claimed.",
+      "evidence": [
+        "Reid–Choromanski–Weller 2023, graph feature kernel context"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2305.12470",
+      "material_read": "ArXiv abstract and baseline description; full paper not read this run",
+      "method": "Bibliographic and model comparison",
+      "title": "Quasi-Monte Carlo Graph Random Features",
+      "trigger": "Stagewise antithetic termination baseline"
+    }
+  ]
+}
