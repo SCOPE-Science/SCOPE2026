@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T10:07:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Height h in t times the join contributes (t-h+1)^d(h+1) lattice points. Summing yields a polynomial with exact Bernoulli-number coefficients. For d<=16 the even Bernoulli bounds check every coefficient, including the linear and upper three coefficients. At d=17, c_17,1=17-B_18=-30301/798. For d>=18 choose largest r<=d congruent 2 mod 4 and k=d+2-r; the coefficient is a positive factor times (r-B_r), and Euler’s Bernoulli-zeta formula gives B_r>r by induction for r=18,22,26,... . Independent rational interpolation confirmed d=1,16,17, including the sign and exact boundary value. The induction is the infinite-dimensional proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Specializing large dilation to factor one is unsupported; no domination of the sharp threshold.",
+          "Example 2.4 uses a 100-fold dilation of a four-cube; no first undilated cube dimension or persistent all-d sign obstruction in inspected text."
+        ],
+        "reasoning": "Earlier general existence of nonpositive joins for sufficiently dilated cubes and dimension>=4 is not a theorem about unit cubes in every dimension.",
+        "searches": [
+          "Resultary: join of d-dimensional unit cube and unit lattice interval Ehrhart coefficient Bernoulli 17 positive threshold",
+          "Resultary: Ehrhart polynomial cube segment lattice join positivity critical dimension Bernoulli numbers 17",
+          "Liu-Tao-Xin arXiv:2606.18794 Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "Resultary published 2026-10-25 sharp Ehrhart sign transitions for joins with lattice segments"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: join of d-dimensional unit cube and unit lattice interval Ehrhart coefficient Bernoulli 17 positive threshold",
+        "Resultary: Ehrhart polynomial cube segment lattice join positivity critical dimension Bernoulli numbers 17",
+        "Liu-Tao-Xin arXiv:2606.18794 Ehrhart Theory of the Join of Two Lattice Polytopes",
+        "Resultary published 2026-10-25 sharp Ehrhart sign transitions for joins with lattice segments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted explicit c17 and all-d Bernoulli induction are not logical consequences of the stated prior existence result.",
+          "Example 2.4 uses a 100-fold dilation of a four-cube; no first undilated cube dimension or persistent all-d sign obstruction in inspected text."
+        ],
+        "reasoning": "Join multiplication and general Ehrhart nonpositivity do not imply negative coefficients for the specific undilated factor L_cube=(t+1)^d and its first threshold.",
+        "searches": [
+          "Resultary: join of d-dimensional unit cube and unit lattice interval Ehrhart coefficient Bernoulli 17 positive threshold",
+          "Resultary: Ehrhart polynomial cube segment lattice join positivity critical dimension Bernoulli numbers 17",
+          "Liu-Tao-Xin arXiv:2606.18794 Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "Resultary published 2026-10-25 sharp Ehrhart sign transitions for joins with lattice segments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The convolution itself is prior; novel content is the coefficientwise Bernoulli sign and the first undilated dimension 17.",
+          "Example 2.4 uses a 100-fold dilation of a four-cube; no first undilated cube dimension or persistent all-d sign obstruction in inspected text."
+        ],
+        "reasoning": "The lattice join height formula is a convolution of two Ehrhart polynomials, a standard equivalent definition also used by Liu-Tao-Xin.",
+        "searches": [
+          "Resultary: join of d-dimensional unit cube and unit lattice interval Ehrhart coefficient Bernoulli 17 positive threshold",
+          "Resultary: Ehrhart polynomial cube segment lattice join positivity critical dimension Bernoulli numbers 17",
+          "Liu-Tao-Xin arXiv:2606.18794 Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "Resultary published 2026-10-25 sharp Ehrhart sign transitions for joins with lattice segments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sharp Bernoulli transition is not tabulated for this natural high-dimensional family in inspected sources.",
+          "Example 2.4 uses a 100-fold dilation of a four-cube; no first undilated cube dimension or persistent all-d sign obstruction in inspected text."
+        ],
+        "reasoning": "Earlier low-dimensional (segment-segment and polygon-segment) exact sign tables treat at most two-dimensional first factors, not d=17 and all larger undilated unit cubes.",
+        "searches": [
+          "Resultary: join of d-dimensional unit cube and unit lattice interval Ehrhart coefficient Bernoulli 17 positive threshold",
+          "Resultary: Ehrhart polynomial cube segment lattice join positivity critical dimension Bernoulli numbers 17",
+          "Liu-Tao-Xin arXiv:2606.18794 Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "Resultary published 2026-10-25 sharp Ehrhart sign transitions for joins with lattice segments"
+        ]
+      },
+      "rationale": "Prior join-product and large-dilation nonpositivity theorems are credited, but the published results inspected do not identify the sharp undilated cube threshold d=17 and persistence for every d>=18. The stronger all-d Bernoulli sign theorem is nontrivial relative to those statements.",
+      "residual_risks": [
+        "Ehrhart literature on product joins might state a general coefficient formula from which the threshold is derivable; searches did not find an earlier explicit undilated-cube 17 threshold.",
+        "Proof requires d positive, standard unit factors and ordinary monomial Ehrhart coefficients; does not imply minimum dimension across all join counterexamples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DILATED_EXISTENCE_NOT_SHARP_UNIT_CUBE",
+          "evidence": [
+            "Example 2.4 uses a 100-fold dilation of a four-cube; no first undilated cube dimension or persistent all-d sign obstruction in inspected text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.18794",
+          "material_read": "Complete accessible primary text (25 pages) including Prop 1.2, Thm 2.3 and Example 2.4",
+          "method": "Read full available primary text, checked examples and sign formulas",
+          "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "trigger": "Same lattice join and coefficientwise positivity question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Whether a standard join preserves coefficientwise Ehrhart positivity despite two positive factors is a natural structural closure question. The sharp first undilated-cube obstruction at dimension 17 and its persistent sign failure provide a new quantitative boundary not supplied by large-dilation examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: join of d-dimensional unit cube and unit lattice interval Ehrhart coefficient Bernoulli 17 positive threshold",
+    "Resultary: Ehrhart polynomial cube segment lattice join positivity critical dimension Bernoulli numbers 17",
+    "Liu-Tao-Xin arXiv:2606.18794 Ehrhart Theory of the Join of Two Lattice Polytopes",
+    "Resultary published 2026-10-25 sharp Ehrhart sign transitions for joins with lattice segments"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ehrhart literature on product joins might state a general coefficient formula from which the threshold is derivable; searches did not find an earlier explicit undilated-cube 17 threshold.",
+    "Proof requires d positive, standard unit factors and ordinary monomial Ehrhart coefficients; does not imply minimum dimension across all join counterexamples."
+  ],
+  "residual_risks": [
+    "Ehrhart literature on product joins might state a general coefficient formula from which the threshold is derivable; searches did not find an earlier explicit undilated-cube 17 threshold.",
+    "Proof requires d positive, standard unit factors and ordinary monomial Ehrhart coefficients; does not imply minimum dimension across all join counterexamples."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DILATED_EXISTENCE_NOT_SHARP_UNIT_CUBE",
+      "evidence": [
+        "Example 2.4 uses a 100-fold dilation of a four-cube; no first undilated cube dimension or persistent all-d sign obstruction in inspected text."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2606.18794",
+      "material_read": "Complete accessible primary text (25 pages) including Prop 1.2, Thm 2.3 and Example 2.4",
+      "method": "Read full available primary text, checked examples and sign formulas",
+      "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+      "trigger": "Same lattice join and coefficientwise positivity question"
+    }
+  ]
+}
