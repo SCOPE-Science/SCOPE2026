@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-state predicate counts same-opinion neighbors and applies the tie convention without exceptions. A bijection between fixed cyclic words and closed walks of the sixteen-state transfer graph establishes the trace formulas for every \(n\ge5\). The binary-complement block split reduces the exact characteristic determinants to explicit \(8\times8\) matrices; independently executed symbolic code verifies their factors. Perron–Frobenius plus elementary bounds on the residual polynomial roots prove the claimed dominant eigenvalues. Independent brute-force simulation matches every count for \(5\le n\le16\). This proof applies to fixed states only, not other periodic or transient configurations.
+## correctness
 
-**Originality — PASS, qualified.** Published-record searches for radius-two minority fixed points, anti-majority ties, equivalent five-site cellular automata, squared cycles and the specific degree-five characteristic factor produced no identified covering statement. Comparison with previously published mathematical claims found a three-state Greenberg–Hastings process on squared cycles (different state space and rule) and minority dynamics on triangular cylinders and ladders (different graph families). Banks–Djirar provides general fixed-point transfer methodology; Agur–Fraenkel–Klein counts radius-one majority strings; Wacław–Burda studies disorder-averaged spin-glass metastability. The inspected Nakar–Ron full text addresses majority/minority cyclic pattern structure without presenting these spectral factors or the entropy comparison. Moran's 1994 general radius-\(r\) majority paper may cover the majority counts implicitly; full text was inaccessible, and historical priority remains qualified. Generic algorithms and isolated analogous counts do not directly state the joint infinite-family spectra or their exponential ratio.
+PASS
 
-**Mathematical value — PASS.** The same family of degree-four interaction graphs provides a controlled comparison of local repulsion and attraction. The exact factorization reduces what initially appears as a sixteen-state combinatorial census to small characteristic polynomials and proves a strict, quantitatively specified exponential gap in stable configuration entropy. This is a motivated natural infinite-family invariant, not an arbitrary finite sample or a claim of a new general transfer method.
+At each vertex compare the central bit to its four distinct neighbors; minority fixes iff same-neighbor count <=2 and majority fixes iff >=2. A length-4 de Bruijn closed walk of length n encodes each labelled fixed cyclic binary word uniquely for n>=5. Complement symmetry decomposes the 16x16 transfer into two 8x8 signed blocks with displayed characteristic polynomials; exact SymPy determinants independently reconstructed all six factors, and direct enumeration of every cyclic binary word n=5..12 reproduced tr(T^n). Perron-Frobenius primitivity for the dominant nonnegative blocks plus root-modulus bounds separate lambda_minus>lambda_plus, proving the exponential ratio. Scope excludes nonfixed orbits and five-site including-center voting.
 
-The closest published methods permit algorithmic enumeration but do not, in the inspected material, give this explicit comparison. The boundaries are labelled cycles \(n\ge5\), synchronous updates, ties that retain the vertex value, and fixed-state counts. No independent audit or unbounded historical-priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit joint minority/majority spectral polynomials and exponential same-graph fixed-state entropy separation were not found in comparisons; transfer technology and radius-one majority enumeration are pre-existing. Plausible 1994 radius-r majority literature not fully inspected is explicitly at-risk.
+
+## value
+
+PASS
+
+The same natural 4-regular graph and exactly matched tie conventions give a controlled quantitative comparison of local anti-coordination and coordination. Explicit degree-five vs degree-three transfer factors and a strict exponential entropy gap for all n are nontrivial exact invariants, not merely a generic transfer computation recipe.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

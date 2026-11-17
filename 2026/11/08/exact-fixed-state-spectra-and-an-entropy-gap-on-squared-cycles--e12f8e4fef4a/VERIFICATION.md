@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_direct.py` in a Python 3 environment using only its standard library. It independently checks both maps for all cyclic lengths \(5\le n\le16\) and compares brute-force configuration testing against integer transfer traces. The last line should be `VERIFY_DIRECT_OK`; the captured output is in `verify_direct_output.txt`.
+## correctness
 
-Run `python3 verify_symbolic.py` in Python 3 with SymPy available. It independently constructs the transfer matrices and complement-symmetry blocks and checks their characteristic polynomials with exact arithmetic, together with trace decompositions. The last line should be `VERIFY_SYMBOLIC_OK`; the captured output is in `verify_symbolic_output.txt`.
+PASS
 
-Proof of the general claims rests on the closed-walk bijection and the explicitly described finite matrices, whose determinant factors can be reconstructed by the symbolic script. Exhaustive enumeration stops at \(n=16\), and therefore is **not** itself a proof for all \(n\). Numerical eigenvalue approximations are illustrative; algebraic root separation is proved in `RESULT.md`. Reproducibility does not establish historical novelty or independent validation.
+At each vertex compare the central bit to its four distinct neighbors; minority fixes iff same-neighbor count <=2 and majority fixes iff >=2. A length-4 de Bruijn closed walk of length n encodes each labelled fixed cyclic binary word uniquely for n>=5. Complement symmetry decomposes the 16x16 transfer into two 8x8 signed blocks with displayed characteristic polynomials; exact SymPy determinants independently reconstructed all six factors, and direct enumeration of every cyclic binary word n=5..12 reproduced tr(T^n). Perron-Frobenius primitivity for the dominant nonnegative blocks plus root-modulus bounds separate lambda_minus>lambda_plus, proving the exponential ratio. Scope excludes nonfixed orbits and five-site including-center voting.
+
+## originality
+
+PASS
+
+The explicit joint minority/majority spectral polynomials and exponential same-graph fixed-state entropy separation were not found in comparisons; transfer technology and radius-one majority enumeration are pre-existing. Plausible 1994 radius-r majority literature not fully inspected is explicitly at-risk.
+
+## value
+
+PASS
+
+The same natural 4-regular graph and exactly matched tie conventions give a controlled quantitative comparison of local anti-coordination and coordination. Explicit degree-five vs degree-three transfer factors and a strict exponential entropy gap for all n are nontrivial exact invariants, not merely a generic transfer computation recipe.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
