@@ -1,19 +1,21 @@
-# Review of the dominating-matching enumerator for cycle prisms
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The 34-state transfer is derived bijectively from actual matchings and domination, with 101 legal transitions. The bound of six dominated vertices per matched edge yields the minimum, and every third vertical rung attains it. Integer potential reweighting is checked on all transitions. The two zero-defect directed cycles of lengths three and six give denominator \((1-x^3)(1-x^6)\); adjugate degree bounds of 33, 67, and 101 make coefficient comparison through degree 103 a complete finite proof of the rational identities. The independent brute-force graph implementation verifies all minimum matching counts for \(3\le n\le12\). Neither brute force alone nor a plotted pattern is used as an infinite proof.
+PASS
 
-## Originality
+One matching edge dominates at most six graph vertices: gamma_pr=2ceil(n/3), attained by every-third rungs. Column symbols 0,L,R,V encode each matching uniquely and ensure exact domination via length-three windows. Independently reconstructed 34 compatible pair states and 101 transitions, including cost potential yielding 44 zero, 24 unit, 29 double, 4 quadruple transitions. Zero-cost strongly connected components are only 3- and 6-cycles, hence D=(1-x^3)(1-x^6). Trace coefficients of defects 0,1,2 matched all displayed rational forms through n=103 using independent exact transfer/rational-recurrence computation. Since rational numerator after D^j clearing has respective degree <=33,67,101, coefficient agreement through 103 is exhaustive finite polynomial identity verification for all n, not mere extrapolation. A separate brute matching enumeration for n=3..8 corroborated Q_n and min counts. Formula counts matchings and not necessarily distinct vertex sets.
 
-**PASS, historical priority qualified.** Lu–Wu (2026) give upper bounds on paired domination in cubic bipartite graphs; Mynhardt–Schurch (2011) study paired domination in graph prisms; and Allagan and collaborators (2026) enumerate ordinary dominating vertex sets in a prism. The checked primary material does not give the enumerator of dominating matching witnesses or the six-class minimum coefficients. Published mathematical record searches under matching-domination and cycle-prism terminology found related results on other graph families, but no covering formula. Unindexed or inaccessible equivalent statements remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The formula solves a natural minimum-witness enumeration problem for all labelled circular ladders, reveals residue-six arithmetic and two different growth degrees, and provides the entire domination-by-a-matching polynomial, a substantial refinement of the scalar paired-domination number.
+Earlier 2026-10-26 paper provides the n=2 mod 3 minimum paired-dominating vertex set count and proves unique matching there, hence that residue-class formula is old. It does not supply the n=0 or n=1 mod 3 matching-witness counts, the four-degree quasi-polynomial or full all-cardinality transfer enumerator. Ordinary matching, maximal matching and dominating-vertex polynomials are different invariants. Best-of-knowledge new full classification.
 
-## Limits
+## value
 
-The result concerns labelled prisms with \(n\ge3\), and counts **matching witnesses** rather than distinct minimum paired-dominating vertex sets. At \(n=4\), these numbers are respectively \(42\) and \(36\). No independent audit has occurred. Historical priority is provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full cardinality enumerator of dominating matching witnesses is a natural graph-counting invariant, and the exact minimum-count six-residue family includes nontrivial quartic classes. The witness-versus-set distinction is mathematically important; the remaining congruence classes beyond n=2 mod3 are not mechanically determined by the older result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
