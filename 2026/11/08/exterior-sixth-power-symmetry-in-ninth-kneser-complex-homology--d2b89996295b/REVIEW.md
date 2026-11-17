@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six-support subcomplex is a tenfold join of two-point sets, hence an integral nine-sphere. The explicit maximal nine-simplex has no two-point transversal and yields a cocycle dual to each sphere cycle, ensuring a primitive free lattice for all ground-set sizes. The exact rational dimension is proved in Feng (2026), Section 6; therefore the primitive sphere lattice rationally exhausts degree nine. The six-label transposition trace on the ten-dimensional anti-complement subspace is four, giving three negative eigenvalues and sign determinant. Transport of orientations gives the sixth exterior-power permutation module. Exterior-power character identities, Specht theory, and characteristic-zero transfer complete the stated consequences. Finite replay checks the combinatorial sign and cycle calculations; it does not purport to establish the published all-parameter Betti theorem.
+PASS
 
-## Originality — PASS, with explicit residual risk
+X_m=Ind(KG(3,m−6)) for m>=6. Every six-support induces a join of ten S0 factors, a 9-sphere. The explicit ten pairwise intersecting triple-facet has no 2-vertex transversal and is globally maximal, so its indicator 9-cochain is closed and evaluates as δST on the six-support 9-cycles; this is an integral left inverse, giving a primitive injection. Feng 2026 §6 provides the independent exact rational rank binom(m,6), making those generators a rational basis. For a six-label transposition the ten-dimensional anti-complement coordinate representation has trace (8−0)/2=4, three -1 eigenvalues and hence determinant -1; every six-support stabilizer acts by sign. Therefore the S_m module is exactly ∧6 Q^m and the integral primitive image is ∧6 Z^m. Cycle determinant, hook decomposition and rational subgroup quotient averaging follow. No integral torsion-freeness or equivariant integral direct-summand splitting is asserted.
 
-Feng--Wang (2024), Lemma 9 and Theorem 10, already establish independent cross-polytope classes by dual maximal-facet cochains; their mechanism also gives a primitive free abelian summand. Feng (2026), Section 6, establishes the precise rational ninth Betti number and Section 7 points out the six-support sphere candidates. Those statements and their immediate non-equivariant consequences are *not* claimed as new. The inspected source results do not state the determinant character of the stabilizing six-label action, the full \(S_m\)-module, its two hook constituents, or the all-subgroup rational quotient formula. An equivalent equivariant derivation might exist in unindexed literature; no priority or independent validation is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The character-theoretic refinement supplies the entire natural symmetric-group action, not only its total dimension. It makes the six-support cycles into a canonical, geometrically explained exterior-power lattice, identifies two multiplicity-one irreducible constituents, and calculates every subgroup quotient's ninth rational Betti number by a finite cycle-type average. These consequences are useful for equivariant topology and quotient comparisons even while the integral torsion question remains open.
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
 
-## Closest literature and limitations
+## value
 
-Feng--Wang, arXiv:2404.10566, especially pages 7–9; Feng, arXiv:2610.17394, Sections 6–7. The result is restricted to degree nine, rational quotient invariants, and the natural ground-set permutations; the integral lattice is not shown equivariantly split.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The degree-nine Betti rank and six-support generators were already known, but determining the complete natural S_m action, sign orientation, integral primitive equivariant lattice and rational orbit-space Betti formula supplies a structurally meaningful representation-theoretic refinement. It distinguishes an alternating six-support module from an ordinary permutation module, which numerical ranks cannot do.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

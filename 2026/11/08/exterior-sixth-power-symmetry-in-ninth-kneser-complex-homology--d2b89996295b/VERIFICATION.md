@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The supplied \(\texttt{verify.py}\) uses only Python's standard library. Running \(\texttt{python verify.py}\) reconstructs the ten complementary triple pairs on a six-set, checks all label-permutation signed determinants, directly forms the oriented fundamental chain of its cross-polytope boundary and verifies all boundary coefficients are zero. It then checks transposition action on this actual chain, global maximality of the separating face for ground sets of sizes six through ten, and the sixth-exterior-power trace identity on selected permutations.
+## correctness
 
-The exact number of six-support cycles for a general ground set is a binomial coefficient; their primitive independence is shown by dual maximal-simplex cocycles in the proof, not inferred from enumeration. The rational spanning assertion uses the published all-parameter Betti theorem in Feng (2026), Section 6, rather than an unprovided full complex computation.
+PASS
 
-The verification does not establish the absence of torsion in the remaining integral ninth homology, integral homology of quotients, or homology representations outside degree nine. The finite program is a reproducibility check, not an independent audit.
+X_m=Ind(KG(3,m−6)) for m>=6. Every six-support induces a join of ten S0 factors, a 9-sphere. The explicit ten pairwise intersecting triple-facet has no 2-vertex transversal and is globally maximal, so its indicator 9-cochain is closed and evaluates as δST on the six-support 9-cycles; this is an integral left inverse, giving a primitive injection. Feng 2026 §6 provides the independent exact rational rank binom(m,6), making those generators a rational basis. For a six-label transposition the ten-dimensional anti-complement coordinate representation has trace (8−0)/2=4, three -1 eigenvalues and hence determinant -1; every six-support stabilizer acts by sign. Therefore the S_m module is exactly ∧6 Q^m and the integral primitive image is ∧6 Z^m. Cycle determinant, hook decomposition and rational subgroup quotient averaging follow. No integral torsion-freeness or equivariant integral direct-summand splitting is asserted.
+
+## originality
+
+PASS
+
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
+
+## value
+
+PASS
+
+The degree-nine Betti rank and six-support generators were already known, but determining the complete natural S_m action, sign orientation, integral primitive equivariant lattice and rational orbit-space Betti formula supplies a structurally meaningful representation-theoretic refinement. It distinguishes an alternating six-support module from an ordinary permutation module, which numerical ranks cannot do.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
