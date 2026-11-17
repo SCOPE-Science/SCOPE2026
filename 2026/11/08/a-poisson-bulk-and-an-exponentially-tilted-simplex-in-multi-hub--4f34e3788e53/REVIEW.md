@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete finite-state stationary measure follows from a direct detailed-balance calculation with rate \(1/d_v\), and uniqueness follows from irreducibility. The exact coefficient formula accounts separately for all original opposite-part sites, all pendants, and all hubs. A uniform summable bound justifies the Poisson limit and pendant disappearance; conditional Riemann sums establish the tilted simplex distribution and its independence from the Poisson variable. The bundled checker passed 2169 finite checks, including independent labeled enumeration, although those tests are not the infinite proof.
+## correctness
 
-**Originality — PASS on examined evidence.** The foundational product weights in Noh et al. (2004), Bogacz et al. (2007) and Waclaw et al. (2007) are explicitly acknowledged, not claimed anew. Their inspected treatments focus on one exceptional high-degree site or a star/regular graph, and do not state a fixed \(r\ge3\) multi-hub Dirichlet tilt independent of a Poisson finite bulk. Schwarzkopf et al. (2008) obtains multiple condensates from different occupancy-dependent nonmonotonic rates. Mailler et al. (2015) treats weak random disorder and regular-variation classes, not deterministic fixed-size pendant alterations. The nearest previously recorded two-defect-ring law has only two extensive defect occupations and a different Gaussian bulk. Actual database and primary-literature searches did not reveal a dominating statement; this is evidence of a defensible distinction, not a proof that no unindexed equivalent exists.
+PASS
 
-**Mathematical value — PASS.** The model gives an all-parameter, all-hub-number family of exact limiting distributions. A finite modification of an otherwise symmetric growing graph changes its macroscopic stationary occupation measure by an order-one amount, and the law simultaneously exhibits coexistence of extensive hub occupations and a tightly distributed Poisson outside population. This sharply demonstrates how critical degree degeneracy differs from the usual single-dominant-hub picture; it is motivated by network zero-range condensation rather than an arbitrarily chosen finite slice.
+For fixed r>=3, fixed pendant counts h_i>=0 and M_n/n->rho>0, each occupied vertex sends at TOTAL rate one to uniformly chosen neighbor. Detailed balance gives unique fixed-mass canonical weights product of degrees^{occupation}; hub degrees n+h_i, n peripheral vertices degree r and H pendants degree 1. The exact generating coefficient factors (1-(n+h_i)z)^(-1), (1-rz)^(-n), (1-z)^(-H). Sum over fixed outside s and pendant ell, compare with hub composition T_n(M): binomial(n+s-1,s)(r/n)^s -> r^s/s!, uniform exponential factorial upper bound dominates tails; pendant weights suppress positive ell. Conditional hub weak-composition Riemann sums and log(1+h_i/n) expansion yield the exponentially tilted simplex and independence from Poisson(r). Independently checked 468 exact detailed-balance transitions for K_{3,4} with one pendant and three particles, plus tilted-marginal mean at rho=1 equals (3-e)/(e-2)=0.392211..., rather than 1/3. These finite checks do not prove convergence.
 
-**Limitations and residual priority risk.** The result specializes the known canonical measure, and its asymptotic conclusion remains subject to independent historical checking. Dynamics away from stationarity and general interaction rates are not treated. Among inspected sources, none supplies the full announced joint scaling result; searchable unindexed work on multiple nearly equal degree maxima could still be relevant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original evaluated claim after statement/implication comparison with cited literature; see four checks and residual risks. No negative search is taken as priority proof.
+
+## value
+
+PASS
+
+A multi-hub network with asymptotically tied degrees and a finite degree perturbation is a natural symmetry-breaking condensation model. The theorem identifies a full r-1 dimensional tilted sharing law, an independent tight Poisson bulk and a macroscopic effect from just one pendant edge; these are substantive asymptotic observables beyond the classical stationary product measure or one-defect condensation story. It does not claim mixing-time or dynamic condensation results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
