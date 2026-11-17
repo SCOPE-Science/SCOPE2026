@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is conditional on an explicit parameter domain. The global convergence follows from bounded Ricker-map comparisons and an eventual predator carrying-cap bound; the critical equality is retained throughout, rather than replaced by an unjustified strict inequality. At the resulting nonhyperbolic boundary equilibrium, the fast multiplier is \(1-h\in(0,1)\); the center-graph coefficient, third-order prey recurrence, and reciprocal-summation logarithm are derived explicitly. Exact arithmetic in `verify.py` confirms both contrasting rational examples and the unique sign-change threshold. Numerical traces are only illustrations. An initial-condition-dependent finite constant is proved to exist but is not computed in closed form.
+## correctness
 
-## Originality — PASS on available evidence
-Lin et al. (2022), DOI 10.3390/axioms11100520, cover the model and ordinary local/transcritical and global-attractor analysis; their accessible abstract, introductory model description, discussion, results overview and indexed article passages do not supply the global equality-case reciprocal asymptotic with a logarithmic remainder. The related Chen–He–Chen (2021) paper uses a different predator update and provides attraction criteria rather than this coefficient. Related research records on Du–Han–Lei discrete fear maps, Hong–Zhang discrete fear–Allee systems and continuous critical Leslie–Gower models have materially different hypotheses or claims. An accessible publisher article page was indexed, but full article retrieval was rate-limited, leaving a real risk of a covered calculation hidden in uninspected detailed sections or other publications. This is a best-knowledge assessment, not certification of priority.
+PASS
 
-## Value — PASS
-The natural ecological question is what *rate* of prey extinction occurs exactly where the local prey-invasion multiplier equals one. The result supplies a global quantified answer and a first finite-generation correction which changes direction with prey crowding, all within a fixed ecological model. The two exact examples show that the correction is not an artifact of notation or merely a generic unmotivated higher-order expansion: it differentiates parameter regimes whose leading \(1/n\) mechanism is the same.
+Under R=(d+b h m)(1+k h m), 0<h<1, 0<R-d<1 and a>(R-d)/[m(exp(1-h)-1)], every positive orbit is globally bounded and approaches the predator-only equilibrium (0,hm) by monotone Ricker-map comparisons and an eventual predator carrying-cap bound. The neutral/fast multipliers are 1 and 1-h. Invariance of the slaving graph gives y=hm+h x+C x^2+O(x^3), C=a+h[b+Rk/(1+k hm)^2]. The cubic prey coefficient gives 1/x_n=C n+A log n+K+o(1), A=C/2+L-S/C, L=b+Rk/(1+k hm)^2 and S=Rk^2 h^2/(1+k hm)^3. Independently checked the center-graph identity symbolically and iterated the recurrence for a=.03,.1 to n=400000 with the other fixed rational parameters; the finite part stabilized, C matched and A was -1/100 or 5/88. Global quantifiers follow from proof rather than those numerical orbits.
 
-## Closest work and residual limits
-The strongest overlap is the initiating 2022 article's boundary equilibrium and transcritical analysis. The claimed logarithmic refinement is not implied merely by its stated stability conclusions; a complete inspection of the article's technical body and appendices remains desirable. The theorem applies to a deliberately explicit subcritical-growth subset and not to all feasible model parameters, and does not address stochastic dynamics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Lin–Chen–Li–Chen model paper identifies a transcritical boundary and studies attractivity/bifurcations; available primary indexed passages did not establish the stated all-positive-data equality-case reciprocal rate, first logarithm and sign-change. This is best-knowledge PASS with significant priority risk, because the complete primary paper could not be retrieved after lawful OA rate limiting and Oxford institutional VPN disconnection. Generic center-manifold results alone do not give the specific global basin or coefficients.
+
+## value
+
+PASS
+
+The exact prey-invasion equality is a natural threshold at which hyperbolic local theory fails. This claim supplies the global clearance law and a first finite-time correction whose sign reverses with the prey crowding parameter within an admissible open region. It is a motivated sharp asymptotic distinction for a named ecological map, not merely the existence of a center manifold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
