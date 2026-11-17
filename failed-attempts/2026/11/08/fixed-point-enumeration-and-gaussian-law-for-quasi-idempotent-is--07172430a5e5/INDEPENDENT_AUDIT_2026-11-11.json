@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:01:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nondecreasing maps f satisfying f³=f², each f²-fiber is a rooted contiguous interval preserved by f. A one-sided basin of length L has 2^(L-1) possibilities for L>=1, giving B(z)=z(1-z)²/(1-2z)². Idempotent basin E(z)=z/(1-z)². Ordered basin concatenation gives strict bivariate GF (1-uB)^-1-(1-uE)^-1, with specified n=0 convention. Unique positive dominant simple pole rho≈.3079785 and exponentially smaller idempotent pole, standard analytic quasi-powers gives Gaussian fixed-point CLT with mu≈.3014166, variance≈.1935077. Independent brute nondecreasing-map enumeration through n=7 reproduced totals 0,0,2,12,53,208,768 and GF coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier full published result refines both stable-image rank and one-step image rank simultaneously with exact two-rank coefficient formula",
+          "Submitted retains only stable-image/fixed-point rank"
+        ],
+        "reasoning": "The older theorem is a mathematically strictly broader complete enumeration, from which submitted counts follow by summing over image rank.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+        "https://oeis.org/A060557",
+        "https://doi.org/10.12958/adm1846"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier F(z;u,1)=1/(1-uB(z)), and earlier idempotents contribute 1/(1-uE(z))",
+          "Simple dominant pole at B(rho)=1 gives an immediate quasi-powers CLT under standard analytic combinatorics"
+        ],
+        "reasoning": "Full finite distribution is a direct specialization; Gaussian mean and variance are routine implicit differentiation of already known B(rho), not a new independent structure. Neither disclaimer nor extra certificate rescues O.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+          "https://oeis.org/A060557"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stable-image rank k=|im f²| equals number of fixed points under f³=f², so earlier u variable already marks submitted statistic",
+          "Earlier v marks |im f| and is eliminated by setting v=1"
+        ],
+        "reasoning": "No change of object or combinatorial statistic: the prior joint-rank generating function specializes exactly to this bivariate series.",
+        "searches": [
+          "quasi-idempotent order preserving transformations generating functions fixed points CLT",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+          "https://oeis.org/A060557"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS already tabulates the unweighted total sequence",
+          "Earlier November 2 bivariate coefficient formula is exact for all n,k,r, not a finite experimental table"
+        ],
+        "reasoning": "Both known database totals and an exact stronger algebraic table directly determine the submitted count.",
+        "searches": [
+          "quasi-idempotent order preserving transformations generating functions fixed points CLT",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+          "https://oeis.org/A060557"
+        ]
+      },
+      "rationale": "FAIL: November 2 2026 full published Joint stable-rank and image-rank enumeration of quasi-idempotents on a finite chain establishes stronger 3-variable GF F(z;u,v)=1/[1-uvz((1-z)/((1-z)²-vz²))²]. Setting v=1 and subtracting the earlier idempotent series exactly recovers the submitted bivariate fixed-point generating function and its total sequence. The Gaussian limit follows from the standard simple dominant pole/quasi-powers calculation on that already published bivariate rational function; it is not an independent original structural classification.",
+      "residual_risks": [
+        "The Gaussian limit is correct but may not have been explicitly stated by the earlier work; rejection judges its direct quasi-powers implication and lack of distinctive added theorem",
+        "No scientific defect found in the GF proof; prior coverage dominates the refined counting component"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of exact counting refined by fixed points",
+          "evidence": "Set image-rank marker v=1 in F(z;u,v) to obtain 1/(1-u z((1-z)/(1-2z))²) and subtract idempotents, identical submitted GF",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+          "material_read": "Complete published November 2 RESULT.md with formulas, one-sided binomial lemma, full proof and idempotent subtraction",
+          "method": "Primary full-text GitHub mathematical comparison",
+          "title": "Joint stable-rank and image-rank enumeration of quasi-idempotents on a finite chain",
+          "trigger": "Strictly stronger same-monotone-transformation variable refinement"
+        },
+        {
+          "assessment": "Known unweighted coefficient table",
+          "evidence": "Sequence 1,3,10,33,108,... is explicitly acknowledged as preexisting in both works",
+          "identifier_or_url": "https://oeis.org/A060557",
+          "material_read": "Sequence identifier and matching counts as cited by both mathematical full texts; no fresh table exhaustively inspected",
+          "method": "Cross-check established sequence identity from full record statements",
+          "title": "OEIS A060557",
+          "trigger": "Previously known unweighted totals"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as submitted: The fixed-point statistic is natural, but its exact distribution is a direct specialization of an already published joint-rank enumeration; the stated Gaussian fluctuation law is a routine analytic-combinatorics consequence of that known rational generating function, without independent new mechanism or different regime. No substantive remaining mathematical gap is resolved by this package.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+    "https://oeis.org/A060557",
+    "https://doi.org/10.12958/adm1846"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "The Gaussian limit is correct but may not have been explicitly stated by the earlier work; rejection judges its direct quasi-powers implication and lack of distinctive added theorem",
+    "No scientific defect found in the GF proof; prior coverage dominates the refined counting component"
+  ],
+  "schema_version": 1
+}
