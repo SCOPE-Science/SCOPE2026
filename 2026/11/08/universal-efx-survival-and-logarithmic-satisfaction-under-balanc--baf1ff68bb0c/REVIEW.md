@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-With independent exponential values, each agent's own value is gamma distributed, and her EFX constraints compare it with sums of the largest \(r-1\) rival values. Exponential minimum–residual independence yields the exact hypoexponential decomposition, allowing direct verification of the distribution formula. Since rows involve disjoint valuation entries, their success indicators are independent. Multinomial integration yields rational exact values; a Gumbel-window integral with controlled tails yields the fixed-\(r\) asymptotic. Twenty rational-to-quadrature checks, all tested two-good harmonic identities, and five independent Monte Carlo comparisons passed using the standalone checker.
+## correctness
 
-## Originality: PASS, with residual risk
-The motivating 2026 online fair-division papers examine adversarial irrevocable allocation and worst-case fairness guarantees, not the risk of a fixed balanced allocation under independent realized item utilities. Igarashi and Oh (2026) analyze ex-post envy-freeness without deletions, not EFX. The nearest recoverable earlier study of independent exponential lotteries treats EF1, which compares against the *smallest* \(r-1\) rival values instead of the *largest* \(r-1\). This change produces a distinct tail distribution and a sharp universal EFX exponent. Targeted title, conceptual-equivalence, and exact-formula searches yielded no identified coverage. Similar unindexed work or non-obvious implications remain possible; database search alone cannot certify novelty.
+PASS
 
-## Mathematical value: PASS
-The EFX risk is a natural measurable limitation of ex-ante balanced lottery allocations. Its leading \(\log n/n\) single-agent survival law, universal in fixed bundle size apart from an exact constant, differs sharply from known EF1 decay. The exact binomial law also reveals a nontrivial logarithmic population of individually EFX-satisfied agents even when simultaneous EFX has vanishing probability. This is a structural probability law, not a small arbitrary enumerative improvement.
+Reconstructed the EFX quantifier over every removed positively valued item: strongest rival remainder is the sum of the largest r-1 of r independent Exp(1) values, represented exactly as (r-1)M+Gamma(r-1,1) with M~Exp(r) independent (exponential spacing). This gives the reported hypoexponential survival CDF and finite rational multinomial integral. Each agent's EFX comparison row depends exclusively on that agent's valuation variables; rows are independent, giving the exact binomial law and global EFX p^n. For r=2, the rival statistic is max of two exponentials and beta differentiation gives H_(2n-1)/(2n-1), including n=r=2 global 121/324. With r fixed, the rival tail is [r/(r-2)!]t^(r-2)e^-t, leading to Gumbel centering and a split-integral dominated-convergence proof of p~log n/[r(r-1)n]; binomial variance and CLT justify the count limits. An independent SciPy/numerical quadrature recomputed 20 (n,r) cases r=2..5,n=2..6, and the r=2 harmonic identities. No simulation substitutes for the all-parameter argument.
 
-## Limits and closest literature
-The theorem requires independent positive exponential values for all agent–good pairs and a nonadaptive allocation of equal size bundles; growing \(r\) and correlated utilities are not treated. Closest sources: Neoh and Teh (arXiv:2610.34625), Igarashi and Oh (arXiv:2610.34906), Cohen, Teh and Wooldridge (arXiv:2609.28333), and Chen and Long (arXiv:2609.23577). The last three use either a different fairness predicate or an adversarial online probability model. A prior fixed-bundle EF1 computation is a neighboring but non-covering claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed preassigned balanced allocation under independent exponential utilities has a different probability space and quantification from adaptive adversarial online fair division or uncertain-item optimization. Earlier same-model EF1 uses the smallest-deletion comparator, unlike EFX's largest surviving rival value, and has a different asymptotic. No inspected prior implication yields the exact binomial law and fixed-r constant; acceptance is best-of-knowledge, with two recent directly related but partially inaccessible primary sources named as risks.
+
+## value
+
+PASS
+
+The exact chance that a prescribed balanced, ex-ante envy-free allocation remains EFX after random additive values is a substantive reliability quantity for fair division. The exact binomial survival law, rational parameter formula and sharp logarithmic expected number of locally satisfied agents distinguish EF1, exact EF and adaptive optimization. A natural fixed-r asymptotic is not a textbook relabeling of a weaker fairness statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

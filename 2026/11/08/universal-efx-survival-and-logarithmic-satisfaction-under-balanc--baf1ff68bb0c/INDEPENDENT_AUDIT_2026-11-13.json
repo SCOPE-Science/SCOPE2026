@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:05:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 265663c2babf065bf319e4aa825d3c2bc1a730ec and exact-rational code check_efx_survival.py blob cb0e2c1cb8554b7617b6596dd347641e2df3b879",
+        "Independent 20 gamma-hypoexponential quadratures and harmonic-case checks"
+      ],
+      "rationale": "Reconstructed the EFX quantifier over every removed positively valued item: strongest rival remainder is the sum of the largest r-1 of r independent Exp(1) values, represented exactly as (r-1)M+Gamma(r-1,1) with M~Exp(r) independent (exponential spacing). This gives the reported hypoexponential survival CDF and finite rational multinomial integral. Each agent's EFX comparison row depends exclusively on that agent's valuation variables; rows are independent, giving the exact binomial law and global EFX p^n. For r=2, the rival statistic is max of two exponentials and beta differentiation gives H_(2n-1)/(2n-1), including n=r=2 global 121/324. With r fixed, the rival tail is [r/(r-2)!]t^(r-2)e^-t, leading to Gumbel centering and a split-integral dominated-convergence proof of p~log n/[r(r-1)n]; binomial variance and CLT justify the count limits. An independent SciPy/numerical quadrature recomputed 20 (n,r) cases r=2..5,n=2..6, and the r=2 harmonic identities. No simulation substitutes for the all-parameter argument.",
+      "residual_risks": [
+        "If valuations are shared, dependent, unequal, or allocation is adaptive, row independence and formula need not hold. r must remain fixed for stated asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-model EF1 treats removal of some rival item; EFX requires all item removals and hence the sum of largest r-1 rather than smallest r-1, yielding different decay.",
+          "Neoh–Teh's impossibility of online EFX approximation for >=3 agents is adversarial, not the random iid fixed-allocation survival probability."
+        ],
+        "reasoning": "EF1 is weaker than EFX; a probability bound for EF1 cannot supply the sharper EFX formula. The online guarantee quantifiers do not imply a random-utility count.",
+        "searches": [
+          "Resultary 2026/11/8 SCOPE-sharp-ef1-survival-rates-for-balanced-exponential-lottery-alloca--06138af2ce8a",
+          "arXiv:2610.34625"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: fixed balanced allocation exponential valuations EFX ex post probability binomial number agents logarithmic n",
+        "arXiv:2610.34625 abstract; arXiv:2610.34906 abstract; Resultary sharp EF1 survival rates for balanced exponential lottery allocations 06138af2ce8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed allocation + independent agent-good Exp variables produce independent row indicators. Worst-case online EFX impossibility permits adversarial arrivals rather than sampling these row variables.",
+          "Fair Division of Lotteries compares ex-post exact envy-freeness and optimal allocation selection, not an EFX removal-survival distribution in the accessible abstract."
+        ],
+        "reasoning": "The literature's different comparator and randomization mechanisms do not imply the binomial law. The inaccessible full texts limit, rather than automatically negate, this bounded originality assessment.",
+        "searches": [
+          "arXiv:2610.34625 Neoh Teh",
+          "arXiv:2610.34906 Igarashi Oh",
+          "Resultary 06138af2ce8a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Igarashi–Oh abstract optimizes the probability of exact ex-post envy-freeness under uncertain items; the EFX deletion quantifier differs from exact EF."
+        ],
+        "reasoning": "A fixed unoptimized allocation's EFX success probability and the optimizer of exact EF are not equivalent objectives; no equality of probability formula follows.",
+        "searches": [
+          "Resultary: fixed balanced allocation exponential valuations EFX ex post probability binomial number agents logarithmic n",
+          "arXiv:2610.34906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact lookup table for the n,r fixed balanced EFX survival integral was found; the one explicit r=2 harmonic formula follows from a new comparator distribution rather than an EF1 numerical table."
+        ],
+        "reasoning": "The study is an analytic universal expression rather than a finite preexisting census; no identified database or table determines its full coefficients.",
+        "searches": [
+          "Resultary: EFX balanced exponential fixed allocation exact p n r",
+          "arXiv:2610.34906"
+        ]
+      },
+      "rationale": "The fixed preassigned balanced allocation under independent exponential utilities has a different probability space and quantification from adaptive adversarial online fair division or uncertain-item optimization. Earlier same-model EF1 uses the smallest-deletion comparator, unlike EFX's largest surviving rival value, and has a different asymptotic. No inspected prior implication yields the exact binomial law and fixed-r constant; acceptance is best-of-knowledge, with two recent directly related but partially inaccessible primary sources named as risks.",
+      "residual_risks": [
+        "Full primary PDFs of Igarashi–Oh (2610.34906) and Neoh–Teh (2610.34625) could not be fetched from arXiv despite open-access attempts. Oxford institutional download for Igarashi–Oh returned vpn_disconnected (job 912fc9371f85569ccd82ebca4e7fe346), requiring manual VPN; no bypass or retry was attempted. Their abstracts were read; unknown appendix implications remain a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DEMONSTRATED_COVERING on abstract only",
+          "evidence": "The paper studies online prediction-guided allocation, adversarial approximability and EEFX, not the displayed fixed iid-exp EFX probability in its abstract; full body remains unchecked.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34625",
+          "material_read": "Abstract and detailed arXiv listing, not the full PDF",
+          "method": "Read arXiv indexed abstract; open-access PDF fetch was disabled",
+          "title": "Online Fair Division with Frequency Predictions",
+          "trigger": "2026 EFX-adjacent theorem for fair allocation"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_UNRESOLVED_FULLTEXT, retained as risk",
+          "evidence": "The abstract concerns optimized ex-post exact EF rather than EFX, but uninspected full sections/appendices might discuss EFX special cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+          "material_read": "Full arXiv abstract listing; full PDF unavailable via attempted open",
+          "method": "Read arXiv abstract and compared model/quantifier; PDF fetch returned DisabledError and Oxford institutional source returned vpn_disconnected (job 912fc9371f85569ccd82ebca4e7fe346)",
+          "title": "Fair Division of Lotteries",
+          "trigger": "Uncertain items assigned before realizations, strongly similar timing"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE under different fairness notion",
+          "evidence": "Its fixed-r EF1 exponent n^{-(r-1)/r}(log n)^{r-1} differs from EFX log n/n, not an equivalent formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-ef1-survival-rates-for-balanced-exponential-lottery-alloca--06138af2ce8a",
+          "material_read": "Published Resultary finding summary for sharp EF1 asymptotic and exact EF",
+          "method": "Semantically retrieved indexed scientific result; not full primary text",
+          "title": "Sharp EF1 survival rates for balanced exponential lottery allocations",
+          "trigger": "Same fixed balanced Exp model but EF1 comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Igarashi–Oh, Fair Division of Lotteries, arXiv:2610.34906",
+        "Neoh–Teh, Online Fair Division with Frequency Predictions, arXiv:2610.34625"
+      ],
+      "rationale": "The exact chance that a prescribed balanced, ex-ante envy-free allocation remains EFX after random additive values is a substantive reliability quantity for fair division. The exact binomial survival law, rational parameter formula and sharp logarithmic expected number of locally satisfied agents distinguish EF1, exact EF and adaptive optimization. A natural fixed-r asymptotic is not a textbook relabeling of a weaker fairness statistic.",
+      "residual_risks": [
+        "Conclusions do not extend to adaptive allocations, dependencies or growing bundle sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a fixed balanced allocation of r>=2 indivisible goods to each of n>=2 labeled agents and independent Exp(1) agent-good valuations, the number of agents passing all ex-post EFX comparisons is Binomial(n,p_(n,r)), with p equal to a Gamma(r,1)-weighted integral of the CDF of the sum of the largest r-1 Exp(1) rival goods. An exact rational expansion holds; p_(n,2)=H_(2n-1)/(2n-1). For fixed r, p~(log n)/(r(r-1)n), with the stated logarithmic satisfaction law and normal fluctuations.",
+  "limitations": "Full recent primary EFX-adjacent papers were inaccessible beyond abstracts; Oxford access for Igarashi–Oh returned vpn_disconnected. Novelty is best-of-knowledge with this material uninspected and no authorization bypass. Analytic proof, not finite quadrature, supports n->infinity.",
+  "schema_version": 1
+}
