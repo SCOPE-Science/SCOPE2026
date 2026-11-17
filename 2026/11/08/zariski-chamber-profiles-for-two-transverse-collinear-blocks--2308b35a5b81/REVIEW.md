@@ -1,11 +1,21 @@
-# Scientific review: two-line blow-up chamber profiles
+# Independent mathematical audit
 
-**Correctness — PASS.** The two Bézout inequalities and adjunction exclude every negative curve of plane degree at least two, leaving exactly the exceptional curves, the two line transforms and the cross-block joining lines. The negative intersection matrix forces every joining-line support to be a bipartite star. Exact Schur-complement inequalities remove precisely the forbidden exceptional-cardinality choices, proving the complete generating function for every \(n,m\ge3\). Integer-only exhaustive tests independently match all four marked profiles for the two smallest parameter pairs, including \(2097152\) subsets for \((3,4)\).
+## correctness
 
-**Originality — PASS, priority provisional.** Bauer–Funke–Neumann give the general correspondence and general-position del Pezzo counts; Bauer–Schmitz give a general algorithm and a K3 application, without a closed two-parameter polynomial for two collinear blocks. Testa–Várilly-Alvarado–Velasco and Failla–Lahyane–Molica Bisci address Cox rings and effective monoids rather than the chamber profile. An earlier six-point \((3,3)\) count is a strict specialization, not a theorem for all \(n,m\). Exact-formula searches and mathematical-record queries found no equivalent formula, but unindexed specialist enumerations remain a risk. The 2006 line–conic paper's full PDF was not successfully retrieved; its available description has a distinct object and aim.
+PASS
 
-**Value — PASS.** The two-component line boundary is a canonical degeneration of configurations of points in the plane. The result gives a full multivariate divisor-theoretic chamber distribution for infinitely many rational surfaces of unbounded Picard number, including an exact all-chambers formula and the number of maximal supports. Its interaction term distinguishes the two-line configuration from one-line or smooth-conic cases, and its \((3,4)\) and \((4,4)\) values are not explained by the isolated \((3,3)\) calculation.
+Using Bézout against both lines, any other integral plane curve of degree d>=2 satisfies −K.C=3d−Σα−Σβ>=d and by adjunction C²>=d−2>=0. The only negative curves are exceptional E_i,F_j, marked-line transforms A,B with squares 1−n,1−m, and cross-block secants L_ij of square −1. Distinct cross L_ij intersect 1 iff both indices differ; a pairwise-compatible family of bipartite edges must therefore be empty, singleton, or a star. Selected exceptional curves cannot share endpoints with selected L. Schur complement for selected A,B with k,ℓ eligible exceptionals gives [[−(n−1−k),1],[1,−(m−1−ℓ)]], negative definite iff k<=n−2, ℓ<=m−2, excluding k=n−2 AND ℓ=m−2. The four marked line choices yield exactly P_ab; summing star footprints produces the theorem. Independently expanded all coefficients for (3,3): total 1092 and last coefficient 37; (3,4): (1,21,150,529,1047,1170,638,92), total 3648; (4,4): 11925, maximal 209. The universal result is by the negative-curve and graph proof, not finite enumeration.
 
-**Sources and limitations.** See the four identified primary papers and exact statements in `RESULT.md`. The combinatorial enumeration is an original derivation from the known chamber correspondence, not a claim to have invented that correspondence. The computation does not determine volumes, chamber adjacency or arbitrary degeneration types. Historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct principal theorem after comparison of actual pinned mathematics, equivalent formulations, stronger claims, exact tables and logical implications; do not construe source searches or inaccessible literature as proof of historical novelty.
+
+## value
+
+PASS
+
+The all-parameter three-variable support enumerator of a natural surface family carries marked incidence data and an exact largest-support count, far beyond the previously known A2 six-point instance. The bipartite star decomposition and two-component Schur coupling constitute a useful complete structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
