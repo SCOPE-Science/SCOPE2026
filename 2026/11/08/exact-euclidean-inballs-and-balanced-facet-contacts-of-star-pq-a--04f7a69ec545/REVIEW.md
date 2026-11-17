@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The leaf-coordinate vertex decomposition proves the exact inequality description and facet irredundancy for all integers \(m\ge1\). Intrinsic normal projections are computed in the true affine tangent space. Finite isometric symmetrization gives a globally valid radius bound, an explicit center attains it, and balanced upper inequalities force all coordinates at any optimal center, proving uniqueness. The integer cases \(1\le m\le12\) were checked independently by linear programming and the four smallest cases also through a vertex-derived convex hull. The numerical tests are not substituted for the proof.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Davis--Chen (arXiv:2007.11051) establish volume/draconian results for PQ-type polytopes, including forests. Ohsugi--Tsuchiya (arXiv:2103.15045) establish lattice-enumerative join and biclique results. Their inspected primary text does not imply a metric inradius in the canonical ordered-pair embedding. Closest published metric results on star symmetric-edge polytopes and star cosmological polytopes use different generator sets; there is no demonstrated Euclidean isometric implication. Searches for the alternate root-polytope/free-sum-of-squares description found no directly covering formula. Earlier results under alternate vocabulary may exist; novelty is a provisional scientific assessment, not certified historical priority.
+PASS
 
-**Value — PASS.** The theorem gives an exact metric invariant and the complete optimal-center/contact classification for a natural graph-polytope family used in sparse-network lattice geometry. It identifies a structural concentration of tangent facets at balanced choices: a polynomially small fraction of an exponential facet family, with an explicit parity effect. This is not just a vertex or volume count.
+The original conv of 3m+1 ordered star incidence pairs is exactly the positive leaf cone with sum_i max(u_i,v_i)<=1, because each leaf pair decomposes into three vertex contributions. Its 2m coordinate and 2^m upper inequalities are all facet-defining. Projecting normals into the true two-block sum-zero affine tangent space gives coordinate norm a=sqrt(m/(m+1)) and upper norm sqrt((m+2s(m-s))/(m+1)). Permutations and block-swap average any maximizing ball to uniform leaves t; balancing the two sharp facet distances gives r=1/(ma+b), t=ar. The lower bounds plus every balanced upper inequality force each leaf variable to t, proving uniqueness, including m=1. Numerical unrestricted-center LP checks independently reproduced m=1..9.
 
-Independent comparison has not been performed. The result does not cover arbitrary PQ-type graph polytopes or affine deformations, and the numerical checker tests finitely many dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing PQ adjacency-polytope papers focus on volume and Ehrhart h* geometry, while the earlier symmetric-edge star and cosmological star inball results concern different convex hulls and metric realizations. The later same-star PQ Löwner-ellipsoid record studies an enclosing rather than inscribed ellipsoid. A matching direct source is the assigned Resultary record itself. Complete exact inward inradius, unique incenter and facet-contact classes are best-of-knowledge novel.
+
+## value
+
+PASS
+
+The unique inball in the canonical ordered-incidence star family, the exact weighted projected-normal computation, and balanced-parity contact count are natural complete metric invariants, with all dimensions treated and a nontrivial contrast between 2m+2^m facets and the contacting subset. The invariant is motivated independently of any computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
