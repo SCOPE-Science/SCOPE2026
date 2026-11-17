@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:48:01.220374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Partition of oriented rooted forests of K_(1,k) into hub-rooted versus hub-directed-to-one-rooted-leaf cases exhausts configurations; their independent Bernoulli leaf flags yield correct joint moments of R and C=tr(K^-1 S)-(k+1), with K^-1=I+L/q. The submitted formulas for Var R, Cov(R,C), Var C, alpha*=Cov/Var and residual variance follow. Var C>0 ensures unique minimizer; k=1 yields zero residual and k>=2 strict positive. Along k=Q^2,q=Q the exact moments imply alpha_opt->1/2, alpha_mean_degree->1 and variance ratios 1/2 vs 1. Independent exact rational enumeration checked k=1..7 and four q values, including boundaries; infinite assertion from analytic conditional moment identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barthelme et al. introduce random-forest inverse trace, Pilavci et al. propose variance control including heuristic tuning; these methods cover graph framework but not explicit highly heterogeneous star extremality."
+        ],
+        "reasoning": "Broader general algorithmic method does not entail the numerical star variance extremal frontier without new moment evaluation.",
+        "searches": [
+          "rooted spanning forest trace estimator optimal control variate star graph q mean degree variance",
+          "forest trace variance star root count control variates q 2k",
+          "arXiv:1905.02086",
+          "arXiv:2110.07894",
+          "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf",
+        "https://arxiv.org/abs/2206.07421",
+        "arXiv:1905.02086",
+        "arXiv:2110.07894"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If prior paper assumed alpha=Cov/Var, still its quantities depend on unknown graph-specific covariances; they do not imply the exact star formula by parameter substitution.",
+          "The k=Q^2,q=Q comparison needs the explicit joint distribution and limiting moment ratios."
+        ],
+        "reasoning": "Earlier formula is a starting method; submitted evaluated boundary and heuristic separation adds nontrivial parameter-specific theorem.",
+        "searches": [
+          "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf",
+          "Section 3.1 control variate Eq. (3)-(4)",
+          "arXiv:2110.07894"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pilavci et al. 2022 Eq. (3)-(4), Section 3.1, define S, K^-1, and the control-variate trace estimator used here.",
+          "They give the generic coefficient of covariance over variance and a mean-degree substitution, but no closed star-specific alpha or two-scale variance ratios in the inspected mathematical sections."
+        ],
+        "reasoning": "Same estimator not same theorem: an abstract minimizer identity does not calculate the explicit star joint distribution, factor-two asymptotic gap, or k=1 boundary.",
+        "searches": [
+          "rooted spanning forest trace estimator optimal control variate star graph q mean degree variance",
+          "forest trace variance star root count control variates q 2k",
+          "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf",
+          "https://arxiv.org/abs/2206.07421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-star-graph query returned the submitted record as closest; other ranked records involve distinct graph covariance statistics.",
+          "Published conference article reports empirical variance on graphs, not the stated exact all-parameter rational table for stars."
+        ],
+        "reasoning": "No exact prior star-parameter database identified in actual searches; lack of indexing alone is not novelty proof.",
+        "searches": [
+          "rooted spanning forest trace estimator optimal control variate star graph q mean degree variance",
+          "forest trace variance star root count control variates q 2k",
+          "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf"
+        ]
+      },
+      "rationale": "PASS qualified: the primary Pilavci et al. 2022 work defines the identical random spanning-forest trace control statistic and practical mean-degree coefficient, and earlier work gives the abstract covariance/variance optimum, but the inspected full conference paper does not supply the all-q, all-k star covariance closed forms or the explicit asymptotic factor-two counterexample to mean-degree tuning. Resultary search found the submitted record, not a stronger star-specialized earlier theorem. Priority outside inspected materials remains possible.",
+      "residual_risks": [
+        "The mean-degree control-variate formula could be evaluated for stars in less-indexed specialist literature; absence of a matched result is not priority certification.",
+        "Comparison is variance per exact sample, not runtime or sampling cost; fixed real scalar alpha only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED NOT COVERING: same estimator but no exact unweighted star optimum/gap",
+          "evidence": "Section 3.1 Eq. 3-4 and stated heuristic; https://arxiv.org/abs/2206.07421",
+          "identifier_or_url": "https://gretsi.fr/data/colloque/pdf/2022_pilavci804.pdf",
+          "material_read": "Full four-page conference PDF, in particular Sections 2 and 3.1 Eq. (3)-(4), coefficient/mean-degree discussion and evaluation",
+          "method": "Web PDF full text plus page screenshots (first two pages) and comparison with submitted moments",
+          "title": "Variance Reduction for Inverse Trace Estimation via Random Spanning Forests",
+          "trigger": "Exact trace-control quantity and claimed mean-degree heuristic"
+        },
+        {
+          "assessment": "SAME SUBMITTED RECORD: excluded as prior independent coverage",
+          "evidence": "Exact same formula in self-indexed summary; no independent novelty credit",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-star-graph-tuning-of-random-forest-trace-control-variates--6d52d8ee2d8b",
+          "material_read": "Resultary record title and summary only, not treated as external validation",
+          "method": "Resultary semantic result",
+          "title": "Exact star-graph tuning of random-forest trace control variates and a factor-two gap",
+          "trigger": "Resultary search closest self-publication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A heterogeneous star is a natural stress-test for a degree-average heuristic used in random-forest inverse-trace estimation. The sharp factor-two asymptotic comparison demonstrates an actual persistent variance gap for an identifiable algorithmic statistic, not a tiny gain or arbitrary numerical example; complete all-parameter optimization supplies a reusable benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only unweighted stars, q>0, fixed scalar coefficient for the specified root-indicator control, exact rooted-forest sampling.",
+    "No runtime claim, arbitrary weighted graph or universal control-optimality conclusion."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the supplied verifier file. The code uses only Python's standard library and carries out exhaustive exact-rational enumeration of the oriented rooted forests on \(K_{1,k}\) for \(1\le k\le8\) and the six parameter values listed in code. It verifies the normalization, the first and second moments, the control covariance, and the variance-optimal step. The recorded output contains `VERIFIED exact rational assertions: 429`.
+## correctness
 
-The finite enumeration is **not** an exhaustive verification of the theorem's unbounded parameters. The paper's explicit two-case combinatorial decomposition, symbolic binomial-moment algebra and rational asymptotic limit provide the all-parameter proof. The computed witness at \(q=100\), \(k=10000\) has heuristic-to-raw variance ratio about \(0.95137244\) and optimal-to-raw ratio about \(0.48753967\), consistent with the proved limits, not their justification.
+PASS
 
-No independent audit has been performed. No floating-point sampling simulation or external mathematics certificate is claimed.
+PASS: Partition of oriented rooted forests of K_(1,k) into hub-rooted versus hub-directed-to-one-rooted-leaf cases exhausts configurations; their independent Bernoulli leaf flags yield correct joint moments of R and C=tr(K^-1 S)-(k+1), with K^-1=I+L/q. The submitted formulas for Var R, Cov(R,C), Var C, alpha*=Cov/Var and residual variance follow. Var C>0 ensures unique minimizer; k=1 yields zero residual and k>=2 strict positive. Along k=Q^2,q=Q the exact moments imply alpha_opt->1/2, alpha_mean_degree->1 and variance ratios 1/2 vs 1. Independent exact rational enumeration checked k=1..7 and four q values, including boundaries; infinite assertion from analytic conditional moment identities.
+
+## originality
+
+PASS
+
+PASS qualified: the primary Pilavci et al. 2022 work defines the identical random spanning-forest trace control statistic and practical mean-degree coefficient, and earlier work gives the abstract covariance/variance optimum, but the inspected full conference paper does not supply the all-q, all-k star covariance closed forms or the explicit asymptotic factor-two counterexample to mean-degree tuning. Resultary search found the submitted record, not a stronger star-specialized earlier theorem. Priority outside inspected materials remains possible.
+
+## value
+
+PASS
+
+PASS: A heterogeneous star is a natural stress-test for a degree-average heuristic used in random-forest inverse-trace estimation. The sharp factor-two asymptotic comparison demonstrates an actual persistent variance gap for an identifiable algorithmic statistic, not a tiny gain or arbitrary numerical example; complete all-parameter optimization supplies a reusable benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
