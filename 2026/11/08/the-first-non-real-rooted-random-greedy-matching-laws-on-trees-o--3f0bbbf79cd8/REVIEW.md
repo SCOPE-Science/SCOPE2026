@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Conditioning on the first feasible edge establishes the rational recurrence for every induced forest state. A complete isomorphism-class enumeration of 987 trees through order twelve and 1301 trees at order thirteen, with support degree at most three and exact quadratic/cubic discriminants, gives the sharp threshold and exactly six exceptions. The explicitly described symmetric tree has an exact polynomial and negative integer discriminant. An independently formulated integer dynamic program aggregates all 12! edge orders and reproduces the same probabilities. The executable verifier and its dependency specification are included.
+PASS
 
-## Originality
+From conditioning on the uniformly selected currently feasible edge derive P_G(z)=z/|E(G)| sum_{uv} P_{G-{u,v}}(z), with P_edgeless=1. Independently implemented subset-memoized exact Fraction recursion and enumerated every NetworkX nonisomorphic_tree at each n=1..13 (2288 total, including 1301 at 13). After removing zero factors all coefficient support widths were <=3; exact quadratic/cubic discriminants give zero nonreal types through 12 and exactly six at 13, matching six graph6 encodings. The symmetric 13-vertex triple-fork witness has law z^3(180+1852z+5149z²+4339z³)/11520 and discriminant -12323232144. This verifies a truly exhaustive FINITE cutoff, not any claim for >13 vertices. The pinned verify_greedy_matching_roots.py was separately read and its 12! edge-order DP reasoned through; it provides a different representation of the same feasible-edge process.
 
-**PASS, qualified.** The key distinction is the terminal law under greedy maximal matching, not the classical matching enumerator. Heilmann–Lieb real-rootedness covers the unweighted sum of all matchings and cannot imply this distributional result. The accessible full text of Krivelevich–Mészáros–Michaeli–Shikhelman studies greedy independent-set densities and trees, and the accessible Bal–Bennett paper studies asymptotic matching processes on random graph models; their statements do not cover the exact finite-tree zeros. Related database and literature searches returned no dominating theorem or the six-type table. The full texts of Dyer–Frieze (1991) and Pippenger (1989) were unavailable; this remains a historical-priority risk, not a proven absence of coverage.
+## originality
 
-## Value
+PASS
 
-**PASS.** Real-rootedness is a meaningful distributional shape constraint, strictly stronger than log-concavity and associated with Poisson-binomial factorization. The exact first-failure threshold and complete boundary classification show precisely when a classical matching-polynomial intuition fails under a natural sequential sampling law. The symmetric witness remains strictly log-concave, isolating the stronger obstruction rather than a superficial coefficient irregularity.
+Heilmann–Lieb ordinary matching-polynomial real-rootedness and uniform maximal-matching enumerators are different measures. Semantic Resultary search finds no earlier exact 13-vertex terminal feasible-edge greedy distribution root census. Original Dyer–Frieze 1991 studies the identical algorithm and trees; its complete primary text remained inaccessible after arXiv/OA search and authorized institutional request reported VPN disconnected, so a residual priority risk remains rather than a spurious NOT_COVERING claim. Best-of-knowledge PASS.
 
-## Limits
+## value
 
-This is a finite exact classification, not a theorem about every larger tree, weighted variants, or a failure of log-concavity. Reproducibility depends on the standard complete unlabeled-tree generator and exact arithmetic; independent external mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp first loss of real-rootedness of a natural stochastic matching size law distinguishes random greedy output distributions from the classical matching enumerator. Six complete minimal tree types and an exact rational witness provide a meaningful structural finite obstruction despite strict log-concavity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
