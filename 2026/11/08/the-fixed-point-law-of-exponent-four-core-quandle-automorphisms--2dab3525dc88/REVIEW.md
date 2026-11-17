@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The change of coordinates \(x=v+2w\) yields the exact quandle identity \((v,w)*(s,t)=(v,w+v+s)\). Products of right translations are all uniform translations inside the fibers, forcing each quandle automorphism to normalize their regular group. Quandle preservation then forces a common linear part on the quotient and on every fiber. The resulting unique normal form supplies the exact group order and makes fixed fibers and fixed points independent binomial events after conditioning on the linear part. Gaussian-binomial inversion reconstructs the exact fixed-space distribution of the linear part from the standard transitive-group averaging identity. An absolutely convergent Euler product and a uniform tail bound prove the limiting law. Actual exact enumeration of all automorphisms in ranks one and two independently confirms the entire histograms; ranks three and four independently check the finite-field fixed-space inversion.
+PASS
 
-## Originality — PASS, qualified
+The exact quandle operation on binary residue/fiber coordinates is (v,w)*(s,t)=(v,w+v+s); displacement translations force each automorphism to be (Tv+a,Tw+u_v) with T invertible and arbitrary fiber shifts. Condition on fixed-space dimension d and K=2^d: an affine quotient has K fixed fibers with probability 1/K, and independently each fiber has K fixed points with probability 1/K, giving H_K(z)=1-1/K+(1/K)(1-1/K+z^K/K)^K. Gaussian-binomial moment inversion derives p_{r,d} and q-series Euler product gives p_infty,d; a uniform Markov tail bound justifies total distribution convergence. Independently enumerated automorphisms in rank 2 confirm histogram 0:2769,1:2048,2:768,4:492,8:54,12:12,16:1 of 6144 and rank-3 GL fixed-space counts 48,98,21,1. Finite checks do not establish infinite-rank assertions.
 
-The published 2026 even-modulus automorphism question makes the quandle family natural. Hou's 2011 general Alexander-quandle result gives broad prior automorphism coverage; the claim does not present the automorphism parameterization as an independently novel classification. The primary new assertion is the entire permutation-action fixed-point distribution in every exponent-four rank, together with the exact integer example and a nontrivial limiting derangement density. The 2024 work on permutational wreath products does not supply this distribution, because the quotient action and the fiber-linear parts are correlated rather than independently chosen. Searches of published research records and accessible literature did not locate an equivalent fixed-point law. Hou's full text was not available: a hidden equivalent formula cannot be excluded, so historical priority remains qualified rather than certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first non-Latin two-factor example of the recent even-modulus question has a non-obvious seven-value fixed-point histogram with \(2769\) derangements among \(6144\) symmetries. More importantly, the full law holds uniformly in arbitrary rank and converges to an explicit Gaussian-binomial mixture with derangement density \(0.4722542613296376769\ldots\). This quantifies the full quandle symmetry action rather than merely its abstract automorphism group or its order; neither fixed-point law nor asymptotic follows from the odd-order affine formula or from independent-fiber wreath-product statistics without additional argument.
+Prior complete November 2 theorem already gives the IDENTICAL full quandle automorphism normal form/group size and receives zero novelty credit. The surviving full fixed-point probability generating law, explicit rank-two derangement histogram, general Gaussian-binomial mixture, and limiting derangement density are nontrivial statistics not stated in the inspected prior theorem. No accessible full primary paper was found stating this distribution; best-of-knowledge PASS qualified by automorphism-normal-form prior coverage and Hou access risk.
 
-## Closest literature and limitations
+## value
 
-The 2026 Bardakov–Sangare paper treats odd-order products and poses an even-factor question. Hou 2011 gives general Alexander automorphisms, but the full text could not be checked; this is the principal priority limitation. Arumugam–Dietrich–Glasby 2024 provides derangement distributions for permutational wreath products, a different action. This theorem is limited to exponent-four core quandles, and the computer tests are finite corroboration, not a universal proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-point statistics and derangements of the full non-affine automorphism action are natural invariants of finite quandles; determining their exact distribution in all ranks and positive limiting derangement density makes a mathematically useful new quantitative classification beyond the already known automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
