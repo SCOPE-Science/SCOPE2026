@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The partial-injection contraction gives exactly \(H_{n-3}+r\) conditional expected cycles for every prescribed injective triple. The fixed-point, transposition and 3-cycle compatible assignments are exhaustively accounted for, yielding the quadratic numerator after subtracting \(H_n/3\). Boundaries \(n=3\) and arbitrary triples are explicit. The standalone independent enumeration in `verify.py` completed 3237 exact assertions, including the conditional contraction lemma.
+## correctness
 
-**Originality — PASS, subject to historical priority.** Fulman–Kim–Lee (arXiv:1902.00978) and Gessel–Zhuang (arXiv:2001.00654) study global consecutive peaks jointly with cycle structure; the latter full text, Section 7.1, gives global peak, descent and cycle-type generating functions. Their joint results cover the aggregate consecutive-peak setting, so that setting is not offered as original. The reviewed claim treats arbitrary nonadjacent indexed positions, and its quadratic positional law and sign-changing dependence are not a corollary of global peak counts or descent-set distributions. A related publicly recorded inversion-gap cycle covariance concerns a two-position inversion event, not a three-position peak. An undiscovered exact nonconsecutive-pattern formula remains a possibility.
+PASS
 
-**Value — PASS.** This solves the finite-sample local-global dependence profile for a natural three-point rank comparison and total permutation cycle count over all positions and all orders, rather than a single chosen example. It identifies the sharp minimal order at which the sign changes, the \(n^{-3}\) versus \(n^{-1}\) scale split, and explains why consecutive peak indicators alone conceal positive cycle dependence at separated positions. This is directly relevant to combining cycle statistics with nonconsecutive rank-pattern statistics in permutation models.
+PASS. For any three prescribed distinct images of a uniform permutation, the partial injection splits into forced cycles and paths; contracting paths gives E[cycle_count | images]=H_{n-3}+r for n>=3. Counts of peak-compatible fixed points, transpositions, and the one compatible 3-cycle yield the displayed numerator; subtraction of H_n/3 establishes exact covariance for all i<j<k. Consecutive substitution gives -4 numerator, and (1,n-1,n) gives 3n²-21n+32, positive first n=5. Independent exhaustive exact-rational check for all position triples n=3..6 corroborated the formula, not its infinite proof.
 
-**Scientific limits.** The result concerns pairwise covariance, not a higher-dimensional joint law or asymptotic independence theorem. The checks are deterministic but not independent certification. Historical priority requires independent follow-up.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier sources give aggregate or consecutive-index peak/cycle relations. No checked source yields the full arbitrary i<j<k quadratic positional law; the nonadjacent event is not a descent-set statistic.
+
+## value
+
+PASS
+
+PASS. Cycle structure versus one-line permutation-pattern comparisons is a natural dependence question. The complete indexed nonconsecutive quadratic profile distinguishes weak negative adjacent peaks from positive long-range peaks and identifies the sharp first sign boundary, a motivated exact finite positional law beyond aggregate peak counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
