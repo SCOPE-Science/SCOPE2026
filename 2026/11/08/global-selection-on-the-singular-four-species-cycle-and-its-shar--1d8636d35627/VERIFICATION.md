@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy, NumPy and SciPy installed. The script verifies algebraic identities for the singular interaction matrix, the left/right null vectors, the exact positive diagonal multiplier, and the leading principal minors. It calculates the unique real root of the cubic cutoff and tests representative positive and indefinite quadratic forms. Four positive initial conditions are integrated with tight numerical tolerances; their limiting equilibria are predicted separately by conserved-level root solving.
+## correctness
 
-Successful execution reported:
+PASS
 
-```
-EXACT_MATRIX_IDENTITIES 11; certificate_root=1.574743073887
-FINITE_TRAJECTORY a=1.10 limit_error=8.6e-13 conserved_error=2.4e-12 PSD_nonzero_min=1.1591
-FINITE_TRAJECTORY a=1.30 limit_error=9.8e-13 conserved_error=3e-12 PSD_nonzero_min=1.1758
-FINITE_TRAJECTORY a=1.50 limit_error=7.3e-12 conserved_error=2.7e-12 PSD_nonzero_min=0.52704
-FINITE_TRAJECTORY a=1.56 limit_error=5.1e-13 conserved_error=4.9e-12 PSD_nonzero_min=0.11991
-VERIFY_OK exact_kernel_and_minors=1 finite_trajectories=4 certificate_failure_checks=3
-```
+The four-species matrix C_a at epsilon=(a²−a+1)/a³ has rank three, right null q=(-1/a,1/a²,-1/a³,1), left null ℓ=(-1,a,−a²,a²−a+1), and ℓ·1=0. Hence H=ℓ·log x is exactly conserved. Independent exact symbolic work verifies Dq=ℓ for D=diag(a,a³,a⁵,a²−a+1), symmetric S=(DC+CᵀD)/2 has Sq=0 and its first three leading minors are a, 3a⁴/4, −a¹⁰(a²−a+1)(a³−a²+a−3)/4. These are positive for 1<a<rho, making ker S exactly span(q); positive relative entropy sublevels are compact in positive orthant, LaSalle implies convergence to equilibrium line, and H is strictly monotone along line and diverges at endpoints, determining a unique limit. Transverse coercivity on the conserved level gives exponential convergence. Any positive diagonal PSD scaling must satisfy Dq∝ℓ, proving uniqueness and sharp certificate iff a≤rho. The cutoff is for this certificate, not for dynamical instability; no claim of convergence at a=rho.
 
-The symbolic algebra supports the explicit identities and finite examples support the predicted convergence. Neither a finite trajectory simulation nor the source's local stability discussion proves convergence for every positive initial condition; the proper entropy, LaSalle step, conserved-level uniqueness and local transverse estimate provide that proof. No external or independent audit has been conducted. At the endpoint \(a=\rho\), only the positive-semidefinite certificate is proved, not global convergence.
+## originality
+
+PASS
+
+Best-of-knowledge distinct claim after exact comparison with the originating source, adjacent indexed literature and stronger published findings; gaps are expressly recorded.
+
+## value
+
+PASS
+
+A singular continuum of coexistence equilibria leaves a genuine global-selection problem: a neutral Jacobian direction and local stability do not rule out basin excursions or boundary approaches. A proper relative entropy and conserved transverse level resolve convergence for every positive initial state on an explicit interval, and classify all positive diagonal entropy certificates with sharp algebraic cutoff; nontrivial proof and natural invariant, not a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

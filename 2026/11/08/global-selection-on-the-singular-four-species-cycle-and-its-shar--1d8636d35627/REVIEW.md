@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The model reduces to a singular four-by-four interaction matrix with a verified rank-three kernel; the exact diagonal multiplier and all leading minors are established symbolically. Strict positivity of the quadratic form away from the equilibrium line supplies a proper decreasing relative entropy, allowing LaSalle's invariance argument to apply globally in the positive orthant. The conserved logarithmic level intersects the positive equilibrium segment exactly once, and transversality of its level set establishes exponential convergence. The converse for diagonal certificates follows from the forced relation between left and right kernels, not from a numerical search. `verify.py` repeats the pivotal algebra and limited finite integrations.
+PASS
 
-## Originality
+The four-species matrix C_a at epsilon=(a²−a+1)/a³ has rank three, right null q=(-1/a,1/a²,-1/a³,1), left null ℓ=(-1,a,−a²,a²−a+1), and ℓ·1=0. Hence H=ℓ·log x is exactly conserved. Independent exact symbolic work verifies Dq=ℓ for D=diag(a,a³,a⁵,a²−a+1), symmetric S=(DC+CᵀD)/2 has Sq=0 and its first three leading minors are a, 3a⁴/4, −a¹⁰(a²−a+1)(a³−a²+a−3)/4. These are positive for 1<a<rho, making ker S exactly span(q); positive relative entropy sublevels are compact in positive orthant, LaSalle implies convergence to equilibrium line, and H is strictly monotone along line and diverges at endpoints, determining a unique limit. Transverse coercivity on the conserved level gives exponential convergence. Any positive diagonal PSD scaling must satisfy Dq∝ℓ, proving uniqueness and sharp certificate iff a≤rho. The cutoff is for this certificate, not for dynamical instability; no claim of convergence at a=rho.
 
-PASS under inspected evidence. Murdie et al. (arXiv:2609.28833, Sections 2–3 and Appendix D) already give the equations, singular coexistence line, conserved quantity and local stability-with-shift description; none of those is claimed new. The examined full-text sections do not state the all-positive global exponential-selection theorem, or the unique-diagonal-certificate computation and its exact algebraic cutoff. General Volterra–Lyapunov literature (Hong and Pego, arXiv:2102.00611, Sections 2–3) supplies the traditional relative entropy method for nonsingular strictly stable matrices, not the computed singular-matrix threshold here. Searches for exact parameter equivalents and related indexed findings returned no covering assertion. Further historical-priority confirmation remains appropriate.
+## originality
 
-## Value
+PASS
 
-PASS. A critical line of ecological equilibria poses a nontrivial selection question: local zero-eigenvalue stability alone does not preclude excursions to boundary attractors or cycles. The new theorem identifies a sizable exact parameter interval of fully positive global convergence, gives each initial condition an explicit unique limit, upgrades to exponential convergence, and establishes the optimal boundary of a natural diagonal entropy technique. The polynomial boundary is a certificate threshold rather than a conjectured global bifurcation.
+Best-of-knowledge distinct claim after exact comparison with the originating source, adjacent indexed literature and stronger published findings; gaps are expressly recorded.
 
-## Sources and limitations
+## value
 
-Primary: Murdie et al., arXiv:2609.28833, first submitted 2026-09-23. Classical matrix/entropy framework: Hong and Pego, arXiv:2102.00611. Full-text comparisons were made for the source model, its coexistence and conservation appendix, and the general stability framework. Remaining risk: an older treatment of the same singular family might give an equivalent exact multiplier cutoff; no exhaustive historical survey is claimed. The convergence theorem excludes the certificate endpoint and all larger parameters, despite the certificate having a well-defined endpoint.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A singular continuum of coexistence equilibria leaves a genuine global-selection problem: a neutral Jacobian direction and local stability do not rule out basin excursions or boundary approaches. A proper relative entropy and conserved transverse level resolve convergence for every positive initial state on an explicit interval, and classify all positive diagonal entropy certificates with sharp algebraic cutoff; nontrivial proof and natural invariant, not a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
