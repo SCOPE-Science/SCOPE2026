@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The labeled cell transitions in the source justify the exact cubic first-descent transform. Branchwise changes of variables establish a full-branch uniform renewal entrance law, and the resulting algebraic bivariate kernel gives the exact transition eigenvalue. A square-root expansion and nonnegative-sequence Tauberian theorem establish the claimed infinite-mean physical-time tail. The accompanying reproducibility checker passes 113 finite exact-arithmetic comparisons; finite checks supplement, not replace, the infinite proof.
+PASS
 
-## Originality
+Starting uniform on one of the central dyadic cells, tau1 maps to a uniform shell of depth j with probability 2^(-j-1); tau2 switches side and enters depth 2. One-level leftward first passage of the centered (-1,+2) walk has F=z(2/3+sF^3/3), because a +2 jump requires three successive descents. Therefore H=(2z/3)/(2-F)+(zs/3)F^2. Every finite first-return itinerary is affine onto the whole return cell, preserving conditional uniformity, so excursion duration/parity pairs renew independently across returns. At z=1,s=-1, the cubic a^3+3a-2=0 gives eta=0.3564242382181135, switch prob=(1-eta)/2=0.3217878808909432; independent algebraic computation reproduced these constants. F(z,1)=1-sqrt(1-z)+O(1-z) yields 1-H=(4/3)sqrt(1-z)+O(1-z) and the nonincreasing-tail Tauberian asymptotic 4/(3sqrt(pi n)), hence infinite mean. Check is for annealed uniform entrance, not arbitrary starts.
 
-PASS within inspected evidence. Hata–Yano arXiv:2108.01332v3, Theorem 1.3 and Section 4, state the mBGI Markov cell graph and unmarked one-level first-passage transform, not the marked joint central-return/side-switch law. The related core paper arXiv:2206.00226 concerns a different map. Accessible related claims give Pelikan and other Hata-system return laws, not this signed renewal kernel. An equivalent result in unindexed fluctuation/renewal literature is a genuine residual risk; absence in search is not a uniqueness proof.
+## originality
 
-## Value
+PASS
 
-PASS. There are two natural marginal questions in the source's two-neutral-endpoint system: the physical time between central returns and the persistence of endpoint-side identity across returns. The explicit two-state renewal kernel resolves both, separating infinite-mean chronological waiting from geometric mixing in the embedded return count. The result is a complete induced statistical description for a natural junction, not a finite enumeration or parameter substitution.
+The known underlying critical first-passage cubic is not credited as novel. The oriented bivariate kernel keeping side-switch parity, the explicit two-state transition eigenvalue and independent return blocks give a distinct exactly formulated renewal statistic, not entailed by an unlabeled occupation-time or recurrence theorem in the examined evidence.
 
-## Limitations
+## value
 
-The entrance point must be Lebesgue-uniform in a prescribed central cell and future choices independent. The theorem is annealed and does not establish identical renewal laws for individual points. Time and side-switch are correlated within a return segment. It is a self-review, with no independent audit. The source's existing unmarked recurrence machinery is credited; unindexed equivalent applications remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact joint Markov-renewal law separates geometric side mixing measured in return count from infinite-mean physical return times, a natural and nontrivial distinction in null-recurrent random dynamics. The bivariate kernel gives exact return/side observables unavailable from the scalar first-passage law alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

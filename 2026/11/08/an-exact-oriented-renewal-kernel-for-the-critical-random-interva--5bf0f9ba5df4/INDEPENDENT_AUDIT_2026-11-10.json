@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:15:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-oriented-renewal-kernel-for-the-critical-random-interva--5bf0f9ba5df4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-oriented-renewal-kernel-for-the-critical-random-interva--5bf0f9ba5df4/verify.py"
+      ],
+      "rationale": "Starting uniform on one of the central dyadic cells, tau1 maps to a uniform shell of depth j with probability 2^(-j-1); tau2 switches side and enters depth 2. One-level leftward first passage of the centered (-1,+2) walk has F=z(2/3+sF^3/3), because a +2 jump requires three successive descents. Therefore H=(2z/3)/(2-F)+(zs/3)F^2. Every finite first-return itinerary is affine onto the whole return cell, preserving conditional uniformity, so excursion duration/parity pairs renew independently across returns. At z=1,s=-1, the cubic a^3+3a-2=0 gives eta=0.3564242382181135, switch prob=(1-eta)/2=0.3217878808909432; independent algebraic computation reproduced these constants. F(z,1)=1-sqrt(1-z)+O(1-z) yields 1-H=(4/3)sqrt(1-z)+O(1-z) and the nonincreasing-tail Tauberian asymptotic 4/(3sqrt(pi n)), hence infinite mean. Check is for annealed uniform entrance, not arbitrary starts.",
+      "residual_risks": [
+        "Conditional uniform full-branch return assertion is essential; not claimed for deterministic initial points.",
+        "The exact return-time asymptotic follows from monotone Tauberian theorem, not finite coefficient enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hata–Yano establishes recurrence, infinite invariant measure and Darling–Kac occupation law; a 2022 related random-dynamics-with-core work treats different induced maps."
+        ],
+        "reasoning": "General infinite ergodic recurrence does not force this exact two-side first-return kernel or its algebraic switching constant.",
+        "searches": [
+          "modified Boyarsky Góra Islam random interval map critical Markov renewal first return side switching two state cubic",
+          "https://arxiv.org/abs/2206.00226"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-oriented-renewal-kernel-for-the-critical-random-interva--5bf0f9ba5df4/RESULT.md",
+        "https://arxiv.org/abs/2108.01332",
+        "https://arxiv.org/abs/2206.00226"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The oriented H(z,s) includes signed transform H(z,-1), whose root a^3+3a-2=0 gives switching eigenvalue eta; no cited occupation-time formula contains that parity variable."
+        ],
+        "reasoning": "The older map equations are necessary starting data; extra parity labeling, first-return uniformity, and joint renewal independence require new deductions. This is best-of-knowledge, not exhaustive priority certification.",
+        "searches": [
+          "modified Boyarsky Góra Islam random interval map critical Markov renewal first return side switching two state cubic",
+          "https://arxiv.org/abs/2108.01332"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier source described the modified mBGI map and unlabeled level first-passage equation F(z,1)=z(2/3+F(z,1)^3/3)."
+        ],
+        "reasoning": "The present s-variable counts +2 moves/side flips, and H combines depth-mixed returns with initial tau2; dropping s recovers older unlabeled law, not conversely an oriented joint statistic.",
+        "searches": [
+          "modified Boyarsky Góra Islam random interval map critical Markov renewal first return side switching two state cubic",
+          "Hata Yano arxiv 2108.01332 Section 4 mBGI transition (4.1)-(4.13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results include off-critical endpoint escape 2026-10-18 and low-slope/different random maps, but no earlier ranked exact side-switch table for this model."
+        ],
+        "reasoning": "This is a continuous stochastic-map law, not a finite catalogue problem; searched mathematical formulae and published findings rather than just titles.",
+        "searches": [
+          "modified Boyarsky Góra Islam random interval map critical Markov renewal first return side switching two state cubic",
+          "Resultary critical random map first return renewal side switch"
+        ]
+      },
+      "rationale": "The known underlying critical first-passage cubic is not credited as novel. The oriented bivariate kernel keeping side-switch parity, the explicit two-state transition eigenvalue and independent return blocks give a distinct exactly formulated renewal statistic, not entailed by an unlabeled occupation-time or recurrence theorem in the examined evidence.",
+      "residual_risks": [
+        "Hata–Yano Section 4 primary full text inaccessible in this session; unindexed side-labeled derivations remain possible.",
+        "Independence is for uniform conditional entrance law only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible same-model source, unresolved full-text comparison; not enough evidence to assert whole-document noncoverage",
+          "evidence": "Prior abstract establishes occupation laws; assigned gives equations (4.1)-(4.13) for unlabeled first passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.01332",
+          "material_read": "Arxiv abstract and identifier; full HTML requests failed, source section 4 formulas cross-checked against assigned RESULT.md but original section could not be read in full",
+          "method": "Arxiv abstract and attempted OA HTML",
+          "title": "Arcsine and Darling--Kac laws for piecewise linear random interval maps",
+          "trigger": "Same exact random maps and cell transitions"
+        },
+        {
+          "assessment": "No specific oriented kernel in indexed theorem, residual full-proof risk",
+          "evidence": "At p=2/3 critical point relevant to prior, but earlier summary concerns off-critical stationary shells/escape.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-off-critical-endpoint-escape-and-two-density-thresholds-in-the-m--2bedb51254b9",
+          "material_read": "Semantic indexed summary of off-critical threshold/density, not full RESULT.md",
+          "method": "Resultary semantic search",
+          "title": "Off-critical endpoint escape and two density thresholds in modified BGI map",
+          "trigger": "Closest earlier Resultary same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-oriented-renewal-kernel-for-the-critical-random-interva--5bf0f9ba5df4/RESULT.md",
+        "https://arxiv.org/abs/2108.01332"
+      ],
+      "rationale": "The exact joint Markov-renewal law separates geometric side mixing measured in return count from infinite-mean physical return times, a natural and nontrivial distinction in null-recurrent random dynamics. The bivariate kernel gives exact return/side observables unavailable from the scalar first-passage law alone.",
+      "residual_risks": [
+        "Part of the derivation is a standard first-step/labeled-walk extension of prior recurrence machinery; the novelty is the fully specified induced statistic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Primary same-model paper section 4 not fully accessible; O is best-of-knowledge with explicit risk.",
+    "Physical-time side relaxation and nonuniform entrance laws not covered."
+  ],
+  "schema_version": 1
+}
