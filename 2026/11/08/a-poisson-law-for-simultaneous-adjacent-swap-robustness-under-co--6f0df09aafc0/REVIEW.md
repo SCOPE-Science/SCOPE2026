@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Under a common strict ranking on the receiving side, priority-order serial dictatorship is the unique stable matching, by an immediate blocking-pair induction. Conditional on any baseline available set of size \(k\), a uniform preference order and an independent adjacent swap change its first eligible choice with probability \(k/[n(n-1)]\); the numerator is proved using an exact hockey-stick binomial sum. This conditional probability is insensitive to the identities of remaining women, so the resulting baseline-pivotal indicators are independent. The first-difference argument equates absence of pivotal events with survival of the full stable matching. Finite exact enumeration for two, three and four pairs corroborates both the count distribution and the survival event. The infinite Poisson approximation follows analytically from the vanishing sum of squared Bernoulli parameters.
+PASS
 
-## Originality
+Common strict women-side priorities force serial dictatorship uniquely on both original and perturbed stable marriage. For any baseline available set R of cardinality k>=2, top two R elements of a random complete list are adjacent with probability k/n, and the uniformly chosen adjacent swap hits them with independent conditional probability 1/(n-1). Consequently stage-i pivotal events have constant conditional Bernoulli parameter k/[n(n-1)] and are mutually independent, even though R depends on earlier choices. By the first-differing stage, all pivots zero iff the entire stable matching survives. Therefore exact product PGF, Poisson-binomial law, lambda_n=(n+2)/(2n), Le Cam O(1/n), and log-Q_n=-1/2-7/(6n)+O(n^-2) follow. Independently enumerated all n=2,3 profiles and swaps and their pivot histograms, plus identities for n<=70. The n=4 archived checker is not treated as a proof of all n.
 
-**PASS, qualified.** The nearest 2026 robust stable-matching study treats common matchings and lattice/algorithmic properties when preferences change, including changes by multiple agents, but does not derive an exact random simultaneous-swap survival probability or a Poisson limit. The 2018 probabilistic perturbation study optimizes resilience to one error, not one random change per agent; the 2008 master-list treatment supplies the restricted market but not the random perturbation result. Available mathematical-search records and open primary texts did not identify a statement implying the claimed independent pivotal law. Unindexed earlier probability results and classical sequential-selection calculations are residual priority risks.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Robustness of stable allocations is a recognized problem in market design. This result identifies a structurally natural regime in which *every* proposer changes a comparison but the whole allocation remains invariant with probability approaching \(e^{-1/2}\). The independence property is substantive because the available option sets depend on earlier agents' random preferences. The exact finite-population product and Poisson limit quantify systemic sensitivity, not an arbitrary finite census.
+PASS best-knowledge: gangam et al. analyze existence, lattice, algorithms and polytopes of robust matchings under several preference changes; despite a broader structural perturbation set, they do not state a probability law with independently randomized swaps in the master-list market. Mai–Vazirani address robust design under one input error; Irving–Manlove–Scott give master-list structural uniqueness, not joint pivotal independence. Resultary returned only the same November 8 record for the exact full-market Poisson-binomial product, and related one-agent-swap work cannot entail n simultaneous independent changes. Residual unindexed random serial-dictatorship sensitivity formulas are possible.
 
-## Closest literature and limits
+## value
 
-Relevant works: Gangam–Mai–Raju–Vazirani (2026), arXiv:2601.07959v1; Mai–Vazirani (2018), arXiv:1804.00553; Irving–Manlove–Scott (2008), *Discrete Applied Mathematics* 156. The result does not extend without qualification to preferences lacking a common order, biased swap distributions, dependent agents, or repeated edits. The pivotal count is intentionally distinguished from changed-partner count.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Simultaneous local perturbations of all proposers are a natural stress test for an otherwise uniquely stable master-priority allocation. The exact all-market survival probability e^-1/2 and independent pivotal-event law are nontrivial stochastic sensitivity information not supplied by robust-existence or one-error algorithms. Exact finite product and asymptotic rate are useful across market sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
