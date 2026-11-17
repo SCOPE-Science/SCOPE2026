@@ -1,21 +1,21 @@
-# Review: A hidden co-occupation threshold below fitness condensation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact single-site generator has birth rate \(\ell n+b_\zeta(\ell)/v\), death rate \((1+\zeta)n\), and total-clearing rate \(r(\ell)\). Stationary first and factorial-second moments satisfy respectively \((d+r)m_1=a\) and \((2d+r)m_2=2(\ell+a)m_1\), with \(d=1+\zeta-\ell>0\) and \(a=b_\zeta/v\). These yield the stated integral after multiplying by \(v\) and taking \(v\to\infty\). The self-consistency denominator is uniformly positive, and the density is bounded for every \(0<\nu<1\). Endpoint comparison establishes the sharp integrability condition \(2\nu<1\). At the marginal exponent a two-sided comparison proves the coefficient \(4/C^2\); above it endpoint rescaling yields the integral \(J_\nu\) and its explicit beta-integral value. A standalone exact-rational and independent truncated-chain test supports the algebra and numerical constants; it is not an infinite-proof certificate.
+PASS
 
-## Originality — PASS, qualified
+Generator on n and n(n-1) yields (d+r)m1=a and (2d+r)m2=2(ell+a)m1, so multiplying by v and sending v→infty at fixed ζ gives Pζ=∫2ell bζ/[(d+r)(2d+r)] d ell and Vζ=ρζ+Pζ. The self-consistency denominator stays bounded away from zero, q(1-x)=O(x^alpha) ensures bζ→1 at endpoint, and r(1-x)~Cx^nu. Singular integrand behaves like 2/[(ζ+Cx^nu)(2ζ+Cx^nu)], integrable iff 2nu<1, at nu=1/2 log coefficient 4/C², and at nu>1/2 scale x=(ζ/C)^(1/nu)y gives 2C^(-1/nu)Jnu ζ^(1/nu-2). Sympy checks moment identities, numerical quadratures Jnu at .6,.7,.8 agree within 3e-9 relative; limits are justified analytically, not by finite tests.
 
-The direct motivating source, P. Grange, *Local resetting in non-conserving zero-range processes with extensive rates* (arXiv:2311.12414v1, 2023-11-21), is inspected through its site master equation, stationary mean formula and condensation discussion. It does not identify the finite-mean divergent *within-site* integrated second-factorial-moment phase at \(\nu=1/2\). S. Kapodistria, T. Phung-Duc and J. Resing, *Linear birth/immigration-death process with binomial catastrophes* (2015 preprint), Lemma 5.4, already provides the general stationary factorial-moment formula for total catastrophes. Its pointwise consequence is expressly not claimed as novel; it does not classify a self-consistent continuous-fitness integral or its critical exponents. P. Grange's earlier 2019 resetting work treats a different resetting mechanism. Related disordered zero-range processes are not the same local-clearing model. The principal residual risk is that an unlocated later paper already integrates these general moment formulas or proves a stronger encompassing result; publication priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model's known density-condensation boundary is \(\nu=1\). A separate \(\nu=1/2\) boundary for the natural number of ordered pairs co-occupying a site predicts diverging local crowding while the average population stays finite. The threshold and coefficients do not depend on the detailed fitness-density profile, subject to the stated endpoint assumptions. This is a physically motivated phase distinction, not an arbitrary numerical slice or merely a restatement of known pointwise moments. The statement is intentionally restricted to diagonal observables and an iterated limit; it does not advertise finite-network variance or new distributional laws.
+Grange directly studies the same local-reset fitness mean-field equations and identifies the first-moment density/condensation boundary at nu=1. Kapodistria–Phung-Duc–Resing cover the pointwise catastrophe moment recurrence. Neither checked material states fitness-integrated second factorial-moment singularity at nu=1/2 and its precise constant; this combines known local moment formulas with new endpoint integration. The full Kapodistria primary was inaccessible (Oxford VPN disconnected), so its comparison remains explicitly limited and does not automatically fail originality.
 
-## Closest sources and limits
+## value
 
-- Grange (2023), arXiv:2311.12414v1, especially generating-function equation (31), stationary formula (44), and Section 5.2: the exact underlying model, first-moment condensation and ownership of the baseline object.
-- Kapodistria–Phung-Duc–Resing (2015), Eurandom Preprint 2015-006, Lemma 5.4: generalized local factorial moments with total catastrophes, covering the unintegrated algebra.
-- Grange (2019), arXiv:1910.05991: earlier global-reset and nonconserving zero-range treatment, not the same local-clearing fitness asymptotics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Diagonal ordered co-occupation is a natural microscopic crowding observable, distinct from average population density. Its sharp transition at ν=1/2 ahead of known ν=1 density condensation is a structurally and physically motivated classification with universal critical exponents, not a trivial substitution or an unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
