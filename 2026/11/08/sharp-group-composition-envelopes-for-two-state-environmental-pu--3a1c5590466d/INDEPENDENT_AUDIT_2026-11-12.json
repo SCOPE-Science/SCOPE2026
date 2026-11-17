@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:50:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a hyperedge with frozen cooperator fraction p, q -> p^2+(p-p^2)q is contractive because 1-p+p^2>=3/4; its unique fixed point is h=p^2/(1-p+p^2). h<=p holds from p-h=p(1-p)^2/(1-p+p^2). The lower supporting line 1-(1-p)/D(u), u=floor(g/2)/g, lies below h(j/g) because D minimized at u (and 1-u for odd g). h is strictly convex on [0,1/2], and the last supporting segment slope 1/D(u) is no lower than the preceding derivative. Jensen then yields the polygonal sharp lower envelope. Mixtures of segment endpoints attain it; upper envelope attained by all-defector and all-cooperator edges. Independent exact-rational convex-hull construction for every 2<=g<=120 found exactly j=0,...,floor(g/2) and g as extreme lower vertices, while odd g has an additional collinear contact at floor(g/2)+1. Exact four-person witnesses gave 2/3<9/13<3/4. Limitations: distributional sharpness not guaranteed for any specified connected hypergraph, only fixed strategies and the two given exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei et al. study coevolution and Monte Carlo effects of sensitivity parameters rather than fixed-strategy occupation envelopes.",
+          "Related finite-hyperedge bias result treats binomially random cooperator groups and a different threshold for generic beta, not the all-distribution sharp hull."
+        ],
+        "reasoning": "The generic convexification principle is acknowledged and does not itself give the exact g-specific contacts without analyzing h. No published stronger envelope found in bounded checks.",
+        "searches": [
+          "Resultary: stationary cooperator fraction group occupancy envelope 1 2 public goods",
+          "Resultary: finite hyperedge environment bias threshold logarithmic sensitivity",
+          "https://arxiv.org/html/2603.22967v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.22967v1",
+        "https://arxiv.org/abs/1905.10269",
+        "Resultary semantic search for public-goods occupancy envelopes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wei et al. Model Section 2.3 Eq.(6),(7) specifies transition rule; results and conclusion analyze evolving cooperation and payoffs without this stationary-allocation extremum.",
+          "The source calculation h(p) is one scalar stationary equation, while the new all-g supporting line comes from D(p)=1-p+p^2 minimized at floor(g/2)/g and the odd adjacent contact."
+        ],
+        "reasoning": "Prior equations provide the starting model, not the exact sharp occupancy lower hull, equality supports or realization of both improvement and worsening at m=3/4. Broad convex-hull theory is method, not an identical table or result.",
+        "searches": [
+          "https://arxiv.org/html/2603.22967v1",
+          "https://arxiv.org/abs/1905.10269",
+          "Resultary finite hyperedge environment bias threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei et al. Eqs.(6)-(7) give conditional probabilities p^alpha1, p^alpha2; fixing alpha1=1,alpha2=2 yields h(p)=p^2/(1-p+p^2).",
+          "The new theorem computes the entire lower convex envelope of the discrete values h(j/g), and the upper concave envelope m."
+        ],
+        "reasoning": "The stationary two-state identity is standard; solving its discrete lower hull for arbitrary g with parity-dependent contact sets is the asserted result, rather than a rewording of the transition kernel.",
+        "searches": [
+          "Resultary: two-state environmental public goods game hypergraph stationary high state cooperator composition exact lower convex envelope alpha 1 2",
+          "https://arxiv.org/html/2603.22967v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is a closed formula for all integer g>=2 and all real means m; it is not a finite enumerated table.",
+          "Finite group profiles and small-g examples are verification samples only."
+        ],
+        "reasoning": "No known exact data table or database was found that contains this universal polygonal hull and equality classification; absence of hits is not novelty proof.",
+        "searches": [
+          "Wei et al. 2026 high value group composition tables",
+          "Resultary: stationary occupancy lower hull parity"
+        ]
+      },
+      "rationale": "The full Wei hypergraph primary model is broader dynamically but has no fixed-composition g-dependent stationary lower hull; no exact or stronger published Resultary match was identified after mathematical parameter comparison. Generic Markov and convexification tools are acknowledged.",
+      "residual_risks": [
+        "A generic convex-order theorem may subsume the method, though no already evaluated model-specific all-g hull was found.",
+        "Full primary literature comparison for all extensions of finite-population game-state mixing is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides Eqs 6-7 and dynamical simulation context; does not state stationary discrete-allocation envelopes",
+          "evidence": "Section 2.3 transition probabilities (p^alpha1,p^alpha2), Section 4 describes coevolving feedback rather than fixed-composition extremal distribution.",
+          "identifier_or_url": "https://arxiv.org/html/2603.22967v1",
+          "material_read": "Full HTML model (Sections 2.1-2.3), simulations Section 3, conclusion Section 4, text searches for convex/stationary",
+          "method": "ArXiv HTML read",
+          "title": "Cooperation in Public Goods Games over Uniform Random Hypergraphs with Game Transitions",
+          "trigger": "Primary source defining exactly the environmental switching kernel"
+        },
+        {
+          "assessment": "C analysis supports a specific group-size-dependent envelope beyond standard stationary-chain formula",
+          "evidence": "Steps 1-5: marginal stationarity, h<=p, global lower supporting line, lower polygon convexity and Jensen sharpness.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-group-composition-envelopes-for-two-state-environmental-pu--3a1c5590466d/RESULT.md",
+          "material_read": "Full RESULT.md and exact-rational checker code",
+          "method": "Frozen GitHub source read",
+          "title": "Sharp group-composition envelopes for two-state environmental public-goods games",
+          "trigger": "Assigned source mathematical scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A meaningful model-specific structural classification: for every finite hyperedge size, it determines which cooperator-count compositions minimize and maximize long-run resource quality at a given aggregate cooperation level, with a parity-specific contact degeneracy and explicit arrangement reversals. The two-state stationary equation and Jensen are elementary, but the exact all-g supporting hull and equality cases are a potentially reusable group-allocation invariant, not a software-only restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific review, not an independent external attestation or general historical priority certification.",
+    "Publication not ready owing to privacy-safe public metadata replacement requirements; no upstream changes made.",
+    "A generic convex-order theorem may subsume the method, though no already evaluated model-specific all-g hull was found.",
+    "Full primary literature comparison for all extensions of finite-population game-state mixing is not exhaustive."
+  ],
+  "schema_version": 1
+}

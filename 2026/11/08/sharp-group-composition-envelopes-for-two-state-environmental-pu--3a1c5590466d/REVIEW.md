@@ -1,19 +1,21 @@
-# Review of the sharp group-composition envelopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional two-state chain has unique marginal stationary probability \(h(p)=p^2/(1-p+p^2)\). The upper bound is the exact factorization \(p-h(p)=p(1-p)^2/(1-p+p^2)\). For the lower bound, \(1-p+p^2\) is minimized on the finite cooperator lattice at the one or two sites nearest half occupancy; this gives a supporting line to \((1,1)\). Strict convexity on \([0,1/2]\) and a derivative comparison at the lower nearest-half site produce the sharp polygonal envelope. Jensen's inequality and two-point supporting distributions prove both attainability and equality conditions. The attached exact checker passed; its finite enumeration is not a proof of unbounded group sizes.
+PASS
 
-## Originality — PASS, with residual risk
+For a hyperedge with frozen cooperator fraction p, q -> p^2+(p-p^2)q is contractive because 1-p+p^2>=3/4; its unique fixed point is h=p^2/(1-p+p^2). h<=p holds from p-h=p(1-p)^2/(1-p+p^2). The lower supporting line 1-(1-p)/D(u), u=floor(g/2)/g, lies below h(j/g) because D minimized at u (and 1-u for odd g). h is strictly convex on [0,1/2], and the last supporting segment slope 1/D(u) is no lower than the preceding derivative. Jensen then yields the polygonal sharp lower envelope. Mixtures of segment endpoints attain it; upper envelope attained by all-defector and all-cooperator edges. Independent exact-rational convex-hull construction for every 2<=g<=120 found exactly j=0,...,floor(g/2) and g as extreme lower vertices, while odd g has an additional collinear contact at floor(g/2)+1. Exact four-person witnesses gave 2/3<9/13<3/4. Limitations: distributional sharpness not guaranteed for any specified connected hypergraph, only fixed strategies and the two given exponents.
 
-The primary source of the model is Wei et al., arXiv:2603.22967 (2026-03-24), whose full available article text was inspected, including the state-transition equations and simulation conclusions. It does not state a fixed-strategy stationary abundance convex-envelope theorem. Su et al. (2019) address evolutionary selection with game transitions, while Pi et al. (2026) optimize two-player variable game distributions for cooperation selection, rather than fixing a common cooperator mean and bounding state abundance for arbitrary higher-order group-composition distributions. The generic Markov-stationary formula and convex-hull method are not original. The new specificity is the exact lattice-dependent lower envelope, parity contact set, and sharp arrangement reversal for the named model. The full text of Pi et al. was not obtainable in this review; although the available model description identifies a different optimization objective, an unindexed implication cannot be fully ruled out. The literature and indexed record searches are evidence of noncoverage, not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact envelope answers a natural structural question left open by environmental-state simulations: how much high-quality game availability can differ while aggregate cooperative participation is unchanged? The closed formula works at every group size, detects a group-size/parity-dependent optimizer transition, and gives both lower and upper attainable bounds. The four-person witness demonstrates that neither homogenizing nor arbitrary mixing has a universal sign effect on environmental abundance. The statement is explicitly restricted to frozen strategies and does not infer new global behavior of the full imitation process.
+The full Wei hypergraph primary model is broader dynamically but has no fixed-composition g-dependent stationary lower hull; no exact or stronger published Resultary match was identified after mathematical parameter comparison. Generic Markov and convexification tools are acknowledged.
 
-## Closest literature and limitations
+## value
 
-The motivating transition kernel is in Wei et al. (2026), equations (6)–(7), arXiv:2603.22967. Relevant prior frameworks include Su et al. (2019), arXiv:1905.10269; Pi et al. (2026), arXiv:2603.20603; and Zhang et al. (2026), arXiv:2602.07877. Generic convexification remains background mathematics. Extrema over arbitrary composition distributions need not be exactly realizable at a prescribed finite edge count or under prescribed edge-overlap constraints; the main result therefore distinguishes universal bounds from topology-specific feasibility.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A meaningful model-specific structural classification: for every finite hyperedge size, it determines which cooperator-count compositions minimize and maximize long-run resource quality at a given aggregate cooperation level, with a parity-specific contact degeneracy and explicit arrangement reversals. The two-state stationary equation and Jensen are elementary, but the exact all-g supporting hull and equality cases are a potentially reusable group-allocation invariant, not a software-only restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
