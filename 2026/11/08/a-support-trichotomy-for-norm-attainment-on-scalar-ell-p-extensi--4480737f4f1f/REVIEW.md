@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The norm bound is an exact consequence of the difference operator estimate \(\|A\|=2\) and the positive probability functional bound \(\|L_a\|=1\). Finite-support vectors with one far-out sign reversal saturate the difference norm while their functional values approach one for every summable probability sequence, establishing sharpness independently of a finite truncation. The bidual identification and formula follow from elementary \(\ell_1\) duality and finite-sum biduality. For finite \(p\), attaining the sum norm requires *both* components to attain their individual bounds, and positive weighted averaging forces all supported coordinates to share one sign. This yields the complete finite/proper-infinite/full support trichotomy. The endpoint argument uses an exact maximum norm and a cited published theorem. No probabilistic, asymptotic-numerical, or unproved lemma is required.
+## correctness
 
-## Originality — PASS (qualified)
-Dantas–Jung–Martín, arXiv:2609.00794, Theorem 3.3 and Remark 3.4 prove the universal property for \(c_0\) and \(c_0\)-sums. Their Theorem 5.1 proves destruction by *some* equivalent norm on each infinite-dimensional space, not a quantifier over every near-isometric neighborhood of the original norm. Our statement treats the explicit one-coordinate \(\ell_p\) renorming family with distortion tending to one, and classifies norm attainment of the operator and its second adjoint in terms of the support of the positive functional. Nearby indexed results on positive rank-one maps and convolution graphs concern quasi-norm-attainment in different target geometries, not this sharp bidual classification. Full texts for some nearby indexed records were not accessible in this review; a broader priority result is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The theorem pinpoints the stability boundary of an active Banach-space property: the original \(c_0\) geometry enjoys universal second-adjoint attainment but arbitrarily close one-scalar \(\ell_p\)-renormings do not. The exact three-stratum support classification distinguishes ordinary, bidual-only, and absent norm attainment in a single naturally parameterized family, and the contrast persists for all finite exponents while disappearing at the maximum-norm endpoint. It is not claimed as a classification of arbitrary renormings or as an improvement over the scope of the published universal equivalent-renorming theorem.
+For x∈c0 with sup norm M and t scalar, ||T(x,t)||_p^p<= (2^p+1)M^p <=(2^p+1)||(x,t)||_p^p. Finite vectors +1 on indices 0..N and -1 at N+1 give ||Dx||∞=2 and Σa_nx_n→1, proving exact norm; bidual acts with identical coordinate formulas on ℓ∞⊕_p R. Equality forces t=0, ||Dx||∞=2 and |Σa_n x_n|=1. Positivity makes all positive-weight coordinates equal a common sign of modulus 1. For full support bounded x is constant on every index, so cannot have ||Dx||∞=2; if a_k=0, flip x_k in ℓ∞ to realize bidual norm. If support is infinite, no c0 vector can have |Σa_n x_n|=1; if finite, a finite sign-reversal beyond support realizes both. Endpoint p=∞ is max{2,1}=2 and X∞ isometric c0; distortion 2^(1/p)→1. Independent direct equality reasoning covers p=1 and arbitrary infinite support; code is finite diagnostic only.
 
-## Priority qualifications and limitations
-A classical generic renorming argument could conceivably imply local instability by an unrecognized reduction. The comparison with published near-attainment records is currently based on searchable scientific summaries rather than complete primary texts; this is a priority limitation, not an asserted proof of uniqueness. The research is limited to real Banach spaces, nonnegative probability sequences, and one scalar \(\ell_p\)-summand.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for exact all-support trichotomy and explicit counterexample with renorming distortion arbitrarily close to one. Prior primary Theorems 3.3 and 5.1 give respectively the isometric c0 endpoint and existence of some renorming failure but do not imply the quantitative near-isometric boundary and exact operator classification. Other published support-pattern examples for different norms/operators do not alone imply this claim.
+
+## value
+
+PASS
+
+The phenomenon sharply tests stability of second-adjoint norm attainment: any nonzero finite distortion from c0 can destroy a property universal at the exact c0 norm, and the support trichotomy separates original/bidual outcomes. Although elementary in technique, these are motivated structural boundary cases and exact formulas for a natural scalar-extension operator, not arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
