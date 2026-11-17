@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_two_erasure.py` using standard Python 3. The checker constructs each original chirp explicitly, erases two coordinates, computes every nonzero cyclic autocorrelation directly, and compares its squared sum against the closed character-sum formula. Across odd primes through \(17\), every root and nonzero erasure spacing is tested for two translated origin choices. Independent unnormalized discrete Fourier fourth-moment calculations check the Parseval formulation. Exact formula root-energy multisets are compared across spacings for primes through \(53\); selected larger prime lengths test the analytic sharp lower-bound gap numerically.
+## correctness
 
-The verifier's successful execution produced:
+PASS
 
-`DOUBLE_ERASURE_CHIRP_PASS direct_cases=1112 fourth_moment_cases=100 spacing_primes=15 asymptotic_samples=[(101, 1.2812001), (103, 0.4872084), (197, 0.3731894), (199, 0.2807136), (401, 0.2294763), (409, 1.1960422), (1009, 0.5963846), (1013, 0.0196423)]`
+The frozen RESULT.md erasure inclusion-exclusion expresses all nonzero-lag correlations in a factored cosine product, with two exceptional lags corrected separately. Expanding its squared moduli produces the displayed Gauss sum G_p(u) and the exactly stated congruence-class formula, and square scaling r=u d^2/4 proves spacing invariance. Pólya-Vinogradov via quadratic-character Fourier transforms supplies both residue signs within O(sqrt(p)log p) intervals, giving the asymptotic O((log p)^2/sqrt(p)) error. Direct independent complex autocorrelation for primes 3,5,7,11,13 and all roots with d=1 agreed numerically to <1e-6; this only corroborates the exact all-prime proof.
 
-The displayed asymptotic sample values are the observed nonnegative excesses over the sharp lower bounds; they are not the theoretical \(O((\log p)^2/\sqrt p)\) constant. Floating-point tolerances are explicit in the checker. Finite computations cannot prove the theorem for untested primes. The exact identity follows by an analytic inclusion-exclusion and quadratic Gauss-sum calculation; the uniform asymptotic uses the classical quadratic character and an interval Fourier estimate proved in `RESULT.md`. No formal independent audit or external verification is claimed.
+## originality
+
+PASS
+
+PASS best of knowledge: The primary Gregoratti–Arteaga–Broquetas paper establishes perfect periodic Zadoff–Chu autocorrelation, Fourier phases and OFDM continuous-time properties for full sequences, not exactly two fully erased cyclic positions or their all-root integrated squared sidelobe spectrum. Resultary one-erasure work concerns a distinct deletion count. The submitted exact two-erasure Gauss-sum formula and sharp two-prime-class minima are not a restatement of those claims. Residual risk remains from specialized partial-period / punctured-sequence engineering literature not fully retrieved.
+
+## value
+
+PASS
+
+The integrated squared periodic sidelobe energy after two complete erasures is a natural code-degradation invariant; the exact spectrum, spacing invariance, and different prime-class sqrt(p) savings could be used in cyclic correlation design and are not merely a renaming or trivial single-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
