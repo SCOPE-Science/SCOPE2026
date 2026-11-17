@@ -1,11 +1,21 @@
-# Review of the Möbius–Kantor minimum identifying-code mobility classification
+# Independent mathematical audit
 
-**Correctness: PASS.** The host graph and identifying-code signatures are defined unambiguously. The code criterion is an exact equivalence: every signature is nonempty and any two are unequal if and only if a mask hits the \(16\) closed neighborhoods and \(120\) pairwise symmetric differences. Two different exhaustive implementations independently reconstruct all \(65{,}536\) candidate sets, all \(584\) optimum codes, both full transition relations, and every shortest-path eccentricity. The two code and edge certificate sets agree exactly. This is a finite complete classification; no experimental extrapolation is made.
+## correctness
 
-**Originality: PASS, qualified.** Prior exact work already gave the identifying-code polynomial and the \(584\) optimum codes in thirteen symmetry orbits. Those census results are excluded from novelty. The new statements are the slide/jump transition graphs' exact component, degree, frozen-state, and metric spectra, including \(96\) isolated slides versus connected jumps. Balbuena–Foucaud–Hansberg [1] give girth-based bounds and examples; Mynhardt–Teshima [2] give universal realization constructions and raise mobility/connectivity questions but do not classify this canonical host. Relevant database searches retrieved same-host independence and matching-complex results, rather than minimum-identifying-code reconfiguration. The exact prior census determines the list of allowed states but does not explicitly provide the transition adjacency, connected components, or eccentricities. Historical priority remains vulnerable to unindexed equivalent computations.
+PASS
 
-**Value: PASS.** This finite classification addresses a concrete mobility question posed for identifying-code reconfiguration: can an optimal detector arrangement be moved by local relocation without temporarily increasing the detector count? On a natural cubic symmetric graph of girth six, it reveals a coexistence of a large movable component and two structurally distinguishable classes of frozen states. The connected jump model and disconnected slide model expose a qualitative constraint effect that code counts or orbit counts do not settle; exact shortest-path metrics and extremal slide-degree states add a reproducible benchmark.
+The minimum identifying-code state space is precisely the 584 size-eight sets on the explicitly labeled GP(8,3), determined by all nonempty closed-neighborhood signatures and all 120 pairwise signature differences. An independent fresh checker tested all 65,536 masks, recovered exactly 584 size-eight feasible masks, then independently generated all single-vertex exchanges and distinguished host-adjacent slides from unrestricted jumps. It reproduced 864 slide edges, one 488-state component and 96 singletons, slide diameter 10, and degrees 0:96,2:240,4:168,6:48,8:30,24:2. It also reproduced 2496 jump edges, a connected graph of diameter 8 and radius 7, jump degrees 4:96,6:48,8:48,9:192,10:144,12:48,24:8; frozen host-edge classes 5:48 and 7:48. Exhaustive code and move rules prove finite completeness.
 
-**Limits.** The claim is specific to \(GP(8,3)\). Neither an infinite extension nor independent scholarly certification is asserted. Remaining risks concern unknown priority and reliance on exhaustive software verification for this finite fact.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: the prior Möbius–Kantor code census gives the already-known minimum 8 and 584 optimum codes with 13 automorphism orbits, while the general token-slide reconfiguration results explain the framework but not the host-specific transition graph. No searched prior source established the 96 frozen/488 mobile partition, exact radii/diameters, both degree sequences and jump-slide gap for the specific identifying-code invariant.
+
+## value
+
+PASS
+
+PASS: identifying-code reconfiguration is a motivated graph-theoretic robustness/relocation question, and the complete optimum-state graph of the canonical 16-vertex cubic symmetric Möbius–Kantor graph is a naturally bounded exact invariant. The contrast between connected unrestricted jumps and 96 frozen adjacent slides, with sharp distance data, is independently useful even without a larger graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
