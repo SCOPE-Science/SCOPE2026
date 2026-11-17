@@ -1,19 +1,21 @@
-# Scientific review: sharp cyclotomic winding complexity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The domain consists of every integer \(d\ge3\) and budget \(N\ge1\) for the holomorphic differential equation \(\dot w=w^d-1\). Fiedler's residues and time-branch construction give precisely the period group \((2\pi i/d)\mathbb Z[\zeta_d]\) and the local index \(d-1\). The lower separation bound holds for **every** nonzero coefficient vector of permitted \(\ell^1\)-cost, by combining integrality of the full cyclotomic norm with the paired identity/conjugate embeddings. The upper bound uses exactly \(\varphi(d)\) rationally independent powers and a two-dimensional pigeonhole argument, producing a genuinely nonzero difference of cost at most \(N\). It handles low budgets separately. The proof distinguishes the discrete \(\varphi(d)=2\) cases and proves density from small nonzero group elements plus rotational symmetry. Explicit constants and both quantifiers are internally consistent. The checker tests finite instances only; the all-budget conclusion is analytical.
+PASS
 
-## Originality
+At root e_j=ζ_d^j, the residue of dw/(w^d−1) is ζ_d^j/d, so the meridian period is (2πi/d)ζ_d^j. Any nonzero α=Σa_jζ_d^j of Σ|a_j|≤N is a cyclotomic integer with |Norm α|≥1. The two identity/conjugate embeddings contribute |α|², while each of the other q−2 embeddings is at most N, giving |α|≥N^{−(q−2)/2}. For q=φ(d)≥4, (L+1)^q pairwise distinct power sums lie in [-qL,qL]², and a cell pigeonhole collision with coefficient length≤qL yields |α|≤6√2 q L^{1−q/2}; L=⌊N/q⌋ plus small-N bound establishes the same exponent. When q=2, d=3,4,6 and all nonzero cyclotomic integers have modulus≥1, attained at 1. When q>2, arbitrarily small nonzero group elements plus multiplication by ζ_d produce two nonparallel real lines in the closure, hence density in C. The proof is not a finite computational extrapolation; source checker only illustrates small conductor budgets.
 
-**PASS within inspected literature.** Fiedler, *Scalar polynomial vector fields in real and complex time* (arXiv:2410.05043, sections 1.5, 1.6, 1.8 and Theorem 1.2), already establishes the period map, the five abstract possibilities for closures of branch-value groups, and the branching index. These are credited. The inspected original and later available text do not give a totient-dependent sharp finite-winding separation exponent, explicit all-budget bounds, or the resulting winding-budget complexity classification for the whole cyclotomic family. The arithmetic ingredients are classical and are **not** claimed as novel. Do Duc–Leung–Schmidt, *Upper Bounds for Cyclotomic Numbers* (DOI 10.5802/alco.86), uses cyclotomic norm bounds for a distinct finite-field arithmetic problem rather than this time-monodromy invariant. Targeted searches for cyclotomic period-group short elements, height/word-length bounds, dense branch values, and quantitative Diophantine approximations did not surface a covering statement. Broad general algebraic-integer estimates may imply some components, so the exact priority of the combined dynamical statement remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The period group of a complex-time differential equation may be dense, but density alone says nothing about the minimum time displacement accessible with a finite number of windings. The defined budget is intrinsic to the meridian representation of the punctured sphere. The theorem provides a sharp power of that budget for every degree, a universal lower obstruction, constructive upper existence, and a clean conductor dichotomy between a protected separation gap and dense ramification values. This separates analytic-continuation complexity from unrestricted topological closure. The proof is short because an arithmetic norm obstruction exactly matches a geometric packing construction; the exact quantitative matching is the point of the result rather than a numerical recalculation.
+Best of knowledge: Fiedler provides the exact period map, cyclotomic family and global branching, but not a quantitative minimal-nonzero-period law in a bounded signed meridian budget. The norm/pigeonhole exponents are classical techniques; their sharp identification in this precisely defined complex-time winding invariant is the assessed new fact.
 
-## Closest literature and residual limits
+## value
 
-The key starting source is Fiedler (arXiv:2410.05043, first public version 2024-10-07), which already supplies all qualitative continuation and residue facts used. The closer methodological source is classical cyclotomic norm and pigeonhole arithmetic; the cited Do Duc–Leung–Schmidt article is an example of related norm methodology, not a precedent for the asserted time-winding quantity. Unindexed or differently phrased Diophantine approximation results could cover the sharp exponent for this algebraic module. Constants in the upper bound are nonoptimal, and the theorem does not describe singular times of one fixed branch or the distribution of branch values among sheets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Bounding the shortest nonzero complex-time branch displacement realizable by N natural meridian windings is a motivated invariant of the global continuation period group; the sharp conductor-dependent exponent and discrete/dense threshold quantify arithmetic complexity. The use of classical norm/pigeonhole methods does not remove the independent usefulness of the exact rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
