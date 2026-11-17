@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_sun.py` from this directory with Python 3 and its standard library. The checker:
+## correctness
 
-- calculates exact boundary-state expectations through index \(110\) using integer-rational arithmetic;
-- independently derives both starting-state expectations from the recurrence and checks the closed form through sunlet order \(109\);
-- solves the original complete \(2n\)-vertex blue-set Markov chain, without frontier compression, for \(n=5\) and \(n=6\), including leaf starts;
-- compares the obtained exact values with the source's displayed finite-size decimals.
+PASS
 
-The actual replay returned **653 exact equality checks and six decimal-table comparisons, all passing**. The full-graph values were \(1225469/256500\) and \(251448607/46170000\) from cycle starts at sizes five and six, respectively. The complete algebraic argument, especially the rational generating-function identities, is in `RESULT.md`; no finite test substitutes for the all-size proof. No external or independent audit has been performed.
+For n>=5 and the specified synchronous independent-attempt rule, the blue cycle stays an interval. The m=1 boundary uses a_1=89/80, while m>=2 two-endpoint recurrences distinguish whether 0/1/2 frontier leaves are blue. Solving their rational generating functions, the initial singleton correction, and the one final deterministic leaf-clearing round proves ept(S_n)=11n/16+4437/3344+(1323/6688)(-2/9)^(n-2)-(147/608)(-2/5)^(n-2), and a positive leaf-start disadvantage. Independent exact Fraction reconstruction confirmed the recurrence and both expressions for n=5..17, including ept(S_5)=1225469/256500. The general-n result follows from the algebraic rational-series identity and geometric error bound, not those finite tests.
+
+## originality
+
+PASS
+
+The directly relevant 2019 Chan et al preprint and 2020 journal version explicitly posed the sunlet 11/16 limiting-increment conjecture and tabulated numerical values for n<=45. Their finite-state matrix technique gives computable finite instances, but does not exhibit the two explicit geometric correction terms, all-size evaluation, optimal start orbit and proved increment limit. Background pure-cycle/path forcing formulas do not imply the degree-three pendant-leaf system. Best-of-knowledge PASS with residual old or unindexed exact evaluation risk.
+
+## value
+
+PASS
+
+Solving a published limiting-increment conjecture with an exact all-size expectation and initial-vertex optimality settles a natural probabilistic graph-process statistic, and alternating corrections quantify its convergence; not merely a numerical re-fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

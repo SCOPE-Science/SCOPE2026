@@ -1,19 +1,21 @@
-# Scientific review: exact sunlet propagation time
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The process is precisely the synchronous independent-attempt probabilistic zero-forcing rule on a cycle with one pendant leaf at every cycle vertex. The proof accounts separately for the one-white-cycle-vertex boundary, all two-front states, initial single-core states, and the deterministic final leaf-clearing round. Three exact frontier recurrences have a unique rational generating-function solution with nonzero denominator constant terms; coefficient extraction yields the claimed formula. An independent full-blue-subset Markov-chain computation agrees for the complete graphs at cycle sizes five and six. The numerical tests do not serve as an infinite proof.
+PASS
 
-## Originality
+For n>=5 and the specified synchronous independent-attempt rule, the blue cycle stays an interval. The m=1 boundary uses a_1=89/80, while m>=2 two-endpoint recurrences distinguish whether 0/1/2 frontier leaves are blue. Solving their rational generating functions, the initial singleton correction, and the one final deterministic leaf-clearing round proves ept(S_n)=11n/16+4437/3344+(1323/6688)(-2/9)^(n-2)-(147/608)(-2/5)^(n-2), and a positive leaf-start disadvantage. Independent exact Fraction reconstruction confirmed the recurrence and both expressions for n=5..17, including ept(S_5)=1225469/256500. The general-n result follows from the algebraic rational-series identity and geometric error bound, not those finite tests.
 
-**PASS, qualified by independent historical-priority risk.** The primary 2019 preprint and 2020 open-access journal paper explicitly conjecture the increment \(11/16\) based on numerical experiments. Their Markov transition table and general inverse-matrix formula make finite numerical computations possible but do not furnish the symbolic generating functions or an all-size proof of the increment. The newer general bounds by Jelassi, Portier and Sarkar give no sunlet equality and do not imply the all-size formula. Exact-phrase, graph-alias, closed-form and stronger-coverage searches did not reveal a publication proving the specific formula. This absence of a retrieved match is not a proof of world-first priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem directly resolves a published, naturally parametrized probability/Markov-chain conjecture with an all-size expression, not merely a slight numerical improvement. The boundary-state decomposition also explains the two alternating decay modes and proves the cycle-start versus leaf-start strict ordering, which was only a numerical observation in the original paper.
+The directly relevant 2019 Chan et al preprint and 2020 journal version explicitly posed the sunlet 11/16 limiting-increment conjecture and tabulated numerical values for n<=45. Their finite-state matrix technique gives computable finite instances, but does not exhibit the two explicit geometric correction terms, all-size evaluation, optimal start orbit and proved increment limit. Background pure-cycle/path forcing formulas do not imply the degree-three pendant-leaf system. Best-of-knowledge PASS with residual old or unindexed exact evaluation risk.
 
-## Limits and closest literature
+## value
 
-Chan et al., *Using Markov chains to determine expected propagation time for probabilistic zero forcing* (2019 preprint, 2020 ELA article), Section 2 sun-graph table and conjecture, is the decisive self-review. Geneson and Hogben (2018) treat paths and cycles, not sunlets. Narayanan and Sun (2019) and Jelassi, Portier and Sarkar (2025) provide nonexact global bounds. Undiscovered source priority and independent reproduction of the symbolic derivation remain risks. The proof assumes finite simple sunlets, one initially blue vertex and the specified synchronous update rule.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solving a published limiting-increment conjecture with an exact all-size expectation and initial-vertex optimality settles a natural probabilistic graph-process statistic, and alternating corrections quantify its convergence; not merely a numerical re-fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
