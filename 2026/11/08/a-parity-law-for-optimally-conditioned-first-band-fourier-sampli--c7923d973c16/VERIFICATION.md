@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Install Python 3 with NumPy (see `requirements.txt`); execute `python CHECK.py` from the package root. The actual packaged run gave:
+## correctness
 
-```
-CHECK_OK assertions= 463 max_d_direct=8 max_d_formulas=44
-```
+PASS
 
-The checker independently builds complete complex Fourier matrices on every ternary sphere for dimensions four through eight (rather than computing Gram entries only from the claimed formulas), compares full eigenvalue multisets with the two-by-two block formula, and checks exact integer count and moment identities. It also verifies the claimed best radius and exact condition-number expressions for each dimension from four through forty-four. These finite tests are not exhaustive for all dimensions. The manuscript supplies the general roots-of-unity computation, complete invariant-subspace decomposition, and exact case-by-case inequalities.
+The sphere equation Q(x)=sum x_i^2 mod3 is exactly support weight mod3. Conditioning one/two coordinates yields correlations g,h by N_e(j); swapping opposite coordinate characters yields d antisymmetric eigenvalues 1-g, d-1 symmetric-contrast eigenvalues 1+g-2h, and a 2x2 remaining block. For even d, j=0 gives two-level spectrum, exact comparison with j=1,2; odd d radius-one eigenvalue extrema have R=sqrt(8d+1), and supplied positive cross-products establish strict j=1 optimum. Independently constructed every complex character Gram matrix at d=4..8 and checked all spectra and strict optima including unique d=4,2 singularity; tests corroborate and are not used as all-d proof.
 
-The one singular case is dimension four, radius two, with exactly one zero eigenvalue. All other Gram matrices in the stated range are positive definite. The smallest coefficient-eigenvalue range is not a claim about experimental noise, incomplete samples or nonlinear phase retrieval.
+## originality
 
-Independent audit: not performed.
+PASS
+
+PASS best of knowledge: published q-ary single Hamming-shell general spectra cover individual weight layers but not residue-union conditioning optimization. Closely analogous Boolean modulo-3 Walsh theorem does not imply ternary first-band character results or its different unique parity winner. Finite-field spherical extension estimates optimize a different Lp->L4 quantity.
+
+## value
+
+PASS
+
+PASS: natural three-choice sampling design on quadratic spheres; exact whole-band stability, strict radius parity winner and singular boundary are useful objective-specific results rather than a mere known shell-spectrum restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
