@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:03:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd n>=3 the explicitly defined fair-input unordered-pair Markov chain has absorbing coalescence. The submitted piecewise mean and degree-four raw-second-moment potentials satisfy the ordinary and all exceptional first-step equations, including wrap and maximal-separation reflection; a synchronizing word gives uniqueness of finite moment solutions. The evaluated mean (n-1)^2(2n+1)/2 and variance n(n-1)(4n^4-8n^3+3n^2+7n-14)/6 agree with independent exact-rational moment systems at n=3 (14,142), n=5 (88,5320), n=7 (270,49294). The polynomial recurrence proof, not three experiments or checker success alone, establishes odd n universally. The asymptotic variance ratio 2/3 and CV sqrt(2/3) follow by leading coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md: complete second-moment calculation for all odd n and the same distinguished pair; https://arxiv.org/pdf/1404.6731: prior first moments/transition graph only."
+        ],
+        "reasoning": "The Oct 25 complete theorem subsumes every asserted formula; Gusev is weaker but does not remove the Oct 25 coverage.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md",
+          "https://arxiv.org/pdf/1404.6731"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md",
+        "https://arxiv.org/pdf/1404.6731",
+        "assigned frozen RESULT.md, VERIFICATION.md, verify.py and exact Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct25 RESULT.md gives Var=n(n-1)(4n^4-8n^3+3n^2+7n-14)/6 and CV→sqrt(2/3), precisely submitted RESULT.md theorem."
+        ],
+        "reasoning": "Full prior implication is direct identity, including all parameters, not resemblance of titles.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md",
+          "https://arxiv.org/pdf/1404.6731"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md: odd n=2m+1, automaton rotation and rank-one merging letter, initial pair {0,m}, exact n-variance polynomial identical to assigned RESULT.md; source proof uses conjugate coordinates."
+        ],
+        "reasoning": "State and letter relabeling preserves the unordered-pair absorption time under fair inputs. Substitution n=2m+1 turns the earlier formula into the submitted one exactly.",
+        "searches": [
+          "Resultary semantic query: Exact second moment variance of random fair-letter synchronizing pair Cerny automata odd n hitting time",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Oct 25 contains exact all-n formula, not merely finite numerical cases; independent n=3,5,7 exact checks recover 142,5320,49294."
+        ],
+        "reasoning": "Exact closed formulas from an earlier source already cover the invariant; this is stronger evidence than database absence or numerical agreement.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md",
+          "Resultary semantic query: Exact second moment variance of random fair-letter synchronizing pair Cerny automata odd n hitting time"
+        ]
+      },
+      "rationale": "FAIL: The complete published 2026-10-25 Resultary finding gives the SAME exact mean, variance and coefficient-of-variation limit for this exact odd-state Černý automaton, fair i.i.d. letters, and opposite initial pair. Its conjugate pair coordinates {1,m+1} are precisely the relabeled {0,m}; its explicit polynomial in m converts to the submitted polynomial in n=2m+1. The complete earlier proof was read, including its first-step second-moment system and exceptional boundary. Gusev 2014 only establishes the mean, but the later prior result fully covers the claimed variance; no independent mathematical claim survives.",
+      "residual_risks": [
+        "No uncovered claim survives the complete Oct 25 theorem; neither independent computational rederivation nor a differently written moment potential creates novelty.",
+        "The original Gusev coordinate convention is conjugate; equivalence checked with explicit relabeling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "n=2m+1 and the same distinguished pair; same polynomial and limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md",
+          "material_read": "Complete RESULT.md: definitions, pair coordinates, second-moment recurrences, boundary formula, final variance, verification and limitations.",
+          "method": "GitHub full file content read",
+          "title": "Exact random-input pair-merging variance in odd Černý automata",
+          "trigger": "Near-identical earlier variance statement in Resultary"
+        },
+        {
+          "assessment": "PRIOR_FIRST_MOMENT",
+          "evidence": "Gusev provides mean and pair graph but not the independently claimed variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+          "material_read": "PDF relevant Section 3, Lemma 1, Theorem 3, mean formula and pair graph; not a full-text novelty certificate.",
+          "method": "arXiv lawful open PDF including page inspection",
+          "title": "Synchronizing automata with random inputs (Gusev, 2014)",
+          "trigger": "Original oriented-pair graph and first-moment antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact second moment for a worst-position pair gives meaningful stochastic-reset fluctuation information beyond Gusev's cubic mean, including persistent order-one relative dispersion. This is mathematically worthwhile even though it is not new, so value is PASS while originality is FAIL.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-random-input-pair-merging-variance-in-odd-ern-automata--0b471a3d40f6/RESULT.md",
+    "https://arxiv.org/pdf/1404.6731",
+    "assigned frozen RESULT.md, VERIFICATION.md, verify.py and exact Git tree"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No complete hitting-time distribution, even-order or other starting pairs.",
+    "Independent exact solves only n=3,5,7 and symbolic recurrence inspected; not full formal certification.",
+    "Earlier complete Oct 25 prior establishes all proposed variance formulas."
+  ],
+  "residual_risks": [
+    "No uncovered claim survives the complete Oct 25 theorem; neither independent computational rederivation nor a differently written moment potential creates novelty.",
+    "The original Gusev coordinate convention is conjugate; equivalence checked with explicit relabeling."
+  ],
+  "schema_version": 1
+}
