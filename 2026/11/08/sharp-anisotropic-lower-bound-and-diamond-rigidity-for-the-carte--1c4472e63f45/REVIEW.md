@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof is a deterministic convex-support calculation. The symmetric convex numerical-range hull has the norm support in every direction; Minkowski reflection averages its support with a reflected copy, decreases the squared angular average, and contains all four vertices of the axis diamond. The trigonometric integral is explicit. Equality requires equality in both Jensen and support inclusion, forcing exactly the diamond. The four-dimensional normal diagonal construction attains every pair of norm constraints. Numerical quadrature is supplementary; no finite sampling is used as an infinite proof.
+## correctness
 
-**Originality: PASS (qualified).** Audeh--Kittaneh--Moradi--Sahoo introduce the invariant and give global comparisons and a nonmatching two-norm upper bound. The closest published cubic-stability mathematical record proves a lower bound based on a phase-self-adjoint distance, and already evaluates the same four-dimensional diagonal example; that example and cubic coefficient are prior inputs and **not** novelty by themselves. The accepted new claim is universal sharp two-norm optimality for all operators, together with exact equality rigidity of the symmetrized numerical range. published-finding corpus comparisons included aliases, implications and potential broader theorems. An older convex-support principle could be equivalent; this remains a publication-priority risk.
+PASS
 
-**Value: PASS.** The result exactly solves a natural, previously open quantitative constraint problem associated with the new angular operator radius. Fixing both Cartesian component norms is an intrinsic strengthening over the numerical-radius-only comparison; the extreme diamond shape classifies all possible equality numerical-range geometries, including nonnormal operators. The cubic transverse-norm law quantifies the sharp departure from single-axis degeneracy.
+PASS: For T=H+iK, r=||H|| and s=||K||, the centrally symmetrized numerical-range hull C has support h_C(theta)=||H cos(theta)+K sin(theta)||. Reflection across real axis and the Minkowski average D=(C+conj C)/2 satisfy mean h_D^2<=mean h_C^2 by Jensen. D has both axis radii r,s and contains E=conv{+-r,+-is}; hence the exact integral of max(r²cos²,s²sin²) bounds Q_2(T)² below. Quadrant integration gives r²/2+[rs+(s²-r²)atan(s/r)]/pi for r>0, and s²/2 for r=0. Equality in the two nonnegative continuous support differences forces C=D=E. Diagonal operator diag(r,-r,is,-is) realizes all norm pairs; Taylor expansion gives 4s³/(3pi r)+O(s^5/r^3) for fixed r>0. Independent quadrature checked endpoint, symmetry and cubic asymptotics; universal proof is analytic, not numeric.
 
-**Limitations.** The criterion is for central symmetrized numerical ranges, not unitary classifications; it is coordinate-dependent. No independent mathematical audit has been performed. Its novelty may ultimately be implied by classic convex-geometric identities outside the checked sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with explicit risk: The new claim is sharp simultaneous norm constraints (||ReT||,||ImT||) and exact equality diamond for ALL bounded operators. Earlier angular radius inequalities give unconditional bounds; 2026-11-02 sharp *conditional envelopes* fix u=distance to phase-self-adjoint operators/numerical radius, which does not prescribe r and s and does not imply diamond two-norm optimization. Published cubic-stability result already uses the same four-point diagonal example and 4/(3pi) asymptotic; these are credited, not claimed new. A classical wider geometric support inequality could subsume the result but no direct coverage found in actual searched sources; inaccessible October 2026 primary article is named as residual access risk.
+
+## value
+
+PASS
+
+PASS: A sharp dimension-free two-constraint inequality and complete equality characterization for an operator radius answer a motivated extremal question, distinguishing joint Cartesian-part information from global numerical-radius or phase-distance profiles. The full universal diamond rigidity is more than a known diagonal calculation or a small coefficient gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

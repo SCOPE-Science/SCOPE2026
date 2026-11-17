@@ -1,0 +1,188 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T02:04:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For T=H+iK, r=||H|| and s=||K||, the centrally symmetrized numerical-range hull C has support h_C(theta)=||H cos(theta)+K sin(theta)||. Reflection across real axis and the Minkowski average D=(C+conj C)/2 satisfy mean h_D^2<=mean h_C^2 by Jensen. D has both axis radii r,s and contains E=conv{+-r,+-is}; hence the exact integral of max(r²cos²,s²sin²) bounds Q_2(T)² below. Quadrant integration gives r²/2+[rs+(s²-r²)atan(s/r)]/pi for r>0, and s²/2 for r=0. Equality in the two nonnegative continuous support differences forces C=D=E. Diagonal operator diag(r,-r,is,-is) realizes all norm pairs; Taylor expansion gives 4s³/(3pi r)+O(s^5/r^3) for fixed r>0. Independent quadrature checked endpoint, symmetry and cubic asymptotics; universal proof is analytic, not numeric.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f full RESULT.md complete interval at fixed phase-self-adjoint distance u=d/R",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727 full RESULT.md cubic stability bound and four-point example"
+        ],
+        "reasoning": "Neither cited general theorem fixes r=||ReT|| and s=||ImT|| separately, so neither contains the exact two-parameter minimum with diamond equality. The earlier diagonal cubic limit is explicitly prior, not a new piece.",
+        "searches": [
+          "Resultary semantic: exact two-parameter L2 Cartesian numerical radius minimum fixed norms real imaginary parts",
+          "Resultary semantic: anisotropic lower bound Cartesian numerical radius diamond rigidity r norm H s norm K atan arctan",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.04844",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+        "https://arxiv.org/abs/2610.15242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+          "Audeh–Moradi–Sahoo arXiv 2610.04844 abstract and author context"
+        ],
+        "reasoning": "An earlier exact L(u) for d/R does not imply the bound at two independent Cartesian norms, because its constraint datum is insufficient. Existing diagonal example establishes sharpness after new lower proof, not that every operator obeys it. A broader unknown support inequality is acknowledged as genuine residual risk.",
+        "searches": [
+          "Resultary semantic: exact two-parameter L2 Cartesian numerical radius minimum fixed norms real imaginary parts",
+          "Resultary semantic: anisotropic lower bound Cartesian numerical radius diamond rigidity r norm H s norm K atan arctan",
+          "Resultary semantic: sharp integral of squared support function convex body with fixed horizontal vertical width diamond"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+          "The two specified coordinate norms r,s vary independently from d(T)/omega(T)"
+        ],
+        "reasoning": "Translate to support-function mean-square minimization of symmetric planar numerical-range hulls with prescribed horizontal/vertical radii; looked for this convex-geometric equivalent. Closest earlier stability/conditional-envelope parameters are different.",
+        "searches": [
+          "Resultary semantic: exact two-parameter L2 Cartesian numerical radius minimum fixed norms real imaginary parts",
+          "Resultary semantic: anisotropic lower bound Cartesian numerical radius diamond rigidity r norm H s norm K atan arctan",
+          "Resultary semantic: sharp integral of squared support function convex body with fixed horizontal vertical width diamond"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727 exact normal diagonal integral and asymptotic",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f exact conditional envelope profiles L(u),U(u)"
+        ],
+        "reasoning": "A published particular 4×4 diagonal evaluation and its cubic coefficient form known examples, but they do not constitute an exact database/table of optimal values for all fixed (r,s) nor a universal equality theorem.",
+        "searches": [
+          "Resultary semantic: exact two-parameter L2 Cartesian numerical radius minimum fixed norms real imaginary parts",
+          "Resultary semantic: sharp integral of squared support function convex body with fixed horizontal vertical width diamond"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with explicit risk: The new claim is sharp simultaneous norm constraints (||ReT||,||ImT||) and exact equality diamond for ALL bounded operators. Earlier angular radius inequalities give unconditional bounds; 2026-11-02 sharp *conditional envelopes* fix u=distance to phase-self-adjoint operators/numerical radius, which does not prescribe r and s and does not imply diamond two-norm optimization. Published cubic-stability result already uses the same four-point diagonal example and 4/(3pi) asymptotic; these are credited, not claimed new. A classical wider geometric support inequality could subsume the result but no direct coverage found in actual searched sources; inaccessible October 2026 primary article is named as residual access risk.",
+      "residual_risks": [
+        "Full primary arXiv 2610.04844 text not accessible in this run; authorized Oxford VPN disconnected (no bypass); no complete-source exclusion is asserted.",
+        "Potential classical convex-body squared-support integral inequality under other terminology may imply the result, despite targeted indexed searches.",
+        "Example and small-s cubic coefficient already known and explicitly credited; only universal sharp two-constraint theorem and rigidity are counted novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT covering joint fixed horizontal/vertical operator norm extrema; different constraint.",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f",
+          "material_read": "Full RESULT.md, definitions d(T)/R, sharp lower/upper L(u), extremal convex bodies K_-/K_+, equality and realization",
+          "method": "GitHub authenticated read of complete RESULT.md / arXiv OA PDF textual pages and checked theorem statements",
+          "title": "Sharp conditional envelopes for the L²-Cartesian numerical radius",
+          "trigger": "Strongest plausible prior conditional theorem"
+        },
+        {
+          "assessment": "PARTIALLY COVERING: example and cubic coefficient already known, not sharp universal two-norm inequality.",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+          "material_read": "Complete RESULT.md, full inequality, phase-distance proof, diagonal T_epsilon and exact 4/(3pi) cubic term",
+          "method": "GitHub authenticated read of complete RESULT.md / arXiv OA PDF textual pages and checked theorem statements",
+          "title": "Cubic operator-norm stability for the L²-Cartesian numerical radius",
+          "trigger": "Same diagonal family and cubic asymptotic"
+        },
+        {
+          "assessment": "Full-text comparison remains an originality risk, but snippets alone are not treated as whole-document NOT_COVERING.",
+          "evidence": [
+            "https://arxiv.org/abs/2610.04844"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04844",
+          "material_read": "Available OA search/abstract and related citations; full PDF not recovered. Authorized institutional request returned VPN disconnected; job ID private.",
+          "method": "arXiv/OA retrieval attempts, authorized Oxford institutional retrieval blocked by disconnected VPN",
+          "title": "The L²-Cartesian Numerical Radius of Hilbert Space Operators",
+          "trigger": "Original primary source introducing the radius"
+        },
+        {
+          "assessment": "Self-contained analytic correctness validated; new two-norm result best-of-knowledge",
+          "evidence": [
+            "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/sharp-anisotropic-lower-bound-and-diamond-rigidity-for-the-carte--1c4472e63f45/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/sharp-anisotropic-lower-bound-and-diamond-rigidity-for-the-carte--1c4472e63f45/RESULT.md",
+          "material_read": "Entire RESULT.md proof, exact formula, equality argument, endpoints, original numerical verifier code",
+          "method": "GitHub authenticated read of complete RESULT.md / arXiv OA PDF textual pages and checked theorem statements",
+          "title": "Assigned anisotropic operator radius result",
+          "trigger": "Final universal analytical claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp dimension-free two-constraint inequality and complete equality characterization for an operator radius answer a motivated extremal question, distinguishing joint Cartesian-part information from global numerical-radius or phase-distance profiles. The full universal diamond rigidity is more than a known diagonal calculation or a small coefficient gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.04844",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+    "https://arxiv.org/abs/2610.15242"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full primary arXiv 2610.04844 text not accessible in this run; authorized Oxford VPN disconnected (no bypass); no complete-source exclusion is asserted.",
+    "Potential classical convex-body squared-support integral inequality under other terminology may imply the result, despite targeted indexed searches.",
+    "Example and small-s cubic coefficient already known and explicitly credited; only universal sharp two-constraint theorem and rigidity are counted novel."
+  ],
+  "residual_risks": [
+    "Full primary arXiv 2610.04844 text not accessible in this run; authorized Oxford VPN disconnected (no bypass); no complete-source exclusion is asserted.",
+    "Potential classical convex-body squared-support integral inequality under other terminology may imply the result, despite targeted indexed searches.",
+    "Example and small-s cubic coefficient already known and explicitly credited; only universal sharp two-constraint theorem and rigidity are counted novel."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT covering joint fixed horizontal/vertical operator norm extrema; different constraint.",
+      "evidence": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-conditional-envelopes-for-the-l-2-cartesian-numerical-radi--de2a7a41580f",
+      "material_read": "Full RESULT.md, definitions d(T)/R, sharp lower/upper L(u), extremal convex bodies K_-/K_+, equality and realization",
+      "method": "GitHub authenticated read of complete RESULT.md / arXiv OA PDF textual pages and checked theorem statements",
+      "title": "Sharp conditional envelopes for the L²-Cartesian numerical radius",
+      "trigger": "Strongest plausible prior conditional theorem"
+    },
+    {
+      "assessment": "PARTIALLY COVERING: example and cubic coefficient already known, not sharp universal two-norm inequality.",
+      "evidence": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+      "material_read": "Complete RESULT.md, full inequality, phase-distance proof, diagonal T_epsilon and exact 4/(3pi) cubic term",
+      "method": "GitHub authenticated read of complete RESULT.md / arXiv OA PDF textual pages and checked theorem statements",
+      "title": "Cubic operator-norm stability for the L²-Cartesian numerical radius",
+      "trigger": "Same diagonal family and cubic asymptotic"
+    },
+    {
+      "assessment": "Full-text comparison remains an originality risk, but snippets alone are not treated as whole-document NOT_COVERING.",
+      "evidence": [
+        "https://arxiv.org/abs/2610.04844"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.04844",
+      "material_read": "Available OA search/abstract and related citations; full PDF not recovered. Authorized institutional request returned VPN disconnected; job ID private.",
+      "method": "arXiv/OA retrieval attempts, authorized Oxford institutional retrieval blocked by disconnected VPN",
+      "title": "The L²-Cartesian Numerical Radius of Hilbert Space Operators",
+      "trigger": "Original primary source introducing the radius"
+    },
+    {
+      "assessment": "Self-contained analytic correctness validated; new two-norm result best-of-knowledge",
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/sharp-anisotropic-lower-bound-and-diamond-rigidity-for-the-carte--1c4472e63f45/RESULT.md"
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/sharp-anisotropic-lower-bound-and-diamond-rigidity-for-the-carte--1c4472e63f45/RESULT.md",
+      "material_read": "Entire RESULT.md proof, exact formula, equality argument, endpoints, original numerical verifier code",
+      "method": "GitHub authenticated read of complete RESULT.md / arXiv OA PDF textual pages and checked theorem statements",
+      "title": "Assigned anisotropic operator radius result",
+      "trigger": "Final universal analytical claim"
+    }
+  ]
+}
