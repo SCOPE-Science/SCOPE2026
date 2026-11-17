@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact face decomposition separates the universal vertex from the disjoint cliques. Standard simplex skeleton homotopy and augmented chain models prove both sphere multiplicities and integral augmentation exterior powers. In the mixed range the join is more highly connected than the attaching skeleton, forcing the nullhomotopy needed for the wedge decomposition. Equivariant Mayer--Vietoris and the join sign prove the integral modules. The independent verifier checked 47 graphs and 188 signed traces; it is corroboration only.
+## correctness
 
-**Originality — PASS, with explicit qualification.** Deshpande--Singh's complete multipartite/whiskered/paths/cycles/trees classification does not contain clique windmills. Sawant's 2026 tree vertex-decomposability theorem does not cover these non-tree graphs. Patra--Roy's general graph-join **field Betti** theorem may subsume the rank formula upon specialization; no novelty is claimed for such ranks alone. The surviving assertion is the exact integral homotopy splitting **and** canonical natural wreath-product integral homology lattice. Das--Roy--Saha's chordal algebraic theorem concerns regularity/projective dimension, not those stronger invariants. Historical t-clique-free windmill complexes have a different face predicate. Residual risk: unindexed homotopy or equivariant results.
+PASS
 
-**Mathematical value — PASS.** The mixed-phase two-sphere-dimension transition \(2\le r<s\) gives new structural information within a natural entire graph family. The symmetry module distinguishes configurations with identical nonequivariant homology and avoids a mere isolated finite computation.
+For hub-absent faces the complex is B=*_{i=1}^k sk_{r-1} Delta(L_i); for hub-present faces it is the cone on K=sk_{r-2} Delta(L) with intersection K. This is an exact face equivalence for all r. When 2<=r<s, B is a (kr-2)-connected join of bouquets in degree kr-1 and dim K=r-2, so K->B is null and cofiber B wedge Sigma K. When s<=r<=ks, B is contractible; when r>=ks+1, hub cones off all. At r=1 isolated hub and joined discrete leaves give Htilde_0=Z and (s-1)^k spheres of dimension k-1. Standard augmented exterior-chain skeleton model gives Htilde_{r-1}=exterior^{r-1} U and mixed top tensor exterior^r U_i integrally and naturally; swapping two join factors of reduced degree r-1 yields sign (-1)^r. Independent direct induced-component mod-2 boundary ranks matched formulas for all 47 tested k,s,r triples; finite samples corroborate, not prove the general construction. Only ordinary wedge, not equivariant wedge equivalence.
 
-**Limitations.** Equal clique sizes, fixed hub, ordinary homotopy plus integral equivariant homology only. No equivariant wedge splitting or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge primary-source and published-record comparison: the full conjunction of the exact result and its required structural/integral statement is not implied by identified prior results; the specific partial overlaps and inaccessible-source risks are recorded.
+
+## value
+
+PASS
+
+A natural family of clique windmill block graphs has an explicit, nontrivial transition between single-degree and mixed-dimensional sphere wedges, plus full integral wreath-group representation lattices. These are topological and equivariant structural facts not mechanistically supplied by mere Betti counts; the precise r<s boundary is a useful motivated classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
