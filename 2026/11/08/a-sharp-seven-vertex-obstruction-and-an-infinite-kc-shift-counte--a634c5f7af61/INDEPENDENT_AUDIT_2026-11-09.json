@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:59:24.139245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the first uniform feasible edge gives an exact recurrence. The path and (2,2,L)-spider deletion recurrences yield d_L=μ(S)-μ(P), (L+4)d_L=(L+3)d_(L−1)+d_(L−2)+b_L with b_L=2(-2)^(L−2)(L²+3L−2)/(L!(L+1)(L+2)). For L>=2 its signs alternate and magnitudes strictly decrease, forcing all d_L>0 by induction. Exact independent Prüfer enumeration of n^(n−2) labeled trees and ordered proper shifts returned (negative,zero,positive) counts (24,0,0) at n=4, (480,0,0) at n=5, (6180,2160,0) at n=6; direct recurrence verifies μ(P7)=26/9 and μ(S222)=3. The infinite proof is analytic, finite census certifies only the stated cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full arXiv source treats tree vertex greedy independent sets and KC shifts.",
+          "Dyer–Frieze abstract provides approximation guarantees for random-edge matching on forests but not exact KC direction."
+        ],
+        "reasoning": "Neither verified accessible statement entails P7 and S(2,2,2) positive difference or infinite path-spider strictness; inaccessible primary 1991 full text is qualified.",
+        "searches": [
+          "Resultary semantic: random greedy matching expected size path spider Kelmans Csikvari KC shift 7 vertices monotonic",
+          "https://arxiv.org/pdf/1907.07216",
+          "https://doi.org/10.1002/rsa.3240020104"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py (tree 5847d469f474be6a343263ff30285c44a68e7c41)",
+        "https://arxiv.org/pdf/1907.07216",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "Resultary semantic: random greedy matching expected size path spider Kelmans Csikvari KC shift 7 vertices monotonic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P7 has mean 26/9; S(2,2,2) has mean 3 and all n<=6 proper shifts weakly decrease the mean.",
+          "The all-L recurrence has an alternating strictly decreasing forcing with a two-step positivity induction."
+        ],
+        "reasoning": "Neither known tree-vertex monotonicity nor a general matching approximation ratio implies this explicit strict counterfamily. Historical full-text coverage remains a risk.",
+        "searches": [
+          "Resultary semantic: random greedy matching expected size path spider Kelmans Csikvari KC shift 7 vertices monotonic",
+          "https://arxiv.org/pdf/1907.07216",
+          "https://doi.org/10.1002/rsa.3240020104"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random greedy matching is greedy independent set on the line graph, but the line graph of a branching tree is not a tree.",
+          "Path P_{L+5} to spider S(2,2,L) is a proper KC shift of the tree, whose edge-matching expectation is different from a tree vertex independent-set expectation."
+        ],
+        "reasoning": "The line-graph reduction does not transport published KC tree positivity/negativity results to the submitted statistic; alternate names such as random sequential adsorption of dimers remain literature risks.",
+        "searches": [
+          "Resultary semantic: random greedy matching expected size path spider Kelmans Csikvari KC shift 7 vertices monotonic",
+          "arxiv:1907.07216",
+          "Dyer and Frieze 1991 randomized greedy matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sharp small-order certificate enumerates n^(n−2) labeled trees via Prüfer words, all ordered proper KC shifts for n<=6, and exact first-edge recurrences.",
+          "The corresponding published nine-vertex table is for random independent sets, not random matching size."
+        ],
+        "reasoning": "This is a meaningful exact finite cutoff in a different statistic. Previous small tables cannot be relabeled as the current matching table.",
+        "searches": [
+          "Resultary semantic: random greedy matching expected size path spider Kelmans Csikvari KC shift 7 vertices monotonic",
+          "SCOPE/Resultary published nine-vertex KC-independent-set counterexample"
+        ]
+      },
+      "rationale": "The path-to-spider infinite family, sharp seven-vertex minimality and nonmonotonicity concern greedy EDGE matching, not the known vertex independent-set functional; the transformation is classical but its matching direction is not verified as previously classified.",
+      "residual_risks": [
+        "Full 1991 Dyer–Frieze randomized greedy matching paper was not obtained; hidden KC-shift consequences could affect priority.",
+        "Definition of proper oriented KC shifts was checked against the package; finite census is for that precise transformation and not for every possible tree transformation name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves vertex greedy-independent-set results, not expected random-edge greedy matching on trees",
+          "evidence": "A matching in a tree becomes an independent set in its line graph; line graphs generally contain triangles and are not trees, so tree KC conclusions do not transfer.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.07216",
+          "material_read": "Full accessible arXiv PDF with its KC-shift and tree-independence discussion; relevant pages and first-page screenshot inspected",
+          "method": "Read primary full PDF",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same tree KC transformation and random-order greedy combinatorics"
+        },
+        {
+          "assessment": "Worst-case forest approximation bounds shown in accessible material, no verified fixed KC shift result; potential full-text risk",
+          "evidence": "Approximation guarantee lower bounds do not determine the sign of a specified local KC shift.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Accessible publisher abstract and bibliographic material; full 1991 article unavailable",
+          "method": "Publisher abstract, not full text",
+          "title": "Randomized greedy matching",
+          "trigger": "Same random-feasible-edge matching algorithm"
+        },
+        {
+          "assessment": "Different statistic (random vertex greedy independent set), so its nine-vertex obstruction does not cover seven-vertex matching result",
+          "evidence": "The source states a nine-vertex vertex-greedy shift counterexample and does not classify random edge-greedy matching.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-nine-vertex-counterexample-to-kc-monotonicity-of-random-greedy--e9c71afd7c39",
+          "material_read": "Published indexed finding and summary",
+          "method": "Read indexed source summary",
+          "title": "A nine-vertex counterexample to KC-monotonicity of random greedy independent sets",
+          "trigger": "Indexed near-exact term KC monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp minimal tree order and the infinite path-to-spider counterfamily resolve a concrete nonmonotonicity question about a classical combinatorial tree operation for random greedy matching, a distinct functional from greedy independent sets. Both the small exact classification and the all-order family are naturally motivated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and checker.py (tree 5847d469f474be6a343263ff30285c44a68e7c41)",
+    "https://arxiv.org/pdf/1907.07216",
+    "https://doi.org/10.1002/rsa.3240020104",
+    "Resultary semantic: random greedy matching expected size path spider Kelmans Csikvari KC shift 7 vertices monotonic"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 1991 Dyer–Frieze randomized greedy matching paper was not obtained; hidden KC-shift consequences could affect priority.",
+    "Definition of proper oriented KC shifts was checked against the package; finite census is for that precise transformation and not for every possible tree transformation name."
+  ],
+  "residual_risks": [
+    "Full 1991 Dyer–Frieze randomized greedy matching paper was not obtained; hidden KC-shift consequences could affect priority.",
+    "Definition of proper oriented KC shifts was checked against the package; finite census is for that precise transformation and not for every possible tree transformation name."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Proves vertex greedy-independent-set results, not expected random-edge greedy matching on trees",
+      "evidence": "A matching in a tree becomes an independent set in its line graph; line graphs generally contain triangles and are not trees, so tree KC conclusions do not transfer.",
+      "identifier_or_url": "https://arxiv.org/pdf/1907.07216",
+      "material_read": "Full accessible arXiv PDF with its KC-shift and tree-independence discussion; relevant pages and first-page screenshot inspected",
+      "method": "Read primary full PDF",
+      "title": "Greedy maximal independent sets via local limits",
+      "trigger": "Same tree KC transformation and random-order greedy combinatorics"
+    },
+    {
+      "assessment": "Worst-case forest approximation bounds shown in accessible material, no verified fixed KC shift result; potential full-text risk",
+      "evidence": "Approximation guarantee lower bounds do not determine the sign of a specified local KC shift.",
+      "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+      "material_read": "Accessible publisher abstract and bibliographic material; full 1991 article unavailable",
+      "method": "Publisher abstract, not full text",
+      "title": "Randomized greedy matching",
+      "trigger": "Same random-feasible-edge matching algorithm"
+    },
+    {
+      "assessment": "Different statistic (random vertex greedy independent set), so its nine-vertex obstruction does not cover seven-vertex matching result",
+      "evidence": "The source states a nine-vertex vertex-greedy shift counterexample and does not classify random edge-greedy matching.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-nine-vertex-counterexample-to-kc-monotonicity-of-random-greedy--e9c71afd7c39",
+      "material_read": "Published indexed finding and summary",
+      "method": "Read indexed source summary",
+      "title": "A nine-vertex counterexample to KC-monotonicity of random greedy independent sets",
+      "trigger": "Indexed near-exact term KC monotonicity"
+    }
+  ]
+}

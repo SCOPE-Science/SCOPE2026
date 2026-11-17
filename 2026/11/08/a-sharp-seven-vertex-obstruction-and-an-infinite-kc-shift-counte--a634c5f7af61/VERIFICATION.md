@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 checker.py` using the Python standard library. It produces an exhaustive labeled-tree KC census for orders four, five and six through Prüfer words, using exact `fractions.Fraction` recurrences; it checks the seven-vertex witness by a second method that explicitly enumerates every ordering of its six edges. It also checks the eight-vertex analogue by enumerating all orderings of seven edges, and checks rational recurrences for arm lengths two through eleven.
+## correctness
 
-The exact labeled comparison census is 24 negative at order four, 480 negative at order five, and 6180 negative plus 2160 equal at order six; no positive transformations occur. Direct witness values are \(26/9\) for the path on seven vertices and 3 for the three-arm spider. The proof for every arm length uses an analytic alternating-forcing inequality; no finite sample is offered as a substitute for that proof. The 1991 historical full text was not available for a complete priority comparison. Independent mathematical audit has not been performed.
+PASS
+
+Conditioning on the first uniform feasible edge gives an exact recurrence. The path and (2,2,L)-spider deletion recurrences yield d_L=μ(S)-μ(P), (L+4)d_L=(L+3)d_(L−1)+d_(L−2)+b_L with b_L=2(-2)^(L−2)(L²+3L−2)/(L!(L+1)(L+2)). For L>=2 its signs alternate and magnitudes strictly decrease, forcing all d_L>0 by induction. Exact independent Prüfer enumeration of n^(n−2) labeled trees and ordered proper shifts returned (negative,zero,positive) counts (24,0,0) at n=4, (480,0,0) at n=5, (6180,2160,0) at n=6; direct recurrence verifies μ(P7)=26/9 and μ(S222)=3. The infinite proof is analytic, finite census certifies only the stated cutoff.
+
+## originality
+
+PASS
+
+The path-to-spider infinite family, sharp seven-vertex minimality and nonmonotonicity concern greedy EDGE matching, not the known vertex independent-set functional; the transformation is classical but its matching direction is not verified as previously classified.
+
+## value
+
+PASS
+
+The sharp minimal tree order and the infinite path-to-spider counterfamily resolve a concrete nonmonotonicity question about a classical combinatorial tree operation for random greedy matching, a distinct functional from greedy independent sets. Both the small exact classification and the all-order family are naturally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

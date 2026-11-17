@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditioning identity is exact; the path and three-arm spider recurrences have all components counted. The explicit forcing term has alternating sign and decreasing absolute magnitude, which makes the two-step positive induction valid for every integer arm length at least two. The seven-vertex witness was independently checked by all edge orders. Exhaustive Prüfer enumeration with exact fractions establishes minimality among all proper KC shifts on smaller trees. This finite certificate is not used as the proof of the infinite family.
+## correctness
 
-**Originality — PASS (with a historical-source limitation).** Krivelevich–Mészáros–Michaeli–Shikhelman analyze vertex greedy independent sets on trees under KC shifts, not edge greedy matching. Dyer–Frieze give fixed-forest approximation results, while Dyer–Frieze–Pittel analyze random input graphs and random labeled trees. Direct aliases, precise examples and stronger general conclusions were compared; no equivalent theorem was identified. The full 1991 fixed-forest paper could not be inspected, and this remains a genuine priority risk.
+PASS
 
-**Value — PASS.** A single KC tree transformation can raise or lower a probabilistic matching expectation. An infinite increasing family plus its sharp seven-vertex onset is a structurally motivated boundary for tree-shift monotonicity, not a selected numerical anomaly. No global extremal graph classification is claimed.
+Conditioning on the first uniform feasible edge gives an exact recurrence. The path and (2,2,L)-spider deletion recurrences yield d_L=μ(S)-μ(P), (L+4)d_L=(L+3)d_(L−1)+d_(L−2)+b_L with b_L=2(-2)^(L−2)(L²+3L−2)/(L!(L+1)(L+2)). For L>=2 its signs alternate and magnitudes strictly decrease, forcing all d_L>0 by induction. Exact independent Prüfer enumeration of n^(n−2) labeled trees and ordered proper shifts returned (negative,zero,positive) counts (24,0,0) at n=4, (480,0,0) at n=5, (6180,2160,0) at n=6; direct recurrence verifies μ(P7)=26/9 and μ(S222)=3. The infinite proof is analytic, finite census certifies only the stated cutoff.
 
-**Scientific limits.** The result is for unweighted trees and uniform feasible-edge selection; the infinite family is confined to the specified three-arm spiders. Historical priority awaits independent source verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The path-to-spider infinite family, sharp seven-vertex minimality and nonmonotonicity concern greedy EDGE matching, not the known vertex independent-set functional; the transformation is classical but its matching direction is not verified as previously classified.
+
+## value
+
+PASS
+
+The sharp minimal tree order and the infinite path-to-spider counterfamily resolve a concrete nonmonotonicity question about a classical combinatorial tree operation for random greedy matching, a distinct functional from greedy independent sets. Both the small exact classification and the all-order family are naturally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
