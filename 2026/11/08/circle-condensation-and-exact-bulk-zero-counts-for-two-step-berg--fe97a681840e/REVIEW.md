@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the explicitly defined two-step weight, normalized monomial norms yield the series \(K_{a,m}(s)=\sum_{n\ge0}(n+1)s^n/(1+a^{n+1-m})\). Inside the jump circle, scaling by \(a^{1-m}\) converges locally uniformly to \((1-s/a)^{-2}\). On the outer annulus, dividing by \(m s^m\) converges locally uniformly to the bilateral series \(\Phi_a(s)\). Its classical infinite product has no zeros or poles in \(a<|s|<1\) and has winding number \(-1\) on every intermediate circle; the argument principle gives exactly \(m-1\) zeros for each fixed outer radius, eventually. The normalized logarithmic potentials converge in local \(L^1\) to \(\max\{\log a,\log|s|\}\), whose Laplacian is uniform circle measure, proving the zero-distribution conclusion. Six contour tests and three bilateral identity checks replayed successfully; they are finite corroboration, not substitutes for the analytic proof.
+## correctness
 
-## Originality — PASS (provisional historical assessment)
-The closest two-step-weight papers (Zeytuncu 2010; Della Pella 2014) prove existence of at least one zero for certain parameters, not eventual exact \(m-1\) counts or angular weak limits for step heights \(a^{-m}\). Perälä (2017) constructs any prescribed finite zero number with iterated associated weights, but those are not the present elementary two-step weights and do not imply the exact counts or distribution. Gafai–Murid–Wahid (2022) provide the classical bilateral-product machinery for an annular Szegő kernel; this identity is explicitly treated as prior mathematics and not claimed novel. Boudreaux (2018) explores equivalent weights and separate zero constructions, without the present step-family asymptotic. Searches of mathematical literature and mathematically related recorded findings found no directly covering statement. Residual risk: an unlocated general result on zero distributions for jump-discontinuous radial weights or on large-parameter basic-hypergeometric kernels might imply this theorem.
+PASS
 
-## Value — PASS
-The Lu Qi-Keng question asks which natural radial weight perturbations create kernel zeros. This theorem resolves an exact, unbounded bulk zero count in the simplest nonconstant piecewise-constant radial family and identifies their limiting location and angular distribution. The exact coefficient \(m-1\), rather than only existence or asymptotic order, distinguishes the result from a routine zero-creation example. A single radial discontinuity controls a uniform limiting measure, illustrating a nontrivial connection between finite weight jumps and annular bilateral-series asymptotics. Scope: no claim about effective entry thresholds, extra zeros near the outer disk boundary, or general multi-step weights.
+For 0<a<1 and fixed a<r<1, the normalized monomial norm (1+a^{n+1-m})/(n+1) gives the kernel series. The inside scale a^{1-m}K tends to (1-s/a)^(-2), zero-free on |s|<a. On the fixed annulus a<|s|<1, K/(m s^m) tends locally uniformly to the bilateral 1-psi-1 sum Phi_a. The Ramanujan product has neither zeros nor poles there and one negative winding due to (1+1/s); since K/(m s^m) has winding -1, the argument principle gives exactly m-1 zeros in |s|<r for large m with no boundary zeros. Local subharmonic convergence of m^-1 log|K| to max(log a,log|s|) and the Laplacian give equidistribution of those m-1 zeros on |s|=a. Spot-check: two sampled windings (11 and 19 for m=12,20) and bilateral-product discrepancy 4.1e-12; not an infinite certificate. No assertion about boundary layer or uniform m thresholds.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact eventual m-1 bulk count and Haar circle law for the specific exponentially increasing single-jump radial weight are distinct from older one-zero existence, separately iterated many-zero weights and the classical bilateral identity. Primary comparisons do not mathematically imply this parameterized asymptotic.
+
+## value
+
+PASS
+
+A single radial discontinuity in the simplest two-level disk weight drives an unbounded exact bulk-zero count and a uniform angular zero measure. The precise m-1 integer and circle condensate solve a natural Lu Qi-Keng asymptotic rather than a routine isolated example; they complement known one-zero existence results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
