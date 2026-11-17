@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each permutation-invariant sign law, the identity for the squared sign sum gives the attainable correlation range and the exact even/odd minimum. Algebraic variance calculation uses only sign squares and pair correlations; it requires no unsupported independent-coordinate fourth-moment factorization. The explicit derivative is positive for any nonzero off-diagonal matrix, proving optimality within the stated family. Rowwise Cauchy--Schwarz proves the complete zero-risk classification, and an exact comparison with iid signs including the all-ones matvec proves the sharp budget thresholds. The standalone exact-rational finite consistency checker passed 1,423 assertions after extraction; the infinite-dimensional statement rests on the written proof, not testing.
+PASS
 
-## Originality — PASS, with residual precedent risk
+For coordinate-exchangeable signs, pair correlation ρ=(E S²−n)/(n(n−1)) is bounded below by −1/(n−1) in even n and −1/n in odd n, with equality for the corresponding minimum-imbalance sign layers. Directly, E[z_i(Az)_i]=(1−ρ)A_ii+ρ(A1)_i gives the uniquely universally unbiased affine row-sum correction. For row i, variance of the corrected single probe equals (sum_{j≠i}A_ij²+ρ(sum_{j≠i}A_ij)^2)/(1−ρ). Independent probes divide variance by m, yielding total risk (||B||_F²+ρ||B1||²)/(m(1−ρ)). The derivative with respect to ρ is (||B||_F²+||B1||²)/(m(1−ρ)^2)>0 for nondiagonal A, hence minimum correlation is globally optimal in stated class. Cauchy–Schwarz gives even zero-risk rows precisely row-constant off diagonal; odd risk zero only B=0. Comparing with m+1 iid signs gives strict universal advantage for even n≥4 m≥n, odd n≥3 m≥n+1 and n=2 any m; B1=0 witnesses make boundaries exact. Independently enumerated all optimal fixed-count sign vectors for n=2..7 with rational matrix entries, checking unbiasedness and row variance; the dimension-general proof is algebraic.
 
-Accessible primary full texts of Baston--Nakatsukasa (2022), Hallman--Ipsen--Saibaba (2022), Dharangutte--Musco (2022) and Epperly--Tropp--Webber (2023) were compared at the level of estimator formulas and assumptions. They contain iid-coordinate probing, concentration guarantees, Diag++ or a low-rank leave-one-out XDiag construction, rather than the exact fixed-sum-sign plus known-row-sum affine design and all-dimensional parity classification. The closest indexed related result concerns AdaHessian's iid diagonal variance; it does not cover exchangeable fixed-sum probes. No exact implication was found from the inspected prior results, although older unindexed sampling-without-replacement and probing sources could contain equivalent reductions. Negative searches are not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This solves a natural constrained estimator-design problem with a complete attainable-law classification, sharp even/odd zero-variance boundary, and practical query-budget caveat. It explains how a dense class of constant-coupling matrices can be recovered exactly by two matrix--vector products in even dimensions, and why odd parity forbids the same cancellation. The result neither asserts universal superiority over modern diagonal estimators nor ignores the cost of the deterministic query.
+Classical Hutchinson and Diag++ work studies iid-coordinate signs, Gaussian vectors and low-rank corrections. The inspected Dharangutte–Musco paper explicitly defines independent iid-entry Rademacher probes and derives its iid baseline; this does not imply the minimum-correlation fixed-Hamming-weight within-probe design with one deterministic row-sum matvec, parity-dependent zero-error subspaces and exact cost thresholds. XDiag has a leave-one-out cross-probe construction, not this universal affine row correction. Novelty qualified for uninspected finite-population/control-variate specialist literature.
 
-## Closest literature and limits
+## value
 
-Baston--Nakatsukasa, arXiv:2201.10684; Hallman--Ipsen--Saibaba, arXiv:2202.02887; Dharangutte--Musco, arXiv:2208.03268; Epperly--Tropp--Webber, arXiv:2301.07825, especially §2.4. The result is restricted to exact matvecs, exchangeable within-vector sign laws, universally unbiased affine correction and squared Euclidean risk; exact precedence in unindexed finite-population sampling literature remains unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The diagonal of a matrix accessed only by matrix–vector products is a natural computational invariant. Exact dimension/parity-sensitive risk and zero-error subspaces supply actionable sampling and budget decisions beyond generic concentration bounds. A deterministic row-sum query plus fixed-sum signs can exactly recover a dense row-constant-off-diagonal matrix for even dimensions; matched-budget crossover is sharp. Its restricted-class optimality is clear and mathematically motivated, not a claim of arbitrary estimator minimax.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

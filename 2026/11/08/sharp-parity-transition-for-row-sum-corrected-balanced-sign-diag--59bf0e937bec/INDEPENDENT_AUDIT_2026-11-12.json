@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:48:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For coordinate-exchangeable signs, pair correlation ρ=(E S²−n)/(n(n−1)) is bounded below by −1/(n−1) in even n and −1/n in odd n, with equality for the corresponding minimum-imbalance sign layers. Directly, E[z_i(Az)_i]=(1−ρ)A_ii+ρ(A1)_i gives the uniquely universally unbiased affine row-sum correction. For row i, variance of the corrected single probe equals (sum_{j≠i}A_ij²+ρ(sum_{j≠i}A_ij)^2)/(1−ρ). Independent probes divide variance by m, yielding total risk (||B||_F²+ρ||B1||²)/(m(1−ρ)). The derivative with respect to ρ is (||B||_F²+||B1||²)/(m(1−ρ)^2)>0 for nondiagonal A, hence minimum correlation is globally optimal in stated class. Cauchy–Schwarz gives even zero-risk rows precisely row-constant off diagonal; odd risk zero only B=0. Comparing with m+1 iid signs gives strict universal advantage for even n≥4 m≥n, odd n≥3 m≥n+1 and n=2 any m; B1=0 witnesses make boundaries exact. Independently enumerated all optimal fixed-count sign vectors for n=2..7 with rational matrix entries, checking unbiasedness and row variance; the dimension-general proof is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dharangutte–Musco Theorem 1 gives iid Rademacher diagonal error bounds; no pair-correlated row-sum correction.",
+          "Baston–Nakatsukasa and Hallman–Ipsen–Saibaba analyze conventional and low-rank diagonal-estimation methods, possibly better in different classes but not the stated restricted sign-correlation optimum."
+        ],
+        "reasoning": "General matrix-free estimator theory is broader algorithmically, but a broad concentration bound is not a theorem proving exact row-constant zero-variance characterization or sharp parity/query-budget transition.",
+        "searches": [
+          "balanced Rademacher probes stochastic diagonal estimation row sum correction fixed weight signs",
+          "https://arxiv.org/pdf/2208.03268",
+          "arxiv:2201.10684",
+          "arxiv:2202.02887"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.03268",
+        "https://arxiv.org/abs/2301.07825",
+        "https://arxiv.org/abs/2201.10684",
+        "https://arxiv.org/abs/2202.02887"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dharangutte–Musco Definition 1 probes g^z with iid Rademacher entries; its risk baseline is ||B||_F²/m when pair correlation is zero.",
+          "The new estimator uses an extra A1 product, ρ=min and divides by 1−ρ, with exact affine unbiasedness and n-dependent risk.",
+          "XDiag replaces the estimator through leave-one-out low-rank residuals and is not stated to imply this affine conditional-sign optimum."
+        ],
+        "reasoning": "Substituting a dependent sign vector into the iid theorem violates its hypothesis. The new exact covariance and zero-error results need a separate derivation, which was verified from the proof.",
+        "searches": [
+          "https://arxiv.org/pdf/2208.03268",
+          "https://arxiv.org/abs/2301.07825",
+          "balanced Rademacher probes stochastic diagonal estimation row sum correction fixed weight signs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed probe distribution is exchangeable under coordinate permutations but dependent inside one probe, with ρ<0; the standard baseline assumes independent coordinates and ρ=0.",
+          "XDiag exchangeability concerns leave-one-out corrections across probe vectors rather than conditioning on a fixed sum inside each probe."
+        ],
+        "reasoning": "Searched aliases finite-population signs, balanced Rademacher, fixed Hamming weight, Hutchinson control variate, row-sum estimator; these are nonidentical published techniques at the level of observation and correction.",
+        "searches": [
+          "balanced Rademacher probes stochastic diagonal estimation row sum correction fixed weight signs",
+          "https://arxiv.org/pdf/2208.03268",
+          "https://arxiv.org/abs/2301.07825"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table of within-probe fixed-sum sign risks and extra-row-sum matvec cost threshold was located in the inspected source and Resultary semantic results.",
+          "The exact n=2 and parity-dependent algebraic classification extends all n>=2 and is not a bounded numerical table."
+        ],
+        "reasoning": "The absence of a matching indexed item does not prove novelty; evidence instead depends on an explicit contrast between iid-entry source assumptions and dependent finite-population probes.",
+        "searches": [
+          "balanced Rademacher probes stochastic diagonal estimation row sum correction fixed weight signs",
+          "https://arxiv.org/abs/2301.07825"
+        ]
+      },
+      "rationale": "Classical Hutchinson and Diag++ work studies iid-coordinate signs, Gaussian vectors and low-rank corrections. The inspected Dharangutte–Musco paper explicitly defines independent iid-entry Rademacher probes and derives its iid baseline; this does not imply the minimum-correlation fixed-Hamming-weight within-probe design with one deterministic row-sum matvec, parity-dependent zero-error subspaces and exact cost thresholds. XDiag has a leave-one-out cross-probe construction, not this universal affine row correction. Novelty qualified for uninspected finite-population/control-variate specialist literature.",
+      "residual_risks": [
+        "Full original XDiag text was not inspected; a special fixed-sum correction hidden in an appendix cannot be excluded by an abstract.",
+        "Classical graph probing and finite-population antithetic control-variate literature might contain an equivalent risk identity under other names.",
+        "No global optimum claimed outside permutation-exchangeable sign laws and the universal affine row-sum correction; mathematical significance hinges on this useful explicit restriction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR: iid Rademacher risk and probability bounds only",
+          "evidence": "Definition 1 explicitly assumes each probe has iid fair signs; Section 4 generalized estimators still assume iid entries, excluding within-probe correlated minimum-sum signs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.03268",
+          "material_read": "ArXiv PDF Definition 1, Theorem 1, Sections 3–4 generalized iid probing, and page-one screenshot",
+          "method": "arXiv PDF text and screenshot",
+          "title": "A Tight Analysis of Hutchinson's Diagonal Estimator",
+          "trigger": "Exact same diagonal-estimation task and benchmark"
+        },
+        {
+          "assessment": "INCOMPLETE COMPARISON: different estimator mechanism; no full-document noncoverage claimed",
+          "evidence": "XDiag improves diagonal estimation through leave-one-out low-rank corrections; unlike the proposed per-probe conditional sign law. Full text remained a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "Accessible abstract and description of XDiag leave-one-out low-rank form, not verified full main paper",
+          "method": "arXiv abstract/search",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Prior XDiag uses exchangeable probes, potential equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diagonal of a matrix accessed only by matrix–vector products is a natural computational invariant. Exact dimension/parity-sensitive risk and zero-error subspaces supply actionable sampling and budget decisions beyond generic concentration bounds. A deterministic row-sum query plus fixed-sum signs can exactly recover a dense row-constant-off-diagonal matrix for even dimensions; matched-budget crossover is sharp. Its restricted-class optimality is clear and mathematically motivated, not a claim of arbitrary estimator minimax.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Restriction to coordinate-permutation exchangeable signs with independent probes, exact A1, and a universally unbiased affine correction; no claim against all probing algorithms. Full XDiag text not inspected and source comparison remains best of knowledge.",
+  "schema_version": 1
+}
