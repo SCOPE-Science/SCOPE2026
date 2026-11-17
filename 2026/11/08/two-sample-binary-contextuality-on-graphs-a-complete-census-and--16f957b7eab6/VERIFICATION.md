@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The included Python 3 script `check_half_integral.py` computes the two finite graph-sum formulas and separately enumerates the ten two-sample edge probability tables for each edge of five labelled test graphs. Only tables whose vertex marginals coincide are retained. The second test checks whether any complete assignment satisfies all supported edge pairs. The verified ordered pairs (no-disturbance, support-extendible) are \((40,36)\) for a triangle, \((136,128)\) for a four-cycle, \((116,116)\) for a four-vertex path, \((140,124)\) for a triangle with a pendant edge, and \((464,448)\) for a five-cycle. The expected script terminal message is `CHECK_OK`.
+# Independent mathematical audit
 
-The proof in RESULT.md independently establishes that, in this special precision regime, support extendibility is equivalent to probabilistic noncontextuality, and that the no-signalling model has contextual fraction exactly zero or one. Exhaustive finite tests are not a proof for arbitrary graphs. The denominator-three example is verified symbolically from its tables and explicit convex decomposition. The software uses the Python standard library only. Independent audit is not performed.
+## correctness
+
+PASS
+
+Every context distribution with entries in {0,1/2,1} has deterministic or fair marginal; a fair–fair edge has exactly one of the two equality/inequality tables. This gives a bijection (U,b,s) and N_ND=sum_U 2^(n-|U|+e(U)). A global support assignment exists iff s is an F2 coboundary on the induced fair graph, via spanning forests. Each balanced sign class admits an explicit global distribution with independent fair root bits; unbalanced support has no global assignment, so contextual fraction is exactly 1. Counting coboundaries gives 2^(|U|-c(U)) and N_NC=sum_U 2^(n-c(U)). An explicit four-cycle denominator-three mixture of all-zero and parity-odd PR support has fraction 2/3. Independently enumerated C3 (40,36), C4 (136,128), P4 (116,116), C5 (464,448) counts and inspected separate source checker.
+
+## originality
+
+PASS
+
+Classical signed-cycle balance and contextual support are prior foundations. The assembled complete all-graph counts for all labelled two-sample no-disturbance models, the all-or-nothing contextual fraction and the sharp denominator-three contrast are not found as implications of inspected primary results; best-of-knowledge only.
+
+## value
+
+PASS
+
+All-graph exact classification of the coarsest nontrivial empirical probability grid, with a graph-cycle girth threshold and the first fractional contextuality denominator, is a natural boundary between trivial deterministic and fractional contextual behavior. It characterizes a full finite-precision model class rather than arbitrarily slicing small graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
