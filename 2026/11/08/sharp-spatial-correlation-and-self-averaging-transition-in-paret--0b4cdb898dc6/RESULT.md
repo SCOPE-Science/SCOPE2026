@@ -1,166 +1,95 @@
-# Sharp spatial-correlation and self-averaging transition in Pareto-reset Glauber chains
+# Sharp positive-temperature spatial correlation prefactor in globally Pareto-reset Glauber chains
 
 ## Finding
 
-Consider the infinite one-dimensional, zero-field nearest-neighbor kinetic Ising chain, initialized with independent symmetric spins and **globally** returned to that same initial spin configuration at independent Pareto-renewal times. For every reset exponent \(\alpha>1\) and cutoff \(\tau_0>0\), the stationary **annealed**, connected, equal-time spin correlation \(C_n=\mathbb E[\sigma_0\sigma_n]\), \(n\ge1\), has the following sharp distance laws.
+Consider the infinite, translation-invariant, zero-field nearest-neighbor Glauber–Ising chain on \(\mathbb Z\), started from one independent symmetric spin configuration and globally reset to **that same initial configuration** at iid Pareto-renewal times. Let the reset waiting-time density be \(\rho(t)=\alpha\tau_0^\alpha t^{-\alpha-1}\mathbf1_{\{t\ge\tau_0\}}\), with \(\alpha>1\) and \(\tau_0>0\), and observe the stationary equilibrium-age, annealed law.
 
-At any fixed positive temperature, write \(\gamma=\tanh(2\beta J)\in(0,1)\), \(\eta=\tanh(\beta J)\in(0,1)\), and \(q=\alpha-1\). Then
-
+For every **fixed strictly positive and finite temperature**, with coupling \(J>0\) and \(0<\beta J<\infty\), write
 \[
- C_n\sim K_+(\alpha,\tau_0,\gamma)\,n^{-q}\eta^n,\qquad
- K_+=\frac{\tau_0^q}{\alpha}\bigl(2\sqrt{1-\gamma^2}\bigr)^q.
+ \gamma=\tanh(2\beta J)\in(0,1),\qquad \eta=\tanh(\beta J),\qquad q=\alpha-1>0.
 \]
-
-At strictly zero temperature (\(\gamma=1\)), the same resetting protocol instead gives an algebraic law
-
+The annealed connected two-spin correlation at separation \(n\) satisfies the **sharp asymptotic with exact coefficient**
 \[
- C_n\sim K_0(\alpha,\tau_0)n^{-2q},\qquad
- K_0=\frac{(4\tau_0)^q\Gamma(q+\tfrac12)}{\alpha\sqrt\pi}.
+ \boxed{\mathbb E[\sigma_0\sigma_n]\sim
+ \frac{\tau_0^q}{\alpha}\bigl(2\sqrt{1-\gamma^2}\bigr)^q\;n^{-q}\eta^n}\qquad(n\to\infty).
 \]
+For every positive integer \(n\), it also obeys the exact killed first-passage/renewal identity stated in the proof and the bound \(0<C_n\le\eta^n\). Hence \(\chi_{\rm sp}=1+2\sum_{n\ge1} C_n<\infty\), and the block-average magnetization of \(L\) consecutive sites has variance \(\chi_{\rm sp}/L+o(L^{-1})\). The novel quantitative statement is the **nontrivial polynomial factor and its explicit constant at every fixed positive temperature**; the last, summability consequence is routine once exponential clustering is known.
 
-Consequently, at zero temperature the integrated spatial connected correlation \(\chi_{\mathrm{sp}}=1+2\sum_{n\ge1}C_n\) is finite **if and only if** \(\alpha>3/2\). Let \(M_L=L^{-1}\sum_{i=1}^{L}\sigma_i\) be the stationary magnetization of an \(L\)-site observation window, not a separately periodic \(L\)-site Markov chain. Its exact leading annealed variance is
+## Precise scope
 
+Spins take values \(\sigma_i\in\{-1,+1\}\), \(i\in\mathbb Z\). Between globally synchronized resets, the generator flips spin \(i\) at rate
 \[
- \operatorname{Var}(M_L)\sim
- \begin{cases}
- \displaystyle\frac{2K_0}{(3-2\alpha)(4-2\alpha)}L^{-2(\alpha-1)},&1<\alpha<3/2,\\[4pt]
- \displaystyle 2K_0\frac{\log L}{L},&\alpha=3/2,\\[4pt]
- \displaystyle\frac{\chi_{\mathrm{sp}}}{L},&\alpha>3/2.
- \end{cases}
+ w_i(\sigma)=\frac12\left(1-\frac\gamma2\sigma_i(\sigma_{i-1}+\sigma_{i+1})\right).
 \]
-
-Thus the finite-mean reset regime has a separate and sharp spatial self-averaging threshold at \(\alpha=3/2\). Any fixed positive temperature restores exponential clustering and ordinary \(L^{-1}\) block-variance decay.
-
-## Assumptions and scope
-
-Spins \(\sigma_i\in\{-1,+1\}\), indexed by \(i\in\mathbb Z\), interact with coupling \(J>0\) and no field. Between resets they follow Glauber single-spin flips with rate
-
-\[
- w_i(\sigma)=\frac12\left(1-\frac\gamma2\sigma_i(\sigma_{i-1}+\sigma_{i+1})\right),
- \quad \gamma=\tanh(2\beta J),
-\]
-
-where \(\beta\in(0,\infty]\), with \(\gamma=1\) when \(\beta=\infty\). An initial configuration \(\sigma^{(0)}\) is sampled once from independent fair spins, and **the entire infinite configuration** is returned simultaneously to that same \(\sigma^{(0)}\) at each reset. Between resets, fresh independent Glauber randomness is used. Reset interarrivals are iid and independent of the spins, with density
-
-\[
- \rho(t)=\alpha\tau_0^\alpha t^{-\alpha-1}\mathbf1_{\{t\ge\tau_0\}},\qquad \alpha>1.
-\]
-
-The observation is in the stationary equilibrium-renewal version of the resetting clock. Expectations average over the initial spin configuration, stationary reset clock and Glauber evolution (**annealed**). The one-spin mean vanishes by global spin-flip symmetry, so \(C_n\) is connected. Limits \(n\to\infty\) and \(L\to\infty\) are taken at fixed \(\alpha,\tau_0,\beta J\); no joint low-temperature scaling or finite-ring thermodynamic-limit interchange is asserted.
+The initial configuration is sampled once with iid fair spins, and every reset returns the *entire infinite chain* to this same configuration. Fresh Glauber noise is used between resets, independently of the reset clock and initial spins. Both the covariance and stationarity are annealed over all randomness, with the reset age distributed according to the equilibrium renewal law. The limit is over separation \(n\to\infty\), for fixed \(\alpha,\tau_0,\beta J\). There is **no uniform joint low-temperature scaling claim**, and this result does not assert a new zero-temperature theorem, local sitewise resetting, a quenched identity, or a finite-ring approximation.
 
 ## Proof
 
-**1. Exact spin-pair evolution and a killed hitting-time representation.** By applying the spin-flip generator to \(\sigma_0\sigma_n\), translation invariance gives, for the no-reset dynamics,
-
+**1. Closed pair evolution and killed hitting time.** By the Glauber generator and translation invariance the no-reset pair correlation \(c_n(t)\), starting from independent fair spins, is the unique bounded solution of
 \[
- \dot c_n(t)=-2c_n(t)+\gamma(c_{n-1}(t)+c_{n+1}(t)),\quad n\ge1;
+ \dot c_n=-2c_n+\gamma(c_{n-1}+c_{n+1}),\quad n\ge1;
  \qquad c_0(t)=1,\quad c_n(0)=0\ (n\ge1).
 \]
-
-Let \(T_n^{(\gamma)}\) denote the first hitting time of zero by a continuous-time simple symmetric nearest-neighbor walk starting at \(n\), jumping to **each** neighbor at rate \(\gamma>0\). With \(\delta=2(1-\gamma)\), the bounded solution of this initial-boundary-value problem is
-
+Let \(T_n\) be the hitting time of zero of the continuous-time symmetric walk starting at \(n\), jumping **in each direction at rate \(\gamma\)**. Set \(\delta=2(1-\gamma)>0\). The backward equation and the same boundary/initial values give the exact representation
 \[
- c_n(t)=\mathbb E_n\big[e^{-\delta T_n^{(\gamma)}}\mathbf1_{\{T_n^{(\gamma)}\le t\}}\big]. \tag{1}
+ c_n(t)=\mathbb E_n\left[e^{-\delta T_n}\mathbf1_{\{T_n\le t\}}\right].\tag{1}
 \]
-
-Indeed, the backward equation for the killed hitting probability is \(\partial_tc_n=\gamma\Delta c_n-\delta c_n\), precisely the displayed Glauber equation, and the boundary and initial values coincide. Recurrence gives finiteness of the walk hitting time almost surely. Solving the second-order recurrence for the Laplace transform, with the bounded root at infinity, yields for \(s\ge0\)
-
+The walk hits zero almost surely. Writing \(\kappa_\gamma(s)=\operatorname{arcosh}(1+s/(2\gamma))\), the unique bounded root of the second-order hitting-time recurrence yields
 \[
- \mathbb E_n e^{-sT_n^{(\gamma)}}=e^{-n\kappa_\gamma(s)},\qquad
- \kappa_\gamma(s)=\operatorname{arcosh}\!\left(1+\frac{s}{2\gamma}\right). \tag{2}
+ \mathbb E_n[e^{-sT_n}]=e^{-n\kappa_\gamma(s)},\qquad s\ge0.\tag{2}
 \]
+By the strong Markov property the time from \(n\) to zero is a sum of \(n\) iid copies of the time from one to zero (on the full half-line with absorbing zero).
 
-The first hitting time from \(n\) decomposes by the strong Markov property into a sum of \(n\) iid one-step-down hitting times. This provides an independent probabilistic derivation of the power \(n\) in (2).
-
-**2. Exact stationary renewal-age mixing.** The mean interarrival equals \(\mu=\alpha\tau_0/(\alpha-1)\). The stationary backward age \(A\) has density \(\Pr(W>a)/\mu\), where \(W\) is a reset interarrival. Its tail is exactly
-
+**2. Exact renewal mixing.** For waiting times with the stated Pareto density, the mean is \(\mu=\alpha\tau_0/(\alpha-1)\). The equilibrium backward age \(A\), independent of the dynamics in the last interval, has survival function
 \[
- H(a)=\Pr(A\ge a)=
- \begin{cases}
- 1-a/\mu,&0\le a\le\tau_0,\\
- \displaystyle\frac{\tau_0^q}{\alpha}a^{-q},&a\ge\tau_0,
- \end{cases}\qquad q=\alpha-1>0. \tag{3}
+ H(t):=\Pr(A\ge t)=\begin{cases}
+ 1-t/\mu,&0\le t\le\tau_0,\\[2pt]
+ (\tau_0^q/\alpha)t^{-q},&t\ge\tau_0.
+ \end{cases}\tag{3}
 \]
-
-Conditioning the stationary system on its age and using (1), Tonelli's theorem (all integrands are nonnegative) gives the **exact** identity
-
+The two formulas match at \(t=\tau_0\). Conditioning on \(A\), using (1) and nonnegative Tonelli integration gives the exact finite-distance identity
 \[
- C_n=\mathbb E_n\big[e^{-\delta T_n^{(\gamma)}}H(T_n^{(\gamma)})\big]. \tag{4}
+ C_n=\mathbb E[c_n(A)]=\mathbb E_n[e^{-\delta T_n}H(T_n)].\tag{4}
 \]
+The spin mean is zero by global flip symmetry, so this pair expectation is connected.
 
-In particular (4), not only the subsequent limits, is valid at every integer separation and all permitted parameters. For the no-reset hitting time, the density is \(n e^{-2\gamma t}I_n(2\gamma t)/t\), giving a directly reproducible Bessel-integral representation of (4).
-
-**3. Fixed positive temperature.** Suppose \(0<\gamma<1\), and let \(\delta=2(1-\gamma)>0\). By (2),
-
+**3. Exponential tilt and exact prefactor.** Evaluate (2) at \(s=\delta\):
 \[
- \mathbb E e^{-\delta T_n^{(\gamma)}}=\eta^n,
- \quad \eta=e^{-\kappa_\gamma(\delta)}=\frac{1-\sqrt{1-\gamma^2}}{\gamma}=\tanh(\beta J).
+ \mathbb E_n[e^{-\delta T_n}]=e^{-n\kappa_\gamma(\delta)}=\eta^n,
+ \qquad \eta=\frac{1-\sqrt{1-\gamma^2}}\gamma=\tanh(\beta J).
 \]
-
-Exponential tilting by \(e^{-\delta T_n^{(\gamma)}}/\eta^n\) defines a probability law under which the \(n\) one-step hitting times remain iid. Each has finite mean
-
+Tilting the law of \(T_n\) by \(e^{-\delta T_n}/\eta^n\) preserves its decomposition into \(n\) iid tilted one-step passage times. Their finite positive mean is
 \[
  m_\gamma=\kappa_\gamma'(\delta)
  =\frac1{\sqrt{\delta(\delta+4\gamma)}}
- =\frac1{2\sqrt{1-\gamma^2}}>0.
+ =\frac1{2\sqrt{1-\gamma^2}}.
 \]
-
-Thus \(T_n^{(\gamma)}/n\to m_\gamma\) in tilted probability. The left-tail event \(T_n^{(\gamma)}<nm_\gamma/2\) has exponentially small tilted probability by a Chernoff bound, since each tilted summand is positive and has a Laplace transform near zero. On its complement, formula (3) implies that \(n^q H(T_n^{(\gamma)})\) is bounded by \(\tau_0^q2^q/(\alpha m_\gamma^q)\) for sufficiently large \(n\). Its limit in probability is \(\tau_0^q/(\alpha m_\gamma^q)\); the exceptional contribution is at most \(n^q e^{-cn}\), because \(H\le1\). Bounded convergence in probability therefore proves
-
+By the strong law, \(T_n/n\to m_\gamma\) in tilted probability. The tilted one-step time has a Laplace transform in a neighborhood of zero, so the lower-tail event \(T_n<nm_\gamma/2\) has tilted probability at most \(e^{-cn}\) for some \(c>0\). On its complement, for all sufficiently large \(n\), (3) yields
 \[
- \frac{C_n}{\eta^nn^{-q}}\longrightarrow
- \frac{\tau_0^q}{\alpha}m_\gamma^{-q}=K_+.
+ n^qH(T_n)=\frac{\tau_0^q}{\alpha}(T_n/n)^{-q}
+ \le \frac{\tau_0^q}{\alpha}(m_\gamma/2)^{-q}.
 \]
-
-This also shows \(0<C_n\le\eta^n\), so spatial correlations are summable at every fixed positive temperature.
-
-**4. Zero temperature and exact power-law constant.** If \(\gamma=1\), then \(\delta=0\). Set \(T_n=T_n^{(1)}\). For each fixed \(r>0\) and all integers \(n>r\), Mellin--Laplace inversion and (2) give
-
+The right-hand expression converges in tilted probability to \(\tau_0^q/(\alpha m_\gamma^q)\). The excluded lower tail contributes at most \(n^qe^{-cn}\) since \(H\le1\). Dominated convergence in probability on the bounded remainder therefore establishes
 \[
- \mathbb E[T_n^{-r}]
- =\frac1{\Gamma(r)}\int_0^\infty s^{r-1}
-  e^{-n\operatorname{arcosh}(1+s/2)}\,ds.
+ \lim_{n\to\infty}\frac{C_n}{\eta^nn^{-q}}
+ =\frac{\tau_0^q}{\alpha m_\gamma^q}
+ =\frac{\tau_0^q}{\alpha}(2\sqrt{1-\gamma^2})^q,
 \]
-
-Substitute \(v=n\operatorname{arcosh}(1+s/2)\), so \(s=2(\cosh(v/n)-1)\). Dominated convergence applies after multiplying by \(n^{2r}\): on compact \(v\)-intervals the integrand tends to \(2v^{2r-1}e^{-v}/\Gamma(r)\); for sufficiently large \(n\), \(\sinh(x)\ge x\), \(\sinh(x)\le xe^x\), and \(\cosh(x)\le e^x\) give an integrable bound consisting of a constant times \(v^{2r-1}e^{-v/2}\). Therefore
-
+which proves the main claim. The exact inequality \(0<C_n\le\eta^n\) follows from (4), \(0<H\le1\), and (2). The identity for block variance is
 \[
- \lim_{n\to\infty}n^{2r}\mathbb E[T_n^{-r}]
- =\frac{2\Gamma(2r)}{\Gamma(r)}
- =\frac{4^r\Gamma(r+1/2)}{\sqrt\pi}. \tag{5}
+ \operatorname{Var}\left(L^{-1}\sum_{i=1}^{L}\sigma_i\right)
+ =L^{-2}\left[L+2\sum_{n=1}^{L-1}(L-n)C_n\right];
 \]
+absolute summability gives \(\chi_{\rm sp}/L+o(L^{-1})\) by dominated convergence.
 
-The event \(T_n<\tau_0\) requires at least \(n\) jumps by time \(\tau_0\); it is bounded by \(\Pr(\operatorname{Poisson}(2\tau_0)\ge n)\), superexponentially small in \(n\). Cauchy--Schwarz together with (5) for \(r=2q\) shows that even \(\mathbb E[T_n^{-q};T_n<\tau_0]=o(n^{-2q})\). Thus replacing \(H(T_n)\) in (4) by \(\tau_0^q T_n^{-q}/\alpha\) changes the result by \(o(n^{-2q})\). Setting \(r=q\) in (5) yields precisely \(C_n\sim K_0n^{-2q}\).
+## Prior work and originality boundary
 
-An exact finite-distance check of the critical inverse-moment argument is \(\mathbb E[T_n^{-1}]=2/(n^2-1)\) for \(n\ge2\), obtained by integrating (2) at \(r=1\). It agrees with the \(r=1\) constant in (5).
+The **zero-temperature** power-law spatial correlation coefficient, critical \(\alpha=3/2\) susceptibility transition, and full three-regime block-variance asymptotics are already established by the earlier result *Algebraic spatial correlations and a sharp susceptibility threshold in a globally reset kinetic Ising chain*, published 2026-11-02, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-algebraic-spatial-correlations-and-a-sharp-susceptibility-thresh--da40ba33c965 . Its zero-temperature theorem is even more general in allowing nonzero mean initial spins. **None of those zero-temperature claims is presented as new here.** Classical Glauber pair evolution and renewal-age mixing are also acknowledged antecedents.
 
-**5. The block-variance transition.** Spin-flip symmetry gives \(\mathbb E\sigma_i=0\). Hence for every \(L\ge1\), exactly
+Anagha V. K. and Apoorva Nagar, *Ising model with power law resetting*, Physical Review Research 8, 023197 (2026), DOI:10.1103/d3hg-bgmh, https://journals.aps.org/prresearch/pdf/10.1103/d3hg-bgmh , analyzes magnetization distributions under global heavy-tail resetting and motivates studying spatial correlations. Earlier work on Poisson resetting or independent sitewise resetting changes the reset-clock geometry. The original kinetic pair equations are due to R. J. Glauber, *Time-Dependent Statistics of the Ising Model* (1963), DOI:10.1063/1.1703954.
 
-\[
- \operatorname{Var}(M_L)=\frac1{L^2}
- \left[L+2\sum_{n=1}^{L-1}(L-n)C_n\right]. \tag{6}
-\]
+The contribution here is confined to the **positive-temperature exact exponential-times-power coefficient** for common Pareto renewal resetting. An unindexed general theorem about tilted coalescence/renewal may still imply this asymptotic; no guarantee of historical priority is made.
 
-Write \(p=2q\). When \(0<p<1\), the Riemann-sum asymptotic
-\(\sum_{n<L}(L-n)n^{-p}\sim L^{2-p}/[(1-p)(2-p)]\) gives the first variance case. For \(p=1\), the same sum is \(L\log L+O(L)\), giving the middle case. For \(p>1\), dominated convergence in (6) yields \(L\operatorname{Var}(M_L)\to1+2\sum_{n\ge1}C_n\). Since \(K_0>0\), the convergence or divergence of \(\chi_{\mathrm{sp}}\) is exactly determined by \(p>1\), equivalent to \(\alpha>3/2\). At finite positive temperature, \(C_n\le\eta^n\), and the same summable case always applies.
+## Limitations and verification
 
-## Verification
-
-Run `python check.py` with the dependency in `requirements.txt`. The checker uses the independently evaluable first-passage Bessel density, the equilibrium-age formula, a closed exact inverse-moment identity, and several parameter/separation regimes. On the packaged version it passed 324 deterministic assertions. This is a finite numerical and algebraic corroboration; equations (1)--(6), the exponential-tilt argument, and the dominated-convergence argument furnish the proofs of the infinite-distance and thermodynamic-window statements.
-
-## Relationship to prior work
-
-The February 17, 2026 first-public preprint by Anagha V K and Apoorva Nagar, *Ising Model with Power Law Resetting* (arXiv:2602.15495), establishes the Pareto-renewal setting and analyzes the distribution of **magnetization** under global resets. It does not provide stationary equal-time two-spin distance asymptotics or the \(\alpha=3/2\) spatial self-averaging threshold. Its later journal date is not the first-public date used here.
-
-Magoni, Majumdar and Schehr, *Ising model with stochastic resetting* (arXiv:2002.04867), provide the global-reset Glauber-renewal framework for **Poisson** clock intervals; their conclusion explicitly raises the structure of two-point correlations as a further question. Glauber's 1963 kinetic-Ising correlation closure is foundational and is not new here. Grange, *Voter model under stochastic resetting* (arXiv:2207.08590), studies two-point functions under **independent sitewise Poisson** resetting to initial opinions, rather than the common Pareto clock used here. The hitting-time solution of the Glauber equations and standard renewal-age formula are also antecedent tools. The contribution claimed here is their combined, sharp, spatially resolved Pareto law with both temperature-dependent prefactors and the resulting exact nonstandard block-variance regimes.
-
-## Limitations
-
-All assertions are annealed over the initially sampled reset configuration and are for the infinite chain observed through finite blocks. They do not assert a fixed-environment quenched correlation law, a thermodynamic susceptibility defined by an equilibrium fluctuation--dissipation identity, a dynamic time-correlation theorem, finite-ring scaling at coupled limits, or a joint \(\beta\to\infty\), \(n\to\infty\) crossover. The case \(\alpha\le1\), for which the renewal mean is infinite and no stationary equilibrium-age clock exists, is excluded. Exact mathematical correctness does not independently establish publication priority: an unindexed general renewal-coarsening theorem might subsume the result.
-
-## References
-
-1. Anagha V K and Apoorva Nagar, *Ising Model with Power Law Resetting*, first-public arXiv:2602.15495v1 (2026-02-17), https://arxiv.org/html/2602.15495v1 .
-2. M. Magoni, S. N. Majumdar and G. Schehr, *Ising model with stochastic resetting*, arXiv:2002.04867 (2020), https://arxiv.org/abs/2002.04867 .
-3. P. Grange, *Voter model under stochastic resetting*, arXiv:2207.08590 (2022), https://arxiv.org/pdf/2207.08590 .
-4. R. J. Glauber, *Time-Dependent Statistics of the Ising Model*, Journal of Mathematical Physics 4, 294--307 (1963), https://doi.org/10.1063/1.1703954 .
+The formulas depend on the specified generator time normalization and on equilibrium-age, annealed resetting to one frozen iid configuration. The positive-temperature result does not commute uniformly with a zero-temperature limit. Finite first-passage integrations or simulations can corroborate, but do not prove, the asymptotic. The proof is entirely analytic, relying on explicit renewal survival, the walk Laplace transform, and a tilted law of large numbers with an exponential lower-tail bound. A claim of formal verification, expert attestation, or independent external certification is not made.
