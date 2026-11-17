@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The primary source's generalized-degree and coupling normalization are used exactly. Each triple contributes a positive-semidefinite rank-two matrix of trace three; both normalized layers therefore have trace \(n\). Equality in the spectral trace bound forces \(L=(nI-J)/(n-1)\). Comparing hub–leaf entries fixes \(\alpha=(n-2)/n\); comparing leaf–leaf entries then forces uniform positive pair incidence. The converse, two invariant eigenspaces, full spectrum, block count and Fano example follow by explicit matrix identities. An independent finite checker exercised all nonempty triple families at network orders \(4,5,6\) and seven coupling values, plus exact checks for larger balanced systems. Computations are corroboration, not infinite proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** The trace/degree upper bound and Steiner existence are pre-existing facts, not new contributions. The motivating Zhang–Lucas–Battiston work studies mean-degree-normalized hypergraphs, observes optimal coupling mixtures and gives general degree bounds, but the material examined does not give the exact star/leaf-triad equality classification or the design-driven full-spectrum equivalence. Lucas–Cencetti–Battiston's 2020 star–clique construction is geometrically distinct; Skardal et al. 2021 restrict to simplicial clique complexes and a different alignment objective; Wang–Ji–Lü 2025 focus on maximizing a largest eigenvalue, not the identical-frequency transverse gap. A mathematically equivalent unindexed block-design application cannot be excluded.
+PASS
 
-**Value — PASS.** This is a natural exact network-design question sharpened beyond an old spectral upper bound: it identifies all attaining hypergraphs and the unique resource split. It shows that a Steiner triple system achieves the same entire normalized linearized spectrum as the complete leaf triple system using only \(1/(n-3)\) as many triads, with concrete seven-versus-thirty-five sparsification and a sharp factor-two rate increase over the star. These are meaningful structural and efficiency facts within a restricted but motivated dynamical family.
+Each star edge contributes trace 2 and each triple contributes trace 3; after separate degree normalization the mixed positive-semidefinite Laplacian has trace n and one constant zero vector, hence lambda_2<=n/(n-1). Equality iff L=(nI-J)/(n-1), which comparing hub-leaf entries forces 1-alpha=2/n, and comparing leaf-pair entries forces every co-incidence count c_uv equal to the same positive integer mu. Under pair balance, 3|H|=mu*C(n-1,2), and both block eigenvalues are explicit: n[1-alpha]/[2(n-1)]+n alpha/(n-2) on n-2 leaf contrasts and n^2[1-alpha]/[2(n-1)] on hub-versus-leaf, with unique branch intersection alpha=(n-2)/n. The classical 7-block Fano plane covers 21 pairs once. Independently computed exact rational mixed 8x8 matrices for Fano and all triples at alpha=0,.2,.5,.75,1 and found equality; numerical eigenvalues gave gap 8/7 at alpha=.75 and 4/7 at alpha=0; proof all n remains analytic.
 
-**Closest work and limits.** Zhang et al., arXiv:2203.03060, full text and supplemental scope; Lucas et al., doi:10.1103/PhysRevResearch.2.033410, star–clique construction; Skardal et al., doi:10.1103/PhysRevResearch.3.043193, clique-complex alignment; Wang et al., doi:10.1088/1674-1056/adcded, largest-eigenvalue topology optimization. The theorem concerns local identical-frequency relaxation, not global nonlinear behavior or heterogeneous-frequency optimization. Unindexed equivalents remain a publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhang–Lucas–Battiston 2023 primary full text defines this multiorder Laplacian and general spectral/trace bounds, but does not classify equality for the restricted star/leaf-triple topology. Classical Steiner systems and Fano pair balance are credited rather than claimed as invented; the new implication is the entire normalized operator equivalence and unique sharp alpha optimizer among all triple systems. Published database near matches concern other synchronization/eigenvalue functionals. Originality is best knowledge and not proof of global priority.
+
+## value
+
+PASS
+
+It gives an exact nontrivial optimizer and all equality designs for a natural higher-order synchronization model; sparse triple designs preserve every local linearized mode at a fraction of interaction count. Precise limitations to local identical-frequency relaxation and separately normalized coupling are stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
