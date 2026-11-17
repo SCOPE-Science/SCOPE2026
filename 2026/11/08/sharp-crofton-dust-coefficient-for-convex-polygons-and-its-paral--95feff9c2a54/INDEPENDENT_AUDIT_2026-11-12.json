@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:55:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an invariant unoriented Crofton line conditioned to meet convex polygon K, total line intensity is perimeter P. The event of cap area <=epsilon*A is exactly the sum of two support-cap offset widths; angular orientation conversion yields (1/P)int_0^{2pi}delta(u,epsilon*A)du. At almost every normal exposing a vertex with interior angle alpha, the small cap triangle has area delta^2 sin(alpha)/(2pq), yielding its J(alpha) coefficient. An inscribed disk yields uniform O(sqrt(area)) domination allowing angular dominated convergence. AM-GM on incident projections and 2sqrt(ab)<=a+b give strict C<sqrt2 for parallelograms, approached by flattening rhombi. The small exterior-angle integral produces C(P_n)=pi^2/(4sqrt(n))+O(n^-5/2), distinct from the circular cap exponent 2/3. Independently integrated the corner terms and limiting regular-polygon/rhombus trends; numerical finite epsilon checks are secondary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Short-chord lengths depend on local edge geometry but do not directly determine area cap mass under the same measure.",
+          "Dias–Parisio results specialize to regular polygon and different random cut, not arbitrary convex polygons under invariant measure."
+        ],
+        "reasoning": "The full general convex-polygon angle sum and sharp parallelogram sup are not consequences of inspected chord or boundary-cut theorems.",
+        "searches": [
+          "Resultary search: sharp side-count-uniform angular stability from short Crofton chords",
+          "Bäsel arXiv:1204.2707 full text",
+          "arXiv:1404.6106 PDF sections on random cut protocol"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify_crofton.py, METADATA.json",
+        "Full Bäsel arXiv:1204.2707v2 HTML",
+        "Dias–Parisio arXiv:1404.6106 primary PDF relevant protocol/limits",
+        "Parisio–Dias arXiv:1109.2006 abstract",
+        "Resultary semantic searches on Crofton area fragment laws and extremal geometry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dias–Parisio recover the small-area exponent under a different cut probability; Bäsel gives chord-length CDF under invariant line measure; the 2011 abstract treats fragment distributions but has not been read fully."
+        ],
+        "reasoning": "Neither the same exponent under unequal sampling nor the correct line measure applied to chord length implies the exact smaller-piece area coefficient or parallelogram inequality.",
+        "searches": [
+          "Dias & Parisio (2014) doi:10.1103/PhysRevE.90.032405",
+          "Bäsel arXiv:1204.2707v2",
+          "Parisio & Dias (2011) doi:10.1103/PhysRevE.84.035101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dias–Parisio select a boundary point and outgoing angle independently, inducing a nonuniform invariant-line intensity; Bäsel defines dg=dp dphi on chord space."
+        ],
+        "reasoning": "The shared 1/2 exponent under an alternative protocol and the chord-length density under the correct protocol are not equal formulations of the smaller-cut-fragment area distribution.",
+        "searches": [
+          "Resultary: Crofton invariant random line polygon small area fragment square root corner coefficient",
+          "Dias–Parisio arXiv:1404.6106",
+          "Bäsel arXiv:1204.2707"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected source tabulates the C(K) area-fraction coefficient or sharp sqrt2 parallelogram supremum under invariant lines."
+        ],
+        "reasoning": "This exact leading coefficient is determined by a geometric integration, not mere recomputation of a regular-polygon table; the search is evidence-limited.",
+        "searches": [
+          "Resultary: sharp Crofton dust coefficient for convex polygons and parallelogram extremum",
+          "Bäsel explicit chord distributions for regular polygons"
+        ]
+      },
+      "rationale": "Dias–Parisio 2014 studies cuts from a uniformly chosen boundary start and independent angle; its sqrt(epsilon) exponent applies to a different line law. Bäsel 2012 uses the same motion-invariant Crofton line measure but calculates chord length and two-point distance laws, not fragment area, and does not derive an all-convex-polygon vertex-angle coefficient or a sharp parallelogram extremum. Resultary nearest records concern short chords or boundary-point random hulls, not this area statistic. A plausible 2011 predecessor is only partially accessible and its full paper remains a historical priority risk; this alone does not negate a best-knowledge PASS.",
+      "residual_risks": [
+        "Complete Parisio–Dias 2011 predecessor text was not obtained despite lawful search; exact area coefficient could have unindexed antecedents.",
+        "Limits are epsilon->0 for fixed polygon and separately n->infinity; no uniform crossover is proved.",
+        "Supremum is only over parallelograms, not arbitrary convex polygons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MEASURE",
+          "evidence": "Uniform boundary starting location and independent angle; does not use conditioned Euclidean-invariant dtheta dt measure",
+          "identifier_or_url": "https://arxiv.org/abs/1404.6106",
+          "material_read": "Full open PDF relevant introductory cutting protocol, limit exponent and regular-polygon formulation",
+          "method": "Lawful arXiv PDF text/page examination",
+          "title": "Minimal fragmentation of regular polygonal plates",
+          "trigger": "Published sqrt(area) dust law for regular polygons"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Equations (1),(2) concern chord-length intensity, not smaller-side area mass or polygon vertex-angle J sum",
+          "identifier_or_url": "https://arxiv.org/html/1204.2707v2",
+          "material_read": "Complete primary HTML, introduction and Sections 2–5: invariant line definition, chord length CDF, point-pair distance, examples",
+          "method": "Full lawful arXiv HTML mathematical reading",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Same invariant-line probability space"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK",
+          "evidence": "The abstract does not establish the cutting measure or exact polygon J coefficient; no whole-paper not-covering assertion",
+          "identifier_or_url": "https://arxiv.org/abs/1109.2006",
+          "material_read": "Bibliographic record and published abstract only: two fragments and power-law mass distribution; no full source text obtained",
+          "method": "Lawful arXiv/OA availability search and abstract examination",
+          "title": "Minimal fragmentation problem",
+          "trigger": "Earlier predecessor potentially studying fragment distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula identifies a natural scale-invariant dust-tail coefficient for every nondegenerate convex polygon under a canonical geometric-probability protocol and gives a genuine sharp nonattained parallelogram extremum and a regular-polygon-to-disk singular limit. It resolves shape dependence, cutting-protocol sensitivity, and a geometric boundary-layer crossover, not just a numerical special polygon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, verify_crofton.py, METADATA.json",
+    "Full Bäsel arXiv:1204.2707v2 HTML",
+    "Dias–Parisio arXiv:1404.6106 primary PDF relevant protocol/limits",
+    "Parisio–Dias arXiv:1109.2006 abstract",
+    "Resultary semantic searches on Crofton area fragment laws and extremal geometry"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strict bound applies to every nondegenerate parallelogram; equality is a degenerate limiting sequence.",
+    "No distribution at nonzero area threshold or all-polygons extremum.",
+    "Science assessment complete; publication not_ready is a separate privacy/transport decision, not an unresolved scientific verdict."
+  ],
+  "residual_risks": [
+    "Complete Parisio–Dias 2011 predecessor text was not obtained despite lawful search; exact area coefficient could have unindexed antecedents.",
+    "Limits are epsilon->0 for fixed polygon and separately n->infinity; no uniform crossover is proved.",
+    "Supremum is only over parallelograms, not arbitrary convex polygons."
+  ],
+  "schema_version": 1
+}

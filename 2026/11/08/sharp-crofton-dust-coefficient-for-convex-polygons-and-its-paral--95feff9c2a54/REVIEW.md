@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof normalizes the full unoriented line measure by the perimeter, expresses the small-area event as the exact sum of two support-cap offset intervals, and applies a locally exact triangular cap formula for each generic exposed vertex. A disk contained in the polygon gives the required uniform square-root domination, justifying angular dominated convergence. The cone integral is reduced explicitly to the angle function \(J\). The sharp parallelogram inequality follows from pointwise arithmetic-geometric mean on the two incident edge projections plus the elementary side-length inequality, and the degenerate equal-side sequence proves optimality. Regular-polygon and disk constants are derived by controlled expansions. The standalone verifier independently integrates finite-area cap probabilities by polygon clipping. Numerical checks cannot substitute for the analytic limit proof.
+## correctness
 
-## Originality — PASS (best-knowledge, not independently certified)
-The 2014 full paper by Dias and Parisio proves a dust exponent for a different sampling law—uniform boundary start and uniform exit angle—whose line-space distribution is not invariant Crofton measure. The 2012 full paper by Bäsel uses motion-invariant line sampling, but studies chord lengths and point distances, not the area of a fragment. Published comparisons and mathematical-record searches did not identify the present all-polygon coefficient, sharp \(\sqrt2\) parallelogram supremum, or its regular-polygon scaling under invariant-line sampling. A 2011 predecessor was only bibliographically accessible, and unindexed geometric probability work remains a residual historical-priority risk.
+PASS
 
-## Value — PASS
-The theorem resolves a natural ambiguity in random-cut protocols by giving an exact, shape-sensitive leading statistic for the canonical motion-invariant line measure. It applies to every convex polygon, yields a nonattained sharp optimization constant for all parallelograms, and explains an inverse-square-root asymptotic of the coefficient as regular polygons approach a disk. These are structural and extremal findings, not a numerical example or a reformulation of a chord-length formula.
+For an invariant unoriented Crofton line conditioned to meet convex polygon K, total line intensity is perimeter P. The event of cap area <=epsilon*A is exactly the sum of two support-cap offset widths; angular orientation conversion yields (1/P)int_0^{2pi}delta(u,epsilon*A)du. At almost every normal exposing a vertex with interior angle alpha, the small cap triangle has area delta^2 sin(alpha)/(2pq), yielding its J(alpha) coefficient. An inscribed disk yields uniform O(sqrt(area)) domination allowing angular dominated convergence. AM-GM on incident projections and 2sqrt(ab)<=a+b give strict C<sqrt2 for parallelograms, approached by flattening rhombi. The small exterior-angle integral produces C(P_n)=pi^2/(4sqrt(n))+O(n^-5/2), distinct from the circular cap exponent 2/3. Independently integrated the corner terms and limiting regular-polygon/rhombus trends; numerical finite epsilon checks are secondary.
 
-## Limitations
-The result does not provide the full positive-area distribution, a joint \(n\)-and-\(\varepsilon\) limit, or a global maximum over arbitrary convex polygons. Literature search is evidence of noncoverage, not a proof of historical novelty. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dias–Parisio 2014 studies cuts from a uniformly chosen boundary start and independent angle; its sqrt(epsilon) exponent applies to a different line law. Bäsel 2012 uses the same motion-invariant Crofton line measure but calculates chord length and two-point distance laws, not fragment area, and does not derive an all-convex-polygon vertex-angle coefficient or a sharp parallelogram extremum. Resultary nearest records concern short chords or boundary-point random hulls, not this area statistic. A plausible 2011 predecessor is only partially accessible and its full paper remains a historical priority risk; this alone does not negate a best-knowledge PASS.
+
+## value
+
+PASS
+
+The formula identifies a natural scale-invariant dust-tail coefficient for every nondegenerate convex polygon under a canonical geometric-probability protocol and gives a genuine sharp nonattained parallelogram extremum and a regular-polygon-to-disk singular limit. It resolves shape dependence, cutting-protocol sensitivity, and a geometric boundary-layer crossover, not just a numerical special polygon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
