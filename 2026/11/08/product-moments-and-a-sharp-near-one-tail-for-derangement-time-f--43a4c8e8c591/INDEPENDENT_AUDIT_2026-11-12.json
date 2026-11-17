@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:53:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the established logarithmic-time finite-small-cycle functional limit for Ewens CRP, at fixed θ>0 and fixed integer k≥1, to identify L=∫_0^1 1_{Y(log t)=0}dt where Y is stationary M/G/∞ tandem stages rates 1,...,k. The total service duration S_k equals the maximum of k independent unit exponentials, with survival 1−(1−e^{-u})^k, mean H_k and integrated survival φ_k(e^{-d}). For ordered times, the Poisson forbidden intervals have total intensity θH_k+θΣ_{i=2}^s φ_k(exp(−gap_i)), yielding exact multitime zero probabilities. Order and ratio-change the s integrals (Jacobian u^{s−1}∏r_j^{j−1}) to get E L^s=e^{-θH_k}∏_{j=1}^{s−1}j∫_0^1r^{j−1}e^{-θφ_k(r)}dr. Taylor/Beta estimates give q_j=1−θ/j+O(j^-2), positive convergent renormalized product and moments ~C_{θ,k}s^{−θ}; monotone interpolation and Karamata for W=−log L give P(L>1−ε)~C_{θ,k}ε^θ/Γ(1+θ). Correct derivation of k=1 variance. Independent numerical quadrature corroborated first two moments at θ=1,k=1,2,3, and φ_k identities; no finite check is presented as proof of functional convergence or Tauberian theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 exact moments and near-one tail are only k=1; do not state arbitrary cutoff k≥2.",
+          "Primary functional-limit theorems apply to all fixed cycle sizes but are process-convergence inputs; a weak-limit theorem alone does not evaluate all integrated void moments or endpoint constants."
+        ],
+        "reasoning": "Prior k=1 formulas cover a proper specialization; the generalized marked-service kernel and all k≥2 products need additional calculations and are not implied by the published explicit result alone.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442/RESULT.md",
+          "Gnedin Stark Random Permutations and Queues arxiv:2209.12781 theorem 6",
+          "Galganov Ilienko arxiv:2502.05578 §4.2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442",
+        "arxiv:2209.12781",
+        "arxiv:2502.05578",
+        "arxiv:2006.04840 static derangements",
+        "pinned full proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=1, φ_1(r)=1−r and H_1=1, giving exactly the Nov 2 formulas.",
+          "At k≥2, φ_k(r)=Σ_{l=1}^k(−1)^{l+1}binom(k,l)(1−r^l)/l and H_k; prior published singleton q_j cannot specialize to this service law."
+        ],
+        "reasoning": "The k=1 overlap is deducted, leaving a motivated nontrivial full cutoff family. The general queue limit supplies the model, not the evaluated moments or Karamata constant.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442/RESULT.md",
+          "arxiv:2209.12781 Theorem 6",
+          "arxiv:2502.05578 §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A_{n,k} is the time-averaged no-cycles-of-length≤k process; in log time it equals exponentially discounted idle-time occupation of stationary M/G/∞ with service max of k exponentials.",
+          "For k=1, Y is M/M/∞ immigration-death and exact prior formulas match q_j with φ_1(r)=1−r."
+        ],
+        "reasoning": "Explicitly compared occupation, idle-time and renewal aliases, recognizing that k=1 is exactly already published.",
+        "searches": [
+          "Resultary: derangement time fixed points product moments near one tail random permutation",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442/RESULT.md",
+          "discounted zero occupancy M/G infinity queue Ewens no short cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact numerical k=1 variance e^{-2}(e−2) was already known in the Nov 2 theorem.",
+          "New formulas determine the entire Hausdorff moment sequence and the near-one leading constant for any k≥2, not a finite table."
+        ],
+        "reasoning": "Known tables for singleton derangements or small size permutation laws do not automatically determine the full discounted zero-occupancy distribution at arbitrary cutoffs.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442/RESULT.md",
+          "arxiv:2209.12781 stationary queue covariance discussion",
+          "arxiv:2502.05578 fixed-small-block point processes"
+        ]
+      },
+      "rationale": "The prior November 2 Resultary publication gives the ENTIRE k=1 derangement singleton-cycle moment-product and sharp ε^θ endpoint law, including the same constant: that specialization is expressly known, not the independent novelty. The audited contribution is the complete fixed arbitrary cutoff k≥2, where avoiding every cycle size 1,...,k creates a non-Markovian total-service void process with a different φ_k and prefactor; the proof derives exact joint-void factorization and every moment. Gnedin–Stark and Galganov–Ilienko establish limiting count processes, not these evaluated integrated laws in inspected relevant sections. This is a qualified best-of-knowledge result subject to older M/G/∞ occupation theory.",
+      "residual_risks": [
+        "M/G/∞ idle-time literature may contain an equivalent discounted-occupation product or endpoint law for hypoexponential service.",
+        "The k=1 theorem is already fully published and is not separately novel.",
+        "No uniform-in-n endpoint approximation or growing k assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS k=1 completely, NOT arbitrary cutoff k≥2",
+          "evidence": "Finding e^{-θ}∏a_j, q_j for singleton state, and its C_θ upper-tail prefactor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442/RESULT.md",
+          "material_read": "Entire RESULT.md including proof and exact ε^θ constant",
+          "method": "Full published scientific file via GitHub",
+          "title": "A sharp upper-tail law for derangement occupation in the Ewens restaurant process",
+          "trigger": "Exact earlier k=1 theorem, same endpoint and moment law"
+        },
+        {
+          "assessment": "Establishes background convergence, does not state audited all-k product or endpoint in inspected sections",
+          "evidence": "Theorem 6 logarithmic-time small-cycle functional convergence; stationary queue description.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.12781",
+          "material_read": "Relevant main theorems and Theorem 6, Sections on finite-dimensional dynamics/queue and occupation",
+          "method": "Primary arXiv full PDF text and page images",
+          "title": "Random Permutations and Queues",
+          "trigger": "Same chronological Ewens process and stationary queue functional limits"
+        },
+        {
+          "assessment": "Gives stochastic process input but not the evaluated all-order k≥2 void-occupation product/tail in inspected material",
+          "evidence": "Theorem 2.1 and §4.2 characterize small-block process limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.05578",
+          "material_read": "Relevant Theorem 2.1 and §4.2 count-process convergence; PDF page image inspected",
+          "method": "Primary arXiv full PDF text and screenshots",
+          "title": "Scaling limit for small blocks in the Chinese restaurant process",
+          "trigger": "More general point process potentially dominating the input law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The chronological fraction of stages without cycles up to cutoff k is a natural permutation-growth observable. Determining its complete limit distribution by moments and precise rare near-one probability for every fixed k≥2 yields a useful non-Poisson invariant and cutoff-dependent constants, beyond the existing k=1 calculation and mere process convergence. The exponent universality across all cutoffs is a specific structural statement motivated by the underlying queue tail, not an arbitrary reparameterization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-upper-tail-law-for-derangement-occupation-in-the-ewens-r--df5c8c998442",
+    "https://arxiv.org/pdf/2209.12781",
+    "https://arxiv.org/pdf/2502.05578",
+    "pinned RESULT.md, check.py, VERIFICATION.md, REVIEW.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Functional convergence is a cited published input, not re-proved; both limits taken in stated order (n then ε).",
+    "Finite numerical quadrature does not establish all moments or full-tail asymptotics."
+  ],
+  "residual_risks": [
+    "Possible implicit coverage from general M/G/∞ occupation theory remains a qualified originality risk."
+  ],
+  "schema_version": 1
+}
