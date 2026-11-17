@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite Markov generator yields exact drifts LZ=epsilon(1/2-Z), LD=-(1+c)D and quadratic variation Gamma(Z)=s H/4 with H=epsilon/2+c(X+Y-2XY). The stationary L(D^2) identity gives E(D^2)<=s/[2(1+c)] and a transient exponential bound. For epsilon/s tending to a finite lambda, Taylor remainders after time acceleration by 1/s are O(max(1/a,1/b)); integrated D^2 vanishes, implying tightness and convergence to the unique Jacobi martingale problem. Stationarity and its unique Beta(2lambda,2lambda) invariant give the critical joint limit. At zero and infinite ratios the exact two-spin covariance equation and stationary variance give the endpoints. Exact rational Markov generator checks replayed 2664 assertions for all part sizes 1..4 and refresh fractions 1/2,1/3,2/3; those are supplementary to the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+The two opinion-count birth–death rates give exactly LZ=ε(1/2−Z), L(X−Y)=−(2−ε)(X−Y), Γ(Z)=s[ε/2+(1−ε)(x+y−2xy)]/4. Dynkin’s Ld² equation makes fast disagreement negligible in integrated rescaled drift, with jumps ≤1/(2 min(a,b)), so the martingale problem converges to Gf=λ(1/2−z)f′+z(1−z)f″/4 with absorbing λ=0 boundary. Stationary cross-spin W=c s/[2(1−c²)+c²s], same-part cW and Var(Z)=[s+(2+2c−cs)W]/16 follow by pair generator; λ>0 invariant Jacobi diffusion has Beta(2λ,2λ), while variance gives λ=0/infinity endpoints. Inspected verify.py exact rational finite-state checker; independently substituted (a,b,ε)=(1,1,1/3),(2,3,1/3),(4,6,1/3), producing positive variance and cross-covariance consistent with formula. Finite checks do not prove the process limit.
 
-Inspected general unnoised voter-density diffusion limits (Chen–Choi–Cox 2013; Blythe 2010), noisy-voter ordered and disordered regimes (Pymar–Rivera first posted 2021), complete-graph noisy-voter Wright–Fisher equilibration (Aljovin–Jara–Xiang 2024), and a distinct multi-agent-per-node network model (Mori–Hisakado–Nakayama 2018). None of their examined statements implies the specific all-imbalance K_{a,b} noisy-bipartite process and its diagonal critical stationary Beta law with exact finite correlation identities. Previously recorded mathematical findings include synchronous bipartite independent-Beta limits and a fixed-core star Beta limit; both differ materially in update rule or growth regime. Scientific-record searches found no stronger/equivalent covering result. Residual risk: general diffusion reduction/mutation extensions could independently yield the conclusion, and priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-In a bipartite network with two diverging but arbitrarily unequal populations, this identifies the exact critical mutation scale s=1/a+1/b, the full path-level Wright–Fisher limit, a shared (rather than independent) critical Beta opinion density, and two endpoint regimes; it quantifies the change caused by asynchronous versus synchronous updating. This is a natural stochastic-process scaling problem; the explicit finite pair correlations supply nonasymptotic checks and identify effective population size. It does not rely on arbitrary slices or small numerical gains.
+The stationary common Beta law and stationary finite correlation equations are already in a stronger October/November published two-scale Beta–Gaussian study after rate conversion θ=ε/(1−ε). The new independently surviving theorem is path-space Wright–Fisher convergence from arbitrary initial densities under a_n,b_n→∞ with unrestricted imbalance, including instantaneous synchronization. Earlier published Resultary source proves only stationary joint limit, not dynamic path convergence; general noisy-voter and unnoised-density literature may reduce this novelty and is a residual risk.
 
-## Prior literature and scope limitations
+## value
 
-The nearest sources are Pymar–Rivera, arXiv:2112.01478; Chen–Choi–Cox, arXiv:1311.5786; Aljovin–Jara–Xiang, arXiv:2409.05722; Mori–Hisakado–Nakayama, arXiv:1810.05643; and Blythe, arXiv:1006.1557. All employ relevant copying or diffusion machinery, but their inspected statements do not simultaneously cover the claimed graph, noise scaling, diagonal joint law, and arbitrary part imbalance. The mathematically important unresolved risk is independent derivability via a general mutation-extended diffusion reduction. The finite checker establishes no infinite theorem by itself.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The arbitrary-part-size-ratio fast/slow synchronization principle and critical dynamic diffusion on a natural dense bipartite graph complement the known stationary Beta–Gaussian law. It distinguishes genuinely asynchronous common noise from synchronous independent shores, clarifies time scaling and boundaries; a nontrivial process theorem remains beyond a cosmetic reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
