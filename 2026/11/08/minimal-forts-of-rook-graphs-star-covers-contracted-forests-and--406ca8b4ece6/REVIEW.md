@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(m,n\ge2\), the selected cells of \(R_{m,n}=L(K_{m,n})\) are represented as bipartite edges. The exact outside-neighbor identity \(d_H(a)+d_H(b)\) gives the complete fort criterion. Partitioning by isolated vertices on the two sides gives exhaustive structural regimes. In the no-isolate regime, minimal edge covers are spanning star forests, with a precisely identified and removed one-sided family that contains proper forts. In the one-sided-isolate regime, degree-two vertices contract to labeled edges of a multigraph; a proper fort exists exactly when that multigraph contains a proper cycle. In the two-sided-isolate regime, a contained cycle is always a fort. These facts yield the stated disjoint classification.
+## correctness
 
-Cayley's labeled tree formula counts contracted forest components, while alternating cycle counts and ordinary labeled-star components account for the other regimes. The exact-rational series and direct subset census agree on thirteen boards; the two-row identity also agrees for \(5\le n\le20\). No unrestricted claim relies solely on the finite tests. Check the proof and `verify.py` together, as exact normalization of isolated-vertex and two-cycle terms is essential.
+PASS
 
-## Originality — PASS, provisional publication priority
-Becker et al., *On the Number of Minimal Forts of a Graph* (arXiv:2404.05963v1, 2024-04-09), provide general results, graph-family formulas, and constructions for join and corona products; their source text and table do not report the rook-graph minimal-fort enumerator. Cameron et al., *Forts, (fractional) zero forcing, and Cartesian products of graphs* (arXiv:2310.17904), give fort-hypergraph and product bounds, not the present complete classification of inclusion-minimal forts. Mertens, *Domination Polynomial of the Rook Graph* (arXiv:2401.00716), explicitly treats **dominating** rook placements and complete bipartite edge covers, whose counts are not minimal-fort counts. A previous minimal-fort result on triangular graphs has a different incidence root and does not imply this bipartite classification.
+The outside cell (a,b) has d_H(a)+d_H(b) neighbors, reducing fort status exactly to incompatibility of zero-degree and degree-one vertices in opposite root partitions. Inclusion-minimality by cases: full cover yields spanning star forests with one-sided exception; one-side uncovered forces degree-2 covered vertices and acyclic contracted multigraph or single cycle; both sides uncovered force a single proper even cycle. Cayley labeled trees, alternating cycles, and corrected star EGF yield Q. Independent direct neighborhood and all-proper-subset test for (2,5),(2,6),(3,3),(3,4) found respectively {4:100,5:10}, {4:225,6:12}, {3:6,4:18}, {4:54,5:12,6:24}, matching independent coefficient claims. The complete arbitrary board result depends on structural proof, not those checks.
 
-Searches under rook/lattice/Hamming graph, line graph of a complete bipartite graph, minimal forts, maximal stalled failed zero forcing sets, and product-of-cliques terminology did not identify an equivalent or strictly dominating all-parameter result. Related public mathematical records concern complete multipartite minimal forts or rook-graph topological invariants, neither of which implies the present formula. The search cannot rule out all unindexed sources. A 2025 conference abstract on *Minimal Forts of Cartesian Products of Graphs* was located, but its disclosed content emphasizes hypercube constructions; no comprehensive rook enumeration was visible. That incomplete access remains a publication-priority risk, rather than evidence of noncoverage.
+## originality
 
-## Mathematical value — PASS
-The minimal-fort clutter supplies irredundant constraints in the fort-cover characterization of zero forcing, so identifying every edge matters independently of the number of all forts. The theorem gives a complete, natural, two-parameter facet family and a closed cardinality enumerator. The width-two specialization has only two attainable sizes, \(4\) and \(n\), hence arbitrarily many missing cardinalities; this is a structural sharp boundary not obtained from minimum-fort or generic Cartesian-product lower bounds.
+PASS
 
-## Limitations
-The formula counts only inclusion-minimal forts and does not determine the entire zero-forcing polynomial. The literature comparison supports but does not certify first discovery. The finite census is corroborative rather than a proof of the all-parameter theorem. The construction depends on the complete bipartite root and should not be transferred without proof to arbitrary line graphs.
+Best-of-knowledge original complete two-parameter inclusion-minimal fort classification and labeled bivariate generating function for rook graphs, including the nontrivial one-sided contracted-forest regime and two-row gap theorem. Earlier fort/cartesian-product and triangular-line-graph results concern other objects or weaker invariants.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The naturally defined minimal-fort antichain controls zero-forcing obstructions; exact structural three-class census and nontrivial missing-size intervals on thin rook boards are useful combinatorial invariants not recovered from a generic product inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

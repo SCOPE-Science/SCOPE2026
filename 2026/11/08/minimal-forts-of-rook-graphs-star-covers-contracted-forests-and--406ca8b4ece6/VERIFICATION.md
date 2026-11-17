@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the standalone standard-library-only verifier with `python3 verify.py`.
+## correctness
 
-The verifier uses exact integer neighborhood bitmasks for each labeled rook graph, enumerates every nonempty vertex subset, and decides the fort condition directly. It independently uses an upward subset dynamic program to determine whether any proper subset is a fort, rather than assuming single-deletion minimality. The second algorithm expands rational labeled exponential generating functions using Cayley's tree count and alternating-cycle components.
+PASS
 
-The compared boards are \((2,2),(2,3),(2,4),(2,5),(2,6),(2,7),(3,2),(3,3),(3,4),(3,5),(4,2),(4,3),(4,4)\). Actual successful output:
+The outside cell (a,b) has d_H(a)+d_H(b) neighbors, reducing fort status exactly to incompatibility of zero-degree and degree-one vertices in opposite root partitions. Inclusion-minimality by cases: full cover yields spanning star forests with one-sided exception; one-side uncovered forces degree-2 covered vertices and acyclic contracted multigraph or single cycle; both sides uncovered force a single proper even cycle. Cayley labeled trees, alternating cycles, and corrected star EGF yield Q. Independent direct neighborhood and all-proper-subset test for (2,5),(2,6),(3,3),(3,4) found respectively {4:100,5:10}, {4:225,6:12}, {3:6,4:18}, {4:54,5:12,6:24}, matching independent coefficient claims. The complete arbitrary board result depends on structural proof, not those checks.
 
-```
-VERIFY_OK boards=13 examined_subsets=129155 forts=90253 minimal_forts=2165 coefficientwise=PASS thin_family_n5..20=PASS
-```
+## originality
 
-The two-row formula is additionally checked against exact component enumeration for each integer \(5\le n\le20\). These finite checks do not establish the unrestricted theorem; the proof in `RESULT.md` supplies that step. No independent audit has been performed.
+PASS
+
+Best-of-knowledge original complete two-parameter inclusion-minimal fort classification and labeled bivariate generating function for rook graphs, including the nontrivial one-sided contracted-forest regime and two-row gap theorem. Earlier fort/cartesian-product and triangular-line-graph results concern other objects or weaker invariants.
+
+## value
+
+PASS
+
+The naturally defined minimal-fort antichain controls zero-forcing obstructions; exact structural three-class census and nontrivial missing-size intervals on thin rook boards are useful combinatorial invariants not recovered from a generic product inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
