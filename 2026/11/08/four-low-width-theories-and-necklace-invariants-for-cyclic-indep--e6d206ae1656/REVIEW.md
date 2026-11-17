@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact hypotheses (nonempty independent fibers, complete forward arcs, directed quotient cycle of length at least three) were checked. For \(k\ge3\), equality of nonempty out-neighborhoods defines each fiber in three variables; local class-size thresholds require only \(k\) reusable names because auxiliary names are locally rebound; closed directed walks recover the quotient length and the cyclic truncated word. The reverse direction has an indefinite \(k\)-pebble partial-injection strategy. The four exceptional width-two classes are separated by the existence of vertices adjacent to all others and the presence of distinct such vertices; the winning strategies cover the generic class and the three singleton patterns. Burnside and minimum-order formulas were reconstructed independently. Three finite verification scripts replay consistently, but finite runs are not infinite proofs.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Actual primary literature comparisons covered Grohe–Schweikardt's linear-order finite-variable succinctness proof, Dawar–Holm's general partition/pebble-game framework, and Hatami–Hirst–Norine's blow-up-graph inducibility proof. The directly relevant later directed-cycle blow-up record was read in full: its theorem concerns digraph homotopy and path homology, not first-order logical theory. A similar cyclic necklace invariant arises for another graph substitution with pendant leaves, but neither that statement nor the checked primary papers entail the exceptional four-class width-two collapse or the high-width classification for the present dense digraphs without a separate argument. A broader general substitution theorem may subsume this and has not been excluded.
+PASS
 
-**Mathematical value — PASS.** This is a complete classification of an infinite, standard independent-fiber substitution family, not an isolated graph comparison. The result identifies a sharp jump between two and three variable names: two-variable logic forgets every long quotient cycle and all thick fibers, whereas three variables define fiber equality and recover each cyclic profile. The exact four-theory low-width spectrum, all-width strictness, canonical minimum models, and weighted necklace generating polynomial provide structural and enumerative consequences. This genuinely concerns a different edge geometry from pendant-leaf cycle attachments rather than just reassigning their parameters.
+Independent out-neighborhoods are disjoint nonempty clone-fiber identifiers, so the three-variable Twin(x,y)=∀z(E(x,z)↔E(y,z)) exactly recovers a fiber. With locally scoped shadowing, at most k reusable variables test ≥j members of a class for 1≤j≤k; decorated 3-variable closed walks recover the directed cycle length and the clipped-size necklace. An indefinite k-pebble partial-injection strategy proves converse. At two variables a vertex adjacent in some direction to every other vertex exists exactly for singleton fibers on triangle quotient; this yields four s=0,1,2,3 theories, with a generic two-pebble back-and-forth for s=0. Burnside yields N_L,k=(1/L)∑_{d|L}φ(d)k^(L/d) and weighted minimal-size polynomial. I reproduced necklace counts by direct cyclic orbit enumeration for L=3,4,5 and k=3,4; source fixed-point pebble checker and formula-evaluator were inspected, not treated as infinite proof. Relative family L≥3, all a_i≥1, arc/equality signature and counting-free FO^k is essential.
 
-**Limits and risks.** Only counting-free logic in the pure directed-arc language is treated. The formula and game proofs, not small tests, carry the unrestricted-depth claim. Access to all possible older or more general composition theorems is not guaranteed, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nearest fixed-variable graph classifications cover functional pendant-leaf cycles or colored successor cycles, with different signatures and edge structures. The current family’s four two-variable theories and k≥3 clipped clone necklace are not directly implied.
+
+## value
+
+PASS
+
+This is a natural graph substitution with a sharp low-width collapse and an all-width canonical classification, including weighted necklace polynomials and minimal representatives. The contrast between FO2 blindness and FO3 reconstruction is a structural mathematical boundary, not a small arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

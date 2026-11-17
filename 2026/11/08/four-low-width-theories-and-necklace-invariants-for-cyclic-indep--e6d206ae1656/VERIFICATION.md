@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The three Python 3 standard-library scripts in `verification/` were run directly from the package staging directory. Their observed outputs are included as `verification/pebble_output.txt`, `verification/necklace_output.txt`, and `verification/formulas_output.txt`.
 
-`check_pebble.py` performs noncounting fixed-variable tuple-type refinement across finite pairs. This implements reachable **sets** of substitution colors at every coordinate, not multiplicity-counting colors, until a common global partition is stable. It compares empirical equivalence against all predicted small-sample cases at widths two, three and four, including the different-width fiber cutoff.
+# Independent mathematical audit
 
-`check_necklaces.py` computes the directed adjacency matrices independently and verifies that equal out-neighborhoods define exactly the prescribed clone classes, that closed directed walk lengths are multiples of the quotient cycle length, and that the Burnside formula and coefficient polynomial agree with brute rotation orbits on small parameter ranges.
+## correctness
 
-`check_formulas.py` directly evaluates the constructed first-order formula syntax with lexical variable rebinding, using `check_necklaces.py` from the same directory for graphs and cyclic words. It verifies 90 decorated cyclic-word sentences and 308 fiber-size color evaluations. This tests a separate proof-critical issue: locally shadowing a bound variable must not change the meaning of an enclosing formula.
+PASS
 
-All three programs were executed with their actual package paths; stored outputs are exact. These are reproducible **finite consistency checks**. They do not prove that arbitrary formulas are covered by any finite sample. Infinite scope is justified by the constructive formula and permanent-pebble proofs in `RESULT.md`. The novelty assessment is bounded by the inspected literature and publicly accessible research records. No independent mathematical audit is asserted.
+Independent out-neighborhoods are disjoint nonempty clone-fiber identifiers, so the three-variable Twin(x,y)=∀z(E(x,z)↔E(y,z)) exactly recovers a fiber. With locally scoped shadowing, at most k reusable variables test ≥j members of a class for 1≤j≤k; decorated 3-variable closed walks recover the directed cycle length and the clipped-size necklace. An indefinite k-pebble partial-injection strategy proves converse. At two variables a vertex adjacent in some direction to every other vertex exists exactly for singleton fibers on triangle quotient; this yields four s=0,1,2,3 theories, with a generic two-pebble back-and-forth for s=0. Burnside yields N_L,k=(1/L)∑_{d|L}φ(d)k^(L/d) and weighted minimal-size polynomial. I reproduced necklace counts by direct cyclic orbit enumeration for L=3,4,5 and k=3,4; source fixed-point pebble checker and formula-evaluator were inspected, not treated as infinite proof. Relative family L≥3, all a_i≥1, arc/equality signature and counting-free FO^k is essential.
+
+## originality
+
+PASS
+
+The nearest fixed-variable graph classifications cover functional pendant-leaf cycles or colored successor cycles, with different signatures and edge structures. The current family’s four two-variable theories and k≥3 clipped clone necklace are not directly implied.
+
+## value
+
+PASS
+
+This is a natural graph substitution with a sharp low-width collapse and an all-width canonical classification, including weighted necklace polynomials and minimal representatives. The contrast between FO2 blindness and FO3 reconstruction is a structural mathematical boundary, not a small arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
