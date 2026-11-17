@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:50:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Nonfixed ordered-letter pairs fall into 2r(r+f) two-element coordinatewise-involution orbits, bounding the number of distinct allowable cyclic digrams. The quotient edge graph has two P_i→P_j edges of bit-flip labels 0/1 for every ordered pair, and one P_i↔F_a in each direction; it is balanced/strongly connected. A fixed symbol resets lift parity and makes an Eulerian cycle of all orbits lift to a word. If f=0, the xor of edge labels around a lifted word must vanish, but xor of all 2r² orbit edges is r² mod2, so odd r forces at least one omitted orbit; deleting one label-one self-loop preserves balance and connectivity and achieves 2r²−1. For even r all orbits lift. Direct independent constructions passed 64 small (f,r) cases, not used as an infinite argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 gives every f≥0,t≥1 and Eulerian construction; Mitchell–Wild establishes modular-negation special f=1,2 and poses other involutions."
+        ],
+        "reasoning": "The prior October result is a complete answer to the broader general-involution problem; the 2026 primary modular-negation paper alone would not have covered it.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-length-of-involution-avoiding-cyclic-two-window-words--1b0c56bbbd5f/RESULT.md",
+          "https://arxiv.org/html/2603.25286v3"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-length-of-involution-avoiding-cyclic-two-window-words--1b0c56bbbd5f/RESULT.md",
+        "https://arxiv.org/html/2603.25286v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem has identical strong connectivity balanced edge selection and orbit-parity obstruction."
+        ],
+        "reasoning": "After identifying π=σ and t=r, earlier finding implies every case and equality construction without any new mathematical lemma.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-length-of-involution-avoiding-cyclic-two-window-words--1b0c56bbbd5f/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier formula (q²−f²)/2−1_{f=0,t odd}, q=f+2t, equals 2t(t+f)−1_{f=0,t odd}, identical to assigned M(f,r) with t=r."
+        ],
+        "reasoning": "Both define all distinct cyclic ordered 2-windows avoiding the involutive image; singleton words and fixed-window prohibition coincide.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-length-of-involution-avoiding-cyclic-two-window-words--1b0c56bbbd5f/RESULT.md",
+          "Resultary query: span two negative avoiding sequences arbitrary alphabet involution fixed symbols transposition pairs maximum cyclic length 2r(f+r) odd deficiency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact published Resultary Finding table includes example values 1,8,17,4,6,8 and all f,r formulas."
+        ],
+        "reasoning": "Exact formula and full finite family already present; recurrence under a new term pair-selecting is renaming, not an independent result.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-length-of-involution-avoiding-cyclic-two-window-words--1b0c56bbbd5f/RESULT.md",
+          "Resultary query: pair selecting de Bruijn cycles involution arbitrary alphabet Eulerian quotient fixedpointfree parity"
+        ]
+      },
+      "rationale": "Exact prior Resultary October 18 theorem supplies full arbitrary-symbol-involution result, not just arithmetic-negation f=1,2, so claim is covered word-for-word in mathematical meaning.",
+      "residual_risks": [
+        "No new mathematical content surviving exact earlier theorem; no claim of novel construction from using a different quotient-lift description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact same arbitrary involution theorem and constructive sharpness",
+          "evidence": [
+            "Formula (q²−f²)/2−1_{f=0,t odd}, hypotheses for cyclic ordered windows, Euler construction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-length-of-involution-avoiding-cyclic-two-window-words--1b0c56bbbd5f/RESULT.md",
+          "material_read": "Full RESULT.md Finding, scope, orbit-count bound, explicit selected edge graph, parity argument, Euler proof and limitations; Git blob a58f2f95a491f793ad0d83f0a03cc6877861bf19",
+          "method": "Retrieved complete primary RESULT file",
+          "title": "Sharp length of involution-avoiding cyclic two-window words",
+          "trigger": "top exact-match Resultary hit"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE: f=1,2 modular negation is prior; earlier 2026 October result settles all f,r",
+          "evidence": [
+            "arXiv:2603.25286v3, §§6.1–6.2 and 8."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.25286v3",
+          "material_read": "Full accessible arXiv HTML sections 6 and 8 including span-two modular-negation constructions and general-involution question",
+          "method": "Read primary paper substantive sections, not only abstract",
+          "title": "Negative Avoiding Sequences",
+          "trigger": "foundational same coordinatewise involution but modular negation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: An earlier October 18 full theorem gives precisely the arbitrary-involution cycle length and constructive parity deficiency for every (f,r). The new quotient-graph/Euler-tour proof is mathematically natural but does not yield a previously unknown invariant, stronger enumeration, additional cutoff, or useful boundary beyond the older exact classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only span two, nonidentity involution r≥1, cyclic wraparound and period-one allowed; no higher-span or number-of-maximizers inference."
+  ],
+  "schema_version": 1
+}
