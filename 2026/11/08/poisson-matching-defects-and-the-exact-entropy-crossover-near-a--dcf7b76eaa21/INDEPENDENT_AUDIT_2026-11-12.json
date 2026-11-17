@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:52:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Each missing edge is an antipodal-arc event of probability q=lambda/n^2. Pairwise independence holds even for edges sharing one vertex; matching failure has expected overlapping-edge pairs O(1/n). All finite factorial moments converge to Pois(lambda/2) by bounding nonmatching union types using spanning forests. Exchangeable labelled matchings are uniform conditional on the defect count. For the entropy constant, bad graphs contribute o(1) entropy using E[M 1_bad]=O(n^-1/2); log N(n,m)=2m log_2 n-m-log_2 m!+O(m^2/n), and Poisson entropy cancellation yields lambda log_2 n+(lambda/2) log_2(e/lambda)+o(1). Direct rational-grid checks validated conditional incident edge independence and matching enumeration, not the asymptotic statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2601.10778v1: general entropy upper bounds for geometric graphs but no uniform constant-order theorem in a shrinking near-antipodal window."
+        ],
+        "reasoning": "The earlier general upper-bound framework is not a dominating theorem for the present exact constant; a matched upper bound without a lower bound cannot imply equality.",
+        "searches": [
+          "antipodal circle rare missing edges geometric graph entropy exact constant matching Poisson",
+          "https://arxiv.org/html/2601.10778v1",
+          "near complete circle random geometric graph rare antipodal missing edges Poisson matching Shannon entropy lambda log n"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2601.10778v1",
+        "https://doi.org/10.1017/jpr.2018.9 (publisher abstract only)",
+        "actual assigned RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, VERIFICATION.md, SLOGAN.txt, CHECK.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2601.10778v1: entropy of a hard graph is bounded by sum of edge marginal binary entropies; this yields the correct order and a bound but not equality."
+        ],
+        "reasoning": "The binary marginal entropy calculation is merely an upper bound for dependent geometric edges. The new proof shows that rare dependencies affect neither leading term nor constant by explicit matching concentration and tail-entropy estimates.",
+        "searches": [
+          "antipodal circle rare missing edges geometric graph entropy exact constant matching Poisson",
+          "https://arxiv.org/html/2601.10778v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2601.10778v1: Section I fixes connection radius r as n increases and studies entropy of hard geometric graphs, with results for fixed r<=1/4 on the torus."
+        ],
+        "reasoning": "The equivalence of an almost complete circle graph to its sparse antipodal complement does not translate the fixed-r published asymptotics to q=lambda/n^2; the limiting observables and regimes differ.",
+        "searches": [
+          "antipodal circle rare missing edges geometric graph entropy exact constant matching Poisson",
+          "https://arxiv.org/html/2601.10778v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2601.10778v1: Section III fixed-range asymptotics and bounds; no exact q=lambda/n^2 defect-graph entropy table."
+        ],
+        "reasoning": "No inspected table determines the proposed logarithmic coefficient and constant; the familiar exact counting N(n,m) of matchings is classical but its asymptotically uniform conditional appearance here is model-specific.",
+        "searches": [
+          "antipodal circle rare missing edges geometric graph entropy exact constant matching Poisson",
+          "https://arxiv.org/html/2601.10778v1"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: Vippathalla–Coon–Badiu (2026) studies fixed radius hard geometric graphs on cubes and tori and leading n log n entropy, not a shrinking antipodal defect arc with q=lambda/n^2 nor the constant entropy term. A later fixed-radius geometric entropy release similarly does not establish this window. Standard rare-pattern Poisson convergence covers some defect-count mechanism, but neither total-variation approximation on growing graph alphabets nor pairwise independence alone gives this sharp entropy correction; the submission proves the needed uniform integrability and exceptional-graph bounds. Residual historical risk: older near-diameter circular geometric graph and coding literature not fully indexed.",
+      "residual_risks": [
+        "The Penrose 2018 primary work was accessible at abstract level, not full text, leaving a general rare-graph-approximation priority risk.",
+        "No complete inspection of all geometric compression papers about radii approaching the diameter; exact global priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Fixed connection range as n grows (not r_n=1/2-lambda/(2n^2)); general upper bounds and leading fixed-r asymptotics do not imply precise rare-defect constant-order entropy.",
+          "identifier_or_url": "https://arxiv.org/html/2601.10778v1",
+          "material_read": "Full arXiv HTML: abstract, model, Section II entropy and dependence, Section III radius hypotheses, Section IV proof organization, appendices and conclusion",
+          "method": "Primary open-access arXiv HTML full-text inspection",
+          "title": "On the Entropy of a Random Geometric Graph",
+          "trigger": "Same one-dimensional torus random geometric graph and entropy functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The n^-2 window is the canonical order-one missing-edge threshold of nearly complete geometric graphs. The exact graph entropy to constant order is a natural operational invariant for lossless encoding and establishes an independently useful comparison between geometrically dependent defects and Erdos-Renyi rare-edge graphs; it requires nontrivial exceptional-event entropy control beyond a routine Poisson count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2601.10778v1",
+    "https://doi.org/10.1017/jpr.2018.9 (publisher abstract only)",
+    "actual assigned RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, VERIFICATION.md, SLOGAN.txt, CHECK.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed positive lambda, iid uniform circle, labelled graphs and r_n=(1-lambda/n^2)/2; higher dimensions and other windows excluded."
+  ],
+  "residual_risks": [
+    "The Penrose 2018 primary work was accessible at abstract level, not full text, leaving a general rare-graph-approximation priority risk.",
+    "No complete inspection of all geometric compression papers about radii approaching the diameter; exact global priority not certified."
+  ],
+  "schema_version": 1
+}
