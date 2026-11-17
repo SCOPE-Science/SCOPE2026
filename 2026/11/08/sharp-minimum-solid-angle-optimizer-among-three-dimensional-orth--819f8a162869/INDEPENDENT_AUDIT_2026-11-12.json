@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: exact trihedral formula yields endpoint half-angle tangents bc/[(a+sqrt(a²+b²))(sqrt(a²+b²)+sqrt(a²+b²+c²))] and reversed for opposite endpoint; two middle solid angles equal atan(c/b) and atan(a/b). Holding b and a²+c² fixed, one endpoint decreases and the other increases as a passes c, so their minimum is strictly maximized at a=c. Then t=b/a gives symmetric endpoint F(t)=t/[(1+sqrt(1+t²))(sqrt(1+t²)+sqrt(2+t²))] with F'/F=(sqrt(t²+2)-t²)/[t sqrt(t²+1) sqrt(t²+2)], positive below sqrt2 and negative above. Thus unique upper bound 2atan(√2/(5+3√3)); at a=c=1,b=√2 both middle angles exceed the two matching endpoints, so it is the actual four-vertex maximin. Independent determinant geometry tests on 4000 arbitrary triples corroborated the value 0.2756427992162654 sr. Scope excludes degenerate shapes and general tetrahedra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted tetrahedron minimax solid-angle maximum is greater than Ω* with equality at regular tetrahedron and hence not sharp on orthoschemes.",
+          "Licht relates minimum angle to simplex fullness; the comparison has no unique orthoscheme optimizer.",
+          "Dihedral min optimizer sqrtφ:1:sqrtφ differs from Ω-min optimizer 1:sqrt2:1."
+        ],
+        "reasoning": "Strictly broader class with a non-admissible maximizer does not determine this constrained supremum or its equality conditions.",
+        "searches": [
+          "arxiv:1505.05263 Theorem 1 and proof",
+          "arxiv:2610.05883 shape measure theorem",
+          "Godland Kabluchko Schläfli orthoschemes sum of solid angles",
+          "Resultary path minimum dihedral angle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1505.05263 (Akopyan–Karasev, primary main theorem)",
+        "https://arxiv.org/abs/2610.05883 (Licht 2026, partial)",
+        "https://link.springer.com/article/10.1007/s00454-021-00326-z (Godland–Kabluchko full HTML)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-solid-angle-fullness-comparison-for-three-dimensio--42bf6cea393e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular tetrahedron is not a three-consecutive-right-angle orthoscheme, so general bound can be strict for every object here.",
+          "Sharp comparison μ>Ω_min²/6 is not an upper bound on Ω_min without a sharp upper bound on μ coupled to the same equality geometry."
+        ],
+        "reasoning": "New sharp restriction is the constrained optimizer and unique 1:√2:1 shape, not the classical trihedral solid-angle expression.",
+        "searches": [
+          "Akopyan Karasev Bounding minimal solid angles of polytopes 2015/16",
+          "Licht 2026 On solid angles and simplex shape measures",
+          "Godland Kabluchko 2022 Schläfli orthoschemes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent scalar optimization is max_{a,b,c>0} min_{i=0..3} Ω_i, with inward solid angles in steradians and ratio-only shape variables.",
+          "General tetrahedron bound from Akopyan–Karasev selects regular tetrahedron not in proper orthoscheme class."
+        ],
+        "reasoning": "Restriction to three mutually perpendicular successive edges is not a parameter substitution of the unrestricted optimal-regular-tetrahedron theorem; the equality simplex lies outside the family.",
+        "searches": [
+          "orthoscheme tetrahedron maximize minimal solid angle shape 1 sqrt2 1",
+          "Akopyan Karasev arxiv:1505.05263 minimal solid angles polytopes",
+          "Resultary orthoscheme maximin vs angle/fullness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match in Resultary is the assigned manuscript itself. The Schläfli-orthoscheme paper gives angle sums for fixed equal-step geometry, and related right-orthogonal-corner simplices have different geometry."
+        ],
+        "reasoning": "The global optimum over the two real shape ratios and rigidity are not an exact constant lookup from a fixed standard tetrahedron.",
+        "searches": [
+          "Resultary min solid angle orthoscheme exact √2 optimum",
+          "orthoscheme tetrahedral mesh maximin solid angle constant 0.275642799",
+          "tetrahedron shape quality Schläfli angle tables"
+        ]
+      },
+      "rationale": "PASS, qualified: neither Akopyan–Karasev's universal minimum-solid-angle maximization for all tetrahedra (attained by the regular simplex) nor Licht's general shape comparisons evaluate the sharp optimum inside the proper orthoscheme family. The separate sharp μ versus Ω² orthoscheme result does not imply the optimum point or exact Ω*, since fullness itself varies. Checked fixed-shape Schläfli angle-sum theory also distinct. Older mesh literature may hide an equivalent restricted optimization; explicit residual risk.",
+      "residual_risks": [
+        "Full Licht paper and mesh-quality monographs not available; an older restriction-specific orthoscheme maximin could exist.",
+        "Numerical samples test the formulas but not the continuous extremum; proof uses strict symmetrization and exact F derivative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING orthoscheme-restricted sharp constant",
+          "evidence": "The global optimum is a regular tetrahedron, which lacks the successive orthogonal-edge geometry.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.05263",
+          "material_read": "Primary 6-page PDF abstract, main theorem and proof outline, with original PDF page visually inspected",
+          "method": "Original PDF and screenshot, direct equality-condition reading",
+          "title": "Bounding minimal solid angles of polytopes",
+          "trigger": "General maximum of smallest vertex angle could dominate proper subclass"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS, priority residual",
+          "evidence": "General fullness comparisons do not themselves identify a maximizing orthoscheme; absence of additional theorems cannot be certified without full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05883",
+          "material_read": "ArXiv abstract and cited Theorem 1.1 statement, no complete full text available",
+          "method": "ArXiv and lawful OA attempt followed by authorized institution access, disconnected VPN; no bypass",
+          "title": "On solid angles and simplex shape measures",
+          "trigger": "General minimum solid angle shape measure potentially implies optimizer"
+        },
+        {
+          "assessment": "NOT_COVERING varying-arm maximin",
+          "evidence": "A fixed Schläfli type-B simplex has unit step lengths and angle sums; the theorem here varies (a,b,c) and maximizes min vertex angle.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-021-00326-z",
+          "material_read": "Full accessible HTML with definitions of fixed Schläfli types and conic intrinsic-volume sum results",
+          "method": "Full primary HTML inspection",
+          "title": "Angle Sums of Schläfli Orthoschemes",
+          "trigger": "Prior orthoscheme angle formula literature"
+        },
+        {
+          "assessment": "DISTINCT_CLAIM",
+          "evidence": "Bounds μ against Ω_min² but does not fix μ or force the Ω_min maximizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-solid-angle-fullness-comparison-for-three-dimensio--42bf6cea393e",
+          "material_read": "Read complete primary RESULT.md and analytic inequality",
+          "method": "Actual frozen Git blob and source-claim comparison",
+          "title": "Sharp minimum-solid-angle/fullness comparison for three-dimensional orthoschemes",
+          "trigger": "Same object and same vertex solid-angle variable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The minimum inward vertex solid angle is a natural tetrahedral mesh-quality invariant. A closed-form all-path maximin together with unique optimizer 1:√2:1 and demonstration that equal legs in all three positions are suboptimal gives a useful exact benchmark for orthoscheme quality and mesh element design. This is a full continuous shape-family classification, not a numerical special point.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1505.05263 (Akopyan–Karasev, primary main theorem)",
+    "https://arxiv.org/abs/2610.05883 (Licht 2026, partial)",
+    "https://link.springer.com/article/10.1007/s00454-021-00326-z (Godland–Kabluchko full HTML)",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-solid-angle-fullness-comparison-for-three-dimensio--42bf6cea393e"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Only nondegenerate three-dimensional path orthoschemes; no best tetrahedron or higher-dimensional statement.",
+    "Trihedral angle formula is classical; novelty restricted to exact family optimization.",
+    "Full Licht paper and mesh-quality monographs not available; an older restriction-specific orthoscheme maximin could exist.",
+    "Numerical samples test the formulas but not the continuous extremum; proof uses strict symmetrization and exact F derivative."
+  ],
+  "schema_version": 1
+}
