@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_oct_orlicz.py` in a Python 3 standard-library environment. It runs 5,000 exact rational checks of the four-factor product and elementary symmetric inequalities, followed by bisection of the one-variable boundary equations. On execution it printed `PASS 5000 exact rational Euler-factor comparisons; radii: 1.4738091812419376 1.5446294937642024`. The original proof also includes a symbolic coefficient expansion, and the full theorem for all real unit directions follows analytically from its polynomial identity, inequalities, and Euler product.
+## correctness
 
-The directly computed boundary weights are \(\sqrt3/2\) square units of area and \(1/\sqrt3\) of support height on each of the eight facets; their product is \(1/2\). The numerical bisections verify the stated values to roughly twelve decimal places but cannot prove strict global optimality. That comes solely from the proof in RESULT.md. The equality cases include all signed permutations of the coordinate axes and all eight body diagonals; zero radius is deliberately excluded from uniqueness. The low-radius inequality is restricted to \(0<r\le2\), and no conclusion about the polyhedral covariogram limit follows from the source's smooth theorem.
+PASS
 
-No independent mathematical audit has been performed.
+Each of eight triangular facets has support height 1/sqrt(3), area sqrt(3)/2 and weight 1/2; pairing opposite facets yields four logcosh signed-linear forms. Independently expanded the Euler-product four-factor polynomial in e2=sum(t_i t_j),e3=t1t2t3; checked 9e3≤e2 and 1-4e2+9e3≥0. They prove strict axis maximal and body-diagonal minimal values for every factor λ≤1/2; at r≤2, λ_m=r²/(pi²(2m+1)²)<1/2. Summation of positive log Euler factors yields both radial bounds. Both critical radii are <2, so no extrapolation beyond interval. Signed-permutation uniqueness forces optimal ellipsoids balls; exact contact sets follow from strict equality. Finite rational spot checks only supplement analytic inequalities.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Haddad–Jiménez–Resende 2026 gives the defining log-cosh Orlicz facet functional and smooth-boundary transition theorem, not the octahedron-specific sharp spherical four-factor comparison nor unique John/Loewner radii and orbit contacts. General Orlicz projection-body literature and a prior triangle example concern different normals/functionals or abstract inequalities. The octahedron nonseparable four-linear-form configuration is not an affine cube special case.
+
+## value
+
+PASS
+
+PASS. The regular octahedron is the simplest canonical nonseparable three-dimensional polytope for the recently defined projection-type functional. A complete pair of extremal ellipsoids and rigid axis/diagonal contact orbits with a nontrivial direction-wise Euler-factor inequality give motivated reusable exact geometric information. The theorem does NOT infer the source C³ covariogram limit for a nonsmooth polytope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

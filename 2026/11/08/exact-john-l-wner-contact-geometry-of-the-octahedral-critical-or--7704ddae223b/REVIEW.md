@@ -1,11 +1,21 @@
-# Supported review of the octahedral Orlicz contact theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The facet normal and weight normalization was recalculated from the eight equilateral faces. Exact polynomial expansion of the four Euler factors, the two elementary symmetric inequalities including the boundary case, and the strict positivity of the comparisons for every \(0<\lambda\le1/2\) reconstruct the full proof. Since the body-diagonal radius is below two, no extrapolation beyond the proven domain enters the ellipsoid conclusions. Strict convexity and uniqueness of the John and Löwner ellipsoids make the contact classification complete. A deterministic exact-rational checker supplied 5,000 supplementary finite checks; these are not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The defining Orlicz functional and critical-level motivation are established in Haddad–Jiménez–Resende, arXiv:2610.11700v1, whose complete accessible HTML theorem, Section 5 proof, and Orlicz remarks were examined. They establish a smooth-boundary limit and a general functional, not the stated polyhedral radius or contact classification. Searches by regular-octahedron, log-cosh, Orlicz, Rademacher and ellipsoid terminology did not identify a covering equality. General 2010 Orlicz projection-body literature is a plausible wider framework; its publicly accessible abstract does not determine the example and the author-hosted full text establishes only the general theory and leaves nonzero historical-priority risk. The distinct separable parallelotope calculation does not imply the coupled four-factor comparison.
+PASS
 
-**Mathematical value — PASS.** The theorem provides complete sharp inner and outer ellipsoid geometry of the simplest nonseparable three-dimensional polyhedral example of a new Orlicz transition functional, including the exact rigidity and reversed axis/diagonal contact orbits. The nontrivial degree-four symmetric-polynomial inequality supplies a reusable radial comparison, rather than a single numerical evaluation. The statement does not claim an unsupported nonsmooth covariogram convergence theorem.
+Each of eight triangular facets has support height 1/sqrt(3), area sqrt(3)/2 and weight 1/2; pairing opposite facets yields four logcosh signed-linear forms. Independently expanded the Euler-product four-factor polynomial in e2=sum(t_i t_j),e3=t1t2t3; checked 9e3≤e2 and 1-4e2+9e3≥0. They prove strict axis maximal and body-diagonal minimal values for every factor λ≤1/2; at r≤2, λ_m=r²/(pi²(2m+1)²)<1/2. Summation of positive log Euler factors yields both radial bounds. Both critical radii are <2, so no extrapolation beyond interval. Signed-permutation uniqueness forces optimal ellipsoids balls; exact contact sets follow from strict equality. Finite rational spot checks only supplement analytic inequalities.
 
-Independent external review and certification have not been performed; full historical exhaustiveness cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Haddad–Jiménez–Resende 2026 gives the defining log-cosh Orlicz facet functional and smooth-boundary transition theorem, not the octahedron-specific sharp spherical four-factor comparison nor unique John/Loewner radii and orbit contacts. General Orlicz projection-body literature and a prior triangle example concern different normals/functionals or abstract inequalities. The octahedron nonseparable four-linear-form configuration is not an affine cube special case.
+
+## value
+
+PASS
+
+PASS. The regular octahedron is the simplest canonical nonseparable three-dimensional polytope for the recently defined projection-type functional. A complete pair of extremal ellipsoids and rigid axis/diagonal contact orbits with a nontrivial direction-wise Euler-factor inequality give motivated reusable exact geometric information. The theorem does NOT infer the source C³ covariogram limit for a nonsmooth polytope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
