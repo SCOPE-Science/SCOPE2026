@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normal matrix is the sum of the two symmetric two-site sampling Gram matrices. The cyclic Green function is verified by a bilateral second-order recurrence and periodization, not inferred from finite tests. It yields two signed geometric sample-coefficient rows whose exact absolute sum proves the all-parameter norm. Adjacent knot rows have opposing nonzero signs on a shared observation, proving strict exclusion of interior evaluation points. Constant reproduction gives the positivity defect. Parity, strict monotonicity, the midpoint boundary, and Gauss specialization follow by exact algebra. The attached standard-library checker independently forms and inverts 33 rational Gram matrices for \(3\le N\le13\), and checks the degenerate endpoint rules; its finite scope is stated openly.
+PASS
 
-## Originality — PASS, with residual priority risk
+From actual RESULT.md, sampling matrices L=(1-t)I+tT and M=tI+(1-t)T yield G=2((1-t)^2+t^2)I+2t(1-t)(T+T^{-1}); its cyclic inverse is the periodization of (-q)^|k|/(2(1-2t)) with q=t/(1-t). Multiplication by L^T,M^T simplifies to two geometric signed rows at a knot; summing absolute coefficients gives (1-q^N)/((1-2t)(1-(-q)^N)). Each cell interior evaluation is an affine mix of adjacent nodal rows, and opposing nonzero sample signs make interior inequality strict. Constant reproduction gives sharp negativity (1-||R||)/2. Odd formula equals coth(u)tanh(Nu), strictly increasing in t and tending to N; at t=1/2 the odd sample map is invertible but even map singular, and t=0 is nodal interpolation. Independently constructed observation matrix and exact-rational Gauss inverse for 21 (N,t) pairs 3<=N<=9, recovering all row total-variation formulas; finite tests supplement the geometric all-N proof.
 
-Grigorieff and Sloan (1998), *Stability of discrete orthogonal projections for continuous splines*, DOI 10.1017/S0004972700032263, is the closest paper. Its general interval-based \(L^p\)-stability theory for quadrature-defined projections gives no sharp periodic two-site coefficient formula, no exact Gauss constant, and no odd/even midpoint law. Crouzeix and Thomée (1987), DOI 10.1090/S0025-5718-1987-0878688-2, treats the continuous-measure \(L^2\) projector, not this discrete observation operator. Separately established continuous-measure periodic linear-spline constants do not imply the discrete constants: even Gauss quadrature reproduces the continuous mass matrix while changing the data functional. No covering result was located in targeted mathematical literature and published-results searches. The closest historical source is fully available, but equivalent older or unindexed formulas cannot be excluded categorically. The present claim does not assert novelty of tridiagonal inverses, spline-projection boundedness, or the positivity-defect identity in abstract form.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact uniform-norm stability constants are natural quantitative invariants of discrete least-squares spline approximation. The result classifies the entire symmetric two-point quadrature family and displays a sharp parity-dependent singular limit as the sites coalesce. The Gauss rule yields the dimension-free constant \(\sqrt3\), while arbitrary close midpoint pairs can produce unbounded amplification on even cycles. The conclusion also determines all norming evaluation points and sharp positivity loss. This is a genuine parameter-family stability classification, rather than a small numerical improvement or an arbitrarily chosen finite computation.
+Existing spline discrete orthoprojector stability theorems guarantee boundedness but do not evaluate the periodic two-site discrete sample matrix and its exact parity-dependent Lebesgue norm, attained knots, negativity or midpoint rank boundary. Closest published periodic spline results use continuous L2 data instead of point samples and their norms differ. Best-of-knowledge originality survives the functional distinction, with residual specialist exact-quadrature-priority risk.
 
-## Limitations and interpretation
+## value
 
-The hypotheses are real, periodic, uniform-mesh, equal-weight, degree-one, and two-sample-per-cell; no result for nonuniform meshes or other quadrature rules is asserted. The dated online appearance of the 1998 journal article is 17 April 2009; its original print dissemination day is unknown. Independent mathematical audit has not been performed, and priority risk remains for formulas not indexed in the inspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp L∞ stability constant for a natural symmetric two-sample cell quadrature is a meaningful finite-dimensional operator invariant for numerical splines. Its exact parity dependence, norming-site rigidity, positivity defect and coalescence transition distinguish stable odd midpoint sampling from unstable even cycles and can guide quadrature design; not merely reproducing generic boundedness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

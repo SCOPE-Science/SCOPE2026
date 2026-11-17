@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:48:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual RESULT.md, sampling matrices L=(1-t)I+tT and M=tI+(1-t)T yield G=2((1-t)^2+t^2)I+2t(1-t)(T+T^{-1}); its cyclic inverse is the periodization of (-q)^|k|/(2(1-2t)) with q=t/(1-t). Multiplication by L^T,M^T simplifies to two geometric signed rows at a knot; summing absolute coefficients gives (1-q^N)/((1-2t)(1-(-q)^N)). Each cell interior evaluation is an affine mix of adjacent nodal rows, and opposing nonzero sample signs make interior inequality strict. Constant reproduction gives sharp negativity (1-||R||)/2. Odd formula equals coth(u)tanh(Nu), strictly increasing in t and tending to N; at t=1/2 the odd sample map is invertible but even map singular, and t=0 is nodal interpolation. Independently constructed observation matrix and exact-rational Gauss inverse for 21 (N,t) pairs 3<=N<=9, recovering all row total-variation formulas; finite tests supplement the geometric all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grigorieff–Sloan 1998 Theorem 4.4 proves p-stability on interval spline spaces for positive composite quadrature, with a nonsharp unspecified constant.",
+          "The continuous L2 uniform-circle projector has sharp norms strictly below 2, whereas the present discrete Gauss norm is sqrt(3) on every even cycle and diverges as t→1/2."
+        ],
+        "reasoning": "Neither a general stability statement nor an integral-measure Fourier/circulant projection norm implies the exact sampled-row total variation or parity singularity.",
+        "searches": [
+          "discrete least squares periodic linear spline projection two symmetric quadrature points L infinity norm parity",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf",
+          "2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+        "https://arxiv.org/abs/1307.0917"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1998 article uses an interval grid and Lp stability with generic C, and does not fix N parity or t-dependent constant.",
+          "Current norm formula requires inverting a concrete circulant normal matrix and taking signed sample-row total variation, steps absent from prior general theorem."
+        ],
+        "reasoning": "The broader general discrete stability framework supplies existence of a norm bound, but the current exact endpoint constant and all norming sites are not a stated or immediate parameter substitution of that bound.",
+        "searches": [
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf",
+          "discrete least squares periodic linear spline projection two symmetric quadrature points L infinity norm parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The current operator is point-sample least squares on 2N distinct observations; continuous arclength L2 projection has different right-hand side despite related Gram matrices.",
+          "Its exact point-evaluation coefficients are two signed geometric waves with denominator 1-(-q)^N."
+        ],
+        "reasoning": "Compared under aliases discrete Lebesgue constant, cyclic Gram and Gauss quadrature; continuous projection and this sampled projection are nonidentical mappings, hence a continuous norm theorem cannot be blindly substituted.",
+        "searches": [
+          "discrete least squares periodic linear spline projection two symmetric quadrature points L infinity norm parity",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf",
+          "2026/11/8/SCOPE-parity-boundary-layers-for-periodic-linear-spline-least-squares--fd625e87f1aa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked primary Theorem 4.4 is qualitative and not an exact finite-N table for this two-site periodic method.",
+          "Other published periodic linear spline entries concern the arclength orthogonal projector, not 2N weighted point observations."
+        ],
+        "reasoning": "No exact periodic two-node Gauss Lebesgue constant table was identified. This is not alone evidence for novelty; the decisive distinctions are operator and conclusion.",
+        "searches": [
+          "discrete least squares periodic linear spline projection two symmetric quadrature points L infinity norm parity",
+          "Grigorieff Sloan 1998",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf"
+        ]
+      },
+      "rationale": "Existing spline discrete orthoprojector stability theorems guarantee boundedness but do not evaluate the periodic two-site discrete sample matrix and its exact parity-dependent Lebesgue norm, attained knots, negativity or midpoint rank boundary. Closest published periodic spline results use continuous L2 data instead of point samples and their norms differ. Best-of-knowledge originality survives the functional distinction, with residual specialist exact-quadrature-priority risk.",
+      "residual_risks": [
+        "A specialized earlier paper on periodic composite two-point Gaussian spline projection could give an equivalent exact formula under a different nomenclature.",
+        "The norming-knot claim depends on sample signs differing in adjacent rows; verified algebraically and in bounded exact-rational tests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR qualitative Lp stability, not exact periodic two-point norm",
+          "evidence": "Theorem 4.4: if J>=r and quadrature nondegeneracy, p-stable with unspecified C independent of p; no odd/even circular formula.",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F7D0DC09E500F27C9A04CE850E6F18BB/S0004972700032263a.pdf/stability-of-discrete-orthogonal-projections-for-continuous-splines.pdf",
+          "material_read": "Open 26-page PDF introduction and interval setup, Theorem 4.4 on PDF page 15, surrounding qualitative stability proof and convergence discussion",
+          "method": "Cambridge open PDF textual inspection and page screenshot",
+          "title": "Stability of discrete orthogonal projections for continuous splines",
+          "trigger": "Primary closest paper: composite-quadrature discrete spline projection"
+        },
+        {
+          "assessment": "DISTINCT CONTINUOUS L2 PROJECTION; not identical point-sampling operator",
+          "evidence": "Continuous arclength input functional and its projection sharp norms differ from the present 2N-node discrete functional.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+          "material_read": "Resultary full published summary, title and operator description",
+          "method": "published Git source/result semantic search",
+          "title": "Exact endpoint norms of uniform periodic linear-spline orthoprojectors",
+          "trigger": "Same periodic spline space; potential coverage via Gram similarities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp L∞ stability constant for a natural symmetric two-sample cell quadrature is a meaningful finite-dimensional operator invariant for numerical splines. Its exact parity dependence, norming-site rigidity, positivity defect and coalescence transition distinguish stable odd midpoint sampling from unstable even cycles and can guide quadrature design; not merely reproducing generic boundedness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only real periodic piecewise-affine splines, equal weights and uniformly spaced symmetric point samples; continuous L2 projections and nonuniform meshes are different operators.",
+  "schema_version": 1
+}
