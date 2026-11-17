@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:59:12.319862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian Wick identities give E L^4=3a^4, E L²Q²=2a²h+8v^T A²v, E Q^4=12h²+48tr A^4. Matrix inequalities v^T A²v≤a²h and tr A^4≤h² are simultaneously sharp for aligned rank one; normalize w=a²/(a²+2h) and optimize U_r(w)=3r²w²+30r³w(1-w)+15r⁴(1-w)². Derivatives give transition at r=1/5 and rational mixed maximum, with equality cases. Independently derived 1D fourth moment 3a⁴+60a²b²+60b⁴ and checked symbolic identity M-U=3r²(10r-1-5r²)(w-w*)² and threshold root r*=0.45164410203579086. Semigroup monotonicity yields exact contractivity threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pang 2026 proves rank-one extremizer for pure centered quadratic Gaussian forms for all p≥4, covering the second-chaos endpoint.",
+          "Adamczak–Wolff 2013 gives general polynomial moment bounds with nonsharp constants."
+        ],
+        "reasoning": "Partial pure-chaos coverage credited, but no inspected theorem handles arbitrary aligned nonzero linear and quadratic components and gives sharp semigroup norm for all rho.",
+        "searches": [
+          "Resultary semantic query: Ornstein Uhlenbeck first plus second Wiener chaos exact centered Gaussian quadratic L2 L4 norm",
+          "https://arxiv.org/abs/1003.5072",
+          "https://arxiv.org/abs/1304.1826",
+          "https://arxiv.org/abs/2609.05914",
+          "https://arxiv.org/abs/1904.08211"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Ornstein Uhlenbeck first plus second Wiener chaos exact centered Gaussian quadratic L2 L4 norm",
+        "https://arxiv.org/abs/1003.5072",
+        "https://arxiv.org/abs/1304.1826",
+        "https://arxiv.org/abs/2609.05914",
+        "https://arxiv.org/abs/1904.08211"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nelson unrestricted q-1 bound at rho≤1/sqrt3, whereas restricted sharp rho*=0.672044717...>1/sqrt3.",
+          "Pang theorem has no independent v·G linear term, while all 1/5<r<1 optimizers in present theorem have nonzero linear energy."
+        ],
+        "reasoning": "The general bound is strictly suboptimal for restricted space and Pang covers only pure Q at rho=1; neither implies exact mixed-phase transition and three-term nonnegative stability identity.",
+        "searches": [
+          "Resultary semantic query: Ornstein Uhlenbeck first plus second Wiener chaos exact centered Gaussian quadratic L2 L4 norm",
+          "https://arxiv.org/abs/1003.5072",
+          "https://arxiv.org/abs/1304.1826",
+          "https://arxiv.org/abs/2609.05914",
+          "https://arxiv.org/abs/1904.08211"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact OU 2-to-4 restriction on centered first/second Wiener chaoses equals sharp fourth moment of rho L + rho² Q normalized by L²+Q² energy.",
+          "Classical Nelson–Gross bound describes the unrestricted semigroup; Pang 2026 sharp theorem covers pure Q only."
+        ],
+        "reasoning": "Neither general unrestricted contraction nor pure-quadratic inequality gives mixed one-dimensional energy-optimization curve or the 1/5 transition.",
+        "searches": [
+          "Resultary semantic query: Ornstein Uhlenbeck first plus second Wiener chaos exact centered Gaussian quadratic L2 L4 norm",
+          "https://arxiv.org/abs/1003.5072",
+          "https://arxiv.org/abs/1304.1826",
+          "https://arxiv.org/abs/2609.05914",
+          "https://arxiv.org/abs/1904.08211"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent symbolic expansion E[(aG+b(G²-1))^4]=3a^4+60a²b²+60b^4; optimizer w*=5r(1-r)/(10r-1-5r²) and root r*=0.45164410203579086.",
+          "Targeted Resultary searches for 60r^4+5r²-10r+1 and exact threshold returned no prior matching theorem."
+        ],
+        "reasoning": "A pure rank-one endpoint is known; exact threshold/mixed phase curve was not identified as a known table. Negative search is not priority proof.",
+        "searches": [
+          "Resultary semantic query: Ornstein Uhlenbeck first plus second Wiener chaos exact centered Gaussian quadratic L2 L4 norm",
+          "https://arxiv.org/abs/1003.5072",
+          "https://arxiv.org/abs/1304.1826",
+          "https://arxiv.org/abs/2609.05914",
+          "https://arxiv.org/abs/1904.08211"
+        ]
+      },
+      "rationale": "Best-of-knowledge original surviving core as compared against named prior and mathematical implications. ",
+      "residual_risks": [
+        "An unindexed exact first-plus-second chaos semigroup calculation could match this rational curve.",
+        "Pure quadratic fourth moment and rank-one extremality are established earlier and cannot be claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: rank-one sharp bound for pure centered quadratics, not semigroup-weighted mixed first-plus-second chaos norm/phase transition.",
+          "evidence": [
+            "Theorem 1.1 has f(G)=G^T M G-tr(M), with no independent linear component."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.05914",
+          "material_read": "Full accessible arXiv HTML manuscript, abstract, Theorem 1.1, introduction and proof statements",
+          "method": "Read primary theorem and compare input polynomial: pure centered quadratic versus mixed linear/quadratic",
+          "title": "A Gamma envelope and sharp moment inequalities for Gaussian quadratic forms",
+          "trigger": "Sharp pure second-chaos fourth moments may cover endpoint"
+        },
+        {
+          "assessment": "General inequality gives only smaller admissible rho range, not exact restricted norm and complete extremizers.",
+          "evidence": [
+            "Classical q-1≤exp(2t)(p-1) curve, full Lp input; no restriction-specific sharpness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.5072",
+          "material_read": "Abstract, first pages and Theorem 3.1 / Nelson criterion; complete manuscript not inspected now",
+          "method": "Compared full-space sufficient rho ≤1/sqrt3 with restricted sharp rho≈0.6720",
+          "title": "Dimension dependent hypercontractivity for Gaussian kernels",
+          "trigger": "Nelson classical comparison for OU"
+        },
+        {
+          "assessment": "Provides comparison bounds, not exact mixed OU operator norm or equality structure.",
+          "evidence": [
+            "Theorem 1.1 constants depend on degree, not the claimed closed rational curve."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.1826",
+          "material_read": "Abstract and Theorem 1.1 as indexed; full manuscript not read this run",
+          "method": "Comparison of unspecified degree-dependent constants with exact optimizing curve",
+          "title": "Concentration inequalities for non-Lipschitz functions with bounded derivatives of higher order",
+          "trigger": "Potential dominating high-order Gaussian polynomial bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimension-free sharp restricted OU contraction threshold and phase transition between first chaos and aligned mixed first-second chaos are meaningful analytic invariants beyond generic Nelson bounds. The full equality and stability decomposition quantifies near-extremizers; known pure-second-chaos endpoint is explicitly credited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic query: Ornstein Uhlenbeck first plus second Wiener chaos exact centered Gaussian quadratic L2 L4 norm",
+    "https://arxiv.org/abs/1003.5072",
+    "https://arxiv.org/abs/1304.1826",
+    "https://arxiv.org/abs/2609.05914",
+    "https://arxiv.org/abs/1904.08211"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Centered real degree≤2 Gaussian polynomials, L2->L4 only; no constants or higher chaoses.",
+    "Pure quadratic sharp 4th moment known from Pang (2026); mixed semigroup curve new best-of-knowledge."
+  ],
+  "residual_risks": [
+    "An unindexed exact first-plus-second chaos semigroup calculation could match this rational curve.",
+    "Pure quadratic fourth moment and rank-one extremality are established earlier and cannot be claimed new."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL: rank-one sharp bound for pure centered quadratics, not semigroup-weighted mixed first-plus-second chaos norm/phase transition.",
+      "evidence": [
+        "Theorem 1.1 has f(G)=G^T M G-tr(M), with no independent linear component."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.05914",
+      "material_read": "Full accessible arXiv HTML manuscript, abstract, Theorem 1.1, introduction and proof statements",
+      "method": "Read primary theorem and compare input polynomial: pure centered quadratic versus mixed linear/quadratic",
+      "title": "A Gamma envelope and sharp moment inequalities for Gaussian quadratic forms",
+      "trigger": "Sharp pure second-chaos fourth moments may cover endpoint"
+    },
+    {
+      "assessment": "General inequality gives only smaller admissible rho range, not exact restricted norm and complete extremizers.",
+      "evidence": [
+        "Classical q-1≤exp(2t)(p-1) curve, full Lp input; no restriction-specific sharpness."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1003.5072",
+      "material_read": "Abstract, first pages and Theorem 3.1 / Nelson criterion; complete manuscript not inspected now",
+      "method": "Compared full-space sufficient rho ≤1/sqrt3 with restricted sharp rho≈0.6720",
+      "title": "Dimension dependent hypercontractivity for Gaussian kernels",
+      "trigger": "Nelson classical comparison for OU"
+    },
+    {
+      "assessment": "Provides comparison bounds, not exact mixed OU operator norm or equality structure.",
+      "evidence": [
+        "Theorem 1.1 constants depend on degree, not the claimed closed rational curve."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1304.1826",
+      "material_read": "Abstract and Theorem 1.1 as indexed; full manuscript not read this run",
+      "method": "Comparison of unspecified degree-dependent constants with exact optimizing curve",
+      "title": "Concentration inequalities for non-Lipschitz functions with bounded derivatives of higher order",
+      "trigger": "Potential dominating high-order Gaussian polynomial bounds"
+    }
+  ]
+}
