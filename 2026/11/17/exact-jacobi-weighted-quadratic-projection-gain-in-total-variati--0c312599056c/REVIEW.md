@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A normalized three-dimensional Jacobi Gram basis produces the exact derivative of a projected jump. The absolute affine derivative has an elementary two-branch integral. A quartic stationary equation yields the unique off-center positive norming jump after a strict dominance argument; signed Stieltjes decomposition proves the bound for every real BV input and matches it with a single jump. Symbolic and independent high-precision quadrature checks corroborate, rather than establish, the theorem. The weak-endpoint and high-concentration limits follow from explicit beta/gamma and radical asymptotics.
+
+**Originality — PASS, with residual risk.** The closest published comparable result, *Sharp two-branch monotone range envelope for quadratic symmetric Jacobi projection*, studies pointwise overshoot and contains a similar projection kernel, not the sharp integral of its absolute derivative. A separate discrete quadratic least-squares BV theorem already supplies the unweighted \(\alpha=0\) constant as a limit; that value is therefore not claimed to be independently new. The distinguishing result is the exact continuously weighted one-parameter norm, the maximizing jump law across all symmetric Jacobi parameters, and the two singular parameter limits. Kaber (2006), Kopotun et al. (2011), and Calderón–Urbina (2012) do not establish that statement in the inspected material. Historical equivalence outside accessible indexed sources remains a risk.
+
+**Mathematical value — PASS.** Jacobi weights provide a canonical tunable family of spectral least-squares projections. The theorem completely determines the first oscillatory polynomial projection's total-variation stability for that family, demonstrates a nonmonotone dependence on the sampling law, and identifies an unbounded linear concentration regime despite fixed polynomial degree. These are structural, model-relevant facts, not merely a restatement of the pre-existing unweighted number or pointwise range bound.
+
+**Scientific limits:** real degree-two symmetric Jacobi projection and unweighted variation only; no nonsymmetric extension or unique parameter minimizer is claimed. Independent verification and historical priority certification remain open.
+
+Self-review: passed. Independent audit: not yet performed.
