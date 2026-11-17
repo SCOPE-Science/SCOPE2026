@@ -1,19 +1,21 @@
-# Scientific review: clonal covariance rotation identification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is fixed: finite \(d\ge2\), \(S=S^T\succ0\), \(\Omega^T=-\Omega\), root law \(\mathcal N(0,I_d)\), binary rate-one Yule branching, and independent OU noises after division. The Lyapunov relation proves that \(I_d\) is stationary covariance; stationary covariance whitening also transports the proof to general positive-diffusion OU models; the many-to-two decomposition yields \(K(t)=I_d+2\int_0^t e^u e^{-Au}e^{-A^Tu}\,du\) with the correct factor \(2\) and growth normalization. Three exact differentiations produce \(K''(0)=2I_d-4S\) and \(K'''(0)=2(I_d-2S)^2+4[\Omega,S]\). Orthogonal diagonalization recovers every rotation coefficient for pairwise distinct eigenvalues. A nearest-pair skew perturbation saturates the inverse Lipschitz bound \(1/(4\delta)\). A nonzero skew action within a repeated eigenspace commutes with damping and is invisible for every time; its steady current has strictly positive quadratic entropy production. The standalone checker passed 287 rational checks in specified finite-dimensional instances. These checks support but do not replace the symbolic proof.
+PASS
 
-## Originality — PASS, qualified
+For rate-one Yule binary splitting with stationary Gaussian root, independent daughter evolutions and stationary S+Omega OU drift, the many-to-two pair integral gives K(t)=I+2 int_0^t e^u e^{-(S+Omega)u}e^{-(S-Omega)u}du; same forward formula is credited to Michoel. Direct differentiation yields K_second(0)=2I-4S and K_third(0)=2[(I-2S)^2+2[Omega,S]]. For simple eigenvalues s_i, off-diagonal skew entries are recovered by (V^T Omega V)_ij=[V^T (K_third/2-(K_second/2)^2) V]_ij/[2(s_j-s_i)]. Frobenius commutator norm >=delta||DeltaOmega|| gives the best 1/(4delta) Lipschitz bound, achieved on a closest eigenpair. Repeated eigenvalues admit nonzero commuting skew rotations, making the entire e^{-Au}e^{-A^Tu} identical to e^{-2Su} while steady probability current has strictly positive entropy production tr(Omega^T S^{-1} Omega). Whitening handles general nondegenerate stationary OU covariance/diffusion. Fresh exact 3x3 matrix derivative checks and repeated-block commutation corroborate the all-dimension algebra.
 
-Michoel (2026), Appendix B.1, equation (19), is the directly relevant source of the general branching covariance formula, with two-dimensional nonequilibrium examples in B.2–B.3. This foundational integral is not claimed as original. A close reading of those sections did not identify the claimed full rotation-identifiability dichotomy, short-time jet reconstruction, sharp smallest-gap stability constant, or all-age invisible-current construction. Godrèche and Luck (2018) treat stationary current/entropy production and **single-particle two-time** correlations; Adamczak and Miłoś (2011) establish branching OU limit laws rather than this inverse observation map. External research searches and mathematical research-record searches also targeted alternate notions of generator reconstruction, covariance Gramian inversion, circulations and rotational identifiability. No identified result dominates the four-part theorem, but a general system-identification theorem could do so. No finite search proves novelty or independent publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The observation is a natural one in growing clonal populations: covariance of whole-population totals at different ages, without tracking individual lineages. Recovering an irreversible antisymmetric drift from that symmetric observation has an actual structural obstacle. The theorem gives a complete spectral criterion in all dimensions, also applicable after stationarity whitening to general nondegenerate OU diffusions, identifies the first informative derivative and optimal inverse amplification, and constructs physically irreversible processes that cannot be distinguished by this observable at any age. This is an experimentally relevant observability/no-go boundary, not an arbitrary finite example or mere restatement of a source formula.
+The general clonal covariance integral is unambiguously prior from Michoel (2026), Appendix B.1 Eq.(19), which was read in full, and stationary OU current/entropy is classical. Surviving best-of-knowledge novelty is a complete all-dimension simple-spectrum iff rotation identifiability classification from SAME-TIME clonal covariance, a minimal third-jet inverse, sharp eigen-gap stability, and globally invisible nonzero entropy-producing rotations. No broader statement in inspected relevant primary text implies that full inverse result.
 
-## Closest literature and residual risks
+## value
 
-The first exact covariance formula predates this theorem and is explicitly attributed to Michoel (2026). The stationary entropy-production formula is classical and attributed to Godrèche and Luck (2018). The normalized theorem extends by exact whitening to positive-diffusion stationary OU processes; known rate, stationary root law and full matrix observation remain essential. A stronger, not-yet-located general matrix-exponential/Gramian inverse theorem might subsume the jet reconstruction. Exact derivatives of noisy experimental data are unstable and no estimator is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Clonal sums at different ages are a natural aggregate observation when cell lineage trajectories are not available. The result completely characterizes when irreversible rotational drift is identifiable, the first informative Taylor order and optimal conditioning, plus an exact no-go obstruction with nonzero entropy production. This has intrinsic inverse-problem and nonequilibrium significance beyond merely deriving the known forward fluctuation-dissipation integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

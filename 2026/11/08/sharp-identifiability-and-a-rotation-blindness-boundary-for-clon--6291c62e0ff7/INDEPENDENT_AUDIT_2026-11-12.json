@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:47:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rate-one Yule binary splitting with stationary Gaussian root, independent daughter evolutions and stationary S+Omega OU drift, the many-to-two pair integral gives K(t)=I+2 int_0^t e^u e^{-(S+Omega)u}e^{-(S-Omega)u}du; same forward formula is credited to Michoel. Direct differentiation yields K_second(0)=2I-4S and K_third(0)=2[(I-2S)^2+2[Omega,S]]. For simple eigenvalues s_i, off-diagonal skew entries are recovered by (V^T Omega V)_ij=[V^T (K_third/2-(K_second/2)^2) V]_ij/[2(s_j-s_i)]. Frobenius commutator norm >=delta||DeltaOmega|| gives the best 1/(4delta) Lipschitz bound, achieved on a closest eigenpair. Repeated eigenvalues admit nonzero commuting skew rotations, making the entire e^{-Au}e^{-A^Tu} identical to e^{-2Su} while steady probability current has strictly positive entropy production tr(Omega^T S^{-1} Omega). Whitening handles general nondegenerate stationary OU covariance/diffusion. Fresh exact 3x3 matrix derivative checks and repeated-block commutation corroborate the all-dimension algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michoel Appendix B.1 Eq.(19) is the complete forward clonal covariance integral; B.2-B.3 analyze two-dimensional examples, not general inverse uniqueness.",
+          "Godreche-Luck 2018 characterizes OU current and two-time covariance, a richer observation."
+        ],
+        "reasoning": "Prior general forward formulas supply a starting point but do not explicitly assert the inverse iff simple-spectrum theorem or optimal third-jet bound. A general Gramian inverse theorem remains a residual priority possibility.",
+        "searches": [
+          "https://arxiv.org/html/2610.39624v1",
+          "https://arxiv.org/abs/1807.00694",
+          "https://arxiv.org/abs/1605.06973",
+          "Branching Ornstein Uhlenbeck population covariance rotational drift identifiability skew-symmetric simple spectrum third derivative entropy production"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.39624v1",
+        "https://arxiv.org/abs/1807.00694",
+        "https://arxiv.org/abs/1111.4559",
+        "https://arxiv.org/abs/1605.06973",
+        "Resultary search: Branching Ornstein Uhlenbeck population covariance rotational drift identifiability skew-symmetric simple spectrum third derivative entropy production"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Michoel 2026 Appendix B lines 286-343 Eq.(19) provides K(t)=Sigma+2int exp(s) exp(-As)Sigma exp(-A^Ts) ds.",
+          "Sections B.2-B.3 treat 2D clonal correlations/damped oscillations with example drift matrices; not the inverse classification."
+        ],
+        "reasoning": "Differentiating prior forward formula reveals the commutator only after additional calculation, and deriving the optimal inverse/eigenvalue-degeneracy iff requires new global matrix analysis. The forward result is not re-claimed as novel.",
+        "searches": [
+          "https://arxiv.org/html/2610.39624v1",
+          "https://arxiv.org/abs/1807.00694",
+          "Branching Ornstein Uhlenbeck population covariance rotational drift identifiability skew-symmetric simple spectrum third derivative entropy production"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-time branching clonal covariance is an integral of the propagator Gramian H(u)=e^{-Au} Sigma e^{-A^Tu}, not the ordinary two-time covariance Sigma e^{-A^Tu}.",
+          "The inverse is mathematically a commutator-map inversion Omega -> [Omega,S]."
+        ],
+        "reasoning": "System-identification aliasing results for known propagator/lagged correlations concern different observations; a simple-spectrum commutator criterion is the exact equivalent inverse formulation.",
+        "searches": [
+          "Branching Ornstein Uhlenbeck population covariance rotational drift identifiability skew-symmetric simple spectrum third derivative entropy production",
+          "https://arxiv.org/html/2610.39624v1",
+          "https://arxiv.org/abs/1605.06973"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned the assigned inverse finding and distinct OU scalar/other-observable aliasing papers, not a matching all-d inverse theorem.",
+          "The exact 1/(4 delta) is a continuous spectral-invariant bound, not a finite tabulated value."
+        ],
+        "reasoning": "No exact same-model table or database coverage identified; negative searches alone do not certify priority.",
+        "searches": [
+          "Branching Ornstein Uhlenbeck population covariance rotational drift identifiability skew-symmetric simple spectrum third derivative entropy production",
+          "Resultary: clonal Ornstein Uhlenbeck branching population covariance identification stationary damping commutator third derivative"
+        ]
+      },
+      "rationale": "The general clonal covariance integral is unambiguously prior from Michoel (2026), Appendix B.1 Eq.(19), which was read in full, and stationary OU current/entropy is classical. Surviving best-of-knowledge novelty is a complete all-dimension simple-spectrum iff rotation identifiability classification from SAME-TIME clonal covariance, a minimal third-jet inverse, sharp eigen-gap stability, and globally invisible nonzero entropy-producing rotations. No broader statement in inspected relevant primary text implies that full inverse result.",
+      "residual_risks": [
+        "A general inverse controllability Gramian or matrix covariance-identification theorem might subsume the third-jet calculation.",
+        "Exact time derivatives of empirical covariance are unstable; no finite-sample estimator claimed.",
+        "Only full matrix exact age-resolved covariances with known binary birth rate/stationary root and positive-definite diffusion are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS forward covariance, not identified complete rotation inverse",
+          "evidence": [
+            "Appendix B.1 Eq.(19) K matrix integral; B.2 dimension reduction, B.3 oscillatory 2D covariance; no simple-spectrum inverse statement in inspected sections"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.39624v1",
+          "material_read": "Full accessible arXiv HTML, main text and Appendix B.1-B.3, especially lines 286-420",
+          "method": "read primary open full text and compare equations, hypotheses and conclusion",
+          "title": "Fluctuation-dissipation relation in branching particle systems",
+          "trigger": "Exact branching OU clonal covariance and nonequilibrium examples"
+        },
+        {
+          "assessment": "KNOWN EPR background, not a verified clonal inverse theorem",
+          "evidence": [
+            "Classical stationary OU current and two-time correlations, no branching population covariance in accessible description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+          "material_read": "Abstract and relevant model scope; not newly read in complete text",
+          "method": "abstract/theorem-scope contrast",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein-Uhlenbeck processes",
+          "trigger": "Stationary current and entropy might imply blind irreversible flow"
+        },
+        {
+          "assessment": "DIFFERENT sampled exponential observation; full priority not assessed",
+          "evidence": [
+            "Generator aliasing for finite sampled matrix exponential, not explicitly same-time clonal Gramian"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.06973",
+          "material_read": "Accessible abstract only",
+          "method": "abstract/scope comparison",
+          "title": "Inverse Problems for Matrix Exponential in System Identification: System Aliasing",
+          "trigger": "Possible stronger matrix reconstruction theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Clonal sums at different ages are a natural aggregate observation when cell lineage trajectories are not available. The result completely characterizes when irreversible rotational drift is identifiable, the first informative Taylor order and optimal conditioning, plus an exact no-go obstruction with nonzero entropy production. This has intrinsic inverse-problem and nonequilibrium significance beyond merely deriving the known forward fluctuation-dissipation integral.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires exact full covariance, age resolution, known branching and stationary Gaussian normalization.",
+    "No finite-sample inference, scalar-only readout theorem or robust numerical differentiator.",
+    "Potential unlocated general Gramian inverse result could weaken novelty."
+  ],
+  "schema_version": 1
+}
