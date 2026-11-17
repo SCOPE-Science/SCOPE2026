@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The squared distances have exact decomposition \(R=1+Q-2M\) and \(T=1+Q-2m\). Dirichlet moments, minimum-survival translation, conditioning on the minimum, and an inclusion-exclusion beta integral prove each of the four covariance components. The sign is certified analytically above dimension six using a harmonic-sum lower bound, with exact rational cases below; the asymptotic variance and covariance orders imply the stated correlation coefficient. The standalone exact-rational/sampling checker passes, but numerical sampling is not used as infinite proof.
+## correctness
 
-## Originality
-PASS, historical priority provisional. The closest full preprint (Baci et al., arXiv:2005.04911) treats marginal Euclidean and extreme-coordinate limits; it does not derive the present finite-dimensional nearest/farthest squared-distance mixed covariance or sign. Classical spacing-sum results of Holst (1979) and Hall (1984) concern marginal CLTs, not this signed mixed moment. Known Dirichlet maximum/minimum identities are inputs to, not substitutes for, the final cancellation. No exact same claim was located in the targeted public and mathematical-record searches. A possible older spacing-statistic covariance formula remains a genuine priority risk.
+PASS
 
-## Mathematical value
-PASS. Nearest/farthest vertex distances measure two canonical covering and proximity quantities for a uniformly sampled point of a canonical polytope. The exact covariance and globally strict negative sign describe dependence that marginal limit theorems cannot determine; the sharp logarithmic rate quantifies how this dependence vanishes in high dimension. This is a natural continuous family, not an arbitrary parameter slice or a numerical-table reproduction.
+For the intrinsic-volume uniform regular simplex conv(e_1,...,e_n), X~Dirichlet(1^n), Q=ΣX_i², M=max X_i,m=min X_i and squared distances R=1+Q-2M, T=1+Q-2m. Dirichlet polynomial moments and conditioning on m, plus maximum-event inclusion-exclusion, give each of Var(Q), Cov(Q,M), Cov(Q,m), Cov(M,m), hence the displayed exact negative covariance. The n>=7 harmonic inequality (H_7-1)^2>2+2/7 controls the entire infinite tail; independent exact Fraction evaluation confirms n=2..6. Variances Var(R)~2π²/(3n²), Var(T)~4/n³ yield Corr(R,T)~-sqrt(3/2)(log n)^2/(πsqrt n). Only squared Euclidean distances and uniform regular simplices are proved.
 
-## Scope and limitations
-Regular simplices, uniform point distribution, and squared Euclidean distances only; no extension to unsquared distances or nonregular simplices. The closed formula is self-contained and the independent-audit status remains unperformed. Historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Classical largest-spacing moments, Baci et al. limit theorems and same-day nearest-vertex quantization calculations give constituent marginal and Cov(Q,M) formulas, but do not imply the exact finite covariance of the nearest and farthest squared distances, its all-dimension strict sign, or the leading mixed logarithmic rate. The joint moment with the minimum creates a distinct cancellation. Older unindexed random-spacing cross-moment literature is a residual priority risk.
+
+## value
+
+PASS
+
+PASS. Nearest and farthest vertex squared-distance errors are canonical paired proximity and coverage statistics of the regular simplex. A globally strict signed finite-dimensional dependence law and exact rate of asymptotic decorrelation cannot be recovered from separate marginal variances or weak convergence alone; this is an independently useful natural joint invariant, not an arbitrary table of dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

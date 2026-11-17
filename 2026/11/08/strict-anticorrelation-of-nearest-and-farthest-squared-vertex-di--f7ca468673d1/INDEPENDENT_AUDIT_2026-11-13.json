@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:57:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the intrinsic-volume uniform regular simplex conv(e_1,...,e_n), X~Dirichlet(1^n), Q=ΣX_i², M=max X_i,m=min X_i and squared distances R=1+Q-2M, T=1+Q-2m. Dirichlet polynomial moments and conditioning on m, plus maximum-event inclusion-exclusion, give each of Var(Q), Cov(Q,M), Cov(Q,m), Cov(M,m), hence the displayed exact negative covariance. The n>=7 harmonic inequality (H_7-1)^2>2+2/7 controls the entire infinite tail; independent exact Fraction evaluation confirms n=2..6. Variances Var(R)~2π²/(3n²), Var(T)~4/n³ yield Corr(R,T)~-sqrt(3/2)(log n)^2/(πsqrt n). Only squared Euclidean distances and uniform regular simplices are proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baci et al. arXiv:2005.04911 derives marginal and asymptotic extreme behavior, not the all-n signed exact mixed R/T covariance.",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dispersion-and-extreme-value-limit-for-nearest-vertex-quan--deeab1c42246 proves exact nearest-vertex variance and extreme limit, not farthest-vertex coupling."
+        ],
+        "reasoning": "Asymptotic independence or marginal limit laws do not imply a finite covariance sign or sharp n^-3 log²n coefficient; these results do not dominate the candidate claim.",
+        "searches": [
+          "Baci et al 2020 limit theorems for random points in a simplex",
+          "Holst 1979 and Hall 1984 sums of spacing functions"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dispersion-and-extreme-value-limit-for-nearest-vertex-quan--deeab1c42246",
+        "https://arxiv.org/pdf/2005.04911",
+        "https://doi.org/10.1214/aop/1176994901",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/SLOGAN.txt",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/METADATA.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dispersion-and-extreme-value-limit-for-nearest-vertex-quan--deeab1c42246: Cov(Q,M)=[H_n²+J_n-2H_n]/[n(n+1)(n+2)], whereas candidate further needs Cov(Q,m) and Cov(M,m).",
+          "Candidate exact COV formula includes 4(1-H_n)/[n³(n+1)] and 4(n-1)/[n³(n+1)(n+2)] terms specific to min/max coupling."
+        ],
+        "reasoning": "These extra terms and their all-n sign are not consequences of the cited marginal results as stated. Retaining the known Cov(Q,M) as prior input is essential; claim is only the mixed R/T covariance.",
+        "searches": [
+          "Full same-day nearest-quantization RESULT.md primary comparison",
+          "Baci et al 2020 accessible PDF Theorems A-D"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dispersion-and-extreme-value-limit-for-nearest-vertex-quan--deeab1c42246: exact Cov(Q,M) and nearest-vertex variance; candidate combines Q,M,m to obtain Cov(R,T).",
+          "Dirichlet coordinates equal normalized independent exponential spacings; R and T are different affine combinations of Q and opposite extremes."
+        ],
+        "reasoning": "The spacing representation transforms the problem but does not eliminate dependence on mixed minimum/maximum/quadratic moments. The exact signed resulting combination was not established in the inspected closest source.",
+        "searches": [
+          "Resultary search: random simplex nearest farthest vertex squared distance covariance Dirichlet",
+          "Classical Dirichlet uniform spacings min max cross moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found explicit exact marginal formulas and Cov(Q,M), but no prior table giving the R/T mixed covariance for all n."
+        ],
+        "reasoning": "The object is a closed all-dimensional mixed invariant, not a computed finite table; failure of a search hit alone is not treated as proof of priority.",
+        "searches": [
+          "Resultary exact simplex nearest/farthest squared distance covariance table",
+          "Dirichlet spacings covariance exact harmonics search"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Classical largest-spacing moments, Baci et al. limit theorems and same-day nearest-vertex quantization calculations give constituent marginal and Cov(Q,M) formulas, but do not imply the exact finite covariance of the nearest and farthest squared distances, its all-dimension strict sign, or the leading mixed logarithmic rate. The joint moment with the minimum creates a distinct cancellation. Older unindexed random-spacing cross-moment literature is a residual priority risk.",
+      "residual_risks": [
+        "An older random-spacing joint moment identity may already evaluate Cov(M,m) with Q and imply candidate by immediate algebra.",
+        "The linked Hall/Holst papers were not established noncovering by whole-document inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE of intermediate identities, not final mixed R/T law",
+          "evidence": "Defines Q_m= m/(m-1)(1+S_m-2M_m), Cov(M,S) known exact; min coordinate absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dispersion-and-extreme-value-limit-for-nearest-vertex-quan--deeab1c42246",
+          "material_read": "Full RESULT.md including equations (1)-(5), exact Cov(M,Q), variance, Gumbel theorem and references",
+          "method": "GitHub full source read",
+          "title": "Exact dispersion and extreme-value limit for nearest-vertex quantization of a regular simplex",
+          "trigger": "Same simplex and maximum-coordinate/quadratic moment"
+        },
+        {
+          "assessment": "No all-n nearest/farthest mixed covariance in inspected theorem statements",
+          "evidence": "Marginal Euclidean radius and max-coordinate limit theorems; finite sign not given.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.04911",
+          "material_read": "Full accessible PDF targeted Theorems A-D and main extreme/marginal sections",
+          "method": "arXiv PDF rendered and examined with page screenshot",
+          "title": "Limit theorems for random points in a simplex",
+          "trigger": "Same regular simplex uniform distribution and extreme-spacing asymptotics"
+        },
+        {
+          "assessment": "INCONCLUSIVE historical cross-moment priority risk, not assumed whole-document noncovering",
+          "evidence": "1979 spacing sum asymptotic normality, not an explicitly located finite mixed-extrema formula.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176994901",
+          "material_read": "Bibliographic and abstract-level material only",
+          "method": "Literature search, no full-text claim",
+          "title": "Asymptotic normality of sum-functions of spacings",
+          "trigger": "General spacing-sum prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Nearest and farthest vertex squared-distance errors are canonical paired proximity and coverage statistics of the regular simplex. A globally strict signed finite-dimensional dependence law and exact rate of asymptotic decorrelation cannot be recovered from separate marginal variances or weak convergence alone; this is an independently useful natural joint invariant, not an arbitrary table of dimensions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-dispersion-and-extreme-value-limit-for-nearest-vertex-quan--deeab1c42246",
+    "https://arxiv.org/pdf/2005.04911",
+    "https://doi.org/10.1214/aop/1176994901",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-anticorrelation-of-nearest-and-farthest-squared-vertex-di--f7ca468673d1/REVIEW.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform intrinsic-volume sampling, regular simplex of edge sqrt(2), squared Euclidean distances; not unsquared or arbitrary Dirichlet/irregular simplex."
+  ],
+  "residual_risks": [
+    "An older random-spacing joint moment identity may already evaluate Cov(M,m) with Q and imply candidate by immediate algebra.",
+    "The linked Hall/Holst papers were not established noncovering by whole-document inspection."
+  ],
+  "schema_version": 1
+}
