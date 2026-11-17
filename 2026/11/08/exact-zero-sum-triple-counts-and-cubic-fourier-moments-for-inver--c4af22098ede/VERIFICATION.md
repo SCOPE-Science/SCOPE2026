@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification and scope
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3.8+ with its standard library. The verifier independently enumerates all \(299\) moduli \(2\le m\le300\). For each modulus it compares (i) a direct ordered unit-pair count of simultaneous zero sums, (ii) a root count for \((t^2+t+1)^2\), and (iii) the claimed local-factor product. The program exits with an assertion error on a disagreement, otherwise prints a `VERIFY_OK` line and selected examples.
+## correctness
 
-The tested range is finite and no claim of exhaustive verification across infinitely many moduli is made. The unrestricted result follows from the explicit bijection, prime-power root calculations and CRT in RESULT.md. The Fourier identity follows from exact character orthogonality. No independent mathematical review has been performed.
+PASS
+
+The invertible ratio t=y/x transforms both coordinate equations exactly into the unit conditions t,t+1 and (t²+t+1)²≡0 mod m, with phi(m) choices for x. CRT reduces to prime powers. For p≠3 roots exist iff p≡1 mod3 and are Hensel-simple, giving 2p^floor(a/2) lifts. For p=3 all candidates t=1+3u have exact v3(t²+t+1)=1 so a>=3 impossible. Orthogonality of independent r,s sums proves cubic moment. Independent from-scratch complete unit-pair enumeration for every m=2..160 and special m=169 verified formulas; source verifier for m<=300 read but not substituted for general proof.
+
+## originality
+
+PASS
+
+Natural all-composite-modulus threefold zero-convolution of graph (x,x^-2), including ramified p=3 obstruction, has no directly covering theorem in inspected modular hyperbola literature. Generic character orthogonality, CRT/Hensel, and root-of-unity algebra expressly credited.
+
+## value
+
+PASS
+
+Natural complete all-modulus ternary additive-convolution zero fibre and equivalent nonabsolute cubic Fourier moment, with subtle square-root prime-power thickening and abrupt 3-adic disappearance. This supplies exact local arithmetic missing from generic modular exponential-sum estimates, not an arbitrary one-modulus test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

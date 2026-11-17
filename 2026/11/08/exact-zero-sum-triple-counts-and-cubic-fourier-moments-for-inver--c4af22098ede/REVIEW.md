@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof reconstructs the triple count from an exact reversible scaling parametrization. A unit-cleared identity yields \((t^2+t+1)^2=0\), and Chinese remaindering reduces to local equations; two Hensel-simple roots occur at primes \(1\) modulo \(3\), none at primes \(2\) modulo \(3\), and valuation exactly one at the singular root above \(3\) explains the truncation at exponent two. Fourier orthogonality independently gives the cubic moment interpretation. Direct unit-pair enumeration and the prime-factor formula agree at all moduli through \(300\). These finite checks supplement, rather than establish, the unrestricted argument.
+PASS
 
-## Originality: PASS, with priority uncertainty
+The invertible ratio t=y/x transforms both coordinate equations exactly into the unit conditions t,t+1 and (t²+t+1)²≡0 mod m, with phi(m) choices for x. CRT reduces to prime powers. For p≠3 roots exist iff p≡1 mod3 and are Hensel-simple, giving 2p^floor(a/2) lifts. For p=3 all candidates t=1+3u have exact v3(t²+t+1)=1 so a>=3 impossible. Orthogonality of independent r,s sums proves cubic moment. Independent from-scratch complete unit-pair enumeration for every m=2..160 and special m=169 verified formulas; source verifier for m<=300 read but not substituted for general proof.
 
-The primary full texts [1] and [2] concern modular hyperbolas, rational-function exponential sums and additive reciprocal sets but do not state the particular complete inverse-square zero-triple count. Their general tools and inequalities do not supply the exact local lifting factors. A published exact fourth-order energy identity on the inverse-square graph over fields is not a direct covering theorem for ordered zero triples or composite moduli. Explicit searches for equivalent trilinear moments, squared cyclotomic root conditions, and stronger classifications found no covering theorem. An unidentified source, especially one treating general rational-monomial curves over local rings, remains a real priority risk. The absence of a search match is not proof of uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is a natural complete classification of the zero coefficient of the threefold additive convolution of a classical modular monomial graph, equivalently of its full non-absolute cubic Fourier moment. It specifies all moduli with nonzero mass, exactly how many triples occur, and a ramified obstruction at powers of three invisible in the prime-field case. These exact local density transitions give mathematically motivated information beyond a routine single-modulus computation. No stronger claim about arbitrary target vectors or Fourier extension norms is made.
+Natural all-composite-modulus threefold zero-convolution of graph (x,x^-2), including ramified p=3 obstruction, has no directly covering theorem in inspected modular hyperbola literature. Generic character orthogonality, CRT/Hensel, and root-of-unity algebra expressly credited.
 
-## Limits and evidence
+## value
 
-The published survey motivates general modular rational curves and the additive theory; polynomial factorization, elementary Hensel lifting and orthogonality are standard. Code is only finite corroboration. Historical priority still requires outside scrutiny, and an independent mathematical audit has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural complete all-modulus ternary additive-convolution zero fibre and equivalent nonabsolute cubic Fourier moment, with subtle square-root prime-power thickening and abrupt 3-adic disappearance. This supplies exact local arithmetic missing from generic modular exponential-sum estimates, not an arbitrary one-modulus test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
