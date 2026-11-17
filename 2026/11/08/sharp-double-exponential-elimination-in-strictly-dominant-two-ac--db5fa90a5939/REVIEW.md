@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise scope is the open square, two strictly positive row-payoff gaps for each player, and the logarithmic-payoff replicator equation. Log-odds satisfy a globally defined cooperative ODE. Their growth is at least linear, and their eventual decomposition into an unstable positive eigenmode and a decaying stable mode has a bounded vanishing forcing. The weighted unstable coordinate has a positive finite rescaled limit; the stable coordinate vanishes. Crucially, the remainder is \(o(1)\) in the *log-odds*, supporting the stated multiplicative probability asymptotics. Five direct numerical integrations passed. The proof, rather than numeric tests, establishes the unbounded-time result.
+## correctness
 
-## Originality — PASS, qualified
-The closest work is Ruiz-Serra, Ay, Harré (2026), which establishes qualitative dominance reversal and classifies two-action phase portraits. The inspected text and appendix do not give this sharp physical-time double-exponential extinction law, positive orbit-amplitude formula, or universal logarithmic rate ratio. Ay–Erb log-linear dynamics are known and not claimed as new. Targeted published-record searches yielded no covering finding. Earlier unindexed mathematical treatments could contain equivalent asymptotics; the original 2005 work was not inspected in full. Neither a missing match nor database partition proves uniqueness.
+PASS
 
-## Value — PASS
-Dominance inversion alone does not tell how quickly a Bayesian-style log-evidence flow eliminates the dominant strategies. The exact \(\sqrt{\alpha\beta}\) exponent and both positive amplitudes distinguish extremely rapid coupled boundary collapse from ordinary exponential elimination; the cross-player ratio yields a parameter-identifiable observable. It applies to an open four-parameter family of bimatrix games, not a single numerical instance, and clarifies the singular boundary dynamics. It does not address noisy or higher-action games.
+From the exact logarithmic fitness replicator, u=log((1-x)/x),v=log((1-y)/y) obey u_dot=alpha log(1+e^v)+alpha0 log(1+e^-v) and v_dot=beta log(1+e^u)+beta0 log(1+e^-u). Both derivatives have positive global minima and at-most-linear growth, so interior global solutions have u,v→+infty. For sufficiently large time, u_dot=alpha v+rA(v), v_dot=beta u+rB(u) with rA,rB positive bounded and →0. W=√beta u+√alpha v, Z=√beta u-√alpha v yield W_dot=√(alpha beta)W+F, Z_dot=-√(alpha beta)Z+G. Variation of constants gives finite L>0 and W-Le^(lambda t)→0, Z→0 (not merely little-o of e^lambda t), proving the stronger multiplicative asymptotics and ratio. Independent bounded log-odds ODE integrations agree; no finite integration proves t→infty.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Ruiz-Serra, Ay and Harré (2026) analyze the same log-evidence dynamics and prove qualitative inversion/elimination of dominant strategies, but their inspected accessible full HTML sections and appendix do not state the orbit-dependent sharp two-player physical-time rate or positive amplitude. The older Ay–Erb model introduces linear/log-linear replicators and its abstract mentions explicit solutions; full original text was not accessible through lawful sources, an explicit priority risk. The new asymptotic statement is strictly stronger than just elimination; different titles and failed search alone are not counted as novelty proof.
+
+## value
+
+PASS
+
+The exponent √(alpha beta) is a quantitative boundary-growth invariant for a genuine four-parameter game family, and the positive trajectory-dependent amplitude with additive o(1) log-odds remainder controls actual probabilities multiplicatively. It separates singular log-evidence flow from ordinary exponential replicator extinction. This exact asymptotic can inform asymptotic numerical analysis and dynamics rather than just rebranding dominance inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:51:51.749423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-double-exponential-elimination-in-strictly-dominant-two-ac--db5fa90a5939/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-double-exponential-elimination-in-strictly-dominant-two-ac--db5fa90a5939/VERIFICATION.md",
+        "independent_checks.py",
+        "verify_git_trees.py"
+      ],
+      "rationale": "From the exact logarithmic fitness replicator, u=log((1-x)/x),v=log((1-y)/y) obey u_dot=alpha log(1+e^v)+alpha0 log(1+e^-v) and v_dot=beta log(1+e^u)+beta0 log(1+e^-u). Both derivatives have positive global minima and at-most-linear growth, so interior global solutions have u,v→+infty. For sufficiently large time, u_dot=alpha v+rA(v), v_dot=beta u+rB(u) with rA,rB positive bounded and →0. W=√beta u+√alpha v, Z=√beta u-√alpha v yield W_dot=√(alpha beta)W+F, Z_dot=-√(alpha beta)Z+G. Variation of constants gives finite L>0 and W-Le^(lambda t)→0, Z→0 (not merely little-o of e^lambda t), proving the stronger multiplicative asymptotics and ratio. Independent bounded log-odds ODE integrations agree; no finite integration proves t→infty.",
+      "residual_risks": [
+        "Only two players with two strictly dominant ordinary payoff actions and finite interior initial data; L depends on all payoff gaps and initial condition.",
+        "Finite ODE sample is corroboration, not proof of asymptotic in physical continuous time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 qualitative dominance inversion theorem covers general games but not a quantitative e^(lambda t) unstable-mode amplitude in material read.",
+          "The 2005 abstract says explicit solutions but full theorem remains inaccessible, so full noncoverage cannot be claimed."
+        ],
+        "reasoning": "General model scope is not equivalent to a prior sharp quantitative theorem; plausible older closed-form statements remain a residual risk.",
+        "searches": [
+          "Ay Erb On a Notion of Linear Replicator Equations explicit solutions 2005",
+          "Ruiz Serra Ay Harre 2610.36345 Proposition II.3 and Section III"
+        ]
+      },
+      "checked_sources": [
+        "Full arxiv:2610.36345v2 HTML sections II and III",
+        "Ay Erb (2005) DOI abstract and unavailable primary full text",
+        "Actual assigned RESULT.md proof",
+        "Independent bounded direct ODE integration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative result x(t),y(t)→0 is compatible with multiple decay scales and cannot imply lambda=√(alpha beta).",
+          "Proof constructs L=e^-lambda t0 W(t0)+∫_(t0)^∞ e^-lambda s F(s) ds>0 and gives u=(L/2√beta)e^lambda t+o(1)."
+        ],
+        "reasoning": "The submitted theorem supplies quantitative spectral decomposition absent from the inspected closest model paper; older inaccessible full text not categorically ruled out.",
+        "searches": [
+          "arxiv 2610.36345 dominance inversion asymptotic two player",
+          "Ay Erb explicit solution linear replicator 2005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ruiz-Serra et al. write the same coupled log-odds dynamics and prove dominance inversion, while submitted W/Z eigenmode has sharper unstable amplitude."
+        ],
+        "reasoning": "Same ODE but different asymptotic conclusion; the new theorem is not an equivalent phrasing of mere convergence.",
+        "searches": [
+          "Bayesian Replicator Dynamics Inversion of Strict Dominance bimatrix 2610.36345",
+          "log-odds u v double exponential disappearance two population log linear replicator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published findings search returns this submitted rate but no independent exact asymptotic amplitude/rate table; arxiv HTML states qualitative elimination rather than the table of lambda and L."
+        ],
+        "reasoning": "The rate is an analytic asymptotic, not a finite table; named database check is specific to available theorem records and does not prove originality.",
+        "searches": [
+          "Resultary 2026/11/8 log evidence sharp double exponential extinction",
+          "published R dynamics strictly dominant two action rates"
+        ]
+      },
+      "rationale": "Ruiz-Serra, Ay and Harré (2026) analyze the same log-evidence dynamics and prove qualitative inversion/elimination of dominant strategies, but their inspected accessible full HTML sections and appendix do not state the orbit-dependent sharp two-player physical-time rate or positive amplitude. The older Ay–Erb model introduces linear/log-linear replicators and its abstract mentions explicit solutions; full original text was not accessible through lawful sources, an explicit priority risk. The new asymptotic statement is strictly stronger than just elimination; different titles and failed search alone are not counted as novelty proof.",
+      "residual_risks": [
+        "Ay–Erb original 2005 full text inaccessible; an older exact log-linear solution could imply the asymptotic. Oxford institutional access returned vpn_disconnected, no bypass.",
+        "No weak dominance, boundary starts, noisy learning or higher-action games."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative inversion and dynamics; not the stated sharp amplitude in inspected text",
+          "evidence": "Proposition II.3 and two-action topology; no W/Z amplitude law identified in material read.",
+          "identifier_or_url": "https://arxiv.org/html/2610.36345v2",
+          "material_read": "Accessible complete HTML, sections II.2, II.5, III and appendix; searched for double exponential and rate",
+          "method": "Read actual arXiv HTML",
+          "title": "Bayesian Replicator Dynamics and the Inversion of Strict Dominance in Bimatrix Games",
+          "trigger": "Exact same coupled log-linear dynamics"
+        },
+        {
+          "assessment": "Undetermined stronger coverage; treat as risk, not automatic originality rejection",
+          "evidence": "Abstract mentions explicit solutions but supplies no matching two-population amplitude to assess.",
+          "identifier_or_url": "https://doi.org/10.1007/s10884-005-4574-3",
+          "material_read": "Abstract/index only; full text unavailable through lawful arXiv and OA attempts, authorized institutional access vpn_disconnected",
+          "method": "Abstract read, full-text access attempted via authorized route",
+          "title": "On a Notion of Linear Replicator Equations",
+          "trigger": "Original 2005 log-linear replicator model and possible quantitative coverage"
+        },
+        {
+          "assessment": "Not an independent earlier source; identifies what is under review",
+          "evidence": "Claim x exp((L/2√beta)e^lambda t)→1 with exact orbit L.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-double-exponential-elimination-in-strictly-dominant-two-ac--db5fa90a5939",
+          "material_read": "Indexed result theorem and assigned frozen RESULT.md read in full",
+          "method": "Actual GitHub frozen RESULT.md plus Resultary research index",
+          "title": "Sharp double-exponential elimination in strictly dominant two-action log-evidence games",
+          "trigger": "Published current finding comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-double-exponential-elimination-in-strictly-dominant-two-ac--db5fa90a5939/RESULT.md"
+      ],
+      "rationale": "The exponent √(alpha beta) is a quantitative boundary-growth invariant for a genuine four-parameter game family, and the positive trajectory-dependent amplitude with additive o(1) log-odds remainder controls actual probabilities multiplicatively. It separates singular log-evidence flow from ordinary exponential replicator extinction. This exact asymptotic can inform asymptotic numerical analysis and dynamics rather than just rebranding dominance inversion.",
+      "residual_risks": [
+        "Only two players with two strictly dominant ordinary payoff actions and finite interior initial data; L depends on all payoff gaps and initial condition.",
+        "Finite ODE sample is corroboration, not proof of asymptotic in physical continuous time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two players with two strictly dominant ordinary payoff actions and finite interior initial data; L depends on all payoff gaps and initial condition.",
+    "Finite ODE sample is corroboration, not proof of asymptotic in physical continuous time."
+  ],
+  "schema_version": 1
+}
