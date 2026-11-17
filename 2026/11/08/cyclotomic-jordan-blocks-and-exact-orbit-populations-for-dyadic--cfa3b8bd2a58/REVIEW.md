@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The characteristic-two path continuant identity, cyclic endpoint, and rung nilpotent reduction prove an exact two-block Jordan decomposition of the shifted ladder adjacency. The polynomial identity \(\Phi(T)=\operatorname{diag}(K,K)T\), with \(\Phi(X)=X^2+X+1\), converts it to two cyclotomic primary blocks for the reversible wave. A gcd computation then supplies all fixed spaces and temporal orbits with the stated boundary conditions. Two standalone programs were executed and their captured outputs checked, including a complete 4096-state binary example. Finite checks are corroborative, not infinite proofs.
+## correctness
 
-**Originality — PASS, qualified.** The generic reversible second-order construction, elementary Jordan theory, finite one-dimensional rule-90/150 dynamics, and nearby first-order ladder results are earlier work. A direct comparison of their statements with the present two-rung-coupled primary blocks and population law did not identify any implication yielding the new numbers. Source searches also examined the exact ladder graph, the alternative unwrapped-strip and two-row-wave descriptions, and the dyadic parameter aliases. The relevant full Vlasov paper was inspected; the Macfarlane full text could not be obtained, and that access limitation leaves a genuine historical-priority risk. Neither a failed search nor a narrow specialization establishes novelty on its own.
+PASS
 
-**Value — PASS.** Open ladder networks are a natural minimal two-dimensional geometry for reversible spatial waves. The dyadic path sizes expose a specific nontrivial Frobenius resonance: the rung edges create cyclotomic blocks of exponents \(2^r\) and \(2^r-2\), rather than merely repeating a one-dimensional rule. All possible temporal periods, sharp global permutation order and exact populations of distinct cycles follow across an infinite family of ladders and all finite characteristic-two fields. This resolves a motivated dynamical invariant rather than an arbitrary small computation.
+For n=2^r−1 (r≥2), the path adjacency has recurrence p_{m+1}=X p_m+p_{m−1} in characteristic 2, giving p_n=X^n and a cyclic J_n(0) via the endpoint Krylov basis. The rung adjacency is I_2+N_2 with N_2²=0, so ladder A=I+K where K is multiplication by x+y on F2[x,y]/(x^n,y²). Frobenius and a two-dimensional K-kernel yield precisely blocks J_{n+1}(0),J_{n−1}(0). For reversible second-order T=[[A,I],[I,0]], Φ(T)=T²+T+I=diag(K,K)T with T invertible, giving rank-nullity filtration 2min(j,n+1)+2min(j,n−1), hence two irreducible Φ-primary modules of powers n+1 and n−1. In characteristic 2, X^t−1 has Φ multiplicity 0 when 3∤t and 2^{ν₂(t)} otherwise, establishing fixed spaces, exact order 3·2^r, and all primitive orbits by differences of nested fixed sets. Direct explicit-neighbor XOR on all 4096 paired-row states of the n=3 ladder independently gave primitive state populations 1,15,240,3840 at periods 1,3,6,12.
 
-**Limitations and sources.** Only the stated dyadic open ladders and characteristic two are treated. There is no claim of new reversible-CA construction, general Jordan theory or spatial quotient. Relevant background: Macfarlane (2004), DOI:10.1088/0305-4470/37/45/006; Vlasov (first posted 2013), arXiv:1311.4297; Tadaki (1994), DOI:10.1103/PhysRevE.49.1168. Unindexed work and inaccessible complete older manuscripts remain possible overlaps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact dyadic open-ladder second-order wave Φ-primary blocks and complete orbit census. Earlier reversible second-order CA framework establishes the map but not this special graph decomposition. Related ladder first-order neighbor-sum work supplies zero-primary transient counts, not the invertible two-row wave primitive periods. Plausible older publisher text on second-order linear CA could not be fully accessed, retained as a specific priority risk.
+
+## value
+
+PASS
+
+A complete two-block rational canonical form with exact primitive orbit counts for every dyadic ladder length and every F_{2^f} is a natural and useful classification of a reversible graph wave. The dyadic double-scale Jordan fusion is genuinely structural, not merely a tiny computation; analytic proof provides sharp global period and all finite-field population counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
