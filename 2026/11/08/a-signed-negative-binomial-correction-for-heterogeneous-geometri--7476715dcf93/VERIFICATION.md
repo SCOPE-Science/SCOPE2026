@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 check_geometric.py` using Python 3 standard library only. The expected result is `PASS: 3873 exact-rational assertions (finite coefficient diagnostics; not an infinite proof).` The script tests finite prefixes and exact algebraic identities for multiple parameter choices; it does not exhaust infinite tails or all parameter values.
+# Independent mathematical audit
 
-The rigorous global conclusion relies on the signed generating-function identities, absolute convergence in \(\ell^1\), and the norm bounds \(\|A'_y\|_1=2/(1-y)^2\), \(\|A''_y\|_1=4/(1-y)^3\). The exact local leading coefficient further requires the sign-change analysis of the factorially tilted negative-binomial mass. The signed target has total mass one but can have negative coefficients.
+## correctness
 
-Independent mathematical audit has not been performed. Historical priority relative to earlier general signed-measure expansions is still provisional.
+PASS
+
+In convolution Banach algebra ℓ1, G_y=(1−y)/(1−yz), A_y=∂_y log G_y and ∥A′_y∥1=2/(1−y)², ∥A″_y∥1=4/(1−y)³. Along y_j=w+t δ_j, Σδ_j=0 cancels the linear response, giving ∥P′_t∥1≤2t S2/a², hence TV≤S2/(2a²). Compare P′_t with t S2 P_0*A′_w, control differences by 2t³S2²/a⁴+2t²S3/a³ and integrate to obtain S3/(3a³)+S2²/(4a⁴). The convolution term is exactly shifted NB(c+2) minus NB(c), with zero mass. Its signed mass changes at k(k−1)=c(c+1)w²/(1−w)², yielding the tail difference and strictly positive local leading constant for nonzero v.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final claim (not of elementary starting tools). Search included signed compound-Poisson approximations and negative-binomial Stein perturbations. General signed series can contain second-order terms, but no inspected prior establishes this particular fixed arithmetic-mean NB difference with these uniform nonasymptotic constants. The DeSalvo first-order bound is weaker and does not imply signed cubic residual; general signed approximation papers not read in full cannot be declared noncovering, so any possible implication is explicitly unresolved as a priority risk, not asserted absent.
+
+## value
+
+PASS
+
+A recent named problem asks for a usable second-order signed approximation to heterogeneous geometric sums; the explicit NB-shift correction, uniform-in-number-of-summands constants and exact local TV coefficient are naturally reusable probability tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

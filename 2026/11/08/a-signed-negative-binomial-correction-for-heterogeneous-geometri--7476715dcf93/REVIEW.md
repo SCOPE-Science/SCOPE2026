@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The generating-function derivative identities are exact in the convolution Banach algebra \(\ell^1(\mathbb N_0)\). Cancellation of the arithmetic-mean parameter makes the first derivative quadratic in the parameter deviations, and explicit norms for two successive logarithmic derivatives yield the stated second- and third-order bounds. The negative-binomial identity fixes the signed correction and the factorial-bias tail identity determines the local leading constant. The 3,873 finite-prefix rational assertions are supporting diagnostics, not a substitute for the all-support proof.
+PASS
 
-## Originality
+In convolution Banach algebra ℓ1, G_y=(1−y)/(1−yz), A_y=∂_y log G_y and ∥A′_y∥1=2/(1−y)², ∥A″_y∥1=4/(1−y)³. Along y_j=w+t δ_j, Σδ_j=0 cancels the linear response, giving ∥P′_t∥1≤2t S2/a², hence TV≤S2/(2a²). Compare P′_t with t S2 P_0*A′_w, control differences by 2t³S2²/a⁴+2t²S3/a³ and integrate to obtain S3/(3a³)+S2²/(4a⁴). The convolution term is exactly shifted NB(c+2) minus NB(c), with zero mass. Its signed mass changes at k(k−1)=c(c+1)w²/(1−w)², yielding the tail difference and strictly positive local leading constant for nonzero v.
 
-**PASS, subject to historical priority.** DeSalvo (arXiv:2611.00275v1, Section 6, Open Problem 2) specifically asks for a signed second-order geometric-sum approximation at matched parameter; Section 2 contains only the linear-spread bound. Kumar and Upadhye (arXiv:1603.07464) derive negative-binomial approximation bounds and three-parameter moment-matched approximants but not this fixed-parameter signed correction and its exact local coefficient. Earlier signed compound-Poisson asymptotic expansion theory may imply parts of the claim. The full 2002 Barbour–Čekanavičius primary source was not accessible for complete comparison, so historical priority is not certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** The object is directly motivated by an explicit recent open problem. A scaled difference of two genuine negative-binomial laws is a tractable closed-form correction; the cubic residual distinguishes a real approximation gain, while the exact tail coefficient identifies the small-spread sensitivity without numerical optimization.
+Best-of-knowledge originality of the exact final claim (not of elementary starting tools). Search included signed compound-Poisson approximations and negative-binomial Stein perturbations. General signed series can contain second-order terms, but no inspected prior establishes this particular fixed arithmetic-mean NB difference with these uniform nonasymptotic constants. The DeSalvo first-order bound is weaker and does not imply signed cubic residual; general signed approximation papers not read in full cannot be declared noncovering, so any possible implication is explicitly unresolved as a priority risk, not asserted absent.
 
-## Sources and risks
+## value
 
-The primary 2026 preprint was inspected in full-text HTML, with special attention to its geometric-sum result, numerical discussion and Open Problem 2. The 2016 arXiv primary text was inspected for operator perturbation and approximation hypotheses. The 2002 Annals of Probability paper and 1998 London Mathematical Society paper were available as abstracts or bibliographic evidence only. A general signed-measure theorem could cover the new expression as a special case; no claim of definitive worldwide uniqueness is made. The signed approximation need not be a probability distribution. No uniform growing-dimensional asymptotic is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A recent named problem asks for a usable second-order signed approximation to heterogeneous geometric sums; the explicit NB-shift correction, uniform-in-number-of-summands constants and exact local TV coefficient are naturally reusable probability tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
