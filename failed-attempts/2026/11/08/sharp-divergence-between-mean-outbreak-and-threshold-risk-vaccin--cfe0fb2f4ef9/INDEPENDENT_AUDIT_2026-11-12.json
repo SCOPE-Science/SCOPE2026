@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:51:51.749414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-divergence-between-mean-outbreak-and-threshold-risk-vaccin--cfe0fb2f4ef9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-divergence-between-mean-outbreak-and-threshold-risk-vaccin--cfe0fb2f4ef9/VERIFICATION.md",
+        "independent_checks.py",
+        "verify_git_trees.py"
+      ],
+      "rationale": "The deterministic percolation run identity h N_h-(h-1) N_(h+1) exactly counts vertices in open path components of length at least h. Taking expectations gives F_m=h(m-h+1)p^(h-1)-(h-1)(m-h)p^h for m>=h and zero otherwise. For a single deletion a+b=n-1: tail-minimum profiles have one small gap of h-1 and one residual large gap, or both <h; strict excess of having two active gaps is (h-1)p^h/(n-1). The mean follows from H_m=sum_(d=1)^(m-1)(m-d)p^d and strict discrete convexity, hence balanced splitting. Boundary n=2h checked. Independent exact state-enumeration verified 156 parameter cases. C PASS is for the entire claimed theorem, not for logs alone.",
+      "residual_risks": [
+        "Finite check alone would not establish all n,h; the algebraic gap proof supplies the infinite claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multi-vaccine proof covers every integer b>=2 algebraically, even though its theorem declaration restricts b>=3 and h>=3.",
+          "The older first-transmission theorem covers the h=2 endpoint via probability of any secondary infection."
+        ],
+        "reasoning": "A stronger combinatorial theorem plus its already written proof yields the current claim without additional nonstandard argument.",
+        "searches": [
+          "Sharp multi-vaccine path layouts mean and threshold epidemic risk Oct25 full RESULT.md",
+          "universal separation mean and first transmission vaccination targets on paths Oct25"
+        ]
+      },
+      "checked_sources": [
+        "Full published Oct25 multi-vaccine path RESULT.md, theorem and all proof steps",
+        "Resultary Oct25 first-transmission path source indexed statement",
+        "Assigned package RESULT.md and verify_path_tail.py",
+        "independent_checks.py exact edge-state enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older compatibility criterion N<=(k+1)(h-1)+1 with N=n-k gives for k=1: n-1<=2(h-1)+1 ⇔ n<=2h.",
+          "For N>2(h-1), its risk minimizer (N-(h-1),h-1) means vaccinated vertex h or n-h+1; its strict merging increment (h-1)p^h gives the new excess exactly."
+        ],
+        "reasoning": "The proof-to-claim implication is exact and leaves no motivated new boundary theorem; no title or parameter match alone was used.",
+        "searches": [
+          "Resultary Nov8 sharp divergence mean threshold vaccination path",
+          "Resultary Oct25 multi-vaccine path strict compatibility bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Old theorem for b=k+1 gap lengths defines exactly G_h(L)=p^(h-1)[(h-(h-1)p)L-h(h-1)(1-p)] when L>=h, and 0 otherwise.",
+          "Its balanced mean minimizers and threshold-sharp profiles give the one-deletion objective under b=2."
+        ],
+        "reasoning": "One-vaccine path protection is exactly a two-gap partition; identical functionals and optimizing lemmas apply.",
+        "searches": [
+          "Resultary 2026/10/25 multi-vaccine path layouts mean and threshold epidemic risk",
+          "one vaccine k=1 path mean versus h-tail percolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior full RESULT.md contains an exact all-gap minimizer formula and probability for arbitrary k>=2; substitution k=1 yields the exact new risk table and cutoff."
+        ],
+        "reasoning": "The new exact values are not a separate unknown lookup problem; all are existing expressions specialized to two gaps.",
+        "searches": [
+          "Resultary threshold optimal vaccine path layout exact argmins",
+          "path percolation tail minimizer n=2h"
+        ]
+      },
+      "rationale": "The earlier October 25 published multi-vaccine path-layout theorem has the identical formula for the threshold-counted tail contribution and balanced-mean criterion, with complete minimizers for b=k+1 gaps. Its explicit paper states k>=2 and h>=3, but its proof is purely a deterministic gap argument valid unchanged for b=2 (one vaccine): specializing b=2 gives exactly n<=2h compatibility, gaps (h-1,n-h), and excess (h-1)p^h/(n-1). The h=2 case is a direct special case of its same run identity, supported by a separate earlier first-transmission path theorem. No novel calculation beyond parameter-boundary substitution remains.",
+      "residual_risks": [
+        "Earlier multi-vaccine theorem explicitly states k>=2, h>=3, so k=1 is covered by its universally valid proof rather than literally its printed hypothesis; this distinction is preserved.",
+        "Percolation model assumptions fixed p, undirected independent edges and one uniform post-vaccine seed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematical proof extends mechanically to one vaccine, and resulting identities coincide",
+          "evidence": "Old b=k+1 proof, N=n-k, G_h affine; k=1 yields old boundary n<=2h.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-multi-vaccine-path-layouts-for-mean-and-threshold-epidemic--201e633bac83",
+          "material_read": "Complete RESULT.md: all theorems, the exact G_h(L) calculation, strict tail minimizer and balanced mean proofs, compatibility threshold",
+          "method": "Full raw GitHub text read",
+          "title": "Sharp multi-vaccine path layouts for mean and threshold epidemic risk",
+          "trigger": "Direct stronger same-object prior"
+        },
+        {
+          "assessment": "Related special h=2 case; no full-document noncoverage asserted",
+          "evidence": "Mean-central versus tail-first-transmission path target separation reported for paths of length >=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-separation-of-mean-and-first-transmission-vaccination--194241dddabb",
+          "material_read": "Title and detailed indexed theorem summary (not full primary text)",
+          "method": "Semantic research search",
+          "title": "Universal separation of mean and first-transmission vaccination targets on paths",
+          "trigger": "Endpoint h=2 comparison"
+        },
+        {
+          "assessment": "Not used as rejection basis; decisive earlier exact path gap proof governs",
+          "evidence": "General expected epidemic containment uses different objective/algorithm.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.2805",
+          "material_read": "Bibliographic characterization and sections as supplied by reviewed package, not full independently fetched article",
+          "method": "Primary bibliographic comparison",
+          "title": "Containing epidemic outbreaks by message-passing techniques",
+          "trigger": "General vaccination method background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-divergence-between-mean-outbreak-and-threshold-risk-vaccin--cfe0fb2f4ef9/RESULT.md",
+        "Resultary Oct25 first-transmission path source indexed statement"
+      ],
+      "rationale": "The two epidemiological criteria are meaningful, but this particular exact one-vaccination classification and cutoff follow mechanically from previously published, complete gap-optimization proof and earlier first-transmission results. Thus there is no distinct valuable new mathematical contribution, although the old result itself is useful. This rejection is for coverage/derivative value, not correctness or lack of access.",
+      "residual_risks": [
+        "No scientific repair proposed: the original is correct but covered as a natural boundary corollary.",
+        "Finite check alone would not establish all n,h; the algebraic gap proof supplies the infinite claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No scientific repair proposed: the original is correct but covered as a natural boundary corollary.",
+    "Finite check alone would not establish all n,h; the algebraic gap proof supplies the infinite claim."
+  ],
+  "schema_version": 1
+}
