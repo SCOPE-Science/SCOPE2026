@@ -1,15 +1,21 @@
-# Scientific review: one-nodal quartic chamber census
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric exhaustion starts from nef and big anticanonical class and uses adjunction and Cauchy--Schwarz to restrict all negative curves to five exceptionals, seven strict transforms of ordinary pair-lines, and the unique strict transform of the collinear triple. The complete intersection matrix determines negative definiteness: selected \((-1)\)-curves must be pairwise disjoint, and at most one selected curve may meet the \((-2)\)-curve. The combinatorial generating functions count these configurations without omissions. Exact rational enumeration checks all \(8192\) subsets, and separately evaluates the counting expressions. The Bauer--Schmitz finiteness dichotomy applies because the anticanonical class is big. The computation is an independent consistency check, not a proof of completeness of negative curves.
+## correctness
 
-## Originality — PASS, qualified
-The closest earlier work is Bauer--Funke--Neumann (2009), which establishes the general negative-support correspondence and \(393\) chambers for the smooth degree-four case, and Bauer--Schmitz (2012), which establishes the general volume dichotomy and counting algorithms. The new contribution claimed is solely the explicit one-nodal quartic support polynomial and its finite/infinite-volume split \(178/107\). Neither relevant inspected primary text gives this specific one-collinear-triple census. An analogous one-nodal **cubic** geometry has different Picard rank and negative-curve incidence, so it does not cover this quartic invariant. Search coverage cannot rule out every unindexed table or alternate enumeration.
+PASS
 
-## Mathematical value — PASS
-A single collinear triple is the smallest degeneration of a five-point general-position quartic del Pezzo model and creates exactly one effective \((-2)\)-curve. The result quantifies the structural change from the known \(393\)-chamber smooth surface to \(285\) chambers and separates the previously finite smooth-volume phenomenon into \(178\) finite and \(107\) infinite anticanonical slices. The full support polynomial is a natural stable-base-locus invariant and a useful test case for singular anticanonical degenerations. These quantities are not implied by the smooth \(393\) total or the general finite/infinite criterion without doing the geometric and incidence census.
+For X=Bl_{p1..p5} P2 over C with exactly p1,p2,p3 collinear, adjunction plus nef and big anticanonical class and Cauchy–Schwarz constrain irreducible negative curves to five exceptional E_i, seven ordinary two-point lines L_i4/L_i5/L_45, and the unique (-2)-triple line R. The conic through five points cannot be irreducible because three are collinear. A support of disjoint (-1) curves is negative definite, and if it contains R at most one chosen (-1) curve meeting R is allowed by Schur complement -2+k<0. Exhaustive independent rational 13x13 intersection-matrix Schur elimination across 8192 subsets gives no-R coefficients 1,12,46,72,43,4 and R-containing 0,1,12,40,44,10: total 285. Bauer–Schmitz finite-volume criterion places all and only the 107 R-containing supports in the infinite-volume category. Exhaustive matrix checks do not prove curve-list completeness; geometric adjunction/intersection proof supplies that premise.
 
-## Risks and scope
-The number and volume classification have only received self-review; independent audit has not yet been performed. The theorem is over \(\mathbb C\), and historical priority could be changed by an undiscovered specialist table or equivalent computation. Source dates are the earliest verified arXiv postings, not journal dates. The full computation is reproducible with Python's standard library.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison, not a novelty certification. The relevant equivalent presentation is an A1 weak del Pezzo of degree four, not the smooth quartic del Pezzo model or a different number of blown-up points. The 285 polynomial is a nontrivial instance of the prior general support correspondence, not an immediate stated corollary giving the coefficients; the criterion alone only classifies volume type once supports are counted.
+
+## value
+
+PASS
+
+The exact graded chamber spectrum and 178/107 finite/infinite split for the canonical one-nodal quartic del Pezzo resolve a natural small weak-del-Pezzo degeneration not captured by the smooth 393 table. The 13-curve intersection geometry is reusable for volume computations and chamber structure; this is a motivated finite complete classification, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
