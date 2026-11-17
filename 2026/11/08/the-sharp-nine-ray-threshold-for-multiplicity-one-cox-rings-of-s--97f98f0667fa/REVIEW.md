@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The published surface criterion reduces the generation property to testing three-ray toric-point ideals. The new sparse-interval lemma is proved by explicit integral characters in both possible sparse cases, and counting three disjoint cyclic intervals forces at least nine rays for failure. The displayed nine-ray fan has adjacent determinants one; the selected triple is positively spanning and has a congruence invariant that proves the full toric-point ideal lies in the square of the three-coordinate ideal. Finite integer checks confirm the witness but are not substituted for either unbounded proof.
+PASS
 
-## Originality
+Given the explicitly cited published Laface–Ugaglia criterion (generation iff every positively spanning three-ray A satisfies I_X not contained in P_A^2), the sparse-interval lemma is proved by unimodular coordinates. If v,w adjacent, dual u=(-1,0) gives a lattice binomial with A-degree one on one side. With one intermediate ray q, choose v=(1,0),q=(0,1),w=(-1,m); u=(sign(a),0) for third selected ray z=(a,b) similarly has an A-degree-one side. Therefore obstruction requires >=2 intermediary rays in each of three disjoint arcs, r>=9. For witness nine rays listed in pinned RESULT, independent exact integer checks verify every cyclic adjacent determinant=1 and triple selected at positions 2,5,8 has determinants=3, sum zero and two rays per arc. For arbitrary character u=(a,b), triple pairings (b,b-3a,3a-2b) sum zero and are congruent mod3; hence both monomial A-degrees >=2, proving I_X subset P_A^2 for all u. The existence of published criterion is relied upon, not re-proved; primary full text was unavailable.
 
-**PASS (provisional priority).** The directly relevant 2026 paper states the general three-ray criterion and an exceptional Gorenstein three-ray fan, but does not state a universal sharp eight-/nine-ray threshold across all smooth projective toric surfaces. Its Gorenstein partial-resolution analysis overlaps the witness construction but is narrower in ambient scope. The 2024 precursor addresses minimal toric surfaces, and the 2016 Cox-ring work proves the weaker finite-generation property. Searches for the exact sharp smooth ray threshold and published research-claim comparisons found no equivalent statement. The most important remaining priority risk is an unstated or overlooked combinatorial consequence of existing toric-resolution classifications; this is not an independent novelty certification.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem determines the earliest Picard rank at which higher exceptional-multiplicity Cox generators can be needed for point blow-ups of smooth toric surfaces, without bounding the self-intersections of boundary divisors or restricting the original toric surface to a Fano family. Its local obstruction rule explains the cutoff and makes the bound sharp. This is a natural structural threshold for explicit blow-up Cox-ring computations rather than a recomputation of an isolated known example.
+Resultary search found no previous universal sharp smooth-complete-toric-surface ray threshold. Laface–Ugaglia 2026 original establishes the general three-ray criterion and special partial resolutions, but full article was inaccessible after arXiv/OA and Oxford VPN failure. The interval-count obstruction and explicit smooth nine-ray witness constitute a coherent sharp consequence not found in accessible primary excerpts. This is a best-of-knowledge qualified pass, not a claim of full-document noncoverage.
 
-## Boundaries and literature
+## value
 
-The result assumes algebraically closed characteristic zero and invokes Laface–Ugaglia (2026), Theorem 3. The nine-ray example uses an obstruction related to their exceptional Gorenstein three-ray fan, which is credited rather than claimed as an independent discovery. The conclusion concerns multiplicity-one generation, not arbitrary singular fans or a classification of all nine-ray failures. Full independent mathematical review and exhaustive historical-priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact minimal Picard/ray complexity for failure of degree-one Rees generation of a torus-point blow-up Cox ring is a natural, independently useful geometric threshold. The combinatorial sparse-interval obstruction applies uniformly to all smooth complete toric surfaces; the nine-ray fan shows the bound sharp rather than offering an unmotivated isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
