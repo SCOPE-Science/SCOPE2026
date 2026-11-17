@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:19:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A tagged coupon has Bin(t,p_N) counts; its fixed-c defect tail is q_N^t(tp_N/q_N)^{c−1}/(c−1)! times (1+O(1/t)), establishing logarithmic centering and the ratio q_N. For r tagged coupons, per-round no-hit probability q_N^r(1+O_r(1/N)), and separate single hits dominate the bounded-degree generating coefficient, yielding factorial moments m_N(t)^r(1+o(1)) at t=b_N+k. Binomial-product conditioning gives pairwise nonpositive defect covariance, so Var(U)≤EU; together with the union bound and geometric defect-ratio tails this gives uniform integrability of squares, lattice CDF and stated mean/variance series. Independent exact enumeration at N=4,d=2,c=2,t=2 yielded U-count frequencies {2:6,3:24,4:6}/36 and mean U=3, equal N P(Bin(2,1/2)≤1). Independent finite tests do not prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.math.kit.edu/stoch/~henze/seite/aiwz/media/ap-17926-final.pdf Section 2 fixed-size normalization",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-logarithmic-multiplicity-lattice-extremes-for-uniform-subset-cou--80a9c6fd1445"
+        ],
+        "reasoning": "The older c-fold theorem fixes s while N grows; the newer growing-c theorem assumes c_N≈α log N, not any fixed c. Neither implies the new fixed-c macroscopic asymptotic with parameter q.",
+        "searches": [
+          "Schilling Henze 2021 full Theorem 2.1 Section 2 pdf",
+          "Berend Sher asymptotic uniform group drawing open-access 2026",
+          "Resultary logarithmic multiplicity uniform coupon subset"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.kit.edu/stoch/~henze/seite/aiwz/media/ap-17926-final.pdf",
+        "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/two-poisson-limit-theorems-for-the-coupon-collectors-problem-with-group-drawings/14AC31D4C06D477DD4A613B846AE3CAE",
+        "https://doi.org/10.1080/15326349.2026.2669925",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-logarithmic-multiplicity-lattice-extremes-for-uniform-subset-cou--80a9c6fd1445"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2021 normalized time ∝N/s; candidate ∝1/(-log(1−rho)) for s/N→rho.",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-logarithmic-multiplicity-lattice-extremes-for-uniform-subset-cou--80a9c6fd1445"
+        ],
+        "reasoning": "The distinct asymptotic limits do not commute: fixed s→macroscopic s changes the correct first-order time by a constant factor. Both fixed-c and lattice-phase moments require new estimates.",
+        "searches": [
+          "Schilling Henze Theorem 2.1 2021 fixed size s",
+          "Resultary 2026/11/8 logarithmic multiplicity lattice extremes",
+          "Berend Sher group-drawing 2026 mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schilling–Henze Theorem 2.1 for fixed s uses (N/s)log N, candidate uses log N/[-log(1−rho)].",
+          "Candidate defect U_N(t)=number of types with fewer than c exposures, same observable but different scaling."
+        ],
+        "reasoning": "The model agrees with uniform-group subsets (not independent per coupon); equal observables alone do not extend fixed-s limits into rho>0.",
+        "searches": [
+          "Resultary macroscopic coupon multicoverage lattice Gumbel fixed c",
+          "Schilling Henze 2021 group drawing occupancy deficit c minus one",
+          "Berend Sher 2026 uniform group drawing coupon collector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Berend–Sher bounds for first-copy mean do not determine an o(1) phase-dependent constant for every fixed multiplicity."
+        ],
+        "reasoning": "No exact universal fixed-c lattice-phase table found; underlying simple c=1 estimates do not subsume all c.",
+        "searches": [
+          "Resultary exact macroscopic group coupon phase-dependent mean variance c-fold coverage",
+          "published coupon group drawing positive fraction discrete lattice mean"
+        ]
+      },
+      "rationale": "Schilling–Henze (2021) Theorem 2.1 proves fixed-s group-drawing Poisson limits at t=(N/s)(log N+(c−1)loglog N+...), a centering that is WRONG when s/N→rho>0 because the correct rate is −log(1−rho). The candidate proves the nonvanishing-fraction lattice regime, exact phase-dependent full CDF, repeated-coverage for each fixed c and o(1) mean/variance expansions. Berend–Sher covers macroscopic first-copy means but not full phase-resolved all-fixed-c law; a separate same-date published result concerns c growing like α log N, mathematically distinct. Historical general occupancy theorems remain a residual risk.",
+      "residual_risks": [
+        "Older general group-allocation Poisson or extreme-value theorems may implicitly cover fixed-c macroscopic phase and moments; not exhaustive.",
+        "Full Berend–Sher mathematical source was not examined this run; abstract does not warrant a whole-document no-coverage judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-s centering differs at macroscopic group size; NOT a valid full-regime implication",
+          "evidence": [
+            "Theorem 2.1 k_{n,s,c}(x)=floor((n/s)(log n+(c−1)loglog n−log((c−1)!)+x))"
+          ],
+          "identifier_or_url": "https://www.math.kit.edu/stoch/~henze/seite/aiwz/media/ap-17926-final.pdf",
+          "material_read": "Public 2021 PDF text: introduction, definitions W_{n,s,c}, Section 2 Theorem 2.1, corollary and normalization",
+          "method": "Primary institution-hosted PDF extraction; screenshot attempted",
+          "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+          "trigger": "Identical c-fold group drawing object"
+        },
+        {
+          "assessment": "DIFFERENT c_N=ceil(alpha log N), not candidate fixed c",
+          "evidence": [
+            "Its assumption alpha>0 implies target multiplicity diverges with N."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-logarithmic-multiplicity-lattice-extremes-for-uniform-subset-cou--80a9c6fd1445",
+          "material_read": "Entire 11,393-character published RESULT, including large-deviation saddle and phase law",
+          "method": "Primary published full RESULT.md",
+          "title": "Logarithmic-multiplicity lattice extremes for uniform subset coupon draws",
+          "trigger": "Same group sampling but different c scaling"
+        },
+        {
+          "assessment": "Potential partial overlap c=1; no full-document noncoverage claim",
+          "evidence": [
+            "Published online May 18 2026; expected number of drawings focus"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/15326349.2026.2669925",
+          "material_read": "Open-access abstract/metadata and cited expectation scope, not full manuscript in this run",
+          "method": "Publisher abstract and indexed description",
+          "title": "Asymptotic results for uniform group drawing in the coupon collector’s problem",
+          "trigger": "Macroscopic batch first-copy expectations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise terminal law for macroscopic without-replacement batches and fixed repeated-hit threshold is a natural coupon occupancy invariant, and lattice phase explains why continuous Gumbel asymptotics and their mean/variance constants cease to apply. Complete phase-resolved order-one mean and variance corrections provide independently useful quantitative behavior beyond simple first-order coverage times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older general group-allocation Poisson or extreme-value theorems may implicitly cover fixed-c macroscopic phase and moments; not exhaustive.",
+    "Full Berend–Sher mathematical source was not examined this run; abstract does not warrant a whole-document no-coverage judgment."
+  ],
+  "schema_version": 1
+}

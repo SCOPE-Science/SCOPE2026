@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The exact polynomial coefficient argument gives asymptotic mixed factorial moments for every fixed c, and the full conditional negative covariance proof gives variance <= mean and geometric tail uniform integrability. The mean and variance formulas then follow from integer tail sums. The independent exact finite-state script passed 2,268 rational assertions; these only corroborate finite implications.
+PASS
 
-## Originality
+A tagged coupon has Bin(t,p_N) counts; its fixed-c defect tail is q_N^t(tp_N/q_N)^{c−1}/(c−1)! times (1+O(1/t)), establishing logarithmic centering and the ratio q_N. For r tagged coupons, per-round no-hit probability q_N^r(1+O_r(1/N)), and separate single hits dominate the bounded-degree generating coefficient, yielding factorial moments m_N(t)^r(1+o(1)) at t=b_N+k. Binomial-product conditioning gives pairwise nonpositive defect covariance, so Var(U)≤EU; together with the union bound and geometric defect-ratio tails this gives uniform integrability of squares, lattice CDF and stated mean/variance series. Independent exact enumeration at N=4,d=2,c=2,t=2 yielded U-count frequencies {2:6,3:24,4:6}/36 and mean U=3, equal N P(Bin(2,1/2)≤1). Independent finite tests do not prove asymptotics.
 
-Full textual comparison with the 2026 fixed-d source, Schilling–Henze fixed-group repeated-hit theorem, Betken–Thäle fixed-group Poisson approximation, Berend–Sher macroscopic mean bounds, relevant accessible historical scientific claims and indexed mathematical literature searches found no stated theorem implying the fixed-fraction c-fold phase-dependent lattice law with o(1) mean and variance. Older Russian group-allocation results remain priority risks.
+## originality
 
-Closest earlier work is Schilling–Henze (2021), Betken–Thäle (2023), and Berend–Sher (2025), which do not state the exact c-fold macroscopic lattice law and first two moment corrections; Doumas–Spektor (2026) addresses fixed d. Older group-allocation results by Vatutin–Mikhailov and Mikhailov may cover Poisson aspects; full priority cannot be guaranteed.
+PASS
 
-## Mathematical value
+Schilling–Henze (2021) Theorem 2.1 proves fixed-s group-drawing Poisson limits at t=(N/s)(log N+(c−1)loglog N+...), a centering that is WRONG when s/N→rho>0 because the correct rate is −log(1−rho). The candidate proves the nonvanishing-fraction lattice regime, exact phase-dependent full CDF, repeated-coverage for each fixed c and o(1) mean/variance expansions. Berend–Sher covers macroscopic first-copy means but not full phase-resolved all-fixed-c law; a separate same-date published result concerns c growing like α log N, mathematically distinct. Historical general occupancy theorems remain a residual risk.
 
-The fixed-s continuous Gumbel approximation is structurally invalid when each round samples a positive fraction of the population; in that regime terminal fluctuations occur over O(1) integer rounds. Identifying the complete discrete law and order-one phase corrections, for all fixed repeated-coverage thresholds, closes a motivated asymptotic gap important for batch/multicoverage sampling.
+## value
 
-## Limitations
+PASS
 
-Vatutin–Mikhailov 1983 full text not obtained; its general empty-cell Poisson theorem may cover the c=1 marginal and could contain a stronger c-fold generalization. Mikhailov 2013 Russian full paper not materially compared beyond abstract; may establish a more general Poisson approximation principle. Established finite inclusion-exclusion formulas and broader Stein–Chen theory may make this theorem an instance of a more general result not identified in the search. The asymptotic theorem uses fixed c and an asymptotic sampling fraction in (0,1); it does not apply without these assumptions.
+The precise terminal law for macroscopic without-replacement batches and fixed repeated-hit threshold is a natural coupon occupancy invariant, and lattice phase explains why continuous Gumbel asymptotics and their mean/variance constants cease to apply. Complete phase-resolved order-one mean and variance corrections provide independently useful quantitative behavior beyond simple first-order coverage times.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
