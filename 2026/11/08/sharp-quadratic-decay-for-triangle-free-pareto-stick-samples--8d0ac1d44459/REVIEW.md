@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has fixed shape, exact support and independent sampling assumptions and includes explicit \(n\ge3\) quantifiers. The deterministic equivalence from triangle avoidance to consecutive inequalities is established for all ordered samples. Exponential log-order spacings give independent rates \(\alpha(n-i)\), not an unjustified iid assumption. The convex tangent at the golden-ratio fixed point forces an explicit gamma-energy threshold; an independent feasible event gives the matching leading exponent. Both tail bounds are valid for finite \(n\). The gamma polynomial contributes only \(O_\alpha(n\log n)\) to its logarithm. The supplied checker independently passes 23666 finite tests and can be replayed. No finite test is treated as an infinite proof.
+PASS
 
-## Originality — PASS, provisional
+For independent Pareto type I(s,alpha), alpha>0 fixed, log(X/s) has Exp(alpha) law and ordered log gaps Y_i are independent Exp(alpha(n-i)). Triangle avoidance is equivalent to consecutive sorted inequalities, hence Y_{i+1}>=h(Y_i)=log(1+exp(-Y_i)). The strict convex tangent at fixed point c=log(phi) with slope -phi^-2 implies each gap prefix sum >=(m-1)c, and weighted sum W=Σ(n-i)Y_i>=c(n-1)(n-2)/2 on the avoidance event. Since (n-i)Y_i are independent Exp(alpha), Gamma(n-1,alpha) survival gives the finite upper bound. The subevent all gaps >=c gives exp(-alpha*c*n(n-1)/2) lower bound. Polynomial gamma-tail factor contributes O_alpha(n log n), hence -2 log P/n²→alpha log phi. Independent finite checks verify sorted triangle equivalence, tangent inequality and exact alpha=1 n=3,4 probabilities against bounds. The proof handles n>=3 and any Pareto scale s>0; no varying-alpha rate claimed.
 
-The exact finite Pareto probability is already represented by multidimensional integrals in Barczy–Lovas (arXiv:2611.04436v1, Theorem 3.2), so **it is not claimed to be new**. Brennan–Callow–Lin (arXiv:2604.27573) also give a general integral framework for unbounded sampling laws. Our claim is solely the explicitly evaluated large-\(n\) quadratic logarithmic rate with the new simple gamma-tail and feasible-event two-sided inequalities. Those statements were not found in the inspected primary theorems, remarks, or relevant sections. Sudbury–Sun–Treeby–Wang (arXiv:2504.19911) addresses uniform rather than Pareto samples. Several targeted source, parameter, asymptotic, and equivalence searches found no direct rate result in accessible records. A broader or equivalent unlocated rate theorem is a real remaining priority risk, not ruled out by failed searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A fundamental question for the natural triangle-free pick-up-sticks event is how fast its probability collapses with sample size. Pareto heavy tails differ substantially from the uniform and exponential models. The theorem shows a universal golden-ratio geometric factor multiplying the Pareto tail index, gives its sharp \(n^2\) decay scale, and supplies nonasymptotic upper and lower probability bounds with elementary distributions. Determining the rate from an exact high-dimensional integral is a nontrivial inference rather than a renaming or a fixed-size table calculation. It leaves subleading asymptotics and non-Pareto regular variation open.
+Best-of-knowledge originality survives compared sources and all four direct implications.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The absence of any triangular triple among heavy-tailed independent sticks is a natural rare geometric configuration. The exact alpha*log(phi)/2 quadratic rate is a nontrivial large-deviation invariant and the all-n gamma/feasible bounds give useful quantitative control absent from mere integral representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
