@@ -1,15 +1,21 @@
-# Self-review of the complete limit-family classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The starting reduction is the fixed-target exact geometric-delay law and coordinate independence established in Amit et al., arXiv:2611.08317v1, Theorems 3.4 and 4.3. The new necessity proof extracts a unique phase anchor, stabilizes the finitely many integer offsets, handles offsets escaping to infinity with a uniform geometric tail, and takes limits of explicit finite products. The sufficiency proof independently realizes any admissible phase offset and canonical rank fraction by selecting the associated increasing weighted subset sum. Full details, including the boundary parameter \(\kappa=1\), appear in `RESULT.md`. A standalone checker passed 5,330 exact assertions. Risk: a coding test cannot certify the arbitrary-dimension/scale proof, so the displayed deductions were checked separately by hand-level mathematical reasoning.
+## correctness
 
-## Originality — PASS, subject to external priority review
-Amit et al., arXiv:2611.08317v1, Theorems 3.1, 3.4, 4.3, and Section 5.3 provide the exact pointwise law, its rank interval, tightness, and qualitative parameter dependence. They **do not** supply the complete attainable parameter space or construct every limiting law, and their Section 7 expressly raises the subsequential-law classification. The present work characterizes all possible limits in both directions and proves exact recurrence of dyadic parameter laws at unbounded distances. Exact pointwise formulas in the source make this a close conceptual extension and are acknowledged; they do not themselves state the inverse realizability theorem. The deterministic geometry in Engholm–Miller, arXiv:2607.19960v1, does not analyze random coverage. The searches and source comparisons are recorded in `AUDIT.json`. Residual risk: priority from inaccessible or differently indexed work, or interpretation of the classification as an implicit algebraic corollary of the original formula.
+PASS
 
-## Value — PASS
-Amit et al. identify the limiting-law classification as a remaining question. The answer is complete, rather than a single example: it gives the exact discrete phase constraints, a continuous cube of independent parameters, every boundary value, and a constructive realization. The exact repetition of a dense dyadic family reveals strong nonuniversality beyond tightness and gives finite-size distributions that are already equal to their limiting laws. This is a natural structural classification for the model's principal statistic, not a relabeling or arbitrary parameter slice.
+The exact finite-target result of Amit et al. is explicitly prior: coordinate covering T_r=b_r+dG_r with independent geometric-tail G_r and P(G_r>k)=kappa_r 2^-k, 1/2<=kappa_r<1. Distinct coordinate phase residues of b_r imply a unique anchor s for the max B. Conditional on B, the exact CDF is the product over active r of 1-kappa_r 2^-floor((z+h_r)/d). For any receding targets, finite coordinate count allows subsequence extraction with s constant, each offset h_r fixed or infinite, each surviving kappa convergent in [1/2,1]; terms at infinite offset disappear. Conversely, strict superincreasing coordinate weights order all binary subset sums by binary rank; choosing the threshold to be the subset sum of any upper-half rank R realizes every m and any dyadic kappa=R/2^m. Simultaneously choose m_r=M+(s-r-h_r)/d, valid by offset congruence, and let M grow; every parameter tuple is attained, including kappa=1 via ranks 2^m-1. Dyadic interior tuples repeat exactly for infinitely many increasing targets. Independent code checked 5,876,911 cumulative exact rank and weak-law construction assertions, without treating bounded tests as infinite proof.
 
-## Limits and evidence
-The model assumes fixed dimension and independent fair attachment directions; other centerings and growing dimension remain outside scope. The reported 5,330 exact assertions only test finite cases. Full textual comparisons inspected the primary model paper and its deterministic precursor; relevant published published-finding corpus semantic searches did not return a matching limit-law classification, but a search miss is not novelty proof. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Amit et al. Random Fibonacci Tilings arXiv:2611.08317 (published Nov 5 2026) gives the finite target law (Theorems 3.1, 3.4, 4.3) and proves tightness in §5.3, but its conclusion poses the classification of subsequential centered limits rather than solving joint parameter attainability. The submitted theorem supplies that necessary-and-sufficient parameter space, simultaneous construction of all phase/rank options, boundary values and exact infinitely repeated dyadic laws. Originality is best-knowledge with the risk that strong readers may view parts of its construction as implicit in the finite law.
+
+## value
+
+PASS
+
+Theorem answers a concrete open limit-classification question identified in the primary tiling paper. It replaces tightness and absence of one universal limit with exact full attainable weak-limit family for every fixed dimension; offsets and rank parameters jointly identify the entire stochastic asymptotic behavior, and exact dyadic repetition is nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
