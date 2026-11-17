@@ -1,15 +1,21 @@
-# Self-review of the three-state ideal-pair census
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces every two-sided ideal to a vertex-idempotent subset and independent Peirce-corner arrow subspaces, shows the normal form in both directions, and derives the exact two-sided ideal-product formula. It enumerates the nine endpoint-state possibilities, including the forbidden \(L\)-to-\(R\) case and loops, with Gaussian subspace polynomials. Independently enumerating RREF subspaces and testing the original multiplication table agrees with every tested coefficient. No extrapolation from experiments is used to prove the universal identity.
+## correctness
 
-## Originality — PASS (qualified)
-Catoiu–Chin–Krop provide a general ideal lattice and ideal-semigroup framework; the present normal form and product identities are not claimed independently original. Aliniaeifard–Behboodi–Li introduce directed annihilating-ideal graphs, but inspected claims concern graph connectivity and ring-theoretic structure rather than an explicit all-quiver bivariate dimension-refined labeled-pair census. Bekkert–Drozd address derived representation types. Targeted searches of public literature and a semantic mathematical-results index found no exact transfer formula or orientation-sensitive paired-dimension example; this absence is not proof of priority. A general ideal-semigroup theorem or counting principle might already imply the formula, especially by specialization of classical methods.
+PASS
 
-## Value — PASS
-The statistic counts natural directed zero-products in an ideal semigroup with dimensions recorded on both sides. The uniform transfer matrix covers arbitrary vertex count, loops, parallel arrows and finite fields, yielding exact arithmetic formulas rather than isolated small counts. It detects source/sink orientation in three vertices even when the ordinary ideal-dimension census is identical. The formula is structurally motivated by the annihilating-ideal graph construction and requires no arbitrary parameter slicing.
+In A=kQ/J², vertex idempotents and corner arrow spaces E_ab give the full two-sided ideal normal form I(S,U), where selecting vertex S forces every incident arrow subspace; proof works with loops and in characteristic two (a representative e+ell, with ell²=0, yields e via its quadratic identity). For two such ideals IK=0 iff selected supports S,T are disjoint and, blockwise, a in S forces V_ab=0 while b in T forces U_ab=0. Enumerating 0/L/R vertex states gives the nine entries W_m with F_m(T)=sum_d Gaussian(m,d)_q T^d, including the forbidden L-to-R edge. Independence of corner blocks yields the all-quiver bivariate polynomial with vertex weights. Independently evaluated all 3^3 colorings on a source fork and its reversal over q=2,3, obtaining total 69 and coefficients fork [X^4Y^3]=1, [X^3Y^4]=0, reversed coefficient 0; two parallel arrows yield q²+8q+20 (40 and 53 for q=2,3). These finite tests support but do not replace the all-quiver ideal algebra argument. For an empty quiver one can interpret the zero algebra and the empty product as 1; the ordinary unital algebra convention generally assumes at least one vertex.
 
-## Limitations
-Counts labeled two-sided ideal pairs, not conjugacy/isomorphism classes, ideal schemes, higher-radical-power quiver algebras or complete graph isomorphism invariants. Exhaustive checks are finite small examples; the general proof is algebraic. Historical priority and mathematical correctness are not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full earlier all-quiver ideal-Grassmannian theorem gives exactly the same single-ideal normal form and Gaussian ideal dimension polynomial, which are NOT novel here. Its count does not impose an ordered product constraint between distinct ideals, so cannot recover the bivariate IK=0 statistic from marginal ideal polynomials. Another earlier all-arity zero-product theorem counts algebra ELEMENT tuples rather than ordered IDEAL pairs; a cycle-graph theorem likewise counts elements. Catoiu–Chin–Krop ideal-semigroup framework is conceptually broad but its inspected full manuscript lacks this exact all-quiver Gaussian three-state pair-count theorem. The new orientation-sensitive double-dimension result survives best-of-knowledge originality, with risk of unindexed stronger ideal-semigroup results.
+
+## value
+
+PASS
+
+Ordered multiplication of two-sided ideals is a natural semigroup/annihilating-ideal graph statistic. The polynomial refines edge counts by both ideal dimensions for every finite quiver with loops and multiple arrows and any prime-power field; the smallest fork distinguishes arrow orientation even when single-ideal dimension counts are identical. This reusable exact structural classification and orientation obstruction is mathematically motivated, not a known-table recomputation or trivial isolated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
