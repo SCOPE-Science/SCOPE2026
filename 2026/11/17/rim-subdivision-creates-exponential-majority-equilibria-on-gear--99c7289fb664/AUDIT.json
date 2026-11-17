@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Every fixed state with hub zero is in bijection with a cyclic word of original rim bits containing no 101 and at most floor(n/2) ones, by the forced subdivision bits y_i=x_i OR x_(i+1). A marked-run composition yields the precise double binomial sum. The weighted four-state matrix excludes exactly transition 101; a symbolic determinant check gives det(I-tT)=1-(1+z)t+zt^2-zt^3, and implicit Perron differentiation yields mean one-density 0.4114955887<1/2 and the exponential tail bound. Distinct standalone full graph checks cover 174720 configurations for n=3..8, and transfer/run arrays agree for n=3..45; the infinite proof does not rely on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaaser et al. 2015 arXiv:1508.03519 studies general voting-time bounds and definitions, not an exact formula for gear equilibria.",
+        "Related helm theorem https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-point-entropy-contrast-for-majority-and-minority-dyn--9b137598a71e fixes a graph with pendant leaves, not subdivided edges.",
+        "Wheel fixed-point result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-majority-clocks-on-wheel-graphs-and-the-hub-flip-run-polyn--628d71dc6fcd concerns unsubdivided wheel with exactly two fixed states."
+      ],
+      "reasoning": "General period-one-or-two theorems or upper bounds for majority stabilization cannot determine graph-specific fixed-point counts. Ordinary wheel, helm and fan graph results do not cover the degree-two edge subdivision topology; explicit conditions differ. No identified stronger theorem implies the present labelled sum.",
+      "searches": [
+        "Broader formulas for majority equilibria under wheel subdivisions, helm graphs, crown and gear graphs, forbidden cyclic patterns.",
+        "Published results exact one-step fixed points for majority dynamics after subdividing every rim edge of a wheel, count 8,18,22,44,72,146 for n=3..8.",
+        "web: majority dynamics graph subdivision equilibrium",
+        "published-finding corpus: majority dynamics on gear graphs fixed point count entropy transfer"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1508.03519",
+      "doi:10.1016/0012-365X(88)90005-2",
+      "https://mathworld.wolfram.com/GearGraph.html",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-point-entropy-contrast-for-majority-and-minority-dyn--9b137598a71e",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-oscillation-by-opening-and-exact-two-cycle-entropy-on-majority-f--f5691edd97d7",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-binary-gear-graph-parity-dynamics-short-ring-jordan-fusion-and-a--30e4ad5f919d",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-majority-clocks-on-wheel-graphs-and-the-hub-flip-run-polyn--628d71dc6fcd",
+      "https://arxiv.org/abs/1508.03519"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full 1988 ring paper has degree-two, local cyclic-neighborhood majority; it has neither a global hub condition nor degree-two subdividers forced by adjacent rim bits.",
+        "The inspected helm graph fixed points avoid isolated opposite-hub ones and include a half-density cutoff; the resulting asymptotic is proportional to 3^(n/2)/sqrt(n).",
+        "The 2015 general voting-time paper does not compute this graph family’s equilibria."
+      ],
+      "reasoning": "The new theorem counts 2*(number of no-101 cyclic words of ones density <=1/2), asymptotic 2*1.754877666^n. The ring, helm and fan hypotheses are not instances of the gear graph, and their claimed counts or complexity bounds do not imply the exact degree-two layer reduction or the pure-exponential constant. A generic finite-state transfer principle would be methodology, not identical exact evaluation.",
+      "searches": [
+        "Exact synchronous binary tie-retaining majority fixed-state count on gear graphs Jahangir J(2,n), unique subdividing-vertex colors, no cyclic 101 in original wheel rim, half-density bound, Perron root of lambda cubed minus two lambda squared plus lambda minus one.",
+        "Broader formulas for majority equilibria under wheel subdivisions, helm graphs, crown and gear graphs, forbidden cyclic patterns.",
+        "published-finding corpus: majority dynamics on gear graphs fixed point count entropy transfer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agur--Fraenkel--Klein 1988, https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf : forbids isolated bits on a radius-one ring, without hub and subdivision.",
+        "MathWorld, https://mathworld.wolfram.com/GearGraph.html : gear graph has a hub and alternating subdivided rim."
+      ],
+      "reasoning": "An Ising-stable-equilibrium or forbidden-word reformulation is potentially equivalent only with the identical gear graph and open-neighbor majority tie convention. The ring-only counts and plain wheel equilibrium counts have different constraints; no identified equivalence yields both the no-101/half-density condition and the forced OR subdivision rule.",
+      "searches": [
+        "Exact synchronous binary tie-retaining majority fixed-state count on gear graphs Jahangir J(2,n), unique subdividing-vertex colors, no cyclic 101 in original wheel rim, half-density bound, Perron root of lambda cubed minus two lambda squared plus lambda minus one.",
+        "majority automaton fixed points on gear graphs Jahangir J(2,n), unique subdividing-vertex colors, no isolated zeros, Lucas recurrence entropy",
+        "web: \"gear graph\" \"majority\" \"fixed points\"",
+        "web: \"Jahangir graph\" majority dynamics",
+        "web: \"no isolated zero\" cyclic binary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus indexed gear item https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-binary-gear-graph-parity-dynamics-short-ring-jordan-fusion-and-a--30e4ad5f919d classifies neighbor-XOR dynamics, not binary majority fixed states.",
+        "Agur et al. 1988 contains tables for one-dimensional cellular automata, not gear graphs."
+      ],
+      "reasoning": "The counts 8,18,22,44,72,146 were obtained independently by full graph enumeration, rather than copied from a known published table. Searches did not identify this exact sequence paired with this gear process. Failure to find a table is not a proof no equivalent table exists.",
+      "searches": [
+        "majority automaton fixed points on gear graphs Jahangir J(2,n), unique subdividing-vertex colors, no isolated zeros, Lucas recurrence entropy",
+        "synchronous majority voting wheel subdivision gear graph fixed configurations census",
+        "published-finding corpus: Published results exact one-step fixed points for majority dynamics after subdividing every rim edge of a wheel, count 8,18,22,44,72,146 for n=3..8."
+      ]
+    },
+    "rationale": "Full primary text of Agur--Fraenkel--Klein (1988), Kaaser--Mallmann-Trenn--Natale (2015), and related published helm/fan analyses were compared at the level of graph, update rule, fixed state conditions, and resulting counts. Neither a local ring-only count nor the leaf-helm or plain-fan/wheel enumerations implies the degree-two gear-graph fixed state count; gear-graph parity and coloring results address other invariants. Focused published-finding corpus searches returned no same-object same-rule covering statement. Historical priority beyond accessible sources is still uncertain.",
+    "residual_risks": [
+      "Specialized earlier graph-majority/zero-temperature Ising local-stability census may be unindexed or use Jahangir/gear naming.",
+      "No independent external mathematical audit; historical priority not proved by searches.",
+      "Some other published primary works on gear graph dynamics might not have accessible full text; no decisive unresolved covering source identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found one-dimensional ring automata counts but no hub-subdivided gear result",
+        "evidence": "The radius-one local fixed-point condition on a ring forbids isolated colors without a global degree-n hub or alternating subdivision sites.",
+        "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+        "material_read": "Full eight-page author-hosted PDF, including theorem statements, examples and tables",
+        "method": "PDF text, all eight page screenshots inspected",
+        "title": "The number of fixed points of the majority rule",
+        "trigger": "Same majority update and forbidden cyclic-word enumeration method"
+      },
+      {
+        "assessment": "General voting-time and complexity bounds, not exact fixed state enumeration on gears",
+        "evidence": "arXiv:1508.03519 first posted 2015-08-14; no gear-graph equilibrium formula.",
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "Abstract, introduction, model definitions, theorem statements, voting-time proofs/sections and references; date checked on the PDF and arXiv entry",
+        "method": "PDF text and screenshots of pages 1 and 4, targeted full-text searches",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Canonical general deterministic majority dynamics with explicit public date"
+      },
+      {
+        "assessment": "Noncovering: leaf decoration rather than edge subdivision, different word constraint and asymptotic",
+        "evidence": "Helm majority count has forbidding 010 in an opposite-hub word and leading square-root penalty, while gear has forbidding 101 with unique OR-subdivider.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fixed-point-entropy-contrast-for-majority-and-minority-dyn--9b137598a71e",
+        "material_read": "Entire public RESULT.md including statement, assumptions, proof, verification, limitations and references",
+        "method": "GitHub full text fetched and compared",
+        "title": "Sharp fixed-point entropy contrast for majority and minority dynamics on helm graphs",
+        "trigger": "Same dynamic rule and similar wheel-with-decoration graph"
+      },
+      {
+        "assessment": "Noncovering: fan graph lacks rim subdivision and theorem counts immediate primitive two-cycles rather than fixed configurations",
+        "evidence": "Fan result requires strict hub flipping; new gear result fixes the hub in every equilibrium.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-oscillation-by-opening-and-exact-two-cycle-entropy-on-majority-f--f5691edd97d7",
+        "material_read": "Entire public RESULT.md including main proof and limitations",
+        "method": "GitHub full text fetched and compared",
+        "title": "Oscillation-by-opening and exact two-cycle entropy on majority fan graphs",
+        "trigger": "Near-neighbor majority dynamics on a cone over a path"
+      },
+      {
+        "assessment": "Defines graph object, contains no majority fixed-state census",
+        "evidence": "Gear graph formed by subdividing every wheel rim edge with spokes unchanged.",
+        "identifier_or_url": "https://mathworld.wolfram.com/GearGraph.html",
+        "material_read": "Definition, vertex and edge counts and geometric characterization",
+        "method": "Web HTML read",
+        "title": "Gear Graph",
+        "trigger": "Standard definition and graph identification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "99c7289f-b664-4055-88c9-61b93152f0d1",
+  "value": {
+    "rationale": "Uniform edge subdivision of the standard wheel creates an exponential entropy of immediately fixed majority states versus the two unanimity fixed states on ordinary wheels. The new degree-two layer is uniquely forced by adjacent original rim bits, and the resulting no-isolated-zero automaton has a typical one-density strictly below the hub threshold, hence a pure exponential with no square-root factor. This structural mechanism and exact all-parameter labelled enumeration contrast with the related helm leaf-decorated system, where a central constraint contributes a square-root penalty.",
+    "status": "PASS"
+  }
+}
