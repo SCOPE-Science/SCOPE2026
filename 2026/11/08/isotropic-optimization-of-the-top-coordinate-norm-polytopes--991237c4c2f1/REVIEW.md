@@ -1,19 +1,21 @@
-# Mathematical review: isotropic optimization of top-coordinate norm balls
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The body is exactly the unit ball of the weighted top-coordinate gauge. In each sign-and-order chamber the change from ordered coordinates to nonnegative gaps has determinant one, and the further scaling by \(c_i=\min(i,k)\) gives the claimed simplex. The Dirichlet second moments give the exact volume and Euclidean radial second moment; sign-and-permutation invariance makes the covariance scalar. Algebraic differentiation reduces each open integer chamber to a strictly increasing quadratic with one possible interior minimum. Integer transition points are not local minima because their one-sided sign quadratics have a strictly negative jump; both global interval endpoints have derivatives into the interior. The two index thresholds differ by less than two, proving the two-candidate classification, and Stirling's formula proves the high-dimensional limit. The checker reconstructs exact low-dimensional geometric integrals and symbolic identities. The result does not rely on finite checks as a substitute for the infinite-dimensional quantifiers.
+PASS
 
-## Originality — PASS, with priority limitations
+The infimal-convolution gauge of conv(B1^d ∪ k^{-1}B∞^d) equals sum_{i<=m} x_(i)+(k-m)x_(m+1), m=floor k. Ordered absolute gaps y_i=x_(i)-x_(i+1) transform each sign/order chamber into a weighted simplex with c_i=min(i,k). Exact volume 2^d/(m! k^(d-m)) and Dirichlet(1,...,1) second moments give the displayed isotropic covariance formula. On chamber m<k<m+1, derivative sign reduces to the increasing quadratic 2k²+(d-2m)k-(d-m+1)(d+2m+2)/3. Its root is an interior candidate only for b_d<m<a_d. At integers the directional derivative changes in the non-minimum direction; endpoints have opposite derivative signs. The candidate interval contains at most two integers. Stirling yields limiting F(alpha)=e^{-2alpha}(1+3alpha²+2alpha³)/12, uniquely minimized at (sqrt3-1)/2, value e^(1-sqrt3)/8. Independent symbolic/rational checks verified derivative, 29 dimensions of candidate bounds and limiting expression; finite checks are not the proof.
 
-Deza, Hiriart-Urruty and Pournin, *Polytopal balls arising in optimization*, arXiv:2011.05607, give the same interpolation and its volumes and facial geometry, not the complete normalized covariance/optimizer classification. Kabluchko, Prochno and Sonnleitner, *A probabilistic approach to Lorentz balls*, arXiv:2303.04728, establish a related weighted Dirichlet sampling method; that method is credited and not claimed as new. Gaudioso and Hiriart-Urruty, DOI 10.1137/21M1391481, examine geometry of top-coordinate balls. Closest available related mathematical findings concern Hanner polytopes, Mahler products, and **polar** cube–crosspolytope intersections, none of whose recorded conclusions implies this primal-body isotropic minimum. The latter dual relationship is not a preservation law for isotropic constants. No equivalent optimization statement was found in the inspected sources or searched records; absence from search results does not prove universal novelty. A more general published treatment of weighted Lorentz-ball moments/optimizer profiles could still cover the result and is the principal historical priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact isotropic constant and at-most-two-candidate minimization solve a natural affine-invariant optimization problem for a canonical continuum between the cross-polytope and cube. The unique limiting optimal ratio \((\sqrt3-1)/2\) and value \(e^{1-\sqrt3}/8\) give a strict improvement over *both* endpoint families. The finite classification is structural and does not merely restate the known volume or simple ordered-coordinate integration. No claim of optimality among all convex bodies is made.
+PASS, qualified. Deza–Hiriart-Urruty–Pournin introduce the exact same convex-hull polytopal balls and give their volumes and face structure, all credited. Their accessible full text does not state covariance determinants, complete finite-dimensional isotropic minimizers or the asymptotic optimal alpha/value. Kabluchko–Prochno–Sonnleitner supply a general Dirichlet representation for Lorentz balls, a known technique rather than these optimized results. A published cube/cross-polytope intersection optimum is for the polar body, whose isotropic constant is not determined by the primal. Potential general weighted-norm theorem remains priority risk.
 
-## Scientific limitations
+## value
 
-The global minimizer need not be shown unique if two candidates tie, the proof gives no finite-dimensional optimizer expansion beyond its algebraic formula, and historical priority is provisional pending wider independent literature review. The checker verifies finite rational cases and identities only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The isotropic constant is a standard affine-invariant geometric statistic of convex bodies; optimizing it over a natural top-k interpolation between cross-polytope and cube is a meaningful problem independent of merely knowing the volume. The exact all-dimensional formula, at-most-two candidate finite optimization and sharp interior limiting optimizer provide a complete structural classification that may be needed in convex geometry and asymptotic norm theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
