@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:50:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For conference graphs with N=4t+1 vertices and SRG parameters (4t+1,2t,t-1,t), the adjacency relation A^2=tI-A+tJ and Laplacian relation L^2=(4t+1)L-t(4t+1)I+tJ reduce the two-stage Radau IIA heat update to I-alpha L+beta L^2. Exact interpolation yields positive denominator D, and strictly positive adjacent/nonadjacent transitions for h>0. The only sign obstruction is its common diagonal numerator P_t(h)=t^2(4t+1)h^4-4t(t-1)(4t+1)h^3+(-8t^2+40t+6)h^2+(24t+24)h+36. For t=1,2 P_t positive; for t>=3 P_t(0)>0,P_t(2)<0,P_t(infty)>0 and two coefficient sign changes give exactly two simple positive roots. Consequently positivity loses then reenters on exactly one bounded interval; no vertex-transitivity needed. The rescaled polynomial limits give t h_-(t)->3/2 and h_+(t)->4 along existing graphs. Independent Sympy expansion rederived diagonal interpolation identity and checked P_t(2) signs for t=1..99, including t=3 P(2)=-180; the root-count and infinite asymptotics depend on the analytic proof, not those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete multipartite graphs have different SRG parameters; their 12-vertex boundary does not cover primitive conference graphs. General positive-system stability restrictions do not yield exact conference cutoff nor both asymptotic boundaries."
+        ],
+        "reasoning": "Existing broader method theory does not dominate this graph-specific coefficient characterization.",
+        "searches": [
+          "Resultary 12-vertex multipartite Radau theorem",
+          "Resultary balanced multipartite Radau reentry",
+          "Bonaventura-Della Rocca arxiv:1510.04303"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, exact verifier source, nontruncated recursive tree",
+        "Resultary Radau and strongly-regular heat positivity search",
+        "Open full Bonaventura-Della Rocca primary article",
+        "Independent exact symbolic interpolation and finite parameter sign checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar A/L-stability is not entrywise nonnegativity; the multipartite cases are not a superset of all conference graphs. The off-diagonal positivity and diagonal P_t root count require fresh SRG analysis."
+        ],
+        "reasoning": "The claimed full classification is not a corollary of the compared primary or published SCOPE statements.",
+        "searches": [
+          "Hairer-Wanner Radau Methods 2015",
+          "Bonaventura-Della Rocca positivity 2015",
+          "Resultary multipartite Radau classifications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Subdiagonal Padé Radau R(z)=(6-2z)/(z^2+4z+6) differs from diagonal Padé/Gauss. Conference graphs have two nonzero eigenvalues and SRG parameters; positivity reduces to exact diagonal quartic."
+        ],
+        "reasoning": "Equivalent rational-function and SRG association-algebra formulations searched; prior exact same function and all conference parameters not identified.",
+        "searches": [
+          "Resultary Radau positivity conference strongly regular graph search",
+          "Radau Methods Hairer-Wanner",
+          "Resultary strongly regular Gauss-Legendre positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conference spectrum and first Paley examples are standard, but inspected sources did not provide the two Radau root functions, first 13-vertex transition or asymptotic thresholds."
+        ],
+        "reasoning": "This is an exact rational-function interpolation theorem for all existing family members, not a graph-data table reproduction.",
+        "searches": [
+          "Resultary graph heat Padé positivity and conference graph queries",
+          "Conference graph spectra MathWorld"
+        ]
+      },
+      "rationale": "The two-stage Radau stability rational function and strong regular graph spectral algebra are known, but the exact all-parameter conference-graph diagonal reentry threshold and asymptotic scales are not implied by examined general RK positivity theory or prior complete-multipartite Radau families. Conference graphs are typically primitive SRGs, not covered by multipartite classifications. Novelty qualified against unindexed association-scheme diffusion papers.",
+      "residual_risks": [
+        "Unindexed association-scheme numerical diffusion could contain equivalent rational spectral test",
+        "No existence assertion for every integer t; asymptotic conditional on infinite Paley family",
+        "Only completed method endpoint positivity, not intermediate stages"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method properties, not conference-graph Radau IIA transition; distinct integrator.",
+          "evidence": "Article addresses TR-BDF2 family and strong stability; no conference-graph Radau quartic.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+          "material_read": "Complete openly available arXiv HTML article, including stability and absolute monotonicity statements",
+          "method": "Full-text arXiv HTML reading",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "General positivity and SSP obstructions for composite methods"
+        },
+        {
+          "assessment": "Complete multipartite only, cannot imply primitive conference graph threshold; first failing network differs.",
+          "evidence": "On multipartite graphs, t=12 boundary and negative diagonals, not N=4t+1 conference geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-twelve-vertices-are-the-exact-radau-iia-positivity-barrier-for-c--657de75ce7c2",
+          "material_read": "Published Resultary finding and family/threshold summary",
+          "method": "Published result search and mathematical family comparison",
+          "title": "Twelve vertices are the exact Radau IIA positivity barrier for complete multipartite graph heat flow",
+          "trigger": "Closest method and positivity sign result"
+        },
+        {
+          "assessment": "Standard stability function prior, no full-text negative assertion about all chapter contents.",
+          "evidence": "Two-stage Radau IIA scalar stability function credited.",
+          "identifier_or_url": "doi:10.1007/978-3-540-70529-1_139",
+          "material_read": "Published description/stability-function context; complete book chapter was not read",
+          "method": "Primary bibliographic and published theorem context",
+          "title": "Radau Methods",
+          "trigger": "Method stability function and interpolation context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity of a graph heat integrator is mathematically meaningful because a negative transition violates order preservation despite stability and unit row sums. Determining exactly where it first fails for every conference graph, proving a single negative band and two asymptotic scales, produces a sharp graph-family theorem beyond a tiny-instance witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed association-scheme numerical diffusion could contain equivalent rational spectral test",
+    "No existence assertion for every integer t; asymptotic conditional on infinite Paley family",
+    "Only completed method endpoint positivity, not intermediate stages",
+    "No complete publication-facing provenance sanitization was performed; this is an operational publication blocker, not a new scientific verdict."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The strongly regular identity \(A^2=tI-A+tJ\) reduces the Laplacian spectrum to three values. Exact interpolation of the Radau IIA scalar rational function gives separate diagonal, adjacent and nonadjacent entry expressions with a common positive denominator. The off-diagonal numerators are strictly positive; the diagonal numerator is \(P_t\). For \(t=1,2\), a positive-coefficient expression or a sum of squares proves unconditional positivity. For \(t\ge3\), negativity at \(h=2\), positive values at zero and infinity, and exactly two Descartes sign changes imply precisely two simple positive roots and one negative diagonal band. Fixed-point polynomial limits establish both endpoint asymptotics. The exact-rational standalone verifier passed 40 matrix inversions, 11,240 entry identities, 300 cutoff witnesses and 700 diagonal identities. The infinite claim rests on the written proof, not those tests.
+## correctness
 
-**Originality — PASS on inspected evidence, qualified.** Hairer and Wanner give Radau IIA stability functions, not a sign classification on conference graphs. Bonaventura and Della Rocca discuss Runge--Kutta positivity and absolute monotonicity, chiefly for TR-BDF2; Lóczi and Ketcheson classify scalar radii, not graph-specific endpoint positivity. Zappavigna and coauthors study other Padé mappings and positive systems. A prior Hamming graph analysis covers one nine-vertex instance but not the whole conference family; a strongly regular graph Gauss--Legendre statement has a different rational filter and cannot imply the Radau conclusion. Searches for Paley/conference graph Radau positivity and relevant published mathematical records found no dominating formula. An unindexed association-scheme or numerical diffusion treatment could still contain equivalent results; search absence is not a proof of absolute priority.
+PASS
 
-**Mathematical value — PASS.** The result gives a sharp, attained positivity transition within a natural infinite family of self-complementary pseudorandom graphs: the five- and nine-vertex examples are safe at all steps, whereas every existing conference graph of order at least thirteen has one bounded forbidden timestep interval with *only diagonal* sign failure. The asymptotic rates \(h_-(t)\sim3/(2t)\) and \(h_+(t)\to4\) quantify two different scales of loss and recovery, making the statement useful for selecting allowable timesteps on this graph class rather than merely evaluating a polynomial for a fixed graph.
+For conference graphs with N=4t+1 vertices and SRG parameters (4t+1,2t,t-1,t), the adjacency relation A^2=tI-A+tJ and Laplacian relation L^2=(4t+1)L-t(4t+1)I+tJ reduce the two-stage Radau IIA heat update to I-alpha L+beta L^2. Exact interpolation yields positive denominator D, and strictly positive adjacent/nonadjacent transitions for h>0. The only sign obstruction is its common diagonal numerator P_t(h)=t^2(4t+1)h^4-4t(t-1)(4t+1)h^3+(-8t^2+40t+6)h^2+(24t+24)h+36. For t=1,2 P_t positive; for t>=3 P_t(0)>0,P_t(2)<0,P_t(infty)>0 and two coefficient sign changes give exactly two simple positive roots. Consequently positivity loses then reenters on exactly one bounded interval; no vertex-transitivity needed. The rescaled polynomial limits give t h_-(t)->3/2 and h_+(t)->4 along existing graphs. Independent Sympy expansion rederived diagonal interpolation identity and checked P_t(2) signs for t=1..99, including t=3 P(2)=-180; the root-count and infinite asymptotics depend on the analytic proof, not those finite checks.
 
-The theorem says nothing about arbitrary networks, stage values, or the existence of every admissible graph parameter. The nearest external literature gives general method theory rather than this explicit complete classification, and an independent priority review may change the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-stage Radau stability rational function and strong regular graph spectral algebra are known, but the exact all-parameter conference-graph diagonal reentry threshold and asymptotic scales are not implied by examined general RK positivity theory or prior complete-multipartite Radau families. Conference graphs are typically primitive SRGs, not covered by multipartite classifications. Novelty qualified against unindexed association-scheme diffusion papers.
+
+## value
+
+PASS
+
+Positivity of a graph heat integrator is mathematically meaningful because a negative transition violates order preservation despite stability and unit row sums. Determining exactly where it first fails for every conference graph, proving a single negative band and two asymptotic scales, produces a sharp graph-family theorem beyond a tiny-instance witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

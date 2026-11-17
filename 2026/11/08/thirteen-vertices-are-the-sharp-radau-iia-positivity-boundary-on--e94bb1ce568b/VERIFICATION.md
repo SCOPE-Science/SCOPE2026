@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction of finite checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no external dependencies from the directory holding the paper and code. The checker builds explicit Paley graphs at prime orders 5, 13, 17 and 29 and the 3-by-3 rook graph of order 9 (the nine-vertex conference case). Each has the prescribed strongly regular parameters. It compares direct rational Gauss--Jordan inversion of the actual Radau IIA matrix with all three closed-form entry classes at eight rational timestep values per graph, checks row sums and local Laplacian-square identities, and performs 1,000 additional parameter identity/sign checks.
+## correctness
 
-The observed completion message was:
+PASS
 
-```
-PASS: 40 exact matrix inversions, 11240 exact entry identities, 300 exact cutoff witnesses, 700 additional diagonal identities.
-```
+For conference graphs with N=4t+1 vertices and SRG parameters (4t+1,2t,t-1,t), the adjacency relation A^2=tI-A+tJ and Laplacian relation L^2=(4t+1)L-t(4t+1)I+tJ reduce the two-stage Radau IIA heat update to I-alpha L+beta L^2. Exact interpolation yields positive denominator D, and strictly positive adjacent/nonadjacent transitions for h>0. The only sign obstruction is its common diagonal numerator P_t(h)=t^2(4t+1)h^4-4t(t-1)(4t+1)h^3+(-8t^2+40t+6)h^2+(24t+24)h+36. For t=1,2 P_t positive; for t>=3 P_t(0)>0,P_t(2)<0,P_t(infty)>0 and two coefficient sign changes give exactly two simple positive roots. Consequently positivity loses then reenters on exactly one bounded interval; no vertex-transitivity needed. The rescaled polynomial limits give t h_-(t)->3/2 and h_+(t)->4 along existing graphs. Independent Sympy expansion rederived diagonal interpolation identity and checked P_t(2) signs for t=1..99, including t=3 P(2)=-180; the root-count and infinite asymptotics depend on the analytic proof, not those finite checks.
 
-The argument for infinitely many parameter values is algebraic and is given in `RESULT.md`. The finite checker cannot establish a root-count theorem, novelty, or independent validation. The use of direct inversion confirms the normalization of the completed end-step matrix and checks the critical entry-type formulas on concrete graphs; it is not a computer-assisted proof of the unrestricted theorem.
+## originality
+
+PASS
+
+The two-stage Radau stability rational function and strong regular graph spectral algebra are known, but the exact all-parameter conference-graph diagonal reentry threshold and asymptotic scales are not implied by examined general RK positivity theory or prior complete-multipartite Radau families. Conference graphs are typically primitive SRGs, not covered by multipartite classifications. Novelty qualified against unindexed association-scheme diffusion papers.
+
+## value
+
+PASS
+
+Positivity of a graph heat integrator is mathematically meaningful because a negative transition violates order preservation despite stability and unit row sums. Determining exactly where it first fails for every conference graph, proving a single negative band and two asymptotic scales, produces a sharp graph-family theorem beyond a tiny-instance witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
