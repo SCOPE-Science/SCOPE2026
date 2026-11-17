@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:15:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_m x K_n with categorical adjacency iff both coordinates differ, a selected set S fails to dominate iff an unselected cell (i,j) meets every selected edge through row i or column j. A three-edge incidence matching already dominates, giving inclusion-minimal size-three matchings. If matching number<=2, Koenig gives a cover by <=2 row/column vertices. Case analysis gives complete lines, three-corner rectangles for m,n>=3, and exact two-row/two-column two-plus-two disjoint-column four-cell types. Each is inclusion-minimal by a missing private cell after deletion, and the families are disjoint. Their labeled counts give n z^m +m z^n+ 4I_(m,n>=3)bin(m,2)bin(n,2) z^3 +6bin(m,3)bin(n,3)z^3 +6(bin(m,2)bin(n,4)+bin(n,2)bin(m,4))z^4, including K2xK2 disconnected boundary. Exact independent enumeration for K2x2,K2x3,K3x3,K3x4 agrees with all coefficients; infinite result follows from matchings and cover proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant–Iyer Proposition 4.5 concerns upper domination number, not each cardinality coefficient. October 26 full RESULT theorem counts total dominating sets only, with only size three/four."
+        ],
+        "reasoning": "Neither stronger parameter bound nor open-neighborhood total domination contains ordinary minimal domination polynomial.",
+        "searches": [
+          "https://arxiv.org/abs/1708.01305",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-inclusion-minimal-total-domination-of-direct-products-of-complet--9a326ff00272"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1708.01305",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-inclusion-minimal-total-domination-of-direct-products-of-complet--9a326ff00272",
+        "https://arxiv.org/abs/2110.00709",
+        "Frozen RESULT.md and verify_minimal_dom_tensor.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier total dominating configurations exclude complete rows/columns and often include different four-cell configurations; ordinary domination uses closed neighborhoods and admits whole-line minimal sets of arbitrary size."
+        ],
+        "reasoning": "Prior exact TOTAL theorem cannot imply submitted ORDINARY minimal enumerator without an additional, nontrivial new classification. Defant–Iyer upper bound does not determine size-by-size counts.",
+        "searches": [
+          "https://arxiv.org/abs/1708.01305",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-inclusion-minimal-total-domination-of-direct-products-of-complet--9a326ff00272"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct product/categorical/Kronecker graph all refer to edge rule (i,j)~(k,l) iff both differ; this is not Cartesian rook graph. Earlier total domination requires open neighbors and has different counts."
+        ],
+        "reasoning": "Aliases and open-versus-closed-neighborhood quantifiers were explicitly checked to avoid false equivalence.",
+        "searches": [
+          "Resultary semantic query: inclusion minimal ordinary dominating sets categorical tensor product complete graphs all five families",
+          "https://arxiv.org/abs/1708.01305"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact database table for minimal ordinary dominating sets was found; earlier open-neighborhood minimal total domination polynomial differs already for K2x3 and full lines."
+        ],
+        "reasoning": "Search failure is not novelty proof; assessed primarily by mathematical nonequivalence of known theorem statements.",
+        "searches": [
+          "Resultary semantic: complete products minimal ordinary dominating polynomial",
+          "https://arxiv.org/abs/1708.01305"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): Defant–Iyer 2017 prove ordinary domination extrema/upper bounds for categorical complete products; Burcroff–O’Brien 2021 concerns the polynomial counting ALL ordinary dominating sets, while the earlier exact October 26 published same-product theorem classifies TOTAL domination (open neighborhoods) and has different families and counts. Neither provides this complete five-family ordinary inclusion-minimal polynomial. Residual risk: another name such as unitary Cayley graph or a stronger all-set formula may hide an equivalent exact minimal classification.",
+      "residual_risks": [
+        "Potential exact older classification of ordinary minimal dominating sets under unitary Cayley/Kronecker product aliases remains unlocated.",
+        "Burcroff–O’Brien primary full text not separately reopened this execution; its all-dominating-polynomial scope is known but complete appendix overlap cannot be categorically ruled out.",
+        "Finite check only for small factor sizes; universal proof is structural matching cover argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXTREMAL_PARAMETER_NOT_ALL_MINIMAL_ENUMERATOR",
+          "evidence": [
+            "Original supplies extremal upper domination bound and general product theory, but not the exact five-family labeled all-minimal polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.01305",
+          "material_read": "Accessible full arXiv HTML sections on minimal domination, Section 4 definitions, Proposition 4.1, Theorem 4.4 and Proposition 4.5, together with original abstract; compared their quantifiers to the submitted five families",
+          "method": "Direct primary full HTML theorem/section inspection",
+          "title": "Domination and Upper Domination of Direct Product Graphs",
+          "trigger": "Same categorical complete-graph product and ordinary domination"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+          "evidence": [
+            "Earlier total-dominating polynomial is 6bin(m,3)bin(n,3) z^3 + bin(m,2)bin(n,2)(bin(m,2)+bin(n,2)-1)z^4, unlike submitted polynomial including full lines."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-inclusion-minimal-total-domination-of-direct-products-of-complet--9a326ff00272",
+          "material_read": "Entire published RESULT.md: all definitions, open-neighborhood criterion, proof, polynomial and limitations",
+          "method": "Read full primary mathematical statement and compare total/ordinary quantifier difference",
+          "title": "Inclusion-minimal total domination of direct products of complete graphs",
+          "trigger": "Same graph but potentially stronger complete minimal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the exact all-parameter labeled minimal-domination polynomial, five minimal family structure and unbounded missing-size interval {3,4,n} for K3xKn n>=6 are natural complete combinatorial invariants relevant to domination reconfiguration and extremal structure. The known min/upper values alone and ordinary all-domination polynomial do not mechanically enumerate the minimal family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two complete factors m,n>=2, ordinary domination; no claim about total domination or larger products."
+  ],
+  "schema_version": 1
+}

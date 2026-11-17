@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The theorem concerns inclusion-minimal **ordinary** dominating sets. The packaged program `verify_minimal_dom_tensor.py` uses graph adjacency and closed neighborhoods to test candidate sets, independently generating each structural family for comparison. Exhaustive cases are \((2,2),(2,3),(2,4),(2,5),(2,6),(3,3),(3,4),(3,5),(3,6),(4,4),(4,5)\). Larger generated-set-only tests are \((3,8),(3,11),(4,7),(5,6),(6,8)\).
+## correctness
 
-Exact output observed on executing the included program:
+PASS
 
-`VERIFY_OK exhaustive_instances=11 candidate_subsets=1419077 dominating_sets=1412493 minimal_sets=2231 generated_instances=5 families=PASS coefficients=PASS gap_spectrum=PASS`
+For K_m x K_n with categorical adjacency iff both coordinates differ, a selected set S fails to dominate iff an unselected cell (i,j) meets every selected edge through row i or column j. A three-edge incidence matching already dominates, giving inclusion-minimal size-three matchings. If matching number<=2, Koenig gives a cover by <=2 row/column vertices. Case analysis gives complete lines, three-corner rectangles for m,n>=3, and exact two-row/two-column two-plus-two disjoint-column four-cell types. Each is inclusion-minimal by a missing private cell after deletion, and the families are disjoint. Their labeled counts give n z^m +m z^n+ 4I_(m,n>=3)bin(m,2)bin(n,2) z^3 +6bin(m,3)bin(n,3)z^3 +6(bin(m,2)bin(n,4)+bin(n,2)bin(m,4))z^4, including K2xK2 disconnected boundary. Exact independent enumeration for K2x2,K2x3,K3x3,K3x4 agrees with all coefficients; infinite result follows from matchings and cover proof.
 
-Run `python verify_minimal_dom_tensor.py`; Python 3 is the only prerequisite. Finite enumeration is not a general proof, and the checker does not attest originality or independent external verification.
+## originality
+
+PASS
+
+PASS (best-of-knowledge): Defant–Iyer 2017 prove ordinary domination extrema/upper bounds for categorical complete products; Burcroff–O’Brien 2021 concerns the polynomial counting ALL ordinary dominating sets, while the earlier exact October 26 published same-product theorem classifies TOTAL domination (open neighborhoods) and has different families and counts. Neither provides this complete five-family ordinary inclusion-minimal polynomial. Residual risk: another name such as unitary Cayley graph or a stronger all-set formula may hide an equivalent exact minimal classification.
+
+## value
+
+PASS
+
+PASS: the exact all-parameter labeled minimal-domination polynomial, five minimal family structure and unbounded missing-size interval {3,4,n} for K3xKn n>=6 are natural complete combinatorial invariants relevant to domination reconfiguration and extremal structure. The known min/upper values alone and ordinary all-domination polynomial do not mechanically enumerate the minimal family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
