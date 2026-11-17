@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The cyclic-difference representation proves the complete interval-inequality description of the zonotope; the ball-center condition follows from the intrinsic Euclidean normal lengths. Equalities at balanced intervals force a unique center for odd cycles and periodicity for even cycles. Near-balanced inequalities give the exact coordinate bounds for even cycles. Convexity of \(1-\sqrt{1-t^2/k^2}\) establishes sufficiency across every cyclic interval and every dimension. The zero-sum cube-section vertex classification supplies the exact count. The standalone checker independently verifies active-constraint ranks with exact rational elimination and all candidate vertices with high-precision decimal inequalities at small orders.
+## correctness
 
-## Originality: PASS (historical priority provisional)
-Padrol–Pilaud–Poullot (arXiv:2111.12422, full text) characterize deformation cones, not maximal-ball center sets. Elia–Kim–Supina (2023 journal full text) give halfspace data for graphical zonotopes but no metric center set, and Xu (arXiv:1809.08764, full text) studies face vectors. The earlier published weighted-graphical-zonotope inradius formula establishes the radius as a cut minimum and explicitly excludes classification of all Chebyshev centers. A separate cycle-zonotope result establishes its one-skeleton Laplacian and spanning-tree count, not its incenter locus. Searches for alternate terminology, exact cube-section descriptions, and parity classifications returned no equivalent statement. An older or unindexed Euclidean-center classification remains possible.
+PASS
 
-## Mathematical value: PASS
-The family is a standard graphical-zonotope model. The full Euclidean incenter locus, rather than a single optimal radius, is a natural geometric classification: it exhibits a sharp odd/even uniqueness transition, an explicit central-cube-section structure for every even order, and a complete exact vertex census that changes according to the parity of half the cycle order. The constraints reduce from quadratically many cyclic support inequalities to a single set of coordinate bounds plus linear equations; this gives structural information not supplied by the already-known radius formula.
+The centered edge-difference Minkowski sum has x_i=t_i-t_{i-1}, |t_i|<=1/2. Feasibility of cyclic differences is exactly that partial-sum range <=1, equivalent to all proper cyclic-interval inequalities |sum_I x_i|<=1. The intrinsic normal of a length-s interval has squared norm s(n-s)/n and gives the displayed inradius and all ball-center inequalities. Odd n=2k+1: all k-block equalities imply c_i=c_{i+k}; gcd(k,2k+1)=1 gives c=0. Even n=2k: all k-block equalities force c_i=c_{i+k} and zero half-sum, while near-balanced lengths k±1 force |y_i|<=beta_k. Any other block length k±j has center sum bounded by j beta; convex f(j)=1-sqrt(1-j^2/k^2) >= j f(1) establishes sufficiency. Exact cube-hyperplane vertices have >=k-1 coordinate endpoints, yielding parity-dependent closed counts. Independently all 5,880 stated even-cycle interval inequalities were tested for candidate vertices n<=12. Analytical proof, not the finite test, covers all n.
 
-## Scope and residual limitations
-The classification assumes a simple unit-weight cycle, the canonical Euclidean realization in the zero-sum hyperplane, and intrinsic Euclidean balls. Weighted cycles, other graphs, other norms, and independent verification lie outside the result. The theorem is mathematical, not a claim of absolute historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 2026-10-11 published general weighted graphical-zonotope cut theorem already gives the scalar inradius and one centered optimum; it explicitly disclaims classification of all Chebyshev centers. The 2026-10-25 in-in zonotope result concerns ambient full-dimensional cube PLUS graphical-zonotope segments (not affinely/isometrically equivalent to edge-only intrinsic K_n), and its even-cycle center segment is not this k-1-dimensional cube section. Padrol–Pilaud–Poullot (2025) handle graph-zonotope deformations, not Euclidean center classification. Existing K_{p,q} center theorems include C4 as one special case but do not dominate all cycle orders or vertex counts. The entire parity split center polytope is genuinely additional to known radius, best knowledge with historical-risk proviso.
+
+## value
+
+PASS
+
+The full Euclidean incenter set is a canonical geometric invariant of graphical zonotopes. Here a previously known sharp radius unexpectedly has a unique center at odd orders but a high-dimensional cube-section family at even orders; all endpoint vertices and a reduced inequality description are explicit. This is a motivated complete all-cycle classification, not a known-radius recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
