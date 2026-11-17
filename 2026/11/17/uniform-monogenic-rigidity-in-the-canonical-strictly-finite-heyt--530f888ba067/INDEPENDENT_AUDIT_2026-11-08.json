@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T00:47:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source order has width W=2^n+1>=3 and x_(i,l)<=x_(j,m) iff i>=j+2 or i=j+1 with m != l+1; only TOP contains the minimum x_infinity. Every clopen proper upset is finite. A nonzero upset with level>=2 forces all L0 and is dense, so its closure is {0,U,1}. Rank-1 upsets are either L0 plus a nonempty L1 subset (dense) or exactly E_j=(L0\\{q_j}) union {r_(j-1)} for 1<=j<W (five elements). At rank 0, every nonempty subset S of L0 has complement-negation L0\\S if |S|>=2; singletons q_j have negation E_j (j>=1), or L0\\{q0} at j=0. Thus the only nine-element generators are L0\\{q_j}, 1<=j<W; their explicit closure {0,1,a,b,c,d,e,f,g} is verified by direct implication identities with K_j empty for j=1 and K_j={x_2^(j-2)} otherwise. Rank-0 multiplicities are 1 size-3, 2^W-W-1 size-5, W-1 size-9; rank-1 multiplicities are 2^W-1 size-3 and W-1 size-5. Including constants gives 2 size-2, 2^W-2 size-5, W-1 size-9, countably infinitely many size-3. A separate direct implication/closure implementation enumerated every low-rank upset for W=3..8, including all nine-element closures, but the infinite statement follows from the structural lemma and symbolic classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest direct X_n paper proves bounded cardinality of n-generated subalgebras, with m_n unspecified (DOI 10.1017/jsl.2024.48, Proposition 4.10).",
+          "The 2023 preprint proves finiteness and finite isomorphism types, not the exact one-generator distribution (arXiv:2306.12250, Proposition 18(iii)).",
+          "Martins--Moraschini arXiv:2306.15997 gives existence of n-finite nonlocally finite varieties via another construction, not a sharp one-generator count for canonical X_n."
+        ],
+        "reasoning": "A qualitative bound, even on n-generated subalgebras for n>=1, entails monogenic finiteness but does not determine a value of 9, its sharpness, multiplicities, or the n=0 contrast. The separate universal homogeneous algebra has different one-generator behavior and cannot cover this claim.",
+        "searches": [
+          "Hyttinen et al. 2024 paper Proposition 4.10 / Theorem 5.1 / Claim 4.11",
+          "Hyttinen--Quadrellaro arXiv:2306.12250 Proposition 18 / Theorem 19",
+          "Martins--Moraschini arXiv:2306.15997 Theorem 1.1, Esakia-construction sections",
+          "Resultary semantic search: strictly n-finite varieties of Heyting algebras X_n one-generated subalgebra count"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/strictly-nfinite-varieties-of-heyting-algebras/6DDDE3844154C26D6349B9798FFE611B",
+        "https://arxiv.org/pdf/2306.12250",
+        "https://arxiv.org/pdf/2306.15997",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-unary-orbit-decomposition-of-the-universal-homogeneous-hey--705eee942cf7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Proposition 4.10 has quantifiers forall n exists finite m_n forall n-generated subalgebras; no witness/optimality at 9.",
+          "The target claim is forall n>=1, for every element U in X_n^*, closure sizes are exactly 2,3,5,9 with explicit counts. It also identifies n=0 as exceptional.",
+          "The Rieger--Nishimura free algebra concerns n=0 only; no theorem on the internal monogenic size spectrum of X_n^* for n>=1 follows."
+        ],
+        "reasoning": "One direction target => qualitative monogenic boundedness is clear. The reverse fails as a logical implication: finiteness/boundedness alone never fixes the exact spectrum or counts. The source order plus new rank-0/rank-1 case analysis is essential.",
+        "searches": [
+          "2023 arXiv 2306.12250 full relevant Definition 7 and Propositions 13, 18; 2024 DOI 10.1017/jsl.2024.48 Definition 4.1 and Proposition 4.10",
+          "Rieger--Nishimura endpoint noted in both construction papers",
+          "Resultary published exact unary orbit decomposition universal homogeneous Heyting algebra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hyttinen--Quadrellaro arXiv:2306.12250, Definition 7 (same level-incidence poset), Proposition 18 (finite k-generated subalgebras), no exact all-k monogenic generator census in the inspected theorem/proof.",
+          "Hyttinen--Martins--Moraschini--Quadrellaro DOI 10.1017/jsl.2024.48, Definition 4.1 and Proposition 4.10: qualitative existence of a bound m_n, not 9 or the 2,3,5,9 multiplicities.",
+          "Published Resultary record for universal homogeneous Heyting algebra says every finite m>=3 occurs as a singly-generated size, a different object rather than a dual restatement of this X_n family."
+        ],
+        "reasoning": "In Esakia dual form the claim fixes one distinguished upset and counts closures under implication; it is not equivalent to the existence of a bound for all n-element generating sets. No mathematically equivalent published all-n statement was identified in these actual searches and inspected sources.",
+        "searches": [
+          "Resultary semantic: strictly n-finite Heyting algebras canonical Esakia spaces X_n single-generated subalgebra exact spectrum 2 3 5 9 maximum 9",
+          "Resultary semantic: monogenic subalgebra finite bounds in infinite Heyting algebras Rieger Nishimura examples",
+          "Web: \"X_n\" \"monogenic\" \"Heyting\" subalgebras 9",
+          "Web: \"strictly n-finite\" \"one-generated\" Heyting",
+          "GitHub code-search SCOPE2026: monogenic Heyting X_n; scope-weekly-inbox: monogenic (default-branch search only)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected construction papers have no displayed table with all-n counts 2, 2^(2^n+1)-2 and 2^n.",
+          "A prior n=2 specialization 2,30,4 is acknowledged by the assigned REVIEW.md but cannot imply all n by itself; its publication status is uncertain."
+        ],
+        "reasoning": "The exact natural invariant is a cardinality spectrum plus generator-count distribution within one fixed canonical family; the searches and inspected primary statements did not uncover a directly covering published census. Failure of indexing is not proof of novelty, so an unindexed table remains a priority risk.",
+        "searches": [
+          "Web: \"subalgebra\" \"2, 3, 5, 9\" \"Heyting\"",
+          "Web: \"one-generated\" \"nine\" \"Heyting\" \"X_n\"",
+          "Resultary semantic 2 3 5 9 canonical X_n monogenic spectrum",
+          "GitHub code-search SCOPE2026: 2^W-2",
+          "Source package REVIEW.md claims an earlier n=2 computation (not independently identified as a public all-n table)"
+        ]
+      },
+      "rationale": "The 2023 construction preprint (Definition 7, Proposition 18) and the 2024/2026 joint journal article (Definition 4.1, Proposition 4.10) establish the same X_n and qualitative finite bounds, but the inspected statements neither quantify the singleton-generated spectrum nor imply the constant sharp maximum 9 or exact generator multiplicities. The nearby published classification of a universal homogeneous Heyting algebra concerns a different algebra. This is a best-of-knowledge result, not a proof of historical priority.",
+      "residual_risks": [
+        "Unindexed folklore or thesis-level computations on the canonical X_n could already contain the uniform one-generator count.",
+        "An earlier n=2 calculation is acknowledged in the assigned package without a fully located public primary source; do not claim novelty for that specialization.",
+        "Semantic/code indexing is incomplete and cannot prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_CENSUS",
+          "evidence": "Definition 4.1 supplies level order; Proposition 4.10 only states existence of m_n and Claim 4.11 a type-count bound; neither enumerates all monogenic generators or gives bound 9.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/strictly-nfinite-varieties-of-heyting-algebras/6DDDE3844154C26D6349B9798FFE611B",
+          "material_read": "Full accessible HTML, especially Esakia implication in Section 2; Definition 4.1, Lemma 4.2, Corollary 4.4, Lemmas 4.5--4.9, Proposition 4.10 and Theorem 5.1; text search for monogenic/one-generated.",
+          "method": "Open-access publisher HTML full-text inspection and targeted in-document searches.",
+          "title": "Strictly n-finite varieties of Heyting algebras",
+          "trigger": "Foundational source explicitly defines the exact X_n and claims finite n-generated bound."
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_CENSUS",
+          "evidence": "Definition 7 uses identical coordinate incidence. Proposition 18(ii)-(iii) proves finite k-generated subalgebras and finite isomorphism types, not exact one-generator sizes or multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.12250",
+          "material_read": "PDF pp. 1--2, 5--11: Esakia implication, Definition 7, Lemmas 10--12, Proposition 13, Proposition 18 and Theorem 19; PDF page screenshots examined.",
+          "method": "Open-access arXiv full PDF with targeted full-text examination and page screenshots.",
+          "title": "Varieties of strictly n-generated Heyting algebras",
+          "trigger": "Original 2023 preprint explicitly defines the same E_n level poset and could dominate the 2024 source."
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRUCTION_NO_DETECTED_EXACT_XN_CENSUS",
+          "evidence": "Theorem 1.1 asserts existence of nonlocally finite varieties whose n-generated free algebra is finite, not an exact generator census in the canonical X_n of Hyttinen--Quadrellaro.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.15997",
+          "material_read": "Open arXiv PDF theorem/abstract and Esakia-space construction entry; full-document text search for X_n and exact census words; p.1 screenshot.",
+          "method": "Open-access arXiv PDF targeted inspection and text search.",
+          "title": "On locally finite varieties of Heyting algebras",
+          "trigger": "Earlier independent 2020 proof may include more general theorem."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_OBJECT",
+          "evidence": "The indexed claim concerns automorphism orbits of the universal homogeneous countable Heyting algebra L and contains singly-generated sizes of all m>=3, unlike the specific X_n family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-unary-orbit-decomposition-of-the-universal-homogeneous-hey--705eee942cf7",
+          "material_read": "Resultary indexed title and returned abstract summary only; full text not claimed inspected.",
+          "method": "Published mathematical index semantic search; no whole-document noncoverage judgment.",
+          "title": "Exact unary orbit decomposition of the universal homogeneous Heyting algebra",
+          "trigger": "Closest published Resultary semantic match involving singly generated Heyting subalgebra sizes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact one-generator size spectrum in the naturally defined canonical strictly n-finite Heyting family is an invariant directly relevant to quantitative finite-generation control. It is not a reparameterized textbook identity: the abrupt n=0 free-Heyting exception, n-independent sharp maximum 9, and exact exponentially varying generator multiplicities give a structural classification beyond the prior qualitative bound. The full two-generated spectrum is not asserted; this exact first-arity result has independent mathematical use.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/strictly-nfinite-varieties-of-heyting-algebras/6DDDE3844154C26D6349B9798FFE611B",
+    "https://arxiv.org/pdf/2306.12250",
+    "https://arxiv.org/pdf/2306.15997",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-unary-orbit-decomposition-of-the-universal-homogeneous-hey--705eee942cf7"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer n>=1, in the clopen-upset Heyting algebra X_n^* of the canonical (2^n+1)-wide Esakia space of Hyttinen et al., the cardinalities of single-element generated subalgebras are exactly {2,3,5,9}; precisely 2 elements generate size 2, 2^(2^n+1)-2 generate size 5, and 2^n generate size 9, with all other (countably many) generators yielding size 3. The sharp maximum is 9, contrasted with the unbounded n=0 Rieger--Nishimura endpoint.",
+  "limitations": [
+    "Applies to the exact canonical X_n^* only and not all n-finite varieties of Heyting algebras.",
+    "No two-generated or higher-arity cardinality spectra proved.",
+    "The independent finite enumeration only covers W=3..8, not arbitrary widths or infinite-depth algebras.",
+    "The n=0 endpoint is not included in the claimed four-size spectrum.",
+    "The frozen METADATA first_public_date refers to an underlying 2023 construction preprint; it is not independently evidenced as the publication date of this exact all-n theorem."
+  ],
+  "residual_risks": [
+    "Unindexed folklore or thesis-level computations on the canonical X_n could already contain the uniform one-generator count.",
+    "An earlier n=2 calculation is acknowledged in the assigned package without a fully located public primary source; do not claim novelty for that specialization.",
+    "Semantic/code indexing is incomplete and cannot prove priority."
+  ],
+  "schema_version": 1
+}
