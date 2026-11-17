@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:19:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-stationary-autocovariance-identifies-an-arbitrary-refractory-c--106358940ac7/RESULT.md",
+        "2026/11/08/a-stationary-autocovariance-identifies-an-arbitrary-refractory-c--106358940ac7/checker.py"
+      ],
+      "rationale": "At exploration starts the contracting affine recursion gives exploration variance Q=2D/[r(1−a²)]. Cycle occupancy is p_E=1/(1+rm), refractory variance a²Q; thus C(0)/Q=(1+a²rm)/(1+rm) recovers m when 0<a<1. Brownian innovations after time 0 have zero conditional covariance with X_0, so C(t) is Q/(1+rm) times the future multiplicative reset-count PGF from exploration plus a²rm times the equilibrium refractory-residual PGF. Alternating-renewal equations yield F̂_E=[s+ar(1−w)]/[s(s+r−ar w)], residual transform (1−w)/(ms). Algebraically solving the resulting Möbius map gives the stated inversion except at s=ar, where the denominator cancels and w is recovered by continuity; the same cancellation gives universal Ĉ(ar) and sign-crossing identity. Independently checked symbolic inversion and exact-rational exponential-duration cases; a=0 is correctly excluded since complete resetting loses clock law information.",
+      "residual_risks": [
+        "Bounded tests and source verifier are supplementary; unrestricted claim relies on reconstructed mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic joint two-time reset density results exist for a different renewal shift scheme; synchronously reset gas has a separate clock observable."
+        ],
+        "reasoning": "Known broader conceptual methods do not state the same multiplicative reset followed by arbitrary frozen refractory clock or its exact s=ar algebraic inverse in the inspected material.",
+        "searches": [
+          "partial Brownian resetting refractory periods arbitrary law stationary autocovariance Laplace transform inverse identifiability",
+          "Taźbierski Metzler Magdziarz 2025 joint two-time incomplete renewal resetting",
+          "Resultary temporal spectroscopy synchronously reset Brownian gas Oct27"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.10039",
+        "https://www.researchgate.net/publication/385138454_Partial_stochastic_resetting_with_refractory_periods",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-refractory-time-variance-is-identifiable-through-integrated-fluc--09a242f30c6d",
+        "https://arxiv.org/abs/1811.06742",
+        "https://arxiv.org/abs/2408.16643"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model full paper discusses equations (17), (22), (26)–(30) and Appendix B steady state; present derivation couples stationary phase weights and residual lifetimes with the future reset-count PGF to extract W(s)."
+        ],
+        "reasoning": "Previous stationary marginal depends only on mean m and cannot entail W identification; even knowing a transient propagator from fixed initial state does not itself assert an inverse from stationary two-time covariance. The new inversion adds mathematical work and a unique blind point.",
+        "searches": [
+          "partial Brownian resetting refractory periods arbitrary law stationary autocovariance Laplace transform inverse identifiability",
+          "Olsen Lowen 2024 PDF original appendices",
+          "Resultary Nov2 integrated fluctuations statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen–Löwen same model gives transient propagator/marginals and stationary mixture, not joint stationary lag covariance inverse in the inspected complete paper."
+        ],
+        "reasoning": "The submitted two-time inverse is not a relabeling of the earlier one-time propagator: stationarity alone only exposes mean idle time; the two-time renewal residual transform carries w(s) for every s.",
+        "searches": [
+          "partial Brownian resetting refractory periods arbitrary law stationary autocovariance Laplace transform inverse identifiability",
+          "Olsen Löwen Partial stochastic resetting with refractory periods 2024 full text",
+          "Resultary refractory-time variance identifiable integrated fluctuations Nov2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 2 published integrated-fluctuation calculation gives Var(T), a lower-dimensional property; no exact table of full W(s) or the blind crossing was identified."
+        ],
+        "reasoning": "An exact inversion across the continuum s>0 is not equivalent to one scalar variance table; no earlier database/table was identified as containing the complete arbitrary-W result.",
+        "searches": [
+          "partial Brownian resetting refractory periods arbitrary law stationary autocovariance Laplace transform inverse identifiability",
+          "published stationary refractory partial resetting variance one-time",
+          "exact Laplace-frequency crossing partial reset",
+          "Resultary search stationary autocovariance arbitrary refractory clock"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Olsen–Löwen 2024 original paper on *the same exact partial-reset model* was materially read in its open full manuscript (model, time-dependent one-time propagator, stationary marginal and appendix B), and does not state stationary lag autocovariance inversion or blind s=ar crossing. Published November 2 integrated-fluctuation result identifies only Var(T), not the entire distribution W. Related Taźbierski et al. two-time reset laws concern renewal resetting without the stationary partial multiplicative-jump-plus-frozen-refractory model and calibrated inverse. A stronger general semi-Markov inverse theorem is still a residual priority risk.",
+      "residual_risks": [
+        "Ideal exact continuous-time covariance required; theorem does not establish statistical stability or noisy finite-sample recovery.",
+        "Different generic semi-Markov observational-identifiability papers may encode a stronger special case that was not exhaustively indexed.",
+        "Known D,r,a calibration is essential, and a=0 fails; s=ar alone is law-blind."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR MODEL COVERED; two-time covariance inversion not present in materially read result.",
+          "evidence": "The full paper Appendix B at pp.17–18 derives stationary distributions using W̃(s) near s=0; title and conclusion emphasize one-time laws, not C(t) inverse or blind s=ar.",
+          "identifier_or_url": "https://www.researchgate.net/publication/385138454_Partial_stochastic_resetting_with_refractory_periods",
+          "material_read": "Full freely displayed journal article 21 pages in extracted HTML, including model/propagator, time-dependent moments, stationary mixture, Appendix A transient derivation, Appendix B derivation of stationary law and references; searched full body for stationary covariance/autocovariance.",
+          "method": "Public lawful full-text research PDF transcribed as HTML.",
+          "title": "Partial stochastic resetting with refractory periods",
+          "trigger": "Exact same stochastic protocol, plausible stronger formula."
+        },
+        {
+          "assessment": "Correct with explicit boundary and exceptional-point treatment.",
+          "evidence": "Source inverse matches independently manipulated fractional-linear covariance formula for all s>0 excluding isolated ar.",
+          "identifier_or_url": "SCOPE2026 @ b0e95ae/2026/11/08/a-stationary-autocovariance-identifies-an-arbitrary-refractory-c--106358940ac7/RESULT.md",
+          "material_read": "Entire RESULT.md renewal derivation and entire checker.py exact rational phase-model code.",
+          "method": "GitHub frozen source tree/blob reads.",
+          "title": "A stationary autocovariance identifies an arbitrary refractory clock in partial Brownian resetting",
+          "trigger": "Assigned arbitrary-law inversion theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.10039",
+        "https://www.researchgate.net/publication/385138454_Partial_stochastic_resetting_with_refractory_periods",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-refractory-time-variance-is-identifiable-through-integrated-fluc--09a242f30c6d",
+        "https://arxiv.org/abs/1811.06742",
+        "https://arxiv.org/abs/2408.16643"
+      ],
+      "rationale": "Exact identifiability of an arbitrary distribution W from a single stationary *second-order time statistic* is a substantive semi-Markov inverse phenomenon: one-time law forgets all but m, while all lag-covariances recover W. The universal blind frequency provides a sharp model signature and shows an isolated observation cannot identify W. All positive a,r,D and all finite-mean measures (including atoms) are covered; an exact natural inverse result with possible use in renewal-process inference.",
+      "residual_risks": [
+        "Ideal exact continuous-time covariance required; theorem does not establish statistical stability or noisy finite-sample recovery.",
+        "Different generic semi-Markov observational-identifiability papers may encode a stronger special case that was not exhaustively indexed.",
+        "Known D,r,a calibration is essential, and a=0 fails; s=ar alone is law-blind."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2406.10039",
+    "https://www.researchgate.net/publication/385138454_Partial_stochastic_resetting_with_refractory_periods",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-refractory-time-variance-is-identifiable-through-integrated-fluc--09a242f30c6d",
+    "https://arxiv.org/abs/1811.06742",
+    "https://arxiv.org/abs/2408.16643"
+  ],
+  "disposition": "passed",
+  "final_claim": "From stationary time autocovariance of partially reset Brownian motion with arbitrary finite-mean independent refractory periods, recover the entire refractory distribution and an isolated blind Laplace frequency s=ar.",
+  "limitations": [
+    "Ideal exact continuous-time covariance required; theorem does not establish statistical stability or noisy finite-sample recovery.",
+    "Different generic semi-Markov observational-identifiability papers may encode a stronger special case that was not exhaustively indexed.",
+    "Known D,r,a calibration is essential, and a=0 fails; s=ar alone is law-blind."
+  ],
+  "residual_risks": [
+    "Ideal exact continuous-time covariance required; theorem does not establish statistical stability or noisy finite-sample recovery.",
+    "Different generic semi-Markov observational-identifiability papers may encode a stronger special case that was not exhaustively indexed.",
+    "Known D,r,a calibration is essential, and a=0 fails; s=ar alone is law-blind."
+  ],
+  "schema_version": 1
+}

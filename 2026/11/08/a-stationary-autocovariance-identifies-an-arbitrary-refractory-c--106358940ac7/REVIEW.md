@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof constructs the stationary alternating-regenerative process, establishes its exact phase variances, and derives the two-time covariance from the number of future multiplicative jumps. Both fresh and stationary-residual refractory waiting laws are treated, including atomic distributions. The Laplace-algebra inversion is checked by direct substitution; its only vanishing denominator occurs at \(s=ar\), where continuity supplies the missing transform value. An independent exact-rational finite-phase resolvent tests exponential, Erlang-2, and hyperexponential clocks. The finite diagnostic tests are not an infinite-dimensional proof; the renewal argument is.
+PASS
 
-## Originality — PASS, with a priority caveat
+At exploration starts the contracting affine recursion gives exploration variance Q=2D/[r(1−a²)]. Cycle occupancy is p_E=1/(1+rm), refractory variance a²Q; thus C(0)/Q=(1+a²rm)/(1+rm) recovers m when 0<a<1. Brownian innovations after time 0 have zero conditional covariance with X_0, so C(t) is Q/(1+rm) times the future multiplicative reset-count PGF from exploration plus a²rm times the equilibrium refractory-residual PGF. Alternating-renewal equations yield F̂_E=[s+ar(1−w)]/[s(s+r−ar w)], residual transform (1−w)/(ms). Algebraically solving the resulting Möbius map gives the stated inversion except at s=ar, where the denominator cancels and w is recovered by continuity; the same cancellation gives universal Ĉ(ar) and sign-crossing identity. Independently checked symbolic inversion and exact-rational exponential-duration cases; a=0 is correctly excluded since complete resetting loses clock law information.
 
-Olsen and Löwen (arXiv:2406.10039) give this precise partially resetting model, one-time propagators, stationary distribution and mean-dependent stationary moments, but not its stationary two-time covariance or a nonparametric refractory-time inverse. Evans–Majumdar and Masó-Puigdellosas–Campos–Méndez treat complete resetting to the origin. Santra–Olsen–Gupta derive one-time position characteristic functions of switching active motions. Taźbierski–Metzler–Magdziarz derive two-time quantities for complete and shift-resetting dynamics without this multiplicative reset/refractory combination. The derived injective inverse and isolated crossing are not logical corollaries of a one-time stationary formula. Available semantic research-record searches and primary comparisons found no explicit stronger coverage; unindexed results and an implicit wider semi-Markov inversion remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural experimental inference problem is solved without assuming a parametric refractory law: the stationary one-time displacement distribution cannot recover refractory shape, whereas its two-time covariance can. The exact isolated-frequency blindness and strict crossing for two canonical refractory laws identify both a robust diagnostic boundary and where spectral measurements are informative. Complete resetting destroys the inverse, explaining why partial resets are essential. No claim is made regarding sampling stability.
+PASS best-of-knowledge: Olsen–Löwen 2024 original paper on *the same exact partial-reset model* was materially read in its open full manuscript (model, time-dependent one-time propagator, stationary marginal and appendix B), and does not state stationary lag autocovariance inversion or blind s=ar crossing. Published November 2 integrated-fluctuation result identifies only Var(T), not the entire distribution W. Related Taźbierski et al. two-time reset laws concern renewal resetting without the stationary partial multiplicative-jump-plus-frozen-refractory model and calibrated inverse. A stronger general semi-Markov inverse theorem is still a residual priority risk.
 
-## Evidence and limitations
+## value
 
-The analytic proof includes a stationarity construction, the non-memoryless residual law, exact transform and inverse identities, strict sign comparison, and a complete-resetting nonidentifiability boundary. `checker.py` is a reproducibility artifact. The broadest unresolved priority issue is whether general semi-Markov system identification results subsume the inversion after specialization. Publication-priority verification and independent mathematical audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact identifiability of an arbitrary distribution W from a single stationary *second-order time statistic* is a substantive semi-Markov inverse phenomenon: one-time law forgets all but m, while all lag-covariances recover W. The universal blind frequency provides a sharp model signature and shows an isolated observation cannot identify W. All positive a,r,D and all finite-mean measures (including atoms) are covered; an exact natural inverse result with possible use in renewal-process inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
