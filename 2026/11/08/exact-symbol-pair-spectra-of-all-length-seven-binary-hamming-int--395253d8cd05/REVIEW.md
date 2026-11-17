@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses the exact parity-check kernel and seven Fano weight-three supports, the complement correspondence for weight four, and the precise relation between adjacent line edges and pair weights. It proves a bound of two consecutive Fano-line triples using pairwise line intersection, then counts all 360 unoriented cycles through first and second incidence moments (72 cycles per line, 8 per line pair). The quotient by the free 168-element row-operation action yields 30 distinct indexed codes. Two independent standalone programs reproduce the complete spectra and all counts. The small computations are corroboration of, not a replacement for, the proof.
+## correctness
 
-## Originality
-**PASS, qualified.** Cassuto–Blaum (2010) and Chee et al. (2012) introduce pair reads and metric bounds, not this complete finite Hamming interleaver classification. Jha–Parampalli–Singh (2024) already exhibit pair distance five for one cyclic \([7,4,3]\) Hamming presentation, which is expressly prior. A previously recorded result classifies length-eight *extended* Hamming-code pair enumerators; its length-eight data do not imply this seven-coordinate classification after puncturing changes the cyclic adjacency relation. Dedicated semantic searches for the specific three-polynomial classification, Fano-cycle incidence counts, aliases and stronger enumerations did not reveal coverage. Historical priority remains an unverified risk; failure to find a result is not proof of uniqueness.
+PASS
 
-## Value
-**PASS.** For the smallest nontrivial perfect binary code, cyclic pair reads are a natural storage-channel metric. The classification determines every indexed parity-check presentation's entire pair-weight distribution, not only the existence of one good interleaver. The exact 2-out-of-30 optimal proportion resolves the complete finite coordinate-order design problem and distinguishes a sharp loss of one pair-distance unit in the other 28 presentations. The two optimal presentations meet the symbol-pair Singleton bound, whereas the rest do not. It is not an arbitrary slice of a parameter table: all seven-coordinate Hamming presentations are included.
+The seven weight-3 Hamming codewords correspond to Fano lines; their weight-4 complements pair with them. For a line with t=0,1,2 internal edges of the cyclic order, pair weights are 6-t and 7-t. Each of seven cycle edges belongs to one Fano line, so b0=b2=a and b1=7-2a; Fano intersection forces a<=2. Counting all 360 unoriented 7-cycles: first incidence 7*72=504 and pair-line incidence 21*8=168, giving N0,N1,N2=(24,168,168). GL3(F2) of order168 identifies equivalent parity-check lists, giving 30 indexed codes distributed (2,14,14) and the advertised exact weight polynomials. Independently enumerated all 360 cycles and all 5040 column permutations, directly generated all 16 codewords for each and found exactly the three enumerators with multiplicities 2,14,14.
 
-## Limits
-The theorem does not cover longer Hamming codes, wider reads, or realistic channel decoding. Public metadata rather than full text was accessible for Cassuto–Blaum's 2010 conference paper, and an unindexed Fano-cycle census could predate this result. A later 2024 primary paper was read for the specific known cyclic example.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge survival of precise final claim after source-by-source implication comparison, with listed risks; no worldwide priority certification. A single known MDS cyclic presentation establishes existence only, not multiplicity 2/30 nor complete three-polynomial distributions. Length-eight extended-Hamming enumerator classes do not map to length-seven cyclic pair enumerators via naive puncturing because adjacent pairs are rewired.
+
+## value
+
+PASS
+
+Exact complete classification of all distinct interleavings of the smallest perfect binary Hamming code under cyclic symbol-pair read metric; identifies exactly which two indexed code presentations attain the Singleton-optimal pair distance five. The Fano-cycle incidence census is a meaningful finite geometric invariant, not an arbitrary partial slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
