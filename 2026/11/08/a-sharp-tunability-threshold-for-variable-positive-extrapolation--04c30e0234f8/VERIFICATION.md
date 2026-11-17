@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory. Python 3 standard library suffices and no network, datasets, or compiled dependencies are needed. The script was actually executed and returned `PASS: 8737 exact and numerical diagnostic groups` and `PASS: separation determinants 1/200 -3/125`.
+## correctness
 
-Its exact rational checks confirm the strict separation of the new and previous comparison matrices and the negative-feedback determinant identity on a rational parameter grid. Floating-point checks test the equality cases for planar skew resolvents, the monotonicity of the comparison coefficient over a grid, and random planar positive-plus-skew operators and couplings. The finite samples cannot prove the infinite-dimensional or all-operator theorem. The universal conclusions instead follow from the explicit firm-resolvent inequality, Schur/M-matrix identity, common weighted norm construction and scalar counterexample in `RESULT.md`.
+PASS
 
-Critical boundary and scope checks: \(\theta=0\) and \(\theta=1\) are included; \(L=0\) allows any positive steps; \(\mu_A\mu_B=L\) gives eigenvalue one for the scalar obstruction; \(\mu_A\mu_B<L\) gives an eigenvalue above one. The public proof gives no fixed-step necessity condition outside the scalar obstruction, no optimized rate or stochastic guarantee. Independent mathematical review and independent audit have not been performed.
+For strongly monotone maximal monotone A,B with moduli μA,μB>0, H globally L-Lipschitz and θ∈[0,1], the first resolvent Q is firmly nonexpansive with Lipschitz q=(1+αμA)⁻¹. Expand ||(1+θ)z−θu||² using <z,u>≥||z||² to obtain sharp abstract transfer cθ²=θ²+(1−θ²)q²; skew resolvents attain this isolated transfer bound. The two-stage block estimate yields nonnegative Gθ; independently recomputed det(I−Gθ)=αβqs[μAμB−L((1−q)(1+θ)+cθ)] and Gθ≤G1. If μAμB>L, α sufficiently small (β arbitrary) makes G1 Schur and gives one positive-weight block-max norm contracting uniformly under EVERY switching sequence. Fixed-point equation independent of θ. Conversely scalar negative-feedback A=μAI,B=μBI,H=−LI has independently checked det(I−Tθ)=αβqs(μAμB−L), ruling out a universal strict contraction at ≤L at all steps, including equality. Claim is sharp class-level tunability, NOT fixed-step necessary criterion. Isolated transfer sharpness is not claimed for strongly monotone subclass.
+
+## originality
+
+PASS
+
+The algorithm and elementary firm-resolvent property are PREEXISTING. The October 2026 Qu–Wu–Chaffey available abstract/secondary mathematical account describes a coarser triangle-inequality certificate μAμB>L(1+2θ), not this common-weight, class-level tunability under switching. The refined Gθ matrix and scalar converse are explicitly different statements. Full primary paper was NOT accessible despite arXiv/OA attempts and authorized institutional download (VPN disconnected); no whole-document noncoverage finding is made, and this is a substantial residual priority risk. With available evidence, best-knowledge O is PASS, not certification.
+
+## value
+
+PASS
+
+The earlier published positive-extrapolation small-gain sufficient threshold excludes coupling ratios (μAμB)/L between 1 and 3. Firm-resolvent-aware gain and scalar necessity settle the class-wide existence of a common contraction under arbitrary θ switching for precisely >1, including an explicit exact positive-extrapolation improvement at fixed steps. The statement avoids false fixed-step optimality/rate claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
