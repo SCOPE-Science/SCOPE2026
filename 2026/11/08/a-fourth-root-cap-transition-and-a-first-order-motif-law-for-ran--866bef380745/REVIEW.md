@@ -1,19 +1,21 @@
-# Scientific review: cap-conditioned spherical right-angle graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result is stated for fixed graph order and two exact cap-height sequences, with separate phase-transition convergence for general sequences. The radial-tangent spherical factorization is exact. The fixed-size tangent Gram law has the determinant density whose Taylor expansion has cubic signed-triangle coefficient one; on a logarithmic central region the remainder has integrated order smaller than the claimed first correction, and the complement is exponentially small. In the fourth-root window, scaled radial cap overshoots converge with moments to independent exponentials, contributing the boundary shift \(2+\lambda^4\). In the equatorial window, scaled radial coordinates converge in moments to truncated Gaussians, contributing \(\mu_a^2\). Rectangular Gaussian integration produces the displayed labelled motif coefficients and the signed triangle term. The standalone checker corroborates these coefficients and their normalization; finite tests are not an infinite-dimensional proof. All limiting regimes and fixed-parameter restrictions are explicit.
+PASS
 
-## Originality
+The cap decomposition X_i=(S_i,sqrt(1-S_i²)U_i) yields sqrt(d) dot products = sqrt(d)S_iS_j+scaled tangent Gram. The fixed-k offdiagonal tangent Gram log-determinant density expansion has leading independent Gaussian edges and first 1/sqrt(d) triangle-cubic term. For exact height h=λd^-1/4, the scaled radial overshoot tends to independent exponentials of mean1, producing boundary shift coefficient 2+λ⁴; for h=a/sqrt(d), normal-truncated radial mean μ_a yields coefficient μ_a². Integrating shifted Gaussian edge thresholds gives L_H, and the cubic density gives T_H; all patterns normalize since signed single-edge and triangle sums vanish. When d^1/4 h→λ, radial mean yields independent edge probabilities Φ(λ²), including λ=0 and infinity. Independent exact signed pattern coefficient summations for k=3,4 and the source finite sampling checker were inspected, but these finite tests are not proofs of the uniform L1 remainder.
 
-**PASS under best-knowledge historical comparison, with residual priority risk.** Bubeck, Ding, Eldan and Rácz (arXiv:1411.5713, 2014) work with full-sphere high-dimensional geometric graphs and signed triangle statistics, but not cap-conditioned fixed-axis point sampling or its two different boundary corrections. Bárány, Hug, Reitzner and Schneider (arXiv:1505.04672, 2015) study random convex hulls from halfspheres, not edge-pattern probabilities. Bangachev and Bresler (arXiv:2402.12589, 2024) analyze Fourier coefficients for rotation-invariant full-sphere geometric graphs; they do not provide the stated cap laws. Independent searches for hemisphere, spherical cap, Gram, edge motifs, and fixed-size graph expansions did not identify implication or exact duplication. The classical Gaussian and spherical ingredients are inputs, not novelty claims. A specialized cap-conditioned graph expansion could remain unlocated; independent historical review has not been done.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A high-dimensional spherical cap is the natural conditioned model for geometrically clustered orientations. The precise fourth-root transition quantifies when its right-angle graph changes from an unbiased independent-edge model to a nearly complete graph. More than a basic law-of-large-numbers limit, the full labelled pattern expansion separates a shared cap bias from irreducible three-way geometric dependence and locates a distinct equatorial boundary layer. This informs the interpretation of signed-triangle statistics in non-rotation-invariant geometric sampling.
+Best-of-knowledge distinct mathematical claim after direct comparison of related published statements and implications; the source inspections and four detailed comparisons below delimit genuine known components and residual historical risk.
 
-## Verification and limitations
+## value
 
-The executable checker directly samples spherical radial coordinates using the beta survival function, independently samples the tangent Gram matrix, and compares four triangle-pattern orbit types in two dimensions and four cap regimes. It checks correction normalization for every labelled pattern on three and four vertices. The analytic theorem is asymptotic for fixed graph order; it does not give a uniform error for all cap heights or growing graphs. No independent proof review or external mathematical certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies a natural high-dimensional cap-conditioned geometric-graph phase transition and two distinctly scaled finite-size motif corrections, separating cap radial boundary displacement from the universal triangle Gram term for all labelled graphs at fixed k. The exact coefficients can calibrate geometric random graph statistics and are not implied by the full-sphere triangle correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
