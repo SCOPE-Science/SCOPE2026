@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:15:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Formal Euler-product extraction via U_m gives b_m(m^r-1)=[q]H_(r-1). Integral binomial Newton bases yield coefficients α_s(i), with α_s(s)=m^s and α_(i+1)(i)=-(i)(m-1)m^i/2, and α_3(1)=m(m-1)(m-2)/6. The weighted induction m^(k+j-1)|a_(k,j) eliminates j>=2 modulo m^(k+1). Under gcd(m,6)=1, m|α_3(1) and the remaining a_(k,1) recursion gives m^(r-1)((m+1)/2)^(r-2) modulo m^r, a unit for every m>=5 coprime to 6 and all r>=2. Independent recurrence checks of m=5,7,25,35 for bounded depths corroborated; m=3 failure at r=4 correctly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2001 theorem gives divisibility m^(r-1), while the stronger claim computes quotient modulo m.",
+          "2024 general M-ary divisor bounds do not fix nonzero next digit."
+        ],
+        "reasoning": "A general recurrence or computational algorithm can generate values but does not, as a stated immediate corollary, provide the uniform all-depth first digit without the additional weighted coefficient proof.",
+        "searches": [
+          "Rødseth–Sellers 2001 Theorem 1 and Lemmas",
+          "Żmija arXiv:2403.04495 Theorem 1.3",
+          "Żmija arXiv:1710.04303 higher-power algorithm"
+        ]
+      },
+      "checked_sources": [
+        "https://www.d.umn.edu/~jsellers/p14.pdf",
+        "https://arxiv.org/abs/2403.04495",
+        "https://arxiv.org/abs/1710.04303",
+        "Resultary published m-ary depth-three gcd theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Divisibility by m^(r-1) permits zero as well as nonzero normalized residue modulo m; the new proof excludes zero and computes it."
+        ],
+        "reasoning": "The prior divisibility theorem alone does not imply sharpness; extra α_3(1) divisibility and weighted coefficient controls are essential.",
+        "searches": [
+          "Rødseth Sellers Theorem 1 congruence b_m(m^r-1) modulo m^(r-1)",
+          "Żmija 2024 Theorem1.3 general M-ary divisibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent prime case nu_p(b_p(p^r-1))=r-1; general case normalized quotient mod m equals ((m+1)/2)^(r-2).",
+          "Rødseth–Sellers 2001 gives lower divisibility, not exact normalized unit in inspected theorem."
+        ],
+        "reasoning": "Leading digit, exact valuation and all-ones index aliases have been tested against primary statements and indexed records.",
+        "searches": [
+          "Resultary: m-ary partition all ones leading p-adic digit valuation exact unit modulo m^r",
+          "Resultary: m-ary partitions b_m(m^r-1) leading m-adic unit exact congruence Rødseth Sellers Zmija"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026-11-08 published SCOPE four depth-three branch gcd theorem concerns gcd over every n of different shifted partition subsequences; its exact table does not list normalized b_m(m^r-1) for arbitrary r."
+        ],
+        "reasoning": "The known low-order residue statements/tables cannot substitute for the all-r unit formula.",
+        "searches": [
+          "Resultary: m-ary partition all ones leading p-adic digit valuation exact unit modulo m^r",
+          "Resultary: sharp universal gcds four depth-three branches m-ary partition"
+        ]
+      },
+      "rationale": "Rødseth–Sellers gives prior m^(r-1) divisibility and the integral operator method, but this leaves the next base-m digit indeterminate. Żmija 2024 extends divisibility bounds to other bases and 2017 gives higher-power algorithms; no inspected theorem states the uniform closed leading unit for arbitrary r. Related published m-ary four depth-three branch gcds are for differently shifted indices and do not imply this exact all-ones unit. Search incompleteness remains.",
+      "residual_risks": [
+        "Older unindexed exact residue formula may exist.",
+        "2017 higher-power computation method may specialize to the unit identity but its all-depth closed form was not verified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes extraction machinery and lower divisibility; does not state the all-r normalized unit in read theorem",
+          "evidence": "Rødseth–Sellers 2001 Theorem 1, operator lemmas",
+          "identifier_or_url": "https://www.d.umn.edu/~jsellers/p14.pdf",
+          "material_read": "Author-hosted searchable full PDF, theorem/lemmas and relevant extraction proof; page-image checked",
+          "method": "Primary full-text PDF read and screenshot verification",
+          "title": "On m-ary Partition Function Congruences: A Fresh Look at a Past Problem",
+          "trigger": "Same function, same digit-family, stronger congruence possibility"
+        },
+        {
+          "assessment": "Broader lower modulus congruences, not sharp all-depth next unit in examined theorem",
+          "evidence": "Żmija 2024 Theorem 1.3",
+          "identifier_or_url": "https://arxiv.org/abs/2403.04495",
+          "material_read": "Accessible primary PDF; inspected Theorem 1.3, operator and congruence statements, page screenshot",
+          "method": "Primary open text and figure/page visual cross-check",
+          "title": "High order congruences for M-ary partitions",
+          "trigger": "Possible dominating generalized M-ary theorem"
+        },
+        {
+          "assessment": "Different shifted index sequences and fixed depth three; no direct implication of unbounded-r leading unit",
+          "evidence": "Published finding theorem defining G_m(a,b) and cubic coefficients",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-universal-gcds-for-the-four-depth-three-branches-of-m-ary--9f08fd865d9d",
+          "material_read": "Complete published RESULT.md fetched and read, all statements and proof",
+          "method": "Exact repository source file full-text comparison",
+          "title": "Sharp universal gcds for the four depth-three branches of m-ary partition congruences",
+          "trigger": "Potential published exact m-ary branch table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharpens a classical all-power m-ary divisibility statement on the natural base-m all-ones index tower into an explicit nonzero first m-adic digit for every admissible m and depth. Valuation exactness matters in arithmetic partition theory and is not automatic from older divisibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m>=5 gcd(m,6)=1 and all-ones indices only; finite checks corroborate rather than prove unbounded r.",
+    "Historical formula might be recoverable from previously published general higher-power algorithms."
+  ],
+  "schema_version": 1
+}

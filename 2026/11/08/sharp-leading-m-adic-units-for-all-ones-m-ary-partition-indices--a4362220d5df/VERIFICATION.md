@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the residue theorem
+# Independent mathematical audit
 
-The attached `verify_partition_units.py` (Python standard library only) was executed to completion; its exact standard output is in `verify_partition_units_output.txt`.
+## correctness
 
-The recurrence checker evaluates the uncolored partition counts with modulus \(m^{R+1}\) for each maximum tested depth \(R\), enough to test all lower depths. It checks all depths from two through nine for \(m=5\), through seven for \(m=7\), through five for \(m=11,13\), through four for \(m=25\), and through three for \(m=35,49\): 29 pairs. Four additional cases use unrelated exact, unrestricted coin-change dynamic programming. A binomial-basis checker confirms 24 integer change-of-basis identities, including the critical two leading coefficients. All tests passed.
+PASS
 
-The finite tests are not an infinite proof. The infinite argument is the operator identity and induction in `RESULT.md`. The check does not evaluate even bases, multiples of three, or arbitrary indices. No independent audit has been performed.
+Formal Euler-product extraction via U_m gives b_m(m^r-1)=[q]H_(r-1). Integral binomial Newton bases yield coefficients α_s(i), with α_s(s)=m^s and α_(i+1)(i)=-(i)(m-1)m^i/2, and α_3(1)=m(m-1)(m-2)/6. The weighted induction m^(k+j-1)|a_(k,j) eliminates j>=2 modulo m^(k+1). Under gcd(m,6)=1, m|α_3(1) and the remaining a_(k,1) recursion gives m^(r-1)((m+1)/2)^(r-2) modulo m^r, a unit for every m>=5 coprime to 6 and all r>=2. Independent recurrence checks of m=5,7,25,35 for bounded depths corroborated; m=3 failure at r=4 correctly excluded.
+
+## originality
+
+PASS
+
+Rødseth–Sellers gives prior m^(r-1) divisibility and the integral operator method, but this leaves the next base-m digit indeterminate. Żmija 2024 extends divisibility bounds to other bases and 2017 gives higher-power algorithms; no inspected theorem states the uniform closed leading unit for arbitrary r. Related published m-ary four depth-three branch gcds are for differently shifted indices and do not imply this exact all-ones unit. Search incompleteness remains.
+
+## value
+
+PASS
+
+Sharpens a classical all-power m-ary divisibility statement on the natural base-m all-ones index tower into an explicit nonzero first m-adic digit for every admissible m and depth. Valuation exactness matters in arithmetic partition theory and is not automatic from older divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

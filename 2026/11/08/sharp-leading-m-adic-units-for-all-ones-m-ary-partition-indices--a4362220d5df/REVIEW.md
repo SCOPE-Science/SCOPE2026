@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete formal-series argument yields \(b_m(m^r-1)=[q]H_{r-1}\). An integral polynomial basis and a weighted coefficient divisibility induction eliminate all but one coefficient modulo \(m^r\); the remaining coefficient obeys an explicit one-step recursion. The factor \(\binom m3\) is divisible by \(m\) precisely under the needed restriction \(\gcd(m,6)=1\), closing the critical case. The proof is for every \(m\ge5\) in the domain and all \(r\ge2\), not an extrapolation. Three independent computational cross-check components reproduced 29 normalized residues, four direct coin-change values, and 24 exact binomial identities.
+## correctness
 
-## Originality — PASS within inspected evidence
-Rødseth–Sellers (2001) gives divisibility and the operator/basis machinery, but not the sharp first unit at all-ones indices. Żmija (2024, arXiv:2403.04495) proves generalized divisibility, not an all-power normalized leading residue; Żmija (2017, arXiv:1710.04303) gives higher-power computation methods and a low-power explicit statement rather than this uniform all-power formula. Searches covered alternative statements as exact valuations, sharp congruences, \(m\)-adic leading digits, and generalized \(M\)-ary limits. Indexed records did not exhibit covering work; that failure alone does not establish global uniqueness. Potential older or unindexed equivalent deductions remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The known congruence states only vanishing modulo \(m^{r-1}\); the result determines an explicit, nonzero first digit modulo \(m\) for every depth. It proves the lower divisibility exponent is optimal in a natural all-ones digit family, completely classifies the prime-adic valuation for all primes at least five at these indices, and shows the leading digit follows a finite multiplicative-order orbit as depth grows. This is a sharp arithmetic refinement rather than a substitution or arbitrary finite computation.
+Formal Euler-product extraction via U_m gives b_m(m^r-1)=[q]H_(r-1). Integral binomial Newton bases yield coefficients α_s(i), with α_s(s)=m^s and α_(i+1)(i)=-(i)(m-1)m^i/2, and α_3(1)=m(m-1)(m-2)/6. The weighted induction m^(k+j-1)|a_(k,j) eliminates j>=2 modulo m^(k+1). Under gcd(m,6)=1, m|α_3(1) and the remaining a_(k,1) recursion gives m^(r-1)((m+1)/2)^(r-2) modulo m^r, a unit for every m>=5 coprime to 6 and all r>=2. Independent recurrence checks of m=5,7,25,35 for bounded depths corroborated; m=3 failure at r=4 correctly excluded.
 
-## Limitations and overlap risk
-The theorem excludes even bases and bases divisible by three and does not provide arbitrary-index valuations. Its operator setup is classical. Exact equivalences hidden in older methods or unindexed sources cannot be categorically ruled out; the 1970 Rødseth original was compared through its later precise restatement rather than its complete primary text. Proof and code were checked only for the statement in the accompanying result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rødseth–Sellers gives prior m^(r-1) divisibility and the integral operator method, but this leaves the next base-m digit indeterminate. Żmija 2024 extends divisibility bounds to other bases and 2017 gives higher-power algorithms; no inspected theorem states the uniform closed leading unit for arbitrary r. Related published m-ary four depth-three branch gcds are for differently shifted indices and do not imply this exact all-ones unit. Search incompleteness remains.
+
+## value
+
+PASS
+
+Sharpens a classical all-power m-ary divisibility statement on the natural base-m all-ones index tower into an explicit nonzero first m-adic digit for every admissible m and depth. Valuation exactness matters in arithmetic partition theory and is not automatic from older divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
