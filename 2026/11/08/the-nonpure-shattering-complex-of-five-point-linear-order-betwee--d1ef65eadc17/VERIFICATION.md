@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Finite calculation and trace verification
+# Independent mathematical audit
 
-The attached source `check_betweenness5.py` is Python 3 standard-library code. Execute it in the same directory as `facet_orbits.tsv` and `witness_4.tsv` using `python3 check_betweenness5.py`.
+## correctness
 
-The script independently enumerates the complete permutation set both by recursive insertion and by direct generation; it independently evaluates betweenness by strict positional intervals and by contrasting pairwise comparisons. It compares the exact resulting concept-row sets. For three, four, and five labels it tests every candidate query subset at each potentially shattered size and checks the complete shattering polynomials. For five labels it exhaustively rules out all \(142506\) five-query supports, and monotonicity excludes every larger support. The result is a complete finite proof of the displayed face polynomial.
+PASS
 
-The script enumerates all facets and the natural \(S_5\) action on query coordinates, expands the twenty-five provided orbit representatives, checks their disjointness and exact coverage, and reconstructs the entire complex from their downward closures. It also verifies each of the sixteen explicit response/witness rows in `witness_4.tsv`.
+The 30 unordered-endpoint/middle queries on five labels have exactly 60 distinct response rows, since each of 120 linear orders identifies with its reversal. Independently enumerated every k-subset of query coordinates for k<=5 (including all 142506 five-subsets) and compared all 2^k traces; obtained face vector (1,30,405,2700,510,0). Downward closure excludes all larger supports. Independently tested immediate extensions, identifying 1530 maximal triples and 510 maximal quadruples, and the S5 action partitions those into 18 and 7 orbits. Direct pair counting gives C(30,2)-10 C(3,2)=405; witness gives VC>=4. These exhaustive finite calculations prove this specified finite-instance result, not a theorem for arbitrary n.
 
-Observed successful output: `BETWEENNESS5_PASS: 30 queries, 60 concepts, face counts 1,30,405,2700,510; facets 1530+510; 25 facet orbits; all 142506 five-query supports excluded`.
+## originality
 
-This computation proves only the stated small finite cases. It is not a proof of historical originality or a statement of independent mathematical auditing.
+PASS
+
+The exact finite Boolean-query face polynomial, nonpure maximal-face sizes and complete S5 orbit census survive comparison with structural betweenness axioms, adaptive betweenness dimensions and distinct permutation-order VC notions; originality is historical best-of-knowledge, not proof of absence.
+
+## value
+
+PASS
+
+Ternary betweenness is a standard natural query concept class. The exact small-order shattering complex provides a sharp VC cutoff, a genuinely nonpure facet structure and 25 symmetry types; the polynomial is not a trivial renaming of general Sauer bounds. This is a motivated complete finite classification rather than an arbitrary slice or a claim of general-n theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: five-label betweenness shattering
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete family of \(120\) linear orders of five points is generated in two independent ways, and all betweenness rows are checked with two distinct predicates. Reversal yields exactly \(60\) concept rows. Every query support through size five is explicitly inspected, including all \(142506\) five-query supports; downward closure eliminates larger supports. The complete face polynomial is reconstructed both directly from traces and from the fully expanded facet orbit certificate. An independent sixteen-order witness table displays a shattered four-query support. The finite proof does not claim anything for arbitrary numbers of labels.
+## correctness
 
-**Originality — PASS within accessible comparisons.** Courcelle's full-text publications arXiv:2004.10127 and arXiv:2111.15357 concern axiomatization and definability of order-theoretic betweenness. Raz's 2000 permutation shattering predicate is not the binary ternary-betweenness predicate. The exact five-point polynomial, classification of both maximal-face layers and the twenty-five permutation orbits were not found in those materials or in the consulted research-index and web searches. Exact databases and older feasibility papers remain residual priority risks, and no search is represented as a mathematical uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** Strict linear-order betweenness is a canonical ternary relation studied in logic and constraint satisfaction, but aggregate VC dimension alone loses the complete configuration information. The five-label class has a fully explicit nonpure shattering complex, with \(1530\) maximal triples despite the existence of \(510\) maximal quadruples. This provides a natural finite model and a full orbit certificate for testing conjectures about the geometry of learnable betweenness constraints, without requiring a paper-sized general theorem.
+The 30 unordered-endpoint/middle queries on five labels have exactly 60 distinct response rows, since each of 120 linear orders identifies with its reversal. Independently enumerated every k-subset of query coordinates for k<=5 (including all 142506 five-subsets) and compared all 2^k traces; obtained face vector (1,30,405,2700,510,0). Downward closure excludes all larger supports. Independently tested immediate extensions, identifying 1530 maximal triples and 510 maximal quadruples, and the S5 action partitions those into 18 and 7 orbits. Direct pair counting gives C(30,2)-10 C(3,2)=405; witness gives VC>=4. These exhaustive finite calculations prove this specified finite-instance result, not a theorem for arbitrary n.
 
-**Closest literature and limitations.** Courcelle (2020, 2021) studies definability/axiomatization; Raz (2000) studies multivalued restrictions of permutation families; Chor–Sudan (1998) studies betweenness feasibility. The precise finite face census is not an immediate consequence of their stated theorems. Some older primary full texts were inaccessible, and the numerical census might conceivably appear under alternate terminology. The proof is a fully reproducible finite classification, and external audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite Boolean-query face polynomial, nonpure maximal-face sizes and complete S5 orbit census survive comparison with structural betweenness axioms, adaptive betweenness dimensions and distinct permutation-order VC notions; originality is historical best-of-knowledge, not proof of absence.
+
+## value
+
+PASS
+
+Ternary betweenness is a standard natural query concept class. The exact small-order shattering complex provides a sharp VC cutoff, a genuinely nonpure facet structure and 25 symmetry types; the polynomial is not a trivial renaming of general Sauer bounds. This is a motivated complete finite classification rather than an arbitrary slice or a claim of general-n theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
