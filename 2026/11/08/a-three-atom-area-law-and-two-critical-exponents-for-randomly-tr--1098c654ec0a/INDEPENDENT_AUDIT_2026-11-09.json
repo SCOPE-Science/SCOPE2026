@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T21:56:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 26c90448eb9454db69762cc2ee9f6af41f6260e8, geometric proof and asymptotic expansion",
+        "Frozen verify.py blob ee3f0d9c3851a05d620a558ef3358b72e35ed0e1",
+        "Independent vertical-slice quadrature at three real radii comparing with geometric lens and fourfold closed form"
+      ],
+      "rationale": "For U in (0,1)^2 and radius R<1, all integer sites inside the disk belong to the four enclosing square vertices. The squared-distance parallelogram identity rules out an included diagonal pair without any point of the other diagonal; consequently the area is (I_diagonal1+I_diagonal2)/2. A diagonal event has ordinary equal-circle lens area L_R and the four-corner event has exact intersection area Q_R obtained by integrating the largest-corner-distance inequality x²+y²+|x|+|y|<=R²-1/2. Inclusion-exclusion yields exactly masses (1-2L+Q,2(L-Q),Q) on (0,1/2,1). Independent numerical slicing agreed with closed L,Q at R=.75,.82,.99 to <5e-7. Near onset δ=R²-1/2, lens geometry gives L~4sqrt(2)/3 δ^(3/2), fourfold diamond gives Q~2δ². The R=1/sqrt(2) measure-zero boundary is treated, and R>=1 is excluded. Monte Carlo/grids corroborate, not prove, continuous formula.",
+      "residual_risks": [
+        "The word boundary length is defined only for two-dimensional hulls, with zero by convention for degenerate hulls.",
+        "The formula does not extend at R>=1, where additional lattice points have positive chance to enter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original randomized integer hull papers give large-dilation bounds for vertex count/missed area/mean width, not exact first-chamber distribution.",
+          "Huxley–Žunić abstract explicitly counts number of distinct disk digitisations asymptotically as radius grows."
+        ],
+        "reasoning": "Generality in underlying convex body does not mean exact distribution on the small fixed disk regime. A source with an inaccessible full text is not declared globally noncovering.",
+        "searches": [
+          "Bárány Matoušek The Randomized Integer Convex Hull (2005)",
+          "Ngoc Reitzner Expected mean width of randomized integer convex hull arXiv:2003.06864",
+          "Huxley Zunic 2006 DOI:10.1007/s10208-005-0177-y"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00454-003-0836-1 (Bárány–Matoušek 2005)",
+        "arXiv:2003.06864 (Ngoc–Reitzner)",
+        "DOI:10.1007/s10208-005-0177-y",
+        "DOI:10.1007/s10851-018-0846-5 (Baudrier–Mazo)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting combinatorially distinct translated disk digitizations for large R is not a probability distribution of convex-hull area under Haar-uniform translation.",
+          "Large-body first moment estimates cannot recover exact three-point area law and conditional square onset coefficient."
+        ],
+        "reasoning": "Known circle lens geometry is properly credited as elementary input; its nontrivial union into a complete area distribution and two critical exponents is the surviving claim.",
+        "searches": [
+          "Bárány Matoušek 2005 primary article relevant main estimates",
+          "Ngoc Reitzner 2020 arXiv primary main results",
+          "Huxley Zunic 2006 public abstract and institutional-access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-atom law is equivalently a joint distribution of the two diagonal-pair coverage indicators.",
+          "Earlier digitization work counts distinct configurations up to translation, not the area measure of shifts giving each hull area."
+        ],
+        "reasoning": "A finite pattern enumeration can identify support {0,1/2,1} but not automatically measure the probability of each pattern or the onset exponents.",
+        "searches": [
+          "Resultary semantic: randomly translated lattice disk convex hull area R<1 triangle square lens threshold 1/sqrt2",
+          "Different Digitisations of Displaced Discs Huxley Zunic 2006",
+          "Baudrier Mazo 2019 Gauss digitization translation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical table of three hull-area atom probabilities or onset coefficients was returned among relevant published Resultary findings.",
+          "The source scripts and geometric identities were independently checked but do not constitute earlier published literature."
+        ],
+        "reasoning": "No checked finite digitization table gave probability weights for all real R in (1/sqrt2,1); a negative search leaves historical risk.",
+        "searches": [
+          "Resultary semantic: exact short radius lattice disk hull area distribution",
+          "Huxley Zunic 2006 digitization pattern counts",
+          "Baudrier Mazo 2019 translated Gauss digitization"
+        ]
+      },
+      "rationale": "Small-radius lattice-disc digitization is a classic geometric model, but inspected primary prior results concern numbers of distinct translations/digitizations, large-radius expectations and asymptotic approximation. These do not determine shift-measure probabilities of exact hull area, much less both critical exponents. The closest Huxley–Žunić article could not be read in full; this is a recorded priority risk rather than evidence of novelty.",
+      "residual_risks": [
+        "Full 2006 Huxley–Žunić paper inaccessible; Oxford institutional VPN disconnected, job 3973f238ce38f2a3cd09bec4756c5cbc; no bypass attempted.",
+        "The elementary four-point geometry may have been independently enumerated in unindexed digital-geometry literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different regime/invariants",
+          "evidence": "Large-body approximations cannot directly yield exact fixed R<1 shift-area masses.",
+          "identifier_or_url": "DOI:10.1007/s00454-003-0836-1 (Bárány–Matoušek 2005)",
+          "material_read": "Full primary author PDF, main theorems on large convex bodies and missed area",
+          "method": "primary full text relevant theorems",
+          "title": "The Randomized Integer Convex Hull",
+          "trigger": "Same random shifted lattice hull"
+        },
+        {
+          "assessment": "Different mean-width statistic and large-body regime",
+          "evidence": "Support function/mean width expectations do not determine the three-atom planar area law.",
+          "identifier_or_url": "arXiv:2003.06864 (Ngoc–Reitzner)",
+          "material_read": "Primary arXiv text relevant mean-width theorems",
+          "method": "primary full-text statements",
+          "title": "Expected mean width of the randomized integer convex hull",
+          "trigger": "Same hull model"
+        },
+        {
+          "assessment": "Priority risk, not certified not-covering",
+          "evidence": "Public abstract reports asymptotic number 4πR²+error of distinct digitizations; unknown whether full article treats short radii.",
+          "identifier_or_url": "DOI:10.1007/s10208-005-0177-y",
+          "material_read": "Abstract and Cardiff ORCA repository record only; full article not obtained",
+          "method": "primary abstract/repository metadata, Oxford attempt returned VPN disconnected",
+          "title": "Different digitizations of displaced discs",
+          "trigger": "Same shifted lattice disk input"
+        },
+        {
+          "assessment": "Does not directly provide area-probability law in inspected sections",
+          "evidence": "Pattern multiplicity under varying shifts and hull-area distribution are different numerical observables.",
+          "identifier_or_url": "DOI:10.1007/s10851-018-0846-5 (Baudrier–Mazo)",
+          "material_read": "Author-posted primary relevant sections on disk digitizations and pattern counts",
+          "method": "full-text pertinent sections",
+          "title": "Combinatorics of the Gauss Digitization Under Translation in 2D",
+          "trigger": "Translated digitization patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 26c90448eb9454db69762cc2ee9f6af41f6260e8, geometric proof and asymptotic expansion",
+        "Frozen verify.py blob ee3f0d9c3851a05d620a558ef3358b72e35ed0e1",
+        "DOI:10.1007/s00454-003-0836-1 (Bárány–Matoušek 2005)",
+        "arXiv:2003.06864 (Ngoc–Reitzner)"
+      ],
+      "rationale": "Radius 1/sqrt2 is the exact first radius for a two-dimensional random lattice hull and R<1 the canonical four-corner chamber. Complete three-atom area and boundary-length laws and distinct triangular/square onset exponents quantify the birth of nondegenerate digital convex hulls, not an arbitrary one-off numeric integral.",
+      "residual_risks": [
+        "Restricted to square lattice, disk, uniform shift and first small-radius chamber."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge historical-priority assessment, with explicitly specified inaccessible primary sources; no external certification.",
+    "Every assigned Git source-tree SHA was fetched and verified against the frozen source snapshot, and substantive RESULT.md and verification scripts were read.",
+    "Individual finite computations corroborate but do not prove unbounded claims.",
+    "No GitHub writes, dispatcher closeout or publication performed; metadata privacy prevents ready import."
+  ],
+  "schema_version": 1
+}

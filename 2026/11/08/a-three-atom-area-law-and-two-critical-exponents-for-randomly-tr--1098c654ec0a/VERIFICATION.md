@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The attached `verify.py` is a standalone Python 3 standard-library script. Run it with `python verify.py` from the directory containing the extracted package. It recomputes geometric hull areas from four-corner membership rather than assuming the three-atom law; numerical quadrature integrates the diagonal-lens and fourfold cross sections independently of the trigonometric formulas. Midpoint grids, seeded Monte Carlo sampling, and near-threshold evaluations provide further consistency checks.
+# Independent mathematical audit
 
-Execution on the delivered script produced `DISPLACED_DISK_HULL_AREA_LAW_CHECKS_PASSED` after radii \(0.65,0.708,0.73,0.80,0.90,0.99\) and separate near-threshold checks. The proof in `RESULT.md` establishes the exact probability law for all real radii \(0<R<1\); neither finite grids nor simulations alone would establish that quantifier. The area-zero convention for degenerate hulls and the almost-sure treatment of boundary ties are explicit. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+For U in (0,1)^2 and radius R<1, all integer sites inside the disk belong to the four enclosing square vertices. The squared-distance parallelogram identity rules out an included diagonal pair without any point of the other diagonal; consequently the area is (I_diagonal1+I_diagonal2)/2. A diagonal event has ordinary equal-circle lens area L_R and the four-corner event has exact intersection area Q_R obtained by integrating the largest-corner-distance inequality x²+y²+|x|+|y|<=R²-1/2. Inclusion-exclusion yields exactly masses (1-2L+Q,2(L-Q),Q) on (0,1/2,1). Independent numerical slicing agreed with closed L,Q at R=.75,.82,.99 to <5e-7. Near onset δ=R²-1/2, lens geometry gives L~4sqrt(2)/3 δ^(3/2), fourfold diamond gives Q~2δ². The R=1/sqrt(2) measure-zero boundary is treated, and R>=1 is excluded. Monte Carlo/grids corroborate, not prove, continuous formula.
+
+## originality
+
+PASS
+
+Small-radius lattice-disc digitization is a classic geometric model, but inspected primary prior results concern numbers of distinct translations/digitizations, large-radius expectations and asymptotic approximation. These do not determine shift-measure probabilities of exact hull area, much less both critical exponents. The closest Huxley–Žunić article could not be read in full; this is a recorded priority risk rather than evidence of novelty.
+
+## value
+
+PASS
+
+Radius 1/sqrt2 is the exact first radius for a two-dimensional random lattice hull and R<1 the canonical four-corner chamber. Complete three-atom area and boundary-length laws and distinct triangular/square onset exponents quantify the birth of nondegenerate digital convex hulls, not an arbitrary one-off numeric integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

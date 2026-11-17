@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof explicitly handles the full real-radius range \(0<R<1\) and the uniform torus shift, including the below-threshold and measure-zero boundary cases. Every included lattice point lies among one fundamental square's four corners. The parallelogram identity forbids a two-point-only diagonal event, giving the exact area-indicator identity. Ordinary two-circle geometry computes the diagonal-pair event, and a direct fourfold intersection integral computes the four-corner event. Inclusion-exclusion yields the complete law; the moments and distinct onset exponents then follow by algebra and two local integrals. Independent numerical slicing and geometric enumeration in `verify.py` corroborate the analytical steps. The proof does not rely on experiments to establish an all-radius claim.
+PASS
 
-## Originality
+For U in (0,1)^2 and radius R<1, all integer sites inside the disk belong to the four enclosing square vertices. The squared-distance parallelogram identity rules out an included diagonal pair without any point of the other diagonal; consequently the area is (I_diagonal1+I_diagonal2)/2. A diagonal event has ordinary equal-circle lens area L_R and the four-corner event has exact intersection area Q_R obtained by integrating the largest-corner-distance inequality x²+y²+|x|+|y|<=R²-1/2. Inclusion-exclusion yields exactly masses (1-2L+Q,2(L-Q),Q) on (0,1/2,1). Independent numerical slicing agreed with closed L,Q at R=.75,.82,.99 to <5e-7. Near onset δ=R²-1/2, lens geometry gives L~4sqrt(2)/3 δ^(3/2), fourfold diamond gives Q~2δ². The R=1/sqrt(2) measure-zero boundary is treated, and R>=1 is excluded. Monte Carlo/grids corroborate, not prove, continuous formula.
 
-**PASS on the inspected record, subject to historical priority risk.** The most relevant full texts, Bárány–Matoušek (2005) and Ngoc–Reitzner (first publicly posted in 2020), treat large-body expected vertices/missed area and mean width, respectively, without an exact three-atom area law for small disk radii. Baudrier–Mazo (2019) analyzes the number and structure of translated digitizations, not probabilities of hull-area values. The Huxley–Žunić (2006) abstract concerns asymptotic counts of distinct disk digitisations, but its full text was not accessible; its possible treatment of small radii remains a genuine residual historical-priority risk. This review does not take negative search results as proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The first positive-area radius and the largest simple four-corner regime are geometrically canonical, not arbitrary parameter choices. The exact three-atom distribution determines every area moment and the two-dimensional boundary-length law. The distinct onset exponents of triangular and square hulls quantify how the random lattice first produces a nondegenerate polygon, providing a precise small-radius counterpart to established large-dilation hull approximation theory. These structural facts are not implied by the previously inspected asymptotic estimates.
+Small-radius lattice-disc digitization is a classic geometric model, but inspected primary prior results concern numbers of distinct translations/digitizations, large-radius expectations and asymptotic approximation. These do not determine shift-measure probabilities of exact hull area, much less both critical exponents. The closest Huxley–Žunić article could not be read in full; this is a recorded priority risk rather than evidence of novelty.
 
-## Limitations and closest literature
+## value
 
-The theorem is confined to Euclidean circular disks of radius below one lattice unit and the square lattice, with uniform translation. It neither proves an all-radius formula nor supplies independent validation. The most important unresolved comparison is the full text of the 2006 paper on displaced disk digitization patterns, which was inaccessible; its abstract does not establish a competing area law. The 2019 paper on translation digitization was text-accessible and studied in its relevant disk and combinatorial sections. Only scientific claims contained in material actually inspected are used here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Radius 1/sqrt2 is the exact first radius for a two-dimensional random lattice hull and R<1 the canonical four-corner chamber. Complete three-atom area and boundary-length laws and distinct triangular/square onset exponents quantify the birth of nondegenerate digital convex hulls, not an arbitrary one-off numeric integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
