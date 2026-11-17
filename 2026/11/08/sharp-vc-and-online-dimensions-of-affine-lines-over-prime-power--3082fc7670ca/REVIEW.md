@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every pair has explicit four trace witnesses. For any three points sharing a free affine line, a least-valuation parameter difference supplies a pair whose membership in any free affine line forces the third. This excludes all triples. For the adaptive dimension, the projective direction reductions form a height-\(e\) nested cylinder tree: every nontrivial positive pencil query is one cylinder; a full pencil and a pencil minus one leaf each support depth \(e\), while the all-positive spine forbids depth \(e+1\). A first point query then gives matching \(e+1\) bounds for all affine lines. Source code replayed against actual concepts, and there is no dependence on extrapolation.
+## correctness
 
-**Originality — PASS on inspected sources, with residual historical risk.** The 2021 Guingona–Kolesnikov–Nierwinski–Soucy theorem applies to field-valued zero sets; it cannot be invoked for free affine lines over \(\mathbb Z/p^e\mathbb Z\) with \(e>1\). The 2023 Bajalan–Landjev–Rousseva study concerns rank of a projective Hjelmslev incidence matrix, not adaptive mistake trees. The 2021 Ghazi–Golowich–Kumar–Manurangsi bounds concern Boolean closure and do not yield the exact ring-depth law. Actual web and mathematical-record searches using alternative terminology did not return matching statements. Complete coverage of specialized/unindexed Hjelmslev and model-theoretic literature remains unproved; the 2023 Hjelmslev text was accessible only as its abstract.
+PASS
 
-**Value — PASS.** A natural primitive-line incidence family over finite chain rings has stable static VC dimension two but adaptive dimension growing with the ring's nilpotency exponent. This provides a precise unbounded separation in a standard geometry and identifies the p-adic direction-tree mechanism. Neither an arbitrary slice nor a small numerical increment is used.
+For R=Z/p^eZ, primitive vector directions form P¹(R) with p^{e-1}(p+1) elements, each direction has q=p^e cosets of q points. Every nonzero difference has a unique valuation r<e, permitting a containing free line; distinct reduction-mod-p direction lines through either endpoint and a parallel unused coset yield the other three traces, hence every pair shattered. For three collinear points, choose a pair of minimum p-valuation parameter difference; its affine R-line span must contain the third, prohibiting a size-2-only trace. Ldim pencil=e since membership of an extra point within a pencil is a nested direction cylinder in the p-adic direction hierarchy, and strict positive query cylinders cannot refine >e times; depth-e witness uses at least two children at each level. A punctured pencil also retains depth e (first-level p+1>=3 children). Querying a first gives one full and one punctured pencil, making global Ldim=e+1; upper from positive-branch pencil. Independent finite line enumerations: (p,e)=(2,1),(2,2),(3,1) have respectively 6,24,12 distinct lines as expected, consistent with the pinned finite checker. These finite cases do not imply the universal claim.
 
-The computational checker verifies all two- and three-point supports in six finite ring parameters, exact minimax values for three small cases, and explicit depth witnesses in six cases. This supports, but does not certify independently, the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Field theorems on zero sets and affine flats have equal VC and Littlestone dimensions, but their field hypotheses exclude nonzero nilpotents and cannot imply the growth e+1. Hjelmslev plane incidence p-rank results concern linear-algebra rank, not online mistake trees. Targeted Resultary semantic searches found the proposed theorem itself, nearby finite-field shattering studies, and no earlier exact chain-ring online rank theorem. Best-of-knowledge O PASS; potential model-theoretic general laminar-family results might prove a broader version.
+
+## value
+
+PASS
+
+Free affine lines are a canonical natural incidence family over residue rings. Their VC=2 but Littlestone=e+1 shows a sharp unbounded learnability separation with ring nilpotency depth; the exact support polynomial and complete pencil classification supply meaningful structural information not available from small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
