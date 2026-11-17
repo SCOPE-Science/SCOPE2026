@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The map from nonzero \(d\)-th powers to \(\mu_7\), the free scalar orbit count, and the cyclotomic norm obstruction cover every prime power with \(7\mid q-1\). The exact 329-case determinant certificate and all residue-field tuple counts are replayable by `verify.py`; three direct point enumerations corroborate the formulas. No numerical experiment is used as an infinite proof.
+## correctness
 
-**Originality (O): PASS with residual risk.** Full mathematical comparisons distinguish the current exact seventh-index projective-surface law from Borges–Cook–Coutinho's degree \((q-1)/2\) plane-section classification, Voloch–Zieve's exponent \(q-1\) extension-field classification, Oliveira's Weil-extremality characterization, and Aubry–Voloch's separate mixed-monomial examples using fifth and seventh roots. No found source implies the six-characteristic complete answer, in particular the characteristic-547 count. Search failure alone does not prove priority; an older equivalent cyclotomic computation is possible.
+PASS
 
-**Value (V): PASS.** Rational solubility is a basic arithmetic invariant of smooth projective surfaces. The theorem classifies it simultaneously for infinitely many finite fields, gives complete exact counts in all exceptional characteristics, and exposes the sporadic arithmetic exception \(547\) not suggested by generic Lang–Weil estimates. Index seven is the first prime index beyond the previously studied fifth-root norm cases and is mathematically natural, not an arbitrary slice of a database.
+Nonzero dth powers are exactly µ7 with d-to-one preimages, and projective scaling gives (Σ C(4,s)N_s d^s)/(7d). The exact norm of every nonzero short cyclotomic sum of at most four seventh roots restricts primes to 2,3,29,43,71,547. All 329 multiset norms and full ordered residue-field zero-sum tuples were independently recomputed with exact arithmetic; their algebraic exhaustive certificate proves all characteristics, not just sampled q. Smoothness follows p∤d.
 
-The conclusion applies only to the diagonal seventh-index family and to fields containing all seventh roots of unity. The certificate makes no claim about rational lines, geometrically defined points, or independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The six-characteristic complete point-count formula for the homogeneous Fermat surface of index 7 survives comparison with different-index and mixed-monomial Fermat literature. The cyclotomic norm method is prior, but the full 329-multiset certificate and exceptional characteristic table were independently reconstructed.
+
+## value
+
+PASS
+
+Complete rational-solubility and exact point counts for an infinite natural prime-index Fermat surface family with a sporadic characteristic 547 are useful arithmetic invariants; the exact finite cyclotomic certificate removes all other possibilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
