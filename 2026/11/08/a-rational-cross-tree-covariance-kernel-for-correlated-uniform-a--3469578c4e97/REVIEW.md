@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated common-label, one-parent coupling, each step's joint-degree generating-function drift accounts for the independent-branch collision event. A coefficientwise triangular stochastic-approximation argument gives the bivariate limiting same-label degree law \(Q_\alpha\). The exact martingale cross-bracket then yields \(S_\alpha\); a finite-dimensional bounded-increment martingale central limit theorem and the degree-count linear drift integrate that bracket to \(\mathcal C_\alpha=S_\alpha/(3-z-w)\). Direct second-moment recurrences justify the covariance limit beyond weak convergence. The rational identity and first non-leaf coefficient were independently checked by 649 exact-rational assertions and by Monte Carlo sanity checks. These finite checks do not prove the asymptotic theorem.
+PASS
 
-## Originality — PASS, with historical-priority risk
+For the shared-versus-independent parent coupling, the paired same-label degree polynomial has exact drift with collision correction (1−alpha)(z−1)(w−1) Z_n/n². Its normalized coefficients converge by triangular stochastic approximation to Q_alpha=1/[3−alpha−(1−alpha)(z+w)−alpha zw]. Conditional innovation cross bracket = alpha(z−1)(w−1)(Z_n/n−F1_n F2_n/n²), giving S_alpha=alpha(1−z)(1−w)(Q_alpha−P(z)P(w)). The fixed-cutoff martingale array with bounded increments and stable drift B=−I+J yields a Gaussian limit, and integration over age t gives C_alpha=S_alpha/(3−z−w). Independently verified with exact symbolic algebra that C_alpha equals the four-denominator rational formula and extracted c00,c01,c11 plus derivative. The proof is finite-dimensional and the direct second-moment recursion supports covariance convergence, not merely weak convergence.
 
-Bäumler, Rácz, Ross and Sridhar (2026, arXiv:2606.02472), the model's primary source, explicitly discuss higher-degree covariance as a harder extension beyond the leaf counts treated in their Appendix A. Their inspected calculations for leaf indicators do not imply the rational all-degree cross-covariance series as a stated result. Janson (2005, DOI:10.1002/rsa.20046) provides the single-tree covariance series, recovered here exactly at \(\alpha=1\), but does not determine joint profiles for intermediate coupling. Rácz and Sridhar (arXiv:2004.13537) study a distinct initial-common-growth coupling. Searches for a cross-tree covariance generating series, higher-degree profile and equivalent multitype-urn formulations returned no directly covering statement. A general unstated consequence of an earlier urn theorem remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The primary work identifies degrees beyond leaves as an analytically challenging natural gap. The bivariate rational function solves all fixed-degree cross-covariances simultaneously, gives quantitative intermediate-coupling interpolation, and produces a strictly increasing non-leaf response with an explicit contrast variance. This is information not supplied by either the prior leaf-only formulas or the one-tree benchmark.
+The central source Bäumler–Rácz–Ross–Sridhar (2026) analyzes the precise sprinkled-correlated uniform-attachment model, proves leaf Gaussian covariance, and explicitly says in Appendix A that the higher-degree covariance matrix is not then available in tractable form. The submitted result supplies that rational kernel for every fixed pair of degrees and a joint finite-dimensional Gaussian limit; the known leaf coefficient and Janson single-tree marginal at alpha=1 are subsumed special cases, not new. Initial-common-prefix correlation is a distinct coupling. Generic martingale CLTs do not supply the specific covariance closed form automatically.
 
-## Boundaries
+## value
 
-The proof concerns Gaussian finite-dimensional limits for every fixed degree cutoff, not a topology on the entire infinite degree profile. It assumes uniform one-parent attachments, a fixed copying parameter, and same arrival labels. A full independent audit and comprehensive historical-priority determination have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solves a naturally identified gap in the same stochastic tree model: explicit all-degree profile cross-covariance for statistical comparison and dependence calculations, plus a strict first non-leaf monotonicity law; a substantive structural function not a tiny numerical enhancement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

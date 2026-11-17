@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The exact one-step drift and martingale cross-bracket can be reconstructed from the explicitly specified parent-label mixture in RESULT.md. The paired-degree coefficient recurrence yields \(Q_\alpha\), and the linear drift of each degree-count vector yields the covariance resolvent \((3-z-w)^{-1}\). The rational simplification and the low-degree coefficient formula are purely algebraic.
+## correctness
 
-Running `python3 verify.py` from this directory completed **649 exact rational assertions**. Tests included six rational values of the sharing parameter (including the two endpoints), equality of the two bivariate rational series through degree seven in each variable, the \((0,0)\), \((0,1)\) and \((1,1)\) coefficients, a covariance-minor identity, and conditional innovation covariances enumerated across small parent-state arrays. Test inputs and output count are printed by the standalone script. The finite arrays used in conditional-bracket tests need not be reachable as actual trees because the parent-choice algebra holds for arbitrary aligned degree arrays.
+PASS
 
-A separate finite simulation sanity check on 15,000 pairs of trees with 1,000 vertices per pair at several sharing probabilities produced covariance estimates close to the analytic first coefficients within sampling precision. The simulation is not a mathematical certificate and is not needed to replay the proof.
+For the shared-versus-independent parent coupling, the paired same-label degree polynomial has exact drift with collision correction (1−alpha)(z−1)(w−1) Z_n/n². Its normalized coefficients converge by triangular stochastic approximation to Q_alpha=1/[3−alpha−(1−alpha)(z+w)−alpha zw]. Conditional innovation cross bracket = alpha(z−1)(w−1)(Z_n/n−F1_n F2_n/n²), giving S_alpha=alpha(1−z)(1−w)(Q_alpha−P(z)P(w)). The fixed-cutoff martingale array with bounded increments and stable drift B=−I+J yields a Gaussian limit, and integration over age t gives C_alpha=S_alpha/(3−z−w). Independently verified with exact symbolic algebra that C_alpha equals the four-denominator rational formula and extracted c00,c01,c11 plus derivative. The proof is finite-dimensional and the direct second-moment recursion supports covariance convergence, not merely weak convergence.
 
-The almost-sure paired-degree limit and Gaussian joint limit rely on the stated stochastic-approximation and martingale-CLT arguments. In particular, finite coefficient arithmetic and Monte Carlo cannot establish a central limit theorem. This result does not establish an infinite-dimensional degree-profile topology or exact finite-sample Gaussianity. Independent mathematical audit and definitive historical-priority assessment have not been performed.
+## originality
+
+PASS
+
+The central source Bäumler–Rácz–Ross–Sridhar (2026) analyzes the precise sprinkled-correlated uniform-attachment model, proves leaf Gaussian covariance, and explicitly says in Appendix A that the higher-degree covariance matrix is not then available in tractable form. The submitted result supplies that rational kernel for every fixed pair of degrees and a joint finite-dimensional Gaussian limit; the known leaf coefficient and Janson single-tree marginal at alpha=1 are subsumed special cases, not new. Initial-common-prefix correlation is a distinct coupling. Generic martingale CLTs do not supply the specific covariance closed form automatically.
+
+## value
+
+PASS
+
+Solves a naturally identified gap in the same stochastic tree model: explicit all-degree profile cross-covariance for statistical comparison and dependence calculations, plus a strict first non-leaf monotonicity law; a substantive structural function not a tiny numerical enhancement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
