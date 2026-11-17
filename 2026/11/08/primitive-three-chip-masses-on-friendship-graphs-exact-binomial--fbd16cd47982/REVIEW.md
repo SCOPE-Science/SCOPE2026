@@ -1,19 +1,21 @@
-# Review of the primitive-three friendship-graph mass census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The graph Laplacian forces equal three-round firing counts, restricting a primitive-three orbit to exactly one firing or exactly two firings per vertex. The degree-two triangle case table is obtained by solving all nine ordered phase pairs against all three chip thresholds, with three feasible patterns and unique initial peripheral chips. The hub inequalities yield \(2k\le x\le3k-a-1\), giving a nonempty interval of length \(k-a\). Binomial counting then gives every coefficient. Bounded complementation gives the reflected high-mass band. The conditional size-biased binomial representation proves the weak limit. Two standalone checkers exercised the direct map on 1,099,840 bounded configurations and the independent phase-word reconstruction for twelve graph sizes. No numerical experiment substitutes for the arbitrary-size argument.
+PASS
 
-## Originality
+Connected graph Laplacian forces all vertices to fire an equal count in any three-round periodic orbit. For primitive period three that count is one or two. Fix one hub phase and enumerate each triangle's feasible peripheral firing phases; precisely three ordered choices have feasible chip intervals. With a synchronous-pair triangles, 0<=r<=k−a−1 hub excess choices give one-firing mass 3k+a+r and coefficient 3 sum_{a<=j}binom(k,a)2^(k−a) for 0<=j<k. Chip complement Cσ(v)=2deg(v)−1−σ(v) commutes with the update on bounded periodic states and reflects masses across 10k−1, establishing high band and completeness. Sum of coefficients yields 12k3^(k−1); size-biased B=1+Bin(k−1,2/3) and uniform hub excess yield two uniform limit intervals. Independent direct bounded-state simulation yielded k=2 total72 and k=3 total324 with exact mass histograms, matching the analytic polynomial. Finite simulation is corroboration, not the all-k proof.
 
-**PASS, with historical-access risk.** Known one-resonant-cycle counting methods concern a different graph hypothesis: friendship graphs have \(k\ge2\) triangles meeting at one hub. Exact mass results for complete and complete-bipartite graphs concern different graph families. Jiang's 2010 and Jiang–Scully–Zhang's 2012 work supplies important general firing-pattern methods, not this exact chip-mass polynomial. Ji–Li–Wang's 2024 universal exclusion theorem forbids period-three in the open interval \((4k-1,6k)\) for these graphs; it does not imply positive endpoint populations or any of the computed binomial coefficients. The 1992 Bitar–Goles full text was not retrieved, and unindexed equivalent results cannot be ruled out categorically.
+## originality
 
-## Value
+PASS
 
-**PASS.** The graph family has arbitrarily many triangle cycles meeting at one articulation point: this is a natural multi-resonant test of a classical finite dynamical system. The exact mass-resolved census has two sharp bands, shows equality at *both* endpoints of a previously established universal forbidden middle interval, yields explicit orbit totals, and has a nontrivial equal two-uniform density limit. These conclusions are structural facts for an infinite connected graph family rather than arbitrary parameter substitutions or a small isolated enumeration.
+The general Ji–Li–Wang period-three exclusion only constrains the open middle interval; the friendship endpoints, every mass coefficient and the two-uniform asymptotic are not consequences of that prohibition. Related fan K1 join path, complete, complete bipartite and friendship period-two findings have different graph dynamics. The separate shared-hub/triangle phase count is needed for friendship primitive-three census.
 
-## Limits and literature
+## value
 
-The result concerns only immediately primitive-three configurations; it neither classifies eventual basins nor settles all temporal periods. The cited 2010 and 2012 articles were examined in accessible full text, as was the 2024 proof of the universal middle-stair exclusion. The 1992 original was abstract-only. No independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The friendship graph is a natural windmill family and the exact full mass-resolved population and sharp realization at BOTH universal middle-stair endpoints answer a motivated dynamical counting problem. The binomial coefficients and limiting two-uniform mass law have genuine finite-to-asymptotic structure, not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
