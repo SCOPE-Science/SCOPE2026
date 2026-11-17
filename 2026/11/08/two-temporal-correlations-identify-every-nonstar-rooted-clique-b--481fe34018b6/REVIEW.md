@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two-time observation correlations are reduced to stationary equal-time pair correlations, whose three orbit equations follow from an exhaustive count of two independent neighbor choices. Solving the orbit equations gives the stated inversion. The key sign is \(v-w\ge0\), established by the displayed positive rational identity for all integer \(s\ge2\), \(q\in(0,1)\), and \(u\in[0,1]\). Then \(H=1-w+(s-1)(v-w)>0\), making blade count strictly identifiable and the inversion denominator nonzero. Uniform fair-refresh probability makes the finite chain irreducible and aperiodic, so empirical temporal correlations converge almost surely. The packaged exact-rational checker was replayed: 33 parameter cases passed. Infinite claims are proved algebraically, not inferred from finite checks.
+PASS
 
-## Originality — PASS, qualified
+Unique stationary law follows strictly positive refreshing transition matrix. Independent exact rational substitution tested the reduced three-pair correlation system and inversion for every (s,m) in {2,3,4}x{1,2,3,5}, copying c=2/3. Identity v-w=q(s-2)(s^2-q[s^2-2s+2+2(s-1)u])/(D_vD_w) and reconstructed m denominator equality were independently verified symbolically. Because 0<u<1, two lags recover s=(1-u)/(r2/q-u); H(u)=1-w+(s-1)(v-w)>0 makes u strictly decreasing in m and denominator positive. Centered star has r1=0,r2=q by alternating ancestry; all-star process does not depend on leaf count by independent symmetric leaf refresh. Finite checks supplement all-parameter contraction/ergodic proof.
 
-The most relevant source is Benjamini–Helman Tov–Zhukovskii, arXiv:2207.01224 (original public version dated 2022-07-04), whose actual HTML sections 2, 4.1 and 6 were read. Their complete-graph theorem covers the blade count one subfamily and their complete-bipartite theorem covers centered stars, but neither theorem implies reconstruction for multiple clique blades. Their broad distinguishability statement for general graphs is a conjecture, not a theorem. The other materially inspected source, Pymar–Rivera arXiv:2112.01478, uses an asynchronous single-site-update noisy voter chain and studies global density, rather than synchronous single-site lag correlations. Exact and alias searches, including a mathematical-record search of clique bouquets/windmills and noisy voter correlations, located no equivalent parameter inversion. This is best-knowledge originality, not a claim of exhaustive historical priority. A general correlation identity alone does not imply this monotonicity and two-parameter recovery without the graph-specific calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The original local-versus-global observation question asks when a complete graph can be identified while observing one node. This result gives a natural complete classification of a two-parameter family of highly clustered block graphs, including a sharp and necessary observational exception: every centered star yields exactly the same two correlations. It explicitly separates the clique size from the number of blades, proves a uniform strict comparison for all noise strengths and all graph sizes, and provides directly estimable statistics. It is an infinite exact identification theorem rather than a routine isolated numerical example.
+Earlier hub observation work treats complete graphs and star degeneracy and proposes general graph identification; it does not give both inversion formulas on all clique bouquets. The closest windmill paper uses asynchronous rate-one updates and spatial stationary pair correlations; an update-rule change fundamentally alters the equations, so its exact formulas do not imply the synchronous hub two-lag identification.
 
-## Closest literature and limitations
+## value
 
-Primary literature: arXiv:2207.01224, arXiv:2112.01478. The 2016 network noisy-voter paper was only available through its article abstract during checking and remains a narrower access risk. Uninspected literature could contain an equivalent block-graph treatment; independent priority review remains necessary. The theorem does not address unknown noise, arbitrary root locations, general block graphs, or finite-sample identification guarantees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Explicit complete identification and precise indistinguishable exception for a natural two-parameter family is a structural answer to the local observation inverse problem, including exact reconstructibility, rather than a bare numerical family or routine time-lag restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
