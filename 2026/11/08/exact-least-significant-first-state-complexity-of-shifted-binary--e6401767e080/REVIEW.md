@@ -1,19 +1,21 @@
-# Scientific assessment: shifted binary digit-sum state complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion is about one precise function, \(n\mapsto s_2(n+c)\bmod m\), for all \(m\ge2\) and \(c\ge0\), under binary LSD-first reading and arbitrary trailing-zero padding. The proof establishes the residual quotient-and-remainder identity for every digit length, computes the exact attainable popcount intervals without extrapolating from samples, and proves all different parameter pairs inequivalent using \(n=2^h-a'\) with unbounded \(h\). Reachability is exhaustive because depths below the binary length of the shift and depths at or above it are separately analyzed. The transition/output formula is closed and padding-compatible. A separate program checked 903 finite shift/modulus pairs by independent BFS and Moore minimization, 2,047 interval extrema, 96 power-shift specializations and 30,600 residue identities. The finite checks corroborate the analytic proof; they are not substituted for it.
+PASS
 
-## Originality — PASS, subject to residual priority uncertainty
+For every m>=2 and c>=0 the quotient/remainder splitting after e low bits gives the residual F_{a,b}(n)=s_2(n+a)+b mod m. Distinct a are distinguishable using n=2^h-a_big and variation of h mod m. Enumerating reachable phases by full popcount intervals above and below c mod 2^e yields exactly Q_{m,c}; for c=2^k the distinct quotient levels give m+sum_{j=1}^{k+1}min(m,j). The transition recovers correct zero-padding outputs. Infinite proof is constructive; finite checks corroborate only a bounded set.
 
-The closest primary source, Moradi–Rampersad–Shallit (2025, arXiv:2512.10017v1), studies state complexity of linear subsequences and shifts of Thue–Morse. Its shifted-Thue–Morse theorem provides a most-significant-digit-first upper bound rather than this exact LSD-first all-shift/all-modulus count. Zantema–Bosma (2022) gives general shift bounds and the isolated binary shift-one special case; those do not imply the complete reachable-pair formula. Moradi–Popoli–Shallit–Vukusic (2026, arXiv:2603.18858v1) deals with shifted Fibonacci sequences under Zeckendorf representations; the objects and digit system differ. Charlier–Cisternino–Massuir (2021) concerns regular languages of affine *images* of the even-digit-sum integer set, and its stated theorem does not give state complexity for the *inverse-input shifts* here. The accessible specialized statements and their implication ranges were compared; an unindexed equivalent specialization remains a residual risk, and this assessment is not a claim of exhaustive historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact least number of states for every shift and alphabet modulus is a natural descriptional-complexity invariant of a basic automatic-word family, not an arbitrary single-parameter computation. The construction provides the full minimal kernel and effective automaton, while the power-of-two formula distinguishes quadratic growth in shift-bit depth when the output modulus is large from linear growth once the modulus is fixed. This resolves the precise-state-count question within a family for which published work supplies generic constructions and bounds. No general theorem about unrelated automatic sequences is claimed.
+The October 25 exact shifted parity/Thue-Morse formula covers the m=2 case, but its phase set is only {0,1}; its sharp dyadic interval bounds do not yield all higher m state counts. The new exact all-m residual classification is a motivated generalization; earlier work on MSD-first shifts and translated Thue–Morse sets does not imply it as stated. Novelty of m>=3 remains best of knowledge.
 
-## Sources, limitations and remaining risk
+## value
 
-Primary evidence: Moradi–Rampersad–Shallit, arXiv:2512.10017v1 (sections on linear subsequences, shifted Thue–Morse and LSD-first constructions); Zantema–Bosma, *Information and Computation* 288 (2022), article 104710; Moradi–Popoli–Shallit–Vukusic, arXiv:2603.18858v1 (introduction and LSD-first Zeckendorf analysis); Charlier–Cisternino–Massuir, *Electronic Journal of Combinatorics* 28(3) (2021), P3.12 (statement and interpretation of Theorem 3). The claimed result is limited to the standard base-two LSD-first convention; most-significant-digit-first automata and other bases are outside scope. The assessment remains subject to historical-priority uncertainty and lacks independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact minimal state count for every generalized digit-sum modulus and every shift is useful for automata minimization; the higher-modulus power-of-two case reveals a triangular-to-linear phase transition not captured by the parity theorem. It is more than an isolated example or textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

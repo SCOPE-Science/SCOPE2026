@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of shifted digit-sum automaton state complexity
+# Independent mathematical audit
 
-Run `python3 check.py` from the directory containing this document and the checker. The script uses the Python standard library and reproduces the following observed four-line result:
+## correctness
 
-```
-PASS: formula/reachability/independent DFAO minimization: 903
-PASS: binary interval extremum identities: 2047
-PASS: power-of-two shift exact formulas: 96
-PASS: direct residual identities: 30600 (11 n-values each)
-```
+PASS
 
-It enumerates all shifts in the closed range \(0\le c\le128\) and all moduli \(2\le m\le8\), compares the proposed reachable parameter set with an independent breadth-first traversal, and minimizes the resulting DFAO using fixed-point refinement by outputs and child classes. For all bit widths through ten, it checks the digit-interval extrema against literal finite enumeration. For selected larger moduli and shifts of the form \(2^k\), it verifies the closed formula. Finally it checks the kernel identity for finite digits and sample values of the unprocessed input.
+For every m>=2 and c>=0 the quotient/remainder splitting after e low bits gives the residual F_{a,b}(n)=s_2(n+a)+b mod m. Distinct a are distinguishable using n=2^h-a_big and variation of h mod m. Enumerating reachable phases by full popcount intervals above and below c mod 2^e yields exactly Q_{m,c}; for c=2^k the distinct quotient levels give m+sum_{j=1}^{k+1}min(m,j). The transition recovers correct zero-padding outputs. Infinite proof is constructive; finite checks corroborate only a bounded set.
 
-The infinite proof does not rely on these bounded tests: it uses the exact quotient/remainder decomposition at every input length, an interval property of binary digit sums, and a variable-power-of-two distinguishing argument for every pair of distinct residual parameters. The test count is not an exhaustive enumeration of all possible shifts, moduli or binary inputs. Neither code nor self-review constitutes independent verification.
+## originality
+
+PASS
+
+The October 25 exact shifted parity/Thue-Morse formula covers the m=2 case, but its phase set is only {0,1}; its sharp dyadic interval bounds do not yield all higher m state counts. The new exact all-m residual classification is a motivated generalization; earlier work on MSD-first shifts and translated Thue–Morse sets does not imply it as stated. Novelty of m>=3 remains best of knowledge.
+
+## value
+
+PASS
+
+An exact minimal state count for every generalized digit-sum modulus and every shift is useful for automata minimization; the higher-modulus power-of-two case reveals a triangular-to-linear phase transition not captured by the parity theorem. It is more than an isolated example or textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
