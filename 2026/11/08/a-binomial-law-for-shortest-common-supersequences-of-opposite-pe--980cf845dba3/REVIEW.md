@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is uniform for every \(q\ge2\), \(k,\ell\ge1\), including equal and unequal repetition counts and the exact boundary of the unique-output regime. The proof starts with deterministic greedy embeddings of both inputs into a shortest output. Their next requested letters agree precisely when the sum of consumed input positions is congruent to \(q-1\) modulo \(q\). This yields a bound of \(k+\ell-1\) common matches. In the non-dominant regime a forced-match skeleton attains that bound; distributing all solo actions gives a bijection, not merely a counting upper bound. When one exponent is too large the shorter input embeds into the longer, proving uniqueness. The standard-library verifier separately checks 448 parameter cases, 2,592 constructed outputs and 38 complete shortest-output languages. These computations corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS with bibliographic risk
-The closest relevant work on shortest common supersequences for permutations is Bulteau–Zhang (arXiv:2307.04335, Section 5), which proves hardness for varying collections of single permutations rather than an exact count for two oppositely ordered *powers*. Hirota–Sakai (arXiv:2307.10552) treats maximal common *subsequences*, and Sopp–Liyanage–Gong–Zhu (arXiv:2603.22591) gives general algorithms for inclusion-minimal supersequences, not this parameterized shortest-output formula. The known equal-power maximal-common-subsequence characterization explains the optimum LCS length but does not itself count SCS output words or handle all unequal powers. The central binomial numerical sequence in the equal-power specialization is classical (OEIS A000984); the claim is the new interpretation, full parameter law and explicit bijection, not invention of that sequence. A differently named or unindexed equivalent remains possible; no independent literature audit has been done.
+PASS
 
-## Mathematical value — PASS
-The complete two-input SCS output language for a natural infinite periodic-permutation family becomes a balanced binary-schedule language with a closed-form count. The formula detects a sharp transition from exponentially many optimal outputs for equal powers (when \(q\ge3\)) to one optimal output when the repetition counts are sufficiently imbalanced. A full characterization of *all* shortest outputs is more informative than a single optimum value or a generic dynamic programming procedure and is useful for exact alignment enumeration and reproducible benchmark instances.
+The deterministic greedy simultaneous embeddings of X=P^k and Y=rev(P)^ell have a shared next letter exactly at i+j congruent q-1 mod q. At most k+ell-1 shared steps occur before either input finishes, proving the lower bound (q-1)(k+ell)+1 together with qk and qell. When A,B>=0, the skeleton has q-1 solo steps before first shared step, q-2 between consecutive shared steps, and q-1 after last shared step. Any A X-solo and B Y-solo schedule is feasible; greedy transitions recover solo types uniquely from the resulting word, so distinct output words are in bijection with binomial(A+B,A) schedules. When A or B<0, the shorter input embeds entirely in the longer reverse-period input, giving a unique optimum. Independent set-valued exact SCS dynamic programming computed all distinct shortest words for 27 (q,k,ell) triples (q=2..4; k,ell=1..3), checking both length and count, including q=2 and threshold cases; all agreed. Finite testing supports rather than replaces the all-parameter greedy-skeleton proof.
 
-## Limits
-No classification is claimed for arbitrary pairs of permutations or for three inputs, and the enumerated language concerns shortest rather than all minimal supersequences. Unindexed equivalent literature remains possible. Finite verification is not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: published general SCS algorithms treat arbitrary inputs and compute optimum length or enumerate all inclusion-minimal words; they do not give this all-q, unequal-exponent, distinct shortest-output binomial formula. A nearby complete ternary binomial law counts maximal common SUBSEQUENCES, not shortest common SUPERSEQUENCES, and its source provides no bijection between these distinct output families. Arbitrary-power reversal is a structurally distinct claim.
+
+## value
+
+PASS
+
+Counting different optimal merged strings is a natural, separate and nontrivial invariant beyond merely computing a shortest possible length or number of alignments. The exact sharp phase transition and all-q, unequal-exponent binomial law solve a complete structured infinite family with a reproducible bijection, useful for string enumeration and merge ambiguity; this is not a renamed textbook LCS formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
