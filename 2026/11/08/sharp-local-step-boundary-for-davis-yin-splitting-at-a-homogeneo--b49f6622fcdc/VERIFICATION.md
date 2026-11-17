@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python VERIFY.py` with NumPy and SymPy installed. The script performs 1,208 assertions, including exact symbolic identities for the transverse multiplier and phase quadratic, an exact three-vertex path example, and direct centered finite-difference checks of the nonlinear iteration's Jacobian on several deterministic connected graphs, shifts, interaction strengths and step choices on either side of the calculated threshold.
+## correctness
 
-The exact argument in RESULT.md, not these finite tests, establishes the theorem for every finite connected undirected weighted graph and all admissible positive parameters. The script tests selected graph families only; it neither establishes an infinite theorem from enumeration nor resolves neutral-step nonlinear dynamics. At the exact critical step, the derivative has \(-1\) eigenvalues, but the higher-order discrete dynamics has not been classified. No tests of variable timesteps, nonconstant potentials, weighted mass matrices or DYS II are claimed.
+PASS
+
+For the exact DYS I map F_gamma(z)=z+(I+gamma K)^-1(2u-z-gamma beta u^3)-u with K=aI+G, differentiation at z=(1-gamma(a+beta/n))e gives radial multiplier gamma a/(1+gamma a) and transverse multiplier 1-gamma(lambda+2b)/((1-gamma c)(1+gamma(a+lambda))). The sign of the concave P_lambda and its lambda coefficient gives a unique top-frequency -1 crossing if a>0, while a=0 yields simultaneous crossing at gamma=1/(2b). At equality nonlinear behavior is not claimed. Independently finite-differenced the three-vertex weighted-path Jacobian with a=0,1 and compared all eigenvalues at subcritical, critical and supercritical steps.
+
+## originality
+
+PASS
+
+Under the accessible prior statements and exact independently reconstructed model, the closest Li–Zheng–Zhang source proves convergence under conservative step conditions, not the homogeneous graph-specific exact Jacobian spectrum, top-eigenvalue -1 crossing or simultaneous all-mode transition at a=0. The relevant source remains a named full-text access risk.
+
+## value
+
+PASS
+
+An exact sharp local step-size boundary and its abrupt all-mode collision in a physically natural homogeneous Laplacian discretization provide a meaningful stability diagnostic for an existing splitting scheme. This is not merely reproducing sufficient global convergence conditions; it distinguishes local attraction and linear instability with a sharp closed form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
