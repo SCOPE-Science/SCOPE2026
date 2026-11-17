@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument reconstructs the exact real sinc-kernel quadratic form for all nonnegative \(L^2\) Fourier amplitudes, proves that a universally maximizing phase must saturate every two-packet interaction, deduces bandwise constant phases from positivity near the diagonal, and solves the simultaneous adjacent/outer lobe inequalities. The outer compatibility interval is \(\delta\le u\le(1-\delta)/2\), and hence the sharp feasibility threshold is \(\delta\le1/3\). Conversely the resulting signed kernel is nonnegative pointwise, proving the universal inequality and the strict-window quantitative defect identity. Finite numerical checks agree with the analytic classification; they are not substituted for the universal proof. A sign or endpoint normalization failure would invalidate the result, so both were independently re-derived using the Fourier convention with \(e^{-2\pi i\xi t}\).
+PASS
 
-## Originality — PASS (historical priority provisional)
+Fubini gives real even sinc concentration kernel K_T(s). Concentrating nonnegative magnitudes near any pair of Lebesgue points forces a universal template to gauge every nonzero pairwise kernel to its absolute value. Local positivity forces phase constant within each connected band; adjacent-band differences [d-w,d+w] must stay in one sinc sign lobe k and outer-band differences [2d-w,2d+w] must be positive in lobe 2k. Thus k+delta<=x<=k+(1-delta)/2 and delta<=1/3, x>delta, with only band phases (1,(-1)^k,1). Conversely these signs align all kernel pairs, proving universality including boundary endpoints. The exact energy deficit is (1/2) double integral h(u)h(v)|K_T(u-v)||q(u)-q(v)|². In strict windows compact difference ranges avoid sinc zeros and give c>0 coercivity. Independent analytic interval-sign consistency checks on 6000 nonboundary parameter triples matched all 455 feasible and 5545 infeasible cases; finite samples are supplementary.
 
-The nearest full-text primary work is Baeza-Guasch, arXiv:2307.04558v2, §2 and §8, which proves phase alignment when a **single interval** is short enough that the sinc kernel is nonnegative on all frequency differences. Its full text was read through the main theorem, proof of the quadratic-form lemma, polynomial analogues, and scope limitations. It does not classify a disconnected **three-band** frequency support with recurrent positive/negative lobe sign assignments, the sharp \(1/3\) threshold, or uniform phase rigidity. Donoho–Stark compares operator concentration and is not a fixed-modulus universal-phase theorem. Closest public research records concern finite trinomial moment phase sensitivity, phase frustration of discrete Fourier supports, and perturbative time-concentration eigenvalues; their hypotheses and conclusions do not imply the present continuous-band all-amplitude classification. Nevertheless an unlocated general signed-kernel optimization theorem could imply this specialization; the novelty assessment is therefore provisional, not a historical uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An explicit phase comparator uniform over the *entire* fixed-modulus family is a strong useful statement in Paley–Wiener concentration. The classification resolves the first nontrivial cyclic coupling of three positive-width bands, locates infinitely many separated ranges of restored universal coherence even at large spectral diameter, detects unavoidable frustration between those windows, and gives an exact quantitative deficit rather than just optimizer existence. This is a natural complete parameter classification rather than a contrived finite numerical instance. It does not settle optimal operator norms, arbitrary asymmetric bands, or universal phases for four or more bands.
+Best-of-knowledge original exact equal-width three-band phase-window threshold and rigidity. Crucial chronology nuance: the also-published much broader arbitrary-band-count/unequal-width theorem gives this exact condition as m=3 specialization, BUT its own full proof expressly identifies the equal-width three-band classification as previously established and declines to claim it anew. Both result files entered Resultary in the same Git reconciliation commit (Nov 9 2026 01:09:49 UTC); this does not establish the broader statement predates the present narrower result. Accordingly this is acknowledged later/general coverage, not demonstrably an earlier prior-art implication defeating original priority. If subsequent evidence reverses chronology the O decision must be revisited. Baeza-Guasch proves connected-band phase alignment, not these disconnected three-band windows.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact width threshold, recurring sinc-sign windows, boundary uniqueness and quantitative phase rigidity expose a natural phase-frustration phenomenon that the earlier connected-band positivity theory does not detect. The later generalization builds on and explicitly credits the three-band classification as a meaningful precursor; a subsequent broader theorem does not make the earlier result a mere unmotivated exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

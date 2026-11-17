@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the three-band phase-coherence theorem
+# Independent mathematical audit
 
-The proof uses exact Fubini expansion of the centered time-limiting form, a two-small-packet limit to force each sinc sign, a connectedness argument to make the template bandwise constant, and simultaneous integer-lobe inequalities. In dimensionless parameters, adjacent bands require \(k+\delta\le x\le k+1-\delta\); outer-band sign balance requires \(2(x-k)+\delta\le1\). Their intersection is nonempty precisely when \(\delta\le1/3\). The endpoint \(x=\delta\) with \(k=0\) is excluded by strict band separation.
+## correctness
 
-Run `python checks/three_band_phase.py` from the package root with Python 3 and NumPy. A successful run prints `THREE_BAND_PHASE_DIAGRAM_PASS 20000` and `THREE_BAND_NUMERICS_PASS`. The 20,000 numerical parameter comparisons and sampled quadratic forms are consistency checks only; they are not an exhaustive certificate of a continuum problem. The proof supplies the required infinite-dimensional quantifiers.
+PASS
 
-The analysis covers centered time windows, exactly three equal-length equally spaced disjoint Fourier intervals, and a template which is independent of the prescribed nonnegative Fourier magnitude. It does not establish a best phase for every individual magnitude outside coherence windows, nor an optimal numerical coercivity coefficient. No independent mathematical review has been performed.
+Fubini gives real even sinc concentration kernel K_T(s). Concentrating nonnegative magnitudes near any pair of Lebesgue points forces a universal template to gauge every nonzero pairwise kernel to its absolute value. Local positivity forces phase constant within each connected band; adjacent-band differences [d-w,d+w] must stay in one sinc sign lobe k and outer-band differences [2d-w,2d+w] must be positive in lobe 2k. Thus k+delta<=x<=k+(1-delta)/2 and delta<=1/3, x>delta, with only band phases (1,(-1)^k,1). Conversely these signs align all kernel pairs, proving universality including boundary endpoints. The exact energy deficit is (1/2) double integral h(u)h(v)|K_T(u-v)||q(u)-q(v)|². In strict windows compact difference ranges avoid sinc zeros and give c>0 coercivity. Independent analytic interval-sign consistency checks on 6000 nonboundary parameter triples matched all 455 feasible and 5545 infeasible cases; finite samples are supplementary.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact equal-width three-band phase-window threshold and rigidity. Crucial chronology nuance: the also-published much broader arbitrary-band-count/unequal-width theorem gives this exact condition as m=3 specialization, BUT its own full proof expressly identifies the equal-width three-band classification as previously established and declines to claim it anew. Both result files entered Resultary in the same Git reconciliation commit (Nov 9 2026 01:09:49 UTC); this does not establish the broader statement predates the present narrower result. Accordingly this is acknowledged later/general coverage, not demonstrably an earlier prior-art implication defeating original priority. If subsequent evidence reverses chronology the O decision must be revisited. Baeza-Guasch proves connected-band phase alignment, not these disconnected three-band windows.
+
+## value
+
+PASS
+
+The exact width threshold, recurring sinc-sign windows, boundary uniqueness and quantitative phase rigidity expose a natural phase-frustration phenomenon that the earlier connected-band positivity theory does not detect. The later generalization builds on and explicitly credits the three-band classification as a meaningful precursor; a subsequent broader theorem does not make the earlier result a mere unmotivated exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
