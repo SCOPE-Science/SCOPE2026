@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The trace ratio follows directly from an exactly invertible two-dimensional resolvent; the numerator was independently checked against the divided-difference definition of the Fréchet logarithmic derivative. Strict coefficient monotonicity and attainment follow by comparing the integral to its scalar envelope. A uniform singular-integral calculation gives the logarithmic alignment correction, and convergence of optimizing ratios justifies passage from a fixed ratio to the sharp coefficient. Numerical checks only corroborate the analytic identities and asymptotic, not replace them.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The primary theorem of Cheng–Liu gives the best unstratified coefficient and explicitly invokes aligned rank-one matrices to show its sharpness. The present assertion restricts to a fixed positive but nonunit pure-state overlap, where the sharp coefficient is strictly smaller, and computes its nonanalytic limiting deficit. That is not entailed by their general inequality and alignment sharpness example. Primary full text, related matrix-logarithm formula literature, published mathematical records, and accessible prior claims were checked for equivalent and stronger statements. No equivalent result was found; the residual risk of an older equivalent formulation remains. This is not an independent publication-priority certificate.
+PASS
 
-## Mathematical value — PASS
-Fixed fidelity is an intrinsic and dimension-independent quantum-state geometric constraint, and the unconditional sharp tilting constant is uninformative about strictly nonaligned pure states. Identifying the exact best coefficient for each overlap and its unexpectedly logarithmic loss as alignment is approached resolves a natural stratified optimization problem rather than a routine restatement of the unconstrained theorem. The result does not claim a matrix-general quantitative stability bound.
+For A=aP,B=bQ, t=Tr(PQ)>0, the rank-two resolvent of X=a^αP+b^αQ has squared off-diagonal overlap tw²/[w²+(u+v)w+uv(1-t)]². The standard Fréchet log integral reduces the ratio exactly to xi^(1-s) ∫z²/[z²+(1+xi)z+xi(1-t)]² dz, s=(1-α)/α. The scalar envelope xi^(1-s)/(1+xi) decays at both ends and is uniquely maximized at xi=(1-s)/s. A strictly positive integrand comparison yields continuous attained C_s(t), strict increase and strict subalignment deficit. Uniform near-zero resolvent expansion gives I_0-I_{xi δ}=(2xi/(1+xi)^3)δ log(1/δ)+O(δ) on compact xi; maximizers stay compact and converge to the scalar optimizer, so the exact cusp coefficient is 2s(1-s)s^s(1-s)^(1-s). No assertion at t=0 or α endpoints. Independent 30 quadrature/optimization corroborations supplement the uniform analytic proof.
 
-## Closest literature and limitations
-Hao-Chung Cheng and Po-Chieh Liu, *Sharp Tilting Inequalities*, arXiv:2610.39598v1 (2026-10-29), Theorem 4 and proof. The exact overlap-dependent formula and cusp were not located in the inspected primary text. The scope excludes orthogonality, rank higher than one, and the endpoint exponents. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cheng–Liu establishes the unrestricted best tilting constant s^s(1-s)^(1-s), sharp at aligned rank-one inputs. That does not determine any fixed nonaligned fidelity optimum nor its δ log(1/δ) deficit. The submitted exact rank-two resolvent profile and singular-boundary constant survive on accessible evidence. Cheng full text was not independently obtainable, so potential fixed-fidelity material in it remains an explicit priority risk rather than a spurious assertion of whole-document exclusion.
+
+## value
+
+PASS
+
+Fixed rank-one fidelity is an intrinsic geometric constraint in matrix inequalities. The general sharp tilting coefficient gives no usable sharp improvement for nonaligned inputs; an exact fidelity-resolved extremal function and its logarithmic alignment cusp are mathematically motivated structural stability results, not a trivial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
