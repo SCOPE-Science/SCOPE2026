@@ -1,11 +1,21 @@
-# Scientific review: counterattack switch in two-stage predator invasion
+# Independent mathematical audit
 
-**Correctness — PASS.** The specified Euler map follows exactly from the original boxed forward-Euler equations. The prey-only orbit and its \(4/25\) multiplier are exact. Linearizing the two-stage predator block yields a positive matrix product whose determinant polynomial is checked using exact arithmetic in \(\mathbb Q(\sqrt{21})\). The condition \(P_{22}<1\) is verified over the entire switch range and at both witnesses, making the determinant sign a rigorous Perron spectral criterion. The resulting local stability and instability statements use standard hyperbolic-cycle theory; no finite simulation has been promoted to a global theorem. Boundaries, zero counterattack, and nonlinear behavior at neutral multiplier are excluded explicitly.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** The initiating 2023 preprint and accessible complete 2024 journal text establish fixed-point and coexistence-bifurcation results, not the model-specific rare-predator invasion exponent on an *attracting predator-free two-cycle*. The static linearization at carrying capacity does not imply the sign of the product \(M(x_+)M(x_-)\): the two opposite exact rational examples demonstrate that implication fails in both directions. Related 2017 discrete stage-structured and 2004 host–parasitoid studies investigate different models. Published mathematical research records inspected for two-stage oscillatory invasion thresholds describe non-equivalent resident models; no stronger covering statement was identified. Standard two-period Floquet and Perron theory are acknowledged as background. Unindexed equivalent work is a residual priority risk, not ruled out by searches.
+PASS
 
-**Value — PASS.** Period-two prey fluctuations are natural in the discrete logistic submodel, and juvenile counterattack acts differently at the two resident prey levels. The sharp parameter surface and bidirectional rational witnesses establish that a conventional fixed-environment reproduction number may misidentify the *sign* of predator growth during a two-generation resident cycle. This is a structural ecological distinction with a reproducible exact boundary, not merely a graph or tiny numerical improvement.
+For x_{t+1}=x+(11/5)x(1−x), the two-cycle x±=(21±√21)/22 satisfies f(x−)=x+, f(x+)=x−, with scalar product derivative 4/25<1. Full three-state Jacobian over the predator-free cycle is block upper-triangular, and its two-step eigenvalues are 4/25 and the eigenvalues of P=M(x+)M(x−), M(u)=[[1/5−Au,Cu],[1/4,1/5]]. Exact symbolic multiplication, independently recomputed, yields D=det(I−P)=−504 A²/605+504 A/1375+105 C²/1936+(21 A/242−273/550)C+576/625. On C0(A)=16(A+4/5)/5, D=−48(35A−2)/15125. With each M strictly positive in the prescribed A range, P positive, P22<1, and the non-Perron eigenvalue <P22<1, sign D uniquely detects whether ρ(P)<,=,>1. Substitution of (A,C)=(1/100,13/5) and (1/10,287/100) independently gives the stated opposite strict R_static and D signs. Neutral boundary asserts no nonlinear persistence; hyperbolic local cycle stability/invasion follows from Jacobian, not numerics.
 
-**Closest published work and limits.** Bhattacharjee et al., arXiv:2308.08864 and doi:10.1016/j.padiff.2024.100710, provide the model and fixed-point bifurcation analysis. Wikan 2017 (doi:10.1155/2017/9475854; stage-structured prey, rather than stage-structured predators) and Wearing et al. 2004 (doi:10.1111/j.0021-8790.2004.00846.x) cover related stage-dependent and cyclic ecological questions, without a covering theorem for this exact map. Limits: local spectral classification, not nonlinear permanence; the static benchmark corresponds to an unstable prey fixed point; the source's inconsistent restatement of maturation is resolved by working from the boxed equation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original model source treats fixed points and coexistence bifurcations but does not assert the Floquet product invasion criterion along this *predator-free* 2-cycle, its sharp rational counterattack crossing, or the two reversed witnesses. Prior general stage-specific invasion findings concern different equations and comparisons. The specific model threshold and both directions are best-of-knowledge original, with unindexed model-analysis risk.
+
+## value
+
+PASS
+
+The exact crossing and two opposite rational witnesses show that a standard static predator reproduction benchmark can misclassify invasion in *both* directions under an attracting oscillating resident prey population. This resolves a motivated model-specific dynamical boundary using exact algebra and positive-matrix Floquet theory, rather than numerical examples alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
