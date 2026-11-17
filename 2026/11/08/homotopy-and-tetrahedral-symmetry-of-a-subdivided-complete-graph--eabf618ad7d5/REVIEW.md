@@ -1,15 +1,21 @@
-# Scientific review: subdivided tetrahedral matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact twelve-vertex graph is defined by oriented tetrahedral half-edges, with all adjacency relations explicit. The standalone reconstruction lists all 163 simplices, constructs 78 disjoint face-poset matches, and exhaustively verifies the directed Hasse diagram on 162 nonempty faces with 432 covering arrows is acyclic. Exactly one zero-cell and five two-cells remain critical, so Forman's theorem yields the stated integral wedge of two-spheres; independent modular boundary ranks agree. The signed Lefschetz calculation tests all 24 tetrahedral permutations and gives the complete rational character. Every group element fixes the barycenter of an invariant independent face, justifying Armstrong's theorem and the simply connected subgroup quotients. Rational transfer gives the quotient Betti formula. The discrete Morse equivalence is not claimed equivariant.
+## correctness
 
-## Originality — PASS, subject to priority uncertainty
-The recent simplicial-vertex method of Barik–Mondal–Mukherjee requires a simplicial vertex, while this graph has none. The closest published truncated-tetrahedral result computes the **matching complex of the truncated tetrahedral graph**, not its **independence complex**, equivalently the matching complex of the once-subdivided tetrahedral graph; it has 18 rather than 12 complex vertices, and it has different homotopy type. Literature and mathematical-record searches were made under both matching and independence descriptions, line graphs, subdivided complete graphs and homological symmetry representations, including implications of broader class theorems. No inspected source implies the explicit 5-sphere homotopy and rational \(S_4\) character or the all-subgroup quotient theorem. Unindexed earlier equivariant or subdivided-matching calculations remain a genuine priority risk.
+PASS
 
-## Value — PASS
-The once-subdivided tetrahedron is a canonical symmetric 10-vertex graph; its matching complex is a concrete boundary case not treated by the cited simplicial-vertex recursion. Its exact integral homotopy type, the sign-twisted four-label permutation module and the explicit topology of **every** natural subgroup quotient together provide a nontrivial benchmark connecting matching-complex topology, representation theory and orbit-space fundamental groups. The character distinguishes contributions invisible to the ordinary five-sphere count; the quotient conclusion is not a routine restatement of that count.
+The twelve arc graph is precisely L(sd(K4)): same first label gives incident half-edges at original vertex, reversal gives pair meeting at a subdivision midpoint. Independently enumerated 162 nonempty independence faces with f-vector (12,48,72,30), reproduced the given pivot sequence producing 78 matched pairs, a single critical 0-cell and five critical 2-cells, and topologically sorted all 432 directed nonempty Hasse covers with 162 visits, proving acyclicity (not merely mod-two rank). Forman then yields integral wedge^5 S^2. Independent enumeration of 24 S4 permutations verified augmented signed Lefschetz character 1+sgn(g)*number of fixed labels, yielding the rational representation. Each group element preserves a nonempty independent arc face, hence fixes its barycenter; Armstrong orbit-space theorem gives simply-connected quotients and rational finite-transfer invariants give the stated averaging formula; S4 and A4 ranks 1 and 2. All finite computations are exhaustive for this stated finite object, not a theorem for all subdivisions.
 
-## Limitations and nearest sources
-The finite matching certificate is exhaustive for this graph only. It does not establish infinite-family behavior, an equivariant wedge decomposition, or torsion-free integral quotient homology. Closest sources are Barik–Mondal–Mukherjee, arXiv:2604.12606v1 (2026-04-14), and *Edge-orbit matching-complex homotopy of the truncated tetrahedron* (2026-10-11); also Engström, arXiv:math/0512420, and Bayer–Jelić Milutinović–Vega (2023). Publication priority outside inspected accessible records cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published truncated-tetrahedron matching result studies M(G) for the 12-vertex truncated graph with 18 edges and has wedge^22 S^3; this submission studies Ind(G)=M(sd(K4)) with 12 simplicial vertices and wedge^5 S^2, plus an S4 character and all subgroup quotient ranks. Other cited simplicial-vertex recursion does not apply to this graph because none of its graph vertices is simplicial. The exact object and symmetry calculation were not found covered by the inspected papers.
+
+## value
+
+PASS
+
+This is a natural small matching complex M(sdK4), not an arbitrary set of graph faces. Exact integral five-sphere homotopy and full tetrahedral S4 rational character, plus simply-connected quotient classification for every subgroup, provide concrete reusable exact topological and representation invariants; finite cardinality does not remove mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
