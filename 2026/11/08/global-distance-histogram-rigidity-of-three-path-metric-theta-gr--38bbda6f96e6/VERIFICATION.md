@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Run from the package directory with `python verify.py` (Python 3 standard library, no optional dependencies).
+# Independent mathematical audit
 
-The actual program output was:
+## correctness
 
-`THETA_VERIFY_OK exact_rational_cases=10 jump_groups=24 recovered=10 independent_pair_samples=320000 cdf_comparisons=20 max_abs_cdf_error=0.0026625`
+PASS
 
-The verifier uses exact rational arithmetic to clip the distance-tail polygons and integrate same-path tails for ten different positive rational path triples, encompassing strictly ordered lengths and each tied-length pattern. It checks all 24 distinct jump-radius groups in those examples and confirms that the reconstructed parameter multiset agrees with the input in all ten cases. In a separate randomized computation, 320,000 independent arclength-uniform pairs were used for 20 empirical-versus-exact cumulative distribution comparisons; the maximum observed absolute discrepancy was 0.0026625. This is a reproducibility check, not an infinite-parameter certificate; the proof is the polygon-area argument in `RESULT.md`. All literature comparisons and scientific priority conclusions remain subject to independent assessment.
+For a<=b<=c positive theta-graph branch lengths and normalized arclength sampling, separate same-path pair-distance tails from different-path planar polygon tails. Same-path long-arm rerouting generates jump -2(u-m)/L^2 at (u+m)/2, and the vanishing width of the cross-path x+y strip generates -4 min(u,v,w)/L^2. Summing produces precisely three labeled negative jumps: -2(a+b)/L^2 at (a+b)/2, -2(a+c)/L^2 at (a+c)/2, and -4a/L^2 at (b+c)/2; they add at repeated locations without cancellation. Density f(0+)=2/L and the jump-location pattern recover the three lengths for distinct, two-tied and all-equal cases. Independently implemented exact rational polygon clipping and same-path integrals for nine positive triples including every tie pattern and verified each jump and normalization. This is a finite check; the all-real proof uses the geometric strip and endpoint argument.
+
+## originality
+
+PASS
+
+A prior Resultary theorem from 2026-10-25 already proves the global theta-graph length-reconstruction statement, so that inverse assertion by itself is NOT original. The surviving specific structural finding is the complete three-radius density-jump classification with exact signed coefficients, noncancellation and tie multiplicities, especially the first short-cycle coefficient and shortest-path-screened longest-cycle coefficient. The earlier proof derives a near-diameter terminal tail and its first transition, providing partial implications for the upper two singularities, but not the complete simultaneous all-radius jump formula; finishing the classification requires distinct same-path and cross-path analyses. Mémoli–Needham give generic piecewise-linear density/jump observations, and the cactus-cycle theorem is not applicable to theta networks with overlapping cycles. Best-of-knowledge partial novelty is assigned to the full new singularity structure, not to the known inverse theorem.
+
+## value
+
+PASS
+
+Density singularities of global metric-graph distance laws are natural geometric invariants: they distinguish visible cycle thresholds, measure screening by a shared shortest path, and inform inverse interpretation on the smallest non-cactus network. A complete, noncancellation, all-coincidence coefficient classification is an independently useful exact structure even though the inverse-rigidity consequence was previously known. The new contribution is not the already published reconstruction or a generic piecewise-affinity remark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
