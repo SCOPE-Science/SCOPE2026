@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The substantive theorem is proved in `RESULT.md` by a three-to-one marked-gap parameterization and an exact cube-root-of-unity computation. Independently, `verify.py` enumerates actual unordered index triples without using the proof's gap compositions, rejecting any triple with a circular spacing below \(h\), and compares every syndrome count with the stated closed formula. Run `python verify.py` with Python 3 and no third-party libraries.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK 247 independent parameter checks (6 <= n <= 42, h >= 2)
-```
+Every admissible indexed length-n weight-three cyclic word has exactly 3 marked representations (i,a,b,c) with gaps >=h and a+b+c=n. There are Q=C(n-3h+2,2) ordered gap triples and checksum 3i+2a+b mod n. If 3 is invertible mod n, each residue receives Q/3 words. If 3|n, eliminating the 3 initial positions reduces buckets to compositions satisfying 2u+v=s mod 3; both nontrivial cubic Fourier transforms equal 1/(1-z^3), giving (Q+2)/3 for s=0 mod3 and (Q-1)/3 otherwise. Independent unordered-position enumeration verified all buckets for 222 parameter pairs through n=40 and h>=2; endpoint n=3h included. This finite check is not the proof.
 
-The verified domain of the computation is finite, but the written arguments apply to every \(h\ge2\), \(n\ge3h\). No independent audit, machine formalization or external certification has been performed. Possible historical coverage beyond the inspected sources remains an originality limitation.
+## originality
+
+PASS
+
+The unrestricted h=1 modular triple/necklace identity and general moment-balanced coding templates are prior background, not claimed new. The all-n all-h constrained cyclic three-marker syndrome counts with exact mod-three one-word discrepancy are not supplied by the inspected full 2010 balancing-template paper or related indexed combinatorics. An older cyclic independent-set weighted-sum theorem could cover it and remains an explicit risk.
+
+## value
+
+PASS
+
+Modulo-position checksum classes are natural constrained-code and cyclic independent-set enumerative invariants. Exact uniformly balanced syndrome buckets under a nontrivial minimum cyclic spacing, including the arithmetic 3|n anomaly, give a motivated infinite-family fact not just a finite table. No deletion correction or higher-weight theorem is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
