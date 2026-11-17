@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The included `check.py` is executable using the Python standard library. Running `python check.py` reports 341 passed checks: complete mapping enumeration through six vertices, exact conditional probabilities, permutation factorial moments, the finite KL chain rule, and a 30-term high-precision constant with an analytical tail bound below \(1.5\cdot10^{-24}\).
+# Independent mathematical audit
 
-The all-size identity and limit do **not** follow from finite tests: the proof in `RESULT.md` derives the conditional law by counting, obtains the KL chain identity exactly, controls the rencontres divergences by an explicit superfactorial majorant, and bounds the binomial–Poisson KL divergence by \(O(n^{-2})\). The 30-term numerical bound is rigorous given standard exact integer arithmetic and the displayed elementary inequalities; the printed decimal expansion is a reproducibility aid, not a substitute for the proof.
+## correctness
 
-The scientific priority assessment is based on the inspected and cited sources; it is not exhaustive historical certification. Independent validation has not been performed.
+PASS
+
+For a uniform random endofunction [n]→[n], rooted-forest counting gives P(C_n=m)=m(n)_m/n^{m+1}. Conditional on m cyclic vertices, their permutation is uniform, so F_n has rencontres Q_m. Unconditionally the n fixed-point indicators are independent Bernoulli(1/n), hence F_n~Bin(n,1/n), E(F_n|C_n)=1 and Cov(F_n,C_n)=0; m=1 shows dependence and I>0 for all n≥2. Exact entropy identity I=Σ_m w_{n,m}D(Q_m||Pois(1))−D(Bin(n,1/n)||Pois(1)) is a KL chain rule. Alternating-series derangement remainder gives D(Q_m||Pois1)≤(e2^{m+1}+1)/(m+1)!, allowing dominated convergence n w→m. A likelihood expansion with factorial-moment tail bounds makes Bin-Pois KL O(n⁻²). Therefore n I→Σ_{m≥1}mD(Q_m||Pois1)=3.692926238979770132438700...; independent high-precision 35-term summation and rigorous 30-tail bound <1.5×10⁻24 reproduced the number. Finite enumeration of maps through 6 in source script is not an infinite argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.
+
+## value
+
+PASS
+
+Shows that two natural functional-graph counts remain information-theoretically dependent at a quantified sharp rate even though their covariance vanishes exactly for every n. The information originates in rare small cyclic cores and differs qualitatively from typical √n-size core behavior. Its KL coefficient is an independently useful exact information invariant, not a restatement of the previously known total-variation dependence coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

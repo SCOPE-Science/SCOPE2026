@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns two exactly specified integer statistics of a uniformly sampled function. The rooted-forest enumeration gives the cyclic-core distribution, while the conditional cyclic permutation gives the rencontres conditional law; the marginal fixed-point count is exactly binomial. These identities prove zero covariance and strictly positive mutual information at every size at least two. The exact KL chain identity, a superfactorial chi-square majorant for the rencontres-to-Poisson divergence, and a separate second-order binomial-to-Poisson KL estimate prove the \(\mathcal J/n\) law. The constant's finite approximation has a proven error bound below \(1.5\cdot10^{-24}\). The standalone code passed 341 checks, including full map enumeration through six vertices. Numerical checks are corroboration, not substitutes for the infinite proof.
+PASS
 
-## Originality — PASS, with documented priority risk
+For a uniform random endofunction [n]→[n], rooted-forest counting gives P(C_n=m)=m(n)_m/n^{m+1}. Conditional on m cyclic vertices, their permutation is uniform, so F_n has rencontres Q_m. Unconditionally the n fixed-point indicators are independent Bernoulli(1/n), hence F_n~Bin(n,1/n), E(F_n|C_n)=1 and Cov(F_n,C_n)=0; m=1 shows dependence and I>0 for all n≥2. Exact entropy identity I=Σ_m w_{n,m}D(Q_m||Pois(1))−D(Bin(n,1/n)||Pois(1)) is a KL chain rule. Alternating-series derangement remainder gives D(Q_m||Pois1)≤(e2^{m+1}+1)/(m+1)!, allowing dominated convergence n w→m. A likelihood expansion with factorial-moment tail bounds makes Bin-Pois KL O(n⁻²). Therefore n I→Σ_{m≥1}mD(Q_m||Pois1)=3.692926238979770132438700...; independent high-precision 35-term summation and rigorous 30-tail bound <1.5×10⁻24 reproduced the number. Finite enumeration of maps through 6 in source script is not an infinite argument.
 
-Hansen and Jaworski (2010) explicitly use conditional uniform permutations on the cyclic vertex set, but their inspected 19-page paper develops conditional component-size distributions and a Poisson–Dirichlet limit, not the mutual information between fixed-point count and cyclic-core size. Soria's 1996 lecture presents random mapping generating functions and marginal limit laws, not the entropy-deficit constant. Flajolet–Odlyzko (1990) is a closely related, broad random-mapping framework; its accessible abstract and bibliographic record do not establish the target statement, but the complete author-posted archive source was inaccessible for inspection. Searches for joint law, entropy deficit, conditional rencontres distribution, and the information coefficient did not identify a statement implying the asserted \(1/n\) law. Comparisons against available prior findings on random maps (cyclic core versus origins, cycles versus origins, and components versus component sizes) did not supply the fixed-point/cyclic-core information theorem.
+## originality
 
-This is not a claim that the earlier conditional-permutation representation is new. The proposed addition is the quantitative rare-core contribution to nonlinear dependence, including its exact universal coefficient and proof of negligibility of the Poisson marginal replacement. Broader existing information-theoretic or random-mapping work could implicitly yield the same constant; historical priority is not independently established.
+PASS
 
-## Value — PASS
+Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.
 
-The fixed-point count and cyclic-core size are canonical statistics of functional graphs. Their exact zero covariance might misleadingly suggest independence, yet the entropy-based dependence remains strictly positive and has a sharp decay coefficient. The coefficient is controlled by the rare fixed-size cyclic cores rather than the typical order-\(\sqrt n\) cores, a structural feature not apparent from the usual marginal limit theorems. This is a motivated quantitative dependence invariant with a natural information-theoretic interpretation, not a parameter-relabeling or arbitrary small example.
+## value
 
-## Literature and limits
+PASS
 
-- J. C. Hansen and J. Jaworski, *Random mappings with a given number of cyclical points*, Ars Combinatoria 94 (2010), full text: https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf .
-- M. Soria, *Distribution of Image Points in Random Mappings*, Algorithms Seminar, November 10, 1996: https://algo.inria.fr/seminars/sem96-97/soria.html .
-- P. Flajolet and A. M. Odlyzko, *Random Mapping Statistics*, EUROCRYPT 1989 / LNCS 434 (1990): https://doi.org/10.1007/3-540-46885-4_34 .
+Shows that two natural functional-graph counts remain information-theoretically dependent at a quantified sharp rate even though their covariance vanishes exactly for every n. The information originates in rare small cyclic cores and differs qualitatively from typical √n-size core behavior. Its KL coefficient is an independently useful exact information invariant, not a restatement of the previously known total-variation dependence coefficient.
 
-The theorem is restricted to uniform mappings and to the two aggregate counts. The asymptotic remainder is only \(o(1/n)\); no exact higher-order expansion or general nonuniform mapping extension is asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

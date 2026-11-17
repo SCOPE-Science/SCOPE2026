@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T13:14:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniform random endofunction [n]→[n], rooted-forest counting gives P(C_n=m)=m(n)_m/n^{m+1}. Conditional on m cyclic vertices, their permutation is uniform, so F_n has rencontres Q_m. Unconditionally the n fixed-point indicators are independent Bernoulli(1/n), hence F_n~Bin(n,1/n), E(F_n|C_n)=1 and Cov(F_n,C_n)=0; m=1 shows dependence and I>0 for all n≥2. Exact entropy identity I=Σ_m w_{n,m}D(Q_m||Pois(1))−D(Bin(n,1/n)||Pois(1)) is a KL chain rule. Alternating-series derangement remainder gives D(Q_m||Pois1)≤(e2^{m+1}+1)/(m+1)!, allowing dominated convergence n w→m. A likelihood expansion with factorial-moment tail bounds makes Bin-Pois KL O(n⁻²). Therefore n I→Σ_{m≥1}mD(Q_m||Pois1)=3.692926238979770132438700...; independent high-precision 35-term summation and rigorous 30-tail bound <1.5×10⁻24 reproduced the number. Finite enumeration of maps through 6 in source script is not an infinite argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical mapping generating functions already yield the joint distribution; a user can derive the KL identity algebraically from it.",
+          "The October TV theorem sums absolute differences, not rencontres KL divergences."
+        ],
+        "reasoning": "While earlier joint-law formulas contain all finite-n information in principle, the claimed asymptotic requires nontrivial uniform KL tail control and the binomial-to-Poisson second-order bound; no examined stronger information theorem already does that. Full Flajolet–Odlyzko archive inaccessible, so broader coverage risk is explicit.",
+        "searches": [
+          "uniform random mappings mutual information number fixed points number cyclic vertices uncorrelated O(1/n) rencontres KL",
+          "Flajolet–Odlyzko 1990",
+          "Hansen–Jaworski 2010",
+          "Resultary 2026/10/18 exact TV theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Oct18 TV dependence complete RESULT.md",
+        "Hansen–Jaworski 2010 accessible PDF beginning",
+        "Flajolet–Odlyzko 1990 bibliography and abstract",
+        "Resultary semantic query: uniform random mappings mutual information number fixed points number cyclic vertices uncorrelated O(1/n) rencontres KL"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October TV theorem yields dTV~3.1718056/n and zero covariance, not nI.",
+          "The KL mixture identity subtracts D(Bin||Pois), and its O(n^-2) cancellation is essential for J."
+        ],
+        "reasoning": "From Pinsker only I>=2TV²=O(n^-2), not the n^-1 constant; neither the known conditional law nor sharp TV result logically states J without further proof. The assessed originality/value specifically concerns KL first-order information.",
+        "searches": [
+          "uniform random mappings mutual information number fixed points number cyclic vertices uncorrelated O(1/n) rencontres KL",
+          "Resultary October 18 2026 full source",
+          "Hansen–Jaworski 2010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 Resultary prior already proves exact same conditional Q_m, zero covariance, nonindependence, and n^-1 TOTAL VARIATION coefficient 3.1718056.",
+          "The present theorem concerns KL mutual information with a DIFFERENT constant 3.6929262, not TV."
+        ],
+        "reasoning": "Zero covariance, conditional uniform permutation, and existence of dependence are already covered and are not originality claims. TV asymptotic does not give sharp KL coefficient (Pinsker is one-sided and insufficient), so the new finite-entropy identity and rare-core KL constant survive as distinct information law.",
+        "searches": [
+          "uniform random mappings mutual information number fixed points number cyclic vertices uncorrelated O(1/n) rencontres KL",
+          "Resultary/2026 2026/10/18/SCOPE-sharp-n-1-total-variation-dependence-of-fixed-and-cyclic-points--a2c6e57f022c/RESULT.md",
+          "Hansen–Jaworski 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previous exact dependence table contains TV values d2=1/2,d3=109/243 etc., not KL I(F;C).",
+          "Rencontres numbers themselves are classical, but the weighted infinite divergence series is not a known generic combinatorial table in sources inspected."
+        ],
+        "reasoning": "A known rencontres probability table is input data rather than an exact first-order mutual-information coefficient. No matching published KL constant was identified in actual semantic/primary source searches; unindexed coverage remains possible.",
+        "searches": [
+          "uniform random mappings mutual information number fixed points number cyclic vertices uncorrelated O(1/n) rencontres KL",
+          "Resultary 2026/10/18 exact total-variation constant",
+          "arXiv:0708.2643 fixed points of permutations"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.",
+      "residual_risks": [
+        "Zero covariance and exact conditional rencontres law were already published; no novelty claimed for them.",
+        "Prior sharp total-variation law is mathematically distinct but could motivate the same KL computation.",
+        "Uninspected full classic mapping monographs could include the explicit n^-1 mutual information coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS joint law/zero covariance/TV rate, NOT KL mutual-information constant",
+          "evidence": "Finding, Steps 1–5; explicit TV constant",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-n-1-total-variation-dependence-of-fixed-and-cyclic-points--a2c6e57f022c",
+          "material_read": "Entire RESULT.md theorem, exact joint-law decomposition, proof Steps 1–5",
+          "method": "GitHub file fetched and read in full",
+          "title": "Sharp n^-1 total-variation dependence of fixed and cyclic points in uniform random mappings",
+          "trigger": "Same random mapping pair, published stronger-looking exact dependence"
+        },
+        {
+          "assessment": "Confirms prior conditioned cyclic-core framework; cannot exclude deeper entropy calculations from unread pages",
+          "evidence": "2010 stated conditional mapping results",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "Accessible first pages and bibliographic summary; no complete searchable full-paper review",
+          "method": "Publisher PDF preview/page rendering",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Classical conditional law might contain information result"
+        },
+        {
+          "assessment": "Broad random-mapping context; full-text comparison unresolved",
+          "evidence": "classical random mapping enumeration",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+          "material_read": "Bibliography and abstract, not complete 1990 source",
+          "method": "OA archive search, abstract reading",
+          "title": "Random Mapping Statistics",
+          "trigger": "General counting could imply precise information rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows that two natural functional-graph counts remain information-theoretically dependent at a quantified sharp rate even though their covariance vanishes exactly for every n. The information originates in rare small cyclic cores and differs qualitatively from typical √n-size core behavior. Its KL coefficient is an independently useful exact information invariant, not a restatement of the previously known total-variation dependence coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Zero covariance and exact conditional rencontres law were already published; no novelty claimed for them.",
+    "Prior sharp total-variation law is mathematically distinct but could motivate the same KL computation.",
+    "Uninspected full classic mapping monographs could include the explicit n^-1 mutual information coefficient."
+  ],
+  "schema_version": 1
+}
