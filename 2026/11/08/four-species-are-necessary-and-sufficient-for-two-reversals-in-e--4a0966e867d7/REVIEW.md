@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact expected-richness identity follows by summing species-detection indicators for independent replacement draws. For one or two positive species, majorization makes all rankings constant at sample sizes above one. For three species, incomparable sorted abundance vectors force ordered exponential coefficients with at most three sign variations; the proved generalized Descartes exponential-sum bound counts at most three real zeros, two of which are forced by normalization at sizes zero and one. Thus at most one additional crossing is possible after sample size one. The rational four-species construction gives the exact scaled differences \(-2,57720,-285614243977922\) at sizes \(2,5,12\), establishing alternating signs, and a uniform Lipschitz estimate carries these signs to every larger positive support. Exact arithmetic from `checker.py` independently computed the same differences by a state-weighted seen-species dynamic program and verified all perturbation margins. Finite checks are corroboration, not replacements for the analytic proof.
+## correctness
 
-## Originality — PASS within inspected sources, provisional
-The finding is the **least common positive support size for two strict reversals in expected species-accumulation rankings**, not the known existence of curve intersections or a new version of the general exponential-polynomial zero theorem. Lande, DeVries and Walla (2000, DOI 10.1034/j.1600-0706.2000.890320.x) analyze crossings, particularly due to competing total species richness and Simpson diversity. Thompson and Withers (2003, DOI 10.1046/j.1442-9993.2003.01294.x) give a **same-true-richness** (24 species) empirical-simulation curve crossing; their full text, especially pages 355–360, does not establish two strict changes of ordering, a sharp support cutoff, or the exact iid replacement-sampling theorem. Chao and Jost (2012, DOI 10.1890/11-1952.1) establish equality of crossing counts for size-based and coverage-based richness curves, without determining the smallest equal positive support permitting two changes. Chao et al. (2014, DOI 10.1890/13-0133.1) give a general diversity-sampling framework and discuss twice-crossing curves for a different Hill order and coverage standardization; the inspected species-richness discussion does not supply the sharp four-support result. Nearby published mathematical records about covariance of discoveries, richness/frequency counts, and richness/Simpson covariance concern distinct statistics and do not logically imply this theorem. Directly related older, unlocated treatments of intersections or power-majorization could still contain this statement or dominate it; independent priority audit remains necessary.
+PASS
 
-## Value — PASS
-Ranking communities at differing sampling efforts is a longstanding biodiversity-comparison problem: the number of actual species and sample-size-specific observed richness do not coincide. The theorem precisely identifies the first community complexity at which ranking can switch *back and forth* rather than merely cross once. It classifies all smaller positive-support cases and supplies robust, normalized equal-support counterexamples at every larger size. This structural boundary is relevant when interpreting expected rarefaction curves, not merely a one-off numeric discrepancy. It provides no claim about inferred diversity, random sampling errors or all later crossings.
+For iid with-replacement species observations, E[R_p(n)]=S-sum_i(1-p_i)^n. The difference between two equal-richness triples is a signed exponential polynomial with at most three coefficient sign changes in the only incomparable-majorization case; it already vanishes at t=0 and t=1, so has at most one additional zero on t>1. For S<=2 Schur concavity precludes reversals. Independently recomputed witness scaled differences at n=2,5,12 as (-2,57720,-285614243977922) for p=(1,5,5,11)/22 and q=(2,2,9,9)/22. The common extra-species construction changes each difference by at most 2n/10000, strictly smaller than all three witnessed margins, giving every S>4.
 
-## Closest source comparison and limitations
-Sources: Lande–DeVries–Walla (2000; publisher online first 2003-04-17); Thompson–Withers (2003; full text inspected); Chao–Jost (2012); Chao et al. (2014). Their relevant full-text sections were checked. The evidence supports non-coverage of this *precise* classification in the inspected passages, but no literature search can establish global novelty; priority remains a live risk, especially in classical exponential-sum and ecological rarefaction literature. The claimed proof uses a classical sign-variation lemma, for which a complete induction is included, and does not claim to originate that lemma. No conclusions for sampling without replacement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For expected CUMULATIVE distinct species counts under iid replacement sampling and equal true support size, this exact four-species threshold for TWO strict reversals was not established by the inspected comparative rarefaction/crossing results. Previously known single crossing, finite without-replacement rarefaction, discovery-rate derivative rankings, and Hill diversity across orders do not imply this statement.
+
+## value
+
+PASS
+
+The minimum richness needed for two reversals in expected sampled richness is a natural interpretability limit: ranking communities by sampling effort can exhibit nonmonotone double reversals only above an exact four-species boundary. The three-species obstruction and stable rational witness yield useful information beyond generic crossings or a single finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

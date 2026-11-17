@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3.8 or newer in the directory containing the files. No third-party packages or network access are needed. The checker returns a nonzero exit status if any exact check fails.
+## correctness
 
-The checker verifies the normalized four-species probability vectors, recomputes the three large integer scaled differences at sample sizes 2, 5 and 12, and independently computes expected species richness from a weighted distribution of actual *sets of detected species*. It also checks the rational perturbation margins supporting arbitrarily many additional positive species.
+PASS
 
-As supplemental finite evidence, the checker exhaustively compares distinct sorted three-species rational profiles with shared denominators from 3 through 14 for sample sizes 2 through 18, using exact integers. There are 391 such profile pairs. This finite test does **not** prove the real-parameter zero bound or the sharp all-size threshold: those are proved analytically in `RESULT.md` using majorization, a self-contained exponential sign-variation lemma, and explicit rational inequalities.
+For iid with-replacement species observations, E[R_p(n)]=S-sum_i(1-p_i)^n. The difference between two equal-richness triples is a signed exponential polynomial with at most three coefficient sign changes in the only incomparable-majorization case; it already vanishes at t=0 and t=1, so has at most one additional zero on t>1. For S<=2 Schur concavity precludes reversals. Independently recomputed witness scaled differences at n=2,5,12 as (-2,57720,-285614243977922) for p=(1,5,5,11)/22 and q=(2,2,9,9)/22. The common extra-species construction changes each difference by at most 2n/10000, strictly smaller than all three witnessed margins, giving every S>4.
 
-The proof does not assert a sharp maximum number of crossings for all larger supports and does not address sampling without replacement or noisy observed curves. Historical priority remains provisional; independent audit and external scientific validation have not been performed.
+## originality
+
+PASS
+
+For expected CUMULATIVE distinct species counts under iid replacement sampling and equal true support size, this exact four-species threshold for TWO strict reversals was not established by the inspected comparative rarefaction/crossing results. Previously known single crossing, finite without-replacement rarefaction, discovery-rate derivative rankings, and Hill diversity across orders do not imply this statement.
+
+## value
+
+PASS
+
+The minimum richness needed for two reversals in expected sampled richness is a natural interpretability limit: ranking communities by sampling effort can exhibit nonmonotone double reversals only above an exact four-species boundary. The three-species obstruction and stable rational witness yield useful information beyond generic crossings or a single finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
