@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:57:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The direction-indexed Mittag-Leffler Laplace transforms j lambda/(j lambda+s^alpha) and j mu/(j mu+s^alpha) are realized as stable subordinators evaluated at independent exponentials of linearly increasing rates. Sums of those exponentials equal exponential maxima G_m/lambda and G_k/mu. The stable-ratio integration identity E[U/(U+V)]=a/(a+b) proves exact finite-count alpha-independent mean, including one-side-empty cases. Uniform log expansion of the product transforms gives joint independent stable limits when beta_±=lim log(1+np_±)/log n exist; max beta=1 ensures ratio continuity. The Lamperti density follows by Stieltjes inversion, and a two-variable Taylor expansion around L=log n using bounded second moments of G_m-log n proves the fixed-p log-odds bias coefficient lambda mu/(lambda+mu)^2*log(p/(1-p))/L with O(L^-2). Independently computed exact rational two-direction fractional Laplace factors for n=1,5,15 to check the operational-time mixture. These finite checks do not prove the limits; proof covers all stated alpha,p_n under the explicit exponent assumption.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic stable subordination works for independent waiting times and explains Mittag-Leffler transforms. Here j-specific rates and a binomially random split require exponential maximum harmonics, giving new log(p/(1-p))/log n correction."
+        ],
+        "reasoning": "General theorem ingredients enable reconstruction but none inspected states a theorem with the same marked operational-time hypotheses and all finite/asymptotic conclusions.",
+        "searches": [
+          "Meerschaert Nane Vellaisamy arxiv:1007.5051 stable subordination",
+          "Akimoto arxiv:2306.00359 renewal occupation times",
+          "Pote Kataria arxiv:2608.23301"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2608.23301v1.pdf",
+        "https://arxiv.org/abs/2608.23301",
+        "https://arxiv.org/abs/1209.3006",
+        "https://arxiv.org/abs/2306.00359",
+        "https://arxiv.org/abs/1007.5051",
+        "https://doi.org/10.2307/1993222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pote-Kataria uses the same directional holding-time Laplace factors, but does not establish the n-dependent logarithmic normalization, binomial thinning exponents or sharp logarithmic mean shift. Lamperti supplies only the independent stable-ratio family."
+        ],
+        "reasoning": "The claim is a mathematically nontrivial combination and extension; no prior inspected statement implies every component with the required quantifiers.",
+        "searches": [
+          "Pote Kataria 2026 PDF sections 2-5",
+          "Crimaldi et al 2013 generalized telegraph",
+          "Lamperti 1958 occupation-time theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio of independent positive alpha-stable clocks is the classical Lamperti ratio, but here the operational times are random exponential maxima indexed by Bernoulli counts and have asymptotic coefficients beta±/rate."
+        ],
+        "reasoning": "Only the ratio density is standard; the exact finite-count alpha-invariance, count-dependent log-clock limit and first bias correction do not arise simply from a change of names.",
+        "searches": [
+          "Resultary: Mittag Leffler telegraph random trials indexed directional count stable Lamperti residence fraction logarithmic bias",
+          "Pote Kataria arxiv:2608.23301",
+          "Crimaldi et al arxiv:1209.3006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Model paper computes arrival-time/physical-position densities; the exact finite mean E mu G_M/(mu G_M+lambda G_{n-M}) was not present in inspected mathematical text."
+        ],
+        "reasoning": "This is not a known direct table, nor can an event-position density alone be called an identical occupied-duration ratio.",
+        "searches": [
+          "Pote Kataria finite nth-event telegraph formula",
+          "Resultary exact telegraph occupation fraction mean independent alpha"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Pote and Kataria 2026 provide the direction-indexed Mittag-Leffler marked telegraph model and finite event arrival/position laws, not the completed-event occupation fraction with a stable-ratio scaling, arbitrary polynomial thinning classification, or exact finite-n exponent-independent mean. Crimaldi et al treat exponential random-trial velocity and fixed-time position, not these fractional residence fractions. Lamperti gives the classical stable-ratio law and subordinator literature supplies the technique; the novel content is the direction-indexed log clock/marked Bernoulli sampling and exact finite-size bias invariance. Complete primary Pote-Kataria article was accessed from lawful arxiv-associated OA PDF and inspected for these claim comparisons.",
+      "residual_risks": [
+        "Nonhomogeneous marked-subordinator occupation-time limit theorems outside inspected sources might imply a special case or the full result.",
+        "Exact alpha-independent mean is for *completed event index*, not occupation at fixed physical time; the two models must not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRESENT_BUT_NOT_THE_CLAIM",
+          "evidence": "The primary article derives event arrival/position distributions, not completed-event residence fraction or alpha-invariant mean/logarithmic thinning theorem.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2608.23301v1.pdf",
+          "material_read": "Complete 25-page lawful OA full PDF accessed; model definition and its j-dependent Laplace transforms, Section 3 event-time/physical-time position laws, Section 4 random trial extension, statements and references inspected",
+          "method": "Primary full PDF text plus page-image inspection",
+          "title": "On a Telegraph Process with Generalized Mittag-Leffler Waiting times and Velocity Driven by Random trials",
+          "trigger": "Exact same direction-indexed waiting clocks"
+        },
+        {
+          "assessment": "BACKGROUND_METHOD_NOT_COVERING",
+          "evidence": "Generic fractional Poisson subordination gives a technique, not a two-direction j-indexed Bernoulli-occupancy classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.5051",
+          "material_read": "Abstract, introductory setup and claimed iid-renewal fractional-Poisson subordination inspected",
+          "method": "Primary arxiv abstract and theorem summary",
+          "title": "The fractional Poisson process and the inverse stable subordinator",
+          "trigger": "Could dominate the subordination lemma"
+        },
+        {
+          "assessment": "SUBMISSION_VERIFIED",
+          "evidence": "The claimed finite identity, stable log-clock convergence, and bias coefficient follow under stated hypotheses.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/log-clock-lamperti-universality-and-the-exact-mean-bias-boundary--851c2e05e75b/RESULT.md",
+          "material_read": "Complete RESULT.md proof Steps 1–5, verification checker.py, metadata, audit and exact Git blob map inspected",
+          "method": "Full repository source reading and independent rational transform checks",
+          "title": "Log-clock Lamperti universality and the exact mean-bias boundary for fractional trial-driven telegraphs",
+          "trigger": "Submitted theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The direction-visit-indexed waiting law is a natural recent telegraph model with non-iid heavy tails. An exact alpha-invariant expectation despite alpha-dependent random distribution, an explicit universality/thinning phase boundary, and sharp logarithmic bias are structurally motivated occupation-time facts. They distinguish event-time occupation from physical-time position, not a rote restatement of the Lamperti density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://pdfs.assets.alphaxiv.org/2608.23301v1.pdf",
+    "https://arxiv.org/abs/2608.23301",
+    "https://arxiv.org/abs/1209.3006",
+    "https://arxiv.org/abs/2306.00359",
+    "https://arxiv.org/abs/1007.5051",
+    "https://doi.org/10.2307/1993222"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Nonhomogeneous marked-subordinator occupation-time limit theorems outside inspected sources might imply a special case or the full result.",
+    "Exact alpha-independent mean is for *completed event index*, not occupation at fixed physical time; the two models must not be conflated."
+  ],
+  "schema_version": 1
+}

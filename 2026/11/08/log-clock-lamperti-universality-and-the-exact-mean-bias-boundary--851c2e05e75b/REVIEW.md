@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to completed event-indexed intervals and exactly matches the directional occurrence-indexed clocks in the motivating model. The joint conditional Laplace transform has an explicit product whose uniform harmonic expansion proves the independent stable limits for every existing pair of count-growth exponents. The exact stable-ratio expectation and the exponential-maximum spacing identity prove finite-count independence of the fractional index; bounded-second-moment Taylor expansion proves the first log-odds correction with a quadratic error. The Lamperti density is obtained by a stated Stieltjes inversion. Exact-rational recursion checks and independent density quadrature are supplementary diagnostics, not replacements for the proof. Risk: only fixed fractional and rate parameters are covered, and the theorem addresses event-indexed, not physical-time occupation.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+The direction-indexed Mittag-Leffler Laplace transforms j lambda/(j lambda+s^alpha) and j mu/(j mu+s^alpha) are realized as stable subordinators evaluated at independent exponentials of linearly increasing rates. Sums of those exponentials equal exponential maxima G_m/lambda and G_k/mu. The stable-ratio integration identity E[U/(U+V)]=a/(a+b) proves exact finite-count alpha-independent mean, including one-side-empty cases. Uniform log expansion of the product transforms gives joint independent stable limits when beta_±=lim log(1+np_±)/log n exist; max beta=1 ensures ratio continuity. The Lamperti density follows by Stieltjes inversion, and a two-variable Taylor expansion around L=log n using bounded second moments of G_m-log n proves the fixed-p log-odds bias coefficient lambda mu/(lambda+mu)^2*log(p/(1-p))/L with O(L^-2). Independently computed exact rational two-direction fractional Laplace factors for n=1,5,15 to check the operational-time mixture. These finite checks do not prove the limits; proof covers all stated alpha,p_n under the explicit exponent assumption.
 
-Pote and Kataria (arXiv:2608.23301v1, sections 1 and 3) establish the underlying fractional clocks and finite-event distributions, not this asymptotic occupation classification, the invariant finite-n mean or log-odds coefficient. Crimaldi et al. (arXiv:1209.3006, section 4) establish exponential-clock physical-position densities and a logistic stationary case, not the nondegenerate fractional stable-ratio law. Lamperti's 1958 ratio is acknowledged as classical; Akimoto (arXiv:2306.00359, section V) obtains a related generalized arcsine law for fixed-time occupation of iid alternating renewals rather than the present direction-count-inhomogeneous random-trial process and does not imply the exact finite-count index invariance or the log-odds correction. General stable-subordinator identities are also credited. Searches in published mathematical records, published-finding corpus and accessible previous claims found no statement covering the complete theorem. Risk: a broader treatment of nonidentically distributed renewal occupation laws may implicitly contain portions of the leading limit.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result explains a counterintuitive loss of identifiability: the Bernoulli trial bias is invisible at first order despite asymmetry in direction choices, and the expected occupation fraction is *exactly* insensitive to the fractional holding-time index at every sample size. It locates the natural boundary at polynomial thinning and computes the first surviving log-odds bias coefficient, giving an observable scale on which trial propensity reappears. These features quantify a natural structural question in a new direction-dependent fractional telegraph model, beyond a mere restatement of the known Lamperti density.
+PASS best-of-knowledge. Pote and Kataria 2026 provide the direction-indexed Mittag-Leffler marked telegraph model and finite event arrival/position laws, not the completed-event occupation fraction with a stable-ratio scaling, arbitrary polynomial thinning classification, or exact finite-n exponent-independent mean. Crimaldi et al treat exponential random-trial velocity and fixed-time position, not these fractional residence fractions. Lamperti gives the classical stable-ratio law and subordinator literature supplies the technique; the novel content is the direction-indexed log clock/marked Bernoulli sampling and exact finite-size bias invariance. Complete primary Pote-Kataria article was accessed from lawful arxiv-associated OA PDF and inspected for these claim comparisons.
 
-## Limitations and closest literature
+## value
 
-The primary source is Pote and Kataria's August 24, 2026 preprint, arXiv:2608.23301v1. Comparisons also include Crimaldi et al. (arXiv:1209.3006), Akimoto (arXiv:2306.00359), Meerschaert–Nane–Vellaisamy (arXiv:1007.5051), and classical Lamperti (1958). The theorem is about completed event-indexed residence fractions, not the occupation fraction at a fixed deterministic time. Historical priority remains subject to independent full-literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The direction-visit-indexed waiting law is a natural recent telegraph model with non-iid heavy tails. An exact alpha-invariant expectation despite alpha-dependent random distribution, an explicit universality/thinning phase boundary, and sharp logarithmic bias are structurally motivated occupation-time facts. They distinguish event-time occupation from physical-time position, not a rote restatement of the Lamperti density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
