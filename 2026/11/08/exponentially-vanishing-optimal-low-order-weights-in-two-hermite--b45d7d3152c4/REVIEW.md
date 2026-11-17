@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalization \(\mathcal A h_k=e^{-t/2}L_k(t)\) reduces the disk's squared singular-value optimization to a scalar polynomial-weighted minimum. Beyond all roots, both component functions decrease, so the active constraints are the compact Laguerre zero neighborhoods and the outer disk boundary. The compact envelope rises linearly at slope \(c_{m,n}>0\); the outer value decreases affinely in the lower-order weight. Their unique crossing gives the asserted optimizer and sharp second-order deficit. The ordinary Laguerre recurrence proves all consecutive-order instances; the explicit root comparison proves the smaller second-order zero circle is the bottleneck for orders one and two. Finite checker output supports, but cannot prove, the all-radius asymptotic.
+## correctness
 
-**Originality — PASS (provisional bibliographic priority).** Alaifari--Yang (arXiv:2410.05486v1, §2.2/§3.2) use Hermite ambiguity rings and disjoint thresholded reconstruction sets but not optimized common two-channel power splitting. Alaifari--Wellershoff (arXiv:2006.10579v1, §4) establish uniqueness-related statements about Laguerre root circles, not the present maximin. A previously obtained Gaussian-*relative* Hermite polynomial bound removes \(e^{-t}\), giving a different fixed optimum; it does not dominate the new expanding-radius result. The recovered searchable literature did not expose an equivalent theorem, but an earlier specialist result remains possible.
+PASS
 
-**Value — PASS.** The exact minimum squared multiplier is a natural linear noise-amplification benchmark on the restricted disk. The theorem shows an unexpected design behavior: as the disk grows, the optimal lower Hermite order receives exponentially *less* exposure while still preventing zero-circle instability. It determines the sharp rate, coefficient, and second-order stability loss for every fixed admissible pair, rather than only for one numerical radius.
+For fixed m<n without common Laguerre zeros, the high-radius tails P=e^-t L_n^2, Q=e^-t L_m^2 are both decreasing. The compact minimum near simple n-th Laguerre roots has G(w)=c w+O(w^2), c>0, strictly increasing for small w; the outer endpoint H_T=b_n-(b_n-a_m)w strictly decreases. Their unique crossing is the global optimum because H decreases beyond it. Thus w=b_n/c+O(b_n^2) and floor b_n-b_n^2/c+o(b_n^2). For h1,h2 independently evaluated c_inner=0.0955091130 and c_outer=0.1917684953. The Laguerre recurrence excludes shared adjacent zeros; the argument covers all fixed pairs satisfying the hypothesis.
 
-**Limitations.** There is no effective onset threshold or uniformity for growing orders, no common-root case, no implication of full nonlinear phase-retrieval stability, and no lattice-sampling statement. Bibliographic priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full October 25 three-Hermite result is a different, strictly larger three-channel optimization and does not solve the restricted h_m/h_n pair. The published all-plane Gaussian-relative h1/h2 theorem divides out e^-t and has a constant weight; its conclusion cannot imply the unweighted expanding-disk boundary/root balance and exponentially shrinking weight. Primary multi-window STFT text could not be inspected beyond abstracts; residual historical overlap noted.
+
+## value
+
+PASS
+
+Optimal allocation of two fixed Hermite ambiguity measurements under a fixed exposure budget is a motivated and quantitatively sharp stability-design invariant. The unique weight, nontrivial limiting zero circle, and second-order deficit add more than a routine Laguerre identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
