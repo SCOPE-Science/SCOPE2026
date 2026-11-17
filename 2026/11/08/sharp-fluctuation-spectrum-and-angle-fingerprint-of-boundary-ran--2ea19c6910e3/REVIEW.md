@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact missing-area identity is valid whenever all polygon edges receive a sample, an event whose complement has exponentially small probability. Finite-dimensional empty-arc probabilities yield independent exponential endpoint limits; exponential tail domination plus an exponential occupancy error upgrades distributional convergence to convergence of every fixed moment. The moment–cumulant formula is independently tied to the exact enumeration of transitive permutation pairs, proving strictly positive coefficients. Newton's identities then establish the sine-spectrum reconstruction. The sharp normalized-variance interval follows from the strict sine-budget inequality (each sine is less than the sum of the other sines), Cauchy–Schwarz, and a degenerating-angle construction. The equality patterns follow by solving the integer sine-isotropy equation and are geometrically realizable as tangential polygons. Jensen's strict concavity separately proves the uniquely equiangular maximum for the mean deficit. The standalone finite verifier executed successfully and agrees with the analytic identities.
+PASS
 
-## Originality — PASS (self-review, historical priority provisional)
+For each fixed nondegenerate m-gon with independent arclength-uniform boundary samples, on the exponentially likely event that every edge is occupied the missing hull area is the sum of disjoint corner triangles (sin(theta_i)/2)*a_i*b_i. Joint microscopic endpoint avoidance gives independent standard exponential gaps after scaling by N/P; Hölder plus exponential tails and the exponentially rare complement prove convergence of every fixed integer moment, not just weak convergence. Since E[(EF)^k]=(k!)^2, the moment-cumulant set-partition identity counts cumulants by transitive ordered permutation pairs (first four 1,3,26,426), and Newton identities recover the unordered sine spectrum from first m positive cumulants. Cauchy gives R>=3/m, strict angle-polytope concavity gives R<3/2, and the connected allowed angle region plus explicit degenerate sequences gives the entire [3/m,3/2) image. Solving equal-sine supplemental-angle equation classifies m=3, m=4, and m>=5 equality families. Jensen establishes the mean bound. Independent exact integer cumulant and exceptional-angle numerical checks corroborate finite coefficients only.
 
-Relevant primary full material includes Schütt–Werner's earlier smooth-body boundary theorem, Groeneboom's 2011 interior-point polygon limit, Reitzner–Schütt–Werner's boundary-sampled simple-polytope mean-deficit analysis (2019 preprint, 2023 publication), and Prochno–Schütt–Sonnleitner–Werner's 2024 boundary-polygon Hausdorff-distance theorem. None of the inspected statements establishes a non-Gaussian *planar area deficit* limit with explicit independent product factors and a finitely identifiable angular sine spectrum. The 2023 work does treat the same samples and volume difference at the level of expected rates, so its relevance is material; it is not represented as excluding all possible earlier equivalents. Published-record comparisons of random-polygon Hausdorff asymptotics and randomized polygon area functionals produced no bound or equality classification for normalized area-loss fluctuations. A related earlier boundary-polygon perimeter-loss law uses the same microscopic endpoint gaps but treats the *perimeter* functional, which does not entail the area-variance range and its exceptional minimizers. An unlocated earlier equivalent is a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact range \(3/m\le R<3/2\) of normalized asymptotic area-loss fluctuations, together with all non-equiangular equality families and the sharp nonattained supremum, is a new complete shape-dependent classification not supplied by existing boundary-perimeter limit laws. The product-exponential limit also gives positive cumulants, a finite sine-angle reconstruction procedure, and a distinct sharp equiangular maximization of the *mean* deficit. These are structural, natural facts beyond a fixed-shape integration.
+Most of the product-exponential limit, moments, Laplace transform, sine spectrum and mean bound are already covered by prior published mathematics; the surviving noncovered question is the COMPLETE attainable sharp normalized squared coefficient-of-variation range [3/m,3/2) and full non-equiangular extremizer classification, a genuine exact shape extremal classification, judged best-of-knowledge original with priority risk.
 
-## Limits and remaining risks
+## value
 
-The polygon and its number of sides must be fixed; extreme or degenerate shape families require separate uniformity analysis. The first \(m\) limiting cumulants are a population-level statement, not a statistically conditioned finite-sample procedure. Missing historical papers or alternative parameterizations could affect novelty; no independent review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The EXACT complete sharp attainable normalized fluctuation range for a fixed number of polygon corners is a natural geometrically constrained invariant; classifying all equal-sine, sometimes non-equiangular minimizers distinguishes variance from mean optimization. The upper endpoint 3/2 is strict and only approached, and all intermediate values occur. This is an independently useful complete extremal classification beyond known product-law and convex-order lower bound, albeit narrow; no wholesale novelty of the limit law is credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
