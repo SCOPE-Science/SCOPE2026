@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The nonzero orbit must contain a zero: otherwise the recurrence increments by one everywhere and necessarily reaches zero. Rotating a zero to the terminal index removes any unknown initial value. A binary indicator mask has weight divisible by three and uniquely reconstructs the orbit by prefix sums. Checking mask compatibility and exact minimal period is both necessary and sufficient. The C++17 certificate exhausts every mask, period and delay class through the stated boundary, confirms precisely eight possible period/delay pairs, checks every survivor against the listed rotation class, and verifies the nonlinear equation directly. An independent direct ternary enumeration checks the smaller range through period eleven. The finite certificate provides no information beyond the claimed boundary.
+PASS
 
-## Originality
+For any nonzero periodic solution, if no zero occurs then x_t−x_(t−1)=1 and all residues are visited: contradiction. Rotate so x_(N−1)=0. The nonzero mask b_j must have weight divisible by 3 and completely reconstructs x_j=Σ_(i=0)^j b_(i−k) mod3. Mask equality, exact primitivity, and nonlinear recurrence are necessary and sufficient; hence enumerating all nonzero binary masks, all 1<=N<=22 and each k modN is exhaustive for the FINITE claim. Independently implemented exact C++17 enumeration processed 176,160,517 masks, finding only (4,2),(4,3),(9,4),(9,6),(19,5),(19,15),(22,8),(22,15), with 1,1,3,3,7,7,7,7 zero-anchored words, each one cyclic orbit. This does not classify longer periods or basins.
 
-**PASS, qualified.** Finch's October 2026 source reports period-four structure and numerical periods of the specially seeded sequence; the complete all-seed primitive-orbit spectrum and unique phase class for each delay residue are not asserted there. The 2002 tables and OEIS cover the same distinguished seed, not all initial states. Relevant mathematical research-record searches identified unrelated low-period recurrence and coding-theoretic records, not an equivalent classification. The earlier Cassaigne–Finch 1995 paper concerns a different ternary recurrence; its full comparison is limited by imperfectly accessible historical text. Unindexed prior computations remain a priority risk. Numbers \(4,9,19,22\) individually were previously observed for special seeds and are not claimed as new.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating recent work presents a still-mysterious nonlinear recurrence and a handful of particular seed periods. This result gives the first complete global period spectrum over *all* delays and seeds through the fourth realized primitive length: nine consecutive lengths from \(10\) to \(18\) are excluded (as are \(5\) to \(8\), \(20\), and \(21\)), and every occurring short orbit has a unique phase class. The exact boundary \(22\) is the fourth distinct observed attainable period in the source data; it is not an arbitrary cutoff selected to showcase an isolated answer. The theorem can serve as a tested boundary condition for studying basins and longer cycles. It does not purport to settle general-period conjectures.
+Finch 2026 and its older distinguished-seed table contain period-four classification and observed periods 9,19,22 for special seeds; Resultary Nov 2 establishes only the all-seed gap below 10 and nine-cycle uniqueness. No checked source yields the complete 1..22 all-initial-condition, all-delay orbit-uniqueness census. Best-of-knowledge PASS retains explicit unavailable full-text priority risks.
 
-## Closest literature and limitations
+## value
 
-- Finch (2026), arXiv:2610.34300, Section 4: prior exact period-four result and individual seed data; does not cover the asserted global small-period spectrum.
-- Finch (2002), *Periodicity in Sequences Mod 3*: prior distinguished-seed tables; not a global cycle classification.
-- OEIS A112683: distinguished-seed periods only.
-- Cassaigne–Finch (1995): different multi-lag recurrence; historical full-text access imperfect.
+PASS
 
-Unindexed-priority risk remains; the computation is certified only through period \(22\). Independent review has not taken place.
+The exact cutoff follows the first four actually observed attainable primitive lengths 4,9,19,22 in a naturally studied nonlinear ternary lag recurrence, not a contrived single instance. A full all-seed and all-lag classification through 22 excludes entire intervening period ranges and fixes unique orbit geometry, useful as a rigorous boundary for later basin/large-period work even without a global theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

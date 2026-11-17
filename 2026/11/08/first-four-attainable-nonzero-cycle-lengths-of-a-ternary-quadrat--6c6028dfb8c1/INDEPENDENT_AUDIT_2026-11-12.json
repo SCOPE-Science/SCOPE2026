@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nonzero periodic solution, if no zero occurs then x_t−x_(t−1)=1 and all residues are visited: contradiction. Rotate so x_(N−1)=0. The nonzero mask b_j must have weight divisible by 3 and completely reconstructs x_j=Σ_(i=0)^j b_(i−k) mod3. Mask equality, exact primitivity, and nonlinear recurrence are necessary and sufficient; hence enumerating all nonzero binary masks, all 1<=N<=22 and each k modN is exhaustive for the FINITE claim. Independently implemented exact C++17 enumeration processed 176,160,517 masks, finding only (4,2),(4,3),(9,4),(9,6),(19,5),(19,15),(22,8),(22,15), with 1,1,3,3,7,7,7,7 zero-anchored words, each one cyclic orbit. This does not classify longer periods or basins.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier published all-seed theorem is bounded by N<10.",
+          "Finch special-seed periods and period-four theorem do not by their stated quantifiers exhaust arbitrary initial states through N22."
+        ],
+        "reasoning": "No located stronger all-period/delay classification dominates this finite cutoff. The Finch full text was not freshly accessible; remaining risk explicitly disclosed.",
+        "searches": [
+          "Resultary semantic: ternary lag quadratic recurrence x_n=x_{n-1}+x_{n-k}^2 mod 3 short periods 4 9 19 22 all initial orbits",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-short-period-gap-in-a-ternary-quadratic-recurrence--64cd9edaf3d7",
+          "arxiv:2610.34300"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.34300",
+        "https://www.mit.edu/~sfinch/seqmod3.pdf",
+        "https://oeis.org/A112683",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-short-period-gap-in-a-ternary-quadratic-recurrence--64cd9edaf3d7",
+        "Resultary semantic: ternary lag quadratic recurrence x_n=x_{n-1}+x_{n-k}^2 mod 3 short periods 4 9 19 22 all initial orbits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem establishes the new claim’s N<=9 restriction and exact 9-cycle count as a proper part.",
+          "Existence for a particular initial condition does not imply every lag class and every other initial condition has no extra short cycles."
+        ],
+        "reasoning": "The extension to N=19,22 and exclusion of N10..18,20..21 and precise orbit uniqueness are not consequences of the inspected narrower result.",
+        "searches": [
+          "Resultary 2026/11/2 first-short-period-gap",
+          "arxiv:2610.34300 Section 4",
+          "OEIS:A112683",
+          "Resultary semantic: ternary lag quadratic recurrence x_n=x_{n-1}+x_{n-k}^2 mod 3 short periods 4 9 19 22 all initial orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "x_(t-k)^2 is precisely the indicator of x_(t-k)≠0 over F3; this is Finch’s quadratic lag recurrence.",
+          "The Nov2 earlier result already proves no nonzero least period below10 except 4,9 and unique 9-cycle."
+        ],
+        "reasoning": "The same indicator formulation and period-4/9 coverage are prior. The new claim is a complete all-delay primitive-orbit spectrum through the next two attainable lengths 19 and 22, including exact delay residue classes and uniqueness.",
+        "searches": [
+          "Resultary semantic: ternary lag quadratic recurrence x_n=x_{n-1}+x_{n-k}^2 mod 3 short periods 4 9 19 22 all initial orbits",
+          "arxiv:2610.34300 Finch recurrence",
+          "Resultary 2026/11/2 first-short-period-gap",
+          "OEIS:A112683"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier numerical table lists periods for one prescribed initial block at each lag, not for every cyclic solution.",
+          "The individual lengths 4,9,19,22 were already observed in prior seed data, not claimed novel here."
+        ],
+        "reasoning": "Known sequence tables do not determine absences of additional periods or uniqueness of all primitive orbits for arbitrary seeds.",
+        "searches": [
+          "Resultary semantic: ternary lag quadratic recurrence x_n=x_{n-1}+x_{n-k}^2 mod 3 short periods 4 9 19 22 all initial orbits",
+          "OEIS:A112683",
+          "Finch 2002 Periodicity in Sequences Mod 3"
+        ]
+      },
+      "rationale": "Finch 2026 and its older distinguished-seed table contain period-four classification and observed periods 9,19,22 for special seeds; Resultary Nov 2 establishes only the all-seed gap below 10 and nine-cycle uniqueness. No checked source yields the complete 1..22 all-initial-condition, all-delay orbit-uniqueness census. Best-of-knowledge PASS retains explicit unavailable full-text priority risks.",
+      "residual_risks": [
+        "Original Finch article arxiv:2610.34300 full text unavailable in this execution (authorized Oxford VPN disconnected); complete historical comparison limited.",
+        "A historical exhaustive short-cycle computer table might have recorded the same all-seed spectrum.",
+        "Finite result proves no statement beyond N=22, regardless of unexamined longer orbits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only: period4 and9 gap, not primitive 19/22 classification",
+          "evidence": [
+            "Published summary explicitly limits to nonzero least periods below ten"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-short-period-gap-in-a-ternary-quadratic-recurrence--64cd9edaf3d7",
+          "material_read": "Semantic indexed published title/summary and source file directory; did not use prior PASS as a substitute for present proof",
+          "method": "Compared published N<10 theorem scope to N<=22 census",
+          "title": "First short-period gap in a ternary quadratic recurrence",
+          "trigger": "Previous same recurrence, potential full coverage"
+        },
+        {
+          "assessment": "Prior period-four theorem and particular-seed period examples likely; unseen full sections remain a recorded priority uncertainty",
+          "evidence": [
+            "arXiv:2610.34300; Oxford job a89ea52f2d03361f8e88ae57bc3eff6f vpn_disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34300",
+          "material_read": "Accessible abstract, published metadata and candidate-cited Proposition 12/period table descriptions; full article not obtained in this run",
+          "method": "Tried arXiv/OA full text first; authorized Oxford paper retrieval returned vpn_disconnected; no bypass or fabricated full-text comparison",
+          "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+          "trigger": "Exact same quadratic delayed feedback in motivating source"
+        },
+        {
+          "assessment": "Only special-seed data established by available evidence; deeper older text remains risk",
+          "evidence": [
+            "Finch 2002; OEIS A112683 canonical seed definition"
+          ],
+          "identifier_or_url": "https://www.mit.edu/~sfinch/seqmod3.pdf",
+          "material_read": "Candidate-cited description of canonical-seed period data; full PDF not freshly retrieved",
+          "method": "Compared its stated initial conditions with arbitrary periodic solution quantifiers",
+          "title": "Periodicity in Sequences Mod 3",
+          "trigger": "Older table of same sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cutoff follows the first four actually observed attainable primitive lengths 4,9,19,22 in a naturally studied nonlinear ternary lag recurrence, not a contrived single instance. A full all-seed and all-lag classification through 22 excludes entire intervening period ranges and fixes unique orbit geometry, useful as a rigorous boundary for later basin/large-period work even without a global theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No cycle/basin claims after N22 or for a distinguished initial seed at arbitrary lag.",
+    "Relevant Finch 2026 primary full text not accessible because authorized Oxford VPN disconnected; priority best-of-knowledge not certified.",
+    "All five source packages were read at frozen assignment commit; scientific verdict is independent of publication status, and no GitHub writes or formal/expert attestation were made."
+  ],
+  "schema_version": 1
+}
