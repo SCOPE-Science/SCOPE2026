@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Enumerate exactly the 129 binary length-16 words whose all zero runs (including end guards) have length at least two and whose ones are isolated. Define compatibility as disjoint sets of all distinct length-15 one-deletion outputs. Any correcting code is a clique and conversely. The inspected exact branch-and-bound algorithm prunes solely using independent-set coloring upper bounds. An independently ordered exact graph-clique search found maximum 14 (87,059 search nodes), with the 14-word n16 witness and 16-word n17 witness having disjoint shadows. Zero-appending preserves admissibility and disjoint shadows by a three-case deletion argument, so no length below 17 can transmit 16 messages. This does not assert full M17.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older RLL insertion/deletion papers construct codes and bounds; abstracts do not state an exact maximum n=16 under this precise guarded model.",
+          "General fractional bounds in Kulkarni–Kiyavash exceed the target 16-message cutoff."
+        ],
+        "reasoning": "Broader code constructions or relaxations checked do not mathematically dominate the exact instance; inaccessible primary originals remain a priority risk.",
+        "searches": [
+          "Resultary semantic: single deletion correcting binary run-length limited code every zero run at least 2 isolated ones optimum 16 17",
+          "doi:10.1109/18.340459",
+          "doi:10.1109/TIT.2011.2172725"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1211.3128",
+        "https://doi.org/10.1109/18.340459",
+        "https://doi.org/10.1109/TIT.2011.2172725",
+        "Resultary semantic: single deletion correcting binary run-length limited code every zero run at least 2 isolated ones optimum 16 17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic upper bound is not sharp enough to show M16<16.",
+          "Independent exhaustive 129-word compatibility graph search gives M16=14 and an actual code of size16 at n17."
+        ],
+        "reasoning": "Existing bounds cannot imply this exact threshold numerically without the finite extremal computation; all-shorter blocklength exclusion follows the proved padding monotonicity.",
+        "searches": [
+          "arxiv:1211.3128v1 Theorems V.1/V.2",
+          "Resultary semantic: single deletion correcting binary run-length limited code every zero run at least 2 isolated ones optimum 16 17",
+          "Resultary 2026/10/13 through length eleven"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kulkarni–Kiyavash hypergraph-matching formulation is the same coding problem and encodes the condition of disjoint deletion shadows.",
+          "Earlier exact RLL results cover capacities only through n=11, not the n16 sharp cutoff."
+        ],
+        "reasoning": "Matching as a formulation is prior, but evaluated maximum 14 and threshold 17 require a nontrivial exact finite extremal search beyond generic formulation.",
+        "searches": [
+          "Resultary semantic: single deletion correcting binary run-length limited code every zero run at least 2 isolated ones optimum 16 17",
+          "arxiv:1211.3128v1 Sections V/V-A",
+          "Resultary 2026/10/13 exact (2,infinity)-RLL optima through length 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Visible numerical tables are for broader/unconstrained models, not exact guarded length-16 14-word optimum.",
+          "Previous published Resultary RLL table ends at n11."
+        ],
+        "reasoning": "No table/database exact counterpart found; absence from indexing is not evidence of global novelty.",
+        "searches": [
+          "Resultary semantic: single deletion correcting binary run-length limited code every zero run at least 2 isolated ones optimum 16 17",
+          "Kulkarni–Kiyavash Section VI finite tables",
+          "Resultary 2026/10/13 through length eleven"
+        ]
+      },
+      "rationale": "Kulkarni–Kiyavash supplies general constrained deletion upper bounds and fractional-matching formulation, not the exact guarded n16 optimum or first 4-bit length. Earlier Resultary exact RLL optimization only through length 11 and has different/narrower finite range. No equivalent exact n16/17 threshold located, with unresolved priority from inaccessible older specialist articles.",
+      "residual_risks": [
+        "Full Bours (1994) and Palunčić et al. (2012) articles not inspected; possible specialist exact table.",
+        "No general n17 capacity or all-n code rate is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General matching/relaxation formulation only; does not give exact n16 maximum",
+          "evidence": [
+            "Theorems V.1/V.2; Section V-A guarded source and Section VI tables"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1211.3128",
+          "material_read": "Accessible complete HTML including Sections V/V-A, Theorems V.1 and V.2, and Section VI numerical discussion",
+          "method": "Read constrained source definition, numerical bound statements and table context",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Same guarded RLL source, strongest likely general upper bound"
+        },
+        {
+          "assessment": "Inaccessible primary specialist source is residual novelty risk",
+          "evidence": [
+            "Bours, IEEE TIT 1994 abstract describes Lee-metric code construction"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/18.340459",
+          "material_read": "Public abstract and bibliographic record only; full text inaccessible",
+          "method": "Compared model/aim from abstract; no claim of whole-document noncoverage",
+          "title": "Construction of fixed-length insertion/deletion correcting runlength-limited codes",
+          "trigger": "Earlier RLL indel code construction potentially covering specific finite code"
+        },
+        {
+          "assessment": "Full exact parameter table not accessible; risk explicitly retained",
+          "evidence": [
+            "Palunčić et al., IEEE TIT 2012 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2011.2172725",
+          "material_read": "Abstract and bibliographic record only",
+          "method": "Compared stated construction and asymptotic scope, not unseen text",
+          "title": "A multiple insertion/deletion correcting code for run-length limited sequences",
+          "trigger": "Earlier RLL insertion/deletion correcting construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum guarded blocklength for reliable transmission of a four-bit payload through one arbitrary deletion is a natural exact finite coding threshold. The sharp 14-word obstruction at n16 is not a textbook restatement of generic fractional bounds; a complete packing certificate plus explicit n17 16-message witness are reusable coding benchmarks even without a general asymptotic rate theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "M17 is bounded below by 16, not shown equal to16.",
+    "Potential historical priority in inaccessible RLL code papers; single deletion and exact binary guarded model only.",
+    "All five source packages were read at frozen assignment commit; scientific verdict is independent of publication status, and no GitHub writes or formal/expert attestation were made."
+  ],
+  "schema_version": 1
+}
