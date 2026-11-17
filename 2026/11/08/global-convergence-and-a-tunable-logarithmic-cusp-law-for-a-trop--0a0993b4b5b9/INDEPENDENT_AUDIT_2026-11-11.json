@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:17:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every positive r,k,tau the derivative of T_tau(x) is strictly positive, since H-xH'=2x^3/(1+x²)^2>0. The first step fixes direction of all later steps; iterates remain bounded, and repulsion from zero proves convergence to a positive fixed point with correct nearest-equilibrium selector even if multiple fixed points exist. The tau=infinity map remains positive, bounded and increasing. At the Ludwig cusp (s,r*,k*)=(sqrt3,3sqrt3/8,3sqrt3) the exact H-r* factor is (x-s)^3/[8(1+x²)], so the unique fixed point attracts globally without crossing. Taylor expansion z_next=z-c z³+d z⁴+0*z⁵+O(z⁶), c=tau*sqrt3/(32+12sqrt3*tau), d=c/(2sqrt3), yields w=z^-2 increments a-2d sigma w^-1/2+3c² w^-1+O(w^-3/2). Summable correction analysis gives the exact signed sqrt(n), log(n), finite-constant expansion. The log coefficient 3a/4-1/12 vanishes uniquely at tau=16sqrt3/9; tau=infinity case has a=1/6, ell=1/24. Finite checks support algebra only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohmori–Yamazaki 2025 treat the same Ludwig map and local cusp persistence under timestep discretization.",
+          "The 2022 article treats positivity-preserving discretization and local bifurcations for several maps."
+        ],
+        "reasoning": "Neither examined paper gives global all-positive-param iterate convergence or the displayed full expansion and cancellation threshold. Local stability alone does not imply those global claims.",
+        "searches": [
+          "tropical Ludwig population map positivity preserving discrete global convergence cusp critical slowing logarithmic correction",
+          "https://arxiv.org/html/2506.23451",
+          "https://arxiv.org/abs/2212.03455"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2506.23451",
+        "https://arxiv.org/abs/2212.03455",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous rational flip example has multiplier -1 at its critical fixed point and a different rational map, with log coefficient 15/121.",
+          "The submitted Ludwig cusp has multiplier +1, a different fifth-order cancellation, and a continuously tunable logarithmic coefficient passing through zero."
+        ],
+        "reasoning": "There is no stated conjugacy transferring the earlier rational flip coefficients or its global basin to the Ludwig cusp. The shared normal-form technique alone is not statement-level coverage.",
+        "searches": [
+          "tropical Ludwig population map positivity preserving discrete global convergence cusp critical slowing logarithmic correction",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cusp map can equivalently be viewed as an order-preserving rational map with triple parabolic fixed point; one-step normal form has zero quintic coefficient.",
+          "Known parabolic Fatou-coordinate techniques can generate power and logarithmic expansions generally."
+        ],
+        "reasoning": "General parabolic theory yields a method but not the model-specific global basin, signed coefficients and unique timestep where logarithmic drift cancels.",
+        "searches": [
+          "tropical Ludwig population map positivity preserving discrete global convergence cusp critical slowing logarithmic correction",
+          "https://arxiv.org/html/2506.23451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of inverse-square linear, signed sqrt and log coefficients by timestep in the inspected Ludwig source."
+        ],
+        "reasoning": "The coefficient identity is an exact analytic family, not an interpolation of a finite dynamical-simulation table; no covering exact table was identified.",
+        "searches": [
+          "tropical Ludwig population map positivity preserving discrete global convergence cusp critical slowing logarithmic correction",
+          "https://arxiv.org/html/2506.23451"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The primary Ludwig source identifies exactly this map and cusp but presents local bifurcation correspondence, rather than the all-parameter global monotone attraction and exact subleading asymptotic. Generic one-dimensional order preservation and parabolic asymptotic methods are prior mathematical tools. A previously published signed/log law occurs in a different positive rational map at a flip (-1), not this positive-derivative (+1) cusp.",
+      "residual_risks": [
+        "Equivalent Ludwig cusp asymptotic may appear in later publisher version or parabolic-iteration appendices.",
+        "Global positive iteration theorem is elementary order theory; value depends on its exact cusp quantitative refinement, not on claiming the order principle original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_AND_CUSP_NOT_GLOBAL_ASYMPTOTIC",
+          "evidence": "Map and cusp parameters previously identified; no global all-parameter monotone convergence or exact signed sqrt/log law in inspected source.",
+          "identifier_or_url": "https://arxiv.org/html/2506.23451",
+          "material_read": "Full preprint HTML, model equations, cusp values, local bifurcation results and ultradiscretization sections",
+          "method": "compared original equations and stated theorems",
+          "title": "Piecewise linear cusp bifurcations in ultradiscrete dynamical systems",
+          "trigger": "same tropical Ludwig map and exact cusp"
+        },
+        {
+          "assessment": "GENERAL_LOCAL_RESULTS",
+          "evidence": "Theorem scope is local stability/bifurcation correspondence, with no specific Ludwig all-orbit logarithmic law established in accessed material.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.03455",
+          "material_read": "Public abstract and cited local theorems; complete direct reading not verified for this run",
+          "method": "source comparison",
+          "title": "Relation of stability and bifurcation properties between continuous and ultradiscrete dynamical systems via discretization with positivity: one dimensional cases",
+          "trigger": "broader positivity-preserving discretization context"
+        },
+        {
+          "assessment": "DIFFERENT_MAP_NONIMPLYING",
+          "evidence": "Its map is (2x²+x+8)/(8x²+3) at multiplier -1, unlike the current +1 Ludwig cusp; no reduction or equality of coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b",
+          "material_read": "Full RESULT.md including exact rational flip map, proof and log coefficients",
+          "method": "read theorem and all proof steps",
+          "title": "Global signed and logarithmic critical relaxation in a positive rational flip map",
+          "trigger": "very close signed sqrt and log phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global order-preserving basin theorem excludes cycles for every positive timestep despite cusp bifurcation literature focusing locally. The exact sign-changing logarithmic correction and its unique cancellation timestep quantify a natural critical-slowing observable in the actual discretization coordinate; these are motivated, model-specific dynamical invariants rather than a generic Taylor exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All r,k,tau positive; actual tau=infinity limit is not an ultradiscrete/max-plus limit.",
+    "Explicit asymptotic holds only at the stated cusp, with initial-condition-dependent additive constant and nonstationary initial values.",
+    "No uniform parameter-neighborhood scaling or stochastic/spatial extension claimed."
+  ],
+  "schema_version": 1
+}
