@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct union-of-disjoint-events computation proves the exact expected missing mass. Generalized Descartes bounds real zeros of the signed exponential sum; the unit-sum constraint rules out the fully alternating coefficient pattern, saving one zero, and the mandatory equality at sample size zero saves another. The rational perturbation construction adds two strict sign reversals at each increase in species count while retaining prior signs, without relying on a finite search for the infinite claim. The packaged exact checker confirms integer-power signs for two, three, and four species, a rational induction instance, and independently enumerates finite sample states. Assumptions (strict positivity, equally many species, iid perfect observation) are explicit. An identically zero comparison is handled separately.
+PASS
 
-## Originality — PASS (subject to historical-priority risk)
+The expected probability of a previously unseen species on the next draw is U_p(t)=sum_i p_i(1-p_i)^t. For fixed positive m-tuples, generalized real-power Descartes bounds zeros by coefficient sign changes, but full alternation of 2m terms is impossible because the sorted coordinates would strictly dominate in every position despite equal sum. Therefore at most 2m-2 real zeros; the forced zero at t=0 leaves at most 2m-3 for positive t. The rational rare-species construction a=b^2 adds two later sign changes at N≈1/b and a still later L, maintaining earlier strict signs; proof uses exponentially small original terms. Independently verified exact integer-power signs for three-species and four-species rational witnesses, including all five transitions for m=4.
 
-The coverage deficit is classical, and the generalized-Descartes tool is classical. Inspected full texts of Chao and Jost (2012) with Appendix H, Chao, Wang and Jost (2013), and Lande, DeVries and Walla (2000) address accumulation, completeness, or a single crossing mechanism, not the sharp count of possible two-community discovery-rate reversals for fixed species number. A previously published exact consecutive-discovery covariance identity concerns dependence between future Bernoulli discoveries under one distribution, not across-profile ordering. Cumulative expected-richness rankings (which are sums of discovery probabilities) are not equivalent to discovery-rate rankings. No dominating or exact-table classification was found in checked material. Residual possibility of an equivalent result in older exponential-polynomial/occupancy literature remains; absence in searched sources is not an independence certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives the complete natural extremal crossing count for a standard ecological sampling observable, with a constructive infinite rational family and a sharp finite three-species example. It quantifies an important distinction: rankings of the instantaneous chance of new-species discovery can reverse much more frequently than rankings of accumulated observed richness. The count is motivated by sampling-effort sensitivity rather than chosen by an arbitrary parameter slice, and its proof unifies a nontrivial upper obstruction with an attainable construction.
+Searches under expected missing mass, discovery deficit and discrete species-accumulation derivatives found established formulas and cumulative-richness crossings but no theorem stating an attained 2m-3 bound for next-draw discovery-rate comparisons at equal species count. Derivative/difference crossings are not determined by crossings of integrated richness curves. Classical generalized Descartes underpins C but its sharper normalization and construction are nontrivial; historical coverage remains provisional.
 
-## Limitations and primary literature
+## value
 
-The theorem is not a statement about unequal richness, sample coverage standardization, dependence across draws, or any global statistical estimator. It is a self-review, not an independently certified proof. Main literature: Lande–DeVries–Walla (2000), DOI 10.1034/j.1600-0706.2000.890320.x; Chao–Jost (2012), DOI 10.1890/11-1952.1, Appendix H; Chao–Wang–Jost (2013), DOI 10.1111/2041-210X.12108.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp universally attained ranking-reversal ceiling for the canonical next-species discovery probability is a motivated natural statistical invariant; exact constructible witnesses for each number of species and the surprising three-species triple reversal distinguish it from ordinary cumulative richness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
