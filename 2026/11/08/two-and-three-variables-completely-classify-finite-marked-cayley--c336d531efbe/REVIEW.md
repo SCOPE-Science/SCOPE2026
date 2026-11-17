@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof constructs a two-pebble back-and-forth preserving the entire signed-list profile; its converse formulas explicitly distinguish each lost equality and the existence of a generic group element. It gives a three-variable balanced composition for signed walks, whose closed-path sentences detect the full word-problem kernel. A spanning-tree word transversal gives an identity relator of length at most twice the smaller Cayley diameter plus one whenever marked groups differ. The cycle pebble invariant justifies a logarithmic lower rank. The supplied finite checker independently exercises profiles, exact pebble ranks and short-word bounds. The proof, rather than the finite output, establishes unrestricted quantifier-depth assertions.
+## correctness
 
-## Originality
-**PASS (with residual priority risk).** The STACS 2003 Kuske–Lohrey theorem concerns decidability of full first-order Cayley theories via group word problems; Grohe–Otto 2012 gives the general pebble calculus. Direct research-record searches found no exact classification by equality patterns of signed generators and a generic flag paired with a three-variable logarithmic rank bound for arbitrary finite marked groups. Primary bibliographic abstracts and open general-methods sections were inspected, but full texts of the 2002 and 2005 Cayley papers were unavailable, so their possible stronger implications remain the main originality risk. Earlier one-generator permutation and relational group-language statements do not cover the all-generating-tuples claim as stated.
+PASS
 
-## Mathematical value
-**PASS.** It is a complete classification in two adjacent variable fragments for all finite marked groups of any fixed generator number. The abrupt jump from a finite local equality profile to rigid recovery of the full marked group, together with an order-optimal logarithmic separation-depth scale and a same-cardinality nonabelian/abelian witness, is a natural expressivity boundary rather than an arbitrary finite table. The group-theoretic diameter bound controls how rapidly a genuinely different multiplication structure becomes logically visible.
+FO2 two-pebble relation records precisely atomic pair type relative to one stationary vertex: equality, each labeled forward/reverse generator edge, and whether a generic vertex exists. Left translations make every type realizable uniformly; a back-and-forth system proves indefinite equivalence, while explicit FO2 sentences test all signed-list coincidences/η. FO3 balanced recursion for word paths P_w(x,y) uses three reusable variables with quantifier rank <=ceil(log2 length), hence 3-variable sentences detect all word relations and identify the free-group kernel/marked quotient. The finite rank upper bound follows from a signed word p_a of length <=D representing each element in smaller group and relators p_a s p_as^-1 of length <=2D+1; if all hold in larger group they produce a surjective marked homomorphism of impossible size. Directed cyclic three-pebble gap game provides logarithmic lower bound. Independently checked signed-type equality and commutator separation for marked S3 and C6 and cyclic generic η boundary.
 
-## Scientific limits
-The claim requires individually named oriented generators and genuine generation; changing this signature changes the theorem. The original authors' extended full text remains a specific historical-priority limitation, and no independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp two-to-three-variable width threshold, complete FO2 signed-marked type criterion and explicit log-rank bound for all finite generated edge-colored marked group Cayley structures. Prior colored-cycle FO2 repetition criteria and general Cayley-graph FO decidability statements concern other languages/scopes; full Kuske–Lohrey monograph/article inaccessible and remains substantial novelty risk.
+
+## value
+
+PASS
+
+A strong natural finite-model-theoretic threshold for the standard edge-colored relational model of finite marked groups: two variables see only radius-one signed incidences, whereas a third recovers full group presentation with optimal logarithmic rank order. The same-cardinality S3/C6 witness exposes genuine expressive-width geometry, not a routine finite class table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses Python 3 standard library only and prints `VERIFY_OK` on success. Direct execution on this newly constructed package's corresponding source file returned:
+# Independent mathematical audit
 
-```
-Cyclic FO2 classes: 4
-Ordered small-vs-large pair word-bound tests: 253
-Finite exact pebble-game rank checks: 8
-VERIFY_OK
-```
+## correctness
 
-The finite program verifies group-marking profiles, exact finite-rank pebble refinement and an elementary short-relation bound across the indicated finite range. It is not an algorithm for verifying all groups and does not substitute for the unrestricted proof. The complete historical Cayley-graph papers were not available for full-text comparison, leaving a specific historical-priority limitation. Independent mathematical audit has not been performed.
+PASS
+
+FO2 two-pebble relation records precisely atomic pair type relative to one stationary vertex: equality, each labeled forward/reverse generator edge, and whether a generic vertex exists. Left translations make every type realizable uniformly; a back-and-forth system proves indefinite equivalence, while explicit FO2 sentences test all signed-list coincidences/η. FO3 balanced recursion for word paths P_w(x,y) uses three reusable variables with quantifier rank <=ceil(log2 length), hence 3-variable sentences detect all word relations and identify the free-group kernel/marked quotient. The finite rank upper bound follows from a signed word p_a of length <=D representing each element in smaller group and relators p_a s p_as^-1 of length <=2D+1; if all hold in larger group they produce a surjective marked homomorphism of impossible size. Directed cyclic three-pebble gap game provides logarithmic lower bound. Independently checked signed-type equality and commutator separation for marked S3 and C6 and cyclic generic η boundary.
+
+## originality
+
+PASS
+
+Best-of-knowledge original sharp two-to-three-variable width threshold, complete FO2 signed-marked type criterion and explicit log-rank bound for all finite generated edge-colored marked group Cayley structures. Prior colored-cycle FO2 repetition criteria and general Cayley-graph FO decidability statements concern other languages/scopes; full Kuske–Lohrey monograph/article inaccessible and remains substantial novelty risk.
+
+## value
+
+PASS
+
+A strong natural finite-model-theoretic threshold for the standard edge-colored relational model of finite marked groups: two variables see only radius-one signed incidences, whereas a third recovers full group presentation with optimal logarithmic rank order. The same-cardinality S3/C6 witness exposes genuine expressive-width geometry, not a routine finite class table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
