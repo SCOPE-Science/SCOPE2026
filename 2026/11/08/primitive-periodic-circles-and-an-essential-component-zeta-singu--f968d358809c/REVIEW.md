@@ -1,19 +1,21 @@
-# Review of primitive periodic-circle arithmetic for affine Jordan shears
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(d\ge2\), every translation and every iterate, the binomial expansion of the single nilpotent Jordan block gives the last-coordinate obstruction \(n a_d=0\pmod1\). Conditional on this obstruction, the \(d-1\) remaining fixed-point equations form a surjective triangular torus endomorphism with determinant \(n^{d-1}\), leaving one free circle coordinate. Exact-period membership is constant along each fixed circle, justifying component-level Möbius inversion. Standard Euler products give the sharp dimension transition, and a rational power-sum generating function gives the essential singularities of the component-zeta. These prove the infinite statements without extrapolation from finite tests. The accompanying standalone checker independently enumerated 4,092 fixed circles over 36 exact rational cases and checked 380 zeta coefficients. The genericity, endpoint and irrational cases are included in the written proof.
+PASS
 
-## Originality — PASS within the inspected record
+The binomial identity J_d^n=sum_k binom(n,k)N^k and affine summation yield the exact triangular fixed equations. The last coordinate gives necessary/sufficient n a_d=0 in T. The remaining upper-triangular integral torus endomorphism has diagonal entries n, is surjective, and has kernel index n^(d-1), with x1 free; hence exactly n^(d-1) disjoint fixed circles whenever q|n. Every circle shares one least period because returns do not depend on x1, so Möbius inversion gives C_{qℓ}=q^(d−1)J_{d−1}(ℓ). Euler prime products yield inf 0 for d=2 and 1/zeta(d−1) for d>=3. Log component-zeta is q^(d−2)Li_{2−d}(z^q), a rational exponent with poles at qth roots, giving essential singularities after exponentiation. Independently verified d=2 congruence representatives and Jordan totient counts in exact rational arithmetic; other dimensions follow the proof, not finite enumeration.
 
-The 2026 dynamical-systems paper of Corrêa (primary MSC2020 37E45) studies polynomial entropy and rotation sets on tori, but its homotopy-to-identity assumption excludes the nontrivial Jordan shears considered here. A recent complete unipotent-Jordan research result examines the same map’s Haar Bowen-ball volumes, not the all-iterate primitive-circle census or its component-zeta. Banerjee et al. (arXiv:2601.15827) treat reversibility, entropy, and geometric criteria for ordinary fixed points, without evaluating those periodic-component invariants. The Hasselblatt–Katok survey already defines component counting for nonisolated periodic families and gives general parabolic polynomial-entropy facts. Those are acknowledged prerequisites, not new results. The Byszewski–Graff–Ward survey's usual periodic-point count framework assumes finite counts, unlike these uncountably large fixed sets. Previously recorded unipotent-torus research (published-finding corpus identifier `2026/10/11/SCOPE-sharp-haar-bowen-ball-constants-for-unipotent-jordan-toral-dynam--ab1c4e92842d`) computes Haar volumes of Bowen balls, not periodic components; its complete result was compared. Another related record (`2026/10/11/SCOPE-arithmetic-isolation-of-identity-resonances-in-a-cat-driven-m-bi--a1ced3096486`) treats special period-two Möbius fibers, not this exact all-period shear census. No equivalent or dominating explicit computation was found. The determinant, Möbius and Euler-product tools themselves are standard and are not claimed to originate here.
+## originality
 
-## Value — PASS
+PASS
 
-Counting *components* instead of points is the natural periodic invariant for nonisolated families, explicitly motivated in the classical survey. The result gives a complete all-dimensional, all-period classification for the canonical parabolic Jordan family, including an exact arithmetic dichotomy: the share of primitive components can become arbitrarily small in dimension two but is uniformly bounded below in higher dimensions. It also determines a connected-component zeta function with essential boundary singularities, rather than the rational/meromorphic behavior often encountered in isolated-orbit settings. These are intrinsic invariants of a motivated dynamical family, not an arbitrary small numerical slice.
+Component-counting periodic point families is an established convention and torus lattice-index inversion is classical, but checked prior references did not establish for ALL translations of one unipotent Jordan block the exact fixed/primitive circle count, its sharp dimension boundary, and evaluated essential component-zeta. The closest Resultary affine torus map has a transverse eigenvalue 4 and exponential component counts, not nilpotent unipotent counts. The final joint explicit classification is a natural new special-family exact invariant, albeit using elementary methods.
 
-## Closest literature and limitations
+## value
 
-The relevant recent dynamical-systems source is Corrêa, DOI 10.1007/s00013-026-02286-3 (2026-09-12), read with the published companion Jordan-shear Bowen-ball calculation; structural background includes Banerjee et al., arXiv:2601.15827, and Hasselblatt–Katok, *Principal Structures*, Sections 2.5a and 8.3a. The closest accessible previously recorded results on an identical Jordan shear concern metric Bowen-ball volume, not component counts. The classification does not extend automatically to multiple Jordan blocks or general quasi-unipotent matrices. General Nielsen or algebraic-periodic-point literature could imply alternate forms; historical priority remains provisional. The component-zeta is deliberately distinguished from an Artin–Mazur point-count zeta, since the fixed sets are not finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full all-dimension and all-translation classification of periodic connected components for the canonical unipotent Jordan torus map is a natural dynamical invariant when fixed points are continua. The dimension-two vs higher-dimensional positive primitive-fraction boundary and essential zeta singularities are meaningful exact characteristics; no paper-sized generalization is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
