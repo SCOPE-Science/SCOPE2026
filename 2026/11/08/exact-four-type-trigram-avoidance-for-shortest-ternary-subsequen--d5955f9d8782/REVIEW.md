@@ -1,11 +1,21 @@
-# Scientific review: exact four-type trigram avoidance for shortest ternary subsequence-universal words
+# Independent mathematical audit
 
-**Correctness — PASS.** For each \(k\ge1\), shortest ternary \(k\)-universal words are precisely products of \(k\) permutations of three letters by the arch decomposition. A length-three factor crosses at most one block boundary. Explicit six-state transition matrices are listed in RESULT.md. An exact determinant/adjugate identity proves all four rational generating functions for every \(k\); the standalone checker recomputes all polynomial identities with integer arithmetic and independently checks 20,439 literal words. The growth constants follow from primitive transfer matrices and polynomial roots. This does not use finite experiments as a substitute for the general proof.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** Adamson (arXiv:2304.04583, full rendered text, Sections 2–5) studies general counting and ranking without a forbidden contiguous factor. Adamson et al. (arXiv:2311.10658, Sections 3–4) give an algorithm for counting accepted \(k\)-universal words in a regular language, including this family by specialization, but do not state the four closed forms or motif classes. Barker et al. (arXiv:2003.04629, introduction and Section 4 statements) provide standard arch/universality theory. OEIS A154244 and A084326 already contain numerical sequences in two classes; numerical or recurrence priority is not claimed. Semantic searches of the relevant published research literature did not locate this complete result, although unindexed equivalent formulations remain possible. General counting algorithms should not be mistaken for a previously published closed symbolic classification, but limit the novelty claim to that classification.
+PASS
 
-**Value — PASS.** This exhausts all 27 forbidden length-three factors in the first alphabet size beyond binary, rather than arbitrarily selecting a pattern. The four explicit rational functions classify constraints on shortest universal words and yield four distinct Perron growth bases, with an exact symbolic certificate and a small repeatable checker. These data provide exact benchmarks for constrained-universality algorithms and quantify a genuine motif-sensitive hierarchy. It does not claim a general theorem for all alphabets or a new integer sequence.
+Greedy arch decomposition forces each of k length-three arches to be one of all six permutations; the converse concatenation is k-universal. Any length-three contiguous factor is in a block or crosses one adjacent boundary, so six-state transitions characterize avoidance for every k. Explicit determinant of I-zT and rank-one determinant-update polynomial reproduce F000=6z/(1-6z), F001=(6z-2z^2)/(1-6z+2z^2), F010=(6z-4z^2)/(1-6z+4z^2), F012=(5z+6z^2+2z^3)/(1-3z-5z^2-2z^3). An independent exact-symbolic computation reconstructed all four determinant identities. Equality-pattern classification is exhaustive for the 27 forbidden trigrams; Perron growth follows from accessible self-loop strong connectivity. Finite enumeration is not mistaken for proof of arbitrary k.
 
-**Closest literature and limitations.** General arch factorization and the two 2023 counting algorithms remain important prior coverage; pre-existing numerical OEIS matches and a possible unindexed exact specialization are residual risks. The scope excludes longer-than-minimal words, multiple forbidden patterns and alphabet size other than three.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Unrestricted counting and generic regular-language DFA methods precede this result; the exact four pattern classes and uniform symbolic generating functions for the shortest ternary universal family were not found in inspected antecedents. Two individual integer sequences were already catalogued and are not claimed novel.
+
+## value
+
+PASS
+
+Classifies an exhaustive and symmetry-natural family of 27 shortest universality/factor-avoidance questions into four distinct algebraic growth laws. Exact finite-state transfer forms are reusable for precise constrained word design, not merely recurrences with no combinatorial explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

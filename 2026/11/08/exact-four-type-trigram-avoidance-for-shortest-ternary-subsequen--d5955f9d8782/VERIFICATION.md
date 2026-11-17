@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-With Python 3, run `python verification.py`. No third-party library, input corpus, network service, or external executable is required.
+## correctness
 
-The program directly constructs the six-permutation transition matrices for each of the four canonical forbidden trigrams. Exact polynomial determinant expansion and the rank-one determinant update reproduce all four symbolic generating functions; this finite algebraic identity holds for every \(k\ge1\) by the transfer formula. It additionally compares 120 recurrence coefficients and exhaustively tests all 20,439 ternary words at lengths three, six, nine, checking direct subsequence universality and 81 individual forbidden-pattern counts.
+PASS
 
-The finite enumeration is an independent test, **not** the proof for arbitrary \(k\). The transfer decomposition and determinant identities are the general proof. This verifies only the stated mathematical claim; it is not independent scientific validation or a check for every equivalent result in the literature.
+Greedy arch decomposition forces each of k length-three arches to be one of all six permutations; the converse concatenation is k-universal. Any length-three contiguous factor is in a block or crosses one adjacent boundary, so six-state transitions characterize avoidance for every k. Explicit determinant of I-zT and rank-one determinant-update polynomial reproduce F000=6z/(1-6z), F001=(6z-2z^2)/(1-6z+2z^2), F010=(6z-4z^2)/(1-6z+4z^2), F012=(5z+6z^2+2z^3)/(1-3z-5z^2-2z^3). An independent exact-symbolic computation reconstructed all four determinant identities. Equality-pattern classification is exhaustive for the 27 forbidden trigrams; Perron growth follows from accessible self-loop strong connectivity. Finite enumeration is not mistaken for proof of arbitrary k.
+
+## originality
+
+PASS
+
+Unrestricted counting and generic regular-language DFA methods precede this result; the exact four pattern classes and uniform symbolic generating functions for the shortest ternary universal family were not found in inspected antecedents. Two individual integer sequences were already catalogued and are not claimed novel.
+
+## value
+
+PASS
+
+Classifies an exhaustive and symmetry-natural family of 27 shortest universality/factor-avoidance questions into four distinct algebraic growth laws. Exact finite-state transfer forms are reusable for precise constrained word design, not merely recurrences with no combinatorial explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
