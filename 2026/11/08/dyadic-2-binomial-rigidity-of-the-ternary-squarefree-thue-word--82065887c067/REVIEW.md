@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary transition representation is independently cross-checked against the ternary substitution. For each dyadic length \(n=2^j\), \(j\ge2\), a direct block-parity calculation gives \(N_1\) odd in the first and third groups of \(n\) windows, and \(N_1\equiv2\pmod4\) in the middle. The \(M_1\) residue selects offsets uniquely in the outer groups and up to a half-turn in the middle. The outer groups swap \(0\) and \(2\), while an odd zero count prevents a middle half-turn from preserving \(M_0\). These arguments account for all \(3n\) factors and give the claimed lower bound. The matching upper bound is the published ternary Thue factor-complexity formula [3]. A self-contained verifier checks the exact signature, morphism correspondence, modular moment relations and half-turn separation for \(j=2,\ldots,10\); these checks support, but do not replace, the infinite proof.
+PASS
 
-## Originality — PASS (historical-priority qualified)
+PASS: For the nonuniform ternary fixed point of 0→012, 1→02, 2→1, the binary Thue–Morse transition realization yields three groups of 2^j consecutive n-windows. The outer groups have odd one-count, distinct moment M1 mod n; the middle group has N1≡2 mod 4 and M1 separates all but half-turns, distinguished by odd zero count and M0. A 0↔2 interchange and telescoping transition imbalance distinguish the two outer groups. The four statistics N1,M1,N0,M0 are derived from scattered length-≤2 subsequence counts, giving ≥3n binomial classes; published p_x(n)=p_t(n+1)=3n supplies ≤3n. All j≥2; no claim outside dyadic n. Independent direct integer enumeration j=2..8 corroborates but cannot prove infinite scope.
 
-The closest source to the actual word, Shallit and Shur [3], proves ordinary rather than 2-binomial factor counts. Rigo and Salimov [1] prove bounded 2-binomial complexity for *binary* Thue-Morse, which does not imply a result for its ternary transition word. Lejeune, Rigo and Rosenfeld [4] obtain an all-length 2-binomial rigidity theorem, but for the different Tribonacci fixed point. Golafshan, Rigo and Whiteland [5] handle uniform generalized Thue-Morse words, not the nonuniform squarefree Thue morphism. Rao, Rigo and Salimov [2] address avoidance of 2-binomial repetitions. Targeted published-result and accessible historical-record searches did not recover a result with the same domain and implication. An unindexed equivalent theorem or a later paper remains a genuine priority risk; database silence is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-This exact formula isolates a dyadic subsequence-order rigidity phenomenon in the classical ternary squarefree Thue word. It provides a concrete four-statistic factor fingerprint and a full infinite family of exact 2-binomial complexity values, rather than a finite extension of a table. Its contrast with bounded binary Thue-Morse 2-binomial complexity suggests structural consequences for coded automatic sequences. No assertion about other lengths or downstream theorems is needed for the claimed value.
+PASS best-of-knowledge: The exact all-j ternary squarefree Thue statement concerns scattered 2-binomial signatures. Established Shallit–Shur ordinary factor complexity gives only an upper bound; binary Thue–Morse bounded binomial complexity, Tribonacci full binomial rigidity, uniform generalized Thue–Morse methods and binary Cantor results address different words/substitutions. Compared statement/implication rather than title and found no direct theorem covering the four-statistic separation. Unindexed earlier coverage remains possible.
 
-## Limitations and comparison references
+## value
 
-The proof is dyadic only, uses the established \(p_x(n)=p_t(n+1)\) identity, and does not determine full-length 2-binomial complexity outside the stated family. The closest original papers and their applicability are documented in `AUDIT.json` and in the paper's references. Computation cannot certify all cases or historical novelty, and independent scientific assessment is not yet available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A natural canonical automatic squarefree word has infinitely many lengths at which two-scattered-subsequence data recover every literal factor; the sharp 3n exact law and four explicit fingerprints reveal nontrivial contrast with binary Thue–Morse binomial complexity. Not a single small-n check or routine known-table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
