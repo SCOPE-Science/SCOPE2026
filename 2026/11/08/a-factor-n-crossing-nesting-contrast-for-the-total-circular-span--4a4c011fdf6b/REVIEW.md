@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every matching and edge is normalized explicitly. The two conditional expectations come from disjoint edge categories and the exact probability \(1/(2n-3)\) of a second edge. Polynomial sums are recorded with their one-variable reductions; the displayed second-moment calculation yields the total-span variance. Pair-count equidistribution is supported by the Kasraoui–Zeng involution, and the crossing variance has a separate indicator-count reconstruction. Exact exhaustive matching enumeration through seven chords and independent edge-sum checks through 200 chords corroborate all components. The finite checks are not mistaken for an infinite proof.
+## correctness
 
-**Originality — PASS, with stated historical risk.** The marked-chord crossing result already implies the positive crossing–span covariance, so that portion is explicitly excluded from the originality claim. The new mathematical information is the negative nesting–span covariance, the exact factor-\(n\) comparison, and the contrasting correlation scales despite marginal crossing–nesting symmetry. Full relevant primary discussions of chord length and crossing degrees in Acan's 2015 preprint and 2013 dissertation, together with the 2006 Kasraoui–Zeng crossing–nesting involution, do not assert those mixed formulas. General weighted-enumerator implications beyond examined material remain possible.
+PASS
 
-**Value — PASS.** A natural circular-geometric statistic (total shorter-arc span) detects a strong asymmetry between two pair-pattern counts whose individual distributions are identical. The exact all-size multiplier and the persistent versus vanishing correlations identify a structural distinction between crossings and nestings that marginal symmetry obscures; this is not merely renaming or a special parameter substitution.
+The conditional-edge argument correctly separates crossing partners (d−1)(2n−d−1) from nesting partners binom(d−1,2)+(i−1)(2n−j), each divided by 2n−3. Summing over candidate edges of weight min(d−1,2n−d−1), with W=n(n−1)² and explicit U_X,U_N, gives the claimed exact covariances for every integer n≥2. Var(S) uses inclusion probabilities for disjoint and incident edges, while Var(X)=Var(N) follows from pair-count involution. Separate independent exact Fraction enumeration of all matchings for n=2,3,4,5 reproduced (Cov(S,X),Cov(S,N))=(4/9,−2/9),(6/5,−2/5),(96/35,−24/35),(1000/189,−200/189), verifying −n ratio; finite checks do not prove full n-range. The original verify.py and its 2≤n≤7 exhaustive and n≤200 weighted checks were inspected as additional reproducibility, not accepted only from logs.
 
-**Closest literature:** Acan (2015) and dissertation (2013) on chord length/crossing degree, Kasraoui–Zeng (2006) on crossing/nesting equidistribution, Paguyo (2021) on crossing fluctuations. **Limitations:** no joint limit theorem, no stochastic ordering, and implicit historical coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The combined final claim explicitly credits crossing prior work and adds an exact non-implied nesting covariance plus the -n ratio and asymptotic correlated/uncorrelated split. It survives with the bounded weighted-enumerator priority risk. Strong prior coverage of positive crossing covariance and crossing correlation is acknowledged. It does not logically determine negative nesting-span covariance; the involution need not preserve span.
+
+## value
+
+PASS
+
+The same marginal crossing and nesting counts interact radically differently with a natural length functional; an exact negative covariance and n-fold asymmetry quantify a previously hidden geometric dependence. Exact all-n covariance identity and asymptotic vanishing nesting correlation are useful for joint random-chord observables, not a cosmetic substitution of known crossing variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

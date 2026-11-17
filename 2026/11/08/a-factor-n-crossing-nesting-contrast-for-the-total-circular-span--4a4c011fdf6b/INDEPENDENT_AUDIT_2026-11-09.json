@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T07:07:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditional-edge argument correctly separates crossing partners (d−1)(2n−d−1) from nesting partners binom(d−1,2)+(i−1)(2n−j), each divided by 2n−3. Summing over candidate edges of weight min(d−1,2n−d−1), with W=n(n−1)² and explicit U_X,U_N, gives the claimed exact covariances for every integer n≥2. Var(S) uses inclusion probabilities for disjoint and incident edges, while Var(X)=Var(N) follows from pair-count involution. Separate independent exact Fraction enumeration of all matchings for n=2,3,4,5 reproduced (Cov(S,X),Cov(S,N))=(4/9,−2/9),(6/5,−2/5),(96/35,−24/35),(1000/189,−200/189), verifying −n ratio; finite checks do not prove full n-range. The original verify.py and its 2≤n≤7 exhaustive and n≤200 weighted checks were inspected as additional reproducibility, not accepted only from logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The previously published Oct18 result gives exactly Cov(S,X)=n³(n−1)²/[6(2n−3)(2n−1)] and joint Gaussian span/crossing limit with sqrt(15)/4 correlation.",
+          "Kasraoui–Zeng Theorem 1.2 preserves opener/closer type and alignments while exchanging crossings/nestings, not all circular short-arc weights."
+        ],
+        "reasoning": "Strong prior coverage of positive crossing covariance and crossing correlation is acknowledged. It does not logically determine negative nesting-span covariance; the involution need not preserve span.",
+        "searches": [
+          "SCOPE 2026/10/18 joint Gaussian chord span crossings",
+          "random chord diagram circular total span covariance nestings crossings asymmetry shorter arc length joint statistic"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r33/pdf/",
+        "arxiv:1501.01489v1",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332/RESULT.md",
+        "Resultary search: random chord diagram circular total span covariance nestings crossings asymmetry shorter arc length joint statistic",
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-factor-n-crossing-nesting-contrast-for-the-total-circular-span--4a4c011fdf6b/RESULT.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing Cov(S,X)= n³(n−1)²/[6(2n−3)(2n−1)] is exactly reused.",
+          "The new conditional nesting contributions are binom(d−1,2)+(i−1)(2n−j), yielding Cov(S,N)=−n²(n−1)²/[6(2n−3)(2n−1)]; no inspected prior statement implies this negative term from marginal equidistribution."
+        ],
+        "reasoning": "The combined final claim explicitly credits crossing prior work and adds an exact non-implied nesting covariance plus the -n ratio and asymptotic correlated/uncorrelated split. It survives with the bounded weighted-enumerator priority risk.",
+        "searches": [
+          "SCOPE 2026/10/18 total circular chord span crossings",
+          "Kasraoui Zeng Theorem 1.2 and Corollary 1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan uses the same shorter circular arc of a chord and conditional crossing-degree counts.",
+          "Kasraoui–Zeng defines crossing a<c<b<d and nesting a<c<d<b with the linear cut, and proves equidistribution of the two pair counts."
+        ],
+        "reasoning": "The conditional crossing formula is previously known; the claimed contribution is weighted total shorter-circular-arc span versus linearly defined nesting. Marginal distribution symmetry under involution is not symmetry jointly with circular span.",
+        "searches": [
+          "random chord diagram circular total span covariance nestings crossings asymmetry shorter arc length joint statistic",
+          "Acan arxiv:1501.01489",
+          "Kasraoui Zeng math/0601081"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table giving the exact negative nesting-span covariance was found.",
+          "The cited published cross-nest generating functions encode pair-count distributions rather than adding the nonlinear circular chord-span weight."
+        ],
+        "reasoning": "A weighted matching generating function could imply the result if specialized, but a count-only table does not. Theoretical all-n identity is not a single known finite census.",
+        "searches": [
+          "Resultary: random chord diagram circular total span covariance nestings crossings asymmetry shorter arc length joint statistic",
+          "Acan 2013 chord diagram dissertation nesting weighted shortest span"
+        ]
+      },
+      "rationale": "The combined final claim explicitly credits crossing prior work and adds an exact non-implied nesting covariance plus the -n ratio and asymptotic correlated/uncorrelated split. It survives with the bounded weighted-enumerator priority risk. Strong prior coverage of positive crossing covariance and crossing correlation is acknowledged. It does not logically determine negative nesting-span covariance; the involution need not preserve span.",
+      "residual_risks": [
+        "The fixed linear cut is essential for nesting, while S is rotation invariant; changing cut changes individual N.",
+        "Potential older refined weighted enumeration may specialize to this covariance, though no decisive matching source was located.",
+        "Independent exact exhaustive matching check was performed for 2≤n≤5 (3,15,105,945 matchings), not all n; the all-n finite sums in RESULT.md carry the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers positive crossing covariance and its asymptotic correlation; no linear-cut nesting covariance is included",
+          "evidence": "Exactly matching Cov(S,X), Var(S), Var(X) formulas",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332/RESULT.md",
+          "material_read": "Complete RESULT.md including exact finite second moments and joint-Hoeffding proof",
+          "method": "Read entire actual earlier published mathematical statement",
+          "title": "Joint Gaussian fluctuations of total circular chord span and crossings",
+          "trigger": "Same total shorter-arc span and crossing count; potential stronger coverage"
+        },
+        {
+          "assessment": "Establishes crossing/nesting equidistribution, not a span-preserving involution",
+          "evidence": "Theorem 1.2 exchanges cr/ne, preserves alignment and opener/closer types; does not claim weight invariance for shorter circular arc spans",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r33/pdf/",
+          "material_read": "Full 12-page primary PDF, especially definitions, Theorem 1.2, Corollaries 1.3–1.5 and proof framework",
+          "method": "Read primary PDF text and rendered Theorem 1.2 screenshot",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "Same nesting/crossing counts; possibly implies conditional span statistics"
+        },
+        {
+          "assessment": "Known conditional crossing regression, not global nesting-span weighted second moments",
+          "evidence": "Pre-existing marked-chord crossing relationship is conceded",
+          "identifier_or_url": "arxiv:1501.01489v1",
+          "material_read": "Accessible preprint PDF, relevant sections on chord length and degree",
+          "method": "Read relevant original PDF and rendered page",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same circular chord span and local crossing-degree statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same marginal crossing and nesting counts interact radically differently with a natural length functional; an exact negative covariance and n-fold asymmetry quantify a previously hidden geometric dependence. Exact all-n covariance identity and asymptotic vanishing nesting correlation are useful for joint random-chord observables, not a cosmetic substitution of known crossing variance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r33/pdf/",
+    "arxiv:1501.01489v1",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332/RESULT.md",
+    "Resultary search: random chord diagram circular total span covariance nestings crossings asymmetry shorter arc length joint statistic",
+    "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-factor-n-crossing-nesting-contrast-for-the-total-circular-span--4a4c011fdf6b/RESULT.md, verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact all-n Cov(total shorter-arc span, crossing count/nesting count) and n-fold asymmetry",
+  "limitations": "Nesting depends on fixed linear cut, correlations only second moments.",
+  "residual_risks": [
+    "The fixed linear cut is essential for nesting, while S is rotation invariant; changing cut changes individual N.",
+    "Potential older refined weighted enumeration may specialize to this covariance, though no decisive matching source was located.",
+    "Independent exact exhaustive matching check was performed for 2≤n≤5 (3,15,105,945 matchings), not all n; the all-n finite sums in RESULT.md carry the proof."
+  ],
+  "schema_version": 1
+}
