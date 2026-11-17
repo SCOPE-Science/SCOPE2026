@@ -1,15 +1,21 @@
-# Scientific review — integral fixed-point homology of coordinate swaps
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric fixed-point realization is identified precisely, including barycenters of two-vertex orbits. The three-type orbit compatibility table follows by direct Hamming distances. The link of each nonfixed orbit vertex is two simplices joined by \(m+1\) independent edges, yielding an integral rank-\(m\) first homology group. The pair long exact sequence and the connectivity of the \(m\)-cube graph prove that the connecting map onto the \(2^m-1\) generators of base first homology is surjective *integrally*. Kernel freeness proves that there is no torsion; van Kampen proves simple connectivity. The known ambient scale-two hypercube Rips theorem is invoked only for the two base subcomplexes. The exceptional \(n=2\) case is treated separately. Explicit mod-two finite enumeration for dimensions \(2\)–\(7\) corroborates the structural formula, but is not used to infer the all-dimensional integral statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest relevant works are Adamaszek–Adams (ordinary scale-two Rips wedge decomposition), Bendersky–Elia–Grbić (ordinary Rips cohomology and connectivity), and Galetto–Montaño–Wellner (ambient characteristic-zero symmetry representations). These establish important prior facts used here, but none of their inspected statements gives the integral homology or fundamental group of the *geometric fixed-point space* of a coordinate transposition. A rational ambient character can recover a Lefschetz number of a symmetry, not the torsion-free individual fixed-space homology groups or its fundamental group. Closely related Čech-character results and fixed-weight Rips representation results concern different complexes. An equivalent independently derived or unindexed fixed-point calculation remains possible; literature searches do not prove absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-This completes a natural and explicit fixed-point calculation for the elementary coordinate-swap symmetry of hypercube Rips complexes, a setting where the full hyperoctahedral ambient homology character is now known. The invariant is not an arbitrary restriction: a transposition is a basic generator of coordinate symmetries and the geometric fixed locus retains points at swapped-vertex barycenters. The discovery of large degree-two integral homology in a space whose ambient reduced homology is concentrated in degree three is a structural distinction, together with an integral torsion-freeness and simple-connectivity result not determined by the ambient character. The result is limited to single transpositions and does not claim a homotopy wedge decomposition.
+PASS. The fixed points in a simplicial realization are modeled by barycenters of vertex orbits, not only individually fixed vertices. With m=n-2, the A_z,B_z,C_z orbit compatibility table is reconstructed from Hamming distances: within A/B d<=2, across A-B only z=w, C-A or C-B d<=1, and no distinct C pair. The A/B subcomplex is two ordinary VR(Q_m;2) copies connected by 2^m edges, with free H_1 of rank 2^m-1. Each C_z link is two simplices joined by m+1 cross edges, homotopy-equivalent to a wedge of m circles. Their cone attachments give relative H_2=Z^(m*2^m), and the integral connecting map is the differences of cube-neighbor cross-edge generators: since the m-cube graph is connected, it surjects onto H_1 of rank 2^m-1. Kernel is free Z^((m-1)*2^m+1), H_3=Z^(2*c_m), others vanish. Van Kampen normal generation gives pi_1=0. The n=2 orbit model is a 2-simplex. The code's n=2..7 mod-2 checks corroborate only finite Betti ranks; no torsion or universal theorem is inferred from them. The Adamaszek–Adams ambient sphere theorem is used for the two base layers.
 
-## Checked literature and scientific limits
-M. Adamaszek and H. Adams, arXiv:2103.01040, Theorem 1 and its proof; M. Bendersky, S. Elia and J. Grbić, arXiv:2605.00705 (open-access article, sections 1–5, with targeted fixed-point searches); F. Galetto, J. Montaño and Z. Wellner, arXiv:2606.20784 (introductory statement and scale-two representation computations); relevant publicly accessible results on hypercube Čech complexes and restricted-weight Rips complexes. The integral proof does not compute normalizer actions on the fixed-space homology or an equivariant splitting. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge). Adamaszek–Adams gives ambient VR hypercube sphere types and multiplicities, Bendersky–Elia–Grbić ordinary ambient cohomological information, and Galetto–Montaño–Wellner an ambient rational homology representation. None of the checked statements implies integral geometric fixed-locus H_2, H_3, torsion-freeness or fundamental group. Fixed-point Euler/Lefschetz traces are weaker than these invariants. Related indexed Čech and constant-weight Rips results concern different complexes. Unindexed equivalent calculation remains a risk.
+
+## value
+
+PASS
+
+PASS. A coordinate transposition is an elementary generator of hypercube symmetry; its geometric fixed locus includes barycenters of swapped vertex pairs and is a natural invariant not determined by ordinary or rational equivariant ambient homology. The explicit torsion-free H_2 rank and simple connectivity for every n, despite ambient reduced homology concentrated in degree 3, is a reusable structural equivariant-topology calculation, not a trivial parameter specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T18:50:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The fixed points in a simplicial realization are modeled by barycenters of vertex orbits, not only individually fixed vertices. With m=n-2, the A_z,B_z,C_z orbit compatibility table is reconstructed from Hamming distances: within A/B d<=2, across A-B only z=w, C-A or C-B d<=1, and no distinct C pair. The A/B subcomplex is two ordinary VR(Q_m;2) copies connected by 2^m edges, with free H_1 of rank 2^m-1. Each C_z link is two simplices joined by m+1 cross edges, homotopy-equivalent to a wedge of m circles. Their cone attachments give relative H_2=Z^(m*2^m), and the integral connecting map is the differences of cube-neighbor cross-edge generators: since the m-cube graph is connected, it surjects onto H_1 of rank 2^m-1. Kernel is free Z^((m-1)*2^m+1), H_3=Z^(2*c_m), others vanish. Van Kampen normal generation gives pi_1=0. The n=2 orbit model is a 2-simplex. The code's n=2..7 mod-2 checks corroborate only finite Betti ranks; no torsion or universal theorem is inferred from them. The Adamaszek–Adams ambient sphere theorem is used for the two base layers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek–Adams classifies ordinary VR(Q_m;2) as a 3-sphere wedge for m>=3; this is a premise, not geometric fixed-locus coverage.",
+          "Hyperoctahedral character treats the ambient representation, not fixed-space homology or pi1."
+        ],
+        "reasoning": "Stronger ambient calculations do not imply the integral fixed locus by restriction; no dominating fixed-point theorem identified.",
+        "searches": [
+          "arXiv:2103.01040 Theorem 1",
+          "arXiv:2605.00705 Sections 1-5",
+          "arXiv:2606.20784 sections on hyperoctahedral symmetry"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md orbit-face proof; verify.py and finite output",
+        "Git tree f81b151d76577d7afaeaab1eb56025d3e267f38a",
+        "arXiv:2103.01040 Theorem 1",
+        "arXiv:2605.00705 OA HTML",
+        "arXiv:2606.20784 abstract/metadata",
+        "Resultary query integral geometric fixed-point homology of Hamming cube Vietoris Rips complexes at radius two under one coordinate transposition involution orbit-face model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ambient 3-sphere homology rank fixes H_3 of each A/B layer but not the link-cone connecting map.",
+          "H_1 connecting map differences along cube edges determine the new H_2 and pi1."
+        ],
+        "reasoning": "Actual implication requires the newly supplied orbit-face/link decomposition; known ambient ranks and character alone cannot produce it.",
+        "searches": [
+          "arXiv:2103.01040",
+          "arXiv:2605.00705",
+          "arXiv:2606.20784"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-locus orbit-face model contains two-element orbits; ordinary fixed-vertex subcomplex omits these.",
+          "Ambient equivariant homology representations do not determine pointwise fixed-space integral homology."
+        ],
+        "reasoning": "No identified equivalent statement after distinguishing pointwise geometric fixed loci from invariant submodules.",
+        "searches": [
+          "integral geometric fixed-point homology of Hamming cube Vietoris Rips complexes at radius two under one coordinate transposition involution orbit-face model",
+          "arXiv:2103.01040",
+          "arXiv:2606.20784"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest published hit is for Čech complexes and the ambient action; none of the returned summaries tabulates coordinate-transposition geometric fixed loci."
+        ],
+        "reasoning": "No matching fixed-space integral homology table found in checked indexed records. Absence is not proof of novelty.",
+        "searches": [
+          "integral geometric fixed-point homology of Hamming cube Vietoris Rips complexes at radius two under one coordinate transposition involution orbit-face model",
+          "Resultary/2026/10/11/SCOPE-full-hyperoctahedral-homology-character-of-scale-two-hypercube-e--28af810d1399"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge). Adamaszek–Adams gives ambient VR hypercube sphere types and multiplicities, Bendersky–Elia–Grbić ordinary ambient cohomological information, and Galetto–Montaño–Wellner an ambient rational homology representation. None of the checked statements implies integral geometric fixed-locus H_2, H_3, torsion-freeness or fundamental group. Fixed-point Euler/Lefschetz traces are weaker than these invariants. Related indexed Čech and constant-weight Rips results concern different complexes. Unindexed equivalent calculation remains a risk.",
+      "residual_risks": [
+        "Finite mod-two check n<=7 not a rerun in this execution, and cannot establish integral/no torsion or infinite n by itself.",
+        "Galetto et al full text not exhaustively inspected; unindexed alternate fixed-space description remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "USED premise only; no coordinate-swap fixed geometric space statement in inspected relevant theorem",
+          "evidence": "Theorem 1: ambient VR(Q_m;2) has a wedge of 3-spheres with multiplicity c_m.",
+          "identifier_or_url": "arXiv:2103.01040",
+          "material_read": "Theorem 1 and proof on nonequivariant homotopy type and multiplicity c_m",
+          "method": "lawful OA arXiv PDF; inspected text and PDF page",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Exact nonequivariant scale-two base complex"
+        },
+        {
+          "assessment": "Not covering the claimed geometric fixed-space integral computation",
+          "evidence": "Focus on ambient cohomology and connectivity rather than orbit-face fixed spaces.",
+          "identifier_or_url": "arXiv:2605.00705",
+          "material_read": "OA HTML, introductory definitions and main cohomological assertions in sections 1-5",
+          "method": "lawful OA arXiv HTML",
+          "title": "Cohomological properties of the Vietoris–Rips Complex of a Hypercube Graph",
+          "trigger": "Same ambient object and Hamming scale"
+        },
+        {
+          "assessment": "Possible ambient character overlap; fixed-space homology not demonstrated by accessible statements",
+          "evidence": "Known rational hyperoctahedral representation is an invariant of homology of whole VR complex, not geometric fixed loci.",
+          "identifier_or_url": "arXiv:2606.20784",
+          "material_read": "Available abstract/metadata and relevant indexed description; full text not fully verified this run",
+          "method": "arXiv abstract and public summaries",
+          "title": "Homology of Vietoris–Rips complexes of hypercube graphs via group actions",
+          "trigger": "Same group symmetry and ambient scale-two Rips"
+        },
+        {
+          "assessment": "Different Čech complex and ambient representation",
+          "evidence": "Indexed result explicitly says intrinsic scale-two Čech and character, not VR geometric transposition fixed locus.",
+          "identifier_or_url": "Resultary/2026/10/11/SCOPE-full-hyperoctahedral-homology-character-of-scale-two-hypercube-e--28af810d1399",
+          "material_read": "Resultary indexed title and summary only",
+          "method": "Resultary semantic search",
+          "title": "Full hyperoctahedral homology character of scale-two hypercube Čech complexes",
+          "trigger": "Semantic-nearest published SCOPE symmetry calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A coordinate transposition is an elementary generator of hypercube symmetry; its geometric fixed locus includes barycenters of swapped vertex pairs and is a natural invariant not determined by ordinary or rational equivariant ambient homology. The explicit torsion-free H_2 rank and simple connectivity for every n, despite ambient reduced homology concentrated in degree 3, is a reusable structural equivariant-topology calculation, not a trivial parameter specialization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "One coordinate transposition at inclusive scale 2; no full equivariant splitting or arbitrary permutation fixed spaces. Integral proof analytic; finite verifier was source-inspected rather than fully rerun this run.",
+  "schema_version": 1
+}

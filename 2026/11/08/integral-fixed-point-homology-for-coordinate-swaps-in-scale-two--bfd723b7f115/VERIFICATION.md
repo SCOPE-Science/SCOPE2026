@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and scope
-The standalone Python 3 program `verify.py` has no external dependencies. Run `python3 verify.py` in the package directory. It enumerates orbits and all faces of the geometric fixed-point orbit complex independently of the theoretical three-type presentation, reconstructs reduced mod-two simplicial homology by exact bitwise elimination, and checks predicted compatibility relations. Successful execution prints `ALL_VERIFY_OK cases=6 face_sets=10321`. The preserved output is in `verify_output.txt`.
+# Independent mathematical audit
 
-For dimensions \(n=2,3,4,5,6,7\), the observed reduced Betti numbers in dimensions two and three are respectively \((0,0),(1,0),(5,0),(17,2),(49,18),(129,98)\), and each agrees with the formula. The program tests **finite cases only**; mod-two ranks cannot establish integral torsion-freeness, simple connectivity, or an infinite family. Those are established in the proof by orbit-face identification, contractible-simplex links with explicit cycles, the integral connecting-map surjectivity, and van Kampen.
+## correctness
 
-Independent mathematical audit: not performed. No machine-checked proof or external certification is claimed.
+PASS
+
+PASS. The fixed points in a simplicial realization are modeled by barycenters of vertex orbits, not only individually fixed vertices. With m=n-2, the A_z,B_z,C_z orbit compatibility table is reconstructed from Hamming distances: within A/B d<=2, across A-B only z=w, C-A or C-B d<=1, and no distinct C pair. The A/B subcomplex is two ordinary VR(Q_m;2) copies connected by 2^m edges, with free H_1 of rank 2^m-1. Each C_z link is two simplices joined by m+1 cross edges, homotopy-equivalent to a wedge of m circles. Their cone attachments give relative H_2=Z^(m*2^m), and the integral connecting map is the differences of cube-neighbor cross-edge generators: since the m-cube graph is connected, it surjects onto H_1 of rank 2^m-1. Kernel is free Z^((m-1)*2^m+1), H_3=Z^(2*c_m), others vanish. Van Kampen normal generation gives pi_1=0. The n=2 orbit model is a 2-simplex. The code's n=2..7 mod-2 checks corroborate only finite Betti ranks; no torsion or universal theorem is inferred from them. The Adamaszek–Adams ambient sphere theorem is used for the two base layers.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge). Adamaszek–Adams gives ambient VR hypercube sphere types and multiplicities, Bendersky–Elia–Grbić ordinary ambient cohomological information, and Galetto–Montaño–Wellner an ambient rational homology representation. None of the checked statements implies integral geometric fixed-locus H_2, H_3, torsion-freeness or fundamental group. Fixed-point Euler/Lefschetz traces are weaker than these invariants. Related indexed Čech and constant-weight Rips results concern different complexes. Unindexed equivalent calculation remains a risk.
+
+## value
+
+PASS
+
+PASS. A coordinate transposition is an elementary generator of hypercube symmetry; its geometric fixed locus includes barycenters of swapped vertex pairs and is a natural invariant not determined by ordinary or rational equivariant ambient homology. The explicit torsion-free H_2 rank and simple connectivity for every n, despite ambient reduced homology concentrated in degree 3, is a reusable structural equivariant-topology calculation, not a trivial parameter specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
