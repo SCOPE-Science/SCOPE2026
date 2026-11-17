@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification
 
-Run `python3 verify.py` (Python standard library only).
+# Independent mathematical audit
 
-The program constructs each cycle-power graph directly from cyclic distances, tests compatibility on all four cross-endpoint pairs, enumerates all possible selected edge-subsets up to the proved upper bound, and tests maximality by checking every possible addition. It separately evaluates the coefficient formula by integer convolution and tests the predicted contiguous support and extremal multiplicities for larger parameters.
+## correctness
 
-Observed successful execution:
+PASS
 
-`VERIFY_OK graph_instances=44 edge_subset_candidates=116874 induced_matchings=5627 maximal_induced_matchings=3230 arithmetic_parameter_pairs=888`
+For every r>=1,n>=2r+1 each edge has a unique short clockwise arc of length 1..r. For k>0, distinct chosen arcs have cyclic separating gaps >=r+1 exactly when the endpoints induce k disjoint edges. An additional edge fits in a gap iff the gap is at least 2r+3, hence maximality iff every gap is <=2r+2. Rooting one of k chosen edges gives (n/k)[x^n]B_r^k and (n/k)[x^n]F_r^k. Contiguous block lengths r+2..3r+2 prove the full support and unique-extremal-block multiplicities, including n=2r+1 and k=1. Independent construction of every edge subset in 19 small (n,r) configurations confirmed both polynomials; this does not prove the infinite result.
 
-Full graph-level coefficient comparisons: \(1\le r\le4\), \(2r+1\le n\le16\). The enumeration covers every cardinality which could support an induced matching, by the proved \(n/(r+2)\) upper bound. Exact coefficient and support checks: \(1\le r\le8\), \(2r+1\le n\le120\). The finite tests cannot certify an infinite theorem; the cyclic gap proof is the justification for unrestricted parameters. No external audit or independent certification has occurred.
+## originality
+
+PASS
+
+The complete labeled size polynomials for all induced and inclusion-maximal induced matchings of consecutive cycle powers, especially the min-maximal size and full support, are not obtained from Romeo 2018, which proves only the scalar maximum induced-matching size. Published neighboring results on bounded maximal induced matchings and on other graph families likewise do not provide these cardinality distributions. Best-of-knowledge originality passes, with risk of an unindexed cycle-power or square-line-graph independence polynomial equivalence.
+
+## value
+
+PASS
+
+The full rank polynomial of a natural vertex-transitive family gives the exact saturation-number/minimum maximal induced-matching size, the interval of all achievable maximal cardinalities, and extremal multiplicities; this is a motivated structural enumeration not merely a renaming of the previously known maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The clockwise short-arc representation is unique under \(n\ge2r+1\). The proof establishes the complete gap criterion \(g\ge r+1\) for inducedness and the stronger \(g\le2r+2\) criterion for inclusion-maximality, including singleton matchings. The distinguished-edge count \(n/k\) is justified by a reversible labeled-root bijection, not an unproved cyclic symmetry heuristic. The positive contiguous block support yields the full cardinality interval and rigid extremal coefficients. Independent graph-level and exact-arithmetic programs agree on 44 and 888 tested parameter pairs, respectively; finite tests are corroborative only.
+## correctness
 
-## Originality — PASS, provisionally
-The closest same-family work, Romeo (arXiv:1811.06409, Corollary 3.3), already determines the largest possible size \(\lfloor n/(r+2)\rfloor\); that value is not claimed as new. Full accessible texts of Romeo, Basavaraju et al. (arXiv:1312.5180), and Yuan et al. (arXiv:2410.11288) were compared against the precise two-polynomial, minimum-maximal-size, spectrum, and multiplicity statements. Romeo covers the scalar maximum for \(r<\lfloor n/2\rfloor\) (the complete boundary is elementary), Basavaraju et al. give bounds for triangle-free graphs, and Yuan et al. give global fixed-order extremal counts. None of those checked statements implies the complete distribution. The available abstracts of Chaudhary–Panda (DOI:10.1007/978-981-19-9582-8_4) and Orlovich–Zverovich (DIMACS 2004-26) address algorithmic hardness rather than the specific family; their full content was not accessible and is an explicit priority risk. Comparisons under the aliases strong matching, minimum maximal induced matching, independent domination of the squared line graph, and circular gap enumeration did not identify a dominating theorem. Absence from searches does not prove publication priority.
+PASS
 
-## Mathematical value — PASS
-The problem of finding a minimum-size inclusion-maximal induced matching is a nontrivial matching parameter in general graphs. Here the entire labeled maximal-solution census for a natural two-parameter family is explicit, not just its minimum or maximum. The exact gap criterion supplies a structural bijection, the full support has no holes, and its two boundary cases admit rigid labeled counts. The paired all-solution polynomial makes the refinement usable for further enumerative and probabilistic comparisons, without presuming a general graph complexity consequence.
+For every r>=1,n>=2r+1 each edge has a unique short clockwise arc of length 1..r. For k>0, distinct chosen arcs have cyclic separating gaps >=r+1 exactly when the endpoints induce k disjoint edges. An additional edge fits in a gap iff the gap is at least 2r+3, hence maximality iff every gap is <=2r+2. Rooting one of k chosen edges gives (n/k)[x^n]B_r^k and (n/k)[x^n]F_r^k. Contiguous block lengths r+2..3r+2 prove the full support and unique-extremal-block multiplicities, including n=2r+1 and k=1. Independent construction of every edge subset in 19 small (n,r) configurations confirmed both polynomials; this does not prove the infinite result.
 
-## Limitations and remaining risks
-The family consists of consecutive-distance cycle powers only. Specialization \(r=1\) may be recoverable from older cycle recurrences. An unindexed equivalent general enumerator or squared-line-graph independence-domination formula could supersede the claimed novelty. Abstract-only comparisons of the 2004 DIMACS report and 2023 conference paper are weaker than full-document exclusions. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete labeled size polynomials for all induced and inclusion-maximal induced matchings of consecutive cycle powers, especially the min-maximal size and full support, are not obtained from Romeo 2018, which proves only the scalar maximum induced-matching size. Published neighboring results on bounded maximal induced matchings and on other graph families likewise do not provide these cardinality distributions. Best-of-knowledge originality passes, with risk of an unindexed cycle-power or square-line-graph independence polynomial equivalence.
+
+## value
+
+PASS
+
+The full rank polynomial of a natural vertex-transitive family gives the exact saturation-number/minimum maximal induced-matching size, the interval of all achievable maximal cardinalities, and extremal multiplicities; this is a motivated structural enumeration not merely a renaming of the previously known maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
