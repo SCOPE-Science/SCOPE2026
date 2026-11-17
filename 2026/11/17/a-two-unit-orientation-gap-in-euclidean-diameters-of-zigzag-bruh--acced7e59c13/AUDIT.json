@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For both alternating reduced Coxeter words, Bruhat subwords are exactly the distinct 2^(n-1) permutation vertices. The explicit binary two-coordinate inequality gives upper bounds 18 (interior) and 8 (boundary), with sharp iff conditions; endpoint deviations incur a loss exceeding their possible gain. Summing each of the four parity/order cases proves 9n-19, 9n-18 and 9n-20 exactly. Equality forces all first-layer swaps in both permutations and complementary second-layer swaps; strict convexity excludes nonvertex contacts. The included self-contained checker verifies the local lemma, exhaustive pairs in n=3..10 and larger random witnesses, not a substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gaetz (arXiv:2208.13826), Theorem A and §4 concern 1-skeleton posets, normal cones and lattices, not extrinsic lengths.",
+        "Knutson–Sanchez–Sherman-Bennett (2025), Definition 2.3, Theorem 2.9, Example 2.17 handle Coxeter elements and associated subdivisions/Euler-number counts, not this metric invariant."
+      ],
+      "reasoning": "The most plausible stronger sources explain combinatorics or subdivisions, but their theorems do not include Euclidean intervertex distances. The original general graph-diameter theorem is not a stronger Euclidean statement.",
+      "searches": [
+        "Exact Euclidean diameter and number of diametral pairs of the Bruhat interval polytope Q_{e,c} for bipartite zigzag Coxeter element c with odd adjacent transpositions before even",
+        "Bruhat interval polytopes combinatorial 1-skeleton diameter versus extrinsic Euclidean diameter Coxeter zigzag bipartite elements",
+        "\"Bruhat interval\" \"Euclidean diameter\" \"Coxeter\"",
+        "\"Bruhat interval polytopes\" \"metric\" \"diameter\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.5202",
+      "https://arxiv.org/html/2208.13826v3",
+      "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2025/8.pdf",
+      "https://dmtcs.episciences.org/articles/2507"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tsukerman–Williams (arXiv:1406.5202) §4.4 Theorem 4.24: 1-skeleton graph diameter equals ℓ(v)-ℓ(u); its proof constructs edge paths.",
+        "Knutson–Sanchez–Sherman-Bennett 2025 Theorem 2.9 constructs a regular subdivision indexed by a Coxeter element, and Example 2.17 treats zigzag posets of minimal subdivision count."
+      ],
+      "reasoning": "Neither graph-path length n-1 nor the Euler-number count of subdivision cells constrains the sharp Euclidean norm of coordinate-vector differences or the equality-case matching. This explicit implication comparison distinguishes the new result from the closest numerically named diameter theorem.",
+      "searches": [
+        "Bruhat interval polytopes combinatorial 1-skeleton diameter versus extrinsic Euclidean diameter Coxeter zigzag bipartite elements",
+        "Coxeter element interval polytope metric diameter anti chain alternating products subsets adjacent transpositions",
+        "\"Bruhat interval\" \"diameter\" \"Euclidean\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tsukerman–Williams (2014), arXiv:1406.5202, §1 uses ordinary one-line permutation vectors; Gaetz (2022), arXiv:2208.13826, §1.1 uses inverse-permutation coordinates.",
+        "Two-layer disjoint-adjacent-swap words parametrize all 2^(n-1) vertices, and the two Euclidean measures are distinguished explicitly."
+      ],
+      "reasoning": "Inversion of individual permutations is not a fixed ambient Euclidean isometry; no theorem in a different coordinate convention can be identified without computing its translation. Reversing the order of parity-class layers is included in the new theorem, rather than treated as the same claim by renaming.",
+      "searches": [
+        "Euclidean squared distance maximizers for permutations formed as subwords of s1 s3 s5 ... s2 s4 s6 and the reversed two-layer adjacent-swap word",
+        "Bruhat interval polytope Coxeter element Euclidean diameter alternating orientation zigzag simple reflection products distance",
+        "\"Bruhat interval polytope\" \"Euclidean diameter\" zigzag",
+        "\"Coxeter element\" \"Bruhat interval polytope\" \"Euclidean\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct formula and alias searches returned no identified table of these squared Euclidean diameter sequences or matching-pair counts.",
+        "All vertex-pair maxima and exact maximizing pairs were independently recomputed in finite orders 3 through 10."
+      ],
+      "reasoning": "A negative keyword or semantic-database result is not a uniqueness proof. The new proof provides the all-n result, while finite enumerations only help catch errors and possible table matches.",
+      "searches": [
+        "Exact Euclidean diameter and number of diametral pairs of the Bruhat interval polytope Q_{e,c} for bipartite zigzag Coxeter element c with odd adjacent transpositions before even",
+        "Euclidean squared distance maximizers for permutations formed as subwords of s1 s3 s5 ... s2 s4 s6 and the reversed two-layer adjacent-swap word",
+        "\"9n-19\" \"Bruhat\" diameter",
+        "\"9n-20\" \"Coxeter\" polytope",
+        "\"Bruhat interval polytope\" \"farthest\" \"distance\""
+      ]
+    },
+    "rationale": "Literature-led comparison of the ordinary permutation-vector Bruhat interval geometry, its published graph-diameter theorem, later 1-skeleton lattice work, and Coxeter-indexed subdivisions found no statement or stronger result implying the two parity-sensitive extrinsic Euclidean diameters and complete extremal pair classification. Historical priority remains provisional.",
+    "residual_risks": [
+      "Unindexed dissertations, unpublished notes, and publications using a different distance or permutation-inversion convention may state an equivalent all-order metric result.",
+      "The 2025 work inspected is an extended abstract; later full versions may provide additional metric consequences that have not been independently excluded.",
+      "Negative bibliographic searches are not proofs of priority; the claim is mathematically self-contained but historical novelty remains provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GRAPH_DIAMETER_ONLY_NOT_COVERING_EUCLIDEAN_CLAIM",
+        "evidence": "Theorem 4.24 proves the graph-distance diameter via paths of Bruhat-cover edges, hence n-1 for a Coxeter interval. It does not bound or classify Euclidean distances of permutation vectors.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.5202",
+        "material_read": "Full-text HTML: introduction/definitions and §4.4 (Lemmas 4.22–4.23, Theorem 4.24 and proof); section headings and opening of §4.5.",
+        "method": "read primary full text and compare the distance being optimized",
+        "title": "Bruhat Interval Polytopes",
+        "trigger": "original definition and published theorem explicitly called diameter"
+      },
+      {
+        "assessment": "NOT_COVERING_EXTRINSIC_DISTANCE",
+        "evidence": "The article uses inverse-permutation coordinate vectors and proves 1-skeleton lattice and simplicity results, whereas the new claim fixes ordinary one-line coordinates and classifies their Euclidean farthest pairs.",
+        "identifier_or_url": "https://arxiv.org/html/2208.13826v3",
+        "material_read": "Primary full-text HTML: introduction, §1.1–1.2, statements of main results, sections of §4 about 1-skeleton order and normal fan, and relevant definitions.",
+        "method": "read primary text and compare hypotheses, coordinate convention and consequences",
+        "title": "One-skeleton posets of Bruhat interval polytopes",
+        "trigger": "2022 first-public geometric-combinatorial research lead on the same polytope family"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_METRIC_THEOREM",
+        "evidence": "Theorem 2.9 supplies a regular subdivision; Example 2.17 compares Euler-number counts for zigzag Coxeter elements. Neither states the squared Euclidean diameters or farthest pair classification.",
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2025/8.pdf",
+        "material_read": "Primary 12-page PDF: introduction, Definition 2.1, Theorem 2.9, Lemma 2.15, Corollary 2.16 and Example 2.17; page 2 viewed as an image.",
+        "method": "examined accessible full-text sections and checked for Euclidean diameter and distance statements",
+        "title": "Permutahedral subdivisions and class formulas from Coxeter elements",
+        "trigger": "specifically treats Coxeter elements, with zigzag orientations in the examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "acced7e5-9c13-41e7-9536-b34e7a441a62",
+  "value": {
+    "rationale": "This computes a previously unidentified natural extrinsic Euclidean metric invariant for two distinguished families of Bruhat interval polytopes with exponentially many vertices, and classifies the whole diametral graph rather than giving only a bound. The squared Euclidean diameter exhibits a strict orientation-dependent gap of exactly two in even ranks despite equal vertex counts and the fixed 1-skeleton graph diameter n-1. This gives a sharp geometric boundary to the orientation-insensitive combinatorial theorem, beyond a mere restatement or a special-case table.",
+    "status": "PASS"
+  }
+}
