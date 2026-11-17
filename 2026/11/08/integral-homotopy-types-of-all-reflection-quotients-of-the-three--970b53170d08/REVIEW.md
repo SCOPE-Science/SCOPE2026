@@ -1,19 +1,21 @@
-# Mathematical review: complete reflection-quotient classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers exactly the geometric orbit quotients of the \(3\times4\) grid's matching complex by its three nontrivial order-two subgroups and by the full rectangular symmetry group. The standalone verifier enumerated the full unquotiented face poset, checked \(406\) explicitly prescribed acyclic Morse pairs, and found precisely one critical vertex and nine critical three-cells. It then enumerated all \(144{,}500\) barycentric flags and all four orbit chain complexes, checked their full \(\mathbf F_2\) boundary matrices and \(d^2=0\), and recovered degree-three mod-two ranks \(5,4,6,3\) with no other reduced mod-two homology. Character averaging and the four Euler counts give exactly the same rational ranks. The argument after inverting two excludes odd torsion; universal coefficients exclude two-torsion. The symmetry-fixed middle horizontal grid edge and Armstrong's theorem yield trivial quotient fundamental groups. Hurewicz and homological Whitehead give the four sphere wedges. These mathematical steps are independently reconstructible from the accompanying proof and executable.
+PASS
 
-## Originality — PASS
+Specified nearest-neighbor 3x4 matching complex has 822 nonempty faces, 406 pairs and a complete gradient acyclicity test yielding X≃vee^9 S3. Inspected source verifier: it constructs all 144500 barycentric flags, orbit-canonicalizes chain cells for each subgroup without inversions, computes exact F2 quotient boundaries with duplicated incidence cancellation, verifies d²=0 and ranks. The resulting quotient mod2 Betti_3 = 5,4,6,3 match rational ranks inferred from Euler characteristics, while Z[1/2]-exact coinvariants forbid odd torsion. UCT then forbids 2-primary torsion. The middle horizontal matching edge is fixed by every group element, and Armstrong gives simply connected quotients; integral Hurewicz and homological Whitehead upgrade to 3-sphere bouquets. Script was read but its large quotient rank elimination was not independently rerun in this execution; the full finite enumeration and rank assertions remain reproducible in the package.
 
-The closest primary September 2026 preprint tabulates unquotiented homology and conjectures an all-width sphere bouquet. The two closest fully inspected published mathematical records provide coordinate-reflection and half-turn alternating rational Lefschetz numbers and full-group Euler invariants. Those statements imply the **rational** quotient Betti numbers at width four, so the rational ranks alone are explicitly not claimed as new. Neither record asserts quotient mod-two homology, integral torsion elimination, trivial quotient fundamental groups, or integral homotopy types. Targeted searches of matching-complex orbit quotients, reflection quotients, normalized rank alternatives and related published records found no equivalent theorem. Residual risk: an unindexed or implicit classical equivariant topology derivation could cover this finite case.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete integral homotopy classification for all nontrivial subgroups of the natural symmetry group of the first nonsquare \(3\times4\) grid beyond the square base case. The values \(5,4,6,3\) distinguish the four quotients, but the contribution is the **full homotopy equivalences**, not the already implied rational Euler values. Exact mod-two orbit-chain ranks are necessary to exclude hidden two-torsion; fundamental-group control is necessary to upgrade homology to a wedge. The object and subgroup lattice are canonical rather than selected numerical slices.
+Best-of-knowledge statement/implication comparison, with bounded primary-material access limitations explicitly preserved. The preexisting full K quotient Euler formula is a weaker numerical implication; quotient 3-sphere bouquet is not a formal corollary of Lefschetz data alone.
 
-## Closest literature and limitations
+## value
 
-Chauhan–Sharma–Shukla (arXiv:2609.27366v1, Section 4) treat the unquotiented grid matching complexes. The two fully inspected 2026 public records *Orthogonal-reflection Lefschetz formulas* and *Half-turn Lefschetz characters and full symmetry quotients* provide strictly weaker rational character and quotient Euler data. The classifications are only for the geometric quotients at width four and do not give a uniform all-width quotient theorem or an equivariant splitting. No independent validation is represented by the current checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geometric orbit quotients under the entire nontrivial Klein-four subgroup lattice are natural; complete integral homotopy types, including fundamental groups and exclusion of hidden 2-torsion, go beyond previously available rational Lefschetz/quotient Euler formulas. Four related quotients form a coherent classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

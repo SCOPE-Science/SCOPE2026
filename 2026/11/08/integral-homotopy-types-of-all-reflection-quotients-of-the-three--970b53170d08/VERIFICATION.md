@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and the standard library. It reconstructs the \(3\times4\) rectangular grid, enumerates exactly \(822\) nonempty matchings, and verifies an acyclic matching of \(406\) pairs with \(10\) critical simplices. It enumerates \(144{,}500\) nonempty barycentric face-poset chains, constructs each subgroup orbit chain group by canonicalizing under its actual edge permutation, checks \(d^2=0\), and computes every mod-two boundary rank using exact bit-vector Gaussian elimination. It independently calculates the signed Lefschetz traces on the original complex.
+## correctness
 
-Expected final line: `ALL_VERIFY_OK`. The full successful output is `verification_output.txt`.
+PASS
 
-The finite computations directly prove only the finite combinatorial data. The mathematical proof uses acyclic discrete Morse theory, finite-group coinvariant exactness after inverting two, universal coefficients, Armstrong's orbit fundamental-group theorem, Hurewicz and the homological Whitehead theorem to derive the claimed integral homotopy equivalences. The checker does not independently certify general statements beyond this finite rectangle.
+Specified nearest-neighbor 3x4 matching complex has 822 nonempty faces, 406 pairs and a complete gradient acyclicity test yielding X≃vee^9 S3. Inspected source verifier: it constructs all 144500 barycentric flags, orbit-canonicalizes chain cells for each subgroup without inversions, computes exact F2 quotient boundaries with duplicated incidence cancellation, verifies d²=0 and ranks. The resulting quotient mod2 Betti_3 = 5,4,6,3 match rational ranks inferred from Euler characteristics, while Z[1/2]-exact coinvariants forbid odd torsion. UCT then forbids 2-primary torsion. The middle horizontal matching edge is fixed by every group element, and Armstrong gives simply connected quotients; integral Hurewicz and homological Whitehead upgrade to 3-sphere bouquets. Script was read but its large quotient rank elimination was not independently rerun in this execution; the full finite enumeration and rank assertions remain reproducible in the package.
 
-The geometric quotient is not the Borel construction and is not formed by naively taking vertex orbits of the original complex. Barycentric subdivision is necessary to obtain a no-inversions action with valid quotient cell boundaries. No external certificates or independent audit have been performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, with bounded primary-material access limitations explicitly preserved. The preexisting full K quotient Euler formula is a weaker numerical implication; quotient 3-sphere bouquet is not a formal corollary of Lefschetz data alone.
+
+## value
+
+PASS
+
+Geometric orbit quotients under the entire nontrivial Klein-four subgroup lattice are natural; complete integral homotopy types, including fundamental groups and exclusion of hidden 2-torsion, go beyond previously available rational Lefschetz/quotient Euler formulas. Four related quotients form a coherent classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
