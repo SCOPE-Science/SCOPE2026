@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundaries
+# Independent mathematical audit
 
-Run `python verify.py` in a Python environment with no third-party packages. The script enumerates all matrix-and-central-functional idempotent derivations of the symmetric-bracket algebra with two-dimensional quotient over the prime fields of orders 3, 5 and 7 for a split form; the exact counts are 7, 11 and 15. It also finds only the zero idempotent for the anisotropic diagonal form over the prime fields of orders 3 and 7. A separate finite search enumerates maximal totally isotropic planes and their transverse ordered pairs in split four-dimensional quotient spaces over fields of orders 3 and 5, giving 8/24 and 12/60 planes/pairs respectively. Including their central-function choices produces 217 and 1501 idempotent derivations. Successful output ends with `VERIFY_OK`.
+## correctness
 
-The infinite-family assertions are proved in RESULT.md using the adjoint projection criterion and a count of orthogonal isotropic complements, not through finite enumeration. The script does not exhaust arbitrary prime powers, dimensions or every quadratic-form class. Characteristics two and degenerate forms are excluded. The same-model correctness, originality and value review is recorded in REVIEW.md and AUDIT.json; no independent mathematical audit has been performed.
+PASS
+
+From [L,L]=kz, reconstruct D(v)=Av+phi(v)z and D(z)=cz, with A+A* = cI, A²=A, c²=c and phi A+c phi=phi. In odd characteristic c=0 implies A*=-A and adjoint idempotence yields A=0 and phi=0. For c=1, image and kernel of A are complementary totally B-isotropic m-spaces, requiring split dimension 2m; conversely their projection works, with q^m phi choices. Counting ordered transverse maximal isotropic spaces gives [2 prod_{i<m}(q^i+1)]q^{m(m-1)/2}, hence the claimed exponent. A central shear kills phi; hyperbolic bases make all pairs isometric. Independently tested full projection identities in dimension 2 at q=3,5,7 and count 2q nonzero; this corroborates, not proves, the universal Witt argument. Derivation-space count q^{1+n(n+1)/2} follows skew-adjoint parameterization.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct principal theorem after comparison of actual pinned mathematics, equivalent formulations, stronger claims, exact tables and logical implications; do not construe source searches or inaccessible literature as proof of historical novelty.
+
+## value
+
+PASS
+
+The split-versus-nonsplit Witt obstruction is a structural distinction unavailable in the alternating Lie case. Exact labeled finite-field rank counts and single conjugacy orbit resolve a natural, nontrivial classification problem for symmetric two-step Leibniz algebras; not just substitution in a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derived ideal is the unique central line, forcing the normal form \(D(v)=Av+\phi(v)z\), \(D(z)=cz\). The derivation equation \(A+A^*=cI\) and the idempotence equations have been reconstructed without assuming the conclusion. When \(c=0\), the adjoint of \(A^2=A\) yields \(A=-A\), so odd characteristic forces the zero map. When \(c=1\), the image and kernel of \(A\) are complementary totally isotropic summands; these exist exactly for a hyperbolic symmetric form of even rank. All allowed central functionals are counted. The isotropic-subspace recurrence, skew-matrix graph count, and automorphism transitivity each have explicit arguments in RESULT.md. Independent finite enumerations in verify.py match the counts at several prime-field parameters. Uncomputed cases rely on the general proof, not a finite test.
+## correctness
 
-## Originality — PASS relative to inspected sources
-La Rosa and Mancini, *Derivations of two-step nilpotent algebras* (arXiv:2301.11058, first posted January 26, 2023), provide derivation-algebra structures for particular two-step nilpotent Leibniz families, principally over complex and real fields; the inspected introduction and structural theorems do not give an exact all-odd-finite-field idempotent census or the split-versus-nonsplit Witt obstruction for arbitrary nondegenerate symmetric forms. Bai, Gao and Li, *Lie algebras with idempotent derivations* (2015), prove a splitting characterization in the Lie setting, which does not imply the non-Lie orthogonal count. The alternating Heisenberg Lie-algebra result has a distinct symplectic geometry and lacks the symmetric-form nonsplit obstruction. Searches for bilinear-form idempotent derivations, finite-field counts and orthogonal equivalences did not identify a dominating published result. This is not proof of priority: an unlocated general theorem on bilinear-form algebra derivations could subsume the claim.
+PASS
 
-## Mathematical value — PASS
-This gives a natural complete classification of idempotent derivations for a family of non-Lie two-step Leibniz algebras: the Witt type completely determines existence, and in the split case all nonzero operators have the same rank and one automorphism orbit, with an exact uniform polynomial count over all odd finite fields. The obstruction is structural and sharply distinguishes symmetric brackets from alternating Heisenberg brackets; it is not a finite table or a normalization artifact.
+From [L,L]=kz, reconstruct D(v)=Av+phi(v)z and D(z)=cz, with A+A* = cI, A²=A, c²=c and phi A+c phi=phi. In odd characteristic c=0 implies A*=-A and adjoint idempotence yields A=0 and phi=0. For c=1, image and kernel of A are complementary totally B-isotropic m-spaces, requiring split dimension 2m; conversely their projection works, with q^m phi choices. Counting ordered transverse maximal isotropic spaces gives [2 prod_{i<m}(q^i+1)]q^{m(m-1)/2}, hence the claimed exponent. A central shear kills phi; hyperbolic bases make all pairs isometric. Independently tested full projection identities in dimension 2 at q=3,5,7 and count 2q nonzero; this corroborates, not proves, the universal Witt argument. Derivation-space count q^{1+n(n+1)/2} follows skew-adjoint parameterization.
 
-## Scientific limitations
-The algebra is nonunital and has one-dimensional derived ideal; its form must be nondegenerate and symmetric. Characteristic two and degenerate forms may behave differently. The recurrence uses standard finite orthogonal geometry, not an independent classification of all Leibniz algebras. No external priority or independent mathematical audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct principal theorem after comparison of actual pinned mathematics, equivalent formulations, stronger claims, exact tables and logical implications; do not construe source searches or inaccessible literature as proof of historical novelty.
+
+## value
+
+PASS
+
+The split-versus-nonsplit Witt obstruction is a structural distinction unavailable in the alternating Lie case. Exact labeled finite-field rank counts and single conjugacy orbit resolve a natural, nontrivial classification problem for symmetric two-step Leibniz algebras; not just substitution in a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
