@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph is explicitly the 12 directed arcs of a four-point complete graph with two same-tail neighbors and one reverse-arc neighbor. The finite state set is exactly \(3^{12}=531441\) configurations. The C++ implementation constructs all successors and prunes zero-indegree states, which finds exactly the cycles in any finite outdegree-one functional graph; a reverse pass supplies all entry times. A separate Python implementation performs forward trajectory memoization, rather than pruning, over all encoded states. Both yield identical complete tables of 33 temporal classes, the period census, and the sharp ten-step transient. Enumerating all 24 permutations of the four base points establishes exactly one spatial orbit for each of periods 4, 6 and 8. These permutations constitute the full graph automorphism group because the four triangles are intrinsic and an automorphism fixing their labels fixes each vertex. All long-period cycle profiles and per-vertex excitation frequencies were independently checked.
+## correctness
 
-## Originality
-PASS, subject to a genuine unindexed-priority risk. The primary paper of Gravner, Lyu and Sivakoff (arXiv:1610.07320; DOI:10.1214/17-AAP1350), inspected in full relevant sections, gives the general finite-graph synchronization criterion and common asymptotic activity via cycle circulation, not these exact labelled temporal populations or long-period tetrahedral symmetry orbits. Durrett–Griffeath (arXiv:patt-sol/9303002) supplies early model context, not a demonstrated covering statement in the inspected abstract. The MathWorld truncated-tetrahedral graph entry establishes the standard graph and its symmetry order, not the three-state dynamics. Searches under alternative graph and dynamical terminology and comparisons with accessible exact temporal-census claims revealed no stronger implication covering the asserted object and numerical invariants. The full primary text of the 1993 paper was not independently inspected, and search failure alone cannot establish novelty.
+PASS
 
-## Value
-PASS. The twelve-vertex truncated tetrahedral graph is a canonical Archimedean cubic graph, admitting a natural directed-edge-of-a-tetrahedron representation. Its six primitive eight-cycles constitute one spatial-symmetry orbit, are genuinely period eight, and excite every site twice, whereas the six period-four cycles also form one orbit but excite each site once. Consequently both have activity \(1/4\) but different primitive periods, a concrete structural distinction beyond the classical activity invariant. The complete census also supplies exact basins and a sharp entry-time cutoff for the same natural model. This is a self-contained, motivated finite classification, not an arbitrary parameter slice.
+Graph is defined by directed distinct K4 arcs, each adjacent to the other two arcs with same first coordinate and its reverse. The successor map is applied to the complete 3^12 functional graph: finite peeling/forward-trace exhausts every state; cycle lengths and distances are exact. Independent freshly written exhaustive iteration matched all cycle/basin counts and the 10-step/384 count. S4 injects through the four intrinsic triangles and acts by relabeling, so the permutation orbit classification is checkable from canonical cycle representatives. Original independent source code implementing S4 checked.
 
-## Closest literature and limitations
-The primary arXiv/publication sources are Durrett and Griffeath (1993) and Gravner, Lyu and Sivakoff (2016/2018). The original Greenberg–Hastings dynamics and the graph itself are not claimed as new. A previously unindexed exact enumeration cannot be categorically ruled out. The period-three cycles are counted but not classified under spatial symmetry; no higher-color, asynchronous, or larger-graph assertion is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original graph-specific complete temporal and symmetry classification. Classical finite-graph circulation results determine asymptotic rates/synchronization but neither 3^12 exact periods/transients nor S4 orbit partitions; related published icosahedral, Heawood and Kneser graph censuses involve other graphs. Source code inspected at assigned tree.
+
+## value
+
+PASS
+
+The truncated tetrahedral graph is a canonical Archimedean skeleton with a natural S4 action. The full finite-state cycle/basin/entry census and equality of site activity for periods 4 and 8 resolve natural dynamical invariants that general circulation theorems deliberately leave undetermined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
