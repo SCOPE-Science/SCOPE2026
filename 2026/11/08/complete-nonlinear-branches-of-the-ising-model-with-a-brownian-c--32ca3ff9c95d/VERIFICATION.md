@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` is the basis of the universal claim. The critical analytical steps are (1) invertibility of the Brownian Green kernel via its Dirichlet–Neumann boundary conditions, (2) the exact nonlinear oscillator energy integral and odd-quarter-period endpoint rule, (3) strict monotonicity and range of the quarter-period map, (4) its small- and large-amplitude limits, and (5) the free-energy spectral, entropy, existence, and positive-kernel arguments. These steps establish all inverse temperatures and all nodal indices without numerical extrapolation.
+## correctness
 
-Execute `python3 check.py` with Python 3 and the standard library. On the reviewed implementation it reports `PASS 147 numerical consistency checks`. It numerically compares Simpson-evaluated quarter periods against critical and large-amplitude asymptotics, integrates the nonlinear ODE independently with fourth-order Runge–Kutta, and verifies its Neumann endpoint, extrema, nodes, total magnetization, and the original graphon integral equation for selected amplitudes and indices. The numerical tolerances appear in the checker. Finite numerical checks do not prove the universal classification.
+PASS
 
-The exact source dates and scientific claims used for comparison are documented in the references. The preexisting graphon fixed-point and spectral principles are not claimed as new. Appendix C of Searle–Tindall (2023), including the growing-uniform-attachment graphon \(W(x,y)=1-\max\{x,y\}\) and its semilinear boundary equation, was inspected and is credited as the same kernel under coordinate reflection; unindexed global classifications may still affect priority. No finite-size dynamical or metastability result is asserted.
+Brownian K=min(x,y) is inverse of -d²/dx² with h(0)=h’(1)=0, making m=tanh h and h''=-β tanh h equivalent. First integral implies each nonzero solution has a single turning amplitude and endpoint occurs after (2j+1) quarter-periods. Q(a) increases strictly from π/2 to infinity by monotonicity of tanh(av)/a, hence precisely ± one branch for each β>π²(2j+1)²/4; mixed-boundary zero locations follow. Integrating h'' gives magnetization; Taylor and high-a quarter-period asymptotics give amplitudes. Entropy s(t)-s(0)>t²/2 for nonzero t plus top eigenvalue 4/π² establishes zero minimizer at/below threshold; compactness and |m| positivity exclude other global minimizers above. No claim of dynamic stability or finite-size extrapolation.
+
+## originality
+
+PASS
+
+Searle–Tindall 2023/2024 Appendix C had already derived the reflected kernel 1-max(x,y), identical under x↦1-x, and a mixed boundary ODE; Alexandrov–Medvedev 2026 provides general graphon fixed points and local spectral thresholds. These entail the reduction and possible bifurcation values, not the global all-amplitude uniqueness, exact nodal count, sharp high-temperature-to-low-temperature magnetizations, or selection of exactly two global minima. Resultary search under min kernel, BVP, nodal branches found no earlier exact full classification. Primary full Appendix C was not independently accessible in this run; previous text references and accessible bibliographic material corroborate the alias, but cannot justify a whole-paper negative coverage claim. Best-of-knowledge PASS with salient risk of unindexed same BVP global study.
+
+## value
+
+PASS
+
+Complete nonlinear bifurcation diagram and global thermodynamic equilibrium selection for a canonical Brownian covariance graphon, with exact stationary excited branches and temperature-independent nodes, is a motivated infinite-dimensional model result beyond general local stability theory. The proof separates non-global stationary states from actual minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
