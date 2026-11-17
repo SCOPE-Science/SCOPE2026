@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A greedy complete arch is the shortest prefix containing both symbols; its last letter first occurs at that endpoint. The missing-symbol construction shows that the number of complete arches equals the scattered-subsequence universality index. Exactly \(k\) letters \(b\) and exactly \(k\) complete arches force each arch to contain precisely one \(b\), so the unique shapes are \(ba\) and \(a^{u+1}b\), with an \(a\)-only suffix. The scattered \(ab\) statistic is \(\binom{k}{2}+\sum_i\epsilon_i(1+(k-i+1)u_i)\). Independent geometric-series sums in the excess-letter variable give the claimed coefficient product, valid as a formal identity for every \(k\ge4,r\ge0\). Reversal, letter-swap plus reversal, and direct low-degree product expansion prove the remaining claims. The standalone checker directly enumerated 6,441 binary words across 25 finite parameter pairs and matched every coefficient. This finite testing does not replace the arbitrary-parameter proof.
+PASS
 
-## Originality — PASS with residual risk
+The greedy universal-subsequence arch criterion is bidirectional: h complete shortest all-symbol arches yield every h-letter subsequence, while choosing each arch endpoint’s new letter and the missing suffix letter constructs an absent (h+1)-word. If |w|_b=k and index k, exactly k arches each use one b, and the only forms are ba or a^(u+1)b, with final all-a suffix. Count baseline C=binom(k,2), plus 1+(k-i+1)u in each positive-orientation i-th arch; extract z^r in (1-z)^(-1)prod_(j=1)^k(1+q/(1-zq^j)) to prove all coefficient formulas. Reversing w maps C to k(k+r)-C and preserves index, giving reciprocity. Low-edge coefficients from selecting positive arches and the last two u-extras follow exactly; independent brute full-subsequence tests matched k=3,r=1; k=4,r=0,1,2; k=5,r=1. Infinite k,r argument is unique factorization.
 
-The nearest 2026 study, Fazekas–Huang–Mercaş, gives \(\exists\)- and \(\forall\)-universality criteria for binary Parikh classes and an approximation scheme for a fixed pattern's containment probability, not this uniform exact \(k,r,C\) census of maximally universal representatives. Adamson's exact counting and ranking algorithms work at fixed total word length but do not state the joint letter and scattered-pair distribution. Richomme describes equivalence classes via partitions, and the q-Parikh-matrix deformation concerns q-weighting of subsequence embeddings inside one word. Published database and literature comparisons did not reveal this precise coefficient product; exhaustive global novelty or an unindexed identity cannot be guaranteed. The existing classical arch characterization is explicitly treated as a premise, not new.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 work poses exact/probabilistic questions on universality *inside* fixed binary Parikh-matrix languages. For every saturated multiplicity class, the theorem gives the full exact distribution over the defining third Parikh coordinate, including all empty/nonempty counts and boundary strata, rather than only existence. It has a short constructive factorization, reciprocal symmetry, and coefficient formulas uniformly for unbounded \(k,r\). It identifies a structurally natural tractable regime of a more general joint distribution. This is stronger than recomputing a known aggregate count or an arbitrary small numerical case.
+The 2026 primary Fazekas–Huang–Mercaş paper on binary Parikh-matrix subsequence universality gives existential and universal-index thresholds and an approximation scheme for fixed target patterns, not this exact per-C distribution of maximizing words. Adamson et al count/rank universal words by length without joint k+r letter content and scattered ab inversion. Published first-gap spectrum only gives finite fiber index sets through length eight. The coefficient product conditions on a *saturated letter multiplicity*, a genuinely finer enumeration not implied by those statements. Best-of-knowledge priority remains subject to unindexed refinements.
 
-## Closest literature and limitations
+## value
 
-Primary comparisons: Fazekas, Huang, Mercaş, *Subsequence Analysis Problems for Binary Parikh Matrices* (arXiv:2610.06717, 2026-10-05), Sections 2–5; Duncan Adamson, *Ranking and Unranking k-Subsequence Universal Words* (arXiv:2304.04583, 2023), counting/ranking results; Gwenaël Richomme, *On some 2-binomial coefficients of binary words* (arXiv:2510.07159, 2025), partition models; Renard, Rigo, Whiteland, *q-Parikh Matrices and q-deformed binomial coefficients of words* (arXiv:2402.05657, 2024), q-deformation. There is a residual possibility of equivalent older partition enumeration not indexed under subsequence universality. General unsaturated binary contents are not claimed. No independent external validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact coefficient-extractable polynomial refining subsequence universality by both content and binary Parikh-pair statistic directly answers a natural distribution question within equivalence classes. Its arch interpretation, reciprocity, edge coefficients and degree cutoffs provide reusable exact data, not merely a relabeling of known univariate universal-word counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

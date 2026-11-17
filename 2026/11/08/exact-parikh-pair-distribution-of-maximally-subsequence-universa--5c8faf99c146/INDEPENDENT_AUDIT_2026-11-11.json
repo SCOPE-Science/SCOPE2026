@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T05:10:52.049824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy universal-subsequence arch criterion is bidirectional: h complete shortest all-symbol arches yield every h-letter subsequence, while choosing each arch endpoint’s new letter and the missing suffix letter constructs an absent (h+1)-word. If |w|_b=k and index k, exactly k arches each use one b, and the only forms are ba or a^(u+1)b, with final all-a suffix. Count baseline C=binom(k,2), plus 1+(k-i+1)u in each positive-orientation i-th arch; extract z^r in (1-z)^(-1)prod_(j=1)^k(1+q/(1-zq^j)) to prove all coefficient formulas. Reversing w maps C to k(k+r)-C and preserves index, giving reciprocity. Low-edge coefficients from selecting positive arches and the last two u-extras follow exactly; independent brute full-subsequence tests matched k=3,r=1; k=4,r=0,1,2; k=5,r=1. Infinite k,r argument is unique factorization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fazekas exact endpoints and an approximation algorithm; Adamson fixed-length ranking; Oct 18 first finite noninterval index spectrum."
+        ],
+        "reasoning": "These cover parts of the ambient combinatorics but not the all-k,r exact coefficient product, including k>=4 arbitrary r.",
+        "searches": [
+          "https://arxiv.org/abs/2610.06717",
+          "https://arxiv.org/abs/2304.04583",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-first-gap-in-binary-parikh-matrix-subsequence-universality-s--25f7995c2c07/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.06717",
+        "https://arxiv.org/abs/2304.04583",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-first-gap-in-binary-parikh-matrix-subsequence-universality-s--25f7995c2c07/RESULT.md",
+        "https://arxiv.org/abs/2510.07159"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known arch decomposition supplies the combinatorial representation; proposed pair-degree weight C=binom(k,2)+sum_i eps_i(1+(k-i+1)u_i) is an additional statistic per arch."
+        ],
+        "reasoning": "Derivation from a known decomposition requires an exact new weighted enumeration; published upper/lower universality criteria do not mathematically imply numerical coefficients without further work.",
+        "searches": [
+          "https://arxiv.org/abs/2610.06717",
+          "https://arxiv.org/abs/2304.04583",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-first-gap-in-binary-parikh-matrix-subsequence-universality-s--25f7995c2c07/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier literature defines universality index/arches and enumerates aggregate universal words, not this joint fixed-content, fixed-scattered-pair distribution."
+        ],
+        "reasoning": "An all-length univariate universal-word count cannot recover the conditional C-profile in every Parikh fiber.",
+        "searches": [
+          "Resultary search: maximally subsequence universal binary words fixed Parikh composition ab pair count joint generating function arch factorization",
+          "https://arxiv.org/abs/2610.06717",
+          "https://arxiv.org/abs/2304.04583"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct 18 first-hole theorem enumerates eight words in (4,4,8), but no full U_(k,r)(q) or all-pair histogram."
+        ],
+        "reasoning": "Finite special-fiber tables do not cover unbounded k,r and all C; no exact prior database for this particular joint distribution was found.",
+        "searches": [
+          "Resultary: subsequence-universality distributions by binary Parikh class",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-first-gap-in-binary-parikh-matrix-subsequence-universality-s--25f7995c2c07/RESULT.md"
+        ]
+      },
+      "rationale": "The 2026 primary Fazekas–Huang–Mercaş paper on binary Parikh-matrix subsequence universality gives existential and universal-index thresholds and an approximation scheme for fixed target patterns, not this exact per-C distribution of maximizing words. Adamson et al count/rank universal words by length without joint k+r letter content and scattered ab inversion. Published first-gap spectrum only gives finite fiber index sets through length eight. The coefficient product conditions on a *saturated letter multiplicity*, a genuinely finer enumeration not implied by those statements. Best-of-knowledge priority remains subject to unindexed refinements.",
+      "residual_risks": [
+        "An unpublished/unindexed multivariate arch-transfer generating function with identical specialization could preexist; no exhaustive priority guarantee.",
+        "The degree/refinement is confined to the saturated multiplicity |w|_b=k, so it does not classify the unsaturated case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED NOT COVERING: endpoint arithmetic criteria and fixed-pattern probability approximation, no exact all-C maximal-index count",
+          "evidence": [
+            "Study computes whether all/some words of a class attain a threshold, not number of words at each C with index k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Entire arXiv full HTML including abstract, definitions, central existence/universality theorems, sections on probabilities/approximation",
+          "method": "Lawful arXiv HTML reading",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same fixed (A,B,C) Parikh classes and subsequence-universality index"
+        },
+        {
+          "assessment": "RELATED NOT COVERING: univariate fixed-length counts, not fixed content plus scattered ab statistic",
+          "evidence": [
+            "Counts or ranks k-universal words by length without the displayed q-weighted Parikh conditional distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "Accessible full primary arXiv HTML, counting/ranking formulations and universality definitions",
+          "method": "Lawful arXiv HTML reading",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "Universality index and arch-factorized word enumeration"
+        },
+        {
+          "assessment": "DOES NOT COVER: finite existence spectra vs full unbounded counting polynomial",
+          "evidence": [
+            "Special fiber S(4,4,8)={2,4}, 6 index-4 words; no general polynomial or exact all-C counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-first-gap-in-binary-parikh-matrix-subsequence-universality-s--25f7995c2c07/RESULT.md",
+          "material_read": "Entire public Resultary RESULT.md inspected: precise length-eight first gap, all eight word witnesses and proof",
+          "method": "Read-only GitHub full scientific text",
+          "title": "The first gap in binary Parikh-matrix subsequence-universality spectra",
+          "trigger": "Same Parikh matrices and universality but different exact invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact coefficient-extractable polynomial refining subsequence universality by both content and binary Parikh-pair statistic directly answers a natural distribution question within equivalence classes. Its arch interpretation, reciprocity, edge coefficients and degree cutoffs provide reusable exact data, not merely a relabeling of known univariate universal-word counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "k>=4,r>=0; one letter appears exactly k times and alphabet binary; no both-counts>k theorem.",
+    "Independent direct brute matching performed on small k,r and is finite corroboration only."
+  ],
+  "schema_version": 1
+}
