@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checks/check.py` from the directory containing this file. No nonstandard Python dependencies are required. The checker performed 1,170 assertions successfully: exact rational ratio monotonicity and factorial-weighted log-concavity, 80-digit decimal mean/variance, finite truncation normalization, and agreement of the first-site Stein-factor formula with the maximum over 80 positive indices.
+## correctness
 
-The proof itself requires no computational certificates: each inequality and all infinite sums are handled analytically in RESULT.md. The 101-term finite probability sums serve only as diagnostics and are never used to infer an infinite theorem; their normalization residual was checked below \(10^{-60}\) in each displayed case. The arbitrary-parameter statement, the infinite-support property, the exact supremum and the failure of the universal variance-scaled bound are established in the analytic argument.
+PASS
 
-No independent review or validation was performed.
+Convolution gives p_n=e^{−ε}ε^{n−1}(ε²+n(1−ε))/n!, mean 1, variance 2ε−ε², and (n!p_n)^2−(n−1)!p_{n−1}(n+1)!p_{n+1}=e^{−2ε}ε^{2n−2}(1−ε)^2>0. Detailed balance telescopes to sharp indicator envelope F_m(1−F_m)/(w p_m). Strict ratio monotonicity and r2<ε,r3<=ε/2 imply all sites j>=2 have envelope <=2/(3w); j=1 has (1−εe^{−ε})/w>2/(3w), so first site is unique maximizer. Hence Γ/(σ/w)~(2ε)^−1/2→∞. Exact algebra proves infinite support; inspected checker is only diagnostic.
+
+## originality
+
+PASS
+
+DeSalvo Open Problem 8.2 explicitly proposes the variance-only sup-norm estimate contradicted by this strictly ultra-log-concave fixed-mean Bernoulli–Poisson family. General tail-covariance Stein envelope is prior; newly identified exact supremum and sharply divergent variance ratio provide a mathematically motivated counterexample, not a new Stein operator.
+
+## value
+
+PASS
+
+A full-support strictly ultra-log-concave counterexample at fixed mean refutes a newly stated universal Stein variance-scaling conjecture, isolates the failing second factor, and gives exact worst-index behavior; meaningful negative structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

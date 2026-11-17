@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mass formula follows by convolution. Strict ultra-log-concavity is the exact positive determinant of the affine factorial-weighted masses. The centered constant-birth Stein equation telescopes to an exact indicator envelope, and the decreasing adjacent-mass ratios bound every positive site beyond the first by at most two thirds. The first site has envelope \(1-\varepsilon e^{-\varepsilon}\), strictly exceeding two thirds for the entire parameter range. Mean, variance, and the inverse-square-root divergence follow exactly. The standalone code supplied 1,170 supplementary diagnostics; the proof does not rely on finite enumeration.
+PASS
 
-## Originality — PASS, subject to historical-priority limits
+Convolution gives p_n=e^{−ε}ε^{n−1}(ε²+n(1−ε))/n!, mean 1, variance 2ε−ε², and (n!p_n)^2−(n−1)!p_{n−1}(n+1)!p_{n+1}=e^{−2ε}ε^{2n−2}(1−ε)^2>0. Detailed balance telescopes to sharp indicator envelope F_m(1−F_m)/(w p_m). Strict ratio monotonicity and r2<ε,r3<=ε/2 imply all sites j>=2 have envelope <=2/(3w); j=1 has (1−εe^{−ε})/w>2/(3w), so first site is unique maximizer. Hence Γ/(σ/w)~(2ε)^−1/2→∞. Exact algebra proves infinite support; inspected checker is only diagnostic.
 
-DeSalvo's arXiv:2611.00263v1, Open Problem 8.2, affirmatively conjectures a universal \(\Gamma\le C\sigma/w\) bound for every log-concave constant-birth target. The exhibited full-support strictly ultra-log-concave family with mean fixed at one and standard deviation tending to zero directly contradicts that universal implication. DeSalvo's existing indicator Stein envelope and Eichelsbacher–Reinert's general discrete Gibbs estimates are acknowledged; neither inspected primary result supplies this particular exact fixed-mean counterexample. Brown–Xia's original full text was not available, leaving a specific residual priority risk. No absence-of-search-result claim is used as a proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-The result settles the negative side of a newly stated, quantitatively central conjecture, identifies the exact small-variance lattice concentration obstruction even under ultra-log-concavity and fixed mean, and computes the entire sup-norm factor on an explicit nontrivial infinite-support family. It changes the appropriate formulation of the prospective Stein factor theorem: variance-only scaling needs an added nonconcentration condition or a different scale. It does not claim a replacement bound or weaken the conjecture's other component.
+DeSalvo Open Problem 8.2 explicitly proposes the variance-only sup-norm estimate contradicted by this strictly ultra-log-concave fixed-mean Bernoulli–Poisson family. General tail-covariance Stein envelope is prior; newly identified exact supremum and sharply divergent variance ratio provide a mathematically motivated counterexample, not a new Stein operator.
 
-## Limitations and related sources
+## value
 
-Primary source: DeSalvo (2026), arXiv:2611.00263v1, Open Problem 8.2, Theorem 2.5, §9 and proof §10. Related primary source: Eichelsbacher–Reinert (2008), arXiv:0808.2877, Lemma 2.4. Historical risk: Brown–Xia (2001), DOI:10.1214/aop/1015345606, original full text unavailable. The review is not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full-support strictly ultra-log-concave counterexample at fixed mean refutes a newly stated universal Stein variance-scaling conjecture, isolates the failing second factor, and gives exact worst-index behavior; meaningful negative structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
