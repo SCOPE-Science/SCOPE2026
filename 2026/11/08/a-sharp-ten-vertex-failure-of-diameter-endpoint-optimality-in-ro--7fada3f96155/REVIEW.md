@@ -1,15 +1,21 @@
-# Scientific review: diameter-endpoint optimality in rooted-tree parking
+# Independent mathematical audit
 
-## Correctness — PASS
-The upward Abelian flux recurrence counts labeled preference sequences exactly. All 201 unlabelled tree types of orders 1 through 10 were compared at every admissible car load and every root; their ten orderwise tree-type totals agree with the standard sequence. Independent direct enumeration checked each of four root orbits in the ten-vertex witness at four and five cars. A separate exact symbolic orbit enumeration uses equality patterns and falling factorials, proving the five difference identities for every positive pair of parameters without extrapolating finite samples. The checker verifies these identities by symbolic simplification and separate instance substitution.
+## correctness
 
-## Originality — PASS (qualified)
-Curien–Hénard's arXiv:1912.06012 develops the same directed parking model and Abelian property but focuses on random-tree phase transitions. King–Yan's arXiv:1804.01616 and directed-graph study DOI 10.37236/9051 supply general parking conditions and different enumeration problems. Their accessible full texts do not state or subsume the exact sharp ten-vertex optimal-root boundary or five infinite-family gap identities. Semantic research-record searches for rooted parking root placement, diameter endpoints, optimal roots and small-tree counts likewise identified no equivalent claim. An inaccessible related rooted plane-tree full text and potentially different historical formulations pose a remaining priority risk.
+PASS
 
-## Value — PASS
-The theorem answers a natural root-placement question with a sharp order cutoff, exhibits an exact nonperipheral optimizer on a highly symmetric tree, and explains an infinite parameterized mechanism. The load change at four, five and six cars makes the phenomenon structural rather than a bare numerical curiosity. The precise count differences admit independent reuse.
+Reconstructed the root-directed overflow q_v=max(0,c_v+sum_child q-1) and labelled-car binomial-interleaving recurrence. Checked the finite n<=10 classification with an independent exact-rational root-by-root recurrence and nonisomorphic free-tree generator: only B(3,3) at m=4,5 defeats diameter endpoints, across all tree types and loads. Verified sample B(a,b) families directly against the five four-car orbit polynomial differences; the falling factorial orbit construction uses at most four distinct outer leaves and proves all positive integer a,b, not an interpolation. For m=4 n=10 direct counts are N_c=9290,N_diameter=9263. The proof sharply separates exhaustive n<=10 census from its all-(a,b) exact identity. Original pinned checker.py and RESULT.md reviewed; no opaque code run.
 
-## Scope and limitations
-Trees are simple, finite and unweighted, preference vertices are uniform and cars labeled. Exhaustive first-failure classification stops at ten vertices; the infinite formula is for exactly four cars. The underlying Abelian lemma and earlier general parking-function criteria are not claimed as new. Independent historical and mathematical verification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No identified earlier result computes the first fixed-tree nonperipheral root optimum at n=10 with load sensitivity, nor the all-(a,b) orbit count differences. General rooted parking criteria explain computations but do not identify the optimum.
+
+## value
+
+PASS
+
+The natural heuristic that a diameter endpoint maximizes directed-tree parking success fails at a provably minimal order. The explicit 27/10^4 edge-of-failure and infinite B(a,b) family reveal nontrivial root and load sensitivity, a motivated combinatorial counterexample rather than arbitrary table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

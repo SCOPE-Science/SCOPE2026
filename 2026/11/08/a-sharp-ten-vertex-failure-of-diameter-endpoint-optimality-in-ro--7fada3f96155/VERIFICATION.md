@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python checker.py` after installing the versions in `requirements.txt`. The checker independently performs four groups of exact operations: enumerate all ordered preferences of four and five cars for the four orbit representatives of the ten-vertex witness; count every root and car-load combination in every nonisomorphic free tree through order ten using an exact integer recursion; form the six symbolic four-car root-count polynomials using orbit equality patterns, and simplify all five differences; and compare the polynomials to separately computed integer counts at several parameter pairs.
+## correctness
 
-Observed: 201 unlabelled tree types, 16,755 exact root/load evaluations, only B(3,3) at four and five cars failing the existence of a diameter-endpoint optimizer. Exact rooted counts for four cars are center 8,898, hub 8,855, central pendant 9,290, diameter pendant 9,263; for five cars center 76,140, hub 76,650, central pendant 85,500, diameter pendant 85,378. The symbolic identities are proven for arbitrary positive integers, not inferred by interpolation. An independent manual mathematical review has not been performed. Exhaustiveness depends on the standard nonisomorphic-tree generator, with orderwise known counts checked as coverage safeguards.
+PASS
+
+Reconstructed the root-directed overflow q_v=max(0,c_v+sum_child q-1) and labelled-car binomial-interleaving recurrence. Checked the finite n<=10 classification with an independent exact-rational root-by-root recurrence and nonisomorphic free-tree generator: only B(3,3) at m=4,5 defeats diameter endpoints, across all tree types and loads. Verified sample B(a,b) families directly against the five four-car orbit polynomial differences; the falling factorial orbit construction uses at most four distinct outer leaves and proves all positive integer a,b, not an interpolation. For m=4 n=10 direct counts are N_c=9290,N_diameter=9263. The proof sharply separates exhaustive n<=10 census from its all-(a,b) exact identity. Original pinned checker.py and RESULT.md reviewed; no opaque code run.
+
+## originality
+
+PASS
+
+No identified earlier result computes the first fixed-tree nonperipheral root optimum at n=10 with load sensitivity, nor the all-(a,b) orbit count differences. General rooted parking criteria explain computations but do not identify the optimum.
+
+## value
+
+PASS
+
+The natural heuristic that a diameter endpoint maximizes directed-tree parking success fails at a provably minimal order. The explicit 27/10^4 edge-of-failure and infinite B(a,b) family reveal nontrivial root and load sensitivity, a motivated combinatorial counterexample rather than arbitrary table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
