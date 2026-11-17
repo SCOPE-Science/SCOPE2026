@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T09:10:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact scalar epoch map has common A=product(q_i) and exchangeable permutation offset B. Full-epoch RR equals A^m x0 + sum_{j<m} A^j B_j with iid B_j; SO equals A^m x0 + S_m B_0. For 0<A<1, A^j/S_m are positive weights summing to one: convex Jensen gives RR <=cx SO. For -1<A<0 and m>=2, S_m in (0,1), so the signed normalized vector has largest entry >1, majorizes (1,0,...,0), and Schur convexity for iid B_j gives SO <=cx RR. Bounded support justifies all convex expectations and stationary limits. Covariance factors sum A^{2j} versus S_m^2 give strict square-loss separation when tr Cov(B)>0. Independent exact-rational stop-loss enumeration verified 20 1D choices across positive/negative A and m; this is corroboration only. Example A=-1/8, offsets -3/8 and 15/8 gives Var_RR=9/7, Var_SO=1, and strongly convex objective gap 3/14. No within-epoch or noncommuting matrix assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Domingo-Enrich Secs 4–5: exact/approximate spectral covariance under zero-th-order noise and iteration-time variance; Mishchenko et al.: convergence rates in small-stepsize regimes; 2026/10/12 Resultary: two-sample stationary risk fixed vs alternating order."
+        ],
+        "reasoning": "These do not imply all-dimensional all-convex-loss epoch endpoint reversal across the negative-A region; some share examples or scalar products without dominating the theorem.",
+        "searches": [
+          "arXiv:1908.00045",
+          "arXiv:2006.05988",
+          "arXiv:2206.00632v1",
+          "Resultary 2026/10/12 sharp-stationary-risk-envelope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.00632v1 (sections 4–5)",
+        "arXiv:2006.05988 (abstract)",
+        "arXiv:1908.00045 (citation/abstract)",
+        "Resultary targeted search: random reshuffling shuffle once convex order negative epoch multiplier",
+        "Resultary:2026/10/12 sharp stationary-risk envelope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Different model: PSD phase-averaged stationary risk under a zero-th-order Hessian approximation; different policies: deterministic two-sample fixed vs alternating couplings."
+        ],
+        "reasoning": "No known prior theorem read entails the two convex-order inequalities for every m and convex phi with arbitrary finite permutation-offset law.",
+        "searches": [
+          "arXiv:2206.00632v1 sections 4, 5 and Appendix C",
+          "Resultary 2026/10/12 sharp stationary-risk envelope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common affine epoch form reduces to the exchangeable-weight majorization theorem; that general theorem orders arbitrary weighted iid sums, whereas the fixed-SO versus re-randomized RR sign frontier and its SGD interpretation are not stated in the inspected application sources."
+        ],
+        "reasoning": "A general majorization lemma supplies a proof ingredient, not by itself an earlier classification of RR/SO with signed full-epoch multipliers; generic affine recursion precedence is a residual risk.",
+        "searches": [
+          "Resultary query: random reshuffling shuffle once convex order negative epoch multiplier scalar quadratic SGD sign reversal",
+          "arXiv:2206.00632v1 sections 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved close records concern squared error and stationary order optimization, not the exact all-convex-loss signed-epoch table."
+        ],
+        "reasoning": "This is a symbolic all-epochs convex-order classification, not a fixed-parameter data table or a previously reported identical classification. Search failure is not proof of novelty.",
+        "searches": [
+          "Resultary targeted sign reversal query top 10",
+          "SCOPE published reshuffling records 2026/10/12 and 2026/11/02"
+        ]
+      },
+      "rationale": "On the inspected prior work and Resultary findings, the sharp sign-dependent, all-convex-loss comparison for exactly completed scalar-affine RR versus fixed SO remains an identifiable specialization. The probabilistic Schur/Hardy–Littlewood–Pólya comparison is classical, not claimed new. Safran–Shamir and Mishchenko et al. bound shuffling convergence under distinct observables/stepsizes; Domingo-Enrich gives noise-spectrum and phase-averaged stationary covariance under an approximation, not the signed full-epoch convex order; Resultary's 2026-10-12 two-sample stationary-risk envelope compares fixed/alternating-order couplings rather than the claimed every-epoch, every-convex-loss relationship. Residual risk of an equivalent general exchangeable affine-recursion theorem remains.",
+      "residual_risks": [
+        "The general majorization order is old; older affine-recursion or shuffling literature might have applied it to the identical RR/SO epoch comparison.",
+        "General noncommuting Hessians, momentum, intermediate iterations and non-iid epoch permutations lie outside the proved claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_OBSERVABLE",
+          "evidence": [
+            "Sections 4–5 derive noise spectral stationary covariance under phase averaging, not convex order of exact completed scalar-affine epoch endpoints; zero-th-order model stated in introduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+          "material_read": "Abstract, introduction, Sections 4–5 definitions/claims and zero-th-order model description; the HTML source also exposes proofs/appendices",
+          "method": "Read arXiv HTML mathematical sections",
+          "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+          "trigger": "Direct RR/SO stationary model"
+        },
+        {
+          "assessment": "LIMITED_ACCESS_NOT_WHOLE_DOCUMENT",
+          "evidence": [
+            "Abstract discusses convergence rates and SO, not an explicit signed A all-convex-loss theorem; cannot infer whole-document noncoverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.05988",
+          "material_read": "Abstract and cited methodological model, not full paper",
+          "method": "Read arXiv abstract and source package bibliography",
+          "title": "Random Reshuffling: Simple Analysis with Vast Improvements",
+          "trigger": "Direct RR/SO convergence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common epoch multiplier's sign creates a sharp, model-relevant reversal in *every convex risk*, despite stable scalar epochs, rather than a mere variance example. The theorem covers arbitrary finite permutation support, all dimensions with scalar multipliers, all epoch counts, stationarity, and a concrete strongly convex SGD witness. General convex-order technology is standard, but its sharp shuffling-policy implication is a meaningful algorithmic boundary, not a renamed inequality without motivated application.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2206.00632v1 (sections 4–5)",
+    "arXiv:2006.05988 (abstract)",
+    "arXiv:1908.00045 (citation/abstract)",
+    "Resultary targeted search: random reshuffling shuffle once convex order negative epoch multiplier",
+    "Resultary:2026/10/12 sharp stationary-risk envelope"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The general majorization order is old; older affine-recursion or shuffling literature might have applied it to the identical RR/SO epoch comparison.",
+    "General noncommuting Hessians, momentum, intermediate iterations and non-iid epoch permutations lie outside the proved claim."
+  ],
+  "residual_risks": [
+    "The general majorization order is old; older affine-recursion or shuffling literature might have applied it to the identical RR/SO epoch comparison.",
+    "General noncommuting Hessians, momentum, intermediate iterations and non-iid epoch permutations lie outside the proved claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "RELATED_NOT_COVERING_OBSERVABLE",
+      "evidence": [
+        "Sections 4–5 derive noise spectral stationary covariance under phase averaging, not convex order of exact completed scalar-affine epoch endpoints; zero-th-order model stated in introduction."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+      "material_read": "Abstract, introduction, Sections 4–5 definitions/claims and zero-th-order model description; the HTML source also exposes proofs/appendices",
+      "method": "Read arXiv HTML mathematical sections",
+      "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+      "trigger": "Direct RR/SO stationary model"
+    },
+    {
+      "assessment": "LIMITED_ACCESS_NOT_WHOLE_DOCUMENT",
+      "evidence": [
+        "Abstract discusses convergence rates and SO, not an explicit signed A all-convex-loss theorem; cannot infer whole-document noncoverage."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2006.05988",
+      "material_read": "Abstract and cited methodological model, not full paper",
+      "method": "Read arXiv abstract and source package bibliography",
+      "title": "Random Reshuffling: Simple Analysis with Vast Improvements",
+      "trigger": "Direct RR/SO convergence comparison"
+    }
+  ]
+}
