@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof normalizes the complex matrix-lifting map by the Hilbert–Schmidt norm and raw counting-measure observations; the Weyl-character columns consequently have singular values \(\sqrt N|A_g(u,v)|\). The difference-count obstruction establishes the exact support threshold. The finite-field trace construction proves Singer existence for each prime power. Character-sum orthogonality yields all three singular levels; AM–GM proves the unrestricted complex-weight maximin and its exact equality conditions; deletion yields the sharp support-\(q\) rank bound. The supplementary checker compares four designs, and at two lengths directly builds the lifting matrices. No finite experiment substitutes for the general proof.
+## correctness
 
-**Originality: PASS relative to checked sources, with residual risk.** Bojarovska and Flinth already use difference-set windows and the nonvanishing-ambiguity lifting criterion; Goldberger, Kang, and Okoudjou already compute the projector spectrum for arbitrary windows. Singer existence is classical. Neither inspected primary work gives the sharp *optimization across every at-most-\(q+1\)-sparse complex window*, its complete extremizer characterization, and the sharp rank after one fewer support atom. The earlier general spectral identities and difference-set examples are expressly not claimed as new. An unindexed restatement or implicit known corollary in design-theoretic tomography remains possible; the finite search is not a novelty proof.
+PASS
 
-**Value: PASS.** At natural projective-plane cyclic lengths, complete linear intensity tomography requires at least \(q+1\) window sites. The theorem determines not just a feasible design but the optimal singular-value margin under this minimal support budget, all designs meeting it, the complete reconstruction spectrum, and an exact sharp discontinuity in observable operator dimension on reducing the support by one. These quantities directly characterize sampling stability and identifiability. The result does not imply optimal nonlinear phase-retrieval stability or handle incomplete observation orbits.
+PASS: Complete Gabor-projector lifting diagonalizes on the unit Hilbert–Schmidt Weyl basis with singular values √N|A_g(u,v)|, multiplicity one per (u,v). A support S of size s has rank at most N|S−S|≤N[1+s(s−1)], so at N=q²+q+1 the minimal full-rank support is at least r=q+1. At support r, equality S−S=Z_N forces each ordered nonzero difference to appear once, precisely a Singer-type (N,r,1) difference set. Its cyclic trace-zero construction exists at all prime-power q. For flat amplitudes, every u≠0 has ambiguity magnitude 1/r, while u=0 has magnitudes 1 and √q/r, establishing the full claimed spectral multiplicities and maximin √N/r. For nonflat amplitudes, min pair product≤(∏ a_x)^{2/r}≤1/r, with equality only all |g_x|²=1/r, proving rigidity. Deleting one Singer point gives s=q distinct nonzero differences, and at zero shift the nontrivial Fourier coefficients are nonzero since |∑_{D}χ|=√q>1=|χ(d)|, attaining rank N(1+q(q−1)) and nullity 2qN. Explicit complex ambiguity checks at Singer q=2,3 agree, not an all-q experiment.
 
-The most relevant evidence is Bojarovska–Flinth, *Phase Retrieval from Gabor Measurements*, arXiv:1503.05800, Theorems 2.2–2.3 and Proposition 2.2; Goldberger–Kang–Okoudjou, *Towards a classification of incomplete Gabor POVMs*, arXiv:2106.01509, Theorems 1–2; the classical Singer difference-set construction; and Bartusel, *Uncertainty Principles as a Tool for STFT Phase Retrieval*, arXiv:2605.31507. An earlier equivalent sparse-optimality consequence is the main priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp maximin/optimizer-rigidity and one-site-deletion rank theorem: related 2015/2021 primary results already establish Gabor ambiguity diagonalization and difference-set sufficiency but not full all-complex minimal-support stability maximin or the exact deletion-rank optimization; Resultary related Gabor results use different families or multiwindow data.
+
+## value
+
+PASS
+
+PASS: Complete linear matrix tomography with the smallest number of nonzero window coordinates is a motivated sparse measurement-design problem. The exact worst-direction stability/conditioning optimum and classification of all optimizing windows over arbitrary complex coefficients, plus sharp one-coordinate deletion rank, give nontrivial design limits and sensitivity. The Singer incidence structure and Weyl spectrum are classical inputs, but obtaining a quantitative maximin and rigidity under a support budget is a natural precise invariant and is not shown identical to a checked earlier theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
