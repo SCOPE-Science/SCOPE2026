@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-The self-contained analytical proof in `RESULT.md` applies to every finite proper fair binary tree. The Python checker is corroborative rather than an infinite proof.
+# Independent mathematical audit
 
-Execute `python3 verify_adaptive_haar.py` in the same directory using standard Python 3; no external libraries or downloaded assets are required. It independently enumerates all ordered proper binary tree shapes with one through seven leaves, constructs the probability-weighted signed kernel rows directly from the Haar basis, and exhausts ancestral sign choices using `fractions.Fraction`. It compares each sharp row value against the claimed closed expression and checks the full height spectrum for each leaf count.
+## correctness
 
-Observed run diagnostics:
+PASS
 
-```
-EXHAUSTIVE_PLANE_FULL_BINARY_TREES_PASSED 197
-INDEPENDENT_KERNEL_ROW_EXTREMA_PASSED 1275
-LEAF_COUNT 1 EXACT_SPECTRUM [(0, '1')]
-LEAF_COUNT 2 EXACT_SPECTRUM [(1, '1')]
-LEAF_COUNT 3 EXACT_SPECTRUM [(2, '2')]
-LEAF_COUNT 4 EXACT_SPECTRUM [(2, '2'), (3, '5/2')]
-LEAF_COUNT 5 EXACT_SPECTRUM [(3, '5/2'), (4, '13/4')]
-LEAF_COUNT 6 EXACT_SPECTRUM [(3, '5/2'), (4, '13/4'), (5, '31/8')]
-LEAF_COUNT 7 EXACT_SPECTRUM [(3, '5/2'), (4, '13/4'), (5, '31/8'), (6, '73/16')]
-ALL_ADAPTIVE_DYADIC_HAAR_CHECKS_PASSED
-```
+For output leaf x at depth k, its signed Haar kernel is constant on each first-divergence sibling subtree, with mass 2^(-j-1), and on x with mass 2^(-k). The signed total variation reduces exactly to sum_{j<k}(1-sigma_j z_j)/2+|z_k|, where z_0=1 and z_{j+1}=(z_j+sigma_j)/2. The Bellman recursion V_m=a_m+c_m|z| has c_m=(1-c_{m-1})/2 and yields F_k. Thus all other branches cancel by mass conservation. Maximum row norm is F_H, attained by choosing the input sign of the kernel. F_{h+1}>F_h for h>=1, and full-binary leaf-count/height inequalities plus successive off-spine leaf splits realize every permissible h; H=N-1 forces a comb. The N=1,2 boundary and maximizing row signs are consistent. Independently enumerated all ordered proper binary trees with <=6 leaves: 65 trees and 351 leaf rows, checking the depth values and height sets. The finite check corroborates but does not prove the unrestricted statement.
 
-The exhaustive domain is explicitly limited to seven leaves. A finite checker cannot establish the all-size dimension spectrum or all-depth formula; those follow from the displayed Bellman induction and exact tree-construction argument. No independent audit has been conducted.
+## originality
+
+PASS
+
+The full homogeneous depth-H constant and optimal sign path are EXACTLY in an earlier separate result; they are prior art. However that publication expressly excludes incomplete subtrees and the assertion that arbitrary branch pruning leaves each row norm unchanged. The tree-height spectrum and comb versus shallow extremizers are additional necessary mathematical deductions, not contained in the complete-level statement. No searched source entailed pruning invariance; status PASS best-of-knowledge for that nontrivial extension only.
+
+## value
+
+PASS
+
+An adaptive dyadic partition has a naturally variable number and depth of leaves; determining its exact sharp endpoint amplification from height alone, and the entire possible list at fixed dimension N, is a useful structural classification and quantitative comparison of extremely unbalanced to balanced trees, not merely another evaluation of the known complete dyadic constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
