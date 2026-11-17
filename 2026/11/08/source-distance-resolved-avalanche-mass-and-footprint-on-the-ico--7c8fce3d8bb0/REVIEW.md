@@ -1,15 +1,21 @@
-# Review of the icosahedral sandpile joint avalanche census
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite claim is exhaustive, not inferred from sampling: two independent enumerators each traverse all \(5^{11}\) stable configurations, characterize recurrence by different equivalent burning criteria, and stabilize in opposite priority orders on independently built icosahedral graph representations. They agree on every one of 100 nonzero coefficients, each of the three polynomial totals is 5,184,000, and an independent reduced-Laplacian determinant gives exactly 5,184,000 recurrent states. The 120 automorphisms of the icosahedron, with sink-stabilizer transitivity on each distance sphere, justify all fixed source choices. Both alternative recurrence criteria are standard; their application has a complete finite audit path in the supplied code.
+## correctness
 
-## Originality — PASS on examined evidence
-Austin et al. (2016), arXiv:1605.02713, explicitly derive polynomial results for trees, cycles, wheels and complete graphs; the full author-shared article text was inspected, including its introduction, definitions, the graph-family computations and conclusion, and contains no icosahedral table. Gauthier (2011), arXiv:1110.6263, treats the expanded cactus, not the same finite graph. Searches for icosahedral / Platonic / polyhedral sandpile avalanche polynomial and exact mass-footprint tables found no direct match. Previous graph-specific computations for friendship, triangular-chain, fan, prism, complete bipartite and other families do not imply this icosahedral table. An earlier general full-support avalanche coefficient theorem covers the nearest-source \((11,11)\) coefficient, which is explicitly not claimed as an independent novelty. No universal first-discovery assertion is made: unindexed historical tables remain a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The icosahedron is a canonical nontrivial Platonic frustrated network, and the three inequivalent source-to-sink geometries provide a physically interpretable spatial comparison. The complete joint distribution reveals an exact single-toppling/maximum-29 separation and a reflection symmetry restricted to nearest-sink sources. Both avalanche mass and footprint are natural observables: only their joint enumeration distinguishes repeated relaxations from spreading support.
+Reconstructed actual 12-vertex, 30-edge, 5-regular icosahedral graph and its 11 nonsink sites. Independently formed its reduced Laplacian from all 30 source edges; exact integer determinant=5,184,000, matching stated recurrent count. Read complete first C++17 enumeration: loops through all base-five 11-site stable vectors (5^11=48,828,125); Dhar burning deletion selects eligible lowest-index vertices, then stabilizes at three source distances, counting total topplings and distinct toppled vertices. Read independent second implementation with separate two-ring graph, Dhar burning-addition and reverse toppling priority; read Python verifier that compiles both, parses 100 positive CSV counters, checks exact per-class totals, zero mass and maximal mass and equality of the entire histogram. Thus claimed finite exhaustiveness has explicit reproducible loops and cross-check path; I did not run both 48-million-state programs in this execution and therefore treat the exact 100-entry census as independently inspected code-supported rather than freshly re-enumerated. Automorphism sink stabilizer acts transitively on each distance sphere, so representatives suffice. The no-repeat nearest class and coefficient palindrome come from exhaustive table, not a universal graph theorem.
 
-## Scope and independent review
-These are finite counts on one graph, not universality, scaling, or bulk criticality claims. Independent priority and scientific assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Austin et al. introduce avalanche polynomial formalism and calculate trees, cycles, wheels and complete graph families, but no icosahedron source-distance-resolved full joint T/S distribution appears in inspected named results. Expanded cactus results and a sink-adjacent full-support coefficient identity concern different objects or a single known coefficient; they do not give the remaining 99 coefficients or three source-distance laws. Exact stationary probabilities on this natural finite Platonic graph are not shown already tabulated.
+
+## value
+
+PASS
+
+The icosahedron is a natural, highly symmetric benchmark, and the exact mass-versus-footprint joint law reveals a qualitative one-toppling-to-multiple-toppling change at different source/sink separations that total-mass-only polynomials cannot encode. An independently reproducible finite exact invariant can be useful without claiming new infinite-volume exponents or a graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
