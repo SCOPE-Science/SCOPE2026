@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The theorem is proved for every integer \(n\ge2\) and all \(p,q\in\Delta_n^\circ\) by a range minimization, convex chord bound, zero-sum norm inequality, and an elementary hyperbolic comparison. The sharpness construction remains strictly inside the simplex for every approximant. The worst-case-growth consequence requires a nonempty compact forward-shift-invariant path space and an explicit cumulative squared-increment lower bound for all starting times.
+# Independent mathematical audit
 
-## Executed checks
-Running `python3 verify.py` on the standalone file embedded in the same package yielded exactly:
+## correctness
 
-```text
-VERIFY_OK exact_grid_pairs=68982 range_enumerations=39000 randomized_simplex_pairs=19800 boundary_sharpness=81 two_cycle_checks=24
-```
+PASS
 
-The script separately evaluates the original L-divergence expression, the proposed quadratic lower bound, finite range-midpoint bounds, range-to-total-variation estimates, two-coordinate asymptotic sharpness, and dynamical two-cycle sums. Its deterministic pseudorandom generator makes the additional cases reproducible. The checks were executed before packaging, directly from the same standalone script that is embedded here.
+With r_i=q_i/p_i and m=min r_i,M=max r_i, fixing one extremal coordinate and differentiating the logarithmic AM-GM gap shows its remaining minimizing entries equal A=(m+M)/2; thus T>=2/n log((m+M)/(2sqrt(mM))). The p-weighted mean of r is 1. Convex-chord comparison gives total variation v=(1/2)sum|p_i-q_i| <=(sqrt M-sqrt m)/(sqrt M+sqrt m)=tanh x, x=(log M/m)/4. Since d=q-p sums to zero, ||d||²<=2v²; log cosh(2x)=2atanh(tanh² x)>=2tanh²x gives T>=(2/n)||d||² with strictness for distinct p,q. The two-active-coordinate interior sequence proves exact best constant 2/n as remaining coordinates tend to zero. Pathwise wealth identity and compact telescoping produce gamma>=2rho/n. Inspected original verify.py and separately sampled 2394 positive rational pair comparisons n=2..7; numerical finite tests are not proof.
 
-## Epistemic limitations
-These are finite numerical and rational-grid checks with floating-point logarithms; none independently proves the continuum inequality or historical originality. The analytic proof is the only universal justification. A potential originality risk is earlier specialized work on sharp logarithmic Jensen-gap inequalities under simplex normalization not located by the recorded searches. Independent validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge matching theorem search found no logically dominating already published result after comparing actual statements; relevant uninspected primary literature and older methods are recorded as residual risks.
+
+## value
+
+PASS
+
+Uniform finite-displacement state-space-independent and dimension-sharp coercivity for a natural portfolio Jensen gap addresses the precise obstruction in prior compact-dependent L-divergence growth estimates; two-coordinate boundary extremizers expose the geometry. The consequent worst-case growth bound for restricted market paths is meaningful but only a lower bound, not an optimal rate claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from a complete six-step analytic proof. Fixing the minimum and maximum of the ratio vector, the Jensen gap is minimized when every free ratio is their arithmetic midpoint, yielding the exact range lower envelope. The chord bound for mean absolute deviation then yields the sharp range-to-total-variation inequality; zero-sum increments give the factor two between squared Euclidean distance and squared total variation. The identity \(\log\cosh(2x)=2\operatorname{artanh}(\tanh^2 x)\) closes the exact global inequality, and a two-active-coordinate perturbation approaches the sharp ratio \(2/n\) from within the open simplex. The dynamic corollary is an immediate application of the exact pathwise wealth decomposition and the explicit cumulative squared-step hypothesis. The attached finite checks corroborate but do not replace the proof. No equality at distinct states is claimed.
+## correctness
 
-## Originality — PASS within inspected evidence
-The nearest direct result is Xu and Cui [1], Appendix B, whose displayed coefficient \(1/(24M^2)\) depends on the maximal ratios on the compact market set, for \(n=3\). The current result has a dimension-only globally optimal coefficient \(2/n\) for all \(n\ge2\), so their estimate and their positivity assertion do not entail the exact new value. Campbell and Wong [2] derive a local quadratic excess-growth metric, while Pal and Wong [3,4] define the divergence and study geometric properties. These do not state the global sharp finite-step inequality in their inspected sections. Searches for L-divergence, arithmetic/geometric gap, global quadratic coercivity, Euclidean distance, Pinsker analogues and two-asset extremizers did not surface a dominating prior result. This is a best-knowledge literature assessment, not a proof of historical novelty. Related broad information-geometry and sharp-divergence inequalities may require independent specialist priority checking.
+PASS
 
-## Mathematical value — PASS
-The paper [1] needs coercivity to translate forced market volatility into deterministic worst-case growth but obtains a compact-state-dependent coefficient that can degenerate when the state space moves toward the boundary. The exact \(2/n\) finite-step bound is useful on every interior compact market set, at any jump size, and the two-coordinate extremizing family identifies the true geometric bottleneck. The full dimension range and the sharpness obstruction are structural, not a routine reparametrization or a numerical improvement on a chosen example. The growth corollary is a universally parameterized strengthening of the source's volatility lower-bound mechanism. Limitations: equal weights, strict positivity, and no claim of sharpness of the rate for each individual path family.
+With r_i=q_i/p_i and m=min r_i,M=max r_i, fixing one extremal coordinate and differentiating the logarithmic AM-GM gap shows its remaining minimizing entries equal A=(m+M)/2; thus T>=2/n log((m+M)/(2sqrt(mM))). The p-weighted mean of r is 1. Convex-chord comparison gives total variation v=(1/2)sum|p_i-q_i| <=(sqrt M-sqrt m)/(sqrt M+sqrt m)=tanh x, x=(log M/m)/4. Since d=q-p sums to zero, ||d||²<=2v²; log cosh(2x)=2atanh(tanh² x)>=2tanh²x gives T>=(2/n)||d||² with strictness for distinct p,q. The two-active-coordinate interior sequence proves exact best constant 2/n as remaining coordinates tend to zero. Pathwise wealth identity and compact telescoping produce gamma>=2rho/n. Inspected original verify.py and separately sampled 2394 positive rational pair comparisons n=2..7; numerical finite tests are not proof.
 
-## Closest literature and outstanding checks
-The checked primary material includes [1] Appendix B and its original defining sections; [2] its definition, Section 3.3 and Remark 3.19; [3] Sections 2.4 and 2.6; [4] its introductory and definitional formulas and selected sections searched in full PDF text. The finite and local ingredients are known, but the precise all-state sharp implication was not found there. Some older specialized global coercivity treatments might remain unlocated. A separate independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge matching theorem search found no logically dominating already published result after comparing actual statements; relevant uninspected primary literature and older methods are recorded as residual risks.
+
+## value
+
+PASS
+
+Uniform finite-displacement state-space-independent and dimension-sharp coercivity for a natural portfolio Jensen gap addresses the precise obstruction in prior compact-dependent L-divergence growth estimates; two-coordinate boundary extremizers expose the geometry. The consequent worst-case growth bound for restricted market paths is meaningful but only a lower bound, not an optimal rate claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
