@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cut increment equals the selected vertex's same-minus-opposite neighbor count, so all legal flips are cut-nondecreasing. The count profile \(Q(i,j)=i(a+b-i)+j(a-2i)\) and the explicit peripheral-uniformization followed by core-balancing path establish access to the global maximum from **every** initial state, not merely a finite sample. Class decomposition includes the exceptional \(b=1\) clique, the boundary \(b=a\), all parities, and the peripheral-neutral slice. The Boolean-lattice harmonic proof identifies every Laplacian eigenvalue and gives the exact restricted-chain gap. Standalone exhaustive and spectral checks passed. The proof does not assert bounds on total mixing time or absorption times.
+## correctness
 
-## Originality — PASS with residual historical risk
-Full relevant sections of Rouquier–Regnault–Thierry's publicly available arXiv article were inspected: the source defines the identical minority rule, supplies the energy monotonicity and classifies plain cliques, paths, cycles, and bipartite structures, but not the complete split-graph attractor decomposition or parity-dependent spectral-gap statement. Search comparisons also covered anti-coordination equilibria, zero-temperature Glauber models, and the distinct strict-improvement stabilization literature. Closest published mathematical records concern synchronous rules on the same complete split family or a different graph one-skeleton with Johnson boundary edges; neither implies the present asynchronous two-parameter classification. The Boolean incidence-spectrum ingredient is already known, and is not separately claimed novel. No search establishes absolute priority; a matching unindexed result remains possible. The full anti-coordination paper and the full 2019 stabilization-time paper were not inspected, so no claim of whole-document exclusion is made for them.
+PASS
 
-## Value — PASS
-The complete classification gives a natural infinite two-parameter dynamical phase diagram: increasing the peripheral population through the parity boundary changes recurrent classes from isolated absorbing configurations to communicating sets, until the polarized two-state regime takes over. All nonabsorbing classes share the same \(1/(a+b)\) relaxation gap although their sizes vary binomially. The result adds dynamics and relaxation information beyond the easy maximum-cut count and beyond static anti-coordination equilibria. This is a structural classification of an established family, not a minor fixed-parameter exercise.
+With closed-neighborhood tie retention, a chosen spin flips when same-neighbor count ≥ opposite-neighbor count; cut increment is s−o≥0. For state with i clique ones and j independent-set ones, Q(i,j)=i(N−i)+j(a−2i); permitted flips can first align peripherals opposite the prevailing core bit, then move core occupancy toward the maximum of i(N−i). Thus every state has a positive-probability finite path to some maximum cut and a finite chain almost surely enters the maximum-cut region. Within the maximum, all allowed flips are neutral and instantly reversible, so recurrent SCCs are exactly components of the maximum-cut flip graph. Analytic maximizing populations give 2 singleton polarized classes if b≥a; 2 C(a,(a−b)/2) absorbing if b<a,N even; 2 rank-incidence classes each C(a+1,(a−b+1)/2) when b<a,N odd,b≥2; and one middle-rank class of 2 C(a+1,a/2) if b=1 and a even. The class Laplacian is the bipartite adjacent rank incidence Laplacian, with singular squares (k+1−r)(d−k−r) and eigenvalues r,d+1−r, yielding smallest positive 1 and spectral gap 1/N after single-vertex selection. Independent explicit graph-SCC and numerical spectrum tests across small parameters agree. The gap is class-restricted, not global across separated classes.
 
-## Sources and residual limitations
-Principal inspected source: Rouquier, Regnault, Thierry (2010), arXiv:1011.5119v1, especially model, potential, clique and bipartite sections. Secondary source material: Kun, Powers, Reyzin (2013) abstract and author exposition; Papp, Wattenhofer (2019) journal landing-page abstract; a published hypersimplex spectral statement with full RESULT text. The theorem requires independent scientific evaluation before reliance in consequential applications. Unindexed earlier anti-coordination or antiferromagnetic results could overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Stochastic minority updates and cut monotonicity are known from Rouquier–Regnault–Thierry. Their full-text clique and bipartite cases do not give the all-size complete-split recurrent-class counts or spectral gap. Standard Boolean-lattice up/down spectra are prior inputs but do not imply which configurations form the recurrent classes. Published synchronous majority/other graph-type Resultary findings have different update rules. Exact universal class gap and parity attractor classification remain distinct.
+
+## value
+
+PASS
+
+The theorem determines the complete finite-state recurrent decomposition and a universal exact spectral relaxation gap for a natural highly structured family where tied updates can preserve nontrivial fluctuations. Identifying all maximizing cuts as the complete recurrent set is not automatic from the potential function, and proving the same 1/N gap for very different class sizes is a substantial structural Markov-chain invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

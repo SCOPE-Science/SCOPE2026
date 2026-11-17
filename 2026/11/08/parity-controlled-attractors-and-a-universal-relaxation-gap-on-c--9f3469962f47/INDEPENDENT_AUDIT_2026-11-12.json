@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:58:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With closed-neighborhood tie retention, a chosen spin flips when same-neighbor count ≥ opposite-neighbor count; cut increment is s−o≥0. For state with i clique ones and j independent-set ones, Q(i,j)=i(N−i)+j(a−2i); permitted flips can first align peripherals opposite the prevailing core bit, then move core occupancy toward the maximum of i(N−i). Thus every state has a positive-probability finite path to some maximum cut and a finite chain almost surely enters the maximum-cut region. Within the maximum, all allowed flips are neutral and instantly reversible, so recurrent SCCs are exactly components of the maximum-cut flip graph. Analytic maximizing populations give 2 singleton polarized classes if b≥a; 2 C(a,(a−b)/2) absorbing if b<a,N even; 2 rank-incidence classes each C(a+1,(a−b+1)/2) when b<a,N odd,b≥2; and one middle-rank class of 2 C(a+1,a/2) if b=1 and a even. The class Laplacian is the bipartite adjacent rank incidence Laplacian, with singular squares (k+1−r)(d−k−r) and eigenvalues r,d+1−r, yielding smallest positive 1 and spectral gap 1/N after single-vertex selection. Independent explicit graph-SCC and numerical spectrum tests across small parameters agree. The gap is class-restricted, not global across separated classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2010/2011 stochastic-minority paper treats general graphs via cut energy and explicit clique results, not the complete split census/conditional gap. Qiu et al middle-cube spectrum concerns adjacent Boolean levels, an ingredient rather than dynamic characterization."
+        ],
+        "reasoning": "General potential monotonicity alone does not rule out suboptimal recurrent classes; this proof builds explicit paths. The Boolean spectrum does not select the relevant recurrent state populations.",
+        "searches": [
+          "Resultary: asynchronous closed neighborhood minority on complete split K_a K_b recurrent maximum-cut classes spectral gap",
+          "arxiv:1011.5119",
+          "https://arxiv.org/abs/0911.0126"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1011.5119",
+        "https://arxiv.org/abs/0911.0126",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary minority paper Section 4.1 handles cliques; independent periphery b≥2 is neither a clique nor bipartite split core, so it is not a corollary. Resultary synchronous majority complete split study uses parallel deterministic updates, not a uniform asynchronous Markov chain."
+        ],
+        "reasoning": "Combined cut-monotonicity and known adjacent-rank graph spectrum require independent demonstration that every state reaches max and that precisely those ranks form complete SCCs; proof provides this.",
+        "searches": [
+          "arxiv:1011.5119",
+          "Resultary: asynchronous closed neighborhood minority on complete split K_a K_b recurrent maximum-cut classes spectral gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rouquier–Regnault–Thierry define identical closed-neighborhood asynchronous minority with flip-if-tie rule. It can be interpreted as neutral and improving moves in Max-Cut potential, unlike strict best-response-only dynamics."
+        ],
+        "reasoning": "Use precise same update convention to compare. Stationary recurrent neutral flips do not follow from static Nash equilibrium census for this graph.",
+        "searches": [
+          "Resultary: asynchronous closed neighborhood minority on complete split K_a K_b recurrent maximum-cut classes spectral gap",
+          "arxiv:1011.5119"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete split class sizes are given binomial formulas for every a,b; the known middle-cubes eigenvalue catalog does not enumerate recurrent configurations of the original stochastic dynamics."
+        ],
+        "reasoning": "No same-model all-parameter component table was found. Numerical component lists for small examples cannot stand in for the analytic classification.",
+        "searches": [
+          "Resultary: asynchronous closed neighborhood minority on complete split K_a K_b recurrent maximum-cut classes spectral gap",
+          "https://arxiv.org/abs/0911.0126"
+        ]
+      },
+      "rationale": "Stochastic minority updates and cut monotonicity are known from Rouquier–Regnault–Thierry. Their full-text clique and bipartite cases do not give the all-size complete-split recurrent-class counts or spectral gap. Standard Boolean-lattice up/down spectra are prior inputs but do not imply which configurations form the recurrent classes. Published synchronous majority/other graph-type Resultary findings have different update rules. Exact universal class gap and parity attractor classification remain distinct.",
+      "residual_risks": [
+        "Unindexed exact stochastic minority split-graph results in statistical physics or zero-temperature Ising literature could overlap.",
+        "A broader 2010 minority paper was inspected in relevant sections, not every appendix or third-party extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found shared energy principle and clique cases, no split-graph spectral census in relevant sections",
+          "evidence": "Local minority update matches with closed neighborhoods and tie retention; graph-family-specific recurrent structure is not derived.",
+          "identifier_or_url": "https://arxiv.org/pdf/1011.5119",
+          "material_read": "Original PDF opened; inspected definitions, potential/cut argument and Section 4.1 on cliques; page 1 screenshot",
+          "method": "Primary arXiv PDF, inspected relevant sections and screenshot",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Identical asynchronous minority rule"
+        },
+        {
+          "assessment": "Standard spectral technique; not a classification of dynamics",
+          "evidence": "Rank inclusion graph spectrum is prior algebraic fact.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.0126",
+          "material_read": "Abstract and theorem context, not complete original proof",
+          "method": "Accessible abstract/theorem reference only",
+          "title": "On the Spectrum of Middle-Cubes",
+          "trigger": "Adjacent two Boolean ranks relevant to spectrum"
+        },
+        {
+          "assessment": "DIFFERENT synchronous majority update; not taken as full-document noncoverage",
+          "evidence": "Synchronous majority F^5=F^3 is not stochastic asynchronous minority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465",
+          "material_read": "Indexed title and detailed result summary only; no full source read",
+          "method": "Semantic Resultary search hit, no full text",
+          "title": "Exact majority attractors and sharp convergence on complete split graphs",
+          "trigger": "Same graphs but competing dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem determines the complete finite-state recurrent decomposition and a universal exact spectral relaxation gap for a natural highly structured family where tied updates can preserve nontrivial fluctuations. Identifying all maximizing cuts as the complete recurrent set is not automatic from the potential function, and proving the same 1/N gap for very different class sizes is a substantial structural Markov-chain invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1011.5119",
+    "https://arxiv.org/abs/0911.0126",
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-majority-attractors-and-sharp-convergence-on-complete-spli--517ed2dd3465"
+  ],
+  "disposition": "passed",
+  "final_claim": "Almost-sure maximum-cut attractors and one-step relaxation gaps of asynchronous minority on complete split graphs",
+  "limitations": [
+    "a≥2,b≥1, closed-neighborhood asynchronous uniformly selected vertex, tied votes retain state. Recurrent-class gap only, not unique global stationary law; spectral algebra is standard input."
+  ],
+  "residual_risks": [
+    "Unindexed exact stochastic minority split-graph results in statistical physics or zero-temperature Ising literature could overlap.",
+    "A broader 2010 minority paper was inspected in relevant sections, not every appendix or third-party extension."
+  ],
+  "schema_version": 1
+}
