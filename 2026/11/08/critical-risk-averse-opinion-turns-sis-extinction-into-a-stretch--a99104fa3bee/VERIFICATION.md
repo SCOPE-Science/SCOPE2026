@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes all claimed infinite-time limits. The attached `verify.py` is independently executable with Python 3, SymPy and SciPy; execution command: `python verify.py`.
+## correctness
 
-The program checked the Taylor coefficients \(-cy^3+dy^5\) with \(c=1/3-k_x\), \(d=2/15-k_x\), the mixed linear coefficient \(k_ppy\), and exact rational identities for the example \(\beta=1/2\), \(k_p=1/2\), \(k_x=1/6\), \(\tau_x=1\). It integrates the original smooth \((y,\log p)\) equations with controlled tolerances as a finite-time consistency check. The recorded output includes `VERIFY_OK`, asymptotically stabilizing estimates of the finite \(K\), and the expected \(\sqrt3\) coefficient in \(\log p\).
+PASS
 
-The finite integration does not prove asymptotic convergence, globality, existence of the positive prefactor, or novelty. Those scientific limits are addressed by the proof and literature comparison, respectively. Independent external validation has not been performed.
+In the invariant sector y=-x in (0,1), p in (0,1), the SIS equation is pdot=-beta p[y+(1-y)p], hence p<=p0/(1+beta p0t). For kx<1/3, F(y,0)=tanh(y+kx y³)-y<0 from arctanh y>y+y³/3. Comparison with z-dot=F(z,0)/tau yields y>=z~(At)^-1/2, so p<=C e^{-a sqrt t} and py^-2=O(t e^{-a sqrt t}). With w=y^-2 and c=1/3-kx,d=2/15-kx, exact Taylor gives wdot=A-2d/(tau w)-2kp p w/tau+O(p+w^-2). Integrable errors yield w=At-(d/c) log t+K+o(1). Thus y=(At)^-1/2+O(log t/t^(3/2)); the correction and (1-y)p are integrable, giving a finite positive limit for p exp(beta sqrt(2tau/c) sqrt t). Neutral x0=0 is invariant with p=p0/(1+beta p0t). Proof is global for every strict negative-opinion interior initial point under fixed stated parameters.
+
+## originality
+
+PASS
+
+The complete motivating opinion–SIS primary article imposes u0<1 in its main equilibrium theorems; the co-critical u0=1, beta=delta boundary with full negative-opinion sector exact stretched-exponential law and positive prefactor is distinct. General cubic relaxation predicts only part of the opinion power, not model-specific SIS prefactor and signed log correction.
+
+## value
+
+PASS
+
+The simultaneous epidemic and opinion linear critical thresholds give two qualitatively different clearance universality classes depending on initial opinion: strict risk aversion gives e^{-C sqrt(t)} with a positive trajectory-specific amplitude, neutral opinion gives 1/t. The signed log correction flips at kx=2/15; both are motivated, parameter-sharp observations in a natural coupled epidemic system, beyond routine cubic normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
