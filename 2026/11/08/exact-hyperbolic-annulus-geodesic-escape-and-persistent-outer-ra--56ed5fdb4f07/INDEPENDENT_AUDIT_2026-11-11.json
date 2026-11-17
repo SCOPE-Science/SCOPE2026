@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:15:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the Klein disk hyperbolic geodesic segments are straight Euclidean chords, the central radius-a ball becomes a disk of Euclidean radius tanh(a), and an endpoint of radius r has tangent half-angle ψ_a(r)=acos(tanh(a)/tanh(r)). For two endpoints with smaller uniform angle Δ∈[0,π], crossing happens iff Δ>ψ_a(r)+ψ_a(s). The radial density is sinh(r)/(cosh(b)-cosh(a)); averaging yields P=1-2/[π(cosh b-cosh a)]∫_a^b sinh(r)ψ_a(r)dr. Integration by parts with u=sqrt(cosh²r-cosh²a) yields J=cosh b ψ_a(b)-atan(u/sinh a). Stochastic monotonicity of sampled r proves P strictly decreases b; expansion ψ_a(a+u)~sqrt(2u/(sinh a cosh a)) gives 4/(3π) thin-width coefficient; bounded convergence gives 2asin(tanh a)/π at b→∞. Independent 45-digit quadrature agrees at (a,b)=(0.5,1.5),(1,2),(0.3,7), probabilities .4224498703602261,.6436635619879831,.18846024259184707. The proof concerns ambient minimizing geodesic and area sampling, not Liouville sampling or annulus-intrinsic path.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calka–Tykesson (2010) investigates random Poisson obstacles and visibility rays; Cammarota–Orsingher (2011) investigates hyperbolic Brownian hitting spheres."
+        ],
+        "reasoning": "Neither a random obstacle visibility theorem nor stochastic diffusion hitting theorem is a stronger exact iid-endpoint central-disk crossing law.",
+        "searches": [
+          "Resultary semantic: hyperbolic annulus probability geodesic chord between two independent uniform endpoints intersects central disk hyperbolic geodesic visibility",
+          "arxiv:1012.5220",
+          "arxiv:1104.1043"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1410.4052",
+        "https://arxiv.org/abs/1012.5220",
+        "https://arxiv.org/abs/1104.1043",
+        "Resultary hyperbolic geodesic and Euclidean annulus visibility semantic results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior endpoint distributions for chord problems are different (Liouville sampled lines, Brownian motion, random obstacle fields), while current integral uses independent hyperbolic area density sinh r dr."
+        ],
+        "reasoning": "A line/chord distribution without the induced endpoint-pair weighting cannot imply the submitted probability; Euclidean P_E(a,b) similarly fails to yield positive b→∞ hyperbolic limit.",
+        "searches": [
+          "Resultary semantic: hyperbolic annulus probability geodesic chord between two independent uniform endpoints intersects central disk hyperbolic geodesic visibility",
+          "arxiv:1410.4052",
+          "arxiv:1012.5220",
+          "arxiv:1104.1043"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B. Xu (2014), On the Ambartzumian-Pleijel identity in hyperbolic geometry: Liouville random geodesics/chords, not two iid area-uniform annular endpoints.",
+          "Klein tangent-angle formula refers to iid radii and uniform endpoint angles."
+        ],
+        "reasoning": "Crofton lines distributed by invariant geodesic measure and pairs of iid points distributed by area induce different chord measures; Xu does not state the exact iid-pair formula in inspected results.",
+        "searches": [
+          "Resultary semantic: hyperbolic annulus probability geodesic chord between two independent uniform endpoints intersects central disk hyperbolic geodesic visibility",
+          "Resultary: hyperbolic annulus geodesic visibility probability outer radius limit arcsin tanh",
+          "arxiv:1410.4052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table/source with matching full a,b dependence located among top semantic results; numerical quadrature confirms probabilities .4224498703602261, .6436635619879831, .18846024259184707."
+        ],
+        "reasoning": "This is not an exhaustively indexed database problem; checked comparators use distinct sampling or ambient geometry.",
+        "searches": [
+          "Resultary semantic: hyperbolic annulus probability geodesic chord between two independent uniform endpoints intersects central disk hyperbolic geodesic visibility",
+          "Resultary: geodesic hyperbolic annulus two iid area uniform endpoints visibility probability central ball Euclidean comparison exact"
+        ]
+      },
+      "rationale": "The exact independent area-uniform endpoint geodesic-crossing probability, its strict outer-radius decay, and positive hyperbolic infinite-radius limit are not supplied by the inspected hyperbolic Crofton-Liouville, Poisson-obstacle visibility, or Brownian exit laws. A Euclidean annulus Beer-index theorem is a distinct curvature case and tends to zero. Search results did not reveal a dominating exact endpoint law; this remains best-of-knowledge with historical priority risk.",
+      "residual_risks": [
+        "An unsearched specialist hyperbolic Beer-index or integral-geometry article might contain the same iid-pair formula in different coordinates.",
+        "The elementary Klein tangent calculation is itself classical; novelty is only exact area-endpoint probability and its curvature-dependent limiting law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related integral geometry but no independent uniform endpoint annulus event in inspected passages.",
+          "evidence": [
+            "Primary definitions use Liouville measure on geodesics of convex polygons, not independently sampled points of a nonconvex annulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4052",
+          "material_read": "Accessible primary full PDF; theorem statements and geodesic sampling law.",
+          "method": "Opened full PDF and page screenshots examined.",
+          "title": "On the Ambartzumian-Pleijel identity in hyperbolic geometry",
+          "trigger": "Hyperbolic Crofton and chord integral identity with potentially dominating geometric formula."
+        },
+        {
+          "assessment": "Obstacles are random Poisson unions, and visibility uses rays from an observer rather than iid endpoints/one deterministic disk.",
+          "evidence": [
+            "Distinct stochastic obstacle model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.5220",
+          "material_read": "Accessible primary full PDF and introductory model/theorems.",
+          "method": "Opened PDF and page screenshots examined.",
+          "title": "Asymptotics of visibility in the hyperbolic plane",
+          "trigger": "Same terminology hyperbolic visibility."
+        },
+        {
+          "assessment": "Diffusive hitting distribution; not evidence of same deterministic endpoint geodesic law.",
+          "evidence": [
+            "Brownian exit/hitting formulation, structurally different; full text not inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.1043",
+          "material_read": "Abstract and bibliographic summary of diffusion hitting, not entire full text.",
+          "method": "Lawful OA arXiv abstract; no claimed full text reading.",
+          "title": "Hitting spheres on hyperbolic spaces",
+          "trigger": "Hyperbolic annulus and hitting spheres might subsume escape."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural nonconvex Riemannian domain, this supplies the exact geodesic-visibility probability under physically distinct area-uniform endpoint sampling. Its strict monotonicity, thin-shell coefficient, and persistent positive large-annulus obstruction contrast the Euclidean vanishing limit, yielding motivated geometric information rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Constant curvature -1 in dimension two; concentric geodesic annulus; ambient minimizing geodesic not shortest annulus-constrained path.",
+    "Historical coverage beyond focused hyperbolic integral geometry and visibility sources remains possible."
+  ],
+  "schema_version": 1
+}
