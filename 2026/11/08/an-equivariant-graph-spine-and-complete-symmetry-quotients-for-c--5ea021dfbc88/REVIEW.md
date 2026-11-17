@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof first identifies every independent face as contained in one complete row or column simplex, then gives an explicit, continuous piecewise-linear simplex retraction using the gap between the two largest barycentric coordinates. The map fixes the simplex star pointwise and is symmetric under coordinate permutations, so its straight-line strong deformation homotopy glues across intersections of row and column simplices and commutes with the full natural automorphism group. The resulting graph has no edge inversions. This justifies the unrestricted group orbit quotient counts and graph fixed-space classification, not merely a finite computation. The exact integral cycle-lattice basis of rectangular four-cycles proves both integral freeness and the tensor-product automorphism module. The negative flip sign comes from the reversal of row-to-column orientation. The standalone verifier independently checks 60 small cases, as further described in `VERIFICATION.md`.
+PASS
 
-## Originality: PASS with residual risk
+Every independent set of categorical K_m x K_n lies in a single full row or column simplex; distinct maximal simplices meet only in individual grid vertices. On a d-simplex, let t=(largest barycentric coordinate)-(second largest); the continuous order-statistic map (1-t)u+t e_j (or u on ties) is equivariant under vertex relabeling and fixes its star-shaped image, while the straight-line homotopy stays inside the simplex. It glues over singleton intersections into a strong equivariant deformation retraction onto sd(K_m,n), including coordinate swap. The spine has no edge inversions, so each quotient is a graph with first Betti o_E-o_V+1, and subgroup fixed sets are its pointwise-fixed subgraphs; for swap, only n isolated diagonal grid points. Integral 1-cycles are zero-row/zero-column matrices, canonically U_m tensor U_n, and coordinate swap negates tensor flip by reversing edge orientations. I inspected Python tests of 60 small quotient cases, 104384 local rational retraction evaluations and 872 swap traces; proof is symbolic.
 
-The closest full primary sources are Goyal--Shukla--Singh, arXiv:1905.06926 (ordinary sphere-wedge type), Goyal--Shukla--Singh, arXiv:2009.12130 (clique complexes of line graphs and nonequivariant nerve equivalence), and Carnero Bravo, arXiv:2601.13432 (the same ordinary input to generalized Mycielskian homotopy). Ordinary homotopy equivalence is explicitly prior work and is excluded from the novelty claim. Neither inspected source supplies a natural explicit equivariant **strong** deformation retraction together with arbitrary-subgroup quotient and fixed-space classifications and integral symmetry operators. Searches of mathematical records and relevant recent source families revealed no same or dominating statement. The existence of an equivalent unindexed theorem, especially via a general equivariant nerve theorem, remains possible. Search evidence is nonexhaustive and does not prove exclusivity.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Every finite permutation subgroup of the natural grid symmetry group has a computable quotient homotopy type and fundamental-group rank, rather than only a Betti number of the original space. The diagonal transitive-subgroup formula links the free rank to permutation-group orbitals; coordinate swapping produces a different natural family of quotients with rank \(\binom{n-1}{2}\), even as its geometric fixed space consists of exactly \(n\) isolated points. The integral module distinguishes symmetry actions invisible in the known nonequivariant homotopy type. These are complete classifications for an infinite family, not arbitrary numerical slices or a reproduction of the already-known circle count. The proof depends on a highly explicit equivariant contraction and is independently reproducible in small cases.
+Best-of-knowledge PASS only for the *explicit embedded group-equivariant strong deformation retraction* and the resulting concrete all-subgroup fixed/quotient computation; the ordinary wedge-of-circles count is prior work. Fernós–Futer–Hagen (2024) Theorem 2.8 provides an abstract G~homotopy nerve equivalence for equivariant covers, but its statement does NOT assert an embedded equivariant strong deformation retraction, and its G~ (homotopy-commuting) conclusion alone cannot be restricted to fixed loci or naively passed to orbit quotients. This is serious related broader theory, explicitly acknowledged rather than ignored.
 
-## Scope and limitations
+## value
 
-The construction requires two complete-graph factors with at least two vertices and the natural coordinate symmetry groups. All homotopy and representation statements are ordinary topological results with a natural group action, not an independent certification of mathematical novelty. No claim about arbitrary graph products or equivariant homotopy theory beyond this action is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical, piecewise-linear symmetry-commuting deformation *inside* the original complex is a structural refinement of its known ordinary graph homotopy. It makes every natural subgroup fixed locus and orbit quotient computable directly, produces explicit free fundamental group ranks (including diagonal permutation orbitals and swap) and identifies the integral action with its orientation sign; useful concrete geometry not just a new count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

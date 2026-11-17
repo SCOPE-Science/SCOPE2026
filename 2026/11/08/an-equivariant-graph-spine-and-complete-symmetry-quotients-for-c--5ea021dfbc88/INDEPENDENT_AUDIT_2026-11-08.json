@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T17:54:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every independent set of categorical K_m x K_n lies in a single full row or column simplex; distinct maximal simplices meet only in individual grid vertices. On a d-simplex, let t=(largest barycentric coordinate)-(second largest); the continuous order-statistic map (1-t)u+t e_j (or u on ties) is equivariant under vertex relabeling and fixes its star-shaped image, while the straight-line homotopy stays inside the simplex. It glues over singleton intersections into a strong equivariant deformation retraction onto sd(K_m,n), including coordinate swap. The spine has no edge inversions, so each quotient is a graph with first Betti o_E-o_V+1, and subgroup fixed sets are its pointwise-fixed subgraphs; for swap, only n isolated diagonal grid points. Integral 1-cycles are zero-row/zero-column matrices, canonically U_m tensor U_n, and coordinate swap negates tensor flip by reversing edge orientations. I inspected Python tests of 60 small quotient cases, 104384 local rational retraction evaluations and 872 swap traces; proof is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximal-row/column simplices constitute a G-stable good cover; their intersection nerve is K_m,n, so the published general theorem yields a G~homotopy equivalent abstract bipartite graph.",
+          "The 2024 theorem explicitly says G~ (homotopy commuting) equivalence and Remark 2.9 Borel G~ equivalence, not a strict G-equivariant strong deformation retraction of this embedded subgraph."
+        ],
+        "reasoning": "General equivariant nerve theory covers much of the homotopy context and can make some weak-group conclusions routine, but does not supply the stronger concrete equivariant embedded homotopy and actual subgroup-fixed subgraphs as stated. The distinction is scientifically necessary.",
+        "searches": [
+          "arXiv:2303.06932 Section 2.1 Theorem 2.8 pages 14–16 full PDF",
+          "arXiv:1905.06926 Proposition 3.2",
+          "arXiv:2009.12130 graph nerve results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.06926 Proposition 3.2",
+        "arXiv:2009.12130 relevant ordinary nerve results",
+        "arXiv:2303.06932v3 Theorem 2.8 and Remark 2.9 (full PDF)",
+        "arXiv:2307.12401 introduction",
+        "Resultary indexed categorical products",
+        "Frozen RESULT.md/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing ordinary equivalence implies only the unadorned wedge count.",
+          "An equivariant *strong* deformation retract induces genuine H-equivariant restrictions, H-fixed-space retracts and orbit-space retracts for every finite H; a G~ homotopy equivalence is not enough by itself.",
+          "The explicit map x->(1-t)u+t e_max satisfies fixed-pointwise retraction and commuting properties absent from the 2024 published nerve statement. The orbit counts and integral lattice follow from this and graph arithmetic; do not claim their elementary derivation alone novel."
+        ],
+        "reasoning": "The primary G~ theorem cannot alone validate exact fixed-space equivalence.",
+        "searches": [
+          "arXiv:1905.06926 Proposition 3.2",
+          "arXiv:2303.06932 Theorem 2.8 and Remark 2.9",
+          "Resultary: categorical product K_m K_n independence complex equivariant graph spine quotient fixed space tensor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary Ind(K_m x K_n) ~= wedge^{(m-1)(n-1)} S^1 already known.",
+          "Theorem 2.8 in Fernós–Futer–Hagen gives a G~homotopy equivalence to a nerve for G-stable subcomplex covers; it does not give a specified G-equivariant STRONG deformation retract inside the original realization."
+        ],
+        "reasoning": "Line-graph clique complex and nerve descriptions are equivalent formulations of ordinary type. The explicit topological G-action on the embedded graph, fixed loci and negative integral tensor flip are additional assertions.",
+        "searches": [
+          "arXiv:1905.06926 Proposition 3.2 full PDF",
+          "arXiv:2009.12130 Lemma 3.2 and Proposition 3.8",
+          "arXiv:2303.06932 Theorem 2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published basic sphere count (m-1)(n-1) is exact and expressly excluded from new contribution.",
+          "Resultary indexed nearby results on different categorical products and symmetry modules but no exact all-subgroup K_m x K_n orbit tables."
+        ],
+        "reasoning": "There is no observed separate exact all-H fixed/quotient table; however many rank formulas follow routinely once an equivariant spine is known, and this reduces their standalone novelty.",
+        "searches": [
+          "Resultary: independence categorical product complete graphs equivariant homotopy fixed points quotients representation swap",
+          "arXiv:1905.06926",
+          "arXiv:2303.06932"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS only for the *explicit embedded group-equivariant strong deformation retraction* and the resulting concrete all-subgroup fixed/quotient computation; the ordinary wedge-of-circles count is prior work. Fernós–Futer–Hagen (2024) Theorem 2.8 provides an abstract G~homotopy nerve equivalence for equivariant covers, but its statement does NOT assert an embedded equivariant strong deformation retraction, and its G~ (homotopy-commuting) conclusion alone cannot be restricted to fixed loci or naively passed to orbit quotients. This is serious related broader theory, explicitly acknowledged rather than ignored.",
+      "residual_risks": [
+        "General equivariant homotopy theorems give closely related and partly dominating weak-structure information, so originality is confined to the strong embedded retraction and concrete full-H refinements.",
+        "An unindexed or textbook symmetric simplicial spine construction might already yield the same strong retraction; unconfirmed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives nonequivariant wedge rank only",
+          "evidence": "Proposition 3.2 states wedge of (m-1)(n-1) circles.",
+          "identifier_or_url": "arXiv:1905.06926",
+          "material_read": "Original PDF Proposition 3.2, proof context and page 3 screenshot",
+          "method": "Full public arXiv PDF relevant passages",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Exact same categorical product complex"
+        },
+        {
+          "assessment": "General ordinary triangle-free line-graph clique complex homotopy, not strict equivariant SDR",
+          "evidence": "Line-graph clique is ordinary nerve-equivalent to original graph.",
+          "identifier_or_url": "arXiv:2009.12130",
+          "material_read": "Original PDF definitions and clique/nerve statements, page 3 screenshot; relevant theorem summaries",
+          "method": "Public arXiv PDF",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Independence/clicque line-graph equivalence"
+        },
+        {
+          "assessment": "Critical broader framework yields G~ homotopy equivalence of a good cover to its nerve but does not furnish an embedded G-equivariant strong deformation retraction",
+          "evidence": "Theorem 2.8 at PDF lines 850–861, Remark 2.9 lines 931–936.",
+          "identifier_or_url": "arXiv:2303.06932v3",
+          "material_read": "Original 72-page PDF Section 2.1, pages 14–16 Theorem 2.8, proof and Remark 2.9; page 15 screenshot",
+          "method": "ArXiv lawful full PDF inspected",
+          "title": "Homotopy equivalent boundaries of cube complexes",
+          "trigger": "General group-equivariant nerve theorem potentially dominating new group results"
+        },
+        {
+          "assessment": "Focuses C_k x K_n and multiple graph factors, not K_m x K_n strict equivariance",
+          "evidence": "Introduction states previous ordinary K_n x K_m wedge rank.",
+          "identifier_or_url": "arXiv:2307.12401",
+          "material_read": "Original PDF introduction and result overview, page 2 screenshot",
+          "method": "ArXiv public PDF",
+          "title": "Homotopy type of independence complexes of some categorical products of graphs",
+          "trigger": "Broader categorical graph-product setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical, piecewise-linear symmetry-commuting deformation *inside* the original complex is a structural refinement of its known ordinary graph homotopy. It makes every natural subgroup fixed locus and orbit quotient computable directly, produces explicit free fundamental group ranks (including diagonal permutation orbitals and swap) and identifies the integral action with its orientation sign; useful concrete geometry not just a new count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For arbitrary symmetry subgroups only the specific row/column/swap natural action is covered.",
+    "The general G~ nerve theorem gives substantial overlap; no independent claim that all abstract quotient-equivalence consequences are new."
+  ],
+  "schema_version": 1
+}

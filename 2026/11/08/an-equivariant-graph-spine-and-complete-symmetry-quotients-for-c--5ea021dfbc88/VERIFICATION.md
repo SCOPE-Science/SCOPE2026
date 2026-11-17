@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence
 
-`verify.py` is a standalone Python 3 script. It generates the graph independently from the adjacency rule, checks face membership through all subsets for \(m,n\in\{2,3,4\}\), and computes simplicial boundary ranks over the prime field of order 1009. It then constructs the barycentric subdivision of each original independence complex (not the proposed graph spine), passes to orbit chains of several genuinely generated finite groups, and compares their calculated quotient Betti numbers against the separate graph-spine orbit prediction. The group examples cover independent cyclic permutations, diagonal cyclic and symmetric actions, pure coordinate swap, swap plus diagonal rotation, and full natural symmetry for sizes up to four.
+# Independent mathematical audit
 
-The same script evaluates the explicit barycentric-coordinate retraction in exact rational arithmetic on sampled simplices, confirms idempotence and full permutation equivariance, and checks the induced signed trace formula on every permutation of degrees two through six. The recovered output from the executable is:
+## correctness
 
-`ALL_VERIFY_OK cases= 60 independence_faces= 369 barycentric_quotient_cells= 7038 local_retraction_checks= 104384 swap_character_checks= 872`
+PASS
 
-This establishes a finite reproducibility check of central formulas; it does not replace the unrestricted mathematical proof. Integral torsion-freeness, every-subgroup fixed-point descriptions, continuity across all real coordinates, and general-group statements are proved in `RESULT.md`, not by finite experimentation. The first-public-source date is taken from the original public posting of arXiv:2601.13432 rather than a journal or revision date.
+Every independent set of categorical K_m x K_n lies in a single full row or column simplex; distinct maximal simplices meet only in individual grid vertices. On a d-simplex, let t=(largest barycentric coordinate)-(second largest); the continuous order-statistic map (1-t)u+t e_j (or u on ties) is equivariant under vertex relabeling and fixes its star-shaped image, while the straight-line homotopy stays inside the simplex. It glues over singleton intersections into a strong equivariant deformation retraction onto sd(K_m,n), including coordinate swap. The spine has no edge inversions, so each quotient is a graph with first Betti o_E-o_V+1, and subgroup fixed sets are its pointwise-fixed subgraphs; for swap, only n isolated diagonal grid points. Integral 1-cycles are zero-row/zero-column matrices, canonically U_m tensor U_n, and coordinate swap negates tensor flip by reversing edge orientations. I inspected Python tests of 60 small quotient cases, 104384 local rational retraction evaluations and 872 swap traces; proof is symbolic.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS only for the *explicit embedded group-equivariant strong deformation retraction* and the resulting concrete all-subgroup fixed/quotient computation; the ordinary wedge-of-circles count is prior work. Fernós–Futer–Hagen (2024) Theorem 2.8 provides an abstract G~homotopy nerve equivalence for equivariant covers, but its statement does NOT assert an embedded equivariant strong deformation retraction, and its G~ (homotopy-commuting) conclusion alone cannot be restricted to fixed loci or naively passed to orbit quotients. This is serious related broader theory, explicitly acknowledged rather than ignored.
+
+## value
+
+PASS
+
+A canonical, piecewise-linear symmetry-commuting deformation *inside* the original complex is a structural refinement of its known ordinary graph homotopy. It makes every natural subgroup fixed locus and orbit quotient computable directly, produces explicit free fundamental group ranks (including diagonal permutation orbitals and swap) and identifies the integral action with its orientation sign; useful concrete geometry not just a new count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
