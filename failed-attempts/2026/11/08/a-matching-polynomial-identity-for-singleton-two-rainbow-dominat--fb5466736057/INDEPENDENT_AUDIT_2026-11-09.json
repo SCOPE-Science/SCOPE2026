@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob b3ee4ba59763d4fc3cff64c57519fbe0fa1b731b",
+        "Assigned artifacts/verify.py blob 1502182b9598668601cf48cb428780d70024d55b"
+      ],
+      "rationale": "A valid labeling has pairwise nonadjacent zero sites. For each k<n/2 the k induced colour-difference constraints on n−k positive vertices form a forest; there are n/(n−k)·binom(n−k,k) possible zero sets and exactly 2^(n−2k) consistent colourings. When k=n/2 the two alternating zero sets each have two proper two-colourings iff n/2 is even, yielding the exceptional term 4·1_(4|n) t^(n/2). The weighted cyclic matching trace with transfer matrix [[2t,t],[1,0]] adds the correction 2(−1)^(n/2)t^(n/2) for even n. Maximal feasible zeros give exact minimum multiplicities 4/2n/n². Independent direct trinary-label enumeration verified every coefficient for n=3..10, and the source verifier supplies further finite transfer checks; the all-n statement rests on the combinatorial proof.",
+      "residual_risks": [
+        "None material for mathematical correctness identified; small n=4 cyclic double constraint treated by distinguishable succession edges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier source proves BOTH path and cycle weight distributions, strictly broader than the submitted cycle-only result.",
+          "Earlier cycle polynomial gives all minimum counts 4,2n,n²; Lange supplied minimum sizes separately."
+        ],
+        "reasoning": "Prior complete enumerator for paths AND cycles dominates the target cycle enumerator. The same proof method appears in the earlier source. There is no new independently supported claim to rescue merely by adding a certificate.",
+        "searches": [
+          "Resultary query: singleton two rainbow domination cycle number functions all weight generating polynomial matchings dual server domination enumeration (2026-11-09)",
+          "Resultary 2026/11/01 complete singleton two-rainbow spectra of paths and cycles full source",
+          "arxiv:2610.06906 Lange"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/01 complete cycle-spectrum finding",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-complete-singleton-two-rainbow-domination-spectra-of-paths-and-c--0518da82b5ef/RESULT.md",
+        "arxiv:2610.06906"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier SCOPE source commit 2026-11-01T23:41:58Z; assigned source commit 2026-11-08T20:27:13Z.",
+          "Earlier Resultary publication commit 2026-11-08T20:01:35Z, preceding target source commit by about 25 minutes."
+        ],
+        "reasoning": "The earlier polynomial equals target exactly and its trace/recurrence already yields the proposed matching form, so every target final conclusion follows directly without any nontrivial new lemma. Earlier source priority is confirmed by multiple observed Git commit times, not by nominal date strings alone.",
+        "searches": [
+          "Resultary query: singleton two rainbow domination cycle number functions all weight generating polynomial matchings dual server domination enumeration (2026-11-09)",
+          "Resultary 2026/11/01 full RESULT.md",
+          "SCOPE commits 7c073bc1864b9fc9c15f456e98911575c915764f and 8f9f5ae05286a230f21637b1319fcf0517dbb39a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-complete-singleton-two-rainbow-domination-spectra-of-paths-and-c--0518da82b5ef/RESULT.md uses precisely the same map f:V(C_n)→{0,1,2}, requiring each zero to have neighbours both 1 and 2, and weight number of nonzero positions.",
+          "Its cycle C_n(z) equals the submitted R_n(t) term by term, with identical parity term and n/(n−k) binomial factor."
+        ],
+        "reasoning": "Changing the polynomial name z↔t and representing it as matching trace is not a new result; the earlier proof itself also provides the same transfer trace matrix and parity correction.",
+        "searches": [
+          "Resultary query: singleton two rainbow domination cycle number functions all weight generating polynomial matchings dual server domination enumeration (2026-11-09)",
+          "Resultary 2026/11/01 Complete singleton two-rainbow domination spectra of paths and cycles",
+          "arxiv:2610.06906 minimum weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact identity C_n(z)=Σ_{0≤k<n/2} n/(n−k) binom(n−k,k)2^(n−2k) z^(n−k) +4·1_(4|n)z^(n/2).",
+          "Exact minimum multiplicities 4 if 4|n, 2n for odd n, n² for n≡2 (mod4)."
+        ],
+        "reasoning": "This is an already published full coefficient table in symbolic closed form, not just a numerical coincidence or an absent search hit. The same minimum multiplicities and matching transfer matrix are explicitly present.",
+        "searches": [
+          "Resultary query: singleton two rainbow domination cycle number functions all weight generating polynomial matchings dual server domination enumeration (2026-11-09)",
+          "Resultary 2026/11/01 full RESULT.md",
+          "SCOPE source commit 7c073bc1864b9fc9c15f456e98911575c915764f"
+        ]
+      },
+      "rationale": "Exact earlier published complete singleton two-rainbow domination polynomial of labelled cycles, including identical parity correction, matching-type transfer trace and all minimum multiplicities, mathematically covers every final claim.",
+      "residual_risks": [
+        "No significant originality ambiguity once the earlier full C_n(z) was read and compared.",
+        "Full 2026 original dual-server paper not needed to establish already decisive coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE: same model, same coefficient formula, same parity correction, same minimum count, broader paths+cycles",
+          "evidence": "Earlier theorem C_n(z)=Σ_{k<n/2}n/(n−k)binom(n−k,k)2^(n−2k)z^(n−k)+4 1_(4|n) z^(n/2), identical term by term; earlier transfer T=[[2z,z],[1,0]].",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-complete-singleton-two-rainbow-domination-spectra-of-paths-and-c--0518da82b5ef/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, path/cycle proof, transfer trace, minimum coefficients, scope and references",
+          "method": "GitHub raw primary source full reading",
+          "title": "Complete singleton two-rainbow domination spectra of paths and cycles",
+          "trigger": "Near-exact prior finding including same cycle n-dependent entire polynomial"
+        },
+        {
+          "assessment": "Covers minimum WEIGHT alone; stronger earlier 2026/11/01 result covers the rest independently",
+          "evidence": "Cycle minimum weight is already a baseline, not the source of exact enumerator.",
+          "identifier_or_url": "arxiv:2610.06906",
+          "material_read": "Accessible abstract/summary and cited Proposition 12 reference, not complete original full-text reading",
+          "method": "arXiv abstract and target-source comparison",
+          "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+          "trigger": "Foundational singleton minimum cycle weight"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-complete-singleton-two-rainbow-domination-spectra-of-paths-and-c--0518da82b5ef/RESULT.md",
+        "Assigned RESULT.md exact formula"
+      ],
+      "rationale": "The natural full labelled-cycle invariant is mathematically worthwhile in principle, but the very same complete distribution and 4/2n/n² minimum counts were already proved in an earlier broader theorem, with the same transfer/matching identity. The submitted presentation adds no motivated remaining mathematical fact beyond rederivation/renaming of known exact results.",
+      "residual_risks": [
+        "No repair attempted because there is no distinct correct original valuable remainder established by this submission."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Reject original package for prior complete coverage; preserve whole source at failed_path without edits."
+  ],
+  "schema_version": 1
+}
