@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Baire argument applies to the countable closed cover by inverse images of the published invariant compact graph. Every nonempty open planar set contains an affine itinerary cell whose image is rank one or zero. Rank one intersects the source's relative-open dense plateau-preimage set. For rank zero, the exact finite ray-splitting proof covers the first ten iterates after a visit to a rank-one quadrant; later collapse must occur on a plateau within the graph. All three early point images explicitly enter the four-cycle. The included exact-rational certificate is rerunnable, and finite computations are not confused with infinite proofs: all later times are covered by the graph theorem.
+## correctness
 
-**Originality — PASS within inspected evidence.** The source states ambient open density as a future problem. Its theorem supplies graph-relative density only, and the follow-up addresses graph arclength. Earlier published local escape/survival findings do not imply planar ambient topological genericity for this parameter. Historical same-family claims covering graph arclength, negative parameter global basins, and large positive parameter invariant cores were compared by mathematical implication; none entails the present \(b=3/2\) whole-plane claim. Residual risk: unindexed or more recent advances may contain an equivalent Baire lift.
+PASS
 
-**Mathematical value — PASS.** The result resolves the explicitly posed ambient-topology intermediate problem at a natural positive-entropy parameter, proving that chaotic invariant-graph dynamics coexist with an open dense set of eventually periodic planar initial conditions. The essential obstruction is that rank-zero planar branches can bypass the graph-relative dense open set; the certified early-collapse classification is a substantive extra step. The result neither upgrades planar area to full measure nor asserts all initial conditions are captured.
+Use the prior compact invariant graph Γ and graph-relative dense plateau preimages as explicit hypotheses proved in the cited primary theorem. The countable closed cover of every disk by inverse images F^{-n}(Γ) admits a nonempty interior via Baire; an affine itinerary cell has rank0 or rank1 image. Rank1 image intersects a relatively open dense plateau basin. For early rank0 branches independent exact rational interval splitting of both first-image rays produced all 10-step cell counts and only three constant points, each eventually captured by the displayed four-cycle. Later rank losses after finite graph entrance can only collapse a Γ plateau edge. Thus every plane disk contains open periodic-capture subset. No conclusion for boundary itineraries or planar full measure.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The originating Cima–Gasull–Mañosa–Mañosas graph theorem supplies compact invariant graph, finite entrance and graph-relative open dense plateau preimages, but explicitly leaves ambient-plane open density as a future problem. A later result proves full arclength absorption on invariant graphs, not all-plane interior density. The new Baire lifting plus exact early rank-zero collapse classification at b=3/2 is a genuine additional theorem in the examined literature.
+
+## value
+
+PASS
+
+The graph-to-ambient topological lift is a precise problem posed in the originating planar dynamics work. Showing that a positive-entropy invariant graph coexists with a dense open basin of periodic orbits in the whole plane is a meaningful generic-dynamics contrast, and the rank-zero branch obstruction requires substantive finite exact analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
