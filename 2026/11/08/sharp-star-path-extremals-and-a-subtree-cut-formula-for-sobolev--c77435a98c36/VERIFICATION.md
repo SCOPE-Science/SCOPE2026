@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify_metric_trees.py` with the standard Python library. It enumerates every labeled tree on at most five vertices by Prüfer codes and a deterministic selection of six- and seven-vertex trees. For every vertex of every test tree it independently solves the exact-rational Kirchhoff equations, forms a continuous quadratic Green solution on edges, computes its gradient energy, and compares with the subtree-cut evaluation. It also checks leaf localization and the exact star/path equality cases. The observed output was:
+## correctness
 
-```text
-EXACT_INDEPENDENT_QUADRATIC_GREEN_COMPARISONS_PASSED 1870
-TREE_EXTREMAL_BOUNDS_AND_EQUALITY_CASES_PASSED 325
-ALL_UNIT_TREE_SOBOLEV_CHECKS_PASSED
-```
+PASS
 
-The implementation uses rational arithmetic, with no floating-point tolerances. It does not enumerate all trees of arbitrary size and is not an infinite proof. The proof for all finite trees uses Cauchy–Schwarz, path Fubini, the point-evaluation resistance identity, exact edge profiles, and a rooted-tree induction. The continuum point-location and equality classifications are proven analytically, not inferred from the checked finite sample. Independent audit has not been performed.
+The root-path Fubini identity makes vertex evaluation norm exactly n^{-2}∫ m_v(t)^2dt and yields Q(v)=1/(3n)+n^{-2}Σs_e(v)(s_e(v)+1). The arclength-mean-zero resistance Green diagonal has strictly convex profile on each bridge Q((1-t)u+tv)=(1-t)Q(u)+tQ(v)-t(1-t)/n, and reroot difference (a-b)/n excludes nonleaves. A strictly superadditive branch induction on H(n)=n(n-1)(n+1)/3 proves star and path sharp inequalities with exact equality topology and Green representer equality functions. Independent exact rational tree computations matched 1,437 vertex/subtree cases and numerical distance-integral checks on 120 trees.
+
+## originality
+
+PASS
+
+Exact resistance/Green evaluation and bridge convexity are already covered by the more general 2026-11-08 graph theorem; they are not independently novel. The surviving result is the sharp topology optimization at fixed unit-edge count: **star uniquely minimizes at 1-2/(3n), path uniquely maximizes at n/3**, with exact all-tree equality classification and rooted subtree sum. The broader finite-envelope formula does not state this global between-tree extremum.
+
+## value
+
+PASS
+
+Extremizing the sharp mean-zero Sobolev constant across all n-edge tree topologies is a natural analytic/combinatorial invariant. Exact minimizer, maximizer and rigidity give global comparisons not directly supplied by generic Green-kernel formula; subtree arithmetic makes the result reusable for metric-network embeddings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

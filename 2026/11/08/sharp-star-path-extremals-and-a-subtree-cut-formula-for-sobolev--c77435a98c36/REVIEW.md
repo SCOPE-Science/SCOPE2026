@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The derivative-to-root Fubini identity is exact because the tree has unique paths, and mean zero fixes the only integration constant. Its squared dual norm evaluates to a sum of elementary downstream-length-square integrals. The continuous Green diagonal is derived independently from the resistance metric and has a strictly convex quadratic profile on every edge; a reroot counting identity eliminates all nonleaf vertices. Induction over rooted branches with the strict superadditivity of \(H(j)=j(j^2-1)/3\) proves the sharp path upper bound and equality rigidity. The leaf-incident edge contributes the star lower bound, with all additional contributions strictly positive for a nonstar. Rational Kirchhoff systems across 325 test trees independently checked 1870 vertex evaluations. Finite testing is supportive, not proof.
+## correctness
 
-**Originality — PASS, qualified.** This statement concerns exact arclength-centered first-order Sobolev evaluation, the entire *family* of finite unit-edge tree topologies, its two global equality cases, and the cut and reroot profiles. Evans–Harris–Lang's path-integration approximation numbers, Solomyak's metric-graph approximation theory, Baker–Faber's general effective-resistance machinery, and Frank–Kovařík's metric-tree heat kernels are underlying or adjacent results, not an explicit star–path extremal classification for this invariant in their inspected sections. Related published findings on tree Wiener distance energy, Laplacian simplex inradius, and graphical-zonotope width variance address different invariants; their conclusions do not imply this precise Sobolev sharp constant. Some standard Green identities can be repurposed to derive this result, so its priority remains subject to unindexed or implicit older tree inequality results. No claim of discovering resistance or path integration is made.
+PASS
 
-**Mathematical value — PASS.** A sharp, shape-dependent continuum Sobolev embedding over all trees of a fixed edge count is a natural extremal graph-functional problem. The evaluated root cut invariant is algorithmically calculable, gives every extremizing point and function, and resolves both optimal tree topologies with strict equality rigidity; it is not a numerical slice, a normalization adjustment, or merely a restatement of a familiar graph index. The unit-edge assumption and absence of arbitrary weights are substantive boundaries, not concealed generality.
+The root-path Fubini identity makes vertex evaluation norm exactly n^{-2}∫ m_v(t)^2dt and yields Q(v)=1/(3n)+n^{-2}Σs_e(v)(s_e(v)+1). The arclength-mean-zero resistance Green diagonal has strictly convex profile on each bridge Q((1-t)u+tv)=(1-t)Q(u)+tQ(v)-t(1-t)/n, and reroot difference (a-b)/n excludes nonleaves. A strictly superadditive branch induction on H(n)=n(n-1)(n+1)/3 proves star and path sharp inequalities with exact equality topology and Green representer equality functions. Independent exact rational tree computations matched 1,437 vertex/subtree cases and numerical distance-integral checks on 120 trees.
 
-Primary comparisons: Evans–Harris–Lang arXiv:math/0003215 (Sections 1–3); Solomyak arXiv:math/0206235 (Sections 1–2, appendix); Baker–Faber arXiv:math/0407428 (Sections 3 and 6); Frank–Kovařík arXiv:1108.6145 (Sections 1–2). Review limits: no systematic inspection of every unindexed monograph or inaccessible article; no external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact resistance/Green evaluation and bridge convexity are already covered by the more general 2026-11-08 graph theorem; they are not independently novel. The surviving result is the sharp topology optimization at fixed unit-edge count: **star uniquely minimizes at 1-2/(3n), path uniquely maximizes at n/3**, with exact all-tree equality classification and rooted subtree sum. The broader finite-envelope formula does not state this global between-tree extremum.
+
+## value
+
+PASS
+
+Extremizing the sharp mean-zero Sobolev constant across all n-edge tree topologies is a natural analytic/combinatorial invariant. Exact minimizer, maximizer and rigidity give global comparisons not directly supplied by generic Green-kernel formula; subtree arithmetic makes the result reusable for metric-network embeddings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
