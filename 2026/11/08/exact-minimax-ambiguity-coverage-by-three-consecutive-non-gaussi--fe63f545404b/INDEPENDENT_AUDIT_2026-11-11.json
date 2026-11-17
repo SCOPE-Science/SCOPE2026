@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centered Hermite ambiguity formula e^{-t/2}L_j(t) reduces the exact Gaussian-relative squared gain to inf_{t>=0} sum w_j L_j(t)^2. The cubic r(u)=u^3-9u²+24u-12 has exactly one real zero u in (3/5,2/3), at which L1(u)=-L3(u), and L2(u)^2 is strictly smaller. Evaluation at this u bounds every allocation by (1-u)^2 and forces w2=0 for equality. With c=3-3u+u²/2 the asserted exact SOS factorization has strictly positive quadratic remainder; independent SymPy polynomial reduction modulo r verified the identity for all t. Contact derivative forces w1=c/(1+c), w3=1/(1+c), proving uniqueness and single contact radius. Numeric root u=0.644698602391879 and optimum 0.126239083142284. No finite t-grid is used to prove the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c"
+        ],
+        "reasoning": "Alaifari–Yang proves stable direct reconstruction using patched high-coverage sets; it does not optimize nonnegative exposure across all radii or yield the exact cubic contact and discarded middle Hermite mode. The finite-radius h0/h1/h2 coverage theorem is not a dominating special case.",
+        "searches": [
+          "minimax three Hermite Laguerre ambiguity windows h1 h2 h3 exposure weights optimal non Gaussian",
+          "Hermite STFT phase retrieval sharp weighted ambiguity windows allocation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2410.05486",
+        "https://doi.org/10.1155/2010/391798",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2410.05486",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+          "The h1/h2 optimum has BOTH weights positive and value 9-4 sqrt5; h1/h3 instead excludes h2 and attains (1-u)^2."
+        ],
+        "reasoning": "Knowing a polynomial formula for each Hermite ambiguity is a premise, not an optimization theorem. The h1/h2 envelope and disk h0/h1/h2 asymptotics cannot directly provide the stated h1/h3 infinite-radius contact and uniqueness.",
+        "searches": [
+          "minimax three Hermite Laguerre ambiguity windows h1 h2 h3 exposure weights optimal non Gaussian",
+          "Alaifari Yang Hermite window coverage Laguerre equation 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2410.05486",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c"
+        ],
+        "reasoning": "The time-frequency ambiguity circle is radial, making a weighted Laguerre-polynomial lower envelope an equivalent expression. A two-window h1/h2 problem and a finite-disk h0/h1/h2 problem do not have the same feasible design or lower-bound functional.",
+        "searches": [
+          "minimax three Hermite Laguerre ambiguity windows h1 h2 h3 exposure weights optimal non Gaussian",
+          "weighted squared Laguerre 1 2 3 minimax inf t nonnegative mixture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c",
+          "No matching tabulation of the u cubic or w2=0 optimizer in inspected named sources."
+        ],
+        "reasoning": "Numerical matching of a Laguerre zero would not itself prove global optimality; the present exact SOS identity supplies the substantive global certificate.",
+        "searches": [
+          "minimax three Hermite Laguerre ambiguity windows h1 h2 h3 exposure weights optimal non Gaussian",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the primary Alaifari–Yang multi-window work gives the Hermite–Laguerre formula and patchwise coverage, not the all-radius weighted squared minimax. Earlier exact h1/h2 allocation or h0/h1/h2 expanding-disk optimization use different window sets/objectives and cannot imply the h1/h3 optimum. Independently checked exact SOS certificate of the new algebraic contact.",
+      "residual_risks": [
+        "Unindexed optimal weighted polynomial-envelope literature could contain an equivalent algebraic allocation.",
+        "The claim supplies a Gaussian-relative denominator only; unweighted ambiguity multiplier tends to zero as radius grows, so global nonlinear phase-retrieval stability is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_EXACT_WEIGHT_MINIMAX",
+          "evidence": [
+            "Eq. (2.3) supplies e^{-t/2} L_j(t); Section 3 patchwise stability uses thresholded coverage regions, not sharp global exposure allocation."
+          ],
+          "identifier_or_url": "https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2024/2024-30_rev1.pdf",
+          "material_read": "Accessible original 20-page primary PDF: introduction, formula (2.3), Hermite Definition 2.1, Algorithm 2.2, Sections 3.1–3.2 and examples, with original rendered page inspected",
+          "method": "Primary PDF full-text page/text comparison and page image",
+          "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+          "trigger": "Primary Hermite ambiguity and multi-window stability setting"
+        },
+        {
+          "assessment": "NOT_COVERING_H1_H3",
+          "evidence": [
+            "Optimizes h1 and h2 only, weights 1-1/sqrt5 and 1/sqrt5; not current h1,h2,h3 with h2 discarded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-envelope-stability-for-the-first-two-non-gaussian--d61eef03e4db",
+          "material_read": "Complete published scientific RESULT.md, definitions, upper/lower polynomial certificates and uniqueness proof",
+          "method": "GitHub primary full scientific RESULT.md",
+          "title": "Sharp Gaussian-envelope stability for the first two non-Gaussian Hermite windows",
+          "trigger": "Same normalized gain, different index set"
+        },
+        {
+          "assessment": "DIFFERENT_WINDOW_INDICES_AND_DOMAIN",
+          "evidence": [
+            "Uses h0,h1,h2, e^{-t} factor on 0<=t<=R, R large; submitted uses h1,h2,h3 with Gaussian normalization and all t>=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-second-order-three-hermite-ambiguity-conditioning-law--30557469b49c",
+          "material_read": "Complete published scientific RESULT.md, including disk-domain objective and asymptotic proof",
+          "method": "GitHub primary full scientific RESULT.md",
+          "title": "A sharp second-order three-Hermite ambiguity conditioning law",
+          "trigger": "Three Hermite channels could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Hermite ambiguity zeros obstruct linear inversion, making global Gaussian-normalized worst-case coverage a natural exact stability-design invariant. The surprising complete h2 exclusion and uniquely certified optimal h1/h3 allocation are a motivated sharp structural design result rather than a gratuitous polynomial minimization; it does not purport to solve nonlinear phase retrieval.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The bound removes a common Gaussian envelope; it does not grant absolute noise stability at infinity.",
+    "It concerns separate Hermite orders 1,2,3 and normalized total precision; not arbitrary phase-retrieval observables."
+  ],
+  "schema_version": 1
+}
