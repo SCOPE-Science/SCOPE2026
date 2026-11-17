@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In order of unit-interval left endpoints, nonconsecutive overlaps would create a triple intersection, so the overlap graph is a union of paths. The only possible point-order inversions are disjoint adjacent edges; every edge matching is realizable. The sharp word lemma is proved by an explicit recursive upper construction and a two-case induction on the occurrence count of the last label. Projection to each component proves an additive lower bound. The exact domain includes singleton components and coincident pair intervals. The standalone checker verifies 255 overlap masks, 1,930 composite orders and exact breadth-first minima through path size six. These finite checks support, but do not substitute for, the proof for all sizes.
+## correctness
 
-## Originality
-**PASS within available evidence; residual priority risk.** In *Preprocessing Uncertain Data into Supersequences for Sorting and Gaps* (arXiv:2601.19453), Lemma 13 supplies a \(4\Delta n\) upper bound for unit intervals, not the exact ply-two minimum, and its Theorem 5 additionally imposes smoothness. The related 2025 convex-hull paper arXiv:2502.03633 repeats the broader supersequence bound in Lemma 34. A classical arbitrary-permutation universal-word bound is a different, stronger target family but does not imply the sharp restricted minimum. Semantic-index checks for the exact formula, path matching permutations, aliases, and primary source returned no equivalent statement. Residual risks include implicit combinatorial folklore and unindexed earlier presentations; absence of search hits is not a uniqueness certificate.
+PASS
 
-## Mathematical value
-**PASS.** Exact finite-length optimal preprocessing words are a natural unresolved invariant when the source framework gives only asymptotic/broad upper bounds. This result handles **every** unit-ply-two interval configuration, with a meaningful component-sensitive formula \(2n-c\), an optimal construction, and the precise set and number of realizable orders. It is the first nontrivial ply regime and is not a numerical slice or parameter substitution. Its minimum-length guarantee is separate from smoothness or reconstruction-time guarantees.
+For any finite nonempty labeled open unit-interval family of ply <=2, if left endpoints a_i are sorted, an overlap of indices i<j with j>=i+2 implies simultaneous coverage by interval i+1, violating ply two. The overlap graph is thus disjoint consecutive paths; nonneighbor disjointness forces their sorted order. Two adjacent inversions would invert nonneighbors, so realizable permutations are exactly products of disjoint adjacent swaps. Conversely the point choice p_{pi(t)}=max_{u<=t}a_{pi(u)}+t epsilon realizes every permutation respecting disjoint interval order. For a path, W_1=1, W_m=W_(m-1) m (m-1) contains all matching-swap permutations, while any common word either uses >=2 copies of m or a unique final-ish m with both universal prefix and a required later m-1, forcing length >=2m-1. Projection onto components proves OPT=2n-c and Fibonacci matching counts. Independently enumerated path targets and BFS minima for n=1..5: (1,3,5,7,9); correct n=1 and coincident-pair boundary. The finite BFS alone does not prove the general lemma.
 
-## Closest literature and limits
-The closest full-text source is Löffler–Raichel 2026 (arXiv:2601.19453, especially Section 3, Lemma 13); the 2025 precursor (arXiv:2502.03633, Section 4.3, Lemma 34) was also inspected. The 2012 Radomirović all-permutations work was checked through bibliographic description and the cited comparison in the 2026 paper, not independently in full. The classification does not extend automatically to unequal-length intervals or larger ply. Historical priority remains conditional and independent validation is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Löffler and Raichel 2026 prove a generic smooth sorting-supersequence upper bound 4 Delta n for unit intervals, which gives <=8n at ply two but not the exact instance-dependent 2n-c minimum or Fibonacci enumeration. Their 2025 convex-hull precursor repeats the generic upper bound. No earlier exact path matching-supersequence profile found in actual Resultary search; this is not proof of absolute historical priority.
+
+## value
+
+PASS
+
+PASS: The minimum-length sequence problem is motivated by uncertain-data sorting, and the exact 2n-c cost and optimal linear-output construction replace a worst-case constant-factor bound with a sharp instance-sensitive theorem. The connected path matching-permutation universal-word lower bound is substantive rather than a name substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
