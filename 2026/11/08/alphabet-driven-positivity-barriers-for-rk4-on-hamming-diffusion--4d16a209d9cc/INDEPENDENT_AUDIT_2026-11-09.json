@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:11:47.316156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer d,q>=3 the RK4 heat endpoint is a degree-four polynomial in the combinatorial Hamming Laplacian. The distance-regulated adjacency recursion yields exactly four nonzero offdiagonal shell types. The distance-three entry is h^3(1-h/h3) and becomes negative for all h>h3; distance-four entry is h^4. The diagonal is positive because the scalar degree-four exponential Taylor polynomial is positive for all nonnegative Laplacian eigenvalues. The displayed Bernstein-basis identities for distance-one and distance-two shell polynomials imply nonnegativity throughout [0,h3] for d>=4 and for d=3, q<=12. At d=3, q>=13, the last degree-three Bernstein coefficient (64-5q)/(81q) is negative; via t/(1-t) the cubic has exactly one positive root (Descartes), so the adjacent entry crosses once before h3. I independently reconstructed Hamming adjacency and Laplacian powers and checked at d,q=(3,12),(3,13),(4,3),(7,13): the distance-three entry vanishes exactly at h3, is negative just beyond, while distance-one at h3 changes from +1/4374 at (3,12) to -2/41067 at (3,13), as claimed. The all-parameter assertions rest on exact positive symbolic Bernstein coefficients, not finite tests. Row-sum one follows from L*1=0. Spectral stability alpha/(dq) > h3 follows from Laplacian eigenvalues jq and alpha>2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gottlieb–Shu–Tadmor 2001 addresses SSP properties and general RK restrictions; Horváth 2005 derives positivity for general IVP classes; published regular bipartite result only q=2 analogue."
+        ],
+        "reasoning": "Their hypotheses and results are more general in setting but weaker/nonsharp for this concrete q-ary infinite two-parameter family; no proved implication of q=13 switch.",
+        "searches": [
+          "https://doi.org/10.1137/S003614450036757X",
+          "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "Resultary: RK4 nonnegative on every regular bipartite network"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "https://doi.org/10.1137/S003614450036757X",
+        "https://arxiv.org/abs/1303.6651",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unconditional-radau-iia-positivity-on-hamming-graphs-the-exact-d--004ea9bbb553",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-and-spectral-stability-separation-on-regula--04398663c276"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamming H(d,q) q>=3 is not generally bipartite; two-stage implicit Radau IIA has a different rational stability function; generic RK positive-invariant cone bounds do not classify Hamming shells."
+        ],
+        "reasoning": "The specialized q=13 Bernstein cubic and all-h cutoff cannot be read off the examined prior theorems.",
+        "searches": [
+          "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-and-spectral-stability-separation-on-regula--04398663c276",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unconditional-radau-iia-positivity-on-hamming-graphs-the-exact-d--004ea9bbb553"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "End-step entrywise nonnegative RK4 polynomial on graph Laplacian differs from stages, absolute monotonicity of scalar stability function, and spectral contractivity."
+        ],
+        "reasoning": "Checked aliases Markov heat-step positivity, invariant positive cone and graph positivity CFL; general conditions do not identify the exact first negative Hamming shell.",
+        "searches": [
+          "Resultary: classical RK4 positivity Hamming graph H(d,q) alphabet 13 Bernstein q",
+          "Web: classical RK4 positivity-preserving step size Hamming graph product complete graphs",
+          "https://doi.org/10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact related entries on q=2 bipartite networks and Radau IIA on Hamming graphs; no earlier matching numerical table or exact closed RK4 threshold for d>=3 q>=3."
+        ],
+        "reasoning": "The same-day RK4 Hamming entry is the assigned result, not an external priority source.",
+        "searches": [
+          "Resultary: classical RK4 positivity Hamming graph H(d,q) alphabet 13 Bernstein q",
+          "Resultary: RK4 positivity on nonbinary Hamming product graph",
+          "Resultary: Radau IIA positivity Hamming graph dimension alphabet frontier"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: earlier universal SSP positivity restrictions, general numerical positivity-step theory, and absolute monotonicity do not give a sharp end-step positivity threshold on this Hamming graph family. Related exact RK4 results on paths, bipartite graphs, complete multipartite graphs and directed cycles are for different graph structures; the Hamming product q>=3 has distance 3 and 4 shell constraints not implied by those formulas. The recent Radau IIA Hamming-family theorem concerns a different time integrator. An actual Resultary search and a complete primary Horváth 2005 text/SSP references did not reveal an implication of the precise q=13 boundary. Residual risk from unavailable historical specialist numerical-analysis full text remains.",
+      "residual_risks": [
+        "Horváth (2005) full primary paper was inspected and did not contain a fixed Hamming-product RK4 shell classification, though mathematical deductions from general results deserve continued priority monitoring.",
+        "Potential unindexed specialized exact-product heat-step formula may dominate the q=13 boundary, though none was found.",
+        "Result concerns completed end-step only; no SSP stage or nonlinear/unweighted extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full paper treats general ODE/IVP class thresholds and special diffusion invariant cones, not the exact H(d,q) product Markov step or d=3 q=13 shell transition",
+          "evidence": [
+            "https://doi.org/10.1016/j.apnum.2004.08.026"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Complete original 16-page paper: Sections 2–3 positivity radius and sharp thresholds for broad IVP classes; Section 4 invariant cone and diffusion numerical examples; definitions, theorems, Table 1 and references",
+          "method": "Authorized institutional full-text retrieval of pages 1–16; mathematical section and theorem inspection",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Closest primary title: step-size positivity threshold"
+        },
+        {
+          "assessment": "Universal SSP conditions differ from exact graph-specific end-step positivity; residual full-text risk",
+          "evidence": [
+            "https://doi.org/10.1137/S003614450036757X"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+          "material_read": "Primary published abstract and accessible institutional repository description; not complete full paper in this run",
+          "method": "Publisher/UMD record and abstract",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "Potential broader theorem on positivity of RK4"
+        },
+        {
+          "assessment": "Rational-function radius problem not known to imply sharp Hamming RK4 positivity; whole-document noncoverage not asserted",
+          "evidence": [
+            "https://arxiv.org/abs/1303.6651"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+          "material_read": "arXiv abstract/title reference; full PDF attempt returned unavailable",
+          "method": "arXiv/source search",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Possible unifying absolute-monotonicity framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "End-step nonnegativity is the exact Markov/diffusion property needed for nonnegative data; scalar RK4 spectral stability alone is insufficient. A complete sharp horizon for an infinite canonical graph family and discrete switch of the first negative transition at q=13 is a substantial structural classification, not a routine SSP substitution or single test case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.apnum.2004.08.026",
+    "https://doi.org/10.1137/S003614450036757X",
+    "https://arxiv.org/abs/1303.6651",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unconditional-radau-iia-positivity-on-hamming-graphs-the-exact-d--004ea9bbb553",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-and-spectral-stability-separation-on-regula--04398663c276"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unweighted H(d,q) with d>=3,q>=3 and the classical four-stage RK4 final stability polynomial; intermediate stages and weighted graph cases excluded."
+  ],
+  "residual_risks": [
+    "Horváth (2005) full primary paper was inspected and did not contain a fixed Hamming-product RK4 shell classification, though mathematical deductions from general results deserve continued priority monitoring.",
+    "Potential unindexed specialized exact-product heat-step formula may dominate the q=13 boundary, though none was found.",
+    "Result concerns completed end-step only; no SSP stage or nonlinear/unweighted extension."
+  ],
+  "schema_version": 1
+}
