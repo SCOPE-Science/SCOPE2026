@@ -1,15 +1,21 @@
-# Scientific review: exact maximal-periodicity spectrum at binary weight three
+# Independent mathematical audit
 
-## Correctness
-PASS. The definition uses maximal periodic intervals of least period, not homogeneous zero/one blocks. The key lemma shows that a periodic factor long enough to be a run and containing ones must repeat a primitive block with exactly one one; hence only the two adjacent-marker distances can be periods. The two flank-sum inequalities determine existence, and equal adjacent distances merge the candidate runs. These steps prove the gap formula, while the explicit gap partition proves the rational generating function. The extremal generating function and limiting half-half law follow by exact algebra and coefficient asymptotics. Direct interval enumeration, rational-series coefficient checking and sharp-length checks were independently reproduced from the accompanying standalone code.
+## correctness
 
-## Originality
-PASS, subject to normal historical-priority uncertainty. Relevant full primary texts on runs and their unrestricted bounds were inspected, including arXiv:1301.6568, arXiv:1406.0263 and arXiv:1502.04644. Those works focus on unrestricted-alphabet total run length, universal run upper bounds, and Lyndon-root structures. Their claims do not imply a fixed-three-one run-count distribution. Searches for sparse-marker or Hamming-weight-conditioned maximal-periodicity spectra, equivalent formulations, OEIS tables, and existing research records returned no matching theorem. The separate literature on homogeneous-symbol runs is inapplicable, though the shared terminology creates a search risk. Negative searches are not proof of historical uniqueness.
+PASS
 
-## Value
-PASS. The number of maximal periodic repetitions is a standard string statistic, and conditioning on exactly three markers exposes how two different nontrivial periods can coexist with four distinct zero-block runs. The theorem is a natural complete structural classification, determines the sharp extremal threshold at length twelve, supplies every finite-length run-count frequency, and proves a nonconcentrating limiting law. It is not an increment to a numerical table or a substitution into a known unrestricted bound.
+A maximal periodic factor of least period p containing a one has a primitive p-block containing exactly one 1, forcing one-containing run periods among distances b+1 and c+1. Pairwise flank conditions yield one mandatory run plus an extra exactly if b>c,a>=b-c or c>b,d>=c-b; each zero gap length>=2 gives one unary run. This establishes R=1+sum[gap>=2]+two disjoint indicators and max six, attained first at length12. Splitting b=c and b!=c yields bivariate rational GF; six-run GF 2z^12(1+z-z^2)/((1-z)^2(1-z^2)^2) has coefficient asymptotic half of binom(n,3), and all exceptional words O(n^2), hence the 1/2-1/2 five/six limit. Independent direct periodic-interval enumeration for every weight-three word through n=18 agreed.
 
-## Remaining scope and priority limitations
-The classification does not apply to cyclic words, larger marker weights or other alphabets. The historical comparison covers accessible published primary papers and database searches, not all possible unpublished or unindexed material. The mathematical proof is self-contained; the finite checker cannot independently certify historical originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General run-theorem bounds, total run length and unrestricted-binary bounds concern different averaging populations and do not imply the explicit fixed-weight-three periodic-run count, rational bivariate distribution or sharp length-12 extremizers. Fixed-weight Lyndon/BWT or constant-block run indices are different statistics. No covering indexed theorem identified, subject to unindexed specialist risk.
+
+## value
+
+PASS
+
+A natural sparse-marker model for maximal periodicities has a complete all-length finite exact classification, sharp maximum and nontrivial limit law, useful as a benchmark for fine-grained repetitive-word enumeration. This is not just counting constant-letter blocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

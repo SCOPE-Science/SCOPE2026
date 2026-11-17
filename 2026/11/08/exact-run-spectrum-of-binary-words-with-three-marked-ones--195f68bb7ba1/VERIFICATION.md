@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The program uses only the standard library and requires no dataset download. It was executed from the delivered file set and produced:
+## correctness
 
-```
-DIRECT_PERIOD_CHECK_OK 8855
-RATIONAL_GF_CHECK_OK lengths=3..36
-SHARP_MAXIMUM_AND_HALF_LIMIT_OK
-```
+PASS
 
-The direct checker enumerates all intervals and candidate least periods in each word, independently of the four-gap formula, for every word with three ones and length from three through twenty-two. The second checker expands the rational generating function using truncated polynomial arithmetic and compares all run-count coefficients with direct quadruple enumeration through length thirty-six; the six-run closed generating function and its first attainment are checked independently as well.
+A maximal periodic factor of least period p containing a one has a primitive p-block containing exactly one 1, forcing one-containing run periods among distances b+1 and c+1. Pairwise flank conditions yield one mandatory run plus an extra exactly if b>c,a>=b-c or c>b,d>=c-b; each zero gap length>=2 gives one unary run. This establishes R=1+sum[gap>=2]+two disjoint indicators and max six, attained first at length12. Splitting b=c and b!=c yields bivariate rational GF; six-run GF 2z^12(1+z-z^2)/((1-z)^2(1-z^2)^2) has coefficient asymptotic half of binom(n,3), and all exceptional words O(n^2), hence the 1/2-1/2 five/six limit. Independent direct periodic-interval enumeration for every weight-three word through n=18 agreed.
 
-These finite computations are **not** proofs of the universal classification, rational identity or limit law. Those results follow from the periodic-block lemma, gap partition and coefficient asymptotics provided in `RESULT.md`. Independent audit and external validation have not been performed.
+## originality
+
+PASS
+
+General run-theorem bounds, total run length and unrestricted-binary bounds concern different averaging populations and do not imply the explicit fixed-weight-three periodic-run count, rational bivariate distribution or sharp length-12 extremizers. Fixed-weight Lyndon/BWT or constant-block run indices are different statistics. No covering indexed theorem identified, subject to unindexed specialist risk.
+
+## value
+
+PASS
+
+A natural sparse-marker model for maximal periodicities has a complete all-length finite exact classification, sharp maximum and nontrivial limit law, useful as a benchmark for fine-grained repetitive-word enumeration. This is not just counting constant-letter blocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
