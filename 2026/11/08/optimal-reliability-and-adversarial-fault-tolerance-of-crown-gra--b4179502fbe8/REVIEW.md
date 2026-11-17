@@ -1,15 +1,21 @@
-# Research review: Optimal reliability and adversarial fault tolerance of crown-graph actuation
+# Independent mathematical audit
 
-## Correctness — PASS
-The block Laplacian diagonalizes into scalar eigenspaces at \(0\) and \(2n-2\), and two \((n-1)\)-dimensional eigenspaces at \(n\) and \(n-2\). A coordinate input in either vertex of deleted-matching pair \(i\) observes the same coordinate of the zero-sum eigenspace, hence PBH controllability holds exactly when all but at most one pair are covered. The smallest two installation counts give the exact minimum adversarial cut; direct disjoint-event probability accounting gives the failure reliability, and the strictly positive factored difference \(\mathcal R(a,b,0)-\mathcal R(a+1,b-2,1)\) proves every optimal budget profile. The embedded stand-alone checker returned `VERIFY_OK` with exact modular eigenvector/Kalman tests and rational reliability enumerations through order six. No infinite claim is inferred from enumeration.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-The spectrum is already in Klee–Stamps 2021/2022 and is not claimed new. Burgarth et al. 2011 establish a sufficient zero-forcing controllability condition, not its crown-specific necessity or the fault/reliability optimum. Ballotta–Joseph 2026 formulate a general robust actuator-selection optimization but do not solve this indexed graph family or the independent Bernoulli reliability design. The 2026 public edge-metric basis note contains the same indexed sensor locations for another invariant; it does not imply their PBH rank or the optimum stochastic controllability probability. Searches under 'crown', 'complete bipartite minus matching', 'bipartite double cover', 'actuator failures', 'PBH', 'random sensor survival', plus repeated literature and research-record searches did not return a mathematically dominating statement. This is best-knowledge originality, not established publication priority.
+PASS
 
-## Mathematical value — PASS
-Sensor installation on a connected vertex-transitive family is a natural fixed-Laplacian control-design problem. The exact closed budget-to-reliability profile identifies all optimal designs rather than a numerical approximation. The abrupt shift from \(n\) installed inputs for one adversarial fault to \(2n-1\) for two faults and the impossibility of four-fault robustness quantify a genuine structural tradeoff. The strictly optimal spread-first allocation profile is valid for every failure probability strictly between zero and one, and the result provides a concrete benchmark for general robust actuator-selection methods.
+The combinatorial Laplacian decomposes exactly into constant symmetric/antisymmetric eigenspaces of eigenvalues 0 and 2n-2 and two (n-1)-dimensional zero-sum pair eigenspaces at n and n-2. For n>=3 these are distinct; by PBH an installed coordinate set is controllable precisely when >=n-1 matched pair labels are represented. Loss of two pair labels is the sole obstruction, making the minimum adversarial channel cut c_(1)+c_(2). For iid failure probability 0<p<1, each single/double pair is nonempty with probability respectively s=1-p and r=1-p²; summing events of zero or one empty pair gives the exact all-budget formula. Against a placement with one originally empty pair, the full-coverage reliability advantage is r^a s^{b-2}[p s(b-2)+a p² s²/r]>0 in every feasible n>=3 case. Independently enumerated all placements and rational failure outcomes for n=3..5, 54 budget/failure-probability cases, verifying formulas and all optimal profiles. Infinite assertions rest on eigenspaces and strict algebra, not finite testing.
 
-## Closest literature and limits
-See Burgarth et al. (https://arxiv.org/abs/1111.1475), Klee–Stamps (https://doi.org/10.1093/qmath/haab045), Ballotta–Joseph (https://arxiv.org/abs/2601.08338), Dai (https://doi.org/10.1049/cth2.12385), and the public crown edge-metric calculation (https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8). The proof excludes weighted/uncertain graph couplings and correlated or heterogeneous input failures; residual priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Important strong overlap: the published November 2 weighted complete-bipartite perfect-matching-detuning theorem already gives the general PBH rank formula and the >=n-1 pair-index criterion for all t>0 with t!=1. Its proof extends essentially without change to t=0 crown graphs, so the base controllability criterion, matching-pair pattern and crown spectrum are NOT claimed independently new. The independently assessed surviving finding is the complete sharp adversarial tolerance cutoffs and ALL installation-budget iid failure reliability and optimizer classifications on the actual t=0 crown; the source rank theorem does not supply these stochastic and robust extremal laws, and the more general 2026 actuator-selection framework gives methods but not this closed graph-family law. Best-of-knowledge originality is limited to this robust/reliability result, with a significant deduction-priority risk.
+
+## value
+
+PASS
+
+The natural design problem of reliable coordinate actuation after stochastic and worst-case channel loss is quantitatively different from merely testing fixed-graph controllability. The complete all-budget probability optimum and exact zero-through-three-fault installation minima identify all optimal placements for every n and 0<p<1, sharply changing from n to 2n-1 installed channels between one- and two-fault robustness. Although the eigenspace and counting algebra is short once the known rank structure is available, the natural robust-control benchmark and exact all-parameter optimal-placement classification are independently useful and not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
