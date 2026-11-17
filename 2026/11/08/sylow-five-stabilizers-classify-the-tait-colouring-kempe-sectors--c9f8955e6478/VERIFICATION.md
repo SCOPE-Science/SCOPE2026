@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Run the two standalone Python 3 standard-library files as follows:
+## correctness
 
-```text
-python verify_matching_symmetry.py
-python verify_direct_coloring.py
-```
+PASS
 
-The matching-first program independently determines \(288\) perfect matchings, \(144\) unlabelled three-factorizations, their complete \(S_6\)-orbit and the \(36\) distinct order-five stabilizer subgroups. For each stabilizer, it checks four factorizations forming the full induced \(C_4\) quotient. It also checks all colour-pair two-factor cycle patterns, \((30)\) and \((10,20)\).
+Complete exact-cover recursion gives 288 perfect matchings and 144 sorted triples; explicit S6 action establishes transitivity and each stabilizer has size 720/144=5. Each two-color factor has one 30-cycle or two cycles (10,20), so order-five H stabilizes every Kempe component. Two distinct neighbors in each four-element fiber force C4; independent full 864-state constrained coloring and BFS algorithm checks 5-regular components and distance shells.
 
-The direct-colouring program independently enumerates all proper named three-edge-colourings by constrained assignment of the forty-five incidence edges, generates full bichromatic-component Kempe changes, and checks that the \(864\) states form \(36\) components of \(24\) states each, all five-regular with shortest-path profile \((1,5,13,5)\) from every state. Both programs have been executed successfully on their actual file paths. No randomized tests are used, and no infinite statement is inferred from finite enumeration.
+## originality
 
-The scope is exactly the thirty-vertex duad–syntheme Tutte–Coxeter graph with the specified Kempe move. No independent audit was performed.
+PASS
+
+Belcastro–Haas develops Kempe-equivalence notions; Goedgebeur–Östergård has a broader computational census of up-to-30-vertex cubic graphs and may imply a component COUNT. Neither inspected published account supplies Sylow-five complete component obstruction, four-factorization subgroup fibers or all labeled distance metrics.
+
+## value
+
+PASS
+
+A natural canonical order-30 highly symmetric cubic graph admits a complete group-theoretic reconfiguration classification and exact component metric, useful beyond the count; exhaustive finite graph invariant is natural, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
