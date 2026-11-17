@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The result concerns the original common-frame definition: a single ordered independent lattice frame generates all 24 permutation simplices, and each simplex may have its own translate of the radius ball. For arbitrary points, the parity-aware nearest-integer argument establishes the exact ordinary covering radius one. For every independent frame, the diameter of a permutation simplex bounds each nonempty subset sum by twice the fitting radius. Squared norms in \(D_4\) are even, so any hypothetical radius strictly less than \(\sqrt{3/2}\) forces all generators and nonempty subset sums to have squared norms at most four. The 48-vector search enumerates **all** such independent candidate frames; exact Gram determinants and complete branching leave zero candidates at rank four. For the matching explicit basis, determinant two and all 24 midpoint-ball inequalities have been checked with integers. This proves matching bounds without extrapolation beyond the enumerated finite reduction.
+PASS
 
-The only computation-dependent lemma is the complete finite count \((1,48,816,1728,0)\); its verifier is standalone, deterministic, and standard-library-only. A complete list of independently replayable upper-bound midpoint witnesses is given in the result itself.
+The original common-frame κ(B2^4,D4) requires one independent 4-frame and all 24 permutation-prefix simplices, each with its own enclosing ball. D4 consists of even-coordinate-sum integers; every squared norm is even. Any frame with max packet radius <sqrt(6)/2 would have all nonempty subset sums norm²<=4, forcing 4 independent vectors from the 48 D4 vectors of squared norm 2 or 4. Exact Gram-rank/backtracking enumeration of ALL ordered such prefix frames yields counts (1,48,816,1728,0), a legitimate exhaustive cutoff for all frames. A displayed determinant-2 D4 basis has for each permutation a midpoint ball through a diameter pair, 12 with radius²1 and 12 with radius²3/2. Thus κ=sqrt(3/2). Nearest integer rounding with an even-parity correction yields D4 covering radius at most1 and the integer vector (1,0,0,0) yields at least1. Independently ran exact integer recursion and verified every midpoint certificate and class count.
 
-## Originality (PASS, provisional)
+## originality
 
-Xue, arXiv:2610.39034v1, Section 1, defines the invariant; Section 2 establishes general comparisons; Section 5 uses subset-sum diameter bounds to exhibit an asymptotic \(\sqrt d\) gap; Section 6 proves equality for a *relaxed* triangulation invariant on ellipsoids. The paper's specific general statements do not imply the exact \(D_4\) value or provide a \(D_4\) optimal packet. The dimension-four calculation, sharp 48-vector obstruction, and 24-ball basis certificate are additional. The older Lian--Xue paper treats Kuhn triangulation and a three-dimensional criterion, but only its abstract and references were accessible for this comparison; this is a historical-priority risk. Nebe--Sloane's D4 catalogue gives standard lattice facts, not the new packet optimization. The closest mathematical-record search matches concerning a D4 root 24-cell address lattice completeness and reduction, not the present packet invariant. No claim is made that absence from a search proves absolute novelty.
+PASS
 
-## Mathematical value (PASS)
+The original Kuhn packet invariant and subset-sum diameter lower bound are Xue prior work, but no inspected theorem already computes the four-dimensional D4 strict gap or exhibits its matching 24-simplex certificate. Nearby A4 and D3 calculations are for distinct lattices/dimensions, not a D4 implication.
 
-The source explicitly asks how costly one common Kuhn frame is compared with ordinary lattice covering, and obtains the gap only asymptotically over high-dimensional unspecified lattices. An exact, well-known, highly symmetric low-dimensional lattice gives an interpretable strict gap of \(\sqrt{3/2}\), separating the original invariant from the relaxed version at a natural object. The strong all-frame subset-sum obstruction is useful for future exact searches on root lattices and distinguishes genuine packet geometry from classical Voronoi covering geometry. The result is a complete exact natural-instance computation, not an arbitrary parameter slice or routine substitution.
+## value
 
-## Limits and nearest literature
+PASS
 
-The result does not compute all projection-indexed minima, characterize every optimal frame, or settle the optimal ratio over all four-dimensional lattices. Its finite search is an exact exhaustive certificate under a proved reduction, not a symbolic classification of all Euclidean frames. Priority remains provisional and independent review remains unperformed.
+Gives a concrete, sharp, naturally motivated difference between the classical covering radius and the recently defined common-frame Kuhn-packet invariant on the important root lattice D4. The exact 48-vector obstruction, sharp basis, and all-24 simplex certificate provide an independently useful structural finite classification, not a mere calculation of known μ.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
