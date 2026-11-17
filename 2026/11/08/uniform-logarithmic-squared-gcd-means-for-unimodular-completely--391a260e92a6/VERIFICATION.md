@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the GCD-square mean theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. The script performs three-way exact rational equality tests of the original finite double sum, the Jordan-square sum, and the Möbius-convolved floor sum for the constant, Liouville and \(2\)-adic sign weights at cutoffs \(1,2,3,5,8,12,16,20,24\). It also compares direct and Jordan computations for the completely multiplicative phase \(a(n)=i^{\nu_2(n)}\) at four cutoffs, and prints partial positive sums for the coefficient at a truncation of \(20{,}000\) terms. The output observed in the completed review is stored in `check_output.txt`.
+## correctness
 
-The double sum and both finite factorizations agree in every exact rational test; complex tests agree within \(10^{-10}\) absolute error. The infinite theorem does not depend on these experiments. The formal identities and all limiting and convergence arguments are written explicitly in `RESULT.md`. These checks are not independent mathematical certification.
+PASS
+
+Jordan identity decomposes gcd² and complete multiplicativity extracts |S_a(⌊N/d⌋)|². Exact floor expansion of F_a(x) into pairs weighted by 1/max(k,l) has O(H_⌊x⌋²) floor error and O(log x) tail, independently of the unit-modulus phases. Möbius-divisor convolution gives 1/ζ(3), with summable errors and an O(log² N) bound uniform in a. Telescoping of 1/[q(q+1)] yields nonnegative c; triangle inequality and Σ_r H_r/r²=2ζ(3) give c≤3 and uniqueness. Verified small exact rational direct/Jordan/floor-sum values for nonconstant signs.
+
+## originality
+
+PASS
+
+Exact uniform phase-class theorem and extremal coefficient go beyond the cited single Möbius vector and general GCD spectral matrix estimates; classical Jordan decomposition alone does not present the stated uniform quantitative result.
+
+## value
+
+PASS
+
+A single uniform asymptotic covers all completely multiplicative unimodular phases (including Liouville and n^{it}), gives an explicitly positive spectral Gram coefficient, and determines its sharp global maximum. Natural arithmetic quadratic-form family, precise rate and extremizer are nontrivial and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
