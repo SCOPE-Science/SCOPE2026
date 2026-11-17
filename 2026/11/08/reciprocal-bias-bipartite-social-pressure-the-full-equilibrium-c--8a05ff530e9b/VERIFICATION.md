@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` is self-contained. The critical nonstandard assertion for arbitrary connected weighted bipartite graphs is the propagation of a partwise maximum through strictly positive edge weights; it verifies **necessity**, not just construction, of the full equilibrium curve. The analytic all-time solution on unweighted complete bipartite graphs follows from an exactly conserved nonlinear ratio and the scalar differential equation for a squared affine coordinate. All cube boundary conditions, including the zero and one states, were treated.
+## correctness
 
-Execute `python verify.py` using Python 3 standard library. The completed execution of that exact file returned:
+PASS
 
-```
-VERIFY_OK exact_identities=10128 independent_trajectories=250 weighted_graph_equilibria=1260
-```
+For gamma>1 and positive row-normalized weighted edges on finite connected loopless bipartite graph, the inverse response g=f_{1/gamma} has g=f_gamma^{-1}. Maximizing x_i over A and using x_j≤g(p) over B, strict averaging equality at a maximizing vertex forces every neighboring B state to g(p), and connectedness propagates equality across all vertices; hence the equilibrium set is exactly A=p and B=g(p), 0≤p≤1. For unweighted K_{m,n}, exact averaged ODE has H=1+(gamma−1)b, L=gamma−(gamma−1)a, invariant R=H/L. Differentiation proves (L²)′=2(gamma/R−L²), hence the explicit e^(−2t) formula for a,b and e^(−t) within-part deviations, all initial cube states and endpoints. Checked fetched verify.py and independently verified conservation and initial/limit bounds. No stochastic urn trajectory claim.
 
-The rational tests verify algebraic conservation identities; the independent fourth-order Runge–Kutta calculations check 250 full heterogeneous trajectories across multiple part sizes and biases; the weighted graph tests check constructive equilibria under rational row normalization. None of these bounded tests proves the graph-uniform result alone; the proof supplies the infinite quantifiers. Stochastic-process limit selection, the discrete diminishing-gain recursion, arbitrary-graph trajectory rates, and independent external review remain unverified and are not claimed.
+## originality
+
+PASS
+
+Tang–Adler–Ajorlou–Jadbabaie give the identical response map and stochastic model, but the inspected primary paper restricts its main equilibrium isolation discussion to nonbipartite networks, notes marginal reciprocal-bipartite Jacobian, and does not derive the full continuum or exact continuous-time complete-bipartite flow. Earlier SCOPE nonconsensus uniqueness result expressly assumes nonbipartite support. The nontrivial first integral and every-initial-state selection are best-of-knowledge original.
+
+## value
+
+PASS
+
+Reciprocal biases on bipartite graphs are exactly a marginal, nonisolated equilibrium regime in nonlinear opinion systems. Classifying its entire equilibrium manifold and integrating dynamics from arbitrary heterogeneous initial conditions resolves a substantive boundary left by generic nonbipartite theory. The invariant gives a precise selection law and rates, useful for degenerate nonlinear network flows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
