@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:20:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonreversible-return-laws-give-a-single-sharp-crank-nicolson-pos--447357690264/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+        "independent_science_checks.py: exact triangle and reducible rational resolvents"
+      ],
+      "rationale": "For finite row-conservative Markov Q, the M-matrix resolvent R_s=(I−sQ)^{-1} is stochastic and nonnegative; Cayley C_{2s}=2R_s−I makes only diagonals possible sign obstructions. For uniformization P=I+Q/λ with z=λs/(1+λs), first-return generating function F_i(z) gives R_{ii}=(1−z)/(1−F_i(z)) and 1/R_{ii}=a_i/(1−z)+Σ_{n≥1}f_{i,n}Σ_{k=0}^{n−1}z^k. This inverse increases strictly for every nonabsorbing state, including transient defective-return mass a_i>0; absorbing states retain 1. Its limit is zero for transient states and their normalized closed-class stationary probability for recurrent states. Thus every diagonal meets 1/2 on an initial interval, producing one global threshold. H=∞ iff every state recurrent with closed classes of size ≤2 and balanced pair rates. For directed unit-rate 3-cycle, independent exact inversion yields R_{ii}=(1+s)^2/(1+3s+3s²) and cutoff H=1+√5. Fresh SymPy checks confirmed this formula, both reducible examples, and diagonal monotonicity at six rational s values. Finite examples are only confirmation; arbitrary generator proof is renewal monotonicity.",
+      "residual_risks": [
+        "Exact claim is for finite constant-rate generators and CN end step, not stages, other RK maps or infinite chains.",
+        "A transient no-return event is treated explicitly; no logarithmic/spectral reversibility assumptions required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Oct12 θ-method classification covers all irreducible Markov generators without reversibility and every θ∈[0,1], including CN θ=1/2",
+          "Published Nov2 theorem covers all irreducible nonreversible chains and explicit directed n-cycle sharp cutoff"
+        ],
+        "reasoning": "The strong nonreversible/irreducible core and directed 3-cycle are exact special cases. The residual reducible extension uses only defective first-return mass and standard decomposition of finite chains into transient states and recurrent closed classes; no new competing positivity interval is possible from the same monotone renewal kernel.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+          "Crank Nicolson all finite reducible Markov generators single interval positivity transient closed classes first return law"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+        "https://doi.org/10.13001/1081-3810.1086",
+        "https://arxiv.org/abs/2102.08242",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonreversible-return-laws-give-a-single-sharp-crank-nicolson-pos--447357690264/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Nov2 proof obtains monotonicity from s(1−e^{-T/s})=∫_0^T e^{-u/s}du; if T=∞ on nonreturn, the same expression equals s and remains strictly increasing",
+          "Standard finite-state Markov classification says a closed irreducible class has stationary masses summing to one, and transient states have zero limiting return-resolvent diagonal"
+        ],
+        "reasoning": "The prior general first-return identity extends directly to defective distributions without changing its proof; hence a transient row eventually obstructs all-step positivity, while in each closed class every stationary mass ≥1/2 forces a singleton or balanced pair. This is routine closure/bookkeeping of already-published stronger irreducible theorems rather than a newly motivated independent invariant.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+          "https://arxiv.org/abs/2102.08242",
+          "https://doi.org/10.13001/1081-3810.1086"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Nov2 first-return theorem derives R_{ii}(s)=1/[1+a_i E(s(1−exp(−T_i/s)))] and strict decrease for every finite irreducible nonreversible chain",
+          "Published Oct12 theta-method theorem gives same renewal identity for all irreducible generators at θ=1/2"
+        ],
+        "reasoning": "Continuous first-departure excursion law and candidate uniformized discrete first-return generating function are algebraically equivalent Laplace/z-transform representations, not distinct mathematical insights. Both imply the same diagonal monotonicity and one-interval CN criterion on every irreducible chain.",
+        "searches": [
+          "Crank Nicolson positivity nonreversible finite Markov generator return probability resolvent single cutoff",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published Nov2 6b800a293f32 gives h*^(3)=(1+√5)/a exactly, as in the candidate",
+          "Published Oct12 result gives the full positive window at θ=1/2 in stationary-mass language"
+        ],
+        "reasoning": "Both the nonreversible cycle number and the main transition classification have matching earlier published formulas, not merely related title/parameter.",
+        "searches": [
+          "Crank Nicolson positivity nonreversible finite Markov generator return probability resolvent single cutoff",
+          "Crank Nicolson unconditional positivity all finite continuous time Markov chains balanced two state reducible",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: the claimed universal nonreversible return-resolvent mechanism, single-interval frontier for all irreducible chains and directed three-cycle constant were already published on Nov2 and in the stronger Oct12 θ-method result. The sole remaining reducible extension is the standard defective-first-return/closed-class corollary of that mechanism, not independent originality of the central claim.",
+      "residual_risks": [
+        "The reducible all-step statement itself need not appear verbatim in the prior publications, but it follows by a short defective-renewal extension and closed-class decomposition; reject on implication/routine extension, not supposed word-for-word identity.",
+        "No argument of mathematical falsity: C is supported; scientific rejection is O/V rather than incorrect sign computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOMINATES_IRREDUCIBLE_CORE",
+          "evidence": "Previously proves no reentrance without reversibility and identical 3-cycle H=1+√5; missing reducible scope only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+          "material_read": "COMPLETE RESULT.md: renewal identity (1), monotonicity, sharp all-irreducible threshold, directed cycle formula (4), proof and limitations",
+          "method": "Read full published mathematical result, aligned s=h/2 and return-time normalization to candidate",
+          "title": "A first-return law makes Crank–Nicolson positivity one-interval on finite irreducible Markov chains, published 2026-11-02",
+          "trigger": "Precisely same nonreversible end-step positivity and first return"
+        },
+        {
+          "assessment": "STRICTLY_BROADER_METHOD_CLASS",
+          "evidence": "All irreducible nonreversible CN positive-window regimes follow as special case of published θ-family theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+          "material_read": "COMPLETE RESULT.md: θ-method diagonal-resolvent identity, regenerative proof, stationary-mass classification, critical asymptotics",
+          "method": "Read full result and specialized θ=1/2",
+          "title": "Stationary-mass positivity frontier for the theta-method on finite Markov generators, published 2026-10-12",
+          "trigger": "Potential stronger class containing Crank–Nicolson"
+        },
+        {
+          "assessment": "ALREADY_KNOWN_ALGEBRA",
+          "evidence": "C=2R−I known; not the new claimed element and cannot restore independent novelty.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+          "material_read": "Published algebraic Cayley M-matrix identity and bibliographic description as cited; no full paper absent claim",
+          "method": "Compared matrix-class algebra with Markov first-return positivity",
+          "title": "On the Cayley Transform of Positivity Classes of Matrices, Fallat–Tsatsomeros",
+          "trigger": "Algebraic matrix transform background"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Different integrators; the decisive earlier CN same-model literature above controls originality.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "Accessible arXiv relevant ODE and numerical-method context; whole-paper absence not used for decisive rejection",
+          "method": "Compared Runge–Kutta method class and endpoint positivity",
+          "title": "Positivity-preserving methods for population models, Blanes–Iserles–Macnamara",
+          "trigger": "Positivity numerical integration of graph Laplacians"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonreversible-return-laws-give-a-single-sharp-crank-nicolson-pos--447357690264/RESULT.md"
+      ],
+      "rationale": "Classifying Markov integrator positivity is valuable generally, but the earlier two full results already supply its defining stochastic renewal mechanism, all irreducible nonreversible sharp thresholds and the directed-cycle example. Adding transient/closed-class decomposition to the same monotone return identity is routine Markov-chain bookkeeping, with no mathematically new boundary or needed invariant beyond those prior results. The proposed final claim is therefore a correct but substantially covered recombination rather than an independently worthwhile finding.",
+      "residual_risks": [
+        "The boundary H=∞ for reducible chains is true; its simplicity relative to prior renewal tools, not merely its finite-state scope, motivates failure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "All finite constant-rate continuous-time Markov generators; exact CN end-step only.",
+    "Correctness passes but irreducible and cycle claims have decisive published stronger coverage; reducible extension is routine."
+  ],
+  "schema_version": 1
+}
