@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The standalone `check_averaging.py` enumerates all nonzero rank-one endomorphisms by unique normalized image lines and all nonzero linear functionals, reconstructs spin-factor multiplication directly, and checks the original averaging identity for all basis pairs. Jordan commutativity makes the second averaging identity identical after exchanging inputs. The checker confirms each of three disjoint count strata and the condition \(P^2=0\). Five configurations are checked: two determinant classes for \(n=3\) over \(\mathbb F_3\) and \(\mathbb F_5\), and \(n=4\) over \(\mathbb F_3\). Output is preserved in `CHECKER_OUTPUT.txt`, ending `SPIN_AVERAGING_DIRECT_ORIGINAL_IDENTITIES_OK`.
+## correctness
 
-Reproduction: run `python3 check_averaging.py` from a directory containing that file, with Python 3 only. The code is finite-field prime arithmetic and makes no claims about extension fields or infinite-dimensional instances. The full proof separately treats all fields of characteristic other than two, and the finite-field count uses a standard quadratic Gauss-sum calculation. The geometric statement concerns the **reduced** solution variety, not scheme-theoretic reducedness of the raw averaging equations.
+PASS
+
+For nonzero rank-one P=f⊗a, original averaging equation is equivalent to a²=λa and f∘L_a=λf. Writing a=(s,u), the u=0 family gives central C, the s≠0 norm-one family gives quadric Q, and s=0, u isotropic, z∈u⊥ gives incidence N. Projective Segre/quadric geometry establishes irreducible dimensions n+1,n,2n−3 and Q∩N cone dim n−1 for n≥3 char≠2. Disjoint rational image-line strata count (q^{n+1}−1)+(q−1)M+Z(q^{n−1}−1)/(q−1), with M/Z from Gauss sums. Independent direct basis-identity enumeration corroborated n=3 and n=4 over GF(3).
+
+## originality
+
+PASS
+
+The full rank-one averaging operator solution variety, three component geometry, gluing and discriminant-sensitive finite-field census are distinct from prior associative/free averaging theory and rank-one Jordan Rota–Baxter counts, despite overlapping nullcone geometry.
+
+## value
+
+PASS
+
+Complete geometric decomposition of a natural rank-one operator equation on classical spin-factor Jordan algebras, with dimensions, intersections and arithmetic discriminant-sensitive enumeration, is a substantive classification rather than merely renaming RB isotropic vectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

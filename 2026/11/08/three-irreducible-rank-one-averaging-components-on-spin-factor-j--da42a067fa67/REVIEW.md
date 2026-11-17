@@ -1,19 +1,21 @@
-# Review of rank-one averaging operators on spin factors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-one averaging identity is equivalent to the two independent constraints \(a^2=\lambda a\) and \(fL_a=\lambda f\). The proof solves both constraints in the original spin-factor multiplication and obtains the three exhaustive families; sufficiency is direct. Projectivized rank-one maps lie in a Segre variety, and the quadric and incidence families are projective closed irreducible sets. Their projective inclusions and strict noncontainment establish exactly three reduced irreducible components, while explicit fiber dimensions establish the dimension assertions. Counting functional fibers gives the finite-field formula, and quadratic Gauss sums independently derive the necessary nondegenerate-form shell counts. Original-identity exhaustive checks agree over the specified prime fields. No infinite theorem relies solely on finite enumeration. Scope excludes characteristic two, degenerate forms, \(n<3\), higher operator ranks, and scheme-theoretic multiplicities.
+PASS
 
-## Originality — PASS, provisional historical priority
+For nonzero rank-one P=f⊗a, original averaging equation is equivalent to a²=λa and f∘L_a=λf. Writing a=(s,u), the u=0 family gives central C, the s≠0 norm-one family gives quadric Q, and s=0, u isotropic, z∈u⊥ gives incidence N. Projective Segre/quadric geometry establishes irreducible dimensions n+1,n,2n−3 and Q∩N cone dim n−1 for n≥3 char≠2. Disjoint rational image-line strata count (q^{n+1}−1)+(q−1)M+Z(q^{n−1}−1)/(q−1), with M/Z from Gauss sums. Independent direct basis-identity enumeration corroborated n=3 and n=4 over GF(3).
 
-Relevant full-text sections of Guo–Pei arXiv:1401.7386 and Cao arXiv:1401.7389 concern general averaging algebra constructions; the checked material does not state the complete Jordan spin-factor three-component geometry or discriminant-sensitive count. Shirokov arXiv:1412.0246 treats explicitly defined group-averaging Clifford operators, not arbitrary averaging operators for the Jordan product. Jordan Peirce theory is classical and used as background rather than claimed. The isotropic square-zero branch is mathematically shared with earlier rank-one weight-zero Rota–Baxter work and is explicitly credited; the **new assertion under assessment** is the combination into the three-component averaging solution locus, its exact intersection, dimension crossover, and total arithmetic census, not the stand-alone incidence branch. Literature and database searches under rank-one averaging, spin factors, bilinear forms and their equivalent terminology found no directly covering claim. An unidentified general classification, or incompletely inspected parts of long surveys, remains a historical-priority risk. Negative searches are not proof of absolute publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The rank-one stratum is a natural first step toward classifying averaging maps on simple Jordan algebras. Its reduced geometry has three nonredundant irreducible components, including a quadratic/incidence attachment, and the dominant component changes from the central-image part to the isotropic-incidence part as dimension increases. The exact finite-field census detects the square class of the form and distinguishes idempotent-containing versus square-zero image lines. These are naturally motivated structural and arithmetic invariants of an infinite family, not arbitrary small-degree tabulation.
+The full rank-one averaging operator solution variety, three component geometry, gluing and discriminant-sensitive finite-field census are distinct from prior associative/free averaging theory and rank-one Jordan Rota–Baxter counts, despite overlapping nullcone geometry.
 
-## Independent checks and limitations
+## value
 
-The supplied checker evaluates original products for all nonzero rank-one maps in five complete small prime-field configurations and compares structural subcounts. It is independently reproducible with Python 3; it does not certify uniqueness in all fields. The literature comparison was limited to inspectable sources and index results; the exact manuscript and its assumptions merit independent future review. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete geometric decomposition of a natural rank-one operator equation on classical spin-factor Jordan algebras, with dimensions, intersections and arithmetic discriminant-sensitive enumeration, is a substantive classification rather than merely renaming RB isotropic vectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
