@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary angular OU covariance and exact Green–Kubo integral are reconstructed from the stated SDE. The proof verifies the small-inertia slope, strict zero-chirality increase, the large-inertia cancellation bound for every nonzero drift, and uniform localization of all weak-chirality optimizers. The only numerical role is consistency checking with `verify.py`; finite evaluations do not prove the all-parameter theorem.
+## correctness
 
-**Originality — PASS, qualified.** Scholz et al. (2018), Eqs. (3),(8),(9), already give the exact same chirality-dependent orientational covariance and full incomplete-gamma diffusivity; no exact kernel or nonmonotonicity is claimed new. Tiwari et al. (2026) provide nonchiral rotational-inertia analysis, while Pattanayak et al. (2025) study chiral particles with overdamped angular dynamics. Ai et al. (2024) already describe chiral rotational-inertia diffusion peaks in dense systems, but the full text was unavailable; the priority of any sharp free-swimmer weak-chirality asymptotics against that paper is not independently resolved. The added theorem is the all-nonzero-chirality existence and every-maximizer singular optimum scaling with its sharp constant, proved from a known transport expression rather than restating it.
+PASS
 
-**Value — PASS.** This gives a natural and sharp transport-design scale for the physically meaningful rotational relaxation parameter, and quantitatively distinguishes arbitrarily weak chirality from exactly zero chirality. It is not a narrow arbitrary parameter slice or a tiny finite numerical improvement.
+Stationary OU covariance Dr exp(−|t|/τ)/τ integrates exactly to Var(θ_t−θ_0−Ωt)=2Dr[t−τ(1−e^(−t/τ))]; Green–Kubo gives K(τ,Ω)=∫ Cτ(t) cos Ωt dt. At τ↓0 the first derivative is positive Dr²/(Dr²+Ω²). For fixed Ω≠0, Cτ′ has a single negative extremum and two integrations by parts give |K|≤2 max|Cτ′|/Ω²→0 as τ→∞; continuity ensures a finite interior global maximum. At Ω=0, Cτ increases strictly and its Gaussian-scale integral ~√(πτ/(2Dr)). Under τ=Dr x/Ω², dominated Gaussian rescaling gives |Ω|K→F(x)=√(πx/2)e^(−x/2); small-x integral and large-x integration-by-parts bounds exclude escaping maximizers, so x→1 and F(1)=√(π/(2e)). Independently checked F′ and the OU variance identity algebraically; limited numerical tests do not certify universal limit.
 
-**Limitations.** The model is free-space, stationary and noninteracting. There is no uniqueness claim for finite nonzero chirality, no interacting/glassy generalization, and publication priority remains conditional on further full-text comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge, the entire exact chiral OU diffusivity kernel and qualitative inertial peak are ALREADY known from Scholz et al. (2018) and explicitly not claimed original. The surviving new assertion is sharp GLOBAL weak-chirality optimizer localization and universal singular coefficient, not found in the accessible material. Interacting 2024 chiral particle models and overdamped-chirality studies are different observables. Closely relevant full text could not be retrieved by arXiv/OA and authorized Oxford access was blocked; residual risk recorded, not an originality failure automatically.
+
+## value
+
+PASS
+
+A singular optimization phase boundary distinguishes the zero-chirality and every finite-chirality transport regimes, including a universal exact optimum scale and divergent amplitude. This quantifies a physically motivated and mathematically nontrivial global crossover beyond a known integrable correlation kernel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

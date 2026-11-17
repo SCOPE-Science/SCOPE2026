@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T00:59:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 0b43e9feb49603e28fa1355fa3945979f9172d64",
+        "frozen verify.py blob 35c71886d26521ba3e3d869c9ffcaccbe0920141",
+        "independent Gaussian profile differentiation"
+      ],
+      "rationale": "Stationary OU covariance Dr exp(−|t|/τ)/τ integrates exactly to Var(θ_t−θ_0−Ωt)=2Dr[t−τ(1−e^(−t/τ))]; Green–Kubo gives K(τ,Ω)=∫ Cτ(t) cos Ωt dt. At τ↓0 the first derivative is positive Dr²/(Dr²+Ω²). For fixed Ω≠0, Cτ′ has a single negative extremum and two integrations by parts give |K|≤2 max|Cτ′|/Ω²→0 as τ→∞; continuity ensures a finite interior global maximum. At Ω=0, Cτ increases strictly and its Gaussian-scale integral ~√(πτ/(2Dr)). Under τ=Dr x/Ω², dominated Gaussian rescaling gives |Ω|K→F(x)=√(πx/2)e^(−x/2); small-x integral and large-x integration-by-parts bounds exclude escaping maximizers, so x→1 and F(1)=√(π/(2e)). Independently checked F′ and the OU variance identity algebraically; limited numerical tests do not certify universal limit.",
+      "residual_risks": [
+        "Independent proof scrutiny depends on uniform large-x/small-x estimates as stated; finite peak searches alone do not establish global maximizing quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 single-swimmer OU model covers general finite inertia and chirality exact observables. 2024 interacting glass model has different interactions and qualitative nonmonotonic diffusion, and 2026 inertia source focuses on achiral persistence."
+        ],
+        "reasoning": "Earlier broader exact formulas dominate intermediate kernel calculations, but no directly verified stronger theorem implies all small-chirality global maximizers and sharp coefficient.",
+        "searches": [
+          "Resultary: active Brownian chiral swimmer rotational inertia diffusivity peak weak chirality Omega squared tau asymptotic",
+          "Ai et al. Phys Rev E 109 064902 (2024)",
+          "arXiv:2606.10486"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.04357",
+        "DOI:10.1038/s41467-018-07596-x",
+        "DOI:10.1103/PhysRevE.109.064902",
+        "arXiv:2606.10486"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously established K expression is explicitly credited. An exact integral is enough in principle to derive a maximum only after proving both compactness bounds and unique Gaussian peak; the primary accessible material did not state those latter results."
+        ],
+        "reasoning": "Sharp optimizer scale and coefficient are the substantive final claim, with plausible implicit prior derivability but no decisive known coverage; the plausible inaccessible Nature article remains a specified priority risk.",
+        "searches": [
+          "Scholz et al. 2018 exact diffusivity",
+          "Ai et al. 2024 chirality rotational inertia",
+          "Resultary: active Brownian chiral swimmer rotational inertia diffusivity peak weak chirality Omega squared tau asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact incomplete-gamma orientation/diffusion formulas in 2018 are equivalent to Green–Kubo K(τ,Ω), and thus the kernel itself and generic peak phenomenon are covered."
+        ],
+        "reasoning": "Equivalent finite-parameter formulas do not explicitly give uniform global optimizer asymptotics Ω²τ*/Dr→1; this extra conclusion needs asymptotic localization, not simply renaming a parameter.",
+        "searches": [
+          "Resultary: active Brownian chiral swimmer rotational inertia diffusivity peak weak chirality Omega squared tau asymptotic",
+          "Scholz et al. arXiv:1807.04357",
+          "DOI:10.1038/s41467-018-07596-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table establishes universal ε→0 optimizer localization; current formula is singular asymptotic and has parameter-uniform quantifiers."
+        ],
+        "reasoning": "Numerical optimum curves or isolated parameter data would not imply the exact global asymptotic; absence of matching data is not novelty proof.",
+        "searches": [
+          "Resultary: active Brownian chiral swimmer rotational inertia diffusivity peak weak chirality Omega squared tau asymptotic",
+          "Scholz 2018 Eq. (3),(8),(9)"
+        ]
+      },
+      "rationale": "Best of knowledge, the entire exact chiral OU diffusivity kernel and qualitative inertial peak are ALREADY known from Scholz et al. (2018) and explicitly not claimed original. The surviving new assertion is sharp GLOBAL weak-chirality optimizer localization and universal singular coefficient, not found in the accessible material. Interacting 2024 chiral particle models and overdamped-chirality studies are different observables. Closely relevant full text could not be retrieved by arXiv/OA and authorized Oxford access was blocked; residual risk recorded, not an originality failure automatically.",
+      "residual_risks": [
+        "The full same-system 2018 article could not be read in this run: arXiv/OA attempts failed and authorized Oxford access returned vpn_disconnected; the original full text may contain or imply a weak-chirality optimization.",
+        "The 2024 interacting-system article was not read completely; its relation to the free-particle singular limit cannot be ruled out by snippets.",
+        "No fabricated historical novelty certificate is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact kernel and diffusivity are prior; complete text uninspected, so cannot certify absence of weak-chirality optimum",
+          "evidence": [
+            "Scholz et al. 2018 equations (3),(8),(9) as cited in package; DOI 10.1038/s41467-018-07596-x"
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41467-018-07596-x",
+          "material_read": "Abstract/known listed equations from research package and public landing information; full article not obtained in this run",
+          "method": "arXiv HTML unavailable, publisher OA navigation blocked, authorized institutional retrieval reported vpn_disconnected",
+          "title": "Inertial delay of self-propelled particles",
+          "trigger": "Same single-particle angular inertia and chirality SDE"
+        },
+        {
+          "assessment": "Interacting chiral systems, not directly free OU model; explicit singular-limit content unknown",
+          "evidence": [
+            "Ai et al., Phys Rev E 109, 064902 (2024)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.109.064902",
+          "material_read": "Abstract and title only; full text not obtained",
+          "method": "Public abstract and secondary citation",
+          "title": "Rotational inertia-induced glassy transition in chiral particle systems",
+          "trigger": "Potential earlier inertia-controlled diffusion peak"
+        },
+        {
+          "assessment": "Studies different inertia observables, no directly identified free chiral global-optimum theorem",
+          "evidence": [
+            "arXiv:2606.10486 Section V"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.10486",
+          "material_read": "Main theorem scope/Section V as cited; full paper not freshly retrieved",
+          "method": "Source bibliographic and cited section comparisons",
+          "title": "Virial Stress in Systems of Active Brownian Particles in the Presence of Translational and Rotational Inertia",
+          "trigger": "Related inertia effects in nonchiral limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Scholz et al. 2018 exact angular inertia model",
+        "independent Gaussian profile and localization proof"
+      ],
+      "rationale": "A singular optimization phase boundary distinguishes the zero-chirality and every finite-chirality transport regimes, including a universal exact optimum scale and divergent amplitude. This quantifies a physically motivated and mathematically nontrivial global crossover beyond a known integrable correlation kernel.",
+      "residual_risks": [
+        "Potential implicit prior singular analysis in inaccessible source would reduce originality/value; not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a free planar swimmer with stationary drifting angular OU velocity, every nonzero imposed chirality has a finite strictly positive global diffusion-maximizing relaxation time; as |Ω|→0 all such optimizers obey Ω² τ*/Dr→1 and maximal excess diffusivity has coefficient v²/(2|Ω|) sqrt(π/(2e)), while at Ω=0 diffusivity increases without bound.",
+  "limitations": [
+    "Only stationary, free-space angular OU drift and independent translational Brownian noise; no interactions, resetting, boundaries, fixed-chirality uniqueness or forced response.",
+    "Important full-text source inaccessible due protected Oxford VPN; no bypass or human-authentication attempt was made."
+  ],
+  "schema_version": 1
+}
