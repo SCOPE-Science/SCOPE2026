@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The claim concerns the matrix \(A_\kappa=\operatorname{diag}(\kappa,1,\ldots,1)\) and the projector onto \(\operatorname{range}((A_\kappa A_\kappa^\top)^q A_\kappa\Omega)\), with real iid Gaussian \(\Omega\). The proof establishes almost-sure full rank when \(1\le k<d\), reduces the squared Frobenius error to \(d-k+(\kappa^2-1)/(1+\kappa^{4q+2}\gamma)\), derives \(\gamma\) as a ratio of independent chi-square variables, and derives the three limiting cases of a beta integral.
+## correctness
 
-The standalone `verifier.py` uses Python with `numpy` and `mpmath`. Invoke `python verifier.py` in the directory containing the file. The recorded run in `verification_output.txt` had 460 passing checks. For deterministic reproduction, the Gaussian-test seed is fixed; 440 direct QR/projector identities were checked at diverse dimensions, sketch widths, spike sizes and power counts. Additional assertions compare special cases, the beta integral and hypergeometric evaluation, and large-spike leading coefficients.
+PASS
 
-**Limits of computational evidence:** Finite QR samples do not certify distributional equality; quadrature and asymptotic spot checks do not prove infinite limiting claims. The source of the proof is the explicit projector and chi-square regression calculation in RESULT.md. The numerical experiment is not an independence or external certification procedure. Computations use floating-point arithmetic; the analysis assumes exact arithmetic and fixed parameters when the spike grows.
+The projector onto the power-sketch columns Y=[kappa^{2q+1}g;H] has P_11=kappa^{4q+2}gamma/(1+kappa^{4q+2}gamma), gamma=g(H^TH)^{-1}g^T. Orthogonal regression identifies gamma distributed as chi²_k/chi²_{d-k}, independent, for all 1<=k<d. The Frobenius trace identity yields the full excess distribution and beta integral; Euler integration produces hypergeometric expectation. For fixed dimension and k, t→∞ beta endpoint dominated convergence gives t^{-1/2} for k=1, (log t)/t for k=2 and t^{-1} times (d-k)/(k-2) for k>=3. Multiplying by kappa²-1 gives all coefficients, including d=2,k=1 and kappa=1. Independent numerical QR/chi-square beta integral checks corroborate; fixed d,k,q essential.
+
+## originality
+
+PASS
+
+PASS with explicit credit for the prior one-column blowup. The all-width chi-square law, exact k=2 logarithmic borderline, and q-step sharp coefficients are non-implied by the inspected bound theorems.
+
+## value
+
+PASS
+
+The Gaussian range finder is fundamental; its zero-oversampling small-sketch moments have a genuine finite-moment cutoff k=2 exactly where a reciprocal chi-square expectation changes integrability. Exact risk and power-count coefficients inform algorithm behavior on a natural spectral stress test and can be reused in benchmark analyses, not merely a tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

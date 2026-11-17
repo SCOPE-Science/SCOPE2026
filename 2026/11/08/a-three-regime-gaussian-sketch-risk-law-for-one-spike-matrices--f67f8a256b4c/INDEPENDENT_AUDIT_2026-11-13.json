@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:11:08.275832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The projector onto the power-sketch columns Y=[kappa^{2q+1}g;H] has P_11=kappa^{4q+2}gamma/(1+kappa^{4q+2}gamma), gamma=g(H^TH)^{-1}g^T. Orthogonal regression identifies gamma distributed as chi²_k/chi²_{d-k}, independent, for all 1<=k<d. The Frobenius trace identity yields the full excess distribution and beta integral; Euler integration produces hypergeometric expectation. For fixed dimension and k, t→∞ beta endpoint dominated convergence gives t^{-1/2} for k=1, (log t)/t for k=2 and t^{-1} times (d-k)/(k-2) for k>=3. Multiplying by kappa²-1 gives all coefficients, including d=2,k=1 and kappa=1. Independent numerical QR/chi-square beta integral checks corroborate; fixed d,k,q essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing large matrix/randomized subspace power bounds consider general spectra and tail ranks, but do not give equality in distribution of the one-spike projector error for every k and arbitrary fixed power q."
+        ],
+        "reasoning": "The broader spectral families are not stronger *exact-distribution* theorems: bound coverage does not imply the chi-square mixture or its sharp coefficients. Nonetheless a general Wishart projection identity could imply part of the result, so it remains a residual risk.",
+        "searches": [
+          "Resultary semantic search: rank one spike Gaussian range finder exact beta chi square Frobenius excess strong spike k=2 logarithmic k=1",
+          "Saibaba and Miedlar, Randomized low-rank approximations beyond Gaussian random matrices (2023), https://arxiv.org/abs/2308.05814",
+          "Halko, Martinsson and Tropp, Finding structure with randomness (2011), https://arxiv.org/pdf/0909.4061",
+          "Witten and Candes, Randomized algorithms for low-rank matrix factorizations: sharp performance bounds (2013), https://arxiv.org/pdf/1308.5697"
+        ]
+      },
+      "checked_sources": [
+        "Witten and Candes, Randomized algorithms for low-rank matrix factorizations: sharp performance bounds (2013), https://arxiv.org/pdf/1308.5697",
+        "Halko, Martinsson and Tropp, Finding structure with randomness (2011), https://arxiv.org/pdf/0909.4061",
+        "Saibaba and Miedlar, Randomized low-rank approximations beyond Gaussian random matrices (2023), https://arxiv.org/abs/2308.05814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 10.5 expected bounds in Halko et al; Witten–Candes 2×2 one-column blowup. Submitted k=2 logarithmic and k>=3 finite positive sharp baseline constants plus power-iteration asymptotics are exact equivalences."
+        ],
+        "reasoning": "Bounds can motivate the threshold but do not force the logarithmic coefficient (d-2)(2q+1), the exact distribution, or the all-q leading constants. Earlier one-column special case is credited.",
+        "searches": [
+          "Resultary semantic search: rank one spike Gaussian range finder exact beta chi square Frobenius excess strong spike k=2 logarithmic k=1",
+          "Witten and Candes, Randomized algorithms for low-rank matrix factorizations: sharp performance bounds (2013), https://arxiv.org/pdf/1308.5697",
+          "Halko, Martinsson and Tropp, Finding structure with randomness (2011), https://arxiv.org/pdf/0909.4061"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical randomized range finder exactly matches the algorithm. Witten–Candes already exhibit a strong-spike one-column obstruction and worst-case formulas; Halko et al give expected Frobenius bounds, often with oversampling."
+        ],
+        "reasoning": "The k=1 qualitative blowup is known. The precise distributional beta law for every admissible k,d,q, including k=2 logarithmic border and sharp power exponents, is not supplied by the inspected bound statements.",
+        "searches": [
+          "Resultary semantic search: rank one spike Gaussian range finder exact beta chi square Frobenius excess strong spike k=2 logarithmic k=1",
+          "Witten and Candes, Randomized algorithms for low-rank matrix factorizations: sharp performance bounds (2013), https://arxiv.org/pdf/1308.5697",
+          "Halko, Martinsson and Tropp, Finding structure with randomness (2011), https://arxiv.org/pdf/0909.4061"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The elementary d=2,k=1 expression equals (kappa²-1)/(1+kappa^{2q+1}), with q=0 giving error κ exactly; early one-column examples overlap. No checked all-(d,k,q) exact beta table found."
+        ],
+        "reasoning": "Numerical QR and inverse-Wishart moments do not constitute a distinct published all-parameter table. An unindexed one-spike lemma might cover the same coefficients; explicitly retain this risk.",
+        "searches": [
+          "Resultary semantic search: rank one spike Gaussian range finder exact beta chi square Frobenius excess strong spike k=2 logarithmic k=1",
+          "Witten and Candes, Randomized algorithms for low-rank matrix factorizations: sharp performance bounds (2013), https://arxiv.org/pdf/1308.5697",
+          "Saibaba and Miedlar, Randomized low-rank approximations beyond Gaussian random matrices (2023), https://arxiv.org/abs/2308.05814"
+        ]
+      },
+      "rationale": "PASS with explicit credit for the prior one-column blowup. The all-width chi-square law, exact k=2 logarithmic borderline, and q-step sharp coefficients are non-implied by the inspected bound theorems.",
+      "residual_risks": [
+        "A specialized inverse-Wishart or subspace-angle identity could make this exact one-spike distribution a direct corollary, not discovered in inspected primary results.",
+        "Algorithms requiring oversampling or recompression are different; no inference to those settings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_QUALITATIVE_COVERAGE",
+          "evidence": [
+            "One-column spike obstruction and worst-case error bounds, rather than all-width exact beta equality."
+          ],
+          "identifier_or_url": "Witten and Candes, Randomized algorithms for low-rank matrix factorizations: sharp performance bounds (2013), https://arxiv.org/pdf/1308.5697",
+          "material_read": "Primary full PDF accessible; introduction, spiked example and main Frobenius/spectral bound theorem passages",
+          "method": "arXiv PDF text and page-image inspection",
+          "title": "Randomized algorithms for low-rank matrix factorizations: sharp performance bounds",
+          "trigger": "Same Gaussian range finder, spiked example and sharp performance"
+        },
+        {
+          "assessment": "ALGORITHM_AND_BOUNDS_ONLY",
+          "evidence": [
+            "Expected Frobenius estimates, not equality in distribution for diagonal one-spike."
+          ],
+          "identifier_or_url": "Halko, Martinsson and Tropp, Finding structure with randomness (2011), https://arxiv.org/pdf/0909.4061",
+          "material_read": "Theorem 10.5 expected Frobenius bound and adjacent derivation in main PDF",
+          "method": "arXiv PDF text and screenshot inspection",
+          "title": "Finding structure with randomness",
+          "trigger": "Foundational algorithm and possible general error theorem"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_PRIOR",
+          "evidence": [
+            "The result concerns arbitrary distributional class and does not directly state the same one-spike beta equivalence in inspected material."
+          ],
+          "identifier_or_url": "Saibaba and Miedlar, Randomized low-rank approximations beyond Gaussian random matrices (2023), https://arxiv.org/abs/2308.05814",
+          "material_read": "Published abstract and central general-bounds material, not every appendix",
+          "method": "arXiv search and relevant source inspection",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "More recent general subspace iteration distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Gaussian range finder is fundamental; its zero-oversampling small-sketch moments have a genuine finite-moment cutoff k=2 exactly where a reciprocal chi-square expectation changes integrability. Exact risk and power-count coefficients inform algorithm behavior on a natural spectral stress test and can be reused in benchmark analyses, not merely a tiny numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real symmetric one-spike matrices, exact arithmetic, fixed d,k,q, squared Frobenius excess; no high-dimensional joint limit.",
+    "Wishart specialty literature might already contain equivalent exact beta statements."
+  ],
+  "schema_version": 1
+}

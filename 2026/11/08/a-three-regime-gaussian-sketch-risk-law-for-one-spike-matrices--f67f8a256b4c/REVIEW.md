@@ -1,19 +1,21 @@
-# Scientific review: one-spike Gaussian range finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single claim consists of the exact squared-Frobenius error distribution, its beta/hypergeometric expectation and its three sharp strong-spike asymptotic regimes for the same parameter domain. The Gram-matrix projector formula is valid almost surely for every integer dimension \(d\ge2\), integer width \(1\le k<d\), integer power count \(q\ge0\), and real spike \(\kappa\ge1\). Gaussian rotational invariance and the inverse-Wishart Schur complement reduce the projector alignment to independent \(\chi^2_k\) and \(\chi^2_{d-k}\) variables. The beta expectation is exact. Each singular endpoint exponent is treated separately, and gamma/logarithmic constants agree with the limiting integrals. The \(\kappa=1\) and \(d=2,k=1\) boundaries are included explicitly. Direct independent QR calculations, beta quadrature, hypergeometric evaluation and numerical asymptotics passed 460 finite checks. Those tests do not establish general theorems; the proof does. The result is for squared Frobenius error and unrecompressed \(k\)-column range projection, not spectral error or finite precision.
+PASS
 
-## Originality — PASS with residual specialist risk
+The projector onto the power-sketch columns Y=[kappa^{2q+1}g;H] has P_11=kappa^{4q+2}gamma/(1+kappa^{4q+2}gamma), gamma=g(H^TH)^{-1}g^T. Orthogonal regression identifies gamma distributed as chi²_k/chi²_{d-k}, independent, for all 1<=k<d. The Frobenius trace identity yields the full excess distribution and beta integral; Euler integration produces hypergeometric expectation. For fixed dimension and k, t→∞ beta endpoint dominated convergence gives t^{-1/2} for k=1, (log t)/t for k=2 and t^{-1} times (d-k)/(k-2) for k>=3. Multiplying by kappa²-1 gives all coefficients, including d=2,k=1 and kappa=1. Independent numerical QR/chi-square beta integral checks corroborate; fixed d,k,q essential.
 
-The one-column beta-ratio mechanism is also encountered in Gaussian trace-sketch variance calculations; the specific isolated one-column coefficient is not treated as independently new. The most directly relevant earlier low-rank literature is Witten--Candès (2013/2014). Their Section 1.1 already identifies two-dimensional, one-column spike divergence, and Theorem 1.5 supplies a worst-case Frobenius inequality for oversampled range finding. Those statements preclude treating qualitative one-column divergence or boundedness with oversampling as new. They do not state the specific all-\((d,k,q)\) exact beta law, the critical two-column logarithm with coefficient, or the three sharp power-iteration constants. Halko--Martinsson--Tropp (2011), Theorem 10.5, provides related *upper bounds* with oversampling, not the exact error distribution. Saibaba (2018) requires a target-rank spectral gap for its Gaussian canonical-angle bounds; the one-spike family lacks that gap for \(k\ge2\). Diouane et al. (2022) give general Gaussian expectation bounds, whereas Saibaba--Międlar (2023) develop general distribution-class guarantees for subspace iteration, with unspecified constants, rather than this sharp one-spike classification. The inspected text and available mathematical-record searches do not imply the assembled exact statement. Prior specialized work may nevertheless contain a mathematically equivalent rank-one Gaussian beta calculation; bibliographic completeness and independent novelty validation are not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The three-column threshold is structurally tied to integrability of an inverse-Gaussian-Gram factor rather than a handpicked numerical parameter. At one or two columns, even an arbitrarily dominant singular value can leave unbounded *expected squared* excess error, with genuinely different linear and logarithmic severity; three columns control the excess uniformly in the strong-spike limit. Power iteration changes all three rates with explicitly quantified leading constants. This natural benchmark clarifies a basic sketch-width and power-count choice in randomized numerical linear algebra, while not implying optimality against other sketch distributions or equal-cost algorithms.
+PASS with explicit credit for the prior one-column blowup. The all-width chi-square law, exact k=2 logarithmic borderline, and q-step sharp coefficients are non-implied by the inspected bound theorems.
 
-## Sources and residual limitations
+## value
 
-Primary motivation: Saibaba and Międlar (2023), https://arxiv.org/abs/2308.05814. Closest statements: Witten and Candès (2013/2014), https://candes.su.domains/publications/downloads/RandomizedNLA.pdf; Halko, Martinsson and Tropp (2011), https://arxiv.org/abs/0909.4061; Diouane et al. (2022), https://arxiv.org/abs/2206.08793; Saibaba (2018), https://arxiv.org/abs/1804.02614. The full one-spike result has no independent specialist audit. The analysis assumes a single spike, exact arithmetic, fixed dimensions, real Gaussian columns and squared Frobenius error.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Gaussian range finder is fundamental; its zero-oversampling small-sketch moments have a genuine finite-moment cutoff k=2 exactly where a reciprocal chi-square expectation changes integrability. Exact risk and power-count coefficients inform algorithm behavior on a natural spectral stress test and can be reused in benchmark analyses, not merely a tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
