@@ -1,0 +1,15 @@
+# Mathematical review: boundary visibility on orthogonal L-polygons
+
+## Correctness
+PASS. The polygonal boundary splits into two mutually obstructing three-edge groups plus two always-visible residual edges. Straight-line crossing parameters prove that a candidate opposite-group pair is blocked exactly when \(ad>bc\). Nine edge pairings reduce to five automatic groups and four explicitly integrated product/triangle regions. Both analytic branches meet; direct expansion establishes first-derivative agreement, generic second-order separation, and the fourth-order cancellation in the square-notch family. The half-bound follows from the group-length probability bound, and the sharp limiting case is proved via the crossing criterion. A standalone six-configuration arclength Monte Carlo test and an analytic-branch scaling diagnostic passed. Numerical checks are supporting evidence only.
+
+## Originality
+PASS with historical-priority risk. The closest same-object public result, *Sharp fixed-area Beer-index law for notched parallelograms* (2026), determines an **area-sampled** visibility profile and fixed-area optimizer. Its endpoint measure is mutually singular to the boundary arclength law here; it does not state the boundary measure, formula, or differentiability theorem. Balko–Jelínek–Valtr–Walczak (2014) and Abrahamsen–Fredslund-Hansen (2022) define and algorithmically evaluate area-based Beer indices. Buchin–Kostitsyna–Löffler–Silveira (2014) gives polygon-region visibility methods for planar probability densities; García-Pelayo (2015) studies invariant-line chord sampling. Their full accessible articles were examined in their relevant definitions and result sections, together with the closest complete published area-notched proof. None provides the exact boundary-pair formula or the sharp fourth-derivative singularity. The possibility of an unindexed earlier perimeter-chord calculation remains; absence from searches is not a proof of uniqueness.
+
+## Value
+PASS. Boundary-to-boundary line-of-sight is a natural visibility statistic for obstacles and polygon contours, not the same observable as the area-based Beer index. The full four-length formula supplies an exact analytic invariant for every orthogonal six-edge L-domain, while the phase hypersurface identifies where elementary crossing-region geometry changes its analytic type. The \(C^1\)-versus-\(C^3\) cancellation in the canonical one-parameter notch family is a nontrivial geometric regularity contrast, with an exact fourth-derivative jump. The sharp universal half-limit gives a meaningful degenerating-boundary benchmark. No broad arbitrary-polygon theorem is implied.
+
+## Scope and remaining risk
+The boundary is an axis-aligned L polygon with exactly one reflex corner; arbitrary holes and multiple notches are excluded. A general full-parametric classification of all transverse differentiability paths is not asserted. Literature searches and full-text inspections support provisional novelty only; independent mathematical and priority audits remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
