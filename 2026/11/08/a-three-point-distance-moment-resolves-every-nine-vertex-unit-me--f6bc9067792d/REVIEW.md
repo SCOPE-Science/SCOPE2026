@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces equal global two-point distance laws to equal edge-distance histograms using conditional integration and a positive Laplace factor; establishes the exact quadratic mean-distance formula and its integral square for the mixed three-point moment; and exhausts all tree isomorphism classes by a complete leaf-augmentation recurrence with canonical rooted-code deduplication. The executable recomputes every relevant quantity with rational arithmetic and confirms independence of the two moment algorithms. The two nine-vertex collision classes are separated by positive exact rational gaps. The metric-isometry interpretation is valid because all branch-to-branch/leaf distances have integral lengths and recover their canonical unit subdivisions.
+PASS
 
-## Originality — PASS, provisional
+The edge-conditioning identity decomposes the two-point CDF as B(r)/m+2/m² sum h_k J(r-k); positive Laplace deconvolution proves equality of distance laws iff equality of the integer edge-edge distance histogram. The same-edge CDF gives right derivative 2/m and recovers m. For source coordinate s on edge e, direct arclength integration yields I_e(s)=s²+(a_e-b_e-1)s+(b_e+A_e+C_e+1/2), and Q=m^{-3}sum_e int_0^1 I_e(s)^2 ds. Complete leaf-augmentation enumeration with canonical unlabeled-tree deduplication, confirmed independently for all 47 order-nine trees and all orders 2..9, shows exactly two size-two collision classes and checks both Q gaps 3/64 and 1/16 with rational arithmetic. This proves only the finite enumerated class; no inference to n>=10 or unequal edge lengths.
 
-The 1999 Stevanović–Gutman **full table** already contains the two nine-vertex Hosoya collision pairs. The 2016 edge-Hosoya identity and elementary conditioning encode these same old two-point collisions as uniform-arclength metric-tree distance-law collisions. Neither source supplies the mixed three-point moment values or proves that the pair (global two-point law, one cross-distance moment) is injective for every unit-edge tree through nine vertices. Mémoli and Needham's much larger nonisometric tree counterexamples concern global/local one-point distance laws without the proposed cross-distance moment. Closest accessible published records and semantic searches did not disclose a stronger result implying the exact combined inverse classification. This is not a proof of historical uniqueness; earlier unindexed higher-order metric-tree moment tables remain the main residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Nine vertices is the **first** natural order at which the ubiquitous two-point distance histogram ceases to identify a unit-edge metric tree, and its two nontrivial classes are fully covered by published polynomial tables. The new result tests the most economical natural next statistic: a single three-sample shared-endpoint distance covariance, equivalent to the spatial variance of mean distance from a sample. The exact values show both genuinely different branching patterns are distinguished without requiring the entire three-point distance-matrix law. The classification provides a sharp finite identifiability threshold for intrinsic metric shape descriptors, not an arbitrary graph slice or a known-table restatement.
+PASS on the narrowly asserted third-sample moment resolution, not on already-known two-point Hosoya collision and minimality statements. The exact extra statistic separates both classes after an exhaustive finite isometry census.
 
-## Limits and closest sources
+## value
 
-The new claim does not assert uniqueness beyond nine vertices, for nonunit edge lengths, or for generic higher-order statistics. The 1999 full Hosoya table and the 2016 edge-Hosoya identity are prior coverage of the **two-point part**, not of the newly claimed mixed moment. See RESULT.md for exact source identifiers, formulas, and executable reproducibility.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural reconstruction problem first fails exactly at 9 vertices, making an explicit minimal additional statistic for precisely those first ambiguity classes scientifically motivated. The exact rational values are independently useful inverse-metric data rather than an arbitrary finite slice. The known two-point collision table alone does not supply the Q resolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
