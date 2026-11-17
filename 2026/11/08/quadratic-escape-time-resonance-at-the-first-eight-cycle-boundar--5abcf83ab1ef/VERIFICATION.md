@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Proof-critical steps: the two hole endpoints generate a prime eight-orbit; the eight safe cells have lengths proportional to \((3,2,1,1,1,1,2,3)\). Every image endpoint belongs to the same finite orbit, so the eight-cell source-to-target transition matrix is exact. The formal identity \(G(z)=\mathbf1^\mathsf T(I-zB)^{-1}\ell\) counts all initial safe itineraries with the factor \(2^{-(n-1)}\). The eight explicitly displayed vector components solve the linear system; coefficient extraction gives the exact all-integer formula.
+## correctness
 
-Run with `python verify_escape17.py` (Python 3 and SymPy required). Observed output: `VERIFY_OK exact_markov_cells=8 symbolic_generating_identity=1 independent_inverse_horizons=15 four_cycle_comparison=1`. The inverse-image implementation is algorithmically independent of the matrix recurrence. Its first fifteen cases are consistency evidence only; the generating-function proof is the exhaustive certificate for all horizons.
+PASS
 
-Scope limits: the hole is open, endpoints have zero Lebesgue mass, the discontinuity belongs to the hole, the initial distribution is Lebesgue, and no other hole parameters are covered. This verification is not an independent audit or a claim of historical priority.
+At hole (7/17,10/17), the eight rational cells give a valid full-target-cell Markov matrix with final-cell lengths (3,2,1,1,1,1,2,3)/17. The formal resolvent 1ᵀ(I−zB)⁻¹ℓ equals 2(7−3z−6z²+5z³)/[17(1−z)^3(1+z)], proving the formula for every n. Independent symbolic rational-resolvent identity and n=1..20 checks corroborated; earlier (2/5,3/5) comparison is consistent.
+
+## originality
+
+PASS
+
+Earlier November 8 eight-cycle publication supplies an exact orbit Markov table, periodic counts and zeta, which is substantial methodological overlap. It does not state the probability of first n safe observations, its rational generating function, or polynomial prefactor; extracting the length-weighted resolvent and cancellation is additional finite-time mass analysis. The nearby four-cycle escape law is at a distinct parameter and linear order. Best-of-knowledge novelty only.
+
+## value
+
+PASS
+
+The first eight-cycle boundary is a dynamically intrinsic phase threshold, not arbitrary sampling. Its exact transient Lebesgue survival law and quadratic rather than linear polynomial factor distinguish natural zero-entropy phases sharing escape exponent log2; a meaningful exact open-system invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

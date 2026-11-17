@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The safe-set partition is induced by the exact eight-orbit of both hole endpoints. All safe cell images are unions of cells, with no partial image endpoints. The source-to-target transition matrix and last-cell lengths give an exact expression for every integer horizon. The displayed generating vector satisfies the eight polynomial row equations; summing it yields a rational generating function and coefficient extraction establishes the formula and the leading constant. Independent exact-rational inverse-branch enumeration through horizon 15 supports, but does not substitute for, the formal series proof. The map is undefined at the removed discontinuity and endpoint conventions change only null sets.
+PASS
 
-## Originality — PASS within the inspected scope
+At hole (7/17,10/17), the eight rational cells give a valid full-target-cell Markov matrix with final-cell lengths (3,2,1,1,1,1,2,3)/17. The formal resolvent 1ᵀ(I−zB)⁻¹ℓ equals 2(7−3z−6z²+5z³)/[17(1−z)^3(1+z)], proving the formula for every n. Independent symbolic rational-resolvent identity and n=1..20 checks corroborated; earlier (2/5,3/5) comparison is consistent.
 
-The nearest October 2026 source, Ding–Steiner–Sun, concerns decreasing Lorenz kneading admissibility, survivor symbolic plateaux, entropy, and Hausdorff dimension. Its Sections 4–5 and theorem statements do not give the finite-horizon Lebesgue survival expression or an order-three pole at the eight-cycle threshold. The published orbit/zeta trichotomy for the same map addresses only \(0<a\le2/5\), not \(a=7/17\), and periodic point counts cannot determine transient Lebesgue mass. The classic Haritha–Agarwal open Markov map work discusses methods and escape rates in different Markov systems, not the present parameter-specific finite-horizon identity. General transfer operators could make the computation approachable; this does not constitute an already published exact identity. Historical priority is provisional, and broader abstract finite-type escape statements may subsume methodology without implying this evaluated constant.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The hole endpoint \(7/17\) is not a chosen numerical grid: its negative-doubling itinerary is the first primitive eight-cycle at the next natural survivor-spectrum boundary after \(2/5\). A new polynomial escape order occurs there: \(n^2 2^{-n}\), rather than the \(n2^{-n}\) law at the adjacent four-cycle boundary. This finite-time probability is a natural observable for open dynamics and distinguishes two zero-entropy survivor regimes that share the same exponential escape rate. The explicit generating function is reusable for transient escape statistics and transfer-operator analysis. The contribution is an exact natural threshold invariant, not a new general transfer-matrix technique.
+Earlier November 8 eight-cycle publication supplies an exact orbit Markov table, periodic counts and zeta, which is substantial methodological overlap. It does not state the probability of first n safe observations, its rational generating function, or polynomial prefactor; extracting the length-weighted resolvent and cancellation is additional finite-time mass analysis. The nearby four-cycle escape law is at a distinct parameter and linear order. Best-of-knowledge novelty only.
 
-## Closest literature and risks
+## value
 
-Ding, Steiner, Sun, *Open dynamical systems in topologically expansive decreasing Lorenz maps*, arXiv:2610.03327v1, §4–§5; related public *A three-phase periodic-orbit and zeta trichotomy for symmetric negative-doubling holes* (2026); Haritha and Agarwal, *Product of expansive Markov maps with hole* (DCDS 2019). A published but unlocated equivalent under symbolic Markov nomenclature remains a residual historical-priority risk. The theorem does not classify perturbed holes, nonuniform initial densities, or all Markov boundary sequences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first eight-cycle boundary is a dynamically intrinsic phase threshold, not arbitrary sampling. Its exact transient Lebesgue survival law and quadratic rather than linear polynomial factor distinguish natural zero-entropy phases sharing escape exponent log2; a meaningful exact open-system invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
