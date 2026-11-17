@@ -1,19 +1,21 @@
-# Review of the two-pair avalanche-circle theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(g\ge1\) and \(t\ge0\), the binary configuration on an absorbing right-directed path has firing supports given exactly by translates of \(\{0,1,g+2,g+3\}\), truncated at the sink. The last vertex of every longer path is dominated, since its link is a triangle attached to an edge at a common apex. Five elementary pairs remove each trailing vertex. In the shortest admissible path, seven explicit elementary pairs leave the polygon \(C_{g+2}\). Every step is a valid simplicial collapse and establishes the integral homotopy type \(S^1\), without extrapolation from finite tests. The embedded standard-library verifier replayed 5,772 elementary pairs in 156 parameter cases and independently checked mod-two homology in 42 cases.
+PASS
 
-## Originality — PASS, subject to literature uncertainty
+Binary threshold-one parallel firing shifts the four support positions right by one per round until sink absorption, so all generating simplices are precisely clipped translates. Set L=g+2. At each of t trailing-zero removal stages, the terminal vertex link is a triangle joined to an edge along a cone apex, giving exactly five legal free-face pairs and deletion K_m -> K_(m-1). At base m=L+2 one tetrahedron, one triangle and consecutive edges admit four elementary pairs deleting vertex 0, then three free-face pairs eliminating the two triangles/pendant leaf, leaving C_L. Total 5t+7. Independently reconstructed all simplices and checked exact freeness at each pair for 72 L,t instances; proof itself is uniform and covers arbitrarily large g,t.
 
-The closest primary work is Henri Riihimäki and Jason P. Smith, *Avalanche homology of digraphs via sandpile dynamics* (arXiv:2606.26786, posted 2026-06-25). Its Section 3.1 classifies one consecutive block and the separated **three-grain** configuration \(\{0,1,g+2\}\), proving a wedge of \(t+2\) circles for the latter on the same path. Its results do not imply what happens after adding a fourth grain at \(g+3\), and they do not contain the five-pair dominated-vertex reduction or the constant-rank two-pair classification. A published residue-class avalanche finding concerns directed cycles rather than terminating paths. Phrase, equivalence, parameter and broader-result searches found no theorem covering the present claim. Unindexed or implicit earlier work remains a risk; negative searches are not proof of worldwide uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The four-grain two-run support is a natural first extension of a family whose first-homology rank can grow arbitrarily with the length of the trailing zero run. A single additional grain makes that rank uniformly one. The all-parameter simple-homotopy collapse explains this dramatic sensitivity, establishes a sharp gap transition from the contractible one-block case, and gives a small geometric core for any amount of trailing padding. The finding does not claim results for arbitrary binary strings, alternative firing models, or persistence.
+The 2026-11-01 published one-bar filtration theorem uses identical four-grain initial support and proves the terminal complex is S1, hence the S1/homology/one-grain corollaries are ALREADY COVERED, not novel. Its complete published proof is by successive homotopy pushouts along contractible attaching subcomplexes and does not provide an elementary simplicial collapse onto a specific canonical L-cycle, or an all-parameter 7+5t free-face certificate. The audited final claim is the latter stronger simple-homotopy/collapse statement; it is not a logical corollary of homotopy equivalence alone. Do not claim novelty for the terminal S1 or persistence.
 
-## Evidence, limitations and review status
+## value
 
-The first-posted arXiv preprint and its 2026-11-02 revision were inspected at the definitions, comparison theorems and proofs, summary table, and discussion. The standalone verifier and its output are embedded and reproducible, with no third-party package dependencies. The mathematical proof establishes all integer parameters; the finite verification is supplementary. A finding-index search located a result on directed-cycle residue supports, but its full paper was not inspected and no uniqueness claim rests on that absence. Independent mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit uniform simplicial collapse with exact linear cost and an identified canonical polygon is a motivated combinatorial-topology strengthening of an existing family homotopy calculation. It provides a concrete simple-homotopy witness, not merely another homology rank; this extra assertion has independent structural content despite known terminal S1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

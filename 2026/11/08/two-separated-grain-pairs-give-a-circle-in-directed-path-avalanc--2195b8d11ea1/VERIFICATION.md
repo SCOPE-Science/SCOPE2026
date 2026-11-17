@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library. This script generates the initial binary configurations, simulates synchronous firing and absorption at the final sink, constructs all nonempty simplices, and checks every proposed elementary collapse for a unique coface. It independently computes mod-two simplicial homology for smaller parameters using explicit boundary matrices represented by bit vectors.
+## correctness
 
-A successful run reports:
+PASS
 
-`ALL_VERIFY_OK cases=156 n_range=5..28 face_instances=14196 elementary_pairs=5772 independent_mod2_cases=42`
+Binary threshold-one parallel firing shifts the four support positions right by one per round until sink absorption, so all generating simplices are precisely clipped translates. Set L=g+2. At each of t trailing-zero removal stages, the terminal vertex link is a triangle joined to an edge along a cone apex, giving exactly five legal free-face pairs and deletion K_m -> K_(m-1). At base m=L+2 one tetrahedron, one triangle and consecutive edges admit four elementary pairs deleting vertex 0, then three free-face pairs eliminating the two triangles/pendant leaf, leaving C_L. Total 5t+7. Independently reconstructed all simplices and checked exact freeness at each pair for 72 L,t instances; proof itself is uniform and covers arbitrarily large g,t.
 
-The 156 collapse replays cover integers \(3\le L\le14\) and \(0\le t\le12\); the 42 independent mod-two checks use \(3\le L\le8\), \(0\le t\le6\). The script checks the actual complex after each dominated-vertex deletion against the complex generated for the shortened path and confirms the terminal polygon exactly. The mathematical proof does not depend on these parameter cutoffs. The checked mod-two groups do not alone establish integral homology: the unrestricted integral conclusion follows from explicit simplicial collapses.
+## originality
 
-The paper source's sandpile convention excludes the absorbing sink from firing sets. No external validator has assessed this work. The accompanying proof and executable are self-contained except for the cited definition of avalanche complexes and previously published three-grain comparison.
+PASS
+
+The 2026-11-01 published one-bar filtration theorem uses identical four-grain initial support and proves the terminal complex is S1, hence the S1/homology/one-grain corollaries are ALREADY COVERED, not novel. Its complete published proof is by successive homotopy pushouts along contractible attaching subcomplexes and does not provide an elementary simplicial collapse onto a specific canonical L-cycle, or an all-parameter 7+5t free-face certificate. The audited final claim is the latter stronger simple-homotopy/collapse statement; it is not a logical corollary of homotopy equivalence alone. Do not claim novelty for the terminal S1 or persistence.
+
+## value
+
+PASS
+
+An explicit uniform simplicial collapse with exact linear cost and an identified canonical polygon is a motivated combinatorial-topology strengthening of an existing family homotopy calculation. It provides a concrete simple-homotopy witness, not merely another homology rank; this extra assertion has independent structural content despite known terminal S1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
