@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every tree n>=3, edge differences form the dual of the fundamental centered-cut basis, and W is its L1 norm. A direction with >=2 active edge differences lies in a positive linear sign chamber of a sphere of dimension >=1, so cannot minimize there. Each 1-edge direction has strictly positive sharp tangent coefficient because distinct cut covariances satisfy |Kef|<Kee. The projected cut basis and triangle inequality prove the exact attained tangent minimum. A uniform bound |d_e(z)|<=sqrt(2) makes the geodesic formula exact below the stated tangent threshold. Path/star specializations follow by exact Gram substitution. The standalone Fraction checker reproduced 1,440 exhaustive small labeled trees, 56,262 tangent mixtures, and the specialized identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Padrol–Pilaud–Poullot 2023 open full HTML, theorem on deformation cones, https://link.springer.com/article/10.1007/s00454-023-00586-x",
+        "Feld–Aujol–Gilboa–Papadakis 2019 general one-homogeneous quotient and L1 graph TV, https://cris.technion.ac.il/en/publications/rayleigh-quotient-minimization-for-absolutely-one-homogeneous-fun-2/"
+      ],
+      "reasoning": "A general nonsmooth Rayleigh framework allows this objective but does not state or imply all-tree enumeration plus the sharp realized finite-angle coefficient without a further theorem. The source on zonotope deformations addresses facets of a different parameter space, not local minima of the fixed Euclidean width function.",
+      "searches": [
+        "graphical zonotope width spherical local minima tree cut direction",
+        "graph 1-Laplacian local minima Rayleigh quotient L2 normalization eigenvectors",
+        "Every tree graphical zonotope has exactly twice the number of edges strict local minima of Euclidean width on the unit sphere, one for each oriented edge cut."
+      ]
+    },
+    "checked_sources": [
+      "Padrol–Pilaud–Poullot, Deformed Graphical Zonotopes, arXiv:2111.12422 (2021-11-24), full 2023 publisher HTML inspected",
+      "Feld–Aujol–Gilboa–Papadakis, Rayleigh quotient minimization for absolutely one-homogeneous functionals, Inverse Problems 35 (2019), abstract inspected",
+      "Kolmogorov–Pock–Rolinek, Total Variation on a Tree, SIAM J Imaging Sci 9 (2016), abstracts inspected",
+      "Published global inradius and cut-ratio result for weighted graphical zonotopes (indexed statement only, no full text accessible)",
+      "Previously available local-width classifications for the regular simplex and complete-graph permutohedron (statement comparisons, distinct graphs)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An indexed 2026 published statement \"Euclidean inradius of weighted graphical zonotopes is a cut expansion constant\" identifies a global minimum through cuts (indexed summary only); it does not assert a count of nonglobal local minima or any angular coefficient.",
+        "Padrol et al. full text, Proposition 1.4 and Theorem 2.6 concern face lattice and deformation cone.",
+        "Feld et al. abstract describes graph TV over an L1 sphere rather than the Euclidean unit sphere."
+      ],
+      "reasoning": "Global-minimum cut results yield only min_e(w_e) for trees, a single scalar; they cannot determine the entire list of strict local minima or gamma_e, and the path/star comparison shows gamma is not determined even by the width of a given leaf cut. Previous complete-graph width-landscape formulas and simplex-width results use different edge sets, so do not cover trees with n>=4.",
+      "searches": [
+        "Graph total variation on zero mean unit L2 sphere; all strict local minima tree have one nonzero edge difference, slope computed from covariance of fundamental cuts.",
+        "Euclidean directional width local minima graphical zonotopes of trees edge cut split sphere graph total variation angular stability exact profile",
+        "tree graph total variation Euclidean sphere strict local minima only one edge jump 2(n-1) local minimizers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feld et al., Inverse Problems 35 (2019), 064003, indexed abstract: generalized Rayleigh quotients with an L1 graph-TV instance; DOI 10.1088/1361-6420/ab0cb2",
+        "Padrol et al., Deformed Graphical Zonotopes, DOI 10.1007/s00454-023-00586-x, full text Sections 1-3: deformation cones, not Euclidean spherical-width wells"
+      ],
+      "reasoning": "Equivalently W_T(u) is the graph total variation of a centered Euclidean unit signal and the zonotope support width. L1-sphere Cheeger optimization and nonlinear eigenvector flows involve different normalizations and do not supply the complete local Euclidean landscape or its attained finite-angle profile.",
+      "searches": [
+        "\"local minima\" \"total variation\" \"sphere\" graph",
+        "\"local minimizers\" \"graph total variation\" \"L2\" quotient",
+        "tree graph total variation Euclidean sphere strict local minima only one edge jump 2(n-1) local minimizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Padrol et al. 2023 full HTML contains deformation-cone descriptions, examples and illustrations, not the claimed tree-cut Gram angular matrix",
+        "The finite table in tree_width_checker.py is a newly computed diagnostic rather than a previously published exact database"
+      ],
+      "reasoning": "The result is for every n and every tree and includes an explicit analytic minimum over all other tree edges; it is not a lookup or previously checked exact table, and the test enumeration is supplementary.",
+      "searches": [
+        "sharp geodesic angular growth formula at cut directions for graph total variation tree zonotope",
+        "Geodesic angular lower envelope of tree graphical zonotope width near a facet normal; paths slope 1/sqrt(M(M-1)) stars sqrt((n-2)/(n-1)).",
+        "\"zonotope\" \"width\" \"local minima\" unit sphere"
+      ]
+    },
+    "rationale": "The principal claim is the complete all-tree local width-minimum landscape and attained finite-angle profile, not the already-known global minimum width. The published graphical zonotope source deals with deformation cones; broad Rayleigh-quotient and graph-total-variation sources describe flows or L1 normalization; an indexed global inradius result controls only global cut minima. None of their verified statements logically determines the sharp coefficient gamma_e or path-star factor n-2. Priority against inaccessible longer writings remains provisional.",
+    "residual_risks": [
+      "Existing literature on nonsmooth Rayleigh quotients or parallelotope widths could contain an equivalent general tangent-profile identity not retrieved by statement and alias searches.",
+      "Full text was not accessible for all potentially relevant tree-total-variation and quotient-optimization publications, so absence of an earlier equivalent corollary is not proved.",
+      "The indexed global inradius result was available as a summary, not as a fully inspectable manuscript; no whole-document exclusion is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Geometric construction and deformation-cone classification; no all-tree Euclidean spherical width local-minimum or sharp angular profile statement found in the inspected article.",
+        "evidence": [
+          "Article Section 2.3, graphical zonotope as Minkowski sum of edge segments",
+          "Theorem 2.6 describes irredundant inequalities of deformation cones",
+          "Corollary 2.10 classifies simplicial deformation cones"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-023-00586-x",
+        "material_read": "Full accessible HTML article including Introduction, graphical zonotope preliminaries, Proposition 1.4, Theorem 2.6 and simplicial-deformation corollaries.",
+        "method": "Read publisher full-text HTML sections and theorem statements.",
+        "title": "Deformed Graphical Zonotopes",
+        "trigger": "Defines graphical zonotopes, exactly the geometric family under study."
+      },
+      {
+        "assessment": "The stated graph-TV application concerns an L1 sphere and algorithmic flows; this does not establish the Euclidean tree finite-angle formula. Full-text coverage is a residual risk.",
+        "evidence": [
+          "Abstract: general Rayleigh quotient J/H and graph-TV specialization on L1 sphere",
+          "DOI 10.1088/1361-6420/ab0cb2"
+        ],
+        "identifier_or_url": "https://cris.technion.ac.il/en/publications/rayleigh-quotient-minimization-for-absolutely-one-homogeneous-fun-2/",
+        "material_read": "Accessible scholarly abstract and bibliographic record; full primary text not available from the inspected link.",
+        "method": "Read published abstract and scoped the stated graph-TV application.",
+        "title": "Rayleigh quotient minimization for absolutely one-homogeneous functionals",
+        "trigger": "Directly relevant general variational framework for graph total variation over norm spheres."
+      },
+      {
+        "assessment": "Stated problem is minimizing total variation plus unary terms by dynamic programming; not the geodesic spherical width profile. Hidden full-text discussion remains a bounded risk.",
+        "evidence": [
+          "Abstract focuses on total variation with unary terms and fast tree dynamic programming",
+          "DOI 10.1137/15M1010257"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.07770",
+        "material_read": "Author-linked preprint abstract, publisher abstract and bibliographic description; complete preprint not inspected.",
+        "method": "Compared the stated optimization problem with the present unit-sphere width landscape.",
+        "title": "Total Variation on a Tree",
+        "trigger": "Tree-valued total variation might subsume a local-minimum classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c70b30c8-8547-45ad-8f3e-33f3525beab9",
+  "value": {
+    "rationale": "A natural complete optimization landscape is computed for an infinite class of geometric objects: exactly 2(n-1) strict wells and the attained local geodesic width function about each. This is not merely the known global Cheeger/inradius value. Quantified stability is meaningful because n-vertex star and path zonotopes have equal width at their leaf-edge wells yet angular slopes differing by n-2, a diverging structural separation at fixed dimension. The precise invariant is directly motivated by robustness of local directional-width minima.",
+    "status": "PASS"
+  }
+}
