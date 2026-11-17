@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats all integers \(m\geq5\) and every nonidentity subgroup \(H\leq S_4\). A moved-row rook cannot occur in an invariant face because its orbit would reuse a column; this proves equality of the *geometric* fixed-point space with the smaller chessboard complex. The older shellability theorem applies because \(m\geq m-4+2k\) for \(k\leq2\); the complete face count and alternating-binomial identity determine the wedge multiplicities. The torsion existence and uniqueness are supplied by the explicitly cited recent primary theorem; its presentation is tracked under a row swap and arbitrary column permutation, including exterior orientation signs. Tests reconstruct complete finite chain complexes, but no finite run is mistaken for a general proof.
+PASS
 
-## Originality — PASS, with residual risks
+A geometric H-fixed simplex cannot contain a vertex in any moved row: its orbit includes two rooks in the same forbidden column. Thus only the k individually H-fixed unit-capacity rows plus the heavy row remain, yielding Y_{m,k} exactly, where k<=2 for nonidentity H<=S4. Every Y_{m,k} facet uses all capacities, has dimension m-5+k and satisfies shellability condition of Jojić–Vrećica–Živaljević Theorem 4.4: m >= (m-4+k)+(k+1)-1 = m-4+2k for k<=2. Direct face count f_{j-1}=sum_{a+b=j} C(k,a)(m)_a C(m-a,b), 0<=b<=m-4, and alternating-binomial Euler identity give beta0=C(m-1,3), beta1=mC(m-2,2)-C(m-1,3), beta2=m(m-3)+C(m-1,3). Independent face-count Euler checks for all 12 pairs 5<=m<=8,k<=2 passed. For ambient Z/3 torsion, Limonchenko–Yu arXiv:2610.37827 Theorem 5.7 and pages 19–20 explicitly prove a unique Z/3 via their integral relative cokernel (5.10), with generator tau=sum_{|D|=3}R^{(2)}_{D,min D} (5.11) and relations q^(2)=-q^(3). Transposition of second/third unit rows interchanges the (2),(3) families, mapping tau to -tau, hence full S4 sign. Every R^{(2)} summand is an exterior word with exactly one factor per column; any column permutation contributes its global sign on the m factors, and relation independence of p ensures tau transforms by sign(S_m). The two actions commute, hence product sign. This uses the actual integral presentation, not inference of action from Z/3 abstract type or mod-three sample data.
 
-The new claim is the combined uniform geometric fixed-point profile and integral \(S_4\times S_m\) torsion character. Limonchenko–Yu's three-torsion existence, the classical shellability statement, and Jonsson's already known five-by-five partial sign action are expressly excluded from the novelty claim. Comparisons of hypotheses and implications show that neither the torsion-existence result nor shellability alone gives the claimed fixed-point *identification*, complete subgroup dependence, or uniform full product-character statement without the arguments presented here. Jojić–Vrećica–Živaljević's symmetrized complexes are unions of translates, not pointwise fixed loci. Equivalently worded unpublished calculations may exist. The 2026 primary paper's full accessible text, including its integral-presentation derivation, was inspected; this comparison is not based on its abstract alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This theorem records an explicit feature of a naturally occurring torsion family: the ambient space has order-three integral homology while every nonidentity row-subgroup fixed locus is a wedge of spheres and thus torsion-free. The sign character gives integral orientation-sensitive information that an abstract torsion summand does not determine. The formulas cover all \(m\geq5\) and all nonidentity subgroups, not a numerical sample, and provide data relevant to equivariant-topological obstruction calculations.
+The Limonchenko–Yu 2026 paper proves the ambient Z/3 torsion and even a Moore-space wedge; that existence is expressly prior, not a new claim. The additional full S4xSm action on its unique torsion generator is extracted from (5.10)–(5.11); a known Jonsson 5x5 sign phenomenon is acknowledged as special case, not claimed original. The complete geometric fixed-space homotopy profile for all nontrivial H<=S4, all m>=5, using the shellability theorem on smaller fixed chessboards, is a separate uniform equivariant refinement. The original torsion paper does not state both of those additional conclusions in its main result as read.
 
-## Closest literature and limitations
+## value
 
-- Limonchenko–Yu (arXiv:2610.37827v1), Theorem 5.7 and equations (5.10)–(5.11): underlying torsion and its integral presentation; main prerequisite, not new.
-- Jojić–Vrećica–Živaljević (arXiv:1412.0386), Theorem 4.4: shellability of the identified fixed-point complexes, not their identification as fixed loci.
-- Jonsson (arXiv:1203.5644), page 11: partial five-by-five sign action already known; explicitly not claimed as new.
-- Jojić–Vrećica–Živaljević (arXiv:1502.05290): symmetrized union complexes, not the present fixed spaces.
+PASS
 
-Residual risk: equivalent group-action formulas could be implicit or written elsewhere. Neither a full equivariant homotopy decomposition nor the free-part representations are determined. The finite chain checks are corroboration, not independent mathematical validation.
+Connects a persistent natural 3-torsion family with a full row-and-column sign character and explains the torsion-free topology of every proper row-symmetry fixed space. This is a structural, all-parameter equivariant refinement, not a restatement of the known torsion rank; the β_k formulas give explicit geometric tests for symmetry-induced changes.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
