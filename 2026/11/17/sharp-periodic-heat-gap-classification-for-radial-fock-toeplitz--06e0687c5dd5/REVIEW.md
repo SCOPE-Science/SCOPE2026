@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof establishes the exact gamma-law diagonal formula in every finite complex dimension and its Gaussian limit; the square-root phase sampling produces the full essential interval. The coherent-vector Gaussian transform yields the second full cluster interval. Strict heat-semigroup smoothing separates all four endpoints for nonconstant profiles. Coupled Gaussians prove the optimal Lipschitz gap, and periodized triangular waves approach the bound. A standalone finite checker corroborates 4013 diagnostic assertions; these do not replace proof.
+
+**Originality — PASS, with priority qualification.** The general one-dimensional eigenvalue heat approximation is established in Esmeral–Maximenko (2015), Proposition 6.5. Looi (2026), Theorem 2.2, Remark 2.5 and Proposition 3.8, already provide single-frequency counterexamples and their extension to all complex dimensions. Fulsche (2024) gives general essential positivity through limit operators. The distinct assessed claim is the complete **all-continuous-periodic** spectral and Berezin interval correspondence together with the **globally sharp Lipschitz false-positive width**, including strict characterization and extremizing periods. Targeted mathematical-record searches did not identify this combined result. Because it uses strong existing Gaussian smoothing results and elementary heat principles, an unstated or differently named earlier corollary remains a genuine priority risk; no absolute novelty assertion is made.
+
+**Mathematical value — PASS.** The exact classification resolves the false-positive window for an entire natural function class, not merely examples, and the best Lipschitz coefficient measures the largest discrepancy per unit radial regularity. The proof identifies a universal structural contrast between spectral and coherent-state smoothing. Periodic sharpness requires a family of increasing periods; no uniform bound on symbol amplitude is imposed.
+
+**Scientific limits.** This does not classify nonperiodic symbols, arbitrary radial measurable symbols, fixed-period optimizers or Bergman analogues. Independent validation and publication-priority review have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
