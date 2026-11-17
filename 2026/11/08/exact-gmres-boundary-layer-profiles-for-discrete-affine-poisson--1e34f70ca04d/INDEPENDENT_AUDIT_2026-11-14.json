@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T08:09:00.949072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The discrete harmonic stencil identity A_n b=L e_1+R e_n gives A_n K_k=span{L e_j+R e_(n+1-j):1<=j<=k} through floor(n/2); these vectors have disjoint two-coordinate supports. Orthogonal residual projection yields the center sum plus ((R^2-L^2)^2/((L^2+R^2)(n+1)^2))*sum_(j<=k)j^2. Dirichlet sine eigenpairs have nonzero coefficients precisely on odd/even modes determined by L+(-1)^(s+1)R, yielding grades n,ceil(n/2),floor(n/2). For constant forcing the remaining squared residual is max(n-2k,0); for ramp forcing the Krylov image successively removes last coordinates, giving exact sums of squares and relative tolerance limits. Source RESULT.md theorem/proof read; independent rational Gram projections passed 380 cases. No finite check is claimed to prove arbitrary n, preconditioned or floating-point behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2004 treatment includes Jordan/non-normal examples; Zhang gives Toeplitz bounds and canonical endpoint-vector cases; Chen-Soodhalter abstracts explicitly target nonsymmetric Toeplitz attainable behavior."
+        ],
+        "reasoning": "The older general tridiagonal methodology can potentially be specialized, but a theorem about upper bounds or non-Hermitian attainable curves does not supply these exact affine b_j projections and both full asymptotic tolerance laws. Inaccessibility of Chen-Soodhalter v3 is a priority caveat.",
+        "searches": [
+          "Liesen-Strakos 2004 GMRES tridiagonal Toeplitz",
+          "Zhang 2007 GMRES on a Tridiagonal Toeplitz Linear System",
+          "arXiv:2609.24751"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at f1c19984caa71b83c8272fba5227f47ff35603b9",
+        "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+        "https://www.ms.uky.edu/~qye/NAgroup/weizhang.pdf",
+        "https://arxiv.org/abs/2609.24751",
+        "Resultary semantic query for GMRES discrete affine Poisson"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen-Soodhalter 2026 abstract specifies non-Hermitian tridiagonal Toeplitz GMRES; reviewed older primary sections provide general convergence bounds and specific forcing, not the displayed exact formula as a corollary."
+        ],
+        "reasoning": "The actual stronger-coverage test is mathematical implication, not title matching: nothing inspected instantiates exactly all affine Dirichlet harmonic data with these residual curves; potential uninspected full-text coverage remains explicitly unresolved risk but best-of-knowledge PASS.",
+        "searches": [
+          "Resultary query: GMRES exact residual one-dimensional Dirichlet Poisson matrix harmonic affine right hand side grade constant ramp",
+          "arXiv:2609.24751",
+          "Liesen-Strakos 2004",
+          "Zhang 2007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source proof uses a finite-propagation endpoint-pair orthogonal basis; the older work provides general Toeplitz GMRES convergence and spectral methodology but the inspected results do not state the affine boundary-harmonic projection formula."
+        ],
+        "reasoning": "Attainable-curve and matrix eigenvalue-only results are not equivalent to this actual fixed SPD matrix and forced 2D harmonic data classification; spectral facts alone do not give each intermediate norm.",
+        "searches": [
+          "Resultary query: GMRES exact residual one-dimensional Dirichlet Poisson matrix harmonic affine right hand side grade constant ramp",
+          "arXiv:2609.24751",
+          "Liesen and Strakos 2004 tridiagonal Toeplitz GMRES PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tested formulas are symbolic all-n exact identities, not a finite matrix table; related published numeric analyses include b=e1/eN but not the two-boundary combined grade trichotomy."
+        ],
+        "reasoning": "No known exact database table directly contains the all-parameter symbolic profile; failure to find one cannot establish worldwide novelty.",
+        "searches": [
+          "Resultary query: GMRES exact residual one-dimensional Dirichlet Poisson matrix harmonic affine right hand side grade constant ramp",
+          "Resultary other structured GMRES residual studies",
+          "Zhang 2007 thesis"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The exact complete two-parameter affine-harmonic right-hand-side residual profile, parity-sensitive relative Krylov grade and two exact tolerance limits are not implied by the full or relevant sections inspected of the older tridiagonal Toeplitz GMRES literature. The most directly related 2026 Chen-Soodhalter source emphasizes non-Hermitian constrained attainable curves; its complete v3 text was not accessible, creating a material priority risk, not an automatic scientific failure.",
+      "residual_risks": [
+        "Full arXiv:2609.24751 v3 inaccessible: possible hidden coverage of symmetric affine RHS despite nonsymmetric focus. Oxford institutional VPN disconnected; never bypassed.",
+        "Other exact-algebra special-case Toeplitz GMRES formula may be unindexed.",
+        "Finite exact checks (380 cases) are corroboration, not all-n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related Toeplitz GMRES methodology, not exact complete affine-harmonic formula in inspected sections.",
+          "evidence": "2004 paper analyzes tridiagonal Toeplitz convergence and examples with fixed RHS; source theorem introduces exact boundary-harmonic two-parameter projection and tolerance exponents.",
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+          "material_read": "Primary 19-page PDF inspected, including initial theorem/methodology and the structured Jordan and symmetric discussions.",
+          "method": "Full-text PDF extraction and rendered page inspection via web screenshot.",
+          "title": "Convergence of GMRES for Tridiagonal Toeplitz Matrices",
+          "trigger": "Same matrix family and GMRES residual curves"
+        },
+        {
+          "assessment": "General bounds/special basis vectors do not visibly establish the submitted combined affine profile.",
+          "evidence": "Inspected thesis treats b=e_1 and b=e_n canonical forcing and general Toeplitz bounds.",
+          "identifier_or_url": "https://www.ms.uky.edu/~qye/NAgroup/weizhang.pdf",
+          "material_read": "Relevant sections of 107-page PDF on generalized bounds, endpoint forcing and Toeplitz residual analysis; full 107-page proof-by-proof comparison not represented.",
+          "method": "PDF text navigation/find and page screenshot.",
+          "title": "GMRES on a Tridiagonal Toeplitz Linear System",
+          "trigger": "Thesis with exact Toeplitz special cases"
+        },
+        {
+          "assessment": "Cannot classify whole-document NOT_COVERING; abstract describes nonsymmetric attainable-behavior analysis.",
+          "evidence": "Authors Chen and Soodhalter examine non-Hermitian Toeplitz attainable GMRES convergence; direct check of affine SPD case inaccessible.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24751",
+          "material_read": "Abstract, version history (September 21 v1, October 27 v3), relevant summary; full version not retrieved.",
+          "method": "arXiv/OA searches and authorized Oxford institutional retrieval attempted, returned vpn_disconnected.",
+          "title": "Constraints on admissible behavior of GMRES applied to tridiagonal Toeplitz systems",
+          "trigger": "2026 closest same-structure scientific work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: discrete harmonic RHS data form the canonical two-parameter boundary-value family for a one-dimensional Dirichlet Poisson stencil; exact residual curves distinguish mesh-scale solver behavior on the same SPD operator with constant versus ramp data. The result is a natural exact numerical linear-algebra invariant, not a single arbitrary RHS run.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md at f1c19984caa71b83c8272fba5227f47ff35603b9",
+    "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+    "https://www.ms.uky.edu/~qye/NAgroup/weizhang.pdf",
+    "https://arxiv.org/abs/2609.24751",
+    "Resultary semantic query for GMRES discrete affine Poisson"
+  ],
+  "disposition": "passed",
+  "limitations": "Exact-arithmetic unrestarted zero-initial GMRES, fixed SPD tridiagonal and nonzero real affine RHS; generic finite-step formula only through floor(n/2); full profiles and tolerance laws only for constant and one-sided ramp; no precision/preconditioning/higher-D claims.",
+  "residual_risks": [
+    "Full arXiv:2609.24751 v3 inaccessible: possible hidden coverage of symmetric affine RHS despite nonsymmetric focus. Oxford institutional VPN disconnected; never bypassed.",
+    "Other exact-algebra special-case Toeplitz GMRES formula may be unindexed.",
+    "Finite exact checks (380 cases) are corroboration, not all-n proof."
+  ],
+  "schema_version": 1
+}
