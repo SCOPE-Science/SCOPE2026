@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` using a Python environment with NumPy, SymPy and mpmath installed. The observed replay is preserved in `verify_output.txt`; the script performs exact symbolic Schur-complement identities, high-precision beta calculations, direct randomized matrix checks of the rank-one residual identity, and the exact arcsine specialization. The proof covers all admissible input dimensions and sketch sizes, while code only checks selected finite instances.
+## correctness
 
-The divergence of expected norm errors is an analytic statement, demonstrated by a nondegenerate zero of a quadratic denominator and a divergent one-dimensional integral. Neither Monte Carlo trials nor a lack of observed large errors can confirm or refute that statement. The coefficient for a general indefinite spectrum is a spherical coarea integral; the explicitly evaluated beta law requires two eigenvalue levels. Independent mathematical auditing has not been performed.
+PASS
+
+The Gaussian core determinant is a nonzero polynomial, hence a.s. invertible. A regular nonzero isotropic point of any indefinite symmetric quadratic form has local |t|^(-p) divergence for p>=1. For arbitrary 1<=k<n, conditioning on k-1 eigenvector-near Gaussian columns preserves both signs in the Schur residual with positive probability; Tonelli gives divergence. For k=n-1, rank-one hyperplane identity and regular spherical coarea show t^-1 tail, finite moments exactly for p<1, and two-level beta law. Independent near-full matrix identities and arcsine computations corroborate.
+
+## originality
+
+PASS
+
+The previously known deterministic instability of signed Nyström approximation and spherical-quadratic density methods do not establish the all-sketch (1<=k<n) unconditional Gaussian infinite-moment result. The conditional indefinite Schur-residual argument plus near-full spherical inverse law is a distinct mathematically useful statement, subject to possible unindexed precedence.
+
+## value
+
+PASS
+
+For all indefinite nonsingular real symmetric inputs, changing Gaussian sketch dimension cannot repair nonintegrable unmodified Nyström error. This gives a natural exact algorithmic risk boundary, a sharp near-full heavy-tail coefficient and practical mathematical justification for stabilized-core methods, while deliberately excluding finite-precision promises.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
