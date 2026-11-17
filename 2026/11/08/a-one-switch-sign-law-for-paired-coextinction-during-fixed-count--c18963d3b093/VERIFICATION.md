@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The theorem is proved symbolically using the inclusion probability for a fixed set in a uniform subset and a closed ratio for consecutive removal stages. `checker.py` uses only the Python standard library. It checks all cardinalities and removal counts for sizes 2 to 12 (17,743 exact-rational stage checks across 1,650 parameter cases), independently enumerates 1,737 selected random-subset distributions, and confirms the rank-covariance distinction by exact fractions. These are finite checks, not the infinite proof; the proof and its boundaries are written in RESULT.md.
+# Independent mathematical audit
 
-The checker cannot establish historical priority or ecological realism. No independent audit has been performed.
+## correctness
+
+PASS
+
+PASS. Extinction indicators E_A,E_B satisfy Cov(1-E_A,1-E_B)=q_u-q_a q_b with q_s=binom(r,s)/binom(n,s). For nested sets q_u(1-q_min)>=0. For incomparable sets, r between max(a,b) and u-1 gives strict negativity; for r>=u, ratio H_{r+1}/H_r=((r+1-a)(r+1-b))/((r+1)(r+1-u)), whose deviation from one is (ab-c(r+1))/positive denominator. Hence H_r unimodal and H_n=1, while penultimate covariance=(nc-ab)/n^2; deduces negative-only versus at most one negative-to-positive switch, with equality at most one intermediate stage. Independent exact rational binomial checks across all valid cardinalities for n<=10 and removed stages reproduced the signs; finite check is not the general proof.
+
+## originality
+
+PASS
+
+PASS. Prior balanced regular network variance-maximization work uses the same pair-inclusion q_u, but derives only an aggregate variance/chord bound for d-regular balanced incidence; it neither states nor implies the arbitrary-unequal-two-neighborhood nested/incomparable all-stage sign phase law. The fixed-stage pair theorem is distinct from covariance of extinction ranks.
+
+## value
+
+PASS
+
+PASS. Explicit arbitrary-overlap sign transition is a natural pairwise dependency statistic for uniformly sampled ecological knockouts and is needed when decomposing whole-network variance. The threshold c>ab/n is interpretable as above-random shared partners; this is a motivated global classification, not merely restating q_u.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
