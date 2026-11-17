@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact curvature system inversion and cubic derivative formula verified. Variation seminorm reduced for arbitrary data to three unit steps. Each step variation integrated at all internal critical points, with strict comparison Kmiddle>Kouter; middle step is an attaining witness. Code checks exact rational coefficients and numerical integration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nearest prior three-knot positivity-defect theorem applies only to one free interior curvature, not the coupled two-interior-curvature system.",
+        "2012 weighted shape-preserving spline article studies different adaptive weighted interpolants and monotonicity sufficient conditions."
+      ],
+      "reasoning": "The most plausible stronger literature concerns arbitrary-knot natural spline stability, but examined closest primary material gives curvature/basis and smoothing results, not a sharp four-knot BV norm. An inaccessible stronger theorem remains a residual risk, not a proof of originality.",
+      "searches": [
+        "published-finding corpus: four point natural cubic spline interpolation variation overshoot middle step sharp constant",
+        "published-finding corpus: Fritsch Carlson PCHIP shape preserving cubic interpolation two input total variation sharp Lipschitz nonuniform grids",
+        "web: natural cubic spline total variation operator norm from first differences"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1403.1388",
+      "https://doi.org/10.1016/j.cam.2012.04.001",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published three-knot natural spline range result: defect M max{r^{-1},r^2}/(3 sqrt3(1+r)); its two cells contain only one coupled curvature degree.",
+        "Dermoune–Preda describes C^2 natural spline basis and smoothing objectives and their appendices, but no input-to-output BV variation norm."
+      ],
+      "reasoning": "The three-knot defect cannot yield the coupled 2x2 curvature response of four knots; the B-spline basis theorems furnish general representation, not the exact BV amplification. The latter is calculated by the new three-step extremal comparison.",
+      "searches": [
+        "published-finding corpus: A sharp three-knot positivity defect for natural cubic interpolation arbitrary nonuniform spacing overshoot",
+        "published-finding corpus: natural spline finite four nodes bounded variation operator 1.51320023927967",
+        "web: arxiv natural cubic spline 2014 Dermoune Preda"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first relevant four-knot literature retrieved treated range defects for ordinary cubic Lagrange interpolation, not natural cubic splines.",
+        "arXiv:1403.1388 defines and constructs natural cubic spline bases without a BV norm theorem."
+      ],
+      "reasoning": "Alternative forms include maximal integrated absolute derivative, monotone central-step oscillation, or the BV quotient norm; none identified in inspected source contents.",
+      "searches": [
+        "published-finding corpus: four knot natural cubic spline interpolation sharp total variation norm 1 + 8/(9 sqrt 3) four equally spaced knots",
+        "published-finding corpus: natural spline finite four nodes bounded variation operator 1.51320023927967",
+        "web: arxiv natural cubic spline interpolation uniform knots 2012 cubic spline monotone shape preservation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed record in the actual queried published-finding corpus results gives the constant 1+8/(9 sqrt 3) or a four-knot natural spline BV table."
+      ],
+      "reasoning": "A negative indexed search cannot exclude unpublished, unindexed or older numerical tables; exact mathematical identity and proof remain independently supplied.",
+      "searches": [
+        "published-finding corpus: natural spline finite four nodes bounded variation operator 1.51320023927967",
+        "published-finding corpus: four knot natural cubic spline interpolation sharp total variation norm 1 + 8/(9 sqrt 3) four equally spaced knots",
+        "web: natural cubic spline 1.513200239 variation norm"
+      ]
+    },
+    "rationale": "Source-level and published-finding corpus comparisons did not locate an exact four-knot natural cubic spline BV norm. The nearest three-knot overshoot result does not cover coupled interior curvatures; sampled-spline smoothing literature addresses different invariants. This is a qualified best-knowledge judgment, not a search-based uniqueness proof.",
+    "residual_risks": [
+      "Unindexed older interpolation monographs or tables may state equivalent four-knot BV amplification.",
+      "Full GitHub record of nearest three-knot result was inaccessible; its publicly available exact summary was compared.",
+      "The finding is intentionally finite and does not imply a general all-knot stability theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the four-knot BV norm; basis construction alone is not sharp BV stability",
+        "evidence": [
+          "arXiv 1403.1388 lines 0–68: definitions and basis; lines 77–120: smoothing quadratic forms; no matching total-variation or bounded-variation text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.1388",
+        "material_read": "full arXiv HTML article sections 1–3, equations for continuity and natural basis, and linked appendix descriptions; full 577-line article returned",
+        "method": "read HTML-rendered arXiv paper with definition, basis representation, error and smoothing sections, and searches for total variation",
+        "title": "Estimation of noisy cubic spline using a natural basis",
+        "trigger": "First verified day-dated archived natural-cubic source; same natural conditions and general knot count"
+      },
+      {
+        "assessment": "Uses weighted/adaptive splines and sufficient monotonicity criteria, not natural four-knot integrated derivative norm",
+        "evidence": [
+          "DOI 10.1016/j.cam.2012.04.001: shape preservation by adaptive weight selection, not an exact variation operator norm"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2012.04.001",
+        "material_read": "publisher-open abstract, introduction, Sections 4 and 8 as rendered on accessible article page",
+        "method": "read accessible full section text and compare operator class and objective",
+        "title": "A shape-preserving approximation by weighted cubic splines",
+        "trigger": "Potential competing spline monotonicity or variation estimate"
+      },
+      {
+        "assessment": "Different three-knot positivity defect; no implication of four-knot coupled-curvature coefficient from summary. Full record remains priority uncertainty.",
+        "evidence": [
+          "published-finding corpus result 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304: defect max{r^-1,r^2}/[3 sqrt3(1+r)] for three knots"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+        "material_read": "published-finding corpus result title and complete abstract/summary; full linked GitHub page inaccessible",
+        "method": "read result summary and compare its exact interval overshoot and knot count with new claim",
+        "title": "A sharp three-knot positivity defect for natural cubic interpolation",
+        "trigger": "Nearest published sharp constant for natural cubic interpolation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28773254-9e93-4980-8b71-a4d9cefc9b73",
+  "value": {
+    "rationale": "Four natural spline knots are the first case with genuinely coupled interior curvature variables, and total-variation amplification is a natural interpolation stability invariant. The exact sharp gain and unexpected central-cut extremizer supply a complete baseline beyond three-knot isolated-curvature overshoot, useful for comparison against shape-preserving interpolants; no broader theorem is claimed.",
+    "status": "PASS"
+  }
+}
