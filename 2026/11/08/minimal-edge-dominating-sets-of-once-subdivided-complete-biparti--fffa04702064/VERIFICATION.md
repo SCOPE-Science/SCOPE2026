@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the stated polynomial
+# Independent mathematical audit
 
-Run `python verify.py` with a recent Python 3 interpreter (3.9+) using only the standard library. The program implements the actual subdivided graph's edge adjacency and separately enumerates predicted incidence configurations, cross-checking the complete families and polynomial coefficients for eleven small bipartition-size pairs. It also tests seven larger predicted families directly, verifies the upper missing-cardinality interval for a finite rectangular range, and checks star boundary values.
+## correctness
 
-Observed return:
+PASS
 
-`VERIFY_OK exact_cases=11 exhaustive_subsets=403028 exact_minimal_sets=1334 additional_cases=7 generated_tested=138494 all_coefficients=PASS all_families=PASS upper_gaps=PASS stars=PASS`
+Read frozen RESULT.md, verify.py and all Git tree members. Exact criterion: for every inactive base vertex, all opposite incidences are selected, so inactive vertices cannot occur in both sides. With inactive side nonempty, each remaining active vertex has exactly one own incidence; with none inactive, exactly one outgoing incidence per original vertex and universal incoming choices excluded by inclusion-exclusion. The all-m,n proof covers m=1 separately; independent adjacency-based complete enumeration (not reusing package script) agrees m,n=(1,3),(2,2),(2,3),(3,3), including (3,3): {5:54,6:576,7:18,9:2}. Logs or finite checking alone are not taken as the proof.
 
-For the exhaustive cases, the 403,028 total edge subsets are all evaluated against the original domination definition and every single-edge deletion. For larger cases the 138,494 generated sets are checked, **not** every edge subset. The tests provide finite corroboration only; the general polynomial and the unbounded gap follow from the proof. The archival literature-priority check is provisional; no independently performed audit is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge original complete labeled two-parameter inclusion-minimal edge-domination polynomial and structural case classification; older known minimum-cardinality formula and enumerating algorithms do not imply its distribution or missing-cardinality interval. No dominating exact prior found in targeted published-record and primary searches; full Horton--Kilakos paper remains a specific priority risk.
+
+## value
+
+PASS
+
+The complete cardinality spectrum of inclusion-minimal edge domination is a natural optimization invariant beyond the previously known scalar domination number. A structural three-case formula and arbitrarily long missing-size interval provide meaningful graph-theoretic information not mechanically implied by a minimum-size theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence edge-domination criterion is exact because a subdivision vertex has degree two and original endpoints connect only to their own incidences. Distinguishing the uniquely determined inactive vertices partitions all possibilities: a nonempty inactive set is in one bipartition class and forces opposite incidences, with one selectable incidence at each remaining same-side vertex; when no original vertex is inactive, minimality forces one incidence at each original vertex and excludes exactly the universal-incoming configurations. The stated inclusion-exclusion is valid, including singleton-sided boundary cases. Brute-force original-definition checks agreed on 403,028 edge subsets across eleven cases, and 138,494 additional generated configurations were individually checked for minimality. Finite tests do not replace the proof.
+## correctness
 
-## Originality — PASS (provisional publication priority)
-The 1993 minimum-subdivision identity of Horton--Kilakos already gives the minimum degree of this polynomial. The 2010 Frendrup--Hartnell--Vestergaard characterization already implies non-well-edge-domination for nonstar subdivided bicliques. Neither of those **known consequences** is claimed as new. The 2021 Anderson--Kuenzel--Rall work classifies other well-edge-dominated families and states the earlier qualitative theorem. The 2014 Kanté--Limouzy--Mary--Nourine--Uno paper constructs a universal enumeration algorithm rather than the exact coefficient formula for these graphs. The mathematical gap under investigation is the closed polynomial, its entire family classification, and its unbounded top-support gaps. Extensive source and alias comparisons did not reveal a covering formula, but the Horton--Kilakos full text could not be inspected and unindexed antecedents remain a risk.
+PASS
 
-## Mathematical value — PASS
-The family \(S(K_{m,n})\) is the incidence subdivision of the basic two-parameter biclique. Counting *all inclusion-minimal* solutions rather than only the minimum is the natural refinement of edge domination and well-edge-domination. The exact coefficient polynomial detects a sharp spectrum, labeled multiplicities at the minimum, a binary star endpoint, and \(\min\{m,n\}-2\) consecutively absent cardinalities near the maximum. The missing interval grows without bound and is invisible to the previously known minimum or yes/no equicardinality characterizations. The result is self-contained but limited to one graph family.
+Read frozen RESULT.md, verify.py and all Git tree members. Exact criterion: for every inactive base vertex, all opposite incidences are selected, so inactive vertices cannot occur in both sides. With inactive side nonempty, each remaining active vertex has exactly one own incidence; with none inactive, exactly one outgoing incidence per original vertex and universal incoming choices excluded by inclusion-exclusion. The all-m,n proof covers m=1 separately; independent adjacency-based complete enumeration (not reusing package script) agrees m,n=(1,3),(2,2),(2,3),(3,3), including (3,3): {5:54,6:576,7:18,9:2}. Logs or finite checking alone are not taken as the proof.
 
-## Closest sources and limitations
-Horton--Kilakos (1993): minimum value only in accessible abstract; full text unavailable. Frendrup--Hartnell--Vestergaard (2010): already classifies well-edge-domination for girth at least five. Anderson--Kuenzel--Rall (2021): full accessible treatment of well-edge-domination in other graph families. Kanté et al. (2014): general polynomial-delay enumeration, no evaluated biclique-subdivision polynomial in inspected text. Priority is provisional and no independent audit was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete labeled two-parameter inclusion-minimal edge-domination polynomial and structural case classification; older known minimum-cardinality formula and enumerating algorithms do not imply its distribution or missing-cardinality interval. No dominating exact prior found in targeted published-record and primary searches; full Horton--Kilakos paper remains a specific priority risk.
+
+## value
+
+PASS
+
+The complete cardinality spectrum of inclusion-minimal edge domination is a natural optimization invariant beyond the previously known scalar domination number. A structural three-case formula and arbitrarily long missing-size interval provide meaningful graph-theoretic information not mechanically implied by a minimum-size theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
