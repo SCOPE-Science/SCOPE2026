@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact subset-saturation probabilities yield \(Q_j=\binom Nj^r/\binom{bN}{bj}^{r-1}\). The proof's three-range binomial/entropy bound shows \(\sum_{j\ge2}Q_j=O(n^{-2\gamma})\). First and second factorial moments of common \(b\)-blocks then give a matching lower bound and conditional uniqueness. The exact recurrence is a decomposition by the component containing a designated world. The exceptional matching formula is checked by a direct alternating-cycle count. The separately executed `checker.py` agrees with the recurrence and factorial moments for eleven small parameter triples. Neither enumeration nor a code execution is substituted for the infinite proof.
+## correctness
 
-**Originality: PASS with residual risk.** Zenger (2026) motivates the \(\mathsf{S5}\) common-knowledge operator but does not address this random finite-width collapse rate. Pittel and Canfield concern Bell-uniform, unrestricted set partitions; conditioning all blocks to size \(b\) is a different law. Eberhard and Garzoni establish random-generator transitivity qualitatively for prescribed cycle types, but their inspected theorems provide no present polynomial leading constant and conditional two-component profile for all fixed \(r\). Greenhill–Isaev–Liang sample simple, uncoloured regular hypergraphs rather than independent perfect block partitions. Lugo supplies the classical exceptional perfect-matching context. The full paper comparisons are detailed in AUDIT.json; an older or more general random-lift result remains a plausible priority risk.
+PASS
 
-**Value: PASS.** Identical class size \(b\) is a natural fixed information-width resource in many-agent \(\mathsf{S5}\) models. The result completely determines the first-order failure probability of the universal common-knowledge operator identity for all fixed \(b,r\), including its sharp constant, power-law remainder, and the almost-certain shape of a rare failure. The sharply different \((2,2)\) regime gives a meaningful boundary, and the finite recurrence makes the event computable at each size.
+For fixed b,r>=2 with n=bN labelled worlds and every equivalence class of each independent uniform partition of size b, the C=U operation identity is exactly connectedness of the join relation. A given bj-subset is saturated by a partition with probability binom(N,j)/binom(bN,bj), yielding Q_j=binom(N,j)^r/binom(bN,bj)^(r-1). The j>=2 sum has uniform fixed-parameter O(N^(-2 gamma)) bound from fixed-index binomial comparison and entropy control for large j. The expected number of common b-blocks is mu=N^r/binom(bN,b)^(r-1); the second factorial moment is O(N^(-2gamma)), giving a sharp Bonferroni sandwich and conditional unique isolated b-component. Rooted-component decomposition gives the exact connected-tuple recurrence. The matching boundary b=r=2 counts one alternating cycle: connected count 2^(N-1)(N-1)! per fixed first matching, giving exact 2^(2N-1)/(N binom(2N,N)) probability. Independently enumerated all tuples of pairings for (N,r)=(2,3),(3,2),(3,3),(4,2) and obtained connected counts 24/27,120/225,3000/3375,5040/11025. Finite counts do not prove asymptotics.
 
-**Scientific limits.** Fixed \(b,r\), divisibility \(b\mid n\), and uniform independent labelled block partitions are essential. The conditional structure is asymptotic, not a deterministic classification of all exceptional frames. The finite checker does not establish the infinite bounds. Historical priority has not received independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-width *join* connectivity rare-failure law is mathematically distinct from the Bell-uniform *meet* rare-block law and Bell-uniform join connectedness. The Eberhard–Garzoni fixed-cycle-type permutation results can supply qualitative transitivity, but the inspected primary statements do not provide the full fixed-width r-partition leading constant, O(N^-2gamma) error and conditional b-block profile. Distinguishes known b=r=2 matching baseline and known component recurrence from the sharp new fixed-width asymptotic. Best-of-knowledge with explicit priority risks.
+
+## value
+
+PASS
+
+Fixed epistemic width b is a natural constraint on alternatives per world, and the sharp probability that *all valuations* have trivial common knowledge is an invariant of the underlying random r-agent frame. The exact leading constant, rigorously smaller error, conditional single exceptional block, and exceptional perfect-matching regime form a motivated complete boundary rather than a routine restatement of qualitative connectivity. The finite connected-count recurrence has independent computational use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
