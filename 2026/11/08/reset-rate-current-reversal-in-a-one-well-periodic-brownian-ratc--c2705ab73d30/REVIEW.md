@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator is \(f''-V'f'\) and the strictly monotone harmonic coordinate satisfies \(h(x+L)=h(x)+L\); the stopped martingale identity therefore yields the exact mean reset-site increment. The low-rate stationary circle law is \(e^{-V}/Z_-\), leading to \((J_L-J_R)/(Z_+Z_-)\). The concrete strict inequalities \(J_L<121/350<15471/40000<J_R\) prove negative current without numerical assumptions. For high resetting rate the pathwise bounded-drift comparison gives two exact asymmetric-Laplace bounds, whose ratio tends to zero because \(A>B\). This proves positive current and continuity gives an intermediate zero. Periodic mollification preserves both strict conditions and yields a smooth one-well potential. The explicit-integral checker runs successfully. Risks: the theorem does not locate or count all reversal rates; finite-resolution discretization is confirmatory only.
+PASS
 
-## Originality — PASS, qualified
+For periodic piecewise C1 V with one well per period, the reset-to-current-well process is a renewal-reward walk: v(r)=rL E[K_tau]. The harmonic coordinate h(x)=(L/Z+) integral_0^x e^V is periodic modulo linear lift and satisfies generator harmonicity; optional stopping yields E[K_tau]=-E[h(Y_tau)]/L. As r->0, the mod-L diffusion approaches invariant e^-V/Z-, yielding m(0+)=(J_L-J_R)/(Z+Z-). For explicit A=11/10>B=1, the source integral bounds give J_L<121/350<15471/40000<J_R, so v<0 at small rate. For r large, bounded-drift Gaussian exponential stopping tails imply the positive nearest right crossing at distance B dominates negative left crossings at A>B, so v>0. Continuity forces >=1 reversal; convolution gives nondegenerate unique minimum and maximum preserving strict signs. Independent piecewise-affine quadrature checked J_L~0.343438923 and J_R~0.440504587; only finite sanity tests, not an existence-of-unique-zero claim.
 
-The nearest scientific antecedent is Ghosh et al., arXiv:2307.06202 (2023), which uses instantaneous local-minimum resets in a fixed asymmetric periodic substrate but studies a particular potential and does not give the constructive opposite-sign, single-potential resetting-rate theorem or the signed scale-integral criterion. Roberts et al., arXiv:2405.10698 (2024), instead alternate freely diffusing and potential-on phases. The inertial rough-potential reentrance paper DOI:10.1140/epjp/s13360-023-04443-x concerns a different process; only its abstract was accessible. Searches of the mathematical research index for local-minimum resetting, periodic ratchets, reset-rate current reversal and equivalent winding-current formulations revealed no covering statement. Earlier own periodic-reset-site results lack any potential and do not imply this current reversal. A stronger uncatalogued general theorem remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles a natural directional-control question for the precise physical model where a 2023 study exhibited only one current sign: changing only the reset clock, with the substrate fixed and no tilt, can reverse transport. The result separates rare-reset *global Boltzmann-weighted geometric bias* from frequent-reset *nearest-barrier geometry*, revealing a robust mechanism and giving an explicit smooth physical example. This is not a small coefficient improvement, a restatement of a known table, or a substitution into an existing solved inverse problem.
+Best-of-knowledge PASS for existence of a fixed smooth one-well periodic potential whose local-minimum reset winding current changes from negative to positive with increasing reset rate. Prior local-reset ratchet models and flashing-phase current reversal differ, and the same-model 2023 preprint studied current with one sign for its chosen example rather than this constructive reversal. A stronger unindexed reset theorem may cover it; risk recorded.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The fact that tuning reset cadence alone reverses macroscopic transport for a single fixed smooth asymmetric potential is a substantive nonequilibrium transport witness; inequalities separate geometry (nearer right barrier) from Boltzmann-weighted rare-reset displacement. The result is existential, not a general uniqueness/count of sign changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

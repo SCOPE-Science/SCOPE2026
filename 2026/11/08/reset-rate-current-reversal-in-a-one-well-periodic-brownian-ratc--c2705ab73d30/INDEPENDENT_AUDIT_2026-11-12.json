@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:05:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For periodic piecewise C1 V with one well per period, the reset-to-current-well process is a renewal-reward walk: v(r)=rL E[K_tau]. The harmonic coordinate h(x)=(L/Z+) integral_0^x e^V is periodic modulo linear lift and satisfies generator harmonicity; optional stopping yields E[K_tau]=-E[h(Y_tau)]/L. As r->0, the mod-L diffusion approaches invariant e^-V/Z-, yielding m(0+)=(J_L-J_R)/(Z+Z-). For explicit A=11/10>B=1, the source integral bounds give J_L<121/350<15471/40000<J_R, so v<0 at small rate. For r large, bounded-drift Gaussian exponential stopping tails imply the positive nearest right crossing at distance B dominates negative left crossings at A>B, so v>0. Continuity forces >=1 reversal; convolution gives nondegenerate unique minimum and maximum preserving strict signs. Independent piecewise-affine quadrature checked J_L~0.343438923 and J_R~0.440504587; only finite sanity tests, not an existence-of-unique-zero claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2307.06202",
+          "https://arxiv.org/abs/2405.10698"
+        ],
+        "reasoning": "The analytic harmonic coordinate and renewal reward hold for any smooth one-well periodic V; prior stochastic-resetting work uses general mean-reset frameworks but no source found proving the opposing J_R>J_L and A>B conditions at fixed V.",
+        "searches": [
+          "periodic potential local well resetting current reversal with rate fixed potential Ghosh Marchesoni",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4",
+        "https://arxiv.org/abs/2307.06202",
+        "https://arxiv.org/abs/2405.10698"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2307.06202"
+        ],
+        "reasoning": "Known one-direction autonomous ratchet plus high-rate nearest-barrier escape do not entail rare-rate current of opposite sign: the submitted exact weighted-triangle criterion yields the missing premise for reversal.",
+        "searches": [
+          "periodic potential local well resetting current reversal with rate fixed potential Ghosh Marchesoni",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2307.06202",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4"
+        ],
+        "reasoning": "The reset-to-current-well mechanism of Ghosh–Nayak et al is the same physical convention, but their selected potential/sign results do not encode a rate-driven reversal for one *fixed* potential. Switching two reversible phases is not an equivalent model.",
+        "searches": [
+          "periodic potential local well resetting current reversal with rate fixed potential Ghosh Marchesoni",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4",
+          "https://arxiv.org/abs/2307.06202"
+        ],
+        "reasoning": "Not a finite database or a precomputed table assertion: existence is certified by explicit piecewise-affine rational slopes and strict analytic inequalities. Searches in published ratchet records found finite-state phase switching, not this continuum local-reset witness.",
+        "searches": [
+          "periodic potential local well resetting current reversal with rate fixed potential Ghosh Marchesoni",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for existence of a fixed smooth one-well periodic potential whose local-minimum reset winding current changes from negative to positive with increasing reset rate. Prior local-reset ratchet models and flashing-phase current reversal differ, and the same-model 2023 preprint studied current with one sign for its chosen example rather than this constructive reversal. A stronger unindexed reset theorem may cover it; risk recorded.",
+      "residual_risks": [
+        "An unindexed general local-well-reset ratchet theory might already encompass this smooth one-well sign reversal.",
+        "The proof gives at least one current zero, not uniqueness; corner smoothing uses sign preservation and nondegeneracy, not a global perturbation bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies current for specific asymmetric potential; does not prove same fixed single-well potential reverses sign between small/large reset rates",
+          "evidence": [
+            "Uses nearest-local-minimum resetting and reports directed current, but no construction with J_R>J_L and A>B under fixed potential."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.06202",
+          "material_read": "Accessible complete 2023 primary preprint, especially model, simulation and fast-reset discussion",
+          "method": "Open arXiv PDF text and page screenshots inspected",
+          "title": "Autonomous Ratcheting by Stochastic Resetting",
+          "trigger": "Same local-well reset mechanism in periodic Brownian potential"
+        },
+        {
+          "assessment": "Alternating potential/free phases differ from always-on fixed potential with reset-to-current-well minimum",
+          "evidence": [
+            "The protocol switches mechanical phases rather than local-minimum resetting with static V."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.10698",
+          "material_read": "Accessible bibliographic and model description; not a verified full-text exclusion",
+          "method": "Available source text comparison",
+          "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+          "trigger": "Reset current reversal under related ratchet protocols"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The fact that tuning reset cadence alone reverses macroscopic transport for a single fixed smooth asymmetric potential is a substantive nonequilibrium transport witness; inequalities separate geometry (nearer right barrier) from Boltzmann-weighted rare-reset displacement. The result is existential, not a general uniqueness/count of sign changes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4",
+    "https://arxiv.org/abs/2307.06202",
+    "https://arxiv.org/abs/2405.10698"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed general local-well-reset ratchet theory might already encompass this smooth one-well sign reversal.",
+    "The proof gives at least one current zero, not uniqueness; corner smoothing uses sign preservation and nondegeneracy, not a global perturbation bound."
+  ],
+  "schema_version": 1
+}
