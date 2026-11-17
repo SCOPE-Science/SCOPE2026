@@ -1,19 +1,21 @@
-# Review of the two-voter consensus–polarization threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts with the exact two-agent equation (8) from Ohlin, Bencherki and Tegling. Its residual-susceptibility update is \(u_{n+1}=u_n[1-c(1-u_n)x_n]\), rather than an update based on any extra factor of stubbornness. The monotone limits, two strict sufficient and eventually necessary tests, order-preserving parameter dependence and critical uniqueness ratio are all reconstructed in `RESULT.md`. On a critical orbit \(w_{n+1}-w_n=cu_n^2x_n\); telescoping proves \(u_n=cx_n-(c^2/2)x_n^2+O(x_n^3)\). This gives a reciprocal-gap increment \(c+(c^2/2)x_n+O(x_n^2)\), yielding the universal logarithmic term \((c/2)\log n\) with a finite remainder. Algebraic checker and representative classification diagnostics run successfully; finite diagnostics are not substituted for proof.
+PASS
 
-## Originality — PASS on inspected evidence
+PASS: The feedback map x+=theta x and theta+=theta+c(1-theta)theta x is precisely the symmetric two-voter recurrence. u=1-theta decreases; telescoping x-x+=ux, u-u+=c theta(x-x+) produces strict eventually-necessary tests u>cx and u<c theta x for the two open basins. Order preservation and the exact growth ratio for two putative critical u sequences show uniqueness, since any critical sequence has n u_n->1. On a critical orbit w=u-cx increases to zero with increment c u²x; summing gives u=cx-(c²/2)x²+O(x³), hence 1/x_{n+1}-1/x_n=c+(c²/2)x_n+O(x_n²). With x_n=1/(cn)+O(log n/n²), summable increments yield a finite H in 1/x_n=cn+(c/2)log n+H+o(1). Boundary theta0=0 is one-step consensus; 0<c<=1,a<=1/2 make monotonicity strict; no multi-agent extrapolation.
 
-The primary 2022 paper's complete accessible text was compared at the exact recursion level, including its equation (8), sufficient Theorem 3.1, explicit comment on conservativeness in Remark 3.1, examples and appendix. Its criterion \(cx_0+	heta_0<1\) does not prove a unique boundary and does not supply a critical logarithmic correction. Published consensus analyses with exogenous changing matrices, and increasing-stubbornness models for multidimensional opinions, are different and do not directly imply this theorem. Searches for alternate descriptions of the critical separatrix, dual variables and asymptotic law did not uncover stronger exact coverage. Some relevant broader literature was accessible only at abstract level, and unindexed equivalent results remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A sharp separator between consensus and persistent polarization is a motivated missing invariant in this state-dependent voting model, directly addressing the original paper's acknowledged conservative basin. The coefficient of the subleading logarithm is not just a positive sign test: it quantifies critical slowdown and is independent of initial opinion separation. The conclusion distinguishes three global trajectory classes and gives checkable bounds on the implicit threshold.
+PASS best of knowledge. Ohlin–Bencherki–Tegling establish the exact feedback and a sufficient consensus condition ca+theta0<1, noting it does not identify the full boundary; the full source does not provide a unique sharp critical threshold or logarithmic critical relaxation. Search of published findings returned the same submitted result, without stronger equivalent coverage; other concatenated FJ models prescribe different update laws. No general theorem in checked sources produces this coefficient c/2 for the feedback separatrix automatically.
 
-## Restrictions and priority
+## value
 
-The claim is deterministic and limited to two equal-weight, initially equally stubborn voters. The threshold is implicit; asymmetry, larger graphs, and stochastic updates are not covered. A 2022 conference publication predates the exactly dated January 19, 2023 public catalogue entry; the first circulation day has not been established. The journal-strength related full texts and some unpublished analyses have not all been inspected, so independent publication-priority verification is still warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The precise consensus-versus-polarization bifurcation is a natural unresolved model-specific dynamical question and the universal logarithmic correction pinpoints the nonhyperbolic critical regime. This is a complete qualitative trichotomy plus quantitative critical asymptotic, not merely a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

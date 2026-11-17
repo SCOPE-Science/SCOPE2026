@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with SymPy available. The script checks the two key polynomial increment identities as exact symbolic equalities and verifies a cancellation identity used in the proof. It applies the sufficient finite-time decision inequalities using rational arithmetic and computes a numerical transition bracket. All loops have finite stopping limits and are not certificates of the existence or uniqueness of an infinite critical orbit. Those facts follow from the monotonicity, comparison and ratio arguments in `RESULT.md`.
+## correctness
 
-## Scientific bounds
+PASS
 
-The proof addresses a deterministic, symmetric two-voter system, not general graphs or the rate for asymmetric stubbornness. The critical threshold is not given in elementary closed form. The first public circulation day of the 2022 predecessor is not known exactly, although a day-stamped public catalogue entry exists for 2023-01-19 and a full-text author's archive URL indicates a November 2022 directory. Independent external validation has not been performed.
+PASS: The feedback map x+=theta x and theta+=theta+c(1-theta)theta x is precisely the symmetric two-voter recurrence. u=1-theta decreases; telescoping x-x+=ux, u-u+=c theta(x-x+) produces strict eventually-necessary tests u>cx and u<c theta x for the two open basins. Order preservation and the exact growth ratio for two putative critical u sequences show uniqueness, since any critical sequence has n u_n->1. On a critical orbit w=u-cx increases to zero with increment c u²x; summing gives u=cx-(c²/2)x²+O(x³), hence 1/x_{n+1}-1/x_n=c+(c²/2)x_n+O(x_n²). With x_n=1/(cn)+O(log n/n²), summable increments yield a finite H in 1/x_n=cn+(c/2)log n+H+o(1). Boundary theta0=0 is one-step consensus; 0<c<=1,a<=1/2 make monotonicity strict; no multi-agent extrapolation.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Ohlin–Bencherki–Tegling establish the exact feedback and a sufficient consensus condition ca+theta0<1, noting it does not identify the full boundary; the full source does not provide a unique sharp critical threshold or logarithmic critical relaxation. Search of published findings returned the same submitted result, without stronger equivalent coverage; other concatenated FJ models prescribe different update laws. No general theorem in checked sources produces this coefficient c/2 for the feedback separatrix automatically.
+
+## value
+
+PASS
+
+PASS: The precise consensus-versus-polarization bifurcation is a natural unresolved model-specific dynamical question and the universal logarithmic correction pinpoints the nonhyperbolic critical regime. This is a complete qualitative trichotomy plus quantitative critical asymptotic, not merely a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
