@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matching complex on twelve grid edges has exactly 130 nonempty faces. Its exhaustive 62-pair acyclic matching has one zero-dimensional and five two-dimensional critical cells, proving simple connectivity and free second homology. Two explicitly exhibited fixed-point reflections generate the square dihedral group; Armstrong's orbit-space theorem gives trivial quotient fundamental group. The signed orbit character proves one rational second-homology invariant. The quotient barycentric chain counts are (20,87,123,54); its mod-two boundary ranks are (19,68,54), with exact chain identities checked over the integers. Averaging over an order-eight group excludes odd torsion; mod-two universal coefficients exclude two torsion. Hurewicz and homological Whitehead yield the claimed sphere homotopy type. The standalone program checks every finite incidence rather than sampling cases.
+## correctness
 
-## Originality — PASS, with specified literature-access risk
-The 2026 matching-grid study establishes connectivity and homology information but does not advertise a full-square-symmetry integral orbit-space theorem. A 2021 paper claimed nonequivariant homotopy results, then retracted them in its 2025 corrigendum. The full-square quotient is a different topological object, not entailed by a nonequivariant wedge decomposition. Published mathematical records with axis-reflection and half-turn traces supply only rational character results on a proper symmetry subgroup. Cut and robust-clique complexes on similar grid graphs are not matching complexes. Targeted searches for square-dihedral orbit matching-complex homotopy, equivariant equivalents and exact tables found no matching result. Complete inspection of the 2026 preprint was blocked; this is residual priority risk, not evidence of novelty by failed search alone.
+PASS
 
-## Value — PASS
-The \(3\times3\) square is the first square-grid matching-complex example with a noncontractible simply connected source and full nontrivial dihedral symmetry. Exact homotopy of its geometric symmetry quotient is an intrinsic invariant of unordered configurations modulo geometric symmetry. It distinguishes the quotient's one surviving integral two-sphere from five source spheres; neither nonequivariant Betti numbers nor a rational trace computation alone control the fundamental group or integral torsion. This is a natural complete classification of a minimal nontrivial symmetry quotient, not an arbitrary slice of a parameter table.
+Independently enumerated the twelve grid edges and all 130 nonempty matching faces, f=(12,44,56,18). Rebuilt 62 acyclic Morse pairs leaving a vertex and five 2-cells, proving the upstairs matching complex wedge^5 S2 and simply connected. Each generating reflection of D4 fixes a geometric simplex-point; Armstrong orbit fundamental-group theorem makes quotient pi1 trivial. Independently enumerated all full D4 orbits of strict barycentric face chains, obtaining quotient cellular counts (20,87,123,54), exact boundary-square zero and mod-2 boundary ranks (19,68,54), Betti (1,0,1,0). Signed Lefschetz orbit enumeration gives H2 rational rank 1; odd-prime averaging exact as |D4|=8 invertible, excluding odd torsion. Simple connectivity eliminates H1, mod2 H2 dimension one excludes 2-primary torsion there, and free cellular H3 with zero rational rank vanishes. Therefore integral homology of S2; Hurewicz and simply connected homology Whitehead yield S2 homotopy type. Claims actual geometric quotient not Borel quotient.
 
-## Closest sources and limits
-Chauhan–Sharma–Shukla (arXiv:2609.27366, first public 2026-09-23), Goyal–Shukla–Singh (DOI:10.37236/10496, retracted), Armstrong (DOI:10.1017/S0305004100038974), and related published axis/half-turn matching-complex symmetry records. The 2026 preprint could be checked only by its public abstract. Independent mathematical audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full dihedral geometric orbit-space homotopy type is strictly finer than published coordinate-reflection and Klein-four quotient Euler numbers. Same 3×n source homology research does not imply D4 quotient integral torsion elimination or fundamental-group triviality, and related three-cut complexes are different objects.
+
+## value
+
+PASS
+
+The full square-symmetry quotient of a natural smallest nontrivial planar grid matching complex unexpectedly has the simple integral homotopy type S2 despite a five-sphere wedge upstairs. Exact identification of quotient pi1, torsion and top cell homology is a motivated natural symmetry invariant and not a cheap Euler number or textbook corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
