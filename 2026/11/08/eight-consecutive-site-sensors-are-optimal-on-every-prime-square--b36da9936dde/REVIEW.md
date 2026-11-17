@@ -1,11 +1,21 @@
-# Supported scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The prime-cyclotomic minimal-polynomial argument excludes accidental collisions between spectral values: a difference of sums of four primitive \(p\)-th roots has zero total coefficient sum and hence is not a nonzero multiple of the cyclotomic polynomial. The complete eigenspace dimension count, the eight-dimensional lower-bound witness, and the two nested spatial Vandermonde inversions are fully quantified in RESULT.md. A further independent time Vandermonde inversion covers all \(K=(p+1)(p+3)/8\) distinct eigenvalues. Exact auxiliary-field checker ranks agree for the five recorded primes, including full measurement matrices for three. No limiting argument is inferred from finite experiments.
+## correctness
 
-**Originality — PASS relative to checked evidence.** The general finite-graph dynamical-frame criterion in Bulai–Cabrelli–Cordero–Molter–Saliani (2026) and the framework surveyed by Aldroubi–Cabrelli–Krishtal–Molter (2026) do not provide the exact count of eight *point sensors* on prime Cartesian square cycles or construct the explicit four-by-two set. The one-dimensional cycle observability result of Parlangeli–Notarstefano does not cover this doubled graph. Generic structural observability of Cartesian products (Doostmohammadian) does not imply fixed equal-weight adjacency observability. The candidate is not merely a formal restatement of the general normal-operator eigenspace criterion: it needs the prime-cyclotomic degeneracy classification and a full-spark local rectangle on each eight-dimensional eigenspace. Risk: an unlocated specialized Cartesian-product observability treatment could prove an equivalent special case.
+PASS
 
-**Value — PASS.** The maximum eigenspace dimension gives a hard information-theoretic lower bound, but it is not obvious that eight vertices — rather than eight arbitrary linear measurements — suffice. The result resolves that spatially constrained optimum *uniformly over every prime side length* and exhibits a simple connected eight-vertex layout with an explicit recovery algorithm. This is a natural graph sampling design question, not an arbitrary finite table.
+For odd primes p>=5, characters indexed by Z_p^2 diagonalize four-neighbor normalized adjacency. Equality of two radius-pair eigenvalue sums yields a root-of-unity polynomial P of degree<=p-1 with P(zeta)=0, P(1)=0, hence P is zero (since Phi_p is irreducible and P(1)=0), so precisely (p+1)(p+3)/8 distinct eigenvalues. A generic nonzero distinct-radius eigenspace E_{1,2} has dimension eight, forcing >=8 spatial sensors at all times. A 4x2 contiguous rectangle resolves each eigenspace by nested x- and y-Vandermonde matrices (<=4 first-coordinate and <=2 second-coordinate frequencies). K time samples resolve the K distinct eigenvalues by temporal Vandermonde, proving exact full-signal recovery. All zero-radius, same-radius and zero-eigenvalue boundary cases covered. Independent modular Fourier block ranks for p=5,7,11,13 corroborate, not replace, the all-prime proof.
 
-Finite calculations do not imply an all-prime theorem; correctness depends on the explicit cyclotomic and Vandermonde proof. No claim of a uniform stability constant or minimal temporal horizon is made. The publication-priority assessment is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General dynamical sampling theorems say a chosen sampling set must be injective on every spectral subspace, but do not exhibit a cardinality-optimal fixed contiguous eight-vertex set on all prime square tori. Exact spectral collision exclusion relies on prime cyclotomic arithmetic and supplies the sharp eigenspace obstruction. Known single-cycle and anisotropic non-square results address different operators.
+
+## value
+
+PASS
+
+A universal explicit minimum fixed-vertex sensor geometry on all prime square tori is a strong structural construction for graph signal observability. Lower bound, arithmetic multiplicity and constructive multi-time reconstruction together solve a natural location-constrained design question; conditioning is a distinct unresolved problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
