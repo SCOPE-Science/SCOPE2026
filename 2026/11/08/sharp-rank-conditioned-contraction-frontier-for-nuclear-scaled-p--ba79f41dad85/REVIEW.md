@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (same-model).** The exact quadratic identity follows by expanding the nuclear-scaled polar step. The nontrivial optimization is proved via orthogonal-frame completion, entrywise-square doubly stochasticity, and permutation-vertex maximization. The singular-value limiting family realizes every extremal branch in the limit, establishing sharpness and nonattainment for rank above one. Step-interval boundaries, rank monotonicity and unique minimax step are explicitly proved. The extracted checker passed 56,010 exact-rational and numerical assertions. Its finite tests are auxiliary to the proof.
+PASS
 
-## Originality
+With G=U diag(s)V^T, S=sum s_j, D=sum s_j^2 u_j^T H^-1u_j=2f, and t=tr(U^THU), direct expansion yields ratio 1-alpha(2-alpha*t)S^2/D. Because alpha<2/T_r, t<=T_r makes the progress term positive. For a marked column u_k, the matrix of squared orthogonal-completion coordinates is doubly stochastic, hence a linear functional alpha*t+J u_k^TH^-1 u_k is maximized at a permutation. The marked eigenvalue i and r-1 remaining largest eigenvalues produce alpha*T_{r,i}+J/lambda_i<=2 for J=min_i lambda_i(2-alpha T_{r,i}). Choosing maximum H^-1 frame diagonal and using D<=dmax sum s_j^2<=dmax S^2 implies the exact q_r. A rank-r eigenframe with singular values 1,eps,...,eps reaches each extremal branch in the limit, and positive eps ensures strict nonattainment for r>1. Rank 1 is attained. q_{r+1}>q_r at common allowable steps; positivity of all branch second derivatives gives strict convexity/unique interior minimizer; top-r eigenframe proves exact alpha=2/T_r threshold; right-factor support proves rank nonincrease. Independent rational permutation calculations establish the H=(1,10,11),r=2,alpha=2/25 value 573/625 and alpha=1/12 optimum 11/12, and check other rational spectra. These are checks, not a replacement for the Birkhoff argument.
 
-**PASS (same-model; historical priority not independently certified).** The October 2026 quadratic spectral-optimizer paper gives the nuclear-scaled polar update's exact one-step identity, a trace-based contraction estimate, and exact stability-step limits. These inputs are acknowledged. The new assertion is the optimized rank-specific spectral envelope, its nonattainment at positive full rank, strict rank-activation penalty, and sharp fixed-rank calibration. Shulgin et al. prove the full-row-rank special case, an exact-line-search coefficient, a noncoupled active-rank lower bound and rank nonincrease. The new exact intermediate-rank marked-frame envelope is not a restatement of these prior bounds. The original PolarGrad theory supplies general rank-based sufficient rates, not the exact marked-frame optimization. Searches of published research summaries, prior documented mathematical claims and primary literature yielded no dominating statement. A wider historical variational theorem remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS (same-model).** The source bound uses a worst-case trace combined with the smallest curvature, although these choices cannot always arise from the same rank-limited eigenspace. The theorem solves this coupled extremal problem exactly, yielding a strictly stronger numerical bound for natural anisotropic examples (\(573/625\) versus \(609/625\)), and quantifies the singular rank-boundary deterioration. It supplies a unique minimax step-calibration rule for fixed gradient rank without claiming full-trajectory sharpness.
+The central surviving claim is the exact arbitrary-spectrum intermediate gradient rank 1<r<d fixed-step envelope, with coupled marked eigenvalue assignment, nonattainment, rank-activation penalty and tuning. Rank-one ordinary gradient descent, full-row/full-rank case, rank monotonicity, one-step loss identity and exact descent threshold are already prior. The primary Jawanpuria paper was read in full rendered HTML, including Appendix C; a highly relevant Shulgin paper was identified from its abstract/research review but its complete text could not be retrieved, leaving material historical priority risk. No matching intermediate-rank formula found by semantic published records; best-of-knowledge O not global certification.
 
-## Closest literature and limitations
+## value
 
-Primary comparisons: Jawanpuria–Garai–Mishra, arXiv:2610.27747v1, Appendix C and Proposition 8; Shulgin–Laing–Orvieto–Richtárik, arXiv:2610.30280, Theorem 3, Appendix E.2 and E.6; Lau–Long–Su, arXiv:2505.21799v4, Sections 3.3 and 3.5. Known full-rank and rank-one specializations are acknowledged rather than claimed original. Classical Ky Fan/Birkhoff tools are acknowledged. The result is confined to fixed SPD left-curvature matrix quadratics, exact nuclear-scaled polar updates and one-step worst-case objective ratios. It does not establish stochastic or inexact-polar convergence claims. The rate bound iterated over a changing-rank trajectory is not claimed sharp.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The naturally motivated optimization problem corrects a looseness in prior quadratic Muon bounds: separately optimizing minimum curvature and trace ignores their coupling inside a rank-limited singular subspace. The exact marked-index formula, sharp nonattainment, strict activation penalty and computable fixed-rank optimal step provide quantitative anisotropic information not given by elementary unconditioned trace bounds; no large downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

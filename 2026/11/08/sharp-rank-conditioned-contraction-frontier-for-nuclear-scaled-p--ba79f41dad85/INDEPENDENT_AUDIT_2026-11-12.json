@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:54:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With G=U diag(s)V^T, S=sum s_j, D=sum s_j^2 u_j^T H^-1u_j=2f, and t=tr(U^THU), direct expansion yields ratio 1-alpha(2-alpha*t)S^2/D. Because alpha<2/T_r, t<=T_r makes the progress term positive. For a marked column u_k, the matrix of squared orthogonal-completion coordinates is doubly stochastic, hence a linear functional alpha*t+J u_k^TH^-1 u_k is maximized at a permutation. The marked eigenvalue i and r-1 remaining largest eigenvalues produce alpha*T_{r,i}+J/lambda_i<=2 for J=min_i lambda_i(2-alpha T_{r,i}). Choosing maximum H^-1 frame diagonal and using D<=dmax sum s_j^2<=dmax S^2 implies the exact q_r. A rank-r eigenframe with singular values 1,eps,...,eps reaches each extremal branch in the limit, and positive eps ensures strict nonattainment for r>1. Rank 1 is attained. q_{r+1}>q_r at common allowable steps; positivity of all branch second derivatives gives strict convexity/unique interior minimizer; top-r eigenframe proves exact alpha=2/T_r threshold; right-factor support proves rank nonincrease. Independent rational permutation calculations establish the H=(1,10,11),r=2,alpha=2/25 value 573/625 and alpha=1/12 optimum 11/12, and check other rational spectra. These are checks, not a replacement for the Birkhoff argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shulgin et al. full-rank exact analysis, rank nonincrease and near-low-rank effect overlap the r=d specialization, but complete primary text is currently inaccessible.",
+          "Jawanpuria et al Appendix C already proves the common alpha<2/T_r admissible threshold and loss identity."
+        ],
+        "reasoning": "Broader convergence analyses do not automatically imply the intermediate-rank exact worst-case q_r; known full rank and r=1 are excluded from the novelty focus. Full Shulgin text unavailability is a real priority risk and no whole-paper negative conclusion is drawn from its abstract.",
+        "searches": [
+          "A Quadratic Lens on Muon Polar Update 2610.30280 rank deficient theorem 3",
+          "Constant Step Sizes for Muon-Type Spectral Optimizers arxiv:2610.27747",
+          "PolarGrad 2505.21799"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.27747",
+        "https://arxiv.org/abs/2610.30280",
+        "https://arxiv.org/abs/2505.21799",
+        "Resultary published search polar gradient nuclear norm scaled muon strongly convex quadratic intermediate rank contraction exact eigenvalue"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jawanpuria Equation Appendix C contains the exact expansion from which this proof starts, but its trace bound combines top-r trace with lambda_min separately.",
+          "The independent H=diag(1,10,11), r=2, alpha=2/25 example yields sharp 573/625 versus prior coarse 609/625; the two statements are not equivalent."
+        ],
+        "reasoning": "The new rank-conditioned envelope is a stricter theorem for natural intermediate ranks. It neither upgrades stochastic Muon performance nor claims a sharp multi-step trajectory rate.",
+        "searches": [
+          "arxiv:2610.27747 Appendix C and Proposition 8",
+          "arxiv:2610.30280 Theorem 3 and Appendix E (bibliographic access only)",
+          "Resultary polar descent finite-termination results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact q_r = 1-alpha min_i lambda_i(2-alpha T_{r,i}) is the permutation-vertex value of an orthonormal marked-frame variational problem.",
+          "Jawanpuria–Garai–Mishra derives the one-step identity but bounds the trace separately; the coupled assignment is not stated there."
+        ],
+        "reasoning": "A matched restatement would optimize the interaction of a marked inverse curvature direction with the other r-1 selected largest curvatures; direct analogy with full-rank case does not determine it when 1<r<d.",
+        "searches": [
+          "Resultary: polar gradient nuclear norm scaled muon strongly convex quadratic intermediate rank contraction exact eigenvalue",
+          "arxiv:2610.27747 Appendix C",
+          "Shulgin Laing Orvieto Richtarik 2610.30280 rank deficient active projector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed nearby findings concern isotropic finite termination and dynamical resonance, not the exact full anisotropic marked-frame q_r table.",
+          "The explicit three-eigenvalue comparison 573/625 versus earlier uncoupled 609/625 was verified independently."
+        ],
+        "reasoning": "No separate indexed exact table of all SPD spectra and intermediate ranks was found; this is limited negative evidence rather than an originality certificate.",
+        "searches": [
+          "Resultary: polar gradient nuclear norm scaled muon strongly convex quadratic intermediate rank contraction exact eigenvalue",
+          "rank r marked eigenvalue sum top r-1 excluding marked index eigenvalues polar descent"
+        ]
+      },
+      "rationale": "The central surviving claim is the exact arbitrary-spectrum intermediate gradient rank 1<r<d fixed-step envelope, with coupled marked eigenvalue assignment, nonattainment, rank-activation penalty and tuning. Rank-one ordinary gradient descent, full-row/full-rank case, rank monotonicity, one-step loss identity and exact descent threshold are already prior. The primary Jawanpuria paper was read in full rendered HTML, including Appendix C; a highly relevant Shulgin paper was identified from its abstract/research review but its complete text could not be retrieved, leaving material historical priority risk. No matching intermediate-rank formula found by semantic published records; best-of-knowledge O not global certification.",
+      "residual_risks": [
+        "The highly relevant Shulgin 2026 full text could not be inspected: arXiv and OA attempts failed, authorized institutional request returned vpn_disconnected; its broader Appendix E may contain an equivalent intermediate-rank result.",
+        "A different optimization of the same marked orthogonal-frame inequality might exist under variational/eigenvalue assignment terminology.",
+        "The sup for r>1 is not attained at exact rank, and no repeated worst-case multi-step trajectory rate is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IDENTITY_AND_THRESHOLD_PRIOR; INTERMEDIATE_RANK_SHARP_FACTOR_NOT_STATED",
+          "evidence": [
+            "Appendix C derives loss identity and tr_n(H) admissible threshold; separate trace estimates do not evaluate min_i lambda_i(2-alpha T_{r,i})."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.27747",
+          "material_read": "Accessible complete rendered paper including Sections 3–5, Appendix C loss identity, Proposition 8 and convergence theorem",
+          "method": "Read primary HTML and compare exact variational optimization across rank",
+          "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+          "trigger": "identical nuclear-scaled update on SPD quadratic"
+        },
+        {
+          "assessment": "PLAUSIBLE_STRONG_PRIMARY_NOT_READ; RESIDUAL_PRIORITY_RISK",
+          "evidence": [
+            "Abstract emphasizes exact-line-search, full-rank and small-singular-value results; no whole-document NOT_COVERING finding can be made."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30280",
+          "material_read": "ArXiv bibliographic abstract, available research summaries and specified Theorem 3/Appendix E references only; full article inaccessible",
+          "method": "Tried arxiv abstract/HTML, ar5iv, lawful OA; authorized Oxford full-text attempt returned vpn_disconnected",
+          "title": "A Quadratic Lens on Muon’s Polar Update: Benefits, Pitfalls, and the Role of Newton–Schulz",
+          "trigger": "same matrix quadratic and polar optimizer, plausible stronger theorem"
+        },
+        {
+          "assessment": "BACKGROUND_UPDATE_AND_CONVERGENCE; PRIORITY_LIMITED",
+          "evidence": [
+            "General rank/smoothness convergence guarantees are prior, while exact anisotropic intermediate-rank coupling still needs comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.21799",
+          "material_read": "Bibliographic and cited general-rate context; not full article independently read this run",
+          "method": "ArXiv search/source cross-reference",
+          "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+          "trigger": "origin of nuclear-scaled polar optimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The naturally motivated optimization problem corrects a looseness in prior quadratic Muon bounds: separately optimizing minimum curvature and trace ignores their coupling inside a rank-limited singular subspace. The exact marked-index formula, sharp nonattainment, strict activation penalty and computable fixed-rank optimal step provide quantitative anisotropic information not given by elementary unconditioned trace bounds; no large downstream theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.27747",
+    "https://arxiv.org/abs/2610.30280",
+    "https://arxiv.org/abs/2505.21799",
+    "Resultary published search polar gradient nuclear norm scaled muon strongly convex quadratic intermediate rank contraction exact eigenvalue"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Current independent review is a best-of-knowledge mathematical audit, not a Lean proof or an external expert attestation; VERIFY_OK logs do not establish originality or value.",
+    "Only frozen assigned source trees and exact named scientific claims reviewed; later repository changes or extensions not assessed.",
+    "Prior research history and any historical gaps remain unchanged."
+  ],
+  "residual_risks": [
+    "The highly relevant Shulgin 2026 full text could not be inspected: arXiv and OA attempts failed, authorized institutional request returned vpn_disconnected; its broader Appendix E may contain an equivalent intermediate-rank result.",
+    "A different optimization of the same marked orthogonal-frame inequality might exist under variational/eigenvalue assignment terminology.",
+    "The sup for r>1 is not attained at exact rank, and no repeated worst-case multi-step trajectory rate is implied."
+  ],
+  "schema_version": 1
+}
