@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Symbolic and numerical verification
+# Independent mathematical audit
 
-With SymPy installed, run `python verify_ns_euler.py`; NumPy enables the optional forward-orbit checks. The executable constructs the actual polynomial Euler map, differentiates it symbolically at the interior coexistence equilibrium, and checks the exact translated quadratic jet. It verifies the eigenvectors and dual-row normalization, nonresonance of orders one through four, invertibility and identities of the two quadratic homological resolvents, the complex resonant coefficient and the exact radial coefficient \(-17/4\), and the modulus-crossing and leading-radius factors \(3/8\) and \(3/34\).
+## correctness
 
-Observed output from the packaged checker:
+PASS
 
-```
-VERIFY_OK exact_jacobian=1 eigenpair=1 nonresonance=1 quadratic_jet=1 resolvent_identities=2 exact_cubic_coefficient=-17/4 radial_slope=3/34 numerical_curves=3
-```
+Solving coexistence conditions gives P=(1/2,1/2), prey nullcline slope -1 and continuous J=[[-1/2,-1/2],[1/2,-1/4]], trace -3/4 and det 3/8 with discriminant -15/16. Euler A_h=I+hJ has determinant 1-3h/4+3h²/8 and reaches unity at h=2. The complex pair lambda=(1+i sqrt15)/4 crosses outwards with d|lambda|/dh=3/8 and avoids resonances orders 1-4. In local centered coordinates the quadratic tensor B is explicit; choosing q=(1,-lambda), the dual ell and H11=(I-A)^-1 B(q,qbar), H20=(lambda²I-A)^-1 B(q,q) gives c=23/6-25i sqrt15/18 and d=Re(lambda_bar c)=-17/4 (all independently verified symbolically). The local Neimark--Sacker theorem then yields an attracting small invariant circle for h>2 close and a repelling fixed point, with radial scale 3(h-2)/34. This asserts a local bifurcation, not global orbit behavior.
 
-The last field refers to three 20,000-step finite trajectories at Euler steps \(2.001\), \(2.003\), and \(2.01\). They agree with the predicted leading horizontal radius to within four percent and remain in the positive quadrant in the sampled windows. These samples are not exhaustive, cannot establish an invariant circle, and do not imply global positivity. The mathematical existence statement relies instead on the analytic nondegeneracy checks plus the standard Neimark–Sacker theorem. No independent review or validation has taken place.
+## originality
+
+PASS
+
+The initiating Chan-Lopez--Martin-Ruiz--Castellanos 2026 theorem provides the general Euler spectral identity and geometric location of unit-circle crossings, but does not give this self-limited quadratic system exact nonlinear Lyapunov coefficient, supercritical stability or radius. Khan studies other discrete predator-prey recurrences. The nonlinear realization survives the direct implication comparison; it is not credited as a first discovery of Euler-induced spectral crossings.
+
+## value
+
+PASS
+
+An exact negative Lyapunov coefficient is the substantive boundary between a mere spectral crossing and a verified attracting oscillatory state. The simple quadratic predator-self-limited flow offers a transparent counterpoint to continuous-flow Hopf-nullcline localization and an analytically quantified discretization artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

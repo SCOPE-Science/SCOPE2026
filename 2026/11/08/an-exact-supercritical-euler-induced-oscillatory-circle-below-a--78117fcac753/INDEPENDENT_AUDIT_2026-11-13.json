@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:10:11.708246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving coexistence conditions gives P=(1/2,1/2), prey nullcline slope -1 and continuous J=[[-1/2,-1/2],[1/2,-1/4]], trace -3/4 and det 3/8 with discriminant -15/16. Euler A_h=I+hJ has determinant 1-3h/4+3h²/8 and reaches unity at h=2. The complex pair lambda=(1+i sqrt15)/4 crosses outwards with d|lambda|/dh=3/8 and avoids resonances orders 1-4. In local centered coordinates the quadratic tensor B is explicit; choosing q=(1,-lambda), the dual ell and H11=(I-A)^-1 B(q,qbar), H20=(lambda²I-A)^-1 B(q,q) gives c=23/6-25i sqrt15/18 and d=Re(lambda_bar c)=-17/4 (all independently verified symbolically). The local Neimark--Sacker theorem then yields an attracting small invariant circle for h>2 close and a repelling fixed point, with radial scale 3(h-2)/34. This asserts a local bifurcation, not global orbit behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2603.24418 general spectral localization for Gause-type flows",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-over-capacity-runaway-and-step-independent-positivity-loss-in-a--bd8c96fa6219"
+        ],
+        "reasoning": "The broader spectral identity detects where a unit pair can occur, not its first Lyapunov coefficient or nonlinear stability. Positivity loss in another predator model neither implies nor contradicts a small local invariant curve inside the positive quadrant.",
+        "searches": [
+          "Resultary: quadratic predator prey forward Euler Neimark Sacker h=2 negative first Lyapunov coefficient attracting invariant circle",
+          "Resultary: Euler predator prey self regulation discrete Neimark Sacker first Lyapunov coefficient supercritical quadratic Gause",
+          "arXiv:2603.24418 spectral rigidity descending prey nullcline Euler Neimark Sacker",
+          "DOI:10.1186/s40064-015-1618-y Khan discrete predator prey bifurcation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.24418 section on forward Euler spectral localization",
+        "Khan 2016 DOI:10.1186/s40064-015-1618-y",
+        "Scholarpedia Neimark--Sacker local normal-form theorem",
+        "Resultary related discrete predator-prey results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chan-Lopez et al. Euler determinant identity det(I+hJ)-1=h(trJ+h detJ)",
+          "Nonresonant NS sign theorem and exact B contractions"
+        ],
+        "reasoning": "Knowing the determinant crossing does not determine supercritical or subcritical nature. The exact nonzero cubic coefficient requires the submitted second-order resolvent calculation; that additional calculation plus NS theorem proves stable circle.",
+        "searches": [
+          "Resultary: quadratic predator prey forward Euler Neimark Sacker h=2 negative first Lyapunov coefficient attracting invariant circle",
+          "Resultary: Euler predator prey self regulation discrete Neimark Sacker first Lyapunov coefficient supercritical quadratic Gause",
+          "arXiv:2603.24418 spectral rigidity descending prey nullcline Euler Neimark Sacker",
+          "DOI:10.1186/s40064-015-1618-y Khan discrete predator prey bifurcation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chan-Lopez et al. arXiv:2603.24418, section discrete-time localization",
+          "Khan 2016 DOI:10.1186/s40064-015-1618-y"
+        ],
+        "reasoning": "The same continuous-to-Euler Jacobian spectral identity is prior work; nonlinear NS coefficient and the exact attracting circle for this particular vector field are different propositions. Khan has a different discrete recurrence with different quadratic tensor.",
+        "searches": [
+          "Resultary: quadratic predator prey forward Euler Neimark Sacker h=2 negative first Lyapunov coefficient attracting invariant circle",
+          "Resultary: Euler predator prey self regulation discrete Neimark Sacker first Lyapunov coefficient supercritical quadratic Gause"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact independent SymPy check H11, H20 and d=-17/4 for RESULT.md blob 4e7b86e114682a1b09cd3c89eb4df1bc20d3f1be",
+          "arXiv:2603.24418 does not tabulate this specific polynomial normal form in inspected Section 6"
+        ],
+        "reasoning": "Bifurcation software/table output for an unrelated predator model cannot stand in for the exact normalized cubic coefficient. No inspected table states d=-17/4 for these equations; failure to find one is not alone novelty proof.",
+        "searches": [
+          "Resultary: quadratic predator prey forward Euler Neimark Sacker h=2 negative first Lyapunov coefficient attracting invariant circle",
+          "Resultary: Euler predator prey self regulation discrete Neimark Sacker first Lyapunov coefficient supercritical quadratic Gause"
+        ]
+      },
+      "rationale": "The initiating Chan-Lopez--Martin-Ruiz--Castellanos 2026 theorem provides the general Euler spectral identity and geometric location of unit-circle crossings, but does not give this self-limited quadratic system exact nonlinear Lyapunov coefficient, supercritical stability or radius. Khan studies other discrete predator-prey recurrences. The nonlinear realization survives the direct implication comparison; it is not credited as a first discovery of Euler-induced spectral crossings.",
+      "residual_risks": [
+        "Other nonindexed calculations for this exact quadratic predator-prey map may have evaluated the same Lyapunov coefficient.",
+        "Only the relevant theorem/remarks, not every appendix, of all prior discrete predator-prey papers were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem identifies coarse-step NS spectral crossing on descending branch, not d=-17/4 or invariant-circle radius in this specified quadratic self-limited model",
+          "evidence": "arXiv:2603.24418 Section 6; theorem/remarks on Euler determinant",
+          "identifier_or_url": "https://arxiv.org/abs/2603.24418",
+          "material_read": "Full accessible arXiv HTML with introduction and relevant discrete-time theorem/remarks; PDF relevant pages screened",
+          "method": "arXiv HTML plus PDF extraction/screenshot",
+          "title": "Spectral Rigidity and Geometric Localization of Hopf Bifurcations in Planar Predator-Prey Systems",
+          "trigger": "Exact model class and Euler unit-circle spectral crossing"
+        },
+        {
+          "assessment": "Different model recurrence; uninspected nonlinear formulas remain residual historical risk",
+          "evidence": "Khan 2016 SpringerPlus 5:126",
+          "identifier_or_url": "https://doi.org/10.1186/s40064-015-1618-y",
+          "material_read": "Bibliographic abstract and recurrence description only, not full paper",
+          "method": "web bibliographic lookup",
+          "title": "Neimark-Sacker bifurcation of a two-dimensional discrete-time predator-prey model",
+          "trigger": "Possible identical cubic normal-form example"
+        },
+        {
+          "assessment": "Classical theorem supplies existence once sign and crossing checked; does not independently calculate coefficient in this example",
+          "evidence": "Scholarpedia Neimark--Sacker overview",
+          "identifier_or_url": "https://www.scholarpedia.org/article/Neimark-Sacker_bifurcation",
+          "material_read": "Standard local bifurcation theorem and coefficient form as cited in source, not comprehensive novelty review",
+          "method": "published reference theorem comparison",
+          "title": "Neimark--Sacker bifurcation, Scholarpedia",
+          "trigger": "Validity of the nonresonant normal-form implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact negative Lyapunov coefficient is the substantive boundary between a mere spectral crossing and a verified attracting oscillatory state. The simple quadratic predator-self-limited flow offers a transparent counterpoint to continuous-flow Hopf-nullcline localization and an analytically quantified discretization artifact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Local h near 2 and positive equilibrium; no global invariance of positive quadrant, global oscillation attractor, or rational-versus-irrational circle dynamics.",
+  "schema_version": 1
+}
