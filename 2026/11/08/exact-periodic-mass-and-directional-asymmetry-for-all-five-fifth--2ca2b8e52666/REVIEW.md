@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The map preserves dyadic half-open boundaries under rational fifth rotations. Below the final five cells of a forty-cell grid, its action is exactly one of three integer-index translations. The five terminal cells return to the first eighth with the proven tail identity. The seven computed height/permutation/omission rows are exhaustive, and the four stationary covering stages imply that every point in those components visits arbitrarily small first-eighth renormalizations. The two complements consist of exactly two and four five-cell cycles, with no uncounted periodic points. The separate exact checker enumerates every grid arrow, first-return path and complementary cycle; rational samples only supplement the proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2023 Bruin–Lukina paper already develops the general induction and its Example 5.21 studies the \(2/5\) case, so that precedent is credited rather than claimed as novel on its own. The exact all-five fifth-rotation classification, particularly \(3/5\) aperiodicity, \(4/5\) mass \(1/2\), and the explicit endpoint table is not stated in the inspected 2021/2023 articles. The 2021 dyadic-subdivision paper covers denominators that are powers of two, not five. Searches of prior mathematical records returned a three-piece classification, not this five-piece calculation. Unindexed equivalent derivations remain possible.
+PASS
 
-## Value — PASS
-The five cyclic rotations form a complete natural family at the first odd subdivision beyond the three-piece examples. Their exact periodic masses have a directional asymmetry invisible to qualitative non-covering results: reversing the \(2/5\) shift to \(3/5\) removes all periodic points, while \(4/5\) has periodic mass \(1/2\). The result precisely locates every periodic interval and proves no other periods occur, supplying quantitative finite-scale structure for infinite interval exchanges.
+The exact forty-cell map for F_s=a∘R_{s/5} follows from the dyadic branches on all half-open cells; recursively computing first returns from C_0..C_4 gives heights s=0:(8,8,8,8,8), s=1:(2,2,2,2,32), s=2:(6,6,6,6,6), s=3:(2,2,20,8,8), s=4:(2,8,8,1,1). Independent integer-cell path reconstruction returned exactly 10 omitted cells in two 5-cycles for s=2 and 20 in four 5-cycles for s=4, and zero omissions for s=0,1,3 and induced stationary permutations as asserted. The nonstationary s=3 and s=4 induced maps reach stationary cases. Exact a(7/8+u/8)=a(u)/8 on each dyadic branch proves the infinite descent for covering towers; a(I) excludes zero, hence no finite orbit survives the stationary covering renormalization. The only residual finite arrows have least period five, so endpoint inclusions, masses (0,0,1/4,0,1/2), and global classification follow for all real x∈[0,1), not merely sampled points.
 
-## Relationship and residual risks
-Published induction algorithms can in principle produce these numbers, and the \(2/5\) non-covering piece is implicit in Example 5.21; the distinct all-five explicit classification and \(4/5\) case were the focus of the comparison. Independent priority checking and external mathematical audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the simultaneous GLOBAL five-rotation pointwise periodic-set classification, not for existence of 4/5 half-measure island. Bruin–Lukina provide the rotated-odometer model, return principles and part of the 2/5 non-covering data. The November 2 exact-quarter-return result already covers all five first-quarter return times, the full half-measure 4/5 periodic island and its endpoints. It expressly does NOT exclude other periodic points in the complement; its full-measure return saturation for s<=3 is not global pointwise aperiodicity. The present exact induced return maps and omitted-cell exhaustion establish those missing universal statements and the 2/5 full intervals.
+
+## value
+
+PASS
+
+Global exact classification of periodic POINTS (not merely measure-a.e. or first-quarter returns) for a naturally defined five-sector rotated-odometer family; the 2/5 vs 3/5 asymmetry and period-five island masses are motivated dynamical invariants. The extra descent and omission proof is a substantive finite-to-infinite argument; it is not simply recomputing the already published return table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
