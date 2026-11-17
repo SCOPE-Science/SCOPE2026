@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:54.915805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For the two explicitly given skew matrices and θ interval, minimizing the bilinear margin separately over pure opposing alternatives and interval endpoints yields V_r(p)=min{-ru[(1-z)/2+|d|]+z[w-v-r(w+v)]/2, (v-w)(1-z)/2-r(v+w)|d|}. Since r,u,v,w>0 both terms strictly decrease with |d|, every maximizer has x=y=(1-z)/2. The resulting lower envelope of f1(z)=-ru/2+[w-v+r(u-w-v)]z/2 and f3(z)=(v-w)(1-z)/2 gives the stated complete r=1 support classification including u=2v ties. For w<v,u>2v, f1<0<=f3, so the slope changes sign exactly at rc=(v-w)/(u-v-w) in (0,1), leading to z=0, arbitrary z, then z=1, although C is a strict pooled Condorcet loser. The exhibited twenty-ballot groups have exact margins (4/5,1/5,1/10), rc=1/5; rational LP implementation independently checks 625 finite parameter-grid inputs. All-r theorem is only claimed for this specified reversal region.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khalaf et al. cover existence/general LP and robust Condorcet/dominance; the opposite-group winners permit no common Condorcet winner, so generic robust Condorcet condition is inapplicable to pooled-loser threshold."
+        ],
+        "reasoning": "The previous generic framework permits deriving the current analytic result, but it does not immediately imply this sharp active-set partition without nontrivial optimization.",
+        "searches": [
+          "Resultary: robust maximal lotteries mirrored Condorcet winners pooled Condorcet loser ambiguity radius support transitions",
+          "Khalaf et al. Theorems 8,9,17",
+          "Resultary stable two-lottery record"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 040e2e16adccee0e50d2974a1a62e30942e65c4e",
+        "Git robust_lottery_verify.py f14808b9a65340b1b62d5909d93abb87f9b4453b",
+        "Resultary: robust maximal lotteries mirrored Condorcet winners pooled Condorcet loser ambiguity radius support transitions",
+        "https://arxiv.org/html/2602.21297v1",
+        "https://proceedings.mlr.press/v306/khalaf26a.html",
+        "https://arxiv.org/abs/1503.00694"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general LP over arbitrary shifts is evaluable, but the robust Condorcet theorem addresses a common winner and classical pooled Condorcet exclusion uses one fixed matrix."
+        ],
+        "reasoning": "A strict loser of mean matrix is not protected against robust maximin over varying matrices; no stronger published implication forces the claimed sharp reversal and all support types.",
+        "searches": [
+          "Resultary: robust maximal lotteries mirrored Condorcet winners pooled Condorcet loser ambiguity radius support transitions",
+          "Khalaf et al. Theorems 8,9,17 and Appendix",
+          "Brandl et al. classical max lotteries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reformulation as minimax bilinear game over p, θ endpoints and opponent pure alternative reduces to affine lower envelope in symmetric z."
+        ],
+        "reasoning": "General robust LP is equivalent to the optimization problem but does not contain the proposed closed-form all-margin support classification as a cited theorem.",
+        "searches": [
+          "Resultary: robust maximal lotteries mirrored Condorcet winners pooled Condorcet loser ambiguity radius support transitions",
+          "Khalaf et al. arxiv:2602.21297 Theorem 17",
+          "arxiv:1503.00694"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table gives parameter chambers u<2v,w>u+v, u=2v, and r_c=(v-w)/(u-v-w) or a strict pooled-loser unique winner."
+        ],
+        "reasoning": "The two exact ballot examples and all-margin support table are not a recomputation of a located known instance; this negative search is qualified.",
+        "searches": [
+          "Resultary: robust maximal lotteries mirrored Condorcet winners pooled Condorcet loser ambiguity radius support transitions",
+          "Resultary published robust-lottery query",
+          "Khalaf et al. figures/examples, appendix LP"
+        ]
+      },
+      "rationale": "PASS qualified. Khalaf et al. (2026) introduce robust maximal lotteries for variable population weights, prove robust Condorcet/dominance rules and a general linear programming characterization, all established and acknowledged. The inspected main text/appendix does not give the exact closed-form mirrored-opposed-winner support chambers or a strict pooled Condorcet loser becoming unique under increased uncertainty with a rational sharp radius. A generic finite LP is an algorithm for any instance, not an explicit all-positive-parameter classification, and the earlier fixed-majority maximal lotteries differ from a minimax range over θ. An unindexed application of the same LP could give an equivalent reversal; no absolute priority claimed.",
+      "residual_risks": [
+        "A later or unindexed specialization of Khalaf et al. general robust-LP framework may independently derive identical mirrored-margin chambers.",
+        "Classification of all intermediate radii for arbitrary positive (u,v,w) is NOT claimed; only r=1 all parameters and one reversal region all radii.",
+        "No assertion for more than two populations or more than three candidates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS robust minimax LP framework, NOT a stated exact support-chamber / pooled-loser reversal theorem",
+          "evidence": "Theorem 17 yields a general LP, but neither an explicit opposed-winner three-alternative phase diagram nor rc=(v-w)/(u-v-w) occurs in the inspected theorem/appendix.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21297v1",
+          "material_read": "Complete accessible arXiv HTML main sections including robust definitions, Theorems 8, 9, 17, and appendix derivation of general robust LP; PMLR publication page checked",
+          "method": "Compared general mathematical LP and Condorcet guarantees to two-group mirror u,v,w model and sharp rc",
+          "title": "Robust AI Evaluation through Maximal Lotteries",
+          "trigger": "Identical robust lottery objective and population weight uncertainty; primary possible broader coverage"
+        },
+        {
+          "assessment": "NOT_EQUIVALENT mathematical object; no full-paper negative coverage claim",
+          "evidence": "The known result concerns single-peaked stable two-lotteries and Condorcet winner exclusion, not two-group robust pooled loser.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-condorcet-exclusion-criterion-and-two-support-transition--10a294dece8f",
+          "material_read": "Resultary scientific summary of theorem and domain, not full primary paper",
+          "method": "Compared stable two-lottery in single-peaked election to robust maximin over weight mixture",
+          "title": "A sharp Condorcet-exclusion criterion and two support transitions for stable two-lotteries",
+          "trigger": "Other published voting stochastic selection with support transitions"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING classical maximal-lottery notions, not robust population weights",
+          "evidence": "A Condorcet loser is excluded by classical maximal lottery of the pooled single matrix; the robust objective can differ.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.00694",
+          "material_read": "Available primary abstract and bibliographic statements, not full text reread here",
+          "method": "Compared single matrix maximal lottery to interval minimax objective",
+          "title": "Consistent Probabilistic Social Choice",
+          "trigger": "Classical maximal lotteries exclusion of Condorcet losers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact symmetric two-constituency case is a motivated boundary test for robust group-weight aggregation: a method intended to protect against population-shift risk can choose a candidate that is a strict Condorcet loser of the pooled electorate. The threshold rc and complete r=1 analytic support table provide interpretable structural, normative information beyond solving sample LPs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 040e2e16adccee0e50d2974a1a62e30942e65c4e",
+    "Git robust_lottery_verify.py f14808b9a65340b1b62d5909d93abb87f9b4453b",
+    "Resultary: robust maximal lotteries mirrored Condorcet winners pooled Condorcet loser ambiguity radius support transitions",
+    "https://arxiv.org/html/2602.21297v1",
+    "https://proceedings.mlr.press/v306/khalaf26a.html",
+    "https://arxiv.org/abs/1503.00694"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later or unindexed specialization of Khalaf et al. general robust-LP framework may independently derive identical mirrored-margin chambers.",
+    "Classification of all intermediate radii for arbitrary positive (u,v,w) is NOT claimed; only r=1 all parameters and one reversal region all radii.",
+    "No assertion for more than two populations or more than three candidates."
+  ],
+  "residual_risks": [
+    "A later or unindexed specialization of Khalaf et al. general robust-LP framework may independently derive identical mirrored-margin chambers.",
+    "Classification of all intermediate radii for arbitrary positive (u,v,w) is NOT claimed; only r=1 all parameters and one reversal region all radii.",
+    "No assertion for more than two populations or more than three candidates."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS robust minimax LP framework, NOT a stated exact support-chamber / pooled-loser reversal theorem",
+      "evidence": "Theorem 17 yields a general LP, but neither an explicit opposed-winner three-alternative phase diagram nor rc=(v-w)/(u-v-w) occurs in the inspected theorem/appendix.",
+      "identifier_or_url": "https://arxiv.org/html/2602.21297v1",
+      "material_read": "Complete accessible arXiv HTML main sections including robust definitions, Theorems 8, 9, 17, and appendix derivation of general robust LP; PMLR publication page checked",
+      "method": "Compared general mathematical LP and Condorcet guarantees to two-group mirror u,v,w model and sharp rc",
+      "title": "Robust AI Evaluation through Maximal Lotteries",
+      "trigger": "Identical robust lottery objective and population weight uncertainty; primary possible broader coverage"
+    },
+    {
+      "assessment": "NOT_EQUIVALENT mathematical object; no full-paper negative coverage claim",
+      "evidence": "The known result concerns single-peaked stable two-lotteries and Condorcet winner exclusion, not two-group robust pooled loser.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-condorcet-exclusion-criterion-and-two-support-transition--10a294dece8f",
+      "material_read": "Resultary scientific summary of theorem and domain, not full primary paper",
+      "method": "Compared stable two-lottery in single-peaked election to robust maximin over weight mixture",
+      "title": "A sharp Condorcet-exclusion criterion and two support transitions for stable two-lotteries",
+      "trigger": "Other published voting stochastic selection with support transitions"
+    },
+    {
+      "assessment": "PARTIALLY_COVERING classical maximal-lottery notions, not robust population weights",
+      "evidence": "A Condorcet loser is excluded by classical maximal lottery of the pooled single matrix; the robust objective can differ.",
+      "identifier_or_url": "https://arxiv.org/abs/1503.00694",
+      "material_read": "Available primary abstract and bibliographic statements, not full text reread here",
+      "method": "Compared single matrix maximal lottery to interval minimax objective",
+      "title": "Consistent Probabilistic Social Choice",
+      "trigger": "Classical maximal lotteries exclusion of Condorcet losers"
+    }
+  ]
+}

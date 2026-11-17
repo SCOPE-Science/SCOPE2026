@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact skew-symmetric matrices define all quantities, and the universal quantifiers are restricted to \(0<u,v,w\leq1\) and \(0<r\leq1\). An explicit change of coordinates reduces the worst-case score to the lower envelope of two affine scalar functions with strict penalty for imbalance, proving symmetry of **every** maximizer. The sign and intersection analysis proves every full-radius case, including all equalities, and the radius-switch proof derives the critical threshold algebraically. Actual strict-ranking ballot profiles realize the key margins. Independently derived exact rational linear-program vertex enumeration passed 625 parameter-grid instances, but is not relied upon as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+PASS. For the two explicitly given skew matrices and θ interval, minimizing the bilinear margin separately over pure opposing alternatives and interval endpoints yields V_r(p)=min{-ru[(1-z)/2+|d|]+z[w-v-r(w+v)]/2, (v-w)(1-z)/2-r(v+w)|d|}. Since r,u,v,w>0 both terms strictly decrease with |d|, every maximizer has x=y=(1-z)/2. The resulting lower envelope of f1(z)=-ru/2+[w-v+r(u-w-v)]z/2 and f3(z)=(v-w)(1-z)/2 gives the stated complete r=1 support classification including u=2v ties. For w<v,u>2v, f1<0<=f3, so the slope changes sign exactly at rc=(v-w)/(u-v-w) in (0,1), leading to z=0, arbitrary z, then z=1, although C is a strict pooled Condorcet loser. The exhibited twenty-ballot groups have exact margins (4/5,1/5,1/10), rc=1/5; rational LP implementation independently checks 625 finite parameter-grid inputs. All-r theorem is only claimed for this specified reversal region.
 
-The motivating full-text paper by Khalaf et al. (arXiv:2602.21297v1), especially its robust-lottery definitions, Theorems 8–9 and 17, appendix proofs, and illustrations, gives a general robust LP, but no stated exact support trichotomy or unique pooled Condorcet-loser selection at an explicit positive radius. These are more specific structural conclusions requiring an active-set analysis, not restatements of a reported case. Classical maximal-lottery results concern one fixed matrix, while this theorem optimizes simultaneously over a continuum of uncertain pooled matrices. Targeted literature and published mathematical-record searches did not identify an equivalent statement. Residual risks include unindexed follow-up work and a possible equivalent specialized derivation under different terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The opposed-winner setting models an interpretable conflict between two equally weighted constituencies. The theorem explains, in exact analytic parameters, when robust aggregation chooses a mix, the third compromise choice, or just the two polar choices. The Condorcet-loser radius reversal supplies a substantive normative boundary: protection against group-composition shift need not preserve an ordinary pooled Condorcet-loser exclusion. This is useful for interpreting or calibrating robust voting/assessment procedures, beyond numerical LP evaluation.
+PASS qualified. Khalaf et al. (2026) introduce robust maximal lotteries for variable population weights, prove robust Condorcet/dominance rules and a general linear programming characterization, all established and acknowledged. The inspected main text/appendix does not give the exact closed-form mirrored-opposed-winner support chambers or a strict pooled Condorcet loser becoming unique under increased uncertainty with a rational sharp radius. A generic finite LP is an algorithm for any instance, not an explicit all-positive-parameter classification, and the earlier fixed-majority maximal lotteries differ from a minimax range over θ. An unindexed application of the same LP could give an equivalent reversal; no absolute priority claimed.
 
-## Closest source and limitations
+## value
 
-Khalaf et al., *Robust AI Evaluation through Maximal Lotteries* (2026), arXiv:2602.21297v1, https://arxiv.org/html/2602.21297v1. A fully general uncertainty-region classification, independent auditing, and exhaustive equivalence search are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The exact symmetric two-constituency case is a motivated boundary test for robust group-weight aggregation: a method intended to protect against population-shift risk can choose a candidate that is a strict Condorcet loser of the pooled electorate. The threshold rc and complete r=1 analytic support table provide interpretable structural, normative information beyond solving sample LPs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
