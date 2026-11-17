@@ -1,11 +1,21 @@
-# Review of the planar Kuhn-packet optimizer classification
+# Independent mathematical audit
 
-**Correctness.** PASS. The universal lower bound is the half-diameter bound applied to all three edge directions. The standard frame attains it. For the sup and intermediate norms, the short-vector shell restricts all optimizers to eight explicitly enumerated directions, each giving two triangles contained in unit squares. For the diamond, the exact planar isometry to the sup norm makes the diameter condition both necessary and sufficient, after which four finite vector classes give the exact multiplicities and determinants. A standalone exact-integer script corroborates the finite classification. The argument handles all real \(1\le p\le\infty\) and all independent integer frames, including nonprimitive frames.
+## correctness
 
-**Originality.** PASS on available evidence, provisional historical priority. The inducing work of Xue defines the packet minimum and explicitly calculates the complete numerical optimum \(2^{1/p-1}\) in equation (3.2), but does not provide the complete diamond-frame optimizer list. The numerical optimum is not claimed as original. The known all-dimensional cube-optimal-frame result already covers the \(p=\infty\) face and is not claimed as new. The new conclusion is the endpoint doubling, precise index-two classification, and complete parameter comparison; these are not consequences of that cube result and were not identified in the inspected neighboring Kuhn-covering literature or semantic mathematical-record searches. An older equivalent elementary classification is a residual priority risk.
+PASS
 
-**Mathematical value.** PASS. The original optimization explicitly allows nonprimitive independent frames. The exhaustive optimizer classification determines exactly when such nonprimitive frames genuinely minimize the objective. The doubled count at the nonsmooth norm endpoint is a sharp, natural boundary phenomenon: the optimum itself is continuous, but its equality geometry changes. This is more informative than an isolated equality example and has direct interpretive relevance to covering-minimum formulations.
+For all 1<=p<=infinity, diameter of any translate of radius r forces 2r >= max(||a||_p,||b||_p,||a+b||_p), and integer norm shells force the optimum >=2^(1/p-1). Coordinate orthogonal unit frame attains it. For 1<p<=infinity norm threshold admits only signed axis and diagonal vectors; the ordered independent triples a,b,a+b give exactly 24 unimodular possibilities and each packet triangle sits in a unit square. At p=1 the linear L1-to-Linfinity isometry U(x,y)=(x+y,x-y) gives exact circumradius half of the L1 pair diameter: the integer shell of L1<=2 yields 48 ordered frames, of which 24 have |det|=1 and the other 24 have |det|=2, spanning checkerboard parity lattice. Check includes p=infinity, p=1, both packet triangles, unordered counts /2, and frames permitted to have proper sublattice index. Independent exhaustive enumeration of finite shells in independent_checks.py returned (48,24) and determinant split 24+24; source verify.py inspected rather than trusted as proof. Infinite-lattice obstruction derives analytically from integer shell, not enumeration alone.
 
-**Limitations and closest literature.** Xue's 2026 introduction of the invariant, related covering bodies by Lian--Xue, related permutation-simplex criteria by Grozev--Nikolov, and the separate cubical optimizer classification are the closest identified results. The present argument is confined to the standard planar \(\ell_p\) family. Independent external review and exhaustive historical priority verification are not provided.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new content is the exact equality-frame multiplicity change at the diamond endpoint, NOT the numerical optimum already in Xue equation (3.2), nor the p=infinity cube equality case covered by a previously published higher-dimensional tree-frame theorem.
+
+## value
+
+PASS
+
+The change from 24 unimodular ordered minimizers for p>1 to 48 with 24 nonprimitive, index-two checkerboard bases exactly at p=1 is a structural equality-case transition for a natural lattice-covering invariant, not an arbitrary count. It distinguishes optimal radius continuity from optimizer topology and sublattice rigidity, reasonably useful to later researchers studying boundary norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

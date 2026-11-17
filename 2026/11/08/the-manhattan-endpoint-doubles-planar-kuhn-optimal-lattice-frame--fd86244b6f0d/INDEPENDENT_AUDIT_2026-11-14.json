@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T12:14:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-manhattan-endpoint-doubles-planar-kuhn-optimal-lattice-frame--fd86244b6f0d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-manhattan-endpoint-doubles-planar-kuhn-optimal-lattice-frame--fd86244b6f0d/verify.py",
+        "https://arxiv.org/abs/2610.39034",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cube-optimal-kuhn-frames-are-oriented-spanning-trees--1a9ae5099955"
+      ],
+      "rationale": "For all 1<=p<=infinity, diameter of any translate of radius r forces 2r >= max(||a||_p,||b||_p,||a+b||_p), and integer norm shells force the optimum >=2^(1/p-1). Coordinate orthogonal unit frame attains it. For 1<p<=infinity norm threshold admits only signed axis and diagonal vectors; the ordered independent triples a,b,a+b give exactly 24 unimodular possibilities and each packet triangle sits in a unit square. At p=1 the linear L1-to-Linfinity isometry U(x,y)=(x+y,x-y) gives exact circumradius half of the L1 pair diameter: the integer shell of L1<=2 yields 48 ordered frames, of which 24 have |det|=1 and the other 24 have |det|=2, spanning checkerboard parity lattice. Check includes p=infinity, p=1, both packet triangles, unordered counts /2, and frames permitted to have proper sublattice index. Independent exhaustive enumeration of finite shells in independent_checks.py returned (48,24) and determinant split 24+24; source verify.py inspected rather than trusted as proof. Infinite-lattice obstruction derives analytically from integer shell, not enumeration alone.",
+      "residual_risks": [
+        "The count is specific to planar coordinate Lp norms; cannot extend to other lattices/bodies without a new proof.",
+        "Finite checks confirm enumeration only after the analytic shell bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published cube-optimal Kuhn frames theorem classifies all dimensions of cube, hence covers p=infinity optimizer count 12 in dimension two.",
+          "Lian–Xue criterion and Grozev–Nikolov parallelotope coverings discuss containment, not the diamond endpoint with the checkerboard degeneracy."
+        ],
+        "reasoning": "Strong cube results dominate one endpoint but do not cover the p=1 L1 diamond, nor the precise jump between those endpoints. No general ell_p equality classification found in the searched sources.",
+        "searches": [
+          "planar kappa covering minima Kuhn simplex optimal frames l1 diamond p infinity checkerboard lattice",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cube-optimal-kuhn-frames-are-oriented-spanning-trees--1a9ae5099955",
+          "arXiv:2606.14584",
+          "arXiv:2610.21572"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.39034",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cube-optimal-kuhn-frames-are-oriented-spanning-trees--1a9ae5099955",
+        "https://arxiv.org/abs/2606.14584",
+        "https://arxiv.org/abs/2610.21572"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known 2^(1/p-1) follows from Xue; 24 ordered p=infinity frames follow from general tree theorem.",
+          "For p=1, Xue does not state or establish that 24 of 48 minimizers have determinant two."
+        ],
+        "reasoning": "Neither the radius alone nor the cube-only classification entails the full diamond equality structure, so the novel remainder survives.",
+        "searches": [
+          "https://arxiv.org/abs/2610.39034",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cube-optimal-kuhn-frames-are-oriented-spanning-trees--1a9ae5099955",
+          "planar kappa covering minima Kuhn simplex optimal frames l1 diamond p infinity checkerboard lattice"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xue defines the same common-frame permutation-simplex packet invariant and explicitly gives 2^(1/p-1) for the planar Lp balls.",
+          "The candidate adds all minimizing integer pairs with correct frame ordering and index-two cases."
+        ],
+        "reasoning": "Under the identification of 2D Kuhn packet with the two triangles and independent translations, Xue covers the numerical radius; a radius equality does not logically imply the enumeration of all equality frames.",
+        "searches": [
+          "planar kappa covering minima Kuhn simplex optimal frames l1 diamond p infinity checkerboard lattice",
+          "https://arxiv.org/abs/2610.39034"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved candidate, published cube/tree-frame case, and separate other lattice records, but no older table giving 48 L1 ordered frames including index-two families."
+        ],
+        "reasoning": "The claim is a continuous-parameter equality classification, not a known finite object database recomputation. Unindexed planar lattice lists remain a risk.",
+        "searches": [
+          "planar kappa covering minima Kuhn simplex optimal frames l1 diamond p infinity checkerboard lattice",
+          "Resultary published corpus search for Kuhn packet optimizer and checkerboard lattice"
+        ]
+      },
+      "rationale": "Best-of-knowledge new content is the exact equality-frame multiplicity change at the diamond endpoint, NOT the numerical optimum already in Xue equation (3.2), nor the p=infinity cube equality case covered by a previously published higher-dimensional tree-frame theorem.",
+      "residual_risks": [
+        "An older equality-case planar diamond classification under equivalent language may be unindexed.",
+        "The radius and cube equality subresults are prior and must not be presented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS radius but not the independent frame equality enumeration",
+          "evidence": "Equation (3.2) explicitly gives the numerical radius 2^(1/p-1); no 48/24 classification in inspected relevant sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39034",
+          "material_read": "Primary PDF definition and eq. (3.2), including discussion of planar coordinate Lp balls and packet minima",
+          "method": "arXiv openly available PDF text plus rendered page inspection",
+          "title": "Fei Xue, On kappa-covering minima",
+          "trigger": "Exact same optimization and parameter p"
+        },
+        {
+          "assessment": "COVERS p=infinity special case, NOT diamond endpoint",
+          "evidence": "General 2^d(d+1)^(d-1) unordered frames gives 12 for d=2; only cube norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cube-optimal-kuhn-frames-are-oriented-spanning-trees--1a9ae5099955",
+          "material_read": "Complete published RESULT.md, fixed-frame formula and enumerator",
+          "method": "Read full published GitHub source text",
+          "title": "Cube-optimal Kuhn frames are oriented spanning trees",
+          "trigger": "Higher-dimensional cube optimum could imply p=infinity specialization"
+        },
+        {
+          "assessment": "NO demonstrated implication of p=1 count",
+          "evidence": "They treat lattice covering/parallelotope criteria, rather than explicit p=1 optimizer multiplicity.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.14584",
+          "material_read": "Available mathematical statements and cited result summaries; not a complete new full-text priority certificate",
+          "method": "Source statement comparison",
+          "title": "Lian–Xue and Grozev–Nikolov related geometric covering papers",
+          "trigger": "Adjacent Kuhn packet/parallelotope implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.39034",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-cube-optimal-kuhn-frames-are-oriented-spanning-trees--1a9ae5099955"
+      ],
+      "rationale": "The change from 24 unimodular ordered minimizers for p>1 to 48 with 24 nonprimitive, index-two checkerboard bases exactly at p=1 is a structural equality-case transition for a natural lattice-covering invariant, not an arbitrary count. It distinguishes optimal radius continuity from optimizer topology and sublattice rigidity, reasonably useful to later researchers studying boundary norms.",
+      "residual_risks": [
+        "Value pertains to equality-classification not numerical radius already known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older equality-case planar diamond classification under equivalent language may be unindexed.",
+    "The radius and cube equality subresults are prior and must not be presented as new.",
+    "The count is specific to planar coordinate Lp norms; cannot extend to other lattices/bodies without a new proof.",
+    "Finite checks confirm enumeration only after the analytic shell bound.",
+    "Value pertains to equality-classification not numerical radius already known."
+  ],
+  "schema_version": 1
+}
