@@ -1,17 +1,21 @@
-# Scientific review: row-exchange quotient of a hexagonal-chain independence complex
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive chain length, the fixed geometric set is exactly the simplex of midpoints of the even-column row pairs, a direct consequence of the listed graph edges. The published nonequivariant homotopy theorem gives exactly two free integral homology generators in degree equal to the chain length. The proof then uses an explicit, applicable two-periodic integral group-ring resolution, a finite free relative chain complex outside the fixed locus, the Lefschetz formula, and a classification of rank-two involution lattices. These establish the regular integral module and torsion-free quotient homology in every length. Armstrong's orbit-space theorem and Hurewicz–Whitehead establish the full homotopy type for lengths at least two. The small first case has an independently replayed six-pair elementary collapse to a connected unicyclic graph. The reconstructed finite checks agree for lengths one through six, without serving as the infinite proof.
+## correctness
 
-## Originality — PASS, with identifiable residual risk
-The closest motivating article [1] proves only the nonequivariant two-sphere wedge for the identical graph family. The closest mathematical record [2] determines a full **rational** Klein-four character (including a row-exchange trace of zero) but explicitly disclaims integral representation and quotient-homotopy classifications. In particular its rational trace cannot decide between the regular integral lattice and the split trivial-plus-sign lattice. Neither source determines the integral homology or homotopy type of the geometric row-exchange quotient. Searches for orbit quotients, equivalent row reflections, regular integral modules, and stronger equivariant statements did not identify a dominating result. Full originality is not provable by search; hidden or implicit older coverage remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The quotient is a canonical topological object in the recently classified family of planar hexagonal-chain independence complexes. Classifying its complete **integral homotopy type** for every chain length resolves both the potential two-torsion and the fundamental-group issue, which cannot be read from known rational reflection characters. The uniform relative-chain method also explains structurally why the involution exchanges a primitive integral pair of generators. This is more than a restatement of the known sphere-wedge rank or a finite table computation.
+Each odd column is a rung and its row-swap orbit cannot be in an invariant independent simplex, while the n even-column orbits are pairwise independent; fixed geometric space F_n is exactly the simplex Delta^{n-1}, contractible. Chandrakar–Singh Theorem 3.1 proves the ordinary independence complex is S^n wedge S^n. After barycentric subdivision, relative simplices outside fixed F_n occur in free two-element orbits; C_*(X_n,F_n) is a bounded free chain complex over R=Z[C2], with only homology M of integral rank two in degree n. Tensor with trivial Z computes orbit quotient relative chains. The Tor spectral sequence collapses to Tor^R_p(Z,M)=H_{n+p}(Y,F) for p>=0. Bounded dimension gives eventual Tor zero; two-periodic cyclic-group resolution forces all positive Tors to vanish. Lefschetz fixed Euler=1 gives trace zero on rank-two M; primitive invariant vector yields h e=e, h f=a e-f, and Tor_1 vanishing excludes even a, so the integral involution lattice is the regular R. Hence H_n(Y,F)=Z and other relative homology vanishes. For n>=2 Armstrong with fixed-point action on simply connected original gives pi_1(Y)=0, then integral homology plus Hurewicz/Whitehead implies Y~=S^n. n=1 has a barycentrically subdivided quotient with 9 vertices, 15 edges and six 2-cells, each removable by distinct free edge, yielding connected rank-one graph; the actual source verifier was inspected for the explicit deterministic collapses. Finite quotient homology is not used to prove n>=2. A separate from-scratch enumeration of the n=1 C6 independence simplices, their barycentric-flag C2 orbit quotient, and successive free-edge removal independently reproduced its initial 9 vertices, 15 edges, six triangles and six collapse pairs, leaving a connected 9-edge/9-vertex graph homotopy S^1.
 
-## Evidence and boundaries
-The full arguments and exact quantifiers are in `RESULT.md`; the independent finite reconstruction is executable via `python3 verify_hex_quotient.py`, with recorded output in `verification_output.txt`. The proof depends on the published nonequivariant classification and applies to geometric row-exchange quotients, not Borel quotients or other graph symmetries. The checker verifies the first two quotient chain complexes and the general fixed-face pattern only through length six; the all-length integral conclusion is mathematical, not extrapolative.
+## originality
 
-References: [1] Chandrakar–Singh, arXiv:2512.21318v1, Theorem 3.1 (2025-12-24); [2] *Reflection characters of linear hexagonal-chain independence complexes* (2026-10-11), published mathematical record; [3] Armstrong (1965), DOI:10.1017/S0305004100038974.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Chandrakar–Singh gives only ordinary S^n wedge S^n for the same graph; a published Resultary record calculates only the row-flip rational trace zero and end-reversal characters. Trace zero does not distinguish the split trivial+sign Z-lattice from the regular Z[C2]-lattice; the new Tor argument excludes the split case. None of these studies the actual geometric orbit quotient, whose full homotopy type is obtained for all n including the exceptional n=1 fundamental-group check.
+
+## value
+
+PASS
+
+The computation resolves the integral-vs-rational ambiguity of a natural geometric involution and a complete infinite family of orbit homotopy types. Geometric quotients and integral module types are mathematically distinct from nonequivariant wedges and characters; the periodic Tor argument makes an informative structural connection between fixed-point topology, group-lattice integral structure and quotient torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
