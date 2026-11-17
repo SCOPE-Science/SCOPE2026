@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:11:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With a=(1-p)^(n-1), t=1-2p, E[odd degree indicator]=(1-t^(n-1))/2. Same-vertex isolation and odd degree are incompatible; distinct-vertex covariance after conditioning isolated v is -a p t^(n-2). Summing n diagonal and n(n-1) off-diagonal covariances yields -n a/2 [1+t^(n-2)(2np-1)]. For p<=1/2 bracket positive; for p>1/2 even n it remains positive, odd n it crosses strictly once because q^(n-2)(n-1+nq) grows from 0 to 2n-1. Expanding q=1-h/n at h=log(2n)+s establishes threshold window. Independent exhaustive exact-rational graph enumeration n=3,4,5 at p=1/4,3/4,9/10 matched formulas, not a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov2 non-induced motif theorem computes Cov(O,X_H) for H without isolated vertices; Nov8 induced-motif theorem computes Cov(O,T_H) for fixed interior pattern, not exterior isolation. Alarfaj et al concerns joint numerical degrees."
+        ],
+        "reasoning": "The broader motif theories cover many degree-parity cross-covariances but their event classes lack the global nonadjacency condition of isolation; they do not directly dominate submitted I,O covariance.",
+        "searches": [
+          "mixed covariance isolated vertex count odd degree count random graphs exact formula",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md",
+          "arXiv:2303.05138"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md",
+        "arXiv:2303.05138",
+        "Goldstein arXiv:1005.4390",
+        "Ghosh–Goldstein–Raič arXiv:1106.0048"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier covariance conditionality forces specified present motif edges or an induced internal shape; here conditioning globally isolated vertex forces all n-1 incident edges absent and changes all other vertices parities."
+        ],
+        "reasoning": "No simple parameter substitution gives formula -n/2 (1-p)^(n-1)[1+t^(n-2)(2np-1)] from earlier motif theorems; submitting proof supplies needed direct two-vertex conditioning. Potential older joint-degree GF implicit formula retained as risk.",
+        "searches": [
+          "mixed covariance isolated vertex count odd degree count random graphs exact formula",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Isolation of a vertex is an induced K1 with every outside incident edge absent; previously studied non-induced motifs have e>=1 and no isolated vertices; induced fixed k>=2 motifs do not impose absence of outside edges."
+        ],
+        "reasoning": "A vertex-isolation count cannot be realized by simply setting motif H=K1 in the non-induced formula (would count all n vertices constant). Induced motif count of k=1 is likewise always n, not number of isolated vertices. This blocks proposed implication from earlier motif theorems.",
+        "searches": [
+          "covariance isolated vertices odd degree vertices G(n,p) parity sign reversal odd n",
+          "mixed covariance isolated vertex count odd degree count random graphs exact formula",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-(n,p) table or database entry for the particular I-vs-O covariance located. Direct n=3..5 brute graph probabilities checked as independent finite examples only."
+        ],
+        "reasoning": "A finite table cannot establish the all-n threshold uniqueness/window; prior same-type random graph formulas were checked for mathematical implication, not matching numbers alone.",
+        "searches": [
+          "covariance isolated vertices odd degree vertices G(n,p) parity sign reversal odd n",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md"
+        ]
+      },
+      "rationale": "PASS with risks: Earlier parity-resolved non-induced motif covariance excludes motifs with isolated vertices, and hence cannot encode total graph-isolated vertices (requiring all exterior incident edges absent). Earlier induced-motif covariance counts induced fixed k-subgraphs, not globally isolated vertices. General joint-degree distributions are related but do not directly state this mixed nonlinear aggregate covariance sign reversal and log n/n critical window. No decisive prior coverage found after bounded comparisons; this is not a proof of universal priority.",
+      "residual_risks": [
+        "Covariance identity might be implicitly derivable from older joint-degree probability generating functions; no global negative priority proof.",
+        "Positive covariance occurs in very dense region and has exponentially small unscaled amplitude."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECTLY COVERING: excludes isolated motifs and global isolation; different conditioning",
+          "evidence": "H has e>=1 and no isolated vertices, O-vs-X_H formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+          "material_read": "Full Finding, Proof via fixed present motif edges, sign theorem, scope and limitations",
+          "method": "Read full scientific RESULT.md proof via GitHub read-only file at identified published path",
+          "title": "Parity-resolved covariance of odd-degree counts with arbitrary uniform random graph motifs",
+          "trigger": "Broad covariance of same O statistic with motifs"
+        },
+        {
+          "assessment": "NOT DIRECTLY COVERING: fixed internal k-set induced pattern, not exterior-edge absent isolation event",
+          "evidence": "T_H counts induced k-vertex subsets, E O difference depends on k,o(H), not degree-zero over entire G.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md",
+          "material_read": "Full Finding, Assumptions, conditional parity proof, equality cases and scope",
+          "method": "Read full scientific RESULT.md proof via GitHub read-only file at identified published path",
+          "title": "Degree-parity universality and three sign reversals for induced motifs in independent-edge random graphs",
+          "trigger": "Potential broader induced motif theorem containing K1"
+        },
+        {
+          "assessment": "UNKNOWN IMPLICIT COVERAGE: numerical two-vertex degree law may provide ingredients, not inspected sign threshold",
+          "evidence": "Abstract describes joint numerical degree distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.05138",
+          "material_read": "Accessible public abstract only; complete primary full text not read",
+          "method": "Public bibliographic abstract; no claim of full-text examination",
+          "title": "The joint node degree distribution in the Erdős–Rényi network",
+          "trigger": "Plausible generating-function prior for same vertex degrees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact covariance shows an unexpected parity-driven sign reversal of two natural random graph counts, with a unique dense threshold and sharp scaled critical window. Although unscaled covariance is exponentially small in the dense regime, the structural dependence identity is a motivated exact result, not a claim of large observable effect.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-resolved-covariance-of-odd-degree-counts-with-arbitrary-u--bd13f85bb861/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-degree-parity-universality-and-three-sign-reversals-for-induced--46e6262545b7/RESULT.md",
+    "arXiv:2303.05138",
+    "Goldstein arXiv:1005.4390",
+    "Ghosh–Goldstein–Raič arXiv:1106.0048"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality comparison; search failures do not certify novelty.",
+    "All conclusions use the original mathematical source assumptions, normalizations and quantified domain.",
+    "Publication transport withheld pending semantic confidentiality sanitization; review_status complete is not publication approval."
+  ],
+  "residual_risks": [
+    "Covariance identity might be implicitly derivable from older joint-degree probability generating functions; no global negative priority proof.",
+    "Positive covariance occurs in very dense region and has exponentially small unscaled amplitude."
+  ],
+  "schema_version": 1
+}
