@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The angles and branch probabilities are those of the cited Feres model. Every permissible transition belongs to a connected reversible graph consisting of an \(N-2\)-cycle with two leaves, with sine-weighted detailed balance. This proves the angular period classification and angular limits. The exact two-return-loop phase calculation at \(A_1\) excludes unit-modulus eigenvalues of every nonzero twisted angular operator when \(\theta/\pi\) is irrational. Combined with finite-dimensional spectral contraction and Fourier approximation, this proves the position and joint weak limits. Rational initial angles are confined to a finite translated rotation lattice. The proof excludes endpoint angle classes, total-variation convergence and uniform modewise rates. The supplementary checker is only finite corroboration.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full open preprint of Vales and Pinto-de-Carvalho (arXiv:2005.01892v1), particularly Theorem 6.3, gives almost-sure dense trajectories but not one-time boundary weak distributions. The full open 2022 Vales preprint (arXiv:2212.00872v1) gives angular examples \(N=7,8\), full-system mixing only for irrational \(\alpha/\pi\), and a Knudsen law requiring a spatial Haar factor initially; these do not imply convergence from a fixed boundary point. The closest accessible existing rational Feres angle result concerns asymptotic angular spectral gaps at \(\theta=\alpha/2\), not nonzero spatial Fourier contraction. Broad mathematical-record searches found no statement subsuming the claim. Residual risk: unindexed equivalent statements, the uninspected full original Feres chapter and potentially expanded journal revisions. These limitations do not presently supply decisive prior coverage.
+PASS
 
-## Mathematical value — PASS
-The central gap is how point-source boundary statistics can converge while the full rational-parameter dynamics fails to mix. The exact necessary-and-sufficient irrationality condition and parity-resolved finite-angle limits characterize a natural statistical behavior across all integers \(N\ge7\). This makes a stronger and genuinely different conclusion than almost-sure trajectory density, while avoiding the false implication of total-variation or global mixing.
+With N≥7, alpha=pi/N and 0<theta<alpha, explicit positive Feres branches give a connected N-state graph with one N−2 cycle and two leaves, sine detailed balance, period gcd(2,N−2). For each k≠0, twisted K_k(v,w)=P(v,w)e^{2ikw} has spectral radius ≤1; equality would enforce a common loop eigenphase. Two loops A1→A0→A1 and A1→B1→A1 give e^{4ik(theta−alpha)}=1, impossible for irrational theta/pi. Hence each spatial mode contracts and Fourier approximation yields weak Haar spatial convergence with parity-conditioned angular limit. Rational theta/pi traps positions in finite circle subgroup, precluding Haar. Independently built N=7–10 matrices show sine reversibility and all tested 1≤k≤4 radii<1; these are finite checks only.
 
-## Remaining scientific limits
-The result concerns fixed \(N\), \(0<\theta<\pi/N\), and weak spatial convergence. Its Fourier decay is exponential for each separately fixed nonzero Fourier mode, with constants dependent on the mode and parameters. The initial spatial Dirac law remains singular at every finite time. Publication priority awaits external review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Resultary 2026/10/26 already proves the angular cycle/pendants, stationary sine law and parity over a larger rational alpha family; this part is covered and not novel. Primary 2020/2022 works prove pathwise density or global mixing statements, not point-start fixed-time spatial weak convergence. The new conditional Fourier contraction and rationality iff criterion survive.
+
+## value
+
+PASS
+
+The distinction between orbitwise density, global mixing, and point-start spatial equidistribution is mathematically meaningful for a finite-angle Markov additive billiard. The explicit necessary-and-sufficient arithmetic weak mixing criterion is an exact structural result even though angular graph classification itself was known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

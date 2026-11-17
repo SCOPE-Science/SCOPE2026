@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic proof uses the four explicit Feres transition branches and their positive intervals. The graph is enumerated for arbitrary \(N\) by symbolic indices, not by computational enumeration. Edgewise detailed balance supplies the explicit stationary weights. The two positive length-two return loops have displacements \(4\theta+4\alpha\) and \(8\alpha\), respectively, and their phase conflict excludes spectral radius one for every fixed nonzero Fourier mode if \(\theta/\pi\) is irrational. This is the infinite-parameter argument.
+## correctness
 
-The standalone `angles_check.py` is reproducible with Python 3 and NumPy. Run `python angles_check.py`. It checks graph state counts and degrees, probability normalization, reversible sine weights, a single cycle with \(N-2\) vertices after leaf removal, the odd/even period, and Fourier spectral radii for modes \(k=1,2,3,4\) for \(7\le N\le16\), at \(\theta=(\sqrt2/3)\alpha\). These finite checks passed; additional finite tests over \(7\le N\le30\) and other interior angles also passed when performed. They do not prove uniformity or the all-parameter claims.
+PASS
 
-A single point-source angle law yields finite supported boundary distributions at each finite time. Thus no convergence in total variation is claimed or established. The exact arithmetic obstruction for rational \(\theta/\pi\) is an elementary finite-subgroup argument. No independent mathematical audit has been conducted.
+With N≥7, alpha=pi/N and 0<theta<alpha, explicit positive Feres branches give a connected N-state graph with one N−2 cycle and two leaves, sine detailed balance, period gcd(2,N−2). For each k≠0, twisted K_k(v,w)=P(v,w)e^{2ikw} has spectral radius ≤1; equality would enforce a common loop eigenphase. Two loops A1→A0→A1 and A1→B1→A1 give e^{4ik(theta−alpha)}=1, impossible for irrational theta/pi. Hence each spatial mode contracts and Fourier approximation yields weak Haar spatial convergence with parity-conditioned angular limit. Rational theta/pi traps positions in finite circle subgroup, precluding Haar. Independently built N=7–10 matrices show sine reversibility and all tested 1≤k≤4 radii<1; these are finite checks only.
+
+## originality
+
+PASS
+
+Prior Resultary 2026/10/26 already proves the angular cycle/pendants, stationary sine law and parity over a larger rational alpha family; this part is covered and not novel. Primary 2020/2022 works prove pathwise density or global mixing statements, not point-start fixed-time spatial weak convergence. The new conditional Fourier contraction and rationality iff criterion survive.
+
+## value
+
+PASS
+
+The distinction between orbitwise density, global mixing, and point-start spatial equidistribution is mathematically meaningful for a finite-angle Markov additive billiard. The explicit necessary-and-sufficient arithmetic weak mixing criterion is an exact structural result even though angular graph classification itself was known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
