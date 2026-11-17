@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the mathematical result
 
-Run `python3 verify.py` using Python 3 and its standard library. The file is standalone. It enumerates all \(4^4=256\) four-index prime-forbidden mask configurations and compares the four support inequalities with exhaustive perfect-matchings; enumerates primitive pairs modulo \(5\), \(7\), and \(11\) to recover each root probability; and checks all \(1,327,104\) pairs of primitive local progression residue classes modulo \(35\), finding exactly \(27,648\) failures for two progressions. Hence the exact success proportion for that case is \(47/48\). It separately evaluates all-order local forbidden-index distributions by an exact probability dynamic program for \(k=1,\ldots,7\) and three different prime pairs, and checks independently matchable but not jointly matchable explicit examples.
+# Independent mathematical audit
 
-The symbolic proof in `RESULT.md` supplies the unrestricted equivalence and analytic density: Hall’s marriage theorem, the root-position law, inclusion-exclusion, the Chinese remainder theorem, Möbius inversion, and the leading exponential bases. Finite exhaustive computations validate discrete instances only. Errors from finite enumeration are excluded by exact integer and rational arithmetic and full loop coverage; they do not remove historical-priority uncertainty or replace the unrestricted mathematical argument.
+## correctness
 
-No independent mathematical audit or validation was performed.
+PASS
+
+Reconstructed Hall neighbor sets for the four index masks (0,p,q,pq), proving the exact four inequalities without any progression assumption. Primitive residue pairs modulo each r>=5 are uniformly distributed over r^2-1 nonzero pairs; each index has hit probability 1/(r+1), an empty support probability (r-3)/(r+1). Inclusion-exclusion gives U and W, and the 12 forbidden pairs of two-element subsets yield the subtraction. CRT and coprime Möbius inversion for fixed pq give the stated finite-H error; the k asymptotic follows by comparing exponential bases. Independently enumerated all 256 index-mask patterns, tested dynamic local-support laws for p,q=(5,7),(5,11),(7,11), k<=5 and confirmed k=2 success densities 47/48,107/108,191/192. The fixed-(p,q,k) quantifiers and p,q>=5 boundary are essential; do not extend the density to primes 2 or 3.
+
+## originality
+
+PASS
+
+The exact Hall condition is standard; the new parameter quantifier is one common divisor assignment across multiple DIFFERENT progressions, with a full all-order arithmetic density. Earlier literature addresses one progression (or several divisor sets with independently chosen assignments), which does not imply a shared bijection. The submitted counterexamples to quantifier exchange are explicit, and a complete related published result was inspected. Primary Alekseyev full text was not obtainable: claim of novelty is qualified best-of-knowledge, not absence-by-search.
+
+## value
+
+PASS
+
+A common matching is a natural quantifier-strengthening of divisor-set matchability; the 4-vertex Hall obstruction and exact k-progression density quantify genuine loss of simultaneous compatibility. The k->infty exponential 24 factor is a sharp structural law, not a decorative re-expression of a single-progression density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
