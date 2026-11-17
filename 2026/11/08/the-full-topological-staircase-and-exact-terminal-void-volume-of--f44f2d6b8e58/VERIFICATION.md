@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The proof in `RESULT.md` is the all-dimensional justification. Two standalone checks are included as supplementary reproducibility artifacts; neither is presented as an independent audit or infinite-dimensional certificate.
+# Independent mathematical audit
 
-`python verify.py` requires only Python's standard library and uses exact rational arithmetic. It checks the rank of finite simplex-skeleton boundary maps over \(\mathbb F_2\), the Gram determinant of the braid-chamber generators, every formula for the chamber rays and coefficient product in dimensions \(2\) through \(9\), support-membership equivalence and constructive decomposition, and affine interpolation on sampled barycentric-simplicial chains. The packaged run reports `PASS: 12615 exact assertions; n=3..10, all skeleton ranks and barycentric tests`.
+## correctness
 
-`python verify_volume_hulls.py` optionally requires NumPy and SciPy; it constructs the full set of coordinate permutations of the exact chamber-ray expressions, projects to an affine chart, and recomputes convex-hull volumes. For \(3\le n\le5\) and all \(1\le s<n\), it reports `PASS: independent convex-hull volume ratios for 9 (n,s) pairs`.
+PASS
 
-All verification is finite. The general proof independently establishes the piecewise-linear deformation retraction and verifies all boundary parameter values. It computes the coefficient through exact determinant/product identities and separately proves the unclipped terminal-phase range. No unproved numerical extrapolation, formal proof assistant, or independent expert check is asserted.
+Barycentric membership is equivalent to the top s=r+1 coordinate sum f_s(p)≥α=1/(1+λ): the support mass criterion gives a sparse face vector and residual simplex vector in both directions. In the barycentric subdivision, f_s is affine on each order chamber; vertices indexed by subsets I have f_s(b_I)=min(1,s/|I|). Removing low-valued vertices by normalized positive barycentric weights gives a coherent facewise strong deformation retract to skel_{k−1} for k=floor[s(1+λ)]≤d; equalities include new subcomplex at each threshold. Standard simplex-skeleton cellular homology yields wedge of C(d,k) spheres S^(k−1), and compatible inclusions imply stated integral bars. min f_s=s/n only at centroid gives exact λ*=(n−s)/s. The last-phase void is a translated ε-scaled sum-zero polar hypersimplex; braid-chamber vertices b_j/q_j with q_j=min(s,j)−sj/n, Gram determinant 1/n and n! chambers give C_{d,r}. The extremal lower coordinate ensures no simplex clipping for λ≥(d−s)/s. Independently checked C formula against ∏q_j for all s in dimensions d=2..6; finite checks supplement all-d proof. Submitted verify.py and optional hull verifier were inspected, not executed in full.
+
+## originality
+
+PASS
+
+The full staircase, all degree-specific integral homology bars, and terminal volume law are not implied by inspected earlier coverage. Prior October 11 theorem for simplex skeleton repeated equal-weight summands concerns a different operator, and cannot imply a one-parameter skeleton+full-simplex superlevel filtration. Meyer 2026 gives general convexification covering conditions, abstract not enough to rule out hidden special corollaries, and related cubical/polytopal results use different geometry. Residual originality risk remains for cardinality-constrained simplicial filtrations/polar hypersimplex formulas under alternate terminology.
+
+## value
+
+PASS
+
+This unifies the convexification time with an exact all-dimensional homotopy/persistence filtration and a shape-independent sharp terminal void-volume coefficient for a natural family of nonconvex geometric sets. The degree-by-degree topological change and boundary extinction order are meaningful structural invariants rather than ad hoc numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

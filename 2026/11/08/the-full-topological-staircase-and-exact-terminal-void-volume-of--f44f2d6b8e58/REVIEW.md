@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact membership criterion is proved by a capacity allocation into a support of at most \(r+1\) vertices. The barycentric subdivision makes the top-coordinate sum affine on every simplex, so a good-vertex projection gives a global strong deformation retraction at each parameter, including its boundary. Compatibility with skeleton inclusions proves every integral persistent-homology bar. For the terminal void, an explicit braid-chamber cone decomposition and determinant \(1/(d+1)\) compute the volume coefficient; the most negative coordinate of every ray gives the exact parameter domain with no clipping. The unrestricted conclusions follow from these arguments, not from the finite scripts. A supplemental exact-arithmetic verifier passes 12,615 assertions and an independent convex-hull computation passes nine volume tests.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Barycentric membership is equivalent to the top s=r+1 coordinate sum f_s(p)≥α=1/(1+λ): the support mass criterion gives a sparse face vector and residual simplex vector in both directions. In the barycentric subdivision, f_s is affine on each order chamber; vertices indexed by subsets I have f_s(b_I)=min(1,s/|I|). Removing low-valued vertices by normalized positive barycentric weights gives a coherent facewise strong deformation retract to skel_{k−1} for k=floor[s(1+λ)]≤d; equalities include new subcomplex at each threshold. Standard simplex-skeleton cellular homology yields wedge of C(d,k) spheres S^(k−1), and compatible inclusions imply stated integral bars. min f_s=s/n only at centroid gives exact λ*=(n−s)/s. The last-phase void is a translated ε-scaled sum-zero polar hypersimplex; braid-chamber vertices b_j/q_j with q_j=min(s,j)−sj/n, Gram determinant 1/n and n! chambers give C_{d,r}. The extremal lower coordinate ensures no simplex clipping for λ≥(d−s)/s. Independently checked C formula against ∏q_j for all s in dimensions d=2..6; finite checks supplement all-d proof. Submitted verify.py and optional hull verifier were inspected, not executed in full.
 
-The closest motivating source is Meyer's *Finite convexification by Minkowski summation* (arXiv:2610.26744v1); its complete HTML was inspected, including main theorems and special cases, with targeted checks of simplex, skeleton, homology, and volume. It addresses general exposed-face criteria, not these explicit topological or volume classifications. The full research statement *Sharp finite convexification thresholds for every skeleton of a simplex* was also read; that theorem uses a finite number of **nonconvex skeleton summands**, not the skeleton plus one continuously dilated **convex simplex**, and gives no full persistence or terminal void-volume formula. The known cubical-skeleton anisotropic-box offset theorem likewise has a different exact shape and different homological behavior. General Minkowski-average literature does not imply the present claim in the inspected material. The geometric volume formula in Deza–Hiriart-Urruty–Pournin (arXiv:2011.05607) treats centrally symmetric norm balls of a different family, not the full simplex-skeleton topological filtration. Residual risk: an equivalent description might exist under a different terminology (cardinality-constrained simplex, top-order statistics, hypersimplex polar).
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The compact theorem supplies the entire integral persistence module of a continuously convexifying natural family in all dimensions, including a nontrivial sequence of changing homology degrees. Its sharp final-phase volume law establishes exactly \(d\)-th-order void extinction independent of the skeleton rank, in contrast to the rank-dependent behavior of cubical offsets. The braid-arrangement proof explains both the topology and the volume coefficient rather than merely tabulating special cases. These are motivated quantitative and structural refinements of the finite-convexification question, not an arbitrary numerical slice.
+The full staircase, all degree-specific integral homology bars, and terminal volume law are not implied by inspected earlier coverage. Prior October 11 theorem for simplex skeleton repeated equal-weight summands concerns a different operator, and cannot imply a one-parameter skeleton+full-simplex superlevel filtration. Meyer 2026 gives general convexification covering conditions, abstract not enough to rule out hidden special corollaries, and related cubical/polytopal results use different geometry. Residual originality risk remains for cardinality-constrained simplicial filtrations/polar hypersimplex formulas under alternate terminology.
 
-## Limitations and prior sources
+## value
 
-Historical priority is provisional; full-text comparisons were performed for the most directly relevant general finite-convexification paper and the equal-weight simplex-skeleton theorem. A broad literature survey cannot eliminate all possible equivalent formulations. The exact terminal volume formula is not extended here to earlier scales. The independent audit channel remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This unifies the convexification time with an exact all-dimensional homotopy/persistence filtration and a shape-independent sharp terminal void-volume coefficient for a natural family of nonconvex geometric sets. The degree-by-degree topological change and boundary extinction order are meaningful structural invariants rather than ad hoc numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
