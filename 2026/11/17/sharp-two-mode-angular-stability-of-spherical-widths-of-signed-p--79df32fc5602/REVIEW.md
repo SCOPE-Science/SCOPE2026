@@ -1,0 +1,15 @@
+# Scientific review: spherical widths of signed permutohedra
+
+## Correctness
+PASS. The signed-rearrangement identity reconstructs the directional width from first principles. On every fixed coordinate-level stratum with at least two positive levels, a positive linear functional cannot have a constrained local minimum; its sole stationary point is a strict stratum maximum. At equal-support directions the exact geodesic decomposition holds uniformly for the stated angular interval. Two independent gap-vector decompositions give sharp lower bounds on the active splitting and inactive activation slopes, both with explicit attainment. The strict integer switch \(k<2(n-k)\) versus \(k\ge2(n-k)\) is verified separately for the small inactive block sizes and for all larger sizes. Chamber curvature rules out extra maxima. The general proof does not extrapolate from the finite checker.
+
+## Originality
+PASS, with historical priority provisional. Godland–Kabluchko, arXiv:2009.04186, establishes signed orbit polytopes and their type-\(B\) normal fan (Lemmas 4.2, Theorems 4.4 and 4.13), but not the spherical optimization landscape or the exact two-mode angular envelope. Bastidas, arXiv:2009.05876, treats the corresponding polytope algebra. A prior exact type-\(B\) roundness theorem supplies signed-subset facet normals and optimizes over a **different** weight vector, but does not imply the angular stability coefficient of the fixed odd-weight realization. A type-\(A\) local-width classification treats a different zero-sum spherical domain. Antipodal doubling does relate the support functions, but the restriction of the type-\(A\) problem to a proper subspace does not transfer its local extrema or its tangent minimum automatically. Equivalent older Weyl-norm formulas remain a real bibliographic risk.
+
+## Mathematical value
+PASS. The local-extremum count and exact optimizer directions classify the entire nonlinear spherical width landscape of a basic signed Coxeter zonotope, not an arbitrary finite test. More importantly, the **attained fixed-angle stability** distinguishes two intrinsically different deformations: perturbing a tied nonzero absolute-value block or activating zero coordinates. These mechanisms exchange optimality at the sharp integer threshold \(k=2(n-k)\), a phenomenon absent from the unsigned type-\(A\) zero-sum formulation. This directly describes local robustness and the location of nonglobal local minima, rather than merely reproducing the known face count.
+
+## Verification and limits
+The exact-arithmetic companion `verify_signed_width.py` checks 170,640 discrete upper-step inequalities, 51,816 integer tangent rays, explicit equality rays, and 9,830 signed support patterns. The infinite-dimensional-index theorem follows from the proof, not these finite checks. The theorem does not cover arbitrary orbit weights or angles outside the stated interval. Historical priority has not been independently established.
+
+Self-review: passed. Independent audit: not yet performed.
