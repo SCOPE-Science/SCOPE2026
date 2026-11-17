@@ -1,12 +1,21 @@
-# Scientific review: triangular-clique windmill majority dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and strict open-neighbor tie-retaining majority map are fixed unambiguously. Every outer triangle belongs to one of four occupation types. Their update table is verified directly from all three neighbors; in the alternating-hub case, the unique singleton and the complementary doubleton return with the **same positions**, not only the same occupation counts. The hub thresholds \(K,L,U\) yield an exhaustive disjoint partition into fixed or period-two destinations at first-entry times zero through four. The four-step bound and its sharp witnesses are proved for every positive integer blade count. Fixed-point, primitive-orbit, basin, and entrance-layer populations follow from labelled multinomial weights. The asymptotic bound is a Hoeffding union bound for five elementary symbols per blade. Finite direct-state enumeration and an independent macrostate audit agree for every shared tested size. The full proof does not rely on extending finite experiments to all sizes.
+## correctness
 
-## Originality — PASS (qualified)
-The 1980 Goles–Olivos theorem already implies **eventual period at most two** for symmetric threshold networks; that portion is acknowledged as known. The 2011 Kuhlman–Mortveit–Murrugarra–Kumar paper, inspected at its synchronous theorems and graph-family sections, establishes generalized period restrictions but not this exact windmill entrance/cycle census. The 2022 Turau paper, inspected through its fixed-point and two-cycle characterizations, concerns **trees**, not overlapping triangles. Existing wheel-majority and pineapple-majority calculations concern structurally different graph families; existing excitation dynamics on friendship graphs uses a different ternary update. Scientific searches under windmill, clique bouquet, Dutch windmill, majority attractors and the exact leading integer sequence found no covering formula. An unindexed historical equivalent is a real residual risk, especially because some early threshold-network primary papers were inspectable only as abstracts.
+PASS
 
-## Mathematical value — PASS
-A canonical, unbounded, clustered graph family has a uniform sharp settling-time bound, while arbitrary symmetric threshold networks have only a general eventual-period restriction. Exact all-layer populations distinguish the microscopic periodic points from their larger basin, and the period-two orbit count has exponential scale \(5^r\) despite a total state space \(2\cdot8^r\). These are natural recurrence invariants rather than an arbitrary parameter slice; the result also contrasts with existing wheel and tree majority classifications. The restriction to three outer vertices per blade is essential, and no conclusion about larger cliques or stochastic rules is claimed.
+For each r>=1 and the precise graph K1 joined to r disjoint K3 blades, the hub-zero local triangle occupation counts 0,1,2,3 update to 0,0,1,3 and hub-one counts update to 0,2,3,3 under strict open-neighbor majority. Counting (z,o,p,q) and hub flips via K=3o+p+2q,L=3o+q,U=3o+2q yields the complete ordered decision table for first entry times and period, with first periodic entry at most four. The proof tracks the orientation of a two-occupied blade under alternating hub flips, ensuring an actual spatial two-cycle, not merely an occupation-cycle. It derives sharp maximum times 1 at r=1, 3 at r=2, 4 at r>=3, all multinomial fixed/two-cycle/basin counts and c_r/5^r -> 1 via a Hoeffding bound. Independent full-state enumeration r=1..4 confirms all first-entry/period categories and total populations; it is not the all-r proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS on the complete deterministic windmill first-entry/period and basin census. Goles–Olivos gives only the general period-at-most-two theorem; later majority dynamics on triangular books, wheels, pineapple, barbells and trees use different graph architectures and do not imply the sharp windmill four-step cutoff or its multinomial basin weights. A direct specialized predecessor for K4 bouquets remains possible in older unindexed dynamics literature.
+
+## value
+
+PASS
+
+Exact transient thresholds and full oscillator basin sizes on a family with arbitrarily many triangle blades are natural discrete dynamical invariants. The distinction between immediate periodic orbits and their full basins, plus a sharp universal entry-time bound, goes substantially beyond the textbook period-two fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The analytical theorem and all-size counts follow from the local transition table and the multinomial proof. The following finite tests are corroborating checks only.
+## correctness
 
-`check_states.cpp` uses explicit graph-neighborhood bitmasks and synchronous neighbor-majority updates. Compiling with `c++ -std=c++17 -O3 check_states.cpp -o check_states` and running `./check_states` reproduces `states_output.txt`. It exhaustively checks all \(4{,}793{,}488\) labelled states for blade counts one through seven, including each first periodic-entry time, least eventual period, and the four-step cutoff.
+PASS
 
-`check_macro.py` uses only four integer blade-type counts and a derived symbolic transition map. Running `python3 check_macro.py` reproduces `macro_output.txt`. It proves equality between symbolic transitions and the category table at every macrostate for blade counts one through sixty; all counts are exact integers. The independent cross-comparison of output numbers at blade counts one through seven is captured in `crosscheck_output.txt`. The programs have disjoint core representations and do not share a transition function.
+For each r>=1 and the precise graph K1 joined to r disjoint K3 blades, the hub-zero local triangle occupation counts 0,1,2,3 update to 0,0,1,3 and hub-one counts update to 0,2,3,3 under strict open-neighbor majority. Counting (z,o,p,q) and hub flips via K=3o+p+2q,L=3o+q,U=3o+2q yields the complete ordered decision table for first entry times and period, with first periodic entry at most four. The proof tracks the orientation of a two-occupied blade under alternating hub flips, ensuring an actual spatial two-cycle, not merely an occupation-cycle. It derives sharp maximum times 1 at r=1, 3 at r=2, 4 at r>=3, all multinomial fixed/two-cycle/basin counts and c_r/5^r -> 1 via a Hoeffding bound. Independent full-state enumeration r=1..4 confirms all first-entry/period categories and total populations; it is not the all-r proof.
 
-The verification does not test an infinite number of graph sizes, and the classical prior-art comparison is not independently audited. No external mathematical certification is asserted.
+## originality
+
+PASS
+
+PASS on the complete deterministic windmill first-entry/period and basin census. Goles–Olivos gives only the general period-at-most-two theorem; later majority dynamics on triangular books, wheels, pineapple, barbells and trees use different graph architectures and do not imply the sharp windmill four-step cutoff or its multinomial basin weights. A direct specialized predecessor for K4 bouquets remains possible in older unindexed dynamics literature.
+
+## value
+
+PASS
+
+Exact transient thresholds and full oscillator basin sizes on a family with arbitrarily many triangle blades are natural discrete dynamical invariants. The distinction between immediate periodic orbits and their full basins, plus a sharp universal entry-time bound, goes substantially beyond the textbook period-two fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
