@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The attached `verify_schatten_sixth_four_site.py` is a standard-library script using exact `fractions.Fraction` arithmetic. In its replayed run it returned `SCHATTEN_SIXTH_FOUR_SITE_EXACT_CHECK_OK 796`. It evaluates the sixth matrix trace and the \(x,y,z\) trace identity on 343 integer-weight triples; each comparison is accompanied by a Schatten-norm denominator identity. It checks the elimination formula on 60 nontrivial triples of rational squared weights and the one-variable derivative on 50 positive rational test points. The root bracketing and two explicit objective values are checked separately.
+## correctness
 
-Separately, symbolic polynomial algebra yielded the exact identities
-\[
-g'(r)=-6(r^4+3r^3-4r-3)/(r^3+2)^2
-\]
-and
-\[
-F=m+y^3+6uy^2+8u^2y+my/(2u).
-\]
-The proof in `RESULT.md` supplies the global strict-convexity reduction, treatment of all zero-weight boundaries, uniqueness of the positive quartic root, and all equality conditions. None of the finite checks by itself proves those infinite families of assertions. The theorem is for four-site nilpotent shifts with exponent six, and no external audit is implied.
+PASS
+
+Removing phases by a diagonal unitary reduces w_6(T) to the Schatten-6 norm of H=(T+T*)/2; for x=|a0|²,y=|a1|²,z=|a2|² and S=x+y+z, charpoly of 2H is μ⁴-Sμ²+xz, yielding exactly 32 w_6(T)^6=S³-3xzS, while ||T||_6^6=x³+y³+z³. Normalizing denominator to 1 and fixing outer cubic mass m=x³+z³ and y, write u=(x+z)/2 and eliminate asymmetry to get F=m+y³+6uy²+8u²y+my/(2u); strict convexity F_uu=16y+my/u³>0 forces one of two endpoints, xz=0 or x=z. The zero-weight boundary has F≤4, whereas all three equal weights attain F=6, excluding zero cases. For x=z>0, optimize g(r)=(r+2)(r²+4r+1)/(r³+2); direct differentiation equals -6(r⁴+3r³-4r-3)/(r³+2)². Descartes gives unique positive r* in (1,2), so equality requires outer magnitudes equal and |a1|²=r*|a0|² with all phases arbitrary. Independently checked characteristic sixth trace on rational edge triples and exact symbolic reduced identity and derivative; those checks corroborate analytic global argument.
+
+## originality
+
+PASS
+
+The full published circle-covariant even-Schatten theorem applies at sixth moment but gives a weaker dimension-uniform sharp coefficient 5/16 with nonattainment for finite nonzero operators, not the smaller attained sharp four-site constant and exact equality class. The sharp finite-n fourth-moment sine profile is for a different exponent, and general Aluthge inequalities do not fix this new sextic extremum.
+
+## value
+
+PASS
+
+The smallest path length at which the sixth moment contains a non-nearest-neighbor xz spectral coupling has an attained algebraic sharp Schatten numerical-radius ratio and a rigid central/outer weight balance distinct from exponent four. This is a motivated nontrivial finite-dimensional extremal problem, not a routine table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

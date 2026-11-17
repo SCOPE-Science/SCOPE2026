@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator is explicitly a complex four-by-four one-step nilpotent shift. Diagonal-unitary covariance reduces the Schatten-sixth numerical radius to one real symmetric tridiagonal matrix. Its characteristic polynomial gives the exact trace-sixth identity, with correct unnormalized trace factor \(1/32\). Normalization uses \(\|T\|_6^6=x^3+y^3+z^3\). At fixed central weight and outer cubic mass, the objective is strictly convex in the outer mean; all boundary possibilities are explicitly below the equal-three-weight witness. Finally, a quartic with one positive root controls the unique remaining maximizer. The exact rational checker confirms 796 finite diagnostic identities; it is not used to prove universal quantifiers.
+## correctness
 
-**Originality — PASS (qualified best knowledge).** Pal–Chandok [1] and Sahoo [2] give general Schatten-numerical-radius and Aluthge inequalities, not the sharp four-site sextic ratio. The published fourth-moment exact weighted-shift theorem [3] is at a different Schatten exponent; its sine-law optimizers have a different weight ratio. The all-even circle-covariant theorem [4] has a uniform but nonattained coefficient \(5/16\) for exponent six, whereas this result has an **attained** four-site coefficient approximately \(0.194324664\), so the former does not imply the fixed-size optimum or equality class. The four-site resolvent rearrangement theorem [5] addresses a different functional. Searches for equivalent trace-sixth, Schatten-sixth, four-site, Jordan-path, balancing and polynomial formulations found no covering result. An older spectral-moment or finite-path Schatten extremizer theorem remains a real priority risk; database absence is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** This is the first four-site nonlinear Schatten-sixth fixed-dimensional sharp optimization beyond the two-edge symmetric situation. It gives both a nontrivial exact algebraic constant and a unique central/outer weight-ratio classification, contrasting with the published quadratic fourth-moment sine law and the much larger dimension-free sixth-moment upper coefficient. Thus it gives a natural sharp finite cutoff, not merely a plugged-in example or a routine corollary. No assertion is made beyond four-site nilpotent shifts, and no global stability coefficient is claimed.
+Removing phases by a diagonal unitary reduces w_6(T) to the Schatten-6 norm of H=(T+T*)/2; for x=|a0|²,y=|a1|²,z=|a2|² and S=x+y+z, charpoly of 2H is μ⁴-Sμ²+xz, yielding exactly 32 w_6(T)^6=S³-3xzS, while ||T||_6^6=x³+y³+z³. Normalizing denominator to 1 and fixing outer cubic mass m=x³+z³ and y, write u=(x+z)/2 and eliminate asymmetry to get F=m+y³+6uy²+8u²y+my/(2u); strict convexity F_uu=16y+my/u³>0 forces one of two endpoints, xz=0 or x=z. The zero-weight boundary has F≤4, whereas all three equal weights attain F=6, excluding zero cases. For x=z>0, optimize g(r)=(r+2)(r²+4r+1)/(r³+2); direct differentiation equals -6(r⁴+3r³-4r-3)/(r³+2)². Descartes gives unique positive r* in (1,2), so equality requires outer magnitudes equal and |a1|²=r*|a0|² with all phases arbitrary. Independently checked characteristic sixth trace on rational edge triples and exact symbolic reduced identity and derivative; those checks corroborate analytic global argument.
 
-**Closest literature and limits.** [1] K. Pal–S. Chandok, arXiv:2610.11336v1 (2026-10-08); [2] S. Sahoo, arXiv:2504.04693v1 (2025-04-07); [3] *Sharp weighted Schatten-fourth radii of nilpotent shifts* (2026); [4] *Sharp even Schatten numerical-radius moments under circle covariance* (2026); [5] *Strict Schatten rearrangement for four-site weighted-shift resolvents* (2026). Publication-priority comparison is limited to accessible examined work and searches. Independent audit and independent publication-priority assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full published circle-covariant even-Schatten theorem applies at sixth moment but gives a weaker dimension-uniform sharp coefficient 5/16 with nonattainment for finite nonzero operators, not the smaller attained sharp four-site constant and exact equality class. The sharp finite-n fourth-moment sine profile is for a different exponent, and general Aluthge inequalities do not fix this new sextic extremum.
+
+## value
+
+PASS
+
+The smallest path length at which the sixth moment contains a non-nearest-neighbor xz spectral coupling has an attained algebraic sharp Schatten numerical-radius ratio and a rigid central/outer weight balance distinct from exponent four. This is a motivated nontrivial finite-dimensional extremal problem, not a routine table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
