@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproduction and limits
-Run `python3 verify.py` with Python 3.9 or later; no third-party packages are required. The supplied `verify_output.txt` is the actual captured output of the included checker.
+# Independent mathematical audit
 
-For every integer parameter pair \(1\le m\le6\), \(2\le k\le6\), the checker independently derives each induced independence number by graph-vertex dynamic programming; generates the entire face set; applies the prescribed matching; checks the critical zero-cell and every expected critical \((2k-3)\)-cell; and topologically sorts all oriented Hasse incidences to prove acyclicity in that finite complex. For \(m\le3\) and \(k\le5\), it also directly tests each vertex subset against independent \(k\)-subsets. The final line is `ALL_VERIFY_OK 30 parameter pairs; complete face-poset acyclicity`.
+## correctness
 
-Representative output: \((m,k)=(5,4)\) has 3,201 nonempty faces, 1,595 matched pairs and ten critical five-cells; \((m,k)=(6,6)\) has 99,747 nonempty faces, 49,870 matched pairs and six critical nine-cells. The checker is finite; its success is not an exhaustive proof for unbounded parameters. The symbolic face formulas and all-parameter directed-acyclicity argument are in `RESULT.md`. No independent mathematical audit has been performed.
+PASS
+
+An induced independence number for a v-free subset is sum_i max(e_i,epsilon_i), while adjoining v takes the maximum with 1+sum epsilon_i. Matching v-free S to S+v whenever legal leaves exactly k-1 selected middle vertices and local endpoint states 0,a,c. The subsequent earliest a_i toggle removes all residual faces except one critical 0-cell and C(m,k-1) critical (2k-3)-cells. The directed-Hasse acyclicity proof controls arrows across v and B strata and inside each selected-middle-index block: c-states cannot grow and the first non-c a-toggle has one-way orientation. This is an all-m,k proof of the integral wedge by Forman. I inspected the independent induced-subgraph DP and complete Hasse sort in verify.py, and the recorded 30 finite cases including m=6,k=6 have expected critical counts; those tests are not the infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the k>=4 vertex-bouquet integral classification. The closest edge-glued/corner-glued square sequences do not include one-vertex bouquets with cut vertices; the indexed broad connected-bipartite wedge theorem only concerns the third threshold.
+
+## value
+
+PASS
+
+All-threshold integral wedge classification on a canonical cut-vertex family at k>=4 includes a sharp contractible/noncontractible threshold and closed binomial count, where known square-sequence constructions do not apply. A globally acyclic symbolic matching gives structural understanding useful for vertex-glued graph complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

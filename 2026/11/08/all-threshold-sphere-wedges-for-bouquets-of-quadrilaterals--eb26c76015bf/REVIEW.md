@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete induced-subgraph independence-number formulas are proved by splitting independent sets according to whether they contain the shared vertex. The matching pairs all but one vertex and one dimension-\(2k-3\) face per \((k-1)\)-subset of quadrilateral indices. The directed-Hasse argument controls cross-stratum arrows as well as the product blocks, proving global acyclicity for all parameters. Since the resulting Morse CW complex has cells only in degrees zero and \(2k-3\), the attaching maps are trivial. A standalone exhaustive verifier checked 30 finite parameter pairs, including the full oriented Hasse graph.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating 2026 square-sequence theorems cover edge gluing for arbitrary thresholds and certain other attachments at thresholds two and three; they do not cover quadrilaterals sharing only one vertex. The earlier bounded-independence-complex work develops collapsibility estimates rather than this homotopy classification. A broader indexed theorem covers the third threshold on connected bipartite graphs, not thresholds four and above; available finite four-threshold records do not imply an all-parameter bouquet theorem. Searches of alternative names (quadrilateral windmill, one-point union of four-cycles, cactus graph, bounded-independence complex) and the indexed result collection found no implication covering this statement. The possibility of an unindexed equivalent result remains.
+PASS
 
-**Mathematical value — PASS.** The statement gives a complete integral homotopy type for a canonical cut-vertex graph family and every previously untreated threshold \(k\ge4\), with a sharp contractibility transition and an explicit optimal matching. It identifies a vertex-gluing operation outside the edge/corner constructions of the motivating work. The precise binomial multiplicity also determines all integral Betti groups and is useful for Alexander-dual total-cut complexes. The proof is not a finite fit or a reformulation of a general bound.
+An induced independence number for a v-free subset is sum_i max(e_i,epsilon_i), while adjoining v takes the maximum with 1+sum epsilon_i. Matching v-free S to S+v whenever legal leaves exactly k-1 selected middle vertices and local endpoint states 0,a,c. The subsequent earliest a_i toggle removes all residual faces except one critical 0-cell and C(m,k-1) critical (2k-3)-cells. The directed-Hasse acyclicity proof controls arrows across v and B strata and inside each selected-middle-index block: c-states cannot grow and the first non-c a-toggle has one-way orientation. This is an all-m,k proof of the integral wedge by Forman. I inspected the independent induced-subgraph DP and complete Hasse sort in verify.py, and the recorded 30 finite cases including m=6,k=6 have expected critical counts; those tests are not the infinite proof.
 
-**Closest literature and limits.** Filakovský (arXiv:2602.11365, §§1–3), Kim–Lew (arXiv:1912.12605), and the indexed three-threshold bipartite sphere-wedge theorem. The result does not address arbitrary cactus graphs, equivariant homotopy, or shellability. One published-result repository link was available as an indexed summary rather than a full inspected paper.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the k>=4 vertex-bouquet integral classification. The closest edge-glued/corner-glued square sequences do not include one-vertex bouquets with cut vertices; the indexed broad connected-bipartite wedge theorem only concerns the third threshold.
+
+## value
+
+PASS
+
+All-threshold integral wedge classification on a canonical cut-vertex family at k>=4 includes a sharp contractible/noncontractible threshold and closed binomial count, where known square-sequence constructions do not apply. A globally acyclic symbolic matching gives structural understanding useful for vertex-glued graph complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
