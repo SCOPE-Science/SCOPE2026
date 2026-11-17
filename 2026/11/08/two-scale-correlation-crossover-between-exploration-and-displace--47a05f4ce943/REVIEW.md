@@ -1,19 +1,21 @@
-# Review: exploration–displacement coupling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Writing the step histogram as a multinomial vector makes exploration the sum of occupied-coordinate indicators and displacement the sum of odd-coordinate indicators. Same-coordinate and different-coordinate covariances yield the exact formula; strict Jensen supplies the sign. Pairwise avoidance and parity transforms give both variances. Uniform expansions at \(t/n\to c\) and \(t/(n\log n)\to\beta\) yield the announced profiles. The original standalone verifier reproduces 28 exact enumeration cases (140 exact moment comparisons), 84 finite positivity checks, and 13 numerical asymptotic spot comparisons. Numerical work does not replace the uniform asymptotic proof.
+PASS
 
-## Originality — PASS, with historical-priority qualifications
+With independent coordinate picks, D=sum 1_{N_i>0} and H=sum 1_{N_i odd}; the parity character identities E(-1)^{N_i}=(1-2/n)^t and E(-1)^{N_i+N_j}=(1-4/n)^t yield exact marginal variances; conditioning N_i=0 gives the cross-covariance np/2[1+(n-1)b-na]. Since 1-2/n is a strict convex mixture of 1 and 1-2/(n-1), strict Jensen for t≥2 proves positivity. Taylor expansions at t/n→c produce the stated positive variance limits and rho(c); at t=Θ(nlogn), a=p²[1+O(t/n²)], b=a[1+O(t/n²)], and covariance~np/2 with variances~np,n/4, so correlation~sqrt(p) and exponent −β/2. Independent enumeration of flip sequences n=3,t=2; n=4,t=3; n=5,t=4; n=7,t=5 reproduces five exact moments.
 
-An exact-source/alias search compared the full inspected occupancy studies, the finite hypercube mixing article's accessible abstract and references, the bit-flipping model abstract, and full published-finding corpus files on occupied-indicator precision and richness–single-frequency covariance. **The earlier published-finding corpus exact formula for every frequency implies this candidate's finite numerator covariance by summation over odd frequencies; the numerator is NOT original.** The precise \(t/n\) correlation profile and \(n\log n\) decay instead require the parity-count variance and triangular-array analysis, and are not stated or directly entailed by the older results alone. Earlier normalized-correlation formulas in unavailable sources remain a priority risk. No claim of proven priority is made.
+## originality
 
-## Value — PASS
+PASS
 
-The explicit normalized-correlation crossover is the central quantitative finding: individual coordinate flips can cancel displacement but not exploration, yet the two statistics retain a positive dependence for every finite time. The explicit crossover from near-perfect correlation as \(c\downarrow0\) to polynomially small correlation on the \(n\log n\) scale is a natural joint-statistics benchmark not delivered by marginal occupancy variance, parity variance, or hypercube mixing alone. The cross-covariance in isolation is not counted as new or sufficiently valuable.
+The finite cross-covariance is a corollary of a prior richness/frequency formula and its positivity follows Jensen; both are explicitly treated as antecedents. The new result is the normalized exploration-displacement correlation function and logarithmic polynomial-decay exponent across two finite equal-box scales, not found in inspected more general infinite-urn processes.
 
-## Limits
+## value
 
-Only uniform independent coordinate choices without holding are treated. The proof does not establish strict monotonicity of the correlation in time, a joint CLT or a mixing theorem. Older full-text access was incomplete for the two classical random-walk / bit-flip references.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exploration diversity and parity displacement are two canonical observables of the same hypercube walk. The exact two-scale normalized dependence law identifies when the walk progressively loses linear correlation with the set of explored axes, a natural statistic for random walks/occupancy; beyond the known numerator it needs fresh variance and uniform asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
