@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The critical distance lemma follows from \(0\le d\le Ad\), strictly positive left Perron weights, and simplicity of the eigenvalue \(1\). Convexity follows from the two endpoint ball constraints and strict convexity in each coordinate. The scalar-line argument uses two real anchors to identify every other fixed point uniquely. The converse is proved by the irreducible stochastic maximum principle for a clipped averaging map. The residual inequality follows from \(q=(I-A)d\le e\), cancellation under the left Perron vector and inversion of \(I-A+uw^{\mathsf T}\). No part uses a finite experiment as an infinite proof. The numerical coefficient is not claimed sharp.
+## correctness
 
-**Originality (PASS, best-knowledge).** The direct 2026 source proves critical fixed-point existence and Perron scalarization, but no complete description of all fixed-point sets, all signed scalar interval realizations, or an a posteriori synchronization estimate was found in its relevant primary text. Bruck's classical work concerns nonexpansive retractions, not Perron-coordinate dimension collapse. Ezearn's higher-order Lipschitz work concerns contraction behavior. Searches for aliases such as matrix-contractive fixed-set geometry, Perron synchronization, and one-dimensional nonlinear fixed sets found no directly equivalent covering statement. The principal mathematical tools are classical and openly attributed. Publication-priority risk remains from unlocated nonlinear consensus literature and unavailable older full texts.
+PASS
 
-**Mathematical value (PASS).** At the sharp spectral-radius boundary, existence without uniqueness leaves the structure of solution sets unclear. The theorem provides a complete, dimension-sharp classification under irreducibility: an arbitrary nonlinear fixed set has synchronized coordinate distances; its scalar realizable shapes are exactly signed intervals, not general convex bodies, and the general Banach case has explicit affine isometric graph rigidity. The resolvent estimate makes the obstruction testable for approximate fixed points. Sharp constructions on full-dimensional boxes show that the classification is not an artifact of low-dimensional invariant domains.
+For fixed points d_i=||x_i-y_i|| <= (Ad)_i; w>0, w^T(Ad-d)=0 forces Ad=d and PF simplicity yields d=c u. The strictly convex triangle equality pins the image of every convex combination, making an affine scaled isometry graph when K convex. In the scalar case distances to two anchors uniquely set every coordinate on the same signed Perron line, even for nonconvex K. Row-stochastic normalization P_ij=a_ij*u_j/u_i and clipped averaging exhibit every signed compact interval; propagation of an attaining maximum in irreducible P proves absence of other fixed points. For residual q=(I-A)d <= e and w^Tq=0, weighted L1(q)<=2w^T e; Z invertible on Perron line/complement yields the claimed estimate. These are general arguments, not finite tests.
 
-**Closest literature and limits.** The result is distinct from the existence and renorming theorem of Ćwiszewski–Kryszewski (arXiv:2610.22666), from Bruck's 1973 general retraction theorem, and from Ezearn's 2015 higher-order Lipschitz theory. It applies to one fixed irreducible control matrix at radius one; strict convexity is needed for general affine convexity, and no universal best constant is claimed for the residual bound. Independent publication-priority review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. The 2026 Perron-Lipschitz source establishes existence at spectral radius <=1, not the all-pairs fixed-set metric geometry, signed interval converse, or residual Z inverse estimate in the material available. Classical nonexpansive fixed-point retractions do not imply the coordinate ratio law. The PF and strict convexity mechanisms are classical and are not called novel. No Resultary match beyond the assigned same claim in four targeted searches; no failed search proves global priority.
+
+## value
+
+PASS
+
+The natural critical spectral-radius-one boundary has nonunique fixed points, so exact feasible geometry and sharp dimension/realization boundaries matter; the signed real-scalar interval classification and quantitative residual stability answer concrete fixed-point questions and can be applied independently of existence theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
