@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:05:44.340324Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual graph Laplacian is L_H⊗e0e0^T+I⊗Q, Q a positive weighted path Jacobi matrix. Each Q+theta e0e0^T has simple spectrum; strict interlacing with the common root-deleted principal submatrix separates ordered eigenbranches uniformly across theta. The endpoint coordinates of every eigenvector are nonzero by Jacobi recurrence; Hellmann–Feynman derivative |u_0|^2>0 separates distinct base theta within a branch. Therefore every eigenspace of the product is E_theta⊗span(u_j) and its endpoint-observation rank equals rank(E_theta->R^J). Summing exact symmetric-matrix PBH/Kalman eigenspace ranks yields multiplication by ell+1. Independent exact-rational Kalman ranks agreed in 128 combinations of positive edge weights, ell=1,2, n=2,3 and mixed root/tip index subsets; K2 with unit length-two fiber middle-node input has rank 5 versus 6 at either endpoint. This does not claim actuator energy or conditioning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hsu Theorem 3.4 handles single root leader full controllability; cyclic-comb 2026-11-01 handles cycle bases and selected terminal leaves only. Both are strictly narrower in base and input/general rank."
+        ],
+        "reasoning": "Neither one proves the submitted all-weighted-base mixed-endpoint rank identity as a stated theorem. A non-indexed generic rooted-product PBH theorem could cover it, retained as risk.",
+        "searches": [
+          "https://arxiv.org/abs/1808.03022",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-rank-lifting-and-arithmetic-actuator-placement-on-weighted--0089bd05941e",
+          "Parlangeli Notarstefano 2011 path cycle observability",
+          "Liu Ji 2018 multiagent controllability generated path cycle"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-rank-lifting-and-arithmetic-actuator-placement-on-weighted--0089bd05941e",
+        "https://arxiv.org/abs/1808.03022",
+        "https://arxiv.org/abs/1109.3556",
+        "https://arxiv.org/abs/1205.3058"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted cyclic-comb proof uses the same strict Jacobi interlacing, but its conclusion is restricted to C_n and one actuator type; Hsu establishes only an iff for single-input root actuation."
+        ],
+        "reasoning": "A theorem for a cyclic subclass cannot logically imply the full arbitrary-base exact rank identity. The same spectral mechanism supplies a genuine extension, not a silent priority claim for the cyclic special case.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-rank-lifting-and-arithmetic-actuator-placement-on-weighted--0089bd05941e",
+          "https://arxiv.org/abs/1808.03022",
+          "Yazicioglu Abbas Egerstedt 2012 multiple-leader lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric Laplacian Kalman rank equals the sum of PBH observation ranks; the submitted theorem is equivalent to branchwise equality of endpoint observation ranks after tensor factorization."
+        ],
+        "reasoning": "The root/tip theorem encompasses every positive weighted H and arbitrary independently actuated endpoint set. Existing spectral products can express this fact but do not themselves provide that exact general statement.",
+        "searches": [
+          "Resultary: rooted product identical weighted pendant paths endpoint leader controllability rank transfer Laplacian tensor spectral branch no collision",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-rank-lifting-and-arithmetic-actuator-placement-on-weighted--0089bd05941e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Plain cycle gcd rules and weighted cyclic comb exact ranks provide explicit values for those bases, not a graph-independent all-base transfer."
+        ],
+        "reasoning": "The submitted identity holds for uncountably many positive weight profiles and any connected finite base, rather than recomputing a graph atlas or finite table.",
+        "searches": [
+          "Resultary weighted graph controllability rank transfer rooted product",
+          "Parlangeli path cycle reachability gcd tables"
+        ]
+      },
+      "rationale": "Hsu 2018 Theorem 3.4 provides the full controllability equivalence for a single root input in a special composite graph. The published 2026-11-01 weighted cyclic-comb theorem gives a similar Jacobi-branch argument and exact leaf ranks for a C_n base. Neither statement covers the exact arbitrary positive weighted base-graph rank formula for all multi-input mixed root/tip sets. The latter source is genuinely overlapping and credited; the general lift is the surviving scope.",
+      "residual_risks": [
+        "Potential older general PBH theorem for all identical rooted path decorations not located.",
+        "The cyclic-comb published theorem already covers cyclic bases with leaf-only control; not independently new.",
+        "Interior leaders or nonidentical fibers need not obey the law; exact rank alone says nothing about control energy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECIAL_CASE_COVERED",
+          "evidence": "A one-leaf-per-fiber cyclic base specialization has multiplicative rank; no arbitrary base or root/tip mixed-input claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-rank-lifting-and-arithmetic-actuator-placement-on-weighted--0089bd05941e",
+          "material_read": "Full RESULT.md proof Steps 1-5, exact cycle gcd formula, assumptions, limitations and literature discussion",
+          "method": "GitHub published primary full RESULT.md",
+          "title": "Exact rank-lifting and arithmetic actuator placement on weighted cyclic combs",
+          "trigger": "Highly overlapping special case: same path-fiber Jacobi noncollision"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Proves a root-controlled single-input equivalence, not arbitrary rank of independently actuated mixed root/tip sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03022",
+          "material_read": "Accessible complete manuscript with Theorem 3.4 and surrounding proof of single-root controllability equivalence",
+          "method": "arXiv lawful full text and PDF theorem screenshot",
+          "title": "On controllability of composite graph Laplacian networks",
+          "trigger": "Earlier rooted-product controllability relationship"
+        },
+        {
+          "assessment": "UNDER_AUDIT",
+          "evidence": "Exact all-base rank transfer follows without assuming spectral simplicity of the base.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-endpoint-leader-rank-transfer-through-uniformly-attached-w--cf38818cbff9",
+          "material_read": "Proof of branches, strict interlacing, PBH ranks, interior-node boundary and source verification conditions",
+          "method": "Frozen GitHub RESULT.md and exact independent symbolic matrices",
+          "title": "Assigned uniformly attached weighted paths result",
+          "trigger": "Full scientific claim under audit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact controllability-rank transfer across arbitrary weighted base graphs is a natural structural invariance for rooted products; it reduces all endpoint placement questions to the base graph despite fiber weight heterogeneity and base spectral multiplicity. The sharp interior-node counterexample marks an operationally meaningful boundary. It is not merely a one-vertex case or a base-path specialization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-rank-lifting-and-arithmetic-actuator-placement-on-weighted--0089bd05941e",
+    "https://arxiv.org/abs/1808.03022",
+    "https://arxiv.org/abs/1109.3556",
+    "https://arxiv.org/abs/1205.3058"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific assessment is complete. Publication transport is not_ready because public metadata safety guard replacements were not prepared. Bounded computations corroborate analytical arguments; neither logs nor prior PASS certificates suffice for all-parameter proof or historical priority.",
+  "residual_risks": [
+    "Potential older general PBH theorem for all identical rooted path decorations not located.",
+    "The cyclic-comb published theorem already covers cyclic bases with leaf-only control; not independently new.",
+    "Interior leaders or nonidentical fibers need not obey the law; exact rank alone says nothing about control energy."
+  ],
+  "schema_version": 1
+}

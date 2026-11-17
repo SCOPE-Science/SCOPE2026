@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The weighted Laplacian is a rank-one root coupling of the base and replicated Jacobi fibers. Strict interlacing separates distinct fiber eigenvalue branches; the nonvanishing root eigenvector component makes each branch strictly increasing in its base eigenvalue. Both fiber endpoints are nonzero in every eigenvector. The symmetric PBH/Vandermonde rank identity then gives the exact multiplicative formula, including repeated base eigenspaces and duplicate endpoint measurements within a fiber. A six-state middle-vertex failure is verified directly. All finite 925 tests passed, but the infinite claim is supported by analytic lemmas rather than extrapolation.
+## correctness
 
-## Originality — PASS on inspected evidence; publication priority qualified
-Parlangeli--Notarstefano 2011 treats base paths and cycles; Yazicioglu--Abbas--Egerstedt 2012 develops graph-distance lower bounds for multiple inputs; neither yields the displayed rooted-product equality. Hsu 2018 Theorem 3.4 already proves the closely related special case of full controllability from a single root input and displays an eigenvector tensor construction. The new statement does not re-claim that case: it quantifies all reachable ranks for arbitrary multiple independent leaders, allows tips and mixed endpoint placement, repeated base eigenspaces and positive weighted paths. Shan--Liu 2024 concerns a different single all-ones input. The accessible published-finding corpus research records concern other invariants. Residual risk: an equivalent multi-input tensor-rank theorem may exist but was not located, and Liu--Ji 2017 was not fully accessible.
+PASS
 
-## Mathematical value — PASS
-The exact rank transfer turns a potentially very large multi-input controllability computation into one on the small base and yields a complete rule for minimum endpoint-leader counts, with a constructive tip-only remote-control consequence. Its endpoint limitation is sharp. It is more than a binary controllability special case and holds under arbitrary positive base-edge conductances and fiber-edge profiles.
+The actual graph Laplacian is L_H⊗e0e0^T+I⊗Q, Q a positive weighted path Jacobi matrix. Each Q+theta e0e0^T has simple spectrum; strict interlacing with the common root-deleted principal submatrix separates ordered eigenbranches uniformly across theta. The endpoint coordinates of every eigenvector are nonzero by Jacobi recurrence; Hellmann–Feynman derivative |u_0|^2>0 separates distinct base theta within a branch. Therefore every eigenspace of the product is E_theta⊗span(u_j) and its endpoint-observation rank equals rank(E_theta->R^J). Summing exact symmetric-matrix PBH/Kalman eigenspace ranks yields multiplication by ell+1. Independent exact-rational Kalman ranks agreed in 128 combinations of positive edge weights, ell=1,2, n=2,3 and mixed root/tip index subsets; K2 with unit length-two fiber middle-node input has rank 5 versus 6 at either endpoint. This does not claim actuator energy or conditioning.
 
-## Limitations
-The result does not extend to arbitrary interior sensors (counterexample supplied), arbitrary nonpath cells, or nonidentical fiber weights; neither robustness to perturbations nor control energy is established. The originality evaluation is a comparison of accessible primary texts and records, not a uniqueness guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hsu 2018 Theorem 3.4 provides the full controllability equivalence for a single root input in a special composite graph. The published 2026-11-01 weighted cyclic-comb theorem gives a similar Jacobi-branch argument and exact leaf ranks for a C_n base. Neither statement covers the exact arbitrary positive weighted base-graph rank formula for all multi-input mixed root/tip sets. The latter source is genuinely overlapping and credited; the general lift is the surviving scope.
+
+## value
+
+PASS
+
+Exact controllability-rank transfer across arbitrary weighted base graphs is a natural structural invariance for rooted products; it reduces all endpoint placement questions to the base graph despite fiber weight heterogeneity and base spectral multiplicity. The sharp interior-node counterexample marks an operationally meaningful boundary. It is not merely a one-vertex case or a base-path specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
