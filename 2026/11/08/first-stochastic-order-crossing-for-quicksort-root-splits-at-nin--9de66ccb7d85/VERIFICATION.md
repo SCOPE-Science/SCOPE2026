@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-15.md",
+      "INDEPENDENT_AUDIT_2026-11-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The certificate uses integer counts of full permutations, not floating-point probabilities or simulated evidence. Running `python checker.py` with Python 3.9 or later requires no dependencies beyond the standard library. The code recursively constructs each comparison-cost histogram, checks that the conditional mass is \((n-1)!\), verifies every entry of the table for \(2\le n\le8\), and confirms the sign change at the two exact thresholds for the nine-key first-pivot ranks four and five.
+## correctness
 
-A separate algorithm builds binary search trees by insertion and counts actual comparisons across all \(2\cdot8!=80640\) distinct input permutations with these root ranks. The resulting distributions exactly match those derived by recursive conditioning. The execution passed: 109 exact assertion groups/vector checks, the 80,640 insertion outcomes, and the conditional-mean comparisons.
+PASS
 
-The recurrence and full coefficient table support a **finite universal cutoff**, not an infinite-size theorem. No independent external audit has been performed. The program's output establishes neither novelty nor protection against uninspected historical literature.
+The conditional cost integer recurrence A_{n,j}(t)=binom(n-1,j)*sum_{u+v=t-(n-1)}a_j(u)a_{n-1-j}(v) counts all permutations, with exact common normalization (n-1)!. The complete certificate lists every nonzero CDF gap through n=8; all are nonnegative. At n=9 j=3 vs 4, integer CDF numerator gaps are +5600 at 16 and -224 at 17 out of 40320, so distributions cross even though conditional means differ 2/5. Independent exact recurrence recomputation covered all 16 adjacent comparisons through n=9 and matched the certificate.
+
+## originality
+
+PASS
+
+Classical Quicksort distributional recurrences, asymptotic laws and moment formulas are prior art; the claim is the earliest exact root-rank conditional stochastic-order failure and its complete finite minimality certificate, not recurrence discovery.
+
+## value
+
+PASS
+
+A natural pivot-balancing heuristic might suggest stochastic dominance, which would control all monotone loss functions instead of only the mean. The sharp nine-key counterexample resolves that plausible hypothesis at its first boundary with exact rational witnesses; finite cutoff is intrinsically useful despite no all-n classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a finite, exact all-split statement. The proof conditions on the first pivot, counts every ordered permutation with a binomial interleaving factor, verifies total mass \(n!\) and conditional mass \((n-1)!\), and calculates all cumulative gaps at every possible integer cost through eight keys. Every applicable adjacent move toward balance has a nonnegative gap; this proves the universal small-size half. The exact nine-key crossing has CDF values \(1/9<1/4\) at 16 and \(19/45>5/12\) at 17, with the means separately verified. The program implements both an exhaustive recurrence and a distinct BST insertion enumeration of all 80,640 relevant nine-key permutations. Neither routine assumes a stochastic comparison beyond the certified range.
+PASS
 
-## Originality — PASS, with specified residual risk
+The conditional cost integer recurrence A_{n,j}(t)=binom(n-1,j)*sum_{u+v=t-(n-1)}a_j(u)a_{n-1-j}(v) counts all permutations, with exact common normalization (n-1)!. The complete certificate lists every nonzero CDF gap through n=8; all are nonnegative. At n=9 j=3 vs 4, integer CDF numerator gaps are +5600 at 16 and -224 at 17 out of 40320, so distributions cross even though conditional means differ 2/5. Independent exact recurrence recomputation covered all 16 adjacent comparisons through n=9 and matched the certificate.
 
-The full text of Fill and Janson's 2001 arXiv preprint gives the distributional recurrence and limiting-law analysis; the full arXiv text of Iliopoulos and Penman (2010) studies exact comparison moments, not conditional first-pivot CDF ordering. Dennert and Grübel's accessible full 2010 paper analyzes subtree-size profiles, with a different response variable. A published result about covariance of root imbalance with binary-search-tree path length is weaker than the claimed stochastic ordering; the counterexample demonstrates this distinction. Searches for root-rank-conditioned stochastic dominance and CDF crossings did not yield an explicit nine-key minimality theorem. Generic coefficient recurrences make the certificate computable in principle, so a previously unpublished or unlocated exact evaluation remains a real priority risk; search absence alone is not treated as a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Moving pivot choice toward balance is a natural algorithm-design question. First-order stochastic order would control **all** increasing loss functions or tail-probability criteria, whereas mean comparisons control only one aggregate. The exact first counterexample at nine keys establishes a sharp limit on this tempting generalization and has a visibly small sign-reversal margin \(1/180\), making a rigorous exact certificate mathematically worthwhile rather than a random isolated sample.
+Classical Quicksort distributional recurrences, asymptotic laws and moment formulas are prior art; the claim is the earliest exact root-rank conditional stochastic-order failure and its complete finite minimality certificate, not recurrence discovery.
 
-## Closest literature and limitations
+## value
 
-Primary references: Fill–Janson, arXiv:math/0105246; Iliopoulos–Penman, arXiv:1006.4063; Dennert–Grübel, DOI 10.1017/S0963548309990630. The claim does not assert anything about comparison-cost tails for all sizes beyond nine or more realistic partitioning overheads. This review verifies only the new claim; it does not independently establish priority or perform an external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural pivot-balancing heuristic might suggest stochastic dominance, which would control all monotone loss functions instead of only the mean. The sharp nine-key counterexample resolves that plausible hypothesis at its first boundary with exact rational witnesses; finite cutoff is intrinsically useful despite no all-n classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

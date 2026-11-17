@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-15",
+  "audited_at_utc": "2026-11-15T00:05:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditional cost integer recurrence A_{n,j}(t)=binom(n-1,j)*sum_{u+v=t-(n-1)}a_j(u)a_{n-1-j}(v) counts all permutations, with exact common normalization (n-1)!. The complete certificate lists every nonzero CDF gap through n=8; all are nonnegative. At n=9 j=3 vs 4, integer CDF numerator gaps are +5600 at 16 and -224 at 17 out of 40320, so distributions cross even though conditional means differ 2/5. Independent exact recurrence recomputation covered all 16 adjacent comparisons through n=9 and matched the certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iliopoulos–Penman (2010) addresses comparison-count variance/moments; this run did not inspect its complete primary text.",
+          "Published SCOPE result concerns independence from input permutation inversion count, a different random variable."
+        ],
+        "reasoning": "Neither a moment identity nor asymptotic independence states root-rank-conditioned first-order stochastic comparison for every n<=8 with first crossing n=9. Full-text risk remains for inaccessible papers.",
+        "searches": [
+          "Randomized Quicksort total comparisons conditional on first pivot rank stochastic dominance root split balanced CDF crossing n=9",
+          "https://arxiv.org/abs/1006.4063",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-quantitative-asymptotic-independence-of-quicksort-cost-and-inver--469daa24830a"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1006.4063",
+        "https://arxiv.org/html/math/0105246v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-quantitative-asymptotic-independence-of-quicksort-cost-and-inver--469daa24830a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard recurrence mathematically permits computing each finite CDF but does not assert a global stochastic order nor identify first failure.",
+          "The source certificate exhausts every applicable smaller root split, then produces opposite strict signs at adjacent thresholds."
+        ],
+        "reasoning": "An explicit calculation from known recurrence is necessary; no quoted earlier implication directly establishes the sharp first-failure theorem. The contribution is the evaluated natural boundary, not a new algorithm.",
+        "searches": [
+          "Randomized Quicksort total comparisons conditional on first pivot rank stochastic dominance root split balanced CDF crossing n=9",
+          "https://arxiv.org/html/math/0105246v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Root-conditioned comparison cost equals internal BST path length conditional on first inserted rank.",
+          "Fill–Janson develops unconditional Quicksort cost recurrence and limiting distribution, not the stated conditional stochastic-order certificate."
+        ],
+        "reasoning": "Rewriting as BST path length was explicitly compared; an unconditional limit or expected-cost ordering cannot imply every fixed-rank CDF inequality.",
+        "searches": [
+          "Randomized Quicksort total comparisons conditional on first pivot rank stochastic dominance root split balanced CDF crossing n=9",
+          "https://arxiv.org/html/math/0105246v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact certificate includes all nonzero gaps G_{n,j}(t) through n=8 and four rational CDF values for n=9.",
+          "Prior distribution recurrences are computable but their generic coefficients do not constitute an already published sharp stochastic-order table."
+        ],
+        "reasoning": "No searched historical table with this specific first-order stochastic boundary was found; unindexed exact Quicksort tabulations are a priority risk.",
+        "searches": [
+          "Randomized Quicksort total comparisons conditional on first pivot rank stochastic dominance root split balanced CDF crossing n=9",
+          "https://arxiv.org/html/math/0105246v1"
+        ]
+      },
+      "rationale": "Classical Quicksort distributional recurrences, asymptotic laws and moment formulas are prior art; the claim is the earliest exact root-rank conditional stochastic-order failure and its complete finite minimality certificate, not recurrence discovery.",
+      "residual_risks": [
+        "Specific finite root-rank CDF tables could have appeared in an unindexed algorithm-analysis appendix.",
+        "A general Quicksort recurrence is well known; only the evaluated exact minimal stochastic cutoff is judged new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not a published sharp conditional-root first-order stochastic order statement in inspected content",
+          "evidence": [
+            "General Quicksort recurrence and limit theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0105246v1",
+          "material_read": "Accessible full arXiv HTML covering recurrence and limiting distribution",
+          "method": "Full accessible HTML and targeted text/conditional comparisons",
+          "title": "Approximating the Limiting Quicksort Distribution",
+          "trigger": "Classical distributional recurrence might imply conditional ordering"
+        },
+        {
+          "assessment": "Moment-focused paper, whole-document noncoverage not asserted",
+          "evidence": [
+            "arXiv:1006.4063 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.4063",
+          "material_read": "Title/abstract and bibliographic metadata, not complete paper",
+          "method": "Abstract/metadata only",
+          "title": "Variance of the number of Comparisons of Randomized Quicksort",
+          "trigger": "Potential stronger exact finite comparison-count treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural pivot-balancing heuristic might suggest stochastic dominance, which would control all monotone loss functions instead of only the mean. The sharp nine-key counterexample resolves that plausible hypothesis at its first boundary with exact rational witnesses; finite cutoff is intrinsically useful despite no all-n classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific finite root-rank CDF tables could have appeared in an unindexed algorithm-analysis appendix.",
+    "A general Quicksort recurrence is well known; only the evaluated exact minimal stochastic cutoff is judged new."
+  ],
+  "schema_version": 1
+}
