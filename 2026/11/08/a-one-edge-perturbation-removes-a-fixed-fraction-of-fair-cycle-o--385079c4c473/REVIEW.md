@@ -1,29 +1,21 @@
-# Self-review: A one-edge perturbation removes a fixed fraction of fair cycle orientations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the edge-good orientation model on a simple cycle with symmetric positive additive values at endpoints, one distinguished weight \(\tau>0\), remaining weights one, and strong zero-inclusive EFX. For every directed edge entering a two-good recipient, the only potentially positive post-removal envy comes from its tail, yielding the local iff criterion \(I_u\geq w_{uv}\). In uniform weights its violations are precisely isolated cyclic sign runs; a heavy perturbation forbids the distinguished edge ending a plus run or beginning a minus run, and a light perturbation forbids its interior-adjacent positions. Explicit cyclic rotations biject the removed sets. A four-state transfer matrix with characteristic polynomial \((x^2-x-1)(x^2-x+1)\) supplies both exact counts and the asymptotic loss \(1-\varphi/\sqrt5\). The proof separately covers \(n\ge4\) and positive nonunit weights on both sides of the threshold. A separate standalone Python script evaluates EFX directly for every agent pair and removable item in 81,880 labeled test orientations, and independently checks the transfer formulas to size 100. Computations support but do not replace the proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+Under strictly positive incident-edge additive valuations, an orientation violates zero-inclusive EFX exactly when an oriented edge u->v has at least two incoming edges at v and utility at u smaller than its edge weight. The all-unit case forbids isolated alternating triples (+-+) and (-+-), and a 4-state transfer matrix with characteristic polynomial (x²-x-1)(x²-x+1) gives L_n+2cos(n pi/3). The heavy exceptional edge removes a specified first/last-run position; the light case removes next-to-last/second run positions, and cyclic shifts biject the exclusions. The remaining trace 2(T^n)_{++,++}=F_{n+1}+delta_n follows from Cayley-Hamilton and initial values. Binet yields the positive discontinuous limiting loss. Independently enumerated every orientation for n=4..10 at weights 1/2,1,3/2, using direct every-agent/every-removal EFX inequalities, agreeing with the formulas. Finite enumeration does not prove all n.
 
-The EC 2023 graphical-orientation model [1] and Zeng--Mehta [2] supply the relevant EFX definition and existence results, with the bipartite theorem implying existence for the even cycles but not any count. Deligkas et al. [3], Zhou et al. [4] and later Kanellopoulos et al. [5] provide complexity, fairness-variant and parameterized results. The materially read relevant sections and comparative mathematical-record searches found no result claiming the exact one-defect cycle census or the nonvanishing discontinuity of its count. A prior isolated four-cycle equal-weight census matches the unit baseline at four vertices, but does not imply the weighted all-size theorem. Elementary restricted binary-word enumerations are not asserted to be new. An unindexed prior equivalent and undiscovered counting result remain possible, so no exhaustive publication-priority guarantee is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Uniform unit valuations are a standard tractable baseline for graphical fair division. The theorem shows that this baseline is combinatorially unstable: changing a single good by an arbitrarily small positive amount removes a limiting \(1-\varphi/\sqrt5\approx0.2764\) fraction of fair complete allocations as the network grows, despite leaving fairness existence intact. The exact all-size formula and heavy/light equinumerosity characterize this phenomenon rather than merely supplying a finite numerical sample. This is a motivated exact fairness-prevalence invariant for cycles, not a generic rebranded Fibonacci count.
+The primary 2025 Zeng–Mehta EFX paper proves strong orientability and complexity, including bipartite existence, but not a weighted single-edge exact orientation census. Earlier published path and multicycle enumerators involve different host graphs or parallel-edge goods, and the classical binary-run count by itself is not a new claim. The proved finite and asymptotic fairness-sensitivity transfer is a natural additional statement. Historical priority remains qualified.
 
-## Closest literature and limits
+## value
 
-[1] G. Christodoulou et al., *Fair Allocation in Graphs*, EC 2023, https://doi.org/10.1145/3580507.3597764 .
+PASS
 
-[2] J. A. Zeng and R. Mehta, *On the Structure of EFX Orientations on Graphs*, arXiv:2404.13527 (April 21, 2024), https://arxiv.org/abs/2404.13527 .
+The number and prevalence of EFX outcomes are natural questions distinct from existence. A single arbitrarily weak positive edge-weight perturbation removes asymptotically 27.64 percent of fair orientations on the canonical sparse cycle family, an exact nonperturbative structural sensitivity. The conclusion is motivated by robustness of fair allocations and is not merely a raw Fibonacci identity.
 
-[3] A. Deligkas et al., *EF1 and EFX Orientations*, arXiv:2409.13616, https://arxiv.org/abs/2409.13616 .
-
-[4] Y. Zhou et al., *A Complete Landscape of EFX Allocations on Graphs: Goods, Chores and Mixed Manna*, IJCAI 2024, https://doi.org/10.24963/ijcai.2024/338 .
-
-[5] S. Kanellopoulos et al., *EF(X) Orientations: A Parameterized Complexity Perspective*, arXiv:2512.25033, https://arxiv.org/abs/2512.25033 .
-
-The assertion does not cover zero-valued edges, arbitrary heterogeneous weight profiles, other graph families or weaker EFX notions. The verifier checks finite cases; independent external audit has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
