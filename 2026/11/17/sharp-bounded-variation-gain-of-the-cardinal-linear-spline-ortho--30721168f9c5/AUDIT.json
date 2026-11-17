@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Exact tridiagonal Gram inverse s q^|i-j| satisfies all recurrence equations. The explicit single-jump coefficient sequence is tested in the Gram system; its full sum of absolute consecutive differences gives the three analytic pieces, all <= sqrt(3) with equality at knots. Signed-measure jump decomposition bounds every finite-BV input and two separated step gradients prove sharpness in compact-support L2. The standalone independent exact arithmetic checks test 21 finite-system cases and 119 moment equations; no finite test substitutes for the infinite arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Passenbrunner arXiv:1608.06720v1 studies L-infinity boundedness and pointwise convergence of periodic spline projections for arbitrary knots; BV norm does not follow from L-infinity stability.",
+        "Nochetto–Salgado arXiv:1211.1069v1 proves TVD for a local positive averaging interpolation, not for the nonlocal L2 orthogonal projector.",
+        "published-finding corpus 2026/10/18/SCOPE-sharp-stability-reversal-for-orthogonal-linear-spline-projection--d07a5524a720 full RESULT.md computes L-infinity norm for alternating all-line grids, including uniform case."
+      ],
+      "reasoning": "The more general knot configurations or stronger L-infinity estimates quantify a different operator norm, not a BV-to-BV estimate. Variation has no bound from a plain L-infinity norm without geometric derivative control.",
+      "searches": [
+        "published-finding corpus: sharp total variation norm of L2 orthogonal projection onto continuous piecewise linear spline finite elements on interval",
+        "published-finding corpus: periodic linear spline orthogonal L2 projection total variation BV norm",
+        "published-finding corpus: overshoot of L2 spline projection of step functions and Gibbs phenomenon"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0611573",
+      "https://arxiv.org/abs/1211.1069",
+      "https://arxiv.org/abs/1608.06720",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-monotone-endpoint-range-defect-of-uniform-linear-spline-or--832330230bf0",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-stability-reversal-for-orthogonal-linear-spline-projection--d07a5524a720"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Oswald (2006), mathematical hypothesis L2-orthogonal finite element projectors, conclusion supremum-norm stability; the new claimed BV seminorm requires summing alternating nodal jumps.",
+        "Nochetto–Salgado (2012), conclusion TV diminution for a different local operator, not the L2 projector.",
+        "Passenbrunner (2016), conclusion periodic L-infinity stability and convergence; no bounding implication to the all-line cardinal BV sharp norm.",
+        "Published full RESULT.md for 2026/10/26 uniform-spline monotone endpoint overshoot explicitly limits itself to two endpoint evaluations and does not classify interior knot variation."
+      ],
+      "reasoning": "All identified closest claims fail to imply the tested statement even when the uniform hat basis and a geometric inverse Gram appear. The present derivative-measure decomposition, complete interior-step variation and compact-support near-attainment are necessary additional arguments. An unindexed exact historical answer remains a residual risk.",
+      "searches": [
+        "published-finding corpus: sharp total variation norm of L2 orthogonal projection onto continuous piecewise linear spline finite elements on interval",
+        "published-finding corpus: periodic linear spline orthogonal L2 projection total variation BV norm",
+        "published-finding corpus: overshoot of L2 spline projection of step functions and Gibbs phenomenon",
+        "published-finding corpus: real line cardinal continuous linear spline L2 orthogonal projection has exact total variation BV seminorm sqrt(3) attained at knot step Heaviside",
+        "published-finding corpus: BV stability of uniform linear spline orthogonal projector sharp one-jump total variation sqrt three",
+        "published-finding corpus: finite element L2 projector bounded variation loss factor square root three cardinal spline",
+        "published-finding corpus: uniform cardinal piecewise linear L2 orthogonal spline projection sharp total variation seminorm operator square root three, Heaviside step at knots, exact interior jump phase profile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Oswald arXiv:math/0611573v1 treats the uniform degree-one projector in L-infinity; its operator norm 2 is distinct from homogeneous BV gain sqrt(3).",
+        "Published uniform-spline endpoint overshoot record 2026/10/26/SCOPE-sharp-monotone-endpoint-range-defect-of-uniform-linear-spline-or--832330230bf0, whose full RESULT.md was read, optimizes boundary evaluation on monotone data, not variation over all inputs."
+      ],
+      "reasoning": "No published result found in the actual queries establishes the all-line \\(BV\\) seminorm coefficient or the exact interior-jump location profile; identical Green formulas in other operator norms are not logically sufficient without a variation calculation. Tested terminology included Heaviside, cardinal spline, TV norm, BV seminorm, knot jumps, and Gibbs overshoot.",
+      "searches": [
+        "published-finding corpus: overshoot of L2 spline projection of step functions and Gibbs phenomenon",
+        "published-finding corpus: real line cardinal continuous linear spline L2 orthogonal projection has exact total variation BV seminorm sqrt(3) attained at knot step Heaviside",
+        "published-finding corpus: BV stability of uniform linear spline orthogonal projector sharp one-jump total variation sqrt three",
+        "published-finding corpus: finite element L2 projector bounded variation loss factor square root three cardinal spline",
+        "published-finding corpus: uniform cardinal piecewise linear L2 orthogonal spline projection sharp total variation seminorm operator square root three, Heaviside step at knots, exact interior jump phase profile",
+        "published-finding corpus: sharp Lipschitz constant of isotonic regression projection in total variation norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus relevant matches 2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2 (periodic L-infinity norm); 2026/10/18/SCOPE-sharp-rough-input-slope-amplification-for-periodic-linear-spline--ce52dee09ef7 (L-infinity to Lipschitz slope gain), rather than BV input to BV output.",
+        "No matching exact BV table or finite-grid equivalent emerged from listed actual queries."
+      ],
+      "reasoning": "The exact Green-function constants and finite-table results are for supremum, pointwise or different domain norms. Such values are not a table of the total gradient norm of the projected step as a function of knot phase; missing search hits alone are not proof of novelty.",
+      "searches": [
+        "published-finding corpus: real line cardinal continuous linear spline L2 orthogonal projection has exact total variation BV seminorm sqrt(3) attained at knot step Heaviside",
+        "published-finding corpus: BV stability of uniform linear spline orthogonal projector sharp one-jump total variation sqrt three",
+        "published-finding corpus: finite element L2 projector bounded variation loss factor square root three cardinal spline",
+        "published-finding corpus: uniform cardinal piecewise linear L2 orthogonal spline projection sharp total variation seminorm operator square root three, Heaviside step at knots, exact interior jump phase profile",
+        "published-finding corpus: BV stability of uniform linear spline orthogonal projector sharp one-jump total variation sqrt three"
+      ]
+    },
+    "rationale": "Full-text checked Oswald 2006 and Passenbrunner 2016 establish L-infinity spline-projector stability, not global BV seminorm; Nochetto–Salgado 2012 treats a distinct TVD interpolant. Two closest published exact published-finding corpus RESULT.md files were read and concern endpoint range or L-infinity norms. Exact alias and implied-claim queries did not uncover coverage. Residual risk: unindexed historical work and incomplete older Box-spline full text.",
+    "residual_risks": [
+      "A 2004 Box-spline projection paper was available only through displayed sections, not complete original PDF, so hidden BV norms cannot be ruled out.",
+      "Historical spline variation literature can use an alternate name for homogeneous BV gain; semantic search is not a priority guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; L-infinity projector operator norms, not exact homogeneous BV norm",
+        "evidence": "Oswald 2006 distinguishes L-infinity stability of 1D splines and counterexample geometry; no BV variation profile.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+        "material_read": "Abstract, introduction and primary one-dimensional and higher-dimensional claims in full downloaded PDF",
+        "method": "Read extracted primary PDF text and visually inspected pages 1 and 3",
+        "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+        "trigger": "Same degree-one L2 projection, classical operator bounds"
+      },
+      {
+        "assessment": "NOT_COVERING; different averaging interpolant",
+        "evidence": "Local positive averaging quasi-interpolation is TVD, unlike the L2 orthogonal projection.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+        "material_read": "Primary PDF introduction and sections describing interpolation construction and TVD proof",
+        "method": "Read PDF text and visually inspected title and operator-construction pages",
+        "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+        "trigger": "Explicit variation-diminishing spline-like operator"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected main results; periodic L-infinity stability and convergence",
+        "evidence": "Main theorems treat kernel L-infinity stability and almost everywhere convergence; no exact all-line BV projection norm.",
+        "identifier_or_url": "https://arxiv.org/abs/1608.06720",
+        "material_read": "Full primary introduction, statements of main theorems and relevant proof descriptions",
+        "method": "Read original PDF text and visually inspected first and theorem pages",
+        "title": "Orthogonal projectors onto spaces of periodic splines",
+        "trigger": "Orthogonal spline projection with arbitrary knots"
+      },
+      {
+        "assessment": "NOT_COVERING; finite-interval endpoint value range, not global total-variation norm",
+        "evidence": "Optimizes only endpoint undershoot over monotone data; the full spline variation is not considered.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-monotone-endpoint-range-defect-of-uniform-linear-spline-or--832330230bf0",
+        "material_read": "Complete published RESULT.md, including definitions, proof, limits and references",
+        "method": "Read primary published markdown text",
+        "title": "Sharp monotone endpoint range defect of uniform linear-spline orthogonal projection",
+        "trigger": "Same uniform projector and monotone single-jump data"
+      },
+      {
+        "assessment": "NOT_COVERING; L-infinity norms do not yield BV gain",
+        "evidence": "At equal spacings gets operator L-infinity norm 2, whereas current claim asserts BV seminorm sqrt3 with phase dependence.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-stability-reversal-for-orthogonal-linear-spline-projection--d07a5524a720",
+        "material_read": "Complete published RESULT.md and its inverse-Gram calculations",
+        "method": "Read primary published markdown text",
+        "title": "Sharp stability reversal for orthogonal linear-spline projection on alternating meshes",
+        "trigger": "Same all-line uniform projector included in two-periodic family"
+      },
+      {
+        "assessment": "UNCERTAIN; displayed BV arguments concern approximation-error L1 asymptotics rather than exact operator BV seminorm",
+        "evidence": "Accessible displayed section describes L1 approximation error on BV functions; full source access lacking.",
+        "identifier_or_url": "https://www.researchgate.net/publication/268998362_Box-splines_orthogonal_projections",
+        "material_read": "Displayed mathematical sections 2–3, but full paper could not be inspected",
+        "method": "Web accessible displayed content only, no whole-PDF inspection",
+        "title": "Box-splines orthogonal projections",
+        "trigger": "Possible BV literature overlap and older date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30721168-f9c5-403a-a9c9-0aa5b0d54d77",
+  "value": {
+    "rationale": "The exact sharp BV operator gain and complete subcell jump profile resolve a natural stability question for the foundational uniform L2 finite-element spline projector. They reveal that a nonlocal least-squares smoothing operator has amplification sqrt(3) while related positive local interpolants are variation diminishing, with exact alignment of worst discontinuities at knots. The statement is distinct from kernel L-infinity norm tables and has direct relevance to discontinuity-bearing approximation.",
+    "status": "PASS"
+  }
+}
