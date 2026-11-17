@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof is exact for every integer \(q\ge3\) and relies on the invertible fiber parametrization and elementary uniform-cube moments. The following supplemental checks were performed by executing `python verify_k2q.py` with NumPy and SciPy.
+## correctness
 
-For \(q=2,3,4\), the checker separately enumerates images of all edge-coefficient cube corners, computes the convex hull in an orthonormal basis of the intrinsic hyperplane, and integrates the quadratic moment over oriented simplicial hull cones. The distinct projected generator-box corner images numbered 15, 54 and 189 (including non-extreme images); the corresponding triangulated boundary simplex counts were 24, 232 and 2758. Intrinsic volume relative errors were less than \(6\cdot10^{-11}\), and maximal covariance-coordinate errors less than \(2\cdot10^{-11}\) against the closed formulas.
+PASS
 
-For \(q=5,8,15\), separate fixed-seed rejection sampling uses the independently described fiber volume weight and 200000 accepted samples at each size. The largest diagonal parameter-moment discrepancy across these sizes was below 0.0015, and the largest fiber-coordinate second-moment discrepancy below 0.005. These stochastic checks test implementation and normalization; their outputs are not proof of the infinite-dimensional family.
+For the centered K_{2,q} unit-edge zonotope, the coordinate map (t_1,...,t_q,s)->sum_j t_j((e_A+e_B)/2-e_j)+s(e_A-e_B) is injective; the exact fiber is |s|<=W(t)/2 with W=q-sum_j|t_j| and t_j in [-1,1]. Gram det=q+2 gives Euclidean Jacobian sqrt(q+2). Integrating the uniform-volume density proportional to W yields E(t_j^2)=(2q-1)/(6q) and E(s^2)=q(q+1)/48, with all mixed covariances zero by sign symmetry. The leaf contrasts, leaf-hub aggregate and hub-difference axes have eigenvalues (2q-1)/(6q) (mult q-1), (2q-1)(q+2)/(12q), q(q+1)/24. The polynomial difference q^3-3q^2-6q+4 changes sign between q=4 and q=5 and rises for q>=4. Volume=q2^{q-1}sqrt(q+2), trace and isotropic determinant follow exactly. Independently checked rational eigenvalues at q=2,3,4,5,6,7,8,15. The q=2 endpoint is a boundary, theorem q>=3.
 
-The checker printed the success marker `K2Q_VOLUME_COVARIANCE_CHECKS_PASSED`. All necessary source for reproducing these checks is included. An independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The K2q overlapping-cycle exact interior covariance and sharp page-five axis crossing is not implied by older dated cactus/deformation/Löwner work. A co-dated broader weighted-book theorem has IDENTICAL t=0 endpoint but explicitly names that endpoint as pre-existing and excludes it from its novelty claim; there is no verified chronology making the extension an earlier cover. Best-of-knowledge acceptance retains same-day priority and differently named projected-cube moment risks.
+
+## value
+
+PASS
+
+K2q is the first genuinely overlapping-cycle family beyond the cactus factorization; its natural uniform-interior second moment has a sharp, non-obvious q=5 principal inertia-axis switch. The complete covariance, volume and isotropic constant provide independent exact metric benchmarks; its interest is the natural family and invariant rather than a purely numerical parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

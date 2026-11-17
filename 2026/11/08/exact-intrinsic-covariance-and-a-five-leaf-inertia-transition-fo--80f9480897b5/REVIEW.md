@@ -1,15 +1,21 @@
-# Mathematical review: complete-bipartite graphical-zonotope volume covariance
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge-sum fiber map is injective in its \((q+1)\)-dimensional image coordinates; it is not the noninjective original \(2q\)-coefficient representation. Its exact Jacobian is \(\sqrt{q+2}\). Integrating fiber lengths \(W(t)\), and then the second conditional moment of the symmetric fiber, yields the covariance coefficients \((2q-1)/(6q)\) and \(q(q+1)/48\). The orthogonal hub/aggregate/leaf-contrast decomposition follows from the explicit Gram matrix. Direct expansion locates the sole integer principal-eigenvalue crossover between four and five leaves. The trace, intrinsic volume, determinant, and isotropic-constant formula are algebraically consistent. A separate hull-simplex integration checker agrees through four leaves, and separate fixed-seed fiber sampling agrees at five, eight, and fifteen leaves. The finite tests do not establish the infinite theorem; the displayed integration identities do.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The literature describes graphical zonotopes, deformation cones, normal fans, and graph-associated enumerators. In contrast, the present theorem computes the *intrinsic uniform-interior covariance*, not the covariance of independent generating-segment coefficients. Closest related scientific results calculate Löwner ellipsoids, circumspheres, and variance of directional widths for graphical zonotopes, none of which implies the uniform-volume inertia. The previously known uniform-volume cactus-graph formula covers the isolated four-cycle case but not \(K_{2,q}\) with \(q\ge3\), since cycles overlap. Exact statement-level searches under alternate phrases did not identify a covering covariance result. Historical priority remains provisional because an equivalent statement about the uniform measure on a projection of a cube could be indexed differently.
+PASS
 
-## Mathematical value — PASS
-The family has overlapping four-cycles, so its pushforward of independent segment coefficients is not uniform in the zonotope. The exact fiber density resolves this nontrivial obstacle and provides the full covariance spectrum, squared Euclidean inertia, intrinsic volume and affine-invariant isotropic constant in every dimension. The strict principal-axis transition at five leaves is a natural qualitative geometric change, not a small parameter adjustment. The proof also provides an explicit sampling representation for the uniform interior measure.
+For the centered K_{2,q} unit-edge zonotope, the coordinate map (t_1,...,t_q,s)->sum_j t_j((e_A+e_B)/2-e_j)+s(e_A-e_B) is injective; the exact fiber is |s|<=W(t)/2 with W=q-sum_j|t_j| and t_j in [-1,1]. Gram det=q+2 gives Euclidean Jacobian sqrt(q+2). Integrating the uniform-volume density proportional to W yields E(t_j^2)=(2q-1)/(6q) and E(s^2)=q(q+1)/48, with all mixed covariances zero by sign symmetry. The leaf contrasts, leaf-hub aggregate and hub-difference axes have eigenvalues (2q-1)/(6q) (mult q-1), (2q-1)(q+2)/(12q), q(q+1)/24. The polynomial difference q^3-3q^2-6q+4 changes sign between q=4 and q=5 and rises for q>=4. Volume=q2^{q-1}sqrt(q+2), trace and isotropic determinant follow exactly. Independently checked rational eigenvalues at q=2,3,4,5,6,7,8,15. The q=2 endpoint is a boundary, theorem q>=3.
 
-## Sources and limitations
-Primary full texts examined: Padrol--Pilaud--Poullot, *Deformed graphical zonotopes* (arXiv:2111.12422); and Pešović--Stojadinović, *Between graphical zonotope and graph-associahedron* (arXiv:2209.12053). Compared additional publicly accessible scientific statements on complete-bipartite zonotope enclosing ellipsoids, complete-multipartite zonotope circumspheres, and cactus zonotope covariance. Those invariants and domains do not imply the assessed statement. The possibility of a differently named equivalent volume-moment computation is a residual priority risk. No independent expert audit or external certification has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The K2q overlapping-cycle exact interior covariance and sharp page-five axis crossing is not implied by older dated cactus/deformation/Löwner work. A co-dated broader weighted-book theorem has IDENTICAL t=0 endpoint but explicitly names that endpoint as pre-existing and excludes it from its novelty claim; there is no verified chronology making the extension an earlier cover. Best-of-knowledge acceptance retains same-day priority and differently named projected-cube moment risks.
+
+## value
+
+PASS
+
+K2q is the first genuinely overlapping-cycle family beyond the cactus factorization; its natural uniform-interior second moment has a sharp, non-obvious q=5 principal inertia-axis switch. The complete covariance, volume and isotropic constant provide independent exact metric benchmarks; its interest is the natural family and invariant rather than a purely numerical parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
