@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-With Python 3 and SymPy available, run `python check.py` in the extracted package directory. The resulting successful run reported `PASS 475 independent rational resolvent and derivative comparisons; six phase witnesses; exact symbolic identities`. The code independently constructs the two-component conditional-coherence matrix and compares its exact inverse against the proposed analytic response on a full Cartesian grid of rational/surd points. It also compares 300 seeded rational derivative samples, verifies the exact rational identity and factorization symbolically, verifies the unique constant-flux response and elastic/inelastic decomposition, and verifies representative maximization/minimization/monotonicity witnesses.
+## correctness
 
-The all-real-parameter assertion is **analytical**: the sign of the derivative is the sign of a product of two affine factors whose slopes and intercepts are classified in the proof. The finite checks are diagnostic and do not prove completeness, uniqueness, physical validity beyond weak excitation, or independence from earlier published mathematics. The environment is required to be ergodic, hence zero switching is handled as a one-sided limit. Independent scientific audit remains unperformed.
+PASS
+
+For x>=0,s>0,t>0 invertibility of the 2-state coherence matrix is immediate from p=1+t+s²−x² and q=x(2+t), whose squared modulus is positive. Matrix inversion gives A=(1+t-ix)/((1-ix)(1+t-ix)+s²), L=Re A. Differentiation gives L’=s²(Fminus Fplus)/(p²+q²)² with F± affine in t. Analyzing their intercepts and slopes yields each monotone/unique interior extremum region, including x=1 flat only at s²=2. There A=1/2+it/[2(t+2)] and elastic |A|² and inelastic Re A−|A|² trade at equal opposite derivatives. Independent symbolic SymPy verified response and derivative factorization and flat point identity; this does not replace all-parameter factor-sign proof.
+
+## originality
+
+PASS
+
+Classical Kubo-Anderson and Bogaczewicz–Machnikowski 2023 provide a more general complex response formula, not, in the sections read, the explicit exhaustive switching-rate extremum case split and unique flux-invariant point with component transfer. Existing rate and detuning selected plots/spectra do not imply a stated sharp global phase chart without additional derivative factorization and sign casework. Since it is straightforwardly calculable from prior response, originality is best-of-knowledge with strong prior-derivability risk, not a new underlying physical model.
+
+## value
+
+PASS
+
+A natural full-parameter classification of integrated weak-excitation fluorescence that identifies two disconnected finite-rate enhancement regions separated by suppression at far detuning, plus one unique nontrivial total-flux invariant point where elastic/inelastic weights exchange. These boundaries are physically interpretable and exact, not parameter substitution or a single illustrative extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

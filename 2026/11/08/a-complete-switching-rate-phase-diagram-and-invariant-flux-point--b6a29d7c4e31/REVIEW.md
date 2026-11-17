@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantum weak-excitation stationary optical resolvent and normalizations agree with Eqs. (18)–(19) of Bogaczewicz–Machnikowski (2023), and a separate two-state conditional-coherence matrix yields the same rational total intensity. The derivative is exactly the product of two affine factors times a strictly positive prefactor. Every parameter boundary and the unique flat point follow from an explicit sign proof; at the flat point the Rayleigh and non-Rayleigh intensity formulas sum to the constant total and have strictly opposite derivatives. The standalone exact checker reports 475 independent rational resolvent/derivative comparisons plus symbolic identities and six phase witnesses. Numerical witnesses alone are not used to prove the global theorem.
+PASS
 
-## Originality — PASS (qualified)
+For x>=0,s>0,t>0 invertibility of the 2-state coherence matrix is immediate from p=1+t+s²−x² and q=x(2+t), whose squared modulus is positive. Matrix inversion gives A=(1+t-ix)/((1-ix)(1+t-ix)+s²), L=Re A. Differentiation gives L’=s²(Fminus Fplus)/(p²+q²)² with F± affine in t. Analyzing their intercepts and slopes yields each monotone/unique interior extremum region, including x=1 flat only at s²=2. There A=1/2+it/[2(t+2)] and elastic |A|² and inelastic Re A−|A|² trade at equal opposite derivatives. Independent symbolic SymPy verified response and derivative factorization and flat point identity; this does not replace all-parameter factor-sign proof.
 
-The underlying Kubo–Anderson response and the general Markov-noise scattering formulas are explicitly prior art. The 2023 arXiv:2303.01531 full accessible text analyzes spectra, response and selected detunings; the 2015 arXiv:1511.00893 full accessible text analyzes telegraph-noise mechanical response, motional narrowing and higher moments. Neither inspected text explicitly states the two disjoint switching-enhancement regimes, full rate-extremum classification, or unique constant-integrated-flux point with monotone elasticization. Semantic published-finding corpus and targeted literature searches did not identify an exact match. Anderson (1954), DOI:10.1143/JPSJ.9.316, is an important classical possible source; only its abstract was accessible. Known resolvent formulas *do imply* the claim algebraically, and absence of exact published priority is not proven.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result classifies a natural integrated quantum-optical observable over every detuning, fluctuation amplitude, and positive switching rate. It exposes a reentrant enhancement–suppression–enhancement sequence as fluctuation amplitude varies at fixed large detuning and singles out a rate-transparent point where total power is unchanged but its coherent and incoherent components exchange intensity monotonically. Those are experimentally interpretable structural boundaries, not a routine small numerical improvement.
+Classical Kubo-Anderson and Bogaczewicz–Machnikowski 2023 provide a more general complex response formula, not, in the sections read, the explicit exhaustive switching-rate extremum case split and unique flux-invariant point with component transfer. Existing rate and detuning selected plots/spectra do not imply a stated sharp global phase chart without additional derivative factorization and sign casework. Since it is straightforwardly calculable from prior response, originality is best-of-knowledge with strong prior-derivability risk, not a new underlying physical model.
 
-## Closest literature and limitations
+## value
 
-The comparison anchors are Bogaczewicz–Machnikowski (2023), Sun et al. (2015), and the foundational Anderson (1954) random-frequency-modulation work. The proof is restricted to symmetric telegraph noise and leading-order weak excitation; it does not cover arbitrary noise, strong driving, frequency-resolved photon spectra or a strictly frozen environment at zero switching. Historic explicit-coverage risk is material and independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural full-parameter classification of integrated weak-excitation fluorescence that identifies two disconnected finite-rate enhancement regions separated by suppression at far detuning, plus one unique nontrivial total-flux invariant point where elastic/inelastic weights exchange. These boundaries are physically interpretable and exact, not parameter substitution or a single illustrative extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
