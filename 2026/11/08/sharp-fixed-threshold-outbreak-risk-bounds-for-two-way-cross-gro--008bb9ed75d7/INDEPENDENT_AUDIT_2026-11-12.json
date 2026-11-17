@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:19:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md/REVIEW.md/verification.py via exact Git snapshot; tree 820c0d2b6ef8ff9865953f98120d218313c968f0",
+        "Independent numerical solutions for R=2 at asymmetric rates a=2,4,10,100,1000"
+      ],
+      "rationale": "From RESULT.md blob f7332b7, equations x=1-exp(-ay), y=1-exp(-bx) and R²=ab are exact. Composite survival map is strictly concave with derivative R² at zero. Put h(u)=-log(1-u), F(u)=log(h(u)/u); the coefficient comparison (e^t-1)^2(1-t)<t² for 0<t<1 proves F strictly convex. Its increasing inverse g is strictly concave; F(x)+F(y)=2log R, so Jensen gives P<=s_R, strict chord gives P>s_(R²)/2. Monotonicity of numerator xh(x)/yh(y) establishes strict decrease in |log(a/b)|. The independent matrix inverse (I-M)^-1 gives (2+a+b)/(2(1-R²)) and AM–GM. At R=1, critical nondegenerate process goes extinct with infinite mean. Numerically independently checked R=2 asymmetry cases approach the lower bound; finite values are diagnostics only.",
+      "residual_risks": [
+        "The monotonicity proof is restricted to Poisson, purely cross-type rates, strictly positive finite a,b, equal founder mixture; no finite-population susceptible depletion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aravinda et al. 2024 arXiv:2409.06910 Theorem 5.3 derives a multitype extinction series; no fixed-product global extremum",
+          "Ball, Britton & Lyne 2004 DOI:10.1016/j.mbs.2004.05.001 optimizes vaccination/threshold, not fixed-threshold survival",
+          "Rao & Bauch arXiv:math/0604607 studies epidemic branching extinction and vaccination",
+          "Resultary semantic searches returned no earlier matching global two-cross-type fixed-Perron extremum"
+        ],
+        "reasoning": "General multitype fixed-point, survival-threshold and series theorems cover solvability for given (a,b), but do not yield an unconditional extremal comparison at fixed product ab without new functional convexity; household vaccination alters the threshold rather than holding it fixed.",
+        "searches": [
+          "Resultary: two type cross-only Poisson branching process fixed geometric mean spectral radius survival probability optimize asymmetry exact bounds",
+          "Resultary: sharp survival probability at fixed spectral radius cross type two type Poisson offspring Galton Watson asymmetric",
+          "Primary: multitype Poisson branching extinction probability fixed Perron root optimization",
+          "Primary: Ball Britton Lyne 2004 epidemic vaccination versus extinction probabilities",
+          "Primary: Aravinda Kovchegov Otto Sarkar 2024 multitype Poisson extinction series"
+        ]
+      },
+      "checked_sources": [
+        "Aravinda et al. 2024 arXiv:2409.06910 Theorem 5.3 derives a multitype extinction series; no fixed-product global extremum",
+        "Ball, Britton & Lyne 2004 DOI:10.1016/j.mbs.2004.05.001 optimizes vaccination/threshold, not fixed-threshold survival",
+        "Rao & Bauch arXiv:math/0604607 studies epidemic branching extinction and vaccination",
+        "Resultary semantic searches returned no earlier matching global two-cross-type fixed-Perron extremum",
+        "Rao–Bauch arXiv:math/0604607",
+        "Singh et al. 2014 DOI:10.1103/PhysRevE.89.032702"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aravinda et al. 2024 arXiv:2409.06910 Theorem 5.3 derives a multitype extinction series; no fixed-product global extremum",
+          "Ball, Britton & Lyne 2004 DOI:10.1016/j.mbs.2004.05.001 optimizes vaccination/threshold, not fixed-threshold survival",
+          "Rao & Bauch arXiv:math/0604607 studies epidemic branching extinction and vaccination",
+          "Resultary semantic searches returned no earlier matching global two-cross-type fixed-Perron extremum",
+          "The candidate uses strict convexity of log(-log(1-u)/u) and concavity of its inverse to prove global endpoint inequalities."
+        ],
+        "reasoning": "Standard branching fixed points yield the system x=1-exp(-ay), y=1-exp(-bx), and the simple subcritical matrix inverse is routine. The nonstandard strict convexity lemma is essential to the sharp supercritical comparison; no inspected prior theorem supplies that comparison as a corollary.",
+        "searches": [
+          "Resultary: two type cross-only Poisson branching process fixed geometric mean spectral radius survival probability optimize asymmetry exact bounds",
+          "Resultary: sharp survival probability at fixed spectral radius cross type two type Poisson offspring Galton Watson asymmetric",
+          "Primary: multitype Poisson branching extinction probability fixed Perron root optimization",
+          "Primary: Ball Britton Lyne 2004 epidemic vaccination versus extinction probabilities",
+          "Primary: Aravinda Kovchegov Otto Sarkar 2024 multitype Poisson extinction series"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aravinda et al. 2024 arXiv:2409.06910 Theorem 5.3 derives a multitype extinction series; no fixed-product global extremum",
+          "Ball, Britton & Lyne 2004 DOI:10.1016/j.mbs.2004.05.001 optimizes vaccination/threshold, not fixed-threshold survival",
+          "Rao & Bauch arXiv:math/0604607 studies epidemic branching extinction and vaccination",
+          "Resultary semantic searches returned no earlier matching global two-cross-type fixed-Perron extremum"
+        ],
+        "reasoning": "Aliases include two-patch off-diagonal Poisson Galton–Watson, fixed Perron root R=sqrt(ab), fixed reproduction number versus directional-mixing asymmetry, and uniform-founder extinction optimizer. None of the inspected named sources states the strict interval s_{R^2}/2<P<=s_R or monotonicity under log-asymmetry.",
+        "searches": [
+          "Resultary: two type cross-only Poisson branching process fixed geometric mean spectral radius survival probability optimize asymmetry exact bounds",
+          "Resultary: sharp survival probability at fixed spectral radius cross type two type Poisson offspring Galton Watson asymmetric",
+          "Primary: multitype Poisson branching extinction probability fixed Perron root optimization",
+          "Primary: Ball Britton Lyne 2004 epidemic vaccination versus extinction probabilities",
+          "Primary: Aravinda Kovchegov Otto Sarkar 2024 multitype Poisson extinction series"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary mathematical-record search returned only different branching/Poisson optimizations",
+          "The submitted numerical R=2 example and finite diagnostic values are not a known exact outbreak-survival table"
+        ],
+        "reasoning": "A numerical table of sample rates cannot dominate the all-positive-rates endpoint and uniqueness theorem. No exact matching table or database was identified in the checked corpus; search absence does not certify priority.",
+        "searches": [
+          "Resultary: two type cross-only Poisson branching process fixed geometric mean spectral radius survival probability optimize asymmetry exact bounds",
+          "Resultary: sharp survival probability at fixed spectral radius cross type two type Poisson offspring Galton Watson asymmetric",
+          "Primary: multitype Poisson branching extinction probability fixed Perron root optimization",
+          "Primary: Ball Britton Lyne 2004 epidemic vaccination versus extinction probabilities",
+          "Primary: Aravinda Kovchegov Otto Sarkar 2024 multitype Poisson extinction series"
+        ]
+      },
+      "rationale": "Best-of-knowledge non-coverage after Resultary and primary literature comparison; prior multitype existence, series, and threshold results acknowledged, not claimed new.",
+      "residual_risks": [
+        "Singh et al. 2014 full text not independently obtained; cross-species formulations may contain implicit extrema.",
+        "Unavailable additional historical branching optimization sources may establish equivalent inequalities; this is not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General extinct-probability computation; no identified sharp fixed-R extremum",
+          "evidence": "Theorem 5.3 series evaluates a specified mean matrix, while submitted theorem varies its offdiagonal entries at fixed product.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.06910",
+          "material_read": "Full arXiv text, Theorems 4.1,5.1,5.3 with PDF page showing Theorem 5.3",
+          "method": "Read paper text/PDF theorem statements and compare fixed-point series against fixed-product optimization",
+          "title": "Gelation in Vector Multiplicative Coalescence and Extinction in Multi-Type Poisson Branching Processes",
+          "trigger": "Same multitype Poisson branching generating functions and extinction law"
+        },
+        {
+          "assessment": "Different optimization objective; full independent exclusion not certified",
+          "evidence": "Vaccination fraction changes spectral radius; here geometric mean is held fixed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2004.05.001",
+          "material_read": "Relevant source RESULT.md bibliographic analysis and primary full-text discussion of §§2–4,6; fresh full independent PDF access not asserted",
+          "method": "Compared claimed vaccination optimization and reproduction threshold against submitted parameter domain",
+          "title": "Stochastic multitype epidemics in a community of households: estimation and form of optimal vaccination schemes",
+          "trigger": "Potential stronger epidemic threshold allocation result"
+        },
+        {
+          "assessment": "Inaccessible possible historical-priority source",
+          "evidence": "Same general multitype subject but exact model/coverage unresolved.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.89.032702",
+          "material_read": "Abstract and bibliographic details only; no full article read",
+          "method": "Abstract-level comparison, no whole-document exclusion",
+          "title": "Using multitype branching processes to quantify statistics of disease outbreaks in zoonotic epidemics",
+          "trigger": "Closest plausible cross-population outbreak probability antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md strict convexity lemma and complete super/subcritical classification"
+      ],
+      "rationale": "Sharp fixed-reproduction-number survival risk range is an informative counterpoint to threshold-only epidemic comparison. Opposite balance effects in supercritical survival and subcritical mean provide a motivated, nontrivial and complete two-parameter boundary/uniqueness result.",
+      "residual_risks": [
+        "Fixed geometric mean does not fix total contact budget; no claim of intervention relevance outside idealized branching approximation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full accessible text for Singh 2014 not inspected; originality provisional.",
+    "Original reproduction law and uniform seed essential."
+  ],
+  "schema_version": 1
+}

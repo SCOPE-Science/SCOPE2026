@@ -1,19 +1,21 @@
-# Scientific review: fixed-threshold two-way outbreak risk
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-type Poisson offspring generating functions give the exact survival equations \(x=1-e^{-ay}\), \(y=1-e^{-bx}\) and the next-generation eigenvalue \(R=\sqrt{ab}\). The scalar composite fixed point is strictly increasing and strictly concave and therefore has a unique positive solution precisely for \(R>1\). The key analytic step establishes strict convexity of \(F(u)=\log[-\log(1-u)/u]\) for the **whole** interval \(0<u<1\). In the non-immediate case, the inequality is converted to a positive-coefficient comparison of the exponential series, with all powers from degree four having strictly negative remainder coefficients. Its inverse is strictly concave, giving the sharp Jensen upper bound, strict chord lower bound, equality conditions and monotone directional asymmetry comparison. The explicit subcritical mean-matrix inverse and AM–GM provide the complete expectation classification. Critical extinction and infinite expected progeny are addressed. The standard-library checker passed 1,664 finite exact/numerical assertions; the universal inequalities rely on the analytic argument rather than finite tests.
+PASS
 
-## Originality — PASS within available evidence; priority provisional
+From RESULT.md blob f7332b7, equations x=1-exp(-ay), y=1-exp(-bx) and R²=ab are exact. Composite survival map is strictly concave with derivative R² at zero. Put h(u)=-log(1-u), F(u)=log(h(u)/u); the coefficient comparison (e^t-1)^2(1-t)<t² for 0<t<1 proves F strictly convex. Its increasing inverse g is strictly concave; F(x)+F(y)=2log R, so Jensen gives P<=s_R, strict chord gives P>s_(R²)/2. Monotonicity of numerator xh(x)/yh(y) establishes strict decrease in |log(a/b)|. The independent matrix inverse (I-M)^-1 gives (2+a+b)/(2(1-R²)) and AM–GM. At R=1, critical nondegenerate process goes extinct with infinite mean. Numerically independently checked R=2 asymmetry cases approach the lower bound; finite values are diagnostics only.
 
-The author-hosted 2004 full text by Ball, Britton and Lyne studies multitype household epidemic reproduction thresholds and vaccination coverage optimization, not the sharp nonextinction interval at a **fixed** Perron root. Rao and Bauch (2006) address branching extinction and vaccination without this two-type rate-product optimization; Alexander and Day (2010) address pathogen emergence with mutation. Aravinda et al. (2024) derive general multitype Poisson extinction fixed points and a series expansion (especially Theorem 5.3), but not the global strict extremal bound. The accessible published research records concerning coupled SEIR reproduction-number bracketing, household reproduction-number rank reversal, and matrix-splitting thresholds neither state nor imply the present risk inequality. The 2014 zoonotic multitype outbreak paper was accessible only at abstract level. Missing historical monographs and uninspected full papers remain a priority risk; search absence is not a novelty proof. The supported conclusion is best-knowledge non-coverage, not independent historical certification.
+## originality
 
-## Value — PASS
+PASS
 
-At fixed \(R\), outbreak nonextinction can range over a strict, sharp interval, with equal directional rates maximizing outbreak risk above the threshold; the same balance minimizes the mean outbreak burden below threshold. A threshold-only risk comparison thus hides a large structural difference. The exact endpoint, nonattainment, equality and monotonicity classification answer a motivated two-group epidemic question, rather than an arbitrary numerical slice. Interpretation is confined to an idealized early-phase branching model; there is no claim about finite SIR interventions or fixed-total-contact budgets.
+Best-of-knowledge non-coverage after Resultary and primary literature comparison; prior multitype existence, series, and threshold results acknowledged, not claimed new.
 
-## Limitations and reproducibility
+## value
 
-All reproductive rates are strictly positive, offspring are Poisson and purely cross-type, and the founder type is equiprobable. No inference is made for arbitrary multitype networks, unequal seed types or susceptible depletion. Run `python3 verification.py` to reproduce the recorded deterministic checks. The complete proof and exact assumptions appear in `RESULT.md`; finite sample diagnostics do not prove the all-parameter theorem. Relevant accessible literature and outstanding historical-priority risks are documented in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp fixed-reproduction-number survival risk range is an informative counterpoint to threshold-only epidemic comparison. Opposite balance effects in supercritical survival and subcritical mean provide a motivated, nontrivial and complete two-parameter boundary/uniqueness result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

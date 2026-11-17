@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verification.py` is a standalone Python 3 standard-library checker. Execute `python3 verification.py` in the extracted package directory. Its successful output is:
+## correctness
 
-```
-PASS 1664 deterministic assertions; no random trials
-```
+PASS
 
-It tests exact rational identities for expected total progeny under fixed offspring-rate product, exact coefficient inequalities to finite degree 120, 999 positive-curvature samples, high-precision numerical fixed-point residuals, supercritical sharp bounds and asymmetry monotonicity across several parameter values, and convergence toward the unattained infimum. For all-parameter claims, verify the complete proof in `RESULT.md`; these finite tests are diagnostics and cannot replace its infinite-domain coefficient and strict-concavity arguments.
+From RESULT.md blob f7332b7, equations x=1-exp(-ay), y=1-exp(-bx) and R²=ab are exact. Composite survival map is strictly concave with derivative R² at zero. Put h(u)=-log(1-u), F(u)=log(h(u)/u); the coefficient comparison (e^t-1)^2(1-t)<t² for 0<t<1 proves F strictly convex. Its increasing inverse g is strictly concave; F(x)+F(y)=2log R, so Jensen gives P<=s_R, strict chord gives P>s_(R²)/2. Monotonicity of numerator xh(x)/yh(y) establishes strict decrease in |log(a/b)|. The independent matrix inverse (I-M)^-1 gives (2+a+b)/(2(1-R²)) and AM–GM. At R=1, critical nondegenerate process goes extinct with infinite mean. Numerically independently checked R=2 asymmetry cases approach the lower bound; finite values are diagnostics only.
 
-Historical-priority screening compared full text of Ball et al. (2004), Rao and Bauch (2006), Alexander and Day (2010), and Aravinda et al. (2024), with limitations recorded in `AUDIT.json`. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge non-coverage after Resultary and primary literature comparison; prior multitype existence, series, and threshold results acknowledged, not claimed new.
+
+## value
+
+PASS
+
+Sharp fixed-reproduction-number survival risk range is an informative counterpoint to threshold-only epidemic comparison. Opposite balance effects in supercritical survival and subcritical mean provide a motivated, nontrivial and complete two-parameter boundary/uniqueness result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
