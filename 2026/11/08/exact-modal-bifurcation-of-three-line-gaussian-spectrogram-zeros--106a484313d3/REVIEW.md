@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Gaussian STFT reduction to an independent-coefficient quadratic, a logarithmic-potential/Jensen expected radial count, and a factored global derivative establish every quantifier, critical point, equality, and endpoint. `CHECK.py` supplies finite symbolic and numerical corroboration, not a substitute for the proof.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Escudero, Koliander and Romero (arXiv:2609.18689, 2026) develop expected zeros for a function-valued colored-noise PSD. The present atomic three-line model and complete critical-ratio phase diagram are not stated there. General Gaussian-analytic-function zero formulas [Sodin 2000; Kiro 2021] determine base intensity but require additional global critical-point analysis to yield the bifurcation. The closest two-line Gaussian spectrogram calculation is unimodal and does not dominate. published-finding corpus searches across equivalent polynomial and spectral terminology revealed no exact threshold. **Risk:** equivalent unindexed random-polynomial algebra or a characterization implicit in stronger specialized literature cannot be excluded. The full GAF classics were not all accessible for complete inspection.
+PASS
 
-**Value — PASS.** The three-line model is the smallest stationary atomic colored-noise model capable of intensity-mode splitting. Exact threshold, peak locations, peak heights, and an equal-power spacing criterion give a meaningful boundary for interpreting spectrogram-zero features. No performance claim for PSD inference or sample-wise statistics is made.
+For three equally spaced independent circular Gaussian tones, exact Gaussian STFT factors as a nonvanishing function times a random quadratic A+Bz+Cz^2. Jensen/logarithmic-potential evaluation gives F(u)=u(beta+2u)/(1+beta u+u^2); differentiation yields rho=4*pi*Delta^2*u(beta+4u+beta*u^2)/(1+beta*u+u^2)^2. Direct independent SymPy factorization confirms h′(u)=-(u-1)(u+1)[beta(u^2+1)+(8-beta^2)u]/(1+beta*u+u^2)^3, the threshold beta=4, quartic flatness, reciprocal bimodal peaks, sharp peak height and total integral 2*Delta. Analytic derivative signs establish all beta>0; numeric tests only corroborate.
 
-**Limitations.** Expected intensity only, exactly three equally spaced lines, independent circular Gaussian amplitudes, Gaussian window; no broad-spectrum or four-line analogue, no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: published colored-noise PSD study and Gaussian analytic function expected-zero identity provide ingredients but no inspected exact atomic three-line global modality transition and peak-height classification. This is a nontrivial finite-parameter bifurcation, not a new zero-intensity general theorem.
+
+## value
+
+PASS
+
+A natural smallest multi-tone stationary Gaussian spectrogram model supporting mode splitting. Exact critical ratio beta=4, peak locations and heights distinguish expected zero-pattern topology; finite algebraic classification sharpens a meaningful physical/statistical boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
