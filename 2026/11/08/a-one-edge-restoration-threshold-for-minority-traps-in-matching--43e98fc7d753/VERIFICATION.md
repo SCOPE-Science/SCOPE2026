@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The assertion is proved for all \(n\ge3\) and all integer \(0\le t\le n\) by conjugating the update to majority-with-tie-flip on a bipartite graph, constructing finite paths to polar absorbing states, and classifying all local equilibria at the complete-deletion endpoint.
+# Independent mathematical audit
 
-Two standalone, standard-library Python 3 programs check the derivation in complementary ways. `verify_transitions.py` exhaustively constructs the asynchronous update graph and computes terminal strongly connected components for 22 graph instances with \(3\le n\le6\), testing 36,352 labelled configurations. `verify_equilibria.py` independently evaluates the original rule's local inequalities for 39 graph instances with \(3\le n\le8\), testing 757,248 labelled configurations, and checks nonoptimal cut sizes. Recorded outputs in `transition_output.txt` and `equilibria_output.txt` were reproduced by executing the included scripts.
+## correctness
 
-Finite enumeration does not prove the all-size classification or historical priority; the algebraic proof handles the former. No absorption-time bounds, noisy-chain analysis, or independent scientific audit has been performed.
+PASS
+
+Conjugate the right-shore bits to make a neighbor-majority process with a flip on ties. When n odd, one shore has at least its pivotal majority threshold, and a sequence of permitted updates drives all vertices to one polar state. When n even and t<n, all cases except balanced a=b=n/2 likewise polarize; an undeleted-index vertex at the balanced point has an exact tie and can flip to exit this case. Hence every state reaches one of two absorbing states. When n even,t=n all degrees are odd, every actual flip strictly raises the cut and recurrent states are precisely fixed points; the two-shore inequalities force either a polarization or opposite bits across each deleted pair and exactly n/2 positive indices, giving C(n,n/2). Independent direct enumeration for n=3..6, all t, computed all stable configurations and reverse reachable sets from them; every state reaches the claimed absorbing set. This bounded check does not prove all n.
+
+## originality
+
+PASS
+
+Rouquier–Regnault–Thierry established foundational asynchronous minority, energy and bipartite duality, but their studied examples do not include this complete matching-deletion threshold. A separate published same-graph anti-coordination Nash-census theorem counts weak Nash equilibria and recovers the even full-deletion binomial number; this overlap is explicitly credited. For partially deleted matching, weak equilibria with ties are not absorbing under the required tie-flip dynamics, so that static theorem does not imply only two recurrent classes or almost-sure absorption. The sharp dynamic restoration theorem survives under bounded comparisons.
+
+## value
+
+PASS
+
+A natural interpolation between a complete bipartite network and a crown graph has a sharp last-edge change in zero-noise asynchronous dynamics. Restoring a single edge eliminates exponentially many suboptimal absorbing configurations that retain only about half of the maximum cut. The distinction from weak local Nash stability is mathematically substantive for tie-sensitive dynamics and motivates the exact recurrence-free classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

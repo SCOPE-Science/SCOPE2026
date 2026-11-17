@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:15:34.357348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md d45de6ab66ece32c2033946803dc6759735b29e8",
+        "Frozen verify_transitions.py 43ccd10b77d03ec485018a413e3561eeae01fd02",
+        "independent_checks.py full transition graphs n<=6"
+      ],
+      "rationale": "Conjugate the right-shore bits to make a neighbor-majority process with a flip on ties. When n odd, one shore has at least its pivotal majority threshold, and a sequence of permitted updates drives all vertices to one polar state. When n even and t<n, all cases except balanced a=b=n/2 likewise polarize; an undeleted-index vertex at the balanced point has an exact tie and can flip to exit this case. Hence every state reaches one of two absorbing states. When n even,t=n all degrees are odd, every actual flip strictly raises the cut and recurrent states are precisely fixed points; the two-shore inequalities force either a polarization or opposite bits across each deleted pair and exactly n/2 positive indices, giving C(n,n/2). Independent direct enumeration for n=3..6, all t, computed all stable configurations and reverse reachable sets from them; every state reaches the claimed absorbing set. This bounded check does not prove all n.",
+      "residual_risks": [
+        "Tie retention in the original closed-neighborhood minority rule and tie-flipping in the dual majority rule are essential and not interchangeable with Nash ties accepted.",
+        "No absorption-time distribution, noisy dynamics or arbitrary edge deletion classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rouquier et al. establish energy reversibility and algorithms for bipartite minority, not an explicit all-t formula for closed classes in this family.",
+          "The Nash theorem treats all t, but its tie-indifferent fixed strategies are not necessarily absorbing for the particular asynchronous rule."
+        ],
+        "reasoning": "A general local cut/Nash count does not determine recurrent communicating classes under a tie-switching transition kernel; the t=n value is partially covered but the last-edge restoration dynamic statement is not.",
+        "searches": [
+          "Rouquier Regnault Thierry arxiv:1011.5119 bipartite minority attractors",
+          "Resultary 2026/11/8 sharp deletion threshold complete stable cut census matching deleted bicliques",
+          "Lampis 2021 Minimum Stable Cut and Treewidth"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-deletion-threshold-and-complete-stable-cut-census-for-matc--db042db0552c",
+        "https://arxiv.org/abs/2104.13097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Nash condition permits indifferent deviations; original process preserves ties only in closed neighborhood and flips corresponding neighbor-majority ties.",
+          "Earlier same-family static theorem gives many weak Nash equilibria even n,t<n, while the submitted Markov theorem gives only two recurrent singletons."
+        ],
+        "reasoning": "The static theorem cannot imply the dynamic count for partially deleted matchings without a new analysis of tied flips and accessibility. The one-edge restoration is not obtained by merely substituting t into static counts.",
+        "searches": [
+          "Full published same-graph stable-cut Nash source 2026/11/8",
+          "Full ar5iv:1011.5119 minority update source",
+          "Definition of absorbing classes for asynchronous Markov chain"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original minority is conjugate to majority dynamics on cross-bipartition bits, but ties are switched in this dual.",
+          "The full-deletion even-n absorbing patterns coincide with a subset of the weak Nash equilibria classified in a separate same-graph theorem."
+        ],
+        "reasoning": "Full recurrent Markov classes are dynamical, not simply the set of weak best-response Nash equilibria when ties are present. Equality at t=n is real partial overlap, not complete coverage of t<n.",
+        "searches": [
+          "Resultary: minority closed neighborhood dynamics bipartite complete graph deleted perfect matching absorbing states binomial",
+          "Rouquier Regnault Thierry Stochastic Minority on Graphs 2010 bipartite dual majority",
+          "Resultary: stable cut Nash matching-deleted bicliques"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At t=n and even n the preexisting Nash census gives 2+C(n,n/2), overlapping the endpoint enumeration.",
+          "For t<n and even n the weak Nash census includes multiple indifferent profiles, but the new dynamical absorbing count is exactly 2."
+        ],
+        "reasoning": "The central binomial coefficient is classical, and one endpoint of the formula is not claimed as an intrinsically new number. The original contribution is the zero-noise tie-sensitive recurrent-state collapse at one restored edge.",
+        "searches": [
+          "Resultary 2026/11/8 sharp deletion threshold and complete stable-cut census for matching-deleted bicliques",
+          "binomial central coefficient crown graph locally stable cuts"
+        ]
+      },
+      "rationale": "Rouquier–Regnault–Thierry established foundational asynchronous minority, energy and bipartite duality, but their studied examples do not include this complete matching-deletion threshold. A separate published same-graph anti-coordination Nash-census theorem counts weak Nash equilibria and recovers the even full-deletion binomial number; this overlap is explicitly credited. For partially deleted matching, weak equilibria with ties are not absorbing under the required tie-flip dynamics, so that static theorem does not imply only two recurrent classes or almost-sure absorption. The sharp dynamic restoration theorem survives under bounded comparisons.",
+      "residual_risks": [
+        "Specialized exact stochastic anti-coordination/crown-graph analyses may exist under different terminology.",
+        "The same-graph static Nash census already covers full-matching equilibrium counts, not independently new at t=n.",
+        "No rate of absorption is provided; finite-state reachability establishes almost sure absorption only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational energy/duality established; family-specific matching-deletion threshold not supplied",
+          "evidence": "2010 paper defines minority local rule and describes bipartite limit-set methods; matching-deleted biclique classification is absent from inspected results.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1011.5119",
+          "material_read": "Primary full HTML available, read definitions, dynamics and relevant bipartite/energy discussions; document-wide complete-bipartite/matching search",
+          "method": "Primary full-text model and result comparison",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Same asynchronous minority process and bipartite dual"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: even perfect-deletion endpoint binomial trap count known; dynamic restoration not implied",
+          "evidence": "For even n, weak Nash equilibrium count is 2+Σ_k C(t,k) C(n-t,n/2-k)^2, which exceeds two for some t<n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-deletion-threshold-and-complete-stable-cut-census-for-matc--db042db0552c",
+          "material_read": "Entire RESULT.md, all t even and odd formulas, proof and tie assumptions",
+          "method": "Read full theorem and compare static Nash inequalities to dynamic update",
+          "title": "Sharp deletion threshold and complete stable-cut census for matching-deleted bicliques",
+          "trigger": "Exact same graphs and competing stable-cut interpretation"
+        },
+        {
+          "assessment": "General computational complexity and local-cut framework, not this recurrent class census",
+          "evidence": "The weak local-optimality notion admits tie-stable states absent from the specified dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.13097",
+          "material_read": "Primary abstract, theorem summary and comparison with local cut stability",
+          "method": "Compare Nash ties to closed-neighborhood stochastic update",
+          "title": "Minimum Stable Cut and Treewidth",
+          "trigger": "Local maximum cut as an alternative absorbing formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rouquier et al. stochastic minority dynamics",
+        "Published static stable cut census for contrast"
+      ],
+      "rationale": "A natural interpolation between a complete bipartite network and a crown graph has a sharp last-edge change in zero-noise asynchronous dynamics. Restoring a single edge eliminates exponentially many suboptimal absorbing configurations that retain only about half of the maximum cut. The distinction from weak local Nash stability is mathematically substantive for tie-sensitive dynamics and motivates the exact recurrence-free classification.",
+      "residual_risks": [
+        "Homogeneous unweighted graph and a specified tie-preserving original update rule only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 and 0<=t<=n, all removed edges pairwise disjoint.",
+    "Marked distinction from weak Nash equilibria, whose indifferent profiles may not be absorbing.",
+    "The full-match even-n binomial static census appears in same-day prior statement and is explicitly credited."
+  ],
+  "schema_version": 1
+}

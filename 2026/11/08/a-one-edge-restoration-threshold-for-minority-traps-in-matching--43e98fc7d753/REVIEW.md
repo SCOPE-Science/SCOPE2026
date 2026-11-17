@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The original closed-neighborhood minority rule is conjugated to the precise dual majority rule with flips at neighbor ties. For odd \(n\), the two complementary count ranges give a constructive path to a polarized absorbing configuration. For even \(n\) with at least one undeleted matching pair, the only balanced obstruction is destroyed by firing the undeleted-index vertex; all states again have a route to a polarized absorbing configuration. At full deletion, odd degrees make cut improvement strict, and both half-shore inequalities force exact pairwise complementarity in dual coordinates. Independent direct transition-graph and local-equilibrium enumeration agree with the theorem. See `verify_transitions.py`, `verify_equilibria.py`, their output files and the proof in `RESULT.md`.
+PASS
 
-## Originality
+Conjugate the right-shore bits to make a neighbor-majority process with a flip on ties. When n odd, one shore has at least its pivotal majority threshold, and a sequence of permitted updates drives all vertices to one polar state. When n even and t<n, all cases except balanced a=b=n/2 likewise polarize; an undeleted-index vertex at the balanced point has an exact tie and can flip to exit this case. Hence every state reaches one of two absorbing states. When n even,t=n all degrees are odd, every actual flip strictly raises the cut and recurrent states are precisely fixed points; the two-shore inequalities force either a polarization or opposite bits across each deleted pair and exactly n/2 positive indices, giving C(n,n/2). Independent direct enumeration for n=3..6, all t, computed all stable configurations and reverse reachable sets from them; every state reaches the claimed absorbing set. This bounded check does not prove all n.
 
-PASS, with qualified historical priority. The closest model reference is Rouquier–Regnault–Thierry (arXiv:1011.5119), which establishes general bipartite minority duality and energy arguments, but does not present this one-edge restoration threshold or family-specific closed-class census in the inspected full text. Lampis (arXiv:2104.13097; ICALP 2021) gives a general framework for locally optimal cuts and Nash equilibria, not this named graph-family classification. Search comparisons also included stable-cut synonyms, crown graphs, matching-deleted bicliques, and relevant published graph-invariant records. The old classical central-binomial count as a sequence is not itself asserted to be new. A possibly overlooked local-Max-Cut example remains a residual priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The graph family is the natural interpolation between the biclique and its crown graph by deleting a matching. The theorem identifies a **sharp last-edge transition**: every proper deleted submatching supports only globally optimal recurrent configurations, whereas the final edge deletion creates exponentially many permanently frozen, asymptotically half-optimal configurations. This separates multiplicity of local equilibria, global optimization and the effect of tie-breaking by one microscopic edge perturbation in a dense network. The exact classification and entropy discontinuity have substantive use in anti-coordination and local-search stability comparisons beyond reproducing a numerical table.
+Rouquier–Regnault–Thierry established foundational asynchronous minority, energy and bipartite duality, but their studied examples do not include this complete matching-deletion threshold. A separate published same-graph anti-coordination Nash-census theorem counts weak Nash equilibria and recovers the even full-deletion binomial number; this overlap is explicitly credited. For partially deleted matching, weak equilibria with ties are not absorbing under the required tie-flip dynamics, so that static theorem does not imply only two recurrent classes or almost-sure absorption. The sharp dynamic restoration theorem survives under bounded comparisons.
 
-## Scope and risks
+## value
 
-All results use uniform single-site closed-neighborhood minority updates and tie retention. The time to absorption and basin probabilities remain unknown. General weak local optimality when some degrees are even is distinct from dynamical absorption. Historical priority is subject to unindexed equivalent statements; no claim of independent validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural interpolation between a complete bipartite network and a crown graph has a sharp last-edge change in zero-noise asynchronous dynamics. Restoring a single edge eliminates exponentially many suboptimal absorbing configurations that retain only about half of the maximum cut. The distinction from weak local Nash stability is mathematically substantive for tie-sensitive dynamics and motivates the exact recurrence-free classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
