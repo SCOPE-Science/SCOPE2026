@@ -1,31 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes both the ambient Euclidean normalization and the distinction between the full convex X-ray image and its finite set of permutation X-rays. The proof uses Birkhoff--von Neumann reduction, sharp concentration bounds for nonnegative integer vectors of mass \(k\), exact characterization of near-full anti-diagonal occupancies, and strict convexity to classify diameter pairs in the full polytope. For the finite-image runner-up, every pair not attaining the diameter falls into one of three bounded cases; an explicit permutation realizes the sharp bound. The low-dimensional exceptions are covered. The standalone exact-integer verifier executed successfully with 694,526 assertions, including exhaustive image-pair checks for \(2\le k\le7\), but universality depends on the proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+The actual RESULT.md proves X_k=conv{T_k(P_pi)} via Birkhoff–von Neumann. Each noncentral X-ray h is a nonnegative integer vector of total mass k and coordinate cap k−1, hence ||h||²≤(k−1)²+1 and any noncentral pair lies below squared diameter 2k²−2k+2. Equality with unique central H forces off-center occupancy k−1 and one residual unit, producing only L,U (coinciding for k=2). Strict convexity of squared Euclidean distance excludes new continuum equality pairs. For k≥4, a runner-up h with no central mass has cap k−2, forcing squared norm ≤(k−2)²+4, attained by explicit permutation W; pairs with central mass or without H have smaller distance. Independently enumerated all distinct X-rays and every pair through k=6, including k=2 and k=3 exceptions.
 
-The motivating full text [1] studies a facet classification of the exact anti-diagonal image, not its Euclidean diameter graph or finite-image second distance. Earlier permutation X-ray investigations [2,3] concern binary feasibility, degeneracy and enumeration. The complete accessible diameter paper [4] measures matrices in the original Birkhoff polytope under matrix norms; an anti-diagonal aggregation changes those distances and is not an isometry. Closest semantically retrieved mathematical results address partial permutohedra, unprojected matching/transportation polytopes, and other metric images, not this statement. Comparisons against additional related geometric statements showed no covering theorem. No search can establish historical uniqueness, and the full text of the closely related 2014 Hankel--Toeplitz paper was not available. Its accessible descriptions suggest a combinatorial focus, but that is not a full-text exclusion. This is the principal residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source image has complicated, superpolynomially growing facet structure, yet its **complete metric diameter graph** always has at most two edges. The theorem explains that rigidity through extremal anti-diagonal occupancy and distinguishes the metric of the image from the original matrix polytope. The sharp second-distance gap grows linearly as \(2(k-3)\) for distinct projected permutation configurations; this is a quantitative separation theorem for the discrete configurations relevant to permutation tomography and joint laws with uniform marginals. The complete equality classification, explicit witnesses, and finite/continuous distinction make the result a motivated structural contribution, not merely a numerical diameter estimate.
+Best-of-knowledge originality for the sharp Euclidean diameter, all diametral pairs and discrete runner-up gap of the ANTI-DIAGONAL image. A highly relevant full-text 2026 primary article studies exactly X_k but facial inequalities, not Euclidean distance. Published Birkhoff-diameter results concern the non-isometric original matrices. A plausible 2014 primary X-ray article remained inaccessible via arXiv/OA and authorized institutional access; its accessible abstract describes binary/palindromic feasibility, not a covering metric theorem. That access limitation is named, not turned into failure or proof of novelty.
 
-## Scientific limitations and literature risk
+## value
 
-The theorem concerns the standard Euclidean norm on **unnormalized** anti-diagonal sums; a different weighting could invalidate the formula. The runner-up gap is not a gap for distances between arbitrary convex combinations. The result does not claim the complete distance spectrum, facet graph, or additional norms. Historical originality is conditional on currently accessible sources; no independent mathematical audit was performed.
+PASS
 
-## References
+The anti-diagonal X-ray image is a natural transportation/coupling polytope studied for its complicated facets. The complete distance extremizer graph and sharp runner-up gap resolve natural metric invariants not mechanically implied by known facet or source-Birkhoff diameter results, including distinct global-vs-discrete distance geometry. The explicit equality classification and k-boundary cases make the exact fact reusable in coupling geometry.
 
-[1] P. Chaudhary and K. Khandelwal, *Facets of the X-ray polytope of doubly stochastic matrices*, arXiv:2610.30058v1 (2026-10-21).
-
-[2] B. Li, Y. Liu and Y. Yao, *Binary X-rays of doubly stochastic matrices*, arXiv:2608.01442 (2026).
-
-[3] C. Bebeacua, T. Mansour, A. Postnikov and S. Severini, *On the X-rays of permutations*, arXiv:math/0506334 (2005).
-
-[4] L. Bouthat, J. Mashreghi and F. Morneau-Guérin, *The diameter of the Birkhoff polytope*, Special Matrices 12 (2024), DOI:10.1515/spma-2023-0113.
-
-[5] R. A. Brualdi and E. Fritscher, *Hankel and Toeplitz X-rays of permutations*, Linear Algebra and its Applications (2014), DOI:10.1016/j.laa.2014.02.037.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

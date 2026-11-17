@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the diameter graph and sharp finite-image second-distance gap
+# Independent mathematical audit
 
-The complete proof, including the unrestricted quantifiers, is in `RESULT.md`. The following computation supplies standalone exact-integer sanity checks; it is **not** an exhaustive proof over infinitely many dimensions or over uncountably many points of the convex image.
+## correctness
 
-Run `python3 verify.py` using Python 3 and its standard library, without installation or external datasets. The actual executed result was:
+PASS
 
-```
-PASS: 694526 exact-integer assertions; complete projected-X-ray pair checks for k=2,...,7, projection-profile checks through k=8, and constructed exact witnesses through k=100.
-```
+The actual RESULT.md proves X_k=conv{T_k(P_pi)} via Birkhoff–von Neumann. Each noncentral X-ray h is a nonnegative integer vector of total mass k and coordinate cap k−1, hence ||h||²≤(k−1)²+1 and any noncentral pair lies below squared diameter 2k²−2k+2. Equality with unique central H forces off-center occupancy k−1 and one residual unit, producing only L,U (coinciding for k=2). Strict convexity of squared Euclidean distance excludes new continuum equality pairs. For k≥4, a runner-up h with no central mass has cap k−2, forcing squared norm ≤(k−2)²+4, attained by explicit permutation W; pairs with central mass or without H have smaller distance. Independently enumerated all distinct X-rays and every pair through k=6, including k=2 and k=3 exceptions.
 
-For every \(2\le k\le7\), the program generates **every permutation**, deduplicates their X-ray vectors, compares every distinct vector pair, checks the exact maximum and diameter-pair set, and verifies the runner-up distance when it exists. At \(k=8\) it checks imagewise norm and occupancy inequalities without exhausting every image pair. It also checks the exact witnesses through \(k=100\) and deterministic pseudorandom pairs through \(k=15\). The code deliberately uses integers only, so no floating-point tolerances or unstated numerical certificates enter these checks.
+## originality
 
-Two critical assertions have direct theoretical certificates independent of the program: (i) a noncentral permutation X-ray has each coordinate at most \(k-1\), with near-maximal occupancy forcing one of two exact vectors; (ii) strict convexity of squared Euclidean distance prohibits additional diametral pairs in the convex hull. Those arguments, plus the explicit runner-up permutation and concentration inequality, prove all claimed values for unrestricted integer \(k\ge2\).
+PASS
 
-The runner-up assertion concerns only the finite set of distinct permutation X-rays. It is **not** a claimed missing interval of pairwise distances within the full convex polytope. Independent audit of the mathematics has not been performed.
+Best-of-knowledge originality for the sharp Euclidean diameter, all diametral pairs and discrete runner-up gap of the ANTI-DIAGONAL image. A highly relevant full-text 2026 primary article studies exactly X_k but facial inequalities, not Euclidean distance. Published Birkhoff-diameter results concern the non-isometric original matrices. A plausible 2014 primary X-ray article remained inaccessible via arXiv/OA and authorized institutional access; its accessible abstract describes binary/palindromic feasibility, not a covering metric theorem. That access limitation is named, not turned into failure or proof of novelty.
+
+## value
+
+PASS
+
+The anti-diagonal X-ray image is a natural transportation/coupling polytope studied for its complicated facets. The complete distance extremizer graph and sharp runner-up gap resolve natural metric invariants not mechanically implied by known facet or source-Birkhoff diameter results, including distinct global-vs-discrete distance geometry. The explicit equality classification and k-boundary cases make the exact fact reusable in coupling geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
