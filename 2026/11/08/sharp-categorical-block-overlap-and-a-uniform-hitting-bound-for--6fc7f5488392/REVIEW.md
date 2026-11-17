@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The weighted categorical-tree overlap lemma is proved for arbitrary starting masses; concavity reduces the conditional-distribution minimum to categorical extreme vertices. The matching oldest-symbol kernel attains the exact value. Multinomial counting, a square-root change of measure, an aperiodic lattice local-limit argument, and oscillation bounds complete the proof. The standalone finite checker passed 12,277 assertions, but is not used as an infinite proof. The assumptions and the difference between a sufficient true-hitting condition and an exact threshold for the displayed upper bound are explicit.
+## correctness
 
-**Originality — PASS, provisional.** The closest literature is Skórski's arXiv:2610.40845v1. Its Theorems 3–4 establish binary sharp overlap, while Theorem 24 and Corollary 26 give an arbitrary-alphabet hitting theorem with an unspecified block overlap or a weaker Hellinger lower bound. The exact q-ary minimax overlap, its aperiodic sharp asymptotic constant, and the improved explicit parameter regime are not stated in the inspected portions. The general Doeblin theory of Makur and Singh does not provide those categorical constants. Searches for equivalents, stronger coverage and exact tables returned no direct covering item. This does not prove historical uniqueness, and older overlapping-chain results remain a risk.
+PASS
 
-**Mathematical value — PASS.** The q-ary sharp constant fills the quantitative missing input of a natural finite-memory hitting theorem. The result distinguishes all alphabets of size at least three from the binary parity case, gives a complete finite-depth minimax formula, and strictly enlarges a sufficient normalized-hitting regime (for instance \(q=3,\ b=0.14\)). This is structural information rather than a numerical recomputation of the binary case.
+The weighted induction over two depth-n categorical stochastic trees is valid for arbitrary nonnegative starting masses: the overlap is a jointly concave sum of minima in the first-symbol laws, minimized at extreme categorical laws. Coincident peaks yield F_n(s,t)>=F_{n+1}(s,t) by marginalization and differing peaks yield the extremal two-law product F_{n+1}. The oldest-symbol construction attains the lower bound for states (1,...,1) and (2,...,2), proving minimax sharpness. The multinomial formula, Hellinger square-root tilt and lazy symmetric span-one local CLT with dominated summation give the exact constant coth(t/2)/sqrt(4*pi*u). Neutral symbols imply strict decline for q>=3. The deviation-matrix identity plus oscillation contraction yields the normalized hitting bound, sufficient (not necessary) for uniform hitting times when a<theta. Independently verified exact rational overlap and attained minimax q=3,4 and d=1,2,3; this finite computation is not a universal proof.
 
-**Scientific limits.** We do not assert that the stated b-threshold is necessary for actual hitting times, that the asymptotic is uniform as b varies, or that historical priority has been independently settled. The exact hitting-time deviation identity and general head–tail inequality are credited to the motivating literature.
+## originality
 
-**Closest sources.** Maciej Skórski, *Learning Finite-Memory Binary Sources*, arXiv:2610.40845v1, Theorems 3–4, 24 and Corollary 26; Anuran Makur and Japneet Singh, *Doeblin Coefficients and Related Measures*, arXiv:2309.08475v2, Sections II-A and II-E. Alhakim's *On the eigenvalues and eigenvectors of an overlapping Markov chain* (2004) was accessible as an abstract only, a residual comparison risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nearest Skórski 2026 paper gives binary minimax and general-alphabet conditional hitting estimates; its full appendix was inaccessible in this run, so possible stronger q-ary implication is retained as an explicit originality risk. Accessible Makur–Singh establishes general Doeblin contraction principles, not the exact q-ary product overlap law. The separate q>=3 minimax formula and sharp lazy-walk constant appear not directly established by checked material, best-of-knowledge PASS subject to Skórski full-text comparison.
+
+## value
+
+PASS
+
+A sharp q-ary finite-memory block-coupling invariant and its exact asymptotic constant naturally extend binary theory and sharpen dimension-uniform hitting-time regimes. The explicit fixed-parameter sufficient threshold is valuable without claiming necessity for real hitting times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
