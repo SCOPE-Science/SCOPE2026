@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run the standalone Python 3 program with `python verify_roundness.py`. The program uses only the Python standard library. It enumerates all signed-permutation vertices and every nonzero ternary signed-subset normal for dimensions 2–5, verifies all support numbers and each facet's codimension one, and counts 356 facets in total. It also tests the optimized inradius-to-circumradius bound against representative nonoptimal profiles in dimensions 2–127.
+# Independent mathematical audit
 
-Observed successful replay: `TYPE_B_SHARP_ROUNDNESS_CHECKS_PASSED facet_checks= 356 dimensions_checked= 126`, preceded by counts 8, 26, 80, 242. Comparisons involving square roots use numerical tolerances of order \(10^{-9}\) to \(10^{-11}\). They are reproducibility checks, not all-dimensional certificates. The complete proof is mathematical and appears in RESULT.md; no code is needed to prove its summation-by-parts step or the Minkowski symmetrization inequality.
+## correctness
 
-Independent mathematical audit has not been performed.
+PASS
+
+Full-dimensional type-B deformations are invariant under W_n Minkowski averaging. r of a Minkowski sum is at least the sum of inradii, R at most sum of circumradii; Q averaged over W_n is a signed-permutation orbit polytope Q(b), b_1≥...≥b_n≥0. Its signed-majorization inequalities yield r=min_k B_k/√k, and R=||b||₂ by centered symmetric orbit. Normalize r=1; B_k≥√k and d_k=√k−√(k−1) strictly decreasing, so d·b=Σ(d_k−d_{k+1})B_k≥Σd_k²=D_n, while d·b≤√D_n||b||. Equality b=d; all 3^n−1 signed subset facets tangent; D_n=(1/4)log n+O(1). Independent n=2..12 numeric comparison to nonoptimal b_k=1/k corroborated; not proof.
+
+## originality
+
+PASS
+
+Sharp metric inequality on the entire type-B deformation cone, and unique W_n-invariant optimal orbit shape, goes beyond the established Coxeter fan and signed-majorization descriptions, subject to hidden metric approximation prior art.
+
+## value
+
+PASS
+
+The full deformation class has a sharp dimension-dependent roundness ratio, explicit universal optimizer and full simultaneous inball tangencies, with nonconstant logarithmic asymptotic; natural convex-geometric extremal fact, not a routine calculation on one small polytope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

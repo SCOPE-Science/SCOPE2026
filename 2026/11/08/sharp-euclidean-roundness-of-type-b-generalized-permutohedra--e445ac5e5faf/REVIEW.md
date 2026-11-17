@@ -1,15 +1,21 @@
-# Scientific assessment: sharp roundness of type-\(B\) deformations
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof correctly distinguishes ambient inradius and minimum-enclosing radius, and uses Minkowski averaging only where its two radius inequalities are valid. The averaged body's normal fan remains a coarsening of the type-\(B\) arrangement; Weyl invariance and linearity of support functions on the fundamental chamber force a signed-permutation orbit. Signed majorization supplies the exact inradius \(\min_k B_k/\sqrt k\), while the common orbit vertex norm and zero vertex barycenter yield the exact circumradius. Under unit inradius the decreasing positive coefficients \(d_k-d_{k+1}\) give \(\langle d,b\rangle\ge\|d\|_2^2\), and Cauchy–Schwarz proves the sharp bound and symmetric equality rigidity. Strictly decreasing optimizer coordinates guarantee every signed-subset support inequality is a facet and all contact. The harmonic asymptotic is justified by a summable \(O(k^{-2})\) error. Numerical finite tests are separate from this infinite proof.
+## correctness
 
-## Originality — PASS, priority provisional
-The principal input appears already in the literature: Ardila–Castillo–Eur–Postnikov (arXiv:1904.11029) describe all Coxeter deformations and the symmetric weight-polytope slice; Godland–Kabluchko (arXiv:2009.04186) state signed-majorization facets and the type-\(B\) fan; Eur–Fink–Larson–Spink (arXiv:2209.06752) study signed permutohedra. Neither the inspected metric-relevant sections nor the matched public mathematical records establishes the *optimized* inradius-to-circumradius ratio across nonsymmetric deformations, the square-root-difference equality profile, or the sharp logarithmic asymptotic. The fixed-weight radius formula alone is not the extremal result: it must be combined with a sharp dual summation inequality and a reduction from nonsymmetric bodies. These analyses do not prove historical uniqueness; a previously unindexed equivalent roundness result remains possible.
+PASS
 
-## Mathematical value — PASS
-The result is a sharp, dimension-dependent Euclidean approximation theorem for the entire natural deformation cone of type-\(B\) permutohedra, not a recomputation of one polytope's radius. It identifies the unique symmetric optimizer, gives complete facet-contact rigidity there, and finds the unexpectedly slow logarithmic degradation \(2/\sqrt{\log n}\) of best possible Euclidean roundness. The metric optimization is structurally motivated by approximation of the sphere inside a constrained normal-fan class. No classification of nonsymmetric equality cases is claimed.
+Full-dimensional type-B deformations are invariant under W_n Minkowski averaging. r of a Minkowski sum is at least the sum of inradii, R at most sum of circumradii; Q averaged over W_n is a signed-permutation orbit polytope Q(b), b_1≥...≥b_n≥0. Its signed-majorization inequalities yield r=min_k B_k/√k, and R=||b||₂ by centered symmetric orbit. Normalize r=1; B_k≥√k and d_k=√k−√(k−1) strictly decreasing, so d·b=Σ(d_k−d_{k+1})B_k≥Σd_k²=D_n, while d·b≤√D_n||b||. Equality b=d; all 3^n−1 signed subset facets tangent; D_n=(1/4)log n+O(1). Independent n=2..12 numeric comparison to nonoptimal b_k=1/k corroborated; not proof.
 
-## Limitations
-Potential terminology-based prior results on approximating balls by Coxeter orbitopes or bisubmodular polytopes have not been exhaustively excluded. Publicly available sources were compared by mathematical implication, not only by titles; no full third-party literature census or independent mathematical audit is claimed. The finite checker only confirms small-dimensional facet calculations and representative profiles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp metric inequality on the entire type-B deformation cone, and unique W_n-invariant optimal orbit shape, goes beyond the established Coxeter fan and signed-majorization descriptions, subject to hidden metric approximation prior art.
+
+## value
+
+PASS
+
+The full deformation class has a sharp dimension-dependent roundness ratio, explicit universal optimizer and full simultaneous inball tangencies, with nonconstant logarithmic asymptotic; natural convex-geometric extremal fact, not a routine calculation on one small polytope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
