@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:57:36.239325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: G_n is the additive space of alternating n-by-n matrices even in characteristic two. For coordinate additive character gamma_B, the step E(u,v)=uv^T-vu^T pairs exactly as u^TBv, and averaging over uniform v leaves probability u in ker B=q^{-rank B}. Alternating rank=2r, with multiplicity [n choose 2r]_q |GL_{2r}|/|Sp_{2r}|; Parseval yields the chi-square formula for all t>=0. Factoring the multiplicity and using a uniform q^{-quadratic in r} bound gives both even and odd s-offset limiting chi-square series. For t=floor(n/2)+a_n the sum goes to zero, while for t=floor(n/2)-a_n rank at most 2t forces nullity>=2a_n and the uniform-random nullity union bound tends to zero. Independent GF(2) enumeration found n=3 rank counts {0:1,2:7} and n=4 counts {0:1,2:35,4:28}, and directly verified Fourier expectation 2^{-rank B} for every character through n=4. Tests do not establish asymptotic TV cutoff alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulman–Goldstein study random UNIFORM matrix rank (stationary ensemble) rather than convolution time from t wedge updates.",
+          "Delsarte–Goethals association scheme plausibly supplies alternating-form eigenmatrices and rank multiplicities, but no retrieved text verified this specific independent-uniform-vector-pair walk, chi-square parity limits and two-sided TV window."
+        ],
+        "reasoning": "Broad general harmonic theory is prior and could shorten the proof, but exact stochastic dynamics/limiting profiles require presently unlocated specialization. Inaccessibility is a risk, not by itself a failure.",
+        "searches": [
+          "https://arxiv.org/abs/1910.10823",
+          "https://arxiv.org/abs/1211.0504",
+          "https://doi.org/10.1016/0097-3165(75)90090-4",
+          "alternating matrices random walk sum rank two wedge uvT-vuT Fourier mixing chi squared cutoff half dimension"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.10823",
+        "https://arxiv.org/abs/1211.0504",
+        "https://doi.org/10.1016/0097-3165(75)90090-4",
+        "Resultary search: alternating matrices random walk sum rank two wedge uvT-vuT Fourier mixing chi squared cutoff half dimension"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Plancherel plus N_{n,q}(2r) and q^{-2r} gives χ²(t)=sum N_{n,q}(2r) q^{-4rt}. At t=floor(n/2)+s the exponents -2r²-r-4rs (even) and -2r²+r-4rs (odd) differ by 2r.",
+          "Rank(A_t)<=2t gives lower TV separation before n/2, while Gaussian-majorized exact chi-square proves upper TV mixing after n/2."
+        ],
+        "reasoning": "These stochastic cutoff and parity formulas do not directly follow from He 2020 or the stationary rank law without a new additive transition calculation; compare terms rather than similar words 'symplectic' or 'alternating'.",
+        "searches": [
+          "https://arxiv.org/abs/1910.10823",
+          "https://arxiv.org/abs/1211.0504",
+          "https://doi.org/10.1016/0097-3165(75)90090-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He (2020) analyzes the multiplicative transvection walk on nondegenerate symplectic forms GL_{2n}/Sp_{2n}, whereas the submitted walk adds random decomposable bivectors to all alternating matrices, including singular ones.",
+          "Fourier coordinate pairing of E(u,v) with B reduces to u^TBv, producing q^{-rank B}; the transvection-walk character theory does not have this additive step law."
+        ],
+        "reasoning": "The algebraic object (affine additive matrix space vs homogeneous nondegenerate form space), update operation and stationary law differ, so no equivalence via parameter rename is established.",
+        "searches": [
+          "alternating matrices random walk sum rank two wedge uvT-vuT Fourier mixing chi squared cutoff half dimension",
+          "https://arxiv.org/abs/1910.10823",
+          "https://doi.org/10.1016/0097-3165(75)90090-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current record is indexed in Resultary; nearest separate tasks include symmetric Wishart rank-one additions and traceless nilpotent rank-one walks, not wedge updates on all alternating matrices.",
+          "Classical rank-count product formula is explicitly credited and is only an ingredient of the time-dependent spectrum."
+        ],
+        "reasoning": "No exact table of the wedge walk's parity-sensitive limiting chi-square profile was found in the bounded search; earlier association-scheme tables may encode basic multiplicities.",
+        "searches": [
+          "alternating matrices random walk sum rank two wedge uvT-vuT Fourier mixing chi squared cutoff half dimension",
+          "https://doi.org/10.1016/0097-3165(75)90090-4",
+          "Resultary: characteristic-sensitive chi-square profiles at the finite-field Wishart mixing cutoff"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: previous alternating-bilinear-form association schemes and uniform matrix rank distributions supply background multiplicities, but the additive walk with independent uv^T-vu^T increments, exact all-time chi-square, even/odd dimension-dependent fixed-offset profiles and TV cutoff at n/2 were not shown in the inspected original transvection-walk and rank-distribution sources. Historical scheme priority qualified because Delsarte–Goethals full text was inaccessible.",
+      "residual_risks": [
+        "Delsarte–Goethals (1975) full primary text could not be retrieved through arXiv, accessible OA or authorized institutional access (VPN disconnected); its association-scheme eigenmatrix might implicitly encode part or all of the finite spectrum.",
+        "General alternating-matrix rank-distribution machinery is classical and not credited as a new theorem.",
+        "Fixed-field chi-square profiles do not furnish a limiting fixed-offset total-variation curve or a q->infinity simultaneous limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: nondegenerate multiplicative quotient transvections instead of additive independent wedge increments",
+          "evidence": "ArXiv 1910.10823 defines the state space GL_{2n}(F_q)/Sp_{2n}(F_q) and transvection update; cutoff centered at n in its different dimension convention.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.10823",
+          "material_read": "Full open 18-page arXiv primary text: abstract, Section 1 walk definition, Theorems 1.1-1.2 cutoff and Section 3 eigenvalue calculation (PDF screenshots)",
+          "method": "Theorem/update-space comparison",
+          "title": "Random walk on the symplectic forms over a finite field",
+          "trigger": "Closest prior published cutoff on symplectic forms"
+        },
+        {
+          "assessment": "Supplies stationary finite-field rank material; not this time-indexed wedge-sum random walk",
+          "evidence": "Uniform random alternating matrices have no t-dependent convolution eigenvalue in that study.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0504",
+          "material_read": "Open arXiv primary paper: rank-distribution theorems for uniform matrices and explanatory setup (PDF screenshot)",
+          "method": "Compare sampling law and time parameter",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Potential earlier exact rank multiplicities and laws"
+        },
+        {
+          "assessment": "HISTORICAL PRIORITY RISK, not blanket not-covering assertion",
+          "evidence": "Association-scheme rank stratification might yield the finite Fourier multiplicity; no full-text comparison was possible.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(75)90090-4",
+          "material_read": "Publication metadata, accessible abstract/citations and related scheme material only; full Delsarte–Goethals 1975 article NOT READ because unavailable; arXiv and lawful OA attempts did not yield it, institutional VPN disconnected",
+          "method": "Known-title and mathematical-scope comparison with explicit access limitation",
+          "title": "Alternating bilinear forms over GF(q)",
+          "trigger": "Highly relevant original alternating-form association-scheme classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete additive alternating-form walk has a natural finite-field stochastic mixing problem, and an explicit exact rank-Fourier spectrum with a sharp dimension-half cutoff and a parity-dependent critical χ² profile is an informative reusable invariant rather than routine tabulation. The paper does not claim the classical form-rank multiplicities as independently new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1910.10823",
+    "https://arxiv.org/abs/1211.0504",
+    "https://doi.org/10.1016/0097-3165(75)90090-4",
+    "Resultary search: alternating matrices random walk sum rank two wedge uvT-vuT Fourier mixing chi squared cutoff half dimension"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Delsarte–Goethals (1975) full primary text could not be retrieved through arXiv, accessible OA or authorized institutional access (VPN disconnected); its association-scheme eigenmatrix might implicitly encode part or all of the finite spectrum.",
+    "General alternating-matrix rank-distribution machinery is classical and not credited as a new theorem.",
+    "Fixed-field chi-square profiles do not furnish a limiting fixed-offset total-variation curve or a q->infinity simultaneous limit."
+  ],
+  "schema_version": 1
+}

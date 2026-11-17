@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated group is the additive space of alternating matrices in every characteristic. Coordinate-wise additive characters pair a frequency form with a single exterior-product update as \(u^{\mathsf T}Bv\), so the one-step eigenvalue equals the kernel probability \(q^{-\operatorname{rank}B}\). Radical choice and the \(\operatorname{GL}/\operatorname{Sp}\) orbit count yield exact multiplicities. Plancherel proves the finite-time formula including \(t=0\). The parity-dependent limits follow by Gaussian dominated convergence. The pre-cutoff obstruction is rank at most twice the number of updates; a uniform nullity bound proves separation. An exact rational checker reproduces finite spectra and convolutions in several characteristics, including the extension field of order four. No finite computation is invoked as an infinite proof.
+## correctness
 
-## Originality — PASS under bounded inspection
-General alternating-bilinear-form association schemes supply related spectral theory, and existing rank-distribution work characterizes uniform alternating matrices. The known walk on nondegenerate symplectic forms uses different states and transvection transitions; none of the inspected full-text theorems states or directly implies the same time-dependent wedge-walk chi-square formula, the two parity-dependent profiles, **and** the sharp total-variation transition at half-dimension. The historical 1975 alternating-forms paper could not be read in full; its eigenmatrix theory may subsume spectral ingredients and leaves residual priority uncertainty. This is not a claim of unconditional historical novelty.
+PASS
 
-## Mathematical value — PASS
-The natural random process builds finite-field alternating Gram matrices one independent vector pair at a time; deciding when the output becomes nearly uniform is a motivated sampling problem. The half-dimensional cutoff is sharp, the two parity profiles detect a genuine boundary effect, and exact finite-time spectral and chi-square identities provide reproducible quantitative information for every dimension and finite field. This is a complete classification of its mixing scale, not an arbitrary numerical example or a relabeling of a known exact identity.
+PASS: G_n is the additive space of alternating n-by-n matrices even in characteristic two. For coordinate additive character gamma_B, the step E(u,v)=uv^T-vu^T pairs exactly as u^TBv, and averaging over uniform v leaves probability u in ker B=q^{-rank B}. Alternating rank=2r, with multiplicity [n choose 2r]_q |GL_{2r}|/|Sp_{2r}|; Parseval yields the chi-square formula for all t>=0. Factoring the multiplicity and using a uniform q^{-quadratic in r} bound gives both even and odd s-offset limiting chi-square series. For t=floor(n/2)+a_n the sum goes to zero, while for t=floor(n/2)-a_n rank at most 2t forces nullity>=2a_n and the uniform-random nullity union bound tends to zero. Independent GF(2) enumeration found n=3 rank counts {0:1,2:7} and n=4 counts {0:1,2:35,4:28}, and directly verified Fourier expectation 2^{-rank B} for every character through n=4. Tests do not establish asymptotic TV cutoff alone.
 
-## Restrictions and residual risks
-The full historical alternating-scheme article was unavailable. General scheme theory contains eigenvalue ingredients, and a previously unlocated explicit wedge-walk asymptotic theorem could cover the main claim. The paper by He concerns a distinct walk but has similar cutoff vocabulary. No independent external mathematical validation has occurred. The stated profiles are chi-square profiles, not fixed-offset total-variation limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: previous alternating-bilinear-form association schemes and uniform matrix rank distributions supply background multiplicities, but the additive walk with independent uv^T-vu^T increments, exact all-time chi-square, even/odd dimension-dependent fixed-offset profiles and TV cutoff at n/2 were not shown in the inspected original transvection-walk and rank-distribution sources. Historical scheme priority qualified because Delsarte–Goethals full text was inaccessible.
+
+## value
+
+PASS
+
+PASS: The complete additive alternating-form walk has a natural finite-field stochastic mixing problem, and an explicit exact rank-Fourier spectrum with a sharp dimension-half cutoff and a parity-dependent critical χ² profile is an informative reusable invariant rather than routine tabulation. The paper does not claim the classical form-rank multiplicities as independently new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
