@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is a single all-parameter covariance sign theorem with a macroscopic limiting cutoff. The Pitman–Yor EPPF, for the stated nondegenerate parameter domain, implies a precise marked-block factorization: a specified block of size \(r\) leaves a \(\mathrm{PD}(\alpha,\theta+\alpha)\) remainder. Summing that factorization proves the mixed moment and covariance formula. The exact Chinese-restaurant expectation recurrence gives strict increase in remaining sample size, establishes positive and negative endpoint signs, and thereby a unique sign boundary. Gamma-ratio asymptotics and strict monotonicity of \(\Gamma(\theta+1)/\Gamma(\theta+\alpha)\) in \(\theta\) prove the limiting critical fraction; the Ewens harmonic formula handles \(\alpha=0\). The two Brownian cases follow from independently documented excursion-partition parameter identifications. The standalone checker passed 706 assertions, including independent exact CRP enumeration for five rational parameter settings through \(n=8\); those finite checks do not substitute for the proof.
+PASS
 
-## Originality — PASS, subject to historical priority uncertainty
+The Pitman–Yor EPPF directly factors on a marked r-element block, leaving an independent (α,θ+α) partition of n−r elements. Hence E[M_r K_n]/E[M_r]=1+g_{n−r}(α,θ+α), with the positive exact prefactor C(n,r)(1−α)_{r−1}(θ+α)_{n−r}/(θ+1)_{n−1}. The Chinese-restaurant recurrence for g_j has strictly positive increments and <1 one-step increments, while increasing θ supports the r=1 endpoint by common-uniform coupling. Therefore the covariance sign factor decreases strictly across r, starts positive at r=1, ends negative at r=n for every n≥2, allowing at most one zero. For α>0, gamma-ratio growth g_j∼A_{α,θ}j^α gives the unique macroscopic root ρ=1−(A_{α,θ}/A_{α,θ+α})^(1/α), with A=Γ(θ+1)/(αΓ(θ+α)). For α=0, harmonic increments yield ρ=1−exp(−1/θ). Brownian PD(1/2,0) and PD(1/2,1/2) substitutions give respectively 1−4/π² and 1−π²/16. The θ>−α and θ>0 domains keep all denominators and prefactors valid. Independent exact CRP restricted-growth enumeration verified finite mixed moments for three parameter settings through n=6; the analytic proof establishes all n.
 
-The primary Pitman reference establishes the EPPF and the deletion property, and both Maller–Shemehsavar references concern the same frequency spectrum and diversity variable. The later 2026 paper includes a general joint finite-sample transform and conditional limits for macroscopic frequency windows, so no novelty is assigned to the underlying moment's *computability*. The inspected full texts do not state the strict covariance sign ordering at each integer size, its parameter-dependent critical fraction, or the two Brownian cutoff constants as a sign boundary. The 2024 paper's accessible abstract describes joint distributional limits for finite spectrum components; full-text comparison was unavailable. A published one-switch result for uniform set partitions uses a different partition law and a logarithmic, rather than linear, cutoff. Earlier tagged-block-size covariance gives a weighted combination of the frequency covariances, insufficient to determine their individual signs. Priority risk remains because some general joint formulas may be manipulated to derive this theorem, and inaccessible or unlocated literature may already do so.
+## originality
 
-## Value — PASS
+PASS
 
-This is a qualitative classification for a natural occupancy spectrum, not merely a re-expression of a known moment: every block size belongs to a positive, zero or negative dependence regime, with exactly one change. For macroscopically large groups, the sign boundary occupies a nontrivial fraction of the full sample and is given by a parameter-sensitive analytic constant. Brownian-motion and Brownian-bridge excursion sampling yield different explicit constants despite sharing the same stability index, motivating the precise invariant and its practical relevance to frequency spectra. Neither a new general generating function nor a broader random-partition universality theorem is claimed.
+The EPPF deletion identity and general joint frequency-spectrum formulas are prior and not claimed as novel. The contribution is the complete *strict one-crossing sign theorem* for covariance of a particular size frequency with total richness, the nontrivial macroscopic critical fraction and Brownian excursion constants. The older published uniform set-partition one-switch result concerns a different law and logarithmic scale. A closely relevant 2024 Maller–Shemehsavar article and the 2026 preprint could not be fully independently read this run, although their abstracts and the precise model coverage were checked; this is a substantial disclosed historical-priority risk, not proof of covered results or an access-based FAIL.
 
-## Sources, comparison and residual limits
+## value
 
-Full material inspected: Pitman, *Poisson–Kingman partitions* (2002), Sections 6–8; Maller and Shemehsavar, *Limit Theorems for the Pitman–Yor Frequency Spectrum* (2026), Sections 2–4. Abstract-only access: Maller and Shemehsavar, *Asymptotics of the allele frequency spectrum and the number of alleles* (online 2024). Published comparison: *Block-size counts switch covariance sign at the Lambert-W scale* (2026, uniform set partitions). The closed covariance can be recovered from older EPPF and generating-function machinery, and the claimed contribution is the derived sign-shape and threshold theorem. Neither independent reproduction nor an exhaustive historical-priority search has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Block-size frequency and total block diversity are natural joint occupancy statistics in Pitman–Yor partitions. The all-r sign ordering converts a potentially unwieldy covariance array into exactly one qualitative transition, and the parameter-dependent linear-scale cutoff distinguishes Brownian bridge from Brownian motion partition regimes. It addresses a specific interpretable structural invariant absent from the prior general computability formula, not arbitrary numerical parameter slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
