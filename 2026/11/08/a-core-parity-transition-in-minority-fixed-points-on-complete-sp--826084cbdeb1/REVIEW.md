@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four occupancy inequalities derive directly from the open-neighborhood minority rule with tie retention. The mixed-core argument excludes both strictly imbalanced core cases when the peripheral population is at least as large, leaving an exact central binomial census, while the uniform-core cases contribute two. An independent bit-level simulation covered 1,206,956 configurations and a separate occupancy enumerator covered 500 parameter pairs. The infinite statement rests on the complete proof, not on experiments.
+## correctness
 
-**Originality — PASS, qualified.** Search comparisons included minority/anti-coordination fixed states on split graphs, parity transitions, and equivalent complement transformations. Accessible mathematical results about generalized threshold periods, random-coupling metastability and majority dynamics on split graphs have different conclusions or hypotheses and do not imply this exact deterministic minority census. The inaccessible full 1980 paper and unindexed equivalent descriptions remain explicit priority risks. No claim of absolute historical novelty is made.
+PASS
 
-**Value — PASS.** The graph family models a densely connected core linked to an independent periphery. Its exact full-regime census and the parity-triggered switch between two and exponentially many stable configurations identify a natural, macroscopically consequential boundary created by the retention-at-tie convention. This is a structural classification and entropy law, not merely a small-graph table.
+For a labeled configuration with k core and l peripheral ones, the fixed-state inequalities are k>0 ⇒2(k−1+l)≤a+b−1; k<a ⇒2(a−k−1+b−l)≤a+b−1; l>0 ⇒2k≤a; l<b ⇒2k≥a. For mixed core 0<k<a they imply a+b−1≤2(k+l)≤a+b+1. If k<a/2, peripheral zeros force l=b, contradicting 2k+b≤a+1 since b≥a and k≥1. If k>a/2, l=0 contradicts lower bound. Thus k=a/2 even, with l in the central one/two binomial layers; k=0 and k=a yield exactly two oppositely polarized states. Directly reimplemented all synchronous bit updates and compared every state against formula for all a<=5, a<=b<=8. Fixed-a b→∞ entropy follows from Stirling central binomial asymptotics; no claim on transient basins or b<a.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+For this exact synchronous open-neighborhood tie-retaining minority rule, no located earlier result proves the fixed-state split-graph census or odd/even entropy transition. Published same-graph majority and asynchronous minority results use non-equivalent updates and do not imply this fixed-state count. Inaccessible original 1980 full text is explicitly a residual risk, not an automatic originality failure.
+
+## value
+
+PASS
+
+A complete natural family of split graphs exhibits a sharp parity-controlled qualitative change in the number and entropy of **fixed points**, not merely an isolated small example; this distinction matters for anti-coordination/threshold dynamics and limits on possible attractors. The exact binomial classification has reusable structural meaning independent of any full transient analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
