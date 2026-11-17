@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:14:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-block 6-dimensional covariance transfer correctly conditions on the next Markov state, rather than assuming independent steps. If the positive block sum is rank one, positive cross-transition probabilities make the next two image lines M(a)v and M(b)v distinct because trace(M(b)^(-1)M(a))=2-(a-b)^2 lies in (-2,2); thus L_s^2 is strictly positive on the PSD product cone. Strong finite-dimensional Perron–Frobenius supplies a simple dominant positive eigenvalue with positive-definite eigenblocks. Applying logdet concavity to both determinant-one congruence equations gives rho>=1, with equality requiring a common positive invariant C; the unique normalized invariants C_h=[[1,h/2],[h/2,1]] differ for a!=b, so rho>1 for every 0<s<1. At s=1 fixed elliptic maps are bounded; at s=0 a stable alternating product is bounded iff its trace lies strictly between -2 and 2. For a=1/2,b=3/2 independently computed trace -23/16 and symbolic det(I-L_s)=-9s(1-s)^2/4. The determinant example is a corroborating special certificate and does not establish the all-parameter theorem by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdulle–Garegnani random timestep work establishes geometricity and finite/polynomial-horizon error under small random increments; the independent-step all-time theorem does not cover Markov transitions."
+        ],
+        "reasoning": "The Markov all-interior result does not follow from their stated finite-horizon or iid hypotheses without the new positive-cone two-block argument.",
+        "searches": [
+          "https://arxiv.org/pdf/1801.01340",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: mean square stability harmonic oscillator Markov correlated symplectic Euler numerical step lengths",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3",
+        "https://arxiv.org/pdf/1801.01340",
+        "https://doi.org/10.1007/s00332-018-9497-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive-invariant-form uniqueness and logdet step from the prior iid proof can be adapted to a Markov cone; new strong positivity L_s^2 and paired determinant equality are necessary for extension."
+        ],
+        "reasoning": "General Perron–Frobenius and mean-square Markov-jump stability criteria are methods, not an explicit theorem ruling out every interior stable correlation for this oscillator; the new theorem has genuinely stronger quantified scope.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3",
+          "https://arxiv.org/pdf/1801.01340"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 theorem concerns iid H_n and uses a three-dimensional covariance map; it is equivalent only after s=1/2 and transposing position/kick update ordering."
+        ],
+        "reasoning": "Symmetric Markov switching with 0<s<1 retains conditional mode memory, requiring two covariance blocks; setting s=1/2 recovers the iid result but the prior does not assert other s.",
+        "searches": [
+          "Resultary semantic query: mean square stability harmonic oscillator Markov correlated symplectic Euler numerical step lengths",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published iid growth coefficients and a specific cubic, but no matching exact 6x6 Markov polynomial -9s(1-s)^2/4 or bounded alternating two-step scenario."
+        ],
+        "reasoning": "A numerical positive growth at a handful of correlations is not the all-interior instability theorem; the prior closed form treats s=1/2 alone.",
+        "searches": [
+          "Resultary semantic query: mean square stability harmonic oscillator Markov correlated symplectic Euler numerical step lengths",
+          "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for genuinely correlated symmetric Markov switching with two bounded correlation endpoints and all-interior strict mean-square instability. The published iid random-step symplectic-Euler dichotomy proves the uncorrelated s=1/2 slice and supplies the determinant-concavity technique, not the Markov-dependent 6-dimensional cone theorem for arbitrary s or the bounded alternating s=0 endpoint. Earlier stochastic timestepping results control finite-horizon error, not all infinite updates under Markov correlation.",
+      "residual_risks": [
+        "Generic Markov-jump positive-matrix-product theorems may contain an equivalent sharp instability corollary not located by this search.",
+        "Result is mean-square in numerical step count, not an almost-sure or physical-time Lyapunov theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IID SPECIAL CASE, NOT MARKOV COVERAGE",
+          "evidence": "Independent steps only; its three-dimensional operator lacks two-block Markov conditional coupling and s=0 alternating endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-random-step-symplectic-euler-has-a-sharp-mean-square-instability--09e077ff14c3",
+          "material_read": "Entire published RESULT.md including exact covariance proof, determinant-concavity argument and references",
+          "method": "Frozen Resultary GitHub RESULT.md full-text inspection",
+          "title": "Random-step symplectic Euler has a sharp mean-square instability dichotomy",
+          "trigger": "Very close same oscillator/scheme and mathematical method"
+        },
+        {
+          "assessment": "FINITE HORIZON ONLY",
+          "evidence": "Does not claim bounded fixed-support Markov randomized infinite-time oscillator second moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+          "material_read": "Introduction and finite/polynomial-time Hamiltonian bounds, Assumption 6 and Lemma 6 PDF page 16",
+          "method": "arXiv original full PDF searchable text and rendered-page inspection",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "Primary motivating random symplectic timestep theory"
+        },
+        {
+          "assessment": "NO ALL-CORRELATION IMPLICATION FOUND",
+          "evidence": "Prior independent-step theorem explicitly excludes correlated/adaptive timesteps.",
+          "identifier_or_url": "Resultary semantic query: mean square stability harmonic oscillator Markov correlated symplectic Euler numerical step lengths",
+          "material_read": "Indexed Resultary independent-step and deterministic-oscillator records",
+          "method": "Semantic query and scientific summary comparison",
+          "title": "Resultary Markov/symplectic integrator related records",
+          "trigger": "Nearby established covariance and two-step formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural stability-versus-correlation question in geometric numerical integration: both a fixed step and perfectly alternating stable timetable can be bounded yet every partially randomized correlated timetable has positive exponential second-moment growth. The all-parameter dichotomy and explicit covariance/endpoint argument, not the standard lifted spectral-radius test, form a nontrivial structural stability result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 0<a<b<2, symmetric stationary two-state switching, kick-then-drift symplectic Euler and mean-square energy.",
+    "No conclusion about almost-sure growth, finite-horizon practical error, or general Markov integrators."
+  ],
+  "schema_version": 1
+}
