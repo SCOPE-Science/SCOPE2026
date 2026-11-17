@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge2\\), two original turn-flip steps preserve the binary word \\(b_x=c_{0,x}\\oplus c_{1,x}\\oplus\\mathbf1_{\\{x=\\mathrm{ant\\ column}\\}}\\). The projected heading reflects exactly at zeros of \\(b\\). For gaps of length \\(j\\), the projected orbit has \\(2j\\) macrosteps; the full coloring changes at four endpoint cells and needs \\(4j\\) macrosteps. With at most one zero, the full macroperiod is \\(2n\\). Each projected position-heading has \\(2^{n+1}\\) color/row lifts. Counting \\(n2^{n-j-1}\\) marked gaps and dividing exact state populations by proved periods yields the two orbit formulas. Direct exhaustive simulation matches for \\(2\\le n\\le9\\); a separately implemented invariant checker covers all vertical-heading states through \\(n=7\\). The symbolic proof, not the finite experiments, establishes arbitrary sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "1995 Gale–Propp–Sutherland–Troubetzkoy full HTML studies infinite-plane Truchet contours and bilateral symmetry.",
+        "2020 Hagiwara–Tsukiji full HTML studies complexity of coverage on twisted tori, not all temporal cycles of the 2-row periodic ant."
+      ],
+      "reasoning": "Neither source proves a stronger universal finite-torus orbit-census theorem encompassing the two-row restriction; other sizes or higher-dimensional difficulty do not imply our exact formulas.",
+      "searches": [
+        "Langton's ant reversible finite periodic lattice exact orbit lengths 2 by n",
+        "Langtons ant 2xn torus finite dynamical cycles periods exact",
+        "Langton ant twisted torus hardness approximation Hagiwara Tsukiji",
+        "Langton ant finite torus periodicity full state"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/9501233",
+      "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+      "doi:10.1016/j.tcs.2004.03.012",
+      "doi:10.3390/a13120344",
+      "doi:10.1016/S0166-218X(00)00334-6",
+      "published-finding corpus:2026/11/8/SCOPE-cyclotomic-jordan-blocks-and-exact-orbit-populations-for-dyadic-ladder-waves--cfa3b8bd2a58",
+      "published-finding corpus:2026/11/8/SCOPE-two-adic-transient-clocks-on-rectangular-parity-tori--714a981ac90e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ledbetter 2019: conservation of parity plus ant marker, no reflector-gap decomposition reported.",
+        "Gale et al. 1995: generalized ant planar contours, no finite 2-row count.",
+        "Gajardo–Goles 2004: abstract only, 1D infinite lattice may hold latent implications."
+      ],
+      "reasoning": "Our statement enumerates primitive labelled cycles at every circumference and an exact uniform-state period law. Neither isolated seed periods nor global invariants without a gap decomposition entail exact orbit populations; complete equivalence with the inaccessible 2004 article is not excluded, so priority is qualified.",
+      "searches": [
+        "Langton ant finite 2xn torus column parity invariant reflecting walls exact cycle census",
+        "Langton ant all-state exact cycle-length distribution on height-two periodic rectangular torus 2 by n, fixed column parities reflector gaps",
+        "Langton's ant on two-row periodic strip exact all-state primitive orbit counts n*2^(2n-j-1), 4n",
+        "arxiv:math/9501233",
+        "doi:10.1016/j.tcs.2004.03.012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2019 torus thread: column parity-plus-marker invariant is known, but its stated conclusion is a loose general upper bound, not gap-resolved primitive orbit counts.",
+        "Gajardo–Goles (2004) 1D-ant abstract: potential reduction; full text inaccessible."
+      ],
+      "reasoning": "Included synonyms two-row strip, narrow torus, 1D rotator/reflection, primitive period 8j, gap lengths and invariant. Published marker invariant is credited and insufficient on its own to imply exact labelled cycle multiplicities. An unseen 1D reduction remains a stated risk.",
+      "searches": [
+        "Langton ant finite torus two row cylinder exact period distribution",
+        "Langton ant all-state exact cycle-length distribution on height-two periodic rectangular torus 2 by n, fixed column parities reflector gaps",
+        "Langton's ant two row cylinder exact orbit census reflecting columns conservation law",
+        "Langton ant confined 2 by n periodic strip 8j 4n full state permutation cycle lengths",
+        "Langton ant 1D rotator mirrors parity conserved column ant position finite ring",
+        "Langton's ant on two-row periodic strip exact all-state primitive orbit counts n*2^(2n-j-1), 4n",
+        "Langton ant 1d rotor mirror automaton cyclic strip reflector periodic dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2019 Connor Harris table records a single all-white vertical starting configuration with period 16 for n>=3, and 8 at n=2.",
+        "Available mathematical-record similarity results concern linear parity dynamics or ladder waves, not the nonlinear mobile Langton ant."
+      ],
+      "reasoning": "The known table contains one special starting state per size and cannot determine the distribution across every binary coloring, position and compass heading. The supplied theorem recovers that special case but gives strictly more: all-state exact orbit multiplicities and limiting period law.",
+      "searches": [
+        "Langton ant finite torus two row cylinder exact period distribution",
+        "Langton's ant on two-row periodic strip exact all-state primitive orbit counts n*2^(2n-j-1), 4n",
+        "Langton ant random initial finite width two torus typical period 24 8j",
+        "2019 Math Stack Exchange all-white 2xn torus period table"
+      ]
+    },
+    "rationale": "Related full texts and a 2019 finite-torus discussion were compared by implication: the 2019 conserved marker and selected-seed periods are acknowledged existing results; the 1995 ant-paper and 2020 twisted-torus complexity results do not imply this all-state two-row classification. Mathematical record search returned different automata, including binary rectangular parity and ladder waves. The 2004 one-dimensional-ant paper was available in abstract only and remains a concrete priority uncertainty; novelty is best-knowledge rather than independently certified.",
+    "residual_risks": [
+      "The Gajardo–Goles 2004 one-dimensional-ant article could present a conjugate narrow-strip case not visible in the accessible abstract.",
+      "Unindexed literature or variant terminology could already contain the precise period multiplicities.",
+      "No independently commissioned review or complete historical priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same standard ant but results concern the infinite plane and symmetric contour patterns; no full-state 2-row torus period spectrum or orbit census in inspected text.",
+        "evidence": "1995 arXiv v1 text §§2–4 discusses unbounded plane and transitory bilateral symmetry, not finite ring gap counts.",
+        "identifier_or_url": "https://arxiv.org/html/math/9501233v1",
+        "material_read": "Full accessible HTML, introduction and sections 2–4, figures explained in source",
+        "method": "Read the HTML mathematical exposition of planar patterns, generalized ants, Truchet contour arguments",
+        "title": "Further Travels with My Ant",
+        "trigger": "First day-verified historical source, same two-color turn-flip ant"
+      },
+      {
+        "assessment": "Reversibility, all-white 2-row periods and column marker conservation are prior art. Neither a complete labelled all-state cycle census nor the reflector-gap multiplicity formula occurs in the inspected thread.",
+        "evidence": "2019 table has all-white 2-by-n recurrence 16 for n>=3 and 8 for n=2; Ledbetter states conserved column parity plus ant marker and a loose upper period bound.",
+        "identifier_or_url": "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+        "material_read": "Full question, numerical table, all three answers and relevant comments",
+        "method": "Read initial-state periodic table, Ledbetter Aug23 2019 conserved row and column parity marker and reversibility discussion",
+        "title": "What is the period of Langton's ant on a torus?",
+        "trigger": "Direct finite-torus period question and column-parity invariant"
+      },
+      {
+        "assessment": "The twisted large-torus complexity theorem does not count all labelled orbits on a 2-row ordinary torus.",
+        "evidence": "Hagiwara and Tsukiji (2020) prove a hardness-of-approximation property for coverage on a twisted torus.",
+        "identifier_or_url": "https://doi.org/10.3390/a13120344",
+        "material_read": "Accessible full HTML introduction and technical sections on complexity construction",
+        "method": "Compared the twisted-torus reachability/coverage problem and dynamical update to the 2-row direct periodicity theorem",
+        "title": "Hardness of Approximation for Langton's Ant on a Twisted Torus",
+        "trigger": "Highly relevant toroidal-ant primary literature"
+      },
+      {
+        "assessment": "Scope described in abstract is infinite 1D lattice rather than labelled 2-row periodic square-cell torus; a reduction may nevertheless be buried in inaccessible full text. Explicit unresolved priority risk.",
+        "evidence": "Gajardo–Goles (2004) abstract states infinite \\(\\mathbb Z\\), bounded/unbounded dynamics, 64 rules and their periods. Full text was not available in the accessible materials.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2004.03.012",
+        "material_read": "Publisher/university metadata and detailed abstract only; no accessible primary full text",
+        "method": "Compared abstract hypotheses (64 1D ant rules on infinite Z) and reported classification to finite 2-row toroidal labelled cycle counts",
+        "title": "Dynamics of a class of ants on a one-dimensional lattice",
+        "trigger": "A potentially equivalent 1D moving-head model"
+      },
+      {
+        "assessment": "The abstract studies P-hardness and circuit simulation, without an exact two-row torus orbit formula.",
+        "evidence": "Gajardo, Moreira, Goles (2002) describe circuit simulation and P-hard reachability.",
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00334-6",
+        "material_read": "University repository abstract/metadata; full journal text not inspected",
+        "method": "Compared abstract assertion of computation-universality with exact finite two-row dynamical counts",
+        "title": "Complexity of Langton's ant",
+        "trigger": "Foundational complexity work on the exact ant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b078ee9-a3e7-4098-b65c-f755cbba8c8d",
+  "value": {
+    "rationale": "A complete primitive-period distribution for the first nontrivial finite-height strip of a canonical moving-head automaton is a natural dynamical invariant. The proof distinguishes two types of conserved reflector patterns, yields all-size labelled orbit counts and shows that the worst-case period is \\(8(n-1)\\) for \\(n\\ge3\\), whereas uniform-state periods converge to a size-biased geometric law of mean \\(24\\). The result is not an arbitrary finite table, selected-seed experiment, or already-published invariant alone.",
+    "status": "PASS"
+  }
+}
