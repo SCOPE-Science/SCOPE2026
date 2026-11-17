@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:47:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In the actual RESULT.md (Git blob 41d44a4d...), substituting the state equation into the quadratic auxiliary update gives r_{n+1}=r_n/[1+tau*a*a*phi_n^2/S_n^2]^{1/2}; positive root is unique and modified r^2-C decreases. For C=0 along nonzero iterates put t=a*tau, q=(1+2t)^(-1/2); summing all post-reversal increments gives phi_infty/phi0=(2q^2+3q-1)/(2q), so the first negative branch remains negative at every finite n iff t >= (11+3*sqrt(17))/4. This is NOT a global theorem on later crossings. For a=phi0=1,tau=100 and 0<C<=1/2, the first state is <-17/3, subsequent r contracts by >10 and total post-first displacement is <5/3, closing all-step phi_n<-4 and phi_infty<-4 rigorously. Independent Decimal finite iterates at C=0.0001,0.1,0.5, plus direct algebraic checks of the recurrence, corroborate only these analytic bounds. C=0 is singular exactly at phi=0 and is restricted accordingly; C>0 is nonsingular.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov 2 theorem proves X_h !=0 for all sufficiently large h at any fixed C>0 with two-term asymptotic -sqrt(C+x0²/2)*sqrt h + O(1).",
+          "Submitted all-step C<=1/2 at h=100 is more uniform at a fixed h; submitted t* is a different zero-shift statement."
+        ],
+        "reasoning": "Do not count generic long-time SAV inconsistency or physical/modified-energy mismatch as original. No broad prior theorem seen that supplies exact t* or the stated uniform C interval.",
+        "searches": [
+          "Resultary query: positivity preserving scalar auxiliary variable quadratic reformulation backward Euler positive root nonstationary equilibrium false long time limit negative phi timesteps threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b/RESULT.md",
+          "arXiv:2411.17403v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b/RESULT.md",
+        "https://arxiv.org/abs/2610.01063",
+        "https://arxiv.org/abs/2411.17403",
+        "Resultary query: positivity preserving scalar auxiliary variable quadratic reformulation backward Euler positive root nonstationary equilibrium false long time limit negative phi timesteps threshold",
+        "Resultary query: SAV positive root backward Euler C=0 permanent sign reversal nonzero negative branch threshold (11+3 sqrt17)/4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same recurrence plus Nov 2 all-large-h theorem implies generic nonstationarity, but does not imply a sharp t* for permanent C=0 first reversal.",
+          "The complete original 2026 manuscript was not available for material verification; only abstract and specified scheme information were obtainable."
+        ],
+        "reasoning": "Surviving originality is narrow. The C>0 phenomenon alone would fail O; exact separate branch boundary is not a corollary of the inspected theorem. Priority risk from uninspected full original manuscript is explicitly retained.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b/RESULT.md",
+          "arXiv:2610.01063v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source recurrence is identical to that in the Nov 2 square-law SAV result with h=t and C positive.",
+          "C=0 gives a separate closed-form q^n branch and threshold t*=(11+3 sqrt17)/4."
+        ],
+        "reasoning": "Compare actual update equations rather than titles: earlier large-step nonstationarity is same phenomenon, but its result does not formulate or entail the exact first-negative-branch threshold at zero shift.",
+        "searches": [
+          "Resultary query: positivity preserving scalar auxiliary variable quadratic reformulation backward Euler positive root nonstationary equilibrium false long time limit negative phi timesteps threshold",
+          "Resultary query: SAV positive root backward Euler C=0 permanent sign reversal nonzero negative branch threshold (11+3 sqrt17)/4",
+          "arXiv:2610.01063v1; SAV-BE quadratic reformulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Nov 2 result contains a C=1,h=100 frozen-state witness, not a table of the zero-shift t* or all-C interval."
+        ],
+        "reasoning": "An exact numerical-stability threshold cannot be ruled novel merely by an earlier qualitative example. No exact matching threshold table was found in the material actually examined.",
+        "searches": [
+          "Resultary query: SAV positive root backward Euler C=0 permanent sign reversal nonzero negative branch threshold (11+3 sqrt17)/4",
+          "Resultary results: 2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b"
+        ]
+      },
+      "rationale": "The generic frozen-state inconsistency of EXACTLY this positive square-law SAV-BE map, including positive C and a large-step explicit example, was already proved in the Nov 2 published record; no novelty is credited for that general warning. The bounded surviving distinct claim is the exact sharp t* for permanent first sign reversal of the explicitly solved zero-shift branch, together with a uniform entire positive-shift interval at one fixed timestep. The inspected stronger large-h result only guarantees freezing when h exceeds an unspecified parameter-dependent threshold and supplies no zero-shift first-branch classification. Targeted related searches did not reveal prior exact t*; best-of-knowledge, not a proof of historical priority.",
+      "residual_risks": [
+        "Original 2026 positive-root SAV-BE source full text could not be read: possible exact equivalent later example is unexcluded.",
+        "The C=0 model is singular at zero, so threshold only concerns precisely identified nonzero iterates, not all starts or an all-parameter phase diagram.",
+        "An earlier Nov 2 same-map theorem already establishes the central physical-stagnation phenomenon; distinct value is narrow and quantitative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for the qualitative long-time counterexample; not covering the zero-shift permanent-first-reversal threshold or the uniform 0<C<=1/2 bound at h=100.",
+          "evidence": "Earlier C>0 theorem states r_n→0 and x_n→X_h≠0 for large fixed h with X_h=-sgn(x0)*q0 sqrt(h)+x0+q0²/x0+O(h^-1/2); C=1,x0=1,h=100 witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-large-step-frozen-state-amplification-in-positive-square-law-sav--56e0d8f06f8b/RESULT.md",
+          "material_read": "Complete Finding, Assumptions, Proof sections 1–5, Verification and Relationship read.",
+          "method": "GitHub fetch_file; full RESULT.md Finding, Assumptions, Proof and Relationship to prior work examined",
+          "title": "Large-step frozen-state amplification in positive square-law SAV backward Euler",
+          "trigger": "same exact scalar map, strongly convex quadratic, positive offset"
+        },
+        {
+          "assessment": "RELATED / FULL-TEXT NOT INSPECTED; no unsupported statement of noncoverage.",
+          "evidence": "Same-model 2026 positive-root scheme and modified-energy positivity claims; complete later examples unverified.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01063",
+          "material_read": "ArXiv abstract and source bibliographic identification; full preprint attempts did not produce readable complete text.",
+          "method": "arXiv abstract inspected; HTML/PDF/full-text access attempted, not obtained",
+          "title": "Positivity-preserving scalar auxiliary variable schemes for gradient flows via a quadratic reformulation",
+          "trigger": "defining exact positive-root SAV-BE scheme"
+        },
+        {
+          "assessment": "RELATED, structurally different auxiliary difference law; no full-document noncoverage asserted.",
+          "evidence": "Source uses a weighted method and an auxiliary update with 2r_{n+1}(r_{n+1}-r_n), not the submitted difference of squares.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.17403",
+          "material_read": "ArXiv abstract and available background description of its weighted auxiliary update.",
+          "method": "bibliographic page/available abstract and scheme comparison",
+          "title": "A weighted scalar auxiliary variable method for solving gradient flows",
+          "trigger": "earlier discussion of physical versus modified energy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp reversal-branch threshold is an exact structural boundary in the limiting scalar numerical dynamics of a named positivity-preserving scheme, identifying when a wrong-sign state never recrosses; the robust positive-offset witness makes the artifact genuinely occur in the non-singular intended scheme. This is a motivated numerical-stability counterexample rather than a textbook energy calculation. The already established broad frozen-state phenomenon is explicitly not valued as newly proved; mathematical relevance is confined to the quantitative branch cutoff and fixed-step offset interval.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite high-precision iterates do not certify infinite n; analytic geometric bounds do.",
+    "No claim for all positive offsets, other spatial dimensions, SAV-CN, relaxed methods, or classification after first reversed branch."
+  ],
+  "schema_version": 1
+}

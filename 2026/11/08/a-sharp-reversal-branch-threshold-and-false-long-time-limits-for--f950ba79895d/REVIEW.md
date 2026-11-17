@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution into the source's exact positive-root SAV-BE equations yields \(r_{n+1}=r_n/\sqrt{1+\tau a^2\phi_n^2/S_n^2}\). The unshifted recurrence has an exact geometric auxiliary sequence and an exact negative-branch sum, with the sharp branch threshold following from a quadratic inequality in \(q\). The strictly positive-shift example follows from the exact first step, \(r_{j+1}<r_j/10\) and the convergent upper bound \(150\sum_{j\ge2}10^{-j}=5/3\), closing a global induction. The supplied checker passed, but finite computations are supporting evidence only.
+PASS
 
-## Originality
+PASS. In the actual RESULT.md (Git blob 41d44a4d...), substituting the state equation into the quadratic auxiliary update gives r_{n+1}=r_n/[1+tau*a*a*phi_n^2/S_n^2]^{1/2}; positive root is unique and modified r^2-C decreases. For C=0 along nonzero iterates put t=a*tau, q=(1+2t)^(-1/2); summing all post-reversal increments gives phi_infty/phi0=(2q^2+3q-1)/(2q), so the first negative branch remains negative at every finite n iff t >= (11+3*sqrt(17))/4. This is NOT a global theorem on later crossings. For a=phi0=1,tau=100 and 0<C<=1/2, the first state is <-17/3, subsequent r contracts by >10 and total post-first displacement is <5/3, closing all-step phi_n<-4 and phi_infty<-4 rigorously. Independent Decimal finite iterates at C=0.0001,0.1,0.5, plus direct algebraic checks of the recurrence, corroborate only these analytic bounds. C=0 is singular exactly at phi=0 and is restricted accordingly; C>0 is nonsingular.
 
-PASS, with historical-priority uncertainty. The 2026 source proves auxiliary positivity and modified-energy stability, not convergence to the physical equilibrium; it also does not classify the scalar first-reversal branch. The 2024 weighted-SAV paper recognizes large-step energy mismatch, but its discrete equation differs and does not imply the two quantified assertions. The June 2026 pullback-corrected SAV work concerns a modified operator. Related published-result searches found no source implying this particular exact threshold and robust nonstationary limit; an inaccessible relevant full text remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The issue is a direct long-time fidelity question for an explicitly proposed unconditionally stable positive-auxiliary method, not an artificial statistic. The example demonstrates a substantive distinction between positivity, modified-energy dissipation, and convergence to the unique minimizer even under strong convexity. The exact threshold explains the failure mechanism, while the positive-shift interval removes a singular-case artifact. It helps delimit what guarantees can be inferred from unconditional energy stability.
+The generic frozen-state inconsistency of EXACTLY this positive square-law SAV-BE map, including positive C and a large-step explicit example, was already proved in the Nov 2 published record; no novelty is credited for that general warning. The bounded surviving distinct claim is the exact sharp t* for permanent first sign reversal of the explicitly solved zero-shift branch, together with a uniform entire positive-shift interval at one fixed timestep. The inspected stronger large-h result only guarantees freezing when h exceeds an unspecified parameter-dependent threshold and supplies no zero-shift first-branch classification. Targeted related searches did not reveal prior exact t*; best-of-knowledge, not a proof of historical priority.
 
-## Scope and closest literature
+## value
 
-The main comparison is the complete original SAV-BE formulation of Huang–Liu–Wang–Yan (2026), equations (3.2)–(3.8). Huang–Jiang–Yang–Yuan (2024) recognizes the general modified-versus-physical energy issue under a different auxiliary update. Zhang–Shen (2026) proposes pullback corrections and was available only through the abstract. The result does not contradict theorems asserting only positivity, modified-energy stability, or fixed-horizon small-step convergence. The unshifted branch classification applies to nonzero iterates; the fully nonsingular theorem uses positive \(C\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp reversal-branch threshold is an exact structural boundary in the limiting scalar numerical dynamics of a named positivity-preserving scheme, identifying when a wrong-sign state never recrosses; the robust positive-offset witness makes the artifact genuinely occur in the non-singular intended scheme. This is a motivated numerical-stability counterexample rather than a textbook energy calculation. The already established broad frozen-state phenomenon is explicitly not valued as newly proved; mathematical relevance is confined to the quantitative branch cutoff and fixed-step offset interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
