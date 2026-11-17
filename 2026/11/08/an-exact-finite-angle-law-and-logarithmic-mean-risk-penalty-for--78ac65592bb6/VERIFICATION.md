@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-**Mathematical proof:** RESULT.md gives the complete triangularized pencil, the nullspace/projective Gaussian ratio argument, the independent-exponential ratio law, the exact CDF and two evaluated moment integrals. The asymptotic claims are deductions from the displayed exact formulas, not from simulations.
+## correctness
 
-**Reproduction:** With Python 3 and NumPy, run `python verify.py` in this directory. The script constructs independent complex Gaussian matrices, forms the actual reduced Petrov–Galerkin matrix with exact arithmetic identities checked numerically, compares selected-branch Rayleigh quotients against five exact CDF values for three distinct angles, checks 768-node Gauss–Legendre quadrature against each closed moment formula, and checks small-angle normalization sequences.
+PASS
 
-**Limits:** Floating-point tests are approximate checks at specified angles, not rigorous error bounds for an infinite family. Unconditional moment rates are proved symbolically. Selection by a general software eigensolver and numerical singularities are outside the scope. No independent mathematical audit has been performed.
+At A=diag(−1,0,1,2), w=cos εe2+sin εe4, u=−sin εe2+cos εe4 and W=[w,e3], A w=d w+b u with d=2sin² ε, b=sin 2ε; W*AW=diag(d,1). For the square Gaussian sketch G=Omega*W and h=Omega*u the reduced matrix is triangular with selected near-zero eigenvalue d+b(G−1h)_1. The nullspace of Gaussian [G,−h] is projective Haar, so G−1h has ratios of three independent standard circular complex Gaussians. The selected eigenvector z=−bZ2/((1−d)Z0−bZ1); (1−d)²+b²=1 makes the denominator independent standard Gaussian. Hence R=tX/(Y+tX), exact CDF x/(t+(1−t)x), F1/F2 moments, asymptotic mean 8ε²log(1/ε) and RMS 2ε. Independently integrated the exact moment density at t=0.16 to high precision. Claims concern specified branch and exact arithmetic only, not all selectors.
+
+## originality
+
+PASS
+
+Shao studies the same square randomized Petrov–Galerkin/Rayleigh refinement with high-probability bounds, not the unconditional finite-angle CDF or sharp first and second moment scaling; oversampled sketched Ritz is different. A special-case exact law can provide a motivated, genuinely useful risk counterpoint.
+
+## value
+
+PASS
+
+Unconditional risk is mathematically distinct from high-probability convergence guarantees for a widely relevant randomized eigensolver. A fully normalized exact finite-angle law and sharp logarithmic-mean versus linear-RMS penalties show what rare Gaussian sketches can do, on a simple but motivated interior-eigenvalue test. A small explicit model is sufficient because it isolates a genuine general-risk blind spot; no universal practical failure is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

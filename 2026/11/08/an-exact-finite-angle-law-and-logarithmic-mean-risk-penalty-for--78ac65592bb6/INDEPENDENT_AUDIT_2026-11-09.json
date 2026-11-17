@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At A=diag(−1,0,1,2), w=cos εe2+sin εe4, u=−sin εe2+cos εe4 and W=[w,e3], A w=d w+b u with d=2sin² ε, b=sin 2ε; W*AW=diag(d,1). For the square Gaussian sketch G=Omega*W and h=Omega*u the reduced matrix is triangular with selected near-zero eigenvalue d+b(G−1h)_1. The nullspace of Gaussian [G,−h] is projective Haar, so G−1h has ratios of three independent standard circular complex Gaussians. The selected eigenvector z=−bZ2/((1−d)Z0−bZ1); (1−d)²+b²=1 makes the denominator independent standard Gaussian. Hence R=tX/(Y+tX), exact CDF x/(t+(1−t)x), F1/F2 moments, asymptotic mean 8ε²log(1/ε) and RMS 2ε. Independently integrated the exact moment density at t=0.16 to high precision. Claims concern specified branch and exact arithmetic only, not all selectors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shao Algorithm 1 treats the matching randomized square Petrov–Galerkin process and derives high-probability asymptotic eigendata guarantees, but no all-angle distribution or unconditional moments.",
+          "Nakatsukasa and Tropp study oversampled least-squares sketched Ritz, avoiding the same square-matrix inverse ratio mechanism."
+        ],
+        "reasoning": "Neither prior theorem quantitatively controls the unconditional mean and RMS at all angles for this specified branch; high-probability quadratic convergence is logically compatible with rare-event logarithmic and RMS loss.",
+        "searches": [
+          "Resultary: Gaussian sketched Rayleigh Ritz square Petrov Galerkin exact finite angle eigenvalue distribution mean logarithm",
+          "https://arxiv.org/abs/2604.01037",
+          "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Gaussian sketched Rayleigh Ritz square Petrov Galerkin exact finite angle eigenvalue distribution mean logarithm",
+        "https://arxiv.org/abs/2604.01037",
+        "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "Resultary related Gaussian Ritz one-vector records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "High-probability bounds do not specify E rho~8 eps² log 1/eps or RMS~2 eps.",
+          "A limiting ratio/second-moment divergence statement does not determine the sharp finite-epsilon leading coefficients or exact CDF."
+        ],
+        "reasoning": "The branch-specific triangular pencil reduction and orthonormal denominator variance one are required additional mathematics beyond the cited general convergence theorems.",
+        "searches": [
+          "Resultary: Gaussian sketched Rayleigh Ritz square Petrov Galerkin exact finite angle eigenvalue distribution mean logarithm",
+          "https://arxiv.org/abs/2604.01037",
+          "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical complex Gaussian quotient U=(Z1/Z0,Z2/Z0) is explicitly acknowledged, not claimed as novel.",
+          "After refining the selected Gaussian pencil eigenvector, the bounded law R=tX/(Y+tX) has CDF x/[t+(1-t)x]; its dependence on finite angle is not a restatement of a raw Gaussian-ratio distribution."
+        ],
+        "reasoning": "Compared complex projective Haar ratios, ratio of independent exponentials, one-step sketched Arnoldi and randomized Rayleigh–Ritz branch selection. The exact finite-angle refined risk for the identical 4-by-4 specimen is the final claim.",
+        "searches": [
+          "Resultary: Gaussian sketched Rayleigh Ritz square Petrov Galerkin exact finite angle eigenvalue distribution mean logarithm",
+          "https://arxiv.org/abs/2604.01037",
+          "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact Cauchy/Student tails for one-vector harmonic Ritz concern distinct statistics and ensembles; no matching CDF x/[t+(1-t)x] of this finite-angle refined branch was identified.",
+          "The general beta-prime/exponential ratio law is classical; novelty sought in its eigenproblem-specific full normalization/risk consequence."
+        ],
+        "reasoning": "Compared exact probability laws and underlying algorithms, not only whether a Gaussian ratio appears.",
+        "searches": [
+          "Resultary: Gaussian sketched Rayleigh Ritz square Petrov Galerkin exact finite angle eigenvalue distribution mean logarithm",
+          "Resultary: one-vector Gaussian sketched harmonic Ritz Cauchy limits and infinite first moment",
+          "https://arxiv.org/abs/2604.01037"
+        ]
+      },
+      "rationale": "Shao studies the same square randomized Petrov–Galerkin/Rayleigh refinement with high-probability bounds, not the unconditional finite-angle CDF or sharp first and second moment scaling; oversampled sketched Ritz is different. A special-case exact law can provide a motivated, genuinely useful risk counterpoint.",
+      "residual_risks": [
+        "Specialized matrix-variate Cauchy/beta-prime applications may already contain an equivalent finite-angle result.",
+        "The theorem requires exact arithmetic and a mathematically specified eigenvalue branch; not a general statement about automatic selection or practice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME ALGORITHM, DIFFERENT UNCONDITIONAL STATISTIC",
+          "evidence": [
+            "Square complex-Gaussian sketch with refinement; emphasizes high-probability convergence and user-specified pair selector, not this finite-angle CDF."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.01037",
+          "material_read": "Entire rendered primary paper (Algorithm 1, theoretical guarantees, selection discussion, experiments and conclusion)",
+          "method": "Read mathematical arXiv HTML via web",
+          "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+          "trigger": "Exact underlying algorithm and possible dominance"
+        },
+        {
+          "assessment": "ALTERNATE OVERSAMPLED ESTIMATOR",
+          "evidence": [
+            "Uses oversampled least squares rather than the exactly square Gaussian inverse causing the new Cauchy ratio."
+          ],
+          "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+          "material_read": "Bibliographic citation and method description in inspected package; primary complete PDF not re-read in current run",
+          "method": "Reviewed actual package comparison; no whole-text noncoverage assertion",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Sketched Rayleigh–Ritz general comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unconditional risk is mathematically distinct from high-probability convergence guarantees for a widely relevant randomized eigensolver. A fully normalized exact finite-angle law and sharp logarithmic-mean versus linear-RMS penalties show what rare Gaussian sketches can do, on a simple but motivated interior-eigenvalue test. A small explicit model is sufficient because it isolates a genuine general-risk blind spot; no universal practical failure is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: Gaussian sketched Rayleigh Ritz square Petrov Galerkin exact finite angle eigenvalue distribution mean logarithm",
+    "https://arxiv.org/abs/2604.01037",
+    "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+    "Resultary related Gaussian Ritz one-vector records",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-finite-angle-law-and-logarithmic-mean-risk-penalty-for--78ac65592bb6"
+  ],
+  "disposition": "passed",
+  "final_claim": "An exact finite-angle law and logarithmic mean-risk penalty for Gaussian randomized Rayleigh–Ritz refinement",
+  "limitations": [
+    "Only fixed 4-by-4 Hermitian example, 2D plane, square proper complex Gaussian sketch and selected convergent branch in exact arithmetic; no auto selection, oversampling or finite-precision assertions.",
+    "Finite checker output alone is not an all-size proof. Originality remains a qualified best-of-knowledge assessment."
+  ],
+  "residual_risks": [
+    "Specialized matrix-variate Cauchy/beta-prime applications may already contain an equivalent finite-angle result.",
+    "The theorem requires exact arithmetic and a mathematically specified eigenvalue branch; not a general statement about automatic selection or practice."
+  ],
+  "schema_version": 1
+}

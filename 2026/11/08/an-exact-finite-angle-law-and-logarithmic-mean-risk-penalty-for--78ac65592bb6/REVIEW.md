@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed diagonal Hermitian matrix, moving orthonormal plane and Gaussian square pencil are explicitly defined. A direct triangular factorization of the reduced pencil identifies the target eigenvalue branch and normalized eigenvector. Gaussian rotational invariance and uniformity of the null direction of a two-row, three-column standard complex Gaussian matrix yield the complex Gaussian-ratio representation. Orthogonality gives the exact identity \((1-d)^2+b^2=1\), reducing the refined angle to a ratio of independent exponentials. Its exact CDF, two moment integrals and asymptotics are elementary and mutually consistent. The supplied checker independently replays direct random pencils, deterministic moment quadrature and the leading small-angle coefficients. It does not substitute numerical sampling for the proof.
+PASS
 
-## Originality — PASS (qualified)
+At A=diag(−1,0,1,2), w=cos εe2+sin εe4, u=−sin εe2+cos εe4 and W=[w,e3], A w=d w+b u with d=2sin² ε, b=sin 2ε; W*AW=diag(d,1). For the square Gaussian sketch G=Omega*W and h=Omega*u the reduced matrix is triangular with selected near-zero eigenvalue d+b(G−1h)_1. The nullspace of Gaussian [G,−h] is projective Haar, so G−1h has ratios of three independent standard circular complex Gaussians. The selected eigenvector z=−bZ2/((1−d)Z0−bZ1); (1−d)²+b²=1 makes the denominator independent standard Gaussian. Hence R=tX/(Y+tX), exact CDF x/(t+(1−t)x), F1/F2 moments, asymptotic mean 8ε²log(1/ε) and RMS 2ε. Independently integrated the exact moment density at t=0.16 to high precision. Claims concern specified branch and exact arithmetic only, not all selectors.
 
-Shao's source Algorithm 1 and analysis provide high-probability rates for a selected branch, not this exact finite-angle distribution and unconditional mean/RMS coefficients. Nakatsukasa–Tropp Section 6 has an oversampled sketched least-squares eigenproblem rather than this square sketch. Earlier accessible work on another three-dimensional Hermitian plane showed a complex Gaussian-ratio limiting tail and failure of uniform mean-square quadratic rates but explicitly left finite-angle laws and sharp attainable moment rates open. Neither those tail thresholds nor the classical complex Cauchy ratio by themselves imply the present exact \(\varepsilon^2\log(1/\varepsilon)\) mean and \(\varepsilon\) RMS coefficients for this new positive-quotient geometry. Search coverage cannot prove uniqueness; the principal residual risk is an equivalent special-case computation in unindexed numerical linear algebra or complex-ratio literature.
+## originality
 
-## Value — PASS
+PASS
 
-High-probability accuracy and unconditional expected error serve different reliability and sample-averaging questions for randomized eigenvalue extraction. The example gives an exact, finite-angle, nonasymptotic risk law, identifies a logarithmic bias inflation, and quantifies a full-order loss in mean-square accuracy relative to deterministic Ritz on the *same* trial plane. The distinction is useful when selecting risk metrics and when interpreting simulations or batched use of square Gaussian projections. The result does not claim a general algorithmic no-go theorem or invalidate published high-probability guarantees.
+Shao studies the same square randomized Petrov–Galerkin/Rayleigh refinement with high-probability bounds, not the unconditional finite-angle CDF or sharp first and second moment scaling; oversampled sketched Ritz is different. A special-case exact law can provide a motivated, genuinely useful risk counterpoint.
 
-## Closest literature and residual limitations
+## value
 
-N. Shao, arXiv:2604.01037v4, especially the square-compression Algorithm 1, high-probability statements in Section 4, and the explicit pair-selection caveat. Y. Nakatsukasa and J. A. Tropp, SIAM J. Matrix Anal. Appl. 45 (2024), Section 6, uses least-squares embedding and oversampling. The Gaussian ratio step is classical. A separate accessible finite-angle asymptotic study for a different Hermitian plane remains a close prior statement but does not assert this finite-angle CDF or moment constants. Independent literature priority review could discover another formula; the calculations here are independently reconstructible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unconditional risk is mathematically distinct from high-probability convergence guarantees for a widely relevant randomized eigensolver. A fully normalized exact finite-angle law and sharp logarithmic-mean versus linear-RMS penalties show what rare Gaussian sketches can do, on a simple but motivated interior-eigenvalue test. A small explicit model is sufficient because it isolates a genuine general-risk blind spot; no universal practical failure is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
