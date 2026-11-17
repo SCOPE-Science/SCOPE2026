@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-All-length deductions are contained in the structural classification and elementary area estimate in RESULT.md. No finite experiment is used as an induction or an infinite certificate.
+# Independent mathematical audit
 
-Run `python3 verify_abelian_five_run.py` with Python 3 and no third-party packages. The checker independently enumerates actual literal contiguous factors and compares them with the claimed five-run count, as well as testing the extremal family. Expected output:
+## correctness
 
-```
-VERIFY_OK five_run_words=11628 grid_cases=16807 construction_cases=50
-```
+PASS
 
-Verification covers lengths 5 through 19 exhaustively within the five-run family; run-length tuples in the independent grid range from 1 through 7; the construction identity is checked for 50 positive parameters. The upper-area bound and all-length limits are mathematical statements checked analytically, not by finite code.
+The source counts distinct literal contiguous Abelian-square words, not occurrence counts or Abelian classes. In a 0^a1^b0^c1^d0^e word, every all-five-run factor uniquely identifies its positive endpoint lengths (i,j); midpoint one-balance requires either b=d with midpoint in the zero run and |i-j|<=c plus parity c+j-i even, or b!=d with b+d even and exactly one endpoint linear constraint. Remaining factors have at most four runs and cost O(n), explicitly <=8n. The continuous diagonal-band bound B(A,E,C)<=(A+E+C)^2/8, parity reduction, and explicit 0^(3m)1 0^(2m)1 0^(3m) construction Q=4m²+m give M5(n)=n²/16+O(n) for every large n; <=4 runs yield <=5n. Independent enumeration of all 6,188 compositions through n=17 matches exact Q and remainder bounds; witness holds m<=20. The proof, not enumeration, establishes all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives compared sources and all four direct implications.
+
+## value
+
+PASS
+
+The smallest number of alternating binary runs permitting quadratic distinct Abelian-square growth is an intrinsic combinatorial threshold. A sharp 1/16 coefficient and exact endpoint-pair classification form a useful constrained extremal benchmark beyond previously known existence examples; the missing exact finite-n maximum is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact five-run count follows by balancing the ones across the midpoint, then balancing zeros. Equal interior one-run lengths yield the parity-restricted diagonal band; unequal lengths yield at most a one-dimensional endpoint family. Lower-run factors are bounded directly by their possible middle complete runs, and the area lemma is proved by elementary geometric integration for both possible size regimes. The universal upper bound and explicit lower witness give exactly the coefficient \(1/16\) at all large lengths. A standalone factor enumerator passed 11,628 complete five-run words through length 19, 16,807 additional run tuples, and 50 witness cases. This does not extend a finite computation to infinite lengths: the proof is analytic.
+PASS
 
-## Originality — PASS (qualified)
+The source counts distinct literal contiguous Abelian-square words, not occurrence counts or Abelian classes. In a 0^a1^b0^c1^d0^e word, every all-five-run factor uniquely identifies its positive endpoint lengths (i,j); midpoint one-balance requires either b=d with midpoint in the zero run and |i-j|<=c plus parity c+j-i even, or b!=d with b+d even and exactly one endpoint linear constraint. Remaining factors have at most four runs and cost O(n), explicitly <=8n. The continuous diagonal-band bound B(A,E,C)<=(A+E+C)^2/8, parity reduction, and explicit 0^(3m)1 0^(2m)1 0^(3m) construction Q=4m²+m give M5(n)=n²/16+O(n) for every large n; <=4 runs yield <=5n. Independent enumeration of all 6,188 compositions through n=17 matches exact Q and remainder bounds; witness holds m<=20. The proof, not enumeration, establishes all n.
 
-Closest source: Kociumaka, Radoszewski, Rytter and Waleń, arXiv:1604.02238, §2 Fact 2.1, show \(\Theta(n^2)\) distinct Abelian squares using an explicit five-run word. Their §3 Theorem 3.6 bounds *inequivalent* Abelian squares, not the literal distinct-factor count. Fici and Mignosi, arXiv:1506.03562, §3 Proposition 1, and Fici, Mignosi and Shallit, arXiv:1701.00948, §3 Proposition 1, use another five-run witness to prove quadratic growth. Neither inspected full-text result states the five-run sharp coefficient, its upper bound, or the exact parameter classification. OEIS A262249 is an unrestricted finite table and A262265 counts inequivalent factors. Targeted scientific-record searches and comparisons against accessible published statements found no dominating exact theorem. Equivalence or priority in inaccessible and unindexed literature remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Exactly five runs is the smallest run complexity at which the distinct Abelian-square count becomes quadratic, and its optimum rate is the nontrivial value \(1/16\). This resolves the sharpness of the basic finite-run witnesses used to establish quadratic growth. The all-parameter five-run classification is the structural content supporting the density bound, not a routine substitution into a general theorem.
+Best-of-knowledge originality survives compared sources and all four direct implications.
 
-## Boundaries
+## value
 
-The paper does not establish an exact finite-length optimum or characterize every finite-length five-run maximizing word. It does not assert a sharp upper constant for arbitrary binary words, or independent historical priority. Source comparison is best-knowledge and the external literature is not exhaustively indexed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest number of alternating binary runs permitting quadratic distinct Abelian-square growth is an intrinsic combinatorial threshold. A sharp 1/16 coefficient and exact endpoint-pair classification form a useful constrained extremal benchmark beyond previously known existence examples; the missing exact finite-n maximum is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
