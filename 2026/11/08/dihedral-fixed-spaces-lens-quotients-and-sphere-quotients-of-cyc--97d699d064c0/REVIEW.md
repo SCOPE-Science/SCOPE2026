@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The key identification is label-preserving: Shan–Wang Lemma 2.2 gives the cyclic-polytope boundary on cyclic edge labels, and Olarte–Santos Section 2.3 gives a geometric realization using equally spaced harmonics. Discrete Fourier independence establishes full dimension and the strictly positive vertex average establishes an interior origin. The radial map is equivariant under the explicitly orthogonal dihedral representation. Fixed-vector dimensions then follow one harmonic at a time. The cyclic action is free exactly when every weight is coprime to the group order, yielding the standard lens space and its cellular integral homology.
+## correctness
 
-For the three-dimensional quotient, conjugation on two complex coordinates has positive real determinant. All finite isotropy quotients of tangent three-balls are three-balls because their links are quotients of the two-sphere by finite rotation groups. The space is a closed three-manifold; reflections have fixed circles and normally generate the dihedral group, so Armstrong's orbit-space theorem makes the quotient simply connected. The Poincaré theorem then proves the homeomorphism to the three-sphere. Independently enumerated small examples agree in all mod-two and mod-three homology tests. These experiments are not substitutes for infinite proofs.
+PASS
 
-## Originality — PASS, with stated risk
-The 2026 nonmatching-complex source already proves the simplicial cyclic-polytope identification, and the 2021 polytope source already supplies the symmetric trigonometric geometric model. Their statements are essential inputs, not discoveries asserted here. A publicly available earlier equivariant result treats the equivalent bounded-independence complex and covers the integral orientation character and rational homology of the two standard quotients. The present finding does not claim those facts. The inspected works do not claim all-subgroup **geometric** fixed spaces, the arithmetic free-rotation threshold and **integral** lens-space quotient homology, or the exact all-length **homeomorphism** of the dihedral quotient to the three-sphere at \(t=3\). These latter consequences require explicit representation analysis and, in dimension three, nontrivial orbit-space manifold and fundamental-group arguments. The combination of known methods makes independent rediscovery plausible; unindexed prior results and inherited general symmetric-polytope consequences remain residual novelty risks.
+Shan-Wang's credited labeled boundary identification and Olarte-Santos's equally spaced harmonic cyclic-polytope realization together give a concrete D_n-equivariant polytope whose origin is interior by character sums and full affine span (n>=2d+2). Radial projection gives genuine equivariant homeomorphism to S(V). The C_q and D_{q,a} real invariant subspaces have dimensions 2 floor(d/q) and floor(d/q), so fixed spheres follow exactly, including zero. Rotation freeness is equivalent to gcd(j,n)=1 for j<=d, i.e. least prime divisor n>d; quotient lens weighted (1,...,d) and its odd-degree Z/n torsion follow. For d=2 every reflection is an SO(4) action fixing a circle, all local finite stabilizers act as SO(3) so S3/D_n is a closed 3-manifold. Armstrong gives trivial pi1 since reflections generate and have fixed points; Poincare yields S3. Read verifier's independent finite facet/subgroup approach; no finite test substitutes for these infinite arguments. Full Shan-Wang source remains access risk, not proof gap in displayed geometric argument.
 
-## Mathematical value — PASS
-The result differentiates nonequivariant and equivariant topology of a natural infinite family: a fixed underlying sphere can have empty, zero-dimensional, and higher-dimensional subgroup fixed spaces; free cyclic quotients realize infinitely many lens spaces with torsion in integral homology; and enlarging the group to the dihedral symmetry at \(t=3\) produces a three-sphere quotient for all lengths. This exact quotient classification is not supplied by ordinary sphere counts or by rational orientation characters, and it gives reusable geometric information about which cycle symmetries introduce singular isotropy.
+## originality
 
-## Scope and risk
-The complete topological classification of full dihedral quotients is restricted to \(t=3\); the harmonic-sphere and fixed-space statements hold for all stated parameters. Cyclic quotient lens claims require the explicit freeness criterion. No independent review has been carried out, and a source showing the same equivariant polytope quotient conclusions under alternative language could affect originality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge novelty of exact geometric subgroup spheres, integral lens torsion and dihedral S3 orbit, not the known cyclic-polytope boundary/moment-curve realization or orientation character. The familiar geometric ingredients make some fixed-dimension deductions accessible, but searched related primary/published findings do not explicitly or logically establish all claimed orbit types. Shan-Wang full paper inaccessible; priority risk stated.
+
+## value
+
+PASS
+
+The natural cycle nonmatching complex already has a cyclic-polytope homotopy sphere, but the exact orthogonal dihedral representation determines genuine subgroup fixed spheres, integral lens torsion and a striking S3 full orbit quotient in dimension three. These are structural equivariant and quotient classifications beyond a renamed nonequivariant sphere and useful for subsequent geometry/topology of finite group actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

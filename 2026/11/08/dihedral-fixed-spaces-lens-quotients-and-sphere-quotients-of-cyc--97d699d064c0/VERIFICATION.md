@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible verification
-Run `python3 verify.py` from a folder containing the extracted `verify.py`; no third-party Python packages are required. The recorded output is in `verify_output.txt`.
+# Independent mathematical audit
 
-The checker constructs the \(t\)-nonmatching complex from forbidden matchings of cyclic edge indices, without referring to the polytope model. It compares each actual maximal face with Gale-evenness facet sets. For cyclic and dihedral subgroups it constructs the complex of invariant barycentric orbit supports and computes reduced homology over \(\mathbb F_2\); its expected answer is a single sphere, or the empty space. For \(t=3\), it also enumerates all flags of nonempty faces, forms the full-dihedral quotient cellular boundary matrices, and computes quotient homology over \(\mathbb F_2\) and \(\mathbb F_3\).
+## correctness
 
-Checks cover a finite set of lengths and thresholds, not all integers; finite homology does not establish homeomorphism or trivial fundamental group. The general proof instead uses Fourier orthogonality, a label-preserving cyclic-polytope realization, orthogonal group-fixed subspaces, the integral lens-space cellular chain complex, Armstrong's theorem and the Poincaré theorem. The standalone code has no external data dependencies, and may be executed after extracting the embedded bytes verbatim.
+PASS
+
+Shan-Wang's credited labeled boundary identification and Olarte-Santos's equally spaced harmonic cyclic-polytope realization together give a concrete D_n-equivariant polytope whose origin is interior by character sums and full affine span (n>=2d+2). Radial projection gives genuine equivariant homeomorphism to S(V). The C_q and D_{q,a} real invariant subspaces have dimensions 2 floor(d/q) and floor(d/q), so fixed spheres follow exactly, including zero. Rotation freeness is equivalent to gcd(j,n)=1 for j<=d, i.e. least prime divisor n>d; quotient lens weighted (1,...,d) and its odd-degree Z/n torsion follow. For d=2 every reflection is an SO(4) action fixing a circle, all local finite stabilizers act as SO(3) so S3/D_n is a closed 3-manifold. Armstrong gives trivial pi1 since reflections generate and have fixed points; Poincare yields S3. Read verifier's independent finite facet/subgroup approach; no finite test substitutes for these infinite arguments. Full Shan-Wang source remains access risk, not proof gap in displayed geometric argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of exact geometric subgroup spheres, integral lens torsion and dihedral S3 orbit, not the known cyclic-polytope boundary/moment-curve realization or orientation character. The familiar geometric ingredients make some fixed-dimension deductions accessible, but searched related primary/published findings do not explicitly or logically establish all claimed orbit types. Shan-Wang full paper inaccessible; priority risk stated.
+
+## value
+
+PASS
+
+The natural cycle nonmatching complex already has a cyclic-polytope homotopy sphere, but the exact orthogonal dihedral representation determines genuine subgroup fixed spheres, integral lens torsion and a striking S3 full orbit quotient in dimension three. These are structural equivariant and quotient classifications beyond a renamed nonequivariant sphere and useful for subsequent geometry/topology of finite group actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
