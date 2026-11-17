@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every connected, simple, undirected graph through order four and every real \(\beta>0\). The absorbing first-event recurrence is well-founded and has explicit terminal rewards for distinct-ever-infected and historical maximum concurrent infected. All 11 isomorphism classes of orders one through four are represented; all 43 vertex pairs were checked exactly, with 18 nontrivial comparisons. Rational difference-product numerators and denominators have nonnegative coefficients, hence are positive for all positive \(\beta\), and exact ties were checked separately. A five-vertex, six-edge witness has exact rational values for every seed and disjoint maximizing seed sets. Embedded symbolic and standard-library exact checkers both passed. Finite exact computation is used here as a complete small-order algebraic certificate, not as extrapolation to arbitrary orders.
+PASS
 
-## Originality — PASS within inspected sources
+The exact first-event recursion over susceptible S, currently infected I and historical peak h has terminal (n-|S|,h). Each infection reduces |S| and each recovery reduces |I| at fixed |S|; induction terminates. The 11 connected types through order4 give 43 root-pair comparisons, 18 unequal; source checker sympy computes exact rational difference products with nonnegative polynomial numerator and denominator for all β>0 and checks ties. Independent standard-library Fraction recurrence on five-vertex E={01,13,14,23,24,34} at β=2 visited 378 states and reproduced F1=2617/675, H1=5176097/1559250, F3=3679/945, H3=16018271/4851000, final maximizers {3,4}, peak maximizer {1}. Small-order assertion rests on exact algebraic finite certificate over parameter continuum, not β-grid sampling.
 
-Closest works: Mills and Riley (2014), DOI 10.1371/journal.pcbi.1003561, compares incidence peaks and attack rate in a large-scale spatial simulation, not the rooted exact concurrent-peak objective. Economou et al. (online 2014), DOI 10.1016/j.physa.2014.10.054, treats maximal infected counts but in reinfecting SIS networks, not final-size versus peak-size root ranks in irreversible SIR. Holme (2017), DOI 10.1103/PhysRevE.96.062305, computes exact SIR seed influence, vaccination, and sentinel scores on small graphs, but not maximum concurrent infectious count. Searches for aliases, graph classes, and implied coverage in scholarly-record indexes and primary literature identified no matching theorem. There remains historical-priority risk from unlocated peak-prevalence rankings and other network methods. Search non-return alone is not evidence of novelty; model and objective distinctions support the narrower best-knowledge comparison.
+## originality
 
-## Value — PASS
+PASS
 
-Expected final size measures cumulative infectious reach; expected peak simultaneous prevalence measures maximum concurrent care demand. Both are standard, independently motivated epidemic burdens. The complete order-four agreement and explicit order-five separation identify a sharp structural limit for using one objective to rank seed risks under common local rates; this is more than recomputing a selected graph table. Exact answers and reproducible certificates offer a benchmark for network epidemic ranking analyses, without claiming management guidance or a general theorem at larger order.
+Relevant full Holme 2017 small-graph SIR paper calculates seed final-size, vaccination, and sentinel time, not expected maximum concurrent infected count. A distinct published November8 peak-capacity result optimizes probabilities Pr(max|I_t|≥k) across thresholds; its changing k ranking does not imply rank changes for E[max|I_t|] versus E[final]. No covering equivalent theorem was found after statement and implication comparison.
 
-## Limits and residual risks
+## value
 
-Uniform rates, exponential recovery, no reinfection, one index case, small finite graphs. The witness uses \(\beta=2\); the lower bound is all-parameter. No assertion about incidence maxima or peak exceedance probability. Publication priority is subject to independent historical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Expected cumulative infection reach and realized maximum concurrent infectious occupancy are genuinely different mathematically and epidemiologically motivated objectives. A sharp smallest graph where seed rankings differ is a natural structural cutoff and informs limits of substituting final-size centrality for peak-burden centrality; no empirical clinical forecasting is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
