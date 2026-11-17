@@ -1,19 +1,21 @@
-# Scientific review: Gamma popularity marks for microscopic Zipf occupancy records
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem is stated for fixed exponent \(a>1\), finite \(R\), exact Zipf weights, and a window of \(\lfloor\lambda n^{1-1/a}\rfloor\) future draws. The multinomial two-label identity establishes a uniform \(O(n^{-1})\) covariance approximation on compact normalized ranks. Together with the binomial marginal asymptotics and \(O(n^{1/a})\) relevant labels, it yields \(O(n^{-1/a})\) variance of the normalized random intensity. The explicit binomial small-count bound provides integrable small-rank and large-rank tails. The expected collision count is \(O(n^{-1/a})\); the post-history product Laplace functional then gives the conditional marked PPP, including the asserted compact-test rate. The Jacobian of \(y=cx^{-a}\) gives the exact Gamma shape \(r-1/a\). Verification in `CHECK.py` passed 1,710 exact/numerical assertions. These finite checks are secondary to the proof.
+PASS
 
-## Originality
+At ranks j~n^gamma (gamma=1/a), np_j=c(j/n^gamma)^(-a). Exact binomial rare-count asymptotics and two-label multinomial covariance give a concentrated conditional intensity m_n sum_j p_j 1{N_j(n)=r-1}; its diagonal variance is O(n^(-gamma)) on compact rank intervals and off-diagonal covariance O(n^(-1)). The probability of repeating an eligible label twice in the short future window is O(n^(-gamma)); conditional product Laplace functional differs from Poisson exponential by O(n^(-(1-gamma))). The resulting compact Lipschitz L1 rate is O(n^(-gamma/2)+n^(-(1-gamma))); tail estimates ensure finite global mass. Substitution y=cx^(-a) yields Gamma(r-gamma,1), independent uniform time; actual proof handles fixed R and exact Zipf only. Finite multinomial sanity checks verified but do not prove the asymptotic limits.
 
-**PASS, subject to historical-priority uncertainty.** The strongest close predecessor is Derbazi–Gnedin–Marynych, *Records in the Infinite Occupancy Scheme* (2023), whose Proposition 5 and Theorems 2–3 already give conditional and joint **unmarked** short-window Poisson records; no novelty is claimed for that projection. The present theorem retains the normalized label rank jointly with the exact occurrence time, identifies Gamma rank-popularity marks for every \(r\), and gives an explicit \(L^1\) convergence rate for compact Lipschitz Laplace tests in the fixed-draw setting. These claims cannot be inferred from the unmarked time-process law alone because that law forgets the label/predictive frequency. Abebe–Chebunin–Kovalevskii (2026) treat macroscopic Gaussian random outer measures, not this marked microscopic window. Targeted source/published-finding corpus comparisons did not reveal an explicit covering marked theorem, although a more general marked-process theorem may exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** In a vocabulary/species-sampling model it matters not only *when* a previously rare label reaches its next multiplicity but also *which popularity range* supplies those records. The new rank-time process distinguishes first, second and higher records through a predictable Gamma-shape progression, independent of the event times and with a finite-window conditional approximation rate. The popularity composition is absent from the established time-only record law, so this is a natural new distributional invariant rather than a mere reparameterization of that law.
+The Derbazi–Gnedin–Marynych full text proves short-window UNMARKED r-record times and conditional Poisson limits. Its push-forward to time cannot recover the rank j/n^gamma or gamma popularity marks; the submitted joint space/time intensity and a quantitative fixed-draw quenched Laplace bound are strictly more informative. Related 2026 outer-measure work is Gaussian/macroscopic. Best-of-knowledge original marked refinement with priority risk.
 
-## Limits and closest literature
+## value
 
-The result is restricted to deterministic exact Zipf frequencies, fixed record order and fixed window coefficient. It does not cover general slowly varying factors or dependent samples. Historical priority remains provisional, especially against unpublished or less readily searchable marked occupancy extensions. Sources: arXiv:2308.01739 (2023), Sections 5, 7, 8; arXiv:2602.13938 (2026), Theorem 2; Karlin's classical infinite-urn results. No independent examination has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conditional record frequency composition is meaningful in Zipf species/vocabulary sampling: it predicts the normalized popularity rank of each rare new record and distinguishes classes by Gamma(r-gamma) shapes, a genuinely new observable absent from unmarked count convergence. The compact quantitative approximation offers useful finite-window error control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

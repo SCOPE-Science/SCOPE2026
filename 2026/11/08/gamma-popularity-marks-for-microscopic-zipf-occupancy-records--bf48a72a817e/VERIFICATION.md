@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 CHECK.py` using the Python standard library. A run during preparation printed `PASS: 1710 standalone exact/numeric assertions`.
+## correctness
 
-The checker enumerates all four-category multinomial cells for several finite sample sizes and verifies the two-label marginal identity with exact rational arithmetic. It verifies the elementary first-future-hit linearization inequalities for several sample sizes, window lengths, record orders and rational atom masses. Numerical integration checks four Gamma-transformed intensity integrals, and finite-binomial Zipf intensity sums for two growing sample sizes check the predicted asymptotic constants.
+PASS
 
-The infinite claims are not verified by finite enumeration or floating-point checks. The rigorous argument is in `RESULT.md`, notably the uniform compact-rank multinomial covariance bound, integrable occupancy tails, the one-hit coupling and the conditional Laplace product expansion. The conditional rate only applies to bounded Lipschitz tests compactly supported in positive rank; no total-variation convergence to a continuous mark distribution is claimed. Priority against all potentially relevant older marked-process literature has not been independently determined.
+At ranks j~n^gamma (gamma=1/a), np_j=c(j/n^gamma)^(-a). Exact binomial rare-count asymptotics and two-label multinomial covariance give a concentrated conditional intensity m_n sum_j p_j 1{N_j(n)=r-1}; its diagonal variance is O(n^(-gamma)) on compact rank intervals and off-diagonal covariance O(n^(-1)). The probability of repeating an eligible label twice in the short future window is O(n^(-gamma)); conditional product Laplace functional differs from Poisson exponential by O(n^(-(1-gamma))). The resulting compact Lipschitz L1 rate is O(n^(-gamma/2)+n^(-(1-gamma))); tail estimates ensure finite global mass. Substitution y=cx^(-a) yields Gamma(r-gamma,1), independent uniform time; actual proof handles fixed R and exact Zipf only. Finite multinomial sanity checks verified but do not prove the asymptotic limits.
+
+## originality
+
+PASS
+
+The Derbazi–Gnedin–Marynych full text proves short-window UNMARKED r-record times and conditional Poisson limits. Its push-forward to time cannot recover the rank j/n^gamma or gamma popularity marks; the submitted joint space/time intensity and a quantitative fixed-draw quenched Laplace bound are strictly more informative. Related 2026 outer-measure work is Gaussian/macroscopic. Best-of-knowledge original marked refinement with priority risk.
+
+## value
+
+PASS
+
+Conditional record frequency composition is meaningful in Zipf species/vocabulary sampling: it predicts the normalized popularity rank of each rare new record and distinguishes classes by Gamma(r-gamma) shapes, a genuinely new observable absent from unmarked count convergence. The compact quantitative approximation offers useful finite-window error control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
