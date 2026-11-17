@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`. The `verify.py` script provides independent finite-size corroboration, not a proof beyond the tested sizes. Running `python3 verify.py` with Python 3 and NumPy returned:
+## correctness
 
-`PASS: 40 ring/flux cases; all matrix and capture checks passed`
+PASS
 
-For each \(3\le n\le10\) at \(\Phi\in\{0,\pi/2,\pi,3\pi/2,\pi/3\}\), the script checks Hermitian idempotence of the displayed projector, commutation with the coherent dynamics (indeed annihilation at zero energy), zero amplitude at every detected double-occupation site, bosonic exchange symmetry, exact localized-pair survival formulas, and all diagonal initial states. It independently diagonalizes the coherent two-boson Hamiltonian and calculates the collision-map nullity on each numerically degenerate eigenspace; it separately computes the count of loss-free real eigenvalues of the finite non-Hermitian generator with explicitly unequal positive rates.
+PASS: In the normalized symmetric square of C^n, one-body Fourier energies are 2J cos((Phi-2pi k)/n). At fixed total momentum p the unordered boson pair energies are nondegenerate unless cos((Phi-pi p)/n)=0; no nonresonant cancellation of the diagonal Fourier mode is possible. At the sole resonant p, all free pair energies are zero, the collision map has rank one, and subtracting |d_p><d_p| from the symmetric total-momentum projector gives the entire dark projector. Positive rates ensure every other dissipative eigenvalue has negative imaginary part and its Jordan contribution decays. Fixed-point count of k->p-k gives the odd/even flux rank table; exchange translation gives the antipodal localized survival correction. Independent Hermitian two-boson matrix diagonalizations for 3<=n<=8 at Phi=0,pi/2,pi,3pi/2,pi/3 reproduced every rank. These 30 tests corroborate, not prove, the universal result. No sitewise rate equality or weak-loss assumption is needed.
 
-Floating-point spectral grouping is performed with tolerance \(10^{-8}\); it is not an exhaustive symbolic certificate. The infinite-domain proof instead rests on the exact trigonometric equality criterion, unique resonant center-of-mass sector, its collision rank one and finite-dimensional dissipative spectral decomposition. No independent external audit or experimental confirmation was performed.
+## originality
+
+PASS
+
+PASS on best-of-knowledge: generic-flux extinction, odd-ring quarter-flux creation and complete all-flux loss projector survive the exact zero-flux theorem. Full flux-ring Hermitian spectra and general detector-dark principles are credited; inaccessible primary full text and unindexed dissipative work remain risks.
+
+## value
+
+PASS
+
+PASS: A discrete magnetic-flux switching theorem for fully monitored two-boson collisions supplies a sharp physical boundary: generic flux abolishes all bosonic dark states, whereas quarter-flux creates them on odd rings, with exact universal loss probabilities for arbitrary positive loss rates. It is a motivated spectral/dissipative classification, not merely a renaming of the earlier zero-flux case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
