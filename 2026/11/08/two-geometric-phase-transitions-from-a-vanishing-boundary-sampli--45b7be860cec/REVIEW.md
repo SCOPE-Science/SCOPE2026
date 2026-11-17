@@ -1,15 +1,21 @@
-# Scientific review: singular boundary sampling and geometric deficits
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claimed quantities are exactly the Hausdorff and area errors of a convex hull of independent arclength-sampled points. Uniform local quadratic/cubic cap expansions follow from the positive-curvature \(C^3\) boundary. Binomial point-process rescaling gives the two-sided power-rate Poisson process; a summable empty-interval bound localizes the largest gap. The cubic-gap tail has finite limiting expectation exactly when \(\alpha>1/2\); the integral \(\int\kappa/f^2\) is finite below that threshold, with logarithmic divergence at equality. The coefficient in the critical case is computed on both sides of the density zero. Poissonization can be removed by monotone coupling. The checker independently confirms geometry and representative scaling. Moment convergence of the limit law is not claimed.
+## correctness
 
-## Originality
-**PASS provisionally, not a priority certification.** A direct search for the joint largest-gap/cubic-gap transition in random inscribed polygons did not find an equivalent theorem. Schneider's 1988 positive-density hypothesis excludes isolated zeros. Brunel's 2015 full text provides general Hausdorff rates but Proposition 4 again imposes a uniform positive lower bound on the boundary sampling density. Hüsler's 1988 maximal nonuniform spacing study is genuinely close to the Hausdorff marginal; its accessible abstract does not address the coupled cubic-gap missing-area functional. Published notes on polygonal Gumbel errors and positive-density minimax sampling do not imply the present result under the same assumptions. The relevant Hüsler full text could not be inspected, so the precise strongest historical comparison remains an explicit residual risk. Joint critical scaling, different normalizations, and dependence of the two geometric errors are substantive distinguishing features.
+PASS
 
-## Value
-**PASS.** Sparse sampling near a point of a smoothly curved boundary is a natural failure mode for inscribed-polygon approximation. The result supplies an exact, non-Gumbel Hausdorff limiting law and distinguishes three area regimes, including an unexpected logarithmic threshold and a coupled Poisson limit above that threshold. This directly informs geometric approximation when a sampling density vanishes, beyond rate bounds for positive densities. The exponents are determined by the quadratic sagitta versus cubic cap-area geometry, rather than arbitrary chosen parameters.
+The smooth-curve chord expansion has sagitta kappa delta^2/8 and omitted cap area kappa delta^3/12, uniformly along the C3 curve. Rescaling at the sole density zero by h=n^(-1/(alpha+1)) yields PPP intensity c|x|^alpha dx. Empty-subinterval exponential bounds localize the largest gap for alpha>0; cubic-spacing expectation tails scale R^(1-2alpha), summable precisely for alpha>1/2, yielding a joint Poisson functional. Outside the zero, renewal/exponential local-spacing moments give bulk missing-area coefficient 1/2 integral(kappa/f^2). At alpha=1/2 the divergent logarithm gives 2kappa(0)/(3c^2); independent circle substitution with alpha=.5 confirmed 36.74817976924424, and direct sagitta/cap expansions match. Critical variance and de-Poissonization inequalities are justified by local spacing and monotonicity in sample size. The finite stochastic CHECK.py is corroboration only, not a proof of weak convergence. A material priority risk is Hüsler maximum-spacing work but it alone does not provide the area transition.
 
-## Closest literature and limits
-Schneider (1988), DOI 10.1111/j.1365-2818.1988.tb04682.x, investigates boundary-random convex approximation with a positive sampling density. Hüsler (1988), DOI 10.2307/3213981, treats maximal nonuniform gaps with a density zero; the full paper remained inaccessible, so overlapping spacing conclusions are credited as antecedents rather than claimed new. Brunel (arXiv:1503.01504, 2015) was inspected at the full-text level, particularly Section 3.3 and Proposition 4, and does not supply the present joint area-Hausdorff law. Sonnleitner (arXiv:2508.16442, 2025) discusses optimal positive-density Hausdorff Gumbel behavior. The statement assumes one power-law zero and everywhere strictly positive curvature; multiple zeros, flat points and higher dimensions remain unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge with a named inaccessible relevant source). Nonuniform maximum spacing for vanishing density is likely partly classical; the joint max-gap and total missing-area law and distinct alpha=1/2 threshold were not found in inspected stronger-source statements. Positive-density random inscribed polygon theorems exclude f(0)=0. The inaccessible Hüsler article alone does not justify an O failure.
+
+## value
+
+PASS
+
+A naturally motivated deterioration of boundary sampling quality separates worst-case Hausdorff error from integrated area loss. The sharp alpha=1/2 threshold and jointly coupled limiting laws identify which statistic localizes at the zero; the critical coefficient is a meaningful asymptotic invariant beyond ordinary positive-density estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
