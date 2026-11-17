@@ -1,19 +1,21 @@
-# Scientific review of the six-leaf NOC census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every clustering system on six fixed labels is uniquely specified by 56 optional nonsingleton proper clusters. NOC is tested using the exact overlap-witness condition; hereditary failure of this condition proves that the inclusion pruning removes no valid completion. At accepted leaves, Hasse parents are computed by checking all strict intermediate clusters, so the number with two or more parents is precisely the relevant reticulation statistic. Two distinct exhaustive C++ algorithms yield the same 9,654,368 families and all five per-reticulation counts; a third naive Python algorithm independently verifies orders two through four. The entire six-leaf certificate was replayed from supplied standalone files. Finite enumeration proves these finite values only.
+PASS
 
-## Originality — PASS, subject to historical priority
+For six distinct labels exactly 56 nontrivial subsets are optional, each selected subfamily uniquely determines a clustering system. The witness test C\(\bigcup_{D\text{ overlapping }C}D) is equivalent to NOC, is hereditary under deletions and can only lose witnesses as sets are added, so pruning is exhaustive. Each accepted family is stratified by the number of strict Hasse parents (>=2). Two separately coded C++ source implementations independently enumerated all accepted n=6 families: 9,654,368, by k=0..4 the vector (2752,79076,1037235,4511390,4023915). Direct Python brute all n<=4 agrees. Corollary 11 in Lindeberg–Hellmuth full paper establishes exactly the canonical network interpretation; that prior correspondence is not credited as newly proved.
 
-Lindeberg and Hellmuth's paper (arXiv:2609.13336, first public 2026-09-11, Section 5) defines the parameters and asks for enumeration, but supplies neither the six-leaf table nor a general recurrence determining it. A previously published classification counts only maximum-cardinality NOC systems, not all of them. Earlier binary phylogenetic network counts impose different indegree/outdegree assumptions. Mathematical-record, exact-number, alias, and prior-result searches did not locate a covering distribution. Although this strongly supports novelty, absence of search hits cannot establish universal priority. Relevant work not fully indexed remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The counts answer a natural, explicitly posed finite enumerative question for canonical normal phylogenetic networks and give its full reticulation stratification, not merely a small example. Six leaves already produce millions of valid systems and all five attainable reticulation classes, so the exhaustive dataset can test prospective recurrences, structural decompositions, and asymptotic predictions. The refinement distinguishes families that an unstratified total obscures. Nothing is claimed about a general formula or a published paper-sized breakthrough.
+Lindeberg–Hellmuth (arXiv:2609.13336), Section 5, introduce q_n and q_{n,k} and ask for explicit formulas/recurrences but give no six-leaf numerical distribution. The published extremal NOC equality classification counts the 360 maximal-size subfamilies only; binary normal-network enumeration adds restrictions inconsistent with all NOC Hasse realizations. Full NOC primary PDF and named Resultary query were inspected; no stronger implication found. The exhaustive six-leaf vector is a best-knowledge new natural finite census, not an algorithmic recognition theorem.
 
-## Limitations and closest literature
+## value
 
-The original NOC realization theorem and the known classification of the extremal-cardinality subfamily are credited, not rediscovered. The six-leaf exhaustive computation does not settle seven-leaf enumeration or any broader asymptotic problem. Binary and nonbinary network classes must not be conflated. Priority and mathematical verification are not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The primary NOC paper directly singles out q_n and its reticulation refinement q_{n,k} as natural enumeration targets. The complete sixth-order exact count, involving 9.65 million valid systems in five strata, is a meaningful first hard finite cutoff for conjecturing recurrences and testing general formulas, not an arbitrary unmotivated subpopulation; no claim for n>=7.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
