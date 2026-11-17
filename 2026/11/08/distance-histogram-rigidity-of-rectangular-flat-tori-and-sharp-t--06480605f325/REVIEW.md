@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent centered-coordinate reduction yields the exact product entire moment-generating function. Existence and simplicity of its nonzero zeros are proved analytically via order-one Hadamard factorization and an integral differential identity; the smallest zero modulus and multiplicity recover the largest unknown squared half-period. Recursion proves full reconstruction in arbitrary dimension, including unknown dimension. Three exact cumulants and Newton's identities prove d=3 recovery, with an exact rational counterexample showing two initial even moments do not suffice. Exact arithmetic and independent Monte Carlo checks supplement rather than replace this proof.
+## correctness
 
-**Originality — PASS, with residual historical priority risk.** Boutin–Kemper treat discrete finite Euclidean point configurations. Osada et al. treat sampled external Euclidean distances. The full Mémoli–Needham source explicitly gives a two-dimensional nonrectangular flat-torus counterexample, not higher-dimensional rectangular recovery. published-finding corpus search results on flat-torus systoles, toroidal grids, and moment results concern distinct statements. No observed cited theorem covers the rectangular family \(d\ge3\) or the optimal three-dimensional three-moment inverse. No claim of novelty is made for arbitrary skew tori or the already-known general inverse-problem framework.
+PASS
 
-**Value — PASS.** The theorem identifies a complete positive family for a generally noninjective distance-histogram invariant and a sharp finite-information threshold in dimension three, with an explicit inverse and obstruction. No numerical stability or arbitrary-lattice rigidity is asserted.
+The difference of Haar-uniform points in rectangular T_a has independent uniform shortest coordinate representatives, so D² has law Σ s_i U_i², s_i=a_i²/4. Its MGF G(z)=Π F(s_i z), F(z)=∫_0^1 exp(z u²)du. F has entire order ≤1, nonzero variance so is not an exponential linear function and must have nonzero zeros by zero-free Hadamard factorization. The identity F+2zF′=exp z makes every zero simple; the smallest-modulus zero of G detects maximal s_i and its multiplicity; peeling proves recovery even for unknown dimension and repeated periods. For d=3 the rational cumulants 1/3,4/45,16/945 and Newton identities yield the cubic; two distinct positive triples (1,2,3) and (17/7,19/7,6/7) agree on power sums 1 and 2 only. Independently checked all these rational identities and the complex differential identity at z=1.1+1.9i; numerical illustrative simple zero at z=1.43365931676195+5.4570526363249i is not used as a proof of minimal radius.
 
-**Closest literature and limits.** Mémoli–Needham's Example 3.18 is the strongest conceptual comparator and forbids dropping the orthogonality restriction. The arXiv full text was materially inspected. Historical priority beyond identified records is not guaranteed. The complex-zero reconstruction requires an exact entire transform and need not be numerically stable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The dimension-three three-moment inverse and two-moment impossibility were already published on 2026-11-01, in fact with stronger feasible-region/stability conclusions. They must not be credited as new. The surviving original final finding is full-distribution identification of every positive rectangular period in arbitrary dimension d>=3, even when d is initially unknown, via a nontrivial entire-zero peeling theorem, not shown by the earlier d=3 results.
+
+## value
+
+PASS
+
+Exact recovery of an arbitrary number of rectangular lattice periods and unknown dimension from the unlabeled pairwise geodesic-distance law is a natural shape-identifiability invariant; analytic zero peeling supplies nontrivial all-d structure. The already published 3-dimensional moment classification is credited as prior and does not supply the independent value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

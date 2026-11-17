@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence
+# Independent mathematical audit
 
-Run `python torus_distance_verifier.py` after extracting that standalone file. Requires NumPy and mpmath in addition to the Python standard library. Successful execution on the packaged verifier returned:
+## correctness
 
-```
-VERIFY_OK exact_cumulants=3 exact_inverse_shapes=4 exact_two_moment_counterexample=1 complex_zero_samples=6 monte_carlo_pairs=120000
-NEAREST_FOUND_ZERO=(1.43365931676195287935918 + 5.45705263632490130914145j)
-POPULATION_MEAN_VARIANCE=[1.7241666666666668,1.109662777777778]
-SAMPLED_MEAN_VARIANCE=[1.725818849219847,1.1053607731758703]
-```
+PASS
 
-The rational tests establish the three cumulant constants and the displayed two-moment collision exactly. The complex numerical samples validate the integral differential identity at precision and locate examples of zeros, but **are not a certified exhaustive root census**. The proof of existence of a nonzero zero uses the zero-free finite-order Hadamard theorem, and the zero-peeling argument uses the infimum of all complex zero moduli, not a numerical approximation. Monte Carlo checks compare direct intrinsic torus distances with theoretical first and second cumulants; they establish no infinite theorem.
+The difference of Haar-uniform points in rectangular T_a has independent uniform shortest coordinate representatives, so D² has law Σ s_i U_i², s_i=a_i²/4. Its MGF G(z)=Π F(s_i z), F(z)=∫_0^1 exp(z u²)du. F has entire order ≤1, nonzero variance so is not an exponential linear function and must have nonzero zeros by zero-free Hadamard factorization. The identity F+2zF′=exp z makes every zero simple; the smallest-modulus zero of G detects maximal s_i and its multiplicity; peeling proves recovery even for unknown dimension and repeated periods. For d=3 the rational cumulants 1/3,4/45,16/945 and Newton identities yield the cubic; two distinct positive triples (1,2,3) and (17/7,19/7,6/7) agree on power sums 1 and 2 only. Independently checked all these rational identities and the complex differential identity at z=1.1+1.9i; numerical illustrative simple zero at z=1.43365931676195+5.4570526363249i is not used as a proof of minimal radius.
 
-Not independently audited or externally certified. No claim about finite-sample numerical condition numbers or skew lattices.
+## originality
+
+PASS
+
+The dimension-three three-moment inverse and two-moment impossibility were already published on 2026-11-01, in fact with stronger feasible-region/stability conclusions. They must not be credited as new. The surviving original final finding is full-distribution identification of every positive rectangular period in arbitrary dimension d>=3, even when d is initially unknown, via a nontrivial entire-zero peeling theorem, not shown by the earlier d=3 results.
+
+## value
+
+PASS
+
+Exact recovery of an arbitrary number of rectangular lattice periods and unknown dimension from the unlabeled pairwise geodesic-distance law is a natural shape-identifiability invariant; analytic zero peeling supplies nontrivial all-d structure. The already published 3-dimensional moment classification is credited as prior and does not supply the independent value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
