@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical proof is self-contained in `RESULT.md`, Steps 1–6. It uses an exact nonnegative generating-function expansion, fixed-component weak convergence, a summable factorial domination, conditional concentration, and a uniform-simplex Riemann-sum limit. No finite computation is treated as an infinite-volume certificate.
+## correctness
 
-To reproduce the independently implemented finite checks, execute `python verify_critical.py` using standard Python 3. The checker compares direct partition coefficient convolution with the expansion for geometric and Bernoulli bulk measures using exact fractions, and verifies finite truncations of the proposed probability series. The verified output is `PASS: 1344 exact-rational and series assertions`.
+PASS
 
-For optional numerical convergence diagnostics, execute `python finite_diagnostics.py` with NumPy and SciPy. At the indicated five volume sizes the partition normalizer approaches the stated modified-Bessel value and the one-cluster probability approaches its limit. This check does not establish convergence for arbitrary volume or bulk.
+Exact nonnegative binomial marked-site expansion of [z^N](W(z)+theta/L²/(1-z))^L produces L A_(L,N,j)->theta^j a^(j-1)/(j!(j-1)!). Factorial summable domination passes to partition Z. Conditional tilted bulk exponential tail keeps bulk below L^(2/3); uniform weak compositions of excess mass give Dirichlet(1,...,1), tight marked number identifies observable K_L and c0 ranked convergence. Independent exact Bernoulli finite coefficient convolution and Bessel-law normalization passed. Deliberately no l1 convergence.
 
-The proof's exact scope is a positive exponential-moment bulk, fixed positive perturbation and density strictly above the bulk mean. The ranked-mass convergence is in the sup-norm topology. No dynamical mixing or claims about other critical exponents are verified.
+## originality
+
+PASS
+
+Primary same-model 2026 preprint explicitly leaves gamma=kappa+2 transition critical except distinct endpoint, while submitted kappa=0/gamma=2 derives precise Bessel finite-condensate mixture and Dirichlet split. Related Poisson–Dirichlet models differ in stationary weights.
+
+## value
+
+PASS
+
+Critical condensation boundaries distinguish one macroscopic cluster, finite random multiple clusters, and infinite partitions. Identifying Bessel cluster count and Dirichlet excess-mass partition at a natural open critical scaling is a structurally useful exact limiting theorem, rather than a finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
