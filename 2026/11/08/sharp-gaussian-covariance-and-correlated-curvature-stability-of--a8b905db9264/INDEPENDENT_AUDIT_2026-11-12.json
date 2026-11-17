@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:10:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid uniform coordinate J and independent full-dimensional ξ∼N(0,I_d), the exact second-moment operator is T_h(S)=d^(-1)Σ_j(I−dh e_j e_j^T H)S(I−dh H e_j e_j^T), with additive 2hI. Direct expansion T_h(H^(-1))=H^(-1)−2hI+dh²diag(H_jj) and H-energy contraction proves constant-diagonal unique finite-variance stationarity exactly h<2/(da), with covariance H^(-1)/(1−dah/2); above boundary positive forcing produces energy divergence, with no claim about infinite-variance stationary laws. In d=2 the Frobenius self-adjoint positive-cone transfer and Sylvester/evaluation reduction give h*=1/λmax(K), K=[[a−c²/(a+b),c²/(a+b)],[c²/(a+b),b−c²/(a+b)]]. Correlated unequal diagonals strictly decrease λmax and improve stability; taking singular positive-definite limit yields sharp unattained gain (1+√2)/2. Independent symbolic 2x2 example H=[[1,1],[1,4]] gives K=[[4/5,1/5],[1/5,19/5]] and h*=(23−sqrt229)/30 ≈0.26224>1/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "JMLR Theorem 3 uses directional smoothness and nonasymptotic Wasserstein error/sufficient h; no sharp necessary-and-sufficient mean-square covariance threshold in inspected sections.",
+          "Oct13 theorem is an iff for existence of a Gaussian invariant under single-coordinate noise, not the full-dimensional innovation of present claim."
+        ],
+        "reasoning": "Neither prior theorem applies as a stronger identical-kernel result with same norm/invariant law; full-noise exact h* requires second-moment transfer analysis.",
+        "searches": [
+          "full noise random coordinate Langevin gaussian exact invariant covariance H inverse and correlation stability K matrix",
+          "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-invariance-classification-for-random-coordinate-l--c6508a272de4/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-invariance-classification-for-random-coordinate-l--c6508a272de4/RESULT.md",
+        "https://arxiv.org/abs/2010.01405"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate-only noise matrix in Oct13 is N_i=2(h/p_i)e_i e_i^T; present conditional noise is 2hI, not equal unless d=1 or a changed algorithm.",
+          "The JMLR algorithm agrees with present recursion but offers a different non-sharp nonasymptotic performance estimate."
+        ],
+        "reasoning": "The direct covariance identity and Sylvester K matrix are new calculations not implied by earlier statements despite shared general setting and familiar classical techniques.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-invariance-classification-for-random-coordinate-l--c6508a272de4/RESULT.md",
+          "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+          "full noise random coordinate Langevin gaussian exact invariant covariance H inverse and correlation stability K matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Present chain samples all coordinates with full additive Gaussian vector noise each step; earlier Oct13 chain perturbs only selected coordinate.",
+          "The moment fixed point is not a Gaussian-law invariance statement: stationary full-noise law can be a non-Gaussian mixture."
+        ],
+        "reasoning": "Compared aliases random-coordinate LMC, unbiased coordinate-gradient Euler with full noise, random affine recursions and Gaussian precision-graph samplers; kernel noise support distinguishes prior Gaussian-invariance work.",
+        "searches": [
+          "full noise random coordinate Langevin gaussian exact invariant covariance H inverse and correlation stability K matrix",
+          "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-invariance-classification-for-random-coordinate-l--c6508a272de4/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target formula holds any d with constant diagonal and gives exact 2D anisotropic eigenvalue threshold and sharp supremum.",
+          "The rational finite examples and Gaussian covariance tables are supporting checks rather than the mathematical statement."
+        ],
+        "reasoning": "No read exact invariant-covariance table gives the universal correlation-independent law plus optimal 2D perturbation range.",
+        "searches": [
+          "full noise random coordinate Langevin gaussian exact invariant covariance H inverse and correlation stability K matrix",
+          "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf"
+        ]
+      },
+      "rationale": "Ding–Li JMLR 2021 supplies exactly the same full-noise unbiased random-coordinate gradient estimator and conservative general Wasserstein convergence analysis, not sharp quadratic finite-variance stationarity, exact isotropically inflated H^(-1), or 2D correlation gain. The superficially similar Oct13 Resultary Gaussian-invariant classification is for a different coordinate-only noise kernel sqrt(2h/p_I)e_I ξ, not the present sqrt(2h)ξ in every coordinate. Full prior RESULT inspected, so its Gaussian-law theorem does not cover this generally non-Gaussian stationary law or mean-square threshold. Best-of-knowledge exact classification survives.",
+      "residual_risks": [
+        "Unindexed random affine-recursion, SGD-with-noise or correlated Hessian sampling literature could contain an equivalent sharp second-moment theorem.",
+        "The stationary invariant law with infinite variance above the threshold is deliberately not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_KERNEL",
+          "evidence": "Prior update adds selected-coordinate noise only; present update adds full-dimensional noise, invalidating direct implication.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-invariance-classification-for-random-coordinate-l--c6508a272de4/RESULT.md",
+          "material_read": "Complete RESULT.md, including conditional-noise covariance, Gaussian-mixture rigidity, component criterion and examples",
+          "method": "Fetched and read full Resultary primary result",
+          "title": "Exact Gaussian-invariance classification for random-coordinate Langevin Euler sampling",
+          "trigger": "Closest exact random-coordinate Gaussian stationary law classification"
+        },
+        {
+          "assessment": "SAME_ALGORITHM_DIFFERENT_THEOREM",
+          "evidence": "Establishes model and general Wasserstein bounds, not exact sharp Gaussian quadratic mean-square h* or covariance inflation.",
+          "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+          "material_read": "Primary JMLR full article accessible; inspected Algorithm 2, eqs. (16)–(17), Theorem 3 and methodological convergence estimates in relevant sections",
+          "method": "Lawful primary PDF, extracted text and page screenshots of relevant sections",
+          "title": "Langevin Monte Carlo: random coordinate descent and variance reduction",
+          "trigger": "Original full-dimensional-noise random coordinate LMC algorithm"
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHM",
+          "evidence": "Single-coordinate-noise update is not the current full-noise scheme; no whole-document noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.01405",
+          "material_read": "Article abstract and model comparison with full Resultary primary result; complete paper not independently read in this run",
+          "method": "Open abstract/source-level comparison",
+          "title": "Random Coordinate Langevin Monte Carlo",
+          "trigger": "Potential stronger algorithm coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp finite-second-moment stability and exact stationary covariance are natural Gaussian sampling diagnostics. The counterintuitive strict stability gain from off-diagonal Hessian correlations and its universal unattained 1.207… envelope resolve a motivated parameter sensitivity question beyond conservative LMC conditions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://jmlr.csail.mit.edu/papers/volume22/20-1205/20-1205.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-invariance-classification-for-random-coordinate-l--c6508a272de4/RESULT.md",
+    "https://arxiv.org/abs/2010.01405"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform coordinate selection and independent full-dimensional Gaussian noise are essential; constant Hessian diagonal required for general-d exact covariance, general unequal diagonals sharp only in d=2.",
+    "No sharp mixing time, Gaussianity of the stationary distribution or target-exactness assertion."
+  ],
+  "residual_risks": [
+    "Unindexed random affine-recursion, SGD-with-noise or correlated Hessian sampling literature could contain an equivalent sharp second-moment theorem.",
+    "The stationary invariant law with infinite variance above the threshold is deliberately not ruled out."
+  ],
+  "schema_version": 1
+}

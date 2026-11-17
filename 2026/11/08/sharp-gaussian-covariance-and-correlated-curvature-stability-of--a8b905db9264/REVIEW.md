@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The covariance identity follows directly from the unbiased coordinate-map moment transfer operator. The equal-diagonal energy drift yields a necessary and sufficient threshold, including divergence exactly at the endpoint. The two-coordinate criterion is the exact positive-definiteness condition for a self-adjoint transformed moment operator, reduced through a Sylvester inverse to the displayed symmetric matrix. The sharp gain ceiling follows from a rank-one Loewner monotonicity and a one-variable maximization. The checker independently passed 427 assertions using exact rational matrices and a few explicitly marked numerical threshold checks. These checks supplement, and do not establish, the all-parameter proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Ding and Li (2020; JMLR 2021) introduce and analyze the identical full-noise RCD-O-LMC update. Their Theorem 3 provides general sufficient Wasserstein bounds; Section 4.3 studies an underdamped counterexample, not the exact sharp quadratic stability or invariant covariance identity. Ding, Li, Lu and Wright (2020–2021) analyze a distinct coordinate-local-noise chain. Actual semantic searches of published mathematical records found related underdamped Langevin-covariance and stochastic-gradient optimization records but not these exact claims; the nearest findings and implication comparisons are detailed in `AUDIT.json`. A historical specialist equivalent may still exist.
+PASS
 
-**Value — PASS.** This supplies a tight analytical benchmark for the effect of choosing only one gradient coordinate while retaining independent full-dimensional Langevin noise. Correlation-independent covariance inflation for constant diagonal and a strict, sharp correlated-curvature stability gain for unequal two-dimensional diagonals are practically meaningful diagnostics unavailable from purely sufficient small-step bounds. It does not guarantee mixing speed or Gaussian stationary distributions.
+For iid uniform coordinate J and independent full-dimensional ξ∼N(0,I_d), the exact second-moment operator is T_h(S)=d^(-1)Σ_j(I−dh e_j e_j^T H)S(I−dh H e_j e_j^T), with additive 2hI. Direct expansion T_h(H^(-1))=H^(-1)−2hI+dh²diag(H_jj) and H-energy contraction proves constant-diagonal unique finite-variance stationarity exactly h<2/(da), with covariance H^(-1)/(1−dah/2); above boundary positive forcing produces energy divergence, with no claim about infinite-variance stationary laws. In d=2 the Frobenius self-adjoint positive-cone transfer and Sylvester/evaluation reduction give h*=1/λmax(K), K=[[a−c²/(a+b),c²/(a+b)],[c²/(a+b),b−c²/(a+b)]]. Correlated unequal diagonals strictly decrease λmax and improve stability; taking singular positive-definite limit yields sharp unattained gain (1+√2)/2. Independent symbolic 2x2 example H=[[1,1],[1,4]] gives K=[[4/5,1/5],[1/5,19/5]] and h*=(23−sqrt229)/30 ≈0.26224>1/4.
 
-**Scientific limitations.** Strictly positive definite constant Hessians only. Sharp anisotropic result only in dimension two. Results concern finite-second-moment stability. Stationary distributions beyond the threshold with infinite moments are not analyzed. Invariant numerical laws need not be Gaussian. No independent scientific audit has occurred.
+## originality
 
-**Primary references.** Ding and Li, arXiv:2006.06068v1 (2020); Ding and Li, JMLR 22 (2021), 205; Ding, Li, Lu and Wright, arXiv:2010.01405v1 (2020).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ding–Li JMLR 2021 supplies exactly the same full-noise unbiased random-coordinate gradient estimator and conservative general Wasserstein convergence analysis, not sharp quadratic finite-variance stationarity, exact isotropically inflated H^(-1), or 2D correlation gain. The superficially similar Oct13 Resultary Gaussian-invariant classification is for a different coordinate-only noise kernel sqrt(2h/p_I)e_I ξ, not the present sqrt(2h)ξ in every coordinate. Full prior RESULT inspected, so its Gaussian-law theorem does not cover this generally non-Gaussian stationary law or mean-square threshold. Best-of-knowledge exact classification survives.
+
+## value
+
+PASS
+
+Sharp finite-second-moment stability and exact stationary covariance are natural Gaussian sampling diagnostics. The counterintuitive strict stability gain from off-diagonal Hessian correlations and its universal unattained 1.207… envelope resolve a motivated parameter sensitivity question beyond conservative LMC conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
