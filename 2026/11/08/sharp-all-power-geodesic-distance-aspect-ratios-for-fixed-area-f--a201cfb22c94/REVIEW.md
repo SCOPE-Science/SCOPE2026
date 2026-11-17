@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The shortest geodesic on the flat lateral cylinder is the shortest straight lift in its product cover. The normalized two-point law has independent uniform and triangular marginal differences; all integral coefficients and area scalings follow directly. Strict log-convexity and coercivity prove the unique all-power minimizer, while a positive antisymmetric integral shows the optimum is always below unit reduced aspect ratio. Explicit moments give the two sharp algebraic benchmarks. The Laplace proof accounts for the vanishing triangular density at the upper-right corner and correctly produces the first high-power correction. `CHECK.py` provides non-probative numerical corroboration.
+## correctness
 
-## Originality
-PASS on available comparisons, with historical-priority risk. Earlier accessible claims concerning flat cylinders and Möbius bands establish stochastic comparisons of two different surface topologies and normal-radius laws, not fixed-area all-power shape optimization within flat cylinders. Published studies of Euclidean spherical pair distances and planar polygonal rings use different objects and distance laws. The closest published cylinder-shadow analysis treats projected area and perimeter, not intrinsic pair distances. This conclusion is provisional, because older specialized geodesic-distance literature has not been exhaustively indexed.
+PASS
 
-## Value
-PASS. The question compares natural Riemannian surfaces of fixed area under intrinsic metric transport costs. It gives a complete sharp optimizer for every positive power, provides two exact distinct benchmark aspect ratios showing no common moment optimum, and determines the previously non-obvious first high-power boundary correction from the vanishing density of large axial separations. The coefficient \(2\) in the reduced aspect-ratio correction is a geometric-probabilistic feature beyond the elementary second-moment calculation.
+On the flat lateral product cylinder, wrapped angular displacement is U~Uniform[0,1], axial difference V has density 2(1-v), independently; D^2/A=(qU^2+q^{-1}V^2)/2. In log q, every positive integrand is strictly log-convex for p>0, and the averaged moment diverges at both ends, ensuring a unique optimum. Symmetrizing the positive derivative at q=1 shows the optimum lies in (0,1). Direct integration gives q2=1/sqrt2, q4=3^(-1/4), and the exact minimum moments. Laplace endpoint concentration with uniform exponential domination yields q_p=1-2/p+o(1/p), with no claim of small-p monotonicity. Independent 140-node Gauss-Legendre quadrature reproduced q2, q4 and q100=0.9805634068287064, and the p100 scaled deficit near 2. Numerical work only checks instances, not the all-p argument.
 
-## Limits and priority risk
-The theorem excludes end caps, three-dimensional chords, noncircular cylinders, nonuniform point measures and claims of monotonicity of the optimal ratio with the moment order. The manuscript's contribution is optimization over aspect ratio, not the elementary flat-cylinder metric or the general principle of log-convexity. Tong--Pan's Section IV and Tu--Fischbach's moment discussion were materially examined. Relevant older specialized cylinder papers may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published full intrinsic cylinder-distance law already gives the underlying U,V distribution and all even distance moments. Earlier three-moment cylinder reconstruction further establishes m2,m4,m6 polynomials; consequently p2/p4 minimization is an elementary corollary, not a distinct novelty. The all-real-positive-power strict unique optimum and its sharp high-power 2/p correction were not stated or implied by the inspected moment distribution and inverse-problem records. The surviving claim uses a continuum of exponents and a uniform endpoint-Laplace analysis.
+
+## value
+
+PASS
+
+Fixed-area intrinsic distance-moment shape optimization is a natural geometric design problem. The proof of uniqueness for every real exponent and the nontrivial high-order asymptotic correction reveal how optimal aspect ratios vary with loss sensitivity. The two even-power optimizers alone would be routine deductions from older moment formulas, but the all-p structure and sharp transition toward q=1 justify the complete claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
