@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 check_inertia.py` with Python 3 standard library. The file enumerates every positive composition of total size from 1 through 7. For each composition, it enumerates all within-layer permutations (every linear-extension chamber), builds the order-polytope simplex vertices and their piecewise-affine transfer images in the chain polytope, and integrates each coordinate product over the simplex using the barycentric moment formula. All quantities use `fractions.Fraction`, not floating point.
+## correctness
 
-Recorded direct execution result: `ORDER_CHAIN_DIRICHLET_SIMPLEX_CHECKS_PASSED 127 1813 1981 21`. The program made 127 independent composition checks of the inertia-gap identity and 1,813 within-layer covariance-entry comparisons. The same run also made 1,981 fixed-height extremizer-profile checks through eleven coordinates and 21 exact two-level vertex-reflection checks. Those counts refer to executed tests, not to any exhaustive statement for unbounded dimension.
+PASS
 
-Independent analytical checks: the transfer's inverse and triangular unit Jacobian are explicitly proved in RESULT.md; each coordinate's order-statistic and spacing moments are independently derived from Dirichlet gaps; summation counts each triple of distinct layers once; and balancing transfers have an exact positive increment when two layer sizes differ by at least two. The proof covers all positive layer sizes without a computation cutoff.
+The transfer x_v -> y_v=x_v-max(previous layer) is an invertible unit-Jacobian piecewise-affine bijection and couples volume-uniform points. Within each layer, random within-layer order-statistic ranks and Dirichlet(1,...,1) spacings give the exact covariance-entry difference s_g(N-s_g-m_g)/((N+1)^2(N+2)) for any two labels in that layer. Summing m_g identical variance gaps counts e3(m_1,...,m_k) once over triples of distinct layers. For k<=2 an explicit coordinate reflection is a Euclidean isometry; k>=3 the positive trace gap precludes congruence. Elementary smoothing of two layer sizes differing by >=2 proves sharp fixed-N,k extremizers. Independently specializing the full general-poset linear-extension formula with deterministic ranks a=s_g,b=s_g+m_g+1 reproduces exactly this diagonal variance and e3 for compositions (1,1,1),(2,3,4),(4,1,2,1),(2,2,2,2). Source checker used independent rational simplex integrals in 127 compositions, not the Dirichlet formula; finite tests are not an all-N proof.
 
-The method assumes uniform volume measure, the canonical coordinate Euclidean metric and nonempty antichain layers. It does not establish analogous inequalities for arbitrary posets or for the full covariance matrices in the positive-semidefinite order. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+A general all-poset coordinatewise-variance theorem published in the same November 8 corpus supplies a rank/linear-extension formula whose deterministic-rank specialization immediately reproduces the diagonal variance and e3 numerator; these components are emphatically NOT independently new after that theorem. Crucially that full general-result text explicitly calls the ordinal-sum exact inertia expression a previously obtained strict special case, rather than claiming antecedence. Exact publication order within the shared date/aggregate Git commit is unverified, and the submitted complete within-layer off-diagonal covariance identity and sharp fixed-height optimization are not in the broader general theorem. On that evidence this older specialized finding retains a qualified best-of-knowledge originality PASS, with no assertion that its headline improves on the now-published general result.
+
+## value
+
+PASS
+
+The exact symmetric e3 inertia formula, all-entry within-layer covariance block structure, rank bound and sharp balancing/extremal layer compositions give a natural metric classification of canonical order/chain polytope pairs. The formula is no longer new relative to the full general-poset theorem, but the reported specialized antecedence and extra covariance/extremizer information make its historical mathematical contribution substantive rather than a bare textbook numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
