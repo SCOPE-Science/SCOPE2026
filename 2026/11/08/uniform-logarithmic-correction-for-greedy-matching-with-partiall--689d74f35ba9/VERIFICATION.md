@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with standard Python 3. A successful replay prints `VERIFY_OK 4937 exact assertions`.
+## correctness
 
-The implementation separately computes the greedy failure probability from (a) the reduced \((k,t)\) Markov chain and (b) the full unmatched-left and unmatched-right vertex subsets on every \(G_{n,r}\) for \(2\le n\le6\). It compares the resulting fractions exactly. It also tests the normalization of transition weights and both conditional moment identities for \(2\le k\le40\), and evaluates the finite bound for \(2\le n\le30\) and all \(r\). No external packages are needed.
+PASS
 
-The full uniform asymptotic and universal error constant are justified by the analytical inequalities in `RESULT.md`, not by finite-case testing. The computation cannot establish bibliographic priority or independent certification.
+Exact transitions for t surviving deleted pairs are t(t−1),2t(k−t),(k−t)² over k²−t feasible edges. Final failure occurs exactly at k=1,t=1. The U_k factorial-moment potential telescopes to nonnegative correction; the second normalized factorial moment V_k satisfies exact drift η≤6/[k(k−1)], and W_k differs from 1/k by ≤3/[k(k−1)]. Summing yields the stated absolute 36v all n≥2 and uniform O(1/log n) relative error for 2≤r≤n. Checked all edge cases r=0,1 and exact rational finite examples.
+
+## originality
+
+PASS
+
+The full crown r=n logarithmic correction was published earlier and is excluded; the uniform partial matching-deletion interpolation is not implied by that single boundary or random-graph mean matching theorems.
+
+## value
+
+PASS
+
+The correct limiting correction remains informative from fixed sparse forbidden-pair deletions through the densely deleted crown regime, a natural interpolation with exact finite recurrence and nontrivial uniform logarithmic coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
