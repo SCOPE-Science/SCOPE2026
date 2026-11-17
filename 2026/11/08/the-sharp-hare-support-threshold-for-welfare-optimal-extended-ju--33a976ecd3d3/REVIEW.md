@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central exchange lemma uses the exact JR witness of \(q\) previously unrepresented voters, degree \(q\) for every selected candidate under welfare optimality, and forced incidence overlap since \(kq\ge n>n-q\). The exchange replaces equal degrees, gains \(q\) represented voters, and loses at most \(q-1\). It proves strict monotonic coverage without overlooking ties or empty ballots. The reduction of EJR to JR follows because no candidate can have the support required for an \(\ell\ge2\) cohesive group. The sharp family has explicitly specified approvals, unique welfare optimum, JR alternative and exact score gap. The provided C++ checker passed all \(1{,}803{,}670\) eligible small election-size instances, and the sharp-family arithmetic for \(q\le100\). The infinite claim rests on the complete proof rather than the checker.
+PASS
 
-## Originality — PASS (qualified)
+For q=ceil(n/k), max candidate degree <=q makes all ell>=2 cohesive groups impossible (ceil(ell n/k)>q); hence EJR reduces to JR. If a welfare-maximizing committee has a JR violation, an unselected candidate c must have exactly q uncovered supporters, and all selected candidates have degree exactly q. The kq>=n selected incidences are concentrated on at most n-q covered voters, forcing overlap of at least two selected candidate supports. Removing one overlapping degree-q candidate and selecting c retains welfare and increases covered voters by >=1. A coverage-max welfare optimum cannot violate JR, and iterating stops within <=n swaps. A degree-q+1 family with n=3q,k=3 and distinct groups of sizes q+1,q,q-1 produces a unique welfare-max {a,b,c} that violates JR, whereas {a,b,d} obtains welfare 3q+2. This covers all integer q>=1, including q=1. Independently enumerated 110874 eligible small approval instances up to n=4,m=4 (all k), confirming no welfare-and-coverage-max witness violates JR; theorem relies on the exchange proof.
 
-Full relevant material inspected: Dong (2026), arXiv:2609.08357, its model, hardness theorem and degree-three/degree-four reduction; Elkind et al. (2024), DOI 10.1145/3676953, its welfare price results, algorithms and motivating example; Schünke (2026), arXiv:2605.30490, its restricted interval-domain characterizations and positive algorithms. The classic JR/EJR reference was consulted at the definition/result level. The closest prior positive result under \(\le2\) approvals per *voter* and fixed \(k=3\) does not subsume the new condition \(\le\lceil n/k\rceil\) approvals per *candidate* for arbitrary \(k\): row sparsity and column sparsity are independent restrictions. Semantically related published records on assignment and apportionment did not assert this statement. Indexed searches found no exact theorem; residual risk of independently rediscovered elementary exchange principles remains. Search absence is not evidence of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A newly motivated tractability boundary is extracted from a general NP-hard fair-and-efficient voting problem: the maximum per-candidate support controls whether **zero** utilitarian welfare needs to be sacrificed for EJR. The conclusion is constructive, works for every population and committee size and arbitrary individual approval patterns, and has a sharp one-vote degree boundary. This is a structural condition rather than a computational curiosity or a renaming of the earlier bounded-voter-ballot result.
+The Hare quota upper bound on per-candidate support and exact degree-(q+1) counterexamples give a structurally new tractable welfare/EJR compatibility regime. Inspected published general welfare/JR price results and unrestricted hardness do not imply this support degree threshold.
 
-## Scientific limitations and closest results
+## value
 
-The statement does not treat EJR+, fractional Pareto optimality, or profiles with larger candidate supports on an instance-by-instance basis. Dong's full-domain hardness, Elkind et al.'s generic price-of-JR bounds, and Schünke's interval-domain algorithms remain distinct. Unindexed equivalent sufficient conditions remain a priority risk. No external independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies a natural election sparsity boundary at one Hare quota of supporters per candidate, constructs welfare- and EJR-optimal committees in polynomial time, and proves uniform tightness one supporter beyond. This resolves a genuine fairness–welfare tradeoff on a motivated domain and is not merely a tautological identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

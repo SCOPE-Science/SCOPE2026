@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T13:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and verify_quota.cpp blob d4c4c103cf5d3d116d1df0fcdde12c91702f92f2",
+        "independent_checks.py: complete bounded approval-profile search n<=4,m<=4"
+      ],
+      "rationale": "For q=ceil(n/k), max candidate degree <=q makes all ell>=2 cohesive groups impossible (ceil(ell n/k)>q); hence EJR reduces to JR. If a welfare-maximizing committee has a JR violation, an unselected candidate c must have exactly q uncovered supporters, and all selected candidates have degree exactly q. The kq>=n selected incidences are concentrated on at most n-q covered voters, forcing overlap of at least two selected candidate supports. Removing one overlapping degree-q candidate and selecting c retains welfare and increases covered voters by >=1. A coverage-max welfare optimum cannot violate JR, and iterating stops within <=n swaps. A degree-q+1 family with n=3q,k=3 and distinct groups of sizes q+1,q,q-1 produces a unique welfare-max {a,b,c} that violates JR, whereas {a,b,d} obtains welfare 3q+2. This covers all integer q>=1, including q=1. Independently enumerated 110874 eligible small approval instances up to n=4,m=4 (all k), confirming no welfare-and-coverage-max witness violates JR; theorem relies on the exchange proof.",
+      "residual_risks": [
+        "Does not guarantee EVERY welfare-max committee is EJR; coverage tie breaking may be needed; does not extend to candidate support >q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkind et al. establish a general welfare/coverage price, examples and algorithms without an upper bound d(c)<=ceil(n/k). Dong proves unrestricted simultaneous JR/Pareto hardness; that does not rule out degree-constrained polynomial time."
+        ],
+        "reasoning": "General worst-case inefficiency/hardness is compatible with an exact zero price and efficient exchange on the sparse candidate-support subdomain; those prior statements do not dominate this theorem.",
+        "searches": [
+          "Elkind Faliszewski Igarashi price of justified representation welfare Pareto optimal coverage theorem",
+          "Dong jointly satisfying Pareto optimality and JR NP hard 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2112.05994",
+        "https://arxiv.org/abs/2609.08357",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-quota-arithmetic-threshold-for-welfare-maximal-justified--72ab8933f8ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published general welfare price may exceed one, whereas the submitted sparsity constraint forces price exactly one and EJR; unrelated two-approval ballot condition does not imply a bound on each candidate degree."
+        ],
+        "reasoning": "Prior studies do not yield the submitted constructive exchange or its uniform +1 degree sharpness; conversely the submitted restricted result does not contradict unrestricted hardness.",
+        "searches": [
+          "https://arxiv.org/abs/2112.05994",
+          "https://arxiv.org/abs/2609.08357",
+          "Resultary quota-arithmetic two-approval theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EJR reduces to JR under max degree <=q because ell>=2 cohesive groups cannot exist; welfare is sum of selected candidate degrees and Pareto optimality follows from its strict monotonic additive objective."
+        ],
+        "reasoning": "Translated stronger EJR condition into JR in this precise sparse-degree domain; this mathematical equivalence is a step of the proof, not a prior welfare-optimal committee theorem.",
+        "searches": [
+          "maximum candidate supporter degree Hare quota welfare optimal EJR JR Pareto approval elections",
+          "https://arxiv.org/abs/2112.05994"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant result on at most two approvals per voter imposes a ROW bound, not a bound on support degree per candidate; there is no found exact q upper support cutoff table."
+        ],
+        "reasoning": "This is a uniform parameterized theorem with a family of sharp witnesses, not a narrow known numerical database lookup.",
+        "searches": [
+          "Hare support at most ceil n/k EJR coverage welfare maximizer sharp q+1",
+          "Resultary semantic voting representation support threshold"
+        ]
+      },
+      "rationale": "The Hare quota upper bound on per-candidate support and exact degree-(q+1) counterexamples give a structurally new tractable welfare/EJR compatibility regime. Inspected published general welfare/JR price results and unrestricted hardness do not imply this support degree threshold.",
+      "residual_risks": [
+        "Exact exchange lemma might occur unindexed in committee-selection algorithm literature.",
+        "The Sep 2026 hardness paper was accessible in abstract but not full proof: arXiv PDF/HTML and OA full-text attempts failed and Oxford authorized access returned vpn_disconnected (job ff13b88035b72ba975bf8c1c64328c26). This is an access risk, not proof of overlap or a scientific failure; the unrestricted domain does not logically dominate the sparse-degree theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CASE_NO_SUPPORT_BOUND",
+          "evidence": "Shows general JR/EJR welfare tradeoffs, but not d(c)<=ceil(n/k) zero-price criterion or all-q +1 witness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.05994",
+          "material_read": "Public full PDF, abstract/introduction, formal welfare and coverage criteria, theorem statements on price and complexity",
+          "method": "Read original PDF text and first-page image; compared hypotheses",
+          "title": "The Price of Justified Representation",
+          "trigger": "Primary same welfare and coverage objectives under JR/EJR"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_AND_NOT_COVERING_BY_ABSTRACT",
+          "evidence": "Hardness in unrestricted approvals cannot by itself exclude sparse-degree tractability. Full technical comparison is a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.08357",
+          "material_read": "Public abstract and source summary; full text not obtained in this audit",
+          "method": "arXiv abstract/source search",
+          "title": "Jointly Satisfying Pareto Optimality and Justified Representation is NP-Hard in Approval-Based Multiwinner Voting",
+          "trigger": "Unrestricted NP-hardness may dominate tractability claim"
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRAINT",
+          "evidence": "Limits approvals per voter and three seats; does not assume candidate support<=Hare quota, so different parameter regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-quota-arithmetic-threshold-for-welfare-maximal-justified--72ab8933f8ac",
+          "material_read": "Published semantic summary and hypotheses",
+          "method": "Resultary targeted semantic search",
+          "title": "A sharp quota-arithmetic threshold for welfare-maximal justified representation under two approvals",
+          "trigger": "Similar welfare-maximal/JR theme and quota threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Elkind et al. general price of representation; exact JR exchange and sharp family"
+      ],
+      "rationale": "Identifies a natural election sparsity boundary at one Hare quota of supporters per candidate, constructs welfare- and EJR-optimal committees in polynomial time, and proves uniform tightness one supporter beyond. This resolves a genuine fairness–welfare tradeoff on a motivated domain and is not merely a tautological identity.",
+      "residual_risks": [
+        "Applies only to unweighted dichotomous additive welfare and ordinary EJR, not stronger variants or variable candidate budgets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not guarantee EVERY welfare-max committee is EJR; coverage tie breaking may be needed; does not extend to candidate support >q.",
+    "Exact exchange lemma might occur unindexed in committee-selection algorithm literature.",
+    "The Sep 2026 hardness paper was accessible in abstract but not full proof: arXiv PDF/HTML and OA full-text attempts failed and Oxford authorized access returned vpn_disconnected (job ff13b88035b72ba975bf8c1c64328c26). This is an access risk, not proof of overlap or a scientific failure; the unrestricted domain does not logically dominate the sparse-degree theorem.",
+    "Applies only to unweighted dichotomous additive welfare and ordinary EJR, not stronger variants or variable candidate budgets."
+  ],
+  "schema_version": 1
+}
