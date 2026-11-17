@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run the standalone `verify.py` with Python 3, requiring no nonstandard packages. The run in this package passed 2,832 exact-rational spectral instances, 306 complete transition-matrix rows and both exceptional signed spectral dual identities.
+## correctness
 
-The checker implements the explicit Krawtchouk formulas and independently forms full finite transition matrices for \((d,q)=(2,3),(3,3),(3,4),(4,3),(3,5)\). It checks stochasticity, distance-two support when claimed and exact coordinate marginals.
+PASS
 
-Finite checks do not prove the all-integer claim. The infinite-parameter proof uses convexity of the quadratic distance-two eigenvalue, the endpoint inequality \(d(q-2)\ge2(q-1)\), positivity of \(F(d,q)\) in both stated parameter regions, and spectral trace saturation. These steps are given in `RESULT.md` and have been reconstructed separately.
+The assigned RESULT.md constructs Krawtchouk eigenvalues from (1+(q-1)z)^(d-k)(1-z)^k, reducing unrestricted symmetric radius-two Hamming mixing by group averaging to two shell weights. Degree-one lambda_1 >=1-2q/[d(q-1)] with equality generically only at pure shell two; the quadratic completion-of-square bound F(d,q)>0 controls every negative Fourier eigenvalue. Signed positive dual combinations certify the d=3,q=3 and d=3,q=4 exceptions (SLEM 1/7). For all unrestricted generic optima, trace saturation of mI-P on degree-one harmonics and rowwise change count force zero holding and distance-one mass and each changed symbol marginal 2/[d(q-1)]. d=2 is complete graph with unique Pi. Independent Fraction computations checked 165 d,q cases. The derivation, not finite tests, covers every integer d>=2,q>=3.
 
-No independent external mathematical validation has been performed.
+## originality
+
+PASS
+
+A natural nonbinary extension of radius-two Hamming fastest mixing with two exceptional parameter pairs and necessary *all-unrestricted-optimizer* rigidity survives comparison; generic automorphism averaging and binary q=2 predecessor are related ingredients, not this q>=3 classification.
+
+## value
+
+PASS
+
+Determines the sharp fastest reversible symmetric mixing rate under a natural two-symbol-change communication budget for every nonbinary alphabet and dimension; two small-parameter exceptions and the universal optimizer-support/one-coordinate marginal law are structurally informative and potentially reusable, not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
