@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the unit-directed prey-to-consumer chain with existing basal-to-apex shortcut, the trophic levels are prey averages and the original squared incoherence is (n-2)²/(2n). Every admissible missing forward edge is either internal i->j with j<=n-2 and skip h>=1, or apex-targeting i->n-1. In the internal case, local prey-average shifts of -h/2 propagate to the penultimate node and -h/4 to the apex, giving q_int²=[h²+(k-h/2)²]/[2(n+1)], k=n-2. Completing square gives unique nearest integer h=floor((2k+2)/5); half-ties are arithmetically impossible. Apex additions have q_apex²=2(k²-ki+i²)/[3(n+1)]>=k²/[2(n+1)], strictly above the attainable internal optimum for k>=2. The h=1 option shows strict improvement; leading ratio tends to 4/5. Independent Fraction computations recomputed each admissible edge for n=4..11 and verified all argmin sets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary formula for one acyclic edge on a pure rooted tree gives squared cost (depth(v)-depth(u)-1)^2/(2n), but assumes zero-coherence base tree and cannot quantify a second apex averaging interaction.",
+          "The 2014 foundation gives trophic coherence/stability models; the 2017 article gives motif families and stochastic assembly, without an exact global optimum over all missing forward edges on these chains."
+        ],
+        "reasoning": "A general rooted-tree result is not logically stronger on the initial apex-omnivorous graph. The claimed two-edge interaction and integer argmin survive source-model and quantitative comparison.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-one-link-trophic-incoherence-law-for-rooted-food-webs--7c0868dced78/RESULT.md",
+          "https://arxiv.org/html/1404.7728v3",
+          "https://arxiv.org/html/1609.04318v1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-one-link-trophic-incoherence-law-for-rooted-food-webs--7c0868dced78/RESULT.md",
+        "https://arxiv.org/html/1404.7728v3",
+        "https://arxiv.org/html/1609.04318v1",
+        "https://www.frontiersin.org/journals/applied-mathematics-and-statistics/articles/10.3389/fams.2024.1512865/full"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older theorem starts with q0=0 and one target of indegree two. Here q0²=(n-2)²/(2n)>0 and the extra internal edge shifts the already doubly fed apex by -h/4, producing the distinct quadratic h²+(k-h/2)².",
+          "Optimization balances two different incoherence sources and rules out apex-directed additions via a separate lower bound."
+        ],
+        "reasoning": "Neither the one-link rooted-tree formula nor generic trophic-coherence definitions determine this competing-deviation optimization by substitution; a new two-target perturbation and integer minimization is necessary.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-one-link-trophic-incoherence-law-for-rooted-food-webs--7c0868dced78/RESULT.md",
+          "https://arxiv.org/html/1404.7728v3",
+          "https://arxiv.org/html/1609.04318v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both old and new formulas use Johnson-type prey-average trophic levels and squared deviation of trophic distances.",
+          "The old result starts from a rooted tree with a single incoming edge per nonbasal node; the new baseline is a directed path plus basal-to-apex feeding edge, with two prey at the apex before optimization."
+        ],
+        "reasoning": "Same normalization and terminology do not make the graph families equivalent. The presence of a preexisting extra edge changes all apex response terms, so the second augmentation is not an instance of the rooted-tree one-augmentation theorem.",
+        "searches": [
+          "Resultary search: one link trophic incoherence law rooted food webs optimal apex omnivory",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-one-link-trophic-incoherence-law-for-rooted-food-webs--7c0868dced78/RESULT.md",
+          "https://arxiv.org/html/1404.7728v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier tree result enumerates zero-cost additions to rooted trees, not one further forward edge after apex omnivory.",
+          "The primary food-web source tabulates observational motif and network indices, not h=floor((2n-2)/5) exact optimizers."
+        ],
+        "reasoning": "No known exact table or graph-indexed formula computes the presented two-link problem; an absence in search alone is not a priority certificate.",
+        "searches": [
+          "Resultary search: trophic incoherence one added feeding link chain omnivory apex optimal skip 2n/5",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-one-link-trophic-incoherence-law-for-rooted-food-webs--7c0868dced78/RESULT.md",
+          "https://arxiv.org/html/1609.04318v1"
+        ]
+      },
+      "rationale": "A prior exact one-added-link trophic-incoherence theorem for rooted out-trees is a closely related stronger graph-family statement, but its baseline requires every nonbasal node to have exactly one prey and q0=0. The submitted graph ALREADY contains the basal-to-apex omnivory edge, so its apex has two incoming prey and nonzero q0 before the new link; the older theorem cannot be reapplied to this second-edge setting. Johnson et al. define the metric and model food-web stability; Klaise-Johnson examine random motif assembly and omnivory rather than the deterministic all-n two-omnivory optimum. No inspected source supplies the unique optimal skip h=floor((2n-2)/5) and 4/5 ratio in this precise graph/metric. Priority is best-of-knowledge only.",
+      "residual_risks": [
+        "The family is deliberately narrow; the result does not extend to arbitrary directed acyclic food webs, weighted links or several simultaneous added links.",
+        "An unlocated ecological network design theorem or thesis might give the same edge-augmentation minimizer.",
+        "No dynamical stability or ecosystem-management benefit is established from decreasing q²."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_BASELINE_NOT_COVERING",
+          "evidence": [
+            "Original graph must be an arborescence and have q0=0; second link after preexisting apex shortcut falls outside premises."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-one-link-trophic-incoherence-law-for-rooted-food-webs--7c0868dced78/RESULT.md",
+          "material_read": "Complete published RESULT.md including assumptions, tree recursion, acyclic/feedback formulas and proof",
+          "method": "Read full GitHub science text and compared initial indegree assumptions",
+          "title": "An exact one-link trophic-incoherence law for rooted food webs",
+          "trigger": "Highly plausible exact general covering formula on same metric"
+        },
+        {
+          "assessment": "METRIC_AND_STOCHASTIC_MODEL_ONLY",
+          "evidence": [
+            "Prey-average q, stochastic network assembly and stability correlation, not a deterministic 2/5 rule for a second shortcut on a fixed chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1404.7728v3",
+          "material_read": "Accessible arXiv full supporting-information HTML, network models, Section 3.1 trophic coherence and apex discussion; main paper abstract",
+          "method": "Read accessible primary text with focus on network measures and preferential preying model",
+          "title": "Trophic coherence determines food-web stability",
+          "trigger": "Original established trophic q normalization and possible link intervention theorem"
+        },
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_ASSEMBLY",
+          "evidence": [
+            "Studies motif-family distributions and tunable coherence, not this all-n exact single new edge optimizer after a preexisting apex link."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1609.04318v1",
+          "material_read": "Accessible full arXiv HTML article, model methods, three-species motifs and trophic-coherence comparisons",
+          "method": "Read original open paper relevant definitions, results and figures",
+          "title": "The Origin of Motif Families in Food Webs",
+          "trigger": "Same omnivory and trophic-coherence terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating structural question is whether one additional feeding link can restore coherence after an apex shortcut already disrupts the chain. For every size, the exact non-apex optimal skip spans roughly 2/5 of the chain, its placement is translation-independent within allowed internal positions, and it reduces squared incoherence by asymptotically 20%. This is a natural complete constrained network-optimization classification on the established prey-average q metric, not an unsupported inference of biological stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unweighted forward-only acyclic one-edge addition, fixed basal/apex topology; structural q metric only.",
+    "The finite checks do not prove the all-n optimizer; direct two-case quadratic calculation does."
+  ],
+  "schema_version": 1
+}

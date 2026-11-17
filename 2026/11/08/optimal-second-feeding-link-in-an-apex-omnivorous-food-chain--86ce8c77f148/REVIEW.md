@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain is a forward-only extra link in an unweighted \(n\)-species path with a basal-to-apex edge. The proof partitions **all** admissible absent forward edges into those targeting an internal consumer and those targeting the apex. Direct trophic-level propagation yields the two exact rational \(q^2\) formulas, and completing the square gives the unique optimal skipped span and excludes apex additions. The strict comparison and asymptotic ratio follow without numerical assumptions. Standalone exact-rational checks directly recompute every admissible link for all \(4\le n\le32\). These finite checks supplement the infinite algebraic proof.
+PASS
 
-## Originality — PASS within investigated sources
+In the unit-directed prey-to-consumer chain with existing basal-to-apex shortcut, the trophic levels are prey averages and the original squared incoherence is (n-2)²/(2n). Every admissible missing forward edge is either internal i->j with j<=n-2 and skip h>=1, or apex-targeting i->n-1. In the internal case, local prey-average shifts of -h/2 propagate to the penultimate node and -h/4 to the apex, giving q_int²=[h²+(k-h/2)²]/[2(n+1)], k=n-2. Completing square gives unique nearest integer h=floor((2k+2)/5); half-ties are arithmetically impossible. Apex additions have q_apex²=2(k²-ki+i²)/[3(n+1)]>=k²/[2(n+1)], strictly above the attainable internal optimum for k>=2. The h=1 option shows strict improvement; leading ratio tends to 4/5. Independent Fraction computations recomputed each admissible edge for n=4..11 and verified all argmin sets.
 
-The 2014 Johnson et al. paper defines the trophic levels and index and investigates generative food-web models and stability, but does not classify a deterministic single-edge optimization in an already shortcut-containing chain. The full main text of the 2017 Klaise–Johnson paper likewise studies motif signatures and random assembly, not the precise rule or its all-order guarantee. Search comparisons include aliases for omnivory, edge addition, repair, feeding distance and trophic incoherence, alongside semantic research records and related prior scientific claims. A later non-normality article uses another trophic-level convention, and its general objective is not the same as prey-average \(q^2\). Residual risk: unexamined special-purpose results, theses or appendices may contain an equivalent reduction; no failed search alone is a novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating question is structural repair of a food chain already perturbed by long-range apex omnivory: can one extra trophic link make the overall hierarchy **more** coherent? The exact answer both establishes strict improvement for all lengths and identifies the globally optimal new feeding distance—roughly two-fifths of the chain—with an asymptotic 20% reduction in squared incoherence. The independence of the position of the new link is also a structural explanation, not just a decimal optimization. These statements are motivated by the original coherence–omnivory relationship, without claiming stability or conservation benefits not proved by the model.
+A prior exact one-added-link trophic-incoherence theorem for rooted out-trees is a closely related stronger graph-family statement, but its baseline requires every nonbasal node to have exactly one prey and q0=0. The submitted graph ALREADY contains the basal-to-apex omnivory edge, so its apex has two incoming prey and nonzero q0 before the new link; the older theorem cannot be reapplied to this second-edge setting. Johnson et al. define the metric and model food-web stability; Klaise-Johnson examine random motif assembly and omnivory rather than the deterministic all-n two-omnivory optimum. No inspected source supplies the unique optimal skip h=floor((2n-2)/5) and 4/5 ratio in this precise graph/metric. Priority is best-of-knowledge only.
 
-## Closest literature and limitations
+## value
 
-- Johnson et al. (2014), doi:10.1073/pnas.1409077111: original index and probabilistic food-web assembly, not deterministic chain repair.
-- Klaise and Johnson (2017), doi:10.1038/s41598-017-15496-1: food-web motifs and stochastic prey assignment, not exact optimal one-edge augmentation.
-- Drysdale and Johnson (2025), doi:10.3389/fams.2024.1512865: related but distinct trophic-level convention and non-normality framework.
+PASS
 
-Only one unweighted forward new edge and this one chain family are proved. Independent historical-priority review has not been done.
+The motivating structural question is whether one additional feeding link can restore coherence after an apex shortcut already disrupts the chain. For every size, the exact non-apex optimal skip spans roughly 2/5 of the chain, its placement is translation-independent within allowed internal positions, and it reduces squared incoherence by asymptotically 20%. This is a natural complete constrained network-optimization classification on the established prey-average q metric, not an unsupported inference of biological stability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
