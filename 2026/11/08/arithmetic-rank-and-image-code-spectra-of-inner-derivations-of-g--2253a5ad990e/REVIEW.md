@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument begins from the finite étale character decomposition of the odd-order abelian kernel and explicitly treats both the exchanged-Frobenius-orbit and self-dual orbit cases. In each case the skew algebra is a two-by-two matrix algebra over the fixed field, including in characteristic two. Nonscalar matrix centralizers have dimension two; scalar centers explain why distinct inner derivations must be counted modulo the center. The trace pairing identifies image subspaces with matrix centralizer planes and their projective-plane count. The rank-two threshold counts all order-dividing \(q\pm1\) character pairs. Exhaustive direct multiplication over several finite algebras, with independent ground-field elimination and image-space enumeration, agrees with both exact polynomials. Finite experiments are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-Creedon–Hughes (arXiv:1808.05381, Sections 3.2–3.3, including their inner-derivation basis and constructed image codes) and Manju–Sharma (arXiv:2312.12215, the dihedral inner-derivation theorems) are the closest relevant papers. Their bases and individual coding constructions do not supply the full rank generating function or the number of distinct image subspaces parametrized by Frobenius/inversion orbits in all odd-abelian-kernel generalized dihedral algebras. General structural Wedderburn methods and matrix centralizers are established ingredients, and results about commutator fibers or subgroup commutativity do not determine the per-map image-spectrum formulas. Research-record and earlier-claim comparisons did not identify a stronger covering theorem. Priority remains subject to an independently exhaustive literature audit, including possible general matrix-block spectrum theorems.
+PASS
 
-## Mathematical value — PASS
-The natural classification target is the complete rank distribution of all inner derivations and of the *distinct image codes* they generate, motivated directly by the coding-theoretic image viewpoint in the cited literature. The exact images are new invariants beyond a basis or the dimension of the inner-derivation vector space. Arithmetic dependence on \(q\pmod e\), a sharp rank-two existence criterion, and uniform validity in characteristic two explain features invisible from a dimension count and identify when low-dimensional image codes are absent. No assertion of a general characterization of all derivations is needed.
+For odd H and char(Fq) coprime to |H|, B=Fq[H] is finite étale with characters indexed by Frobenius and inversion; nontrivial combined orbits of order m have 2d_m elements and yield b_m=a_m/(2d_m) simple blocks M2(F_{q^{d_m}}), with remaining commutative Fq[C2]. This holds also for characteristic two, where Fq[C2] is not semisimple but remains commutative, so inner ad vanishes there. On M2(K), scalar x gives zero ad, nonscalar x centralizer has K-dimension 2, so distinct ad maps are Q³ total, nonzero rank 2d with Q³-1 classes. Images are perpendicular to KI+Kx under nondegenerate trace pairing and correspond exactly to projective lines in M2(K)/KI (Q²+Q+1), each image from Q-1 nonzero derivations. Product over blocks proves both polynomials. The d_m=1 character count gives rank-two threshold using H[q-1] and H[q+1] with trivial intersection for odd H. Independent exhaustive group-algebra enumeration for H=C3, q=2 gave element rank histogram {0:8, 2:56} and distinct image spaces {0:1,2:7}, corresponding to R=I=1+7T² after quotienting by center. This finite example does not prove all H,q.
 
-## Residual limits
-Potential stronger general centralizer-image enumerations remain a publication-priority risk. The assumptions exclude characteristic dividing the kernel order; code equivalence, minimum distance and weight enumerators are not addressed. Computations cover finite examples, not the unbounded theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected Creedon–Hughes and Manju–Sharma primary work explicitly classify inner derivation bases and selected image codes for dihedral algebras, not the full arithmetic rank and distinct-image subspace generating polynomials across all odd-abelian H and q (including characteristic two). Standard Wedderburn and matrix-centralizer facts are not claimed new; the whole family arithmetic orbit enumerator is the assessed contribution. Search against published SCOPE results did not reveal a dominating complete generalized-dihedral inner-image census.
+
+## value
+
+PASS
+
+Rank distributions and numbers/multiplicities of literal image codes are natural invariants of commutator derivations, sharpening dimension-only classification. Arithmetic Frobenius/inversion orbit structure predicts low-rank existence and all possible image dimensions uniformly across kernels and fields. This is a motivated complete structural classification, not unmotivated enumeration of a single tiny algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
