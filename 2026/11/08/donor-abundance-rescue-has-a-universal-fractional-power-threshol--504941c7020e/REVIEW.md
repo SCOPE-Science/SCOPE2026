@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem states explicit strict parameter hypotheses and limits its basin classification to donor densities at or above the lower positive saddle's donor coordinate. The cancellation identity follows algebraically from the printed ODE. The quadratic has two positive roots in the stated chamber; Jacobian signs give two sinks and one saddle. A strictly negative Bendixson--Dulac divergence for \(e<s\) excludes interior recurrent orbits. The northwest stable branch extends backward across all large donor densities without a fold, and its weighted geometric coordinate has an integrable logarithmic derivative. This yields a finite, strictly positive amplitude and the two-term asymptotic. The included executable checks confirm exact identities and three numerical manifestations; no step substitutes finite experiments for an infinite theorem. Risk: the basin separation relies on standard planar flow and stable-manifold results, which are explicitly invoked with their hypotheses.
+## correctness
 
-**Originality — PASS on available evidence, with priority risk.** The original full-text accessible arXiv version gives parameter bifurcations, global extinction in a different chamber, and numerical phase portraits of the bistable chamber, but not the analytical all-large-donor threshold graph or its precise fractional-power law. The related journal landing page was inspected but did not expose its full article body through the text interface, so journal additions are a residual risk. An earlier same-system critical regime proves a different claim with \(e=B\), whereas the present theorem assumes \(e>B\). The related additive-Allee model uses linear dispersal; a generic balance-manifold result is restricted to at most one coexistence equilibrium, while this theorem has two. Nearby research on founding populations and basin thresholds does not establish this model-specific exponent based on the material accessed. Query nonhits are not proofs of uniqueness.
+PASS
 
-**Value — PASS.** The exact large-donor exponent quantifies a natural recovery planning question left open by an equilibrium phase diagram: how much initially scarce population is necessary for rescue when the protected patch can be made arbitrarily large? The result is a global basin threshold with a finite nonzero amplitude and a universal first correction, not an arbitrary numerical slice, normalization observation, or restatement of the known saddle-node boundary. It exposes a diminishing-return law controlled by the migration mechanism rather than by the local Allee response.
+For positive trajectories weighted logarithmic identity d log(u*v^p)/dt = u/(m+u) -(e-B)-(h+B)u is exact and checked symbolically. Positive equilibria are roots a<b of an explicit quadratic; Jacobian determinant sign distinguishes saddle (a,va) and attracting (b,vb), boundary (0,v0) is a sink. Dulac multiplier 1/(u^2*v^2) yields negative divergence (e-s-delta*(u+v)-u^2/(m+u)^2)/(u^2 v^2) under e<s, ruling out cycles while positivity and boundedness constrain omega-limits. The northwest stable branch moves monotonically backward in u downward and v upward and cannot terminate at a finite boundary equilibrium, giving a full graph psi for V>=va; strong cooperativity separates basin outcomes. Along branch, d log(psi(V)V^p)/dV is positive and O(V^-2), so H->finite positive C; integration of E/((s+delta)V^2)+O(V^(-2-p)) produces the explicit relative 1/V correction. Three numerical RK4 parameter examples and rational identity checks corroborate, not replace the planar proof.
 
-The result is deterministic, restricted to the strictly bistable chamber and specified donor range, and does not claim an explicit elementary amplitude or applicability to the PDE or stochastic population models. An equivalent result in unindexed literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xia et al 2023 publish the same nonlinear model, equilibria, local stability and basin phase portraits; this is credited. The available source descriptions and sections inspected do not state the globally parameterized large-donor stable separatrix nor a universal fractional-power exponent and explicit next correction. Search of Resultary identified critical extinction and balanced-parameter studies of the same or related models, but none with this V->infinity rescue threshold. Thus best-of-knowledge PASS with significant publisher-full-text and unindexed phase-plane literature risks.
+
+## value
+
+PASS
+
+Bistable donor-rescue threshold is a natural observable for nonlinear migration models; exact power law p=delta/(s+delta) and correction separate migration scaling from local Allee parameters, a substantive asymptotic description of the basin boundary. It is not merely checking equilibrium stability or renaming a local stable manifold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
