@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The saturation theorem is reduced to a circle-specific interval covering lemma: a deletion-minimal collection of circular arcs has pointwise multiplicity at most two. Each strict \(2/3\) witness has at least twice as many marked as unmarked sites plus one marked site. Summation forces marked majority. At order \(4q+3\), equality at the borderline would require two arcs containing every marked site and disjointly partitioning an odd number of unmarked sites into two equal halves, an integer contradiction. Consecutive-block witnesses prove the sharp bound, and alternating sets establish the strict half-density threshold. The repeated-orbit equivalence is verified by period/remainder averaging. Independent integer enumeration of all subsets through cycle length 14 corroborates, but does not replace, the all-order proof.
+## correctness
 
-**Originality (PASS, with historical-priority uncertainty).** K. Huang, arXiv:2610.41156v1, Sections 1, 3, 5, 7, analyzes sharp near-unit Solyanik bounds and gives a finite-period example with no halo expansion sufficiently close to one. It does not classify the smallest full-saturation marking at an interior threshold or state the \(N\pmod4\) penalty. P. A. Hagelstein and I. Parissis, arXiv:1503.02900, especially Sections 1, 6, 7, prove ergodic Solyanik bounds, not the stated finite-cycle exact cardinal. Forward one-sided orbit averages differ from the two-sided arc operator, and even their sharp fixed-cardinality halo formulas do not entail this result. Covering multiplicity two is a classical input, not a claim of novelty. The remaining risk is an unlocated preexisting finite-circle specialization.
+PASS
 
-**Value (PASS).** Full finite-orbit halo saturation is a natural exact diagnostic of how many marked visits force a strict uncentered occupancy threshold at *every* orbit phase. The first three-site bridging value \(2/3\) has a structural interpretation: an alternating half-density pattern gives a local two-of-three witness, and strictness immediately destroys that witness. The theorem identifies an extra unavoidable marked site precisely at \(N\equiv3\pmod4\), despite the simple majority baseline, and supplies an all-order construction. This is a complete nontrivial classification at a motivated threshold, rather than an arbitrary finite computation. No claim is made about the complete Tauberian function or other maximal bases.
+PASS: Correct strict halo criterion 3|I∩E|>2|I| iff e(I)>2z(I). A deletion-minimal circular arc subcover of all unmarked vertices is at most a two-cover by the common-point triple-arc redundancy lemma. Consequently 2k>=sum e_j>=2sum z_j+m>=2z+m, excluding k<=z. At N=4q+3, k=2q+2 and z odd, equality forces exactly two arcs each including every marked vertex and exactly half the z unmarked vertices, contradiction. k=floor(N/2)+1+1_{N≡3 mod4} consecutive markers works: for each site in gap choose a side to traverse all k markers plus at most ceil(z/2) missing markers, yielding k>2ceil(z/2). For even N checkerboard markers give 2/3 three-site averages but not strictly above threshold. Independent exact bitmask enumeration checked N=3..12 minima and constructions and verified arc triple-cover property in bounded cases. Infinite N follows from combinatorial argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge independent originality qualified: exact strict two-sided finite-cycle saturation and mod-four penalty are not supplied by identified one-sided or Solyanik results; inaccessible directly relevant full article remains explicit risk.
+
+## value
+
+PASS
+
+The first local two-sided bridging threshold 2/3 is geometrically natural for an uncentered maximal operator. Its exact all-N full-halo saturation cardinality and exceptional N≡3 mod4 penalty are motivated finite-cycle extremal facts, not routine threshold renaming. A competing one-sided formula cannot substitute for the two-sided sharp placement obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
