@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification and limits
 
-Execute `python3 verify.py` using a standard Python 3 interpreter; no additional packages are needed. `verify_output.txt` records the exact output of an execution from these package bytes.
+# Independent mathematical audit
 
-The checker builds the full spider graph, tests each vertex subset by explicit connected-component searches, computes augmented mod-two simplicial homology using independent bit-matrix elimination, and compares the resulting Betti numbers against the theorem. For small complexes it constructs the actual hub link, directs every Hasse edge upward only when it belongs to the proposed toggle matching, and checks acyclicity by topological sorting. It also enumerates each admissible arm-length-preserving permutation and computes signed face Lefschetz sums, comparing them with the determinant-twisted exterior-augmentation trace. These computations independently corroborate the topology, matching structure, and symmetry characters.
+## correctness
 
-Observed output: `ALL_VERIFY_OK cases=59 face_instances=62408 matching_cases=42 matching_faces=13896 signed_character_checks=85`.
+PASS
 
-The verifier is finite, checks mod-two homology rather than integral torsion, and cannot establish an unrestricted theorem. Torsion-freeness, the integral module, and the homotopy equivalences follow from the explicit relative chain complex, the acyclic matching, and Hurewicz--Whitehead arguments in `RESULT.md`. No external independent mathematical validation has been performed.
+For r>=max arm length, deleting the hub leaves a simplex. The link is exactly the prefix-length inequality Σq_i≤r−1. For faces lacking an internal arm vertex, toggling a terminal leaf beyond the first deficiency preserves all constraints and gives an acyclic fiberwise matching, contracting A. Remaining relative faces U∪J form a truncated augmented exterior simplex chain complex; ∂=contraction by the sum functional, so top homology is det(Z[U])⊗Λ^t ker(sum:Z^k→Z), t=r−B−1. With B≥k≥3 the quotient K/A is simply connected with free homology in a single degree; Hurewicz and Whitehead give the wedge type and hub suspension shifts it to S^{r−1}. At t<0 the link contracts; at r≥|V| it is the full simplex. Signs under equal-length arm permutations follow the oriented relative complex. The finite 59-case checker corroborates only, not proving the all-parameter statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact binomial length-profile and integral Γ-lattice refinement survives the primary comparisons. Previously established vertex decomposability/wedge-of-spheres for all trees is not claimed as new. No checked broader theorem fixes these ranks and twisted exterior modules.
+
+## value
+
+PASS
+
+The all-parameter spider length-profile collapse, sharp sphere-wedge window and integral orientation twist answer motivated exact invariants beyond known qualitative decomposability. The example of equal total B but differently permuted equal arms exhibits mathematically distinguishable integral symmetries, useful in equivariant investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
