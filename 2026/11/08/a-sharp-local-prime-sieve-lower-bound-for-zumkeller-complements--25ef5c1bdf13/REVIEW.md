@@ -1,15 +1,21 @@
-# Scientific review: a local prime sieve for Zumkeller complements
+# Independent mathematical audit
 
-## Correctness — PASS
-For every sufficiently large odd target \(N\), the least odd prime \(q\nmid N\) is at most \(2\log N\) by the prime number theorem for \(\vartheta\). Let \(a\) be minimal with \(q\le2^{a+1}-1\). Exact binary partitioning proves that \(2^bq\) is Zumkeller for each \(b\ge a\). Put \(B=2^aq\). All primes \(p\le N/2\) in the reduced class \(N\pmod B\), except those in the unique subprogression \(N\pmod{Bq}\), give complements \(2^{a+t}q m_0\) with \(m_0\) coprime to the Zumkeller base. Both moduli are uniformly \(O((\log N)^3)\) and \(\varphi(Bq)=q\varphi(B)\). Subtraction of the uniform Siegel–Walfisz prime-count estimates therefore establishes the local main term \((1-1/q)\operatorname{Li}(N/2)/\varphi(B)\) with uniformly negligible relative error. The associated \(N/(\log N)^3\) lower bound follows since \(\varphi(B)\le B<q^2\le4(\log N)^2\). The exact finite checker verifies local divisor partitions and sieve congruences but is not used as an infinite proof. The constants and existence threshold may be ineffective.
+## correctness
 
-## Originality — PASS within inspected evidence
-Somu–Kukla–Tran (arXiv:2310.14149, 2023) provide the coprime-multiple construction, a practical-number analogue, and Conjecture 4.20 for prime complements. Mahanta–Saikia–Yaqubi (2020), Theorem 2.6, characterize \(2^a q\), an input to the sieve. A previously recorded quantitative theorem proves the distinct bound \(R(N)\ge N/(100(\log N)^5)\) for all sufficiently large odd \(N\); that result is **strictly weaker**, and its square-modulus condition is not reused as a claimed finding. The new structural step is to keep the whole prime class modulo \(B\) except the single refinement modulo \(Bq\), allowing even cofactors and obtaining an explicit relative fraction \(1-1/q\). It improves the logarithmic exponent from five to three, not merely the leading constant. Related exact Zumkeller partition counts and finite prime-complement searches do not imply this strengthened uniform local estimate. Targeted mathematical-record and external-literature searches found no equivalent or stronger published claim. Unindexed equivalents and inaccessible complete linked record texts are residual risks.
+PASS
 
-## Mathematical value — PASS
-The logarithmic improvement is two unbounded powers of \(\log N\), accompanied by a structural local distribution theorem. It identifies exactly the sole excluded prime subprogression needed to prevent excessive powers of the missing prime and avoids the earlier unnecessary square-modulus restriction. This is a substantial quantitative refinement of a motivated open additive-representation problem, not a finite-table update or renamed base case. The new estimate remains a lower bound and is not claimed optimal.
+By theta(y)~y, q<=2 log N for all sufficiently large odd N. The binary half-divisor-sum certificate proves 2^b q is Zumkeller for all b>=a. Every p<=N/2 in the reduced class p=N mod B but not mod Bq has N-p=2^(a+t)q*m0, gcd(m0,2^(a+t)q)=1. Multiplying a Zumkeller base by coprime m0 preserves equal divisor partition. Thus R(N)>=pi(N/2;B,N)-pi(N/2;Bq,N). Both moduli are uniformly <=O(log^3 N) and phi(Bq)=q phi(B). Uniform Siegel–Walfisz for each gives the (1-1/q) Li/phi(B) main term plus negligible relative error, and phi(B)<q^2<=4log^2 N gives the cubic logarithmic lower bound. This is an ineffective eventually-large-N theorem, not a finite-exception census or exact asymptotic for all representations.
 
-## Sources and limitations
-The primary full source is Somu–Kukla–Tran, arXiv:2310.14149, sections 2 and 4. The relevant established local-number characterization is Mahanta–Saikia–Yaqubi, DOI 10.1016/j.jnt.2020.05.003, Theorem 2.6. The previously recorded weaker quantitative asymptotic has opaque record ID `d798476e-fd98-4e1e-b977-0e84f0e97eef`; a separate prior density-zero exception theorem has ID `2ec6b25d-6858-4fde-a305-dee4d5d017ac`. Neither implies the present local lower bound. The proof uses the prime number theorem and Siegel–Walfisz, and leaves the numerical threshold, exact global asymptotic and even targets unresolved. Independent priority beyond inspected evidence is unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel exact result after checked primary source scope comparisons. The closest inspected primary results differ by parameter regime, sample law, or strictly weaker quantitative conclusion; inaccessible full texts and independent historical priority remain explicit risks.
+
+## value
+
+PASS
+
+The original prime-plus-Zumkeller conjecture is a natural additive-number-theory question. Replacing a square-modulus sieve by one residue class modulo B minus a single refinement modulo Bq genuinely improves the worst-case bound by two powers of log N and yields an exact admissible residue-density fraction within the local sieve; this is not a constant-only gain or finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
