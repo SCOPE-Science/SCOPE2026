@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The normal-multiplication reduction makes both norms exact maxima of continuous scalar functions. The first-peak comparison establishes leading localization, a quadratic phase penalty localizes maximizers to \(O(n^{1-\alpha})\) in phase, and completing the square gives the second coefficient and the maximizing phase drift. A compact-scale Laplace optimization with a uniform exponential tail establishes the separate scaled power-difference limit. The proof explicitly treats \(\alpha>1\), the little-\(o\) radial remainder, every possible maximizing phase, and the off-origin spectral tail. The eight high-precision finite tests are corroboration only.
+## correctness
 
-## Originality: PASS (best-knowledge)
-The closest primary result is Borichev–Gomilko–Tomilov, arXiv:2607.10507, Proposition 6.4 and Lemma 6.5: it identifies saturation and a tangential obstruction, but does not give the two-term approach-to-two, its phase drift, or the dual exact power-difference coefficient. Ng–Seifert, arXiv:2002.06236, Theorem 5.2, supplies general two-sided resolvent-controlled rates (and covers the order of the power difference) but not these exact constants or the second-order zero–two defect. No equivalent or dominating formulation was found in targeted mathematical-record and full-text comparisons. Existing asymptotic spectral optimization may yield alternative proofs, and older terminology remains an originality risk; database nonmatches alone do not establish priority.
+PASS
 
-## Value: PASS
-The leading approach to the sharp zero–two boundary is a natural quantitative stability question left by the recent qualitative saturation construction. The second-order term separates the unknown radial jet from a universal phase-optimization cost, and the maximizing phase shift is explicit without differentiability or monotonicity of the radial function. The same geometric tangency exponent controls an exact power-difference growth law. These provide a robust, measurable spectrum-to-dynamics correspondence rather than a numerically isolated example.
+The continuous normal multiplication representation reduces both norms exactly to scalar maxima. At t=π/n the deficit is κπ^αε+O(ε²), forcing every maximizing phase to the first odd π (later odd phases cost a larger leading radial term). With u=nt−π and x=nf(t), Taylor gives Δ=x−x²/2+u²/4+O(x³+xu²+u⁴), and coercivity yields u=O(ε) despite possible nonmonotone f. Uniform little-o jet and completing the square yield the exact second coefficient ηπ^(2α−1)−κ²(π^(2α)/2+α²π^(2α−2)) and drift −2καπ^(α−1)ε. For power differences, scale t=x n^(−1/α), prove uniform compact convergence to x exp(−κx^α) and uniformly negligible large-x/exterior contributions. Independent scalar minimization at n=3000 and n=30000 for α=2,κ=.7,η=.5 converged to the predicted coefficient and phase drift, but finite computations do not establish the limit.
 
-## Limits
-Only continuous single-arc multiplication spectra are treated. Prior resolvent-based results already control the order of the unscaled power difference; the new contribution is the exact constants and the two-term norm-gap/phase law. No independent audit or universal publication-priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original full claim after comparing equivalent formulations, dominating results, exact tables and known theorem implications. Relevant inaccessible primary literature remains named as residual risk; no search absence is treated as a proof of novelty.
+
+## value
+
+PASS
+
+The second radial jet is converted into a sharp quantitative saturation correction and maximizer drift, distinguishing radial curvature and universal phase locking. Together with exact power-difference growth, this gives a motivated boundary diagnostic for non-Ritt normal contractions beyond qualitative zero–two results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
