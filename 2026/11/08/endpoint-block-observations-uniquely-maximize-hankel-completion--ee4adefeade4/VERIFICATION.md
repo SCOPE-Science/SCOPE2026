@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with SymPy installed. The program specializes endpoint observations to a deterministic sum of distinct exponentials, forms all maximal Hankel minors, computes their reduced zero-dimensional ideals with Groebner bases over the rationals, and counts standard monomials. It also checks the ranks of excluded endpoint unit matrices for the same tested pairs.
+## correctness
 
-Expected output ends with `ENDPOINT_SEVEN_EXACT_SPECIALIZATIONS_OK`. The verified pairs \((r,n)\) are \((2,5),(2,6),(2,7),(3,7),(3,8),(3,9),(4,9)\); their respective lengths are \(3,6,10,4,10,20,5\). These finite calculations are neither a proof that all specializations are generic nor proof of the infinite-dimensional parameter-range theorem.
+PASS
 
-The general proof uses a standard degeneracy-locus degree calculation, a direct anti-triangular minor argument, projective finiteness from ampleness, and the projection-from-a-point degree formula with positive local multiplicity and the nonincrease of projective degree under any remaining linear projection. Generic finite completeness of all minimal observation sets is from Reed–Tsakiris's uniformity theorem (arXiv:2610.27554).
+Classical secant degree via Thom–Porteous is binom(n-r,r). The endpoint projection center is disjoint: first nonzero middle x_j forces nonzero anti-triangular (r+1)-minor. Hence its finite morphism degree equals secant degree. Every other coordinate center contains an endpoint unit vector e_j on secant; projection through e_j has strict loss by positive Hilbert–Samuel multiplicity, and later projection cannot increase degree. Reed–Tsakiris uniformity supplies generic finiteness. Independent rank-two length-five Hankel determinant has missing-coordinate degrees [1,2,3,2,1], verifying small case only.
 
-Self-review is reported in REVIEW.md; independent audit has not been performed.
+## originality
+
+PASS
+
+Known uniformity, degree bounds and sparse rank-two pattern formulas do not alone imply which coordinate set uniquely attains ambient degree. The primary Reed–Tsakiris entire text remained inaccessible (Oxford disconnected), an explicit strong priority risk; abstract and secondary discussion examined. Best-of-knowledge PASS, not a whole-paper novelty certification.
+
+## value
+
+PASS
+
+Worst-case generic rank-constrained Hankel reconstruction ambiguity across all minimal designs is a natural sharp optimization problem; explicit unique global extremizer in arbitrary rank has substantive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

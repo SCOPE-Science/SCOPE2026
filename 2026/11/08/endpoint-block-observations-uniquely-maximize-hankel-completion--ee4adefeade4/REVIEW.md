@@ -1,19 +1,21 @@
-# Review of the endpoint-block Hankel projection theorem
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The rank-at-most-\(r\) Hankel variety has the classical, independently established prime maximal-minor ideal and expected codimension. The maximal-minor degeneracy formula gives projective degree \(\binom{n-r}{r}\). The endpoint projection center cannot meet the projective variety: its first nonzero middle coordinate produces a nonzero anti-triangular maximal minor. Hence the endpoint projection is finite and has that exact degree. Every competing coordinate projection center contains an endpoint coordinate point belonging to the variety, so its finite generic degree is strictly lower by factorizing through projection from a point in the center: the point-projection formula subtracts the positive local Hilbert–Samuel multiplicity, and the remaining linear projection cannot increase the total degree. The proof applies to every \(r\ge2\) and \(n\ge2r+1\); finite Groebner examples are corroborative rather than exhaustive.
+PASS
 
-## Originality (PASS, subject to historical-priority limits)
+Classical secant degree via Thom–Porteous is binom(n-r,r). The endpoint projection center is disjoint: first nonzero middle x_j forces nonzero anti-triangular (r+1)-minor. Hence its finite morphism degree equals secant degree. Every other coordinate center contains an endpoint unit vector e_j on secant; projection through e_j has strict loss by positive Hilbert–Samuel multiplicity, and later projection cannot increase degree. Reed–Tsakiris uniformity supplies generic finiteness. Independent rank-two length-five Hankel determinant has missing-coordinate degrees [1,2,3,2,1], verifying small case only.
 
-The primary 2026 paper proves that all \(2r\)-coordinate observation sets are generically finite and studies bounds. Its exact formulas address other configurations; it does not give the all-rank endpoint equality and unique-extremizer statement. The standard secant degree is already known and is not claimed as new. A related published result on parity of projective secant degrees likewise does not identify which coordinate projections realize those degrees. The concern remaining is an older equivalent statement in sparse polynomial interpolation or Hankel linear-section literature.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The projection degree is the number of generic complex rank-constrained completions, a natural quantitative invariant beyond matroid independence. The result finds the sharp largest possible degree across every observation design of size \(2r\), uniquely characterizes the worst-ambiguity design, and holds simultaneously for all ranks and lengths. It answers a motivated extremal question left open by the preceding bounds, rather than merely recomputing the ambient secant degree.
+Known uniformity, degree bounds and sparse rank-two pattern formulas do not alone imply which coordinate set uniquely attains ambient degree. The primary Reed–Tsakiris entire text remained inaccessible (Oxford disconnected), an explicit strong priority risk; abstract and secondary discussion examined. Best-of-knowledge PASS, not a whole-paper novelty certification.
 
-## Limits
+## value
 
-Only generic complex degrees for minimal-size observation patterns are classified; no claim is made about exceptional fibers, monodromy, complete degree tables, characteristic changes, or independent external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Worst-case generic rank-constrained Hankel reconstruction ambiguity across all minimal designs is a natural sharp optimization problem; explicit unique global extremizer in arbitrary rank has substantive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
