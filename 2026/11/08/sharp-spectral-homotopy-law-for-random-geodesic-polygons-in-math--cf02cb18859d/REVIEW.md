@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sampling domain, quotient metric, quantifiers \(d\ge3\), \(m\ge3\), and almost-sure uniqueness of geodesics are explicit. The sign of the cyclic product of Euclidean inner products is exactly the spherical double-cover deck sign of the closed geodesic polygon. The integral kernel \(\operatorname{sgn}(x\cdot y)\) is self-adjoint and Hilbert--Schmidt; the expectation of its cyclic product equals its trace power for \(m\ge3\). Gegenbauer Sturm--Liouville integration establishes every eigenvalue with the verified ratio \(\eta_{2j+3}/\eta_{2j+1}=-(2j+1)/(d+2j+1)\); harmonic multiplicities and the Hilbert--Schmidt identity give the exact series and both remainder bounds. A separate checker evaluates the triangle integral and the spectral expression, verifies remainder bounds and compares against 330,000 direct Gaussian polygon simulations. Analytic proof, rather than simulation, establishes infinite-dimensional series identities and asymptotics.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Robin Chapman's public 2001 response already solves the three-vertex real projective plane case \(q_{3,3}=1/\pi\); it is acknowledged, not repackaged. The accessible full 1999 Rabei et al. text treats geometric phases and cyclic Bargmann invariants, but not a Haar-uniform polygon homotopy probability, an all-length spectral trace law, or its sharp decay rate. The accessible full 2010 Finch--Jones text analyzes ordinary spherical triangle area/perimeter and not projective homotopy. The Funk--Hecke and Gegenbauer ingredients are explicitly treated as classical, not new. The new unit of contribution is their exact synthesis into an all-\(d\), all-\(m\) projective polygon topological law, with leading and second spectral corrections and a finite-length error bound. Searches for synonymous statements, signs of cyclic inner products, and stronger general spectral laws produced no directly dominating prior statement; this does not prove absolute uniqueness. Further historical review could reveal equivalent formulations in operator theory.
+PASS
 
-## Mathematical value — PASS
-The noncontractibility probability is a canonical, genuinely topological statistic for a finite sequence of independent random geodesic vertices. The theorem replaces one isolated classical triangle probability by a complete law for every polygon length and every projective dimension, with a quantified mechanism by which the fundamental-group class becomes asymptotically fair. The leading multiplicity \(d\), exact exponential rate \(\lambda_d\), uniform finite-length control, and alternating next correction distinguish this statement from a bare restatement of Funk--Hecke. Its natural uses include baselines for random geodesic-cycle topology and controlled approximations at finite vertex count; no downstream theorem or claim of independent certification is made.
+Reconstructed deck sign condition noncontractible iff product sign(X_i dot X_(i+1))=-1, trace T^m for the self-adjoint Hilbert-Schmidt sign-kernel operator on S^(d-1), Funk-Hecke decomposition and Gegenbauer recurrence eta_(2j+1)=lambda_d (-1)^j (1/2)_j/((d+1)/2)_j with odd spherical-harmonic multiplicity. Parseval sum h eta²=1 yields absolute convergence and uniform remainder bounded by (1-d lambda_d²)(lambda_d/(d+1))^(m-2)/2, and the degree-3 and -5 modes give the stated alternating second term. Independently evaluated finite harmonic partial sums and sample eigenvalues for d=3,4,5,8; these do not establish the infinite theorem. Restriction d>=3,m>=3 and round shortest geodesics is essential.
 
-## Closest sources and residual risks
-The 2001 Chapman three-point probability is an exact prior special case. The 1999 Rabei et al. article gives the general cyclic-invariant framework. The 2010 Finch--Jones work concerns a different sampling manifold. Classical spherical harmonic spectra may imply some parts once combined with the cyclic trace identity; an overlooked prior operator-theoretic or projective polygon source remains a priority risk. The script is corroboration only; independent mathematical and priority validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All m for projective-plane d=3 were previously published on 2026-11-01, not merely the three-vertex probability acknowledged in the November 8 record. The full all-dimensional d>=4 spherical harmonic law, uniform error and second-mode coefficient remain beyond this prior d=3 theorem; originality must be attributed only to the higher-dimensional extension. Existing public RESULT prior-work section undercredits d=3 prior coverage and should be corrected before import.
+
+## value
+
+PASS
+
+The law for random shortest-geodesic loops in every higher-dimensional real projective space is a natural topological probability invariant. Its exact generalized eigenvalue/multiplicity formulas and sharp uniform error classify convergence to fair deck parity beyond the fully known d=3 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

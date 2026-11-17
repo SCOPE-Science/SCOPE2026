@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification scope
-The analytical proof checks the universal covering-space deck sign, the exact trace identity for all integer \(m\ge3\), the Gegenbauer eigenvalue recurrence for all integer \(d\ge3\), multiplicities, absolute trace-series convergence, the Hilbert--Schmidt remainder bound, and asymptotic mode separation.
+# Independent mathematical audit
 
-## Standalone checker
-Run `python3 check_projective_polygons.py` with Python 3's standard library. The checker separately reconstructs spectral eigenvalues and compares the three-vertex specialization against a one-dimensional numerical integral in dimensions 3 through 10. It checks the finite-length error estimate for dimensions 3, 4, 5, and 8, and lengths 4, 6, and 12. It directly samples 330,000 independent ordered polygons from Gaussian sphere lifts at six dimension/length pairs; observed frequencies lie within six nominal binomial standard errors. Success ends with `PROJECTIVE_POLYGON_SPECTRAL_PARITY_OK 330000`.
+## correctness
 
-## Limits
-Numerical quadrature has finite precision, and Monte Carlo is stochastic. Neither proves the infinite series or asymptotic; those follow from the proof. Historical originality has not undergone independent validation. No external audit is claimed.
+PASS
+
+Reconstructed deck sign condition noncontractible iff product sign(X_i dot X_(i+1))=-1, trace T^m for the self-adjoint Hilbert-Schmidt sign-kernel operator on S^(d-1), Funk-Hecke decomposition and Gegenbauer recurrence eta_(2j+1)=lambda_d (-1)^j (1/2)_j/((d+1)/2)_j with odd spherical-harmonic multiplicity. Parseval sum h eta²=1 yields absolute convergence and uniform remainder bounded by (1-d lambda_d²)(lambda_d/(d+1))^(m-2)/2, and the degree-3 and -5 modes give the stated alternating second term. Independently evaluated finite harmonic partial sums and sample eigenvalues for d=3,4,5,8; these do not establish the infinite theorem. Restriction d>=3,m>=3 and round shortest geodesics is essential.
+
+## originality
+
+PASS
+
+All m for projective-plane d=3 were previously published on 2026-11-01, not merely the three-vertex probability acknowledged in the November 8 record. The full all-dimensional d>=4 spherical harmonic law, uniform error and second-mode coefficient remain beyond this prior d=3 theorem; originality must be attributed only to the higher-dimensional extension. Existing public RESULT prior-work section undercredits d=3 prior coverage and should be corrected before import.
+
+## value
+
+PASS
+
+The law for random shortest-geodesic loops in every higher-dimensional real projective space is a natural topological probability invariant. Its exact generalized eigenvalue/multiplicity formulas and sharp uniform error classify convergence to fair deck parity beyond the fully known d=3 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
