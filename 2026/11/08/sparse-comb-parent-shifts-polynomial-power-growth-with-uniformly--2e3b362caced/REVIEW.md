@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The descendant-count formula is derived from disjoint descendant sets at a fixed depth, with exact enumeration for spine and tooth vertices. Convexity bounds the maximal number of branch levels in any length-\(n\) window and the root window supplies a matching lower bound. For each fixed power, increasing branch gaps force a diagonal Calkin image with essential norm exactly \(2\) after squaring. The factorization \(S-\lambda I=S(I-\lambda Q)\) proves surjectivity and preserves an infinite-dimensional kernel for \(|\lambda|<1\). The sharp resolvent lower bound is obtained from an explicitly normalized superposition of tooth vectors, not from finite sampling. The upper bound follows from the norm-convergent resolvent power series. All constants and ranges are explicit or quantified. A standalone checker passed 2,946 finite consistency tests.
+PASS
 
-**Risk and scope:** The checker cannot replace the analytic proof. The theorem does not give a leading resolvent constant or universality on the boundary circle.
+For the explicitly specified rooted comb and unweighted parent shift, S^n(S^n)* is diagonal with entries equal to nth-generation descendant counts. A spine vertex j has one continuing spine descendant plus one per branch in A_alpha∩[j,j+n−1], while tooth vertices have one. For beta=1/alpha>1, convexity bounds the maximum branch count by n^alpha+O(1) and j=0 attains that order; n=1 gives norm sqrt2. Increasing branch gaps imply every fixed-n diagonal except finitely many entries is <=2 and infinitely many equal 2, so all positive-power essential norms equal sqrt2. SS*>=I gives a right inverse Q of norm <=1, enabling Neumann-factor surjectivity S−lambda for |lambda|<1; infinitely many disjoint sibling differences give infinite nullity, so the Caradus Rota universality criterion applies. The spectral radius from power norms and inner eigenvalues gives closed unit-disk spectrum. Neumann resolvent sum gives O(epsilon^-1-alpha/2); normalized tooth-ray inputs on ~N^alpha branches in [N,2N) produce >=cN sqrt(N^alpha), proving a matching lower bound. Power-growth exponents distinguish alpha up to similarity. Finite check_comb.py diagnostics are supplemental only.
 
-## Originality — PASS (best-knowledge comparison)
+## originality
 
-Buckley and Seco's 2026 parent-shift paper supplies the general descendant-count framework and establishes universality subject to their assumption (A4) of infinitely many disjoint branching subtrees. The present comb has all branching vertices along one spine and fails that hypothesis. Its direct surjectivity argument, exact polynomial norm growth, uniform essential-power norm, and sharp resolvent exponent are not asserted by that paper. The published realization theorem for irreducible unilateral weighted shifts concerns equal ordinary and essential power-norm profiles; these combs instead have different profiles. Targeted searches for aliases such as directed-tree backward shifts, sparse spine branching, Calkin power-boundedness and polynomial resolvent growth found no statement implying the whole theorem.
+PASS
 
-**Risk and scope:** Classical results on directed-tree shifts and general polynomial resolvent growth might imply part of the theorem after specialization. The comparison is not an independently certified priority determination.
+PASS at best of knowledge: Buckley–Seco parent-shift work gives a general descendant-count formula and a universality theorem under disjoint-branch assumption (A4), which this single-spine comb fails; direct surjectivity and infinite kernel are proved here. Older directed-tree weighted shifts and Cesaro-space tree operators provide different operator models and do not deliver this exact unweighted Hilbert-space package of n^(alpha/2) growth, constant essential powers, universal open disk and exact resolvent exponent. The paper could be covered by a yet-unread general sparsely branching shift theorem, noted as risk.
 
-## Mathematical value — PASS
+## value
 
-The theorem gives a whole continuum of explicitly defined unweighted operator examples for which Rota universality coexists with arbitrarily prescribed fractional polynomial growth exponents, even though the essential norm of every positive power remains fixed. This is a structural distinction between ordinary and Calkin dynamics and produces a sharp resolvent growth exponent and pairwise nonsimilarity across the family. It tests the relevance of branching-disjointness assumptions in a recently developed tree-shift framework, rather than computing an arbitrary finite instance.
+PASS
 
-## Closest literature and limitations
+PASS: The concrete leafless degree<=2 sparse comb shows ordinary operator powers can grow at any exponent alpha/2∈(0,1/2) while every Calkin power has fixed norm sqrt2, and simultaneously obtains the sharp resolvent exponent and Rota universality. This is a motivated structural separation of ordinary/essential power growth and quantitative boundary resolvent behavior, not just a reweighted classical shift example.
 
-Buckley and Seco, *Rota universality of shifts on trees*, arXiv:2610.40089v1 (2026), is the principal motivation. Additional sources considered were Jabłoński–Jung–Stochel, arXiv:0911.3821; Chavan–Trivedi, arXiv:1510.03075v2; and Grosse-Erdmann–Papathanasiou, arXiv:2012.15542v3. No statement about all weighted or all directed trees is proposed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
