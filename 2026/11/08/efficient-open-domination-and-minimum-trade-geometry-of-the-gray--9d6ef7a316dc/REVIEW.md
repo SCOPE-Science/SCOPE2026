@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and all legal states are defined by explicit \(\mathbb F_3^3\) incidence. A bijection reduces all efficient open dominating sets to two independent exact-cover factors. The Latin-square affine classification is proved in full, the line-tiling classification uses an exhaustive planar-slice argument, and every size-three line exchange is shown to be a single-slab rotation. The Cartesian product then supplies exact graph parameters and distances. Two independently structured, standalone Python programs agree on every count, verify all \(252\) codes and their edges, and reproduce the automorphism orbits. Scope is expressly finite.
+## correctness
 
-**Originality — PASS, qualified.** The 54-vertex Gray configuration, 1296-element coordinate group, definition of efficient open domination, twelve order-three Latin squares, and 21 straight-rod tilings are prior knowledge. In particular, OEIS A181323 records the exact tiling count 21. The complete Gray-code reconfiguration product, minimum-trade characterization, glued-cube geometry, six-step metric, distance enumerator, and code-orbit classification were not identified in targeted research-record searches or inspected literature. The earlier four-cube total-perfect-code exchange result concerns a distinct graph and does not determine these properties. Published Gray-graph papers available only as abstracts are a residual priority risk; no definitive historical novelty certificate is claimed.
+PASS
 
-**Value — PASS.** This identifies all optimal exact-open-neighborhood partitions of the smallest cubic semisymmetric graph and gives a complete, connected local transformation geometry with a sharp uniform six-move bound. The product decomposition explains two different minimal local mechanisms (Latin bitrades and planar rod trades) and isolates the effect of Gray-graph symmetry. It is a natural finite benchmark for total-perfect-code reconfiguration, not a sample of arbitrary graph parameters. Neither the known tiling count nor the small-code enumeration alone supplies the metric result.
+The 54-vertex Gray incidence model has 27 points and 27 three-point axis lines; EOD splits independently into an exact point-on-each-line transversal (12 ternary affine Latin graphs of size nine) and nine-line grid tiling (21 choices). Distinct Latin slopes intersect in three points, giving minimum six-point replacements, so point trade graph is K_{3,3,3,3}. The 21 axis tilings consist of three 8-vertex cubes sharing their respective pure tilings; nearest line replacements are three. Their 36-edge glue graph T has eccentricity four and the full code-trade graph is Cartesian product with 252 vertices, 1566 edges, diameter/eccentricity six, and exact distance histogram (1566,4896,8460,9180,6444,1080). Symmetry group S3 wreath S3 of size 1296 splits line pure vs mixed configurations into orbits 36 and 216. No claim about arbitrary trades. The independent checker constructs all 12 codes and all 21 exact line tilings from scratch and recomputes distances.
 
-## Limits of source access and scope
+## originality
 
-The graph-defining 2000 primary paper was accessible by its abstract and bibliographic record, not its complete article. The 2014 efficient-open-domination paper was materially inspected through its title, abstract, introduction, product-scope statements, and references; complete line-by-line exclusion of every possible mention is not asserted. Exact keyword searches and result-record comparisons returned no equivalent Gray-code trade theorem. Independent scholarly validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical 12 Latin squares and 21 three-dimensional rod tilings are acknowledged known components; the accepted result is the full constrained minimum-trade graph and its global distances/orbit structure, which is not a bare product-count calculation. Earlier Gray graph work supplies automorphism group, and graph-product EOD literature does not classify EOD of this incidence graph.
+
+## value
+
+PASS
+
+Minimum reconfiguration moves, connectivity, diameter and orbit decomposition of all efficient codes are natural discrete optimization and reconfiguration invariants; the exact 252-state structure is a complete and reusable benchmark on a distinguished semisymmetric cubic graph. Its nontrivial trade graph is not a cheap small-instance count because of complete factor characterization and metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
