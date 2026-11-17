@@ -1,19 +1,21 @@
-# Review of the finite reflection-fixed classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-space model comes from equality of barycentric coordinates on reflection orbits, including orbits of size two. An independently generated list of *all* invariant faces agrees with the orbit complex for fourteen parameter/action pairs. Every elementary collapse is recomputed against the current actual face set. At the essential \(n=8,a=1\) case, 65 elementary collapse pairs reduce the full complex to the exact connected \((8,15,8)\) two-complex. Its spanning-tree quotient has eight explicitly reconstructed attaching words; seven valid one-/two-cell cancellations leave a circle and a trivially attached 2-cell. Other cases collapse to graphs or points. The proof establishes integral homotopy and the finite first threshold; no finite-to-infinite extrapolation is used.
+PASS
 
-## Originality — PASS
+For all 14 cases (2<=n<=8, a=0,1), the geometric fixed-space barycentric orbit lemma identifies |X_n|^{s_a} with an orbit-face complex whose simplices are unions of whole admissible graph-edge orbits. Exhaustive recursive perfect-matchings and independent orbit enumeration (not a sample) match all invariant faces. An independent new standard-library implementation reconstructed all 14 actual orbit complexes, verified every elementary free-face collapse and all residual cores. In n=8 edge-axis, the original f=(13,49,63,31,5) and 65 collapses yield (8,15,8); spanning-tree contraction gives eight relators g1,g2,g3,g5,g1g4,g2g6,g3g8g4^-1,g5g8g6^-1. Seven legitimate 1–2 CW cancellations leave generator g7 and one trivially attached 2-cell, hence S1∨S2. For smaller n the remaining cores are points, graphs or three discrete points as claimed, proving n=8 first H2 occurrence within the fully exhausted domain; no statement is made beyond n=8.
 
-The closest inspected primary source, Agarwal–Basak arXiv:2608.30601v2, determines the original ladder complex's homotopy type, not its reflection-fixed geometric subspace. Published odd-dihedral, antipodal and rotation homology results determine rational characters or traces, which do not imply the mixed-dimensional topology of a pointwise fixed set. An accessible earlier even-dihedral claim calculates reflection traces but not geometric fixed-space homotopy. A generic prism layer-swap fixed-space result concerns a different graph/action. Primary full text and accessible published claims were compared by their hypotheses and implications. A prior unindexed fixed-point homotopy computation remains a residual originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp first appearance of a two-dimensional *integral* geometric fixed-space class is a natural, symmetry-sensitive topological cutoff in a family newly classified nonequivariantly in 2026. At the first case, the fixed space has homology in two distinct positive degrees even though the original complex has reduced homology only in degree three. This distinction cannot be recovered from the known rational Lefschetz character, supplies a concrete benchmark for stronger equivariant classifications, and is a genuinely exact finite boundary—not a parameter substitution, table lookup, or isolated Euler characteristic.
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
 
-## Limitations and risk
+## value
 
-The classification is finite, not an all-parameter theorem; it covers \(2\le n\le8\) and just the two reflection conjugacy classes. Checks depend on transparent exhaustive algorithms and topological elementary moves; independent reproduction remains desirable. A differently formulated pre-existing result could still cover the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pointwise geometric fixed-space topology is substantially finer than homological characters and not derivable from the nonequivariant wedge S3∨S3. The first mixed-degree integral H1,H2 phenomenon at the natural n=8 member of the Möbius ladder series is a motivated finite sharp structural boundary, fully classifying all smaller cases by exact finite methods. This is a worthwhile bounded classification, not an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
