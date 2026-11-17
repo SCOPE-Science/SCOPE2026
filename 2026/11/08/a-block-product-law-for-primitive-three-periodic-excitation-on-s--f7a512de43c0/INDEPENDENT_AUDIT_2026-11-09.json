@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T07:16:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A finite connected graph in the three-state threshold-one GHM has no nonzero fixed point; any nonconstant time-zero three-periodic configuration forces every vertex to rotate through 0,1,2 and satisfies a neighbor-in-successor-phase condition. Direct successor arrows must end on a directed cycle of length divisible by three. In singly resonant cactus the unique core cycle supports six phase/orientation configurations and child-block successor arrows cannot point away from the core without producing another resonant cycle. Bridges force one phase; each rooted noncore simple cycle has 2floor(ℓ/3)+1 phase extensions by the two complete weak increment-word families with modulo-three closure. Multiplying proves the claimed product; no resonant cycle yields zero. Independently brute-forced all 3-color configurations for cycles length 3..9, a triangle+square (18 states), and nested triangle+square+pentagon (54 states). Actual verify_global.py and verify_local.py read: proper synchronous update and rooted-cycle DP. Finite tests supplement general block-tree reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouquet formula 3[∏b_i−∏(b_i−a_i)] reduces to 6∏b_nonres for one resonant petal; does not handle cycles attached at separated articulation points.",
+          "Cactus winding-rate result counts asymptotic activity of arbitrary initial colorings, not which start on a primitive orbit.",
+          "Gravner–Lyu–Sivakoff Theorem 3 identifies zero/nonzero eventual synchronization and maximum winding activity; Theorem 5 bounds oscillation probability, rather than enumerating immediate period-three configurations."
+        ],
+        "reasoning": "Specialization of bouquet theorem covers bouquet case only, not all singly resonant cacti. The published rate framework does not directly imply the exact time-zero count.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-source-polynomial-for-three-color-excitable-cycle-bouq--18b6aacb40f2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-saturation-clocks-for-three-color-excitable-dynamics--a5baac977e4b",
+          "Greenberg Hastings excitable cactus nonresonant cycle rooted block product counting 2 floor"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-source-polynomial-for-three-color-excitable-cycle-bouq--18b6aacb40f2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-saturation-clocks-for-three-color-excitable-dynamics--a5baac977e4b",
+        "https://arxiv.org/abs/1610.07320",
+        "https://doi.org/10.1214/17-AAP1350",
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a bouquet with one resonant petal, prior source polynomial gives precisely 6 times each nonresonant b_i; all nested general cacti are not bouquet graphs.",
+          "Activity theorem gives eventual dynamics without strict zero-transient condition."
+        ],
+        "reasoning": "Present law extends the explicit bouquet subclass and is compatible with activity criteria; none of inspected earlier implications determines nested nonresonant cycle count without the additional rooted-block argument.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-source-polynomial-for-three-color-excitable-cycle-bouq--18b6aacb40f2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-saturation-clocks-for-three-color-excitable-dynamics--a5baac977e4b",
+          "https://arxiv.org/abs/1610.07320",
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Immediate primitive-three configurations correspond to successor-neighbor Z3 colorings; no published exact singly resonant cactus count found.",
+          "Published bouquet resonance-source polynomial uses same local criterion but graph class has all cycles at one hub."
+        ],
+        "reasoning": "The condition is an exact initial-state constrained coloring, not merely nonzero long-run winding; bouquet formula is an explicit subclass.",
+        "searches": [
+          "3-cycle exact phase count Greenberg Hastings cactus graph unique resonant cycle",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-source-polynomial-for-three-color-excitable-cycle-bouq--18b6aacb40f2",
+          "https://arxiv.org/abs/1610.07320"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small two- and three-petal examples and triangle chain have separate formulas; known bouquet source polynomial yields 18 for triangle+square."
+        ],
+        "reasoning": "Isolated examples are not an all-graph product table; the current result quantifies over every cactus block tree with one resonant cycle.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-source-polynomial-for-three-color-excitable-cycle-bouq--18b6aacb40f2",
+          "cactus zero/one resonant cycle period-three state enumeration"
+        ]
+      },
+      "rationale": "The closest published period-three resonance-source polynomial gives a product-minus-product for tree-decorated cycle bouquets sharing one common hub, and specializes the claimed formula on that proper subclass with exactly one resonant petal. It does not cover arbitrary nested singly resonant cactus block trees. General Gravner–Lyu–Sivakoff activity/contour results treat eventual excitation rate, not exact initial least-period-three configuration census. No inspected dominating theorem accounts for arbitrary cactus gluing and unchanged nonresonant factors, so surviving general block-product claim passes best-of-knowledge, explicitly acknowledging known bouquet specialization.",
+      "residual_risks": [
+        "Even after inspecting the author-hosted full 2018 paper, a nontrivial deduction from its maximum winding/activity characterization to exact immediate-period-three cactus count remains possible, but is not stated or supplied there.",
+        "A more recent general cactus winding/phase partition theorem was available as a semantic record only and might imply the formula; priority cannot be exhaustively certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BOUQUET_SUBCLASS",
+          "evidence": [
+            "Unique-resonant bouquet specializes P3=6∏b_nonres, but common-hub assumption excludes arbitrary nested cactus cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-resonance-source-polynomial-for-three-color-excitable-cycle-bouq--18b6aacb40f2",
+          "material_read": "Full published Finding, Assumptions, complete four-part Proof and limitations",
+          "method": "GitHub published primary RESULT.md full",
+          "title": "Resonance-source polynomial for three-color excitable cycle bouquets",
+          "trigger": "Same GHM local rule and overlapping unique-resonance subclass"
+        },
+        {
+          "assessment": "UNRESOLVED_POSSIBLE_REDUCTION",
+          "evidence": [
+            "Describes full initial activity-rate distribution over cactus cycles, not an explicit immediate period-three count; a hidden implication cannot be excluded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arithmetic-saturation-clocks-for-three-color-excitable-dynamics--a5baac977e4b",
+          "material_read": "Resultary published title and substantive abstract/summary only; full paper not read",
+          "method": "Semantic record, not full-document comparison",
+          "title": "Arithmetic saturation clocks for three-color excitable dynamics on cactus graphs",
+          "trigger": "Same graph topology but possibly more general theorem"
+        },
+        {
+          "assessment": "LIMITING_ACTIVITY_NOT_INITIAL_PERIOD_THREE_CENSUS",
+          "evidence": [
+            "Theorem 3 characterizes synchronization and α=maximum normalized initial contour integral over cycles; Theorem 5 bounds probability of oscillation. No exact immediate-period-three cactus product in inspected full relevant sections."
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Full publisher manuscript retrieved from author university website; abstract, model definitions, finite-graph Theorem 3 and Theorem 5, their proof in Section 4, finite-cycle and probability sections, scanned for terms cactus and periodic, and page 3328–3329 screenshots examined",
+          "method": "Lawful author-hosted PDF text/find plus two PDF page screenshots",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs (Gravner–Lyu–Sivakoff, Annals of Applied Probability 2018)",
+          "trigger": "A general theorem on the exact same three-state excitation dynamics for all finite connected graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete multiplicative count over natural cactus blocks for a dynamical exact-period invariant, invariant under tree attachments and nonresonant block-tree reorganization. The exact gluing law is a meaningful structural classification beyond finite single-cycle enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly one resonant simple cycle; no formula with two or more; graph is connected simple cactus, threshold-one three-state GHM.",
+    "Counts initial least period-three states, not basins/eventual rate."
+  ]
+}

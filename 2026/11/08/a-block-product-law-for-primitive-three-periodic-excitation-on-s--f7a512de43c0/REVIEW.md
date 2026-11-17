@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed formula is reconstructed from the exact three-step local criterion: a nonfixed period-three trajectory on a connected graph forces all vertices to advance, equivalent to each phase having a successor-phase neighbor. Directing these successor edges proves that any chosen arrow must eventually reach a simple cycle divisible by three. On a cactus with a unique such cycle, outgoing support cannot lie in a child block because it would create a second resonant directed cycle. This forces the six core phases, unique bridge phases, and independent rooted cycle extensions. The latter count is proved from exactly two admissible families of edge-increment words and explicit modulo-three closure conditions. Ten exact graph enumerations and an independently derived edge-increment transfer agree with the theorem, but the proof does not depend on finite experimental extrapolation.
+PASS
 
-## Originality — PASS with residual risk
+A finite connected graph in the three-state threshold-one GHM has no nonzero fixed point; any nonconstant time-zero three-periodic configuration forces every vertex to rotate through 0,1,2 and satisfies a neighbor-in-successor-phase condition. Direct successor arrows must end on a directed cycle of length divisible by three. In singly resonant cactus the unique core cycle supports six phase/orientation configurations and child-block successor arrows cannot point away from the core without producing another resonant cycle. Bridges force one phase; each rooted noncore simple cycle has 2floor(ℓ/3)+1 phase extensions by the two complete weak increment-word families with modulo-three closure. Multiplying proves the claimed product; no resonant cycle yields zero. Independently brute-forced all 3-color configurations for cycles length 3..9, a triangle+square (18 states), and nested triangle+square+pentagon (54 states). Actual verify_global.py and verify_local.py read: proper synchronous update and rooted-cycle DP. Finite tests supplement general block-tree reasoning.
 
-The closely relevant 2016 paper of Gravner, Lyu, and Sivakoff (arXiv:1610.07320v1, Theorem 3 and Section 4) treats long-run synchronization and activity through winding integrals, not the count of configurations satisfying the immediate successor-neighbor condition on singly resonant cactus block trees. Durrett and Griffeath (1993, arXiv:patt-sol/9303002) treat excitable automata and large-lattice periodic patterns, not this block-product enumeration. Additional targeted literature searches and semantic records searches found no dominating or equivalent result. Accessible local historical claims include a general cactus *asymptotic-rate* distribution and a triangular cactus *chain* census; the former concerns a different invariant, while the latter assumes multiple resonant triangle blocks (except its single-triangle base case). No equivalence implication was identified. Search incompleteness and possible independently known cyclic-neighbor-coloring formulas remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem concerns a natural, completely specified recurrent-point invariant for the classical Greenberg–Hastings model. The answer works for every finite cactus with one resonant cycle, not merely a bounded family or arbitrary parameter slice. It gives the surprising independence of the positions of bridges, nesting of nonresonant cycles, and the size of the unique resonant cycle, while the other lengths contribute explicit staircase factors. It sharply separates activity produced by a cycle from time-zero periodicity and gives exact numbers of temporally distinct orbits. This structural factorization is relevant to enumerating recurrent configurations on sparse excitable networks; no downstream theorem beyond this classification is assumed.
+The closest published period-three resonance-source polynomial gives a product-minus-product for tree-decorated cycle bouquets sharing one common hub, and specializes the claimed formula on that proper subclass with exactly one resonant petal. It does not cover arbitrary nested singly resonant cactus block trees. General Gravner–Lyu–Sivakoff activity/contour results treat eventual excitation rate, not exact initial least-period-three configuration census. No inspected dominating theorem accounts for arbitrary cactus gluing and unchanged nonresonant factors, so surviving general block-product claim passes best-of-knowledge, explicitly acknowledging known bouquet specialization.
 
-## Closest literature and scientific limits
+## value
 
-The finite-graph winding theorem in arXiv:1610.07320v1 is the strongest directly inspected primary antecedent. It does not enumerate initial period-three states, although its methods motivate studying cycle blocks. The 1993 lattice study supplies the underlying excitable-media model, not the count. The product theorem does not classify more than one resonant cycle or other temporal periods. All verification programs use the exact declared update rule, and the documented finite tests are secondary to the proof. The result is new relative to the cited and accessible indexed material to the best of the present comparison; no independent historical priority judgment is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete multiplicative count over natural cactus blocks for a dynamical exact-period invariant, invariant under tree attachments and nonresonant block-tree reorganization. The exact gluing law is a meaningful structural classification beyond finite single-cycle enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
