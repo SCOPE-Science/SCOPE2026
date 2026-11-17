@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:58:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-adjacent-marker-trace-tests-and-hypergeometric-maximum-f--a5cc57361281/RESULT.md (source blob 4dd61caa599296f918bd1f221eda36002e765d39)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-adjacent-marker-trace-tests-and-hypergeometric-maximum-f--a5cc57361281/check_trace.py (source blob 542d88d0a58d1e95c1f0c74764239105f29f8424)",
+        "independently constructed exact deletion-mask and hypergeometric-sum comparison, n=2..7"
+      ],
+      "rationale": "From the actual RESULT.md at the frozen source blob, probability of a retained-marker trace 0^u10^v equals a common p^(u+v+1)(1-p)^(n-u-v-1) factor times binomial(i-1,u)binomial(n-i,v), or binomial(i,u)binomial(n-i-1,v). Thus the joint-support likelihood ratio cancels p and has sign iv-(n-i)u; traces without a 1 cancel. A common Bin(i,p)xBin(n-i,p) reference density yields the first exact TV expectation. Coupling endpoint Bernoulli digits and unimodality of hypergeometric masses yields the maximum-coefficient formula. Central binomial convolution, the lattice local CLT and a concentrated Taylor expansion give the fixed-p sharp TV and Hellinger constants; product affinity tensorizes. The exact-rational independently written mask test checked every adjacent shift n=2..7 for p=1/3,2/3; this finite check is not the proof.",
+      "residual_risks": [
+        "Only a pair of known adjacent single-one sources under iid binary deletion and fixed interior retention is proved; constants not uniform in p. The original product-binomial representation in 2014 is a prior ingredient, not newly established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McGregor–Price–Vorotnikova Lemma 11 establishes central O(r^-1) Hellinger bound for the indistinguishability construction; Rivkin et al. analyze a generalized trace model with distinct reconstruction objectives."
+        ],
+        "reasoning": "A broader channel/model or asymptotic bound is not the same as a proved exact decision rule for every adjacent index and p; the prior central distribution must nevertheless be credited.",
+        "searches": [
+          "Resultary: deletion channel two adjacent marker source strings exact total variation hypergeometric binomial likelihood ratio Hellinger",
+          "Rivkin Valiant Valiant arXiv:2412.00674 general trace reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "https://people.cs.umass.edu/~mcgregor/papers/14-esa.pdf",
+        "Resultary semantic searches for the same adjacent-marker hypothesis and its aliases",
+        "https://arxiv.org/abs/2412.00674"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Central pair law of 2014 implies a central Hellinger affinity after elementary product factorization and therefore is not independent novelty; off-center hypergeometric-mode identity uses conditional shift and unimodality across all i."
+        ],
+        "reasoning": "The new claim strictly encompasses noncentral index cases absent from the cited central lemma; its finite-sample optimal testing structure and leading constants survive after removing known ingredients.",
+        "searches": [
+          "https://people.cs.umass.edu/~mcgregor/papers/14-esa.pdf",
+          "Resultary: deletion channel two adjacent marker source strings exact total variation hypergeometric binomial likelihood ratio Hellinger"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McGregor–Price–Vorotnikova, Trace Reconstruction Revisited (2014), §3.3/Lemma 11: adjacent central one-marker words and conditional product-binomial laws; current general likelihood ordering L=(i-u)(n-i)/[i(n-i-v)]"
+        ],
+        "reasoning": "The existing central pair is the same statistical hypothesis at i=n/2; its primitive mass formula implies some central quantities, but no inspected prior theorem provides the all-position exact hypergeometric mode TV or all-trace rate-free decision rule.",
+        "searches": [
+          "Resultary: deletion channel two adjacent marker source strings exact total variation hypergeometric binomial likelihood ratio Hellinger",
+          "Resultary: adjacent one bit trace reconstruction total variation likelihood test binomial exact formula",
+          "https://people.cs.umass.edu/~mcgregor/papers/14-esa.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The public 2014 proof supplies binomial product probabilities in the central pair, not a published complete off-center hypergeometric mode table."
+        ],
+        "reasoning": "Exact finite all-position values can be derived directly by evaluating the known deletion probabilities, but the inspected sources did not supply or tabulate the stated all-n all-i formula; no finite table was treated as a proof of its absence.",
+        "searches": [
+          "Resultary: adjacent one bit trace reconstruction total variation likelihood test binomial exact formula",
+          "McGregor Price Vorotnikova 2014 Lemma 11"
+        ]
+      },
+      "rationale": "The 2014 adjacent-center pair and its conditional product-binomial laws, together with an O(1/r) squared-Hellinger estimate, are known; those are not credited as new. The independently checked surviving general result describes all adjacent locations via a hypergeometric mode formula and retention-independent likelihood rule at any trace count, with sharp center constants; best-of-knowledge novelty, not historical certification.",
+      "residual_risks": [
+        "An older hypothesis-testing treatment may already reduce the arbitrary-position deletion law to a hypergeometric maximum; searches are not a proof of global priority.",
+        "Central leading constants and the central affinity may be straightforward refinements of 2014 and must not be presented as wholly independent discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_CENTRAL_INGREDIENT_NOT_FULL_GENERAL_CLAIM",
+          "evidence": [
+            "§3.3/Lemma 11: central adjacent pair, conditional binomial trace laws, O(1/r) squared Hellinger; not an all-position maximum-coefficient formula"
+          ],
+          "identifier_or_url": "https://people.cs.umass.edu/~mcgregor/papers/14-esa.pdf",
+          "material_read": "Section 3.3 and Lemma 11, including central product-binomial identification and Hellinger argument",
+          "method": "Public PDF text and relevant page screenshot",
+          "title": "Trace Reconstruction Revisited",
+          "trigger": "Exact same adjacent one-marker deletion hypotheses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://people.cs.umass.edu/~mcgregor/papers/14-esa.pdf"
+      ],
+      "rationale": "Sharp optimal tests and exact distinguishability for the natural adjacent-source pair address a quantitative hypothesis-testing bottleneck in trace reconstruction. The off-center all-index formula is a reusable finite invariant, and sharp Hellinger constants control many-trace error. This is stronger than merely restating the 2014 lower-bound pair.",
+      "residual_risks": [
+        "The highly specialized single-marker hypothesis does not solve general reconstruction or prove minimax optimality over all pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two known adjacent one-marker source hypotheses only; fixed p in (0,1) for asymptotic statements.",
+    "No externally authenticated full historical-priority certification."
+  ],
+  "schema_version": 1
+}
