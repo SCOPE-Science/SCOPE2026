@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is confined to asymptotic ordinary detector-click cumulants for an ideal coherently driven detuned qubit. Each click puts the system in one pure state, so inter-click times regenerate. The exact no-click generator has a decaying resolvent and the Laplace transform (1), independently equal to the dominant-eigenvalue characteristic equation (2). The analytic inverse of equation (3) gives four cumulant rates, including detuning cancellation from the third cumulant. The fourth polynomial has a single positive zero on its undetuned axis, and strict concavity in the detuning-square coordinate plus its derivative sign proves the complete sign classification. Exact rational arithmetic checks 100 distinct parameter triples, 800 tilted determinants and 200 resolvents. These finite tests check algebra, while the written proof handles analyticity and the infinite-time limit. A remaining risk is implementation under a different jump normalization; the operator \(L=\sqrt\gamma |1\rangle\langle1|\) and ordinary cumulants are explicitly fixed.
+## correctness
 
-## Originality — PASS, qualified
-Dubey, Chetrite and Dhar (arXiv:2210.15188, §3, Eq. (40), Appendix D) give the exact finite-time count transform for the **resonant** one-angle monitored qubit. Its resonant cumulants are already implied and excluded as independent priority claims. The present statement uses a genuinely detuned three-Bloch-coordinate evolution and identifies an exact cancellation in its third cumulant together with a complete, two-parameter sign boundary for the fourth. Landi, Kewming, Mitchison and Potts (arXiv:2303.04270, §§II.2, III–IV) describe general tilted-Lindblad full-counting methods, an off-resonant qubit with **amplitude damping** jumps, and a dephased-qubit example with **diffusive** unraveling. Their framework is technically relevant but their examples do not give the specific rank-one-projector detector-click polynomial or its sign geometry. Targeted literature and published mathematical-result searches have not located a stronger covering statement. Residual risk: an older or less discoverable full-counting analysis may imply this detuned specialized formula without stating its sign classification; the search is evidence, not proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-Higher count cumulants capture non-Gaussian detection noise beyond the mean and variance. Here the third cumulant remains unchanged by detuning even as the variance grows, whereas the fourth changes sign along a sharp nonlinear measurement-strength–detuning curve, with exact equality and limiting cases. A complete two-parameter sign diagram is a natural, interpretable invariant of the detector model rather than an arbitrary numerical slice. The result is narrowly scoped: it makes no new general measurement theorem and is not a claim about finite-time count cumulants or experiments.
+For fixed g,gamma>0 and Delta real, every rank-one detector jump resets the qubit to |1>, so interclick waits regenerate and have exponential tails. The four-real-coordinate no-click generator leads by direct 4x4 determinant to exact rational Laplace transform fhat(s). The analytic renewal pole s(q), q=log(1/fhat(s)), has derivatives K_j=s^(j)(0). Independent symbolic series reversion at (g,gamma,Delta)=(1,1,0),(1,1,1),(1,1,2) reproduced all four displayed cumulants, including detuning-independent K3=7/8 and K4=2157/1024,1273/1024,-23843/1024. For u>0, P(u,v) has negative second v-derivative; at v=0 its cubic in u has one positive root by Descartes, and for u beyond that root initial v-slope is negative. This gives the exactly one crossing and boundary equality cases. The proof is asymptotic in t at fixed nonzero parameters, not finite time or singular g->0.
 
-## Checked literature and limitations
-- V. Dubey, R. Chetrite, A. Dhar, *Quantum resetting in continuous measurement induced dynamics of a qubit*, arXiv:2210.15188 (2022-10-27), model, counting §3 and exact Laplace transform Eq. (40), Appendix D.
-- G. T. Landi, M. J. Kewming, M. T. Mitchison, P. P. Potts, *Current fluctuations in open quantum systems*, arXiv:2303.04270 (2023-03-07), detailed models in §II.2, tilted generators and full counting statistics in §§III–IV.
-- Related published results on fully connected first-detection and sampled controlled qubits involve distinct observables and dynamical assumptions; their titles and summaries do not establish coverage of this cumulant sign boundary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dubey–Chetrite–Dhar 2022/23 treats the resonant single-angle measurement model Delta=0, not the full detuned four-real-coordinate process; its transform covers the resonant specialization. Landi et al. 2024 supplies generic tilted-generator methods but not the present detuning cancellation or explicit fourth-order two-parameter sign frontier. Targeted published searches and Resultary did not identify dominating same-model detuned cumulant statements. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+An exact robust cancellation in third-order click fluctuations despite changing variance, together with a unique sharp fourth-order sign transition in an experimentally motivated monitored-qubit model, identifies nontrivial qualitative noise regimes. Not a bare generic full-counting-statistics formalism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

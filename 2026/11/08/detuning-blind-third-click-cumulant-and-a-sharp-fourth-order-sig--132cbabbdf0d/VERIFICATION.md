@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The theorem uses a single monitored channel \(L=\sqrt\gamma |1\rangle\langle1|\), a Hamiltonian \(H=g\sigma_x+(\Delta/2)\sigma_z\), strictly positive \(g,\gamma\), and real \(\Delta\). Count cumulants are ordinary cumulants, with time taken to infinity before changing model parameters.
+# Independent mathematical audit
 
-Run `python3 checker.py` from the directory containing the result. Its Python standard-library exact-rational tests verify the fourth-order formal logarithm and power-series inverse against the four closed cumulant formulas for 100 parameter triples. Independently constructed \(4\times4\) matrices yield 800 determinant matches to the claimed tilted characteristic polynomial, and a direct rational solve yields 200 checks of the no-click waiting Laplace transform. Tests also sample positive and negative fourth-cumulant regimes. These are finite algebraic cross-checks, not substitutes for the proof of analyticity or the infinite family of sign cases.
+## correctness
 
-The analytic proof supplies regeneration after clicks, strict stability of the no-click generator, existence of an analytic dominant eigenvalue, explicit cumulant derivation and uniqueness of every phase-boundary crossing. The result does not establish finite-time cumulant signs, asymptotics uniform as the coherent drive vanishes, nonideal detector performance, an experimentally observed transition, or publication priority. The 2022 resonant full-counting transform and general 2023 full-counting techniques are credited as prior work; independent scientific audit has not been performed.
+PASS
+
+For fixed g,gamma>0 and Delta real, every rank-one detector jump resets the qubit to |1>, so interclick waits regenerate and have exponential tails. The four-real-coordinate no-click generator leads by direct 4x4 determinant to exact rational Laplace transform fhat(s). The analytic renewal pole s(q), q=log(1/fhat(s)), has derivatives K_j=s^(j)(0). Independent symbolic series reversion at (g,gamma,Delta)=(1,1,0),(1,1,1),(1,1,2) reproduced all four displayed cumulants, including detuning-independent K3=7/8 and K4=2157/1024,1273/1024,-23843/1024. For u>0, P(u,v) has negative second v-derivative; at v=0 its cubic in u has one positive root by Descartes, and for u beyond that root initial v-slope is negative. This gives the exactly one crossing and boundary equality cases. The proof is asymptotic in t at fixed nonzero parameters, not finite time or singular g->0.
+
+## originality
+
+PASS
+
+Dubey–Chetrite–Dhar 2022/23 treats the resonant single-angle measurement model Delta=0, not the full detuned four-real-coordinate process; its transform covers the resonant specialization. Landi et al. 2024 supplies generic tilted-generator methods but not the present detuning cancellation or explicit fourth-order two-parameter sign frontier. Targeted published searches and Resultary did not identify dominating same-model detuned cumulant statements. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+An exact robust cancellation in third-order click fluctuations despite changing variance, together with a unique sharp fourth-order sign transition in an experimentally motivated monitored-qubit model, identifies nontrivial qualitative noise regimes. Not a bare generic full-counting-statistics formalism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
