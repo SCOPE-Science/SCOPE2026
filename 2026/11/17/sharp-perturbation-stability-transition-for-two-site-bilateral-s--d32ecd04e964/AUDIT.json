@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Direct mean/contrast decomposition is algebraically exact. The range criterion follows from monotonicity of the odd scalar contrast map. Rational derivatives have a unique maximizer for p>1; p<=1 approaches sharp unit slope only at infinity. Gaussian derivative sign reduces to a strictly decreasing scalar root function; substitution gives its sharp constant. The scalar secant/coordinate-swap decomposition extends these constants to every ℓq norm, including endpoint q=1 and infinity. The code independently exercises original two-coordinate formula, slopes, sharp peaks, and 90,000 direct coordinate-norm pair checks. Finite checks are corroborative, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tomasi–Manduchi, ICCV 1998, full lawful PDF sections 2-7 gives general Gaussian range/spatial weighting and qualitative edge preservation, but not a universal two-input Lipschitz theorem.",
+        "Pan–An–He, DOI:10.1155/2014/289517, open full text sections 2–5 treats arbitrary spatial/range kernels in fast approximation; does not establish sharp pair perturbation moduli.",
+        "published-finding corpus 2026/11/2/SCOPE-cycle-p-heat-individual-lipschitz-contraction-and-sharp-two-inpu--baba607da05a concerns time-evolution of nonlinear p-heat rather than a single-step bilateral map."
+      ],
+      "reasoning": "A general Lipschitz theorem for two-site bilateral filters would dominate this claim, but no inspected stronger result was found. Conventional one-input smoothing, range preservation, and numerical approximation results do not imply pairwise nonexpansivity or the formula for all ℓq norms.",
+      "searches": [
+        "published-finding corpus: \"Nonexpansiveness of two-site range-adaptive weighted mean in ℓp norms and total variation Gaussian\"",
+        "published-finding corpus: \"Bilateral filtering edge-preserving smoothing exhibits local contrast amplification, exact two-vertex nonlinear Lipschitz operator norm\"",
+        "web: \"bilateral filter\" \"nonexpansive\" Gaussian",
+        "web: bilateral filter Lipschitz constant nonexpansive two pixels Gaussian influence variation"
+      ]
+    },
+    "checked_sources": [
+      "Tomasi–Manduchi, 1998, DOI:10.1109/ICCV.1998.710815, lawful full text",
+      "Pianykh, arXiv:1007.1016v1, first submitted 2010-07-06",
+      "Pan–An–He, DOI:10.1155/2014/289517, open full text",
+      "published-finding corpus closest indexed IDs recorded in four named checks",
+      "Available own ledger generations p0001_g000049 and p0002_g000053; recoverable claim/ID overlap searches only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-deletion means and mean–median blending use order statistics or fixed convex mixtures, with piecewise-affine rank-selection maps. In contrast the bilateral weights continuously depend on the input contrast and lead to nontrivial power-law and Gaussian derivative maxima.",
+        "Pianykh gives the identical range families and numerical one-input K-values but no upper bounds on two-input variation perturbation, and no if-and-only-if \\(s w(s)/(1+w(s))\\) criterion.",
+        "Tomasi–Manduchi develops original bilateral formula, not a sharp stability phase law."
+      ],
+      "reasoning": "The closest overlapping objects provide definitions of the kernels, not the claimed pairwise operator norm. The new power-law cutoff at exponent one and explicit factor \\(1+c(p-1)^2/[2p(1+c)]\\) require derivative extremization; neither is a special case of an inspected stronger theorem.",
+      "searches": [
+        "own available claims item eeb40157-82ac-4ddf-bfce-4c922854eca4 (one-deletion cyclic means)",
+        "own available claims item 2d090570-f9fc-4245-8d24-70ac82431565 (mean–median blend)",
+        "published-finding corpus 2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2",
+        "Pianykh arxiv:1007.1016v1 PDF pp.1–11",
+        "Pan–An–He DOI 10.1155/2014/289517 full HTML"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pianykh arXiv:1007.1016v1, PDF p.4 Eq.VA/VF/VQ/VE contains precisely inverse-power 1,2,4 and Gaussian range weights; pp.4-7 study the one-input standard-deviation ratio K(t,n), not an operator perturbation norm.",
+        "Own available first and second part contain no recoverable claim with bilateral/range-affinity/two-pixel terminology.",
+        "published-finding corpus closest relevant indexed record 2026/11/1/SCOPE-finite-window-morphology-sharp-two-input-variation-and-a-boundar--5f5f2cb7d7b2 concerns min/max, not weighted nonlinear bilateral averaging."
+      ],
+      "reasoning": "Equating a one-input amplitude/variance response K with the two-input Lipschitz modulus is mathematically invalid: the latter is a supremum of secant slopes of a contrast response, not the ratio of output variation to original variation of one signal. The new theorem also gives a kernel-wide necessary/sufficient monotonicity criterion and full family of Banach norms.",
+      "searches": [
+        "published-finding corpus: \"Sharp Lipschitz constant for a two-pixel bilateral Gaussian filter in total variation, derivative, exact contrast and spatial parameter\"",
+        "published-finding corpus: \"Pianykh Bilateral filters what they can and cannot do power range kernel Abs Frac Quad Exp stability two-input Lipschitz contraction\"",
+        "web: \"bilateral filter\" \"Jacobian\" eigenvalues amplification",
+        "own available ledger claims: bilateral | gaussian affinity | range kernel | two-pixel | Cauchy range"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pianykh 2010 Table 1 tabulates 50% deviation-reduction thresholds and Figures 2–4 one-input K(t,n), not two-site sharp Lipschitz coefficients.",
+        "No returned published-finding corpus hit represented an exact parameter table for the two-site bilateral family or Gaussian scalar derivative maximum."
+      ],
+      "reasoning": "The numerical table of one-input deviation reductions is not an exact table for maximum two-input perturbation gain. Negative search is supporting evidence only and does not establish priority.",
+      "searches": [
+        "published-finding corpus: \"Tomasi Manduchi bilateral filtering two-pixel sharp sensitivity exact operator norm rational kernels p=1,2,4\"",
+        "web: \"bilateral filter\" \"Lipschitz\" \"two\" Gaussian stability",
+        "web: \"bilateral filter\" \"nonexpansive\" \"contrast\" \"power\""
+      ]
+    },
+    "rationale": "Archived primary literature introduces these bilateral filters and studies one-input local deviation response, but the inspected exact statements do not determine the sharp two-input perturbation operator modulus or the phase threshold for the full rational range family. Negative searches are not proof of priority; unindexed earlier scalar calculus is a residual risk.",
+    "residual_risks": [
+      "A previously unindexed mathematical treatment of scalar two-pixel bilateral contrast derivatives could imply the same exact constants without being returned in searches.",
+      "Some older edge-preserving-filter primary sources were not exhaustively inspected; no identified accessible stronger theorem covers the exact claim.",
+      "The claim has only same-model mathematical review; independent validation has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact two-input norm; establishes foundational operator and spatial/range weights",
+        "evidence": [
+          "Full text section 2 equations (5)–(6), Gaussian §2.1; section 6 compares edge-preserving methods, no all-ℓq two-site Lipschitz calculation."
+        ],
+        "identifier_or_url": "https://projects.iq.harvard.edu/sites/projects.iq.harvard.edu/files/imagenesmedicas/files/tomasi1998kg.pdf",
+        "material_read": "Accessible parsed full PDF including sections 2 (definitions), 2.1 (Gaussian), 3 (range filter), 4–5 (experiments), 6–7 (related work/conclusions); page screenshot request timed out, with textual content and an independent author-derived HTML version inspected",
+        "method": "PDF parsed full text and cross-checked qualitative methods in lawful HTML mirror",
+        "title": "Bilateral Filtering for Gray and Color Images",
+        "trigger": "Foundational exact bilateral filter definition and Gaussian example"
+      },
+      {
+        "assessment": "Strongest accessible near overlap; not covering the two-input Lipschitz theorem because K(t,n) is a one-input deviation reduction ratio, not derivative supremum",
+        "evidence": [
+          "PDF page 4 Eq.VA/VF/VQ/VE: \\(1/(1+t|x|)\\), \\(1/(1+(tx)^2)\\), \\(1/(1+(tx)^4)\\), and \\(e^{-(tx)^2}\\).",
+          "PDF pages 4–7 numerically explore average one-input K(t,n), not global two-input secant/derivative norm.",
+          "arXiv first public v1 is 2010-07-06 23:25:39 UTC."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1007.1016",
+        "material_read": "Complete 13-page arXiv v1 PDF text pp.0–11; rendered screenshot of PDF page 4 displaying four range kernels and the K(t,n) response definition",
+        "method": "Full-text PDF and page-image comparison of mathematical kernels and selected functional",
+        "title": "Bilateral filters: what they can and cannot do",
+        "trigger": "Directly studies the exact rational-exponent and Gaussian kernels that appear in the result"
+      },
+      {
+        "assessment": "Not covering pairwise stability; concerns approximating bilateral kernel calculations at low computational cost",
+        "evidence": [
+          "Sections 2–3 define arbitrary kernels and sparse box approximations; section 4 analyzes computational/approximation experiments rather than Lipschitz constants."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/289517",
+        "material_read": "Open HTML full article sections 1–5, especially §2 formula (1) and §3 approximation theory, §§4–5 experiments/conclusion",
+        "method": "Read full available web article text and searched for Lipschitz/nonexpansivity",
+        "title": "Optimal O(1) Bilateral Filter with Arbitrary Spatial and Range Kernels Using Sparse Approximation",
+        "trigger": "Plausible broader arbitrary-range-kernel coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d32ecd04-e964-40e1-88c2-72197341b2d3",
+  "value": {
+    "rationale": "A natural minimal graph separates classical one-input smoothing from two-input perturbation stability. The result gives a necessary-and-sufficient design rule for all monotone two-point affinities, a sharp critical decay exponent p=1 in the exact rational families previously compared numerically, closed amplification formula independent of bandwidth/coupling scale, and unique Gaussian worst contrast. It also proves one simultaneous stability classification for all ℓq norms. This identifies a reproducible mathematical boundary for nonlinear edge-preserving operators, not an arbitrary tabulation.",
+    "status": "PASS"
+  }
+}
