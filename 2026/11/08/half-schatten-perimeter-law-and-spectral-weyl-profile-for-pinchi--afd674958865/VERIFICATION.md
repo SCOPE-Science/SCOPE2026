@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact commutator-band formula, positivity, finite Schatten membership, finite-window moment convergence, geometric critical constant, and residual-science limits are proved in `RESULT.md`.
+## correctness
 
-Run `python check_laurent.py` with Python 3.10 or later, NumPy and SciPy installed (`pip install -r requirements.txt`). Its successful output is exactly `ANNULAR_LAURENT_CHECK_OK 12162`. The checker tests the rational cross-commutator numerator identity, compares independently constructed finite matrices against the formula, and carries out finite spectral checks for explicit two-term Laurent examples. Calculations are corroboration only: they neither exhaust arbitrary Fourier coefficients nor replace infinite-dimensional limit proofs.
+PASS
 
-The time-dependent spectral statement fixes the Laurent coefficients and exponent before letting the inner radius tend to one. The source setting uses **equal normalized measures on both boundary circles**. No claim is made about expert certification, independent audit, or priority verification.
+On the equal-boundary-mass two-circle Hardy space, e_n=z^n/√(1+r^{2n}), multiplication by z^k has weights √(V_{n+k}/V_n), V_n=1+e^{-2hn}. Directly expanding [M_{z^l}*,M_{z^k}] gives the exact rational n,k,l band formula in RESULT.md; an independent rational algebra identity test passed 525 mixed-band instances. Each of finitely many bands has O(h²sech²(hn)) envelope, ensuring positivity through the normal boundary extension and S_p membership for every fixed h,p>0. After h^{-2} rescaling the local Fourier band symbol is sech²(t)|φ′(e^{iθ})|². Finite-window closed index walks and Riemann sums give integer moments; uniform spectral approximation plus exponential Schatten-tail bounds yield every fixed positive real p and spectral tests away from zero. ∫sech^{2p}=√πΓ(p)/Γ(p+1/2), so p=1/2 yields 1/2∫|φ′|dθ; slowly localized Fourier packets give ||C||/h²→max|φ′|². Fixed φ and equal boundary weights are essential.
+
+## originality
+
+PASS
+
+Earlier published annular coordinate and monomial self-commutator spectra establish φ=z and φ=z^k special cases and their sharp counts, but not the general mixed Fourier symbol with interference and half-perimeter trace. Jain–Sarkar and Das–Narayanan papers concern annular Toeplitz structure and zero/Hankel products. The general semiclassical finite-band Szegő limit machinery may conceptually dominate the Weyl component; no accessible source was identified that directly implies the complete stated mixed-Laurent Schatten/perimeter law under exactly these normalizations.
+
+## value
+
+PASS
+
+A sharp p=1/2 geometric boundary-curve length in a natural algebra of annular multipliers connects the commutator spectral law with parametrized arclength, and the full two-variable symbol governs all positive Schatten powers and the norm. This is mathematically motivated beyond the already known coordinate spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
