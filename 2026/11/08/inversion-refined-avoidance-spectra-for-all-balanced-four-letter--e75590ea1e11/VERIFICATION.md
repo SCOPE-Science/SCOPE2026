@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or newer (standard library only).
+## correctness
 
-The verifier enumerates all binary words for lengths 0 through 14, independently recomputes the letter counts and \(01\)-subsequence counts, and tests scattered membership for each of the six balanced length-four patterns. It compares exactly 11,640 coefficient counts to the formulas, with strict assertions for each. It also checks the total \(AB+1\) and exact first-moment identities for all \(0\le A,B\le25\). Successful output begins `BALANCED_PATTERN_VERIFY_OK`.
+PASS
 
-The numerical audit is finite. The infinite assertion and exceptional boundaries require the constructive block-decomposition proof in `RESULT.md`. Neither the observed examples nor the test output are treated as independent certification of the proof. An independent mathematical audit has not been performed.
+Unique decomposition w=1^{x0}0⋯01^{xA} gives c(w)=Σj xj. Pattern 0110 avoidance is ≤1 interior one, mapping each C to unique word. Pattern 0101 avoids iff ≤four runs, with C=dq; 0011 avoids iff ≤1 one after second zero, giving T. Complement/reversal yield three reflected patterns. Coefficients, AB+1 totals, threshold C≥A+B and means follow explicitly; empty A/B cases checked. Independent exhaustive counts check 3366 coefficient instances; finite work not proof.
+
+## originality
+
+PASS
+
+The known canonical uniform representative and general two-ended run avoidance are credited. The original surviving complete six-balanced-pattern classification, especially the 0011 interval polynomial, sharp threshold and first-moment contrast, was not established in the inspected prior statements. Accessible but incomplete source text leaves a concrete priority risk.
+
+## value
+
+PASS
+
+Exact avoidance histograms inside binary Parikh-matrix classes are natural invariants for subsequence containment and combinatorics on words. The sharp C≥A+B 0011 forcing threshold and three distinct distribution shapes distinguish genuine class behavior beyond known class-size formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
