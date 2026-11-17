@@ -1,11 +1,21 @@
-# Review of the characteristic-two conic discriminant resolution
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic equation is a direct polar-kernel calculation. Blowup charts determine the entire proper transform, which is a smooth projectivization; the ambient discrepancy formula proves crepancy. The Frobenius–Euler exact sequence has nine distinct monomial images and the missing \(DEF\) produces a nonzero one-dimensional torsor class. The motivic count follows from Zariski-local triviality. Exact field enumerations confirm the first three even fields but are not the general proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Tanaka gives the original cubic, its singular support and normality; these inputs are expressly acknowledged. Auel–Bigazzi–Böhning–Graf von Bothmer give the same quasilinear conic incidence as an independent example; it is expressly acknowledged. Totaro gives foundational general quasilinear geometry. Searches of published mathematical records, general literature, and explicit source text found no equivalent joint assertion of the crepant resolution together with the nonzero \(H^1\) affine-torsor obstruction. A later or less accessible historical result might cover part or all of it; independent priority confirmation remains outstanding.
+PASS
 
-**Mathematical value — PASS.** The calculation identifies a natural resolution of a universal singularity and an obstruction to trivializing the smooth locus over its polar-parameter base. The nonzero torsor class is a meaningful global invariant invisible in each affine fiber, while the same geometry gives a uniform Grothendieck class, finite-field counts, and zeta function.
+The polar radical of q=ax²+by²+cz²+dyz+ezx+fxy is (d,e,f) off its vanishing plane, giving discriminant ad²+be²+cf²+def and partial derivatives d²,e²,f²,ef,df,de. The cubic is geometrically primitive and linear in a,b,c; singular locus support L has codimension 2 in D, so geometric integrality plus S2 and R1 prove normality. In blowup chart d=t,e=tu,f=tv the defining equation pulls back to t²(a+bu²+cv²+tuv); removing t² gives smooth strict transform with a coefficient 1, and analogous charts. Globally this is P_B(K), kernel of surjective O³⊕O(−1)→O(2); rank3, smooth. Ambient blowup of codimension3 center contributes +2E, cubic strict transform 3H−2E, hence K_~D=−3H=π*K_D, crepant. t=0 gives smooth exceptional P_B(K0)→B, while geometric fiber over L is nonreduced double line. The exact sequence 0→K0→K→O(−1)→0 makes U→B a torsor under K0(1). Its extension is image of DEF under H⁰(O(3))→H¹(K0(1)): image of (D²,E²,F²)H⁰(O(1)) is precisely nine of ten cubic monomials; DEF is absent, so class nonzero and no section. Zariski-local torsor triviality gives [U]=L²[P²], and [D]=[U]+[L]; direct independent characteristic-two GF(2) count gives 35 as (2²+2+1)(2²+1), while all-fields and all-q results follow algebraically.
 
-**Limits.** The statement is restricted to characteristic two and to this universal ternary quadratic discriminant; only the specified geometric bundle is shown nonsplit. No unconditional historical-uniqueness or external certification claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tanaka explicitly covers this universal cubic discriminant, normality and singular plane; Auel et al. cover the exceptional quasilinear conic incidence. These are not novel components. The specific smooth crepant projective-bundle blowup together with *nonzero DEF Frobenius–Euler extension* and nonsplit affine torsor are not stated or logically forced by those known geometric facts. This structural conjunction survives best-of-knowledge originality comparison; potential earlier resolutions under other terminology remain a material risk.
+
+## value
+
+PASS
+
+A classical singular discriminant acquires a transparent crepant smooth model whose complementary affine fibration is Zariski locally trivial but provably globally nonsplit. The cohomological DEF obstruction explains a geometric distinction invisible to motivic class and finite-field point counts. That is a structural characteristic-two geometry result with naturally important base and invariant, not only a known point-count computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
