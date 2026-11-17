@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses Baruah--Gogoi's exact published identity and independently checks the eta quotient: weight \(2\), level \(1152\), both eta congruences divisible by \(24\), character \(\chi_8\), and strictly positive cusp orders for all divisor denominators. Deligne's classical coefficient bound on a fixed-level weight-two cusp form gives \(Q(n)-8D(n)=O_\varepsilon(n^{1/2+\varepsilon})\). The standard distinct-part asymptotic gives the ratio and eventual positivity. The separate checker reproduces exact coefficients through \(n=1100\) and all cusp-order arithmetic; finite checking is supporting evidence only.
+PASS
 
-## Originality — PASS, qualified
+From Baruah–Gogoi Theorem 1.1, 8sum D q^n=f2/f1-f1^7/f2^3. Since f2/f1=sum Q q^n, the correction is eta(24z)^7/eta(48z)^(-3) after q->exp(2pi i24z). Weight (7-3)/2=2; eta congruence sums 24,264 divisible by 24; exponent character 2^9 3^4 gives chi8. For all c|1152, gcd(c,48)/gcd(c,24) is 1 or 2, yielding strictly positive cusp orders (independently checked 24 divisors, min 1, max 11). The fixed-level weight-2 cusp coefficient bound O_epsilon(m^(1/2+epsilon)) follows from newform decomposition and Deligne; Q(n) has exponential asymptotic. Independently recomputed coefficients through n=80 with a distinct-part weight DP and separate logarithmic derivative; all matched. Finite checks are not the proof.
 
-The identity \(8D=Q-C\) is already present in Baruah--Gogoi and is **not** claimed as original. The precise new proposition is the cusp-form realization of \(C\), the global polynomial coefficient error, and the resulting \(1/8\) asymptotic law for the weighted statistic. The main same-object original and subsequent 2026 papers were compared at the level of claims: their stated results concern identities, congruences or monotonicity, without an equivalent coefficient bound or ratio theorem. Specific published-finding corpus comparisons found no covering result. The derivation uses standard eta-quotient tools; it is possible an equivalent short corollary has appeared elsewhere, so priority is qualified rather than certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The difference between total odd and even part sizes in distinct partitions is a deliberately studied arithmetic statistic. A fixed positive fraction of the *number* of distinct partitions is an unexpected leading term for a weighted sum of parts. The result shows exponential cancellation within the statistic to a polynomial error, stronger than a mere limit or congruence, and supplies an analytic explanation of its eventual sign. It does not claim the original generating series or an effective least positivity cutoff.
+The arithmetic generating identity is explicitly prior; the new claim is the modular cusp-form identification, polynomial error and 1/8 limiting ratio. The inspected original investigates q-identities and congruences, not the weight-two cusp conclusion. In the published-finding searches nearby Gaussian parity imbalance concerns ordinary partitions and a different statistic. Best-of-knowledge, not a guarantee that no standard modular corollary was previously written.
 
-## Closest literature and limitations
+## value
 
-Baruah--Gogoi, arXiv:2602.20025, Theorem 1.1 is the essential prior identity; Andrews--Ghosh Dastidar introduced the statistic. Bardhan--Saikia arXiv:2606.31264 and arXiv:2608.08524 concern neighboring identities and congruences. No explicit coefficient exponent sharper than the general weight-two bound or sharp positivity cutoff is proved. Historical exhaustiveness and independent certification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a strong exponentially-small relative error for the natural signed odd-even total-part statistic; a polynomial correction for an exponentially growing partition count is mathematically informative and not merely a relabeling or congruence. It gives an asymptotic proportion and eventual positive sign with explicit analytic mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
