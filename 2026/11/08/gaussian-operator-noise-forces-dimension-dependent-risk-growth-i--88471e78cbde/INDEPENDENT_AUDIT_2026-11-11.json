@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed fixed-data scalar recurrence X_t=(B/A)(1-(1-q(A))^t). For lambda0=0, E|A|^-2 diverges in both 1 and 2 real dimensions; for lambda0>0, all fixed-iteration moments are finite by |F_t|<=min(2,t omega |A|^2/lambda0). Small-A scaling A=sqrt(lambda0/(omega t))u gives real sqrt(t) coefficient 2 sqrt(pi)(2-sqrt(2)) beta p_A(0) sqrt(omega/lambda0); polar integration yields complex pi beta f_A(0) log t. Cross term is lower-order by Cauchy-Schwarz; a.s. fixed-A limit B/A. Independently quadrature verified universal real integral 2.07655885436006, equal to 2 sqrt(pi)(2-sqrt2). Separate fixed from resampled noise; lambda0, tau boundaries checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.13552: Section 4 discusses fixed perturbations and conditional error recurrence; algorithm uses Fourier-slice damping.",
+          "https://arxiv.org/abs/2308.16904: Related noisy observed-operator pseudoinverse formulation, not verified exact scalar asymptotic."
+        ],
+        "reasoning": "SD-TRK conditional contraction/error-floor bounds depend on observed singular values; without integrating over their origin density they do not entail the exact ensemble growth rate. General pseudoinverse sensitivity alone gives the divergence at infinity, not finite-t scale constants.",
+        "searches": [
+          "Resultary: Gaussian noisy scalar Kaczmarz fixed operator error sqrt t log t infinite variance",
+          "arXiv:2607.13552 SD-TRK fixed perturbations",
+          "arXiv:2308.16904 doubly-noisy Kaczmarz pseudoinverse"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.13552",
+        "https://arxiv.org/abs/2308.16904",
+        "Resultary semantic query: Resultary: Gaussian noisy scalar Kaczmarz fixed operator error sqrt t log t infinite variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.13552: Section 4 discusses fixed perturbations and conditional error recurrence; algorithm uses Fourier-slice damping.",
+          "https://arxiv.org/abs/2308.16904: Related noisy observed-operator pseudoinverse formulation, not verified exact scalar asymptotic."
+        ],
+        "reasoning": "The method and deterministic Fourier damping are established by Lee-Choi; the distinct conclusion here is that once-sampled Gaussian operator noise yields unbounded ensemble risk even with positive lambda0 and sharp dimension-specific constants.",
+        "searches": [
+          "Resultary: Gaussian noisy scalar Kaczmarz fixed operator error sqrt t log t infinite variance",
+          "arXiv:2607.13552 SD-TRK fixed perturbations",
+          "arXiv:2308.16904 doubly-noisy Kaczmarz pseudoinverse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.13552: Section 4 discusses fixed perturbations and conditional error recurrence; algorithm uses Fourier-slice damping.",
+          "https://arxiv.org/abs/2308.16904: Related noisy observed-operator pseudoinverse formulation, not verified exact scalar asymptotic."
+        ],
+        "reasoning": "A Fourier slice with a single row/unknown is a fixed noisy scalar linear solver. Resampled Kaczmarz stationary Gaussian laws and Aitken-ratio heavy tails have different random dependence and do not specialize to this fixed-data risk.",
+        "searches": [
+          "Resultary: Gaussian noisy scalar Kaczmarz fixed operator error sqrt t log t infinite variance",
+          "arXiv:2607.13552 SD-TRK fixed perturbations",
+          "arXiv:2308.16904 doubly-noisy Kaczmarz pseudoinverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.13552: Section 4 discusses fixed perturbations and conditional error recurrence; algorithm uses Fourier-slice damping.",
+          "https://arxiv.org/abs/2308.16904: Related noisy observed-operator pseudoinverse formulation, not verified exact scalar asymptotic."
+        ],
+        "reasoning": "No exact finite table/database governs the asymptotic Gaussian ensemble risk; lookup targeted Resultary noisy-solver records and located no earlier same fixed-data real/complex asymptotic.",
+        "searches": [
+          "Resultary: Gaussian noisy scalar Kaczmarz fixed operator error sqrt t log t infinite variance",
+          "arXiv:2607.13552 SD-TRK fixed perturbations",
+          "arXiv:2308.16904 doubly-noisy Kaczmarz pseudoinverse"
+        ]
+      },
+      "rationale": "Published SD-TRK conditional fixed-perturbation estimate does not evaluate the expectation over a Gaussian operator singularity, and generic pseudoinverse sensitivity does not supply the specified regularized finite-time sqrt(t) versus log(t) rates and coefficients. Resultary search included distinct Gaussian Aitken and resampled-noise Kaczmarz results; none is an implication for the fixed-observation one-mode regime. Originality remains qualified by uninspected complete spectral-filter literature.",
+      "residual_risks": [
+        "Lee–Choi full PDF/HTML could not be retrieved during this run; only its abstract and indexed relevant Section 4 excerpts were available.",
+        "Older spectral-regularization or inverse-problem literature might contain the same scalar cutoff integral and rates under a different model name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-perturbation contraction and damping error-floor analysis; no inspected exact Gaussian ensemble sqrt(t)/log(t) asymptotic. Cannot certify whole-paper absence.",
+          "evidence": "Section 4 discusses fixed perturbations and conditional error recurrence; algorithm uses Fourier-slice damping.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.13552",
+          "material_read": "Abstract and indexed extended Section 4/Algorithm comparison excerpts; arXiv HTML and PDF not accessible",
+          "method": "arXiv abstract and accessible indexed paper excerpts",
+          "title": "A Spectrally Damped Tensor Randomized Kaczmarz Method for Doubly Noisy Tensor Systems",
+          "trigger": "Original same update and fixed operator-noise regime"
+        },
+        {
+          "assessment": "No confident whole-paper NOT_COVERING judgment made.",
+          "evidence": "Related noisy observed-operator pseudoinverse formulation, not verified exact scalar asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16904",
+          "material_read": "Citation and source description only; full text unavailable in this run",
+          "method": "Bibliographic/context crosscheck",
+          "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Operator pseudoinverse sensitivity in same noisy solver family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Small noisy singular values produce a sharp dimension-sensitive risk divergence hidden by finite-iteration conditioning. The analytic constants distinguish real Fourier modes and complex Fourier modes of a practical regularized row-action solver and give a precise limitation of positive damping floor; significant despite scalar scope.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.13552",
+    "https://arxiv.org/abs/2308.16904",
+    "Resultary semantic query: Resultary: Gaussian noisy scalar Kaczmarz fixed operator error sqrt t log t infinite variance"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Lee–Choi full PDF/HTML could not be retrieved during this run; only its abstract and indexed relevant Section 4 excerpts were available.",
+    "Older spectral-regularization or inverse-problem literature might contain the same scalar cutoff integral and rates under a different model name."
+  ],
+  "schema_version": 1
+}

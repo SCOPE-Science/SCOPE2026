@@ -1,19 +1,21 @@
-# Review of Gaussian fixed-operator risk for a damped scalar Fourier mode
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the one-row scalar specialization of the stated SD-TRK scheme, geometric-series summation gives the exact iterate \(X_t=(B/A)F_t(A)\). The damping ratio stays strictly between zero and two, establishing almost-sure convergence to \(B/A\). With a zero floor the positive one- or two-dimensional Gaussian density at the origin forces \(\mathbb E|A|^{-2}=\infty\). With a positive floor, a uniform small-denominator estimate gives finite risk at each finite iteration, and elementary Gaussian integral asymptotics produce the real-mode \(\sqrt t\) constant and complex-mode \(\log t\) constant. The target offset is negligible by Cauchy–Schwarz. A standalone verifier tests finite recurrences and the two integral asymptotics; those numerical tests are not substituted for the universal analytic proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Reconstructed fixed-data scalar recurrence X_t=(B/A)(1-(1-q(A))^t). For lambda0=0, E|A|^-2 diverges in both 1 and 2 real dimensions; for lambda0>0, all fixed-iteration moments are finite by |F_t|<=min(2,t omega |A|^2/lambda0). Small-A scaling A=sqrt(lambda0/(omega t))u gives real sqrt(t) coefficient 2 sqrt(pi)(2-sqrt(2)) beta p_A(0) sqrt(omega/lambda0); polar integration yields complex pi beta f_A(0) log t. Cross term is lower-order by Cauchy-Schwarz; a.s. fixed-A limit B/A. Independently quadrature verified universal real integral 2.07655885436006, equal to 2 sqrt(pi)(2-sqrt2). Separate fixed from resampled noise; lambda0, tau boundaries checked.
 
-The most relevant primary source is Lee–Choi, arXiv:2607.13552, Theorem 4.2, Algorithm 1 and Eq. (4.9), read in full HTML form. It analyzes expected row sampling conditional on fixed noisy tensors and supplies a spectral damping prescription. It does not integrate over the Gaussian operator ensemble to obtain the precise real/complex risk growth. Bergou et al., arXiv:2308.16904, analyze observed matrix pseudoinverse sensitivity; Elfving (2024) treats fixed-operator data noise; Ma–Molitor, arXiv:2006.01246, treat noiseless tensor iterations. An equivalent statement might exist in older small-denominator or spectral-regularization theory despite no direct match in the inspected sources. No claim of exhaustive literature novelty or independent validation is made.
+## originality
 
-## Value — PASS
+PASS
 
-The published algorithm uses a strictly positive damping floor specifically to stabilize weak Fourier slices. This theorem sharply separates finite-iteration regularization from all-iteration ensemble risk, quantifies the rate of its failure, and distinguishes DC/Nyquist (real) from interior (complex) Fourier modes. It gives a concrete model in which increasing the adaptive scale coefficient cannot cure the leading risk, motivating finite-horizon stopping or a genuinely persistent bias penalty. The theorem is intentionally a structural boundary for a minimal case, not a blanket claim about higher-dimensional tensor solvers.
+Published SD-TRK conditional fixed-perturbation estimate does not evaluate the expectation over a Gaussian operator singularity, and generic pseudoinverse sensitivity does not supply the specified regularized finite-time sqrt(t) versus log(t) rates and coefficients. Resultary search included distinct Gaussian Aitken and resampled-noise Kaczmarz results; none is an implication for the fixed-observation one-mode regime. Originality remains qualified by uninspected complete spectral-filter literature.
 
-## Scope and outstanding limitations
+## value
 
-Only a fixed-data scalar Fourier mode, Gaussian observed operator with positive density at zero, finite-variance independent right-hand side and constant iteration parameters are covered. Prior probabilistic inverse-problem literature may contain an implicit equivalent, especially for the one-dimensional integral. The explicit two-dimensional Fourier contrast and fixed-floor constants were not identified in the compared primary texts. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Small noisy singular values produce a sharp dimension-sensitive risk divergence hidden by finite-iteration conditioning. The analytic constants distinguish real Fourier modes and complex Fourier modes of a practical regularized row-action solver and give a precise limitation of positive damping floor; significant despite scalar scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

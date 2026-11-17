@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The companion `verify.py` executes using Python 3, NumPy and SciPy. It compares a direct damped scalar Kaczmarz recurrence with the exact geometric formula for 30 input/iteration pairs, checks that all 14 sampled zero-floor multipliers are strictly positive, and evaluates 12 quadratures at iteration counts \(10^2\) through \(10^7\). The limiting real and complex constants are printed for comparison.
+## correctness
 
-The square-root and logarithmic asymptotic conclusions are **proved in RESULT.md** by dominated convergence and a polar-logarithmic integral estimate, not by the finite numerical computations. No randomized test covers all parameter values. The verification uses a fixed nonzero Gaussian mean, positive Gaussian variance, strict positive damping floor and nonzero scale coefficient, so it exercises the nontrivial regime of the theorem.
+PASS
 
-The checked scripts and scientific results have received self-review only; no independent mathematical validation has been performed.
+Reconstructed fixed-data scalar recurrence X_t=(B/A)(1-(1-q(A))^t). For lambda0=0, E|A|^-2 diverges in both 1 and 2 real dimensions; for lambda0>0, all fixed-iteration moments are finite by |F_t|<=min(2,t omega |A|^2/lambda0). Small-A scaling A=sqrt(lambda0/(omega t))u gives real sqrt(t) coefficient 2 sqrt(pi)(2-sqrt(2)) beta p_A(0) sqrt(omega/lambda0); polar integration yields complex pi beta f_A(0) log t. Cross term is lower-order by Cauchy-Schwarz; a.s. fixed-A limit B/A. Independently quadrature verified universal real integral 2.07655885436006, equal to 2 sqrt(pi)(2-sqrt2). Separate fixed from resampled noise; lambda0, tau boundaries checked.
+
+## originality
+
+PASS
+
+Published SD-TRK conditional fixed-perturbation estimate does not evaluate the expectation over a Gaussian operator singularity, and generic pseudoinverse sensitivity does not supply the specified regularized finite-time sqrt(t) versus log(t) rates and coefficients. Resultary search included distinct Gaussian Aitken and resampled-noise Kaczmarz results; none is an implication for the fixed-observation one-mode regime. Originality remains qualified by uninspected complete spectral-filter literature.
+
+## value
+
+PASS
+
+Small noisy singular values produce a sharp dimension-sensitive risk divergence hidden by finite-iteration conditioning. The analytic constants distinguish real Fourier modes and complex Fourier modes of a practical regularized row-action solver and give a precise limitation of positive damping floor; significant despite scalar scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
