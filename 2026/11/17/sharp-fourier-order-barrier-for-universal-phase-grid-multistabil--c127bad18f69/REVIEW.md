@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The two-cluster restriction is invariant because the coupling is odd. Its exact gap derivative forces the interaction derivative to be positive at each nonzero grid root, while sync forces positivity at zero. Root-of-unity Fourier orthogonality makes their sum zero for every degree smaller than the grid size. The sharp single-harmonic example has a complete-graph Jacobian with one neutral and all other strictly negative eigenvalues. Known covering equivalence plus the first-harmonic potential and unstable nonuniform equilibria imply the exact sink census and equal-basin law. The script checks all stated finite configurations but does not replace the universal proof.
+
+**Originality (PASS within inspected sources).** Delabays (2019) explicitly proves the pure-harmonic covering, linear-stability transfer and basin scaling, including the nine sinks for three oscillators and three colors, so these are credited rather than presented as new. Jain and Jalan (2025) discuss generalized higher-harmonic cluster basins; Qie and coauthors (2026) motivate the multi-rhythm design problem. The specific opposite direction, a sharp *necessary* Fourier degree for attracting **every** grid coloring under arbitrary odd mixed harmonics, was not found. Previously indexed related three-oscillator six-rhythm statements do not imply the universal grid result. Novelty is provisional, subject to wider unindexed literature.
+
+**Mathematical value (PASS).** The lower bound is a network-size-independent and attained design barrier for realizing all labelled phase colorings as robust stable states, resolving a natural interaction-complexity question rather than merely counting known lifts. The contrast between a local Fourier positivity requirement and a global roots-of-unity cancellation is structural. The known equal-basin classification supplies a reproducible example, not the reason for novelty.
+
+**Limits.** No claim is made for nonodd or graph-heterogeneous coupling, noisy/detuned populations or incomplete sets of desired grid states. Pure-harmonic lifting and basin behavior are known; only the new necessity bound is assigned historical-priority significance. Search cannot prove uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
