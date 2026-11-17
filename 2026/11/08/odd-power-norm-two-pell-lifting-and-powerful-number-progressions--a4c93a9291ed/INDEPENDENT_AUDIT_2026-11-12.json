@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:59:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If m is even then m^(2r+1) is divisible by 8, forcing X^2=2 mod 8, impossible. A solution at coefficient m^(2r+1) gives a base solution (x,y)=(X,m^r Z). For odd m, x,y odd and m=7 mod 8; eta=x+y sqrt(m), epsilon=eta^2/2=(x^2-1)+xy sqrt(m) is integral of norm 1. All odd eta^n/2^((n-1)/2) therefore give integral positive norm-two solutions. For each p|m, x^2=2 mod p forces p>=7 and p∤x. In Y_n binomial sum the j=0 term has valuation v_p(y)+v_p(n), while every higher term gains j v_p(m)-v_p(2j+1)>0 (since v_p(2j+1)<j); hence the exact valuation law, permitting index n=m^r(2j+1) and m^r|Y_n. This proves the iff and infinite families. I independently checked m=7 base (3,1) gives (11427,617) at r=1, and m=23 base (5,1) gives (15191131279719638885,137720427724123513); the resulting three powerful numbers form a progression. The n-th-power and infinite-m parameter claims follow algebraically, not from samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mollin treats norm-two fixed D under fundamental-unit constraints, a general criterion but no uniform valuation-preserving map from coefficient m to m^(2r+1). Chan constructs powerful progressions using other generalized Pell equations."
+        ],
+        "reasoning": "A fixed-coefficient criterion could be applied repeatedly but does not by itself prove automatic simultaneous solvability or the exact Y-index valuations across all r.",
+        "searches": [
+          "https://nyjm.albany.edu/j/2005/11-25.pdf",
+          "https://arxiv.org/abs/2605.06697",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Chan/chan33.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.06697",
+        "https://nyjm.albany.edu/j/2005/11-25.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Chan/chan33.pdf",
+        "SCOPE exact RESULT.md and verify.py; source tree 48eb262d32fda6d92d3c7c2226df860e25a04946"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "van Doorn asks which squarefree m solve X^2-m^3 Z^2=2; fixed-coefficient solvability criteria exist. The explicit eta^n/2^((n-1)/2) integer norm-one construction and v_p(Y_n)=v_p(y)+v_p(n) establish a uniform implication previously not located."
+        ],
+        "reasoning": "No directly covering theorem was identified among material inspected; standard Lucas-sequence LTE might imply the exact arithmetic as a corollary and remains the main novelty risk.",
+        "searches": [
+          "https://arxiv.org/abs/2605.06697",
+          "https://nyjm.albany.edu/j/2005/11-25.pdf",
+          "https://cs.uwaterloo.ca/journals/JIS/VOL26/Chan/chan33.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "van Doorn builds on X^2-7^3 Z^2=2. Mollin gives fixed-coefficient norm-two solvability tests; neither inspected theorem identifies solvability equivalence for every odd power m^(2r+1)."
+        ],
+        "reasoning": "The new equation is equivalent to base norm-two plus m^r-divisible Y, and this exact divisibility is supplied by the indexwise valuation identity; no equivalent all-r assertion located.",
+        "searches": [
+          "Resultary: Pell generalized norm two odd coefficient powers p-adic valuations m^r",
+          "https://arxiv.org/abs/2605.06697",
+          "https://nyjm.albany.edu/j/2005/11-25.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "van Doorn’s motivating m=7 witness and the first odd examples are known; no inspected tabulation gives the all-r family or the explicit m=23 higher-power witness."
+        ],
+        "reasoning": "A list of Pell coefficients would not establish the n-index valuation law. The second multiplier is an illustrative consequence, not sole claimed originality.",
+        "searches": [
+          "https://arxiv.org/abs/2605.06697",
+          "https://nyjm.albany.edu/j/2005/11-25.pdf",
+          "Resultary: Pell generalized norm two odd coefficient powers p-adic valuations m^r"
+        ]
+      },
+      "rationale": "The motivating 2026 van Doorn article proves a specific cubic m=7 construction and explicitly asks how to determine valid cubic m. Mollin’s 2005 fixed-coefficient criterion and Chan’s other powerful progressions do not state a *uniform odd-power invariance* plus exact p-adic index law across all r. The lift uses classical Pell-unit and Lucas lifting techniques, which is a material priority risk, so novelty is limited to the explicit all-r statement in this application, not the method itself.",
+      "residual_risks": [
+        "The p-adic index identity may have a classical Lucas-sequence or Pell lifting formulation that implies the new all-r theorem; historical-priority uncertainty explicitly remains.",
+        "Claims only solvable m, positive odd indices, and powerful progressions; not consecutive powerful terms or density/classification of all m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR: m=7 cubic case only and open multiplier issue",
+          "evidence": "Section 3 constructs m=7 progression; subsequent discussion invokes Mollin for coefficient-dependent solvability",
+          "identifier_or_url": "https://arxiv.org/abs/2605.06697",
+          "material_read": "arXiv full-text PDF: Section 3 Pell construction and discussion following Conjecture 5, including assertion identifying other valid coefficients is nonobvious",
+          "method": "primary PDF reading with page inspection",
+          "title": "Three-term arithmetic progressions of consecutive powerful numbers (Wouter van Doorn, 2026)",
+          "trigger": "identical m=7^3 construction and stated motivating question"
+        },
+        {
+          "assessment": "BACKGROUND: fixed-coefficient Pell solvability, not the uniform all-r valuation law",
+          "evidence": "Theorem 2 solves fixed D with conditions on fundamental solutions; no odd-power coefficient equivalence asserted",
+          "identifier_or_url": "https://nyjm.albany.edu/j/2005/11-25.pdf",
+          "material_read": "NYJM complete seven-page PDF; Theorem 2 on norm-two criteria for a fixed quadratic coefficient and surrounding definitions",
+          "method": "primary PDF reading",
+          "title": "Generalized Lagrange criteria for certain quadratic Diophantine equations (R. A. Mollin, 2005)",
+          "trigger": "possible dominating Pell solvability criterion"
+        },
+        {
+          "assessment": "different progressions; no decisive implication detected in examined material",
+          "evidence": "Earlier arithmetic progressions use Pell-type equations, a broad methodological antecedent",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Chan/chan33.pdf",
+          "material_read": "Article title, abstract and referenced generalized Pell construction; complete primary sections not asserted read",
+          "method": "primary literature comparison",
+          "title": "Arithmetic Progressions Among Powerful Numbers (Tsz Ho Chan, 2023)",
+          "trigger": "related powerful-number constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating paper poses a concrete arithmetic selection problem for coefficients m^3. The new exact lifting reduces every higher odd-power coefficient solvability test to a single norm-two Pell instance, supplies all primewise valuations and infinitely many powerful-number progressions, and locates m=23 beyond the known m=7 example. No false claim of consecutive powerful integers is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.06697",
+    "https://nyjm.albany.edu/j/2005/11-25.pdf",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL26/Chan/chan33.pdf",
+    "SCOPE exact RESULT.md and verify.py; source tree 48eb262d32fda6d92d3c7c2226df860e25a04946"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The p-adic index identity may have a classical Lucas-sequence or Pell lifting formulation that implies the new all-r theorem; historical-priority uncertainty explicitly remains.",
+    "Claims only solvable m, positive odd indices, and powerful progressions; not consecutive powerful terms or density/classification of all m."
+  ],
+  "schema_version": 1
+}

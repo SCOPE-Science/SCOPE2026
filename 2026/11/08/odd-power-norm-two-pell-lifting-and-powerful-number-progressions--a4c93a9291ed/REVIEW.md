@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The norm-two multiplication identity is integral because \(\eta^2/2=(x^2-1)+xy\sqrt m\), and its norm is one. For each \(p\mid m\), the binomial leading term has valuation \(\nu_p(y)+\nu_p(n)\); all higher terms have strictly greater valuation because \(p\ge7\) and \(\nu_p(2j+1)<j\). The resulting divisibility proves every odd-power coefficient case. The reverse direction is substitution, and the even-multiplier obstruction is modulo eight. These arguments have been independently reconstructed with explicit positive-domain and parity boundaries. Exact integer verification of \(39\) cases and both displayed witnesses was run successfully. **Risk:** computations alone would not prove the universal statement; here the algebraic proof supplies it.
+## correctness
 
-**Originality — PASS (best-knowledge, priority not certified).** The primary motivating paper establishes the special \(7^3\) construction and a fundamental-unit test for a fixed cubic coefficient, whereas the present theorem compares solvability across **all** odd powers and gives a coefficient-by-coefficient valuation law for every odd index. Mollin's inspected Theorem 2 characterizes solvability of norm two for a fixed coefficient; Chan's powerful-progression construction uses a different Pell family. Neither inspected theorem contains the odd-power equivalence or its \(23\) witness. Searches for odd-power norm-two Pell coefficient comparisons, valuations, and more general implied results found no decisive prior coverage. **Risk:** the lifting argument uses familiar Pell multiplication and prime-adic lifting ideas, so an equivalent standard or older Lucas-sequence statement remains a legitimate historical-priority uncertainty; independent literature review is still needed.
+PASS
 
-**Mathematical value — PASS.** The motivating paper explicitly raises the problem of identifying which multipliers support its cubic Pell construction. The theorem reduces the infinite family of coefficient tests to one norm-two Pell equation, supplies a uniform algebraic lifting mechanism and exact divisibility at every prime factor, and identifies the next squarefree multiplier after the motivating \(7\). This directly organizes and enlarges a recently introduced family of powerful-number arithmetic progressions. The classification is about solvability, not about consecutive-powerful-number membership or density.
+If m is even then m^(2r+1) is divisible by 8, forcing X^2=2 mod 8, impossible. A solution at coefficient m^(2r+1) gives a base solution (x,y)=(X,m^r Z). For odd m, x,y odd and m=7 mod 8; eta=x+y sqrt(m), epsilon=eta^2/2=(x^2-1)+xy sqrt(m) is integral of norm 1. All odd eta^n/2^((n-1)/2) therefore give integral positive norm-two solutions. For each p|m, x^2=2 mod p forces p>=7 and p∤x. In Y_n binomial sum the j=0 term has valuation v_p(y)+v_p(n), while every higher term gains j v_p(m)-v_p(2j+1)>0 (since v_p(2j+1)<j); hence the exact valuation law, permitting index n=m^r(2j+1) and m^r|Y_n. This proves the iff and infinite families. I independently checked m=7 base (3,1) gives (11427,617) at r=1, and m=23 base (5,1) gives (15191131279719638885,137720427724123513); the resulting three powerful numbers form a progression. The n-th-power and infinite-m parameter claims follow algebraically, not from samples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The motivating 2026 van Doorn article proves a specific cubic m=7 construction and explicitly asks how to determine valid cubic m. Mollin’s 2005 fixed-coefficient criterion and Chan’s other powerful progressions do not state a *uniform odd-power invariance* plus exact p-adic index law across all r. The lift uses classical Pell-unit and Lucas lifting techniques, which is a material priority risk, so novelty is limited to the explicit all-r statement in this application, not the method itself.
+
+## value
+
+PASS
+
+The motivating paper poses a concrete arithmetic selection problem for coefficients m^3. The new exact lifting reduces every higher odd-power coefficient solvability test to a single norm-two Pell instance, supplies all primewise valuations and infinitely many powerful-number progressions, and locates m=23 beyond the known m=7 example. No false claim of consecutive powerful integers is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
