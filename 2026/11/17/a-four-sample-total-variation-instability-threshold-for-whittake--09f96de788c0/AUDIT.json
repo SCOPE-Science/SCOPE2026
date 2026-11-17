@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For any constant-fixing S the gradient matrix A=BSR determines the exact BV quotient norm as its maximal l1 column sum. For p=1, B S=(I+lambda B B^T)^-1 B and the irreducible M-matrix inverse has strictly positive entries and column sums below one. For p=2, symmetric S fixes exactly affine sequences; an all-column endpoint-span <=1 hypothesis forces S to fix e_n-e_1, contradicting its nonaffinity for n>=4, so a monotone single-jump signal has amplified BV. Direct symbolic inversion gives the exact n=3 and n=4 gradient matrices, checks the n=4 outer-column inequalities for both sign regimes, and obtains (1+12lambda)/(1+10lambda). check.py executed symbolically and at 105 exact rational parameter/dimension instances; these calculations are secondary to the analytic all-n argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cornea-Madeira 2016 preprint gives exact finite-sample coefficients for arbitrary n and parameter; these are a computational representation, not an all-n BV nonexpansivity classification.",
+        "A public result on periodic biharmonic resolvent addresses periodic range-preservation recovery; the new theorem uses nonperiodic second differences and path-edge BV."
+      ],
+      "reasoning": "A formula for the entire smoothing matrix can be combined with an induced-gradient norm computation but does not directly give the affine-fixed-space rigidity or positivity of the endpoint step at every n and positive parameter. Periodic boundary conditions change both the fixed space and the seminorm; no implication to the asserted path result.",
+      "searches": [
+        "Hodrick Prescott smoothing total variation edge variation nonexpansive sharp n=4 1+2lambda/(1+10lambda)",
+        "Published published-finding corpus record 2026/10/18/SCOPE-parity-split-positivity-thresholds-for-periodic-biharmonic-smoot--c19471e10093",
+        "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+      "https://doi.org/10.1111/j.1368-423X.2008.00230.x",
+      "https://doi.org/10.1162/REST_a_00523",
+      "https://doi.org/10.1177/1471082X14549288",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McElroy 2008 provides bi-infinite HP filter spectral factorization; the claim is a finite path TV norm property.",
+        "de Jong-Sakarya 2016 describes finite boundary adjustments/asymptotic weights, not in its accessible abstract a TV operator norm.",
+        "Published 2026 Whittaker result demonstrates n=3 range undershoot; the same filter has TV norm one at n=3, explicitly excluding direct implication."
+      ],
+      "reasoning": "The exact-source model overlaps but the claimed output property (strict increase of the sum of absolute first differences by a binary step for every n>=4 and every positive parameter, plus sharp n=4 norm) is not asserted by inspected primary text or known published statement. The inaccessible 2016 full text is recorded as residual risk, not a claimed negative full-text check.",
+      "searches": [
+        "doi:10.1111/j.1368-423X.2008.00230.x",
+        "doi:10.1162/REST_a_00594",
+        "doi:10.1162/REST_a_00523",
+        "Published published-finding corpus record 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Public 2026 result proves range-preservation dichotomy: order 2 can undershoot at n=3, where the new theorem proves BV seminorm exactly 1. Thus the properties are inequivalent.",
+        "Cornea-Madeira (2016 deposited full text), sections 1-3: exact smoothing weights, not variation-induced quotient norm."
+      ],
+      "reasoning": "Checked aliases: Whittaker-Henderson, Hodrick-Prescott, second-difference smoother, first-difference, TV/BV norm, variation diminution and endpoint span. No equivalent all-length TV contraction/instability statement found. Existing range failure at n=3 cannot yield the new n=4 threshold because BV contraction holds with equality at n=3.",
+      "searches": [
+        "Hodrick Prescott Whittaker smoothing second difference penalty exact total variation Lipschitz norm threshold path",
+        "Hodrick Prescott filter operator variation seminorm sharp amplification finite sequence",
+        "Published published-finding corpus record 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cornea-Madeira 2016 finite-sample exact coefficient formulas are not a table of TV norms.",
+        "Published 2026 range-preservation result has an n=3 rank-one coefficient expression; its statement has no n=4 BV factor."
+      ],
+      "reasoning": "No exact database or table of all-n BV nonexpansivity regimes or of the four-site norm ratio was identified. The n=4 formula is a rational matrix consequence that requires the induced gradient variation norm and a sign-dependent column comparison.",
+      "searches": [
+        "site:arxiv.org/abs/ whittaker smoothing Eilers 2003 2011 finite difference smoothing",
+        "Hodrick Prescott filter operator variation seminorm sharp amplification finite sequence",
+        "Published published-finding corpus record 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ]
+    },
+    "rationale": "The new all-length strict BV-instability theorem follows from an affine-fixed-space/endpoint-contrast obstruction; it is not contained in previously published range-preservation, exact-filter-coefficient, or spectral/asymptotic statements. The sharp four-sample factor is checked symbolically and is not stated by the compared sources. Residual priority risks include implicit deductions from full coefficient tables and inaccessible full text, not a decisive dominating implication.",
+    "residual_risks": [
+      "An exact all-n filter coefficient expression might make individual finite TV constants implicit but does not state the structural all-length claim.",
+      "de Jong–Sakarya 2016 and McElroy 2008 full texts could not both be read; overlap remains possible.",
+      "There may be older equivalent total-variation/variation-diminishing results using operator seminorm or endpoint-overshoot terminology; search failure is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the stated BV theorem based on inspected mathematical results; coefficient formulas are genuine prior input and residual implication risk remains.",
+        "evidence": [
+          "PDF pages 2-5 define S=(I+alpha F)^-1 and present finite-sample weight formula; algorithmic optimization is the paper objective.",
+          "No statement of the induced gradient l1 norm or all-size strict BV amplification was found in inspected sections."
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/97954/1/HP_ACM.pdf",
+        "material_read": "Full accessible PDF: abstract/introduction, defining minimization and matrix, exact inverse formula section, main results and references, text searched for variation, monotonicity, negative weights and total variation.",
+        "method": "Primary open-access manuscript, deposited 2016-04-06; visual PDF page inspections and text/section study.",
+        "title": "The Explicit Formula for the Hodrick-Prescott Filter in Finite Sample",
+        "trigger": "Same finite smoothing matrix and arbitrary positive strength"
+      },
+      {
+        "assessment": "NOT_COVERING: proves range preservation and positive-order dichotomy, not TV. Its order-two three-point counterexample is BV-nonexpansive, so range failure does not imply the new threshold.",
+        "evidence": [
+          "Three-point output for (0,0,1) is (-a,2a,1-a) with a=lambda/(1+6lambda), having TV exactly one.",
+          "No all-n two-input BV norm or n=4 factor in the published theorem."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+        "material_read": "Complete public RESULT.md theorem, proof, scope, limitations, and references.",
+        "method": "Public repository contents retrieved as UTF-8 and studied for statement-level implication.",
+        "title": "Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+        "trigger": "Identical smoother family with potential equivalent instability statement"
+      },
+      {
+        "assessment": "Bi-infinite ARMA spectral-factorization filter coefficients, not verified as covering finite path BV; full-text comparison incomplete.",
+        "evidence": [
+          "First online 2008-01-17.",
+          "Abstract discusses spectral factorization and exact filter coefficients."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1368-423X.2008.00230.x",
+        "material_read": "Publisher abstract, bibliographic references and first-online date; not full paper.",
+        "method": "Publisher/Oxford abstract and citation record.",
+        "title": "Exact formulas for the Hodrick-Prescott filter",
+        "trigger": "Earliest verified dated HP coefficients source; potential equivalent spectral formula"
+      },
+      {
+        "assessment": "ACCESS_LIMITED; cannot conclude full paper excludes the result. Abstract covers asymptotic finite filter weights and dependence properties.",
+        "evidence": [
+          "Essex repository record says full text unavailable.",
+          "Complete source text was not available for inspection."
+        ],
+        "identifier_or_url": "https://doi.org/10.1162/REST_a_00523",
+        "material_read": "Repository abstract and bibliography; full text unavailable in repository; the complete source text was unavailable.",
+        "method": "ArXiv/preprint and open repository searches followed by authorized further access checks.",
+        "title": "The Econometrics of the Hodrick-Prescott Filter",
+        "trigger": "Relevant same finite-sample operator and boundary-weight formulas"
+      },
+      {
+        "assessment": "Accessible material focuses on smoothing-parameter choice, not total-variation stability; no whole-document negative claim.",
+        "evidence": [
+          "First published online 2014-11-14.",
+          "Publisher explicitly restricts full text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/1471082X14549288",
+        "material_read": "Publisher abstract, references and publication date only; article restricted.",
+        "method": "Publisher web record inspection.",
+        "title": "L- and V-curves for optimal smoothing",
+        "trigger": "Pre-2016 Whittaker difference-penalty smoothing practice and parameter selection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09f96de7-88c0-42ea-85b3-40543198098b",
+  "value": {
+    "rationale": "Hodrick–Prescott/Whittaker smoothing is canonical finite-difference regularization; the practical distinction between penalizing curvature and controlling first-order total variation is a motivated stability question. The theorem determines a uniform no-go law for every positive smoothing strength and every length at least four, proves a natural first-size threshold, establishes the exact four-sample amplification, and isolates the more general self-adjoint affine-fixed-space obstruction. These are structural facts rather than arbitrary sample enumeration; they identify precise differences between first- and second-order regularization.",
+    "status": "PASS"
+  }
+}
