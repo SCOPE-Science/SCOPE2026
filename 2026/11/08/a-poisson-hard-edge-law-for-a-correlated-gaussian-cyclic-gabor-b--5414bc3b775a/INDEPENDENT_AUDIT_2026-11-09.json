@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T12:52:12.377661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonality of all even modulations on length N=2p gives S(i,j)=p 1_{i congruent j mod p} sum_{k=0,1}g_{i-k}conj(g_{j-k}), yielding p Hermitian 2x2 blocks W_j=[a_j,b_j][a_j,b_j]^* with independent a_j ~CN(0,I/2), b_j=a_{j-1} except b_0=U a_{p-1}. Independently constructed full Gabor matrix and p blocks for p=3,5,7, with maximum entry differences <3e-15. Square two-by-two complex Wishart has exact single-block survival P(L>x)=e^{-4x}, and distinct nonadjacent blocks are independent. Adjacent rare-event joint bound follows from determinant s|w|^2 and trace, yielding P(L_j<=eps,L_{j+1}<=eps)=O(eps^2(1+|log eps|)) after integrating Gamma(shape 2,rate 2) shared squared norm. Dependency-graph Chen–Stein hence TV(Pois(4t)) error O_t(log p/p) for fixed t; no-rare-event probability gives P(pA_p>t)->e^{-4t}. Independent nonadjacent matching gives uniform e^{-4u/3} tail majorant for p>=3, justifying all positive moments Gamma(r+1)/4^r. These arguments address all p>=3, include cyclic seam and distinguish minimum squared frame eigenvalue from singular value; numeric checks support only finite algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Gabor subgroup block-equivalence applies to broad masks but does not specify random Gaussian eigenvalue extremes.",
+          "The phase-only result gives the entire spectrum under Steinhaus windows, yet does not include Gaussian amplitude fluctuations and predicts a different scaling.",
+          "Same-model Gaussian log-volume proves an exact CLT but no min-eigenvalue conclusion; a determinant bound is far too weak for a precise Poisson hard edge."
+        ],
+        "reasoning": "More general deterministic block structure or different-law full-spectrum theorems do not dominate the present probabilistic lower-bound result.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "https://arxiv.org/abs/2605.16139"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: complex Gaussian finite cyclic Gabor critical frame lower eigenvalue independent Wishart neighboring blocks hard edge exponential",
+        "Resultary semantic query: Gaussian window cyclic Gabor half even modulations two translations least eigenvalue Poisson hard edge rate 4",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+        "https://arxiv.org/abs/2605.16139",
+        "https://arxiv.org/abs/1902.01062",
+        "https://arxiv.org/abs/2509.01325",
+        "https://doi.org/10.1214/aop/1176991491"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Log det S_p=sum log det W_j has Gaussian CLT; min_j lambda_min W_j is governed by rare lower-tail events and is not determined by that CLT.",
+          "Phase-only exact p^2-Weibull law requires constant-modulus phases, inconsistent with candidate independent Gaussian amplitudes; normalization and tail exponent differ.",
+          "Deterministic subgroup decomposition leaves joint eigenvalue clustering unresolved; the adjacent joint probability estimate plus Arratia–Goldstein–Gordon is new relative to these sources."
+        ],
+        "reasoning": "The candidate is not a direct corollary of inspected prior results under matching hypotheses, despite shared structural block lemma. Full external paper access failure retained as residual risk.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "https://arxiv.org/abs/2605.16139"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-mask Gaussian log-volume paper uses identical window, S_p and boundary swap, but its observable H_p=log det(S_p) does not determine lambda_min.",
+          "Phase-only theorem treats exactly same modulation and translation sets but all entries have modulus 1/sqrt(2p), giving independent angular fibers and p^-2 Weibull, not correlated complex-Gaussian p^-1 exponential."
+        ],
+        "reasoning": "Compared actual distribution and observable along with system geometry: block equivalence is a shared lemma, while hard-edge law is not equivalent to log-volume or phase-only spectral law.",
+        "searches": [
+          "Resultary semantic query: complex Gaussian finite cyclic Gabor critical frame lower eigenvalue independent Wishart neighboring blocks hard edge exponential",
+          "Resultary semantic query: Gaussian window cyclic Gabor half even modulations two translations least eigenvalue Poisson hard edge rate 4",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "https://arxiv.org/abs/2605.16139",
+          "https://arxiv.org/abs/1902.01062",
+          "https://arxiv.org/abs/2509.01325",
+          "https://doi.org/10.1214/aop/1176991491"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complex Wishart 2x2 hard-edge survival e^-4x is a standard exact distribution, not a new data table.",
+          "The candidate concerns the minimum of p overlapping/one-dependent blocks and a quantitative Poisson approximation that is not supplied by a collection of independent Wishart values."
+        ],
+        "reasoning": "The known single-block statistic is an essential premise, but it cannot be read as the full dependent-family theorem; no exact database for the latter was identified.",
+        "searches": [
+          "Resultary semantic query: complex Gaussian finite cyclic Gabor critical frame lower eigenvalue independent Wishart neighboring blocks hard edge exponential",
+          "Resultary semantic query: Gaussian window cyclic Gabor half even modulations two translations least eigenvalue Poisson hard edge rate 4",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "https://arxiv.org/abs/2605.16139",
+          "https://arxiv.org/abs/1902.01062",
+          "https://arxiv.org/abs/2509.01325",
+          "https://doi.org/10.1214/aop/1176991491"
+        ]
+      },
+      "rationale": "Best-of-knowledge the Gaussian-window random lower-frame-bound Poisson hard edge at p scaling and rate four, with rare-neighbor bound and all positive moments, is not published by the identified same-mask log-determinant theorem or the phase-only exact independent-fiber Weibull theorem. The general subgroup block-equivalence and single-block Wishart survival are known inputs, but do not by themselves establish absence of clustering in the cyclic shared-Gaussian blocks. The closest external 2026 block-equivalence paper could be read only at abstract level due to authorized VPN disconnection; this remains an explicit historical-originality risk, not an automatic fail.",
+      "residual_risks": [
+        "Asipchuk–De Carli–Rodriguez arXiv:2605.16139 full body was inaccessible after arXiv/OA attempts; authorized Oxford attempt returned vpn_disconnected (job 23112d95ee38a9c2a58fe6fc301a8512). The accessible abstract covers general block equivalence but possible hidden related spectral results remain unverified.",
+        "An unindexed extremal theorem for one-dependent complex Wishart blocks could imply the Poisson bound in more general language; none identified in the actual Resultary/primary search.",
+        "The theorem is fixed-threshold count convergence, not full hard-edge point-process convergence or non-Gaussian-window universality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_DIFFERENT_SPECTRAL_STATISTIC",
+          "evidence": [
+            "Exact block W_j=[a_j,a_{j-1}] Gram sum including seam swap is already known; log determinant aggregates log eigenvalue products and a CLT, but does not constrain minimum eigenvalue at scale 1/p or rare small-eigenvalue clustering."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+          "material_read": "Entire published primary RESULT.md: identical two-by-two Gaussian block decomposition, boundary swap, exact log determinant mean/variance, one-dependent central limit theorem, and explicit limitations",
+          "method": "Read complete published Resultary RESULT.md via GitHub",
+          "title": "Exact Gaussian log-volume fluctuations for a critical cyclic Gabor basis",
+          "trigger": "Exactly same 2p cyclic window, Gaussian amplitude variance, even modulations and adjacent translations"
+        },
+        {
+          "assessment": "DIFFERENT_WINDOW_DISTRIBUTION_DIFFERENT_HARD_EDGE",
+          "evidence": [
+            "Phase-only entries have fixed modulus N^-1/2 and exact i.i.d. angular spectral fibers, minimum scaled p^2 with Weibull law. Present model uses independent complex-Gaussian amplitudes, dependent neighboring fibers, p scaling and exponential limit. Neither result implies the other."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+          "material_read": "Entire published primary RESULT.md: exact independent spectral fibers from unit-modulus random phases, p^-2 Weibull minimum, determinant and moments, proof, assumptions and limitations",
+          "method": "Read complete published Resultary RESULT.md via GitHub",
+          "title": "Independent spectral fibers and a Weibull hard edge for phase-only cyclic Gabor bases",
+          "trigger": "Same time-frequency mask but potential stronger full-spectrum extreme result"
+        },
+        {
+          "assessment": "STRUCTURAL_BLOCK_PRIOR_NOT_KNOWN_HARD_EDGE_THEOREM",
+          "evidence": [
+            "Abstract explicitly proves finite Gabor subgroup block equivalence; does not state Gaussian rare hard-edge Poisson count or rate 4. Body unavailable, recorded residual risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.16139",
+          "material_read": "Accessible complete abstract, listed first publication May 15 2026 and revised Oct 24; arXiv HTML and alternate lawful OA full body inaccessible; Oxford authorized request reported VPN disconnected, job 23112d95ee38a9c2a58fe6fc301a8512",
+          "method": "arXiv/OA search and full text attempt, Oxford after both failed; did not claim full paper read",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Foundational subgroup-induced block-diagonalization directly relevant to deterministic lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal lower frame bound controls worst-case stability of an exactly critically sampled Gabor basis; a precise exponential hard edge is a natural risk invariant and quantitatively different from a determinant CLT or phase-only frame law. Handling one-dependent Gaussian spectral fibers and proving a sharp Poisson error controls the dependence mechanism rather than merely recomputing a textbook 2x2 Wishart distribution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic query: complex Gaussian finite cyclic Gabor critical frame lower eigenvalue independent Wishart neighboring blocks hard edge exponential",
+    "Resultary semantic query: Gaussian window cyclic Gabor half even modulations two translations least eigenvalue Poisson hard edge rate 4",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+    "https://arxiv.org/abs/2605.16139",
+    "https://arxiv.org/abs/1902.01062",
+    "https://arxiv.org/abs/2509.01325",
+    "https://doi.org/10.1214/aop/1176991491"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Asipchuk–De Carli–Rodriguez arXiv:2605.16139 full body was inaccessible after arXiv/OA attempts; authorized Oxford attempt returned vpn_disconnected (job 23112d95ee38a9c2a58fe6fc301a8512). The accessible abstract covers general block equivalence but possible hidden related spectral results remain unverified.",
+    "An unindexed extremal theorem for one-dependent complex Wishart blocks could imply the Poisson bound in more general language; none identified in the actual Resultary/primary search.",
+    "The theorem is fixed-threshold count convergence, not full hard-edge point-process convergence or non-Gaussian-window universality."
+  ],
+  "residual_risks": [
+    "Asipchuk–De Carli–Rodriguez arXiv:2605.16139 full body was inaccessible after arXiv/OA attempts; authorized Oxford attempt returned vpn_disconnected (job 23112d95ee38a9c2a58fe6fc301a8512). The accessible abstract covers general block equivalence but possible hidden related spectral results remain unverified.",
+    "An unindexed extremal theorem for one-dependent complex Wishart blocks could imply the Poisson bound in more general language; none identified in the actual Resultary/primary search.",
+    "The theorem is fixed-threshold count convergence, not full hard-edge point-process convergence or non-Gaussian-window universality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME_MODEL_DIFFERENT_SPECTRAL_STATISTIC",
+      "evidence": [
+        "Exact block W_j=[a_j,a_{j-1}] Gram sum including seam swap is already known; log determinant aggregates log eigenvalue products and a CLT, but does not constrain minimum eigenvalue at scale 1/p or rare small-eigenvalue clustering."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gaussian-log-volume-fluctuations-for-a-critical-cyclic-gab--63c4c43bdb9a",
+      "material_read": "Entire published primary RESULT.md: identical two-by-two Gaussian block decomposition, boundary swap, exact log determinant mean/variance, one-dependent central limit theorem, and explicit limitations",
+      "method": "Read complete published Resultary RESULT.md via GitHub",
+      "title": "Exact Gaussian log-volume fluctuations for a critical cyclic Gabor basis",
+      "trigger": "Exactly same 2p cyclic window, Gaussian amplitude variance, even modulations and adjacent translations"
+    },
+    {
+      "assessment": "DIFFERENT_WINDOW_DISTRIBUTION_DIFFERENT_HARD_EDGE",
+      "evidence": [
+        "Phase-only entries have fixed modulus N^-1/2 and exact i.i.d. angular spectral fibers, minimum scaled p^2 with Weibull law. Present model uses independent complex-Gaussian amplitudes, dependent neighboring fibers, p scaling and exponential limit. Neither result implies the other."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-independent-spectral-fibers-and-a-weibull-hard-edge-for-phase-on--585c646ad729",
+      "material_read": "Entire published primary RESULT.md: exact independent spectral fibers from unit-modulus random phases, p^-2 Weibull minimum, determinant and moments, proof, assumptions and limitations",
+      "method": "Read complete published Resultary RESULT.md via GitHub",
+      "title": "Independent spectral fibers and a Weibull hard edge for phase-only cyclic Gabor bases",
+      "trigger": "Same time-frequency mask but potential stronger full-spectrum extreme result"
+    },
+    {
+      "assessment": "STRUCTURAL_BLOCK_PRIOR_NOT_KNOWN_HARD_EDGE_THEOREM",
+      "evidence": [
+        "Abstract explicitly proves finite Gabor subgroup block equivalence; does not state Gaussian rare hard-edge Poisson count or rate 4. Body unavailable, recorded residual risk."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2605.16139",
+      "material_read": "Accessible complete abstract, listed first publication May 15 2026 and revised Oct 24; arXiv HTML and alternate lawful OA full body inaccessible; Oxford authorized request reported VPN disconnected, job 23112d95ee38a9c2a58fe6fc301a8512",
+      "method": "arXiv/OA search and full text attempt, Oxford after both failed; did not claim full paper read",
+      "title": "Block-equivalent finite Gabor frames",
+      "trigger": "Foundational subgroup-induced block-diagonalization directly relevant to deterministic lemma"
+    }
+  ]
+}

@@ -1,12 +1,21 @@
-# Review of the Gaussian cyclic Gabor hard-edge law
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact Fourier orthogonality calculation decomposes the original operator into cyclically neighboring two-by-two Gaussian Gram matrices, retaining the nontrivial boundary coordinate swap. The square complex Wishart density gives a single-block exponential survival law with exact rate four. A conditional Gaussian argument bounds adjacent simultaneous small eigenvalues by \(O(\varepsilon^2[1+|\log\varepsilon|])\). Arratia--Goldstein--Gordon dependency-graph approximation then yields the Poisson law and fixed-threshold error; an independent matching gives uniform exponential tails and all positive moments. Direct complete-matrix checks and statistical diagnostics reproduced the expected structure and scale. Finite tests do not substitute for the proof.
+## correctness
 
-## Originality
-PASS relative to the specified comparison set, with publication-priority uncertainty. The 2026 primary source proves block equivalence but no Gaussian hard-edge law; the 2019 and 2025 random-Gabor sources give frame-bound estimates in different settings, not the rate-four Poisson limit for one-dependent cyclic blocks. Classical complex Wishart results determine an individual two-by-two block but not the cyclic minimum. A previous computation of the same model's logarithmic determinant does not imply the extreme lower frame bound. Scientific comparisons cover exact formulations, stronger possible consequences, table-level matches and source inspections in `AUDIT.json`. Residual risk: a differently indexed sliding-window Gaussian extreme-value paper could cover the result.
+PASS
 
-## Value
-PASS. The smallest frame-operator eigenvalue directly governs noise amplification by canonical-dual reconstruction, unlike volume-only summaries. Its dimension-dependent scaling, explicit exponential law, quantitative rare-event count, and complete positive-moment limit identify a sharp stability regime in a natural critically sampled Gaussian Gabor design. The shared window creates real short-range dependence that must be handled, not a purely independent-block exercise. The result is limited to the stated model; no universality or global condition-number theorem is inferred.
+Orthogonality of all even modulations on length N=2p gives S(i,j)=p 1_{i congruent j mod p} sum_{k=0,1}g_{i-k}conj(g_{j-k}), yielding p Hermitian 2x2 blocks W_j=[a_j,b_j][a_j,b_j]^* with independent a_j ~CN(0,I/2), b_j=a_{j-1} except b_0=U a_{p-1}. Independently constructed full Gabor matrix and p blocks for p=3,5,7, with maximum entry differences <3e-15. Square two-by-two complex Wishart has exact single-block survival P(L>x)=e^{-4x}, and distinct nonadjacent blocks are independent. Adjacent rare-event joint bound follows from determinant s|w|^2 and trace, yielding P(L_j<=eps,L_{j+1}<=eps)=O(eps^2(1+|log eps|)) after integrating Gamma(shape 2,rate 2) shared squared norm. Dependency-graph Chen–Stein hence TV(Pois(4t)) error O_t(log p/p) for fixed t; no-rare-event probability gives P(pA_p>t)->e^{-4t}. Independent nonadjacent matching gives uniform e^{-4u/3} tail majorant for p>=3, justifying all positive moments Gamma(r+1)/4^r. These arguments address all p>=3, include cyclic seam and distinguish minimum squared frame eigenvalue from singular value; numeric checks support only finite algebra.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge the Gaussian-window random lower-frame-bound Poisson hard edge at p scaling and rate four, with rare-neighbor bound and all positive moments, is not published by the identified same-mask log-determinant theorem or the phase-only exact independent-fiber Weibull theorem. The general subgroup block-equivalence and single-block Wishart survival are known inputs, but do not by themselves establish absence of clustering in the cyclic shared-Gaussian blocks. The closest external 2026 block-equivalence paper could be read only at abstract level due to authorized VPN disconnection; this remains an explicit historical-originality risk, not an automatic fail.
+
+## value
+
+PASS
+
+The optimal lower frame bound controls worst-case stability of an exactly critically sampled Gabor basis; a precise exponential hard edge is a natural risk invariant and quantitatively different from a determinant CLT or phase-only frame law. Handling one-dependent Gaussian spectral fibers and proving a sharp Poisson error controls the dependence mechanism rather than merely recomputing a textbook 2x2 Wishart distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
