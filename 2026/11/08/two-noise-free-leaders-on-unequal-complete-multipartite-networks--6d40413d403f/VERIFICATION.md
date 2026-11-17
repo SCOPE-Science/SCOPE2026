@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone file `verify.py` uses Python 3 standard-library exact rational arithmetic. Command: `python3 verify.py`. Actual output:
+# Independent mathematical audit
 
-```text
-VERIFY_OK identity_grid=729 graph_instances=49 exact_matrix_pair_comparisons=3322
-```
+## correctness
 
-For each tested graph, the program directly builds and inverts every grounded-Laplacian matrix, independently of the block formula. It also tests the positive-polynomial identity over a degree-determining exact grid. These checks support the proof but do not substitute for its all-size algebraic argument. The result assumes unit cross-part weights, at least three parts of size at least two, exactly two leaders, and nonuniform part sizes. No independent audit or external certification is asserted.
+PASS
+
+For K_(n1,...,nr), r>=3, each n_i>=2, exactly two leaders and unit edges, grounded L_FF=M-11^T has invertible diagonal-plus-all-ones blocks. Sherman–Morrison gives exact inverse-trace J and the formulas for same-part and mixed-part placements. Same-part J(vv)-J(uu)=(N-4)(v-u)/[2(N-u)(N-v)] for u<=v, strict when u<v. For mixed u<=v, subtract same smaller-part objective; after h=u-2>=0, d=v-u>=0, R=N-u-v>=2, numerator has five strictly/nonnegatively coefficient polynomials, denominator positive. Independently verified that polynomial identity symbolically (SymPy), and exact matrix inverse traces for 213 pairs over 5 distinct multipartite graphs; K_(2,3,7) optimum 361/180. Thus every optimum is a same-smallest-part pair, count (#minimum parts)binom(m,2).
+
+## originality
+
+PASS
+
+General noise-free leader criteria and optimization relaxations are established previously, and balanced multipartite and bipartite subfamilies have exact placement laws. The inspected earlier statements do not imply the strict smallest-part placement classification for unequal >=3-part graphs, with the full optimizer count and value.
+
+## value
+
+PASS
+
+Two perfect leaders concentrating in one smallest, mutually nonadjacent community is a non-obvious exact optimization rule in a natural heterogeneous dense-network model. It resolves every optimizer, not a case study or trivial parameter substitution, and supplies the exact performance and multiplicity useful for network design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

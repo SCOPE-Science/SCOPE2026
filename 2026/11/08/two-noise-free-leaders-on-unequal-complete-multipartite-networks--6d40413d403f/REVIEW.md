@@ -1,15 +1,21 @@
-# Review of the smallest-part two-leader theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The grounded-Laplacian block decomposition is exact for every complete multipartite graph. Sherman–Morrison gives the general inverse-trace formula. The same-part objective is increasing in part size, while the mixed-versus-same difference has an explicitly positive rational numerator with a five-term coefficient certificate. Exact-rational direct inverse tests (3,322 cases) and a 729-point rational-identity grid pass. The theorem is restricted to at least three parts, each of size at least two, and exactly two noise-free leaders.
+## correctness
 
-## Originality
-PASS on inspected evidence, subject to the stated literature risk. The 2013 algorithmic paper [1] formulates the same objective but gives neither the exact unequal multipartite placement nor its strict comparison formula. The 2014 joint-centrality paper [2] gives a graph-general equivalent optimization criterion but explicit examples concern paths/cycles rather than this unequal family. Accessible prior findings for complete bipartite and balanced complete multipartite networks have different quantified graph domains and do not imply the unequal at-least-three-part theorem. Indexed semantic results did not expose a stronger claim containing it. Unknown equivalent literature is a residual priority risk; this is not an independence or publication certification.
+PASS
 
-## Value
-PASS. This is a complete classification of a natural two-input A-optimal control problem on heterogeneous dense-community networks. It has an exact optimizer count and closed objective, and proves the counterintuitive placement rule that both leaders are nonadjacent and lie in a *smallest* part rather than being spread over communities. The restriction to at least two vertices per part isolates a meaningful structural regime.
+For K_(n1,...,nr), r>=3, each n_i>=2, exactly two leaders and unit edges, grounded L_FF=M-11^T has invertible diagonal-plus-all-ones blocks. Sherman–Morrison gives exact inverse-trace J and the formulas for same-part and mixed-part placements. Same-part J(vv)-J(uu)=(N-4)(v-u)/[2(N-u)(N-v)] for u<=v, strict when u<v. For mixed u<=v, subtract same smaller-part objective; after h=u-2>=0, d=v-u>=0, R=N-u-v>=2, numerator has five strictly/nonnegatively coefficient polynomials, denominator positive. Independently verified that polynomial identity symbolically (SymPy), and exact matrix inverse traces for 213 pairs over 5 distinct multipartite graphs; K_(2,3,7) optimum 361/180. Thus every optimum is a same-smallest-part pair, count (#minimum parts)binom(m,2).
 
-## Closest primary literature and limitations
-[1] https://arxiv.org/abs/1302.0450 (noise-free inverse-trace objective and general algorithms). [2] https://arxiv.org/abs/1407.1569 (joint centrality and explicit path/cycle cases). [3] https://viterbi-web.usc.edu/~mihailo/papers/farlinjovCDC11.pdf (earlier convex-relaxation methodology). Unindexed equivalent statements cannot be excluded. The theorem does not cover singleton parts, larger budgets, or variable edge weights.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General noise-free leader criteria and optimization relaxations are established previously, and balanced multipartite and bipartite subfamilies have exact placement laws. The inspected earlier statements do not imply the strict smallest-part placement classification for unequal >=3-part graphs, with the full optimizer count and value.
+
+## value
+
+PASS
+
+Two perfect leaders concentrating in one smallest, mutually nonadjacent community is a non-obvious exact optimization rule in a natural heterogeneous dense-network model. It resolves every optimizer, not a case study or trivial parameter substitution, and supplies the exact performance and multiplicity useful for network design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

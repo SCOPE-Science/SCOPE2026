@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:49:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/two-noise-free-leaders-on-unequal-complete-multipartite-networks--6d40413d403f/RESULT.md (blob acf2e36de705e3157a48de873facee3d10e08356)",
+        "2026/11/08/two-noise-free-leaders-on-unequal-complete-multipartite-networks--6d40413d403f/verify.py (blob 271cf0bbbfe71d5c464a10f33c75c50faf45f9bc)"
+      ],
+      "rationale": "For K_(n1,...,nr), r>=3, each n_i>=2, exactly two leaders and unit edges, grounded L_FF=M-11^T has invertible diagonal-plus-all-ones blocks. Sherman–Morrison gives exact inverse-trace J and the formulas for same-part and mixed-part placements. Same-part J(vv)-J(uu)=(N-4)(v-u)/[2(N-u)(N-v)] for u<=v, strict when u<v. For mixed u<=v, subtract same smaller-part objective; after h=u-2>=0, d=v-u>=0, R=N-u-v>=2, numerator has five strictly/nonnegatively coefficient polynomials, denominator positive. Independently verified that polynomial identity symbolically (SymPy), and exact matrix inverse traces for 213 pairs over 5 distinct multipartite graphs; K_(2,3,7) optimum 361/180. Thus every optimum is a same-smallest-part pair, count (#minimum parts)binom(m,2).",
+      "residual_risks": [
+        "No singleton part, weighted-edge, more-than-two-leader or heterogeneous noise theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary: Exhaustive-community optimal leaders on balanced multipartite networks, balanced part sizes only.",
+          "Resultary: Exact leader allocation and square-root law on complete bipartite networks, two parts.",
+          "Lin et al general solver handles arbitrary networks but no universal closed-form optimum for this graph family."
+        ],
+        "reasoning": "Broader algorithms cover inputs without solving the exact heterogeneous optimum analytically; exact balanced and bipartite theorems do not dominate the unequal r>=3 domain.",
+        "searches": [
+          "complete multipartite noise free leader selection optimal smallest part two grounded Laplacian",
+          "Resultary balanced multipartite arbitrary budget leader exact",
+          "Resultary complete bipartite fixed budget leader"
+        ]
+      },
+      "checked_sources": [
+        "Lin, Fardad & Jovanović arXiv:1302.0450; Fitch & Leonard arXiv:1407.1569",
+        "Resultary balanced multipartite leader result",
+        "Resultary exact complete bipartite leader allocation",
+        "Resultary query: complete multipartite noise free leader selection optimal smallest part two grounded Laplacian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General inverse-trace formulation implies this is an instance of known optimization problem but does not determine its minimizer.",
+          "Balanced equal-size multipartite and two-part bipartite results address disjoint restrictions; a theorem for balanced does not imply heterogeneous."
+        ],
+        "reasoning": "The actual new implication is a nonadjacent same-smallest-part optimum for all unequal r>=3 with exact value and multiplicity, which does not follow from listed special cases or the general objective definition alone.",
+        "searches": [
+          "complete multipartite noise free leader selection optimal smallest part two grounded Laplacian",
+          "Lin Fardad Jovanovic arxiv:1302.0450",
+          "Fitch Leonard arxiv:1407.1569",
+          "Resultary balanced multipartite source and bipartite source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin, Fardad & Jovanović arXiv:1302.0450; Fitch & Leonard arXiv:1407.1569",
+          "Objective is trace of grounded Laplacian inverse. Equivalent joint centrality and effective-resistance optimization formalisms exist, but no read text gives this heterogeneous multipartite sharp placement rule."
+        ],
+        "reasoning": "Equivalent descriptions as A-optimal grounded network coherence or joint centrality were compared; general optimization criteria require new part-size inequalities to identify the minimizers.",
+        "searches": [
+          "complete multipartite noise free leader selection optimal smallest part two grounded Laplacian",
+          "joint centrality complete multipartite leaders smallest class",
+          "Lin Fardad Jovanovic inverse trace consensus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original objective value 361/180 for K_(2,3,7) verified; no earlier matched exact table for unequal >=3 multipartite classes in inspected literature."
+        ],
+        "reasoning": "Finite examples cannot prove novelty or all-size strict optimality; a known table of separate graphs would not supply the structural formula.",
+        "searches": [
+          "complete multipartite noise free leader selection optimal smallest part two grounded Laplacian",
+          "two perfect leaders heterogeneous multipartite exact optimum table",
+          "Fitch Leonard joint centrality examples"
+        ]
+      },
+      "rationale": "General noise-free leader criteria and optimization relaxations are established previously, and balanced multipartite and bipartite subfamilies have exact placement laws. The inspected earlier statements do not imply the strict smallest-part placement classification for unequal >=3-part graphs, with the full optimizer count and value.",
+      "residual_risks": [
+        "Unindexed general effective-resistance or Schur complement optimization theorem may encode the same placement result.",
+        "The result requires parts size >=2 and at least three parts; no claims beyond this precise natural domain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes general optimization framework rather than analytic heterogeneous multipartite all-parameter optimum",
+          "evidence": [
+            "Grounded Laplacian inverse-trace problem formulation and relaxation results"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "Paper model, objective, algorithmic relaxations and illustrative optimization cases",
+          "method": "Read open PDF text and inspected original page screenshots",
+          "title": "Algorithms for leader selection in stochastically forced consensus networks",
+          "trigger": "Same noise-free grounded-Laplacian inverse trace objective"
+        },
+        {
+          "assessment": "Equivalent objective criterion, but not a stated unequal complete multipartite placement theorem",
+          "evidence": [
+            "Joint-centrality criterion and examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Definitions, joint centrality characterization and graph examples on paths and cycles",
+          "method": "Read open PDF excerpts and inspected page screenshots",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "General exact two-leader criterion"
+        },
+        {
+          "assessment": "Only balanced parts, arbitrary budget; not coverage of unequal sizes",
+          "evidence": [
+            "Indexed theorem summary explicitly assumes balanced"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exhaustive-community-optimal-leaders-on-balanced-multipartite-ne--fb8c09cd8e4e",
+          "material_read": "Full indexed result summary, not full proof",
+          "method": "Resultary published-record semantic retrieval",
+          "title": "Exhaustive-community optimal leaders on balanced multipartite networks",
+          "trigger": "Same type of consensus graph, balanced subfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lin, Fardad & Jovanović arXiv:1302.0450; Fitch & Leonard arXiv:1407.1569"
+      ],
+      "rationale": "Two perfect leaders concentrating in one smallest, mutually nonadjacent community is a non-obvious exact optimization rule in a natural heterogeneous dense-network model. It resolves every optimizer, not a case study or trivial parameter substitution, and supplies the exact performance and multiplicity useful for network design.",
+      "residual_risks": [
+        "The assumption of identical follower noise and unit cross-part conductances is important to real-world applicability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No result for singleton parts, higher budgets, noisy leaders, or heterogeneous conductances.",
+    "Global optimality depends on proving both same-part and mixed-part inequalities, not on finite search."
+  ],
+  "schema_version": 1
+}
