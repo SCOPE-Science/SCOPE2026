@@ -1,19 +1,21 @@
-# Review of the four-phase resistance-diameter theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The global symmetry reduction follows from the variational representation of pairwise effective resistance as a supremum of affine functions of edge conductances. The quotient reduction is exact for a connected \(K_{m,m}\) with a priced matching. Three explicitly reconstructed resistance values arise from the Laplacian's three nonzero eigenspaces; the nonmatched cross-part resistance is strictly below the same-part resistance. The remaining two functions cross once. Both first derivatives are explicit, and their signs prove four price phases, with exact common boundary values and no additional invariant minimizer. Unrestricted optimality follows from convex orbit averaging, not from treating symmetry as an assumption. Exact grounded-Laplacian checks and independent scalar optimization tests passed. Finite computations are corroborative and do not certify arbitrary parameter ranges.
+PASS
 
-## Originality
+For connected conductance allocation, each R_ij is convex by its variational supremum, so averaging over matching-pair permutations and bipartition swap produces an unrestricted global minimizer with matching conductance x and nonmatching y. The Laplacian decomposes into eigenvalues my, z=2x+(m−2)y (each multiplicity m−1), and 2d=2(x+(m−1)y), giving R_same=1/(my)+1/z, R_match=2(m−1)/(mz)+1/(md), R_nonmatch=1/(my)+(m−2)/(mz)+1/(md). R_same−R_nonmatch=y/(zd)>0. Set t=x/y, budget y=B/[m(Pt+m−1)]; the two piecewise smooth scalar objectives meet at gamma=(sqrt(m(m−2))−(m−2))/2. Differentiation and one-crossing monotonicity yield price thresholds P1,P2,P3 and 4 branches; P3−P2=1/(2m²)+O(m^−3). Independent rational grounded-Laplacian tests and scalar numerical minimizers corroborated nontrivial parameter cases. Unrestricted asymmetric optimality follows from convex averaging, not unsupported uniqueness.
 
-**PASS on inspected evidence; priority remains qualified.** Ghosh, Boyd and Saberi (MTNS 2006, §VII; SIAM Review 2008, §8) explicitly formulate general minimax effective-resistance design as a convex program, but do not give the exact price thresholds on matched balanced bicliques. Earlier matching-priced *complete-graph* resistance-diameter classifications concern a different edge set and cannot be specialized by merely choosing their two prices. An earlier matching-priced \(K_{m,m}\) spectral-gap classification optimizes \(\lambda_2\), not the maximum pairwise resistance; the two matching-edge screening thresholds differ here by the proved amount \(1/(2m-3)\). Available literature and indexed mathematical result searches did not identify an equivalent all-parameter worst-pair theorem. This is not proof of exhaustive novelty; an unindexed specialist treatment could predate the result.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Worst-pair electrical resistance measures a robust network-design cost distinct from total resistance and spectral-gap optimization. The theorem is a natural complete classification of one matching-discount/surcharge problem on an infinite network family. Its four genuine regimes distinguish which vertex pairs constrain the optimum, when a conducting matching is economically excluded, and a nontrivial \(m^{-2}\)-wide intermediate transition. The difference from spectral-gap screening is exact, not a numerical trend.
+PASS for maximum pair resistance (diameter) under a matching-price budget on K_m,m, not the preexisting total-resistance/Kirchhoff-index matching-price problem. Ghosh–Boyd–Saberi explicitly proposed generic convex minimax effective-resistance design in 2006, but neither that work nor the inspected 2026 matching-priced Kirchhoff-index solution determines these four closed phases, crossover or narrow width. Same objective on a priced complete graph is a distinct edge topology.
 
-## Limits and closest literature
+## value
 
-The theorem classifies the invariant optimal allocation and the unrestricted optimum *value*, not every asymmetric global optimum. The focal conference version is dated July 24–28, 2006; the exact first appearance of a possible earlier working paper has not been established. Relevant prior full texts are Ghosh, Boyd and Saberi, MTNS 2006 and SIAM Review 2008; unweighted complete multipartite resistance expressions do not address priced optimization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact network-design support transition and active-pair switch for a natural symmetric priced bipartite family; shows the optimal maximum resistance removes matching edges in a narrow price regime not predicted by spectral-gap or total-resistance objectives. The m^{-2} phase width adds meaningful asymptotic structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

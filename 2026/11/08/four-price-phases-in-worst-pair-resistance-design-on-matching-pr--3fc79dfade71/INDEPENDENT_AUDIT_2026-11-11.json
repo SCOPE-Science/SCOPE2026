@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:03:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected conductance allocation, each R_ij is convex by its variational supremum, so averaging over matching-pair permutations and bipartition swap produces an unrestricted global minimizer with matching conductance x and nonmatching y. The Laplacian decomposes into eigenvalues my, z=2x+(m−2)y (each multiplicity m−1), and 2d=2(x+(m−1)y), giving R_same=1/(my)+1/z, R_match=2(m−1)/(mz)+1/(md), R_nonmatch=1/(my)+(m−2)/(mz)+1/(md). R_same−R_nonmatch=y/(zd)>0. Set t=x/y, budget y=B/[m(Pt+m−1)]; the two piecewise smooth scalar objectives meet at gamma=(sqrt(m(m−2))−(m−2))/2. Differentiation and one-crossing monotonicity yield price thresholds P1,P2,P3 and 4 branches; P3−P2=1/(2m²)+O(m^−3). Independent rational grounded-Laplacian tests and scalar numerical minimizers corroborated nontrivial parameter cases. Unrestricted asymmetric optimality follows from convex averaging, not unsupported uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2006 conference Section VII gives a general SDP formulation for min max resistance but no evaluated K_m,m matched price thresholds.",
+          "Published minmax design on complete graphs with matching involves within-part edges that K_m,m excludes."
+        ],
+        "reasoning": "Generic convex SDP formulation is broader in permissible graph but weaker as an exact constructive closed form; different graph objectives/topologies do not dominate the specified four-phase formula.",
+        "searches": [
+          "matching priced complete bipartite graph minimum resistance diameter optimum four price phases",
+          "2026/11/2/SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2",
+          "Ghosh Boyd Saberi full PDF 2006 Section VII"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-price-threshold-for-resistance-optimal-matching-edges-in--e89dd69e6abf/RESULT.md",
+        "https://doi.org/10.1137/050645452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi Sections I,V,VII discuss general resistance allocation and SDP extension, without explicit matching-priced bipartite four regimes.",
+          "Other same graph Resultary full primary theorem uses Kirchhoff index K=sum R; present active max of two pair types cannot be obtained just by substituting parameters."
+        ],
+        "reasoning": "No direct implication from inspected prior explicit theorems; a symbolic solution of the generic SDP is the nontrivial new work.",
+        "searches": [
+          "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "2026/11/8/SCOPE-a-sharp-price-threshold-for-resistance-optimal-matching-edges-in--e89dd69e6abf/RESULT.md",
+          "matching priced complete bipartite graph minimum resistance diameter optimum four price phases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Variational convexity and the notion of minimizing the maximum resistance are in Ghosh–Boyd–Saberi (2006).",
+          "The 2026 matching-priced K_m,m result optimizes the SUM of all effective resistances, not their maximum."
+        ],
+        "reasoning": "There is shared feasible domain and convex methodology, but not objective equivalence: sum vs max has different active spectral/resistance modes and support thresholds.",
+        "searches": [
+          "matching priced complete bipartite graph minimum resistance diameter optimum four price phases",
+          "2006 Ghosh Boyd Saberi minimize maximum effective resistance network design SDP",
+          "2026/11/8/SCOPE-a-sharp-price-threshold-for-resistance-optimal-matching-edges-in--e89dd69e6abf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published crown graph unweighted resistances are recoverable at t=0.",
+          "Different price-index threshold c_n for Kirchhoff index is not the current P3."
+        ],
+        "reasoning": "Known boundary tables and general resistance formulas are components; the all-price minimax optimizer and O(m^-2) intermediate window are additional derived statements.",
+        "searches": [
+          "matching priced complete bipartite graph minimum resistance diameter optimum four price phases",
+          "matching price deletion frontier resistance optimal balanced bicliques Resultary",
+          "crown graph effective resistance table"
+        ]
+      },
+      "rationale": "PASS for maximum pair resistance (diameter) under a matching-price budget on K_m,m, not the preexisting total-resistance/Kirchhoff-index matching-price problem. Ghosh–Boyd–Saberi explicitly proposed generic convex minimax effective-resistance design in 2006, but neither that work nor the inspected 2026 matching-priced Kirchhoff-index solution determines these four closed phases, crossover or narrow width. Same objective on a priced complete graph is a distinct edge topology.",
+      "residual_risks": [
+        "Generic convex SDP for the exact objective is established in 2006; claim concerns its explicit exact solution for the specified graph, not discovery of minimax resistance.",
+        "Asymmetric optima are not classified; only existence and invariant uniqueness are proved.",
+        "Unfound specialist exact design or reparametrized priced-graph theorem might imply these phases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FORMULATION_NO_FOUR_PHASE",
+          "evidence": "Section VII proposes maximum pair resistance convex optimization but not matching-priced complete bipartite closed phases.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Full 2006 proceedings PDF including sections I,V,VII and min-max resistance proposal, equations and contextual examples",
+          "method": "PDF opened and pages rendered/screenshotted as required; section VII inspected",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Foundational exact same minimax objective"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL",
+          "evidence": "The theorem optimizes total effective resistance (Kirchhoff index) rather than resistance diameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-price-threshold-for-resistance-optimal-matching-edges-in--e89dd69e6abf/RESULT.md",
+          "material_read": "Entire primary RESULT.md including Kirchhoff objective, spectrum, unique optimum and threshold",
+          "method": "Full GitHub blob read",
+          "title": "A sharp price threshold for resistance-optimal matching edges in balanced bipartite networks",
+          "trigger": "Same graph and matching pricing"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_LIMITED_READING",
+          "evidence": "Complete graph includes within-part edges, unlike K_m,m; exact topology-specific formulas cannot be directly substituted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2",
+          "material_read": "Relevant published Resultary semantic summary and parameters, no claim of full RESULT read",
+          "method": "Resultary semantic search summary",
+          "title": "Sharp worst-pair resistance design for complete graphs with priced matching links",
+          "trigger": "Same optimization metric, priced matching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact network-design support transition and active-pair switch for a natural symmetric priced bipartite family; shows the optimal maximum resistance removes matching edges in a narrow price regime not predicted by spectral-gap or total-resistance objectives. The m^{-2} phase width adds meaningful asymptotic structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+    "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-price-threshold-for-resistance-optimal-matching-edges-in--e89dd69e6abf/RESULT.md",
+    "https://doi.org/10.1137/050645452"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Generic convex SDP for the exact objective is established in 2006; claim concerns its explicit exact solution for the specified graph, not discovery of minimax resistance.",
+    "Asymmetric optima are not classified; only existence and invariant uniqueness are proved.",
+    "Unfound specialist exact design or reparametrized priced-graph theorem might imply these phases."
+  ],
+  "schema_version": 1
+}
