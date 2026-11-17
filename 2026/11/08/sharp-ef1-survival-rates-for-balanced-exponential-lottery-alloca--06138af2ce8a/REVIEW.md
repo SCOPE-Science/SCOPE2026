@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result applies to a fixed partition into equal \(r\)-item bundles and independent rate-one exponential agent-item values. The proof explicitly factors whole-allocation EF1 into independent agent events, identifies the sum of all but the largest rival item through independent exponential spacings, obtains exact rational probabilities from the gamma Laplace transform, and proves the fixed-\(r\) sharp asymptotic by a justified dominated-convergence change of variables. The standalone program independently checks exact rational formulas against numerical quadrature and the beta/harmonic expression, plus whole-allocation Monte Carlo sanity checks. These finite computations are not substituted for the general proof. The error term for the complete probability is stated on the logarithmic scale, avoiding an unjustified multiplicative claim.
+## correctness
 
-**Originality — PASS (best-knowledge, qualified).** Igarashi and Oh (arXiv:2610.34906v1, Sections 4, 7 and conclusion) analyze probability of *exact* envy-freeness and explicitly set EF1 aside. The three-page original published text of Aloisio et al. (AAMAS 2024) treats expected maximum envy, not fixed-allocation EF1 survival probabilities. Cohen et al. (arXiv:2609.28333) address randomized online adversarial algorithms, not the fixed-exponential lottery model; only accessible abstract material was inspected for that comparison. Targeted literature and scientific-record comparisons identify near-field results on binary shared-realization EF1, two-agent binary EF1, gamma statistics, and assignment lotteries; their statements do not imply the arbitrary-\(n\), fixed-\(r\) exponential EF1 law. Search coverage is not a proof of universal novelty; unindexed equivalent work is a residual risk.
+PASS
 
-**Value — PASS.** The newly studied objective—exact ex-post EF1 probability of a precommitted, ex-ante EF allocation—is explicitly motivated by the initiating paper's open EF1 direction. The theorem gives a complete finite law and a sharp large-population decay exponent and logarithmic correction for every fixed bundle size. The first genuinely nontrivial case, two goods per agent, has a closed finite beta identity and explicit sharp constant. Comparison with the exact EF probability \(n^{-n}\) reveals quantitatively how a one-good deletion changes the fairness rare-event scale, although neither guarantee stays probable as \(n\) grows.
+For each agent row, own S~Gamma(r,1) and rival deletion residual Y=sum of smallest r-1 independent exponentials; agent rows are mutually independent, giving P_(n,r)=q^n. Exponential order spacings decompose Y into independent Exp((t+1)/t), t=1,..,r-1; hypoexponential partial fractions and gamma integration yield the exact multinomial rational q. The slowest tail C exp(-alpha s), alpha=r/(r-1), C=(r-1)^(r-1), with substitution z=C n exp(-alpha s) gives q~K_r n^(-(r-1)/r)(log n)^(r-1) by dominated convergence for fixed r; no relative asymptotic for P itself. For r=2 derived q_2,2=8/9, q_3,2=184/225 and EF baseline n^-n. Independently checked 18 finite rational cases; not a proof of asymptotics.
 
-Closest literature and limitations: This is *not* an allocation-optimality theorem, uses unbounded iid exponential values, and fixes the number of items per agent during the limit. The 2026 online allocation paper's full technical text could not be inspected in the accessible web view, although its research question is materially different. Independently checking unindexed work remains prudent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Neither known stronger fairness requirement gives the exact EF1 survival probability; exact EF or EFX success events do not determine the intermediate EF1 event. Exact row factorization and hypoexponential law are separate. The source-results distinction is at the random variable defining comparisons, not naming; neither prior law implies the submitted full EF1 probability or asymptotic coefficient without new derivations.
+
+## value
+
+PASS
+
+Ex-post fairness of a precommitted ex-ante-balanced allocation is a natural stochastic fair-division question; the exact multivariate probability, sharp n-root exponent and benchmark against exact EF produce an interpretable phase of EF1 survival between EF and EFX, not just a routine distribution calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

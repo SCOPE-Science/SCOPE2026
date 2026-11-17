@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:56:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each agent row, own S~Gamma(r,1) and rival deletion residual Y=sum of smallest r-1 independent exponentials; agent rows are mutually independent, giving P_(n,r)=q^n. Exponential order spacings decompose Y into independent Exp((t+1)/t), t=1,..,r-1; hypoexponential partial fractions and gamma integration yield the exact multinomial rational q. The slowest tail C exp(-alpha s), alpha=r/(r-1), C=(r-1)^(r-1), with substitution z=C n exp(-alpha s) gives q~K_r n^(-(r-1)/r)(log n)^(r-1) by dominated convergence for fixed r; no relative asymptotic for P itself. For r=2 derived q_2,2=8/9, q_3,2=184/225 and EF baseline n^-n. Independently checked 18 finite rational cases; not a proof of asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Igarashi/Oh 2026 treats ex-post exact envy-freeness and optimality of lotteries; EFX theorem handles stronger all-item-removals. EF event has probability n^-n."
+        ],
+        "reasoning": "Neither known stronger fairness requirement gives the exact EF1 survival probability; exact EF or EFX success events do not determine the intermediate EF1 event. Exact row factorization and hypoexponential law are separate.",
+        "searches": [
+          "EF1 probability fixed balanced random exponential independent valuations r goods probability n^-((r-1)/r) log n",
+          "arXiv:2610.34906",
+          "Resultary 2026/11/08/SCOPE-universal-efx-survival-and-logarithmic-satisfaction-under-balanc--baf1ff68bb0c"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob d1a7870a025ae3c928b976e4ad62edd97d29e7a1",
+        "Assigned check.py blob cb6bdb9df01e321a50478d4b224a24e49a5c421e",
+        "Full Resultary 2026 Nov8 balanced exponential EFX theorem",
+        "Igarashi–Oh arXiv:2610.34906 abstract",
+        "Aloisio et al AAMAS 2024 proceedings summary",
+        "Resultary query EF1 probability fixed balanced random exponential independent valuations r goods probability n^-((r-1)/r) log n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "EFX uses gamma plus exponential minimum and yields logarithmic/n; EF1 uses hypoexponential order spacings with slowest exponent r/(r-1), giving the different n^(-(r-1)/r) power law."
+        ],
+        "reasoning": "The source-results distinction is at the random variable defining comparisons, not naming; neither prior law implies the submitted full EF1 probability or asymptotic coefficient without new derivations.",
+        "searches": [
+          "EF1 probability fixed balanced random exponential independent valuations r goods probability n^-((r-1)/r) log n",
+          "arXiv:2610.34906",
+          "Resultary 2026/11/08/SCOPE-universal-efx-survival-and-logarithmic-satisfaction-under-balanc--baf1ff68bb0c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same fixed balanced exponential valuation model; for EF1 delete most-valued item -> sum of SMALLEST r-1 rival values; EFX removes least-valued item -> sum of LARGEST r-1."
+        ],
+        "reasoning": "EF1 and EFX are not interchangeable; the directly inspected parallel EFX theorem has different exact rival law and p~log n/(r(r-1)n) instead of q~n^(-(r-1)/r)(log n)^(r-1).",
+        "searches": [
+          "EF1 probability fixed balanced random exponential independent valuations r goods probability n^-((r-1)/r) log n",
+          "Resultary 2026/11/08/SCOPE-universal-efx-survival-and-logarithmic-satisfaction-under-balanc--baf1ff68bb0c",
+          "arXiv:2610.34906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related expected maximum envy literature does not present an exact fixed-balanced iid Exp EF1 rational formula in the material inspected; Resultary search returned only the assigned exact law among closest matches."
+        ],
+        "reasoning": "Finite rational anchors 8/9,184/225 are computed from the theorem, not evidence of a previously catalogued full invariant table; no exact covered formula found.",
+        "searches": [
+          "EF1 probability fixed balanced random exponential independent valuations r goods probability n^-((r-1)/r) log n",
+          "AAMAS 2024 Approximately Fair Allocation of Indivisible Items with Random Valuations"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Neither known stronger fairness requirement gives the exact EF1 survival probability; exact EF or EFX success events do not determine the intermediate EF1 event. Exact row factorization and hypoexponential law are separate. The source-results distinction is at the random variable defining comparisons, not naming; neither prior law implies the submitted full EF1 probability or asymptotic coefficient without new derivations.",
+      "residual_risks": [
+        "The Igarashi–Oh 2026 full paper has not been inspected; no whole-document NOT_COVERING conclusion is drawn.",
+        "More general order-statistics extreme-value theorems may be specialized to yield the exponent, but no earlier work with the identical EF1 event/constant was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Factorization, tail, constants and rational anchor checks consistent",
+          "evidence": "18 independent exact rational finite cases, rates and gamma Laplace transform.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-ef1-survival-rates-for-balanced-exponential-lottery-alloca--06138af2ce8a",
+          "material_read": "Entire RESULT.md and check.py",
+          "method": "Exact Git blobs plus independent rational integration",
+          "title": "Sharp EF1 survival rates for balanced exponential lottery allocations",
+          "trigger": "Assigned claim"
+        },
+        {
+          "assessment": "NOT_COVERING exact EF1: uses largest r-1 rather than smallest r-1 and has distinct asymptotic rate",
+          "evidence": "Its p~log n/(r(r-1)n) vs EF1 q~K_r n^(-(r-1)/r)(log n)^(r-1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-efx-survival-and-logarithmic-satisfaction-under-balanc--baf1ff68bb0c",
+          "material_read": "Entire RESULT.md including row factorization, EFX rival distribution and tail",
+          "method": "GitHub raw full text",
+          "title": "Universal EFX survival and logarithmic satisfaction under balanced exponential lotteries",
+          "trigger": "Same stochastic model, possible fairness-strength implication"
+        },
+        {
+          "assessment": "Not enough full text to assert article contains no EF1 formula; residual priority risk",
+          "evidence": "Source describes ex-post exact EF rather than EF1; full paper not established as read.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+          "material_read": "Abstract and source-reported Sections 4,7 claims only, not full paper",
+          "method": "Primary abstract web search",
+          "title": "Fair Division of Lotteries",
+          "trigger": "Direct fair-lottery prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ex-post fairness of a precommitted ex-ante-balanced allocation is a natural stochastic fair-division question; the exact multivariate probability, sharp n-root exponent and benchmark against exact EF produce an interpretable phase of EF1 survival between EF and EFX, not just a routine distribution calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob d1a7870a025ae3c928b976e4ad62edd97d29e7a1",
+    "Assigned check.py blob cb6bdb9df01e321a50478d4b224a24e49a5c421e",
+    "Full Resultary 2026 Nov8 balanced exponential EFX theorem",
+    "Igarashi–Oh arXiv:2610.34906 abstract",
+    "Aloisio et al AAMAS 2024 proceedings summary",
+    "Resultary query EF1 probability fixed balanced random exponential independent valuations r goods probability n^-((r-1)/r) log n"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The Igarashi–Oh 2026 full paper has not been inspected; no whole-document NOT_COVERING conclusion is drawn.",
+    "More general order-statistics extreme-value theorems may be specialized to yield the exponent, but no earlier work with the identical EF1 event/constant was found."
+  ],
+  "schema_version": 1
+}

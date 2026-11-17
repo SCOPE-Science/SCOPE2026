@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact claim is for fixed positive integer \(r\ge2\) and all \(n\ge2\), with iid rate-one exponential agent-item values and a deterministic balanced allocation. The proof uses four necessary steps: agent-wise independence, exponential order-statistic spacings, the distinct-rate hypoexponential tail coefficient, and dominated convergence after a logarithmic substitution. These are given explicitly in `RESULT.md`. The final probability \(P_{n,r}\) is the \(n\)th power of the one-agent event, not merely that event.
+## correctness
 
-Execute `python3 check.py` after extracting this record. The actual checks performed: exact rational values for each \(2\le r\le4\), \(2\le n\le6\) (15 cases), compared with independent numerical quadrature; the independent beta/harmonic identity for each \(2\le n\le6\) when \(r=2\); anchor rational values; and seeded Monte Carlo tests of whole-allocation EF1 events for four small parameter pairs. All checks passed. The seeded simulations are non-certifying sanity checks, and finite tests are not used to infer the limit.
+PASS
 
-The proof assumes a fixed \(r\) in the asymptotic, not a growing bundle size. No code, appendix, or outside artifact is needed to supply a missing proof lemma. The standalone program uses only Python 3 standard-library modules and does not depend on any unpublished data. All displayed source dates refer to first public versions of the motivating scientific works.
+For each agent row, own S~Gamma(r,1) and rival deletion residual Y=sum of smallest r-1 independent exponentials; agent rows are mutually independent, giving P_(n,r)=q^n. Exponential order spacings decompose Y into independent Exp((t+1)/t), t=1,..,r-1; hypoexponential partial fractions and gamma integration yield the exact multinomial rational q. The slowest tail C exp(-alpha s), alpha=r/(r-1), C=(r-1)^(r-1), with substitution z=C n exp(-alpha s) gives q~K_r n^(-(r-1)/r)(log n)^(r-1) by dominated convergence for fixed r; no relative asymptotic for P itself. For r=2 derived q_2,2=8/9, q_3,2=184/225 and EF baseline n^-n. Independently checked 18 finite rational cases; not a proof of asymptotics.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Neither known stronger fairness requirement gives the exact EF1 survival probability; exact EF or EFX success events do not determine the intermediate EF1 event. Exact row factorization and hypoexponential law are separate. The source-results distinction is at the random variable defining comparisons, not naming; neither prior law implies the submitted full EF1 probability or asymptotic coefficient without new derivations.
+
+## value
+
+PASS
+
+Ex-post fairness of a precommitted ex-ante-balanced allocation is a natural stochastic fair-division question; the exact multivariate probability, sharp n-root exponent and benchmark against exact EF produce an interpretable phase of EF1 survival between EF and EFX, not just a routine distribution calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
