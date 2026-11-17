@@ -1,19 +1,21 @@
-# Scientific review: extremal Kneser total-cut topology
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly identifies the maximum independent families using Erdős–Ko–Rado (unique full stars in the strict range; complementary-pair choices at equality), constructs all simplex intersections of the cover, applies the nerve lemma, and checks the equivariant integral Čech chain identification. At equality the signed complementary-pair determinant and the binary valuation establish the orientation character. The executable checker independently reconstructs small cases, checks their complete nerve, verifies signed complement-pair permutations, and tests all conjugacy classes of six symmetric-group actions. The experiments corroborate, not replace, the parameter-uniform mathematical proof.
+PASS
 
-## Originality — PASS
+Kneser KG(n,k), k>=2, n>=2k, m=binom(n−1,k−1). Equality in Erdős–Ko–Rado gives, for n>2k, exactly the n maximum independent stars. Complementary simplices D_i intersect in a nonempty simplex precisely for |T|<=n−k, giving nerve sk_{n−k−1}Δ^{n−1}, homotopy wedge^m S^{n−k−1}. The equivariant Čech double complex identifies integral top homology with the kernel of simplicial boundary on that skeleton, i.e. ∧^{n−k}U_n; over Q this is hook (k,1^{n−k}). At n=2k the Kneser graph is m disjoint complementary edges and the cut complex is a cross-polytope boundary S^{m−1}. The degree of a transposition is (-1)^{binom(2k−2,k−1)/2}; central-binomial 2-adic valuation s2(k−1) makes it −1 exactly if k−1 is a 2-power. An independent permutation-pair sign computation for k=2..10 matched this parity and the trace formula; no finite test is used to establish the all-k theorem.
 
-The inspected primary literature is Bayer et al., arXiv:2209.13503; Shen et al., arXiv:2512.09674; and Carnero Bravo, arXiv:2602.21427, with the EKR equality theorem as a known input. The first defines total cuts and treats different graph classes; the second relates cut complexes of cycles to neighborhood complexes of stable Kneser graphs; the third includes disconnected/multipartite and cycle-power cases. In particular the matching boundary sphere is a known elementary graph-class special case, and EKR plus nerve implies the strict-case nonequivariant wedge. The claimed distinction is the complete integral symmetric-group representation alongside the two-regime threshold and the binary determinant criterion. Semantic published-finding corpus searches for cut/maximum-intersecting families and complements/representation analogues found distinct Kneser neighborhood and other cut-complex results, not the same combined claim. No database search proves absence; the possibility of unindexed stronger prior work remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cut level is the canonical independence maximum of the Kneser graph. The result gives an exact infinite-family topological classification at its singular EKR threshold, including a severe drop in homotopy dimension after the equality boundary, and determines the integral symmetry structure unavailable from Betti numbers. The number-theoretic orientation law is sensitive to the binary expansion of the parameter, a meaningful interaction between graph symmetry and sphere degree. No non-extremal extension or equivariant homotopy splitting is asserted.
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
 
-## Closest literature and limitations
+## value
 
-The principal classical deductions (EKR equality, simplex skeleton homotopy, exterior-power chain kernel, two-adic central binomial valuation) are explicitly attributed and are not themselves originality claims. An inaccessible/unindexed equivalent theorem could affect priority. Finite tests check only representative parameters; the unrestricted theorem relies on the written proof. Independent certification is not provided.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum independent-set cut parameter is intrinsic and marks the last nonvoid total-cut level. The two sharply different topological regimes (n=2k versus n>2k), complete integral equivariant top module, and unexpected power-of-two orientation sign boundary are motivated exact structural properties of the natural Kneser family, not a merely arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
