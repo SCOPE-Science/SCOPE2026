@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and deductive verification
+# Independent mathematical audit
 
-The theorem for all \(n\ge3\) is proved in `RESULT.md` by the exact undominated-edge identity, complete legal-move classification, sharp length bound, equality rigidity, and explicit enumeration. Finite enumeration alone is not an infinite proof.
+## correctness
 
-`verify_open_neighborhood_dp.py` builds the triangular graph directly from two-element subsets of \([n]\), constructs open-neighborhood bit masks independently of the matching argument, and uses memoized exact dynamic programming to count *longest total* legal sequences. Every order \(3\le n\le11\) passes, with exact length and formula comparisons recorded in `dp_output.txt`. It counts paths ending with total domination; intermediate prefix counts are not falsely counted as completed optima.
+PASS
 
-`verify_matching_attachment.py` constructs ordered near-perfect matchings and then all attachment choices for odd \(n=3,5,7\). It separately evaluates legality, total coverage, unique ordered sequences and the factorial count. The observed counts \(6,720,453600\) agree. Its successful output is `construct_output.txt`. This generator is structurally distinct from the direct neighborhood DP and checks the bijection's forward direction; the general converse and upper bound remain mathematical deductions.
+After an edge-selection prefix in the underlying complete graph, the undominated vertices of its line graph are exactly edges among unused ground vertices plus isolated selected-edge components. Distinguishing A,B0,B1,C1,C2 legal moves yields conservation L=n-u-b1-c2; a completed sequence has u in {0,1}, and the transition to a first nontrivial component forces L<=n-1, with equality only odd n and near-perfect-matching/attachment structure. Explicit even construction attains n-2; rooted contracted-tree order realizes each odd support. Matching and attachment choices count n!(n-1)!/2^m without overcounting ordered sequences. Independently computed open-neighborhood bitset dynamic-programming maximum length and number for n=3..8, yielding odd counts 6,720,453600 and matching length at each n; finite DP is corroboration only.
 
-For reproducibility from this package, save the two Python scripts and text artifacts to a common folder, then run `python3 verify_open_neighborhood_dp.py` and `python3 verify_matching_attachment.py` under standard Python 3. No external libraries are needed. Expected outputs are supplied as full text. Independent scholarly validation has not been performed.
+## originality
+
+PASS
+
+The exact longest open-neighborhood sequence classification and ordered enumeration for the triangular graphs are distinguished from minimum total dominating sets and longest sequences on their Kneser complements; assessed original on substantive comparison, with unindexed-literature risk.
+
+## value
+
+PASS
+
+The maximal legal open-neighborhood domination length and complete equality-pattern/ordered census are natural structural invariants of a highly symmetric graph family, not a short parameter substitution. The matching-to-spanning-tree support bijection supplies a useful combinatorial characterization beyond a scalar maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

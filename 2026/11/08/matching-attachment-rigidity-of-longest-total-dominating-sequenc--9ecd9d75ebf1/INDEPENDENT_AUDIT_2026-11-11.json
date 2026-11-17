@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:59:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After an edge-selection prefix in the underlying complete graph, the undominated vertices of its line graph are exactly edges among unused ground vertices plus isolated selected-edge components. Distinguishing A,B0,B1,C1,C2 legal moves yields conservation L=n-u-b1-c2; a completed sequence has u in {0,1}, and the transition to a first nontrivial component forces L<=n-1, with equality only odd n and near-perfect-matching/attachment structure. Explicit even construction attains n-2; rooted contracted-tree order realizes each odd support. Matching and attachment choices count n!(n-1)!/2^m without overcounting ordered sequences. Independently computed open-neighborhood bitset dynamic-programming maximum length and number for n=3..8, yielding odd counts 6,720,453600 and matching length at each n; finite DP is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kneser graph KG(n,2) is the complement of T_n; its open neighborhoods encode disjointness, whereas T_n neighborhoods encode intersection.",
+          "The previously indexed triangular-graph classifications count minimum and inclusion-minimal total dominating subsets."
+        ],
+        "reasoning": "Neither the complement-graph ordered sequence theorem nor minimum-set forest classifications imply the claimed n-1/n-2 maximum and all optimal orderings.",
+        "searches": [
+          "Resultary query: Grundy total domination number triangular graph line graph of complete graph longest total dominating sequences exact count matchings",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-counting-longest-total-dominating-sequences-in-operatorname-kg-n--251ebf95dc7b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1601.07525",
+        "https://arxiv.org/abs/1608.06804",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-counting-longest-total-dominating-sequences-in-operatorname-kg-n--251ebf95dc7b/RESULT.md",
+        "https://oeis.org/A290716"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted invariant (uncovered edge pairs among unused vertices plus isolated selected edges) yields the full legal-move taxonomy and an equality rigidity not supplied by the generic Grundy total domination framework."
+        ],
+        "reasoning": "The precise prior statements are general definitions/bounds or parameters of different graphs; their conclusions do not logically yield the factorial sequence count without a new classification argument.",
+        "searches": [
+          "Resultary query: Grundy total domination number triangular graph line graph of complete graph longest total dominating sequences exact count matchings",
+          "arxiv:1601.07525",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-counting-longest-total-dominating-sequences-in-operatorname-kg-n--251ebf95dc7b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar–Henning–Rall define Grundy total domination via open-neighborhood newly dominated witnesses; a minimum ordinary total dominating set in T_n is a different optimization from the maximum length of a legal sequence."
+        ],
+        "reasoning": "Maximum-length ordered histories require a legal prefix condition and cannot be obtained by merely taking the count of minimum ordinary total dominating sets.",
+        "searches": [
+          "Resultary query: Grundy total domination number triangular graph line graph of complete graph longest total dominating sequences exact count matchings",
+          "arxiv:1601.07525",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A290716 tabulates minimal ordinary dominating sets of the triangular graph, not ordered maximum total-dominating sequences."
+        ],
+        "reasoning": "A matching in an odd triangular graph relates to other graph parameters, but no inspected exact table counts the ordered near-perfect-matching attachments or characterizes all supporting spanning trees.",
+        "searches": [
+          "Resultary query: Grundy total domination number triangular graph line graph of complete graph longest total dominating sequences exact count matchings",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e/RESULT.md",
+          "https://oeis.org/A290716"
+        ]
+      },
+      "rationale": "The exact longest open-neighborhood sequence classification and ordered enumeration for the triangular graphs are distinguished from minimum total dominating sets and longest sequences on their Kneser complements; assessed original on substantive comparison, with unindexed-literature risk.",
+      "residual_risks": [
+        "Complete full text of some older broad Grundy-total-domination articles was not materially inspected in this execution.",
+        "An unpublished or unindexed exact line-graph calculation may coincide with this theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_ESTABLISHED_AS_COVERAGE",
+          "evidence": "Defines open-neighborhood total dominating sequences; no corresponding triangular-graph factorial formula in the portions inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.07525",
+          "material_read": "Abstract/first PDF page and key searchable references; not an assertion that the entire paper was read",
+          "method": "ArXiv PDF screenshot and text search",
+          "title": "Total Dominating Sequences in Graphs",
+          "trigger": "Foundational definition of Grundy total domination"
+        },
+        {
+          "assessment": "DIFFERENT_MINIMUM_SET_INVARIANT",
+          "evidence": "All minimum sets are counted by forest profiles, rather than maximum length of order-sensitive legal sequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e/RESULT.md",
+          "material_read": "Resultary indexed theorem summary and source scope",
+          "method": "Resultary semantic search",
+          "title": "All minimum total dominating sets of triangular graphs",
+          "trigger": "Same graph but competing extremal parameter"
+        },
+        {
+          "assessment": "DIFFERENT_ADJACENCY",
+          "evidence": "Counts maximum sequences for disjointness-adjacency Kneser graph, unlike intersection-adjacency T_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-counting-longest-total-dominating-sequences-in-operatorname-kg-n--251ebf95dc7b/RESULT.md",
+          "material_read": "Resultary indexed theorem statement/summary, not full paper",
+          "method": "Resultary semantic search",
+          "title": "Counting longest total-dominating sequences in KG(n,2)",
+          "trigger": "Longest open-neighborhood sequences on complement graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximal legal open-neighborhood domination length and complete equality-pattern/ordered census are natural structural invariants of a highly symmetric graph family, not a short parameter substitution. The matching-to-spanning-tree support bijection supplies a useful combinatorial characterization beyond a scalar maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For T_n=L(K_n), n>=3, the open-neighborhood Grundy total domination number is n-1 for odd n and n-2 for even n. Every maximum odd-order ordered sequence first selects a near-perfect matching then joins the unmatched vertex and attaches each remaining matched pair one at a time. For n=2m+1 the number of labelled ordered longest sequences is (2m+1)!(2m)!/2^m, and their unordered supports are exactly the spanning trees containing a matching of size m.",
+  "limitations": [
+    "No enumeration of even-order ordered maxima or number of distinct trees is claimed.",
+    "The near-perfect matching need not be a graph automorphism quotient; all orders and labels count.",
+    "Finite n<=8 code corroborates but does not prove the all-n move classification."
+  ],
+  "schema_version": 1
+}
