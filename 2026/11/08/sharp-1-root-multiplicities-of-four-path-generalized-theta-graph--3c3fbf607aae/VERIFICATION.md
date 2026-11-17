@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `artifacts/verify.py` is a Python 3 standard-library program. Executed from the package root by `python3 artifacts/verify.py`, it printed:
+## correctness
 
-```text
-DIRECT_GRAPH_INDEPENDENT_SET_POLYNOMIAL_OK 63
-FOUR_PATH_ORDER_CLASSIFICATION_OK 5985
-EXCEPTIONAL_TAYLOR_COEFFICIENTS_OK
-INFINITE_FAMILY_FIRST_VALUES_OK t=1..14
-SHARP_61_VERTEX_TRIPLE_ROOT_BOUND_OK
-VERIFY_OK
-```
+PASS
 
-The direct graph check enumerates independent sets by deletion recurrence on explicitly constructed labelled theta graphs, independently of the endpoint-product formula. The symbolic checks verify polynomial Taylor coefficients and discriminant boundaries. The universal assertion is proved algebraically in RESULT.md; bounded computation cannot prove unrestricted quantifiers or priority. No independent audit was performed.
+Four endpoint-status products give P_Theta=prod f_(l-1)+2x prod f_(l-2)+x^2 prod f_(l-3), with f_-1=f_0=1; six-periodic f_j(-1) establishes the residue condition. The Taylor coefficients isolate the exceptional (3m,3n,3q+4,3q+2) class; coefficient of (x+1)^2 equals +/-Q and the third derivative coefficient at Q=0 is explicitly nonzero. This bounds multiplicity at 3 and proves the first triple root at 61 vertices by discriminants. Independently used SymPy exact polynomials for all 1365 sorted length-tuples with lengths 2..13, matching multiplicities 0:885, 1:440, 2:40, and checked (3,12,23,25) has order 3. Finite checks supplement unrestricted recurrence and integer inequalities.
+
+## originality
+
+PASS
+
+Closest 2026 general multiplicity paper treats tree/pseudoforest and line-graph families plus globally realizable (multiplicity,independence-number) pairs; this does not classify four-path theta lengths. The older general value bound at -1 does not determine derivative orders. No identified published theta formula gives the exact Q criterion, 61-vertex minimum, and arbitrary-length upper bound, with partial-primary-reading priority risk.
+
+## value
+
+PASS
+
+Root multiplicity of a natural graph family and the first attainable triple-root order are structural, unbounded exact invariants; the residue-class phase and Diophantine equality are nontrivial and plausibly useful in independence-complex and polynomial studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

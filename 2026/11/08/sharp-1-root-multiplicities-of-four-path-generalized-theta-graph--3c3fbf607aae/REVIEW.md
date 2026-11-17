@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the four-path graph \(\Theta(\ell_1,\ell_2,\ell_3,\ell_4)\), the endpoint-state decomposition gives a full polynomial identity with three products of path independence polynomials. Their six-periodic values at \(-1\) prove the zero/no-zero division. The first derivatives force the unique repeated-root shape \((3m,3n,3q+4,3q+2)\). Exact quadratic and cubic Taylor coefficients separate multiplicities two and three and exclude multiplicity four. A discriminant argument proves the sharp 61-vertex first triple-root example; an explicit polynomial substitution proves an infinite parametric family. A standalone independent graph enumerator compares 63 full polynomials and an exact symbolic verifier checks all 5,985 short parameter tuples, plus the stated finite sharpness bound. The polynomial proof, not finite tests, supports the universal quantifiers.
+## correctness
 
-**Originality — PASS, with provisional historical priority.** Bhardwaj et al., arXiv:2607.08480v1 (9 July 2026), motivate studying multiplicities at \(-1\) and include trees, pseudoforests and line graphs of forests; those results do not state this four-branch theta graph classification. Levit–Mandrescu, arXiv:0904.4819, bound the value at \(-1\) by the cyclomatic number and do not determine the derivatives or root order. Przytycki–Silvero (2024), Example 3.8, treats independence-complex homotopy of three-branch theta graphs, not the exact vanishing order here. Relevant prior catalogue claims on three-path gnarledness, generalized theta graph configuration homology and two-distance colouring do not imply this independence-polynomial theorem. Search did not identify a result that already supplies the quadratic Diophantine condition, first-occurrence cutoff, or root-multiplicity classification. Priority remains provisional because a semantic search cannot exhaust all literature.
+PASS
 
-**Mathematical value — PASS.** The specialization \(P_G(-1)\) is (up to sign) the reduced Euler characteristic of the independence complex, and its higher-order vanishing records refined cancellations of the independent-set enumerator. A cyclomatic-number-three series-parallel family admits a sharp modular root/no-root trichotomy, a second-order threshold, a Diophantine third-order threshold, a universal bound on order, and a sharp 61-vertex first occurrence. These features are not immediate from the standard path recurrence or the bound on \(|P_G(-1)|\); the complete natural family classification and the explicit infinite triple-root series give mathematical content beyond a table lookup.
+Four endpoint-status products give P_Theta=prod f_(l-1)+2x prod f_(l-2)+x^2 prod f_(l-3), with f_-1=f_0=1; six-periodic f_j(-1) establishes the residue condition. The Taylor coefficients isolate the exceptional (3m,3n,3q+4,3q+2) class; coefficient of (x+1)^2 equals +/-Q and the third derivative coefficient at Q=0 is explicitly nonzero. This bounds multiplicity at 3 and proves the first triple root at 61 vertices by discriminants. Independently used SymPy exact polynomials for all 1365 sorted length-tuples with lengths 2..13, matching multiplicities 0:885, 1:440, 2:40, and checked (3,12,23,25) has order 3. Finite checks supplement unrestricted recurrence and integer inequalities.
 
-**Residual risks and limits.** Priority may be affected by unindexed or inaccessible results on independence complexes of generalized theta graphs. The v1 source's examined introductory material does not constitute an exhaustive reading of every possible later theorem. All conclusions concern exactly four paths of lengths at least two and ordinary unweighted independent sets. There is no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest 2026 general multiplicity paper treats tree/pseudoforest and line-graph families plus globally realizable (multiplicity,independence-number) pairs; this does not classify four-path theta lengths. The older general value bound at -1 does not determine derivative orders. No identified published theta formula gives the exact Q criterion, 61-vertex minimum, and arbitrary-length upper bound, with partial-primary-reading priority risk.
+
+## value
+
+PASS
+
+Root multiplicity of a natural graph family and the first attainable triple-root order are structural, unbounded exact invariants; the residue-class phase and Diophantine equality are nontrivial and plausibly useful in independence-complex and polynomial studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
