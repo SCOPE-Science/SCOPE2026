@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The anchored Lipschitz feasible set is a compact polytope, and variance is strictly convex after anchoring. A direct perturbation proves every maximizing profile is integral. The exact signed-count expression reduces the problem to one zero separator (fan) or two (wheel), with balanced sign counts, and a separate strict inequality excludes all one-sign possibilities. Thus the exact formulas, all equality profiles, parity gap, and asymptotic deficits follow for every admissible order. The standalone exact-rational checker independently enumerates all feasible integer profiles in its stated finite range; this verifies examples only, not the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Alon–Boppana–Spencer (1998), Theorem 2.1, proves existence and a general structural form of integral spread extremizers, but does not give the sharp fan and wheel values or the parity-sensitive one-edge decrement. Addario-Berry–Janson–McDiarmid (2009) treats random graph spread. Yancey (2017) studies structural extremal functions in different graph families. Direct indexing and term searches found related wheel/fan invariants but no equivalent Lipschitz-variance formula. The accessible earlier lollipop spread statement does not subsume either family. Residual risk: an unindexed equivalent calculation may exist.
+PASS
 
-**Value — PASS.** The exact graph-spread constant is natural in concentration of product spaces. Fans and wheels differ by one closing edge yet both have diameter two. The theorem provides full all-order extremizer classification and a parity-sensitive, sharp one-edge stability loss, as well as two distinct exact rates of approach to the universal variance bound.
+Anchoring the apex at zero gives |x_i|<=1 and adjacent rim jumps <=1. The variance Hessian is positive definite on anchored vectors; thus each maximizer is extreme. A common small perturbation of any tight-edge component at noninteger values contradicts extremality; every maximum uses {-1,0,1}. Writing a,b,z for the two signed counts and zeros gives exactly N^2 Var=N(a+b)-(a-b)^2. Opposite signs require one separator zero on paths or two on cycles; balanced counts maximize this expression, while extra zeros or one-sign competitors are inferior. This proves formulas and all equality profiles for all m, not an enumeration extrapolation. Independent brute exact-fraction enumeration on 3<=m<=8 recovered the maxima and parity counts, including 14/25 for F4 and 2/5 for W4.
 
-**Limits.** Real functions, equal vertex masses, unweighted edges, exactly one universal apex and a path or cycle rim. No claim for weighted graphs, arbitrary diameter-two graphs, or the adjacency-eigenvalue spread.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted-wheel theorem of Nov 1 specializes at t=1 to the submitted W_m formula and its extremizers, so that wheel component is not new. But its theorem has only a wheel as an object and does not imply the fan sharp spread or its fan/wheel one-edge penalty. The 1998 general integrality/spread theorem and Yancey variance results likewise do not give the fan formula or exact edge decrement. Originality is credited only to the paired fan comparison and new exact decrement, not the already known wheel branch.
+
+## value
+
+PASS
+
+Quantifies the exact variance cost of adding one edge between the ends of a path joined to a universal apex. This edge perturbation makes a global Lipschitz optimization comparison of two standard diameter-two graph families; the parity-dependent 1/N penalty, sharp value and all optimizers are natural independently usable invariants beyond generic integrality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

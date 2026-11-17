@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:59:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Anchoring the apex at zero gives |x_i|<=1 and adjacent rim jumps <=1. The variance Hessian is positive definite on anchored vectors; thus each maximizer is extreme. A common small perturbation of any tight-edge component at noninteger values contradicts extremality; every maximum uses {-1,0,1}. Writing a,b,z for the two signed counts and zeros gives exactly N^2 Var=N(a+b)-(a-b)^2. Opposite signs require one separator zero on paths or two on cycles; balanced counts maximize this expression, while extra zeros or one-sign competitors are inferior. This proves formulas and all equality profiles for all m, not an enumeration extrapolation. Independent brute exact-fraction enumeration on 3<=m<=8 recovered the maxima and parity counts, including 14/25 for F4 and 2/5 for W4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted-wheel source states complete W_n(t) variance for 0<t<=1, so t=1 covers W_m exactly; it does NOT treat K1 join P_m."
+        ],
+        "reasoning": "Credit restricted to fan and edge-decrement; general integrality theorem alone does not determine fan balancing and separators.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-two-domain-walls-give-the-sharp-lipschitz-spread-of-spoke-weight--2e13b85c333c/RESULT.md",
+          "arxiv:1705.09725",
+          "doi:10.1007/s000390050062"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 296ca1ff42f651c41bdf66223a46eacbbb82ed26, source tree 486734ada632b487c957542ecf91e8938b612786",
+        "Pinned checker.py 8cc9642fcf2664203a3becbeb827f74556f48082, independently reproduced rational enumeration m3..8",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-two-domain-walls-give-the-sharp-lipschitz-spread-of-spoke-weight--2e13b85c333c/RESULT.md",
+        "Alon–Boppana–Spencer 1998 author-hosted PDF",
+        "Yancey arxiv:1705.09725"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t=1 the weighted-wheel formula gives (m-2)/N-epsilon_(m-2)/N^2; no fan graph in its hypothesis."
+        ],
+        "reasoning": "Wheel branch implied by prior, fan branch and exact edge penalty not implied by that theorem; no unwarranted novelty for wheel alone.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-two-domain-walls-give-the-sharp-lipschitz-spread-of-spoke-weight--2e13b85c333c/RESULT.md",
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alon–Boppana–Spencer Section 2.1 supplies integer extrema only; the present quadratic count for fan is additional."
+        ],
+        "reasoning": "Searches considered equivalent descriptions as sharp Lipschitz spread/maximum centered variance; no prior fan exact one-edge penalty located.",
+        "searches": [
+          "Resultary exact Lipschitz spread fan wheel apex path cycle variance closing one rim edge",
+          "Alon Boppana Spencer graph spread integrality 1998",
+          "Yancey 2017 spread wheels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact small m rational enumeration tests known finite values but supplies no all-m tabulation that dominates fan theorem."
+        ],
+        "reasoning": "Exact numbers are proved for all m, not a small lookup/table recomputation; no covering fan table located.",
+        "searches": [
+          "Resultary search sharp Lipschitz spread fans and wheels",
+          "checker.py, pinned Git blob 8cc9642fcf2664203a3becbeb827f74556f48082"
+        ]
+      },
+      "rationale": "The weighted-wheel theorem of Nov 1 specializes at t=1 to the submitted W_m formula and its extremizers, so that wheel component is not new. But its theorem has only a wheel as an object and does not imply the fan sharp spread or its fan/wheel one-edge penalty. The 1998 general integrality/spread theorem and Yancey variance results likewise do not give the fan formula or exact edge decrement. Originality is credited only to the paired fan comparison and new exact decrement, not the already known wheel branch.",
+      "residual_risks": [
+        "The entire wheel classification at unit spoke length is already published in a stronger weighted-wheel theorem; do not credit it as new.",
+        "Historical priority for fan-only exact formula and equivalent edge-perturbation invariant could exist under variance/metric spread terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS WHEEL ONLY; NOT THE FAN OR EDGE DECREMENT",
+          "evidence": [
+            "Formula at t=1 has two zero bridges and same even/odd sign blocks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-two-domain-walls-give-the-sharp-lipschitz-spread-of-spoke-weight--2e13b85c333c/RESULT.md",
+          "material_read": "Complete RESULT.md, including t=1 endpoint proof, optimizer classification and formulas",
+          "method": "GitHub full-file read",
+          "title": "Two domain walls give the sharp Lipschitz spread of spoke-weighted wheels",
+          "trigger": "Direct stronger coverage of wheel"
+        },
+        {
+          "assessment": "General result only; not graph-specific fan/wheel one-edge formula",
+          "evidence": [
+            "Integral extremizers and structural framework prior."
+          ],
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "material_read": "Section 2.1 and relevant theorem statements, inspected PDF pages",
+          "method": "Lawful full PDF retrieval and page screenshot",
+          "title": "An Asymptotic Isoperimetric Inequality",
+          "trigger": "Original definition of graph spread/integer extremizers"
+        },
+        {
+          "assessment": "No located full fan/wheel one-edge comparison",
+          "evidence": [
+            "Graph Lipschitz extremizers and concentration prior."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.09725",
+          "material_read": "Relevant graph-Lipschitz and cycle material, page screenshot",
+          "method": "Lawful preprint PDF reading",
+          "title": "Probabilistic and Geometrical Applications to Graph Theory",
+          "trigger": "Potential graph-specific sharp variance prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the exact variance cost of adding one edge between the ends of a path joined to a universal apex. This edge perturbation makes a global Lipschitz optimization comparison of two standard diameter-two graph families; the parity-dependent 1/N penalty, sharp value and all optimizers are natural independently usable invariants beyond generic integrality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all integers m>=4, the uniform-vertex unit-Lipschitz spread on fan K_1 join P_m is (m-1)/(m+1)-epsilon_(m-1)/(m+1)^2 and on wheel K_1 join C_m is (m-2)/(m+1)-epsilon_(m-2)/(m+1)^2; the edge-closing penalty is ((m+1)-(-1)^m)/(m+1)^2, with complete apex-anchored equality classification.",
+  "limitations": [
+    "All vertices count equally; all edges unit; m>=4 for comparison; no arbitrary rim weights.",
+    "Independent finite enumeration checks only m<=8; infinite proof is the symbolic tight-component and signed-count argument."
+  ],
+  "schema_version": 1
+}
