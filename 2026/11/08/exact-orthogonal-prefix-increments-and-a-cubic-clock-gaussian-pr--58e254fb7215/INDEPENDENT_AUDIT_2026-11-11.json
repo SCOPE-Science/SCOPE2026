@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:01:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The physically correct pair event for earlier card i and later card j is 1{S_i>S_j}+1{S_i=S_j}B_j. Its nonsymmetric conditional projections are A_i and -A_j+C_j with variances u=(m²-1)/(12m²), v=p(1-p)/m², leaving a doubly degenerate pair residual. Summing yields linear weights k-2j+1 and j-1; the first weights sum to zero, giving Cov(Ik,Il)=Var(Ik) for every k<=l, including exact formula [u k(k-1)(2k+5)+v k(k-1)(2k-1)]/6. Degenerate residual is martingale with maximal L²=O(n²), negligible on n^3 scale. Two-component Donsker maps to Gaussian ∫(t-2r)dWA+∫r dWC whose covariance (u+v)min(s,t)^3/3; hence σ W(t³). Independently brute-forced physical shelves with rational probabilities m=2, p=1/3 up to n=4, reproducing all nested covariances. No finite test substitutes for functional convergence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General sequential U-statistic martingale/Hoeffding theory supplies a proof framework.",
+          "Tripathi theorem specializes the shelf model marginally; Clay treats unbiased single-deck distributions."
+        ],
+        "reasoning": "The model-specific exact cross-prefix orthogonality and cubic covariance kernel require conditional projection calculations not stated in the consulted source.",
+        "searches": [
+          "2026 Tripathi full preprint inversion law asymmetrical shelves",
+          "2025 Clay shelf shuffle Gaussian limit",
+          "general sequential nonsymmetric U statistic invariance principle"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md and check.py",
+        "Tripathi arXiv:2606.18047 full openly accessible preprint including Theorem2.14/Cor2.15",
+        "Clay arXiv:2510.00343 (model and marginal CLT)",
+        "Resultary shelf shuffle prefix functional law search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact single-size variance formula matches after symbolic simplification.",
+          "Prior one-time CLT is not a functional invariance principle for coupled prefixes."
+        ],
+        "reasoning": "No implication from equality of separate moments to exact Cov(I_k,I_l), since a different coupling of the same shelf marginals yields different cross-prefix correlations. Submitted coupling and new kernel identity supply missing information.",
+        "searches": [
+          "Tripathi arXiv:2606.18047 full preprint Theorem2.14 Cor2.15",
+          "Clay arXiv:2510.00343 shelf shuffle inversion CLT",
+          "Resultary shelf shuffle cubic-clock prefix query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tripathi exact one-time variance equals submitted Var(I_k) after simplifying parameters.",
+          "Submitted Cov(I_k,I_l)=Var(I_k) for k<l is not equivalent to marginal variance without a defined shared sequential coupling."
+        ],
+        "reasoning": "Prior one-time distributions do not uniquely determine all joint processes: equality of marginal variances does not imply temporal covariance cancellation.",
+        "searches": [
+          "asymmetric shelf shuffle coupled prefix inversion covariance orthogonal increments cubic Brownian time-change process",
+          "Tripathi Analysis of the Asymmetric Shelf Shuffle arxiv:2606.18047 Theorem 2.14 Corollary 2.15",
+          "Clay Limit theorems for descents and inversions 2510.00343"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tripathi Cor 2.15 gives complete marginal variance but no cross-prefix table or multitime law in inspected text."
+        ],
+        "reasoning": "Marginal coefficient is known, but the joint covariance entries form a distinct indexed-by-two-size matrix; no same exact table found.",
+        "searches": [
+          "asymmetric shelf shuffle prefix covariance exact n k l cubic clock search",
+          "Tripathi 2026 Cor 2.15 variance formula"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Tripathi (2026) full accessible preprint Theorem 2.14 and Corollary 2.15 establish the asymmetric single-deck inversion generating function and marginal variance. Symbolic comparison confirms that the marginal variance is algebraically identical to this paper’s k=l formula: that component is prior mathematics and not a separate originality claim. Clay (2025) gives a marginal unbiased shuffle CLT. Neither the inspected Tripathi text nor indexed published claims supplies cross-prefix covariance cancellation for the *common-assignment coupled process*, or functional cubic-clock Brownian limit; these are the surviving contribution.",
+      "residual_risks": [
+        "General sequential U-statistic invariance principles could make the weak limit a corollary after identifying the kernel; the exact finite covariance cancellation remains the primary claim.",
+        "An unindexed treatment of coupled shuffle prefixes may give same result.",
+        "Institutional Oxford attempt for journal version returned vpn_disconnected (job f9f52ad5994f1a98a4807ced439f72d8); open full preprint reading was nevertheless available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY COVERING: all one-time variance already known, multitime exact covariance and functional limit not found in inspected relevant material",
+          "evidence": "Theorem 2.14 and Corollary 2.15 one-time inversion statistics; no shared-prefix process theorem identified.",
+          "identifier_or_url": "arXiv:2606.18047; doi:10.1007/s10959-026-01547-9",
+          "material_read": "Full freely readable preprint text (Theorem 2.14, Corollary 2.15, discussion and proofs) and text search for prefix/covariance; source marginal variance verified symbolically",
+          "method": "Lawful openly accessible full preprint via research-hosted HTML",
+          "title": "Analysis of the Asymmetric Shelf Shuffle",
+          "trigger": "Same asymmetric shelf insertion model with inversion moments"
+        },
+        {
+          "assessment": "Prior one-time CLT, no verified covering temporal theorem",
+          "evidence": "Marginal unbiased inversion CLT and model kernel are credited.",
+          "identifier_or_url": "arXiv:2510.00343",
+          "material_read": "Relevant theorem and Section 3 cited/reproduced in actual source package; full primary text not independently read in this run",
+          "method": "Actual RESULT and REVIEW, indexed literature checks",
+          "title": "Limit theorems for descents and inversions of shelf-shuffles",
+          "trigger": "One-deck unbiased inversion CLT and pair kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: inversion count is a natural shuffle disorder measure; precise common-experiment cross-prefix cancellation is a substantive and surprising finite-n structural identity even though increments are not independent. It enables a full trajectory uncertainty law instead of independent marginal studies. Exact cubic-clock limit follows analytically and is mathematically motivated, not merely a small numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md and check.py",
+    "Tripathi arXiv:2606.18047 full openly accessible preprint including Theorem2.14/Cor2.15",
+    "Clay arXiv:2510.00343 (model and marginal CLT)",
+    "Resultary shelf shuffle prefix functional law search"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sequential asymmetric m-shelf insertion under shared iid assignments has exactly orthogonal centered prefix-inversion increments and n^-3/2 functional Gaussian limit with cubic Brownian clock for fixed m>=2,p in (0,1).",
+  "limitations": [
+    "General sequential U-statistic invariance principles could make the weak limit a corollary after identifying the kernel; the exact finite covariance cancellation remains the primary claim.",
+    "An unindexed treatment of coupled shuffle prefixes may give same result.",
+    "Institutional Oxford attempt for journal version returned vpn_disconnected (job f9f52ad5994f1a98a4807ced439f72d8); open full preprint reading was nevertheless available."
+  ],
+  "residual_risks": [
+    "General sequential U-statistic invariance principles could make the weak limit a corollary after identifying the kernel; the exact finite covariance cancellation remains the primary claim.",
+    "An unindexed treatment of coupled shuffle prefixes may give same result.",
+    "Institutional Oxford attempt for journal version returned vpn_disconnected (job f9f52ad5994f1a98a4807ced439f72d8); open full preprint reading was nevertheless available."
+  ],
+  "schema_version": 1
+}
