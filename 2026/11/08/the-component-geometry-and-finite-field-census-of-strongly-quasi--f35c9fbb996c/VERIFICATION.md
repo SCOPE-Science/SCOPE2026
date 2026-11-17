@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The symbolic proof of the geometric classification is in `RESULT.md`: it checks the spectral projection equivalence, closed finite coefficient curve, irreducible parameterization, companion-orbit/flag dimension bounds, and unique nonnilpotent eigenvalue multiplicity. The finite-field formula is derived using the classical nilpotent-matrix count and Gaussian coefficients; the fixed-field asymptotic uses uniformly summable product estimates.
+## correctness
 
-`verify.py` is standalone Python using exact integers and arithmetic modulo prime fields. Execute it with `python verify.py`; the expected exact output is stored in `verification_output.txt`. It enumerates every matrix at \((q,n)=(2,1),(2,2),(2,3),(2,4),(3,2),(3,3),(5,2)\), comparing direct annihilating-polynomial tests with a separately evaluated Gaussian-binomial formula. All seven cases agree; the last line must be `VERIFY_OK`. This checker was executed again from its actual package path and its output matched the stored file byte-for-byte.
+PASS
 
-The computational tests are not a substitute for the proof, and do not verify the geometry, full prime-power range, or the asymptotic limit. Reiner's older prescribed-characteristic-polynomial enumeration dominates the numerical corollary; originality is asserted only for the component geometry and is not independently certified.
+Commuting uE+N with u!=0, E²=E, N nilpotent is equivalent to χ_A=t^(n−r)(t−u)^r (or nilpotence). Every coefficient curve C_r is closed by integrality of u from u^r; its inverse image is irreducible via triangular matrices with prescribed diagonal under conjugation. Each fixed-characteristic-polynomial fiber has dimension n²−n by the complete-flag upper bound and a cyclic companion orbit lower bound; varying u gives dim n²−n+1. Distinct r components intersect exactly in the nilpotent cone of dimension n²−n. The finite-field count follows from unique primary eigenspace decompositions and Fine–Herstein q^(s²−s); Gaussian binomial asymptotics give (q−1)nq^(−n)/c_q+O_q(q^(−n)). Independent enumeration of small n/q checked numeric counts. Geometric statements are set-theoretic reduced components, not scheme multiplicities.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge restricted to algebraic component geometry: Reiner already implies the fixed-characteristic-polynomial finite census, so that formula is not a distinct novelty claim. Das–Kar introduces quasi-nil-clean ring notions and other work studies ring-wide (often noncommuting) decompositions, not known from accessible evidence to classify this commuting individual matrix locus into exactly n closed irreducible equidimensional components with the shared nilpotent intersection. Relevant full primary text was not obtained despite arXiv/OA first and an authorized Oxford attempt returning vpn_disconnected; this access risk is recorded, without inferring whole-document noncoverage.
+
+## value
+
+PASS
+
+PASS: natural component and intersection geometry of a well-defined commuting decomposition locus is a structural classification independent of routine known finite counts; codimension-one shared nilpotent cone, uniform component dimensions and finite-field density are useful mathematical features. The finite count is expressly attributed as a classical consequence, not the originality basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

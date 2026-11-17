@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characterization by the split characteristic polynomial is equivalent to a commuting quasi-idempotent--nilpotent decomposition: primary decomposition gives the converse with a spectral idempotent, and the nilpotent boundary is handled by the zero idempotent. The polynomial image of the scalar parameter is closed because the parameter is integral over the coefficient subring. Upper-triangular incidence gives an irreducible surjection, and complete flags plus a cyclic companion orbit give the matching dimension bound. Distinct nonnilpotent multiplicities cannot coincide, while every component contains all nilpotents. Hence exactly \(n\) closed irreducible components of dimension \(n^2-n+1\) meet pairwise precisely in the nilpotent cone. This reasoning applies in arbitrary characteristic, including inseparable parameterizations. The finite-field count uses the unique generalized-eigenspace decomposition, complementary-subspace counts and classical nilpotent counts; the fixed-field asymptotic follows from the convergent product formula. The independent checker exhaustively confirms seven small prime-field cases but does not prove geometry or asymptotics.
+PASS
 
-## Originality — PASS (qualified historical priority)
+Commuting uE+N with u!=0, E²=E, N nilpotent is equivalent to χ_A=t^(n−r)(t−u)^r (or nilpotence). Every coefficient curve C_r is closed by integrality of u from u^r; its inverse image is irreducible via triangular matrices with prescribed diagonal under conjugation. Each fixed-characteristic-polynomial fiber has dimension n²−n by the complete-flag upper bound and a cyclic companion orbit lower bound; varying u gives dim n²−n+1. Distinct r components intersect exactly in the nilpotent cone of dimension n²−n. The finite-field count follows from unique primary eigenspace decompositions and Fine–Herstein q^(s²−s); Gaussian binomial asymptotics give (q−1)nq^(−n)/c_q+O_q(q^(−n)). Independent enumeration of small n/q checked numeric counts. Geometric statements are set-theoretic reduced components, not scheme multiplicities.
 
-The geometric *component classification* is the one novelty claim. Full accessible primary text of Das--Kar's 2026 introduction of strongly quasi-nil-clean decompositions contains structural ring results, not the algebraic variety of its individual matrix elements. Abyzov--Chekhlov--Danchev--Tapkin analyze noncommuting and ring-wide quasi-potent decomposition conditions; their Theorems 3.6--3.7 do not imply the shared-component geometry. The two Su--Liu papers study noncommuting nil-quasi-clean matrices; only abstracts were available and a residual priority risk remains. Published finite-field formulas of Reiner and Gerstenhaber for a fixed characteristic polynomial *do* cover the enumerative consequence by specialization; that count and its standard Gaussian derivation are explicitly not claimed as new. A separate published census of strongly nil-clean matrices over dual numbers has a fixed idempotent instead of a variable scalar quasi-idempotent, and does not determine these components. Direct implication, formulation, and terminology searches revealed no result that determines the \(n\) irreducible components and their common intersection; this is evidence of distinction, not proof of unique historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The newly studied commuting decomposition has a natural but non-obvious reducible variety of solutions. Its complete component and intersection geometry distinguishes it from both the larger noncommuting decomposition locus and the classical nilpotent cone: the nilpotent cone is a codimension-one common intersection of exactly \(n\) equidimensional components (when \(n\ge2\)). This is a structural classification of the entire matrix family in every dimension and characteristic. The exact finite-field census and density specialize classical methods and give an interpretable numerical profile, but are not relied upon as standalone originality. The geometry is useful when studying degenerations and geometric strata of clean-like matrix elements; stronger claims about singularities or scheme structure are not made.
+PASS best-of-knowledge restricted to algebraic component geometry: Reiner already implies the fixed-characteristic-polynomial finite census, so that formula is not a distinct novelty claim. Das–Kar introduces quasi-nil-clean ring notions and other work studies ring-wide (often noncommuting) decompositions, not known from accessible evidence to classify this commuting individual matrix locus into exactly n closed irreducible equidimensional components with the shared nilpotent intersection. Relevant full primary text was not obtained despite arXiv/OA first and an authorized Oxford attempt returning vpn_disconnected; this access risk is recorded, without inferring whole-document noncoverage.
 
-## Closest literature and limitations
+## value
 
-Das--Kar, *On Quasi-Nil Clean Rings* (arXiv:2606.03526), defines the notion. Abyzov--Chekhlov--Danchev--Tapkin (arXiv:2606.13048) treat different matrix-ring-wide existence properties. Su--Liu--Ou (DOI:10.1142/S0219498827501556) and Su--Liu (DOI:10.12958/adm2466) are adjacent literature with unavailable complete text. Fine--Herstein, Gerstenhaber, and Reiner already give general matrix-counting tools. Alternative earlier algebraic-geometric formulations remain a historical-priority risk; no independent check has been performed. Prime-field computations do not verify every finite prime-power case.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: natural component and intersection geometry of a well-defined commuting decomposition locus is a structural classification independent of routine known finite counts; codimension-one shared nilpotent cone, uniform component dimensions and finite-field density are useful mathematical features. The finite count is expressly attributed as a classical consequence, not the originality basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
