@@ -1,20 +1,21 @@
-# Scientific review of the quotient-289 theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-For arbitrary nonnegative finite binary digit sequences with \(p(3)=289q(3)\), the base-three carry recurrence yields integral carries from \(0\) back to \(0\). The exactly listed \(20\) live and \(12\) absorbing dead states form a closed finite region. An absorbing state cannot occur on a return path. Each of the \(26\) live-to-live transitions matches a unique five-bit shift encoding and the coefficient recurrence of \(R(x)=1-x^2-x^3+x^4+x^5\). Starting with five zeros forces coefficient equality for the entire polynomial, independent of degree. The checker re-derives the transition graph, independently reconstructs returnable states, tests all edges, and confirms a positive example. Risk: finite arithmetic transcription errors are mitigated by the supplied source and the full live-edge table; the bounded walk experiment is not used as an infinite proof.
+## correctness
 
-## Originality: PASS within examined evidence
-Anders et al. [1] explicitly leave the local-status cell at \(289\) unknown in Section 4, whereas the theorem proves that no local representation exists, including at arbitrarily large polynomial degrees. Their Theorem 2.4 handles four different syntactic multiplier families and Theorem 2.6 treats \(100\), so the present identity is not their stated special case. Targeted searches under the phrases “local representations 289”, “Newman polynomials quotient 289”, and exact polynomial factor were compared with the primary article and related automata study [2], without finding a covering theorem. Residual risk: a later or unindexed resolution could have escaped search; negative search evidence is not a proof of unique discovery.
+PASS
 
-## Mathematical value: PASS
-This determines the sole unresolved classification entry in the motivating article's explicit table of integers through \(364\), and strengthens its binary existence question to a unique algebraic quotient for all representations. The carry-state proof also gives a reproducible method that is not just a search through degrees \(\le18\), the range stated in the original table-making experiment.
+Every finite ternary 0/1 digit representation of p(3)=289q(3), with constant digits both one, induces integral carries c_{i+1}=(c_i+289q_i-p_i)/3 starting and ending at zero, bounded in [0,144]. Independently reconstructed all legal transitions: exactly 32 reachable states decompose into 20 returnable live states and 12 forward-trapped dead states. On all 26 live-to-live edges, the superincreasing weights (96,32,11,4,1) uniquely encode the five latest q bits, shift by one step and enforce p_i=q_i-q_{i-2}-q_{i-3}+q_{i-4}+q_{i-5}. Initial zero encoding and finite-state induction give polynomial identity p=(1-x^2-x^3+x^4+x^5)q at arbitrary length, not an extrapolation from finite sampled paths. Verified R(3)=289 and explicit p(3)=80920=289*280.
 
-## Limitations
-The theorem is for multiplier \(289\) only, and does not describe representation counts or other multipliers. Independent audit has not been conducted.
+## originality
 
-## References
-[1] Anders, Dawsey, Reznick, Sisneros-Thiry, *Representations of integers as quotients of sums of distinct powers of three*, arXiv:2308.07252, 2023 (Definition 1.1, Theorem 2.4, Section 4).
+PASS
 
-[2] *Quotients of Palindromic and Antipalindromic Numbers*, arXiv:2202.13694, 2022.
+Anders, Dawsey, Reznick and Sisneros-Thiry (2023) explicitly mark multiplier 289 as unknown local/universal in their table; their universal-only families and the specific 100 theorem do not force the 289 identity. The current Nov 8 Resultary exact-title match is the audited item, not earlier coverage; published October 25 nearby ternary-quotient examples have other multipliers. Best-of-knowledge originality survives primary comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The multiplier 289 was an explicitly unresolved exceptional entry in a primary published classification. Establishing all-degree universal divisibility, with a finite 32-state trapping certificate and stronger fixed factor R(x), resolves a motivated natural exact question. The single-number scope is mathematically justified by the prior open case, not an arbitrary tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

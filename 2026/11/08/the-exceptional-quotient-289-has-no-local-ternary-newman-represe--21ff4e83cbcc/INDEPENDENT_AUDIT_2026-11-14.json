@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T10:09:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every finite ternary 0/1 digit representation of p(3)=289q(3), with constant digits both one, induces integral carries c_{i+1}=(c_i+289q_i-p_i)/3 starting and ending at zero, bounded in [0,144]. Independently reconstructed all legal transitions: exactly 32 reachable states decompose into 20 returnable live states and 12 forward-trapped dead states. On all 26 live-to-live edges, the superincreasing weights (96,32,11,4,1) uniquely encode the five latest q bits, shift by one step and enforce p_i=q_i-q_{i-2}-q_{i-3}+q_{i-4}+q_{i-5}. Initial zero encoding and finite-state induction give polynomial identity p=(1-x^2-x^3+x^4+x^5)q at arbitrary length, not an extrapolation from finite sampled paths. Verified R(3)=289 and explicit p(3)=80920=289*280.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anders et al. Theorem 2.4 four universal-only families do not contain the five-term signed quotient 3^5+3^4-3^3-3^2+1=289",
+          "Theorem 2.6 treats 100, not 289"
+        ],
+        "reasoning": "No inspected general theorem implies that every possible 289 representation has this same polynomial factor; related automata formalisms are methods, not the missing classification.",
+        "searches": [
+          "arXiv:2308.07252 Theorem 2.4 universal representation families",
+          "Resultary: adjacent 3^n+1 3^n+4 ternary quotient universal local"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.07252 full primary relevant sections",
+        "arXiv:2202.13694 related digit constraints (only supplied comparison, not full fresh reading)",
+        "Resultary published indexed ternary quotient family",
+        "Resultary current exact-title November 8 duplicate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Anders et al. prove no-local for special multiplier families and analyze 100 but leave 289 question marked",
+          "The assigned 32-state invariant resolves all degrees and proves the exact quotient polynomial"
+        ],
+        "reasoning": "The primary authors’ stated theorems cannot be instantiated at 289 to settle their own question; new finite-state returnability invariant is an additional nonstandard lemma with a complete arithmetic certificate.",
+        "searches": [
+          "arXiv:2308.07252 Theorem 2.4 2.6 289",
+          "Resultary: Newman quotient 289 local representation Anders Dawsey Reznick Sisneros-Thiry carry finite automaton"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anders et al. Section 4 table gives a question-mark local status for 289",
+          "The stronger polynomial identity is exactly a universal-only quotient certification"
+        ],
+        "reasoning": "The theorem’s no-local formulation is equivalent to polynomial divisibility for all binary-digit representations, and the fixed explicit quotient is stronger; its corresponding unknown table cell was not solved in the source.",
+        "searches": [
+          "Resultary: Newman quotient 289 local representation Anders Dawsey Reznick Sisneros-Thiry carry finite automaton",
+          "ternary quotient 289 Newman polynomial universal all representations",
+          "Anders Dawsey Reznick Sisneros-Thiry 289 polynomial factor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary table has unknown mark at 289, not a known no-local result",
+          "Resultary exact title published Nov 8 is identical submitted item"
+        ],
+        "reasoning": "The targeted mathematical table explicitly records the problem as unsolved in 2023; a later independent solution has not surfaced in current search, but unindexed literature remains possible.",
+        "searches": [
+          "Resultary: Newman quotient 289 local representation Anders Dawsey Reznick Sisneros-Thiry carry finite automaton",
+          "arXiv:2308.07252 Section 4 table 289 ?"
+        ]
+      },
+      "rationale": "Anders, Dawsey, Reznick and Sisneros-Thiry (2023) explicitly mark multiplier 289 as unknown local/universal in their table; their universal-only families and the specific 100 theorem do not force the 289 identity. The current Nov 8 Resultary exact-title match is the audited item, not earlier coverage; published October 25 nearby ternary-quotient examples have other multipliers. Best-of-knowledge originality survives primary comparison.",
+      "residual_risks": [
+        "A subsequent unindexed article or updated paper might have resolved the formerly open 289 cell; targeted searches are not proof of uniqueness.",
+        "Small fixed integer result retains value because it resolves a specifically marked question in the original paper; it does not classify nearby multipliers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "289 shown as unresolved local case; theorem for 100 and four special families do not settle it",
+          "evidence": [
+            "Anders et al. Section 4 table row 289 marked ?, Theorems 2.4/2.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07252",
+          "material_read": "Definition 1.1, Theorems 2.4 and 2.6, Section 4 table incl. page 25 in PDF, with screenshot",
+          "method": "primary full arXiv PDF relevant sections",
+          "title": "Representations of integers as quotients of sums of distinct powers of three",
+          "trigger": "exact question on multiplier 289 and definition of local"
+        },
+        {
+          "assessment": "Different families n>=5; their proofs and potential hidden implications not fully inspected",
+          "evidence": [
+            "October 25 summary covers multipliers 3^n+1 and 3^n+4"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-adjacent-3-n-1-and-3-n-4-change-ternary-quotient-type-uniform-fi--0f7c1a5bbc0a",
+          "material_read": "Resultary scientific summary and parameter scope only; no full-document noncoverage conclusion",
+          "method": "published-index result summary",
+          "title": "Adjacent 3^n+1 and 3^n+4 change ternary quotient type: uniform five-term local denominators",
+          "trigger": "closest published ternary quotient universal/local theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The multiplier 289 was an explicitly unresolved exceptional entry in a primary published classification. Establishing all-degree universal divisibility, with a finite 32-state trapping certificate and stronger fixed factor R(x), resolves a motivated natural exact question. The single-number scope is mathematically justified by the prior open case, not an arbitrary tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A subsequent unindexed article or updated paper might have resolved the formerly open 289 cell; targeted searches are not proof of uniqueness.",
+    "Small fixed integer result retains value because it resolves a specifically marked question in the original paper; it does not classify nearby multipliers.",
+    "No public change-set is ready; the completed scientific disposition is separate from transport/publication readiness."
+  ],
+  "schema_version": 1
+}
