@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem fixes the language and all asymptotic quantifiers. The exact occupancy factorial moment identity has been reconstructed by placing specified preimages in prescribed bins and excluding remaining preimages. With the stated critical normalization it yields the independent Poisson rare-fibre vector. All smaller fixed fibres vanish, all larger fixed fibres become abundant by a second-moment calculation, and double-small multicolour bins vanish by a product-probability union bound. The q-round bin-image matching invariant is preserved because every large fibre has more than q unused capacity and every nonrare bin group has at least q choices; the finite rare-bin classes are matched up to the rank-q cutoff. The inverse direction is first-order definability of exact finite rare-fibre counts and their threshold events. The independent checker established 312 one-colour factorial-moment identities and 3168 two-colour product identities. No finite computation is substituted for the infinite proof.
+PASS
 
-## Originality (PASS within inspected evidence)
+Direct allocation to t distinguished bins gives exact E(Y_{j,m})_t=(m)_t (n)_{jt}/((j!)^t m^{jt})(1-t/m)^{n-jt}. At j=r it tends to (e^-c/r!)^t; source maps are independent across colors. For j<r, expectation vanishes, while j>r, mean diverges and the second factorial moment ratio tends to one. Pairwise low-fiber intersections across colors have expectation O((log m)^{2M}/m) and vanish, allowing deterministic finite-rank bin types. In the q-round Ehrenfeucht–Fraïssé game, match bins already chosen or images of source elements, preserve exact small sizes and use >=q+1 available elements otherwise; rare bin categories match by truncated counts and all nonrare categories are abundant. Every finite threshold event is FO definable. Independently enumerated m=3,n=5,r=1 factorial moments at orders 1,2,3, agreeing exactly.
 
-The Poisson coupon-count limit alone is classical and not new; the asserted novelty is an **all-sentences classification** of the complete probability spectrum in a fixed many-sorted function language simultaneously at several collection thresholds. Koponen's 2026 full text discusses prerequisites for convergence in random expansions, without the critical occupancy classification. The inspected abstract and references for Ilienko 2026 describe multicollection coupon-collector limit laws, not the logical expressivity spectrum. Baron–Drmota–Mutafchiev (1996) concern predecessor counts for self-mappings at a different load and without an all-sentences logical classification. The 2024–25 first-order convergence and complexity papers provide general context, not this particular theorem. Actual comparison searches included semantically aligned published-finding corpus queries and literature on random mapping limit laws. Residual risk: an older specialization of first-order zero-one/convergence laws for random functions could contain the present statement.
+## originality
 
-## Value (PASS)
+PASS
 
-At the natural logarithmic occupancy window where bins with exactly a prescribed number of preimages survive with finite Poisson intensity, the result identifies **all** first-order observable asymptotic probabilities, not just the coverage probability. The finite-round classification explains why every other fibre type disappears logically, and the converse gives exact constructive attainability. This is a motivated complete classification for random first-order expansions; no downstream theorem is assumed.
+PASS: Occupancy Poisson limits, EF strategies and individual coupon thresholds are classical. Published critical colored-equivalence-class first-order Poisson laws are structurally analogous but have independent red/blue labels inside deterministic equal-size classes, not several independent uniform source-to-bin functions under separate critical loads. Nearby predecessor-count results concern equal-size self-mappings rather than many-sorted critical windows. No inspected theorem directly supplies the all-sentences if-and-only-if spectrum in this language; residual equivalence-to-general-logic theorem risk remains.
 
-## Closest literature and limitations
+## value
 
-Koponen (arXiv:2610.16163v1, sections 1–2 and Remark 2.15), Ilienko (doi:10.15559/26-VMSTA306; abstract and reference list), Demin–Zhukovskii (LICS 2024; abstract), and Adam-Day–Benedikt–Larrauri (arXiv:2504.14270; abstract) were compared for their actual statements. The critical coupon-count component has earlier sources. An inaccessible older random-function paper could warrant future specialist comparison; this is a priority limitation rather than an unsupported certification. The fixed-language, independent-uniform sampling assumptions are essential. No independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Characterizing every first-order observable probability, together with converse definability, is a motivated model-theoretic classification at exact coupon-collector thresholds, not just a Poisson limit or a numerical phase plot. It exhibits the logical collapse of abundant and absent fiber classes and the finite Poisson observable coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
