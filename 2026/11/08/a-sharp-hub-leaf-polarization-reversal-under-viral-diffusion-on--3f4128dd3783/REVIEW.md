@@ -1,19 +1,21 @@
-# Scientific review: hub–leaf viral polarization reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional eigenspace formula for the star Laplacian separates leaf differences (eigenvalue \(w\)) from hub–leaf contrast (eigenvalue \((m+1)w\)); substituting independent-cascade activation laws gives two expected quadratic forms whose difference factors with one affine sign-changing bracket. Positivity of the threshold and its strict upper bound are proved algebraically, including \(m=1,2\) and \(p=0,1\) boundaries. The standalone `verify.py` checks 180 exact-rational paired comparisons against independent full rational linear-system solves and cascade enumeration. The checks cannot prove the unrestricted assertion; the displayed algebra does.
+PASS
 
-## Originality — PASS, with limited priority uncertainty
+Orthogonal star Laplacian eigenspaces have attenuation (1+w)^{-1} on leaf differences and [1+(m+1)w]^{-1} on hub-versus-leaf mean. For activation state (h,k), exact polarization/ε²=A(k−k²/m)+B(h−k/m)² with A=(1+w)^−2 and B=m/[(m+1)(1+(m+1)w)²]. Hub cascade yields h=1,K~Bin(m,p); leaf cascade yields (0,1) with 1−p, or (1,1+Bin(m−1,p)) with p. Taking binomial first two moments and subtracting gives the affine-in-p bracket and prefactor (m−1)(1−p)²/m². For m≥3 its intercept is negative and value at p=1 positive, yielding one p*∈(0,1); for m=1 both seeds symmetric, m=2 leaf strictly wins. Expected reach gap is (m−1)p(1−p). Independent sign checks used 15 weighted-star settings, not as all-size proof.
 
-The closest mechanism is Tu–Neumann (2022), arXiv:2202.03573, inspected in accessible full HTML (model, FJ equilibrium, quadratic indices, estimators, optimization and numerical sections). It supplies the general stochastic-cascade/FJ framework and an expectation-estimation method, but no claimed star-specific exact hub-versus-leaf phase transition, and no theorem sign-ordering the polarization seed choices as the transmission probability changes. A distinct deterministic FJ susceptibility-optimization question varies a fixed local anchoring parameter instead of a random cascade. Hunter–Zaman (2018) treat placement of stubborn agents, with a different intervention, and Bhalla–Lechowicz–Musco treat edge rewiring. The full texts of those secondary comparisons were not fully accessible; their titles and available abstracts establish different mechanisms, but unindexed or inaccessible priority remains a risk. Database nonhits are not proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-Expected reach and expected polarization are both natural intervention objectives in the initiating model. The theorem exhibits an exact **ranking reversal** between the two symmetry-distinct seed choices, despite the hub's universal strict advantage in expected reach for nontrivial transmission. The threshold applies to every star size and positive interaction weight, identifies a qualitative population-size boundary at three leaves, and gives a large-star threshold scale. This is a structural, interpretable phase diagram rather than a routine parameter substitution or selected numerical case.
+Tu–Neumann 2022 introduces the IC-plus-Friedkin–Johnsen model and generic expected polarization/seed heuristics. Its model is credited rather than claimed new. The current spectral star decomposition and explicit seed-order reversal threshold across every m,w,p is not entailed by the original general optimization descriptions without this model-specific computation. Related opinion-control work with stubborn agents or changing edges has different mechanisms. Resultary searches found no earlier stronger star-specific exact crossover.
 
-## Limits and residual risks
+## value
 
-The result is restricted to one seed, homogeneous independent cascade, zero baseline innate opinions, equal positive shifts, fixed weighted star, and equilibrium (not transient) FJ polarization. The leading primary paper derives general estimators which can in principle be specialized, but the exact seed-order theorem and its sharp sign boundary were not found there. Hidden equivalent results cannot be excluded from the accessible primary and database searches. No independent external audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated exact structural witness of a robust disagreement between maximizing viral reach and maximizing equilibrium polarization on the simplest nontrivial social-network topology. An all-star-size sharp transition is an interpretable parameter design boundary and a usable test case for generic seed-selection algorithms, not an arbitrary single-instance check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
