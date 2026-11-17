@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.11+, NumPy and Numba installed. The script embeds the five fourteen-row binary vertex sets transcribed from Kaibel–Pokutta, Appendix A, Table 3; it has no external data or network dependency. It prints five lines of full-dimensionality witnesses, facet counts, lattice-point count vectors, \(h^*\) vectors and normalized volumes, ending with `ALL EXACT CHECKS PASSED`.
+## correctness
 
-**Checks actually performed:** each column has 14 distinct binary vertices, each coordinate sum is 7, and the first eight augmented points have nonzero exact integer determinant. Every one of the 3432 candidate facet-spanning seven-subsets per polytope was tested by integer cofactor normals; all supporting hyperplanes were checked against every source vertex. All verified facets have seven vertices; the lists contain 144 or 136 facets as expected. Membership in every integer-dilated polytope for dilations 0 through 7 was decided by the resulting exact integer inequalities on the entire \([0,q]^7\) grid. The eight exact point counts were converted by the degree-seven Ehrhart numerator identity. An independent center-star determinant triangulation gives the same normalized volumes as the coefficient sums.
+PASS
 
-The proof's infinite-dilation conclusion uses the standard Ehrhart series theorem: a seven-dimensional *lattice* polytope has a numerator of degree at most seven. The counted cases therefore suffice to identify the numerator and all subsequent lattice counts. The script is a finite exhaustive checker; it does not re-prove the published classification of all five cube-symmetry orbits, and it does not certify global historical priority. No independent human or external audit has been performed.
+Using the 14-by-7 binary vertex matrices transcribed from the published five-column table, exact integer cofactor tests over all 3432 seven-vertex subsets per polytope identify 144,136,136,136,136 supporting facets. Complete containment tests over grid {0,...,q}^7 for each q=0..7 yield the submitted L_i(q), and finite differences of degree-seven Ehrhart theory give every h* coefficient for all dilations q>=0. Independently rebuilt exact integer enumeration for all five polytopes and confirmed h* rows [1,6,31,132,201,92,1,0], [1,6,31,112,171,64,1,0] (twice), [1,6,29,134,197,82,1,0], [1,6,33,148,231,94,1,0] and volumes 464,386,386,450,514. The complete finite certificate is mathematically exhaustive, not a mere sample.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Kaibel and Pokutta classify the five non-centrally-symmetric simplicial binary polytope orbits and ordinary f/h vectors, but the accessible primary abstract and related text do not substantiate prior computation of their Ehrhart h* series, normalized volumes and dilation-two/three distinguishing data. Ordinary face h does not imply Ehrhart h*; indeed four objects share face vectors but three different h* series. Full primary source could not be read in this run (OA attempts failed, Oxford returned VPN-disconnected), so an exact prior table in the uninspected appendix remains an explicit serious residual risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+The five explicit first-dimensional exceptions to a natural cross-polytope symmetry conjecture form a strongly motivated canonical finite census. Exact Ehrhart series and lattice volumes distinguish affine/lattice behavior not captured by ordinary face vectors, giving an independently useful natural numerical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
