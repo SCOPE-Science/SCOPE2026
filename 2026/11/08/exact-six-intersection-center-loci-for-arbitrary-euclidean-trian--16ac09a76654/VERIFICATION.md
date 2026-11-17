@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact claim is established analytically in RESULT.md, Sections A–E. The standalone `verify.py` (Python standard library, fixed random seed) was executed from its actual package source path before embedding; observed output: `VERIFY_OK equilateral_fraction=7-4sqrt3 right_3_4_5=65/864 random_interior_centers= 5261`. It checks exact special values, angle feasibility, direct quadratic circle-segment root counts, and every radius chamber determined by vertex and perpendicular-foot distances for the 5261 sampled centers. This is finite corroboration, not the proof for all triangles. The strict endpoint assertions follow from the proof, not floating-point tests.
+## correctness
 
-The full journal article of Bárány and Roldán-Pensado and full public regular-polygon RESULT.md were inspected for overlap. The closely related minimax triangle classification was checked at the retrieved summary level only. Historical novelty is provisional and not independently certified.
+PASS
+
+A circle centered at x on side AB has six distinct intersections iff every open edge is cut twice. Strict interior perpendicular foot and endpoint-radius bounds on AC, BC reduce precisely to ell<x<u, and no endpoint qualifies; angles nonacute block projection. The angle-bisector x0=cb/(a+b) witnesses nonemptiness for each eligible side. For the 3–4–5 right triangle independent exact substitution gives ell=15/8, u=25/9, side interval=65/72 and normalized 65/864. Degenerate acute family and equilateral calibration follow by limits. No universal extremum claimed.
+
+## originality
+
+PASS
+
+The earlier Erdős circle-intersections article introduces J(K,6) and qualitative general curves/polygons, while the published regular-polygon theorem fixes the equilateral case. Neither cited result supplies the necessary and sufficient explicit six-center intervals for arbitrary nonregular triangles or the right/obtuse side dichotomy. Priority remains conditional on unindexed geometric treatments.
+
+## value
+
+PASS
+
+Exact geometric locus and measure for six intersection points of a circle with an arbitrary triangle extends a natural Erdős boundary-center invariant beyond symmetric regular polygons. The acute/nonacute bifurcation and nonregular limiting behavior are exact, usable structural classifications, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Six distinct intersections force two interior crossings on each side. The exact quadratic distance-to-segment criterion gives the displayed strict interval endpoints, and the internal-angle-bisector location proves that all eligible intervals are nonempty. The disjoint union and perimeter fraction follow. Exact worked cases and 5261 numerical center tests across 270 triangles passed. Tests supplement the all-triangles analytic argument.
+## correctness
 
-**Originality — PASS (provisional).** Bárány–Roldán-Pensado (2013, DOI 10.1007/s00454-013-9507-z) defines the precise locus but supplies qualitative rather than a general triangle interval formula. A published regular-polygon result explicitly covers the equilateral special case, which is credited; its hypotheses do not cover scalene triangles. A separate best-center invariant for triangles determines a minimum, not the complete six-center locus. Unindexed equivalent results cannot be excluded. Detailed search/comparison evidence appears in AUDIT.json.
+PASS
 
-**Mathematical value — PASS.** This is a complete exact classification of a natural boundary-center invariant and its measure, explaining an acute/right/obtuse shape transition. The near-degenerate acute family exhibits a markedly different density from the equilateral case.
+A circle centered at x on side AB has six distinct intersections iff every open edge is cut twice. Strict interior perpendicular foot and endpoint-radius bounds on AC, BC reduce precisely to ell<x<u, and no endpoint qualifies; angles nonacute block projection. The angle-bisector x0=cb/(a+b) witnesses nonemptiness for each eligible side. For the 3–4–5 right triangle independent exact substitution gives ell=15/8, u=25/9, side interval=65/72 and normalized 65/864. Degenerate acute family and equilateral calibration follow by limits. No universal extremum claimed.
 
-**Limitations.** Triangles only; strict counting of distinct intersections; no universal triangle supremum asserted, no independent historical or mathematical audit. The related published equilateral special case is already known.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier Erdős circle-intersections article introduces J(K,6) and qualitative general curves/polygons, while the published regular-polygon theorem fixes the equilateral case. Neither cited result supplies the necessary and sufficient explicit six-center intervals for arbitrary nonregular triangles or the right/obtuse side dichotomy. Priority remains conditional on unindexed geometric treatments.
+
+## value
+
+PASS
+
+Exact geometric locus and measure for six intersection points of a circle with an arbitrary triangle extends a natural Erdős boundary-center invariant beyond symmetric regular polygons. The acute/nonacute bifurcation and nonregular limiting behavior are exact, usable structural classifications, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
