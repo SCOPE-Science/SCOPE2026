@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:14:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary backward stochastic convolution has a.s. finite positive random Gaussian variance V because the homogeneous multiplier has negative logarithmic growth: lambda/2+(lambda/s)E log(1-sU)<=-lambda/2. Splitting at first exponential event gives V=C+AVprime with C=(2D/lambda)(e^(lambda T)-1), A=e^(lambda T)(1-sU)^2. For p>0, V^(p/2) has finite expectation exactly when E A^(p/2)<1 and E C^(p/2)<infinity, equivalent to psi(p;s)<0; strict comparison handles the cutoff itself. Strict convexity ensures unique positive root beyond zero and 2<kappa<2/s. The third-divided-difference identity E_A f-E_B f=-(3/2)f[0,1/2,2,3]>0 for f(u)=(1-su)^p,p>2 orders the two roots for every s. At s=1/4 independent exact rational checks reproduce EU=1, EU^2=2 for both laws, multiplier fourth moments 17/32 and 481/1024, psi_A(4)=lambda/8 and psi_B(4)=-31lambda/256. Thus the first fourth moment diverges, the second equals 12288 D^2/(31lambda^2), and both variances equal 4D/lambda. Uniform compact convergence psi(z/s) to z/2+Ee^(-zU)-1 proves the two distinct asymptotic inverse-s cutoffs. A finite checker confirms algebra, not the perpetuity theorem for all real exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galla A.4 and S1.2 obtain first-two-moment Gaussian closure for random amplitudes; prior convex-order theorem assumes zero expanding drift, so all stationary even moments exist."
+        ],
+        "reasoning": "Neither stronger-looking result implies an infinite/finite fourth-moment split for positive linear drift with U in {0,2} and {1/2,3}.",
+        "searches": [
+          "https://arxiv.org/html/2602.21635",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Poisson partial resets random multiplier amplitudes moment matched variance infinite fourth moment stationary perpetuity diffusion approximation",
+        "https://arxiv.org/html/2602.21635",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42",
+        "https://arxiv.org/abs/1301.3272"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General perpetuity moment criteria can derive psi, and Galla specifies Gaussian closure; combining those methods with a constructed third-divided-difference pair produces the submitted results, not an already stated implication without additional nontrivial distribution design and all-real-order proof."
+        ],
+        "reasoning": "Existing general tools are acknowledged; the precisely motivated pairwise distributional extremum/cutoff and singular separation are not identical to fixed-U tail bias or zero-drift convex ordering.",
+        "searches": [
+          "https://arxiv.org/html/2602.21635",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct 26 theorem fixes a deterministic fractional contraction and varies drift, comparing true process versus diffusion surrogate; the new claim compares two genuinely random, moment-matched U laws at the same drift."
+        ],
+        "reasoning": "This is not a rename/substitution of a deterministic U theorem: the central invariant is a two-law comparison at equal EU, EU² and opposite finite fourth moments.",
+        "searches": [
+          "Resultary semantic query: Poisson partial resets random multiplier amplitudes moment matched variance infinite fourth moment stationary perpetuity diffusion approximation",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact tables are for deterministic reset/approximation moment loss or zero-drift random multipliers, not this pair of laws or its 12288/31 constant and two weak-reset roots."
+        ],
+        "reasoning": "No matching prior explicit parameter table was found, but originality rests on mathematical scope comparison, not a missing search hit.",
+        "searches": [
+          "Resultary semantic query: Poisson partial resets random multiplier amplitudes moment matched variance infinite fourth moment stationary perpetuity diffusion approximation",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for this exact pair of nondegenerate random reset-size laws with matching first TWO U moments, exact stationary variance and Gaussian closure but opposite fourth-moment finiteness, including a strict all-s fractional cutoff order and weak-reset scaled separation. Galla's original A.4/S1.2 develops the random-amplitude Gaussian approximation but not the exact pairwise higher-moment split. The earlier Resultary fixed-contraction heavy-tail/diffusion approximation wedge has deterministic U and compares exact versus surrogate moments, not two moment-matched random laws. The earlier randomized Brownian convex-order theorem has no expanding drift, so stationary moments cannot diverge in this manner. Standard perpetuity moments are background, not an explicit prior pairwise theorem.",
+      "residual_risks": [
+        "General random-coefficient/perpetuity or generalized Ornstein–Uhlenbeck comparison results might cover the same exact two-law threshold by a non-obvious specialization; no global precedence guarantee.",
+        "Moment cutoffs do not establish exact pointwise tail prefactors or finite-data detectability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST PHYSICS MODEL, NOT MOMENT-SPLIT COVERAGE",
+          "evidence": "Matches first-two moments diffusion construction, but no exact pair of matched nondegenerate laws or finite versus infinite fourth-order criterion.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Full HTML main abstract, Appendix A.4 reset with random amplitude, Supplement S1.1–S1.2 for linear model and random-amplitude example; original PDF supplemental table of contents rendered",
+          "method": "Original author paper arXiv HTML with included supplement and PDF cross-check",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Original model random-amplitude Gaussian closure"
+        },
+        {
+          "assessment": "DETERMINISTIC CONTRACTION DIFFERENT PAIR COMPARISON",
+          "evidence": "Its U is constant and comparison is exact versus approximate diffusion; cannot assert two different reset distributions have equal first two U moments and opposite fourth moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-moment-loss-wedge-and-pareto-exponent-reversal-under-frequ--612587350f45",
+          "material_read": "Entire published RESULT.md, theorem, proofs, comparisons and limitations",
+          "method": "Full Resultary GitHub RESULT.md inspection",
+          "title": "Exact moment-loss wedge and Pareto-exponent reversal under frequent partial resetting",
+          "trigger": "Very relevant earlier same drift model and high-moment mismatch"
+        },
+        {
+          "assessment": "DIFFERENT ZERO-DRIFT REGIME",
+          "evidence": "No positive linear drift, and all moments are finite, so cannot imply heavy-tail fourth-moment existence boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42",
+          "material_read": "Entire published RESULT.md and proof using Gaussian variance perpetuity",
+          "method": "Full Resultary GitHub RESULT.md inspection",
+          "title": "Sharp convex-order bounds for Brownian motion with randomized partial resetting",
+          "trigger": "Potential stronger universal random-multiplier moment ordering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two physical reset protocols with identical rate, first and second reset-size moments, exact stationary second moment and Gaussian diffusion approximation can have opposite FOURTH moment existence. This sharp identifiability failure in high-order stationary risk, plus all-s cutoff order and singular separation, is an intrinsically motivated nontrivial quantitative boundary that survives the known diffusion and perpetuity theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specifically two independent two-point U laws and positive expanding drift, 0<s<1/3, Poisson resets; no statement for arbitrary moment-matched laws.",
+    "Stationary moment cutoffs, not explicit regularly varying tail prefactors or uniform weak-reset spatial crossover."
+  ],
+  "schema_version": 1
+}
