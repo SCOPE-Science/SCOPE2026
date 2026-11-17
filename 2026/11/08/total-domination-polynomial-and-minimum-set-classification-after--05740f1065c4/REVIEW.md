@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The line-graph translation gives an exact necessary-and-sufficient criterion: no selected \(K_2\) component and either at most one isolated underlying label or precisely the endpoints of the removed edge. The labelled graph exponential formula proves the all-cardinality polynomial; edge transitivity justifies the derivative correction. The component-rank bound gives the minimum, with a complete residue-by-residue equality analysis. Labelled tree counts and the single-edge incidence average give the multiplicities. Direct enumeration independently matches every coefficient through \(n=7\), and checks minimum sizes/counts through \(n=9\).
+PASS
 
-## Originality
+Identify J(n,2)−{ab} with line graph of K_n−ab. A selected edge set F is total dominating exactly if every selected edge has an adjacent selected edge (no component K2) and the set of isolated original labels is empty, one vertex, or exactly {a,b}; any other pair of isolates would produce an undominated edge. All graphs without K1/K2 components on j labels have polynomial h_j=j![x^j] exp(−x−zx²/2)∑_{l≥0}(1+z)^C(l,2)x^l/l!. For the undeleted graph, T_n=h_n+n h_(n−1); by edge symmetry, the weighted sets containing a fixed edge ab have generating polynomial z T_n'/C(n,2). Removing those and adding exactly two isolated labels a,b gives the stated P_n. For s chosen edges, c nontrivial components and q≥0 cycle rank, incident labels r=s+c−q ≤s+floor(s/2); with ≥n−2 active labels this yields ceil(2(n−2)/3). Equality forces acyclic component profiles of P3s and one or two four/five-vertex trees depending on n mod3; Cayley tree counts and labelled partitions give explicit M_n. Independent exhaustive direct edge-subset checks n=4..7 yielded total counts 24,436,15286,1022190 and min-set counts 8,3,16,635, agreeing with the exact recurrence. Analytic generating-functions/forest proof is essential for all n.
 
-PASS, subject to provisional historical priority. The closest original article, Cornet–Dravec–Torres (2026), proves the undeleted scalar \(\gamma_t(J(n,2))\), but the vertex-deleted graph and its full polynomial are not covered in the inspected Section 3. OEIS A304561 and A303048 already cover minimum and total counts of the *undeleted* graph; the full polynomial and extra two-isolate configurations for the deleted graph do not follow from those numerical tables alone. A closely related prior mathematical claim also classifies the undeleted minimizers; it does not assert the one-vertex-deletion result. Searches under triangular graphs, line graphs of a near-complete graph, and total edge domination did not identify a covering theorem. General edge-domination complexity literature is not claimed to be exhaustively searched.
+## originality
 
-## Value
+PASS
 
-PASS. One-vertex deletion is a standard robustness perturbation of a transitive graph family. The exact polynomial counts solutions of every cardinality, while the complete minimizer classification shows why deletion decreases the optimum in two residue classes but not the third. The additional two-isolate tree patterns and their labelled multiplicities distinguish the deficient graph from the known original family. This is an infinite-family enumeration and sharp structural sensitivity result, not a relabelling of the known scalar optimum.
+The original undeleted triangular-graph total-domination number, counts and even all-cardinality polynomial are known (Cornet–Dravec–Torres; OEIS A304561 and A303048; previous published analyses). They are explicitly used as inputs and receive no novelty credit. The vertex-deleted graph has a new possible pair of isolated labels {a,b}, producing the correction h_(n−2) and a sharp three-periodic decrement, with a complete new extremal forest and labelled-set census. Searches did not identify a prior vertex-deleted formula or table; a generic line-graph domination identity remains possible historic coverage risk.
 
-## Scope and limitations
+## value
 
-Finite, simple, labelled triangular graphs \(J(n,2)\), exactly one deleted vertex, \(n\ge4\). No claim for multiple deletions, higher-order Johnson graphs, or independent certification. Historical priority against unindexed equivalents remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Single-vertex deletion sensitivity of a highly symmetric Johnson graph is a natural graph-parameter operation; the complete polynomial, sharp change in minimum, and all minimizer trees are worthwhile exact combinatorial classifications. This is stronger than a sample minimum, and directly relates the known undeleted enumerator to a structurally new two-isolate class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T15:51:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/total-domination-polynomial-and-minimum-set-classification-after--05740f1065c4/RESULT.md",
+        "/mnt/data/scope_worker03_20261113T1538Z/independent_checks.log"
+      ],
+      "rationale": "Identify J(n,2)−{ab} with line graph of K_n−ab. A selected edge set F is total dominating exactly if every selected edge has an adjacent selected edge (no component K2) and the set of isolated original labels is empty, one vertex, or exactly {a,b}; any other pair of isolates would produce an undominated edge. All graphs without K1/K2 components on j labels have polynomial h_j=j![x^j] exp(−x−zx²/2)∑_{l≥0}(1+z)^C(l,2)x^l/l!. For the undeleted graph, T_n=h_n+n h_(n−1); by edge symmetry, the weighted sets containing a fixed edge ab have generating polynomial z T_n'/C(n,2). Removing those and adding exactly two isolated labels a,b gives the stated P_n. For s chosen edges, c nontrivial components and q≥0 cycle rank, incident labels r=s+c−q ≤s+floor(s/2); with ≥n−2 active labels this yields ceil(2(n−2)/3). Equality forces acyclic component profiles of P3s and one or two four/five-vertex trees depending on n mod3; Cayley tree counts and labelled partitions give explicit M_n. Independent exhaustive direct edge-subset checks n=4..7 yielded total counts 24,436,15286,1022190 and min-set counts 8,3,16,635, agreeing with the exact recurrence. Analytic generating-functions/forest proof is essential for all n.",
+      "residual_risks": [
+        "Finite checks are not universal proofs.",
+        "Exactly one J(n,2) vertex removed and n≥4; nothing asserted for multiple deletions or J(n,k) k≥3.",
+        "Independent finite enumeration through n=7 corroborates only sampled instances; proof is the all-order source."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-size undeleted triangular-graph polynomial and minimum forests exist in published Resultary and OEIS.",
+          "No returned stronger theorem expressly covers K_n−ab total-edge-domination distribution."
+        ],
+        "reasoning": "The undeleted result alone does not directly subsume the extra two-isolate class after graph vertex deletion; the resulting correction requires checking a different domination predicate.",
+        "searches": [
+          "\"total domination triangular graph vertex deleted\"",
+          "\"edge domination of complete graph minus one edge\"",
+          "Resultary total domination polynomial vertex-deleted triangular graph Johnson J(n,2) minimum sets"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/total-domination-polynomial-and-minimum-set-classification-after--05740f1065c4/RESULT.md",
+        "https://arxiv.org/abs/2610.04675",
+        "https://oeis.org/A304561",
+        "https://oeis.org/A303048",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-total-domination-polynomials-and-minimal-set-forests-of-triangul--79b59f265500",
+        "/mnt/data/scope_worker03_20261113T1538Z/independent_checks.log"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 14 prior gives γ_t(J(n,2))=ceil(2(n−1)/3), not γ_t(J(n,2)−v).",
+          "The new minimum ceil(2(n−2)/3) can drop by one for n mod3=0,2, and complete deleted polynomial has an additional h_(n−2)."
+        ],
+        "reasoning": "Prior original graph formula alone does not impose the deleted graph result; its derivative and extra correction derive the new deletion-sensitive enumeration.",
+        "searches": [
+          "Cornet Dravec Torres 2610.04675 Theorem 14",
+          "Resultary total-domination polynomials minimal-set forests triangular",
+          "\"line graph K_n minus edge total domination\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior results refer to the undeleted graph J(n,2); the deleted graph allows precisely two isolated original labels a,b.",
+          "Correction term h_(n−2) has no counterpart in undeleted polynomial."
+        ],
+        "reasoning": "Line graph translation and exponential formula are equivalent language, but new deleted-edge permitted isolates differ from known undeleted conditions.",
+        "searches": [
+          "total domination polynomial vertex-deleted triangular graph Johnson J(n,2) minimum sets",
+          "Cornet Dravec Torres arXiv:2610.04675 J(n,2) total domination",
+          "OEIS A303048 A304561 triangular total dominating sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A304561 records minimum-set counts for undeleted J(n,2).",
+          "OEIS A303048 records all-size total-domination data for the undeleted graph."
+        ],
+        "reasoning": "Matching undeleted coefficients are prior and not novelty evidence; small new M_n for deleted graph differ (8,3,16,635,90,1680,95480), and no exact deleted table was located.",
+        "searches": [
+          "OEIS A304561 minimum total dominating sets triangular graph",
+          "OEIS A303048 all total dominating sets triangular graph",
+          "\"vertex deleted Johnson total domination sequence\""
+        ]
+      },
+      "rationale": "The original undeleted triangular-graph total-domination number, counts and even all-cardinality polynomial are known (Cornet–Dravec–Torres; OEIS A304561 and A303048; previous published analyses). They are explicitly used as inputs and receive no novelty credit. The vertex-deleted graph has a new possible pair of isolated labels {a,b}, producing the correction h_(n−2) and a sharp three-periodic decrement, with a complete new extremal forest and labelled-set census. Searches did not identify a prior vertex-deleted formula or table; a generic line-graph domination identity remains possible historic coverage risk.",
+      "residual_risks": [
+        "Unlocated known edge-total-domination enumeration for K_n−ab may already encode this specialization.",
+        "Some closely related 2026 primary works were available as abstracts/theorem descriptions rather than entire source text; historical priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes prior undeleted scalar γ_t(J(n,2)) but not a vertex-deleted polynomial in available text",
+          "evidence": [
+            "Exact prior γ_t(J(n,2))=ceil(2(n−1)/3) for n≥4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04675",
+          "material_read": "arXiv accessible abstract, explicit formula and stated theorem scope of undeleted graph; full PDF not obtained/read",
+          "method": "original arXiv metadata and statement inspection",
+          "title": "Domination and Total Domination in Johnson graphs",
+          "trigger": "same triangular J(n,2) graph and minimum total domination"
+        },
+        {
+          "assessment": "known all-size and minimum counts of undeleted graph, not the deleted one",
+          "evidence": [
+            "A304561 minimum total sets undeleted",
+            "A303048 total domination counts undeleted"
+          ],
+          "identifier_or_url": "https://oeis.org/A304561",
+          "material_read": "entries and published sequence descriptions for undeleted triangular graph; companion https://oeis.org/A303048",
+          "method": "primary sequence records and definitions",
+          "title": "OEIS A304561 and A303048",
+          "trigger": "natural exact database or table of triangular total domination"
+        },
+        {
+          "assessment": "prior work addresses J(n,2) without deletion, no new {a,b} isolated-pair condition supplied by summary",
+          "evidence": [
+            "Earlier full/ minimal total domination of undeleted triangular graphs, not one-vertex-deleted graph"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-total-domination-polynomials-and-minimal-set-forests-of-triangul--79b59f265500",
+          "material_read": "published semantic record title and summary; full proof not retrieved this run",
+          "method": "Resultary semantic record and equivalent graph comparison",
+          "title": "Resultary earlier triangular-graph total-domination polynomials and minimal-set forests",
+          "trigger": "very close prior all-size polynomial and forest classifications"
+        },
+        {
+          "assessment": "correct all-order argument with independent finite corroboration",
+          "evidence": [
+            "RESULT blob 4515aa9f84b7a1566d5f1d5036a894726bd93e27",
+            "/mnt/data/scope_worker03_20261113T1538Z/independent_checks.log"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/total-domination-polynomial-and-minimum-set-classification-after--05740f1065c4/RESULT.md",
+          "material_read": "entire RESULT.md proof including line graph translation, EGF recurrence, min forest classification and counts; checker source read",
+          "method": "GitHub frozen RESULT blob plus independent direct enumeration",
+          "title": "Assigned deleted triangular graph classification",
+          "trigger": "actual assigned corrected theorem and proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/total-domination-polynomial-and-minimum-set-classification-after--05740f1065c4/RESULT.md",
+        "https://arxiv.org/abs/2610.04675",
+        "https://oeis.org/A304561",
+        "https://oeis.org/A303048",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-total-domination-polynomials-and-minimal-set-forests-of-triangul--79b59f265500",
+        "/mnt/data/scope_worker03_20261113T1538Z/independent_checks.log"
+      ],
+      "rationale": "Single-vertex deletion sensitivity of a highly symmetric Johnson graph is a natural graph-parameter operation; the complete polynomial, sharp change in minimum, and all minimizer trees are worthwhile exact combinatorial classifications. This is stronger than a sample minimum, and directly relates the known undeleted enumerator to a structurally new two-isolate class.",
+      "residual_risks": [
+        "Unlocated known edge-total-domination enumeration for K_n−ab may already encode this specialization.",
+        "Some closely related 2026 primary works were available as abstracts/theorem descriptions rather than entire source text; historical priority not certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n≥4, deleting a single vertex from triangular graph J(n,2) yields the full total-domination polynomial P_n(z)=T_n(z)−zT_n'(z)/C(n,2)+h_{n−2}(z), with h_j the no-K1/no-K2 labelled graph polynomial; the exact minimum is ceil(2(n−2)/3), and all minimum selected-edge forests and their labelled counts are classified in three residue classes modulo 3.",
+  "limitations": [
+    "Exactly one J(n,2) vertex removed and n≥4; nothing asserted for multiple deletions or J(n,k) k≥3.",
+    "Independent finite enumeration through n=7 corroborates only sampled instances; proof is the all-order source."
+  ],
+  "schema_version": 1
+}

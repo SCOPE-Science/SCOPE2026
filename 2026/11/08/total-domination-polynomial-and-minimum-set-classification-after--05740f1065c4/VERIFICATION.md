@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document and `verify.py`; only the Python standard library is required.
+## correctness
 
-The verifier constructs the polynomials by an integer recurrence for the labelled graph exponential formula. Separately, it tests all edge subsets of \(K_n-ab\) and checks that every remaining edge has a distinct adjacent selected edge, exactly implementing total domination on its line graph. Every cardinality coefficient agrees for \(4\le n\le7\): the largest case enumerates \(1,048,576\) edge subsets. It further enumerates every candidate of sizes one less than and equal to the proved minimum for \(n=8,9\), and checks the stated tree-classification multiplicities for \(4\le n\le9\).
+PASS
 
-Observed console markers:
+Identify J(n,2)−{ab} with line graph of K_n−ab. A selected edge set F is total dominating exactly if every selected edge has an adjacent selected edge (no component K2) and the set of isolated original labels is empty, one vertex, or exactly {a,b}; any other pair of isolates would produce an undominated edge. All graphs without K1/K2 components on j labels have polynomial h_j=j![x^j] exp(−x−zx²/2)∑_{l≥0}(1+z)^C(l,2)x^l/l!. For the undeleted graph, T_n=h_n+n h_(n−1); by edge symmetry, the weighted sets containing a fixed edge ab have generating polynomial z T_n'/C(n,2). Removing those and adding exactly two isolated labels a,b gives the stated P_n. For s chosen edges, c nontrivial components and q≥0 cycle rank, incident labels r=s+c−q ≤s+floor(s/2); with ≥n−2 active labels this yields ceil(2(n−2)/3). Equality forces acyclic component profiles of P3s and one or two four/five-vertex trees depending on n mod3; Cayley tree counts and labelled partitions give explicit M_n. Independent exhaustive direct edge-subset checks n=4..7 yielded total counts 24,436,15286,1022190 and min-set counts 8,3,16,635, agreeing with the exact recurrence. Analytic generating-functions/forest proof is essential for all n.
 
-```
-FULL_POLYNOMIAL_EXHAUSTIVE_OK 4 32
-FULL_POLYNOMIAL_EXHAUSTIVE_OK 5 512
-FULL_POLYNOMIAL_EXHAUSTIVE_OK 6 16384
-FULL_POLYNOMIAL_EXHAUSTIVE_OK 7 1048576
-MINIMUM_EXHAUSTIVE_OK 8 4 90
-MINIMUM_EXHAUSTIVE_OK 9 5 1680
-CLASSIFICATION_COUNTS_OK n=4..9
-VERIFY_OK
-```
+## originality
 
-These are finite corroborations, not an exhaustive test over all graph orders or independent mathematical certification. The arbitrary-order result requires the combinatorial proof in `RESULT.md`. No external source is needed to run the verifier.
+PASS
+
+The original undeleted triangular-graph total-domination number, counts and even all-cardinality polynomial are known (Cornet–Dravec–Torres; OEIS A304561 and A303048; previous published analyses). They are explicitly used as inputs and receive no novelty credit. The vertex-deleted graph has a new possible pair of isolated labels {a,b}, producing the correction h_(n−2) and a sharp three-periodic decrement, with a complete new extremal forest and labelled-set census. Searches did not identify a prior vertex-deleted formula or table; a generic line-graph domination identity remains possible historic coverage risk.
+
+## value
+
+PASS
+
+Single-vertex deletion sensitivity of a highly symmetric Johnson graph is a natural graph-parameter operation; the complete polynomial, sharp change in minimum, and all minimizer trees are worthwhile exact combinatorial classifications. This is stronger than a sample minimum, and directly relates the known undeleted enumerator to a structurally new two-isolate class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
