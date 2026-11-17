@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:11:58.061424Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The shared iid Gaussian query matrix G gives rowwise diagonal error delta_i=sum_{j != i}A_ij (g_i.g_j)/||g_i||². Conditional variance uses E[1/chi_q²]=1/(q-2); distinct-row covariances vanish except the reciprocal pair, whose angular-square expectation is 1/q. Summing yields Var(E)=||A_off||_F²/(q-2)+(2/q)sum_{i<j}A_ij A_ji = 2(q-1)/(q(q-2))||S_off||_F²+2/(q(q-2))||K||_F². For A_q=[[0,a],[-a+kappa/sqrt(q),0]], the iid coordinate-pair vector (g_r h_r,h_r²-g_r²) has covariance diag(1,4); joint CLT and LLN denominators give qE⇒Z(kappa+2aW), independent normal Z,W. Characteristic function follows by conditioning. Checked exact rational skew formulas for q=3..14; no finite test substituted for the limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gallmeier–Otto 2026 Theorem 1 bounds Frobenius rowwise least-squares error; does not specify cross-row covariance or trace-error skew cancellation in inspected full text",
+          "Hallman–Ipsen–Saibaba gives one-coordinate Student t law for symmetric inputs; marginal distributions alone do not fix covariance of shared-probe row errors"
+        ],
+        "reasoning": "Compared prior theorem implications and any stronger class; specified exactly what extends or does not follow from earlier results: Marginal error bounds and the original diagonal-estimator expansion do not determine the joint trace variance because the same Gaussian probes couple different reconstructed coordinates. This coupling is evaluated explicitly, and the critical product-normal limit requires a joint CLT of inner product with norm-difference, not implied by individual t marginals.",
+        "searches": [
+          "Gaussian diagonal matrix estimator trace covariance skew symmetric product normal distribution rowwise least squares",
+          "Gaussian normalized diagonal estimation cross-covariance symmetric skew trace risk product normal",
+          "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries Gallmeier Otto Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.07513",
+        "https://arxiv.org/abs/2402.09379",
+        "https://arxiv.org/abs/2202.02887",
+        "https://infoscience.epfl.ch/record/87297/files/Bekas2005_1358.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gallmeier–Otto 2026 Theorem 1 bounds Frobenius rowwise least-squares error; does not specify cross-row covariance or trace-error skew cancellation in inspected full text",
+          "Hallman–Ipsen–Saibaba gives one-coordinate Student t law for symmetric inputs; marginal distributions alone do not fix covariance of shared-probe row errors",
+          "Amsel et al. identify the diagonal one-sided least-squares output with normalized Gaussian Hutchinson diagonal estimation; this is prior method equivalence",
+          "Direct Hutchinson trace g^TAg annihilates skew parts exactly but is a DIFFERENT estimator from summing these row-normalized diagonal estimates"
+        ],
+        "reasoning": "Marginal error bounds and the original diagonal-estimator expansion do not determine the joint trace variance because the same Gaussian probes couple different reconstructed coordinates. This coupling is evaluated explicitly, and the critical product-normal limit requires a joint CLT of inner product with norm-difference, not implied by individual t marginals.",
+        "searches": [
+          "Gaussian diagonal matrix estimator trace covariance skew symmetric product normal distribution rowwise least squares",
+          "Gaussian normalized diagonal estimation cross-covariance symmetric skew trace risk product normal",
+          "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries Gallmeier Otto Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amsel et al. identify the diagonal one-sided least-squares output with normalized Gaussian Hutchinson diagonal estimation; this is prior method equivalence",
+          "Direct Hutchinson trace g^TAg annihilates skew parts exactly but is a DIFFERENT estimator from summing these row-normalized diagonal estimates"
+        ],
+        "reasoning": "Compared equivalent model words/representations, not merely identical titles: Marginal error bounds and the original diagonal-estimator expansion do not determine the joint trace variance because the same Gaussian probes couple different reconstructed coordinates. This coupling is evaluated explicitly, and the critical product-normal limit requires a joint CLT of inner product with norm-difference, not implied by individual t marginals.",
+        "searches": [
+          "Gaussian diagonal matrix estimator trace covariance skew symmetric product normal distribution rowwise least squares",
+          "Gaussian normalized diagonal estimation cross-covariance symmetric skew trace risk product normal",
+          "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries Gallmeier Otto Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches found assigned result and unrelated Gaussian XTrace/XDiag/diagonal sketch risks; no same full nonsymmetric trace covariance plus product-normal threshold identified. Search absence not novelty proof."
+        ],
+        "reasoning": "Consulted Resultary semantic records and relevant published-source result/primary sources. No failed search by itself is a novelty proof.",
+        "searches": [
+          "Gaussian diagonal matrix estimator trace covariance skew symmetric product normal distribution rowwise least squares",
+          "Gaussian normalized diagonal estimation cross-covariance symmetric skew trace risk product normal",
+          "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries Gallmeier Otto Theorem 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge survival of precise final claim after source-by-source implication comparison, with listed risks; no worldwide priority certification. Marginal error bounds and the original diagonal-estimator expansion do not determine the joint trace variance because the same Gaussian probes couple different reconstructed coordinates. This coupling is evaluated explicitly, and the critical product-normal limit requires a joint CLT of inner product with norm-difference, not implied by individual t marginals.",
+      "residual_risks": [
+        "Equivalent cross-row covariance identity may be buried in unindexed variance literature; searches and inspected references cannot certify worldwide novelty.",
+        "Scope is real iid shared Gaussian probes q>2, exact one-sided coordinate least squares, fixed finite n; limit only n=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides one-sided rowwise approximation and aggregate bounds but not the submitted cross-row covariance/product-normal crossover in inspected text",
+          "evidence": "Gallmeier–Otto, arXiv:2610.07513, theorem 1",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07513",
+          "material_read": "Primary lawful OA full HTML paper, algorithm, Theorem 1, rowwise derivations and relevant appendix; searched for trace and covariance",
+          "method": "full HTML text via public mirror",
+          "title": "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries",
+          "trigger": "same algorithm and Gaussian rowwise least squares"
+        },
+        {
+          "assessment": "Method and single-row error framework predates this risk identity",
+          "evidence": "Amsel et al., arXiv:2402.09379, remark 3",
+          "identifier_or_url": "https://arxiv.org/abs/2402.09379",
+          "material_read": "Relevant public preprint sections describing diagonal Gaussian estimator equivalence, including Remark 3",
+          "method": "arXiv primary relevant text",
+          "title": "Fixed-sparsity matrix approximation from matrix-vector products",
+          "trigger": "estimator algorithm equivalence"
+        },
+        {
+          "assessment": "Marginal Student law for symmetric inputs, not general nonsymmetric shared-row covariance",
+          "evidence": "Hallman–Ipsen–Saibaba, arXiv:2202.02887, lemma 5.7",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02887",
+          "material_read": "Relevant lemma 5.7 and surrounding diagonal error statements",
+          "method": "open PDF relevant text",
+          "title": "Monte Carlo Methods for Estimating the Diagonal of a Real Symmetric Matrix",
+          "trigger": "marginal diagonal error distribution"
+        },
+        {
+          "assessment": "Underlying row expansion is old; joint shared-probe trace error/crossover not identified in material inspected",
+          "evidence": "Bekas–Kokiopoulou–Saad 2005 preprint, eq 3",
+          "identifier_or_url": "https://infoscience.epfl.ch/record/87297/files/Bekas2005_1358.pdf",
+          "material_read": "Original preprint sections 2.1–2.2 and rowwise expansion equation 3",
+          "method": "lawful OA 2005 primary preprint relevant sections",
+          "title": "An estimator for the diagonal of a matrix",
+          "trigger": "origin of normalized Gaussian diagonal estimator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, useful trace-risk identity beyond marginal diagonal reconstruction error bounds, revealing order q^-2 skew cancellation and a genuinely non-Gaussian near-skew critical window. Matters for probabilistic trace uncertainty with shared sketches and nonsymmetric inputs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.07513",
+    "https://arxiv.org/abs/2402.09379",
+    "https://arxiv.org/abs/2202.02887",
+    "https://infoscience.epfl.ch/record/87297/files/Bekas2005_1358.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent cross-row covariance identity may be buried in unindexed variance literature; searches and inspected references cannot certify worldwide novelty.",
+    "Scope is real iid shared Gaussian probes q>2, exact one-sided coordinate least squares, fixed finite n; limit only n=2."
+  ],
+  "residual_risks": [
+    "Equivalent cross-row covariance identity may be buried in unindexed variance literature; searches and inspected references cannot certify worldwide novelty.",
+    "Scope is real iid shared Gaussian probes q>2, exact one-sided coordinate least squares, fixed finite n; limit only n=2."
+  ],
+  "schema_version": 1
+}
