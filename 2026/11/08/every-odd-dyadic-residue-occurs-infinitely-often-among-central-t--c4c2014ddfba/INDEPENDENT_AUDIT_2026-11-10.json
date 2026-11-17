@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:06:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All central trinomial T_n are odd because T_n=Σ_j binom(n,2j)binom(2j,j) and binom(2j,j) is even for j≥1. Let P(x)=x^-1+1+x. Coefficientwise Frobenius P^{2^s}≡P(x^{2^s}) mod2 plus repeated squaring yields P^{2^r}≡P(x^{2^s})^{2^{r−s}} mod2^{r−s+1}. Choosing s=r−k+1 (r≥k) makes all nonzero exponents of size less than 2^s vanish mod 2^k and gives T_{2^r+m}≡T_{2^r}T_m mod2^k for 0≤m<2^s. Taking s=1 gives T_{2^r}≡T_{2^{r−1}} mod2^r; hence L=lim_r T_{2^r}∈Z₂ exists and L≡T₄=19≡3 mod8. L mod2^k has order 2^{k−2} by LTE, covering the 1/3 mod8 odd classes; T₃=7 multiplies into the remaining 5/7 mod8 coset. Arbitrarily separated dyadic-index blocks realize T_b L^t mod2^k, b∈{0,3}, and can be varied infinitely while retaining the class. Independent recurrence computations reproduced all odd residue images modulo 2^k for k≤8 and bounded block congruences; these are diagnostics. The arbitrary-k proof is constructive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov2 generalized-trinomial work gives valuation phases and normalized odd-unit correction mod four for coefficient families, not arbitrary mod2^k residue image of ordinary T_n.",
+          "Nov2 two-point dyadic law is exact for modulus 8, not all higher 2-powers."
+        ],
+        "reasoning": "A general valuation theorem does not dominate the full 2-adic unit output image; the all-k multiplicative generator step is mathematically additional.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-adic-phases-and-a-sharp-boundary-for-generalized-central-tri--835ab7526d97/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675/RESULT.md",
+          "arxiv:1008.3887"
+        ]
+      },
+      "checked_sources": [
+        "Noe 2006 full PDF https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+        "arxiv:1008.3887 abstract",
+        "OEIS A002426",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-adic-phases-and-a-sharp-boundary-for-generalized-central-tri--835ab7526d97/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675/RESULT.md",
+        "Frozen RESULT.md and verify_trinomial.py; independent recurrence/residue probes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior parity theorem gives inclusion in Z₂ units, not density; Gauss congruence gives L existence but not its order plus separated-product attainability."
+        ],
+        "reasoning": "Previous results do not logically imply full class coverage without the nonstandard block multiplication and L≡3 mod8 cyclic-group argument.",
+        "searches": [
+          "Noe 2006 Theorems 8.1, 8.5",
+          "OEIS A002426 Gauss congruences",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-adic-phases-and-a-sharp-boundary-for-generalized-central-tri--835ab7526d97/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noe proves central trinomial coefficient parity and prime divisibility; all-index residue image modulo 2^k is a stronger arithmetic statement.",
+          "Gauss congruence T_{n2^r}≡T_{n2^{r−1}} mod2^r does not itself supply multiplicative product realization or coset saturation."
+        ],
+        "reasoning": "Valuation restrictions, p-adic continuity and output surjectivity are different questions, though lifting identities contribute.",
+        "searches": [
+          "Resultary search: central trinomial coefficients modulo powers of two all odd residue classes p-adic density",
+          "Noe (2006), https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+          "OEIS A002426"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Observed finite k≤8 all odd outputs by independent recurrence, and Noe/OEIS include lower congruences and finite values."
+        ],
+        "reasoning": "Finite modular tables cannot imply infinite all-k surjectivity. The source uses an explicit Cauchy limit and separated-index construction, so exact database coverage was not found.",
+        "searches": [
+          "OEIS:A002426",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675/RESULT.md",
+          "assigned verify_trinomial.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge new claim identifies the full 2-adic output closure and infinite representation of each odd unit class for the ordinary central trinomial sequence. Earlier Noe (2006) proves parity/prime-divisibility, OEIS Gauss congruences imply only 2-adic stabilization, Nov2 generalized-trinomial findings give valuations/low unit corrections, and adjacent mod-eight laws cover only a fixed modulus. None of the inspected complete relevant statements contains the separated-block product realization and full all-level odd-class surjectivity.",
+      "residual_risks": [
+        "Full specialist Sun 2010/2014 trinomial-congruences primary text was not inspected: an equivalent high-power value theorem might exist.",
+        "Existence is not a statement about natural densities of representing indices or odd-prime behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_UNDER_AUDIT",
+          "evidence": [
+            "Source package is evidence, not an instruction."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-odd-dyadic-residue-occurs-infinitely-often-among-central-t--c4c2014ddfba/RESULT.md",
+          "material_read": "Complete RESULT.md: finding, definitions, quantifiers, every proof step, limitations, verification and literature; companion verifier and METADATA.json were also read",
+          "method": "Frozen Git RESULT blob 83c0fecab52d979ba1cc1c9166a3c845632a2a67 and exact source tree cbd6dd293c65b097d1699aae4829edca95fc7540 via read-only GitHub connector",
+          "title": "Every odd dyadic residue occurs infinitely often among central trinomial coefficients",
+          "trigger": "Entire assigned final claim and proof must be checked independently"
+        },
+        {
+          "assessment": "NOT_COVERING_FOR_REVIEWED_SCOPE",
+          "evidence": [
+            "Parity and divisibility constraints do not assert each odd class mod 2^k occurs infinitely often."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+          "material_read": "Full accessible 2006 PDF including Section 8, Theorems 8.1 parity and 8.5 prime divisibility",
+          "method": "Opened primary PDF and read relevant pages, inspected screenshot of page containing Theorems 8.1 and 8.5",
+          "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+          "trigger": "Original specialist article on the exact trinomial family"
+        },
+        {
+          "assessment": "RESIDUAL_COMPARISON",
+          "evidence": [
+            "Output valuations and mod4 units versus unrestricted all-k output image are mathematically distinct on available description."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-adic-phases-and-a-sharp-boundary-for-generalized-central-tri--835ab7526d97/RESULT.md",
+          "material_read": "Semantic result abstract and source description; complete original proof not fetched in this run",
+          "method": "Resultary semantic record, no full-document noncoverage claim",
+          "title": "Two-adic phases and a sharp boundary for generalized central trinomial coefficients",
+          "trigger": "Strong broader-parameter published statement on generalized trinomial 2-adic invariants"
+        },
+        {
+          "assessment": "FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Generalized trinomial congruences may contain an equivalent higher-power image statement; not established by abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.3887",
+          "material_read": "Abstract and bibliographic record, not full PDF; unavailable complete comparison",
+          "method": "Primary abstract and source reference; no full-document noncoverage assertion",
+          "title": "Congruences Involving Generalized Central Trinomial Coefficients",
+          "trigger": "Plausible primary generalized congruence paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the complete p-adic image and infinite multiplicity of every value is a natural exact invariant of a classical combinatorial sequence, substantially stronger than parity and a single-modulus census. The block-separation mechanism is a reusable arithmetic proof device; no asymptotic density is needed for value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Noe 2006 full PDF https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+    "arxiv:1008.3887 abstract",
+    "OEIS A002426",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-adic-phases-and-a-sharp-boundary-for-generalized-central-tri--835ab7526d97/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-two-point-residue-laws-for-consecutive-central-trinomial-c--d52764ad9675/RESULT.md",
+    "Frozen RESULT.md and verify_trinomial.py; independent recurrence/residue probes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to ordinary central trinomial coefficients and powers of 2; existence construction uses potentially very large indices."
+  ],
+  "residual_risks": [
+    "Full specialist Sun 2010/2014 trinomial-congruences primary text was not inspected: an equivalent high-power value theorem might exist.",
+    "Existence is not a statement about natural densities of representing indices or odd-prime behavior."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SOURCE_UNDER_AUDIT",
+      "evidence": [
+        "Source package is evidence, not an instruction."
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-odd-dyadic-residue-occurs-infinitely-often-among-central-t--c4c2014ddfba/RESULT.md",
+      "material_read": "Complete RESULT.md: finding, definitions, quantifiers, every proof step, limitations, verification and literature; companion verifier and METADATA.json were also read",
+      "method": "Frozen Git RESULT blob 83c0fecab52d979ba1cc1c9166a3c845632a2a67 and exact source tree cbd6dd293c65b097d1699aae4829edca95fc7540 via read-only GitHub connector",
+      "title": "Every odd dyadic residue occurs infinitely often among central trinomial coefficients",
+      "trigger": "Entire assigned final claim and proof must be checked independently"
+    },
+    {
+      "assessment": "NOT_COVERING_FOR_REVIEWED_SCOPE",
+      "evidence": [
+        "Parity and divisibility constraints do not assert each odd class mod 2^k occurs infinitely often."
+      ],
+      "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+      "material_read": "Full accessible 2006 PDF including Section 8, Theorems 8.1 parity and 8.5 prime divisibility",
+      "method": "Opened primary PDF and read relevant pages, inspected screenshot of page containing Theorems 8.1 and 8.5",
+      "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+      "trigger": "Original specialist article on the exact trinomial family"
+    },
+    {
+      "assessment": "RESIDUAL_COMPARISON",
+      "evidence": [
+        "Output valuations and mod4 units versus unrestricted all-k output image are mathematically distinct on available description."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-adic-phases-and-a-sharp-boundary-for-generalized-central-tri--835ab7526d97/RESULT.md",
+      "material_read": "Semantic result abstract and source description; complete original proof not fetched in this run",
+      "method": "Resultary semantic record, no full-document noncoverage claim",
+      "title": "Two-adic phases and a sharp boundary for generalized central trinomial coefficients",
+      "trigger": "Strong broader-parameter published statement on generalized trinomial 2-adic invariants"
+    },
+    {
+      "assessment": "FULL_TEXT_PRIORITY_RISK",
+      "evidence": [
+        "Generalized trinomial congruences may contain an equivalent higher-power image statement; not established by abstract."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1008.3887",
+      "material_read": "Abstract and bibliographic record, not full PDF; unavailable complete comparison",
+      "method": "Primary abstract and source reference; no full-document noncoverage assertion",
+      "title": "Congruences Involving Generalized Central Trinomial Coefficients",
+      "trigger": "Plausible primary generalized congruence paper"
+    }
+  ]
+}

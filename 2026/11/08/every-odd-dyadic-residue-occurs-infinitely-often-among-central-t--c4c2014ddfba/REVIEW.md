@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Laurent-polynomial Frobenius-lifting congruence is proved coefficientwise for arbitrary exponents; the separated-block constant-term formula follows with the exact support restriction. The stable sequence at indices that are powers of two converges, and its limit is congruent to three modulo eight. The elementary valuation calculation for powers of an odd unit congruent to three modulo eight proves its exact order in every unit group modulo a power of two. Disjoint cosets obtained using the third term exhaust every odd residue, with arbitrarily many separated-index witnesses. Oddness excludes every even residue. The finite verifier independently reproduces the key congruences in its stated range; the infinite proof does not rely on enumeration.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Noe's Theorem 8.1 gives only parity, and Theorem 8.5 determines prime divisibility. Sun's trinomial congruences and the OEIS Gauss congruences do not themselves imply complete residue-image surjectivity. Kohen's more recent digit-multiplicative description is modulo a prime, not all its powers. Targeted searches for all odd dyadic residues, binary-separated blocks, and \(2\)-adic unit-group closure produced no statement implying the theorem, but a failed search is not a proof of originality; a general Laurent-constant-term congruence or other historical source may subsume it. The comparison concerns the exact implications, not titles alone.
+PASS
 
-## Mathematical value — PASS
-The attainable residues of a classical integer sequence are a natural number-theoretic invariant: even parity alone does not imply all odd residues occur. The theorem settles the entire inverse system of residue images, constructs infinitely many witnesses per target, and identifies the nontrivial multiplicative reason via a maximal-order unit. This is a full classification, not a finite table, arbitrary low-index slice, or a restatement of a congruence for a fixed prime power.
+All central trinomial T_n are odd because T_n=Σ_j binom(n,2j)binom(2j,j) and binom(2j,j) is even for j≥1. Let P(x)=x^-1+1+x. Coefficientwise Frobenius P^{2^s}≡P(x^{2^s}) mod2 plus repeated squaring yields P^{2^r}≡P(x^{2^s})^{2^{r−s}} mod2^{r−s+1}. Choosing s=r−k+1 (r≥k) makes all nonzero exponents of size less than 2^s vanish mod 2^k and gives T_{2^r+m}≡T_{2^r}T_m mod2^k for 0≤m<2^s. Taking s=1 gives T_{2^r}≡T_{2^{r−1}} mod2^r; hence L=lim_r T_{2^r}∈Z₂ exists and L≡T₄=19≡3 mod8. L mod2^k has order 2^{k−2} by LTE, covering the 1/3 mod8 odd classes; T₃=7 multiplies into the remaining 5/7 mod8 coset. Arbitrarily separated dyadic-index blocks realize T_b L^t mod2^k, b∈{0,3}, and can be varied infinitely while retaining the class. Independent recurrence computations reproduced all odd residue images modulo 2^k for k≤8 and bounded block congruences; these are diagnostics. The arbitrary-k proof is constructive.
 
-## Scope and limitations
-The result does not estimate natural frequencies of realizing indices or generalize to odd primes. An exhaustive historical priority check and an independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new claim identifies the full 2-adic output closure and infinite representation of each odd unit class for the ordinary central trinomial sequence. Earlier Noe (2006) proves parity/prime-divisibility, OEIS Gauss congruences imply only 2-adic stabilization, Nov2 generalized-trinomial findings give valuations/low unit corrections, and adjacent mod-eight laws cover only a fixed modulus. None of the inspected complete relevant statements contains the separated-block product realization and full all-level odd-class surjectivity.
+
+## value
+
+PASS
+
+Determining the complete p-adic image and infinite multiplicity of every value is a natural exact invariant of a classical combinatorial sequence, substantially stronger than parity and a single-modulus census. The block-separation mechanism is a reusable arithmetic proof device; no asymptotic density is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
