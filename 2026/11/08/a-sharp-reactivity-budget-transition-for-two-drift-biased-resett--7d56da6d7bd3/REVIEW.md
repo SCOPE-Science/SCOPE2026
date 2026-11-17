@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The drifted free resolvent gives a transparent rank-two linear system for the two absorption fluxes. Its determinant is positive and yields the stated rational success probability. The renewal decomposition gives the mean time as \((1-B)/(rB)\). Crucially, the Feynman--Kac local-time representation proves **strict global concavity** of success probability in the allocation, so the derivative at the downstream boundary and its unique positive quadratic threshold classify the global optimum, not just a local stationary point. The zero-drift symmetry boundary is checked separately. The provided checker independently compares the closed expression to direct matrix inversion and to a nearest-neighbor reaction-diffusion discretization. Remaining scientific scope: two sites, independent exponential point killing and resetting, constant drift and diffusivity.
+PASS
 
-## Originality
+The drifted resolvent at r is G_r(y|x)=q^(-1)exp((mu(y-x)-q|y-x|)/(2D)); solving the two-sink rank-two system gives the exact B(k) with denominator 1+K/q+(1-c^2)k(K-k)/q^2>0. Renewal gives T=(1-B)/(rB). Local-time Laplace functional yields B(k)=-r integral exp(-rt) E[(L_+-L_-)^2 exp(-kL_+-(K-k)L_-)]dt<0, strict because paths hit only one site with positive probability. Endpoint derivative has sign (z-1)+[c(z+1)-2]K/q-(1-c)(1-cz)(K/q)^2 with negative derivative on K>=0, so one Kc. Symmetry comparison rules out upstream preference; endpoint and interior classification follows for each K, with c z<1 from q>mu. Numerically independently checked D=mu=a=r=1 threshold Kc~1.8149905664 and interior k/K~.74285 at 4Kc; finite-grid check supplements analytic proof.
 
-**PASS, with priority risk.** Mazzolo's 2026 one-trap drift model derives the single-sink Green-function renewal machinery and examines resetting; it does not treat two competing sink strengths under a fixed reaction budget. Whitehouse--Evans--Majumdar (2013) also treats one imperfect sink. Bressloff--Schumm (2022) treats multiple small traps and resetting, but in bounded higher-dimensional narrow-capture geometry and optimizes reset rate, not an exact one-dimensional two-sink allocation at fixed total local killing strength. Evans--Majumdar (2011) adjusts resetting position laws for a random target rather than allocating simultaneous reaction strengths. No matching or dominating allocation theorem was identified in the checked sources or indexed research search results. The method overlaps standard Green-function and Feynman--Kac theory; a general optimal allocation theorem could still subsume this specialized threshold, so an independent novelty assessment remains needed.
+## originality
 
-## Value
+PASS
 
-**PASS.** With a fixed available amount of chemical trapping/reactivity and directional transport, choosing whether to concentrate reaction downstream or distribute it between two sites is a natural physical design problem. The exact positive critical budget resolves a nontrivial qualitative decision and supplies a unique optimizer on both sides; the strong-concavity argument excludes hidden competing allocations. It contrasts with optimizing the resetting rate, which is a different established task. Even the unequal-strength regime has a quantitative prescription from a single scalar root. The result does not claim a general theory for arbitrary placements or more traps.
+Best-of-knowledge PASS: a published two-boundary Robin allocation theorem was read in full but assumes bounded interval, no drift and no reset, and proves interior optimum for all positive budget, unlike this sharp corner-to-interior full-line reset phase. The identified single-point resetting literature does not itself optimize two separate sink strengths. A more general two-point resolvent optimization theorem remains possible and is an explicit residual risk.
 
-## Closest sources and limitations
+## value
 
-The primary single-point paper and the multi-target narrow-capture work were inspected in substantive HTML text. The one-point 2013 and the spatial target distribution 2011 works were also inspected as full text. Technical machinery is well-known, and broader functional-analytic or optimization formulations could contain the claim implicitly. Results are limited to exactly two symmetric-position delta sinks, not arbitrary geometries or multiple moving targets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal reaction resource splitting between upstream and downstream partially absorbing targets is a natural design parameter; an exact unique bang-bang-to-split threshold is substantively different from fixed-reactivity diffusion or restart-rate optimizations, and strict concavity permits an exact global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

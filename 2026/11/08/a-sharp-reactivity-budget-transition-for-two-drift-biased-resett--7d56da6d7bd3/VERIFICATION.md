@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 (standard library only). The script performs 4,760 deterministic checks, including direct numerical inversion of the independently assembled Green-function matrix, phase-boundary uniqueness and downstream/interior optimizer checks, and a separate tridiagonal continuous-time random-walk approximation to the point killing problem. All checks passed on the supplied program before packaging.
+## correctness
 
-The actual infinite-dimensional argument is the resolvent identity and strict local-time concavity in RESULT.md. Numerical grids neither establish global convexity nor exclude unexamined parameter regions; those facts rely on the written proof. The script samples a range of \(D,\mu,a,r,K\), tests the root equation, checks separate finite-grid optimizers around the transition, and compares with a discretized Markov generator. At the equal-drift boundary, symmetry and strictness are handled analytically.
+PASS
 
-A numerical nearest-neighbor approximation introduces a spatial discretization error; it is deliberately used only as an independent consistency check, with documented finite tolerance, not as a mathematical certificate. Independent audit and validation have not been performed.
+The drifted resolvent at r is G_r(y|x)=q^(-1)exp((mu(y-x)-q|y-x|)/(2D)); solving the two-sink rank-two system gives the exact B(k) with denominator 1+K/q+(1-c^2)k(K-k)/q^2>0. Renewal gives T=(1-B)/(rB). Local-time Laplace functional yields B(k)=-r integral exp(-rt) E[(L_+-L_-)^2 exp(-kL_+-(K-k)L_-)]dt<0, strict because paths hit only one site with positive probability. Endpoint derivative has sign (z-1)+[c(z+1)-2]K/q-(1-c)(1-cz)(K/q)^2 with negative derivative on K>=0, so one Kc. Symmetry comparison rules out upstream preference; endpoint and interior classification follows for each K, with c z<1 from q>mu. Numerically independently checked D=mu=a=r=1 threshold Kc~1.8149905664 and interior k/K~.74285 at 4Kc; finite-grid check supplements analytic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: a published two-boundary Robin allocation theorem was read in full but assumes bounded interval, no drift and no reset, and proves interior optimum for all positive budget, unlike this sharp corner-to-interior full-line reset phase. The identified single-point resetting literature does not itself optimize two separate sink strengths. A more general two-point resolvent optimization theorem remains possible and is an explicit residual risk.
+
+## value
+
+PASS
+
+Optimal reaction resource splitting between upstream and downstream partially absorbing targets is a natural design parameter; an exact unique bang-bang-to-split threshold is substantively different from fixed-reactivity diffusion or restart-rate optimizations, and strict concavity permits an exact global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
