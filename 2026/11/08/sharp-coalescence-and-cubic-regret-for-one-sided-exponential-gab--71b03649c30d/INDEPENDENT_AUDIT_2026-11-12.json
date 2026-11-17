@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:17:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published sharp normalized bounds are Fminus=exp(-t/n)*tanh(t/2)*(t/n)/sinh(t/n) and Fplus=exp(t/n)*coth(t/2)*(t/n)/sinh(t/n). Differentiating gives the submitted stationarity equations; the ratio minimizes exactly at asinh(n), while published theorem establishes uniqueness of the two other extrema. For t=log(2n)+δ with |δ|<=2log(2n)/n, t*csch(t)=(t/n)e^(-δ)+O(t/n³) and (t/n)coth(t/n)=1+t²/(3n²)+O(t⁴/n⁴), proving δ_A=−L/(3n)+O(L²/n²), δ_B=+L/(3n)+O(L²/n²). Second derivatives at these points are ∓1/n+O(L/n²), so quadratic relative regret is (1/(2n))(L/(3n))²=L²/(18n³). Independent bisection/numerical evaluation for n=20,100,1000,10000 shows scaled gaps approaching 1/3 and both scaled regrets approaching 1, without being used to prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2204.02917",
+          "https://www.researchgate.net/publication/372319875_Gabor_frame_bound_optimizations",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-logarithmic-optimizer-offsets-and-pareto-losses-for-high-r--42731fc6bcba"
+        ],
+        "reasoning": "The two-sided exponential high-density results change the window to exp(−|t|), have a different η scale and regret profile; they do not cover the one-sided exp(−γt)1_{t>0} theorem. The cited 2023 paper gives general exact formulas but does not assert the refined constants in inspected text.",
+        "searches": [
+          "one sided exponential Gabor frame optimal lattice lower upper condition number coalescence asymptotics cubic regret",
+          "one sided exponential Gabor optimal lower upper frame bounds separation log n divided n regret L squared n cubed"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/372319875_Gabor_frame_bound_optimizations",
+        "https://arxiv.org/abs/2204.02917",
+        "https://doi.org/10.1016/0019-3577(96)85088-9",
+        "candidate RESULT.md blob 0bbacfa4dbc1452a2378336db207a0b65a8bed5d",
+        "candidate check_one_sided.py blob aff6f39e91b8275fc63d33049543a0e32e7ef9eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://www.researchgate.net/publication/372319875_Gabor_frame_bound_optimizations",
+          "published Theorem 2.6/Section 7 sharp bounds and unique optimizer; original RESULT.md proof expansions"
+        ],
+        "reasoning": "The prior starting formulas imply the current result after additional uniform asymptotic analysis: mathematical derivability from exact formulas is credited, but the precise nontrivial double-scaled optimizer and regret theorem is absent from inspected prior implications.",
+        "searches": [
+          "one sided exponential Gabor frame optimal lattice lower upper condition number coalescence asymptotics cubic regret",
+          "one sided exponential Gabor optimal lower upper frame bounds separation log n divided n regret L squared n cubed"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2204.02917",
+          "https://www.researchgate.net/publication/372319875_Gabor_frame_bound_optimizations",
+          "one sided exponential Gabor sharp high-redundancy optimal lower upper regret optimizer"
+        ],
+        "reasoning": "The same one-sided generator and η=γna parameter were compared with published exact F± formula. The candidate adds genuinely new asymptotic location differences and precise relative regrets, beyond the exact formulas and uniqueness themselves.",
+        "searches": [
+          "one sided exponential Gabor frame optimal lattice lower upper condition number coalescence asymptotics cubic regret",
+          "one sided exponential Gabor optimal lower upper frame bounds separation log n divided n regret L squared n cubed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://www.researchgate.net/publication/372319875_Gabor_frame_bound_optimizations",
+          "independent n=20,100,1000,10000 numerical bisection"
+        ],
+        "reasoning": "Prior exact formulas permit evaluation at finite n but no inspected table states the two sharp limiting coefficients 1/3 and 1/18. Numerical cases support and do not replace the analytic asymptotics.",
+        "searches": [
+          "one sided exponential Gabor frame optimal lattice lower upper condition number coalescence asymptotics cubic regret",
+          "one sided exponential Gabor optimal lower upper frame bounds separation log n divided n regret L squared n cubed"
+        ]
+      },
+      "rationale": "PASS with explicit historical risk. Faulhuber and Shafkulovska 2022/23 FULL inspected §§2.3 and 7 establish the exact frame-bound formulas, existence and uniqueness, strict ordering and asinh(n) optimum. The new two-sided logarithmic separation constant 1/3 and paired equal cubic regret 1/18 are additional asymptotic implications derived here; they are not stated in inspected source sections. Published Resultary high-redundancy results for TWO-sided exponential windows or unequal tails have different objective functions and scales and cannot imply the one-sided constants. Janssen 1996 original full text was not accessible, so best-of-knowledge priority remains provisional.",
+      "residual_risks": [
+        "Janssen (1996) full text was not materially inspected; older equivalent high-density expansion may exist.",
+        "Full 2023 published article was inspected in relevant sections, but lack of all historical priority cannot be inferred from absence of the constants there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source of exact bounds, ordering and uniqueness, but inspected passages do not state sharp L/(3n) splitting or L²/(18n³) regret",
+          "evidence": "Theorem 2.6, Section 7, η_condition=arsinh(n)",
+          "identifier_or_url": "https://www.researchgate.net/publication/372319875_Gabor_frame_bound_optimizations",
+          "material_read": "Material full-text sections 2.3 and 7 including Theorem 2.6, optimizer equations (7.2)–(7.11), and comparisons",
+          "method": "full legally publicly readable article HTML text",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "identical one-sided exponential window, exact same lattice parameter"
+        },
+        {
+          "assessment": "Earlier equivalent optimizer asymptotics cannot be decisively excluded",
+          "evidence": "Janssen (1996) founding calculations",
+          "identifier_or_url": "https://doi.org/10.1016/0019-3577(96)85088-9",
+          "material_read": "Bibliographic identification/abstract; full mathematical text not read",
+          "method": "public bibliographic metadata",
+          "title": "Some Weyl-Heisenberg frame bound calculations",
+          "trigger": "historical source of exact one-sided exponential bounds"
+        },
+        {
+          "assessment": "not the same one-sided window; constants cannot be transferred",
+          "evidence": "two-sided η≈2log n, distinct regrets",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-logarithmic-optimizer-offsets-and-pareto-losses-for-high-r--42731fc6bcba",
+          "material_read": "Published finding summary identifying TWO-sided exp(−|t|) generator",
+          "method": "Resultary semantic search",
+          "title": "Sharp logarithmic optimizer offsets and Pareto losses for high-redundancy exponential Gabor frames",
+          "trigger": "plausible broader theorem by similar title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Quantifying the sharp asymptotic cost of choosing the condition-number optimum rather than independently optimizing both frame bounds is a natural finite-density frame-design question. The same 1/18 coefficient for distinct lower- and upper-bound regrets provides a precise stability/conditioning tradeoff and refines a previously known qualitative separation of three optimizers, not merely an arbitrary evaluation point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Janssen (1996) full text was not materially inspected; older equivalent high-density expansion may exist.",
+    "Full 2023 published article was inspected in relevant sections, but lack of all historical priority cannot be inferred from absence of the constants there."
+  ],
+  "schema_version": 1
+}

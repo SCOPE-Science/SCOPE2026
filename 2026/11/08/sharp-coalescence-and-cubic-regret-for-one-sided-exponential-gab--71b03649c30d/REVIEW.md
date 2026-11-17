@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof identifies the published, exactly normalized shape-dependent frame-bound functions and their critical equations; the leading exponential and hyperbolic expansions are uniform in a shrinking window around \(\log(2n)\). Opposite endpoint signs and the cited uniqueness result locate the global optimizers; Taylor expansions through the second derivative give the sharp factor \(1/18\). The accompanying checker recomputes distinct critical roots and direct relative regrets. It supplies finite corroboration, not an infinite proof.
+PASS
 
-## Originality
+The published sharp normalized bounds are Fminus=exp(-t/n)*tanh(t/2)*(t/n)/sinh(t/n) and Fplus=exp(t/n)*coth(t/2)*(t/n)/sinh(t/n). Differentiating gives the submitted stationarity equations; the ratio minimizes exactly at asinh(n), while published theorem establishes uniqueness of the two other extrema. For t=log(2n)+δ with |δ|<=2log(2n)/n, t*csch(t)=(t/n)e^(-δ)+O(t/n³) and (t/n)coth(t/n)=1+t²/(3n²)+O(t⁴/n⁴), proving δ_A=−L/(3n)+O(L²/n²), δ_B=+L/(3n)+O(L²/n²). Second derivatives at these points are ∓1/n+O(L/n²), so quadratic relative regret is (1/(2n))(L/(3n))²=L²/(18n³). Independent bisection/numerical evaluation for n=20,100,1000,10000 shows scaled gaps approaching 1/3 and both scaled regrets approaching 1, without being used to prove asymptotics.
 
-PASS, provisional. Faulhuber–Shafkulovska gives exact frame-bound functions, uniqueness, the strict optimizer ordering, and the exact condition-number optimizer. The distinct high-density double-scaling expansion and cubic relative Pareto regret are not stated in its inspected Sections 2.3 and 7, nor established by the accessible comparison papers. Janssen's foundational 1996 frame-bound paper could contain an earlier expansion but its full text was unavailable; mathematical priority remains subject to this limitation. The two-sided exponential addresses a different generator and does not imply the one-sided sharp values.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. At fixed redundancy the three distinct optimizing lattices are known to exist, but this exact double-scale resolution quantifies whether a single design remains close to all three objectives. The order \(\log n/n\) optimizer splitting and the equal order \((\log n)^2/n^3\) relative losses identify the precise collapse of the lower/upper conflict for a discontinuous, one-sided window. This is a natural stability-calibration invariant, not an arbitrary parameter sample. No claim of general-window universality or a larger reconstruction theorem is made.
+PASS with explicit historical risk. Faulhuber and Shafkulovska 2022/23 FULL inspected §§2.3 and 7 establish the exact frame-bound formulas, existence and uniqueness, strict ordering and asinh(n) optimum. The new two-sided logarithmic separation constant 1/3 and paired equal cubic regret 1/18 are additional asymptotic implications derived here; they are not stated in inspected source sections. Published Resultary high-redundancy results for TWO-sided exponential windows or unequal tails have different objective functions and scales and cannot imply the one-sided constants. Janssen 1996 original full text was not accessible, so best-of-knowledge priority remains provisional.
 
-## Scope and risks
+## value
 
-The result is restricted to rectangular integer-density Gabor lattices and the one-sided exponential. It relies on an existing global-uniqueness theorem and does not replace it. Numerical computations are confirmatory; historical-priority risk remains for older frame literature and other terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Quantifying the sharp asymptotic cost of choosing the condition-number optimum rather than independently optimizing both frame bounds is a natural finite-density frame-design question. The same 1/18 coefficient for distinct lower- and upper-bound regrets provides a precise stability/conditioning tradeoff and refines a previously known qualitative separation of three optimizers, not merely an arbitrary evaluation point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
