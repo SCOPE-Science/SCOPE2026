@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 6ceda892f1c3ec7c6d02b6028e5687e6be99d1df; verify.cpp 91ca8ce1a80179da7a709e4e9479de5e9cc0eee4; expected_output.txt 634d992c7e1f508f96a912add83b0257ef4e5b43",
+        "Independently compiled /mnt/data/scope_worker-06_20261109T1134Z/pal_check.cpp and checked output pal_check_output.txt, complete k=14 table; direct brute k=3..7 checks"
+      ],
+      "rationale": "For positive binary-palindrome numerator and denominator all values are odd. At fixed k=14, if odd N with leading block t and last block r has a palindrome-denominator B with >=14 bits, the forced numerator prefix a=rev_14(r rev_14(b) mod 2^14) and product-leading-block interval condition (2) must hold for some 14-bit b. Exhaustive integer enumeration of failing (t,r) gives T=45,362,298, and each prefix-boundary q=0..8192 has minimal forced nonrepresentable odd density 80,469,557/240,599,040 at q=6493. The independently compiled and executed C++ enumeration recomputed all widths 3..14 and the exact k=14 minimum; independent direct brute force at k3..7 matched obstruction counts. Binary-palindromic denominators shorter than 14 bits form a finite collection, each with O(sqrt X) possible numerator palindromes up to BX, giving zero density. Adding disjoint even integers of density 1/2 yields lower nonrepresentable density 200,769,077/240,599,040 and hence representable upper density 39,829,963/240,599,040<1/6. Exact proof uses length-shell equidistribution of prefix/suffix cylinders; finite search is exhaustive ONLY at chosen width, not a proof of conjectured density zero.",
+      "residual_risks": [
+        "Enumerated prefix/suffix necessary condition is not sufficient; bound is not exact density",
+        "Finite certificate relies on integer-code exhaustiveness and correct shell-to-density translation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai et al. conjecture representable quotient density zero but do not establish it; other indexed antipalindrome density formulas use reversed+complement bits"
+        ],
+        "reasoning": "Conjectures and computations about individual quotient membership do not imply this proved global 1/6 upper-density bound. Antipalindromic quotients constitute a distinct set, so cannot be used as an umbrella result.",
+        "searches": [
+          "arXiv:2202.13694",
+          "Query Resultary: binary palindrome quotients density upper 1/6 finite bit prefix suffix obstruction local cylinders"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search for quotient density/palindromes and related antipalindrome findings",
+        "Bai et al. 2022 INTEGERS 22 A96 full primary paper relevant section, proofs and open conjecture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bai et al. establishes at least 1/40 lower density for a class of odd nonrepresentable values, plus all even values; this yields at best representable upper density 1/2-1/40=19/40 from that argument"
+        ],
+        "reasoning": "Current proof improves odd nonrepresentable lower density to 80,469,557/240,599,040~0.334455, leading to representable upper bound ~0.165545. The published weak density inequality does not imply this stronger inequality; the new 14-bit enumeration and shell minimization are essential.",
+        "searches": [
+          "arXiv:2202.13694",
+          "Query Resultary: binary palindrome quotients density upper 1/6 finite bit prefix suffix obstruction local cylinders"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bai et al. original establishes positive-density obstruction in binary palindrome quotient set; new fixed-width necessary local-cylinder obstruction is a systematic larger-bit strengthening"
+        ],
+        "reasoning": "The prior 3-bit obstruction and new 14-bit exhaustive prefix/suffix compatibility test address same representability notion. They yield quantitatively distinct density conclusions; prior method does not state the new count or bound.",
+        "searches": [
+          "Query Resultary: binary palindrome quotients density upper 1/6 finite bit prefix suffix obstruction local cylinders",
+          "arXiv:2202.13694"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently executed width-14 enumeration T=45,362,298 and min prefix count=80,469,557/240,599,040, not present in relevant 2022 theorem/table"
+        ],
+        "reasoning": "The width-14 complete certificate is a substantive finite obstruction on a natural arithmetic set; older small-bit tables alone do not supply the new endpoint minimization or infinite-length shell count.",
+        "searches": [
+          "Query Resultary: binary palindrome quotients density upper 1/6 finite bit prefix suffix obstruction local cylinders",
+          "arXiv:2202.13694"
+        ]
+      },
+      "rationale": "Best-of-knowledge genuinely new quantitative <1/6 upper natural-density bound for integer quotients of binary palindromes, improving the earlier 2022 paper’s 1/40 lower-density obstruction among odd integers (and the trivial 1/2 of evens). Original paper conjectures density zero but neither proves it nor has a stronger numerical constant. Related antipalindrome results concern different digit symmetry.",
+      "residual_risks": [
+        "Assigned RESULT.md miscites numbering of relevant theorem/corollary in primary article: actual inspected primary printed version uses Theorem 6, Corollary 1 and Remark 4 for palindromic quotient obstruction, not Theorem 8/Corollary 9/Remark 10. This does not affect new mathematical bound, but should be corrected in future citation housekeeping.",
+        "No claim of full proof of conjectured zero density"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING stronger 1/6 conclusion; establishes 1/40 among odd nonquotients, poses conjecture of density zero",
+          "evidence": "Printed INTEGERS paper palindrome quotient obstruction in Theorem 6/Corollary 1/Remark 4; note assigned source references mismatched numbering",
+          "identifier_or_url": "https://arxiv.org/abs/2202.13694",
+          "material_read": "Primary published 33-page paper, relevant palindrome quotient density section and original conjecture; visibly inspected PDF theorem and nearby corollary/remark pages",
+          "method": "Read primary PDF text and screenshots of relevant pages",
+          "title": "Quotients of Palindromic and Antipalindromic Numbers",
+          "trigger": "Same objects, quotient membership/density, earlier explicit lower bound"
+        },
+        {
+          "assessment": "Cannot infer full-text noncoverage, but subject is complement-reversal palindromes not regular palindromes",
+          "evidence": "Distinct antipalindrome definition",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-19-54-lower-density-obstruction-for-binary-antipalindrome-quot--1622e51107bb",
+          "material_read": "Resultary title, abstract and summary only; not complete source reading",
+          "method": "Semantic search indexed summary",
+          "title": "A 19/54 lower-density obstruction for binary antipalindrome quotients",
+          "trigger": "Potential matching density-bound numerical theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bai–Meleshko–Riasat–Shallit primary published conjecture and density proof",
+        "Exact 14-bit code and independent full enumeration"
+      ],
+      "rationale": "Directly strengthens a published quantitative theorem on a natural arithmetic quotient set and materially advances its open zero-density conjecture: a certified, exact width-14 obstruction lowers representable upper density below 1/6. The finite certificate has an infinite-length, nontrivial shell-to-density argument; it is neither an arbitrary numerical slice nor an unsupported extrapolation.",
+      "residual_risks": [
+        "Bound is weaker than conjectured zero; exact natural density remains unknown",
+        "Primary paper section numbering in current research text should be bibliographically corrected"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Enumerated prefix/suffix necessary condition is not sufficient; bound is not exact density",
+    "Finite certificate relies on integer-code exhaustiveness and correct shell-to-density translation",
+    "Assigned RESULT.md miscites numbering of relevant theorem/corollary in primary article: actual inspected primary printed version uses Theorem 6, Corollary 1 and Remark 4 for palindromic quotient obstruction, not Theorem 8/Corollary 9/Remark 10. This does not affect new mathematical bound, but should be corrected in future citation housekeeping.",
+    "No claim of full proof of conjectured zero density",
+    "Bound is weaker than conjectured zero; exact natural density remains unknown",
+    "Primary paper section numbering in current research text should be bibliographically corrected"
+  ],
+  "schema_version": 1
+}

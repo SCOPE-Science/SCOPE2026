@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local condition uses exact bit reversal, two possible product lengths, and interval intersection. The code enumerates every \(14\)-bit leading block of each operand and exhausts the odd low residue classes. Exact output is \(45362298\) forbidden cylinders, with minimum dyadic boundary ratio \(80469557/240599040\). The proof accounts for arbitrary binary lengths, dyadic partial-shell boundaries, a negligible finite collection of short denominators, and even integers. Exhaustion covers only the finite certificate; the infinite conclusion follows from the explicit counting argument, not experiments.
+## correctness
 
-**Originality — PASS within inspected evidence.** Bai–Meleshko–Riasat–Shallit (2022), Theorem 8 and Corollary 9, give the three-bit odd nonquotient family and its \(1/40\) lower-density bound, while Remark 10 invites improvements and Conjecture 2 asks whether the quotient set has density zero. Their membership automata and small tables do not imply this new <\(1/6\) quantitative upper bound. Earlier three-bit two-cylinder work gives only a lower-density \(11/20\) complement bound. Targeted primary and mathematical-record comparisons found no equivalent bound; unindexed coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** The natural ratio set of binary palindromes is the subject of an explicit published density-zero conjecture. Proving that more than five-sixths of the integers are nonquotients cuts the certified upper density of representable integers to below one-sixth, a substantial uniform improvement rather than a minor extra example. The general finite-prefix exclusion method can be sharpened without claiming the conjecture is solved.
+For positive binary-palindrome numerator and denominator all values are odd. At fixed k=14, if odd N with leading block t and last block r has a palindrome-denominator B with >=14 bits, the forced numerator prefix a=rev_14(r rev_14(b) mod 2^14) and product-leading-block interval condition (2) must hold for some 14-bit b. Exhaustive integer enumeration of failing (t,r) gives T=45,362,298, and each prefix-boundary q=0..8192 has minimal forced nonrepresentable odd density 80,469,557/240,599,040 at q=6493. The independently compiled and executed C++ enumeration recomputed all widths 3..14 and the exact k=14 minimum; independent direct brute force at k3..7 matched obstruction counts. Binary-palindromic denominators shorter than 14 bits form a finite collection, each with O(sqrt X) possible numerator palindromes up to BX, giving zero density. Adding disjoint even integers of density 1/2 yields lower nonrepresentable density 200,769,077/240,599,040 and hence representable upper density 39,829,963/240,599,040<1/6. Exact proof uses length-shell equidistribution of prefix/suffix cylinders; finite search is exhaustive ONLY at chosen width, not a proof of conjectured density zero.
 
-**Limits.** The density need not exist; the exact value and density-zero conjecture remain unproved. The 14-bit test is necessary but not sufficient, and the source comparison cannot certify global priority. Independent external validation is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge genuinely new quantitative <1/6 upper natural-density bound for integer quotients of binary palindromes, improving the earlier 2022 paper’s 1/40 lower-density obstruction among odd integers (and the trivial 1/2 of evens). Original paper conjectures density zero but neither proves it nor has a stronger numerical constant. Related antipalindrome results concern different digit symmetry.
+
+## value
+
+PASS
+
+Directly strengthens a published quantitative theorem on a natural arithmetic quotient set and materially advances its open zero-density conjecture: a certified, exact width-14 obstruction lowers representable upper density below 1/6. The finite certificate has an infinite-length, nontrivial shell-to-density argument; it is neither an arbitrary numerical slice nor an unsupported extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

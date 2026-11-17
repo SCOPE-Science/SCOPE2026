@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The complete certified finite computation is `verify.cpp` (C++17, integer-only) and its actual captured output is `expected_output.txt`. Compile and run `c++ -O3 -std=c++17 verify.cpp -o verify && ./verify` and compare exact output. The code exhausts all permitted \(t,b\) at width \(14\), obtains all permitted last-block residues by a modular inverse, counts the complement, and compares all \(8193\) shell-boundary ratios by integer cross-products.
+# Independent mathematical audit
 
-The separate `crosscheck.py` checks the forced-prefix test directly against inverse enumeration for *every* width-3 to width-8 input, and for 200 deterministic width-14 samples. Its saved output is `crosscheck_output.txt`. Those sampled checks are supporting tests, not a substitute for exhaustive width-14 enumeration or the all-length proof.
+## correctness
 
-Verified finite count: \(45362298\) excluded width-14 leading/trailing block pairs. Verified minimum: \(80469557/240599040\) at leading-block boundary index \(6493\). The proof in `RESULT.md` transforms this into the upper-density bound; the program alone would not prove the infinite conclusion.
+PASS
 
-Limitations: the local predicate may mark a pair possible even though no actual quotient realizes it, so the claimed result is only an upper bound. The density-zero conjecture remains unproved, and independent scientific audit has not been performed.
+For positive binary-palindrome numerator and denominator all values are odd. At fixed k=14, if odd N with leading block t and last block r has a palindrome-denominator B with >=14 bits, the forced numerator prefix a=rev_14(r rev_14(b) mod 2^14) and product-leading-block interval condition (2) must hold for some 14-bit b. Exhaustive integer enumeration of failing (t,r) gives T=45,362,298, and each prefix-boundary q=0..8192 has minimal forced nonrepresentable odd density 80,469,557/240,599,040 at q=6493. The independently compiled and executed C++ enumeration recomputed all widths 3..14 and the exact k=14 minimum; independent direct brute force at k3..7 matched obstruction counts. Binary-palindromic denominators shorter than 14 bits form a finite collection, each with O(sqrt X) possible numerator palindromes up to BX, giving zero density. Adding disjoint even integers of density 1/2 yields lower nonrepresentable density 200,769,077/240,599,040 and hence representable upper density 39,829,963/240,599,040<1/6. Exact proof uses length-shell equidistribution of prefix/suffix cylinders; finite search is exhaustive ONLY at chosen width, not a proof of conjectured density zero.
+
+## originality
+
+PASS
+
+Best-of-knowledge genuinely new quantitative <1/6 upper natural-density bound for integer quotients of binary palindromes, improving the earlier 2022 paper’s 1/40 lower-density obstruction among odd integers (and the trivial 1/2 of evens). Original paper conjectures density zero but neither proves it nor has a stronger numerical constant. Related antipalindrome results concern different digit symmetry.
+
+## value
+
+PASS
+
+Directly strengthens a published quantitative theorem on a natural arithmetic quotient set and materially advances its open zero-density conjecture: a certified, exact width-14 obstruction lowers representable upper density below 1/6. The finite certificate has an infinite-length, nontrivial shell-to-density argument; it is neither an arbitrary numerical slice nor an unsupported extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
