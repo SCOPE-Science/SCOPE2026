@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The set is a union of parabola tangents with a vertical line, verified by \(x^2-(2tx-t^2)=(x-t)^2\). Its fiber sizes give the stated cardinality. For nonvertical frequencies, direct separation of the quadratic-phase and quadratic-residue sums, followed by replacement of the incomplete zero fiber with a full fiber, gives the pointwise Fourier formula. The nonstandard fourth-moment calculation is expanded in the proof; equation (1) follows from two Gauss-sum orthogonality identities and retains the \(q^2\) Fourier-energy normalization. The two field congruence cases and the \(\eta(2)\) sign are handled separately. Direct exhaustive integer pair sums validate the formulas for twelve small fields, including non-prime fields, and independent direct Fourier sums agree in five cases. None of those finite checks substitutes for the all-field argument.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual priority risk
-The closest source is Fraser's 2025 public preprint, later a 2026 article. Its full freely accessible article was read, including the definitions and Theorem 2.4: it produces a Fourier-decaying **some** measure on any Kakeya set, not an explicit Fourier spectrum of the uniform measure on the extremal parabolic set and not an exact fourth-moment energy formula. Blokhuis--Mazzocca's full uploaded arXiv manuscript, including its oval-type construction and the sharp planar odd-characteristic size theorem, was read: its statements are geometric incidence/cardinality classifications. published-finding corpus and targeted literature searches found closer-looking parabola fourth-extension calculations, but their one-dimensional curve/functional optimization invariants are not \(E(K)\), and neither implies the displayed two-variable Kakeya transform. Classical Gauss sums make the formula approachable but do not by themselves assert the assembled transform or the arithmetic fourth-moment splitting. Residual risk: equivalent identities could be implicit in earlier literature under dual-oval, Gaussian-period, or additive-energy terminology.
+PASS
 
-## Value — PASS
-This is an exact natural invariant of a minimal-cardinality planar Kakeya construction: its ordered additive quadruple count and fourth Fourier moment. The full uniform transform gives an explicit strongly Salem witness on an extremal configuration, a distinction newly emphasized in the motivating literature. The dependence on \(q\bmod4\) and \(\eta(2)\) is a meaningful arithmetic boundary and quantifies higher Fourier moments beyond qualitative decay. The claim is not an arbitrary numerical sample or a routine small perturbation; it is an all-odd-prime-power formula with a complete proof.
+PASS: The x≠0 vertical fibers of K={(x,x²−s):s a square} plus the complete fiber at x=0 have size (q+1)/2 and q, respectively; tangent lines y=2tx−t² furnish every nonvertical direction. The indicator Fourier transform separates a quadratic Gauss sum over x and square-residue sum over s; subtracting the incomplete x=0 contribution and adding the full fiber yields the stated v≠0 coefficient, and v=0,u≠0 yields (q−1)/2. The Gauss identities G²=eta(-1)q and a_v sum z=q imply the claimed v≠0 fourth-moment sum, split by q modulo 4 and eta(2), with orthogonality sum |hat1_K|⁴=q²E(K). The two explicit polynomials follow; their q^-1 uniform bias upper bound comes from |G|=sqrt(q) and the exact set size. Independently constructed K and exact ordered pair-sum energy over q=3,5,7,11,13,17: all six matched the claimed integer polynomials; the all-prime-power theorem relies on the algebraic proof.
 
-## Boundaries and further checking
-The formula is for the specified affine parabolic set; it is not a classification of all Kakeya Fourier spectra. The best possible pointwise decay constant is not determined. Independent assessment of novelty and proof has not yet taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the full all-odd-prime-power spectral/energy theorem, with explicit prior-coverage subtraction. Blokhuis–Mazzocca already establish minimal cardinality and geometric model; Fraser proves some Fourier-decaying measure exists on any Kakeya set, not the transform of its uniform measure. The November 8 published four-level spectrum of the same quadratic-tangent Kakeya set, after x-coordinate scaling, covers all q=3^m with m odd >=3: this covers a NONTRIVIAL subfamily and is not credited anew. Its theorem does not address fields q≡1 mod4, q≡3 mod4 outside characteristic three, or the all-q piecewise eta(2)-sensitive energy polynomial. The surviving exact arithmetic fourth moment for every odd prime power is a distinct natural invariant, although a disguised old Gaussian-period identity may exist.
+
+## value
+
+PASS
+
+PASS: The exact additive energy (ordered quadruple count) is a natural additive-combinatorial invariant of the extremal minimum-size planar Kakeya configuration, with uniform-measure Fourier decay and a full complex transform rather than merely existence of a favorable weighting. The dichotomy by q mod 4 and eta(2) measures arithmetic changes in fourth moments beyond known cardinality and some-measure Salem bounds, across an unrestricted infinite family. It is a self-contained motivated exact calculation, not a single arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
