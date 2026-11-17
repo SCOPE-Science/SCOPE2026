@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:54:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Exact KL projection for the reflected row weights (z^-1,t,z) imposes mean a through s=z+z^-1 and d=z-z^-1=a(s+t), giving s=(a²t+sqrt(a²t²+4(1-a²)))/(1-a²). Column rescaling returns t+=(1-b)s/b; t0=2(1-b)/b. For b>a, the fixed point t*=2(1-b)/sqrt(b²-a²) satisfies q0=1-b; F is increasing/strictly convex with sharp global sup derivative L=a(1-b)/[b(1-a)]<1 and local rho=a²(1-b)/[b(b-a²)]. Taylor expansion of row KL about q0(t*) yields successive relative-entropy ratio rho². At feasible boundary b=a, the positive recurrence has t_{k+1}-t_k=2(1-a)/(a²t_k)+O(t_k^-3), giving t_k/sqrt(k)→2sqrt(1-a)/a and kq_-(t_k),kH(pi*|pi_k)→a(1-a)/4. KL is measured at the martingale half-steps, not column-restored steps. This is an exact finite-state proof, not a general claim for all martingale Sinkhorn instances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazeykina–Ren–Wang strict convex order and convex terminal support assumptions exclude the three isolated target atoms and the equality boundary.",
+          "Chen et al. exponential results exclude the support-degenerate boundary; Bifronte et al. concern SISTA, not exact martingale row KL projection."
+        ],
+        "reasoning": "These general theorems are ingredients or different domains and do not imply the precise boundary reciprocal-time law.",
+        "searches": [
+          "https://arxiv.org/abs/2609.18850",
+          "https://arxiv.org/abs/2407.14186",
+          "https://arxiv.org/abs/2610.26504"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18850",
+        "https://arxiv.org/abs/2407.14186",
+        "https://arxiv.org/abs/2610.26504",
+        "https://arxiv.org/abs/2508.17641",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-convex-order-boundary-slowdown-in-a-two-by-three-martingal--c650ce09469b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier strict-case exponential existence does not supply sharp local rho² or optimal global L.",
+          "At boundary the optimum has zero opposite-sign cells; this violates the strict interior conditions giving geometric rates."
+        ],
+        "reasoning": "The proven 1/k critical slowdown and coefficient a(1-a)/4 are not corollaries of general strict-convex-order theorems.",
+        "searches": [
+          "https://arxiv.org/abs/2609.18850",
+          "https://arxiv.org/abs/2407.14186",
+          "https://arxiv.org/abs/2610.26504"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact step alternates KL projection onto source/martingale row and target marginal; differs from ordinary marginal Sinkhorn and SISTA.",
+          "No result in inspected papers formulates the same scalar t recursion and boundary coefficient."
+        ],
+        "reasoning": "Superficial algorithm labels do not establish equivalence; compare actual objective, support, updates, initialization and relative entropy timing.",
+        "searches": [
+          "Resultary: two by three martingale Sinkhorn alternating exact KL projections convex order boundary t/sqrt(k) relative entropy k inverse",
+          "https://arxiv.org/abs/2609.18850",
+          "https://arxiv.org/abs/2407.14186"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-instance all-a,b table or symbolic recursion appeared; 2x3 finite experiments in verifier only corroborate exact formulas."
+        ],
+        "reasoning": "A numerical Sinkhorn convergence table cannot establish sharp rate and coefficient at every 0<a<1,b=a.",
+        "searches": [
+          "Resultary: two by three martingale Sinkhorn alternating exact KL projections convex order boundary t/sqrt(k) relative entropy k inverse",
+          "https://arxiv.org/abs/2407.14186"
+        ]
+      },
+      "rationale": "PASS best of knowledge. The primary Kazeykina–Ren–Wang (2026) exponential theorem assumes terminal convex support and strict convex order; this ν has disconnected three-point support and boundary b=a violates strictness. Chen–Conforti–Ren–Wang establish general exponential convergence under their own interior hypotheses, not the explicit t recursion and sharp boundary constants. SISTA is a different approximate martingale-potential gradient step. Published Resultary searches on two-by-three exact martingale projections did not find a covering scalar or boundary theorem.",
+      "residual_risks": [
+        "Earlier abstract algorithmic KL projection or information-geometry results may implicitly encode this scalar two-by-three boundary rate without naming martingale Sinkhorn; best-of-knowledge only.",
+        "The b=a optimizer has boundary zeros and no finite fixed dual factor; that does not mean primal infeasibility or nonexistence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED EXPONENTIAL RATE, ASSUMPTIONS EXCLUDE BOUNDARY AND DISCRETE SUPPORT",
+          "evidence": "Strict convex order plus convex terminal support required; ν supported on {-1,0,1} is not convex in R; b=a not strictly ordered.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18850",
+          "material_read": "Primary full arXiv text inspected: model definitions, hypotheses, main rate theorem and convex support conditions",
+          "method": "Read arXiv full article HTML (relevant Sections 2–6)",
+          "title": "Exponential convergence of Sinkhorn algorithm for entropy martingale optimal transport",
+          "trigger": "Same martingale entropy projection algorithm, published 2026"
+        },
+        {
+          "assessment": "GENERAL INTERIOR CONVERGENCE, NOT SHARP 2x3 BOUNDARY",
+          "evidence": "Its positive/equivalent optimizer hypotheses do not cover the boundary zero cell, and no 1/k coefficient or scalar closed form was found.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.14186",
+          "material_read": "Primary full text read in accessible HTML, including main rate conditions and discussion of optimal coupling support",
+          "method": "Read arXiv full article HTML",
+          "title": "Convergence of Sinkhorn’s Algorithm for Entropic Martingale Optimal Transport Problem",
+          "trigger": "Earlier same algorithm and contraction theorem"
+        },
+        {
+          "assessment": "DIFFERENT GRADIENT MARTINGALE STEP; RESIDUAL RISK RETAINED",
+          "evidence": "SISTA linear convergence concerns gradient approximation, not exact martingale KL row projections.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26504",
+          "material_read": "Bibliographic abstract and method identification; full theorem-by-theorem reading not claimed",
+          "method": "Accessible arXiv summary/method comparison",
+          "title": "On the Linear Convergence of SISTA for Entropic Martingale Optimal Transport",
+          "trigger": "Potentially stronger convergence result under alternative algorithm name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A minimal nontrivial martingale optimal transport instance exhibits an exact geometric-to-1/k convergence transition at the convex-order feasibility edge, with a sharp global contraction constant and explicit entropy coefficient. This is a motivated boundary diagnostic for entropy projections; the precise rate and normalization are not routine numerical checks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.18850",
+    "https://arxiv.org/abs/2407.14186",
+    "https://arxiv.org/abs/2610.26504",
+    "https://arxiv.org/abs/2508.17641",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-convex-order-boundary-slowdown-in-a-two-by-three-martingal--c650ce09469b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Earlier abstract algorithmic KL projection or information-geometry results may implicitly encode this scalar two-by-three boundary rate without naming martingale Sinkhorn; best-of-knowledge only.",
+    "The b=a optimizer has boundary zeros and no finite fixed dual factor; that does not mean primal infeasibility or nonexistence."
+  ],
+  "schema_version": 1
+}
