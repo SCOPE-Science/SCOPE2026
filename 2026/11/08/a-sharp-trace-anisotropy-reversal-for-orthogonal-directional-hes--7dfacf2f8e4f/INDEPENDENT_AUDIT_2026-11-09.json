@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:55:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact quadratic oracle q(u)=uᵀHu, the calibrated M(u)=d q(u)((d+2)uuᵀ−I)/2 is unbiased by spherical fourth moments. Directly computing E[q(u)q(v)] over distinct Haar columns yields ((d+1)t²−2s)/(d(d−1)(d+2)). Hence the centered Frobenius cross-covariance is C=[(−d²+2d+4)/(2(d−1)(d+2))]s−[d(d+1)(d+4)/(4(d−1)(d+2))]t²; risk difference is (k−1)C/k. Sign: d=2 iff t²/s<2/9 and d=3 iff <1/42 for worse frame; d>=4 always improvement. PSD H has t²>=s and improves. Independent exact 2D integration of H=diag(1,−1) gives iid risk 3/2 versus orth risk 2. Equalities checked; no claim about nonquadratic/noisy oracle.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maritan–Schenato–Dey 2024 develops incremental residual Hessian estimation under orthonormal directions. Feng–Wang studies two-frame finite-difference Hessian bounds."
+        ],
+        "reasoning": "Neither examined formulation contains the stated one-step exact C(s,t,d), and different estimator variance bounds do not logically give it.",
+        "searches": [
+          "orthogonal directional Hessian estimator Haar frame variance traceless reversal; orthogonal zeroth order Hessian estimator variance frobenius risk trace anisotropy Haar direction frame",
+          "https://arxiv.org/abs/2205.14737",
+          "https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-reversal-for-orthogonal-directional-hes--7dfacf2f8e4f/RESULT.md",
+        "https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning",
+        "https://arxiv.org/abs/2201.10780",
+        "https://arxiv.org/abs/2205.14737"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Maritan 2024 article addresses iterative residual curvature and their orthonormal sampling scheme, not same M(u).",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-reversal-for-orthogonal-directional-hes--7dfacf2f8e4f/RESULT.md exact analytical proof for H and all d,k"
+        ],
+        "reasoning": "Known generic spherical moment identities enable a calculation but do not by themselves state the model-specific reversal, sharp 2/9 and 1/42 frontiers, or ratios 4/3 and 45/44; prior schemes do not entail them.",
+        "searches": [
+          "orthogonal directional Hessian estimator Haar frame variance traceless reversal; orthogonal zeroth order Hessian estimator variance frobenius risk trace anisotropy Haar direction frame",
+          "https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Submitted M(u)=d q(u)((d+2)uuᵀ−I)/2 is single-probe calibrated full-Hessian estimator; 2022 Riemannian estimator queries mixed direction derivatives."
+        ],
+        "reasoning": "Distinguishing update/operator formulas prevents misidentifying general orthogonal frame results as same estimator.",
+        "searches": [
+          "orthogonal directional Hessian estimator Haar frame variance traceless reversal; orthogonal zeroth order Hessian estimator variance frobenius risk trace anisotropy Haar direction frame",
+          "https://arxiv.org/abs/2201.10780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-reversal-for-orthogonal-directional-hes--7dfacf2f8e4f/RESULT.md exact non-tabular all-d trace condition; Resultary queries returned same claim and other gradient/Haar works"
+        ],
+        "reasoning": "Continuous arbitrary symmetric-Hessian risk law is not an exact-table task; no prior table of this one-step estimator was found, but absence of a search hit does not certify novelty.",
+        "searches": [
+          "orthogonal directional Hessian estimator Haar frame variance traceless reversal; orthogonal zeroth order Hessian estimator variance frobenius risk trace anisotropy Haar direction frame"
+        ]
+      },
+      "rationale": "Existing incremental rank-one Hessian and two-frame mixed-direction estimators have different update rules. Their variance bounds do not subsume the exact finite-k calibrated one-step directional-curvature estimator and its saddle-dependent switch. Specialist inaccessible original remains residual originality risk.",
+      "residual_risks": [
+        "Feng/Wang full text inaccessible through authorized institutional connection (VPN disconnected); same-specialty result merits later full comparison.",
+        "Only exact quadratic central differences; no noise and no nonlinear finite-h correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ESTIMATOR",
+          "evidence": "Incremental rank-one residual updating with orthonormal samples, not single-step isotropically calibrated projector M(u).",
+          "identifier_or_url": "Maritan, Schenato and Dey, Novel Bounds for Incremental Hessian Estimation With Application to Zeroth-Order Federated Learning",
+          "material_read": "Full accessible research rendering including algorithmic statements and appendix",
+          "method": "primary full-text via https://www.researchgate.net/publication/379845109_Novel_Bounds_for_Incremental_Hessian_Estimation_With_Application_to_Zeroth-Order_Federated_Learning",
+          "title": "Maritan, Schenato and Dey, Novel Bounds for Incremental Hessian Estimation With Application to Zeroth-Order Federated Learning",
+          "trigger": "Orthogonal directions, Hessian matrices, plausible stronger scheme"
+        },
+        {
+          "assessment": "PROOF_CHECKED",
+          "evidence": "Exact one-probe and pair covariances, finite k comparison and saddle example",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-reversal-for-orthogonal-directional-hes--7dfacf2f8e4f/RESULT.md",
+          "material_read": "Full finding, derivation, restrictions, references and checker code",
+          "method": "frozen GitHub RESULT.md blob e8b3e899609ba935d27b8783d2e324895efa2dbe",
+          "title": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-trace-anisotropy-reversal-for-orthogonal-directional-hes--7dfacf2f8e4f/RESULT.md",
+          "trigger": "Frozen submitted claim"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Available abstract describes two-frame Hessian sampling with variance/bias bounds; complete comparison not established",
+          "identifier_or_url": "Feng and Wang, Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+          "material_read": "Public abstract and accessible search information, not complete paper; lawful full-text routes inaccessible",
+          "method": "arXiv:2205.14737 / DOI:10.1093/imaiai/iaad014; authorized Oxford read returned VPN disconnected",
+          "title": "Feng and Wang, Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+          "trigger": "Same topic, possibly stronger orthogonal Hessian theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exactly unbiased, evaluation-budget-matched zeroth-order Hessian estimator has a sharp dimension-two/three orthogonality failure and a dimension-four universal improvement cutoff, explaining when a widespread antithetic design helps/hurts curvature inference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Feng/Wang full text inaccessible through authorized institutional connection (VPN disconnected); same-specialty result merits later full comparison.",
+    "Only exact quadratic central differences; no noise and no nonlinear finite-h correction.",
+    "The submitted numerical verification script was inspected but not independently executed; independent small exact/symbolic checks and reconstruction of the analytical proof are distinct from formal verification.",
+    "No external independent expert attestation is claimed.",
+    "Public publication must be withheld pending semantically verified privacy-safe metadata changes."
+  ],
+  "schema_version": 1
+}
