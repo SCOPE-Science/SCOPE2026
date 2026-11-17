@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the covariance spectral classification
+# Independent mathematical audit
 
-The accompanying `artifacts/verify.py` uses exact rational arithmetic for the transfer-current covariance of balanced complete multipartite graphs. It checks the claimed eigenvalue formulas and their dimensions for all 1,606 pairs of integers with 3 <= k <= 24 and 2 <= n <= 74, and diagonalizes five explicit small covariance matrices independently using NumPy. For K_(2,2,2), it enumerates all 384 spanning-tree vertices and checks all 144 covariance entries by exact arithmetic against the transfer-current construction.
+## correctness
 
-Run `OPENBLAS_NUM_THREADS=1 python artifacts/verify.py` with Python 3 and NumPy. A successful check prints `BALANCED_MULTIPARTITE_COVARIANCE_CHECKS_PASSED 1755`. The 1,606 parameter tests, finite exhaustive enumeration and floating point eigenspectra are corroboration, not a substitute for the general proof in `RESULT.md`. The transfer-current identity is a classical external theorem. The complete 2023 Li–Chen–Yan paper was not available for historical comparison; its abstract does not rule out a related calculation. Independent audit has not been performed.
+PASS
+
+For balanced complete k-partite graph with n per part (k>=3,n>=2), reconstructed L+ pseudoinverse from within-part zero sum and between-part contrast eigenspaces. Transfer-current determinant gives offdiagonal Cov(X_e,X_f)=-(b_e^T L+ b_f)^2 and variance r(1-r). The orthogonal block tensor decomposition gives zero plus L,A,T,H and for k>=4 B spectra with stated multiplicities; explicit positive differences yield strict order and condition number 2 at k=3 and 2+2/[k(kn-2)] for k>=4. Independent Laplacian pseudoinverse and numerical diagonalization for (k,n)=(3,2),(4,2),(3,3) matched all eigenvalues to 5e-16. Finite matrices corroborate, while general algebra establishes all parameters.
+
+## originality
+
+PASS
+
+Existing transfer-current determinantal laws and complete multipartite spanning-forest containment formulas imply individual covariance entries, not the simultaneous exact eigenspace/multiplicity hierarchy or the sharp condition number stated here. The derivation adds a nontrivial k,n-dependent representation decomposition, although an implicit equivalent association-scheme spectrum remains possible.
+
+## value
+
+PASS
+
+Uniform spanning-tree indicator covariance is an intrinsic natural second-moment metric for the graphic-matroid base polytope. The full orthogonal mode/multiplicity decomposition, strict hierarchy and sharp dimension-independent conditioning for all balanced multipartite graphs are not just marginal probabilities and provide a reusable structural example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
