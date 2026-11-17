@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computation and proof cross-checks
+# Independent mathematical audit
 
-Two standalone Python 3 programs require only the standard library. Run them in the same directory as the scripts with `python3 verify_rule3.py` and `python3 verify_independent.py`.
+## correctness
 
-`verify_rule3.py` constructs every labelled state on rings of lengths \(3\) through \(14\) and applies the local Rule 3 update directly. It compares the computed recurrent state set to cyclic avoidance of \(101\), checks the cubic shift law on every state, and verifies \(204\) time-dependent fixed-point counts for temporal exponents from \(1\) through \(2n\).
+PASS
 
-`verify_independent.py` separately enumerates words of lengths \(1\) through \(18\), comparing direct pattern-avoidance and maximal-independent-set indicators against the two transfer-matrix traces and the Perrin recurrence. It also uses arithmetic Möbius inversion to check the complete nonnegative integral temporal-orbit decompositions on rings of lengths \(3\) through \(19\). Captured output logs are included and show both scripts passing.
+Boolean evaluation gives F³=S F and im F precisely the cyclic 101-avoiding words; on im F, F²=S and hence every state is recurrent at time 0 or 1. For even m fixed points reduce to spatial period gcd(n,m/2), and for odd m the fixed equation at reduced odd circumference is equivalent to an independent dominating subset of one cyclic graph (Perrin count). Möbius inversion counts primitive temporal orbits. Characteristic polynomials of the two de Bruijn transfers yield all lengths and spectral growth. Independent full-state enumeration confirmed 126 fixed-time tests for n=3..11. The proof, not these samples, establishes n>=3 and every m>=1.
 
-The proof's essential nonstandard step—odd temporal fixed points on a periodic ring correspond to maximal independent sets on a coprime step-cycle—is established directly in RESULT.md. Neither exhaustive tests through finite lengths nor an observed sequence would justify the claims for arbitrary \(n\); that generality rests on the displayed Boolean identities and the transfer-graph bijections. There has been no external independent audit.
+## originality
+
+PASS
+
+Classical pointwise NOR/Rule3 solutions, the square-root-of-shift identity and Perrin counts of maximal independent sets are prior inputs. The output is a complete odd/even gcd-resolved temporal fixed-point and primitive-orbit census linking dynamics to graph independence, not stated by the inspected pointwise solution or earlier independent-set enumeration. No earlier identical Resultary census appeared besides the assigned record; best-of-knowledge novelty qualified.
+
+## value
+
+PASS
+
+The exact primitive temporal-orbit populations of a natural irreversible elementary cellular automaton on all finite periodic rings are a complete classification. The parity split and Perrin/maximal-independent-set link are nontrivial dynamical structure with direct use in periodic point statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
