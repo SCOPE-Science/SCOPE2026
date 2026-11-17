@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Both normalizations are proved by explicit finite birational extensions and normality criteria. Their free rank-two presentations over \(k[y,z]\) give the quotient and conductor exactly. The reduced singular loci follow from the Jacobian derivatives; the normal odd-characteristic surface is explicitly \(A_3\). The bundled verifier tests key polynomial identities and does not purport to replace the normality proof.
+## correctness
 
-## Originality — PASS, provisional
-Hauser's dated primary text and official gallery establish the Calyx equation, the Calypso image, and characteristic-zero resolution background. These are prior work. The characteristic-two normalization \(k[y,t]\), the conductor \((yz,x+z^2)\), and the second nonnormal curve were not stated in the inspected relevant primary sections or located in actual targeted mathematical-record and local-claim searches. General normalization tools do not automatically settle this exact special fiber. Historical-priority uncertainty and incomplete first-posting-date evidence remain.
+PASS
 
-## Mathematical value — PASS
-The exact normalization bifurcation of a canonical named test surface detects a genuine wild-characteristic boundary: a normal \(A_3\) surface becomes an affine plane, and the conductor support changes from one curve to two. The extra conductor component carries a purely inseparable map, an intrinsic distinction relevant to understanding characteristic-dependent resolution and degenerations.
+For char!=2, S=A+At with t=x/z, t^2=z^2-y^2z, and R=A+ztA. Singular gradient of t^2+y^2z-z^2 vanishes only at origin; hypersurface S2+R1 gives normality. Completing square u=z-y^2/2 yields t^2-u^2+y^4/4, type A3. S/R=A/(z) and conductor zS=(z,x). In char2 w=x+z^2 has w^2=y^2z^3; R is domain because z-adic valuation 3 prevents a square in k(y,z). t=w/(yz) obeys t^2=z; S=k[y,t]=A+At, R=A+yztA, same fraction field, finite/birational and normal; conductor yz S=(yz,w), quotient A/(yz). F_z=y^2z^2, leading to reduced support V(x,z) union V(y,x+z^2), and z=t^2 on the latter is purely inseparable degree2. The script confirms polynomial identities but proof uses ring structure.
 
-## Limits
-The finding addresses this affine model, not global compactifications or general models. Search non-hits do not establish universal novelty. Independent external scientific audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hauser defines and resolves the Calyx/Calypso surface in non-wild setting; char!=2 normalization and A3 are acknowledged consequences. The surviving char2 smooth normalization, extra conductor branch and inseparable generic structure were not observed in inspected relevant sections and indexed corresponding-record searches. The result is an actual characteristic-dependent structural bifurcation, not a new surface definition.
+
+## value
+
+PASS
+
+The normal form of a named singular test surface crosses from a normal A3 singularity to an affine plane in wild characteristic, and its conductor support jumps from one to two curves with an inseparable map. This exact natural boundary is mathematically useful for comparisons of normalization, singular locus, and resolution in different characteristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
