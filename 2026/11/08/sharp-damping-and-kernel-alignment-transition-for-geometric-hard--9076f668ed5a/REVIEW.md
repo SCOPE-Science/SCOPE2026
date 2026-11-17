@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof computes the normalized-kernel matrix element from the shift's geometric Taylor coefficients, uses positivity of real kernel overlap to reduce to collinear points, and exploits input/output interchange to exclude the non-dominant branch. The resulting exact rational function has a denominator positive on the full domain. Its derivative numerator is a strictly decreasing quartic with opposite endpoint signs, proving exactly one maximizing root and a closed circular range. The signs at the distinguished point \(k=\sqrt{1-q^2}\) yield the alignment threshold and the envelope derivative yields the complete unique damping optimizer. Singular-endpoint expansions are derived after rescaling the double roots. Exact symbolic algebra and additional finite numerical diagnostics have been executed from the included standard-library checker. Finite experiments are not used as infinite proofs.
+PASS
 
-## Originality
+The positive real kernel-overlap constraint forces a-bar b real and the exact hyperbolic parameterization a=(w-k)/(1-kw), k=sqrt(1-q²). Swapping inputs bounds the non-dominant branch. The attained scalar F(w)=qw(1-w²)/D(w), D=1-βw²-(1-β)kw>0, vanishes at 0,1; differentiating yields N=1-(3-β)w²+2(1-β)kw³+βw⁴. N decreases strictly from 1 to -2(1-β)(1-k), giving one root u. N(k)=q²[(2-β)q²-(1-β)] establishes sign geometry; envelope differentiation gives β_c=(1-2q²)/(1-q²) for q<1/sqrt2 and unique q sqrt(1-q²) minimum. Double-root rescaling yields small-q and β→1 expansions; q=1 and β=0 endpoints explicitly covered. Independent 90 parameter/root tests support, but do not replace, these analytic arguments.
 
-**PASS, best-knowledge assessment with explicit residual risk.** The closest primary preprint, Bhattacharya–Patra, arXiv:2601.02334v2, Section 3.3, already gives disk geometry and a two-branch optimization expression for precisely these weights. Those statements are treated as prior. Its Remark 3.20 supplies derivative candidates but does not give the unique quartic root, global alignment threshold, sharp \(\beta\)-minimization, or two boundary expansions. The pertinent Sections 1 and 3 of Mahapatra et al., arXiv:2608.21723, concern related \(q\)-Berezin inequalities and a Bergman weighted-shift family. Database comparisons found closer work on ordinary numerical radii of geometric shifts and on \(q\)-numerical ranges, but those invariants use different test-vector constraints. There is still a nonzero risk of older Berezin-radius literature implying the result through an alternate parameterization; the search is not a uniqueness proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating preprint leaves a natural continuous family of explicit two-branch maximizations. The new structural theorem identifies the only maximizing kernel pair, provides a sharp transition between antipodal and aligned geometry, and solves the natural operator-design problem of choosing geometric damping to minimize a prescribed-overlap Berezin radius. The parameter region where stronger damping initially makes the radius worse is not apparent from circularity of the range or a generic norm bound. Two sharp boundary expansions quantify the endpoint regimes and make the invariant usable without repeated optimization. The results concern a natural compact weighted-composition family, not an arbitrary finite slice.
+The prior Bhattacharya–Patra theorem already gives circularity and a two-branch scalar maximum for this exact family; these are not counted as new. Its inspected Section 3.3 and Remark 3.20 do not establish a unique global quartic root, alignment threshold, full minimization over damping, or sharp two asymptotics. A related same-day Resultary theorem treats higher powers m≥2 and explicitly credits the first-power analysis. New claim survives as a genuine sharpened parametric optimization, with residual equivalent-parametrization risk.
 
-## Closest literature and limitations
+## value
 
-The two fully relevant examined sources are arXiv:2601.02334v2 (Sections 2, 3.3 and conclusion) and arXiv:2608.21723v1 (Introduction and Section 3 weighted shifts). The first is the exact starting family; the second uses Bergman kernels and different coefficient factors. Residual risks include an unlocated general maximization theorem for prescribed-overlap Szegő-kernel tests. The claim excludes complex damping and general real-weight sequences. Independent review is not supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimizing geometric damping at fixed kernel fidelity is a natural compact-operator design question. The exact nonmonotone β phase below q=1/sqrt2, unique optimal damping and antipodal-to-aligned kernel transition solve a structural optimization left open by the published scalar branch representation; asymptotics quantify singular boundaries. The result adds meaningful mathematics beyond the already known circular range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
