@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is about normalized covariance matrices for uniform distinct vertices and uniform intrinsic volume of centered unit-incidence cactus graphical zonotopes. Edge-disjoint cycle blocks and bridges give a direct-sum generator decomposition. Acyclic orientations correspond bijectively to vertices; on a cycle, the two coherently directed sign patterns are the only forbidden sign vectors. Their conditional sign second moments yield the exact vertex coefficient. A cycle cubical quotient splits into equal-volume parallelotope tiles, and total covariance yields the volume coefficient. Every step uses exact normalized measures and preserves the one-dimensional common kernel. The exact coefficient ratio is minimized by cycles of lengths four or five and maximized by bridges; positive-semidefinite block sums prove both sharp bounds and their equality cases. The weighted matrix-tree theorem yields the pseudo-determinant product. Exhaustive exact-rational checks of 13 cacti (2,318 vertex instances and 900 covariance matrix entries) and lengths three to 150 provide reproducible corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, historical priority provisional
+Cactus incidence kernels decompose as independent single-cycle null directions, giving direct-sum of bridge intervals and cyclic zonotopes, so uniform volume factors under constant-Jacobian addition. For each length-k cycle, acyclic orientations are all 2^k sign vectors except two constant-sign vectors, yielding C_v factor 2^(k-1)/(4(2^(k-1)-1)); equal-volume omitted-coordinate parallelepiped tiles yield C_a factor (k+2)/(12k). The ratios R3=12/5, R4=R5=16/7 and monotonic increase thereafter prove sharp Loewner and equality cases; bridge ratio=3. Matrix-tree theorem and spanning-tree product yield claimed pseudodeterminant ratio with positive rank n-1. Independently computed exact rational factors for k=3,4,5; finite checks only corroborate infinite cactus proof.
 
-The foundational acyclic-orientation/polytope relationship and deformation geometry were compared in Padrol–Pilaud–Poullot (arXiv:2111.12422), Pešović–Stojadinović (arXiv:2209.12053), and Bach–Beck–Rehberg (arXiv:2409.15227). The relevant primary texts were examined for probabilistic vertex moments and equivalent formulas. They supply background graph-zonotope structure, not both normalized vertex/volume covariance Laplacians or the sharp semidefinite comparison. A volume-only cactus covariance identity does not imply the distinct vertex law. Published overlap searches for acyclic-orientation degree covariance, cactus graphical-zonotope moments, cycle block spectra, and the numeric sharp constants returned no covering theorem. The closest published cycle-zonotope **one-skeleton** Laplacian spectrum concerns a different operator from Euclidean vertex-position covariance. No searched database can certify exhaustive historical priority; a differently named earlier orientation-statistics result remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The vertex distribution and the volume distribution are two canonical yet inequivalent measures on the same full-dimensional graphical zonotope. The exact universal comparison of their Euclidean second moments, sharp inequivalent equality geometries (trees versus bridge-free four/five-cycle cacti), and attachment-invariant generalized variance provide structural information beyond a single family or a routine matrix normalization. The equality of the four-cycle and five-cycle minima is not a mere change of notation, and no general theorem in the inspected literature makes this result automatic.
+The exact uniform-volume covariance was published separately and is credited. The final claim instead adds the uniform-vertex covariance law, sharp comparison 16/7 and 3 with matrix equality cases, and the vertex/volume pseudodeterminant ratio; inspected earlier volume-only statement cannot entail vertex measure statistics on its own.
 
-## Boundaries and verification status
+## value
 
-The assertions use connected simple cacti and unit incidence generators. They do not extend without proof to graphs with overlapping cycles or to arbitrary edge weights. Finite computational checks do not substitute for the block decomposition and matrix inequalities. Independent validation and historical priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact two-sampling covariance comparison of a naturally canonical family gives universal sharp PSD constants, nontrivial equality configurations including the coincident 4/5-cycle minimizers, and a topology-independent product of generalized variances. These are useful structural invariants for convex-geometric probability, beyond routine trace calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

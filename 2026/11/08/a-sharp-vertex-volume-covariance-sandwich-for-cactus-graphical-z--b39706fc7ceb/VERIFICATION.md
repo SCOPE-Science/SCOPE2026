@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone `artifacts/verify.py` uses only the Python standard library and exact `fractions.Fraction` arithmetic. Replay from the package root with `python3 artifacts/verify.py`.
+# Independent mathematical audit
 
-Its direct acyclic-orientation enumeration covers thirteen connected cacti, including single cycles, bridges, two-cycle attachments, and three-cycle attachments. It constructs all distinct graphical-zonotope vertices and checks exact covariance entries. An independent parameterization of equal-volume parallelotope tiles computes volume second moments, which are checked against the claimed coefficients. Rational Laplacian cofactors test the determinant product on each example. The checker also confirms the formulas for local weight ratios for cycle lengths 3 through 150 and records the noncactus boundary case of the complete bipartite graph with parts of sizes two and three.
+## correctness
 
-Observed successful output:
+PASS
 
-`CACTUS_VERTEX_VOLUME_COVARIANCE_CHECKS_PASSED profiles=13 vertices=2318 matrix_entries=900 cycle_lengths=148`
+Cactus incidence kernels decompose as independent single-cycle null directions, giving direct-sum of bridge intervals and cyclic zonotopes, so uniform volume factors under constant-Jacobian addition. For each length-k cycle, acyclic orientations are all 2^k sign vectors except two constant-sign vectors, yielding C_v factor 2^(k-1)/(4(2^(k-1)-1)); equal-volume omitted-coordinate parallelepiped tiles yield C_a factor (k+2)/(12k). The ratios R3=12/5, R4=R5=16/7 and monotonic increase thereafter prove sharp Loewner and equality cases; bridge ratio=3. Matrix-tree theorem and spanning-tree product yield claimed pseudodeterminant ratio with positive rank n-1. Independently computed exact rational factors for k=3,4,5; finite checks only corroborate infinite cactus proof.
 
-These finite computations are corroborative. The universal inequalities, equality conditions, and determinant ratio are proved analytically in `RESULT.md`. Independent audit has not been performed.
+## originality
+
+PASS
+
+The exact uniform-volume covariance was published separately and is credited. The final claim instead adds the uniform-vertex covariance law, sharp comparison 16/7 and 3 with matrix equality cases, and the vertex/volume pseudodeterminant ratio; inspected earlier volume-only statement cannot entail vertex measure statistics on its own.
+
+## value
+
+PASS
+
+This exact two-sampling covariance comparison of a naturally canonical family gives universal sharp PSD constants, nontrivial equality configurations including the coincident 4/5-cycle minimizers, and a topology-independent product of generalized variances. These are useful structural invariants for convex-geometric probability, beyond routine trace calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
