@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:04:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py exact blob content",
+        "Independent rational finite-model conditionals n2..5",
+        "https://doi.org/10.1016/j.jspi.2006.06.009",
+        "https://doi.org/10.1080/01621459.1946.10501898",
+        "Resultary sign-blind runs sample scatter record 2026-10-13"
+      ],
+      "rationale": "Write Xi=epsilon_i Yi with independent fair signs and iid positive magnitudes, fix sign sum h and use Q=T−S²/n. Conditional cumulants of S (ah,nv,hr,nw) and Cov(T,S²)=n(f−b²)+2(h²−n)a(c−ab) yield affine dependence on h². Total-variance closure fixes intercept V−A+Bn with V=(n−1)/n[(n−1)f−(n−3)b²], A=2a⁴(n−1)/n. B=(4a/n²)[(n−2)E(Y(Y−a)²)+Cov(Y²,Y)], and independent-copy identity Cov(Y²,Y)=1/2 E[(Y−Yprime)²(Y+Yprime)] ensures strict positivity unless Y constant. K binomial fair gives Var(h²)=2n(n−1), so explained fraction=2a⁴/[(n−1)f−(n−3)b²]. Independently exact-enumerated conditional means and variances for n2..5 under a two-atom positive-magnitude law; inspected all checker.py enumeration and the full analytic proof. Checks finite only; derivation is all-n.",
+      "residual_risks": [
+        "An older quadratic-form-with-fixed-sign-pattern theorem could subsume conditional moment formulas.",
+        "No stochastic dominance asserted; finite fourth moment, known zero symmetry center and no atom zero are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical sign test concerns positivity counts and distribution-free median inference.",
+          "Ekström/Jammalamadaka uses ordered spacings to build a different symmetry test; its asymptotic variance does not condition centered scatter on K.",
+          "Published sign-run result uses adjacent sign transitions under absolute-rank ordering, not just positive-sign total."
+        ],
+        "reasoning": "None of the inspected close results dominates the same conditional scatter statistics; generic sample-variance moment theory remains a plausible but unchecked equivalence.",
+        "searches": [
+          "Dixon and Mood (1946) sign test",
+          "Ekström and Jammalamadaka (2007) symmetry test",
+          "Resultary sign-blind runs couple to sample variance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py exact blob content",
+        "Independent rational finite-model conditionals n2..5",
+        "https://doi.org/10.1016/j.jspi.2006.06.009",
+        "https://doi.org/10.1080/01621459.1946.10501898",
+        "Resultary sign-blind runs sample scatter record 2026-10-13",
+        "sample variance conditional on number of positive observations symmetric iid sign count variance monotonicity",
+        "conditional sample variance sign imbalance number positive signs exact moments two three iid",
+        "Dixon Mood Statistical Sign Test 1946",
+        "Ekström Jammalamadaka symmetry spacing test 2007",
+        "Resultary sign-blind runs sample variance 2026-10-13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cov(Q,K)=0 follows symmetry K↔n−K even though conditional mean is not constant.",
+          "Positive B follows the independent-copy magnitude covariance formula."
+        ],
+        "reasoning": "Raw sign-test independence of magnitude-only statistics does not imply Q independent of signs, because Q contains the square of the signed sum.",
+        "searches": [
+          "sign test conditional variance of centered Q",
+          "arxiv and primary statistical symmetry methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K and h=2K−n carry same information, but Cov(Q,K)=0 while E[Q|K] depends on h².",
+          "General fourth-cumulant identities yield an affine h² dependence when sign vector fixed."
+        ],
+        "reasoning": "A general cumulant identity is algebraic infrastructure rather than the explicit distribution-uniform sign-count monotonicity and exact regression-strength formula unless those implications are separately shown.",
+        "searches": [
+          "sign-count K, imbalance h² and conditional sample scatter Q",
+          "quadratic-form conditional moments fair sign array"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Half-normal tables determine a,b,c,f for the Gaussian specialization but no conditional h² ordering.",
+          "Independent finite rational computations and the source theorem give Gaussian 4/(π²n)."
+        ],
+        "reasoning": "The exact fraction is not a listed standard half-normal table value; an explicit regression calculation is needed.",
+        "searches": [
+          "conditional sample variance given number of positive observations exact fraction",
+          "half-normal moments sign test sample variance"
+        ]
+      },
+      "rationale": "Conditional sign-count mean, variance monotonicity, exact nonlinear explained-variance ratio are not provided by classical sign-test references or the inspected spacing-based symmetry test. Another published result on sign-run count versus scatter uses runs after a sign-blind ordering, not K or its squared imbalance. General quadratic-form fourth-moment formulas may give these identities as specialized consequences, still requiring a nontrivial conditional projection; this is an explicit priority risk.",
+      "residual_risks": [
+        "An older quadratic-form-with-fixed-sign-pattern theorem could subsume conditional moment formulas.",
+        "No stochastic dominance asserted; finite fourth moment, known zero symmetry center and no atom zero are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic, no explicit conditional sample scatter theorem",
+          "evidence": "Its statistic is built from spacings to test an unknown symmetry center, not conditional moments of Q given a sign count about known zero.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2006.06.009",
+          "material_read": "Author-hosted full PDF manuscript: abstract, construction of spacing-based statistic, asymptotic results and appendix",
+          "method": "Primary author-hosted manuscript PDF, page-one screenshot inspected",
+          "title": "An asymptotically distribution-free test of symmetry",
+          "trigger": "Closest test of symmetry with sign and dispersion statistics"
+        },
+        {
+          "assessment": "Baseline sign statistic only; full-text coverage not claimed",
+          "evidence": "No explicit conditional fourth-moment calculation established by inspected material.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1946.10501898",
+          "material_read": "Bibliographic statement and standard sign-test null, not a full historical text inspection",
+          "method": "Bibliographic and statistical-method comparison",
+          "title": "The Statistical Sign Test",
+          "trigger": "Classical use of K and its null distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py exact blob content",
+        "Independent rational finite-model conditionals n2..5",
+        "https://doi.org/10.1016/j.jspi.2006.06.009",
+        "https://doi.org/10.1080/01621459.1946.10501898",
+        "Resultary sign-blind runs sample scatter record 2026-10-13"
+      ],
+      "rationale": "A zero covariance between scatter and the raw sign count masks nonlinear predictability from imbalance h². Exact distribution-uniform conditional dispersion monotonicity, limiting constant-magnitude equality, and Gaussian explained fraction 4/(π²n) clarify a natural statistical question about sign information and scale. This is an all-n structural statement rather than a generic unconditioned variance computation.",
+      "residual_risks": [
+        "An older quadratic-form-with-fixed-sign-pattern theorem could subsume conditional moment formulas.",
+        "No stochastic dominance asserted; finite fourth moment, known zero symmetry center and no atom zero are essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=2 iid real symmetric observations with no zero atom and finite fourth moment, centered scatter Q conditioned on K positive signs has exact mean (n−1)b+a²(n−h²)/n and variance V−A+B(n−h²), with B>0 for nonconstant |X|; the explained-variance fraction and sign-count correlation are explicit.",
+  "limitations": [
+    "An older quadratic-form-with-fixed-sign-pattern theorem could subsume conditional moment formulas.",
+    "No stochastic dominance asserted; finite fourth moment, known zero symmetry center and no atom zero are essential."
+  ],
+  "schema_version": 1
+}
