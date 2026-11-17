@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact column update gives bijections from labelled time-one and time-two recurrent configurations to closed walks of explicitly constructed 64- and 4096-vertex graphs. Integer-only SCC and Newton-identity computation proves the factorization into P14/P19 and P14/P20 plus two six-cycles. Primitive positive SCCs and integer sub/supereigenvectors prove rho_fixed<243/100<rho_two. Independent bit-level enumeration of 299520 configurations (n=3..6) matches the formula, but the proof applies to all n>=3. Main risk is unnoticed implementation error, reduced by independent direct checker and transparent local formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McIntosh, Conway's Life, Springer 2010, DOI 10.1007/978-1-84996-217-9_3, abstract explicitly describes an algorithm to calculate periodic states using de Bruijn diagrams.",
+        "McIntosh, Life's Still Lifes, Springer 2010, DOI 10.1007/978-1-84996-217-9_4, abstract explicitly describes decompositions for higher-dimensional still lifes.",
+        "The author's transferable general method is credited; the fully specified open-boundary two-phase spectra and strict entropy inequality are not stated in the accessible abstracts."
+      ],
+      "reasoning": "A general technique for enumerating configurations is not itself an explicit determination of these two concrete characteristic polynomials or the strict inequality between their Perron roots. However, it is a genuinely plausible stronger source; the full text could not be inspected, so remaining coverage risk is specifically recorded rather than claiming that the unseen chapters do not contain the result.",
+      "searches": [
+        "web query: Conway Game of Life three row cylindrical strip enumerating period two patterns spectral radius transfer matrix stationary",
+        "web query: Harold V McIntosh Life's Still Lifes 3 x n torus de Bruijn",
+        "DOI 10.1007/978-1-84996-217-9_3",
+        "DOI 10.1007/978-1-84996-217-9_4"
+      ]
+    },
+    "checked_sources": [
+      "M. Gardner (1970), DOI 10.1038/scientificamerican1070-120; publisher landing page",
+      "H. V. McIntosh, Conway's Life (2010; originally 1988), DOI 10.1007/978-1-84996-217-9_3; publisher abstract",
+      "H. V. McIntosh, Life's Still Lifes (2010; originally 1988), DOI 10.1007/978-1-84996-217-9_4; publisher abstract",
+      "E. W. Weisstein, MathWorld Game of Life, accessible page",
+      "2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+      "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gardner (1970) introduced the Life rule; its accessible landing page establishes public date October 1, 1970, not the exact cylinder spectral comparison.",
+        "McIntosh (written 1988, printed 2010) establishes a known general periodic-diagram approach, but publisher abstracts do not specify the three-row vertically open Life cylinder entropy gap.",
+        "The three-row cyclic-dominance work and width-three majority tie-break work have different update functions and/or neighbor geometry."
+      ],
+      "reasoning": "The asserted new statement is the exact pair of spectral power-sum formulas with rigorously separated Perron roots on a specific natural minimal oscillatory cylinder. The available published results establish rule definitions and general methods, but not the particular numerical gap as a stated consequence. The unresolved full-text comparison with McIntosh is material and limits originality confidence.",
+      "searches": [
+        "Publisher source: https://www.scientificamerican.com/article/mathematical-games-1970-10/",
+        "Publisher source: https://link.springer.com/chapter/10.1007/978-1-84996-217-9_3",
+        "Publisher source: https://link.springer.com/chapter/10.1007/978-1-84996-217-9_4",
+        "published-finding corpus record: 2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+        "published-finding corpus record: 2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Three-row cyclic-dominance torus work concerns a three-color threshold cyclic successor rule with vertically periodic Moore lattice, not binary B3/S23 with dead boundary (published-finding corpus 2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8).",
+        "The local two-phase overlap construction yields a polynomial trace for period-two return, while the nearest published-finding corpus records have different cell alphabet and update map."
+      ],
+      "reasoning": "Changing vertical boundary identification changes the local neighbor counts; changing cyclic-dominance to Life changes the rule. Neither transfer matrix nor claim can be obtained by relabeling or conjugacy of those records. No matching equivalent statement was found in the actual searches; this is not a proof of priority.",
+      "searches": [
+        "published-finding corpus semantic query: Conway Game of Life B3/S23 three-row cylindrical strip with dead vertical boundary exact counts fixed points and temporal period two states as trace transfer matrix",
+        "published-finding corpus semantic query: Rational zeta functions for stationary and 2-periodic configurations of Conway Game of Life on width 3 periodic cylinder",
+        "web search: Game of Life three rows cylinder upper lower dead boundaries stationary period-two counts",
+        "published-finding corpus nearest record: 2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld, Game of Life, https://mathworld.wolfram.com/GameofLife.html, counts standard strict still-life objects by number of live cells modulo symmetry; it does not display the indexed-cylinder series.",
+        "The search surfaced LifeWiki and McIntosh de Bruijn-method descriptions but did not give the six explicit labelled-cylinder fixed counts 26,14,102,314,478,1102."
+      ],
+      "reasoning": "Counting finite plane objects by population and counting all labelled configurations of a three-row cylinder by circumference are different invariants. The exact searches did not identify an indexed table reproducing both spectra; absence of a search hit is not a uniqueness proof.",
+      "searches": [
+        "web exact sequence query: \"26, 14, 102, 314, 478, 1102\" game of life",
+        "web query: \"3-row\" \"Game of Life\" cylinder fixed points oscillators",
+        "web query: Conway Life width two cylinder or strip finite 2 by n configurations stationary oscillators",
+        "published-finding corpus semantic query: Entropy growth constants approximately 2.42331694 and 2.43740860 for stationary and temporal-two Conway Life cylinder"
+      ]
+    },
+    "rationale": "No matching exact open-height-three Life fixed/period-two spectra or strict entropy inequality were found in targeted published-finding corpus, source and exact-sequence searches. The classical de Bruijn technique is credited, and directly relevant McIntosh manuscripts are flagged as unresolved historical coverage due to unavailable full text. Distinct three-row tori in mathematical records use other local maps or vertical boundaries; no literal or known reducing implication gives the present roots.",
+    "residual_risks": [
+      "The 1988/2010 McIntosh chapters contain directly relevant de Bruijn techniques; only abstracts/metadata were readable. Their unseen appendices or examples might supply the same spectra or a dominating result.",
+      "No database search proves historical novelty; obscure finite-width Life enumerations may predate these calculations.",
+      "Related indexed published mathematical-record findings were seen through summaries rather than full primary papers, and implication comparisons are limited to recoverable claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes model provenance and historical date but no inspected labelled three-row cylinder spectra",
+        "evidence": [
+          "Scientific American 1970-10-01, https://www.scientificamerican.com/article/mathematical-games-1970-10/"
+        ],
+        "identifier_or_url": "doi:10.1038/scientificamerican1070-120",
+        "material_read": "Publisher landing-page title, author, October 1 1970 date, DOI, bibliographic citation; article full text not accessible",
+        "method": "Publisher HTML accessible preview",
+        "title": "Mathematical Games: The fantastic combinations of John Conway's new solitaire game Life",
+        "trigger": "Earliest verified public source for the B3/S23 model and its dated priority"
+      },
+      {
+        "assessment": "General method materially overlaps and is credited; cannot exclude exact coverage inside unavailable full text",
+        "evidence": [
+          "Springer abstract describes a de Bruijn algorithm for periodic states, July 4 1988 manuscript, republished 2010. https://link.springer.com/chapter/10.1007/978-1-84996-217-9_3"
+        ],
+        "identifier_or_url": "doi:10.1007/978-1-84996-217-9_3",
+        "material_read": "Full publisher abstract (and keywords, publication metadata) only; original full chapter inaccessible",
+        "method": "Springer chapter publisher HTML; open-access and preprint search unsuccessful; authorized institutional retrieval attempted but unavailable",
+        "title": "Conway's Life",
+        "trigger": "Highly relevant primary work on de Bruijn periodic-state algorithms for Conway Life"
+      },
+      {
+        "assessment": "General still-life transfer machinery is closely related but abstract cannot resolve whether exact narrow-cylinder counts are covered",
+        "evidence": [
+          "Springer abstract describes higher-dimensional periodic diagrams for still lifes, September 10 1988 manuscript, republished 2010. https://link.springer.com/chapter/10.1007/978-1-84996-217-9_4"
+        ],
+        "identifier_or_url": "doi:10.1007/978-1-84996-217-9_4",
+        "material_read": "Full publisher abstract and references only; original full chapter inaccessible",
+        "method": "Springer chapter publisher HTML; open-access and preprint search unsuccessful; authorized institutional retrieval attempted but unavailable",
+        "title": "Life's Still Lifes",
+        "trigger": "Potential same-object exact still-life counts, higher dimensional de Bruijn transfer"
+      },
+      {
+        "assessment": "Different invariant and equivalence relation; exact circumference-by-period spectra absent from inspected content",
+        "evidence": [
+          "https://mathworld.wolfram.com/GameofLife.html lists strict still lifes by live-cell population and symmetry, not labelled cylinders"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/GameofLife.html",
+        "material_read": "Accessible HTML main definitions, standard still life counts by population, discussion of oscillators",
+        "method": "Full accessible MathWorld article sections on dynamics and object counts",
+        "title": "Game of Life",
+        "trigger": "Standard Life rule and database/table conventions"
+      },
+      {
+        "assessment": "Different three-color rule and vertically toroidal domain; not a direct implication; uninspected full text remains limited evidence",
+        "evidence": [
+          "published-finding corpus summary: threshold-four cyclic dominance on 3 x N Moore torus, growth near 8.6245, not binary Conway Life"
+        ],
+        "identifier_or_url": "2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+        "material_read": "Published semantic search record title and summary only, not full document",
+        "method": "published-finding corpus indexed scientific-record comparison",
+        "title": "Exact stationary-state growth on three-row cyclic-dominance tori",
+        "trigger": "Closest semantic mathematical-record match involving three rows and transfer spectral counts"
+      },
+      {
+        "assessment": "Different local majority/tie-breaking rule and graph; no stated implication",
+        "evidence": [
+          "published-finding corpus summary compares deterministic and fair tie-breaking for majority on C3 x Cn, not Life B3/S23"
+        ],
+        "identifier_or_url": "2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+        "material_read": "Published semantic search record title and summary only, not full document",
+        "method": "published-finding corpus indexed scientific-record comparison",
+        "title": "Exact fixed-point entropy gap for majority tie-breaking on a width-three torus",
+        "trigger": "Related exact fixed-point entropy on width-three strip"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd822b7f-05ca-4af8-84a2-bbe3bd96c2aa",
+  "value": {
+    "rationale": "The three-row open cylinder is the smallest natural vertical width that supports the classical blinker mechanism. The exact all-circumference two-period and stationary power-sum formulas determine a genuine intrinsic dynamical comparison, not merely a finite table. Their different primitive Perron roots lie just 0.014 apart, producing a nonobvious rigorous exponential prevalence of temporal oscillation among all at-most-two-period states. The result is a precise reusable entropy benchmark, without asserting broader attractor classification or a paper-sized downstream consequence.",
+    "status": "PASS"
+  }
+}
