@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T08:57:15.844194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each r in (0,1), F_r(alpha)=r-2r(1-r)alpha-r²(1-r)alpha²; the quartic sum of squares has derivative with coefficient signs (+,+,sign(m2),-) descending and exactly one positive zero by Descartes and endpoint signs. Under r_n=1-a/sqrt(n) and alpha=n^(1/4) beta, M_n/n converges locally uniformly to (1-a beta²)^2+D² beta⁴. A single t-eigenvalue and the O(n) trial bound keep minimizers beta bounded; the unique limit beta*=sqrt(a/(a²+D²)) gives the three ratios and actual sign-iterate error. 2aD<=a²+D² shows sharp 1/2 within stated family; norm comparison proves universal sqrt(n) order only. Independent separate two-level derivative bisection on n=4^4 through 256^4 confirmed beta→2 and spectral spike→1/2, not a proof of limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang et al. arXiv:2601.22137 p6 describes oscillation and possible spectral residual growth if alpha unrestricted; Theorem 1 requires alpha in [1/2,1] and does not give a two-level n-dependent lower rate.",
+          "Generic norm inequality ||R1||2<=sqrt(n)||R0||2 yields an upper order, not a witness where the nonlinear global Frobenius optimizer attains it."
+        ],
+        "reasoning": "Existing safeguard and approximation results do not dominate an explicit sharp-in-family asymptotic for the exact unrestricted minimizer. The source already states qualitative failure; this audit credits it.",
+        "searches": [
+          "Resultary semantic: matrix sign iteration Frobenius optimized polynomial coefficient unrestricted spectral norm large overshoot two-level eigenvalues",
+          "Resultary semantic: unsafeguarded Frobenius polynomial sign fit unbounded alpha optimizer operator norm sqrt dimensional amplification",
+          "PRISM arXiv:2601.22137v1 Sections 4.1 and B; compare safeguarded alpha in [1/2,1]"
+        ]
+      },
+      "checked_sources": [
+        "Yang–Wang–Balabanov–Erichson–Mahoney arXiv:2601.22137v1, Sections 3–4.2 and Theorem 1",
+        "Resultary semantic searches for unrestricted matrix-sign least squares, spectral outlier, sqrt dimensional spike"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source explicitly warns of spectral-norm deterioration for an unrestricted coefficient; thus overshoot EXISTENCE was already known.",
+          "The two-level Q(beta)=(1-a beta²)²+D² beta⁴ follows only after choosing r_n=1-a/sqrt(n) and minimizing the limit with coercivity, yielding a sharp 1/2 family constant."
+        ],
+        "reasoning": "Neither qualitative warning nor elementary Frobenius/spectral norm comparison logically supplies fitted alpha_n/n^(1/4), actual sign error n^(1/4), or exact two-parameter limiting spike. Quantified extremal example survives.",
+        "searches": [
+          "Resultary semantic: matrix sign iteration Frobenius optimized polynomial coefficient unrestricted spectral norm large overshoot two-level eigenvalues",
+          "Resultary semantic: unsafeguarded Frobenius polynomial sign fit unbounded alpha optimizer operator norm sqrt dimensional amplification",
+          "PRISM arXiv:2601.22137v1 Sections 4.1 and B; compare safeguarded alpha in [1/2,1]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PRISM Eq.(2)–(3) uses the same g1(r;alpha)=1+alpha*r and minimizes squared Frobenius residual, but its implementation restricts alpha to [1/2,1].",
+          "The submitter's alpha grows as n^(1/4), therefore the exhibited update is NOT a PRISM safeguarded iterate."
+        ],
+        "reasoning": "A scalar quartic least-squares fit provides an equivalent formulation; only the quantified unconstrained optimizer and large-n two-level extremal spectrum are at issue, not the previously stated possibility of overshoot.",
+        "searches": [
+          "Resultary semantic: matrix sign iteration Frobenius optimized polynomial coefficient unrestricted spectral norm large overshoot two-level eigenvalues",
+          "Resultary semantic: unsafeguarded Frobenius polynomial sign fit unbounded alpha optimizer operator norm sqrt dimensional amplification",
+          "PRISM arXiv:2601.22137v1 Sections 4.1 and B; compare safeguarded alpha in [1/2,1]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published PRISM numerical experiments compare protected/sketched schemes rather than a table of critical two-level unconstrained optimizers.",
+          "Resultary exact search returned this submitted item and norm-tradeoff examples for different algorithms."
+        ],
+        "reasoning": "No precise coefficient aD/(a²+D²) or n^(1/4) sign-error asymptotic found in inspected source; numerical experiments alone would not prove an all-n sharp scaling law.",
+        "searches": [
+          "Resultary semantic: matrix sign iteration Frobenius optimized polynomial coefficient unrestricted spectral norm large overshoot two-level eigenvalues",
+          "Resultary semantic: unsafeguarded Frobenius polynomial sign fit unbounded alpha optimizer operator norm sqrt dimensional amplification",
+          "PRISM arXiv:2601.22137v1 Sections 4.1 and B; compare safeguarded alpha in [1/2,1]"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the surviving final claim is distinguished by mathematical implications from the inspected prior theorems; see four comparisons and the explicit residual priority risks.",
+      "residual_risks": [
+        "The motivating PRISM primary paper already warns unrestricted fitting can increase spectral norm; any claim of discovering that qualitative phenomenon would be false.",
+        "A differently worded pre-existing optimizer counterexample may give the same asymptotics; priority search is not exhaustive.",
+        "The cited production algorithm has alpha in [1/2,1], so this must never be marketed as a failure of its protected guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative unsafeguarded warning is PRIOR; its safeguarded theorem does not cover alpha→infinity and no quantified two-level extremal rate found in inspected relevant sections",
+          "evidence": [
+            "PDF p6-7 Eq.(3) interval-constrained squared Frobenius minimization",
+            "PDF p7 notes without constraints residual spectral norm may grow; Theorem 1 alpha in [1/2,1]",
+            "No matching n^(1/4) optimizer or sqrt(n) lower law in relevant pages."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.22137",
+          "material_read": "Arxiv primary PDF Sections 3-4.2 (pp5-8), Eq.(2)–(3), Theorem 1, Section B appendix passages on convergence/safeguard; full 34-page text accessible, not all pages read",
+          "method": "Primary PDF direct text and page screenshots, searched spectral norm and 4.1; compared optimization domain and asymptotics",
+          "title": "PRISM: Distribution-free Adaptive Computation of Matrix Functions for Accelerating Neural Network Training",
+          "trigger": "Same Frobenius-fit polynomial and explicit unsafeguarded spectral growth warning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A real optimization pitfall occurs when an empirically Frobenius-optimal single polynomial coefficient is unconstrained: an isolated residual makes optimal fitting sacrifice operator norm by the largest possible dimension order. The explicit globally optimized two-level asymptotic, unique minimizer and actual sign-error divergence quantify why the safeguard in the motivating algorithm is mathematically needed; no unboundedness is asserted for safeguarded PRISM.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2601.22137",
+    "pinned RESULT.md and verify.py blob",
+    "Resultary search on Frobenius sign-step spectral overshoot"
+  ],
+  "disposition": "passed",
+  "final_claim": "Unique unrestricted nonnegative Frobenius-fit sign update and explicit two-level critical family with sqrt(n) spectral spike and n^(1/4) operator sign error, optimal in growth order.",
+  "limitations": "Source interval-constrained theory is distinct; undiscovered earlier quantified example remains a best-of-knowledge risk.",
+  "residual_risks": [
+    "Only one update and positive diagonal matrices in exact arithmetic; no failure claim about sketched/protected algorithms or iteration convergence.",
+    "1/2 is optimal only for the stated critical two-level scaling, not universal."
+  ],
+  "schema_version": 1
+}

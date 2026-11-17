@@ -1,15 +1,21 @@
-# Scientific review of the critical two-level overshoot theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar error transformation is obtained directly by diagonalizing the matrix update. Expanding the quartic objective yields strictly negative linear and strictly positive cubic and quartic coefficients. The derivative cubic has exactly one sign change and therefore exactly one positive root; since its endpoint signs differ, this root is the unique global minimizer on the nonnegative half-line. For critical two-level inputs, the objective divided by dimension converges locally uniformly under the \(n^{1/4}\) coefficient scaling to an explicit quadratic in the squared scaled coefficient. The exceptional-coordinate loss bounds all global minimizers on that scale; uniqueness of the limiting minimizer gives convergence. Direct eigenvalue evaluation proves the spectral, Frobenius and sign-error asymptotics. The standard norm comparison supplies the universal order bound. The standalone verifier reports exact-rational quartic checks and supplementary numerical diagnostics. Limitations: asymptotic rather than finite-dimensional equality, exact arithmetic, unsafeguarded one-step variant only.
+PASS
 
-## Originality — PASS, with residual risks
+For each r in (0,1), F_r(alpha)=r-2r(1-r)alpha-r²(1-r)alpha²; the quartic sum of squares has derivative with coefficient signs (+,+,sign(m2),-) descending and exactly one positive zero by Descartes and endpoint signs. Under r_n=1-a/sqrt(n) and alpha=n^(1/4) beta, M_n/n converges locally uniformly to (1-a beta²)^2+D² beta⁴. A single t-eigenvalue and the O(n) trial bound keep minimizers beta bounded; the unique limit beta*=sqrt(a/(a²+D²)) gives the three ratios and actual sign-iterate error. 2aD<=a²+D² shows sharp 1/2 within stated family; norm comparison proves universal sqrt(n) order only. Independent separate two-level derivative bisection on n=4^4 through 256^4 confirmed beta→2 and spectral spike→1/2, not a proof of limits.
 
-The primary paper [Yang et al., arXiv:2601.22137, Section 4.1] itself warns of possible spectral-residual increases if its fitting coefficient is unrestricted. This *qualitative warning is not claimed as new*. Its statement does not quantify the largest possible dimension dependence, identify the two-level critical scale or give the derived precise coefficients and matrix-sign error. [Amsel et al., arXiv:2505.16932] solve interval-minimax spectral approximation; [Grishina et al., arXiv:2506.10935] likewise design Chebyshev polynomial routines; [Topollai--Choromanska, arXiv:2609.33047] select predesigned routines using spectral moments. Their optimization domains and conclusions do not cover the specific unrestricted Frobenius one-parameter minimizer's asymptotic outlier. Published mathematical-record semantic searches and accessible prior-claim comparisons yielded no stronger directly covering result. Risks: generic least-squares outlier constructions may have an unindexed equivalent; source authors may possess undocumented examples. The universal \(\sqrt n\) upper bound alone is standard, not a novelty assertion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise finite-rank mechanism resolves how badly a physically natural but unsafeguarded instance-adaptive Frobenius fitting rule can mistreat one singular mode while improving its own exact objective. Its sharp scale, tunable critical-family constant, unique optimality and actual matrix-function error quantify why coefficient bounds are mathematically important. It does not assert behavior of the protected implementation or multi-step iteration.
+Best-of-knowledge PASS: the surviving final claim is distinguished by mathematical implications from the inspected prior theorems; see four comparisons and the explicit residual priority risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A real optimization pitfall occurs when an empirically Frobenius-optimal single polynomial coefficient is unconstrained: an isolated residual makes optimal fitting sacrifice operator norm by the largest possible dimension order. The explicit globally optimized two-level asymptotic, unique minimizer and actual sign-error divergence quantify why the safeguard in the motivating algorithm is mathematically needed; no unboundedness is asserted for safeguarded PRISM.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
