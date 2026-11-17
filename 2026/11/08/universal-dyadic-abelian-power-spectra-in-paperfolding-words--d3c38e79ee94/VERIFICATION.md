@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing the accompanying program. Python 3 standard-library functionality is sufficient. The check performed on the enclosed program returned:
+## correctness
 
-```text
-VERIFY_OK assertions= 3154986 exhaustive_instruction_prefixes=256 long_instruction_patterns=6 checked_lengths=1,2,4,8,16,32,64,128
-```
+PASS
 
-The verifier computes paperfolding symbols directly from their 2-adic valuation formula, not by assuming a substitution or a fixed instruction sequence. It exhausts the \(256\) choices of eight initial instruction signs over all eligible four-block windows within a prefix of length \(256\), then evaluates six periodic instruction patterns across \(65{,}536\) starting positions each and the eight stated dyadic lengths. Exact integer checks include fourth-power exclusion, the three-value block-sum support, and the repeated halving identity on finite sample indices. The square/cube and Parikh probability comparisons use a finite tolerance of \(0.0035\), explicitly encoded in `verify.py`.
+Direct reconstruction of the one-indexed folding recursion f_b(2a)=f_{Tb}(a), f_b(2a+1)=(-1)^a b_0 shows S_b(i,2^k)=S_{T^(k-1)b}(ceil(i/2^(k-1)),2). Under displacement 2^k, reduced starts shift by exactly 2. All nonzero length-two sums reverse sign under this shift, hence equal consecutive block sums must be zero. Boolean E(a)=1_{f_{T^2c}(a)=-(-1)^a c_0} has alternating entries on odd a, proving no four consecutive zeros or ones. Natural parity-conditional sign and adjacent equal-pair densities follow by partitioning integer indices by exact two-adic valuation, controlling the tail <=2^-H; two- and three-run calculations give the asserted 1/4 and 1/16, with independent L=1 boundary. This proves every instruction sequence, rather than relying on finite prefixes. An independent bounded direct-bit check tested 16 periodic instructions, dyadic L<=32, 8192 starting positions, no fourth powers and proportions close to the asserted limits (not exact finite counts).
 
-The logical steps requiring infinite reasoning are checked in RESULT.md: the even/odd decomposition, the alternating-sign obstruction to equal nonzero adjacent block sums, the no-four-equal-run property for the Boolean indicators, and existence of natural densities by valuation truncation and conditional-parity equidistribution. Finite tests cannot establish any of these universal statements on their own. Neither independent proof review nor external mathematical validation was performed.
+## originality
+
+PASS
+
+The exact all-instruction dyadic local densities and sharp exponent prohibition were not implied by materially read general Abelian-power existence or ordinary-word Abelian-complexity results; distinct period-doubling findings use a different sequence, despite analogous dyadic language. Best-of-knowledge, not exhaustive priority.
+
+## value
+
+PASS
+
+The restriction to powers of two has a structural dyadic-renormalization reason: every generalized paperfolding word has Abelian powers of arbitrarily high exponent at unrestricted periods, yet all dyadic fourth powers are impossible. Exact natural square/cube densities for an entire uncountable family of instruction sequences are useful finer local invariants, not merely abelian complexity or an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
