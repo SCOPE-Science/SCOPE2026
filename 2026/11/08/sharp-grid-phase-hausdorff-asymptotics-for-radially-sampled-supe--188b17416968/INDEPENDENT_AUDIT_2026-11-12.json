@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:50:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The chord-exposure reduction uses strict convexity of K_p and regular C^1 radial parametrization. At each axis gamma(alpha+t)=(1-|t|^p/p+o(|t|^p),t+o(t)), so the normal error of an adjacent chord tends to J_p(u,s)/p after dividing by h^p. The tail away from axis tips is <= C N^{p-2} h^p, vanishing in the double limit p<2. Symmetric decreasing rearrangement of the Green interpolation kernel bounds J_p<=2^{-p}, with equality at u=-1/2,s=1/2; for integer u the maximum is (p-1)p^{-p/(p-1)} at u=0,s=p^{-1/(p-1)}. Divisibility by 4 controls axis-grid alignment. Independent chord-gap optimization at p=1.25,1.5,1.75 with n=256..259 reproduces ratios 0.9479..0.9997 and local grid evaluation verifies the universal interpolation bound; p=1.25,n=512,1024 improve the integer-grid ratios to 0.96393,0.97481. Finite checks do not prove n->infinity. Domain fixed 1<p<2, Euclidean Hausdorff, unit radial grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard smooth strictly convex curvature-based polygon asymptotics require C^2 positive curvature regularity, whereas 1<p<2 has singular axis-tip curvature.",
+          "Fodor-Minuță Theorem 5.5 is qualitative, not n^-p sharp."
+        ],
+        "reasoning": "The known smooth theory does not by its stated assumptions dominate the singular-tip fixed-grid asymptotic; no stronger exact superellipse grid-phase theorem was identified in the bounded search.",
+        "searches": [
+          "Resultary: l_p superellipse polygon Hausdorff curvature singularity prescribed equiangular",
+          "Glasauer Schneider asymptotic approximation of smooth convex bodies polytopes 1996"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.24599",
+        "https://www.alphaxiv.org/fr/abs/2605.24599",
+        "Resultary semantic search for superelliptic grid-phase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.5 proves E_{p,n}->0 without a rate; the manuscript explicitly defers detailed error estimates (Introduction p.2).",
+          "The two proposed constants differ for 1<p<2: (p-1)p^{-1-p/(p-1)} versus 1/(p 2^p)."
+        ],
+        "reasoning": "Qualitative convergence does not imply either exact leading coefficient or its 4|n resonance. A specialized unindexed prescribed-polygon theorem remains possible, so historical priority is qualified.",
+        "searches": [
+          "https://arxiv.org/pdf/2605.24599",
+          "https://www.alphaxiv.org/fr/abs/2605.24599",
+          "Resultary query singular-tip polygon approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fodor-Minuță Section 5 defines exactly the radial-grid polygons and proves only Hausdorff convergence (Theorem 5.5).",
+          "A chord interpolation at an axis tip has leading normal gap h^p [(1-s)|u|^p+s|u+1|^p-|u+s|^p]/p."
+        ],
+        "reasoning": "The source theorem strengthens convergence by giving exact leading constants that depend on the grid-axis intersection. Reformulating the problem as a support-function error or as singular Hölder chord interpolation does not make the fixed-grid phase law a known consequence of Fodor-Minuță.",
+        "searches": [
+          "Resultary: l_p superellipse disk equally spaced polar angular polygon Hausdorff distance h^p asymptotic axis resonance n divisible by 4 interpolation singular curvature",
+          "https://arxiv.org/pdf/2605.24599"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table or special-function database is involved: the claim is an all-n subsequence limit for every fixed real p in (1,2)."
+        ],
+        "reasoning": "A tabulated finite polygon error would not alone prove this limit; the inspected sources did not contain a table already giving both closed constants.",
+        "searches": [
+          "Resultary: sharp grid phase Hausdorff superelliptic p<2 n mod4",
+          "Fodor Minuta 2605.24599 Section 5"
+        ]
+      },
+      "rationale": "Bounded Resultary search and inspected Fodor-Minuță primary theorem do not give either exact fixed-grid phase constant. The singular-axis interpolant and all-residue dichotomy are distinct, with unindexed historical-equivalent risk.",
+      "residual_risks": [
+        "An unindexed earlier singular-curvature prescribed-polygon theorem might imply this precise result.",
+        "Only Introduction/Section 5 and relevant convergence material of Fodor-Minuță were examined, not every page of all background works."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definition of the same polygons and Hausdorff convergence, not sharp p-dependent constants or modular resonance",
+          "evidence": "Theorem 5.5 on PDF p.11: d_H(P_{p,k},C_p)->0 and convex-hull convergence; introduction states future error analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.24599",
+          "material_read": "PDF introduction pp.1-2, Section 5 pp.9-12 including Theorem 5.5 and proof, Section 6 convergence discussion; visually inspected PDF page 11",
+          "method": "Web PDF text and page screenshot",
+          "title": "An algorithm for approximating the metric projection onto a superelliptic disk",
+          "trigger": "Same superelliptic disk and identical radial sampling formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arithmetic phase resonance is a natural sharp rate for a specified polygon approximation of a singular-curvature convex body. Distinct constants for grids hitting or straddling four axis tips quantify a genuine discretization boundary beyond smooth curvature asymptotics. This is a meaningful exact invariant of a natural sampling rule, not an arbitrary n residue slice invented after computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific review, not an independent external attestation or general historical priority certification.",
+    "Publication not ready owing to privacy-safe public metadata replacement requirements; no upstream changes made.",
+    "An unindexed earlier singular-curvature prescribed-polygon theorem might imply this precise result.",
+    "Only Introduction/Section 5 and relevant convergence material of Fodor-Minuță were examined, not every page of all background works."
+  ],
+  "schema_version": 1
+}

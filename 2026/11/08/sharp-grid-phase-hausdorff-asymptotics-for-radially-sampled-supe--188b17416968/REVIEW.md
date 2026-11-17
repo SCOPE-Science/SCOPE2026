@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-A fixed-parameter, all-large-indices proof is given. Key steps: (i) local Hausdorff error equals exposed-chord normal distance for sufficiently fine strictly convex radial sampling, (ii) axis-tip Taylor expansion gives the normalized interpolation gap for \(|t|^p\), (iii) uniform curvature-tail control removes all distant chords, and (iv) an integrable Green kernel plus symmetric-decreasing rearrangement gives the sharp all-offset constant, while monotonicity of the positive-axis second derivative gives the integer-offset constant. The arithmetic argument identifies a half-integer phase precisely when \(4\nmid n\). Finite numerical support-function checks are independent corroboration, not an infinite proof.
+## correctness
 
-## Originality (PASS, with priority risk)
-The closest same-object primary paper, Fodor–Minuță (arXiv:2605.24599v2), Section 5 and Theorem 5.5, proves only Hausdorff convergence for this exact root-of-unity radial scheme, and explicitly leaves detailed error estimates for later study. Glasauer–Schneider (1996) prove sharp smooth positive-curvature polygon approximation results but assume \(C^2_+\), violated by these singular-tip bodies at \(1<p<2\); they study optimal/prescribed sampling, not the two arithmetic subsequences of the fixed grid. A specialized earlier approximation or interpolation result might imply the constants: independent historical-priority assessment remains appropriate.
+PASS
 
-## Mathematical value (PASS)
-The rate is not the \(n^{-2}\) rate of smooth positive-curvature sampling; the singular tip forces \(n^{-p}\). More unusually, there is no single normalized leading constant along all integers: midpoint alignment of the axis singularity creates a strictly larger constant than tip-aligned sampling. This supplies sharp convergence information for the explicitly studied radial polygon algorithm and isolates a geometric-arithmetic sampling instability.
+The chord-exposure reduction uses strict convexity of K_p and regular C^1 radial parametrization. At each axis gamma(alpha+t)=(1-|t|^p/p+o(|t|^p),t+o(t)), so the normal error of an adjacent chord tends to J_p(u,s)/p after dividing by h^p. The tail away from axis tips is <= C N^{p-2} h^p, vanishing in the double limit p<2. Symmetric decreasing rearrangement of the Green interpolation kernel bounds J_p<=2^{-p}, with equality at u=-1/2,s=1/2; for integer u the maximum is (p-1)p^{-p/(p-1)} at u=0,s=p^{-1/(p-1)}. Divisibility by 4 controls axis-grid alignment. Independent chord-gap optimization at p=1.25,1.5,1.75 with n=256..259 reproduces ratios 0.9479..0.9997 and local grid evaluation verifies the universal interpolation bound; p=1.25,n=512,1024 improve the integer-grid ratios to 0.96393,0.97481. Finite checks do not prove n->infinity. Domain fixed 1<p<2, Euclidean Hausdorff, unit radial grid.
 
-## Boundaries
-The theorem is for fixed \(1<p<2\), the unit-semi-axis planar disk, Euclidean Hausdorff error, and the unrotated equally spaced angular grid only. Numerical experiments are finite and independent historical uniqueness has not been certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded Resultary search and inspected Fodor-Minuță primary theorem do not give either exact fixed-grid phase constant. The singular-axis interpolant and all-residue dichotomy are distinct, with unindexed historical-equivalent risk.
+
+## value
+
+PASS
+
+The arithmetic phase resonance is a natural sharp rate for a specified polygon approximation of a singular-curvature convex body. Distinct constants for grids hitting or straddling four axis tips quantify a genuine discretization boundary beyond smooth curvature asymptotics. This is a meaningful exact invariant of a natural sampling rule, not an arbitrary n residue slice invented after computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
