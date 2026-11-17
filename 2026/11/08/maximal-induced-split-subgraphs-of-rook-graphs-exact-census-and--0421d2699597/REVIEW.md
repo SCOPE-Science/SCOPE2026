@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The clique-line reduction, rook-placement saturation condition, converse maximality argument (including full-column length two), and separate \(2\)-by-\(2\) overlap are proved. The two classes and their falling-factorial counts agree with direct forbidden-induced-subgraph enumeration on fourteen rectangular boards and 1,763,152 candidate vertex subsets. The probability law follows from an exact ratio and makes no inference from finite testing alone.
+PASS
 
-## Originality
+Every clique of K_m square K_n with >=2 vertices lies in a line. Maximal induced split sets admit a full row or column plus a maximal nonattacking rook placement on its complement. An unselected cell cannot extend such a set without violating clique/independent structure; the m=2 columns and 2x2 overlap are handled separately by induced C4 and 2K2. Enumerating oriented lines gives m(n)_{m-1} z^(m+n-1)+n(n-1)_m z^(2m) (m<n), 2m*m! z^(2m-1) for m=n>=3, and 4z^3 for m=n=2. Cancellation proves probability m/[m+d(d+1)]. Fresh direct split-partition checks on boards 2x2 through 3x4 matched.
 
-**PASS, provisionally.** Cao (arXiv:2004.09885, Theorem 1.1 and Proposition 5.6) gives a general polynomial-delay procedure for maximal induced split subgraphs; it does not provide the rook-graph cardinality distribution. Brosse et al. (arXiv:2007.01031) distinguish maximal induced split enumeration from their maximal split *edge*-subgraph procedure. The closest result is Brosse's thesis (2023, Theorem 3.13), which already gives a necessary maximal-clique-plus-maximal-independent-set representation for arbitrary graphs. That reduction is acknowledged and is **not** claimed new. Its graph-independent statement does not supply the precise two-class rook census, uniqueness boundary, or size-distribution crossover; those are separately proved. Published-record comparisons for rook, lattice, Cartesian-clique and complete-bipartite-line descriptions did not identify an earlier equivalent complete formula. The residual priority risk is an unindexed or differently phrased special-family result, and the specialized enumeration is elementary once the general representation is known.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Maximal split deletion is a natural enumeration problem, not an arbitrary induced-subgraph statistic. The exact classification of every maximal solution on a canonical connected vertex-transitive graph family determines all inclusion-minimal split-vertex-deletion cardinalities by complementation. The gap of \(n-m-2\) missing sizes and the probability \(m/(m+d(d+1))\) prove a quantitative square-root crossover between two structurally different deletion regimes. This is stronger than a minimum cardinality or a generic enumeration algorithm; no general-purpose graph algorithm is asserted.
+Rook graph is the line graph L(K_{m,n}); choosing induced split-graph vertices corresponds to a selected edge set whose line graph is split, not to arbitrary edge-induced subgraphs or an independent-rook placement alone. Brosse 2023 Thesis Theorem 3.13 supplies a general necessary maximal clique plus maximal stable set representation; its converse for the rook families and multiplicities are not supplied. Cao 2020 gives polynomial-delay enumeration, not this exact size enumerator. The general structural template permits candidate construction but alone neither proves distinctness/sufficiency for m=2,n=2 nor determines two class frequencies and square-root crossover. These are supplied by the family-specific proof. Best-of-knowledge originality with disclosed residual risks; no search failure alone is treated as novelty proof.
 
-## Limits and nearest literature
+## value
 
-The 2023 general reduction and the established 1977 split-graph forbidden-subgraph criterion are prerequisites, not novelties. The verifier tests finite boards only; the proof handles every \(2\le m\le n\). Priority is not an independent certification, and no claim about higher-dimensional rook graphs is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact labeled inclusion-maximal split-set polynomial and long missing size intervals for a classical vertex-transitive family are natural finite combinatorics. The square-root aspect-ratio phase change is a quantitative count phenomenon not derivable from knowing only maximal split-subgraph existence or a general listing algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
