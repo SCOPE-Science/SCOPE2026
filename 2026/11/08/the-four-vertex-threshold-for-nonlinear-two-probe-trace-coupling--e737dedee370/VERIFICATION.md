@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The exact derivation is in RESULT.md. Run `python verify.py` with Python 3 to replay 832 exact integer and rational assertions. The recorded output is in `verification_output.txt`. The checker uses no nonstandard libraries, and includes full sign-vector enumeration through dimension 12, a separate cumulative-binomial quantile calculation, low-dimensional arbitrary rational weights, fixed-mask covariances, four-vertex complete graph exact variances and a finite suite of algebraic strictness checks through dimension 128.
+## correctness
 
-The exact proof, not finite checking, establishes all dimensions and all real symmetric matrices of dimension at most three. For large dimensions, the checker tests the resulting exact binomial formulas rather than enumerating vectors. The scalar rearrangement argument and the four-class translation theorem are elementary arguments supplied in the proof, not delegated to a code oracle.
+PASS
 
-For the optional decimal limit evaluation, install the package in `requirements.txt` and run `python limit_numeric.py`. The recorded floating-point result is in `limit_numeric_output.txt`. The output is numerical quadrature with a library error estimate, not an independently certified mathematical enclosure. The exact integral and its limiting interpretation are established analytically.
+Center the quadratic probe response as X=sum_{i<j} B_ij Z_iZ_j. Any scalar self-coupling of X lifts to uniform full-vector probe marginals by independently sampling within level-set fibers; antitone quantile pairing minimizes covariance by rearrangement. For n<=3 the antipodal quotient has at most 4 classes, and every perfect matching on 4 is a translation by a fixed coordinate sign pattern, including ties. For K_n, X=((sum Z_i)^2-n)/2 and sorted binomial multiplicities give exact minimum. Balanced flip has variance 4(C(n,2)-floor(n²/4)). Source supplies a strict comonotone-pair swap for all n>=4, and CLT plus second-moment/W2 convergence validates the reflected quantile limit. Independent enumeration verified exact antitone and flip variances for every K_n with 4<=n<=12 (K4: 6 vs 8; independent 12). Decimal limit is not certified.
 
-No independent scientific audit or external validation is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge original sharp implementability threshold for fixed coordinate sign flips and complete-graph variance frontier. Classical antitone coupling and existing two-matrix permutation and C5 benchmark results are explicitly not new.
+
+## value
+
+PASS
+
+Optimizing two Hutchinson/Rademacher sign probes under fixed correct marginals is a natural variance frontier. The theorem quantifies the first sharp dimension where an easily implemented sign-flip dependence is suboptimal, gives an unweighted K4 witness and a complete all-n family plus limit. It is an exact structural benchmark even though the optimal nonlocal coupling need not yield a practical fast trace algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
