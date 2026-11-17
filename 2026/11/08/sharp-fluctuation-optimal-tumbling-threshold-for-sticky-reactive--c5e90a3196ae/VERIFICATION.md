@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The self-contained `checker.py` uses only Python's standard library. Run `python checker.py` to verify exact-rational second-moment agreement between the Laplace-series formula and independently derived backward-generator moment boundary equations, check the derivative sign factor and critical-rate example, and exercise parameter cases. Its recorded execution passed 294 exact-rational cases; an independent high-precision evaluation of the full hyperbolic Laplace transform at three parameter choices gave second-moment differences below \(2\times10^{-9}\).
+## correctness
 
-Mathematical completeness comes from the symbolic backward-generator derivation and the affine sign of the derivative numerator; numerical tests cannot establish the quantified global theorem. No external mathematical validation or independent audit has been performed.
+PASS
+
+Backward equations for u_±(x;s) with reversal a and sticky-wall clocks k,g give H(x;s)=H(0;s)cosh(zx), G=(s/z)H(0;s)sinh(zx), z²=s(s+2a), and midpoint transform L=k/[(k+s)cosh z+(k+2g+s)(s/z)sinh z]. Expanding through s² yields A1=B+ka and A2=ka²/6+Ca+E, so F=1-2kA2/A1² and E[T]/h=A1/k. Independent symbolic quotient differentiation gives F_a=-2k(Q-2ka/3)/(B+ka)^3. This strictly affine numerator has one positive zero iff Q>0; otherwise F strictly increases away from a=0. At k=g=1, independently computed a*=15/2, F*=14/23; high-a limit 2/3 follows leading coefficients. This is an analytic sign argument, not numerical extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty is confined to the motivated two-dimensional CV optimization/threshold, explicitly not the already published process, Laplace transform, mean or pointwise moment distributions.
+
+## value
+
+PASS
+
+The sharp Q(k,g) boundary is a complete natural reliability design classification: it identifies when tumbling reduces relative timing noise despite increasing the mean. Unlike an arbitrary parameter substitution, it resolves a physically meaningful optimizer phase diagram for independent wall kinetics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
