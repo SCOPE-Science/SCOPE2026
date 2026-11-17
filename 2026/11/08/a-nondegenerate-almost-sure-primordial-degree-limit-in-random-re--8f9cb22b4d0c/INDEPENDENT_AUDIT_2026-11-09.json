@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:11.101186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For RRSC(2), at n vertices E_n=n−1+T_n, J_n (choose edge) has conditional success probability q_n=E_n/(n+E_n), and the first degree increments by Bernoulli 1/n for vertex choice, D_n/E_n for edge choice. The source proves E(T_n−rn)²=O(n), r=(sqrt5−1)/2, using the affine drift and a second-moment recursion; this gives almost-sure convergence of the correction series for reciprocal edge count and J_n/k. Hence the environment product G_n=∏(1+J_k/E_k) has a strictly positive random n^(3−sqrt5)/2 normalization limit. Writing A_n=D_n+1 yields the exact conditional affine recursion with inhomogeneous beta_k and martingale increments xi; the drift series and conditional quadratic variation converge, giving W≥0 finite with conditional L². On {J_2=0}, probability 2/3, A_3 takes 2 and 3 with equal conditional probability, and the expected normalized limit differs by g(J)>0, proving Var(W|J)≥g(J)²/4. Examined source checker.py exact Markov-chain and full-shape matching n≤6 and reduced chain n≤9; no claim of rerunning its 3300 assertions in this audit. The infinite conclusion is supported by series and martingale arguments, not checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1910.12715 analyzes fixed-dimensional face selection and empirical limits; RRSC(2) pools vertices and edges.",
+          "arXiv:2608.26547 states the precursor exponent but not the rigorous conditional nondegenerate limit."
+        ],
+        "reasoning": "General stochastic-approximation/martingale theorems are proof tools but do not instantiate the model-specific random environment nor conditional variance. A broader theorem covering these tagged degrees was not located.",
+        "searches": [
+          "Fountoulakis Iyer Mailler Sulzbach Dynamical Models for Random Simplicial Complexes 1910.12715",
+          "Krapivsky Lucas 2608.26547 section V.2",
+          "Random graph preferential attachment root degree martingale random limit"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.26547",
+        "https://www.alphaxiv.org/abs/2608.26547",
+        "https://www.emergentmind.com/open-problems/prove-non-self-averaging-extreme-degrees-rrsc",
+        "https://arxiv.org/abs/1910.12715",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-degree-law-of-the-two-dimensional-random-recursive--95de61bf8b42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new conditional recursion A_n/G_n=2+sum beta_k/G_{k+1}+sum xi_{k+1}/G_{k+1} establishes convergence with summable quadratic variation.",
+          "Initial vertex conditional branching at J_2=0 yields a strictly separated pair of limit means."
+        ],
+        "reasoning": "Neither mean-field replacement nor asymptotic empirical vertex degree frequencies controls almost-sure first-vertex normalized paths; the new martingale/environment argument supplies the missing implication.",
+        "searches": [
+          "Krapivsky Lucas 2026 proof of non-selfaveraging lacking",
+          "RRSC2 empirical degree distribution and tagged root stochastic limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krapivsky–Lucas arXiv:2608.26547 has the same growth rule and exponent γ=(3−sqrt5)/2, but described stochastic fluctuations via heuristic/simulations.",
+          "Resultary 2026/11/08/95de61bf8b42 reports empirical degree distribution, not tagged-root limit."
+        ],
+        "reasoning": "A tagged first-vertex a.s. limit is not equivalent to a mean growth exponent, a histogram of all degrees, or simulation of nonselfaveraging.",
+        "searches": [
+          "Random Recursive Simplicial Complexes first vertex a.s. normalized degree martingale power law nondegenerate",
+          "Resultary: Random recursive simplicial complexes pooled vertex edge choice primordial initial vertex degree a.s. nondegenerate power law limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/08 Resultary complete degree law record 95de61bf8b42 gives empirical degree frequencies and power exponent (5+sqrt5)/2.",
+          "Krapivsky–Lucas numerical figures of root degrees do not tabulate an exact a.s. W law."
+        ],
+        "reasoning": "Existing degree tables and nonrigorous scaling plots do not contain the claimed stochastic limit or positive conditional variance.",
+        "searches": [
+          "Resultary RRSC(2) empirical degree law November 8 2026",
+          "Resultary RRSC primordial normalized a.s. degree limit",
+          "arxiv 2608.26547 equations 73 to 81"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Krapivsky–Lucas 2026 derives/predicts the same exponent from mean-field estimates and reports numerical non-selfaveraging; their stated proof gap is bridged by the conditional martingale theorem. Published 2026 empirical degree-distribution result for RRSC(2) counts degrees of a uniformly sampled vertex and cannot imply the a.s. scaled degree of the initial vertex. Fountoulakis et al. studies fixed-dimensional simplex attachment, not pooled edge/vertex choice.",
+      "residual_risks": [
+        "Primary Krapivsky–Lucas PDF was inaccessible in this run; comparisons were based on accessible abstract/exposition and explicit source descriptions, not a fabricated complete reading.",
+        "A differently named tagged-degree Pólya/martingale theorem might cover the mixed attachment process.",
+        "Neither positivity W>0 almost surely nor unconditional moment growth is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HEURISTIC_ONLY in accessible relevant material; residual primary-full-text risk retained.",
+          "evidence": "Paper derives scaling estimates; secondary open-problem transcript quotes authors as stating proof of root nonselfaveraging is lacking.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26547",
+          "material_read": "The accessible arXiv abstract and extensive searchable paper exposition/technical synopsis at https://www.alphaxiv.org/abs/2608.26547; direct full arXiv HTML/PDF fetch disabled.",
+          "method": "Compared attachment rule, γ, and the stated numerical nonselfaveraging discussion; did not claim full primary article read.",
+          "title": "Random Recursive Simplicial Complexes",
+          "trigger": "Exact underlying RRSC(2) model and primordial exponent"
+        },
+        {
+          "assessment": "MODEL_DIFFERS; only material read is used, not whole-document noncoverage.",
+          "evidence": "Fixed-dimensional face selection and empirical degree profiles versus mixed edge/vertex root limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.12715",
+          "material_read": "Accessible abstract and identified scope, plus source paper description of fixed-dimensional facet selection.",
+          "method": "Checked model quantifier/attachment dimension against this mixed-dimension process.",
+          "title": "Dynamical Models for Random Simplicial Complexes",
+          "trigger": "Plausible broader growing complex theorem"
+        },
+        {
+          "assessment": "MATHEMATICAL_ARGUMENT_PASS with explicitly limited finite verification.",
+          "evidence": "q_n=E_n/(n+E_n), G_n~g n^γ, Var(W|J)>0 with probability ≥2/3.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-nondegenerate-almost-sure-primordial-degree-limit-in-random-re--8f9cb22b4d0c/RESULT.md",
+          "material_read": "Whole RESULT.md, exact proof steps and checker.py source from snapshot.",
+          "method": "Checked environment second moment, product asymptotic, summable conditional L² martingale increments and early branching.",
+          "title": "A nondegenerate almost-sure primordial-degree limit in random recursive two-complexes",
+          "trigger": "Assigned final claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: resolving a highlighted open stochastic-limit question in the natural original-vertex observable is mathematically motivated. Proving existence and retained conditional randomness beyond a mean-field exponent is structural information about reinforcement and initial-condition memory; the limit is not asserted positive a.s. nor does it imply unconditional degree-variance asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only RRSC(2) starting from a single vertex; no tagged-root distribution formula or higher m.",
+    "Strong nondegeneracy is conditional on type sequence on an event of probability at least 2/3, not a universal variance lower bound.",
+    "No repository write, dispatcher closeout or publication; all source tree/blob identities correspond to actual frozen Git objects.",
+    "Public operations withheld pending complete provenance/privacy sanitization."
+  ],
+  "schema_version": 1
+}
