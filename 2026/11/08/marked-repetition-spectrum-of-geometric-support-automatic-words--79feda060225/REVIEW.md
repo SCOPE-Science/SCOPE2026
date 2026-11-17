@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The uniqueness of a distance between two powers is established from the largest dividing power of the base, including composite bases. It forces exactly one mark in each half of a nonzero square, hence consecutive global marks. Endpoint inequalities give all starts, and the first failure of periodic extension gives all lengths. Minimality of periods and uniqueness of counted words are proved explicitly. The standalone finite checker ran successfully on the actual packaged source and supplies additional diagnostics, not a substitute for the infinite argument.
+PASS
 
-## Originality
+The object is the one-sided word with marks at B^j (j>=0), not at zero. Unique factorization of B^b-B^a=B^a(B^(b-a)-1) by the largest dividing power of B, valid for composite bases, proves every possible marked square has one ordered marker pair, hence consecutive B^a,B^(a+1). The predecessor exclusion and s>=0 give exactly the exceptional a=0 starts and x=0..(B-1)B^(a-1)-1 at a>=1. The successor exclusion bounds the maximal periodic extension to 2p+x, establishes least period p, and rules out marked cubes. Counting distinct first-mark offsets, lengths and scales gives M_a, M_a(M_a+1)/2 and cumulative B^m (or B^m+1). Taking the supremum yields the B=2 unattained 5/2 and B>=3 attained 2+1/(B-1) endpoints. Exhaustive independent 624 (base,period) comparisons on B=2..7/p<=104 found precisely the predicted square occurrences; the infinite quantifiers follow from the marker-difference argument, not enumeration.
 
-PASS, with normal bibliographic uncertainty. The closest same-object work of Schaeffer and Shallit on the powers-of-two characteristic word is about string attractors. Shallit and Xu's results concern factorization of repetitions in other named automatic sequences, rather than a complete spectrum of all nonzero periodic factors in the geometrically supported family. Allouche, Rampersad and Shallit optimize the unqualified critical exponent over automatic-sequence classes. The present all-base marked-spectrum theorem is not implied by these results. Searches for characteristic power words, geometric support, square occurrence periods, nonzero powers and exponent restrictions, along with relevant mathematical records and available prior claims, did not reveal a covering statement. Undiscovered equivalent results remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Long constant-zero runs make ordinary repetition counts and the ordinary critical exponent degenerate. Separating the marked language produces a complete and nondegenerate family invariant: every marked repetition's start, least period and allowed length, all-scale factor counts, and an attained-versus-unattained sharp exponent dichotomy. This is a natural complete classification in word combinatorics, not a single small numerical example. No general statement about other sparse supports is asserted.
+Best-of-knowledge PASS for the complete marked least-period and maximal-extension language and sharp base dichotomy. Prior automata/repetition factorization theorems yield general decidability of repetition predicates, but not this complete closed formula. Same-word attractor and related geometric-marker word-complexity results do not imply all-square starts, least periods, extensions, and critical exponent. A general Walnut decision algorithm could in principle compute the language for each fixed base, but this is not an explicitly evaluated uniform-in-B theorem; no prior exact full classification found.
 
-## Closest literature and limitations
+## value
 
-The scientific comparison is with https://arxiv.org/abs/2311.14961, https://arxiv.org/abs/2406.06513, https://arxiv.org/abs/2012.06840, and https://arxiv.org/abs/2209.09223. Exact indexing and the marked-factor restriction are essential. Finite verification cannot prove the infinite claim or remove all novelty risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The language of marked powers in a canonical automatic sparse word is a motivated combinatorics-on-words object: the ordinary critical exponent is infinite because of zero runs, whereas the marker-qualified exponent and complete nonzero square-root spectrum have a sharp finite base-dependent description. The full all-scale classification, attainable/unattainable boundary and precise counts are mathematical structure, not a one-off small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
