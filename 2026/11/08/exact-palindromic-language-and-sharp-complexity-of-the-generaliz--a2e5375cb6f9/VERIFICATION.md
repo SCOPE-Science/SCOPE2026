@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact source code \(\texttt{verify_cantor_palindromes.py}\) uses only Python 3 standard facilities. It independently enumerates binary digit-restricted prefixes, collects distinct actual palindromic factor strings at every tested length and compares these sets with all predicted words. Test domain: \(3\le b\le9\) and \(1\le n\le160\), with prefix size \(\min(30000,b^9)\) symbols. The diagnostic returned \(\texttt{VERIFY_OK bases=3..9 lengths=1..160 total_cases=1120}\). Additional finite prefixes could find mistakes but do not prove absence of longer exceptions. Infinite completeness follows from the exact \(2\)-adic gap-valuation identity and the symmetric-core plus asymmetric-exterior argument in the theorem.
+## correctness
 
-A self-review of correctness, originality and mathematical value was completed. Independent scientific validation remains not performed.
+PASS
+
+For b>=3 the successive 1-marker positions a_b(k)=(b-1)sum_j eps_j(k)b^j have gap g_t=(b-2)b^t+1 where t=nu_2(k+1). Adjacent external gaps at a marker have different valuations, so a palindrome with odd marker count cannot have >=3 ones; all one-marker factors are 0^h10^h, 0<=h<=b-2. For even marker count a central pair with gap g_t has a unique symmetric block of 2^(t+1) markers, a translate of W_(b,t+1), and exterior gaps unequal beyond symmetric zero extension: resulting maximal palindrome T_(b,t). Therefore all palindromes with >=2 ones are its centered factors, with length L_t..U_t and parity b. Distinct t have distinct central gaps and no triple overlap; exact formula P_b(n)<=3 and infinitely many sharp overlap lengths follow. Independent direct palindrome-set enumeration verified bases b=3..6 and n<=64; infinite proof is the valuation/symmetry argument.
+
+## originality
+
+PASS
+
+The published Nov 2 finite *ternary* Cantor-word theorem gives P_k(n) at substitution levels b=3 and richness but not general integer b nor maximal palindromic language of the infinite generalized Cantor word. The all-b formula includes even/odd base parity changes and scale-dependent gap structure, so it is not established by merely applying the ternary result. Earlier Cantor papers study k-Abelian/permutation factor complexity; no equivalent universal b>=3 palindromic classification was found in targeted searches. Best of knowledge only.
+
+## value
+
+PASS
+
+A complete language classification and sharp uniform palindromic-complexity ceiling for a standard nonprimitive uniform-morphism family, covering every integer base and all factor lengths, is a natural combinatorial invariant. Explicit globally maximal families and parity/scale intervals are mathematically usable beyond finite sample computations; the base-three antecedent is credited rather than claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
