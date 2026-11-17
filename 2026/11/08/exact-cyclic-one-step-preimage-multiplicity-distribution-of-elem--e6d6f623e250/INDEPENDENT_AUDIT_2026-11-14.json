@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:08:52.410494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Backward maps g0=(0,2,3,3), g1=(2,0,1,1) were constructed from x_{i-1}=y_i XOR(x_i OR x_{i+1}); fixed points of their composition bijectively encode cyclic preimages even for n=1,2. Independently rebuilt the 41-element transformation semigroup and its rank-three cases; no composition supports four fixed points, and the only triple-fiber output is 1^n for 3|n. Independently constructed the 16x16 pair de Bruijn transfer matrix with characteristic polynomial t^11(t-2)(t-1)(t^3-t^2-2), yielding second moment 2^n+1+s_n. The sum, first moment, second moment and triple count solve the four C_{n,j}; directly checked all 8190 output words for n=1..12. Exact finite matrix identity and semigroup closure, not only bounded enumeration, prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-signed-block-characterization-of-collision-outputs-of-cyclic-r--752b67e32224 gives collision *language*, not output-fiber frequency",
+          "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf pp 434-435 treats noncyclic boundary choices"
+        ],
+        "reasoning": "The signed-block language gives an existence criterion for collision outputs, not a closed all-length count of 2-fibers, and itself cites known histogram. Its shared 9 Nov reconciliation does not demonstrate earlier coverage. Jen finite word 4-predecessor boundary regime does not dominate indexed ring counts.",
+        "searches": [
+          "Resultary A signed-block characterization collision outputs of cyclic Rule30",
+          "Jen 1989 Enumeration of Preimages in Cellular Automata"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cyclic-one-step-preimage-multiplicity-distribution-of-elem--e6d6f623e250",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-signed-block-characterization-of-collision-outputs-of-cyclic-r--752b67e32224",
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "https://doi.org/10.1103/RevModPhys.55.601",
+        "https://cellular.solves.ca/gardens-of-eden"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nov2 RESULT.md Proof §3 gives a_n and b_n but explicitly limits itself: does not enumerate all predecessor multiplicities",
+          "Nov8 signed-block RESULT.md says known predecessor-frequency classification implies the exceptional triple case, rather than giving a second independently antecedent theorem"
+        ],
+        "reasoning": "Neither earlier image count alone nor local collision-language classification automatically supplies the formula for all counts C_{n,1,2,3}. The simultaneous publication makes independent chronological priority unclear; acceptance limited to noncovered histogram content with explicit caveat.",
+        "searches": [
+          "Rule30 Nov2 exact periodic image law full RESULT",
+          "Rule30 Nov8 signed-block collision output full RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284 establishes only C0=(s_n+1-2delta)/2",
+          "Jen (1989) unrestricted boundary preimages differ from periodic closure"
+        ],
+        "reasoning": "Equivalent meaning of earlier b_n=2^n-image_count is C_{n,0}; that identity is acknowledged. Full C_{n,1},C_{n,2},C_{n,3} and max preimage count require additional second moment and rank-three semigroup analysis.",
+        "searches": [
+          "Resultary Rule30 exact periodic image law November2",
+          "Rule30 left-permutivity cyclic vs infinite lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284 explicitly credits Faulkenberry Table6 finite lengths and gives all-length orphan formula",
+          "https://cellular.solves.ca/gardens-of-eden finite image data"
+        ],
+        "reasoning": "Finite counts or all-length orphan count are not a complete preimage multiplicity table; a second moment and exact triple-fiber obstruction are extra data.",
+        "searches": [
+          "Faulkenberry 2016 Rule30 state diagrams Garden of Eden Table6",
+          "Elementary CA Zoo Rule30 Gardens of Eden",
+          "Rule30 Nov2 exact image table"
+        ]
+      },
+      "rationale": "The 2 November Rule30 image theorem already determines C_{n,0}, because it counts unreachable outputs using the SAME recurrence; this component is expressly credited. It does NOT determine C_{n,2}, C_{n,3}, the sharp fiber ceiling, nor the complete histogram from C0 alone. The 8 November signed-block collision-language result concerns which outputs have multiple predecessors and explicitly treats full aggregate frequency as known; both were jointly reconciled, so it cannot be used as independent earlier priority evidence. The triple-fiber congruence obstruction and exact multiplicity distribution survive the comparison.",
+      "residual_risks": [
+        "Rule30 signed-block theorem and this histogram were reconciled simultaneously 9 Nov; exact research first-disclosure order unknown",
+        "Potential historical finite-period predecessor-frequency table in inaccessible early CA literature",
+        "No claim about multi-step ancestors or infinite lattice boundary choices"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete histogram proof survives checks",
+          "evidence": "41-element monoid, t^11(t-2)(t-1)(t^3-t^2-2) charpoly, n1..12 all output fibers",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cyclic-one-step-preimage-multiplicity-distribution-of-elem--e6d6f623e250",
+          "material_read": "Full RESULT.md incl rank-3, second-moment and boundary proof; actual verify_semigroup.py and verify_direct.py package paths",
+          "method": "Frozen Git blobs; independent reconstruction",
+          "title": "Exact cyclic one-step preimage multiplicity distribution of elementary cellular automaton Rule 30",
+          "trigger": "Final result under audit"
+        },
+        {
+          "assessment": "Already supplies C0 exactly, not C1/C2/C3",
+          "evidence": "b_n=(s_n+1-2*1_{3|n})/2; Limitations explicitly say no predecessor multiplicity enumeration",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284",
+          "material_read": "Complete RESULT.md: definition, 41-state proof, closed formula, limitations and comparisons",
+          "method": "Direct complete GitHub file read",
+          "title": "Exact periodic image law for elementary cellular automaton Rule 30",
+          "trigger": "Exact same rule/same periodic n and count"
+        },
+        {
+          "assessment": "Classifies b_n(y)>=2 as language, no independent all-length histogram; simultaneous reconciliation priority uncertainty",
+          "evidence": "Explicit text: known predecessor-frequency classification implies exceptional triple state",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-signed-block-characterization-of-collision-outputs-of-cyclic-r--752b67e32224",
+          "material_read": "Complete RESULT.md including signed graph and parity criterion, references, limitations",
+          "method": "Direct complete GitHub file read",
+          "title": "A signed-block characterization of collision outputs of cyclic Rule 30",
+          "trigger": "Same Rule30 cyclic fibers"
+        },
+        {
+          "assessment": "Counts finite windows with freely chosen boundaries, not cyclic input/output fibers",
+          "evidence": "Four one-step predecessors can occur with free boundary, unlike <=3 on finite periodic rings",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Material pp 434–435 and surrounding theorem; PDF screenshot checked",
+          "method": "Web PDF page image and textual read",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Same Rule30 predecessor operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete inverse-fiber size distribution gives exact ambiguity beyond mere image size for a canonical permutive CA on periodic rings. Maximal fiber three, its unique target at 3|n, and frequencies of unique vs doubly invertible outputs answer a natural inverse-dynamics question not mechanically resolved by the already known orphan count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-cyclic-one-step-preimage-multiplicity-distribution-of-elem--e6d6f623e250",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-periodic-image-law-for-elementary-cellular-automaton-rule--3077d0947284",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-signed-block-characterization-of-collision-outputs-of-cyclic-r--752b67e32224",
+    "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+    "https://doi.org/10.1103/RevModPhys.55.601",
+    "https://cellular.solves.ca/gardens-of-eden"
+  ],
+  "disposition": "passed",
+  "limitations": "All lengths n>=1, indexed cyclic ring; output fibers, NOT necklace classes; prior image count C0 is known, accepted scope is remaining multiplicity distribution.",
+  "residual_risks": [
+    "Rule30 signed-block theorem and this histogram were reconciled simultaneously 9 Nov; exact research first-disclosure order unknown",
+    "Potential historical finite-period predecessor-frequency table in inaccessible early CA literature",
+    "No claim about multi-step ancestors or infinite lattice boundary choices"
+  ],
+  "schema_version": 1
+}

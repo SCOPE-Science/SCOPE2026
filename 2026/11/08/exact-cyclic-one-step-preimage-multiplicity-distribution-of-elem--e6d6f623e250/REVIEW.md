@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The backward-pair maps encode cyclic predecessor words as transformation fixed points. The explicitly generated 41-element transformation monoid isolates all six rank-three states and establishes that a three-predecessor output exists only at the all-ones word of lengths divisible by three. The 16-state paired de Bruijn matrix counts colliding predecessor pairs, and its exactly computed characteristic polynomial produces the second moment. Together with the zero- and first-moment identities, these determine every fiber cardinality. Both exact verifiers reproduce the results on their stated finite domains. The proof uses the exact matrix definition and finite polynomial arithmetic, not empirical extrapolation.
+## correctness
 
-## Originality — PASS with historical risk
-Jen (1989), pp. 434–435, counts unrestricted-boundary one-step preimages of finite Rule 30 blocks: its constant-four count differs from globally cyclic closure counts. Fukś (2003) discusses time-extended local preimages, and Wolfram (1983) defines the dynamical system but does not establish the stated finite cyclic histogram in the material inspected. Semantic research-record and literature searches were compared by boundary assumptions, target quantities, and implications, not only by wording. The 1988 cylindrical-automata publication and full 1983 review were not read in their entirety; historical duplicate results remain possible.
+PASS
 
-## Value — PASS
-The predecessor-fiber profile is a natural exact finite-size measure of information loss for a standard nonlinear cellular automaton. The formula treats every ring length, identifies Garden-of-Eden and unique-predecessor outputs, and reveals a nontrivial modular obstruction to threefold fibers. It is a complete natural classification rather than an isolated tabulation.
+Backward maps g0=(0,2,3,3), g1=(2,0,1,1) were constructed from x_{i-1}=y_i XOR(x_i OR x_{i+1}); fixed points of their composition bijectively encode cyclic preimages even for n=1,2. Independently rebuilt the 41-element transformation semigroup and its rank-three cases; no composition supports four fixed points, and the only triple-fiber output is 1^n for 3|n. Independently constructed the 16x16 pair de Bruijn transfer matrix with characteristic polynomial t^11(t-2)(t-1)(t^3-t^2-2), yielding second moment 2^n+1+s_n. The sum, first moment, second moment and triple count solve the four C_{n,j}; directly checked all 8190 output words for n=1..12. Exact finite matrix identity and semigroup closure, not only bounded enumeration, prove all n.
 
-## Limitations
-Binary, one-step, cyclic, indexed configurations only; separate free-boundary/multiple-step questions not resolved. The novelty judgment is best-knowledge and not an independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2 November Rule30 image theorem already determines C_{n,0}, because it counts unreachable outputs using the SAME recurrence; this component is expressly credited. It does NOT determine C_{n,2}, C_{n,3}, the sharp fiber ceiling, nor the complete histogram from C0 alone. The 8 November signed-block collision-language result concerns which outputs have multiple predecessors and explicitly treats full aggregate frequency as known; both were jointly reconciled, so it cannot be used as independent earlier priority evidence. The triple-fiber congruence obstruction and exact multiplicity distribution survive the comparison.
+
+## value
+
+PASS
+
+Complete inverse-fiber size distribution gives exact ambiguity beyond mere image size for a canonical permutive CA on periodic rings. Maximal fiber three, its unique target at 3|n, and frequencies of unique vs doubly invertible outputs answer a natural inverse-dynamics question not mechanically resolved by the already known orphan count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
