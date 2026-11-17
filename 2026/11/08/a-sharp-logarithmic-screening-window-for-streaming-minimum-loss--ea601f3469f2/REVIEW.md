@@ -1,24 +1,21 @@
-# Scientific review: sharp logarithmic screening window
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The one-step selected-label calculation gives exact transitions \(p_t=\beta^{k_t}\) and \(q_t=(1-\beta)^{k_t}\), with no approximation or independence beyond the stated fresh-batch assumption. The three possible pathwise behaviors follow respectively from Borel--Cantelli, nonzero/zero infinite products, and summability of expected transition counts. The distinction between convergence in probability and almost-sure eventual recovery follows from the exact marginal recursion. The logarithmic endpoints, including equality, use elementary comparison with the harmonic series. The packaged `verify.py` independently reproduces the finite transition probabilities and recurrence by exact-rational enumeration (952 checks). The infinite-time conclusions rely on the written proof, not on a simulation.
+PASS
 
-## Originality (PASS, with priority uncertainty)
+At clean state, only an all-outlier batch changes the state, with p_t=beta^k_t; at outlier state only an all-clean batch changes, q_t=alpha^k_t. Fresh-batch independence yields exact conditional no-switch tail products. For P=sum p_t<infty,Q=sum q_t=infty, first Borel–Cantelli makes entries to outlier finite while every outlier state eventually escapes a.s.; thus eventual clean. P=infty implies Q=infty (alpha>beta), both absorbing-tail products zero and finite switches impossible, hence infinite switches a.s. Q<infty gives finite expected number of changes and positive-probability no-exit/first-entry paths for either eventual label. If k_t->infty and Q=infty, recursion u_t=(1-p_t-q_t)u_(t-1)+p_t and r_t=p_t/(p_t+q_t)->0 forces u_t->0. For logarithmic batch, z^ceil(c log(t+1)) comparable up to factor z with t^(-c log(1/z)), giving both exact endpoints (harmonic divergence). Constant k stationary p/(p+q) and eigenvalue 1-p-q are exact.
 
-The fixed-\(k\) minimum-loss SGD rule and its possible trapping near corrupted quadratic samples are known from Shah--Wu--Sanghavi (2020). The 2026 quantile-loss paper develops fixed-size finite-sum filtering and a small-sample error-floor analysis; the 2026 streaming Kaczmarz paper uses a different quantile criterion and a finite-horizon logarithmic sample size. The present claim is specifically the **sharp pathwise trichotomy under an increasing number of fresh candidates**, including both critical constants, endpoint classification and the strict separation of marginal recovery from eventual pathwise recovery. The relevant primary text and records checked did not reveal this exact conjunction. General inhomogeneous-chain theory and unindexed special-case calculations pose genuine residual priority risks; the result does not assert that its underlying Borel--Cantelli tools or fixed-size SGD behavior are new.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Minimum-loss screening is a directly motivated robust optimization rule, and the screening workload is a real design parameter. The complete logarithmic-batch law proves a nonmonotone reliability phenomenon: a nonempty middle interval gives eventual almost-sure recovery, a smaller rate causes infinitely many corrupted steps although the error probability vanishes, and a larger rate can permanently trap a run at the corrupted target. The two thresholds identify a precise design boundary unavailable from fixed-batch expected-error bounds. The model is minimal but natural and fully classified. No general convex-loss, finite-data or step-size extension is claimed.
+Best-of-knowledge novel exact result after checked primary source scope comparisons. The closest inspected primary results differ by parameter regime, sample law, or strictly weaker quantitative conclusion; inaccessible full texts and independent historical priority remain explicit risks.
 
-## Closest literature and limitations
+## value
 
-- Shah, Wu and Sanghavi, *Choosing the Sample with Lowest Loss Makes SGD Robust* (2020), https://arxiv.org/abs/2001.03316. **Closest shared algorithm and scalar outlier landscape; fixed screening size and static trapping already prior art.**
-- Haddock, Ma and Rebrova, *Quantile-based Loss Filtering for Outlier-Robust Stochastic Gradient Descent* (2026), https://arxiv.org/abs/2609.13040. **Fixed screening size, finite index sets sampled without replacement; does not state the fresh-stream time-dependent almost-sure classification in the relevant sections inspected.**
-- Battaglia et al., *Quantile Randomized Kaczmarz for Streaming Linear Systems with Massart Noise* (2026), https://arxiv.org/abs/2608.27968. **Fresh-sample streaming and logarithmic finite-horizon screening, but a different quantile update and type of guarantee.**
-- General results for time-inhomogeneous two-state Markov chains may cover the probability-theoretic sublemmas. Incompletely indexed or inaccessible historical studies could contain the same sharp specialization.
+PASS
 
-The proof assumes two point-mass targets, equal quadratic curvature, exact unit gradient step, majority-clean independent fresh batches and deterministic screening sizes. Reproducible finite checks do not establish the infinite assertions. Independent mathematical validation remains unperformed.
+The screening batch size is a motivated knob of the actual minimum-loss robust SGD algorithm. The theorem makes a precise, counterintuitive design prediction: less screening gives infinitely many bad steps despite convergence in probability, intermediate logarithmic growth recovers a.s., and excessive growth can lock into corruption forever. It is a meaningful exact phase classification of a minimal natural stochastic model, not a purely unmotivated toy enumeration; no general SGD guarantee is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

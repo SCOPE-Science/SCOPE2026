@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:19:24.784636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/verify.py"
+      ],
+      "rationale": "At clean state, only an all-outlier batch changes the state, with p_t=beta^k_t; at outlier state only an all-clean batch changes, q_t=alpha^k_t. Fresh-batch independence yields exact conditional no-switch tail products. For P=sum p_t<infty,Q=sum q_t=infty, first Borel–Cantelli makes entries to outlier finite while every outlier state eventually escapes a.s.; thus eventual clean. P=infty implies Q=infty (alpha>beta), both absorbing-tail products zero and finite switches impossible, hence infinite switches a.s. Q<infty gives finite expected number of changes and positive-probability no-exit/first-entry paths for either eventual label. If k_t->infty and Q=infty, recursion u_t=(1-p_t-q_t)u_(t-1)+p_t and r_t=p_t/(p_t+q_t)->0 forces u_t->0. For logarithmic batch, z^ceil(c log(t+1)) comparable up to factor z with t^(-c log(1/z)), giving both exact endpoints (harmonic divergence). Constant k stationary p/(p+q) and eigenvalue 1-p-q are exact.",
+      "residual_risks": [
+        "Finite verification alone does not establish universal quantifiers; correctness rests on the fully reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 quantile Kaczmarz and fixed-size quantile SGD address distinct selection/update rules or finite horizons."
+        ],
+        "reasoning": "A general inhomogeneous two-state Markov theorem supports the mathematical tool but must be specialized to both competing rare events to yield exact clean-recovery window; no inspected prior paper states the combined application-specific sharp endpoints.",
+        "searches": [
+          "minimum k loss stochastic gradient fresh batch two-point noise logarithmic k screening almost sure trapping Borel Cantelli",
+          "https://arxiv.org/abs/2608.27968",
+          "https://arxiv.org/abs/2609.13040"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/RESULT.md",
+        "https://proceedings.mlr.press/v108/shah20a/shah20a.pdf",
+        "https://arxiv.org/abs/2608.27968",
+        "https://arxiv.org/abs/2609.13040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior fixed k permits positive stationary bad probability and potential trapping at outliers, but has neither sum P,Q criteria nor two logarithmic phase boundaries and critical endpoint conventions."
+        ],
+        "reasoning": "Elementary Borel–Cantelli proofs are public domain; the validated addition is the motivated exact pathwise increasing-screening design law and separation of in-probability from almost-sure behavior.",
+        "searches": [
+          "Shah Wu Sanghavi PMLR 2020 Sections 4.1-4.2",
+          "minimum k loss stochastic gradient fresh batch two-point noise logarithmic k screening almost sure trapping Borel Cantelli"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original minimum-k SGD with scalar squared losses is the same sampling mechanism but analyzed for a fixed k; present schedule k_t diverges and yields nonstationary transitions."
+        ],
+        "reasoning": "Time-homogeneous invariant distribution p/(p+q) does not imply almost-sure nonstationary switching/stabilization with summability cutoffs, even though the same state transition mechanism is visible.",
+        "searches": [
+          "minimum k loss stochastic gradient fresh batch two-point noise logarithmic k screening almost sure trapping Borel Cantelli",
+          "https://proceedings.mlr.press/v108/shah20a/shah20a.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant OEIS/database exact probability table for this infinite switching/eventual clean event; the earlier paper states fixed-size trap potential."
+        ],
+        "reasoning": "This is an infinite-time regime classification; finite Markov transition matrices alone are not an existing exact table of its three asymptotic events.",
+        "searches": [
+          "minimum k loss stochastic gradient fresh batch two-point noise logarithmic k screening almost sure trapping Borel Cantelli",
+          "minimum loss SGD Bernoulli two center batch schedule Borel Cantelli"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel exact result after checked primary source scope comparisons. The closest inspected primary results differ by parameter regime, sample law, or strictly weaker quantitative conclusion; inaccessible full texts and independent historical priority remain explicit risks.",
+      "residual_risks": [
+        "The thresholds are an elementary application of known Borel–Cantelli results for a two-state inhomogeneous chain; an unindexed equivalent model-specific specialization may exist.",
+        "Equal curvature, unit step, independent fresh batches and two-point labels are essential; no extension to finite-data, heterogeneous or diminishing-step robust SGD is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes minimum-k-loss rule with fixed k, scalar outlier traps and expected/stationary analysis, but not the growing-k_t infinite-time a.s. three-phase threshold with both closed endpoints. Fixed-size trapping is prior art.",
+          "evidence": "PMLR 108 (2020) pp.2120–2130, Algorithm 1, Section 4.2 and Figure 2.",
+          "identifier_or_url": "https://proceedings.mlr.press/v108/shah20a/shah20a.pdf",
+          "material_read": "Full PMLR PDF text and in particular Algorithm 1, Introduction, Sections 4.1–4.2, scalar squared-loss outlier formulation and trapping remark inspected, with screenshot",
+          "method": "Lawful public primary published PDF and rendered pages",
+          "title": "Choosing the Sample with Lowest Loss makes SGD Robust (Shah–Wu–Sanghavi, 2020)",
+          "trigger": "Original same algorithm and its scalar squared-outlier dynamics"
+        },
+        {
+          "assessment": "Quantile Kaczmarz rather than minimum-current-loss two-label unit-step chain; finite-horizon results do not alone imply submitted exact a.s. model classification. Whole-document noncoverage not asserted from abstract.",
+          "evidence": "First posted 2026-08-28, streaming quantile Massart noise.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27968",
+          "material_read": "ArXiv abstract and model/guarantee description, not full primary text",
+          "method": "Bibliographic search and target related-work comparison",
+          "title": "Quantile Randomized Kaczmarz for Streaming Linear Systems with Massart Noise (Battaglia et al., 2026)",
+          "trigger": "Closest streaming logarithmic fresh-sample screening literature"
+        },
+        {
+          "assessment": "Finite sampled index quantile rule differs from minimum-of-fresh-independent-batch and time-inhomogeneous tail event; whole-document noncoverage not claimed from synopsis.",
+          "evidence": "First posted 2026-09-11, fixed-size quantile filtering.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13040",
+          "material_read": "ArXiv abstract/model description, not full document",
+          "method": "Bibliographic search and target comparison",
+          "title": "Quantile-based Loss Filtering for Outlier-Robust Stochastic Gradient Descent (Haddock–Ma–Rebrova, 2026)",
+          "trigger": "Closest robust filtering variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/RESULT.md",
+        "https://proceedings.mlr.press/v108/shah20a/shah20a.pdf",
+        "https://arxiv.org/abs/2608.27968",
+        "https://arxiv.org/abs/2609.13040"
+      ],
+      "rationale": "The screening batch size is a motivated knob of the actual minimum-loss robust SGD algorithm. The theorem makes a precise, counterintuitive design prediction: less screening gives infinitely many bad steps despite convergence in probability, intermediate logarithmic growth recovers a.s., and excessive growth can lock into corruption forever. It is a meaningful exact phase classification of a minimal natural stochastic model, not a purely unmotivated toy enumeration; no general SGD guarantee is asserted.",
+      "residual_risks": [
+        "The thresholds are an elementary application of known Borel–Cantelli results for a two-state inhomogeneous chain; an unindexed equivalent model-specific specialization may exist.",
+        "Equal curvature, unit step, independent fresh batches and two-point labels are essential; no extension to finite-data, heterogeneous or diminishing-step robust SGD is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/VERIFICATION.md",
+    "https://proceedings.mlr.press/v108/shah20a/shah20a.pdf",
+    "https://arxiv.org/abs/2608.27968",
+    "https://arxiv.org/abs/2609.13040"
+  ],
+  "disposition": "passed",
+  "final_claim": "In a fresh-batch two-quadratic unit-step minimum-loss SGD, k_t=ceil(c log(t+1)), beta<1/2, the exact a.s. behavior is infinite switching for c<=1/log(1/beta), eventual clean recovery for 1/log(1/beta)<c<=1/log(1/(1-beta)), and random permanent clean/outlier lock-in for larger c; the general criterion uses sums of beta^k and (1-beta)^k.",
+  "limitations": [
+    "The thresholds are an elementary application of known Borel–Cantelli results for a two-state inhomogeneous chain; an unindexed equivalent model-specific specialization may exist.",
+    "Equal curvature, unit step, independent fresh batches and two-point labels are essential; no extension to finite-data, heterogeneous or diminishing-step robust SGD is proved."
+  ],
+  "residual_risks": [
+    "The thresholds are an elementary application of known Borel–Cantelli results for a two-state inhomogeneous chain; an unindexed equivalent model-specific specialization may exist.",
+    "Equal curvature, unit step, independent fresh batches and two-point labels are essential; no extension to finite-data, heterogeneous or diminishing-step robust SGD is proved."
+  ],
+  "schema_version": 1
+}
