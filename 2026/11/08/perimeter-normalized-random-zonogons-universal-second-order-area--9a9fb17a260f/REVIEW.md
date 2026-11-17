@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The zonotope determinant formula, perimeter normalization, uniformly convergent sine Fourier series, and exact diagonal cancellation give a positive Fourier-energy identity. The multivariate Lindeberg argument and an explicit expectation bound for the infinite Fourier tail justify the claimed weak limits. In the spike limit the shared angular variable disappears from the squared-modulus joint law by rotational invariance. Exact pair-kernel orthogonality gives the finite-n moments. The standalone numerical checker confirms geometric normalization and empirical transforms; it is not used to establish any infinite-dimensional statement.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Schneider (arXiv:2202.06774, Sections 3–4) treats general zonotope valuations and an ordinary nondegenerate central limit theorem; it does not identify the second-order perimeter-normalized law, its sole radial moment parameter, or the spike obstruction. Joós–Lángi (arXiv:2206.03204) prove deterministic isoperimetric bounds and equal-length expected-volume facts, not the claimed weighted stochastic second-order law. Buffière–Marchal (arXiv:2303.18045) treat random *lattice* zonotopes and Gaussian boundary fluctuations. Giné (1975) and general degenerate-U-statistic theory already provide broad spectral machinery for circular statistics, so that machinery itself and the equal-length spectral representation are not claimed as new. The present geometric normalization, deterministic diffuse universality, and explicit sharp nondiffuse separation do not follow as stated from the inspected prior results. Other weighted circular-statistic sources may provide equivalent descriptions; historical priority is therefore provisional.
+PASS
 
-**Mathematical value — PASS.** Random zonotopes provide a natural model of random centrally symmetric convex polygons. Dividing by the random perimeter removes a first-order size fluctuation; the residual area fluctuations are not Gaussian, yet are insensitive to almost all details of the segment-length distribution. The explicit spike construction proves that this robustness has a real, structurally meaningful boundary, not merely a technical Lindeberg assumption.
+PASS: Reconstructed perimeter exactly 2 from normalized positive segment weights, planar area as sum_{i<j} w_i w_j |sin(theta_i-theta_j)| and the absolutely convergent angular Fourier expansion. Diagonal cancellation yields D_n=(2n/pi) sum_m |sum_j w_j exp(2im theta_j)|^2/(4m^2-1), with no missing constant. Uniform E[tail]=rho_n/[pi(2M+1)] permits passage from finite-dimensional Lindeberg Gaussian modes to the infinite exponential law when max w/sqrt(sum w^2)->0. The Exp(1) series mean rho/pi, variance rho^2(1/4-2/pi^2) and Euler-sine Laplace product follow from exact coefficient sums. For spike c/sqrt(n), finite modes converge to |G_m+c e^{2im theta_1}|^2; conditional rotational invariance gives independent noncentral squared moduli and the same uniform tail argument. Exact finite conditional pairwise variance uses kernel degeneracy; conditionally independent directions do not imply independent pair kernels, but their covariances vanish. Independently recomputed 48 random-angle finite Fourier/area identities using 10000 modes (all error <0.002), checked the coefficient algebra and spike-vs-diffuse variance gap. Finite tests corroborate rather than prove asymptotic laws. The proof requires only the stated finite second moment for iid lengths; max L_j/sqrt(n) ->0 in probability via the standard tail identity.
 
-**Limitations.** Independent directions must be Haar-uniform, the iid radial law must have a finite second moment, and the deterministic diffuse criterion must hold. The spike result is a counterexample to removing that criterion, not a classification of all exceptions. Any unseen exact weighted version of a circular Sobolev-statistic theorem remains an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for arbitrary deterministic diffuse weights, universal iid-length moment ratio, and sharp single-spike noncentral obstruction. The earlier equal-length zonogon sine-product theorem covers the rho=1 special case, including fixed-length Fourier modes; the present finding does NOT re-claim that. The earlier random radial-noise crossover concerns unnormalized area and radii r(1+tau n^-beta xi_i), not denominator-normalized arbitrary iid lengths or one macroscopic central-limit-scale radial weight. Schneider's primary CLT assumes a nonzero first Hoeffding projection; here the perimeter-normalized angular kernel is degenerate. Weighted Sobolev statistic theory may formulate the same infinite-series limit in different terms; retain residual risk.
+
+## value
+
+PASS
+
+PASS: The perimeter fixes the isoperimetric bound, making the second-order deficit a natural intrinsic geometric fluctuation rather than arbitrary normalization. The result identifies the exact universal non-Gaussian law and the minimal-looking Lindeberg/spike boundary where a quadratic weight statistic ceases to suffice. Two arrays with identical limiting rho have demonstrably distinct variance; this is a structural limitation important for random convex geometry and degenerate U-statistics, not a rebranded equal-weight law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

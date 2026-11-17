@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:15:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed perimeter exactly 2 from normalized positive segment weights, planar area as sum_{i<j} w_i w_j |sin(theta_i-theta_j)| and the absolutely convergent angular Fourier expansion. Diagonal cancellation yields D_n=(2n/pi) sum_m |sum_j w_j exp(2im theta_j)|^2/(4m^2-1), with no missing constant. Uniform E[tail]=rho_n/[pi(2M+1)] permits passage from finite-dimensional Lindeberg Gaussian modes to the infinite exponential law when max w/sqrt(sum w^2)->0. The Exp(1) series mean rho/pi, variance rho^2(1/4-2/pi^2) and Euler-sine Laplace product follow from exact coefficient sums. For spike c/sqrt(n), finite modes converge to |G_m+c e^{2im theta_1}|^2; conditional rotational invariance gives independent noncentral squared moduli and the same uniform tail argument. Exact finite conditional pairwise variance uses kernel degeneracy; conditionally independent directions do not imply independent pair kernels, but their covariances vanish. Independently recomputed 48 random-angle finite Fourier/area identities using 10000 modes (all error <0.002), checked the coefficient algebra and spike-vs-diffuse variance gap. Finite tests corroborate rather than prove asymptotic laws. The proof requires only the stated finite second moment for iid lengths; max L_j/sqrt(n) ->0 in probability via the standard tail identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radial-noise crossover exact centered area at beta=1/2 is independent Gaussian plus angular series",
+          "Schneider Theorem 3 requires ζ1>0"
+        ],
+        "reasoning": "Neither stronger theorem dominates perimeter-normalized weighted arrays: normalization removes first-order radial variation, and spike violates diffuse Lindeberg even with same rho.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "Schneider 2022 section 4",
+          "Joos-Langi arXiv:2206.03204"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+        "https://arxiv.org/abs/2202.06774",
+        "https://arxiv.org/abs/2206.03204"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "rho=1 is implied by Oct25 after 1/4 scale conversion",
+          "For c>0 noncentral series differs in variance from diffuse D_(1+c²)"
+        ],
+        "reasoning": "The original claim strictly extends the fixed-length case and adds a motivated sharp failure boundary. Schneider does not imply the explicit weighted second-order or spike law under its published CLT hypotheses.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e",
+          "Resultary 2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "Schneider Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct25 Fourier sine-series area law for equal lengths",
+          "Schneider section 4 nondegenerate U-statistic CLT Theorem 3"
+        ],
+        "reasoning": "The equal-length model is contained as rho=1 after normalization but does not state triangular-array Lindeberg criterion or spike noncentral limit; ordinary unnormalized radial CLT changes the leading fluctuation scale.",
+        "searches": [
+          "Resultary semantic: perimeter normalized random zonogon iid directions one spike",
+          "Resultary 2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e",
+          "Resultary 2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "Schneider arXiv:2202.06774"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact equal-length sine-product Laplace transform and finite area variance were already tabulated in Oct25",
+          "No matching arbitrary weight/spike table retrieved"
+        ],
+        "reasoning": "We exclude the known equal-weight transform from novelty; no inspected exact table supplies the weighted-spike variance separation. Search is not proof of absolute priority.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e",
+          "Resultary 2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "arXiv:2202.06774"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for arbitrary deterministic diffuse weights, universal iid-length moment ratio, and sharp single-spike noncentral obstruction. The earlier equal-length zonogon sine-product theorem covers the rho=1 special case, including fixed-length Fourier modes; the present finding does NOT re-claim that. The earlier random radial-noise crossover concerns unnormalized area and radii r(1+tau n^-beta xi_i), not denominator-normalized arbitrary iid lengths or one macroscopic central-limit-scale radial weight. Schneider's primary CLT assumes a nonzero first Hoeffding projection; here the perimeter-normalized angular kernel is degenerate. Weighted Sobolev statistic theory may formulate the same infinite-series limit in different terms; retain residual risk.",
+      "residual_risks": [
+        "Older weighted circular Sobolev-statistic and random-zonotope limit theorems may encode the same spectral representation under another normalization; Joos-Langi exact full text not independently reread.",
+        "Triangular-array weak convergence was reconstructed analytically, not externally certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING weighted second-order limit; its Theorem 3 is first-order Gaussian only",
+          "evidence": "https://www.researchgate.net/publication/358604127_Random_zonotopes_and_valuations",
+          "identifier_or_url": "https://arxiv.org/abs/2202.06774",
+          "material_read": "Author full-text CC-BY copy: Sections 2-4 including Theorem 1 expectation, Lemma 1 first-projection condition, Theorem 3 normal limit; web text lines 213-250, 495-687",
+          "method": "Read publicly accessible ResearchGate full-text transcription and compared exact hypotheses",
+          "title": "Random zonotopes and valuations",
+          "trigger": "Same objects and random-zonotope CLT"
+        },
+        {
+          "assessment": "COVERS unweighted rho=1 specialization, NOT arbitrary weights or spike",
+          "evidence": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-non-gaussian-sine-product-law-for-areas-of-uniformly-directed--2e185012cf0e",
+          "material_read": "Complete published RESULT.md at Git blob 8a52467d8690f25c44321f0aef9010d5a59e2e0e, proof and limitations",
+          "method": "GitHub read of entire prior theorem",
+          "title": "A non-Gaussian sine-product law for areas of uniformly directed planar zonogons",
+          "trigger": "Exact equal-angle spectral limit"
+        },
+        {
+          "assessment": "NOT_COVERING normalized length-robust deficit or single spike",
+          "evidence": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "material_read": "Complete published RESULT.md at Git blob 659a37786dfa5f64dbde9188582a1bd6403d371c, formulas and assumptions",
+          "method": "GitHub read of entire prior theorem",
+          "title": "A critical radial-noise crossover for areas of random planar zonotopes",
+          "trigger": "Closely related random-length area limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The perimeter fixes the isoperimetric bound, making the second-order deficit a natural intrinsic geometric fluctuation rather than arbitrary normalization. The result identifies the exact universal non-Gaussian law and the minimal-looking Lindeberg/spike boundary where a quadratic weight statistic ceases to suffice. Two arrays with identical limiting rho have demonstrably distinct variance; this is a structural limitation important for random convex geometry and degenerate U-statistics, not a rebranded equal-weight law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite Fourier checks use finite truncations; infinite law and iid moment statement are from analytic proof, not simulation.",
+    "No full historical census of weighted directional Sobolev limits."
+  ],
+  "schema_version": 1
+}
