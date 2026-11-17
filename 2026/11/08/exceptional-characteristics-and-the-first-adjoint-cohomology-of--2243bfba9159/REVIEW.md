@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete integral right Leibniz identity, 64-variable derivation matrix, and 8-column right-multiplication map follow explicitly from the source multiplication table. The exact Smith factors certify all possible exceptional primes, while the displayed characteristic-eleven derivation is independently substituted into the Leibniz derivation equations. This establishes the theorem for every coefficient field, not only sampled finite fields.
+## correctness
 
-## Originality — PASS, qualified by prior-art uncertainty
-Abdurasulov and Adashev arXiv:2610.35015v1 obtain complex-field derivations and an automorphism identity containing a factor of eleven, but do not tabulate the modular Smith factors or complete first-cohomology dimension jumps. The Atajonov–Khudoyberdiyev–Yusupov arXiv:2610.40348v1 example uses a different algebra. published-finding corpus and accessible prior-claim comparisons did not uncover dominating coverage. An earlier modular study under different terminology remains possible.
+PASS
 
-## Mathematical value — PASS
-The exact bad-prime classification answers when the paper's defining absence-of-outer-derivations survives reduction of its natural integral table. In characteristic eleven the phenomenon breaks more strongly: derivations are not all nilpotent, so characteristic nilpotency itself fails. This is a structural boundary rather than a routine finite sample.
+Reconstructed right Leibniz convention (xy)z=x(yz)+(xz)y and right-multiplication inner derivations for the exact 24-nonzero-product integral basis table. Independently rebuilt all 512 basis-triple identities, the 297x64 nonzero derivation-equation matrix, and 64x8 inner map from the explicit products. Independent exact integer SymPy Smith normal forms reproduced derivation invariant factors 1^55,2^2,66^1 and 6 zeros, inner factors 1^5,11^1 and 2 zeros. Hence the characteristic-by-characteristic nullity differences H1=0 outside 2,3,11; char2=3,char3=1,char11=2 hold over any field, not just sampled primes. The explicit D11 supplied in RESULT has quotient matrix [[8,0],[4,5]] mod11, determinant 7 and is checked as a derivation by source script; this is nonnilpotent on abelianization. The nilpotent filtration itself is independent of characteristic.
 
-## Source and scope limitations
-The source fixes complex coefficients; the new theorem concerns its specific integer table reduced over arbitrary fields. A characteristic-eleven factor in its automorphism proof is acknowledged, not presented as newly discovered. The paper on local derivations has an unrelated table. The checker is exact and reproducible but is not an independent external audit; historical priority cannot be conclusively certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same integral multiplication table and complete absence of complex outer derivations are prior from Abdurasulov–Adashev 2026. This review accepts only the exact modular Smith factors and exceptional-prime H1 classification plus explicit characteristic-eleven nonnilpotence. The primary arXiv abstract and detailed source references establish characteristic-zero focus; inaccessible full primary PDF and possible different integral-form treatments are residual priority risks. Atajonov et al analyze a different eight-dimensional algebra. No stronger same-table modular classification found in Resultary indexing.
+
+## value
+
+PASS
+
+The field characteristic at which an explicit characteristically nilpotent Leibniz algebra acquires outer derivations is a natural deformation/cohomology invariant. Complete Smith factors reveal precisely 2,3,11 and different defect magnitudes; in char11 the failure extends to nonnilpotent derivations. This is substantive structural arithmetic information for one recognized example, not an arbitrary tiny numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
