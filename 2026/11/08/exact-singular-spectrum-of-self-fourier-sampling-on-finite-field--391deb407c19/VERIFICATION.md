@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and proof limits
+# Independent mathematical audit
 
-`python check_rankone_self.py` with Python 3 and NumPy constructs all rank-one matrix entries independently, forms the exact specified complex additive-character samples and checks numerical singular values with multiplicities against the theorem. Tests include seven field/size combinations over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), and \(\mathbb F_5\), and the successful invocation prints `RANK_ONE_SELF_FOURIER_PASS`. The checker uses floating point SVD, so its finite computations alone are not a certificate of an infinite-family theorem. The exact mathematical proof relies on projective character orthogonality, Gauss sums, and projective incidence common-neighbor identities described in `RESULT.md`.
+## correctness
 
-Checks do not establish historical priority, full-spark minor nonvanishing, or an independent audit. Original full-text comparison to Delsarte (1978) remains unavailable; related formulas are accounted for as classical inputs.
+PASS
+
+For every prime power q and m,n≥2, projective-scalar rank-one coordinates are unique. On the q−2 nontrivial multiplicative-character sectors, Gauss sums and projective incidence orthogonality A_eta A_eta*=q^(k−1)I give q^((m+n−1)/2). On the trivial sector A_1²=q^(k−2)(I+(q−1)J); four tensor eigenspaces give the remaining four levels and multiplicities, summing to |S|. L>0 including q=2,m=n=2. Independent reconstruction q=2,m=n=2 gives squared singular levels 1 once, 4 four times and 16 four times, consistent with claimed unnormalized coordinatewise pairing. General statement follows algebraically, not from finite numerical checks.
+
+## originality
+
+PASS
+
+Delsarte classical rank-shell Fourier coefficients and projective incidence methods need not determine singular values of the restricted rank-one-by-rank-one Fourier matrix. The closest published first-coordinate restriction samples a strict smaller Fourier frequency band, hence its Gram spectrum does not imply the present five-level self-sampling spectrum. No matching complete self-restriction theorem was identified in the inspected available results; Delsarte full primary text could not be read, so priority is qualified.
+
+## value
+
+PASS
+
+The complete square self-Fourier operator restricted to a natural nonlinear rank-one matrix variety is an intrinsically meaningful sampling/recovery problem. Universal injectivity, all singular multiplicities and sharp conditioning are materially stronger and more reusable than a single character sum or small frequency-band sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
