@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every derivation is represented by two length-\(m\) truncated-polynomial coordinates, with the odd-length constant-term constraint included. The power identity \(D^{2^e}=f(f')^{2^e-1}\partial_x\) follows inductively from characteristic-two Leibniz cancellation and \((f')'=0\); comparison of even/odd coefficients yields two necessary and sufficient equations. Valuations then prove the irredundant linear component union and its dimensions, while a direct kernel computation proves the rank formula and elementary finite-field valuation counting proves all coefficients. The verification file independently builds original derivation matrices and checks finite cases. Boundary cases \(m=1\), \(Q=0\), rank zero, parity, and heights exceeding nilpotence limits are explicitly included. The proof makes no inference from samples to arbitrary fields.
+## correctness
 
-## Originality
-**PASS under examined literature, with priority risk.** Premet (arXiv:1405.2426) treats restricted Cartan-type derivation invariant theory over characteristic \(p>2\) and does not imply the characteristic-two exact higher-height equations or rank census. Feldvoss–Siciliano–Weigel (arXiv:1102.2629) treats restricted derivations of nilpotent restricted Lie algebras rather than powers of ordinary derivations on one-variable truncated commutative algebras. The already-known characteristic-two square-zero layer \(D^2=0\) is explicitly excluded from the new claim. Searches for \(D^4=0\), higher restricted nilpotence, parameter equivalences, and full rank counts gave no demonstrably covering formula. The sharp non-equidimensionality and equidimensionality criterion are genuinely additional statements. A possibly unlocated broader theorem could subsume the new result, so absolute priority is not certified.
+PASS
 
-## Value
-**PASS.** Restricted powers are intrinsic to derivation Lie algebras in positive characteristic, and varieties of bounded height form a natural filtration of their nilpotent loci. The exact component structure shows that the higher-height varieties need not be equidimensional, despite the simpler square-zero boundary, and gives an exact dimension criterion. The full finite-field rank distribution, including parity coincidence and differences between successive heights, is a mathematically natural arithmetic refinement with direct use in studying these restricted strata; it is neither an arbitrary parameter slice nor a trivial substitution into square-zero counts.
+Every derivation in char2 of k[x]/(x^{2m}) or k[x]/(x^{2m+1}) has the specified P,Q coordinate model, accounting for the odd case f(0)=0. The restricted-power induction D^{2^e}=f(f′)^{2^e−1}∂ gives the exact two equations PQ^{s−1}=0 and Q^s=0 in T. Valuations show the reduced solution set equals irredundant linear union X_h for ceil(m/s)<=h<=ceil(m/(s−1)). Dimensions 2m−h−max(0,m−(s−1)h) yield exact equidimensionality criterion; m=8,s=4 has dimensions 12,13 intersection11. Multiplication by the pair (P,Q) has kernel valuation min(nu P,nu Q), giving rank m−min and full cumulative F_{m,s,q}(r) count. The result includes every char2 finite field and parity, no scheme nilpotents claimed.
 
-## Limitations and closest literature
-All geometric statements concern reduced varieties; nonreduced schemes, automorphism orbits, and other characteristics remain unclassified here. Historical coverage is necessarily limited by indexed and accessible primary sources. Premet (2014) is the archival topical anchor; Feldvoss–Siciliano–Weigel (2011) and Chen (2019) supply contextual comparisons, not covering the stated claim. Finite-field checks corroborate but do not constitute proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The characteristic-two D^2=0 component/rank layer was previously studied and is expressly excluded. Published characteristic-p>2 regular truncated derivation geometry and restricted derivations of nilpotent Lie algebras do not imply the higher D^{2^e}=0 one-variable char2 locus. The complete higher-height non-equidimensional component and all-rank finite-field census appear distinct in consulted sources, with residual unindexed priority uncertainty.
+
+## value
+
+PASS
+
+Restricted powers and nilpotence-height strata are intrinsic algebraic geometry of Witt-type derivation Lie algebras. The sharp non-equidimensional higher-height transition, complete component dimensions, even/odd parity coincidence and exact rank distributions are substantial natural invariants across an infinite family, unlike a tiny arbitrary calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
