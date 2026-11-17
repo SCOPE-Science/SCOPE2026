@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T17:43:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With generator L=D∂²-D(β-1)x^(−1)∂, the killed Green density is min(x,y)^β y^(1−β)/(Dβ); its jump derivative gives −delta and zero/upper boundary conditions. Integrating y^(p−2) gives E Z_p=x^p/[Dp(β−p)] iff β>p. Strong Markov time-ordering and Tonelli (nonnegative integrands) yield finite mixed moments exactly at β>p+q and divergence at equality, including β≤max(p,q). Subtracting first-moment products gives strictly positive covariance 2x^(p+q)/[D²(β−p)(β−q)(p+q)(β−p−q)]; special case p=q gives variance and Corr formula. Monotonicity follows for p≠q by increasing β−p−q beyond |p−q|. Independently verified the symbolic covariance identity and p=2,q=3,β=7 value 0.8485281374; finite calculations do not prove divergent cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General killed-diffusion Green operator and Kac second-moment recursion provide the analytic mechanism, but do not state these exponents, exact threshold, covariance and monotone correlation."
+        ],
+        "reasoning": "This is a solvable and worthwhile explicit specialization of general Markov potential theory, not a claim to have invented the potential-operator identity.",
+        "searches": [
+          "logarithmic potential Brownian first passage time area mixed moments correlation power functionals Bessel diffusion",
+          "Radice arxiv:2307.12699 Section VII correlations future directions",
+          "Kearney Martin OU area-time correlation arxiv:2007.13129"
+        ]
+      },
+      "checked_sources": [
+        "Radice arxiv:2307.12699 full PDF, Section VII and model definitions",
+        "Kearney–Martin arxiv:2007.13129 abstract/metadata",
+        "Resultary 2026/11/8/SCOPE-exact-correlation-and-sharp-moment-thresholds-for-two-logarithmi--6a5ae8ff99db plus related stochastic models"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radice conclusion explicitly proposes studying correlations for two different power exponents, particularly time and area.",
+          "The finite mixed-moment condition depends on p+q, stronger than separate mean conditions beta>p and beta>q."
+        ],
+        "reasoning": "The final claim supplies exact joint information that cannot be inferred from the two marginal inverse-gamma laws, and a sharp correlation range in beta distinct from prior marginal results.",
+        "searches": [
+          "logarithmic potential Brownian first passage time area mixed moments correlation power functionals Bessel diffusion",
+          "Radice arxiv:2307.12699 Section VII correlations future directions",
+          "Kearney Martin OU area-time correlation arxiv:2007.13129"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radice 2023 concerns exactly same stochastic process and marginal functionals but notes multi-functional correlations as open future direction, rather than a joint law.",
+          "Kearney–Martin area-time study has OU linear restoring force, a different Green kernel."
+        ],
+        "reasoning": "Individual inverse-gamma marginals do not determine mixed moments of two functionals of the same trajectory; OU correlation cannot be transported by parameter renaming to inverse-position drift.",
+        "searches": [
+          "logarithmic potential Brownian first passage time area mixed moments correlation power functionals Bessel diffusion",
+          "Radice arxiv:2307.12699 Section VII correlations future directions",
+          "Kearney Martin OU area-time correlation arxiv:2007.13129"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Radice 2023 contains one-functional distributions and thresholds but does not tabulate Corr(Z_p,Z_q) or beta>p+q in the inspected conclusion."
+        ],
+        "reasoning": "A complete joint-moment table was not found in the matched model paper; an uninspected stochastic-functional monograph could still contain it.",
+        "searches": [
+          "logarithmic potential Brownian first passage time area mixed moments correlation power functionals Bessel diffusion",
+          "Radice arxiv:2307.12699 Section VII correlations future directions",
+          "Kearney Martin OU area-time correlation arxiv:2007.13129"
+        ]
+      },
+      "rationale": "Radice 2023 studies the same absorbed Bessel-like logarithmic-potential process and marginal inverse-gamma distribution of each power functional; its conclusion expressly suggests correlations between two distinct power functionals as future research, rather than giving their mixed covariance. Kearney–Martin 2021 computes area–time for Ornstein–Uhlenbeck drift, not inverse-position drift. The exact all-positive-exponent mixed-moment threshold and Pearson monotonicity ceiling are not covered by those inspected statements, although a generic Kac moment or Green-operator recursion can derive the formulas.",
+      "residual_risks": [
+        "A general Bessel additive-functional joint-moment theorem in uninspected primary literature may imply these explicit formulas.",
+        "Correlation exists only if β>2max(p,q); the covariance formula requires β>p+q.",
+        "No full joint law or extension to finite intervals is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_COVERAGE_JOINT_CORRELATION_OPEN_IN_CONCLUSION",
+          "evidence": [
+            "Conclusion explicitly discusses correlations between Z_gamma with different exponents as a future direction; article derives inverse-gamma one-functional marginal laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.12699",
+          "material_read": "Full article PDF opened and page images inspected; read defining model/functional and Section VII conclusion, especially correlation future-work paragraph",
+          "method": "PDF text, citations, and page screenshots",
+          "title": "First-passage functionals of Brownian motion in logarithmic potentials and heterogeneous diffusion",
+          "trigger": "Exact same stochastic process and marginal power integrals"
+        },
+        {
+          "assessment": "DIFFERENT_OU_DRIFT_ABSTRACT_ONLY",
+          "evidence": [
+            "OU restoring drift is linear in X, unlike inverse-position drift −D(β−1)/X."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.13129",
+          "material_read": "Article title and accessible abstract/metadata; full text not read",
+          "method": "Public article search and model-drift comparison",
+          "title": "Statistics of the first passage area functional for an Ornstein–Uhlenbeck process",
+          "trigger": "Area-time first-passage correlation in adjacent diffusion literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dependence of hitting time and accumulated area within one trajectory is a natural first-passage question explicitly identified in prior research. The exact integrability boundary β>p+q and universal exponent-only correlation ceiling distinguish genuine joint stochastic information from marginal inverse-gamma laws; neither follows from one-functional distributions alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general Bessel additive-functional joint-moment theorem in uninspected primary literature may imply these explicit formulas.",
+    "Correlation exists only if β>2max(p,q); the covariance formula requires β>p+q.",
+    "No full joint law or extension to finite intervals is established."
+  ],
+  "schema_version": 1
+}
