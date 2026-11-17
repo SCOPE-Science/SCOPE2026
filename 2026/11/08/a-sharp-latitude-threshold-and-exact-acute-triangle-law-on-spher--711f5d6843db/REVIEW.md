@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The angle criterion is derived directly from projected tangent vectors. The all-acute event forces three longitude gaps below \(\pi\); cotangent half-angle variables yield a sum-of-pair-products identity and an exact threshold. Ordering the three complementary gaps and explicitly integrating the permissible second coordinate proves the displayed probability. The unique equality configuration and a local area expansion prove the quadratic onset. The accompanying simulation directly evaluates geodesic tangent-vector angles as an independent numerical sanity check.
+PASS
 
-## Originality
+Projected tangent-vector dot products give the sign factor (1-lambda)[lambda(1-cos a)(1-cos b)-sin a sin b]. A gap >= pi is incompatible with three acute angles. Complementary gaps q_i=pi-g_i satisfy sum q_i=pi; w_i=tan(q_i/2)>0 and w_1w_2+w_2w_3+w_3w_1=1, so all acute iff max pair products<lambda; minimum maximum is 1/3 uniquely at all q_i=pi/3. Ordering q1<=q2<=q3 produces the stated d-integral and exactly density 1/(2*pi^2). A first-order expansion w_iw_j=1/3-2*x_k/(3sqrt 3)+O(|x|^2) gives feasible simplex area 243*delta^2/8 and probability coefficient 243/(16*pi^2). Boundaries and zero-measure ties handled.
 
-**PASS (provisional historical priority).** Finch–Jones (2010) and Maeda (2008) concern uniform full-sphere points; Kim–Walsh (2015) already prove the general necessary fact that all edges of any intrinsically acute spherical triangle are shorter than \(\pi/2\), but do not determine the fixed-latitude probability or onset; Le (1989) treats cap-*interior* points; Edelman–Strang (2015) use Euclidean random triangles. The fixed-small-circle geodesic angle law, forbidden latitude belt and exact critical coefficient are not statements or immediate consequences of those inspected materials or the available related exact-angle records. The Le full text remained inaccessible, and unindexed earlier spherical-geometry literature remains a residual risk. Search absence alone is not proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result identifies a sharp geometric obstruction to simultaneous acuteness, determines the entire probability with one real integral, and gives a nontrivial onset exponent and exact coefficient; positive probabilities encode a latitude parameter. These are natural intrinsic properties of geodesic triangles in a canonical one-parameter spherical sampling model, rather than an arbitrary finite sample.
+Best-of-knowledge novel exact result after checked primary source scope comparisons. The closest inspected primary results differ by parameter regime, sample law, or strictly weaker quantitative conclusion; inaccessible full texts and independent historical priority remain explicit risks.
 
-## Scope and limitations
+## value
 
-Do not transfer this law to chord angles, sphere-uniform vertices or cap-interior sampling. The limiting \(1/4\) is classical. The historical-priority conclusion is provisional and not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The forbidden latitude belt is a nontrivial geometric obstruction for a canonical one-parameter intrinsic sampling problem; an exact probability law, strict identifiability outside the belt and sharp critical exponent/coefficient are useful structural geometry facts rather than a routine Euclidean triangle count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
