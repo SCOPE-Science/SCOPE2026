@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:42.764345Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A,K SPD 2x2, the Nyström residual is PSD rank one, Cayley–Hamilton gives tr residual=det(A)(g^Tg)/(g^TAg), and isotropic Gaussian polar coordinates reduce the expectation to E_u[uu^T/(u^TCu)]=(C+sqrt det C I)^{-1}. The circle integral and two moment relations yield exactly the trace/determinant covariance formula, including repeated eigenvalues. Rotation gives tr(AK)=ac+bd−(a−b)(c−d)sin²θ, strictly increasing risk with angle when spectra distinct. Writing t=sqrt r yields a rational worst-angle risk F(t) whose derivative has at most one interior maximum, so minimization occurs at t=1 or t=∞; their equality iff tan²(vartheta)=sqrt(a/b) produces vartheta_c=atan((a/b)^(1/4)). Critical finite anisotropy is strictly worse. Expanding risk at r→∞ and θ→0 gives r^−1/2 plus θ² errors and θ~r^−1/4 crossover. Independently integrated the exact Gaussian circle ratio numerically (50,000 angular points): A=diag(4,1),K diag(9,1) gives 10/7; opposite alignment 14/5; rotated noncommuting example gives 3.1560941221641 in both expressions. These finite integrals corroborate the exact proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Correlated covariance quality-factor estimates may bound but do not by themselves determine the sharp exact planar trace ratio or minimax r choice; one highly relevant paper could not be read in full.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b",
+          "https://arxiv.org/abs/2404.00960"
+        ],
+        "reasoning": "Correlated covariance quality-factor estimates may bound but do not by themselves determine the sharp exact planar trace ratio or minimax r choice; one highly relevant paper could not be read in full.",
+        "searches": [
+          "Resultary: planar Gaussian Nystrom angular information threshold",
+          "Resultary: exact angular risk fixed one-column rangefinder rotating positive-definite",
+          "arXiv:2404.00960 Persson Boulle Kressner randomized Nystrom approximation of non-negative self-adjoint operators",
+          "arXiv:2209.11023 Persson Kressner randomized low-rank monotone matrix functions"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b",
+        "https://arxiv.org/abs/2404.00960",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-angular-information-threshold-for-planar-gaussian-nystr--9b107129ef7d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general bound on approximation error and the different pathwise deterministic rangefinder angular law cannot logically imply the claimed equality for every SPD A,K or the r=1 versus r→∞ minimax discontinuity.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b",
+          "https://arxiv.org/abs/2404.00960"
+        ],
+        "reasoning": "A general bound on approximation error and the different pathwise deterministic rangefinder angular law cannot logically imply the claimed equality for every SPD A,K or the r=1 versus r→∞ minimax discontinuity.",
+        "searches": [
+          "Resultary: one column covariance correlated Gaussian Nystrom planar exact expected trace error orientation eigenvector angular minimax",
+          "Resultary: planar Gaussian Nystrom angular information threshold",
+          "Resultary: exact angular risk fixed one-column rangefinder rotating positive-definite",
+          "arXiv:2404.00960 Persson Boulle Kressner randomized Nystrom approximation of non-negative self-adjoint operators",
+          "arXiv:2209.11023 Persson Kressner randomized low-rank monotone matrix functions",
+          "arXiv:2206.08793 Diouane Gurol general error randomized low rank approximation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A−Ag(g^TAg)^−1 g^TA is a PSD Nyström rank-one residual, not conventional (I−P)A range projection; correct equivalence to det A times quadratic-form ratio is checked.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b"
+        ],
+        "reasoning": "A−Ag(g^TAg)^−1 g^TA is a PSD Nyström rank-one residual, not conventional (I−P)A range projection; correct equivalence to det A times quadratic-form ratio is checked.",
+        "searches": [
+          "Resultary: one column covariance correlated Gaussian Nystrom planar exact expected trace error orientation eigenvector angular minimax",
+          "Resultary: planar Gaussian Nystrom angular information threshold",
+          "Resultary: exact angular risk fixed one-column rangefinder rotating positive-definite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches for 2x2 Gaussian quadratic-form ratio and angular Nyström risk identified no exact published threshold matching atan((a/b)^1/4); absence is not a novelty proof.",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-angular-information-threshold-for-planar-gaussian-nystr--9b107129ef7d/RESULT.md"
+        ],
+        "reasoning": "Searches for 2x2 Gaussian quadratic-form ratio and angular Nyström risk identified no exact published threshold matching atan((a/b)^1/4); absence is not a novelty proof.",
+        "searches": [
+          "Resultary: one column covariance correlated Gaussian Nystrom planar exact expected trace error orientation eigenvector angular minimax",
+          "Resultary: planar Gaussian Nystrom angular information threshold",
+          "Resultary: exact angular risk fixed one-column rangefinder rotating positive-definite",
+          "arXiv:2404.00960 Persson Boulle Kressner randomized Nystrom approximation of non-negative self-adjoint operators"
+        ]
+      },
+      "rationale": "Published covariance-informed randomized Nyström literature primarily gives general expectation/error bounds; the checked published planar rotating fixed-column rangefinder theorem concerns deterministic Frobenius worst parameter error, not PSD Nyström trace residual under a designed correlated Gaussian covariance. The claimed sharp angle-dependent minimax switch, exact covariance rational risk and two-scale concentration/angular law were not found as consequences of these distinct formulas. Best-of-knowledge O with a particularly explicit full-text access caveat.",
+      "residual_risks": [
+        "Full text of Persson–Boullé–Kressner arXiv:2404.00960 remained inaccessible; Oxford authorized institutional tool returned vpn_disconnected, job 6da4f738bd22b22359e2d927c65cd101. This is access uncertainty, not scientific failure.",
+        "The exact angular ratio may be known in statistics as a Gaussian quadratic-form quotient under a different title.",
+        "Large-r limiting covariance is singular and not an attained positive-definite minimizer; this nonattainment is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses fixed vector across rotating parameter family and conventional rangefinder projection, not single Gaussian Nyström PSD approximation with covariance K or angular uncertainty minimax",
+          "evidence": "Prior studies (I−P)A Frobenius risk and a whole parameter arc; present studies A−Ag(g^TAg)^{-1}g^TA expected nuclear error for a fixed A.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b",
+          "material_read": "Entire published RESULT.md, including deterministic minimax, worst-ray distribution, path integral, proof and scope",
+          "method": "Read complete primary mathematical RESULT.md via repository file retrieval and compared hypotheses, statements, proofs and consequences",
+          "title": "Exact angular risk law for a fixed one-column rangefinder on rotating positive-definite matrices",
+          "trigger": "Closest published planar one-vector angular low-rank result"
+        },
+        {
+          "assessment": "Relevant positive-oversampling expectation bounds, but incomplete document reading cannot support a definitive NOT_COVERING judgment; residual priority risk retained",
+          "evidence": "The accessible abstract concerns general randomized Nyström error estimates, not a stated exact 2x2 minimax design law",
+          "identifier_or_url": "https://arxiv.org/abs/2404.00960",
+          "material_read": "Metadata, publicly accessible abstract and mathematical claims in returned search excerpts; full paper not obtained",
+          "method": "Tried lawful arXiv and alternate OA routes; authorized institutional request returned VPN-disconnected, so did not claim reading the full text",
+          "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+          "trigger": "Same randomized Nyström construction and correlated covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows exactly when a spectral direction estimate warrants a maximally anisotropic sketch rather than isotropy in a transparent nontrivial 2D Nyström benchmark, with a sharp information-quality switch and precise noise-versus-orientation tradeoff. These are natural matrix-design invariants and actionable structural limits, not a merely arbitrary integral.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-angular-information-threshold-for-planar-gaussian-nystr--9b107129ef7d/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-angular-risk-law-for-a-fixed-one-column-rangefinder-on-rot--2ff5b4a49a7b",
+    "https://arxiv.org/abs/2404.00960"
+  ],
+  "disposition": "passed",
+  "limitations": "Best-of-knowledge literature coverage is not a universal novelty proof. Finite computations corroborate but do not replace analytically quantified proof steps; see separate C/O/V evidence.",
+  "residual_risks": [
+    "Full text of Persson–Boullé–Kressner arXiv:2404.00960 remained inaccessible; Oxford authorized institutional tool returned vpn_disconnected, job 6da4f738bd22b22359e2d927c65cd101. This is access uncertainty, not scientific failure.",
+    "The exact angular ratio may be known in statistics as a Gaussian quadratic-form quotient under a different title.",
+    "Large-r limiting covariance is singular and not an attained positive-definite minimizer; this nonattainment is essential."
+  ],
+  "schema_version": 1
+}
