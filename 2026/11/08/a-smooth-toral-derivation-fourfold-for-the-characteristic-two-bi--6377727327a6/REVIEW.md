@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The characteristic-two Leibniz identity shows that the eight coefficient equations check the idempotence operator identity on all of the algebra. The zero-constant strata reduce to projections and a linear constraint; a normalized nonzero-constant stratum has exactly two free parameters. Explicit shears and linear substitutions give the orbit classification over any field of characteristic two. Two specialization families and an eight-dimensional tangent calculation prove the smooth and irreducible component statement. Independent enumeration over two finite fields corroborates, but does not replace, the proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Published Jacobson–Witt work classifies maximal tori or examines Borel subalgebras, and the closely inspected theorems for the simple Witt family impose \(p>3\). The quantum exterior module literature treats different invariants. None of the specifically inspected statements supplies this characteristic-two, single-element scheme, its three nonzero conjugacy orbit sizes, or its full finite-field polynomial. The most plausible remaining risk is that a general older theorem on toral elements or maximal tori could imply the result, despite the distinct quantifiers and invariants.
+PASS
 
-## Value — PASS
-The characteristic-two truncation is the first nontrivial commutative two-variable restricted polynomial algebra, and its derivations form the small Jacobson–Witt algebra. The complete toral locus exhibits a dense family of derivations that do not preserve the maximal ideal, a geometric irreducibility statement and a closed rational-point count across all binary extension fields. Those structural claims connect modular derivation theory, finite-field orbit geometry and an exact natural invariant rather than merely cataloging isolated solutions.
+In characteristic 2, all derivations of A=k[x,y]/(x²,y²) are f∂x+g∂y with f,g arbitrary four-term elements. D² is a derivation, so D²=D iff D(f)=f and D(g)=g. When constants a=e=0 the linear coefficient P satisfies P²=P; quadratic row Q obeys QP+(tr P)Q=Q, producing 0, rank-one-projector and identity strata with q counts 1, q²(q+1), q². When constant vector nonzero, normalize to (1,0): f=1+x+c y+c i xy, g=i y+(i+i²)xy with free c,i, giving q²(q²-1) points. Quadratic shears and linear changes give three nonzero orbits; degeneration from (s+x)∂x and (s+x)∂x+y∂y connects rank-1 and rank-2 linear classes to open 4-fold, leaving zero isolated. Tangent linearization H↦DH+HD−H has kernel dimension 0 at zero and 4 at each nonzero representative, equal local geometric dimension, establishing smoothness, geometric irreducibility of the fourfold. Independently exhaustive *full derivation* enumeration over F2 (256 candidates) and F4 (65536 candidates) produced 29 and 337 idempotents with all 28/336 nonzero maps rank2; representative Jacobian kernel dimensions 0,4,4,4 over F2. Finite examples corroborate universal proof.
 
-## Limits
-The proof is restricted to characteristic two and two variables. It neither proves independent historical priority nor treats higher Witt algebras. Finite enumerations alone establish no infinite-field statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No published inspected stronger result gives composition-idempotent derivation scheme, 4 orbits, smoothness and precise q^4+q^3+q²+1 polynomial for this commutative characteristic-two truncated plane. Existing rank-polynomial work counts ALL derivations and identifies automorphism nonsmoothness, which does not determine idempotent derivations; another idempotent study assumes quantum skew parameters c_ij distinct from ±1, excluding the present commutative algebra (parameter 1). Older toral classification for restricted Witt algebras may contain an implicit orbit statement and remains a named risk, but no direct coverage is established.
+
+## value
+
+PASS
+
+The variety of restricted idempotents D^[2]=D (toral derivations) of the smallest nontrivial characteristic-two biquadratic complete intersection is a natural algebraic-geometric invariant; exact geometric components, smoothness, conjugacy orbits, constant-term stratum and all finite-field point counts are a useful structural classification beyond total derivation dimensions or routine scalar substitutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
