@@ -1,19 +1,21 @@
-# Review of the five-by-five unitriangular square-root fiber theorem
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The characteristic-two identity \( (I+N)^2=I+N^2 \) gives six explicit output coordinates. The two necessary implications are independently shown sufficient by an exhaustive constructive division into \(v\ne0\), \(v=0,u\ne0\), \(v=0,w\ne0\), and \(u=v=w=0\). These constructions do not assume algebraic closure or a finite field. For finite fields the proof partitions input matrices according to the first-superdiagonal coordinates and solves the remaining linear and product equations. The target-root counts sum to \(q^{10}\), and a literal matrix-product implementation independently verifies all target fibers over \(\mathbb F_2\) and \(\mathbb F_4\). Finite enumeration is corroboration, not a proof of the general assertion.
+PASS
 
-## Originality (PASS, provisional)
+PASS: Characteristic-two matrix squaring is I+N^2. Literal strict-upper-triangular coordinate multiplication yields u=ab,v=bc,w=cd,x=af+ec,y=bg+fd,z=ai+eg+hd, with free top-right entry j. This proves the image restrictions v=0=>uw=0 and v!=0,u=w=0=>vz=xy and explicit witnesses give sufficiency for every field of characteristic 2. Conditioning on v!=0 versus v=0 and on (u,w),(x,y),z gives the complete listed target-root fibers: q^3(q-1), q^4(q-1), q^4(q^2-1), 3q^5(q-1), q^5(5q-4) or 0 in the exact stated strata. Fresh independent enumeration over F2 and F4 used literal nine input coordinates (restoring the tenth free field coordinate), separate polynomial-basis multiplication and all q^6 targets; every fiber agreed (64 and 4096 targets; image 52 and 3376; sum of root multiplicities 1024 and 1048576). The all-q result follows from the field-algebra partition, not those finite tests.
 
-Sosnovsky (arXiv:1201.6513, Theorem 1) determines verbal widths for triangular groups, rather than the pointwise square-image membership and prescribed-element root counts for \(\operatorname{UT}_5\). Bier (DOI 10.1142/S0218196712500191, Theorem 3 and arguments on power-word width) already proves the width-two threshold: it is excluded from the new claim. Dolfi--Singh--Yadav (arXiv:1905.04244, Proposition 3.4, Theorem A, Section 3 table) give group-theoretic estimates and previously published small-field square-image sizes 52 and 3376: these values are explicitly credited. Neither source inspected supplies the all-field six-coordinate criterion or the seven-stratum pointwise root-fiber formula for every binary field. Historical priority is provisional; an unidentified general word-map or character-theoretic formula may imply this specialization.
+## originality
 
-## Value (PASS)
+PASS
 
-The individual-square set, unlike the subgroup it generates, is a natural invariant of a finite unipotent group and its power word map. The exact criterion specifies which elements are powers, and the full fiber distribution measures the number of roots of each such element. The fact that two deep target coordinates produce different fiber sizes, even within one derived-subgroup layer, is meaningful information not determined by width or the known small-field cardinalities. The all-field membership criterion and uniform all-extension-field fiber theorem provide a reusable baseline for larger power-word images.
+PASS (best of knowledge): Earlier 2026-10-13 RESULT.md proves the identical six-coordinate square-membership criterion and polynomial image size, and 2026-10-25 proves the analogous criterion for all primes p on UT_(p+3); neither gives preimage multiplicities. Dolfi, Singh and Yadav (2019) investigate power images, cite the same 52 and 3376 examples and provide broad image estimates, not the complete q-uniform distribution of each individual root fiber. The genuinely additional submitted claim is the exact seven-stratum target-by-target root-multiplicity partition, not the known membership test or known small-q image totals. Residual risk of a general nilpotent root-count theorem implying this exact distribution remains.
 
-## Limitations
+## value
 
-The theorem does not address larger matrix sizes, odd characteristic, or alternative power words. The finite checks cover two field sizes only. Originality has been compared with the cited primary texts and mathematical records, but independent historical and mathematical review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The full pointwise fiber distribution answers a natural inverse word-map question that the known image criterion cannot answer; strata of exceptional targets distinguish different multiplicities, including the identity fiber q^5(5q-4) and z-only fiber 3q^5(q-1). It supplies exact information for finite nilpotent-group power-map studies, not a mere renaming of the q-polynomial image count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
