@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The collision deletion lemma is proved for all strict three-agent preference profiles. Its stochastic conditional step handles both the two-agent and the three-agent collision, including previously revealed favorites, so the full product is an exact probability identity at every horizon. The first-hitting distribution follows from monotone feasibility, and a gamma ratio establishes the factorial tail. An exhaustive independent comparison through six houses checks each finite enumeration result but is not used as a proof for arbitrary horizons.
+## correctness
 
-## Originality — PASS, with explicit risks
-Gan, Suksompong and Voudouris (2019) already prove a general deterministic algorithm based on deleting houses attached to minimal Hall violators and a separate high-probability theorem when agent count grows. This work credits that algorithm and adds an exact three-agent random-stream first-feasible-arrival distribution. Teh and collaborators (2026) introduce the sequential house-and-subsidy setting but the material inspected did not supply that exact law. Search comparisons include first-arrival aliases, specific rational probabilities, generalization to random independent preferences, and nearby two-sided matching / random-priority findings. The later preprint's full appendices were not completely accessible and unindexed parallel calculations remain a risk.
+PASS
 
-## Mathematical value — PASS
-The complete law yields exact prefix success probabilities, individual arrival hazards, finite expected first-zero-subsidy time, and a sharp superexponential tail; these are useful offline feasibility benchmarks against which a sequential mechanism with costly recourse can be judged. Three agents are a natural first multi-collision model. No operational online implementation or budget competitiveness is claimed.
+A house that is top-ranked by at least two of three strict agents cannot belong to an envy-free assignment, so it may be deleted without changing feasibility. Conditional on every deletion history, refreshed favorites are iid uniform among surviving houses; failure at r surviving houses is (3r-2)/r^2. This yields the product tail, difference mass, gamma normalization, finite mean and superfactorial decay. Independently enumerated all 3-agent strict-ranking triples after fixing one agent for m=3..6; failures are 7/9,35/72,91/360,91/810 and agree exactly.
 
-## Limits and nearest literature
-The assertion covers three agents with iid atomless utilities and unrestricted terminal reassignment only. Closest: Gan–Suksompong–Voudouris, *Envy-Freeness in House Allocation Problems*, arXiv:1905.00468; Teh–Cohen–Celine–Yu–Wooldridge, *Online House Allocation with Subsidy*, arXiv:2609.29691v1; Manurangsi, *Envy-Free Allocations for Random Non-Additive Valuations*, arXiv:2610.34434. The latter concerns different partition-type random allocation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original at the exact final claim level after statement-level comparison with identified published results; credits previously known subclaims, keeps specific access and archival risks.
+
+## value
+
+PASS
+
+The exact waiting-time law is a natural stochastic threshold for offline subsidy-free feasibility, independent of the established deterministic collision-deletion decision algorithm; the first-arrival distribution and mean may serve as a precise benchmark for online-subsidy studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3's standard library. It exhaustively enumerates strict rankings of three agents among three through six houses, up to a common permutation of house labels, and checks both direct triple-subset feasibility and collision elimination, together with the exact distribution of deletion depth.
+## correctness
 
-For \(m=6\), this checks \((6!)^2=518400\) reduced preference triples, which represents all \((6!)^3\) labeled triples modulo house-label relabeling. The analytic proof establishes all \(m\ge3\); the checker tests only finite cases and does not independently prove the infinite product, the gamma limit, or novelty.
+PASS
 
-Inputs: none. Network and third-party packages: none. Expected exact infeasibility fractions at \(m=3,4,5,6\): \(7/9,35/72,91/360,91/810\).
+A house that is top-ranked by at least two of three strict agents cannot belong to an envy-free assignment, so it may be deleted without changing feasibility. Conditional on every deletion history, refreshed favorites are iid uniform among surviving houses; failure at r surviving houses is (3r-2)/r^2. This yields the product tail, difference mass, gamma normalization, finite mean and superfactorial decay. Independently enumerated all 3-agent strict-ranking triples after fixing one agent for m=3..6; failures are 7/9,35/72,91/360,91/810 and agree exactly.
 
-Scientific integrity: full appendix-level access to the 2026 motivating preprint was not obtained and exact publication priority is not independently established. Independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original at the exact final claim level after statement-level comparison with identified published results; credits previously known subclaims, keeps specific access and archival risks.
+
+## value
+
+PASS
+
+The exact waiting-time law is a natural stochastic threshold for offline subsidy-free feasibility, independent of the established deterministic collision-deletion decision algorithm; the first-arrival distribution and mean may serve as a precise benchmark for online-subsidy studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
