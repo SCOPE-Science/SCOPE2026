@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Translate to zero, choose a basis among the seven remaining points, and enumerate the \(549\) normal forms, whose completeness is a theorem rather than an empirical assumption. Each Walsh coefficient is exactly \(8-2q_B(u)\); the zero criterion is \(q_B(u)=4\). Both that identity and independent direct integer Walsh summation were checked for every normal form. The resulting exact distributions, kernel-fiber lifting to all dimensions, and ten equality-case period checks imply the stated classification and unique sharp nonaffine equality orbit. An independent enumeration of all \(12870\) eight-point subsets of \(\mathbb F_2^4\) corroborates the low-rank strata. The checks cover the finite classification but nothing outside cardinality eight.
+PASS
 
-## Originality
+Translation to zero and basis selection among the remaining seven vectors gives exhaustive normalized configurations: ranks r=3..7 with 1,165,325,57,1 cases. For each u, W_E(u)=8−2q_B(u) with integer count q_B of the seven other points pairing to one, so vanishing iff q_B=4. Independently enumerated all 549 configurations by integer character sums, matching all five exact histograms and the twelve distinct values after fiber lifting 2^(d-r). All ten r4 sharp cases have exactly two additive periods; quotient by that line yields a four-point affine simplex. Thus rank detection, sharp nonaffine minimum 5·2^(d−4) and equality follow analytically from complete finite classification, not a sample.
 
-PASS relative to the inspected evidence, with bibliographic risk. Ferguson–Iosevich (2026) and Kadowaki (2026) use the weight-four zero criterion and derive existence/tiling results; the former already exhibits the rank-six local-support value \(29\). These are not new here. The published four-cube spectral-partner census supplies an important related dimension-four classification, but counts orthogonal spectra rather than the entire rank-three-through-seven Walsh-support size spectrum. A searchable equivalent all-rank support table was not located. A classical seven-coordinate binary-code weight-distribution table could implicitly contain the data, so absolute novelty is not certified. The actual comparands and limitations are recorded in `AUDIT.json`.
+## originality
 
-## Value
+PASS
 
-PASS. Eight points are a structurally distinguished size in recent binary spectral-set and universal-spectrum problems. The theorem gives all possible counts of nonzero indicator Fourier coefficients at this first nontrivial small-set scale, proves an unexpectedly exact detector of affine dimension from a single numerical Fourier invariant, and identifies the sharp first nonaffine boundary with its equality geometry. This is a complete natural classification, rather than an arbitrary single-instance calculation or a mere transcription of an already published isolated example.
+PASS best-of-knowledge with specific risk: Ferguson–Iosevich Lemma 3.1 gives the same weight-four zero criterion and Proposition 7.1 describes a rank-six example with support size29, so neither is claimed new. Neither inspected relevant section supplies the exhaustive rank3..7 frequency histogram, dimension recovery from support alone or unique sharp nonaffine equivalence class. Prior four-cube census counts orthogonal spectral partner bases, not nonzero Walsh support sizes. Classical binary linear-code tables could encode an equivalent classification and remain an explicit unresolved priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Fourier support size of an eight-point indicator in binary space is a natural exact sparsity invariant relevant to finite spectral-set/Fuglede questions; its ability to detect affine dimension from one scalar and its sharp unique nonaffine minimizer are mathematically motivated, useful self-contained complete facts. The 549 canonical search is exhaustive for all dimensions by normalization and lifting, not an arbitrary unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
