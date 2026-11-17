@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite exact-rational checker in `verify.py` was run with Python 3. It independently enumerated every nonempty marked subset of each cycle of lengths 2 through 10; for each cycle it tested all strict rational threshold breakpoints with denominators at most the cycle length and all consecutive open-interval midpoints. It compared the direct halo sizes with the claimed cardinality upper bound and verified a contiguous-block extremizer for each cardinality. It checked the endpoint jump and large-cycle estimates. Output:
+# Independent mathematical audit
 
-`VERIFY_OK all_critical_levels_and_midpoints_n=2..10 number_level_cases=259 sharp_cardinality_upper_bounds=True contiguous_block_extremizers=True n10_alpha3/5_C=8/5 finite_plateau_jump=True large_n_bounds=True`
+## correctness
 
-The proof, rather than the finite enumeration, establishes all integers, all real thresholds, and permutation extensions. No independent audit has been carried out.
+PASS
+
+PASS: For k marks on N-cycle, the centered partial sums have periodic drift k-alpha N. If drift>0 the whole cycle lies in the halo. At nonpositive drift a maximum partial sum is a non-halo phase; maximal consecutive halo components each have positive centered sum, giving strict |H|<k/alpha and integer |H|<=ceil(k/alpha)-1. A contiguous k-block attains min(N,ceil(k/alpha)-1) by exact first-hit prefix k/(k+j) and periodic averaging. This yields the max-over-k formula, boundary plateau alpha>=(N-1)/N, jump, and limit 1/alpha, and weighted orbit decomposition for finite full-support permutations. Independently enumerated every nonempty set for N=2..8 at rational thresholds 1/3,3/5,7/9,(N-1)/N. Strict endpoints and one-sided integer times are essential.
+
+## originality
+
+PASS
+
+PASS, qualified: The general one-sided ergodic maximal weak bound 1/alpha is classical, and Huang’s 2026 continuous-time ergodic-flow exact Tauberian constant equals 1/alpha (or trivial-flow case), but a finite discrete cycle is not a nontrivial continuous flow and has smaller exact, discontinuous constants. Huang’s separate discrete uncentered-ball basis result differs from one-sided forward integer intervals; no identified primary source gives the exact N,k,alpha all-threshold formula and extremizing cyclic blocks. Lack of a hit does not prove global historical priority.
+
+## value
+
+PASS
+
+PASS: The finite periodic action is a canonical obstruction to importing sharp continuous-time inequalities. The exact cardinality-constrained optimum, explicit extremizer, sharp last-threshold discontinuity and N->infinity recovery of 1/alpha constitute a motivated exact dynamical invariant applicable to any finite measure-preserving permutation via cycle decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
