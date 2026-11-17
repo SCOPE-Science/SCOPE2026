@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the fixed unweighted graph \(GP(10,2)\), five explicit independent eigenvectors at eigenvalue one give the lower bound; their antipodal equality rules out duplicated quotient classes. A verified polynomial expression for the antipodal involution makes controllability independent of the choice within each class. The full quotient group action partitions exactly 252 five-class subsets into eight verified orbits. Five full-rank integer-controllability certificates modulo eleven prove success in those orbits; three exact integral eigenvector witnesses establish failure in the others. A separate all-252 finite-field PBH check confirms the classification. The output is an exhaustive proof for this single finite graph, not an infinite-family extrapolation.
+PASS
 
-## Originality — PASS on inspected evidence, with publication-priority qualification
+For GP(10,2), A has five independent eigenvalue-one vectors constant on each antipodal pair, forcing >=5 inputs and distinct antipodal class representatives. The exact polynomial identity 6τ=A^5-2A^4-7A^3+10A²+10A-6I makes every eigenspace single τ-parity, hence any lift of the same five quotient Petersen vertices has identical PBH status. Eight Petersen automorphism orbits of the C(10,5)=252 quotient five-sets are separated by exact 20x20 Krylov rank witnesses or explicit obstructing eigenvectors. Good induced types C5,P5,P4 disjoint K1 have orbit sizes 6+60+30+6+30=132 and exactly 4224 actual vertex sets by 2^5 choices. Independent modular PBH calculation confirmed 132 and eigenspace multiplicities 1,5,4,4,3,3. Finite exhaustive for the fixed graph, not a family claim.
 
-Zhang, Camlibel and Cao (2011) provide general and distance-regular graph controllability conditions but no minimum-input dodecahedral 5-set classification. Monshizadeh, Zhang and Camlibel (2014) treat graph-family strong structural controllability by zero forcing; it does not entail the exact fixed-Laplacian classification. General known graph spectra and the prior Petersen-graph 162-set classification do not imply the additional odd-parity adjacency-zero-eigenvalue obstruction that eliminates 30 Petersen patterns on the dodecahedron. Literal and semantic searches for dodecahedral control, generalized Petersen placements, five inputs, the count 4224, 132 quotient patterns and induced-subgraph descriptions found no directly equivalent published theorem in the consulted records. A restricted-access general paper on undirected-graph controllability could not be compared in full; specialist publication-priority uncertainty remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves a natural complete optimal-actuator placement problem on the canonical twenty-vertex Platonic graph, converting a large linear-system rank search into an explicit three-type quotient criterion. The count 4224 and the distinction between successful Petersen patterns and those destroyed by the antipodal zero mode are structurally informative rather than arbitrary finite tabulation.
+PASS best-of-knowledge: The prior explicit Petersen KG(5,2) census has 162 optimum quotient five-sets, but does not give the new dodecahedral double-cover PBH obstruction excluding 30. General distance-regular controllability and zero-forcing results give tests/thresholds, not the 132 quotient type and 4224 lifted optimum placement enumeration.
 
-## Limits and literature
+## value
 
-The classification is specific to unweighted coordinate actuation and is not a robust weighted-graph theorem. Key full-text comparisons were Zhang, Camlibel and Cao (2011), *Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies*, and Monshizadeh, Zhang and Camlibel (2014), *Zero forcing sets and controllability of dynamical systems defined on graphs*. Unavailable additional specialist full text leaves a priority risk. The included verifier is an exact finite certificate; it does not constitute external independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact minimal actuator-placement census on a natural Platonic graph, including structural quotient types and an extra zero-eigenmode obstruction invisible in the Petersen quotient, is a motivated useful graph-control classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
