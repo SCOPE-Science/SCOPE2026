@@ -1,15 +1,21 @@
-# Review of the winner-conditioned run transport theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The unique alternating-short-run decomposition gives two finite-rational marked probability generating functions. Normalizing them yields a common independent geometric sum and distinct truncated-geometric residuals. A monotone-likelihood-ratio comparison provides a genuine pathwise ordered coupling; the dual mean lower bound makes its one-Wasserstein cost exact. The proof covers every integer run length \(r\ge2\) and every interior Bernoulli parameter. A standalone independent exact-state dynamic program and short-word enumeration passed 4,657 assertions. The verification code does not establish the infinite claim on its own.
+PASS
 
-## Originality
+Unique alternating maximal short-run decomposition yields G_H(z)=(pz)^r(1+B(z))/(1-A(z)B(z)), with A=sum_(j=1)^(r-1)(pz)^j and analogous B. Normalizing separates a common geometric sum of pairs of short runs and a winning-specific truncated-geometric variable; strict monotone likelihood ratios on Z_p supply a quantile coupling. Its monotone coupling achieves the absolute means lower bound for W1, and mu_r(p) is strictly increasing by its log-derivative variance. Strict bound uses p,q in (0,1); endpoint supremum not attained. Independent exact rational dynamic program for r=2..6 and multiple probabilities checked coefficient and conditional CDF order.
 
-PASS, qualified. The general marked generating functions and conditional mean methods are older, as in Ostaszewska–Zajkowski (2013), Uchida (1998), and classical sooner/later pattern work. The claimed contribution is restricted to the explicit common-noise conditional factorization, sharp one-Wasserstein formula and strong stochastic ordering. Freiberg–Heuberger–Prodinger (2015) discusses waiting-time enumeration without stating that comparison in the inspected full text. A relevant conditional-run chapter of Balakrishnan–Koutras (2001) was available only at the contents level and remains a historical-priority risk. Semantic searches of public mathematical records did not return an implication covering the combined statement; absence from a search is not proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. In first-hit run races, the winner's identity is informative about the stopping time. The theorem bounds the entire winner-conditioned distributional disparity in transportation cost by a sharp constant depending only on the target run length, although the underlying means may grow exponentially in that length. This gives a concrete structural and coupling principle unavailable from a mean-only formula, and is motivated by exact competing-pattern waiting-time questions.
+Marked run-race generating functions and winner-conditional means are prior results, not claimed new; the explicit common-noise factorization and exact *distributional* stochastic/W1 consequence were not found in inspected material. The older Sooner/Later Run Occurrences chapter advertises conditional laws, is highly relevant, and remained inaccessible; originality therefore best-of-knowledge and qualified, not certified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Conditioning a pattern race on the winner is a natural reliability/statistical question. Exact transport order and sharp W1 quantify a subtle bounded difference between exponentially large conditional waiting times; this is a nontrivial, reusable distributional refinement of known first-pattern PGFs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
