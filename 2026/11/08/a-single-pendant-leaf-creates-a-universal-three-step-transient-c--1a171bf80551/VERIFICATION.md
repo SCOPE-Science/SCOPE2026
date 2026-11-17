@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Executed verification
-The supplied programs were run with Python 3 in a local working directory and no third-party dependencies. `verify_ranks.py` calculated GF(2) matrix ranks, fixed subspaces and the identity \(B^5=B^3\) for every dimension from one through eight (up to 257 graph vertices). `verify_states.py` directly iterated every one of the \(131624\) binary labeled states for dimensions one through four; each exact entrance-period count agreed with the theorem. Captured outputs are embedded alongside both scripts.
+# Independent mathematical audit
 
-# Mathematical limits
-These tests use the binary field, not all characteristic-two extensions, and finite graph sizes. They do not on their own prove the all-dimension theorem. The written group-algebra, invariant-splitting, rank and Fitting-filtration arguments establish the unrestricted claim. No external independent validation or proof certification is represented by these runs.
+## correctness
+
+PASS
+
+For d>=1 and q=2^f, the group-algebra basis change in the frozen RESULT.md makes full-cube adjacency A satisfy A^2=(d mod 2)I with N/2 Jordan two-blocks. The one-leaf update B(x,s)=(Ax+se,e^T x) decomposes for odd d into one J3(0) plus an involutory N-2-dimensional complement (fixed dimension (N-2)/2). For even d, explicit B^2,B^3,B^4,B^5 and rank B=N/2+2 yield one J3(0), N/2-2 J2(0), and a two-dimensional swap recurrent subspace. Thus B^5=B^3 != B^2 and every exact first-entry/period census follows from kernel filtration; one three-block gives Pr(T=3)=1-1/q. Independently rebuilt GF(2) adjacency, matrix powers, ranks and B^5=B^3 for d=1..6; d=1 zero recurrent space and d=2 zero J2 blocks checked. Finite tests do not prove the family, the algebraic decomposition does.
+
+## originality
+
+PASS
+
+Specific one-vertex ADDITION, rather than prior one-vertex DELETION or an every-vertex corona, has a different Jordan Fitting decomposition, uniform exact three-step entrance rate and parity-dependent recurrent space not derivable by parameter substitution from the known puncture Jordan forms.
+
+## value
+
+PASS
+
+A single local graph defect sharply changes linear automaton transient behavior in both parities, producing a dimension-independent exact three-step clock while even and odd recurrent dimensions differ radically. The complete finite-field joint time/period census is a natural structural invariant and useful boundary example, not merely a generic linear-algebra method or arbitrary small graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
