@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical proof constructs the full singular spectrum through finite-dimensional principal-angle blocks and all bosonic occupation degrees. The exact \(S_2\) formula is the sum of convergent geometric series when the common intersection is trivial. The essential-norm equality in the noncompact case is proved using an infinite vacuum/occupation tensor factor, not by extrapolating finite experiments.
+## correctness
 
-Run `python3 checker.py` in the same directory as this document. It requires only the Python standard library. Successful execution gives:
+PASS
 
-```text
-FOCK_PROJECTION_PRINCIPAL_ANGLES_EXACT_OK 1705 rank_one_c=3/5 two_angle_S2_squared= 480625/100368
-```
+For projection symbols P,Q, Gaussian Fock composition projections are bosonic Γ(P), Γ(Q) on all symmetric tensor degrees. Restrict Γ(P)Γ(Q) to Γ(Q) range: positive singular values are occupation products t_alpha of positive one-particle principal cosines c_j, including vacuum. Each t in (0,1) yields a two-projection canonical 2x2 commutator block with singular values t sqrt(1−t^2) twice and eigenvalues ± i times this. Counting occupation indices correctly handles collisions, unit overlap and zero angles. If E∩F=0 all positive c_j<1 and polynomially many degree-n terms decay geometrically, giving compactness/all S_p; if there is a common direction and noncommuting principal angle, infinitely repeated nonzero singular value gives noncompactness/essential norm equals norm. Squaring and summing geometric series gives 2(product(1−c_j^2)^−1 − product(1−c_j^4)^−1). Difference of rank-one successive squares has sign (1+q)q^k−1, yielding maximizing degree including tie. Independent finite power sums checked.
 
-The checker uses exact rational matrix multiplication on the homogeneous polynomials in two variables, including their diagonal Gaussian monomial Gram weights, to verify projection identities, the commutator cubic identity, and the two repeated singular-value squares for degrees \(1\) through \(12\). It then verifies truncated two-angle occupation generating functions for degrees up to \(19\). These are finite checks of proof identities, not exhaustive verification of infinitely many degrees or independent scientific validation.
+## originality
 
-The inspected primary literature establishes ordinary composition-operator theory and prior qualitative compact-difference conditions. Its possible earlier quantitative overlap, especially in older inaccessible articles or general second-quantization treatments, is a stated publication-priority risk.
+PASS
+
+PASS with quantitative-priority caveat. Jiang–Prajitura–Zhao (2016) full primary article studies single Gaussian Fock composition operators and compactness/Schatten membership; Choe–Izuchi–Koo (2010) and Cho–Choe–Koo (2014) qualitative compact-difference results can account for compactness dichotomy, so it is explicitly excluded as independent novelty. The distinct exact all-degree two-projection commutator singular multiset and Hilbert–Schmidt determinant are not stated in read primary text; older difference-paper full texts and general second-quantization formula remain significant risks. Resultary comparisons found related but different Fock spectral settings.
+
+## value
+
+PASS
+
+Exact all-angle singular values and every Schatten quasi-norm of a natural noncommutative Fock projection pair, with sharp compactness/essential-norm transition and rank-one operator-norm discontinuity, give a reusable quantitative operator invariant beyond already-known compactness yes/no.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
