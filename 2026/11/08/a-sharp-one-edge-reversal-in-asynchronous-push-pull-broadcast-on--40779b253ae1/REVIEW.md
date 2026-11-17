@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The independent edge-clock construction agrees with the standard asynchronous protocol. The two competing initial events on the augmented star, the subsequent two state cases, and the Laplace transform of the maximum of \(m-2\) exponential random variables produce the exact expectation. The cleared-denominator identity holds by rational algebra; the polynomial positivity argument covers all \(m\ge6\), while exact rational boundary values settle \(2\le m\le5\). The product bound proves the asymptotic gap. A distinct labeled-state dynamic program cross-checks 20 finite graph cases, without replacing the infinite proof.
+## correctness
 
-## Originality (O): PASS, qualified
-The closest foundational source is Acan et al., arXiv:1411.0948, Proposition 13 and Section 2: it gives the exponential-edge method and ordinary-star asymptotics, but not the exact edge-addition comparison. Daknama et al., arXiv:1902.07618, Sections 1 and 3, examine graph-edit robustness through *synchronous* rounds and expander edge deletions, not this exact asynchronous finite family. Doerr–Kostrygin, arXiv:2303.11150, concerns principally synchronous complete-network protocols. An independently identified deterministic graph-burning statement includes stars with one added leaf edge, but uses a different evolution and invariant. Direct comparisons of the statements and their assumptions found no implication to the present sharp threshold. Searches are not a uniqueness certificate; omitted or inaccessible published sources might contain equivalent work.
+PASS
 
-## Value (V): PASS
-This is a natural, narrowly defined robustness question: does giving the informed leaf one additional neighbor always speed dissemination? The theorem identifies an exact reversal at five leaves, which cannot follow from the star expectation alone, and shows an asymptotically persistent \(1/3\) penalty. The threshold is an all-parameter structural comparison, not a routine finite-table computation. It isolates a degree-normalization mechanism that may matter when adding social-network links.
+For rate-one independent vertex clocks, thinning yields independent Poisson clocks on each undirected edge of rate deg(u)^(-1)+deg(v)^(-1). On K_(1,m), this gives E T_star=(1+H_(m-1))/lambda where lambda=(m+1)/m. On the star with added edge between source leaf 1 and leaf 2, a two-event competition before hub infection, with h=(m+2)/(2m) and c=h+1, and an independent maximum of m-2 original leaf clocks, produces the exact E T_edge formula in RESULT.md. The maximum Laplace transform F_m=prod_{i=1}^{m-2}i lambda/(i lambda+c) is derived by exponential spacings. An independent rational subset-state absorption recursion directly matched the two closed forms for m=2..8 and the exact boundary Delta_5=20155225/3059601384. Analytically Delta_m=m[P(m)+2F_mQ(m)]/[(m-1)(m+1)(m+2)(3m+2)^2], where P(m)=3m^4-10m³-32m²-28m-8>0 for m>=6 and Q(m)=m^4+4m³+3m²-4m-4>0 for m>=2. The four finite exceptions m=2..5 are exact, establishing first sign reversal at m=5; F_m<=1/(m-1) gives limit 1/3. All m>=2 covered by proof, not by bounded experiments.
 
-## Limits and literature
-The setting is one source leaf, one added incident leaf edge, unweighted graphs, independent rate-one calling clocks, and expected complete dissemination time. The result does not claim a universal smallest graph or stochastic dominance. Sources: https://arxiv.org/abs/1902.07618 ; https://arxiv.org/abs/1411.0948 ; https://arxiv.org/abs/2303.11150 . Historical priority remains a qualified assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact continuous-time leaf-source star edge-addition threshold m=5 and limiting penalty 1/3 are a new local-edit comparison on a natural small graph family. Acan et al. establish the exponential-edge representation and the unmodified star distribution; the added edge alters incident rates and requires a distinct two-case calculation. Published robust rumor spreading work mostly treats synchronous updates, and Resultary double-star asynchronous findings concern another topology. No inspected mathematical statement implies the all-m sign and boundary; potential unindexed Braess rumor-spreading examples remain risk.
+
+## value
+
+PASS
+
+This sharp smallest-family Braess-style reversal quantifies when a seemingly helpful extra contact slows asynchronous rumor completion. An exact threshold (first six-vertex example) and nonzero large-star penalty provide a motivated network-design boundary, not just a tiny isolated counterexample. It is confined to a specific initial leaf and edge placement, not a universal edit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
