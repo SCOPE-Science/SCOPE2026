@@ -1,11 +1,21 @@
-# Review of exact q-ary near-rotation multiplicities
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-shift transition count gives an independently checkable first moment; the cited two-shift lemma supplies the classification of possible shift sets, and Möbius inversion with separate half-turn normalization yields the complete histogram. The included checker enumerates all labeled words in 16 finite instances across three alphabet sizes. Those checks are not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Gabrić (2021, arXiv:2110.01120, Lemma 14 and Theorems 17–18) already proves the almost-commuting structural lemma and related aggregate counts; none of that is claimed as new. Makhynko (2026, arXiv:2606.08991) supplies strong binary-necklace overlap, so the present claim is explicitly limited to labeled alphabets of at least three letters. Actual semantic searches against published research records and accessible current claims found no equivalent q-ary full-multiplicity distribution. Unindexed equivalent results remain possible, and no search alone proves originality.
+PASS
 
-**Value — PASS.** The all-length, all-multiplicity census answers a natural reconstruction/near-periodicity counting problem rather than an arbitrary finite slice; its two mechanisms (full residue subgroups and isolated inverse pairs) explain the nontrivial distribution, including the exceptional half-turn normalization.
+Fixed s with gcd(n,s)=g yields g shift cycles of length h=n/g; exactly one cycle has two transitions, giving n(q−1)(h−1)q^g/2 words. Gabrić Lemma 14 controls two noninverse distance-two shifts; this partitions shift sets into full subgroup gZ_n\{0} or an exceptional inverse pair. For h>=3 every subgroup word has unique g-periodic background at Hamming distance one; for h=2 it is a pair of halves differing in one coordinate. Therefore N_g has the stated 2 cases, Möbius inversion yields E_g, first moment T counts all shifts and B catches the remaining inverse pairs. Independent brute-force complete q=3,n=2..7 and q=4,n=2..5 agreed for every r, including q=3 n=6 (441,126,126,36). General classification depends on the primary proved structural lemma, not finite tests.
 
-**Closest literature and limitations.** Gabrić's result is a key premise, and Makhynko's newer binary-necklace paper is methodologically close. The finding does not address necklaces, larger mismatch radii or independent theorem validation. The finite checker tests only the explicit parameter ranges listed in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel q>=3 complete r-multiplicity histogram; essential older Gabrić structural theorem is credited, not claimed anew.
+
+## value
+
+PASS
+
+The complete q-ary labeled-word multiplicity histogram for every exact number of near-equal cyclic rotations is a natural refinement of the almost-commutation/necklace problem; Möbius subgroup and exceptional-pair counts are mathematically informative beyond single-shift counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

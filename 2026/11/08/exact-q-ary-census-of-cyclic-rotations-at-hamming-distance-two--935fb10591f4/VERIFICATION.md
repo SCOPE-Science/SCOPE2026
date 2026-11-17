@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python interpreter. This exhaustively lists all q-ary words and every nonzero cyclic rotation for q=3 and n=2,...,8; q=4 and n=2,...,6; q=5 and n=2,...,5. The checker calculates the complete observed multiplicity histogram from Hamming comparisons and separately computes the Möbius-inverted predicted histogram from the exact formulas. It asserts equality for all 16 complete finite domains, including zero-count cases.
+## correctness
 
-The proof of the general statement requires the referenced Gabrić two-shift lemma, plus the mathematical deductions written in RESULT.md. The numerical checks alone cannot establish an infinite theorem. No independent scientific audit has been performed.
+PASS
+
+Fixed s with gcd(n,s)=g yields g shift cycles of length h=n/g; exactly one cycle has two transitions, giving n(q−1)(h−1)q^g/2 words. Gabrić Lemma 14 controls two noninverse distance-two shifts; this partitions shift sets into full subgroup gZ_n\{0} or an exceptional inverse pair. For h>=3 every subgroup word has unique g-periodic background at Hamming distance one; for h=2 it is a pair of halves differing in one coordinate. Therefore N_g has the stated 2 cases, Möbius inversion yields E_g, first moment T counts all shifts and B catches the remaining inverse pairs. Independent brute-force complete q=3,n=2..7 and q=4,n=2..5 agreed for every r, including q=3 n=6 (441,126,126,36). General classification depends on the primary proved structural lemma, not finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel q>=3 complete r-multiplicity histogram; essential older Gabrić structural theorem is credited, not claimed anew.
+
+## value
+
+PASS
+
+The complete q-ary labeled-word multiplicity histogram for every exact number of near-equal cyclic rotations is a natural refinement of the almost-commutation/necklace problem; Möbius subgroup and exceptional-pair counts are mathematically informative beyond single-shift counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
