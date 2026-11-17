@@ -1,13 +1,21 @@
-## Correctness
-PASS: The exact cellular enumeration has 114 vertices, 432 edges, and 378 squares. With the stated orientations, the 432-by-378 integral degree-two boundary has 305 unit Smith factors and precisely two factors of two. The independent degree-one incidence graph is connected; direct integer boundary composition is zero. The embedded, replayable checker reconstructs each of these assertions. Thus the stated integral homology follows from a complete finite chain computation rather than from finite sampling.
+# Independent mathematical audit
 
-## Originality
-PASS: The closest primary work by Revelli and Scheirer (arXiv:2602.09884, Sections 2–4) defines these complexes, proves three-group connectivity and counts certain cells, but does not determine this object's homology or two-torsion. Targeted research-database searches for the exact color vector, complete four-vertex graph, torsion and Smith invariants did not produce a statement implying this computation. The 2024 general no-multiple-collision graph configuration-space results use different restrictions; general comparison cannot exclude all unindexed work. This is a best-knowledge original exact value, not a claim of bibliographic uniqueness.
+## correctness
 
-## Mathematical value
-PASS: The new complexes are motivated by coverage-constrained colored robot motion. The complete four-vertex graph with three colors and two robots per color is a natural concrete test of the still-uncomputed integral topology. The two independent torsion classes are structurally different from homology ranks alone and preclude a torsion-free sphere-wedge description of the object. The complete integer answer is reusable as a benchmark for later parameter classification, independent of any unfinished census.
+PASS
 
-## Residual limitations
-The source is a recently introduced complex, and unindexed overlap is possible. This is one finite case; no general family statement is proved. It is a self-review, not an independent mathematical assessment.
+From the actual closed-support within-color and vertex-coverage cubical model, independent combinatorial enumeration reproduced c0=114,c1=432,c2=378,c3=0. An edge consumes two supports in its color, and with three moving edges no stationary vertex supports remain enough to cover 4 vertices, proving dimension<=2. Frozen CHECK.py and grouped_general.py were read: signed boundaries have 1,512 nonzero d2 entries and square to zero; 305 integral unimodular unit pivots leave a 2-divisible residual, dividing by two gives exactly two unimodular pivots and zero residual, i.e. SNF 1^305,2^2, rank d2=307. Graph of 0/1-cells connected, d1 rank=113; H1 free rank 432-307-113=12, H2=378-307=71, H1 torsion (Z/2)^2. Finite exhaustive integral arithmetic, not mod-two alone.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Original grouped Stirling complexes paper defines exactly this closed cubical complex but its K4 table studies different quotas, and explicitly leaves broad homology calculations to future work. Resultary semantic searches for K4 2,2,2 integral torsion and alternate robot-configuration descriptions returned the assigned finding but no earlier matching exact homology or stronger implication. No available established theorem yields the two Smith 2 factors.
+
+## value
+
+PASS
+
+The smallest complete graph supporting this natural three-color quota gives two independent torsion classes in H1 of a cubical robot-complex family; this is an exact unknown integral invariant and shows rational/mod-two-only counts are insufficient. Its object, quota and integral invariant are motivated directly by the grouped Stirling construction; no general family theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
