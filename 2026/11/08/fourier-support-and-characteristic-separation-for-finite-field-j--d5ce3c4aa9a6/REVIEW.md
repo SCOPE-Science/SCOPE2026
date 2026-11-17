@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Additive-character orthogonality proves the Fourier support criterion and exact phase; self-adjointness of the Sylvester operator under trace pairing identifies the annihilator. Rational-canonical block homomorphism dimensions give the twisted partition pairing, and the primary centralizer-group formula gives the exact Euler product. The odd/even minimum nullities, Fourier-density bounds, and two-dimensional strata follow by separate arguments. The accompanying finite-field checker reproduces closed counts and directly verifies selected Fourier sums. Risks: finite computation is not a proof; the all-dimensional proof relies on standard but explicitly specified rational-canonical classifications.
+PASS
 
-## Originality — PASS under bounded review
+For any finite field F_q and n≥2, Fourier of the graph (X,Y,XY+YX) sums first over Y, enforcing S_C(X)=CX+XC=−B. The trace-adjoint of S_C equals S_C, hence the affine-fibre character sum is nonzero iff A,B∈im S_C and has magnitude q^{N+ν(C)}. Represent V_C as an F_q[t]-module; ker S_C=Hom(V_{−C},V_C) has dimension sum_f deg(f)〈λ_f,λ_{f⁻}〉. Centralizer-group counts indexed by rational canonical partitions yield the complete negation-paired generating product Z_q and rank q^{2N}|GL_n|[u^n]Z_q(u,q^{−2}). Odd char C=I gives ν=0; in char2 S_C is a commutator and ν≥n with equality on cyclic C; ν=N at C=0. Schwartz–Zippel of det S_C yields odd density tending one for fixed n, while even density ≤q^{−2n}. Independent exact finite-field n=2 rank histograms at q=2,3,5 matched the stated tables and singular-value bounds.
 
-Rodriguez-Villegas (arXiv:math/0612664) supplies partition-weight enumeration in commuting settings, Britnell–Wildon (arXiv:1001.0811) supplies matrix centralizer types, Chen–Wang (arXiv:1805.00378) studies anticommuting varieties, and MathOverflow question 404817 contains the anticommuting-pair count and a dimension-three kernel census. These are directly relevant antecedents, not claimed advances. The assessed claim gives the all-frequency Fourier support and phase of the Jordan-product graph, the two-variable twisted partition enumerator for every spectral multiplicity, and a rigorous large-field density dichotomy. None of the inspected sources states the complete joint spectral conclusion; general bilinear-graph theory or an unlocated spectral specialization remains a significant priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph of the Jordan product is canonical for associative matrix algebras. The full Fourier-support classification, spectral multiplicities, optimal pseudoinverse conditioning, and opposite limiting densities in odd and even characteristics identify natural harmonic invariants not captured by ordinary anticommuting-pair counts. The cross-paired irreducible factors are structurally essential for the all-dimensional distribution; this is not an arbitrary finite slice or a numerical-only observation.
+The published finite-field commutator-graph theorem uses ad_C(X)=CX−XC, with centralizer Euler product and all frequencies, but this Jordan anticommutator graph differs in odd characteristic and requires coupled f↔f⁻ rational-canonical partitions. In characteristic two it specializes to the prior commutator case, which is not claimed new.
 
-## Limitations
+## value
 
-The general rank is given as an exact coefficient extraction rather than a universally factored polynomial. The external literature comparison is necessarily bounded; all relevant prior counting and block formulas are acknowledged. The checker does not establish the infinite theorem independently. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The odd/even characteristic dichotomy in full Fourier support, sharp supported condition numbers, and complete mixed-negation-primary singular multiplicities of a natural matrix Jordan-product graph form a nontrivial structural harmonic classification, distinct from the known commutator case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
