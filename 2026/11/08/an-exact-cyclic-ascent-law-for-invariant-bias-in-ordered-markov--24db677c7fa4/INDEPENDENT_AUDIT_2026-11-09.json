@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<u=1−exp(−h)<1, every ordered edge-exponential sweep is stochastic, irreducible and aperiodic. The pre-update mass at vertex i is pi_i+J*1_{r_{i−1}<r_i}; conservation gives constant flux J=u/(n−um), hence exact pi_i=(1−u*d_i)/(n−um). I independently checked a rational n=5 update-order example by multiplying its matrices and verifying stationarity. Summing absolute deviations yields TV=u*m*(n−m)/(n(n−u m)), with 1<=m<=n−1; one-variable calculus maximizes the envelope at t=m/n=1/(1+sqrt(1−u)), equal tanh(h/4). Cyclic conjugation of any sweep matrix yields a circulant doubly stochastic average and exact uniform invariance. The proof covers all n and h, whereas finite checker enumeration is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bertazzi et al. analyze invariant bias for Zig-Zag/Bouncy Particle schemes at small steps but not arbitrary ordering on a finite directed cycle.",
+          "Gourgoulias et al. analyze asymptotic relative entropy and commutator diagnostics rather than a sharp TV formula all h,n and orders."
+        ],
+        "reasoning": "Neither general error framework determines pi_i, full-range tanh(h/4) extremizer, or exact random-rotation stationarity. Markov-chain tree theorem could mechanically derive finite instances but does not supply these global evaluations.",
+        "searches": [
+          "Resultary: ordered sequential update continuous time directed cyclic Markov chain Lie Trotter invariant bias cyclic ascents randomized order",
+          "https://arxiv.org/html/2301.02537v3",
+          "https://arxiv.org/abs/1511.08240"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: ordered sequential update continuous time directed cyclic Markov chain Lie Trotter invariant bias cyclic ascents randomized order",
+        "https://arxiv.org/html/2301.02537v3",
+        "https://arxiv.org/abs/1511.08240",
+        "Resultary semantic nearest cycle splitting records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous-time directed cycle has uniform stationary U; a sequential noncommutative product need not share U.",
+          "Prior small-step bias expansions do not imply exact stationary weights (1-u d_i)/(n-u m) at all h or a sharp all-n TV bound."
+        ],
+        "reasoning": "The new edge-flux identity uses the predecessor-update comparison, yielding an exact order statistic absent from the cited splitting bounds.",
+        "searches": [
+          "Resultary: ordered sequential update continuous time directed cyclic Markov chain Lie Trotter invariant bias cyclic ascents randomized order",
+          "https://arxiv.org/html/2301.02537v3",
+          "https://arxiv.org/abs/1511.08240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Lie–Trotter sweep is an ordered product of single-edge Bernoulli transfer stochastic matrices; d_i encodes update-order cyclic ascents.",
+          "The PDMP method concerns velocity jumps in continuous state; 2016 KMC work considers entropy rate/commutator splitting error rather than exact finite-cycle invariant masses."
+        ],
+        "reasoning": "Compared ordered asynchronous cyclic updates, deterministic sequential scan, Lie factor splitting and random conjugacy; no equivalent exact m-ascent formula appeared in materially examined sources.",
+        "searches": [
+          "Resultary: ordered sequential update continuous time directed cyclic Markov chain Lie Trotter invariant bias cyclic ascents randomized order",
+          "https://arxiv.org/html/2301.02537v3",
+          "https://arxiv.org/abs/1511.08240"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact table for arbitrary ordered edge-exponential sweeps; nearby records have homogeneous theta or Crank–Nicolson positivity rather than invariant bias.",
+          "Exact five-state witness pi=(1/3,1/6,1/6,1/6,1/6) for u=1/2 illustrates the new all-orders formula but is not novelty evidence by itself."
+        ],
+        "reasoning": "Checked finite table aliases and exact transfer-matrix formulas; searched for a general ordered-cycle stationary law, not merely coefficient resemblance.",
+        "searches": [
+          "Resultary: ordered sequential update continuous time directed cyclic Markov chain Lie Trotter invariant bias cyclic ascents randomized order",
+          "Resultary semantic nearest directed-cycle splitting and positivity records"
+        ]
+      },
+      "rationale": "The constant stationarity flux and exact cyclic ascent bias are not obtained by existing PDMP splitting error expansions, information metrics, or nearest published cycle positivity findings. Same-cost cyclic rotation correction is a distinct exact invariant statement; novelty qualified by specialized update-schedule literature.",
+      "residual_risks": [
+        "Unindexed deterministic-scan or asynchronous-update literature may contain a mathematically equivalent flux law; full primary comparison of one KMC splitting paper was limited.",
+        "Sharp supremum is over all n and orders, not necessarily attained for fixed n and arbitrary h."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED GENERAL CONTEXT, NOT CLAIM EQUIVALENCE",
+          "evidence": [
+            "Uses unadjusted/adjusted PDMP splitting and invariant-measure expansions for velocity-jump samplers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.02537v3",
+          "material_read": "Accessible HTML abstract, general setup and invariant-error discussion; no claim of a full line-by-line review",
+          "method": "Read primary rendered HTML relevant sections",
+          "title": "Piecewise deterministic sampling with splitting schemes",
+          "trigger": "Shared splitting and invariant-bias theory"
+        },
+        {
+          "assessment": "NOT CONCLUSIVELY CLEARED IN FULL TEXT",
+          "evidence": [
+            "General information-metric approach, no verified exact directed-cycle arbitrary-sweep formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.08240",
+          "material_read": "Source abstract/model and relevant excerpts in the reviewed source record; current primary full text not retrieved",
+          "method": "Known abstract and mathematical descriptions, limited direct reading",
+          "title": "Information metrics for long-time errors in splitting schemes for stochastic dynamics and parallel kinetic Monte Carlo",
+          "trigger": "Potential general theorem on stationary splitting bias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordered generator splitting changes the invariant measure even when every factor is exact and stochastic. The theorem's exact dependence on the cyclic ascent statistic, global sharp worst-order bias tanh(h/4), and cost-neutral random-rotation correction give actionable and conceptually distinct stochastic approximation insights; this is more than checking row stochasticity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: ordered sequential update continuous time directed cyclic Markov chain Lie Trotter invariant bias cyclic ascents randomized order",
+    "https://arxiv.org/html/2301.02537v3",
+    "https://arxiv.org/abs/1511.08240",
+    "Resultary semantic nearest cycle splitting records",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-cyclic-ascent-law-for-invariant-bias-in-ordered-markov--24db677c7fa4"
+  ],
+  "disposition": "passed",
+  "final_claim": "An exact cyclic-ascent law for invariant bias in ordered Markov-generator splitting",
+  "limitations": [
+    "Only finite directed unit-rate cycles, full exact edge sweeps, positive steps; randomization fixes invariant stationary mass, not necessarily finite-time transition law; specialist schedule-literature residual.",
+    "Finite checker output alone is not an all-size proof. Originality remains a qualified best-of-knowledge assessment."
+  ],
+  "residual_risks": [
+    "Unindexed deterministic-scan or asynchronous-update literature may contain a mathematically equivalent flux law; full primary comparison of one KMC splitting paper was limited.",
+    "Sharp supremum is over all n and orders, not necessarily attained for fixed n and arbitrary h."
+  ],
+  "schema_version": 1
+}

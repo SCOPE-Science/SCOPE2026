@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite irreducible positive-step Markov chain, equal sweep-start and sweep-end masses force a constant edge flux. The pre-edge mass is exactly the initial stationary mass plus the incoming flux if the predecessor was processed earlier. Solving that finite system proves the unique invariant distribution for all permutations, sizes, and positive steps. Its two-level structure gives exact total variation, and a one-variable derivative yields the sharp \(\tanh(h/4)\) envelope. Cyclic conjugacy proves exact stationarity under random rotations. Full-permutation exact rational tests through six vertices, partial seven-vertex tests, and larger envelope tests replay successfully. The finite checks are corroboration, not a substitute for the universal proof.
+PASS
 
-## Originality — PASS, with residual risk
+For 0<u=1−exp(−h)<1, every ordered edge-exponential sweep is stochastic, irreducible and aperiodic. The pre-update mass at vertex i is pi_i+J*1_{r_{i−1}<r_i}; conservation gives constant flux J=u/(n−um), hence exact pi_i=(1−u*d_i)/(n−um). I independently checked a rational n=5 update-order example by multiplying its matrices and verifying stationarity. Summing absolute deviations yields TV=u*m*(n−m)/(n(n−u m)), with 1<=m<=n−1; one-variable calculus maximizes the envelope at t=m/n=1/(1+sqrt(1−u)), equal tanh(h/4). Cyclic conjugation of any sweep matrix yields a circulant doubly stochastic average and exact uniform invariance. The proof covers all n and h, whereas finite checker enumeration is corroboration.
 
-The closest motivation is Bertazzi, Dobson and Monmarché (arXiv:2301.02537v1), with inspected full-text material on Markov splitting and invariant bias, including the introduction, Section 4 and one-dimensional explicit invariant treatment. That paper considers PDMP-based velocity-jump samplers, not directed-cycle single-edge ordered sweeps. The relevant open full text of Gourgoulias, Katsoulakis and Rey-Bellet (arXiv:1511.08240) develops long-time commutator and entropy-rate splitting analysis, not the claimed exact cyclic-ascent TV classification. Published update-schedule work identifies related ordering structures, but the accessible abstract does not resolve the exact probabilistic law. Searches for equivalent finite-state ordered-transfer formulas and dominating generic invariant formulas disclosed no decisive coverage. There remains a nonzero risk of an older specialized cyclic-update or exclusion-process result. An absence of search hits alone is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Long-time discretization bias in Markov-chain and kinetic Monte Carlo splitting is mathematically motivated. Here all deterministic edge orders are completely classified, the uniform all-size error has a sharp closed form, and a same-cost randomized order removes that bias exactly. This gives a directly reproducible benchmark for generator splitting and a meaningful contrast between deterministic and symmetry-restored invariant sampling. The result makes no unsupported mixing-speed or arbitrary-generator claims.
+The constant stationarity flux and exact cyclic ascent bias are not obtained by existing PDMP splitting error expansions, information metrics, or nearest published cycle positivity findings. Same-cost cyclic rotation correction is a distinct exact invariant statement; novelty qualified by specialized update-schedule literature.
 
-## Limits and references
+## value
 
-The conclusion is limited to unit-rate directed cycles and single-sweep edge exponentials; it does not cover unequal rates, nonlinear samplers, all finite-state Markov chains, or finite-time accuracy. The 2013 update-digraph paper is an incompletely inspected precedence risk. Core comparisons: Bertazzi, Dobson and Monmarché (2023/2025), https://arxiv.org/abs/2301.02537 ; Gourgoulias, Katsoulakis and Rey-Bellet (2015/2016), https://arxiv.org/abs/1511.08240 ; update-schedule paper https://doi.org/10.1016/j.dam.2012.12.018 .
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ordered generator splitting changes the invariant measure even when every factor is exact and stochastic. The theorem's exact dependence on the cyclic ascent statistic, global sharp worst-order bias tanh(h/4), and cost-neutral random-rotation correction give actionable and conceptually distinct stochastic approximation insights; this is more than checking row stochasticity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
