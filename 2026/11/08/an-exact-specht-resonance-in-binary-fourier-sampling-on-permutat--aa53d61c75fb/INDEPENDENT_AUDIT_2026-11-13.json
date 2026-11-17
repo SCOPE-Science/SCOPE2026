@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:10:11.708177Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pairing of two permutation matrices is the number of fixed points of the relative permutation modulo two; therefore the Fourier restriction is the central convolution with z^Fix(g) at z=-1. Frobenius character theory gives (1/n!) sum z^Fix chi_lambda=s_lambda[p1=z,pj=1 (j>=2)]. Setting a=z-1 gives sum e_k u^k=(1+u)exp(a u), e_k=a^(k-1)(a+k)/k!. For conjugate lambda=(n-4,3,1), the explicit three-by-three dual Jacobi--Trudi determinant reduces to the displayed product after multiplying by n!/d_lambda. The hook-length formula gives d=n(n-1)(n-3)(n-6)/8 and regular multiplicity d^2. For |z|=1, the quadratic term cannot vanish since |z^2+(n-4)z|<=n-3<n-1. The exhaustive 15 partition sectors at n=7 have a unique zero eigenvalue in dimension 21 and degree-square sum 5040; exact nullity is 441. Independently checked all n=7..20 symbolic determinant identities and the full n=7 table; finite checks do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+          "Orellana--Zabrocki arXiv:1510.00438 on symmetric-group character calculus"
+        ],
+        "reasoning": "General Fourier-block/Schur recipes have broader domains of computation, but retrieved statements concern projection constants or abstract character methods, not a closed eigenfactor and kernel guarantee for this binary fixed-point sampling matrix. No claimed invertibility outside the specified component.",
+        "searches": [
+          "Resultary: central fixed point class function permutation group Fourier Schur characters partition (3,2,2,1^n) eigenvalue z=-1 singularity",
+          "arXiv:0708.2643 fixed points of permutations; arXiv:0803.2901 derangement graph eigenvalues",
+          "Harden--Penman DOI:10.37236/2955 fixed point polynomials",
+          "Resultary: Exact endpoint norms of the quadratic Specht Fourier block on S_n"
+        ]
+      },
+      "checked_sources": [
+        "Harden--Penman 2013 DOI:10.37236/2955",
+        "Ku--Wales arXiv:0803.2901",
+        "Diaconis--Fulman--Guralnick arXiv:0708.2643",
+        "Orellana--Zabrocki arXiv:1510.00438",
+        "Resultary quadratic Specht Fourier endpoint norms 2026-11-08"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frobenius specialization determines individual sector via an actual Jacobi--Trudi determinant",
+          "Diaconis--Fulman--Guralnick arXiv:0708.2643 fixed-point distribution; Harden--Penman trivial factor"
+        ],
+        "reasoning": "General calculability does not logically imply the nontrivial factorization without the determinant computation; the cited distribution and derangement-sector statements do not contain the binary parity kernel proposition.",
+        "searches": [
+          "Resultary: binary Fourier matrix restriction to permutation matrices H sigma tau (-1) number of shared fixed points singular Specht partition 3 2 2 rank n7",
+          "Resultary: central fixed point class function permutation group Fourier Schur characters partition (3,2,2,1^n) eigenvalue z=-1 singularity",
+          "arXiv:0708.2643 fixed points of permutations; arXiv:0803.2901 derangement graph eigenvalues",
+          "Harden--Penman DOI:10.37236/2955 fixed point polynomials"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Harden--Penman, Fixed Point Polynomials of Permutation Groups, DOI:10.37236/2955, repository.essex.ac.uk/6185/1/cmhpaper.pdf",
+          "Ku--Wales, Eigenvalues of the Derangement Graph, arXiv:0803.2901"
+        ],
+        "reasoning": "The trivial-character sum E[z^Fix] is one eigenvalue, not the nontrivial Specht sector. The derangement kernel 1_{Fix=0} differs pointwise from the parity kernel (-1)^Fix. Neither fixed-point-polynomial identity or adjacency spectrum implies the asserted exact factor.",
+        "searches": [
+          "Resultary: binary Fourier matrix restriction to permutation matrices H sigma tau (-1) number of shared fixed points singular Specht partition 3 2 2 rank n7",
+          "Resultary: central fixed point class function permutation group Fourier Schur characters partition (3,2,2,1^n) eigenvalue z=-1 singularity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exhaustive 15-sector n=7 spectrum in frozen RESULT.md at Git source RESULT blob 386ab50b7aac4a745f1b919fd7d82232f02db75c",
+          "Ku--Wales derangement graph character tables concern a distinct class function"
+        ],
+        "reasoning": "The n=7 number is not treated as novel merely because it is absent from a searched table: an exact fifteen-sector character calculation establishes it. No inspected existing database/table of parity-fixed-point convolution entries supplies the n>=7 infinite factor.",
+        "searches": [
+          "Resultary: binary Fourier matrix restriction to permutation matrices H sigma tau (-1) number of shared fixed points singular Specht partition 3 2 2 rank n7",
+          "Resultary: central fixed point class function permutation group Fourier Schur characters partition (3,2,2,1^n) eigenvalue z=-1 singularity"
+        ]
+      },
+      "rationale": "Classical Frobenius/Schur machinery permits this computation, but the relevant inspected prior results address trivial-character fixed-point polynomials, a derangement adjacency class function, or other symmetric-group Fourier blocks; none inspected implies the specified (3,2,2,1^(n-7)) factor, binary parity singularity and quantified nullity. Historical priority is only best-knowledge; same-day related published works are not chronologically ordered.",
+      "residual_risks": [
+        "Unsearched older character tables or specialised fixed-point convolution computations may contain equivalent factors.",
+        "Some relevant representation-theoretic primary sources were inspected only at abstract or initial theorem level; same-date related records have no verified relative publication time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Examined polynomial is a group-level fixed-point enumerator/trivial-character quantity, rather than the full nontrivial irreducible character-weighted spectrum",
+          "evidence": "DOI:10.37236/2955; first relevant PDF pages",
+          "identifier_or_url": "https://repository.essex.ac.uk/6185/1/cmhpaper.pdf",
+          "material_read": "PDF introductory and fixed-point polynomial theorem material, with page-image check; not every appendix",
+          "method": "web PDF extraction and screenshot",
+          "title": "Fixed Point Polynomials of Permutation Groups",
+          "trigger": "A theorem on fixed-point polynomial spectra could dominate the result"
+        },
+        {
+          "assessment": "Indicator of zero fixed points, not alternating parity of all fixed-point counts; incomplete full-text priority comparison",
+          "evidence": "arXiv:0803.2901",
+          "identifier_or_url": "https://arxiv.org/abs/0803.2901",
+          "material_read": "Abstract and available summary of derangement-graph eigenvalues; not full proof",
+          "method": "arXiv web abstract",
+          "title": "Eigenvalues of the Derangement Graph",
+          "trigger": "Symmetric-group central spectral computation"
+        },
+        {
+          "assessment": "A different quadratic Fourier projection norm, not adequate to exclude an uninspected subclaim; residual risk retained",
+          "evidence": "Resultary search for central fixed point convolution",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+          "material_read": "Semantic record title and summary only, not full RESULT",
+          "method": "Resultary search",
+          "title": "Exact endpoint norms of the quadratic Specht Fourier block on S_n",
+          "trigger": "Related published Specht Fourier sector"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is a natural binary Fourier submatrix indexed by permutation matrices; exact failure of self-sampling injectivity in every n>=7 is a nontrivial representation-theoretic obstruction. The infinite Specht-sector factor and exact first seven-letter rank are independently useful, rather than a renamed character formula or arbitrary tiny instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only this one Specht isotypic sector is classified for all n; no exact full nullity or all-eigenvalue formula is claimed for n>=8, nor global invertibility at other roots of unity.",
+  "schema_version": 1
+}

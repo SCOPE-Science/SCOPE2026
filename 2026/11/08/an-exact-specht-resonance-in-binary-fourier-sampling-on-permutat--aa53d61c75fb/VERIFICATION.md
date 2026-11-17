@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone `verify_permutation_fourier.py` requires Python 3 with standard-library modules only. Run `python3 verify_permutation_fourier.py` and expect the final marker `PERMUTATION_BINARY_FOURIER_RESONANCE_PASS`.
+## correctness
 
-The program enumerates integer partitions and all one-box Young branching paths to compute the exact coefficient polynomial for each representation, independently of the dual Jacobi--Trudi proof. Every coefficient is checked for the shape \((3,2,2,1^{n-7})\) for every integer \(7\le n\le20\). It exhaustively enumerates the full representation spectra and associated ranks at \(n=4,5,7\), and constructs actual binary permutation Fourier matrices for \(n=2,3,4,5\) to check their ranks by exact modular arithmetic.
+PASS
 
-The finite calculations do not constitute a proof of the symbolic identity for all dimensions; that is supplied by the generating function for the specialized elementary symmetric functions and the three-by-three determinant in `RESULT.md`. Exact modular ranks are sound lower bounds over characteristic zero; they agree with independently exact character-sector ranks in these small cases. The \(n=7\) character-sector check is exhaustive because the partition generator produces all fifteen partitions and the degree-squared sum equals \(7!\).
+The pairing of two permutation matrices is the number of fixed points of the relative permutation modulo two; therefore the Fourier restriction is the central convolution with z^Fix(g) at z=-1. Frobenius character theory gives (1/n!) sum z^Fix chi_lambda=s_lambda[p1=z,pj=1 (j>=2)]. Setting a=z-1 gives sum e_k u^k=(1+u)exp(a u), e_k=a^(k-1)(a+k)/k!. For conjugate lambda=(n-4,3,1), the explicit three-by-three dual Jacobi--Trudi determinant reduces to the displayed product after multiplying by n!/d_lambda. The hook-length formula gives d=n(n-1)(n-3)(n-6)/8 and regular multiplicity d^2. For |z|=1, the quadratic term cannot vanish since |z^2+(n-4)z|<=n-3<n-1. The exhaustive 15 partition sectors at n=7 have a unique zero eigenvalue in dimension 21 and degree-square sum 5040; exact nullity is 441. Independently checked all n=7..20 symbolic determinant identities and the full n=7 table; finite checks do not prove all n.
 
-There is no external independence claim.
+## originality
+
+PASS
+
+Classical Frobenius/Schur machinery permits this computation, but the relevant inspected prior results address trivial-character fixed-point polynomials, a derangement adjacency class function, or other symmetric-group Fourier blocks; none inspected implies the specified (3,2,2,1^(n-7)) factor, binary parity singularity and quantified nullity. Historical priority is only best-knowledge; same-day related published works are not chronologically ordered.
+
+## value
+
+PASS
+
+The object is a natural binary Fourier submatrix indexed by permutation matrices; exact failure of self-sampling injectivity in every n>=7 is a nontrivial representation-theoretic obstruction. The infinite Specht-sector factor and exact first seven-letter rank are independently useful, rather than a renamed character formula or arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
