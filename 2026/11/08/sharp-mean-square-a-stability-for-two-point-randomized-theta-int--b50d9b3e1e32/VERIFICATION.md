@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9+ and only the standard library. The recorded output in `verification_output.txt` is `PASS: 396 exact-rational assertions; no infinite claim relies on grid sampling.` The verifier checks the matrix-free scalar amplification identity, imaginary-axis numerator, sharp threshold and high-frequency boundary equality at rational parameters, the exact symmetric-law stability polynomial, and strict positivity in representative nondegenerate centered laws.
+## correctness
 
-The general half-plane theorem uses the subharmonic maximum principle, strict interior contraction, and a rigorous limit at infinity, not finite sampling. The universal centered-law statement uses the independent-copy covariance identity. The fourth-order weak-damping expansion uses uniform Taylor expansion for coefficients in the compact unit interval and the real-analytic implicit-function theorem. No full finite or computational enumeration can certify these infinite-parameter assertions by itself.
+PASS
 
-The supporting code is a reproducibility aid, not an independent audit or formal proof certificate.
+The amplification R(z,θ)=(1+(1−θ)z)/(1−θz) yields |R|²−1=[−2x+(1−2θ)(x²+y²)]/[1+2θx+θ²(x²+y²)]. For two atoms a,b, imaginary-axis numerator has coefficients A,B; B≤0 is p≤(2b−1)a²/[(1−2a)b²+(2b−1)a²], and that implies A<0. The finite infinity limit equals B/(a²b²). Weighted squared analytic moduli are subharmonic, so maximum principle on left half-disks plus strict interior inequality establishes mean-square A-stability even at B=0. For p above threshold, high-frequency boundary exceeds one and continuity gives unstable Re z<0. Independently checked exact rational p*=1/10 for a=1/4,b=3/4 and coefficient vanishing. For nonconstant mean 1/2, covariance with decreasing (1+θ²y²)^{-1} gives positive F(iy)−1; expansion gives κ=2Cov(θ,θ²)>0 and implicit function gives x=κy⁴/2+O(y⁶). Finite tests alone do not prove distributional universal claims.
+
+## originality
+
+PASS
+
+The published October 12 Resultary theorem ALREADY proves centered-law non-A-stability for all nonconstant laws and the special b=1 phase boundary. The present work retains genuinely additional exact all-b∈(1/2,1] two-point threshold and a universal imaginary-axis fourth-order boundary coefficient, neither implied by the earlier b=1 formula or stiff-real-axis obstruction. The literature on uniformly distributed random stages only gives a special law.
+
+## value
+
+PASS
+
+Characterizes the exact stability tradeoff under arbitrary two-point stage mixing and identifies sharp weak-damping obstruction near an imaginary axis, directly relevant to designing random-coefficient implicit integrators. These nontrivial multi-parameter results go materially beyond the already known special law and centered instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

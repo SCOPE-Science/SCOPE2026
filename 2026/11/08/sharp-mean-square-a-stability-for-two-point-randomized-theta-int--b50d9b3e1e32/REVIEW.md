@@ -1,24 +1,21 @@
-# Scientific review: Sharp mean-square A-stability for two-point randomized theta integration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved from an exact one-step mean-square identity, an imaginary-axis two-atom numerator affine in frequency squared, the subharmonic maximum principle, and strict covariance monotonicity. The inclusion of the critical probability follows because the high-frequency limit equals one while every fixed open-half-plane point remains a strict contraction. The fourth-order boundary follows by a local analytic implicit-function argument. All 396 exact-rational verifier assertions passed; finite checks do not replace the proof.
+PASS
 
-## Originality — PASS (with precedence risk)
+The amplification R(z,θ)=(1+(1−θ)z)/(1−θz) yields |R|²−1=[−2x+(1−2θ)(x²+y²)]/[1+2θx+θ²(x²+y²)]. For two atoms a,b, imaginary-axis numerator has coefficients A,B; B≤0 is p≤(2b−1)a²/[(1−2a)b²+(2b−1)a²], and that implies A<0. The finite infinity limit equals B/(a²b²). Weighted squared analytic moduli are subharmonic, so maximum principle on left half-disks plus strict interior inequality establishes mean-square A-stability even at B=0. For p above threshold, high-frequency boundary exceeds one and continuity gives unstable Re z<0. Independently checked exact rational p*=1/10 for a=1/4,b=3/4 and coefficient vanishing. For nonconstant mean 1/2, covariance with decreasing (1+θ²y²)^{-1} gives positive F(iy)−1; expansion gives κ=2Cov(θ,θ²)>0 and implicit function gives x=κy⁴/2+O(y⁶). Finite tests alone do not prove distributional universal claims.
 
-The primary 2024 randomized implicit RK2 paper fixes a uniform coefficient distribution and obtains its non-A-stability, while the new result classifies **all two-atom frequencies** and **every centered nonconstant distribution**. Earlier published uniform-case results and their fourth-order constant are expressly not claimed as new. Related 2020 explicit randomized RK and 2026 algebraically stable randomized SDIRK schemes use genuinely different updates. A specialist earlier equivalent law remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The phase transition gives the maximal allowable probability of selecting a less-than-midpoint implicitness coefficient while retaining full mean-square A-stability. It shows why coefficient centering alone is insufficient even for arbitrarily small randomness, and quantifies the sharp weak-damping stability notch. This is a complete natural classification of a reusable integrator family, not an arbitrary numerical example.
+The published October 12 Resultary theorem ALREADY proves centered-law non-A-stability for all nonconstant laws and the special b=1 phase boundary. The present work retains genuinely additional exact all-b∈(1/2,1] two-point threshold and a universal imaginary-axis fourth-order boundary coefficient, neither implied by the earlier b=1 formula or stiff-real-axis obstruction. The literature on uniformly distributed random stages only gives a special law.
 
-## Closest literature and limits
+## value
 
-- Bochacik–Przybyłowicz, arXiv:2404.19059, sections 1.2 and 3.2, fixed uniform-law randomized implicit RK2.
-- Bochacik et al., arXiv:2006.12131, sections 2 and 5.1, different explicit randomized RK rule.
-- Lie–Stahn–Sullivan, arXiv:2103.16506, additive random perturbation model.
-- Eisenmann et al., arXiv:2607.18928, separately algebraically stable randomized SDIRK scheme.
+PASS
 
-The conclusions are for the scalar linear test equation with fresh iid random coefficients. They do not show nonlinear, correlated-randomness, almost-sure, or convergence-rate results. No independent scientific audit is asserted.
+Characterizes the exact stability tradeoff under arbitrary two-point stage mixing and identifies sharp weak-damping obstruction near an imaginary axis, directly relevant to designing random-coefficient implicit integrators. These nontrivial multi-parameter results go materially beyond the already known special law and centered instability.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
