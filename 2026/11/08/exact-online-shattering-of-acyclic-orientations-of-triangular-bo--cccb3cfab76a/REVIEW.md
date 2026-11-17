@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A page triangle has exactly three allowed local states for each orientation of the shared edge. The full system is therefore the binary-selector class defined in RESULT.md. The complete-tree recurrence accounts exhaustively for selector, full-column, and either half-column queries. The claimed closed form is proved from that recurrence by induction, including the zero-page base case and asymmetric conditional states. Direct directed-cycle enumeration and mistake-tree recursion through six pages support the construction but are not treated as an unrestricted proof.
+## correctness
 
-**Originality: PASS within available comparisons.** Kozma–Moran establishes the acyclic-orientation/forest VC correspondence and is excluded from novelty. Pikhurko analyzes a different optimization goal, minimax identification query count, not adversarial complete-tree shattering depth. Cardinal et al. construct Gray codes of chordal acyclic orientations, not their Littlestone dimensions. Dong et al. study acyclic-orientation enumerators. The immediately preceding comparison on \(K_{2,b}\) omits the shared-edge query and is insufficient to force the even/odd rank transition. Database and phrase/alias searches did not locate a stronger statement. Residual risk: the exact rank may exist in a different vocabulary, such as balanced adversarial decision-tree height.
+PASS
 
-**Mathematical value: PASS.** The exact conditional theorem classifies all relevant residual learning states rather than reporting a single numerical sequence. It yields an unbounded online/static separation on a natural chordal bounded-clique family and a parity-sensitive one-edge perturbation of the adjacent complete-bipartite case. The rank is not determined by the already-known hypothesis count or by static forest shattering.
+PASS: Acyclic orientations of a book are precisely the two selector-conditioned products of three legal patterns per page: common edge prevents directed triangles and any directed four-cycle would force one forbidden mixed page. Exact four-query-type recurrence closes on F(u,a,c)=max(u+a,u+c,1+floor((3u+a+c)/2)); the u=0 base and u>0 induction handle every parity/edge case. Forest VC dimension is b+1 for b>=0. Independently generated all orientations and solved full minimax recurrence for b=0..4, obtaining 1,2,4,5,7. Finite cases corroborate, not substitute for the induction.
 
-The theorem applies only to binary queries about directions of edges in acyclic orientations of triangular books, not general chordal graphs or optimal identification trees. The small-case checker is not an infinite proof; the recurrence supplies that proof. Historical priority and terminology remain genuine residual uncertainties.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The selector-controlled two-product acyclic orientation class on K2∨I_b differs from the previous K2,b class without a spine. An earlier Resultary record determines b<=7 values but explicitly does not assert b>=8. The exact all-b rank and three-parameter conditional state formula genuinely extend that finite work; the forest VC formula is prior.
+
+## value
+
+PASS
+
+The acyclic orientation concept family of triangular books is a standard chordal family, and adding one spine edge to K2,b has a precise parity-sensitive impact on online rank. The unrestricted conditional-state theorem gives usable exact ranks beyond the previous seven-page computation; motivated structural learning gap, not a routine change of notation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

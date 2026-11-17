@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The reported computation uses only Python 3 standard-library functionality:
+## correctness
 
-`python3 verification/check.py`
+PASS
 
-Observed output:
+PASS: Acyclic orientations of a book are precisely the two selector-conditioned products of three legal patterns per page: common edge prevents directed triangles and any directed four-cycle would force one forbidden mixed page. Exact four-query-type recurrence closes on F(u,a,c)=max(u+a,u+c,1+floor((3u+a+c)/2)); the u=0 base and u>0 induction handle every parity/edge case. Forest VC dimension is b+1 for b>=0. Independently generated all orientations and solved full minimax recurrence for b=0..4, obtaining 1,2,4,5,7. Finite cases corroborate, not substitute for the induction.
 
-`BOOK_ORIENTATION_ONLINE_PASS b=0..6 conditional_states=84 recurrence_triples=64000`
+## originality
 
-The program independently tests all orientations against graph-cycle detection for books of zero through six pages, recomputes binary mistake-tree ranks for those sizes, checks 84 nonisomorphic conditional parameter triples by direct recursion, and verifies the closed-form recurrence on 64,000 parameter triples. It also checks that every shattered support of books through four pages is exactly an edge forest.
+PASS
 
-Finite enumeration is supporting evidence only. The all-parameter conclusion follows from the structural residual-class recurrence and induction in RESULT.md. No external proof assistant or independent mathematical review was used.
+The selector-controlled two-product acyclic orientation class on K2∨I_b differs from the previous K2,b class without a spine. An earlier Resultary record determines b<=7 values but explicitly does not assert b>=8. The exact all-b rank and three-parameter conditional state formula genuinely extend that finite work; the forest VC formula is prior.
+
+## value
+
+PASS
+
+The acyclic orientation concept family of triangular books is a standard chordal family, and adding one spine edge to K2,b has a precise parity-sensitive impact on online rank. The unrestricted conditional-state theorem gives usable exact ranks beyond the previous seven-page computation; motivated structural learning gap, not a routine change of notation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

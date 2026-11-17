@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:05:07.306186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Acyclic orientations of a book are precisely the two selector-conditioned products of three legal patterns per page: common edge prevents directed triangles and any directed four-cycle would force one forbidden mixed page. Exact four-query-type recurrence closes on F(u,a,c)=max(u+a,u+c,1+floor((3u+a+c)/2)); the u=0 base and u>0 induction handle every parity/edge case. Forest VC dimension is b+1 for b>=0. Independently generated all orientations and solved full minimax recurrence for b=0..4, obtaining 1,2,4,5,7. Finite cases corroborate, not substitute for the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite b=1..7 prior classification; general biclique rank ceil(3b/2) is for a different graph and query set."
+        ],
+        "reasoning": "Neither the finite enumeration nor the biclique all-b theorem implies a complete triangular-book all-b rank without a new selector-state argument.",
+        "searches": [
+          "Resultary: acyclic orientations triangular book Littlestone rank n pages all b",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i3p44",
+        "Resultary: acyclic orientations triangular book Littlestone rank n pages all b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior book rank known only through b=7; prior K2,b formula = ceil(3b/2), while book =1+floor(3b/2).",
+          "The book selector is an additional learning coordinate coupled to every page."
+        ],
+        "reasoning": "Deriving the selector rank takes a new conditional-state recurrence. Static VC=b+1 follows from the earlier forest theorem and is explicitly background.",
+        "searches": [
+          "Resultary: acyclic orientations triangular book Littlestone rank n pages all b",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i3p44"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Triangular book is K_{1,1,b}; full orientation family has selector edge and 2·3^b concepts.",
+          "Biclique K_{2,b} has no selector and its prior orientation family has 2·3^b-2^b concepts."
+        ],
+        "reasoning": "The families are not isomorphic as coordinate-labelled concept classes; the spine changes both hypothesis count and minimax recurrence.",
+        "searches": [
+          "Resultary: acyclic orientations triangular book Littlestone rank n pages all b",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published values for b=1..7: 2,4,5,7,8,10,11, matching new closed form."
+        ],
+        "reasoning": "All previous seven finite ranks are credited, including the b=7 entropy-bound failure; no exact all-parameter table is claimed from them.",
+        "searches": [
+          "Resultary: acyclic orientations triangular book Littlestone rank n pages all b",
+          "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835"
+        ]
+      },
+      "rationale": "The selector-controlled two-product acyclic orientation class on K2∨I_b differs from the previous K2,b class without a spine. An earlier Resultary record determines b<=7 values but explicitly does not assert b>=8. The exact all-b rank and three-parameter conditional state formula genuinely extend that finite work; the forest VC formula is prior.",
+      "residual_risks": [
+        "Earlier triangular-book finite recurrence b<=7 is fully acknowledged; all-b theorem rests on new induction, not those tests.",
+        "The 2013 published orientation paper and 2022 generation paper were not inspected fully; an unindexed general online classification remains a priority risk.",
+        "No formal Lean or external expert verification claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strict partial parameter coverage; all-b formula not asserted",
+          "evidence": [
+            "prior Ldim sequence 2,4,5,7,8,10,11 for b<=7; does not assert b>=8"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+          "material_read": "entire published RESULT.md including b=1..7 exact recurrence/certificates",
+          "method": "GitHub read-only full-text retrieval",
+          "title": "The first entropy-bound failure for adaptive orientations of triangular books",
+          "trigger": "identical graph family and edge orientation query notion"
+        },
+        {
+          "assessment": "distinct graph and different selector state; yields ceil(3b/2) for K_{2,b}, not the book 1+floor(3b/2)",
+          "evidence": [
+            "missing selector coordinate means same recurrence is not directly a theorem for triangular books"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e",
+          "material_read": "entire published RESULT.md, including three-variable state recursion and proof",
+          "method": "GitHub read-only full-text retrieval",
+          "title": "Exact online shattering for acyclic orientations of complete bipartite graphs",
+          "trigger": "book obtained by adding spine edge to K_{2,b}"
+        },
+        {
+          "assessment": "background forest-shattering fact, no whole-document noncoverage assertion",
+          "evidence": [
+            "published 2013; graph orientation and VC dimension"
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i3p44",
+          "material_read": "journal abstract and source bibliography; complete article not inspected",
+          "method": "journal webpage",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "static shattering criterion for acyclic orientations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The acyclic orientation concept family of triangular books is a standard chordal family, and adding one spine edge to K2,b has a precise parity-sensitive impact on online rank. The unrestricted conditional-state theorem gives usable exact ranks beyond the previous seven-page computation; motivated structural learning gap, not a routine change of notation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i3p44",
+    "Resultary: acyclic orientations triangular book Littlestone rank n pages all b"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier triangular-book finite recurrence b<=7 is fully acknowledged; all-b theorem rests on new induction, not those tests.",
+    "The 2013 published orientation paper and 2022 generation paper were not inspected fully; an unindexed general online classification remains a priority risk.",
+    "No formal Lean or external expert verification claimed."
+  ],
+  "residual_risks": [
+    "Earlier triangular-book finite recurrence b<=7 is fully acknowledged; all-b theorem rests on new induction, not those tests.",
+    "The 2013 published orientation paper and 2022 generation paper were not inspected fully; an unindexed general online classification remains a priority risk.",
+    "No formal Lean or external expert verification claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "strict partial parameter coverage; all-b formula not asserted",
+      "evidence": [
+        "prior Ldim sequence 2,4,5,7,8,10,11 for b<=7; does not assert b>=8"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-first-entropy-bound-failure-for-adaptive-orientations-of-tri--049d82064835",
+      "material_read": "entire published RESULT.md including b=1..7 exact recurrence/certificates",
+      "method": "GitHub read-only full-text retrieval",
+      "title": "The first entropy-bound failure for adaptive orientations of triangular books",
+      "trigger": "identical graph family and edge orientation query notion"
+    },
+    {
+      "assessment": "distinct graph and different selector state; yields ceil(3b/2) for K_{2,b}, not the book 1+floor(3b/2)",
+      "evidence": [
+        "missing selector coordinate means same recurrence is not directly a theorem for triangular books"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e",
+      "material_read": "entire published RESULT.md, including three-variable state recursion and proof",
+      "method": "GitHub read-only full-text retrieval",
+      "title": "Exact online shattering for acyclic orientations of complete bipartite graphs",
+      "trigger": "book obtained by adding spine edge to K_{2,b}"
+    },
+    {
+      "assessment": "background forest-shattering fact, no whole-document noncoverage assertion",
+      "evidence": [
+        "published 2013; graph orientation and VC dimension"
+      ],
+      "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v20i3p44",
+      "material_read": "journal abstract and source bibliography; complete article not inspected",
+      "method": "journal webpage",
+      "title": "Shattering, Graph Orientations, and Connectivity",
+      "trigger": "static shattering criterion for acyclic orientations"
+    }
+  ]
+}
