@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T03:55:33.291386Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob ca52081501e39973f783ffb7b7610413de3a0164",
+        "Assigned verify.py blob 0d94c3c15ddc63791291235d3531c8010ec35dd8",
+        "Sun, Peng, Zhang and Vong arXiv:2610.41627, https://arxiv.org/html/2610.41627v1",
+        "Rabbani et al arXiv:2108.09264",
+        "Austin, Pollock and Zhu arXiv:2403.09618"
+      ],
+      "rationale": "For A=diag(a,b), a>b>0, x0=(c,s), c*s !=0, and u=||Ax0||, the normalized second vector is proportional to ((a²+beta*u)c,(b²+beta*u)s), never zero since a²!=b². Direct common-denominator subtraction gives sign(mu2-mu1)=sign(a²b²-(beta*u)²). Since b<u<a this implies uniform safe cap |beta|<=b and universal decline if |beta|>=a, with equality when |beta|u=ab. For Haar x0, W=c² is Beta(1/2,1/2), so decline event is W>b²(a²/beta²-1)/(a²-b²), yielding the inverse-cosine exact law, sharp risk inversion, and √ cusp constants. Independent SymPy exact factorization gave identically zero residual; no Monte Carlo is needed to prove probability.",
+      "residual_risks": [
+        "Result concerns first warmed two-sweep step only, not long-term convergence or floating-point stability.",
+        "Equality boundary for fixed initial vector is an event of Haar probability zero in interior regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original numerical method concerns convergence and GP-chosen parameters; earlier momentum papers consider acceleration and longer sequences, not this exact fixed-beta risk law."
+        ],
+        "reasoning": "A convergence theorem for a selected stable parameter sequence does not dominate the all-beta first-step Rayleigh failure probability and explicit inverse cap.",
+        "searches": [
+          "arXiv:2610.41627",
+          "Resultary query: two-sweep power method two-eigenvalue Rayleigh decrease beta probability arcsine warm start",
+          "arXiv:2108.09264",
+          "arXiv:2403.09618"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob ca52081501e39973f783ffb7b7610413de3a0164",
+        "Assigned verify.py blob 0d94c3c15ddc63791291235d3531c8010ec35dd8",
+        "Sun, Peng, Zhang and Vong arXiv:2610.41627, https://arxiv.org/html/2610.41627v1",
+        "Rabbani et al arXiv:2108.09264",
+        "Austin, Pollock and Zhu arXiv:2403.09618"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic power method monotonicity applies to x1=Ax0, not necessarily y=Ax1+beta*x0.",
+          "Original convergence for admissible beta cannot constrain risk for arbitrary positive/negative beta including universally descending regimes."
+        ],
+        "reasoning": "The submitted result is not a direct corollary of the preceding asymptotic guarantees; it requires exact 2x2 sign factorization and Haar arcsine integration.",
+        "searches": [
+          "Resultary query: two-sweep power method two-eigenvalue Rayleigh decrease beta probability arcsine warm start",
+          "arXiv:2610.41627 sections 2 and 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary recurrence y_{k+1}=A x_k+beta x_{k-1} matches assigned warm-start update; its convergence criteria do not state sign(mu2-mu1) for arbitrary beta and random starting orientation."
+        ],
+        "reasoning": "This sign is a conditional first-iteration risk, not asymptotic spectral convergence. Classical arcsine squared coordinate law is an ingredient, not a prior full theorem.",
+        "searches": [
+          "Resultary query: two-sweep power method two-eigenvalue Rayleigh decrease beta probability arcsine warm start",
+          "arXiv:2610.41627 sections 2 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical exact all-beta P_{a,b}(beta) formula or probability table located in the searched records or read primary Sections 2-3."
+        ],
+        "reasoning": "The displayed risk curve varies continuously with beta and spectrum; finite benchmarks alone would be insufficient, but the full formula appears absent in inspected work.",
+        "searches": [
+          "Resultary query: two-sweep power method two-eigenvalue Rayleigh decrease beta probability arcsine warm start",
+          "arXiv:2610.41627"
+        ]
+      },
+      "rationale": "The original two-sweep paper derives an update and convergence conditions, not the precise first warm-started Rayleigh risk distribution with its universal cap and inverse quantile. A full related primary paper was read and checked by implication; older related methods are not the same one-step setup. Best-of-knowledge qualified originality.",
+      "residual_risks": [
+        "Very old or unindexed two-dimensional momentum Rayleigh risk formula might already exist.",
+        "The theorem does not determine full regression-enhanced algorithm reliability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECT_COVERAGE",
+          "evidence": [
+            "Method introduces two-sweep recurrence but does not state first warmed step exact Haar-risk formula in checked sections; convergence concerns different quantifiers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.41627v1",
+          "material_read": "Accessible full HTML: numerical method definitions, convergence theorem sections, experiments, and conclusions; PDF page checked for source layout",
+          "method": "Web opened article and read source sections; compared first-step sign and distribution",
+          "title": "A Gaussian Process Regression-Enhanced Two-Sweep Parameterized Power Method for Computing Extreme Eigenpairs",
+          "trigger": "Exact same two-sweep power recurrence and potential coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob ca52081501e39973f783ffb7b7610413de3a0164",
+        "Assigned verify.py blob 0d94c3c15ddc63791291235d3531c8010ec35dd8",
+        "Sun, Peng, Zhang and Vong arXiv:2610.41627, https://arxiv.org/html/2610.41627v1",
+        "Rabbani et al arXiv:2108.09264",
+        "Austin, Pollock and Zhu arXiv:2403.09618"
+      ],
+      "rationale": "The probability of immediate eigenvalue-estimate deterioration after adding a momentum term is a meaningful numerical-method risk. Sharp caps, guaranteed decline phase, and an invertible all-beta failure probability supply reproducible quantitative parameter guidance for two eigenmodes; this is more useful than a routine fixed 2x2 sample.",
+      "residual_risks": [
+        "Single warmed step on two eigenvalues only; no general solver guarantee inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full closest two-sweep arXiv HTML compared; exact symbolic Rayleigh factorization checked. Historical priority remains qualified.",
+    "All assigned source tree identifiers independently matched Git tree objects with truncated=false. Any script outputs are corroboration; assertions are based on the reconstructed analytic proof."
+  ],
+  "schema_version": 1
+}

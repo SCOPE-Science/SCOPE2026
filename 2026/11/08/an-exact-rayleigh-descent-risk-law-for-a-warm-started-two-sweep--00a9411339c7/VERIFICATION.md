@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or later; the checker has no third-party dependencies.
+## correctness
 
-The checker implements (a) 8,000 exact rational tests of the polynomial identity controlling the Rayleigh-quotient difference, (b) 40,000 deterministic-seed floating-point comparisons of directly normalized iterates and the analytic sign criterion, (c) 36 circular-grid probability comparisons using 20,000 equally spaced angles per case, and (d) square-root endpoint constant tests at three scales.
+PASS
 
-The expected concluding line begins `VERIFY_OK`. These finite checks identify implementation and algebra mistakes but cannot establish all-parameter or distributional statements. Those require the exact difference identity, the fact that the two-sweep vector never vanishes for a non-eigenvector start, and the arcsine distribution of squared coordinates of a uniform point on a circle. The proof in `RESULT.md` supplies these independent analytic arguments.
+For A=diag(a,b), a>b>0, x0=(c,s), c*s !=0, and u=||Ax0||, the normalized second vector is proportional to ((a²+beta*u)c,(b²+beta*u)s), never zero since a²!=b². Direct common-denominator subtraction gives sign(mu2-mu1)=sign(a²b²-(beta*u)²). Since b<u<a this implies uniform safe cap |beta|<=b and universal decline if |beta|>=a, with equality when |beta|u=ab. For Haar x0, W=c² is Beta(1/2,1/2), so decline event is W>b²(a²/beta²-1)/(a²-b²), yielding the inverse-cosine exact law, sharp risk inversion, and √ cusp constants. Independent SymPy exact factorization gave identically zero residual; no Monte Carlo is needed to prove probability.
 
-The coefficients are assumed exact, with no adaptive search, parameter learning, floating-point stability or continuation beyond the displayed second iterate. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The original two-sweep paper derives an update and convergence conditions, not the precise first warm-started Rayleigh risk distribution with its universal cap and inverse quantile. A full related primary paper was read and checked by implication; older related methods are not the same one-step setup. Best-of-knowledge qualified originality.
+
+## value
+
+PASS
+
+The probability of immediate eigenvalue-estimate deterioration after adding a momentum term is a meaningful numerical-method risk. Sharp caps, guaranteed decline phase, and an invertible all-beta failure probability supply reproducible quantitative parameter guidance for two eigenmodes; this is more useful than a routine fixed 2x2 sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
