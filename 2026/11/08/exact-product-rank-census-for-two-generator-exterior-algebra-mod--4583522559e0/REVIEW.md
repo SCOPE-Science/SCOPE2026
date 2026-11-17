@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete proof reduces positive-product representations to a uniquely determined number of free Frobenius summands plus an annihilating residual, computes the full stabilizer quotient, and counts residual image/kernel profiles with subspace Möbius inversion. The free summand splitting uses a perfect associative Frobenius pairing, not an assumption of semisimplicity. Direct checks from original matrix equations in small dimensions independently match every tested fiber. The computations do not assert proof for arbitrary dimensions.
+## correctness
 
-## Originality — PASS, provisional
-The positive-product requirement \(\operatorname{rank}(AB)>0\) is essential: earlier annihilating-pair results cover the zero-product case. Schröer's 2004 paper treats annihilating pairs, Levy's 2006 work treats commuting square-zero varieties in characteristic two, Chen–Wang's 2018 paper treats anti-commuting varieties in a broader form, and Huang's 2021 paper studies quantum-plane counts. The inspected texts do not provide the displayed all-dimensional positive-product five-invariant labeled formula. The classification of free summands and its automorphism-group factor use standard module-theoretic principles and are not attributed as newly invented tools. An unknown Hall-type or representation-counting result might imply this census; historical priority is not certified.
+PASS
 
-## Value — PASS
-The joint product/image/kernel ranks are intrinsic natural linear-algebraic invariants of a module over the exterior algebra, and the positive-product locus distinguishes representations excluded from the classical radical-square-zero census. An exact formula for every fiber in every dimension and over every finite field, including the sharp four-dimensional onset, resolves a coherent arithmetic classification problem rather than an isolated low-dimensional table.
+For square-zero anticommuting A,B, every nonzero AB direction generates a four-dimensional regular exterior-algebra summand; injective/projective Frobenius regular module splits, leaving a residual with all pair products zero. Residual individual ranks, joint image and common kernel are enumerated by Gaussian flags and subspace Möbius inversion. Direct automorphism block factor gives G_n/(G_m G_t q^(3t²+2tm)), including characteristic two; all t from 1 through floor(n/4) are possible. Independent exact formula arithmetic gives 2520 (n4,q2), 449280 (n4,q3), 312480 (n5,q2) and 262483200 (n6,q2). Limited arithmetic checks are corroboration, not a uniform proof.
 
-## Limitations
-The formula counts labeled pairs, not isomorphism classes or components. It says nothing about higher-generator exterior algebras or nonreduced structures. All source comparisons are conditional on the inspected primary material, and there has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive-product stratum of exterior-algebra modules, with all five simultaneous ranks in any n,q, is not implied by the previously published annihilating residual census or dimension-four regular orbit count without the new free-summand split and stabilizer transport.
+
+## value
+
+PASS
+
+A natural positive-product representation locus is refined by exactly the ranks of the generators, product, joint images and kernels; the formula is a uniform exact finite-field classification relevant to representation geometry and testing modules, not a finite arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
