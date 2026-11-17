@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source supplies the curve's genus, degree-eight Galois presentation and full automorphism group. The attached exact finite-field verifier checks the quotient matrices, octahedral identity, rational-function invariance, and every rational x-fiber. The local normalization argument at x=0 excludes rational points in one ramified fiber; x=1 and x=9 provide exact rational witnesses in the others. The ramification and complete 496-point census agree with independent genus and maximality inputs.
+## correctness
 
-**Originality — PASS, qualified.** The motivating source provides the full group and one short orbit, not the complete arithmetic rational-point orbit decomposition. The classical octahedral rational function and its (2,3,4) ramification are established background and are not claimed as new. The distinct contribution is the specialization to the exceptional genus-seventeen curve, including exact k-rational quotient values and arithmetic splitting of all branch and unramified fibers. Comparisons with published mathematical records and accessible historical claims revealed no same-object census, but this does not prove universal historical priority.
+PASS
 
-**Value — PASS.** The result answers the natural question of how the full automorphism group acts on all rational points of an exceptional maximal curve, not merely on the already identified ramified locus. The 48+64+192+192 decomposition and a wholly quadratic branch fiber are meaningful arithmetic structure; no unproved coding-theory theorem is inferred.
+The source supplies genus17, degree-eight k(C)/k(x) and complete automorphism group of order192. Independently computed finite-field F121 as F11[α]/(α²+1), closed the specified Möbius generators to exact projective group of order24 with x-line orbit sizes [6,8,12,24,24,24,24], and verified Q8³+9x⁴(x⁴+1)⁴=Q12² and invariant β=Q8³/Q12² over all finite F121 x via cross multiplication. The 24-fold x quotient composes to 192-fold full k(C)^A quotient. The ramification indices (3,4,4), fiber sizes (64,48,48) and Riemann–Hurwitz 416 different give genus17. Independent exact rational lift enumeration gave 484 affine-model points, distributed β=0:64, β=4±4α:192 each, β=∞:36. At the six roots of x^12−1, local normalization yields two additional rational places each (verified their leading coefficient is square), restoring β∞=48 and total496. The β=1 geometric 48-point branch fiber has nonsquare z specialization, hence no rational points. Four A-orbits therefore have 48,64,192,192 points. Arithmetic checks exhaust finite x-values, while geometric Galois/group assertions rely on the published source theorem.
 
-The closest sources are Beelen--Montanucci--Niemann (arXiv:2609.11679) and Beukers' exposition of classical octahedral quotient invariants. The source's automorphism theorem is an input, and the octahedral function is not itself new. The proof is an exact finite-field and local-geometric argument; independent specialist review and exhaustive historical-priority confirmation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical octahedral x-line quotient and source automorphism theorem are credited. The specific rational beta-fiber classification and complete four-orbit spectrum for this genus17 curve were not found in accessible prior statements. The exact original paper was unavailable in full, and this priority judgment is qualified.
+
+## value
+
+PASS
+
+The exact rational-point orbit decomposition of a distinguished maximal genus17 curve supplies a concrete arithmetic quotient passport, residue-degree obstruction at one branch fiber and two split unramified orbits. Unlike merely restating maximality, it determines group-action statistics that can be reused in quotient/code/curve arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

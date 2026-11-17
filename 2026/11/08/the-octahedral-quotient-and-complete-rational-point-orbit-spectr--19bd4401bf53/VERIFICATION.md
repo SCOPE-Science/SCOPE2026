@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scientific boundaries
+# Independent mathematical audit
 
-Run `python3 verify_triangle.py` from this directory with a standard Python 3 interpreter. The verifier has no external dependencies. It performs exact quadratic-field arithmetic in characteristic eleven and enumerates all 122 rational points of the quotient x-line, the entire 24-element Möbius subgroup, the octahedral polynomial identity, and all rational affine lifts over nonspecial x-values. It prints `ARITHMETIC_OK`, `RATIONAL_ORBITS_OK`, and `VERIFY_OK` on success.
+## correctness
 
-This finite enumeration is exhaustive for the specified finite-field objects and supplies exact numerical evidence, not an unsupported statistical extrapolation. The proof also uses the published genus, maximality, degree-eight Galois cover, and full order-192 automorphism theorem. Those cited geometric inputs are not rederived by the script. The exceptional x=0 and \(x^{12}=1\) fibers require local normalization; the explicit local argument is given in RESULT.md, and root tests alone are not substituted for it. No independent audit has been performed.
+PASS
+
+The source supplies genus17, degree-eight k(C)/k(x) and complete automorphism group of order192. Independently computed finite-field F121 as F11[α]/(α²+1), closed the specified Möbius generators to exact projective group of order24 with x-line orbit sizes [6,8,12,24,24,24,24], and verified Q8³+9x⁴(x⁴+1)⁴=Q12² and invariant β=Q8³/Q12² over all finite F121 x via cross multiplication. The 24-fold x quotient composes to 192-fold full k(C)^A quotient. The ramification indices (3,4,4), fiber sizes (64,48,48) and Riemann–Hurwitz 416 different give genus17. Independent exact rational lift enumeration gave 484 affine-model points, distributed β=0:64, β=4±4α:192 each, β=∞:36. At the six roots of x^12−1, local normalization yields two additional rational places each (verified their leading coefficient is square), restoring β∞=48 and total496. The β=1 geometric 48-point branch fiber has nonsquare z specialization, hence no rational points. Four A-orbits therefore have 48,64,192,192 points. Arithmetic checks exhaust finite x-values, while geometric Galois/group assertions rely on the published source theorem.
+
+## originality
+
+PASS
+
+The classical octahedral x-line quotient and source automorphism theorem are credited. The specific rational beta-fiber classification and complete four-orbit spectrum for this genus17 curve were not found in accessible prior statements. The exact original paper was unavailable in full, and this priority judgment is qualified.
+
+## value
+
+PASS
+
+The exact rational-point orbit decomposition of a distinguished maximal genus17 curve supplies a concrete arithmetic quotient passport, residue-degree obstruction at one branch fiber and two split unramified orbits. Unlike merely restating maximality, it determines group-action statistics that can be reused in quotient/code/curve arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
