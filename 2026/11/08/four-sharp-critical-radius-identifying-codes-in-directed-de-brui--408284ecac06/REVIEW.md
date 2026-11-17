@@ -1,19 +1,21 @@
-# Review of the critical-radius checksum construction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prefix-class argument supplies the universal lower bound \((q-1)q^{n-1}\); the checksum eliminates exactly one last-symbol choice per prefix class. For the four expressly stated pairs, `verify.py` enumerates every vertex, computes the complete closed incoming radius-\(t\) ball by two distinct exact methods, and checks that its intersection with the code is nonempty and differs from all other intersections. The program was extracted from the proposed deliverable and executed, producing `VERIFY_OK cases=4`. The result is a finite computer-assisted theorem, not an unbounded generalization.
+PASS
 
-## Originality — PASS, with priority qualifications
+For each (q,t)=(3,3),(4,3),(3,4),(4,4), n=2t-1. Every length-(n-1) prefix class can omit at most one word because two omitted final-letter variants have identical positive-radius predecessor signatures; hence |S| >= (q-1)q^(n-1). The modular-checksum code selects exactly q-1 per class. Independent from-source reconstruction exhaustively enumerated all q^n=243,1024,2187,16384 targets, each full closed incoming ball at radii 1..t, and every selected-signature uniqueness/nonemptiness check. Each instance passed and selected sizes were 162,768,1458,12288. This is a complete finite proof for exactly four stated parameters, not evidence for arbitrary q or t.
 
-Boutin–Horan Goliber–Pelto (arXiv:1412.5842), inspected through the full relevant identifying-code section, proves the bound but explicitly leaves critical word length \(n=2t-1\) open; its critical construction has \(q^{t}\) additional vertices. Searches for critical-radius, ternary/quaternary identifying codes and exact four values located no theorem covering these four cases. Prior reported binary critical cases and radius-two nonbinary cases address different parameter pairs and logically do not imply this four-case modular construction. The 2015 undirected paper does not apply to the directed in-ball problem. Search absence is not proof of first discovery, and unindexed equivalent work remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-At the minimal length where radius-\(t\) identification is possible, the first two higher radii are a natural open boundary problem. This supplies four exact nonbinary sensor minima (including a graph with 16,384 vertices), together with a single reproducible algebraic construction rather than isolated opaque subsets. The answer requires no downstream theorem, but does not settle arbitrary alphabets or radii.
+Best-of-knowledge original four nonbinary critical-length exact minima: the established prefix lower bound was not previously known to be attained at these (q,t) pairs. Related 2026 binary t>=3 and nonbinary t=2 results concern different cases and do not imply the four q>=3,t>=3 optima.
 
-## Scientific limitations
+## value
 
-No statement is proved for \(q\) outside \(\{3,4\}\), for \(t\) outside \(\{3,4\}\), or for undirected or rotation-quotiented graphs. No independent audit has been performed. The theorem relies on a finite exhaustive verifier whose loops, complete domains and reverse-edge interpretation are included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical length n=2t-1 is exactly where the established construction loses optimality. The first four nonbinary radius-three/four boundaries close a natural concrete gap and provide sharp sensor costs and explicit code constructions, not an arbitrary collection of numerics; the finite full-signature certificate is appropriate for these finite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

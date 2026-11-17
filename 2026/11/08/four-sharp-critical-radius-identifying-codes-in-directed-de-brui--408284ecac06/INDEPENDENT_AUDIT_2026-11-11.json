@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T12:56:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md SHA1 614d722199e75f2fd81495527fc3024737b19363",
+        "pinned verify.py SHA1 a137b889ace8fcde651c62b8cbe34cf48304ca3d",
+        "independent reconstruction: /mnt/data/scope_check_20261111.py (internal)",
+        "https://arxiv.org/pdf/1412.5842"
+      ],
+      "rationale": "For each (q,t)=(3,3),(4,3),(3,4),(4,4), n=2t-1. Every length-(n-1) prefix class can omit at most one word because two omitted final-letter variants have identical positive-radius predecessor signatures; hence |S| >= (q-1)q^(n-1). The modular-checksum code selects exactly q-1 per class. Independent from-source reconstruction exhaustively enumerated all q^n=243,1024,2187,16384 targets, each full closed incoming ball at radii 1..t, and every selected-signature uniqueness/nonemptiness check. Each instance passed and selected sizes were 162,768,1458,12288. This is a complete finite proof for exactly four stated parameters, not evidence for arbitrary q or t.",
+      "residual_risks": [
+        "No theorem for arbitrary alphabet or radius; finite exhaustive scope only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boutin et al prove the lower bound for all q and construct size-minimal codes at n>=2t, but their n=2t-1 bound has an added q^t term and poses critical optimality as unresolved."
+        ],
+        "reasoning": "The general statements cover a DIFFERENT length domain or bound only from above; none yields equality at n=2t-1,q in {3,4},t in {3,4}.",
+        "searches": [
+          "Resultary semantic: directed de Bruijn identifying codes critical word length",
+          "arxiv:1412.5842 Theorems 3.5,3.9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.5842",
+        "Resultary semantic hits for four q/t cases",
+        "pinned mathematical package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known lower gamma>= (q-1)q^(2t-2), and known upper at critical length permits a positive q^t gap; the prior binary and radius-two equalities cannot imply the four nonbinary radius-three/four equalities."
+        ],
+        "reasoning": "Lower plus nonmatching upper does not prove sharp equality. The new checksum construction plus complete signature enumeration supplies the necessary missing inequality.",
+        "searches": [
+          "arxiv:1412.5842 critical-length problem",
+          "Resultary sharp-radius-two nonbinary critical and binary critical records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boutin–Horan Goliber–Pelto define incoming-radius vertex-monitoring identifying codes on the same directed word graphs; assignment uses equivalent in-ball signature notation."
+        ],
+        "reasoning": "The translated statement asks whether the established q^(n-1)(q-1) lower bound is attained at four nonbinary critical pairs. Same monitoring/sensor formulation has been compared.",
+        "searches": [
+          "Resultary semantic: directed de Bruijn identifying codes critical word length 2t-1 q=3 q=4 radius 3 4 modular checksum",
+          "arxiv:1412.5842"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related same-day q>=3,t=2 length 3 and q=2,t>=3 critical tables; no matching previously published q=3,4,t=3,4 table located in actual searches."
+        ],
+        "reasoning": "The four exhaustive signatures are the package certificate; no earlier exact same-parameter table was found. This is qualified evidence, not proof of universal bibliographic absence.",
+        "searches": [
+          "Resultary exact critical radius q=3 q=4 de Bruijn four cases",
+          "full pinned RESULT.md verify.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge original four nonbinary critical-length exact minima: the established prefix lower bound was not previously known to be attained at these (q,t) pairs. Related 2026 binary t>=3 and nonbinary t=2 results concern different cases and do not imply the four q>=3,t>=3 optima.",
+      "residual_risks": [
+        "Searches do not exclude an unindexed equivalent all-q construction; finite-case nature limits generality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General lower bound and noncritical constructions are prior; four critical cases not settled there.",
+          "evidence": "The n>=2t construction excludes n=2t-1; the critical result only supplies a nonmatching upper bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.5842",
+          "material_read": "Full primary preprint inspected; definitions and Theorems 3.5/3.9 and critical-length discussion read.",
+          "method": "Primary PDF full-text reading and page inspection",
+          "title": "Identifying Codes on Directed De Bruijn Graphs",
+          "trigger": "Same graph, incoming balls, established bounds and critical regime"
+        },
+        {
+          "assessment": "The reported claim is only t=2,n=3, not these t=3,4 cases.",
+          "evidence": "Search result explicitly gives length-three/radius-two theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-radius-two-identifying-codes-in-length-three-directed-de-b--366d69408653",
+          "material_read": "Resultary title, semantic summary, parameters; full primary manuscript not needed to establish t=2 scope.",
+          "method": "Resultary semantic lookup",
+          "title": "Sharp radius-two identifying codes in length-three directed de Bruijn graphs over nonbinary alphabets",
+          "trigger": "Same family of shift digraphs; possible stronger all-radius theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Boutin–Horan Goliber–Pelto explicit open critical-length gap",
+        "complete independently checked finite signatures"
+      ],
+      "rationale": "The critical length n=2t-1 is exactly where the established construction loses optimality. The first four nonbinary radius-three/four boundaries close a natural concrete gap and provide sharp sensor costs and explicit code constructions, not an arbitrary collection of numerics; the finite full-signature certificate is appropriate for these finite graphs.",
+      "residual_risks": [
+        "This does not establish a broad all-radius theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Proved only four listed nonbinary (q,t) pairs; no all-radius conjecture, no uniqueness of codebooks.",
+    "Priority cannot exclude unindexed equivalent critical-length constructions."
+  ],
+  "schema_version": 1
+}
