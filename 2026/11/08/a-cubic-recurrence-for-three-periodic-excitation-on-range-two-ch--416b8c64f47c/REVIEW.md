@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite connected-graph periodicity argument reduces every nonzero immediate three-cycle to a phase assignment with one successor neighbor per site. The explicitly defined open-boundary transfer has an exact \(81\)-component cubic identity \((M^3-3M^2+2M-2I)r=0\), verified by integer enumeration of all states and by inspection of the six possible four-entry profiles. This proves the recurrence for every length, with the short-length boundary cases checked separately. An independent exhaustive dynamical program checks \(265707\) configurations for \(3\le n\le11\).
+PASS
 
-## Originality
+For connected P_n² any F³-periodic nontrivial initial state has all vertices advancing at every time; otherwise a resting neighbor would encounter an excited cycling vertex. Hence colors c_i mod3 must have a successor-color neighbor within distance 2, and that is sufficient for true minimal period three. Four-site transfer left/right boundary vectors and 81×81 transition matrix are explicit. Independently rebuilt them and verified the polynomial vector identity (M³−3M²+2M−2I)r=0 for all 81 states, as well as direct transfer counts N3..N12=(6,18,42,102,258,654,1650,4158,10482,26430). It entails Nn=3Nn−1−2Nn−2+2Nn−3 for n≥7 plus separately checked n6=102, giving genfun 6/(1−3z+2z²−2z³); positive simple dominant root 2.521379… controls growth. Inspected verify_transfer.py and direct simulation verifier. Finite certificate establishes the identity on 81 states exactly, not extrapolation from finite n.
 
-PASS, qualified. Primary sources by Fisch–Gravner–Griffeath (1991), Fisch–Gravner (1995), and Gravner–Lyu–Sivakoff (2016) establish the model, periodic-object conditions, and general activity theory. Fisch–Gravner (1995) is especially close because it treats a one-dimensional range parameter and free boundaries. Its periodic-object definition implies the generic phase criterion, which is **not** claimed as new; its results do not supply the range-two finite-interval census or the exact cubic recurrence. The other two inspected papers do not supply this closed enumeration either. Previously compared related graph families concern different graphs or dynamical rules. Historical-index incompleteness and possible equivalent transfer computations remain residual priority risks.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is an exact infinite-family invariant for the smallest non-nearest-neighbor open chain supporting genuine three-step excitation clocks. The reduction from an \(81\)-state transfer to a cubic recurrence gives a tractable orbit count, asymptotic growth rate, and exponentially vanishing state density; these are not merely a short-path table. The fact concerns **initial** three-periodic configurations only and should not be read as a complete phase portrait.
+Fisch–Gravner 1995 studied one-dimensional GH stable periodic patterns for arbitrary interaction range, and the successor-neighbor eligibility condition is classical; it does not state this exact free-boundary P_n² all-length enumeration. Published exact counts for two-row ladders, triangle-cactus chains and other graph classes are not graph/parameter equivalents. No prior explicit cubic rational primitive-three census found.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete sequence and low-order recurrence for a natural finite-range excitable path model give an exact finite-size population and growth constant, a motivated classification inaccessible from mere existence criteria. The 81-state transfer unexpectedly collapses to a cubic cyclic relation. Restricted to initial three-periodic states, not other periods or basins.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
