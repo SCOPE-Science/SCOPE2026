@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:57:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2 uniform Dirichlet simplex coordinates, the conditional coordinate decomposition M_n=(1-X_1)Y_{n-1}+R_n yields n Cov(M_n,K_n(t))=1-eta_n(t)-(1-t)^(n-1)(1+nt H_{n-1}), eta=n² E[R_n 1_{X_1<=t}]. The exponential representation bounds eta by n²[(2/e)^n+exp(-n exp(-2nt))], which is o(1) at nt=loglog n+logloglog n+z; remaining product ->e^-z. Convexity of h_n(t)=E[M_n|X_1>t] gives unique interior zero and the profile brackets its two-log position. Independent rational small-dimensional identity and window-sign checks reproduce normalization; finite n is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier proof uniformly for 0<=s<=3 loglog n has p_n(s/n)=e^s/n(1+o(1)), R_n(s/n)=(e^s-1)/(n s)(1+o(1)); it proves two-log root and global sign switch."
+        ],
+        "reasoning": "A uniform local asymptotic over the entire relevant window is stronger than the present fixed-z limit; exact identity converts it into the advertised 1-e^-z profile.",
+        "searches": [
+          "Dirichlet uniform circular spacings maximum covariance threshold exceedance count log log n log log log n crossover",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-covariance-sign-switch-between-the-longest-spacing-and--1dc45f364fe5",
+        "arXiv:1405.6114 (Schlemm on maximum alone; not decisive compared with exact covered theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For u=loglog n+logloglog n+z, R_n(u/n)~e^z log n/n and H_n/n~log n/n.",
+          "The prior exact covariance identity gives nt(1-t)^(n-1)~ e^-z/log n; multiplying yields nC_n(t)->1-e^-z."
+        ],
+        "reasoning": "This is explicit direct implication from the earlier uniform estimate, not merely a similar title or an unsupported abstract-level novelty judgment.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+          "uniform simplex longest spacing number exceeding t covariance exact formula asymptotic 1-exp(-z) ln ln n crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources study M_n=max uniform Dirichlet spacing, K_n(t)=number exceeding t, and the identical unique threshold.",
+          "Earlier exact identity C_n(t)=nt(1-t)^(n-1)(R_n(t/(1-t))-H_n/n)."
+        ],
+        "reasoning": "Indexing n vs m is only variable renaming; circle/interval uniform simplex gaps have same Dirichlet(1,...,1) law. Exact same observable and crossover.",
+        "searches": [
+          "Dirichlet uniform circular spacings maximum covariance threshold exceedance count log log n log log log n crossover",
+          "uniform simplex longest spacing number exceeding t covariance exact formula asymptotic 1-exp(-z) ln ln n crossing",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-covariance-sign-switch-between-the-longest-spacing-and--1dc45f364fe5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier 2026-10-13 RESULT.md provides the exact finite covariance sum and a second exact running-average formula.",
+          "The 2026-10-18 result also tabulates an exact finite piecewise-polynomial covariance."
+        ],
+        "reasoning": "No new finite table/measurement is involved; the full claim is covered by prior analytic formulas and proofs.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-covariance-sign-switch-between-the-longest-spacing-and--1dc45f364fe5",
+          "uniform simplex longest spacing number exceeding t covariance exact formula asymptotic 1-exp(-z) ln ln n crossing"
+        ]
+      },
+      "rationale": "FAIL: an earlier October 13 full primary theorem proves the same unique crossing for the identical uniform Dirichlet spacings and exactly the same two-log centering. Crucially its proof contains a UNIFORM estimate p_n(s/n)=e^s/n(1+o(1)) for 0<=s<=3loglog n and running average R_n(s/n)=(e^s-1)/(n s)(1+o(1)); its exact identity C_n(t)=n t(1-t)^(n-1)(R_n(t/(1-t))-H_n/n) then, with s=loglog n+logloglog n+z, immediately gives n C_n(t)->1-e^-z. Thus the apparently new full crossover is a direct specialization of already established stronger quantitative proof, not just a matching center. An October 18 paper independently supplies exact finite formula and unique sign switch.",
+      "residual_risks": [
+        "The scaled profile is not separately boxed in earlier published finding, but is strictly implied by its displayed UNIFORM asymptotic and exact covariance identity.",
+        "Independent computation checked finite identities but acceptance fails due to direct prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING exact center and deducing full scaled profile from uniform prior bound",
+          "evidence": "p_m(s/m)=e^s/m(1+o(1)) uniformly on [0,3loglog m], R_m(s/m)=(e^s-1)/(ms)(1+o(1)), C_m(t)=mt(1-t)^{m-1}(R_m(t/(1-t))-H_m/m).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+          "material_read": "Full RESULT.md finding, exact covariance identity, strict monotonicity proof, entire Section 4 uniform asymptotic derivation and limitations",
+          "method": "Read complete primary RESULT.md from immutable GitHub repository document",
+          "title": "One sign reversal for the longest uniform spacing and the number of long spacings",
+          "trigger": "Same variable pair and exact two-log threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as a distinct contribution: the critical center is previously proved for the same exact object, and the stated 1-e^-z profile follows by one algebraic substitution into a uniform asymptotic already established in the primary earlier proof. Mathematically correct but mechanically implied; no independent structural/unknown invariant remains.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-covariance-sign-switch-between-the-longest-spacing-and--1dc45f364fe5",
+    "arXiv:1405.6114 (Schlemm on maximum alone; not decisive compared with exact covered theorem)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Pointwise in fixed z only, unique finite zero, uniform simplex law. Scientific originality/value rejection, not correctness failure.",
+    "All structural finite verifiers are checks only; results over infinite n or all characteristic-seven algebraic-closure parameters depend on the reconstructed analytic/symbolic proof.",
+    "Prior literature compared mathematically at theorem-and-implication level; no unsupported global priority certification claimed."
+  ],
+  "residual_risks": [
+    "The scaled profile is not separately boxed in earlier published finding, but is strictly implied by its displayed UNIFORM asymptotic and exact covariance identity.",
+    "Independent computation checked finite identities but acceptance fails due to direct prior implication."
+  ],
+  "schema_version": 1
+}
