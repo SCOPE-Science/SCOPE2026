@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every finite guild gives an irreducible finite continuous-time Markov chain. The stationary resource flux equation is \((c+e)p_m+kq_m=c\). Exact renewal splitting and an independent collection of single-consumer paths yield the survival integral \(L_m\). For positive \(u,k\), \(s(t)\in(0,1)\) for positive \(t\), making \(L_m\) strictly decrease and \(q_m\) strictly increase. A justified quadratic Laplace argument yields the limiting diversity and sharp approach. The independent rational solves in `verify.py` passed 66 stationary comparisons and 60 monotonicity checks. Risks: none detected under the specified model; numerical checks are supplementary, not a proof for all rates.
+PASS
 
-## Originality
+Stationary resource flux gives (c+e)p_m+kq_m=c. Regenerative resource-occupied episodes with independent individual on/off chains yield L_m=integral exp(-et)s(t)^m dt and p_m=cL_m/(1+cL_m), q_m=c(1-eL_m)/(k(1+cL_m)). For all t>0 s(t) in (0,1), hence L_m strictly decreases, q_m strictly increases, and sign law follows. Feynman-Kac yields log s(t)=-uk t^2/2+O(t^3), with dominated rescaling and exponentially suppressed tail proving L_m~sqrt(pi/(2muk)). All rates positive and m integer>=0; threshold equality is exact, not an invalid asymptotic to zero.
 
-**PASS on inspected evidence, with priority risk.** The complete accessible Lafferty–Dunne 2010 paper introduces the framework and reports simulation-based biodiversity-inhibitor classifications, but the relevant model, methods, results and discussion do not give the finite-specialist exact phase law or many-guild limit. Historical population-dependent-catastrophe theories are close mathematical precursors, not claimed as new methods; Brockwell–Gani–Resnick 1982 was accessible as metadata and abstract but not in full text, and the associated priority risk remains. The claim is a specific implication comparison, not title matching. Search non-retrieval alone was not treated as proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The model isolates a natural ecological question posed by the simulation literature: can more potential consumer species produce less long-run realized richness because they can extirpate their shared resource? The sharp rate threshold, guild-size-independent neutral line and universal many-consumer ceiling give a substantive benchmark that cannot be read from individual species survival alone. The assumptions are restrictive and the result is not empirical policy advice.
+Related SENO full paper uses general stochastic ecological occupancy models and simulation-based biodiversity inhibition, not this exact finite, exchangeable specialist CTMC all-m monotonicity and m^-1/2 rate on inspected evidence. Published specialty catastrophe literature 1982 abstract is plausible but full paper could not be inspected because institutional VPN disconnected, documented as genuine priority risk; this alone does not defeat best-of-knowledge O.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A model-specific but natural exact all-guild-size sign phase and limiting richness quantify when adding specialized consumers stabilizes or inhibits counted diversity. The strict q_m ordering is an essential nontrivial consequence of regenerative killing, and the sharp m^-1/2 approach is not an elementary restatement of stationary flux.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

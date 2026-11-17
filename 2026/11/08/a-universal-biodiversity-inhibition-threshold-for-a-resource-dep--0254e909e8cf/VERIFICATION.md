@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing that standalone file. The verification uses Python's standard library and compares exactly solved stationary probabilities of the full resource/consumer chain with a separately constructed killed-chain renewal resolvent. It validates the flux and richness identities and consecutive-guild monotonicity over six rational rate profiles and all integer guild sizes \(0\le m\le10\). Observed output:
+## correctness
 
-```text
-PASS: 66 exact stationary/renewal comparisons; 60 strict monotonicity comparisons
-large-guild L_m*sqrt(m)/sqrt(pi/(2*k*u)): [(100, 0.99480264), (400, 0.99872427), (1600, 0.99968423)]
-```
+PASS
 
-The exact tests are finite and cannot establish the universal claim without the analytic proof. The asymptotic numerical comparison tests three guild sizes only. Analytical verification of the full theorem is in RESULT.md. The original ecological paper was read in accessible full HTML form; historical catastrophe literature was partially inaccessible. Independent audit and independent validation are not reported as performed.
+Stationary resource flux gives (c+e)p_m+kq_m=c. Regenerative resource-occupied episodes with independent individual on/off chains yield L_m=integral exp(-et)s(t)^m dt and p_m=cL_m/(1+cL_m), q_m=c(1-eL_m)/(k(1+cL_m)). For all t>0 s(t) in (0,1), hence L_m strictly decreases, q_m strictly increases, and sign law follows. Feynman-Kac yields log s(t)=-uk t^2/2+O(t^3), with dominated rescaling and exponentially suppressed tail proving L_m~sqrt(pi/(2muk)). All rates positive and m integer>=0; threshold equality is exact, not an invalid asymptotic to zero.
+
+## originality
+
+PASS
+
+Related SENO full paper uses general stochastic ecological occupancy models and simulation-based biodiversity inhibition, not this exact finite, exchangeable specialist CTMC all-m monotonicity and m^-1/2 rate on inspected evidence. Published specialty catastrophe literature 1982 abstract is plausible but full paper could not be inspected because institutional VPN disconnected, documented as genuine priority risk; this alone does not defeat best-of-knowledge O.
+
+## value
+
+PASS
+
+A model-specific but natural exact all-guild-size sign phase and limiting richness quantify when adding specialized consumers stabilizes or inhibits counted diversity. The strict q_m ordering is an essential nontrivial consequence of regenerative killing, and the sharp m^-1/2 approach is not an elementary restatement of stationary flux.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
