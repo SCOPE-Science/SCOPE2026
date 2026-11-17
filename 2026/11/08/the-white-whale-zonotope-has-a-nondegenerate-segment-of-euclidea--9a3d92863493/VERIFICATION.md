@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof determines the inradius and complete incenter segment in every integer dimension at least two, using the classical sharp scalar Khinchin inequality and the finite polyhedral fan of the resonance arrangement. Its equality argument identifies all closest facet normals.
+# Independent mathematical audit
 
-To check the computed small-dimensional radicals, run `python3 white_whale_checker.py` with Python 3 standard library only. All primitive normal lines of intersections of \(d-1\) independent hyperplanes were enumerated for \(d=2,3,4,5\), with ray counts \(3,9,45,625\), respectively. For each normal, strict candidate inequalities are certified by integer square-root interval enclosures, and equality patterns are checked using exact integer identities. The checker also proves that only the explicit contact patterns attain the low-dimensional endpoint bound. It does not establish an unproved closed-form endpoint conjecture for larger dimensions.
+## correctness
 
-No independent audit has been performed. The historical novelty assessment is provisional and the endpoint expression for larger dimensions is algorithmic rather than a simplified radical.
+PASS
+
+Central symmetry reduces maximum Euclidean inradius to min_{||u||=1} h(u). Szarek sharp Khinchin supplies h(u)>=2^(d-2)||u||/sqrt(2), with equality exactly root-difference unit directions; their facet constraints force all optimal centers onto a diagonal line. On every resonance normal cone h and |sum u| are linear and norm is subadditive, so finite primitive ray testing gives the exact half-length for every d. A fresh enumeration of all primitive normals in d=2,3,4 matches expected radicals, not d>=5; source d=5 certified checker was inspected. Unrestricted proof relies on sharp Khinchin equality theorem.
+
+## originality
+
+PASS
+
+The White Whale generator polytope and the optimal Khinchin lower bound are prior. The new complete positive-dimensional Euclidean incenter locus and all-d finite resonance-ray endpoint formula, with exact small-d tangent facets, are not established by the inspected vertex/edge enumeration or by the unrelated graphical-zonotope incenter results.
+
+## value
+
+PASS
+
+The White Whale is a natural Boolean-generator zonotope; identifying the entire positive-dimensional set of optimal inscribed-ball centers and exact all-d finite endpoint optimization is a structural convex-geometric invariant not provided by a vertex count. The low-d contact classifications are motivated by this locus, not arbitrary scans.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
