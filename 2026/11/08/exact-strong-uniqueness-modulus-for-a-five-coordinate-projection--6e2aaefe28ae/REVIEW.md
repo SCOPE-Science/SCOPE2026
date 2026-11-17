@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The real projection affine space is parameterized exactly by \(FU=I_2\). All five rows of the displayed \(P_*\) have the common norm \(845/659\). Seven signed row supports yield a global lower bound on the norm excess. A positive weighted identity, a rank-ten test, and seven nonsingular ten-equation systems identify the perturbation-unit sublevel set with a six-simplex. Exact row sums at its seven vertices give \(493257/1508\) as the sharp perturbation-to-excess coefficient. A concrete nonzero rational perturbation attains the linear bound, proving sharpness and uniqueness. The embedded checker reproduces the exact rational certificates. The theorem is restricted to real operators and to this five-coordinate subspace.
+## correctness
 
-**Originality — PASS (best-knowledge comparison).** The October 2026 construction supplies the model and an upper bound \(13/10\); an earlier deposited exact-norm result (opaque identifier `1ca0f1dc-8910-4854-b55a-c6a0f0659375`) gives the exact norm \(845/659\) and one minimizer. Those claims are explicitly excluded from the novelty claim. The new result proves the **uniqueness** of that minimizer and identifies the **optimal global linear stability modulus**, neither implied merely by existence or by the known norm. The 2014 generalized-projection strong-unicity formulas concern coordinate-supported intersections with one hyperplane and are not formulas for this fully supported two-plane. General uniqueness criteria and other projection-constant calculations do not numerically resolve the seven-vertex problem. Relevant older strong-uniqueness literature has not been exhaustively checked for equivalent specializations; independent priority verification remains needed.
+PASS
 
-**Mathematical value — PASS.** The motivating plane is a concrete five-coordinate obstruction central to a current projection-constant and Banach–Mazur distance program. The exact best approximation alone leaves the geometry and conditioning of near-minimal projections unknown. The globally sharp constant \(1508/493257\) and uniqueness fully settle that stability problem in the smallest source model, with a large conditioning factor \(493257/1508\) that can matter in quantitative or numerical uses. The simplex reduction is a structural classification of all first-order perturbations, not merely a new decimal bound. There is no claim of a corresponding stability theorem for higher-dimensional examples or complex projections.
+Any real projection onto specified V has form UF with FU=I. Frozen exact U,F_star give FU=I and all five absolute row sums 845/659. For perturbations H with HU=0, seven signed supporting row-sum forms L_i satisfy positive barycentric identity sum_i c_i L_i=0 and injective map of six-dimensional tangent onto that hyperplane (rank 10 after four constraints). Thus g=max L_i is positive and g<=1 is a seven-vertex simplex. Independently recreated rational system in SymPy using P_star signs: all seven vertices nondegenerate, their ||U H_i|| are 1013/104, 493257/1508, 9739/572, 2909/104, 2909/104, 493257/1508, 9739/572; max K yields global strong uniqueness modulus 1508/493257. Exact t=1/100000 perturbation at extremal vertex gives equality, so constant is sharp. This is a finite exact certificate combined with universal convexity, not sampling.
 
-**Closest literature and limitations.** See arXiv:2610.06141 (source model); Deregowska–Lewandowska, *A note on generalized projections in c0* (2014), Theorem 1.3 and Section 2 (general and coordinate-supported cases); Odyniec–Prophet (2007) (general lower bound, abstract available); and Kobos–Lewicki arXiv:2504.03542 (complex-polyhedral \(2\)-strong uniqueness, abstract inspected). Full-text priority comparison remains incomplete for the latter two. The exact coefficient was verified by a self-contained rational checker; its independence from undiscovered earlier formulas is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier November 8 published result computes exact least norm 845/659 for the identical plane and extensions; no stability, uniqueness, or sharp six-dimensional tangent modulus is asserted there. Deregowska-Lewandowska 2014 full paper gives sharp strong uniqueness in restricted ker(f) coordinate-truncation generalized-projection families and a general criterion, not this specific codimension-three two-plane. No direct implication of 1508/493257 from the earlier 845/659 norm alone.
+
+## value
+
+PASS
+
+A sharp error-bound for a natural explicit extremal plane upgrades the previously known projection constant to a quantitative stability and uniqueness statement, with an extremely small modulus revealing ill-conditioning. This is a motivated exact invariant of the optimizer, not an arbitrary small-coordinate calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
