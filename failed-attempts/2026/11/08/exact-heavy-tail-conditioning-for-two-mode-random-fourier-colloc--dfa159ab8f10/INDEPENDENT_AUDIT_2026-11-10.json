@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:07:10.723402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With iid Haar phases, an integer frequency gap maps phases to iid Haar phases. The two-column Gram eigenvalues are m+|S| and m-|S|. Large condition number occurs only when all m phases align; after fixing the first, the local quadratic defect is (1/2)v^T(I-11^T/m)v with determinant 1/m. Ellipsoid-volume asymptotics yield C_m=m^{m/2}/[pi^{(m-1)/2} Gamma((m+1)/2)] and t^{-(m-1)}. Tail integration gives moments iff q<m-1; m=2 follows from exact uniform relative phase and 4/pi arctan(1/t). Independent symbolic comparison to previously published small-eigenvalue formula returned ratio 1 exactly. Correctness holds for distinct integer frequencies, complex unweighted modes, fixed m>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior full theorem handles arbitrary m>=2, arbitrary row signs, exact small-eigenvalue asymptotic, inverse Gram moments, exact condition-number tail and moment cutoff",
+          "New arbitrary distinct integer k1,k2 collapses to prior 0,1 sample model by Haar-preserving integer multiplication"
+        ],
+        "reasoning": "The earlier parameter range includes all sample sizes and its explicit conditioning conclusion implies every substantive submitted claim.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md",
+          "https://arxiv.org/abs/1202.3184"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md",
+        "https://arxiv.org/abs/2609.03401",
+        "Resultary search: fixed two column Fourier Vandermonde matrix two random modes exact condition number probability tail m-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier formula Pr(kappa_L>t)~(sqrt L/[(2pi)^{(L-1)/2} Gamma((L+1)/2)])(2L)^{(L-1)/2} t^{-(L-1)}",
+          "Symbolic simplification of coefficient ratio to submitted C_m returns exactly 1; both criteria E kappa^q<infty iff q<m-1"
+        ],
+        "reasoning": "Setting L=m and transposing shows identical operator singular values. Added two-frequency integer-gap invariance is the elementary Haar pushforward from k2-k1, not a surviving novel classification. Hence O FAIL decisively.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior S_L=[[xi_j],[xi_j exp(iTheta_j)]] has S_L S_L*=[[m,conjugate Z],[Z,m]]",
+          "Submitted A*A=[[m,S],[conjugate S,m]], equal eigenvalues and condition numbers"
+        ],
+        "reasoning": "Transpose/conjugation, column phases and arbitrary unit-sign factors do not change singular values. Prior two-row sketch and new two-column collocation model have identical probability law.",
+        "searches": [
+          "Resultary: fixed two column Fourier Vandermonde matrix two random modes exact condition number probability tail m-1",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact C_m and all-m moment threshold are printed as boxed formulas",
+          "Prior C_L sqrt(L)/(2pi)^{(L-1)/2}Gamma(...) multiplied by (2L)^{(L-1)/2} simplifies identically to submitted constant"
+        ],
+        "reasoning": "This is full exact-formula coverage, not coincidence of a few tabulated sample counts.",
+        "searches": [
+          "Resultary: sharp small-singular tails and inverse-moment thresholds for a circular Fourier sketch",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md"
+        ]
+      },
+      "rationale": "Complete prior mathematical coverage: the November 2, 2026 earlier published circular Fourier sketch theorem evaluates exactly the same 2-by-m Gram eigenvalues, m^{-1} angular alignment ellipsoid, the same sharp condition-number tail C_m t^{-(m-1)}, and identical moment criterion. It also states the condition-number tail and moment threshold explicitly, not just a less precise small-ball bound. Changing from a transposed two-row sketch with harmless signs to an m-by-two Fourier matrix and allowing arbitrary integer frequency gaps does not yield a substantive uncovered result, because the gap is Haar measure preserving.",
+      "residual_risks": [
+        "No residual novelty survives exact prior implication; rejection does not depend on inaccessible unrelated Fourier-feature literature.",
+        "Normal-equation conditioning moments follow directly by squaring the same known condition number."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "Published Nov 2: exact same kappa law, coefficient and moment criterion for every m>=2; transpose/independent signs harmless.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md",
+          "material_read": "Entire RESULT.md: assumptions, exact Gram reduction, quadratic alignment defect, ellipsoid-volume proof, condition-number corollary, moment thresholds and references",
+          "method": "Published GitHub primary complete mathematical text fetched by immutable repository path",
+          "title": "Sharp small-singular tails and inverse-moment thresholds for a circular Fourier sketch",
+          "trigger": "Direct same random two-frequency matrix, same tail exponent and moment threshold"
+        },
+        {
+          "assessment": "NOT_DECISIVE",
+          "evidence": "Large multi-feature regime differs; decisive prior coverage supplied by Nov 2 exact sketch theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.03401",
+          "material_read": "Bibliographic abstract and submission’s comparison; full source not required to resolve decisive earlier result",
+          "method": "ArXiv abstract/citation comparison",
+          "title": "Spectral Convergence of Random Feature Method in Multiple Dimensions",
+          "trigger": "Submitted application area and broader random collocation results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact rare-event conditioning and inverse-moment thresholds determine sample-size requirements for stable numerical Fourier collocation; the sharp constant and moment cutoff form a worthwhile naturally motivated quantitative problem. The scientific problem is valuable but the submitted result is already known, so fails acceptance on originality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md",
+    "https://arxiv.org/abs/2609.03401",
+    "Resultary search: fixed two column Fourier Vandermonde matrix two random modes exact condition number probability tail m-1"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No residual novelty survives exact prior implication; rejection does not depend on inaccessible unrelated Fourier-feature literature.",
+    "Normal-equation conditioning moments follow directly by squaring the same known condition number."
+  ],
+  "residual_risks": [
+    "No residual novelty survives exact prior implication; rejection does not depend on inaccessible unrelated Fourier-feature literature.",
+    "Normal-equation conditioning moments follow directly by squaring the same known condition number."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS",
+      "evidence": "Published Nov 2: exact same kappa law, coefficient and moment criterion for every m>=2; transpose/independent signs harmless.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md",
+      "material_read": "Entire RESULT.md: assumptions, exact Gram reduction, quadratic alignment defect, ellipsoid-volume proof, condition-number corollary, moment thresholds and references",
+      "method": "Published GitHub primary complete mathematical text fetched by immutable repository path",
+      "title": "Sharp small-singular tails and inverse-moment thresholds for a circular Fourier sketch",
+      "trigger": "Direct same random two-frequency matrix, same tail exponent and moment threshold"
+    },
+    {
+      "assessment": "NOT_DECISIVE",
+      "evidence": "Large multi-feature regime differs; decisive prior coverage supplied by Nov 2 exact sketch theorem.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.03401",
+      "material_read": "Bibliographic abstract and submission’s comparison; full source not required to resolve decisive earlier result",
+      "method": "ArXiv abstract/citation comparison",
+      "title": "Spectral Convergence of Random Feature Method in Multiple Dimensions",
+      "trigger": "Submitted application area and broader random collocation results"
+    }
+  ]
+}
