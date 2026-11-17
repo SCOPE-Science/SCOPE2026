@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The period-three history graph is an exact finite presentation of all returning configurations at arbitrary ring lengths. Its 19-vertex weighted determinant and the fixed-point determinant are calculated symbolically. The claimed logarithmic-derivative enumerator follows from trace identities and the division by three; the independent simulator reproduces weighted counts through circumference 17. Strong connectivity, 3- and 4-cycles, positive-vector eigenvalue enclosure and derivative identities justify the stated Gaussian law, including strictly positive variance. Risks: the claim is about three-time orbit occupation, not single-phase fluctuations or random-trajectory basins.
+
+**Originality — PASS, qualified.** Sutner already records the entire existence spectrum and the initial unweighted orbit counts of Rule 73, and those are expressly excluded from novelty. Gorodkin–Sørensen–Winther and Wolfram discuss period-three magnetization but not the occupation-weighted orbit measure identified here. The checked published records and searchable mathematical research results do not supply the factorized two-variable law, its algebraic limiting occupation density, or its variance. Risks: as with any historical search, an unindexed weighted enumeration may exist; the complete relevant passages, rather than snippets, were checked where accessible.
+
+**Value — PASS.** Magnetization is a specifically motivated observable for Rule 73 because of its historically documented three-step collective oscillation. Determining the *entire* occupation polynomial at arbitrary ring sizes and its concentration and fluctuations in a precise uniform temporal-orbit ensemble provides information absent from unweighted orbit counts and from random-initial-state simulations. This is not presented as a prediction of the latter ensemble.
+
+Self-review: passed. Independent audit: not yet performed.
