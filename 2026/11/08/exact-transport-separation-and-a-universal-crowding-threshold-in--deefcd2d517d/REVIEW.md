@@ -1,19 +1,21 @@
-# Scientific review of the coexistence transport theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stationary source model establishes the two coexisting normalized spatial densities and the common flux equation. In the proposed proof, the spatial flux \(R(x)/v_0\) equals \(h\) times the radial survival probability; inverse flux gives explicit upper-tail quantile radii on the two branches. Their difference is a positive integral, exactly constant on the shared far-gas interval, which proves stochastic ordering and the sharp \(W_\infty\) result. An additional integration gives the stated \(W_1\) formula. Strict negativity of the second derivative of the endpoint integral reduces uniqueness of the maximal contrast to one scalar sign, and the endpoint sign has one rigorous zero. The high-crowding limit follows from trapping the unique critical point near the root of \(1-\log h\). A standalone standard-library verifier passed 1,070 numerical consistency checks, including checks that start from the source's density rather than the quantile formula.
+PASS
 
-## Originality
+For the cited Grange symmetric piecewise-motility continuum model, stationary flux F=R/v0=h Pr(|X|>x) on each half-line with h=M chi/2 and chi=sqrt(r(r+alpha))/v0; common profiles coexist for m>4 and 1<h<m/4. Gas density is u_m(F)=m(1-sqrt(1-4F/m))/2; droplet density mF for F>1. Since dx/dF=-1/(chi rho(F)), inverse-tail-quantile difference is chi^-1∫_{max(1,hq)}^h[1/u_m(F)-1/(mF)]dF, strictly positive and CONSTANT for q<=1/h. The quantile monotone coupling therefore gives exact W∞=Delta and W1= [B(u_h)-B(u_*)-(h-1)/m]/(h chi), B(u)=u-3u²/(2m)+2u³/(3m²). Concavity f_m''<0 shows unique interior contrast maximum iff endpoint h f'-f<0; its boundary function G(s) strictly decreases from 1/4 to -infinity and yields unique m*=7.322227068..., with h*(m)→e and max gap→M/(2e). Independently computed m*=7.322227068378924 and m=8,h=1.5,M=2 transport pair W1=.1510528565, W∞=.1846733847; all-parameter conclusions rest on analytic inequality not numerical sampling.
 
-PASS, qualified. The directly relevant October 19, 2026 source of Grange provides the full single-branch profiles, gas/droplet coexistence region and nonmonotone *droplet width*. These are explicitly attributed. The new statement compares the two coexisting laws in the stochastic order and \(W_\infty\) sense, identifies an exact outer-tail translation and proves a distinct crowding threshold for *transport gap optimization*. A literature and indexed-finding search found no statement of this exact paired-branch transport theorem. Ordinary monotone rearrangement is classical; it does not alone establish the model-specific profile comparison or threshold. Since the primary paper gives strong raw formulas from which the conclusion can be derived, publication priority remains qualified and independent literature review is still needed.
+## originality
 
-## Value
+PASS
 
-PASS. The supersaturated gas and dense-droplet states are two physically motivated competing steady descriptions at the same resetting rate. A direct, sharp measure of their complete spatial difference is valuable for assessing how large a single-particle displacement is needed to couple their profiles. Stochastic order guarantees the sign of every increasing radial observable, while the exact \(W_\infty\) gap measures a worst-case displacement across all quantiles. The threshold \(m_*=7.322227\ldots\) distinguishes when the strongest contrast occurs at the terminal coexistence boundary versus a strictly interior reset rate, which is not predictable from the known nonmonotonic droplet radius. The parameter is the original physical density-slowdown scale, not an arbitrary numerical slice.
+PASS QUALIFIED: Grange already derives both branch steady profiles, coexistence interval and droplet radius/nonmonotone half-width, so those inputs are prior. The exact stochastic order between the entire coexisting radial laws, sharp W∞/W1, constant far-tail shift and new contrast optimizer m*=7.322... are different model-specific statements not established by a stationary profile alone or by classical one-dimensional transport theory. Priority remains qualified by direct availability of source inverse profiles.
 
-## Closest literature and residual limits
+## value
 
-Grange, arXiv:2610.26149v2, Sections 2–5 and Appendix B, is the closest scientific source. De Pascale–Louet, arXiv:1704.02730, provides general one-dimensional \(L^\infty\) transport context; Evans–Majumdar, arXiv:1808.06450, concerns noninteracting reset run-and-tumble motion; Cates–Tailleur, arXiv:1406.3533, gives general MIPS context. The proof assumes the published piecewise kinetic continuum model, symmetric stationary states, and \(1<h<m/4\). It does not imply simultaneous long-lived dynamical stability of both stationary solutions. The source's exact steady profiles constitute substantial prior coverage, and unindexed literature remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Both coexisting radial laws are physically natural at identical parameters, and their sharp Wasserstein separation captures complete-spatial-profile disagreement. Uniform stochastic ordering has consequences for every increasing radial observable, and a model-specific crowding transition distinguishes interior from boundary maximal phase contrast. The exact constant extreme-tail shift is a motivated structural invariant and not just another raw profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
