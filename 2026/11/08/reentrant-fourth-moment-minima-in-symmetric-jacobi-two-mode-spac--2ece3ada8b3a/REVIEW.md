@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive real Beta shape, the even-moment product formula is valid, the normalized coefficient-energy parameter exhausts the unit interval, and the fourth moment is the stated quadratic in that parameter. Exact factorizations of the endpoint derivatives and the difference of pure-mode moments determine every global minimizer and maximizer. The proof considers equality at all four transition parameters and explicitly excludes other equality directions. The standalone exact rational and symbolic checker reproduces the decisive identities, but its finite diagnostics are not used as an infinite proof.
+PASS
 
-## Originality — PASS, with qualifications
+Independently reconstructed Beta-even moments E X^{2j}=prod_{k=1}^j(2k-1)/(2alpha+2k-1) through degree eight, centered orthogonal modes P1=x and P2=x²-1/(2alpha+1) with variances s1=1/(2alpha+1), s2=4alpha/((2alpha+1)²(2alpha+3)). Algebraically obtained A=3(2alpha+1)/(2alpha+3), C=(10alpha+1)/(2alpha+5), B=3(2alpha+3)(10alpha²-3alpha+2)/(alpha(2alpha+5)(2alpha+7)). Odd cross terms vanish by symmetry; K=A u²+6C u(1-u)+B(1-u)², all normalized f map onto 0<=u<=1. Factored endpoint derivative signs A-3C and B-3C and B-A establish thresholds (sqrt33-5)/8, 1/4, 1/2, (sqrt97-5)/8, including pure tie-only endpoint equality and interior vertex optimizer. Independent symbolic checks confirm formulas and alpha=1 (A=9/5,B=15/7,C=11/7). This proves the positive real alpha theorem, not just sample parameters.
 
-The nearest primary literature treats individual Jacobi polynomial norms (Toranzo–Dehesa–Sánchez-Moreno, 2014), information-theoretic Jacobi polynomial lengths (Guerrero–Sánchez-Moreno–Dehesa, 2010), and Jacobi heat-kernel bounds (Nowak–Sjögren, 2011). Direct inspection of the full accessible 2014 text and the full 2011 preprint reveals formulas and kernel estimates, not this parameter-uniform sharp optimization and reentrant equality phase diagram. Published spherical degree-two fourth-moment work treats one homogeneous harmonic degree, not all real Beta shapes and both degrees simultaneously. An earlier mixed spherical calculation covers the upper constant at shape \(\alpha=1\), so that isolated specialization is expressly not claimed as new. An earlier real two-tone Fourier result covers a circle-specialization lower bound at shape \(\alpha=1/2\). Neither supplies the continuous positive-shape result or its non-spherical transitions. No equivalent or dominating statement was found in the actual comparison searches; that negative search is not a proof of global novelty. Full-text access to a plausible published database entry was unavailable, and unindexed equivalents remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model is the first nonconstant Jacobi spectral pair, a natural finite-dimensional subspace under the entire symmetric Beta family. The sharp lower-extremizer **reentrance** occurs in an interval with no sphere-dimension specialization, and a separate upper transition occurs at a quarter shape; both strict mixed equality and isolated ties are explicitly classified. These facts are structural norm geometry, not just the fourth moment of a fixed polynomial. The high-shape Gaussian limit and the circle/sphere specializations give natural boundary checks. No broader theorem is claimed.
+Best-of-knowledge independent source and logical implication comparison supports an exact new statement after explicit credit for known techniques and partial cases. Historical priority is not certified and residual access risks are retained.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural exact sharp L4/L2 norm geometry of the centered first two Jacobi modes; the full real-shape parameter space reveals a reentrant mixed-to-linear-to-quadratic-to-linear minimizer not seen in isolated sphere/circle dimensions. Exact equality cases and both extrema furnish a self-contained useful invariant in orthogonal polynomial/hypercontractive norm questions; not a mere renaming of single-polynomial moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
