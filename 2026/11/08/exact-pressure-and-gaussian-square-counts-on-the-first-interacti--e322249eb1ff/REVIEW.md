@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 18-state mask transfer exactly encodes tilings of open four-row rectangles with the specified three tiles, and the identity between its return-path resolvent and the stated rational expression was checked by exact symbolic inversion. The accompanying standalone checker also reproduces the full tile-count histograms by an independent cell-level recursion on all boards through length nine. The graph is irreducible with a length-one loop, and the square-count observable has two cycles with unequal averages; hence Perron perturbation gives an analytic pressure with strictly positive second derivative. The standard quasi-powers argument then proves the mean, variance and central limit theorem. Rounding is confined to reported numerical approximations.
+PASS
 
-## Originality — PASS within inspected sources
+The recursive three-mask transfer fills the least uncovered row uniquely and yields 18 reachable states with 35 weighted edges. Independent reconstruction of the symbolic 18x18 inverse verified [(I-zT(u))^{-1}]_{00}=((1-z²)(1-z-3z²+z³+z⁴))/Q(z,u), where Q=1-2z-7z²+8z³+17z⁴-4z⁵-9z⁶+z⁸-2u²z⁶(1-z²)². An independently written cell-level tiling recurrence reproduced every square-count histogram for N=1..9 (N=6: 281 zero-square, 2 two-square). The actual checker code was examined, not just its claimed output. Irreducibility and the zero-square self-loop yield a primitive positive transfer matrix. Distinct cycle square densities (0 on one-column loop, 2/6 on six-column return) preclude a zero coboundary variance, and Perron analytic perturbation supplies O(1) cumulant remainders and the CLT for all lengths. Limitations: open height-four strips only, uniform tilings, not full-plane pressure.
 
-The relevant full text of Thorat, *Cocycles on Tiling Spaces*, arXiv:2610.39907v1, concerns topological mixing and cohomological triviality and contains no claimed exact mixed-strip enumerator or Gaussian count law. Propp's 2001 domino reciprocity result and Cohn–Kenyon–Propp's domino variational framework cover pure domino tilings, not the marked \(3\times3\) perturbation. The closest published rectangle-grid counting and matching-complex records examined have different objects or observables, and do not imply the exact bivariate denominator or pressure derivatives. Targeted searches for the exact initial coefficient sequence and tiling aliases did not yield a covering table. Historical priority remains provisional; universal uniqueness is not inferred from negative search results.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the first strip height where the large square need not cross the entire strip, so square placement can interact across cuts instead of producing a simple height-three renewal decomposition. The exact marked rational function resolves natural quantitative questions about the mixed tiling shift: its pressure, exponential growth, typical density of exceptional large tiles, and nondegenerate fluctuations. The exact density and variance are not consequences of qualitative cocycle triviality, and give a concrete finite-width benchmark for mixed-tile thermodynamic calculations. It does not claim full-plane entropy or arbitrary-width classification.
+The specific 18-state rational pressure function, positive square-count variance and Gaussian limit for mixed domino/3x3 tilings are not supplied by Propp’s domino-only reciprocity nor Thorat’s tiling-cocycle criterion. The general transfer/Perron method itself is standard and not an originality claim. The mixed-strip object and square-frequency observable are genuinely more specific than those source statements. Best-of-knowledge priority is bounded because Thorat was accessible only as an abstract during this execution.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Height four is the first case where a 3x3 square leaves a bypass row, creating a nonrenewal interacting strip. Its exact marked partition function and square-count Gaussian law provide a motivated benchmark for transfer-matrix pressure and large-tile density, not an arbitrary table or recoding of pure domino counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
