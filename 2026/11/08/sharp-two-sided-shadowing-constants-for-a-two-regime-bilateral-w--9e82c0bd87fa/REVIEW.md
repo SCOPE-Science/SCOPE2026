@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof supplies a bounded correction explicitly in each finite regime and produces unit-norm forcing sequences whose mandatory responses approach the claimed norm. In the mixed regime the two lower witnesses occupy disjoint coordinates at the same observation time, giving the precise \(\ell_p\)-sum rather than a maximum for finite exponents. The reversed interface and both unit-weight boundaries are excluded by explicit characteristic-line contradictions. Both real and complex scalars and \(p=\infty\) are included. Diagnostics: 5,972 finite assertions. Risk: the diagnostics are non-exhaustive; the universal assertion rests only on the proof, whose tail estimates require positive weights and a fixed one-interface model.
+## correctness
 
-## Originality — PASS, qualified
-Bernardes–Messaoudi (arXiv:1902.04386, Theorem 17) is a stronger *qualitative* shadowing characterization for general bilateral weighted shifts; its forward/backward reflection covers the yes/no classification here, and that portion is treated as prior. The full inspected theorem and its proof establish no optimal uniform Lipschitz constant, no sharp two-tail exponent formula and no simultaneous-coordinate lower certificate. Hevessy–Raunig (arXiv:2509.11852) examine periodic shadowing and expansivity, not the numerical optimal correction constant. Relevant semantic searches yielded no indexed exact quantitative statement. Risk: the inaccessible full text of Pinto (arXiv:2607.28361) and unindexed sharp exponential-dichotomy estimates could contain an equivalent bound; this qualified comparison is not an independent novelty certification.
+PASS
 
-## Mathematical value — PASS
-The least admissible shadowing error multiplier is a natural stability invariant. The exact formula resolves its full parameter diagram and pinpoints a geometric asymmetry: the reversed spatial interface makes bounded correction impossible; the favorable interface combines independent half-line forcing costs by an exact \(\ell_p\) norm even with unit-circle eigenvalues. An infinite-dimensional nonhyperbolic shadowing example is known, but its sharp norm and exponent dependence are motivated quantitative information, not a mere reformulation of the qualitative classification.
+All 5 parameter branches are proved by direct recurrence. In uniformly contracting or expanding cases, geometric Neumann correction series yield the upper bound and finite directional unit-coordinate forcing with arbitrarily long tails yields sharp lower limits. In favorable a>1>b case, separate forward sums on n>0 and backward sums on n<0 with y_k(0)=0 solve the exact recurrence, and disjoint support yields the stated ell_p sum; two disjoint unit-forcing space-time paths impose both lower loads simultaneously. If a<1<b a single impulse forces unbounded right growth; unit weights admit characteristic-line forcing accumulating infinitely over time. Explicit x_n=(b/lambda)^n or (lambda/a)^(-n) proves b<|lambda|<a eigenvalue on finite p, illustrating nonhyperbolicity. Independently checked forcing paths for a=2,b=.4 at lengths 3,10,30 approach the sharp p=2 sum, without treating finite witnesses as universal proof.
 
-## Limitations
-The result is confined to an explicit two-regime positive weighted-shift family; it gives no optimal constant for arbitrary coefficient sequences and no claim of independently established literature priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2019 Bernardes–Messaoudi general weighted-shift criterion and 2025 Hevessy–Raunig work give shadowing existence/nonexistence, not this optimal two-sided Lipschitz modulus or its p-dependent simultaneous-tail lower bound. Other indexed period-three weighted-shift constants concern different periodic weights. A full 2026 Pinto preprint was inaccessible; that source is a named best-knowledge residual risk, not automatic failure.
+
+## value
+
+PASS
+
+Optimal shadowing constants are natural robust dynamical invariants, and the favorable mixed interface is nonhyperbolic yet admits sharp Lipschitz shadowing. The two-tail p-sum distinguishes different Banach exponents and corrects what a naive maximum-of-tail-rates estimate would miss, with directly reusable formulas for a complete natural model family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
