@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T06:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every binary host with r ones and Z=k-2+q zeros, each chosen pair of ones covers at most binom(q+2,2) two-marker targets; union over binom(r,2) pairs gives the triangular lower bound. The spaced-marker host W=(0^h1)^{ceil((k-2)/h)+1}0^e, e=k-2-(ceil((k-2)/h)-1)h, covers all targets by choosing marker indices to cover prefix/middle and leaving >=c zeros after; count its length. Direct independent subsequence checks for all k=3..19 and h=1..5 and exact comparison of old/new lower bounds confirm finite instances. This proves only Θ(sqrt k) with lower constant 2*2^{1/4}, upper 2sqrt2, not a sharp limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 full weight-two target theorem states all-k envelope, its lower growth constant 2sqrt2 exceeds new 2*2^{1/4}, its upper has the same optimal limit."
+        ],
+        "reasoning": "Earlier theorem strongly dominates claimed asymptotic conclusions. One-marker result is a different target family and not necessary for rejection.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+        "https://arxiv.org/abs/1309.0422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior bound k-3+ceil2sqrt(2(k-1)) <=L_k<=k-1+ceil2sqrt(2(k-1)) yields L_k-k=(2sqrt2+o(1))sqrt k.",
+          "Current claim merely Θ(sqrt k) and nonmatching liminf/limsup 2*2^{1/4}/2sqrt2."
+        ],
+        "reasoning": "Prior interval implies submitted asymptotic order and a strictly stronger lower constant. The published construction treats all markers, so submitted construction does not create an unaddressed case.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+          "https://arxiv.org/pdf/1309.0422"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same family F_k={0^a1 0^b1 0^c:a+b+c=k-2} and objective L_k in both the November 2 and assigned November 8 theorems.",
+          "Prior two-sided two-unit envelope yields exact limit 2sqrt2."
+        ],
+        "reasoning": "Both theorem languages and minimum objective coincide; no encoding, change of quantifier, or title matching inference is needed.",
+        "searches": [
+          "Resultary semantic search: shortest common supersequence binary all length k words with exactly two ones sqrt k excess triangular covering",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+          "arxiv:1309.0422"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior result supplies a sharp all-k two-unit numerical envelope and exact finite minima for k<=12 (as supplemental enumeration).",
+          "Source already effectively tabulates stronger finite bounds and sharp constant for this exact invariant."
+        ],
+        "reasoning": "No new exact length table, unique optimizer, or previously unknown precise invariant is supplied by this weaker submitted bound.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+          "Resultary semantic search: binary weight two subsequence covers exact two unit envelope",
+          "arxiv:1309.0422"
+        ]
+      },
+      "rationale": "The 2026-11-02 prior theorem studies literally the same full binary weight-two target language under scattered subsequence containment. It proves k-3+ceil(2sqrt(2(k-1)))<=L_k<=k-1+ceil(2sqrt(2(k-1))) for ALL k>=2, implying the sharp limit 2sqrt2. Both submitted weaker asymptotic constants and the Θ(sqrt k) claim are already dominated; its assertion that the leading constant remains open is incorrect as a literature-position statement.",
+      "residual_risks": [
+        "None affecting logical rejection: November 2 exact prior theorem predates the November 8 source and is fully inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage, sharp constant was already known",
+          "evidence": [
+            "Theorem: k-3+ceil(2sqrt(2(k-1))) <= L_k <= k-1+ceil(2sqrt(2(k-1)))"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-unit-envelope-and-sharp-square-root-overhead-for-binary-we--8c74ff467567",
+          "material_read": "Full published RESULT.md including full proof of incidence lower bound and two-residue cover",
+          "method": "Read complete GitHub-published theorem and proof",
+          "title": "A two-unit envelope and sharp square-root overhead for binary weight-two subsequence covers",
+          "trigger": "Exact same fixed-weight-two universal common-supersequence problem"
+        },
+        {
+          "assessment": "Prior contextual literature, not needed for exact rejection",
+          "evidence": [
+            "Arbitrary restricted SCS input sets and distinct one-marker construction; not the all-weight-two optimum"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.0422",
+          "material_read": "Relevant hardness and restricted-word lemmas in primary PDF, page images inspected",
+          "method": "Arxiv OA PDF, relevant text and page screenshot",
+          "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+          "trigger": "Historical binary two-marker SCS setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete two-marker subsequence universality bound is a motivated combinatorial problem, but the submitted weaker square-root bracket provides no surviving unknown sharp fact: the earlier two-unit envelope fixes the leading constant exactly and dominates the new pair-counting inequality. The new spaced-marker construction is a less efficient re-solution of the same known optimization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No claim of exact general minimum from submitted source; sharp leading constant instead already known in prior theorem."
+  ],
+  "schema_version": 1
+}
