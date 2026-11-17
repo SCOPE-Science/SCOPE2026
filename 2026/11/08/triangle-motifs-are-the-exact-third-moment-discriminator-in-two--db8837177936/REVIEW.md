@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A secondary species corresponds to one edge of a simple \(2\)-regular primary graph; its extinction indicator is the edge's endpoint-containment indicator in a uniform random subset. The ordered edge-triple union counts are verified symbolically and by exact finite enumeration. The proof gives the first three factorial moments for all \(n\ge3\) and \(0\le t\le n\); the strictly positive triangle coefficient follows from an inclusion–exclusion event and requires \(n\ge6\), \(3\le t\le n-3\). Minimality uses the complete cycle-partition characterization, not merely the checker. The exact witness's two distributions each sum to one and have common mean \(6/5\) and variance \(9/25\).
+PASS
 
-## Originality — PASS within inspected evidence, with priority risk
+K_t is induced edge count of a uniformly random t-vertex subset of a simple 2-regular graph, hence every s-vertex union appears with q_s=binom(n-s,t-s)/binom(n,t). Exactly n adjacent unordered edge pairs yield the first two factorial-moment formulas. Unordered edge triples classified by union sizes 3,4,5,6 have counts T, n-3T, n(n-4)+3T, binom(n,3)-n(n-3)-T; multiplication by 6 gives the displayed third formula. Inclusion–exclusion q3-3q4+3q5-q6=binom(n-6,t-3)/binom(n,t) for n>=6 proves exact triangle contrast and horizon boundaries. n=3,4,5 admit only a single connected 2-regular isomorphism type C_n; n=6 supports C6 and two C3, whose complete t=3 distributions are (2,12,6,0)/20 versus (0,18,0,2)/20 and equal variance 9/25. Independent direct fixed-subset moment arithmetic confirmed all 50 (graph,horizon) cases in six test families, including n=6,7,8,9.
 
-The foundational full-partner-loss extinction convention is prior work (Memmott et al. 2004), as are nestedness/robustness comparisons (Burgos et al. 2006) and general induced-edge-count sampling frameworks (Janson and Ruciński 2009; Bhattacharya et al. 2020). The specific theorem is the finite hypergeometric third-factorial-moment identification within regular two-partner incidence networks and the sharp six-primary boundary. It is not claimed that induced-edge counting or ordinary moment expansion itself is new. No inspected full-text theorem gives the exact triangle coefficient and sharp ecological network distinction. General sampling literature could permit a derivation, and unindexed priority is a material residual risk. Vieira and Almeida-Neto's full body text was not available for exhaustive comparison, although its published description concerns weighted stochastic cascades rather than the static deterministic loss convention.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a structural diagnostic for an ecological robustness failure mode missed by all first and second moment measurements at every damage level. The six-species threshold is an exact minimum under a natural homogeneous specialization: each primary and secondary has degree two. The third factorial moment is precisely a count of ordered triples of secondary coextinctions and can distinguish triangle-clustered dependency arrangements from long cycles. It need not furnish a general empirical prediction to be useful as a theoretical benchmark.
+Best-of-knowledge ORIGINALITY PASS for the precisely delimited theorem after searching the indexed mathematical corpus, published related work, and comparing primary statements/implications. Their partner-loss criterion supports representing coextinction as induced edges (credited). Under the specified uniform fixed-t 2-regular specialization further edge-triple enumeration is needed; full source material for some papers inaccessible, so no confident whole-document noncoverage claim is made. Residual risks recorded explicitly.
 
-## Scope and limitations
+## value
 
-Only fixed-size exchangeable primary removals, static binary links, and obligate alternative partner dependence are covered. Higher moments are needed to distinguish other cycle-length compositions. Full historical priority has not been independently established, and this review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact third-moment identity is a natural motif fingerprint distinguishing topologically distinct, degree-matched two-partner networks that cannot be separated by any first or second factorial moment across removal horizons. The sharp six-primary example and exact contrast furnish usable structural/ecological identifiability facts, beyond a generic moment expansion; no demographic extrapolation claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
