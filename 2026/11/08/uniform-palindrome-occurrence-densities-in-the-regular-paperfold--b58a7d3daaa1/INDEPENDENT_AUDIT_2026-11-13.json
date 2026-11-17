@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:07:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-palindrome-occurrence-densities-in-the-regular-paperfold--b58a7d3daaa1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-palindrome-occurrence-densities-in-the-regular-paperfold--b58a7d3daaa1/verify_paperfolding.py",
+        "Independent 64-state by length1..15 exhaustive reconstruction 2026-11-13",
+        "https://arxiv.org/pdf/math/0106121"
+      ],
+      "rationale": "The odd-part definition makes every symbol with argument m not divisible by 16 depend only on m modulo 32; any length≤15 window contains at most one multiple of 16. Therefore 32 residue classes times one exceptional bit give an exhaustive 64-state finite representation. Each of the two exceptional values has conditional density 1/2 by odd-part valuation residues, giving state weight 1/64. Independently computed all 64×15 windows and their reverse tests: exactly 28 palindromic words at lengths 1,2,3,4,5,6,7,9,11,13, with multiplicities respectively 32,16,4,8,4,2,2,2,1,1 per word and none at 8,10,12,14,15. Any longer even/odd palindrome contains centered length14/15, so none occur. This is an exact exhaustive finite-state certificate linked by a proof to infinite factors, not a finite-prefix extrapolation.",
+      "residual_risks": [
+        "Only the regular binary folding convention or its global complement; no assertion for arbitrary instructions. Longest-palindrome cutoff was known previously."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche et al. Theorem 4 bounds longest palindrome uniformly for generalized paperfolding sequences but has no per-word frequency formula.",
+          "Generalized instruction adjacent-run-length matrix measures a different statistic, not 28 individual palindromic words."
+        ],
+        "reasoning": "Long-palindrome exclusion cannot imply occurrence frequencies of short palindromes; other automatic statistics are not dominating parameters.",
+        "searches": [
+          "Allouche Baake Cassaigne Damanik Palindrome complexity full arxiv math/0106121 Section 4.1",
+          "Resultary universal adjacent-run frequencies generalized paperfolding"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-palindrome-occurrence-densities-in-the-regular-paperfold--b58a7d3daaa1/RESULT.md",
+        "https://arxiv.org/pdf/math/0106121",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-adjacent-run-frequencies-in-generalized-paperfolding-w--e10bdf10572b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every L≤15, complete residue/exception-bit states (r,b)∈Z/32×{0,1} are equiprobable; δ(w)=#states(w)/64.",
+          "The 2003 theorem is used only for an already-proved cutoff; new formula evaluates all individual weights and start locations."
+        ],
+        "reasoning": "A longest-palindrome cutoff and a generalized run-length distribution do not imply the exact individual finite word-state incidence matrix.",
+        "searches": [
+          "Allouche 2001 Theorem 4 paperfolding no palindrome length >=14",
+          "Resultary semantic: universal adjacent-run frequencies generalized paperfolding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Palindrome complexity counts distinct factors per length, while this theorem assigns a density to each individually named word and exact starting-position residue states.",
+          "2003 theorem only proves pal(k)=0 for k≥14."
+        ],
+        "reasoning": "Reversing bit conventions does not change the content of individual-density equality; no equivalent per-word table found.",
+        "searches": [
+          "Resultary semantic: regular paperfolding 28 ordinary palindromes individual occurrence frequencies density",
+          "Resultary semantic: paperfolding palindrome density natural frequency 2-adic residue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected primary table lists 28 individual words with their weights; the source calculates 64 symbolic windows up to length 15."
+        ],
+        "reasoning": "The known maximum length 13 or count-by-length alone does not determine named-word density, so the claimed table is not a mere known-table recomputation.",
+        "searches": [
+          "Resultary semantic: regular paperfolding 28 ordinary palindromes individual occurrence frequencies density",
+          "Allouche palindrome complexity 2001 2003 Section 4.1"
+        ]
+      },
+      "rationale": "The 2001/2003 Allouche–Baake–Cassaigne–Damanik primary article establishes the absence of paperfolding palindromes of length≥14 (Theorem 4), a bound explicitly credited here. Its Section 4.1 does not give individual finite palindrome occurrence densities or exact residue-state positions. Resultary searches find related generalized-paperfolding run frequencies and exact palindrome statistics for other automatic words, but no independent prior 28-word individual table of this specified regular paperfolding word. The exact 64-state weighted occurrence classification is thus a distinct best-of-knowledge invariant.",
+      "residual_risks": [
+        "An unindexed older paper may tabulate all individual paperfolding palindrome occurrence densities; Resultary semantic search is not proof of historical absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4 states pal_u(k)=0 for k≥14 for all paperfolding sequences; no 28-word density classification is asserted in that material.",
+          "evidence": [
+            "§4.1, Theorem 4, printed page 6; paperfolding definition and k≥14 cutoff."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0106121",
+          "material_read": "Entire 24-page arXiv text was accessible; explicitly examined full §4.1 and Theorem 4 on PDF page 6 (zero indexed page 5), plus definitions and stated scope.",
+          "method": "Read arXiv primary full text and PDF page screenshot, checked §4.1 for per-palindrome occurrence probabilities.",
+          "title": "Palindrome complexity",
+          "trigger": "Very relevant same automatic sequence and palindrome theorem."
+        },
+        {
+          "assessment": "Distinct invariant; whole-document noncoverage not claimed from abstract alone.",
+          "evidence": [
+            "Semantic result describes 3×3 adjacent run-length matrix, not per-palindrome words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-adjacent-run-frequencies-in-generalized-paperfolding-w--e10bdf10572b",
+          "material_read": "Indexed abstract/title, not full RESULT.md.",
+          "method": "Compare run-length joint matrix with individual palindrome-factor frequencies.",
+          "title": "Universal adjacent-run frequencies in generalized paperfolding words",
+          "trigger": "Same sequence, frequency language; check for dominating invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-palindrome-occurrence-densities-in-the-regular-paperfold--b58a7d3daaa1/RESULT.md",
+        "https://arxiv.org/pdf/math/0106121"
+      ],
+      "rationale": "Exact natural densities of all 28 named palindromes and a position-level congruence rule are a natural finer invariant than palindrome complexity. Equal frequencies within each length reveal specific arithmetic symmetry; this complete classification of a standard automatic sequence is a potentially reusable exact dataset, not merely an arbitrary small-slice statistic.",
+      "residual_risks": [
+        "Known length≥14 exclusion is only an input; finite residue certificate is justified by the all-starts reduction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The standard binary regular paperfolding word has exactly 28 nonempty ordinary palindrome factors, no palindrome of length≥14, and equal exact starting-position densities for each word at a fixed length; a 64-state residue/exception-bit classification computes all words and occurrences.",
+  "limitations": [
+    "One particular regular folding-instruction sequence and global complement, not every generalized paperfolding word.",
+    "Exact finite-state extraction proves unlimited starting positions and weights; finite direct prefix samples are supplementary.",
+    "The absence of length≥14 palindromes is known from Allouche et al., not newly claimed."
+  ],
+  "schema_version": 1
+}
