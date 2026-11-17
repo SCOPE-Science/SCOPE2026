@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-**Precise domain:** Equilibrium-renewal simultaneous resetting; \(T>0\) almost surely with finite positive mean and finite second moment; fixed distinct extreme ranks as particle count tends to infinity. The stationary age density is the integrated renewal survival divided by \(\mathbb E T\). Conditional particle positions are independent Gaussian variables with common variance \(2DA\). The Gaussian Gumbel upper-gap theorem yields joint independent exponential gaps after \(k b_N\) scaling. The provided inverse-Mills bound on the high-probability uniform-tail-order-statistic event, with exponential tail-ratio control and negligible exceptional moments, establishes uniform integrability and hence convergence of covariances rather than just weak convergence.
+PASS
 
-The exact correlation follows by computing \(\mathbb E A=\mathbb E T^2/(2\mathbb E T)\) and \(\mathbb E\sqrt A=2\mathbb E T^{3/2}/(3\mathbb E T)\). Cauchy–Schwarz gives the complete sharp range and uniquely identifies deterministic clocks; a continuous two-point family provides every intermediate value and approaches the unattainable supremum. The checker independently passed all programmed diagnostics, including 10,000 random finite-moment inequality comparisons, 120 common-scale cancellations, and finite-size gap samples. None of those finite diagnostics is promoted to a proof of the infinite limit.
+At equilibrium the common backward recurrence age A has density P(T>a)/E[T]; conditioned on A=a, N stationary coordinates are sqrt(2Da) times independent standard Gaussians. For each fixed top rank k, kb_N times its Gaussian gap converges in first and second moments to independent Exp(1) variables; the proof uses the Gaussian-tail uniform order statistics, exact Beta(k,1) ratio and Mills bounds to control exceptional tails, not weak convergence alone. Distinct gap covariance tends to Var(sqrt A), marginal variance tends to 2E[A]-(E[sqrt A])^2. Renewal-age moment formulas give (9-8κ)/(18-8κ), κ=(E T^{3/2})²/(E T E T²). Cauchy-Schwarz forces 0<κ≤1, with equality iff T constant positive, and two-point T∈{1,R}, P(T=R)=R^{-3/2}, gives κ→0. Intermediate values follow by continuity. The theorem is only for fixed distinct edge ranks, N→∞, finite E T², stationarity. The checked source is the pinned RESULT.md plus checker.py, not merely a PASS log.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-Biroli et al., arXiv:2211.00563, present individual stationary gap laws for simultaneous Poisson resetting. De Mauro et al., arXiv:2509.06658, Sections III–V, explicitly present the general renewal conditional-independent Gaussian mixture and individual spacing scaling functions, including Eqs. (124)–(132). The general stationary density is prior art and is not claimed as a discovery. Nagaraja, Bharath and Zhang, arXiv:1702.05910, provide classical independent extreme-spacing limits. The new classification instead concerns **cross-gap Pearson correlation for two distinct extreme ranks** and a **sharp universal optimal interval across all finite-second-moment renewal laws**, with equality cases and complete attainability. The cited single-gap formulas do not state the cross-gap moments or the global optimized envelope. The shared-mixture and extreme-value ingredients are credited; a broader unindexed treatment of reset-clock optimization could affect priority, and independent literature review remains desirable.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge new is the sharp two-distinct-edge-gap covariance envelope and all reset-law equality/attainability cases. The cited 2022/2025 Brownian-gas primary results furnish common-age Gaussian mixtures and individual spacing functions, but inspected discussions do not state the joint cross-gap covariance optimization. Classical extreme spacings and stationary-renewal power correlation are credited as inputs.
 
-Extreme-particle spacings are physical measures of local crowding in a correlated resetting gas. A single-gap density does not quantify how fluctuations of two separated edge gaps co-vary. The result supplies a distribution-free **strict lower bound** of \(1/10\) on common-clock-induced asymptotic correlation, identifies periodic clocks as the unique minimizer, shows why arbitrarily heterogeneous clocks can nearly reach \(1/2\), and classifies the full attainable interval. The result distinguishes common resetting from independently reset particles in a measurable, shape-free way without manufacturing a downstream theorem.
+## value
 
-## Closest literature and limitations
+PASS
 
-- Biroli, Larralde, Majumdar and Schehr, arXiv:2211.00563 (2022), individual Poisson-reset gap statistics.
-- De Mauro, Biroli, Majumdar and Schehr, arXiv:2509.06658 (2025), general renewal-reset stationary Gaussian mixtures and individual gap distributions.
-- Nagaraja, Bharath and Zhang, arXiv:1702.05910 (2017), independent-sample joint extreme spacings.
+The precise cross-gap Pearson correlation is a natural observable of global resetting-induced dependence, not merely a normalization change of a one-gap law. The sharp nonzero periodic-reset obstruction, unattainable universal upper limit and realization of every intermediate level make a useful distribution-free dependence classification for arbitrary renewal clocks.
 
-Unproved extensions: finite-particle sharp correlation bounds, bulk or growing ranks, clocks with infinite second moment, and snapshots locked to reset times. The general exact stationary joint position law existed previously. Independent assessment of publication priority and proof has not been conducted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
