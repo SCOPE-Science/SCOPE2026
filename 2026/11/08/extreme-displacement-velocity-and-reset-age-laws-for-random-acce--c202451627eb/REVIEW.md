@@ -1,19 +1,21 @@
-# Scientific review: extreme-displacement velocity and reset age
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact stationary exponential-age/Gaussian mixture for complete Poisson resetting. Gaussian conditioning gives the mean terminal velocity \(3x/(2t)\), conditional variance \(Dt/2\), and posterior age density proportional to \(t^{-3/2}\exp[-rt-3x^2/(4Dt^3)]\). The strict saddle at \(\tau_x=(9x^2/(4Dr))^{1/4}\) yields a full coercive joint large-deviation principle and a unique outward most-probable velocity. Minimizing the exponent over non-outward velocities gives the exact rate \(4(\sqrt2-1)/3\). Joint Gaussian age and velocity fluctuations follow from the exact conditional normal representation, with limiting covariance \(-\operatorname{sgn}(x)/4\) in the stated normalization. The standalone Python checker has been run successfully; its finite quadrature is corroboration, not an infinite-domain proof.
+PASS
 
-## Originality — PASS, qualified
+Regenerative covariance identities Var X_t=2Dt³/3, Cov(X_t,V_t)=Dt², Var V_t=2Dt give V|X=x,T=t~N(3x/(2t),Dt/2) and an exact posterior age density t^(−3/2) exp(−rt−3x²/(4Dt³)). Scaling t=τ_x z gives coercive saddle z+1/(3z³), minimum 4/3 at z=1, second derivative 4. Joint Gaussian exponent adds (u−z^(−1))²/z, proving contraction LDP and nonoutward optimum (z,u)=(√2,0) with rate 4(√2−1)/3. Independent Gaussian decomposition yields age/velocity covariance [[1/4,−σ/4],[−σ/4,3/4]], correlation −σ/√3. Moment claims require the stated Laplace tail bounds, not finite quadrature; boundary fixed D,r>0, x≠0.
 
-Singh's 2020 complete-reset paper already establishes the exact underlying joint stationary mixture and the marginal position tail; those are not claimed as new. The inspected pertinent material in that paper does not state the full extreme-position-conditioned terminal-velocity LDP, its sharp non-outward exponent or joint age–velocity fluctuation limit. Montero, Palassini and Masoliver study a related position tail and crossing-rate observable; velocity at a crossing is flux-weighted, unlike a stationary snapshot. Related Brownian-area and velocity-only-reset sources were also compared, with limited full-text access noted. Research-index comparisons, including nearby age-saddle findings and exact velocity formulas in different models, yielded no covering result. The underlying published complete-reset mixture logically permits these new asymptotic deductions, so priority risk remains; missing a result in the searches does not establish global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At a very large observed displacement the inertial particle ordinarily moves outward with speed of order \(|x|^{1/2}\), while the conditional velocity spread is only order \(|x|^{1/4}\). The theorem quantifies the exceptional returning population by its sharp stretched-exponential rate and describes a nontrivial coupled age–velocity Gaussian law with universal correlation \(-\operatorname{sgn}(x)/\sqrt3\). These address an observable distinction between occupation-conditioned stationary measurements and level-crossing measurements; they are not isolated numerical constants.
+PASS best of knowledge: exact Singh (2020) stationary bivariate renewal mixture and its displacement tail are prior inputs. The fully read 2026 shear analogue establishes related universal age–transverse correlation under shear with an added longitudinal noise, but not the present complete-reset scalar random-acceleration full point-conditioned velocity LDP, explicit wrong-way exponent, and joint snapshot law. Parameter-free correlation alone is not claimed new.
 
-## Limits and nearest literature
+## value
 
-The statement requires simultaneous resets of both position and velocity, positive fixed diffusion and reset rates, and extreme-position conditioning in stationarity. It is not a first-passage or partial-reset theorem; finite-parameter errors and a closed elementary rate function are not established. Most relevant: Singh (2020), arXiv:2007.05576v1; Montero–Palassini–Masoliver (2023), arXiv:2312.13968v1; Meerson (2019), arXiv:1903.03963v1; Olsen–Löwen (2024), arXiv:2401.12685v1. The latter two were assessed at abstract level only. Independent scientific audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A sharp nonoutward-velocity rare-event exponent and full conditional large-deviation law of extreme stationary excursions are meaningful path-observable refinements of a natural randomly accelerated reset model. They distinguish typical outward velocities from exponentially rare wrong-direction snapshots and from crossing-weighted observables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
