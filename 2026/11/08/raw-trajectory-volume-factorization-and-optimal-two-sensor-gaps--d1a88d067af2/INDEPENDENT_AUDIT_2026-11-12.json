@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:45:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the real normalized Fourier basis of 1 constant plus r cosine/sine modes, demixed two-sensor samples have one constant column and r square 2×2 blocks. The raw time matrix is diag(V,V) times this demixed map, V the Vandermonde of distinct real spectral values. In the codimension-one rectangular case Cauchy–Binet/cofactor transport yields det(B*R*RB)=|det R|² det(B*B)||R^{-*}w||²; w is the sensor-block difference in the constant coordinate. Solving V^T a=e0 via the Lagrange cardinal polynomial gives the exact sum a_t², hence determinant factor (2/N)^(2r+1)(det V)^4(sum a_t²)∏sin²(2πkd/N). Rank is full iff N/gcd(N,2d)>r. For r=2, y=sin²θ gives 4y²(1−y), unique max y=2/3, so every discrete D-optimum belongs to floor(Mα),floor(Mα)+1; the algebraic-integer obstruction forbids reaching 16/27 on a finite rational grid. A global second derivative bound gives O(N^-2) and strict mismatch with demixed condition-optimum for 6|N,N≥42. Independent full raw Fourier-sample Gram comparisons matched 219 (N,r,d) cases; finite tests are corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph sampling work contains observability settings rather than the same two-vertex cycle determinant optimization in accessible descriptions.",
+          "Full normalized-path result has one sensor, simple normalized-path spectrum; the cycle has doubled Fourier multiplicities and one surplus observation."
+        ],
+        "reasoning": "These general frames and distinct graph theorems do not dominate the raw two-sensor cycle determinant or exact five-mode D-optimal grid location.",
+        "searches": [
+          "arXiv:2609.25472 dynamical sampling graph Paley Wiener",
+          "arXiv:2411.12670 noisy graph signals dynamical samples",
+          "Resultary: normalized path universal endpoint sampling determinant"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 October 11 full demixed-cycle RESULT.md",
+        "Resultary/2026 October 11 full normalized-path endpoint-determinant RESULT.md",
+        "arXiv:2609.25472 Bulai/Cabrelli/Cordero/Molter/Saliani (2026)",
+        "arXiv:2411.12670 Aldroubi et al (2024)",
+        "Resultary semantic search for lowpass cycle raw Gram determinant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full demixed-cycle proof explicitly says untreated time trajectories are outside its optimized output norm.",
+          "A full prior path theorem handles square one-sensor Vandermonde determinant but no codimension-one two-sensor cycle correction.",
+          "The new strict separation is numerical: 16/27 > 9/16, with uniform Taylor guarantee for 6|N,N≥42."
+        ],
+        "reasoning": "The raw formula can be DERIVED from prior demixed blocks plus a separate cofactor identity, but that extra identity and five-mode optimization are substantively new to the inspected statements; exact implication is not a mere relabeling.",
+        "searches": [
+          "Resultary/2026 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+          "Resultary/2026 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 11 theorem treats Euclidean norm AFTER invertible Vandermonde demixing; even though recovery equivalence holds, the unweighted raw Gram determinant is changed by a nonunitary transform.",
+          "Current paper makes the new cofactor correction explicit, not a restatement of demixed frame bounds."
+        ],
+        "reasoning": "Invertibility of time demixing is equivalent for observability but not for Gram-volume optimality or conditioning; the two criteria demonstrably yield different sites.",
+        "searches": [
+          "Resultary: cycle graph low-pass dynamical sampling two sensors raw trajectory Gram determinant Vandermonde D optimal",
+          "Resultary: 2026/10/11 sharp spectral-demixed two-sensor frame bounds on finite cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An indexed November 8 first-Fourier-band heat result optimizes minimum singular value with two times, not the r=2 determinant grid for r+1 times.",
+          "No previously found complete table of finite-cycle untreated five-mode D-optimal gaps equivalent to the two-neighbor rule."
+        ],
+        "reasoning": "Similarity of sensor-placement problems does not mean the objective or Fourier subspace agrees. Exact numeric tables are not evidence of all-N proof.",
+        "searches": [
+          "Resultary: cycle graph low-pass dynamical sampling two sensors raw trajectory Gram determinant Vandermonde D optimal",
+          "Resultary: sharp two-time heat sampling stability on first Fourier band"
+        ]
+      },
+      "rationale": "The closest full published finite-cycle result optimizes the spectrally demixed frame condition number, which is a different measurement norm; the new codimension-one raw Gram determinant transport, evolution-independent sensor-volume maximization and explicit five-mode optimum are not stated there. The full published normalized-path determinant theorem covers a single sensor and different graph spectrum. General graph dynamical-sampling literature motivates but does not visibly entail the exact raw-trajectory law. Best of knowledge, with inaccessible recent full primary sources explicitly noted.",
+      "residual_risks": [
+        "Recent Cabrelli et al 2026 graph dynamical sampling preprint full text unavailable, and could contain a covering theorem not visible in the abstract.",
+        "Determinant optimality does not imply optimal raw condition number or inverse-noise risk; dynamics must have distinct real spectral scalars."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps recovery arithmetic and demixed conditioning, not raw determinant law",
+          "evidence": "The original norm uses P_k f sensor samples; its own limitation separates nonunitary Vandermonde time mixing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818/RESULT.md",
+          "material_read": "Complete RESULT.md proof, spectrum, exact optimizer, scope and explicit limit excluding raw trajectory conditioning",
+          "method": "read-only GitHub fetch_file entire mathematical proof",
+          "title": "Sharp spectral-demixed two-sensor frame bounds on finite cycles",
+          "trigger": "same graph, sites, Fourier subspaces, different observation norm"
+        },
+        {
+          "assessment": "Does not cover doubled-eigenvalue cycles with two sensor paths",
+          "evidence": "One sensor and full path dimension yields a square Gram, rather than two sensors and one extra sample.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md",
+          "material_read": "Complete RESULT.md proof, Vandermonde determinant, spectral path eigenvectors, path optimizer",
+          "method": "read-only GitHub fetch_file whole mathematical result",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "potential stronger general graph determinant result"
+        },
+        {
+          "assessment": "Could contain a hidden raw-cycle formula; cannot rule out full-document coverage",
+          "evidence": "No assumption that abstract alone certifies noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "Indexed abstract and numerical path summary; full arXiv preprint inaccessible this execution",
+          "method": "public index/abstract comparison",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "closest contemporary graph dynamical sampling primary paper"
+        },
+        {
+          "assessment": "General criteria may overlap, exact finite-cycle D-optimal law unverified",
+          "evidence": "Potential broad optimization method, not claimed absent from unseen full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.12670",
+          "material_read": "Indexed abstract and general model description; complete text unavailable",
+          "method": "indexed abstract comparison",
+          "title": "Reconstructing Graph Signals from Noisy Dynamical Samples",
+          "trigger": "general sample placement in noisy graph dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact D-optimal design criterion for untreated space-time measurements yields a universal determinant formula independent of evolution for sensor placement and reduces every five-mode cycle to two candidate gaps; it sharply demonstrates that optimal demixed conditioning and optimal raw information volume can disagree. The distinction prevents a common but mathematically invalid transfer of measurement criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two sensors and consecutive times, r below Nyquist, real pairwise distinct spectral values, and unweighted raw determinant rather than smallest singular value/optimal noise MSE."
+  ],
+  "schema_version": 1
+}
