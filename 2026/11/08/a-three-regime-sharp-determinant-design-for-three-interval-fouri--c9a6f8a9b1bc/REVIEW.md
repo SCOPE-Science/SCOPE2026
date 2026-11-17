@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a maximin of the smallest of two or three explicit \(3\times3\) Fourier-fiber Gram determinants. Integer fiber tables were reconstructed from the three interval endpoints, and Fourier series on \([0,1)\) establishes the Riesz-fiber interpretation. The Vandermonde chord product yields the three exact trigonometric determinants. The independent polynomial bounds cover the full continuum of frequency shifts, with strictness proving all optimizer assertions. At the critical half-gap one fiber type disappears, explaining the third exact optimum. Direct symbolic derivative and radical checks, plus sampled matrix and fiber checks, corroborate but do not replace the proof. The sum of three Gram eigenvalues is \(9\), making the volume objective a valid (not sharp) lower Riesz-bound certificate.
+PASS
 
-## Originality — PASS relative to inspected sources
+The measurable fiberization has exactly three integer nodes a.e. and the determinant of its unnormalized 3x3 Fourier Vandermonde Gram matrix is the chord product. Direct reconstruction gives (0,2,3),(0,1,3),(0,1,2) for 0<delta<1/2, the first two at delta=1/2, and (0,2,4),(0,2,3),(0,1,3) for delta>1/2. The reflected node pairs have the same determinant; with y=sin²(pi*tau) the types are A=256y³(1-y), B=256y³(1-y)(3-4y)², and C=A(2tau). Their minimum is respectively min(A,B), B, min(B,C). Differentiating and checking signs on [0,1/4],[1/4,1/2] gives the full continuum maximin bounds, with equality at tau=1/4, arcin(sqrt((8-sqrt(10))/12))/pi, tau=1/5 and reflections. Independently factored B', verified radicals/trigonometric values and all 3000 representative fiber memberships. Positive determinants give genuine Riesz bases for L²(E_delta), and lambda_min>=4det/81 follows from trace(Gram)=9 and AM-GM; this lower bound is not the optimized objective. No claims at delta=0,1, and finite sampled tests do not prove the all-tau inequalities.
 
-The general multi-tile Fourier-fiber criterion and Vandermonde determinant identity are prior facts, not claimed as new. The three-interval spectral/tiling theorem concerns orthogonal spectra, not optimization inside a specified three-coset Riesz family. Frederick–Okoudjou treats biorthogonal reconstruction and notes that choosing the optimal parameter is generally out of scope. Frederick–Yacoubou Djima gives two-interval and planar examples, not the simultaneous three-fiber maximin. Agora–Antezana–Carbajal gives general uniform nonvanishing-determinant criteria, not these three sharp constants. Dedicated semantic searches in mathematical records and relevant previously published results gave no equal or dominating assertion. The closest general sources were inspected at relevant theorem/example level; the full text of the 2026 three-interval spectral paper was not available and remains a finite residual risk. This is not independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is the first nontrivial equally spaced triple of separated unit intervals, with the canonical three equally spaced frequency cosets. The min-fiber determinant is the exact squared volume distortion of local Fourier reconstruction and gives a rigorous uniform lower-bound certificate. Solving the frequency design across all gap values produces a genuine, discontinuous three-regime phase diagram with all optimizers and two algebraic and one radical constant. It answers a precise natural D-optimal sampling question not supplied by general existence results; it is not presented as a solution to globally optimal Riesz conditioning.
+The classical multi-tile Fourier fiber criterion and Vandermonde factorization are antecedents, but the cited papers do not state this exact three-interval, three arithmetic frequency-coset maximin with a change at delta=1/2. Closest Resultary Fourier item optimizes a different geometry, separated integral intervals. A plausible three-interval spectral theorem could not be inspected beyond accessible abstract and remains a qualified priority risk.
 
-## Limitations and overlap risks
+## value
 
-Only arithmetic three-coset frequencies are compared. Determinant optimality does not imply condition-number optimality, and the endpoints of the gap parameter are excluded. The elementary Vandermonde formula and standard fiberization are antecedents. A dedicated full-text comparison against Shi's 2026 spectral/tiling paper was unavailable; its stated spectral classification does not itself determine the present determinant optimum, but an unindexed example could overlap. Further independent literature vetting remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Choosing three uniformly shifted frequency cosets for the first nontrivial three-component unit multitile is a natural D-optimal Fourier sampling problem. The sharp switch of optimizing shifts, exact constants and complete equality cases deliver a useful design result beyond the existence of a Riesz basis. The invariant is determinant/volume, not the minimum eigenvalue or overall condition number, so no unsupported stronger benefit is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
