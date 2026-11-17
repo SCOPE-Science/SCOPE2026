@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytical verification is the four-stage proof in RESULT.md: direct lifting, complex Vandermonde determinant, single-variable optimization with root-location proof, and covariance interpretation.
+# Independent mathematical audit
 
-Run `python3 check_doptimal.py` with Python 3. No third-party packages are required. A fixed-seed execution produced `DAMPED_TWO_MODE_DOPT_CHECKS_PASS 12473` from determinant comparisons, reciprocal-root and stationary identities, parameter-grid maxima, and degenerate-boundary tests. Floating-point tests are finite corroboration, not a proof for all positive moduli and all angles.
+## correctness
 
-The result covers additive homoscedastic intensity errors and the unrestricted lifted linear estimator, not phase-dependent or photon-counting noise. Prior literature already contains the generic four-sample Vandermonde injectivity mechanism. No independent mathematical audit or validation has been performed.
+PASS
+
+The expansion y_k=|u|^2+r^{2k}|v|^2+2Re(conj(u)v z^k) gives four rows and conjugate-exponential nodes 1,r^2,z,conj(z). Their Vandermonde determinant gives exactly r^3(r^2-1)(1+r^2-2r cos(theta))^2 sin(theta). Setting x=cos(theta), the log-derivative sign polynomial 6rx^2-(1+r^2)x-4r has one root in (-1,0), the other >1. Nonzero endpoint factors and second derivative give only ±theta*, nondegenerate. At r=1 or sin(theta)=0 exhibited distinct rank-one Hermitian lifts share samples. I independently checked the complete signed determinant by symbolic trigonometric expansion, not relying on source checker. Assumptions on fixed r, four consecutive times and iid squared-intensity noise are essential.
+
+## originality
+
+PASS
+
+The 2023 Beinert–Hasannasab Theorem 5 already proves generic phaseless recovery from collision-free exponential nodes; the Vandermonde determinant is classical. This does not supply the fixed-modulus global phase-angle D-optimum or its exact equality set in the four-lifted-coordinate design. Relevant entire paper PDF sections 4 and 8 were inspected, together with other published mathematical-search matches; no covering result identified, but equivalent historical experiment-design treatments remain possible.
+
+## value
+
+PASS
+
+D-optimal placement for a physical two-mode damped experiment is a natural identifiable design parameter; it gives an exact global optimum, two equality cases, and singular boundaries under a stated statistical loss, not just a renamed determinant. Limited to fixed r, four times and homoscedastic lifted estimator; no general nonlinear optimum claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
