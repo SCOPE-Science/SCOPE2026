@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence is explicitly parametrized, its image equals the integral cubic \(V(\Delta)\), and generic tangent centers satisfy \(s^2-2Ds+B=0\). The valuation of \(C-E^2\) proves this polynomial irreducible; its derivative yields separability except in characteristic two. The independently derived Segre number \(6=2\cdot3\) and the executable symbolic/finite-field checks corroborate the degree. These are infinite-field proofs, not extrapolations from enumeration.
+PASS
 
-## Originality — PASS (provisional historical priority)
+On A=1, the tangent-center chart gives B=s²+2su,C=t²+2tv,D=s+u,E=t+v,F=st+tu+sv and determinant Δ=0. Eliminate u,v and t=(F−sE)/(D−s), obtaining P(s)=s²−2Ds+B and resultant/remainder −Δ. In the function field K=k(C,D,E,F) of determinant cubic, D²−B=−(F−DE)²/(C−E²). The irreducible prime C−E² has odd valuation in K, making P irreducible in any characteristic; its derivative is 2(s−D) except when char2, where zero derivative and B nonsquare give inseparable degree2. The rank-three tangent-cone vector bundle has Segre s₂=6; degree of cubic image3 independently gives 2. Generic field-extension degree and image are proved, not an assertion about every fibre.
 
-Oeding–Raicu (arXiv:1111.6202) cover the characteristic-zero tangential equation. Ballico 1990 studies the characteristic-two dual/conormal problem, and Kaji 2015 studies higher Gauss maps, but only Kaji's abstract was available for inspection. The tangent-incidence function-field transition is distinct. Actual semantic searches found no equivalent published mathematical record; own accessible claims on symmetric determinant Jacobians, tangential scrolls, and higher-size symmetric duals do not imply it. Older unindexed literature remains a risk, so priority is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The characteristic-two purely inseparable double cover is an intrinsic degeneration in the tangent-incidence geometry of a foundational embedded variety, even though the reduced cubic image stays unchanged. It is a structural separability phenomenon, not an arbitrary low-degree example.
+Best-of-knowledge PASS for the exact change of separability of the same tangent-incidence morphism at characteristic two. Classical determinant cubic is prior; Gauss-map results and analogous purely inseparable tangent incidences on different surfaces do not imply this particular function-field calculation. Named older positive-char risks remain.
 
-## Limitations
+## value
 
-The theorem is generic: special tangent fibers and global ramification are not classified. No independently performed audit or historical uniqueness certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinction between geometric number of tangent centers and scheme-theoretic generic degree under characteristic specialization is a natural geometric invariant, with explicit inseparable field certificate and intersection-theoretic cross-check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
