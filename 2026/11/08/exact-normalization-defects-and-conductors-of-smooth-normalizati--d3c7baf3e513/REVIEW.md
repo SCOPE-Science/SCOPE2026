@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The normalization is verified directly by integrality and equality of fraction fields. The exact monomial-membership lemma follows by decomposing generator exponents; it yields both the conductor criterion and the finite quotient basis. Stars-and-bars gives the coefficient in the defect sum, and an explicit numerical-semigroup block decomposition proves the consecutive-generator expression. The companion finite verifier independently enumerates generator decompositions on 138 parameter tuples. Its finite tests are corroboration, not an infinite proof.
+PASS
 
-## Originality
+For coprime n,m and generators x_i,y^n,y^m,x_i^{lambda_i}y, y is integral and belongs to the same fraction field, so B=C[x_i,y] is the normalization. The semigroup H=<n,m> and q(b)=b-max(H∩[0,b]) give exact monomial membership x^a y^b in R iff u(a)=sum floor(a_i/lambda_i)>=q(b), because all mixed-generator counts 0..u(a) are attainable. Requiring membership of every y^t multiple gives conductor iff u(a)>=Q(b)=max_{t>=b}q(t). Missing monomials per b<c are stars-and-bars binom(q(b)+s-2,s-1) times product lambda_i; for m=n+1 the block gaps sum to binom(n+s-1,s+1). Independent enumerations checked 1341 membership/conductor cases and sample exact deltas. Finite tests do not establish generality.
 
-**PASS (provisional self-review).** The 2024 semigroup-normal-form theorem supplies the family, not the computed invariant. Proposition 5.1 of the 2021 monomial-map study provides bounds for the same delta invariant, while Proposition 5.3 computes the different double-point count; neither entails the exact all-parameter conductor or the explicit binomial gap-weighted colength. Relevant published comparisons and semantic searches of published mathematical records found no dominating result. The 2018 paper on monomial surfaces was available only as abstract/sections, so potential surface-subcase overlap remains a concrete priority risk, not a claim of exclusion.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The quotient of a finite normalization is a fundamental local invariant controlling the defect of normality. Existing work uses the delta invariant to study finite determinacy but supplies estimates in this family. The exact gap formula permits all-parameter evaluation and gives a closed answer for consecutive generators, while the conductor additionally describes precisely where the normalization glues to the original singularity. Both address the natural, previously calculated-at-most-partially invariants of the source family rather than an arbitrary parameter slice.
+The exact ring family is previously identified by Dalbelo–Rodrigues Hernandes–Ruas, whose Theorem 3.6 gives normal-form/isolated-singularity structure but not explicit conductor or colength. Rodrigues Hernandes–Ruas 2021 Proposition 5.1 supplies only two-sided delta bounds; their double-point invariant is distinct. The exact all-parameter conductor and delta are not mechanically stated by those. A plausible 2019 surface paper remained inaccessible after lawful OA search and Oxford VPN authorization failure; its possible subfamily priority is explicitly retained without turning access alone into failure.
 
-## Literature and limits
+## value
 
-Closest inspected material: Dalbelo--Rodrigues Hernandes--Ruas, arXiv:2412.05083, Theorem 3.6 and §4; Rodrigues Hernandes--Ruas, arXiv:2105.04759, Corollary 4.3, §5 and Propositions 5.1, 5.3, 5.6. Historical risk: Rodrigues Hernandes--Ruas (2018), DOI:10.1093/qmath/hay052, could not be read beyond its abstract and available headings. General semigroup-algebra facts can imply methods of calculation but do not, from the checked sources, explicitly state this family-wide invariant. No formal external verification or priority certificate is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise conductor ideal and finite normalization quotient length are natural invariants of isolated toric singularities, refining actual published bounds and extending across dimension, conductor thresholds and generator multiplicities. The sharp consecutive-semigroup binomial closed form is independently reusable in surface and higher-dimensional examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

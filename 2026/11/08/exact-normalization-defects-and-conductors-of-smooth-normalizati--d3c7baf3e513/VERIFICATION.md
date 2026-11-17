@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the exact conductor and normalization-defect formulas
+# Independent mathematical audit
 
-The general proof consists of five independent steps: identify the normalization; prove the exact monomial criterion \(u(a)\ge q(b)\); pass from all \(y\)-shifts to the conductor condition \(u(a)\ge Q(b)\); count the missing monomial basis using residues modulo \(\lambda_i\); and sum numerical-semigroup blocks when \(m=n+1\). Each quantifier and parameter boundary is specified in `RESULT.md`.
+## correctness
 
-Execute the accompanying Python 3 script as `python3 verify_normalization.py`. It directly enumerates generator decompositions instead of assuming the gap criterion, and checks 138 finite parameter tuples. The observed output is:
+PASS
 
-```
-NORMALIZATION_DEFECT_AND_CONDUCTOR_FINITE_CHECK_OK 138
-```
+For coprime n,m and generators x_i,y^n,y^m,x_i^{lambda_i}y, y is integral and belongs to the same fraction field, so B=C[x_i,y] is the normalization. The semigroup H=<n,m> and q(b)=b-max(H∩[0,b]) give exact monomial membership x^a y^b in R iff u(a)=sum floor(a_i/lambda_i)>=q(b), because all mixed-generator counts 0..u(a) are attainable. Requiring membership of every y^t multiple gives conductor iff u(a)>=Q(b)=max_{t>=b}q(t). Missing monomials per b<c are stars-and-bars binom(q(b)+s-2,s-1) times product lambda_i; for m=n+1 the block gaps sum to binom(n+s-1,s+1). Independent enumerations checked 1341 membership/conductor cases and sample exact deltas. Finite tests do not establish generality.
 
-The script only corroborates a finite portion of the result. It is not an exhaustive enumeration of all coprime pairs or all dimensions. Historical priority and independent scientific assessment have not been certified. A relevant 2018 paper's full text was not accessible; see `RESULT.md` for its identifier and the resulting priority limitation.
+## originality
+
+PASS
+
+The exact ring family is previously identified by Dalbelo–Rodrigues Hernandes–Ruas, whose Theorem 3.6 gives normal-form/isolated-singularity structure but not explicit conductor or colength. Rodrigues Hernandes–Ruas 2021 Proposition 5.1 supplies only two-sided delta bounds; their double-point invariant is distinct. The exact all-parameter conductor and delta are not mechanically stated by those. A plausible 2019 surface paper remained inaccessible after lawful OA search and Oxford VPN authorization failure; its possible subfamily priority is explicitly retained without turning access alone into failure.
+
+## value
+
+PASS
+
+The precise conductor ideal and finite normalization quotient length are natural invariants of isolated toric singularities, refining actual published bounds and extending across dimension, conductor thresholds and generator multiplicities. The sharp consecutive-semigroup binomial closed form is independently reusable in surface and higher-dimensional examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
