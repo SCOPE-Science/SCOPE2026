@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Extract the attached `check_formula.py`, `check_direct.py`, `formula_run.txt` and `direct_run.txt` files into the same directory. With Python 3.10 or newer, run:
+# Independent mathematical audit
 
-```
-python check_formula.py
-python check_direct.py
-```
+## correctness
 
-The first program independently builds the graph by enumerating all valid slides, breadth-first searches from the standard diagonal state for orders 2 through 8 and compares exact distances and invariants with the claimed expression. The second program enumerates edge subsets and tests slide adjacency directly for orders 2 through 5, then performs an independent breadth-first search; it imports only the mathematical metric function from the first program.
+PASS
 
-The first run explored 322,560 states at order eight and found diameter eleven. The direct matching enumeration found 600 states and 2,400 undirected edges at order five, with diameter six. All tests completed successfully and the output logs reflect those executions. These finite tests support but do not replace the general proof. The article contains the noncomputational all-order argument.
+The one-to-one encoding of size-(n−1) matchings by (pi,h) is valid: exactly one row and column are unused. The two legal slides for every r≠h either move the row hole to r or keep it, and both swap pi(h) with pi(r). I reconstructed the cycle-count potential Phi=n−c(pi)+2q_H(pi)+2ε; its ±1 change across each legal move is checked by merge/split cases, and the four non-source cases (h=H H nontrivial; h=H H fixed and other cycle; h≠H hole fixed; h≠H hole nonfixed) supply a one-unit descent. This proves equality with graph distance at every n≥2, beyond small BFS. Cycle-length optimization with parity-specific transposition witnesses yields exact floor(3n/2)−1 diameter and radius. Independently rebuilt BFS n=2..5 with 4,18,96,600 states and diameters 2,3,5,6; checks cannot replace the infinite proof.
+
+## originality
+
+PASS
+
+The exact matching-slide metric is not a special case of the earlier general claw-free reachability theorem, jump-reconfiguration metric, or star-transposition minimum edge-cover theorem. These latter structures are contrasted at theorem level. Best-of-knowledge originality, with residual unindexed reconfiguration risk.
+
+## value
+
+PASS
+
+The near-perfect matching slide graph is a natural constrained reconfiguration space distinct from jumps and minimum covers. A complete all-pairs metric, optimal path construction, and sharp diameter for every n answer fundamental mobility and worst-distance questions; the cycle potential is a genuinely nontrivial structural invariant, not a parameter renaming of star-graph distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-to-one encoding of size-(n−1) matchings by (pi,h) is valid: exactly one row and column are unused. The two legal slides for every r≠h either move the row hole to r or keep it, and both swap pi(h) with pi(r). I reconstructed the cycle-count potential Phi=n−c(pi)+2q_H(pi)+2ε; its ±1 change across each legal move is checked by merge/split cases, and the four non-source cases (h=H H nontrivial; h=H H fixed and other cycle; h≠H hole fixed; h≠H hole nonfixed) supply a one-unit descent. This proves equality with graph distance at every n≥2, beyond small BFS. Cycle-length optimization with parity-specific transposition witnesses yields exact floor(3n/2)−1 diameter and radius. Independently rebuilt BFS n=2..5 with 4,18,96,600 states and diameters 2,3,5,6; checks cannot replace the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 claw-free result gives reachability and polynomial diameter bounds, not this exact all-pairs distance.",
+          "2026-10-26 minimum-cover exchange on K_{n+1,n} is L(S_{n+1}), |V|=n(n+1)!/2 and diameter floor(3n/2), while submitted near-perfect matching slides on K_{n,n} have n^2(n-1)! vertices and diameter floor(3n/2)-1."
+        ],
+        "reasoning": "The broader graph-class algorithm is weaker metrically and the published permutation-star line graph is a different constrained solution space. A shared star-cycle technique cannot identify these distinct graph metrics.",
+        "searches": [
+          "Resultary: token sliding reconfiguration near-perfect matchings complete bipartite K_n n exact distance permutation cycles diameter",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0/RESULT.md",
+          "https://arxiv.org/html/1403.0359v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: token sliding reconfiguration near-perfect matchings complete bipartite K_n n exact distance permutation cycles diameter",
+        "https://arxiv.org/html/1403.0359v1",
+        "https://arxiv.org/abs/1812.05419",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bonsma et al., Section 7: reachability/polynomial-length sequences, no exact cycle surcharge.",
+          "Bousquet et al., Lemma 5: jumping distance in nonmaximal case k or k+1, but sliding imposes adjacency.",
+          "2026-10-26 star graph result yields an exact line-graph metric on different covers, not on n^2(n-1)! matching-slide configurations."
+        ],
+        "reasoning": "None of the inspected conclusions implies Phi=n-c(pi)+2q_H+2epsilon or its sharp diameter for all n>=2.",
+        "searches": [
+          "Resultary: token sliding reconfiguration near-perfect matchings complete bipartite K_n n exact distance permutation cycles diameter",
+          "https://arxiv.org/html/1403.0359v1",
+          "https://arxiv.org/abs/1812.05419",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Near-perfect matching slide = token sliding on independent sets of the line graph L(K_{n,n}); completing the unmatched row and column gives a partial permutation with one row hole.",
+          "The Bousquet et al. result counts token jumps, whose removed/inserted edges need not meet; that move graph strictly contains the slide graph."
+        ],
+        "reasoning": "Checked line-graph independent-set, partial-bijection, hole star-transposition and token-jump aliases. Neither the adjacent-vertex claw-free reachability algorithm nor the nonadjacent-edge jumping metric provides the stated cycle potential.",
+        "searches": [
+          "Resultary: token sliding reconfiguration near-perfect matchings complete bipartite K_n n exact distance permutation cycles diameter",
+          "https://arxiv.org/html/1403.0359v1",
+          "https://arxiv.org/abs/1812.05419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier tables on minimum edge covers and other matching reconstructions concern different state spaces, and no matching exact near-perfect-slide all-pairs formula was identified.",
+          "Finite BFS checks n<=8 in source are only corroboration; not a prior exact all-n table."
+        ],
+        "reasoning": "Compared explicit counts and diameter formulas, not titles. The published diameter floor(3n/2) belongs to K_{n+1,n} edge-cover exchange, one larger than present diameter and different graph cardinality.",
+        "searches": [
+          "Resultary: token sliding reconfiguration near-perfect matchings complete bipartite K_n n exact distance permutation cycles diameter",
+          "https://arxiv.org/abs/1812.05419",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0/RESULT.md"
+        ]
+      },
+      "rationale": "The exact matching-slide metric is not a special case of the earlier general claw-free reachability theorem, jump-reconfiguration metric, or star-transposition minimum edge-cover theorem. These latter structures are contrasted at theorem level. Best-of-knowledge originality, with residual unindexed reconfiguration risk.",
+      "residual_risks": [
+        "Possible earlier specialized matching-slide/15-puzzle literature not indexed by semantic search; best-of-knowledge priority only.",
+        "Program BFS supports small orders but universal metric must rest on case-by-case cycle descent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL REACHABILITY, NOT EXACT SLIDE METRIC",
+          "evidence": [
+            "Adjacent-token sliding and claw-free graph reachability; generic diameter upper bound only."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1403.0359v1",
+          "material_read": "Sections 1–7, proof statements and diameter discussion in rendered full HTML",
+          "method": "Read full arXiv HTML sections via web",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Line-graph token sliding equivalence"
+        },
+        {
+          "assessment": "DIFFERENT MOVE SET",
+          "evidence": [
+            "The operation permits jumps not necessarily sharing endpoint; thus its k/k+1 distances do not directly apply."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.05419",
+          "material_read": "HTML full mathematical text, introduction and nonmaximal-matching distance lemma",
+          "method": "Read rendered arXiv mathematics via web",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "Same matching configurations but possible jump/slide conflation"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT AND METRIC",
+          "evidence": [
+            "K_{n+1,n} minimum edge-cover exchange graph is L(S_{n+1}) and has different cardinality/diameter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0/RESULT.md",
+          "material_read": "Entire RESULT.md including theorem, graph isomorphism, exact diameter proof and limitations",
+          "method": "Read full Resultary primary Git blob",
+          "title": "Minimum edge-cover exchanges on nearly balanced bicliques are permutation-star line graphs",
+          "trigger": "Strong nearby result with same star-transposition cycle count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The near-perfect matching slide graph is a natural constrained reconfiguration space distinct from jumps and minimum covers. A complete all-pairs metric, optimal path construction, and sharp diameter for every n answer fundamental mobility and worst-distance questions; the cycle potential is a genuinely nontrivial structural invariant, not a parameter renaming of star-graph distance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: token sliding reconfiguration near-perfect matchings complete bipartite K_n n exact distance permutation cycles diameter",
+    "https://arxiv.org/html/1403.0359v1",
+    "https://arxiv.org/abs/1812.05419",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-edge-cover-exchanges-on-nearly-balanced-bicliques-are-pe--5836f71169f0/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4"
+  ],
+  "disposition": "passed",
+  "final_claim": "An exact cycle-potential metric for sliding near-perfect bipartite matchings",
+  "limitations": [
+    "Only unlabelled matching edge sets with one unmatched row and column on K_{n,n}; slides must share endpoint; not jumping nor perfect/sparser level; unindexed priority still possible.",
+    "Finite checker output alone is not an all-size proof. Originality remains a qualified best-of-knowledge assessment."
+  ],
+  "residual_risks": [
+    "Possible earlier specialized matching-slide/15-puzzle literature not indexed by semantic search; best-of-knowledge priority only.",
+    "Program BFS supports small orders but universal metric must rest on case-by-case cycle descent."
+  ],
+  "schema_version": 1
+}
