@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later; it uses only the standard library. It implements the weighted prism Laplacian and the product Fourier basis from first principles. It evaluates all positive differences between the distinct base-cycle Fourier eigenvalues for every integer \(3\le m\le23\), along with a non-resonant sample, and tests both the eigenvector identities and the PBH ranks for the nested optimal actuator locations. Independently it builds integer Fourier eigenbases for \(m=3,4,6\), groups all their rational resonances, and checks eigenspace independence and optimal-input restrictions by rational Gaussian elimination.
+## correctness
 
-Expected verified output:
+PASS
 
-```
-EXACT_CASES=10 EXACT_PBH_RANKS=56 EXACT_EIGENVECTORS=96
-FLOAT_CASES=550 FLOAT_PBH_RANKS=9634 FLOAT_EIGENVECTORS=19154
-VERIFY_OK
-```
+Fourier decomposition L(C_m)⊗I2 + I_m⊗t[[1,-1],[-1,1]] gives strictly ordered cycle eigenvalues ν_j and multiplicities d_j=1/2 in each parity band. At eigenvalue collision ν_j+2t=ν_k the rank required is d_j+d_k; PBH gives universal lower bound. S2 sees every scalar/double except cross-band scalar-scalar case, where (0,0),(1,0) distinguish ± alternating vectors. S3 separates a singleton from interior pair via determinant magnitude 2|sin(2πj/m)|; S4 block-diagonalizes opposite parity interior pairs. Independent eigenspace rank calculations at 23 generic and resonant points for m=5..8 corroborated all minima and harmless even m,t=2.
 
-Finite numerical checks group eigenvalues within \(10^{-9}\) and test ranks with tolerance \(10^{-8}\); these are consistency checks and cannot rule out unexpected infinite-parameter behavior. Exact small-instance checks use `fractions.Fraction`. The universal mathematical certificate is the Fourier decomposition and the three explicit restriction-matrix determinant calculations in `RESULT.md`. No independent audit or external theorem certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original surviving core as compared against named prior and mathematical implications. 
+
+## value
+
+PASS
+
+Exact minimum independent coordinate actuators and explicit nested optimal sites on a naturally symmetric weighted network resolve practical spectral degeneracy and resonance boundaries. The harmless scalar-scalar resonance at t=2 and mandatory 4-input double-double collisions are meaningful, not trivial relabelings of a cycle theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
