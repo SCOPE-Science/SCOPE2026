@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the finite checks
+# Independent mathematical audit
 
-Run `python3 checker.py` with standard Python. This script uses polynomial-basis realizations of the binary fields of sizes \(4\), \(16\), \(64\), and \(256\), whose quadratic fixed subfields have orders \(q=2,4,8,16\). It independently enumerates all rank-one Hermitian projectors by the determinant-zero equation and all their ordered pair sums, and checks the theorem at every trace-zero target. It additionally checks field inverses, projector cardinality, sumset size, the complete positive-value histogram, and exact additive energy.
+## correctness
 
-Expected final marker: `HERMITIAN_BINARY_PROJECTOR_PAIR_PASS`.
+PASS
 
-The script does not establish the result for untested field sizes or check the historical originality of the theorem. Those require the symbolic proof and source comparison in `RESULT.md` and `REVIEW.md`; independent validation has not been performed.
+Hermitian rank-one idempotents are exactly P(a,z)=[[a,z],[z^q,1+a]] with a^2+a=N(z), because trace=1 and determinant=0 imply idempotence via Cayley–Hamilton; norm surjectivity gives 2+(q-2)(q+1)=q(q-1). S=P+Q has ordinary trace 0 and diagonal s; Q=S+P. Requiring both determinants zero leaves a linear relative-trace equation Tr(z w^q)=s²+s+N(w) and one norm=Artin–Schreier equation. For w=0 only s=0 or 1 works, with all q(q-1) choices. For w≠0 the relative-trace affine line has q z-candidates. The absolute trace of N(z) is either a nonzero affine F2-linear functional (q/2 z and two a each, hence q ordered solutions) or identically 1 (zero solutions), with exceptional condition N(w)∈{s²,(s+1)²}. Each allowed nonscalar target count is (q-2)(q²-1), plus two scalars; square weights give exact energy. Independent complete finite-field pair enumeration for q=2,4,8 gives (|P|,support,energy)=(2,2,8),(12,32,768),(56,380,30464), affirming q=2 boundary. Universal statement is proved by field trace algebra, not finite experiments.
+
+## originality
+
+PASS
+
+Fulton gives a broad formula for XAX*=B by rank, but inspected full text does not impose the two individual norm-one constraints needed for self-adjoint projector pairs. The present complete constrained fiber law/support/energy is a distinct exact classification, to best of knowledge.
+
+## value
+
+PASS
+
+A complete unnormalized ordered convolution law on the natural set of Hermitian one-dimensional orthogonal projections over each binary field; rank-sensitive support, missing matrices and additive energy are useful exact invariants in finite unitary geometry and additive combinatorics. It is not mere reparameterization of full-rank Hermitian matrix counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

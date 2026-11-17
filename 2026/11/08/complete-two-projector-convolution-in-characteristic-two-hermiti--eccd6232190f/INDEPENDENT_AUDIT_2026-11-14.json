@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:44:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hermitian rank-one idempotents are exactly P(a,z)=[[a,z],[z^q,1+a]] with a^2+a=N(z), because trace=1 and determinant=0 imply idempotence via Cayley–Hamilton; norm surjectivity gives 2+(q-2)(q+1)=q(q-1). S=P+Q has ordinary trace 0 and diagonal s; Q=S+P. Requiring both determinants zero leaves a linear relative-trace equation Tr(z w^q)=s²+s+N(w) and one norm=Artin–Schreier equation. For w=0 only s=0 or 1 works, with all q(q-1) choices. For w≠0 the relative-trace affine line has q z-candidates. The absolute trace of N(z) is either a nonzero affine F2-linear functional (q/2 z and two a each, hence q ordered solutions) or identically 1 (zero solutions), with exceptional condition N(w)∈{s²,(s+1)²}. Each allowed nonscalar target count is (q-2)(q²-1), plus two scalars; square weights give exact energy. Independent complete finite-field pair enumeration for q=2,4,8 gives (|P|,support,energy)=(2,2,8),(12,32,768),(56,380,30464), affirming q=2 boundary. Universal statement is proved by field trace algebra, not finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulton treats arbitrary Hermitian forms and target B but no individual norm/trace-one projector restriction",
+          "Gow et al cover rank-distance sets of whole Hermitian matrix classes, not the rank-one idempotent (a^2+a=N(z)) curve"
+        ],
+        "reasoning": "Broader ambient Hermitian matrix rank theory does not by itself provide the exact restricted sum fibers for the natural idempotent subset; the additional Artin–Schreier conditioning is essential.",
+        "searches": [
+          "Hermitian rank-one self-adjoint idempotent matrix characteristic 2 additive convolution projector sums representations q",
+          "Fulton 1977 Theorem 5.1 full PDF",
+          "Gow Lavrauw Sheekey Vanhove arxiv:1208.1903",
+          "Resultary finite field projector convolution"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4153/CJM-1977-017-5",
+        "https://arxiv.org/abs/1208.1903",
+        "https://doi.org/10.13001/1081-3810.1326",
+        "Resultary semantic query: Hermitian rank-one self-adjoint idempotent matrix characteristic 2 additive convolution projector sums representations q"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source proof obtains q(q-1) projectors and derives trace equation Tr_{K/F}(z w^q)=s^2+s+N(w) plus Artin–Schreier trace condition",
+          "New explicit r(S) has positive q at nonscalars precisely when both S and S+I are invertible, and positive q(q-1) only at 0,I; support and energy follow"
+        ],
+        "reasoning": "The theorem is a specialized count of constrained unit vectors and ordered pairs; a generic rank-form count cannot imply the particular fiber dichotomy without new restrictions and calculations. Standard rank/character theory may be used in a different derivation but does not state the result.",
+        "searches": [
+          "Fulton 1977 equation (1.3) and Theorem5.1",
+          "Gow et al 2012 Hermitian rank-distance sets",
+          "Resultary Hermitian rank-one self-adjoint idempotent matrix characteristic 2 additive convolution projector sums representations q"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each self-adjoint rank-one idempotent can be written P=uu* with u*u=1; pair sums S=uu*+vv* impose TWO separate unit-norm restrictions",
+          "Fulton instead counts X solving X A X*=B by total rank, without fixing each individual column norm"
+        ],
+        "reasoning": "The familiar matrix-factorization rephrasing is mathematically close but its constraints are genuinely stricter: only counting total-rank representations of S does not directly determine the restricted ordered projector convolution fiber.",
+        "searches": [
+          "Hermitian rank-one self-adjoint idempotent matrix characteristic 2 additive convolution projector sums representations q",
+          "Fulton 1977 XAX*=B ranks",
+          "finite unitary projector Hermitian rank-one Gram decomposition",
+          "rank-one Hermitian projections norm-one vectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest result is this same record; others use non-selfadjoint projectors or different rings and matrix spaces",
+          "No older formula with support q^3-2q^2-q+4 and energy q^2(q^3-5q+4) found"
+        ],
+        "reasoning": "A rank-only table and finite checks of q=2,4,8 are not prior full parameter laws. Absence of a targeted published table is a residual-risk-laden best-of-knowledge assessment, not proof of novelty.",
+        "searches": [
+          "Hermitian rank-one self-adjoint idempotent matrix characteristic 2 additive convolution projector sums representations q",
+          "\"Hermitian\" \"two idempotents\" \"characteristic two\" representations",
+          "Resultary Hermitian projector 2-sum support q",
+          "Fulton 1977 finite Hermitian forms count"
+        ]
+      },
+      "rationale": "Fulton gives a broad formula for XAX*=B by rank, but inspected full text does not impose the two individual norm-one constraints needed for self-adjoint projector pairs. The present complete constrained fiber law/support/energy is a distinct exact classification, to best of knowledge.",
+      "residual_risks": [
+        "Representation-number formulas specialized to unit norm vector columns may exist under an alternative finite-unitary harmonic-analysis vocabulary",
+        "The Gow et al and Orel–Kuzma papers were compared only via available sections and statements; a more exhaustive bibliography inspection may discover an equivalent restricted convolution result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECT COVERAGE: counts rank-r X solving X A X*=B, with no requirement that the two individual columns be norm-one/unit projectors; does not give r(S), support and energy with these extra constraints",
+          "evidence": "Fulton eq(1.3) XAX*=B, Theorem5.1 rank-r count; matrix rank is insufficient to recover restricted individual column norm constraints",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1977-017-5",
+          "material_read": "Entire 1977 article via 11-page Cambridge open PDF: Introduction (equation 1.3) and Theorem 5.1 page 178, intermediate Hermitian form counts",
+          "method": "Read extracted PDF and visually inspected scanned pages 169 and 178; compared variable constraints with pair-of-projectors equations",
+          "title": "Representations by Hermitian Forms in a Finite Field of Characteristic Two",
+          "trigger": "Potentially strongest old general Hermitian matrix representation-number formula"
+        },
+        {
+          "assessment": "DIFFERENT HYPOTHESIS: full fixed-rank Hermitian class/additive characters, not ordered sum fibers of self-adjoint idempotents",
+          "evidence": "2012 rank-distance/character objectives do not impose P^2=P or trace(P)=1",
+          "identifier_or_url": "https://arxiv.org/abs/1208.1903",
+          "material_read": "Accessible arXiv introduction and relevant §§3–4 summary of rank-distance and Fourier characters; no exhaustive deep reread of all proofs claimed",
+          "method": "Compared studied rank-distance sets of the full Hermitian space with trace-one idempotent subvariety",
+          "title": "Constant rank-distance sets of hermitian matrices and partial spreads in hermitian polar spaces",
+          "trigger": "Hermitian additive rank-orbit method might imply pair convolution"
+        },
+        {
+          "assessment": "INAPPLICABLE: additive linear maps preserving rank versus additive sums of constrained idempotents",
+          "evidence": "Orel–Kuzma 2009 Theorem 2.1 concerns operators on matrix spaces, not r(S)",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1326",
+          "material_read": "Theorem 2.1 and abstract/statement as cited in source; full text not confirmed read",
+          "method": "Compared map-classification object to projector pair convolution",
+          "title": "Additive rank-one nonincreasing maps on Hermitian matrices over GF(4)",
+          "trigger": "Same Hermitian matrix field and rank-one terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete unnormalized ordered convolution law on the natural set of Hermitian one-dimensional orthogonal projections over each binary field; rank-sensitive support, missing matrices and additive energy are useful exact invariants in finite unitary geometry and additive combinatorics. It is not mere reparameterization of full-rank Hermitian matrix counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.4153/CJM-1977-017-5",
+    "https://arxiv.org/abs/1208.1903",
+    "https://doi.org/10.13001/1081-3810.1326",
+    "Resultary semantic query: Hermitian rank-one self-adjoint idempotent matrix characteristic 2 additive convolution projector sums representations q"
+  ],
+  "disposition": "passed",
+  "final_claim": "For q=2^m, the q(q-1) rank-one standard-adjoint Hermitian idempotents in M2(F_{q²}) have ordered two-sum convolution r(S)=q(q-1) at 0,I; r(S)=q at non-scalar trace-zero matrices with det(S) and det(S+I) nonzero; 0 elsewhere. The support is q³-2q²-q+4 and additive energy q²(q³-5q+4), including q=2.",
+  "limitations": "2x2 standard-adjoint Hermitian self-adjoint rank-one idempotents, q=2^m only, ordered unnormalized pair sums. Not arbitrary idempotents or larger dimensions. Primitive norm/trace theorems are standard algebra prerequisites.",
+  "residual_risks": [
+    "Representation-number formulas specialized to unit norm vector columns may exist under an alternative finite-unitary harmonic-analysis vocabulary",
+    "The Gow et al and Orel–Kuzma papers were compared only via available sections and statements; a more exhaustive bibliography inspection may discover an equivalent restricted convolution result."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT DIRECT COVERAGE: counts rank-r X solving X A X*=B, with no requirement that the two individual columns be norm-one/unit projectors; does not give r(S), support and energy with these extra constraints",
+      "evidence": "Fulton eq(1.3) XAX*=B, Theorem5.1 rank-r count; matrix rank is insufficient to recover restricted individual column norm constraints",
+      "identifier_or_url": "https://doi.org/10.4153/CJM-1977-017-5",
+      "material_read": "Entire 1977 article via 11-page Cambridge open PDF: Introduction (equation 1.3) and Theorem 5.1 page 178, intermediate Hermitian form counts",
+      "method": "Read extracted PDF and visually inspected scanned pages 169 and 178; compared variable constraints with pair-of-projectors equations",
+      "title": "Representations by Hermitian Forms in a Finite Field of Characteristic Two",
+      "trigger": "Potentially strongest old general Hermitian matrix representation-number formula"
+    },
+    {
+      "assessment": "DIFFERENT HYPOTHESIS: full fixed-rank Hermitian class/additive characters, not ordered sum fibers of self-adjoint idempotents",
+      "evidence": "2012 rank-distance/character objectives do not impose P^2=P or trace(P)=1",
+      "identifier_or_url": "https://arxiv.org/abs/1208.1903",
+      "material_read": "Accessible arXiv introduction and relevant §§3–4 summary of rank-distance and Fourier characters; no exhaustive deep reread of all proofs claimed",
+      "method": "Compared studied rank-distance sets of the full Hermitian space with trace-one idempotent subvariety",
+      "title": "Constant rank-distance sets of hermitian matrices and partial spreads in hermitian polar spaces",
+      "trigger": "Hermitian additive rank-orbit method might imply pair convolution"
+    },
+    {
+      "assessment": "INAPPLICABLE: additive linear maps preserving rank versus additive sums of constrained idempotents",
+      "evidence": "Orel–Kuzma 2009 Theorem 2.1 concerns operators on matrix spaces, not r(S)",
+      "identifier_or_url": "https://doi.org/10.13001/1081-3810.1326",
+      "material_read": "Theorem 2.1 and abstract/statement as cited in source; full text not confirmed read",
+      "method": "Compared map-classification object to projector pair convolution",
+      "title": "Additive rank-one nonincreasing maps on Hermitian matrices over GF(4)",
+      "trigger": "Same Hermitian matrix field and rank-one terminology"
+    }
+  ]
+}

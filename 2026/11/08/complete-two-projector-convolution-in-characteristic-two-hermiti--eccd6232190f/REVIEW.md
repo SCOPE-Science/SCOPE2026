@@ -1,15 +1,21 @@
-# Scientific review: Hermitian projector two-sum convolution
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces rank-one Hermitian idempotents to trace-one determinant-zero two-by-two matrices, then solves the pair equation by a relative-trace fiber and the absolute Artin–Schreier criterion. The exceptional fiber is genuinely empty because the norm parameter of a relative-trace-one element has absolute trace one. The scalar cases, precise nonzero norm multiplicities, exact support, and energy follow without omitted boundary cases. Independent exhaustive enumerations for four field sizes corroborate, but do not substitute for, the infinite-family proof.
+## correctness
 
-## Originality
-**PASS within the checked comparisons, with residual historical risk.** Fulton (1977), Theorem 5.1, enumerates rank-constrained Hermitian form representations \(XAX^*=B\), lacking the separate normalized columns that define ordered rank-one Hermitian projectors. Gow–Lavrauw–Sheekey–Vanhove (2012), Sections 3–4, derives rank-distance and rank-only character results; those do not resolve the trace-one constraint. Orel–Kuzma (2009), Theorem 2.1, treats rank-preserving additive maps rather than sums of idempotents. The checked related non-self-adjoint and dyadic projector convolution statements concern different objects and do not imply this finite-unitary Hermitian fiber law. An equivalent enumeration could be hidden in other finite-form counting literature; no exhaustive priority guarantee is made.
+PASS
 
-## Mathematical value
-**PASS.** The support and full positive-fiber census of the two-fold convolution of a natural unitary orbit is a basic additive-combinatorial and harmonic invariant. The characteristic-two Artin–Schreier obstruction is not determined by rank alone; the theorem separates scalar exceptions, gives every representation count, quantifies the exact exceptional support deficit, and gives the associated energy identity. This is a natural infinite family, not an arbitrary finite slice or an isolated congruence check.
+Hermitian rank-one idempotents are exactly P(a,z)=[[a,z],[z^q,1+a]] with a^2+a=N(z), because trace=1 and determinant=0 imply idempotence via Cayley–Hamilton; norm surjectivity gives 2+(q-2)(q+1)=q(q-1). S=P+Q has ordinary trace 0 and diagonal s; Q=S+P. Requiring both determinants zero leaves a linear relative-trace equation Tr(z w^q)=s²+s+N(w) and one norm=Artin–Schreier equation. For w=0 only s=0 or 1 works, with all q(q-1) choices. For w≠0 the relative-trace affine line has q z-candidates. The absolute trace of N(z) is either a nonzero affine F2-linear functional (q/2 z and two a each, hence q ordered solutions) or identically 1 (zero solutions), with exceptional condition N(w)∈{s²,(s+1)²}. Each allowed nonscalar target count is (q-2)(q²-1), plus two scalars; square weights give exact energy. Independent complete finite-field pair enumeration for q=2,4,8 gives (|P|,support,energy)=(2,2,8),(12,32,768),(56,380,30464), affirming q=2 boundary. Universal statement is proved by field trace algebra, not finite experiments.
 
-## Scope and residual limitations
-The formula is proved only for Hermitian two-by-two matrices over quadratic extensions of binary fields. Unrestricted matrix idempotents, higher dimensions, and more than two summands are not addressed. Literature comparison is bounded; no external referee or independent mathematical validation is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fulton gives a broad formula for XAX*=B by rank, but inspected full text does not impose the two individual norm-one constraints needed for self-adjoint projector pairs. The present complete constrained fiber law/support/energy is a distinct exact classification, to best of knowledge.
+
+## value
+
+PASS
+
+A complete unnormalized ordered convolution law on the natural set of Hermitian one-dimensional orthogonal projections over each binary field; rank-sensitive support, missing matrices and additive energy are useful exact invariants in finite unitary geometry and additive combinatorics. It is not mere reparameterization of full-rank Hermitian matrix counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
