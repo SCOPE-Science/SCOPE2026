@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:55:45.613369Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root split K is uniform in {0,...,n-1}, L_n=1+L_K for n>=1 and Z_n=Z_K+Z_(n-1-K) for n>=2, with exceptional b_0=0 and b_1=1. The four boundary corrections to b_k=(k+1)/3 produce conditional covariance (n-2)/(3n(n-1)); total-covariance recursion gives v_3=1/18 and v_n-v_(n-1)=1/[3n(n-1)(n-2)] for n>=4, yielding the stated rational formula and limits. Independent exact enumeration of all n! priority permutations for 2<=n<=7 reproduced all covariances, including base n=2 and n=3. Variance normalization uses record-count variance H_n-H_n^(2) and fringe leaf variance 2(n+1)/45 for n>=4. A finite check is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 theorem proves full key-by-key stochastic ordering and exact signed covariance profile, and sums to the identical total covariance."
+        ],
+        "reasoning": "The more detailed rank-resolved dependency law strictly dominates the submitted scalar covariance, including its n>=3 boundary.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md",
+          "Resultary: minimum key depth conditioned on individual leaf indicator and total leaf covariance"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-a-boundary-localized-covariance-of-extreme-search-cost-and-leaf--3e3926193ad6/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior October 12 equation is identical under reflection; prior November 2 Cov(D_n,L_n) equals same formula with D_n=number of edges."
+        ],
+        "reasoning": "For L_n=D_n+1, Cov(L_n,Z_n)=Cov(D_n,Z_n) identically. Monotonicity, increment and correlation follow algebraically; no independent surviving theorem.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-a-boundary-localized-covariance-of-extreme-search-cost-and-leaf--3e3926193ad6/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 12 theorem uses right-spine root-to-maximum occupied path with exactly (n-2)(n+1)/(12n(n-1)); November 2 theorem uses minimum-key edge depth."
+        ],
+        "reasoning": "Relabeling ordered keys i -> n+1-i reflects any uniform BST, carries maximum right spine to minimum left spine and preserves childless leaf count. Edge depth and occupied path length differ by 1, which does not change covariance.",
+        "searches": [
+          "binary search tree leftmost path length minimum key ordinary leaves covariance record count peaks joint moments",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-a-boundary-localized-covariance-of-extreme-search-cost-and-leaf--3e3926193ad6/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two earlier accessible full RESULT.md proofs give the precise rational formula and limiting value, no interpolation needed."
+        ],
+        "reasoning": "An exact published theorem, not simply a table or failed search, records the same all-n value.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-a-boundary-localized-covariance-of-extreme-search-cost-and-leaf--3e3926193ad6/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md",
+          "Resultary: binary search tree extreme path terminal leaves exact covariance 1/12"
+        ]
+      },
+      "rationale": "FAIL: The October 12 2026 published Resultary theorem already gives the IDENTICAL covariance, increment, boundary mechanism and correlation asymptotic for the root-to-maximum right spine. Reflection of ordered keys sends its rightmost path to this leftmost path without altering leaf counts or the uniform tree law. The November 2 2026 published theorem additionally gives exactly this minimum-key depth/leaf covariance, and node-count path length differs from depth by the additive constant 1. Thus the entire final result, not merely its numerical value, is covered.",
+      "residual_risks": [
+        "The scientific rejection is based on decisive published coverage, not an alleged false proof or on inaccessible literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERING",
+          "evidence": [
+            "Identical rational covariance and right-spine variable; reflection of key order yields the target left-spine statistic."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-a-boundary-localized-covariance-of-extreme-search-cost-and-leaf--3e3926193ad6/RESULT.md",
+          "material_read": "Entire prior RESULT.md: finding, assumptions, uniform root-split proof, increments, correlation and limitations",
+          "method": "Read full primary theorem and proof via GitHub raw or arXiv HTML; compared mathematical statements and definitions",
+          "title": "A boundary-localized covariance of extreme search cost and leaf count in random binary search trees",
+          "trigger": "Exact opposite endpoint and leaf-count pair"
+        },
+        {
+          "assessment": "DECISIVE_COVERING",
+          "evidence": [
+            "Cov(minimum-key edge depth, total leaves) equals exact target; stronger per-key stochastic-order theorem."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md",
+          "material_read": "Entire prior RESULT.md: main theorem, definitions, individual covariance telescoping proof, aggregate formula",
+          "method": "Read full primary theorem and proof via GitHub raw or arXiv HTML; compared mathematical statements and definitions",
+          "title": "Rank-resolved stochastic ordering of minimum-key depth by leaves in uniform binary search trees",
+          "trigger": "Same endpoint minimum-key depth and all ordinary leaves"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The submitted exact identity is mathematically natural but not a distinct unknown fact: reflection of the published maximum-key spine theorem or the published minimum-key depth theorem yields it unchanged. Re-presenting the same boundary-root recursion and increasing-to-1/12 behavior adds no motivated surviving mathematical information.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a uniform insertion-order n-node binary search tree, the number of nodes on the leftmost root-to-minimum path and the number of ordinary childless nodes have covariance (n-2)(n+1)/(12n(n-1)) for all n>=3 (zero at n=2); it strictly increases to 1/12 with increments 1/[3n(n-1)(n-2)].",
+  "limitations": [
+    "Uniform random insertion BST, not uniform Catalan tree or rebalanced BST; leaf is nonempty childless vertex.",
+    "Same scientific formula is already in older published results; no repaired independent claim survives."
+  ],
+  "schema_version": 1
+}
