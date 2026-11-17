@@ -1,0 +1,15 @@
+# Scientific review: Bernstein grid smoothing and Gini variation
+
+## Correctness — PASS
+The claim concerns one precisely defined row-stochastic Bernstein matrix at each finite degree. The proof is complete: a weighted Gini comparison follows by an exact layer-cake reduction; independent sampling and Jensen give a column-mass upper bound; a unimodal-grid counting inequality and an elementary Bernstein-basis peak comparison show the maximal column mass occurs at the two endpoints. The endpoint impulse supplies an exact lower bound. A positive pairwise decomposition establishes the first amplifying degree, and dominated convergence plus an explicitly summable error proves the sharp limiting norm. The finite checker verifies the matrix identities and exhaustively verifies all 1,002 nontrivial binary input cuts for degrees two through eight. No infinite assertion relies on those finite tests. The finite-degree norm for every degree four and above is not claimed to equal the endpoint ratio.
+
+## Originality — PASS, qualified
+The most relevant primary text is Heitzinger–Hössinger–Selberherr (2004), Definition 2.1 and Theorems 2.7–2.8. Its classical variation bounds are in adjacent/interval total variation, not complete-pair Gini variation, and cannot imply amplification. Kozyra–Rychlik (published online April 11, 2016) use Bernstein bases and the Gini mean difference for **expectations of i.i.d. order-statistic combinations**, rather than the deterministic collocation-matrix seminorm. A published result on the identical Bernstein collocation matrix determines its squared Hilbert–Schmidt energy and a Poisson–Bessel correction, which cannot by itself determine a nonspectral pairwise-dispersion operator norm. Searches for Gini/Bernstein/binomial sampling aliases found no explicit matching sharp limiting operator norm. Because literature searches do not prove uniqueness, historical priority remains provisional.
+
+## Mathematical value — PASS
+A classical shape-preserving approximation scheme is known to reduce adjacent variation, but that property need not control the all-pairs dispersion functional. The theorem determines the **first amplifying grid size for every subsequent degree**, proves a **sharp, nontrivial all-degree limiting amplification coefficient** \(e/(e-1)\), and gives an explicit \(O(n^{-1})\) proximity of the endpoint witness to the finite-degree optimum without pretending to know every finite-degree norm. The result explains a genuine distinction between local variation stability and global sample dispersion stability in a canonical positive approximation operator.
+
+## Limits and priority risks
+The exact finite-degree optimal input structure is not classified for all degrees. The proof treats only equally spaced nodes and complete-pair unweighted Gini variation. More general approximation kernels or hidden equivalences under other names could alter priority assessment. Some relevant later literature was accessible only through its introduction or summary; none of the inspected main claims covered the stated limit.
+
+Self-review: passed. Independent audit: not yet performed.
