@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof checks the closed rather than open neighborhood convention and derives exact face sets for every cover piece and every intersection. The finite-cover suspension lemma is proved by induction with nonempty intersections and simplicial cofibrations, and the full cycle-wreath action follows from the signed integral cover-chain resolution. The finite checker confirms 121 cover identities, five sphere homology examples and 22 character traces. The general theorem is symbolic, not experimental extrapolation.
+## correctness
 
-## Originality — PASS, with material residual risk
-The candidate contribution is **only** the general unstable join formula, including its direct all-factor proof. The suspended relation follows from the prior Matsushita double-cover theorem combined with ordinary independence-complex joins, so that stable implication and the homological consequences are not separately asserted as novel. The closest published graph-join theorem concerns Lovász's open-neighborhood complex and complete-graph factors. The known complete-multipartite fixed-point setting has substantially narrower graph scope. An unindexed equivalent elementary or general homotopy-colimit theorem could still dominate; the comparison is based on the inspected literature and actual recorded search hits, not a claim of exhaustive priority.
+PASS
 
-## Mathematical value — PASS
-The complete unstable homotopy type of arbitrary graph joins is a structural operation law that yields infinitely many families of complex homotopy types. Joined cycle factors supply a natural high-dimensional sphere family and an integral full automorphism character, showing that the all-factor formula is effective beyond an abstract degree count. The argument distinguishes unstable information from the stable information already available.
+Exact cover U_i=N[G_i]*Delta_(other vertices) has intersection over S equal to (join of K_i in S)*simplex on remaining factor vertices. Every proper nonempty intersection is contractible and the full intersection is K=* K_i. For k=2, union is the homotopy pushout of two contractibles over K, hence ΣK. Induction on k (first k-1 cover contractible; its intersection with U_k another k-1 cover) proves Σ^(k-1)K without suspension cancellation. For integral equivariance the full-intersection summand in the reduced Mayer–Vietoris/Čech complex shifts by k-1 and acquires factor-index orientation sgn(π), in addition to the graded join permutation. For m≥5 each N[C_m] loses its triangle/diagonal free pairs onto C_m, with dihedral orientation character; k-fold circle join is S^(2k-1), so final sphere S^(3k-2), and a factor swap acts by the additional Čech -1. Complement of C_m is connected for m≥5, so Aut(C_m^∨k)=D_m wr S_k. Independent finite face/boundary checks produced reduced mod-2 β4=1 for C5∨C5 (902 nonempty faces) and C5∨C6 (1618 faces). Finite checks do not prove the universal theorem, which rests on the cover/cofibration argument.
 
-## Sources and limits
-Matsushita, *Closed neighborhood complexes of graphs*, arXiv:2511.12608v1, Definition 1.1, Theorems 1.2 and 3.1, Section 3. Nearby published *Clique joins suspend Lovász neighborhood complexes* (open-neighborhood functor). Related closed-neighborhood multipartite historical result is a narrower special class. All graph factors must be finite and nonempty, and no full-group equivariant homotopy equivalence is claimed. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full unsuspended multi-factor join homotopy law is not provided by the inspected prior works. Matsushita Theorem 1.2 gives ΣN[complement H] ≃ I(K2×H); for H=disjoint union of complements, its join decomposition implies the suspended shadow ΣN[J] ≃ Σ^k(K1*...*Kk), but suspension cancellation is invalid in general. Its stable consequences, and the induced homology character when derivable naturally from the stable comparison, are not separately novel. The published Lovász universal-vertex join theorem uses OPEN neighborhoods and only K_r∨H, while C4-free closed-neighborhood collapses determine the individual cycle factor but not the general graph-join law. The direct unsuspended cover result and broad arbitrary-factor scope survive best-of-knowledge comparison.
+
+## value
+
+PASS
+
+A complete unstable homotopy formula for arbitrary graph joins is a reusable structural identity, not a one-off small computation. Its multi-cover proof gives an explicit non-cancelled suspension formula, and its joined-cycle family supplies full automorphism/wreath-product integral top-homology signs. It clarifies exactly where stable literature already suffices and where space-level information is extra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
