@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For arbitrary a,b>=3, direct synchronous dynamics yields the two moving holes and exact lcm period. The Chinese remainder theorem gives d complete-bipartite omitted-edge components. The Alexander-dual false-twin lemma follows from an explicit cone deletion and link, so replacing each matched edge by its complete bipartite block suspends the complex once per added twin. The d=1 augmented-edge starting case is checked separately, and the d>=2 base nerve is a sphere. This reconstructs an unrestricted integral homotopy proof; 36 orbit and 26 exhaustive mod-two finite chain checks support but do not substitute it.
+## correctness
 
-## Originality — PASS
-The mathematically precise claim concerns the avalanche complex of the synchronous dynamics on a DISJOINT union of two directed cycles with one hole per component, and its gcd-controlled integral sphere dimension. Riihimäki–Smith (2026) prove only individual-cycle cases and a special vertex-glued identical-cycle case; neither gives the disjoint CRT edge graph or its Alexander-dual sphere theorem. Targeted published-finding corpus queries found a residue-support avalanche theorem on a single cycle, not two disjoint independently rotating cycles, and other papers on path homology/configuration spaces, not this avalanche theory. Classical Alexander dual suspension and simplicial nerve facts are acknowledged and are not treated as novel. Remaining risk: stronger unindexed graph-operation results.
+PASS
 
-## Mathematical value — PASS
-The question is intrinsically motivated by the newly introduced avalanche homology and the primary paper’s explicit interest in graph operations. The disjoint union has a single synchronized global time parameter, so it is not determined by the individual avalanche complexes: varying gcd changes its sphere dimension even for fixed total vertex count. The result classifies an infinite two-parameter family integrally with a clean arithmetic synchronization law, offering a test case for graph-operation and multi-cycle extensions; it is not an arbitrary finite slice.
+For integers a,b>=3, parallel outdegree-one chip firing sends the two holes one step around disjoint cycles, giving exact period lcm(a,b). CRT identifies their simultaneous omission pairs with i≡j mod d=gcd(a,b), hence the disjoint union of d complete bipartite graphs K_{a/d,b/d}. Firing facets are complements of these edges, i.e. Y(H)=Ind(H)^*. The claimed false-twin suspension lemma follows because link(new vertex) is Y(J) and deletion is a cone based at its twin; cofibration pushout yields a suspension. For d>=2 the base matching dual has d facets whose nerve is boundary of (d-1)-simplex; d=1 explicitly starts with a void geometric realization and first duplication yields S^0. Exactly a+b-2d duplications give S^(a+b-d-2). All stated boundary cases a,b>=3 are handled; finite simulation is corroborative, not proof of the infinite assertion.
 
-## Closest literature and limitations
-The closest primary source is Riihimäki and Smith, arXiv:2606.26786, §§2–3, inspected in public full text; its single-cycle Corollary 3.20 and vertex-glued Proposition 3.24 differ in both domain and mathematical implications. A published-finding corpus residue-avalanche record concerns a single-cycle congruence-class construction. Unindexed stronger coverage is a residual risk. The proof classifies precisely two disjoint one-hole directed cycles; it does not classify other configurations or multicycle networks. The exhaustive finite tests corroborate only the tested ranges, while the written proof handles all parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of precise scientific statements supports originality of the new refinement; all described known premises are credited. The stated unexamined-primary and unindexed-coverage risks remain real.
+
+## value
+
+PASS
+
+Gives an all-parameter topology formula for a natural first disjoint-union operation in avalanche homology, with a genuinely arithmetic gcd dependence instead of a naive product. Exact sphere dimension and simultaneous period give a useful structural test case and interaction between graph dynamics, CRT and Alexander duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
