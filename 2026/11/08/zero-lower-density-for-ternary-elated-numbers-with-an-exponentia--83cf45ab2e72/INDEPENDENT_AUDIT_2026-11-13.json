@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T19:57:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed E(n)≡a_lead n (mod 2); every even input and every leading-2 input is excluded. For leading-1 strings of lengths ℓ∈[k−M,k], independent lower digits give S=1+∑D_i², mean (5ℓ−2)/3 between 9B/4 and 11B/4 for all r≥3 (exact rational inequalities, checked for r=3..13). If |S−mean|<B/4 then 2B<S<3B, so E²(n) has even leading-2 first image and cannot reach 1. Hoeffding with ℓ−1<3B/2 and summand range 4 yields 2 exp(−B/192); all smaller lengths contribute <3^{k−M}. Summing all leading-1 lengths gives exactly the displayed bound; division by X→∞ yields liminf 0. Independent modulo-two check for 12,000 inputs corroborates only the finite parity identity; the infinite proof uses algebra and concentration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fox et al. provide the general-base digit-map definitions and a parity restriction, with no zero-density result.",
+          "The earlier ternary Keith-number density-zero theorem studies a linear recurrence initialized by digits, not iterates of leading-digit-weighted sum of digit squares; its hypothesis and object are different."
+        ],
+        "reasoning": "The prior general-base theorem supplies a lemma, not a dominating density statement. The full density-zero theorem for ternary Keith numbers is about a different digit-initialized recurrence and cannot specialize to the elated map. Standard Hoeffding supplies the concentration estimate, not the map-specific length-window construction.",
+        "searches": [
+          "Resultary semantic search: ternary elated numbers exponential digit transformation natural density",
+          "Web: Fox Grundman elated numbers Springer full text density",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-ternary-keith-numbers-have-density-zero--a7800d8bac30/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2409.09863",
+        "https://link.springer.com/article/10.1007/s44007-025-00185-7",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-ternary-keith-numbers-have-density-zero--a7800d8bac30/RESULT.md",
+        "Hoeffding (1963) standard two-sided bounded-independent-sums inequality",
+        "Resultary semantic queries and web exact-formulation searches on 2026-11-13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fox et al. Section 6 explicitly leaves natural-density existence open; Lemma 3 gives parity only.",
+          "The new proof conditions on uniformly random lower ternary digits and uses mean (5ℓ-2)/3 around 2.5·3^r, with a Hoeffding event in the forbidden leading-2 interval (2·3^r,3^{r+1})."
+        ],
+        "reasoning": "The prior lemma implies a positive proportion is excluded at each digit length, not that the surviving proportion tends to zero along a sparse length sequence. The bounded-sum concentration and the explicit mean-window choice create this new necessary conclusion. They do not prove zero upper density or density existence.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s44007-025-00185-7",
+          "https://arxiv.org/abs/2409.09863",
+          "Web: 'Elated Numbers' natural density existence ternary leading digit",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-ternary-keith-numbers-have-density-zero--a7800d8bac30/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fox et al. Lemma 3 establishes that odd-base elated integers must be odd with odd leading digit; Section 6 asks if their natural density exists.",
+          "The full May 2026 article discusses cycles, progressions, heights and the still-posed density question; it does not contain a ternary zero-liminf claim.",
+          "Resultary's closest exact title is the assigned finding itself, not an independently earlier result."
+        ],
+        "reasoning": "Equivalent expressions are liminf_{X→∞} A(X)/X=0, a subsequence of ternary digit lengths having vanishing elated proportion, and the implication that any existing natural density is zero. The cited parity lemma alone excludes leading-2/even inputs but not almost all leading-1 inputs; the concentration phase obstruction is essential. No independently earlier exact equivalent was found in the actual searches.",
+        "searches": [
+          "Resultary semantic query: lower asymptotic natural density ternary elated integers leading digit times sum of squares concentration base 3",
+          "Web searches: 'Elated Numbers' 'lower density' ternary; 'Elated Numbers' 'liminf' 'density'",
+          "https://arxiv.org/abs/2409.09863",
+          "https://link.springer.com/article/10.1007/s44007-025-00185-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published tables enumerate finite cycles and least-height examples; they do not enumerate arbitrary long preimages or asymptotic proportions.",
+          "A returned Resultary record is the very same reviewed finding; nearby ternary density hits concern Keith numbers and unrelated digit maps."
+        ],
+        "reasoning": "No exact sequence or table inspected supplies the selected exponentially sparse subsequence or a lower-density conclusion. Finite orbit/cycle tables cannot establish an infinite asymptotic density bound.",
+        "searches": [
+          "Resultary query: lower asymptotic natural density ternary elated integers leading digit times sum of squares concentration base 3",
+          "Fox et al. 2026 open-access article Sections 2, 5, 6 and finite cycle/height tables"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: distinct quantitative subsequence-density theorem for the Fox et al. ternary elated map, excluding only the prior parity lemma and ordinary concentration inequality; the published paper's explicitly stated density question remains open beyond the proved lower-density consequence. No dominating prior implication identified in actual literature searches.",
+      "residual_risks": [
+        "A different unindexed elated-map density argument may predate this proof; negative search does not establish priority.",
+        "The original arXiv full PDF was not independently read; the later complete open article was read materially.",
+        "No statement of actual natural density or upper natural density is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Leading-digit parity is published, while Section 6 still asks whether density exists and does not prove zero lower density.",
+          "evidence": [
+            "Lemma 3 (article lines 108–127): E_{2,b}(n)≡a_lead n (mod2)",
+            "Section 6 (lines 570–579): density is posed as an open question"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s44007-025-00185-7",
+          "material_read": "Open-access publisher HTML: definitions Section 1, Lemmas 2–4, cycle/height scope, Section 6 open problems at lines 570–579",
+          "method": "Read primary full-text HTML and compare actual assertions",
+          "title": "Elated Numbers",
+          "trigger": "Identical digit map, parity and explicit density problem"
+        },
+        {
+          "assessment": "No claim of original-preprint full-text inspection; the revised open article covers the same definition and still asks the density question.",
+          "evidence": [
+            "2024-09-15 arXiv first submission and map definition; revised article 2026 Section 6"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.09863",
+          "material_read": "arXiv bibliographic abstract and bibliographic record, plus corresponding full revised open-access article; original PDF full text not independently read",
+          "method": "Cross-version source comparison limited to available abstract and revised complete HTML",
+          "title": "Elated Numbers (original preprint)",
+          "trigger": "Original publicly dated source of definition and possible earlier coverage"
+        },
+        {
+          "assessment": "Different recurrence-defined set, so not a statement about ternary elated map.",
+          "evidence": [
+            "Defines Keith numbers through n-term recurrence and bounds their counting function O(X/sqrt(log X)); incompatible definition with E_{2,3} dynamics"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-ternary-keith-numbers-have-density-zero--a7800d8bac30/RESULT.md",
+          "material_read": "Complete published RESULT.md, including recurrence definition, all-size counting proof and limitations",
+          "method": "Read complete previously published mathematical result",
+          "title": "Ternary Keith numbers have density zero",
+          "trigger": "Potential dominating base-three digit-density theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated exact quantitative restriction on an explicitly posed natural-density problem for the ternary elated map: arbitrarily sparse scales and a necessary zero value for any existing density. This uses nontrivial large-deviation phase localization and is not the original paper's parity lemma alone. It does not settle density existence or the upper density, which limits but does not erase mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For ternary elated E(n)=leading digit times sum of squares of ternary digits, at B=3^r, k=(3B−1)/2, M=floor(k/20), X=3^k−1 for r≥3, A(X)≤3^{k−M}+2·3^k exp(−B/192); hence liminf_{X→∞} A(X)/X=0 and any existing natural density is zero.",
+  "limitations": [
+    "Source record tree listing could not be enumerated through connected GitHub interface; individual necessary blobs were fetched at exact frozen commit and source-tree SHA is the server-provided identity, not independently enumerated.",
+    "Original preprint full PDF not read independently; complete later publisher HTML on same work was materially read.",
+    "The claim is zero lower density only, not existence or zero upper density."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The leading-digit parity obstruction is proved exactly; the conditional independent digits have mean \((5\ell-2)/3\); the endpoints and Hoeffding exponent are checked algebraically for every \(r\ge3\); the short-length tail and full-length exception counts give the displayed all-\(r\) bound. The numerical checker tests but does not substitute for the proof. Boundary cases \(r=3\), \(\ell=k-M\), and positive integers through \(3^k-1\) are included.
+## correctness
 
-**Originality — PASS within inspected evidence.** The original 2024 full preprint gives the parity lemma and cycles but expressly leaves density in Section 6 open. The later open-access full text still asks about density. The concentration/zero-lower-density implication is not stated there and does not follow from a mere restatement of its parity lemma without a large-deviation and length-distribution argument. Searches for the exact lower-density statement, alternate descriptions as a ternary leading-digit dynamical system, and related arithmetic-density papers found no dominating result. Residual risk: unindexed independent arguments and literature not returned by searches.
+PASS
 
-**Value — PASS.** The result proves a nontrivial necessary outcome for the source's explicit density problem: if density exists, it is zero. It supplies an explicit sparse-scale power-saving count through concentration, not just a finite census or a restated parity obstruction. The lower-density conclusion does not resolve density existence.
+Reconstructed E(n)≡a_lead n (mod 2); every even input and every leading-2 input is excluded. For leading-1 strings of lengths ℓ∈[k−M,k], independent lower digits give S=1+∑D_i², mean (5ℓ−2)/3 between 9B/4 and 11B/4 for all r≥3 (exact rational inequalities, checked for r=3..13). If |S−mean|<B/4 then 2B<S<3B, so E²(n) has even leading-2 first image and cannot reach 1. Hoeffding with ℓ−1<3B/2 and summand range 4 yields 2 exp(−B/192); all smaller lengths contribute <3^{k−M}. Summing all leading-1 lengths gives exactly the displayed bound; division by X→∞ yields liminf 0. Independent modulo-two check for 12,000 inputs corroborates only the finite parity identity; the infinite proof uses algebra and concentration.
 
-The relevant source is Fox et al., *Elated Numbers*, arXiv:2409.09863v1 (2024-09-15), Sections 1, 2, 6, and its later open-access full article. Closest other checked work concerns ordinary happy-number maps and different digit-power maps, not leading-digit-weighted ternary elated numbers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: distinct quantitative subsequence-density theorem for the Fox et al. ternary elated map, excluding only the prior parity lemma and ordinary concentration inequality; the published paper's explicitly stated density question remains open beyond the proved lower-density consequence. No dominating prior implication identified in actual literature searches.
+
+## value
+
+PASS
+
+A motivated exact quantitative restriction on an explicitly posed natural-density problem for the ternary elated map: arbitrarily sparse scales and a necessary zero value for any existing density. This uses nontrivial large-deviation phase localization and is not the original paper's parity lemma alone. It does not settle density existence or the upper density, which limits but does not erase mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
