@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-On uniform 3-subsets of six coordinates, direct exact averaging gives the normalized second and sixth moment polynomial. The upper deficit is a sum of a Cauchy–Schwarz term and a centered symmetric sextic. Riener’s half-degree theorem reduces sextic positivity to all three-level patterns; the embedded exact-arithmetic checker confirms all partition identities and positive decompositions. Equality at the upper endpoint requires three positive and three negative equal-magnitude coefficients. Jensen’s lower bound and a pairwise triple replacement argument classify the sole one-outlier lower equality orbit. Averaging ellipsoidal quadratic forms over the permutation action supplies a sharp Euclidean comparator. The symbolic checker proves its algebraic identities but cannot independently establish the cited general half-degree theorem.
+## correctness
 
-## Originality — PASS (qualified)
-Originality was checked against exact six/three slice norm aliases, conditioned balanced-sign sixth moments, the rational endpoint, Euclidean distortion, accessible historical claims, and relevant published sources. Filmus–Mossel’s slice harmonic/invariance results do not determine this finite sharp norm; Riener supplies only the positivity reduction. An existing exact degree-one Johnson fourth-moment theorem is relevant at the same slice but has exponent four and supplies no sixth-moment equality classification. The published exact second-Johnson-projector norm is a different degree and pair of operator endpoints. A subgroup-complement sixth-moment calculation concerns a distinct Fourier function space, and its local zero-sum maximum does not entail the Johnson triple-sum inequality. Absence of a database hit is not a proof of novelty; unindexed equivalents remain possible.
+PASS
 
-## Mathematical value — PASS
-The five-dimensional degree-one harmonic space on the first nontrivial middle Johnson slice is a canonical fixed-cardinality sampling space. The two sharp extremal orbits have markedly different geometry (balanced signs versus a single outlier), the exact Banach–Mazur distortion is a complete intrinsic norm invariant, and the upper stability estimate is a nontrivial global quantitative consequence. The theorem does not claim broader-slice classification.
+PASS: Independently expanded the twenty triple sums to E F²=3p₂/10 and 20 E F⁶=15p₂³−60p₂p₄−20p₃²+66p₆. Sharp upper gap is a Cauchy term plus H=59p₂p₄+20p₃²−66p₆−8p₂³. Verified the exact three-pattern two-/three-level polynomial factorizations by independent SymPy algebra, including positive quartic certificate; Riener/Timofte half-degree principle reduces global degree-six symmetric positivity to at most three distinct values. Lower Jensen equality plus triple-substitution rigidity gives exactly one-outlier; symmetry averaging gives optimal Euclidean norm, with connected sphere giving full interval. Finite algebra is not the proof of half-degree theorem, which was separately inspected.
 
-## Limitations
-The result is limited to real degree-one harmonics on uniform three-element subsets of six points and sixth moments. The explicit stability prefactor is not claimed best possible. Equivalent isolated calculations in unindexed literature cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded): Published all-slice fourth-moment first-harmonic theorem has same function space but exponent four and cannot control independent p6/p3² terms. Filmus–Mossel gives qualitative slice harmonic/hypercontractive estimates; Riener is a general positivity tool not an evaluation of this Johnson norm. Degree-two projector and subgroup-hole sixth moments are in different spaces/operators. No covering sixth-J(6,3) exact classification identified.
+
+## value
+
+PASS
+
+PASS: J(6,3) is the canonical smallest nontrivial balanced six-point Johnson slice. The complete exact five-dimensional norm, contrasting balanced and outlier extremizers, explicit global stability and Euclidean Banach–Mazur invariant form an independently useful natural sharp finite-dimensional classification; no general-slice theorem is required to justify it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
