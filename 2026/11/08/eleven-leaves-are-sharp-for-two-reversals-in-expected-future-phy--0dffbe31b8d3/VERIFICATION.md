@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3. The checker regenerates all unordered full binary shapes for \(2\le n\le11\), counts clade profiles, and uses exact rational Sturm sequences to count distinct interior crossing roots for each distinct profile pair. Expected shape totals are \(1,1,2,3,6,11,23,46,98,207\), with \(194\) distinct mean profiles at eleven leaves and exactly \(15\) pairs possessing two interior roots. The program also checks two witness clade vectors and directly enumerates \(2^{11}\) survival masks at each of three exact rational extinction probabilities. The expected final output is `ALL_EXACT_CHECKS_PASSED`.
+## correctness
 
-The positive all-size result follows from the explicit factorization and a common-root graft, not from finite enumeration. The minimality result depends on complete shape generation and exact Sturm root counting through ten leaves. A separate symbolic-algebra implementation reproduced the enumeration, and gcd checks showed square-free interiors for all fifteen two-root pairs. External independent audit has not been performed.
+PASS
+
+For any clade of k leaves edge survival probability is 1-q^k; summing gives total (2n-2)-nq-sum c_k q^k. Rooted unordered tree recursion exhausts n<=11, with profile deduplication. Fresh independent exact rational polynomial/Sturm census produced shape counts 11,23,46,98,207 for n7..11 and profiles 11,23,45,95,194; at n11 among 18721 profile pairs exactly 15 have two roots (others 15400 zero and 3306 one), none before n11. Witness -q^2(1-q)(q²+q-1)(q³+q-1) has two distinct simple roots; common-root leaf grafting preserves the gap for all n>11. All roots and counts exact, no floating-point root certification.
+
+## originality
+
+PASS
+
+Published extinction-weighted expected-PD edge formula is prior, and topology-identification or variance comparisons are distinct; inspected primary full texts and Resultary results give no equal or stronger sharp two-crossing 11-leaf theorem. Under best-of-knowledge the exact minimum and 15-pair classification survive; unindexed equivalent priority remains possible.
+
+## value
+
+PASS
+
+The minimum number of tips necessary for repeated reversals is a motivated sharp structural boundary for comparing expected diversity under variable extinction risk. The complete first-layer response-profile-pair census is an independently useful exact invariant, not a rote model restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

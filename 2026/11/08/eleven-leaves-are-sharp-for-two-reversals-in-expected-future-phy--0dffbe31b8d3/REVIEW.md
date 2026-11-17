@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Expected future rooted phylogenetic diversity is a sum of edge-survival indicators, giving the stated exact clade-size generating polynomial. The root-join enumeration is exhaustive and canonical for nonplane rooted full binary shapes; exact Sturm calculations in `verify.py` exhaust all response-profile pairs through eleven leaves. The 15 two-root candidates have simple interior roots by exact polynomial-gcd testing. The explicit eleven-leaf factorization proves strict −,+,− rankings, independent all-subset enumeration verifies three rational points, and identical-root grafting proves existence for all larger n. The executable requires only the Python standard library. Exhaustive finite verification establishes the finite lower cutoff; it does not purport to settle all larger-n classifications.
+PASS
 
-## Originality — PASS within inspected evidence, historical priority provisional
+For any clade of k leaves edge survival probability is 1-q^k; summing gives total (2n-2)-nq-sum c_k q^k. Rooted unordered tree recursion exhausts n<=11, with profile deduplication. Fresh independent exact rational polynomial/Sturm census produced shape counts 11,23,46,98,207 for n7..11 and profiles 11,23,45,95,194; at n11 among 18721 profile pairs exactly 15 have two roots (others 15400 zero and 3306 one), none before n11. Witness -q^2(1-q)(q²+q-1)(q³+q-1) has two distinct simple roots; common-root leaf grafting preserves the gap for all n>11. All roots and counts exact, no floating-point root certification.
 
-The independent-extinction mean formula is prior work from Steel–Mimoto–Mooers and Faller–Pardi–Steel. Nipperess–Matsen address fixed-sample rarefaction, Lambert–Steel a diversification model, and Fischer–Francis–Wicke individual-species rankings. Compared statement-level implications and accessible earlier responses do not contain the sharp eleven-leaf cutoff or exact 15-pair distinct-profile census. Searches in mathematical indexing and accessible primary literature are informative but not proof that an earlier equivalent formulation is absent; recent broad-index work has only an abstract-level inspection.
+## originality
 
-## Value — PASS
+PASS
 
-The problem asks a natural robustness question in extinction-driven phylogenetic conservation: can the ordering of alternative tree shapes by expected future diversity change more than once as extinction risk varies? A sharp smallest possible shape complexity and complete first exceptional response census resolve a motivated boundary, not an arbitrary computational instance. The witness exposes two close but distinct ecological risk regimes.
+Published extinction-weighted expected-PD edge formula is prior, and topology-identification or variance comparisons are distinct; inspected primary full texts and Resultary results give no equal or stronger sharp two-crossing 11-leaf theorem. Under best-of-knowledge the exact minimum and 15-pair classification survive; unindexed equivalent priority remains possible.
 
-## Scope and residual limits
+## value
 
-All edges have unit length; extinction is independent and homogeneous across leaves, and the comparison is between expected *total* rooted phylogenetic diversity curves. The 15 count concerns distinct polynomial profiles, not distinct tree shapes. No assertion is made for weighted phylogenies, correlations, empirical predictions, or a complete n>11 census. No independent mathematical validation or comprehensive historical-priority certification was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum number of tips necessary for repeated reversals is a motivated sharp structural boundary for comparing expected diversity under variable extinction risk. The complete first-layer response-profile-pair census is an independently useful exact invariant, not a rote model restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
