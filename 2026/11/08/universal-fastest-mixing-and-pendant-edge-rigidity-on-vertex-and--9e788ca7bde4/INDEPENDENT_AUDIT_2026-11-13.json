@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:05:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 30913b4b364342622f8a9479c6b36a43447ad9c3, verifier blob 338cb09a231f987cdf206e8705539e2874cc1ecd",
+        "12 independently assembled corona Markov matrices, spectral checks",
+        "Boyd–Diaconis–Xiao 2004 and Boyd et al. 2007 optimization framework"
+      ],
+      "rationale": "For the Fiedler eigenspace E of the core, vertex transitivity makes its projector diagonal constant and edge transitivity makes the averaged squared core-edge displacement 2k*lambda_2/(nd). Lifting each normalized Fiedler eigenvector to leaves with factor 1+t, t=sqrt(lambda_2/d), gives an averaged positive Laplacian Rayleigh quotient equal to (a/(nD))(2 sum_core_edges w+sum_pendants q) <= a/D=alpha by core stochastic budgets; min-max forces spectral SLEM >=1-alpha even without invariant weights. The explicit p*=(1+r(1+t))/(dD), q*=t(1+t)/D satisfies dp*+rq*=1. The 2x2 Laplacian mode blocks over all base Laplacian eigenvalues attain smallest positive alpha; trace and rho_max<=2d bound the largest Laplacian eigenvalue by 2-alpha, controlling the negative Markov eigenvalues. Equality saturates every core budget and makes every lifted Fiedler vector an alpha-eigenvector; positive Fiedler-projector diagonal forces each individual leaf q to q* even for non-invariant optima. Direct independent full-matrix eigenvalue checks on C4,C5,K4,Petersen for r=1,2,3 agreed numerically. Finite spectra corroborate rather than prove global optimum.",
+      "residual_risks": [
+        "Symmetry of transition matrix, nonnegative entries, stochastic row budgets and both vertex/edge transitivity are essential; no uniqueness for noninvariant core-edge weights is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier 4/5 theorem gives bound and extremizers for r=1 noncomplete vertex/edge-transitive H but not exact optimum for nonmultipartite H nor any r>1.",
+          "Boyd 2004 formulates fastest-mixing spectral-norm SDP on arbitrary graphs, without exact leaf-corona theorem in the inspected main examples."
+        ],
+        "reasoning": "Broader graph-topology admissibility is not broader coverage of an evaluated formula or unrestricted optimizer rigidity. The bound is weaker except in its equality class.",
+        "searches": [
+          "Resultary 2026/10/25 16afafb3a1dc",
+          "Boyd–Diaconis–Xiao 2004"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: fastest mixing Markov chain leaf corona pendant edges vertex edge transitive graph universal SLEM rigidity",
+        "Resultary query: fastest mixing transitive one leaf corona all r private leaves global optimum Fiedler bound",
+        "Boyd et al 2004 complete paper; Boyd et al arXiv:0709.0955 symmetry examples",
+        "Resultary 2026/10/25 16afafb3a1dc and 2026/11/8 2a148a4a1936 full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2007 symmetry theorem guarantees existence of an invariant optimum, but not all non-invariant optimizers having fixed pendant q*. The new equality-case argument imposes rigidity on every optimum.",
+          "Clique-corona result does not imply arbitrary cycles, Petersen core or other edge-transitive examples; 4/5 barrier does not compute their SLEM."
+        ],
+        "reasoning": "New Fiedler-lift dual certificate and equality analysis are necessary for the all-H result. Inspected prior results imply special cases, not the full claim.",
+        "searches": [
+          "Boyd 2004 fastest mixing SDP",
+          "Boyd et al 2007 graph symmetries",
+          "Resultary 16afafb3a1dc; 2a148a4a1936"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The clique-corona source gives the same formula with a=m/(m-1) for H=K_m after translating normalization; this is an exact special case, not independent novelty of that case.",
+          "General fastest-mixing SDP optimization expresses the problem variationally, not an evaluated all-transitive leaf-corona optimum."
+        ],
+        "reasoning": "The source subsumes clique specializations but not vice versa, and a generic SDP characterization without solving those constraints is not the asserted closed-form classification.",
+        "searches": [
+          "arXiv:0709.0955 fastest mixing graphs with symmetries",
+          "Resultary 2026/11/8 2a148a4a1936"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing formulas for clique H and the complete multipartite one-leaf optimum are exact entries on proper subfamilies; the source's a=lambda_2/d is a parameter of arbitrary transitive H."
+        ],
+        "reasoning": "The universal r>=1 all-transitive closed form is not a table lookup from the known special cores and cannot be inferred from the known 4/5 equality value.",
+        "searches": [
+          "Resultary: sharp fastest-mixing weights clique corona pendant clusters 2a148a4a1936",
+          "Resultary: four fifths barrier 16afafb3a1dc"
+        ]
+      },
+      "rationale": "Older general fastest-mixing SDP and symmetry reduction are appropriately credited, but do not state this universal closed-form leaf-corona optimum or force every unrestricted pendant edge equal. Published one-leaf four-fifths barriers address only a sharp bound and equality class for noncomplete cores; published clique-corona formulas are a special H=K_m case. Neither supplies the full H,r formula with non-invariant leaf rigidity. Best-of-knowledge O, with specialist star-mesh literature a residual risk.",
+      "residual_risks": [
+        "Further generic star-mesh consensus papers may hold a similar parameter law; they were not all materially inspected. No priority proof for unindexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_METHOD, NOT_FULL_COVERAGE",
+          "evidence": "General spectral-norm convex optimization and representative graph examples, no asserted all-edge-transitive leaf-corona formula.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Full PDF opening and optimization framework, representative exact graph cases",
+          "method": "Read PDF mathematical formulation; visually inspected first page",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Canonical general SDP framework for identical Markov objective"
+        },
+        {
+          "assessment": "FOUNDATIONAL_PARTIAL, NOT_FULL_COVERAGE",
+          "evidence": "Symmetry averaging gives existence of invariant optimizer but does not prove all unrestricted optimum leaf-edge rigidity.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Accessible HTML full theorem and central examples; searched pendant/corona terms",
+          "method": "Read primary HTML theorem 2.1 and inspected examples",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Automorphism orbit reduction and invariant symmetric chains"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE for r=1 sharp graph-class bound",
+          "evidence": "For noncomplete cores, lower bound 4/5 with equality only balanced multipartite; does not determine exact SLEM on general H or all r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-four-fifths-fastest-mixing-barrier-for-transitive-leaf-c--16afafb3a1dc/RESULT.md",
+          "material_read": "Complete primary RESULT.md proof, extremal classification and limitations",
+          "method": "Read published full GitHub theorem and proof",
+          "title": "A sharp four-fifths fastest-mixing barrier for transitive leaf coronas",
+          "trigger": "Same H symmetry with one private leaf"
+        },
+        {
+          "assessment": "EXACT_SPECIAL_CASE_COVERED",
+          "evidence": "Matches clique values and invariant optimum, but not all transitive H or unrestricted pendant edge rigidity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-fastest-mixing-weights-on-clique-corona-networks-with-pend--2a148a4a1936/RESULT.md",
+          "material_read": "Complete primary RESULT.md with formulas and invariant optimizer",
+          "method": "Read full published proof, algebraically compared a=m/(m-1) specialization",
+          "title": "Sharp fastest-mixing weights on clique-corona networks with pendant clusters",
+          "trigger": "Same leaf-corona with H a clique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao 2004",
+        "Boyd et al. 2007 symmetry optimization",
+        "Resultary 2026/10/25 16afafb3a1dc",
+        "Resultary 2026/11/8 2a148a4a1936"
+      ],
+      "rationale": "An exact fastest-mixing spectral constant for an infinite natural family of leaf-corona graphs, valid against all non-invariant symmetric stochastic kernels, is a meaningful optimization theorem. The new local uniqueness of pendant transitions among all global optima identifies structurally forced conductances; the result extends and sharpens previously known special cores, not just the standard SDP formulation.",
+      "residual_risks": [
+        "The theorem does not optimize nonreversible chains or finite-time total-variation mixing, nor prove all noninvariant core edges unique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every connected finite vertex- and edge-transitive d-regular core H of order n>=3, d>=2, with r>=1 private leaves per core vertex, the minimum SLEM of a symmetric nonnegative stochastic transition matrix supported on its leaf corona is exactly 1-a/[1+r(1+sqrt a)^2], a=lambda_2(L_H)/d. The stated uniform core and leaf edge probabilities attain it, and every unrestricted global optimum has exactly those leaf probabilities and zero core holding.",
+  "limitations": "Requires connected simple vertex- and edge-transitive regular H, symmetric row-stochastic nonnegative kernels; does not assert uniqueness of unrestricted core-edge weights. Small-graph numeric verification not a proof of global optimality.",
+  "schema_version": 1
+}

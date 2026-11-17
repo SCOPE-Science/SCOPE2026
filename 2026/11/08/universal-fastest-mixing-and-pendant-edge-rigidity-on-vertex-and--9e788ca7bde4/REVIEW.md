@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Vertex-transitivity makes the Fiedler-projector diagonal constant and edge-transitivity makes the edge-Fiedler energy constant. The lifted Fiedler-Rayleigh identity yields the universal bound, a direct two-by-two spectrum attains it, and Rayleigh-equality forces saturation of every core row and identifies every pendant-edge probability. All quantifiers, stochastic nonnegativity and negative-end spectral bounds are included. The symbolic and finite verifier is diagnostic, not a substitute for the proof.
+## correctness
 
-**Originality — PASS on inspected evidence, qualified.** General fastest-mixing SDP and group symmetrization are established in Boyd–Diaconis–Xiao (2004) and Boyd–Diaconis–Parrilo–Xiao (2007). The corona Laplacian spectrum is given by Barik–Pati–Sarma (2007), and a multipartite mixing problem is solved by Jafarizadeh (2010). The inspected accessible full texts provide these methods and spectra but not the present global pendant-edge rigidity for all vertex- and edge-transitive cores with arbitrary private-leaf multiplicity. The specialized core examples and their optimal values can be implied by this general statement, and are not independently claimed as new. Relevant equivalent unindexed literature is a residual risk.
+PASS
 
-**Value — PASS.** A complete, uniform spectral design formula for every vertex- and edge-transitive core and every leaf multiplicity replaces graph-by-graph semidefinite optimization. More importantly, the equality case proves exact local transition rigidity of every optimum, including arbitrary non-invariant kernels. The statement identifies which edge probabilities are robustly prescribed by optimality while explicitly leaving possible non-invariant core-edge degeneracy unresolved.
+For the Fiedler eigenspace E of the core, vertex transitivity makes its projector diagonal constant and edge transitivity makes the averaged squared core-edge displacement 2k*lambda_2/(nd). Lifting each normalized Fiedler eigenvector to leaves with factor 1+t, t=sqrt(lambda_2/d), gives an averaged positive Laplacian Rayleigh quotient equal to (a/(nD))(2 sum_core_edges w+sum_pendants q) <= a/D=alpha by core stochastic budgets; min-max forces spectral SLEM >=1-alpha even without invariant weights. The explicit p*=(1+r(1+t))/(dD), q*=t(1+t)/D satisfies dp*+rq*=1. The 2x2 Laplacian mode blocks over all base Laplacian eigenvalues attain smallest positive alpha; trace and rho_max<=2d bound the largest Laplacian eigenvalue by 2-alpha, controlling the negative Markov eigenvalues. Equality saturates every core budget and makes every lifted Fiedler vector an alpha-eigenvector; positive Fiedler-projector diagonal forces each individual leaf q to q* even for non-invariant optima. Direct independent full-matrix eigenvalue checks on C4,C5,K4,Petersen for r=1,2,3 agreed numerically. Finite spectra corroborate rather than prove global optimum.
 
-**Limitations.** Requires both core transitivity hypotheses, reversible uniform-stationary kernels and positive private-leaf multiplicity; arbitrary non-invariant core-edge uniqueness is not proved. The oldest precisely day-verified foundational source date is October 29, 2004; a 2003 technical report exists but its first public day was not verified. An unindexed equivalent theorem cannot be ruled out by search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Older general fastest-mixing SDP and symmetry reduction are appropriately credited, but do not state this universal closed-form leaf-corona optimum or force every unrestricted pendant edge equal. Published one-leaf four-fifths barriers address only a sharp bound and equality class for noncomplete cores; published clique-corona formulas are a special H=K_m case. Neither supplies the full H,r formula with non-invariant leaf rigidity. Best-of-knowledge O, with specialist star-mesh literature a residual risk.
+
+## value
+
+PASS
+
+An exact fastest-mixing spectral constant for an infinite natural family of leaf-corona graphs, valid against all non-invariant symmetric stochastic kernels, is a meaningful optimization theorem. The new local uniqueness of pendant transitions among all global optima identifies structurally forced conductances; the result extends and sharpens previously known special cores, not just the standard SDP formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
