@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T10:56:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The minimum edge dominating sets of size k in K_(2k+1) are exactly near-perfect matchings: k disjoint edges leave one uncovered vertex. A legal replacement attaches its free vertex to an old matched endpoint. In M symmetric-difference N there is a unique alternating path plus disjoint alternating cycles. Path moves each take one flip per old edge, and each nontrivial r-atom cycle requires r+1 (lower potential k-|P cap N|+cycle_count changes by at most one). Atom cycles on r>=2 labeled reference pairs have 2^(r-1)(r-1)! orientations/orderings and one path has 2^r r!, yielding the displayed labeled EGF, correct F0=1 and all k. For k even maximum distance k+k/2 requires only 2-atom cycles, giving (2h)!/h!. For k odd two extremal structures (h pairs of cycles and one-atom path, or one 3-atom cycle and h-1 pairs) give (2h+1)!(4h+6)/(3h!). The n=3/k=1 boundary is 2 antipodes. Independent graph construction/BFS produced k=1..4 profiles (1,2), (1,4,8,2), (1,6,24,54,20), (1,8,48,204,464,208,12); code is supplementary, not all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aichholzer et al. 2025 arXiv:2508.18457 Theorem 4.10, geometric odd matchings crossing-free union; Brenner et al. 2026 arXiv:2607.04687 Theorem 3 Hamilton-connectedness",
+          "Resultary near-perfect-bipartite matching metric record has a different host graph and no odd complete-graph sphere enumerator"
+        ],
+        "reasoning": "Prior distance theorem and Hamilton-connectedness are strong but neither provides per-distance multiplicities or the EGF without new labeled-component enumeration; graph family and invariant distinguished.",
+        "searches": [
+          "Resultary: near perfect matchings complete odd graph flip graph distance sphere polynomial antipodal counts triangular dominating sets",
+          "Resultary: near perfect matching flip graph exact distance distribution odd complete graph",
+          "Web: near perfect matching complete graph flip distance sphere distribution alternating cycles exponential generating function"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, SLOGAN.txt, VERIFICATION.md; verify_graph.py and verify_species.py",
+        "Resultary matching and domination searches listed in originality comparison",
+        "Aichholzer et al. arXiv:2508.18457 Theorem 4.10 relevant primary PDF pages",
+        "Brenner et al. arXiv:2607.04687, Golovach et al. arXiv:1208.5345, Suzuki et al. arXiv:1401.5714 index evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Golovach et al. 2012 arXiv:1208.5345 minimal edge domination enumeration, not exact-minimum one-flip spheres",
+          "Suzuki et al. 2014 arXiv:1401.5714 addition/deletion domination reconfiguration",
+          "Aichholzer et al. arXiv:2508.18457 flip distance, Brenner et al. arXiv:2607.04687 Hamilton-connectedness"
+        ],
+        "reasoning": "Minimum domination and t+c are inherited, but the actual asserted coefficient family and parity antipodal counts require nontrivial counting not implied by the comparison statements.",
+        "searches": [
+          "Resultary: near perfect matchings complete odd graph flip graph distance sphere polynomial antipodal counts triangular dominating sets",
+          "Resultary: near perfect matching flip graph exact distance distribution odd complete graph",
+          "Web: near perfect matching complete graph flip distance sphere distribution alternating cycles exponential generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L(K_(2k+1)) minimum domination sets = near-perfect matchings K_(2k+1); token jumping = token sliding = one-edge flip on this state space",
+          "Aichholzer et al. arXiv:2508.18457 Theorem 4.10 has related flip distance t+c"
+        ],
+        "reasoning": "Graph-theoretic domination phrasing is equivalent to matching flips, so all matching literature must be compared. The known flip metric does not by itself enumerate the complete distance spheres and antipodes.",
+        "searches": [
+          "Resultary: near perfect matchings complete odd graph flip graph distance sphere polynomial antipodal counts triangular dominating sets",
+          "Resultary: near perfect matching flip graph exact distance distribution odd complete graph",
+          "Web: near perfect matching complete graph flip distance sphere distribution alternating cycles exponential generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search exact symbolic EGF exp((1-x^2)z)(1-2xz)^(-1-x/2) and antipode counts: current record only among relevant hits",
+          "BFS output k<=4 supports but cannot establish an infinite coefficient table"
+        ],
+        "reasoning": "No external complete table was identified in searches. Potential unindexed enumerations remain a priority risk. Finite BFS is not a novelty proof.",
+        "searches": [
+          "Resultary: near perfect matchings complete odd graph flip graph distance sphere polynomial antipodal counts triangular dominating sets",
+          "Resultary: near perfect matching flip graph exact distance distribution odd complete graph",
+          "Web: near perfect matching complete graph flip distance sphere distribution alternating cycles exponential generating function"
+        ]
+      },
+      "rationale": "The distance metric t+c and flip connectivity are already accessible through matchings geometry. The final claimed novelty is the full sphere distribution and antipodal counts, whose cycle/path marked exponential formula is not supplied by inspected flip-distance or Hamiltonicity results. Searches returned same current Resultary record and other graph families (e.g. sliding near-perfect bipartite matchings), not an implication-dominating enumeration. This is a bounded best-of-knowledge judgment, not an absolute novelty certificate.",
+      "residual_risks": [
+        "A prior enumeration in an unindexed species/matching table could imply the generating function; no complete proof of absence.",
+        "Independent BFS checked k<=4, not a replacement for the all-k alternating component proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DISTANCE_ONLY",
+          "evidence": "The related distance formula is known, not the full odd complete graph distance-sphere EGF.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.18457",
+          "material_read": "Theorem 4.10 and nearby proof text and relevant geometric-combinatorial restriction",
+          "method": "Primary arXiv PDF text plus page images",
+          "title": "Flipping odd matchings in geometric and combinatorial settings",
+          "trigger": "same odd matching flip metric"
+        },
+        {
+          "assessment": "NO_DECISIVE_SPHERE_COVERAGE",
+          "evidence": "Hamilton-connectedness does not determine sphere cardinalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.04687",
+          "material_read": "Statement and theorem description from indexed arXiv material, not full text",
+          "method": "Open arXiv abstract and indexed theorem references",
+          "title": "Hamilton paths and cycles in flip graphs of (almost-)perfect matchings",
+          "trigger": "same flip graph"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Enumeration of minimal edge dominating sets versus exact nearest-neighbor distance distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.5345",
+          "material_read": "Title, abstract and methods description, not full text",
+          "method": "arXiv record and primary citation",
+          "title": "Generating All Minimal Edge Dominating Sets with Incremental-Polynomial Delay",
+          "trigger": "line graph minimum domination alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distance spheres and farthest-state multiplicities are canonical reconfiguration invariants, genuinely new information beyond connectivity, diameter, and a distance formula. An exact EGF uniformly determines random-pair distances in an infinite natural family and supplies exact sampling/transport benchmarks. The object and exact invariant are intrinsically motivated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md, REVIEW.md, METADATA.json, AUDIT.json, SLOGAN.txt, VERIFICATION.md; verify_graph.py and verify_species.py",
+    "Resultary matching and domination searches listed in originality comparison",
+    "Aichholzer et al. arXiv:2508.18457 Theorem 4.10 relevant primary PDF pages",
+    "Brenner et al. arXiv:2607.04687, Golovach et al. arXiv:1208.5345, Suzuki et al. arXiv:1401.5714 index evidence"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every k>=1 the one-flip reconfiguration graph of minimum dominating sets of L(K_(2k+1)) has complete distance-sphere exponential generating function exp((1-x^2)z)(1-2xz)^(-1-x/2), diameter floor(3k/2), and the claimed parity-specific antipodal multiplicities; the matching distance t+c is prior context.",
+  "limitations": [
+    "A prior enumeration in an unindexed species/matching table could imply the generating function; no complete proof of absence.",
+    "Independent BFS checked k<=4, not a replacement for the all-k alternating component proof."
+  ],
+  "residual_risks": [
+    "A prior enumeration in an unindexed species/matching table could imply the generating function; no complete proof of absence.",
+    "Independent BFS checked k<=4, not a replacement for the all-k alternating component proof."
+  ],
+  "schema_version": 1
+}

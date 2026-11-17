@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For an odd triangular graph, an optimum dominating set is necessarily a near-perfect matching of the underlying complete graph. The shortest-flip potential and constructive alternating-path/cycle correction justify the distance parameter. The labeled component count assigns \(2^{r-1}(r-1)!\) cyclic arrangements on \(r\ge2\) matching edges and \(2^rr!\) rooted-path arrangements on \(r\ge0\) matching edges. Their exponential generating function gives all distance-sphere cardinalities, and the two antipodal formulas follow from the maximal number of two-atom cycles. Exhaustive graph searches and an independent symbolic recurrence reproduce the stated specializations. This is a proof for all integer parameters, not an inference from finite tests.
+PASS
 
-## Originality
+The minimum edge dominating sets of size k in K_(2k+1) are exactly near-perfect matchings: k disjoint edges leave one uncovered vertex. A legal replacement attaches its free vertex to an old matched endpoint. In M symmetric-difference N there is a unique alternating path plus disjoint alternating cycles. Path moves each take one flip per old edge, and each nontrivial r-atom cycle requires r+1 (lower potential k-|P cap N|+cycle_count changes by at most one). Atom cycles on r>=2 labeled reference pairs have 2^(r-1)(r-1)! orientations/orderings and one path has 2^r r!, yielding the displayed labeled EGF, correct F0=1 and all k. For k even maximum distance k+k/2 requires only 2-atom cycles, giving (2h)!/h!. For k odd two extremal structures (h pairs of cycles and one-atom path, or one 3-atom cycle and h-1 pairs) give (2h+1)!(4h+6)/(3h!). The n=3/k=1 boundary is 2 antipodes. Independent graph construction/BFS produced k=1..4 profiles (1,2), (1,4,8,2), (1,6,24,54,20), (1,8,48,204,464,208,12); code is supplementary, not all-k proof.
 
-PASS for the distance-sphere enumerator and antipodal multiplicities only. Golovach et al. enumerate minimal edge dominating sets generally (arXiv:1208.5345), without shortest-path profiles. Suzuki et al. use add/delete reconfiguration under a cardinality cap (arXiv:1401.5714), which is distinct from exact-minimum exchanges. Aichholzer et al. (arXiv:2508.18457, Theorem 4.10) already provide a related alternating-cycle distance formula for a crossing-free geometric union; embedding any union of two complete-graph matchings in a suitable circular ordering shows the bare distance formula is not independently novel. Brenner et al. (arXiv:2607.04687, Theorem 3) prove Hamilton-connectedness of the same one-flip state graph but not the complete distance-sphere polynomial. Searches of published mathematical records and historical claims found no exact sphere-count coverage; unindexed prior tables or equivalent enumerators remain possible. This is a qualified self-review, not an independent priority certificate.
+## originality
 
-## Value
+PASS
 
-PASS. All-pairs distances are a canonical quantitative invariant for local reconfiguration. A single exact exponential generating function resolves the entire distance distribution on an infinite vertex-transitive graph family and yields parity-sensitive counts of farthest configurations. These counts are not contained in the prior general connectivity, diameter-order, or Hamiltonicity statements and are directly useful for studying random-pair transport or benchmarking reconfiguration sampling.
+The distance metric t+c and flip connectivity are already accessible through matchings geometry. The final claimed novelty is the full sphere distribution and antipodal counts, whose cycle/path marked exponential formula is not supplied by inspected flip-distance or Hamiltonicity results. Searches returned same current Resultary record and other graph families (e.g. sliding near-perfect bipartite matchings), not an implication-dominating enumeration. This is a bounded best-of-knowledge judgment, not an absolute novelty certificate.
 
-## Limits and close literature
+## value
 
-The known distance expression is explicitly treated as prior context. The original claim adds the exact sphere enumeration; this claim is limited to complete odd graphs viewed as minimum-dominating-set reconfiguration of their line graphs. The 2012 paper is an enumeration algorithm for minimal (not specifically minimum) dominating sets; the 2025 paper is a broader flip-distance treatment; the 2026 paper is Hamiltonian rather than enumerative. No external independent validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Distance spheres and farthest-state multiplicities are canonical reconfiguration invariants, genuinely new information beyond connectivity, diameter, and a distance formula. An exact EGF uniformly determines random-pair distances in an infinite natural family and supplies exact sampling/transport benchmarks. The object and exact invariant are intrinsically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
