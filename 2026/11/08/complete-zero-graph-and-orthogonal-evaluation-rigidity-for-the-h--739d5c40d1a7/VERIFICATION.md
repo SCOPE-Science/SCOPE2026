@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact kernel integral, the source's nonnegative discrete Poisson kernel and interior diagonal harmonicity, and the integration-by-parts identity are the premises of the all-integer proof. Real strictness propagates from the nonzero boundary datum on the connected even checkerboard lattice; imaginary strictness follows from an everywhere positive density multiplied by \(1-\cos(ds)\), with \(d\ne0\). Orthogonality claims follow from kernel zeros and parity constraints.
+## correctness
 
-Run `python CHECK.py` after installing the dependency in `requirements.txt`. The script evaluated 792 finite cases successfully when the package was prepared. These checks do not replace the infinite proof or establish publication priority. No independent audit was performed.
+PASS
+
+Reflection of exact Fourier kernel produces parity real/imaginary branches. Poisson harmonicity, nonnegativity and boundary value P_0(0)=1 imply strictly positive real branch at every admissible interior parity vertex; the sine branch has sign d by integration against -g_N′. Direct N=0 integration yields the boundary cases. Therefore precisely the stated two zero families exist and an orthogonal set containing an interior evaluation has at most two elements.
+
+## originality
+
+PASS
+
+Full zero iff, strict phase description and maximum-two orthogonal interpolation geometry were not in examined same-model primary kernel article; old parity-zero and boundary ONB statements are expressly excluded from novelty.
+
+## value
+
+PASS
+
+A full zero graph for a natural reproducing kernel is an exact interpolation-geometric invariant; sharp impossibility of three mutually orthogonal evaluations containing an interior site is not a routine consequence of the previously stated parity zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

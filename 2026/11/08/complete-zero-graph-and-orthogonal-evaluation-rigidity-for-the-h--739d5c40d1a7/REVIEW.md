@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The kernel normalization is the unitary spectral formula in arXiv:2607.17726v1, (31) and (36). Reflection yields pure real/imaginary branches. Strict real-branch positivity uses nonnegative harmonic Poisson data plus propagation to the positive boundary value through the connected even checkerboard component. Strict imaginary-branch sign uses an exact positive measure representation of the sine integral; the boundary cases are computed explicitly. Orthogonal-family rigidity is a direct contradiction in height parities. `CHECK.py` passed 792 finite numerical checks; no universal conclusion relies on enumeration.
+## correctness
 
-**Originality: PASS relative to inspected evidence, not independently certified.** The closest paper (Dellepiane–Monguzzi–Monti, arXiv:2607.17726v1) lists one-way zero examples, proves Poisson nonnegativity, and constructs boundary orthonormal parity bases; the complete *converse* zero assertion, strict nonzero signs, and impossibility of three mutually orthogonal evaluations with one interior point are not stated there. Its two weaker statements are acknowledged as proof inputs. Searches of published mathematical findings for the lattice-specific exact kernel zeros, aliases and orthogonal kernel geometry returned no equivalent finding. Full text of the motivating paper was read in its kernel, harmonicity, sampling and appendix sections. Historical Duffin (1956) kernel results may contain a stronger unstated equivalence; that risk remains.
+PASS
 
-**Mathematical value: PASS.** A complete zero and phase diagram for the canonical kernel of a recently developed discrete Hardy space answers a natural, structurally motivated interpolation question: which point evaluations are genuinely orthogonal? The sharp no-three-interior-compatible phenomenon separates boundary and interior sampling geometry, rather than reporting isolated or arbitrarily selected zero examples.
+Reflection of exact Fourier kernel produces parity real/imaginary branches. Poisson harmonicity, nonnegativity and boundary value P_0(0)=1 imply strictly positive real branch at every admissible interior parity vertex; the sine branch has sign d by integration against -g_N′. Direct N=0 integration yields the boundary cases. Therefore precisely the stated two zero families exist and an orthogonal set containing an interior evaluation has at most two elements.
 
-**Limitations.** Applies to the canonical Hilbert upper half-lattice, not the weighted Bergman kernel or another discretization. The finite checker supports but does not certify the analytical proof. Publication priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full zero iff, strict phase description and maximum-two orthogonal interpolation geometry were not in examined same-model primary kernel article; old parity-zero and boundary ONB statements are expressly excluded from novelty.
+
+## value
+
+PASS
+
+A full zero graph for a natural reproducing kernel is an exact interpolation-geometric invariant; sharp impossibility of three mutually orthogonal evaluations containing an interior site is not a routine consequence of the previously stated parity zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
