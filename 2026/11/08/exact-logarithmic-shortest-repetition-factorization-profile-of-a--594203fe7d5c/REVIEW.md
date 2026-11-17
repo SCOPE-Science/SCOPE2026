@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The digit-length formula gives runs of lengths \(2^j\). The proof treats both possible run counts of a square root (two versus at least three), including boundary truncation, and excludes every nonmonochromatic square. The period-prefix argument excludes nonmonochromatic fractional repetitions. This yields the exact shortest factorization criterion. The length lower bound and explicit witnesses cover every integer \(L\ge2\), including \(L=2,3\) and the upper endpoint \(2^{k+1}-1\) of each dyadic range. The included checker confirms 31,063 finite cases, but all quantifiers rely on the proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+PASS: automaticity follows by checking input digit-length parity and all-ones flag. Strictly increasing monochromatic run sizes forbid any nonconstant square; any repetition with period <=half length is therefore constant. Width is the number of runs when every intersection has length>=2. Counting full intervening doubling runs yields L>=2^r, and explicit constructions realize exactly r=floor(log2 L) for every integer L>=2. Independent bounded dynamic programming on actual digit-length word confirms the formula and factorability cases.
 
-The main comparable source, Shallit and Xu, arXiv:2311.14961v2, was inspected through its results, proofs and open-problem section. Its Theorem 1 constructs automata for fixed bounded factorization width; its Thue–Morse, Fibonacci and paperfolding conclusions are bounded shortest-width examples; its Rudin–Shapiro theorem is about unbounded *longest* widths. None states or logically entails the exact logarithmic *shortest*-width envelope for this different automatic word. Search queries targeting binary-length parity, increasing runs, nonmonochromatic squares, and unbounded shortest factorization widths found no exact equivalent in the inspected records. Inoue et al. (2022) prove finite-string algorithms; only their abstract could be examined, and expanded journal coverage is not fully excluded. Results from mathematical records with superficially similar logarithmic formulas concern different invariants such as string attractors.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper's distinction between bounded shortest widths and unbounded longest widths motivates seeking a simple automatic sequence with unbounded *shortest* widths. The theorem supplies not merely an example but the full optimal-length profile for every factor length. The structural no-nonmonochromatic-repetition lemma explains the result and establishes a useful run-factorization principle; this is not a finite table, arbitrary parameter slice or renaming of a source result.
+PASS best-of-knowledge: general repetition-factorization algorithms and other automatic-word case studies, notably period-doubling, do not imply this all-length exact profile for the length-parity word.
 
-## Limitations and prior comparison
+## value
 
-The theorem does not solve the unrestricted decidability problem or claim anything about regularity, minimality or uniform recurrence of the sequence. The 2024 journal version of the guiding paper and the 2022 finite-string algorithm paper were not available for full-text comparison; equivalent unindexed work may exist. Exact proof rather than numerical extrapolation supports correctness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: provides a natural explicit binary automatic sequence with unbounded shortest widths and an exact logarithmic growth profile, separating a specific minimum-width statistic from formerly studied bounded cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

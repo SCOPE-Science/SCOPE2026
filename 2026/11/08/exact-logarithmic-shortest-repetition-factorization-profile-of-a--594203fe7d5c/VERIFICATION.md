@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library only. The verifier constructs \(w(n)\) from \(\lfloor\log_2(n+1)\rfloor\bmod 2\), checks every candidate square with starts below 320 and half-length at most 80 in the generated finite prefix, tests independent minimum-factorization dynamic programming for 4,440 short factors, and verifies the explicit length-wise witnesses for \(2\le L\le1024\). The observed result was `VERIFY_OK checks= 31063 max_length= 1024 dp_factors= 4440`.
+## correctness
 
-The numerical test is finite and cannot establish the universal statement. The published proof uses the strict growth of all ambient run lengths and an explicit algebraic covering of every positive length class; no external theorem prover or independent human audit is claimed.
+PASS
+
+PASS: automaticity follows by checking input digit-length parity and all-ones flag. Strictly increasing monochromatic run sizes forbid any nonconstant square; any repetition with period <=half length is therefore constant. Width is the number of runs when every intersection has length>=2. Counting full intervening doubling runs yields L>=2^r, and explicit constructions realize exactly r=floor(log2 L) for every integer L>=2. Independent bounded dynamic programming on actual digit-length word confirms the formula and factorability cases.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: general repetition-factorization algorithms and other automatic-word case studies, notably period-doubling, do not imply this all-length exact profile for the length-parity word.
+
+## value
+
+PASS
+
+PASS: provides a natural explicit binary automatic sequence with unbounded shortest widths and an exact logarithmic growth profile, separating a specific minimum-width statistic from formerly studied bounded cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
