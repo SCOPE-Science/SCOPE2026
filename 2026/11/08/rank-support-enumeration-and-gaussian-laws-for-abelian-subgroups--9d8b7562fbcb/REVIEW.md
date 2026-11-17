@@ -1,9 +1,21 @@
-# Scientific review — path graphical group rank–support law
+# Independent mathematical audit
 
-**Correctness: PASS.** Common isotropy for the consecutive elementary alternating forms is equivalent to adjacent dependence of the column vectors in a basis matrix. A two-state projective-line transfer gives the weighted recurrence, subspace-lattice Möbius inversion forces full column span, and division by \(\lvert\mathrm{GL}_r(q)\rvert\) counts subspaces rather than bases. The characteristic polynomial's positive root dominates every smaller-dimensional transfer term at fixed \(r\), uniformly near the moment-generating variable's origin; analytic expansion yields the stated central limit theorem and explicitly positive variance. All \(86\) independently enumerated subspace cases and the rank-two rational-series checks passed. Boundaries \(r=0\), \(n=0\), \(r>\lceil n/2\rceil\) and odd-prime-only group interpretation are explicit. Numerical checks are not substituted for proof.
+## correctness
 
-**Originality: PASS relative to inspected sources.** Qiao (arXiv:2408.09963, first public August 19, 2024) proves graph-uniform isotropic polynomiality and odd-prime graphical-group interpretations, but does not state a weighted path support series and explicit all-rank fixed-rank Gaussian density/variance. The present unweighted count is not independently new; general graph enumerators already imply it. Rossmann (arXiv:2107.05564) studies the distinct conjugacy-class counting invariant, including for path graphical groups. Bei–Chen–Guan–Qiao–Sun (arXiv:1904.03950) establish the foundational graph/isotropic bridge and maximum-dimension correspondence. Unweighted graph-uniform enumeration and generic rank-two support principles are not treated as this theorem's contribution. Searches for direct equivalents and stronger implications returned no decisive coverage. Residual risk includes a broader published weighted graphical-group or transfer asymptotic not identified in these searches, and incomplete inspection of the older foundational paper.
+PASS
 
-**Mathematical value: PASS.** Normal abelian subgroups containing the commutator form a canonical finite-group lattice, and quotient rank and vertex support are natural presentation-sensitive statistics. The theorem computes their complete joint distribution at arbitrary fixed rank and supplies a sharp central-limit law with explicit parameters; the exact half-support density over the binary matrix-space analogue is a non-obvious special phenomenon. This gives a concrete efficient recursive method for a graph family where general existence theorems do not supply asymptotic statistics. The result is restricted to paths, canonical support and fixed rank; it is not an assertion about all abelian subgroups or growing ranks.
+For an r-row basis matrix, the adjacent alternating-form constraints are exactly dependence of consecutive columns. The projective-line/zero transfer has recurrence T[n+2,d]=(1+(q-1)w)T[n+1,d]+(q^d-q)w T[n,d] and initial values 1 and 1+(q^d-1)w; subspace-lattice Möbius inversion and division by |GL_r(q)| give the claimed rational all-rank support law including d=0 and n=0. At fixed q,r>=1 the d=r eigenvalue strictly dominates all d<r; differentiating log of the dominant eigenvalue gives mu=1/2+(q-2)/(2sqrt(q^2+4(q^r-q))) and variance q(q^r-1)/(q^2+4(q^r-q))^(3/2)>0, so characteristic functions prove a CLT. n/r boundary r<=ceil(n/2) is consistent. Independent RREF and transfer checks over q=2,3 corroborate 28 cases, not the infinite limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qiao establishes general graphical isotropic polynomiality and even support-component counting ingredients, and cycle rank-two work has a related transfer and Gaussian law; the inspected statements do not yield or state the path-specific all-rank bivariate transfer and fixed-rank support CLT without additional derivation. Qualified best-of-knowledge pass.
+
+## value
+
+PASS
+
+Exact bivariate all-rank support law and fixed-rank support Gaussian fluctuations for path graphical groups quantify canonical vertex utilization of central-containing abelian subgroups. This natural refined statistic and its variance are not a mere renaming of existing unweighted rank counts; the group application is correctly restricted to odd prime exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

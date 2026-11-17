@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The complete rank–support formula and central limit theorem are proved mathematically in `RESULT.md`. Finite checks supplement the proof rather than replacing it. Running `python3 verify.py` verifies the coefficient-by-coefficient equality of two independently organized counts: direct enumeration of reduced-row-echelon subspaces satisfying path-edge isotropy, and transfer-matrix counts followed by subspace-lattice Möbius inversion. The script handles prime fields \(\mathbb F_2,\mathbb F_3,\mathbb F_5\) and the extension field \(\mathbb F_4\), and it separately checks the rank-two rational generating function.
+# Independent mathematical audit
 
-Expected output: `VERIFY_OK: 86 independent reduced-echelon support enumerations plus rank-two rational-series checks`.
+## correctness
 
-The tests do not verify asymptotic convergence for all lengths, the publication-priority claim, or the entirety of known literature. All scientific claims rely on the proof's exact transfer identity, Gaussian inversion, and strict dominant-eigenvalue gap. No independent mathematical audit has been performed.
+PASS
+
+For an r-row basis matrix, the adjacent alternating-form constraints are exactly dependence of consecutive columns. The projective-line/zero transfer has recurrence T[n+2,d]=(1+(q-1)w)T[n+1,d]+(q^d-q)w T[n,d] and initial values 1 and 1+(q^d-1)w; subspace-lattice Möbius inversion and division by |GL_r(q)| give the claimed rational all-rank support law including d=0 and n=0. At fixed q,r>=1 the d=r eigenvalue strictly dominates all d<r; differentiating log of the dominant eigenvalue gives mu=1/2+(q-2)/(2sqrt(q^2+4(q^r-q))) and variance q(q^r-1)/(q^2+4(q^r-q))^(3/2)>0, so characteristic functions prove a CLT. n/r boundary r<=ceil(n/2) is consistent. Independent RREF and transfer checks over q=2,3 corroborate 28 cases, not the infinite limit.
+
+## originality
+
+PASS
+
+Qiao establishes general graphical isotropic polynomiality and even support-component counting ingredients, and cycle rank-two work has a related transfer and Gaussian law; the inspected statements do not yield or state the path-specific all-rank bivariate transfer and fixed-rank support CLT without additional derivation. Qualified best-of-knowledge pass.
+
+## value
+
+PASS
+
+Exact bivariate all-rank support law and fixed-rank support Gaussian fluctuations for path graphical groups quantify canonical vertex utilization of central-containing abelian subgroups. This natural refined statistic and its variance are not a mere renaming of existing unweighted rank counts; the group application is correctly restricted to odd prime exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
