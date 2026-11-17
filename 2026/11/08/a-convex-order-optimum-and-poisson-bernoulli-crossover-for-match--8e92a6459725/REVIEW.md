@@ -1,15 +1,21 @@
-# Scientific review: matching-weighted bipartite spanning-tree degrees
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite weighted root-degree polynomial follows by applying the weighted matrix-tree theorem to the displayed block Laplacian cofactor, diagonalizing its \((n-2)\)-dimensional zero-sum sector, and explicitly evaluating the remaining \(2\times2\) determinant. This gives independent binomial and Bernoulli factors with valid probabilities for every \(n\ge3\) and \(t>0\). The exact parameter derivatives and discrete second-difference formula prove both convex-order monotonicities; positive binomial zero-mass gives strict leaf optimization. The local scaling limit follows from binomial-to-Poisson convergence. The standalone exact-rational checker reconstructed relevant cofactors and finite laws and returned `VERIFY_OK 212 exact rational assertions`. It is supplementary to the analytic proof.
+## correctness
 
-## Originality
-**PASS, with a historical-priority risk.** A general Gibbs spanning-tree degree-polynomial framework appears in Fita Sanmartín, Schnörr and Hamprecht (2024, arXiv:2409.13472); Rapoport (2023, arXiv:2312.14992) supplies unweighted degree-field formulas; Klee and Stamps (2020, arXiv:2008.01669, Proposition 8) treat the Laplacian of the complete bipartite graph after deletion of a perfect matching. Those frameworks and the matrix-tree theorem are prior work. The claimed addition is the explicit all-positive-weight, one-parameter **convex-order classification** and the scale-\(n\) local Poisson–Bernoulli crossover. The inspected results do not state those comparative conclusions for the matching-weighted graph. General determinant and Bernoulli-balancing principles make the result approachable, and unlocated earlier specializations remain a residual risk; no priority certification is claimed.
+PASS
 
-## Value
-**PASS.** The parameter is a natural conductance bias toward one fixed perfect matching. The theorem shows that despite a weight-independent local mean degree, the full local degree distribution has a unique and sharp convex-order maximum at unbiased weights, implying simultaneous variance and leaf-optimality. The exact scale-\(n\) crossover detects a changed limiting local law and leaf density rather than an arbitrary numerical instance. It is a finite-graph structural and probabilistic classification, not merely a computation of a generic determinant.
+The pinned RESULT.md specifies n>=3, t>0, equal diagonal conductance, ordinary degree and only one-vertex marginals. Root-edge marking in the weighted Matrix–Tree cofactor gives Z_n(t;z)=(n−1+t)z[d+(n−1+t)z]^(n−2)(n−2+t+tz), d=n²−3n+1+(2n−1)t. At z=1, d+n−1+t=n(n−2+2t), so the pgf factors with p=(n−1+t)/[n(n−2+2t)] and q=t/(n−2+2t). A derivative in t of the convex expectation equals −(n−2)(n−1)(t−1)EΔ²φ(1+Bin(n−3,p))/[n(n−2+2t)^3]; strict for strictly convex φ and for the leaf-test φ(j)=(2−j)+ since p<1. Its moment deficit equals (n−2)(n−1)(t−1)²/[n²(n−2+2t)²]. Binomial pgf convergence at t_n/n→c∈[0,∞], including ∞, proves the independent limit and 2u e^(−u) leaves. Independently recomputed nine rational weighted-Laplacian cofactors against factorization, at multiple n,t,z. Finite checks corroborate but do not extend the symbolic proof.
 
-## Limitations
-Only the single-vertex degree law and expected total leaves are treated, not their joint distributions. Results are for shared matching conductance, not independent weight vectors. Infinite-size limits concern the local marginal; uniform rates and higher-dimensional extensions are not claimed. An independent external audit and exhaustive historical-priority check are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty-bearing assertions are a whole-family convex-order classification and an order-n fugacity crossover, not the classical weighted determinant formula. The source's identical public Resultary mirror is not an independent earlier discovery. Inspected weighted-degree and unweighted-degree originals do not state or directly specialize to these evaluated K_n,n claims; best-of-knowledge passes with acknowledged priority risk.
+
+## value
+
+PASS
+
+A one-parameter matching perturbation of an extremely symmetric graph has a sharp, nontrivial convex-order and leaf-count extremum at uniform conductance; the order-n conductance window produces a distinctive non-Poisson degree law even with fixed mean. These are natural graph-probability features, not an arbitrary tiny numerical check, and can support weighted tree asymptotic studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

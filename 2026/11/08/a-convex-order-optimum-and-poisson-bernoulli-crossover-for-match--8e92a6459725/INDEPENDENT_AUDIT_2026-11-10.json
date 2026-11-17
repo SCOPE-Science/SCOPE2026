@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T04:42:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned RESULT.md specifies n>=3, t>0, equal diagonal conductance, ordinary degree and only one-vertex marginals. Root-edge marking in the weighted Matrix–Tree cofactor gives Z_n(t;z)=(n−1+t)z[d+(n−1+t)z]^(n−2)(n−2+t+tz), d=n²−3n+1+(2n−1)t. At z=1, d+n−1+t=n(n−2+2t), so the pgf factors with p=(n−1+t)/[n(n−2+2t)] and q=t/(n−2+2t). A derivative in t of the convex expectation equals −(n−2)(n−1)(t−1)EΔ²φ(1+Bin(n−3,p))/[n(n−2+2t)^3]; strict for strictly convex φ and for the leaf-test φ(j)=(2−j)+ since p<1. Its moment deficit equals (n−2)(n−1)(t−1)²/[n²(n−2+2t)²]. Binomial pgf convergence at t_n/n→c∈[0,∞], including ∞, proves the independent limit and 2u e^(−u) leaves. Independently recomputed nine rational weighted-Laplacian cofactors against factorization, at multiple n,t,z. Finite checks corroborate but do not extend the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General degree-cofactor method applies to arbitrary weighted graphs",
+          "Klee–Stamps Proposition 8 treats K_n,n with matching deleted, t=0"
+        ],
+        "reasoning": "General cofactor and crown spectral results provide techniques/boundary cases but do not already assert the all-positive-t convex order, unique leaf maximum and t~n crossover. The comparisons use conclusions, not just the graph name.",
+        "searches": [
+          "weighted spanning tree K_n,n perfect matching conductance degree distribution convex order Bernoulli binomial Poisson crossover leaf",
+          "arxiv:2409.13472v2",
+          "arxiv:2008.01669v1"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2409.13472v2",
+        "arxiv:2312.14992v1",
+        "arxiv:2008.01669v1",
+        "weighted spanning tree K_n,n perfect matching conductance degree distribution convex order Bernoulli binomial Poisson crossover leaf",
+        "Resultary: exact-poisson-binomial-rook-tree-degrees-and-sharp-fixed-degree--3c7b2d864a45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 general determinant does not give evaluated parameters p(n,t),q(n,t)",
+          "The 2020 crown spectrum concerns the t=0 boundary only"
+        ],
+        "reasoning": "Prior machinery can recompute the result after performing substantial graph-specific factorization and parameter analysis, but its stated theorem does not logically deliver the claimed strict monotonicity and scaling classification without that work.",
+        "searches": [
+          "weighted spanning tree K_n,n perfect matching conductance degree distribution convex order Bernoulli binomial Poisson crossover leaf",
+          "https://arxiv.org/html/2409.13472v2",
+          "https://arxiv.org/pdf/2008.01669"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fita Sanmartín–Schnörr–Hamprecht 2024 §§3–4: general weighted-degree generating cofactor",
+          "Rapoport 2023 §3.2: unweighted UST degree fields"
+        ],
+        "reasoning": "Degree pgf and Matrix–Tree cofactor are equivalent ways to write weighted tree sums. A formula for a general unreduced determinant is not the explicit Bernoulli factorization plus parameter derivative and crossover of this instance.",
+        "searches": [
+          "weighted spanning tree K_n,n perfect matching conductance degree distribution convex order Bernoulli binomial Poisson crossover leaf",
+          "arxiv:2409.13472v2",
+          "arxiv:2312.14992v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-11-08 rook-graph rooted degrees are binomial/Bernoulli on a Cartesian-product host",
+          "Resultary same finding mirror excluded from competing prior"
+        ],
+        "reasoning": "Rook-graph degrees and prior K_n,n conditional-degree studies concern distinct weighted objects; neither supplies a table or exact familywise distribution for matching-weighted K_n,n. Search nonexhaustiveness remains a risk.",
+        "searches": [
+          "weighted spanning tree K_n,n perfect matching conductance degree distribution convex order Bernoulli binomial Poisson crossover leaf",
+          "Resultary: exact-poisson-binomial-rook-tree-degrees-and-sharp-fixed-degree--3c7b2d864a45"
+        ]
+      },
+      "rationale": "The novelty-bearing assertions are a whole-family convex-order classification and an order-n fugacity crossover, not the classical weighted determinant formula. The source's identical public Resultary mirror is not an independent earlier discovery. Inspected weighted-degree and unweighted-degree originals do not state or directly specialize to these evaluated K_n,n claims; best-of-knowledge passes with acknowledged priority risk.",
+      "residual_risks": [
+        "Potential unindexed diagonal-fugacity K_n,n exact degree enumeration or an implicit specialization under another term remains unchecked.",
+        "General matrix-tree formula supplies a derivation method, so the origin of the exact specialization deserves historical checking."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General weighted degree determinant is established, not the present evaluated K_n,n fugacity law and convex order",
+          "evidence": [
+            "arxiv:2409.13472v2 §§3–4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.13472v2",
+          "material_read": "Introduction and weighted-degree polynomial derivation in §§3–4, plus applicable discussion in §5",
+          "method": "Read accessible arXiv HTML primary theorem and formulas",
+          "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+          "trigger": "An arbitrary weighted degree-cofactor theorem could dominate the claim"
+        },
+        {
+          "assessment": "No diagonal matching conductance or Poisson–Bernoulli order-n crossover asserted",
+          "evidence": [
+            "arxiv:2312.14992v1 §§3.2,4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.14992v1",
+          "material_read": "Sections 3.2 and 4 on unweighted degree fields and complete graph",
+          "method": "Read arXiv HTML portions including displayed formulas",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "General UST degree laws might give equivalent law"
+        },
+        {
+          "assessment": "Covers t=0 crown spectrum; no weighted positive-t vertex-degree order claim",
+          "evidence": [
+            "arxiv:2008.01669v1 Proposition 8"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.01669",
+          "material_read": "Proposition 8 and its surrounding crown-graph discussion",
+          "method": "Read rendered arXiv PDF relevant pages and accompanying text",
+          "title": "Eigenvalues of graph Laplacians via rank-one perturbations",
+          "trigger": "The matching-deleted K_n,n boundary may contain spectral information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-parameter matching perturbation of an extremely symmetric graph has a sharp, nontrivial convex-order and leaf-count extremum at uniform conductance; the order-n conductance window produces a distinctive non-Poisson degree law even with fixed mean. These are natural graph-probability features, not an arbitrary tiny numerical check, and can support weighted tree asymptotic studies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3 and t>0, one marked vertex of the matching-weighted K_n,n Gibbs spanning tree has degree 1+Bin(n−2,p(n,t))+Bernoulli(q(n,t)) independently; the law is uniquely convex-order-maximal at t=1, expected leaves uniquely maximize there, and t_n/n→c yields an explicit Poisson–Bernoulli crossover and leaf-density limit.",
+  "limitations": [
+    "Only common conductance along one perfect matching, not arbitrary inhomogeneous edge weights.",
+    "Only vertex degree marginal and expected leaves, no joint correlations or convergence rates.",
+    "All-n result from analytic cofactor and derivative, not finite cofactor spot checks."
+  ],
+  "schema_version": 1
+}
