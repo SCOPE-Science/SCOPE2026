@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T22:10:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With u=sqrt(d), independent symbolic differentiation confirms 2sqrt(z)(1-u²z⁴)²F'(z)=Σ_{k=0}^3 a_k G_k(z). The strictly increasing h(z)=z/(1-z)-1/2-4u²z⁴/(1-u²z⁴) orders the four G_k zero crossings. The polynomial Wronskians -W(G0+uG2,G3), -W(G1,G3), -W(G2,G3) factor as stated; Q13,Q23 have positive u=1 lower bounds, and Q_A is strictly concave in u with positive endpoint bounds. For b≥u, -W(G0+aG1+bG2,G3)>0, hence H/G3 decreases from +infinity to -infinity on (0,r3), producing exactly one zero and hence a strict interior maximum. Four independent exact rational derivative-sign checks at z=1/2,3/5,3/4,9/10 give +,-,+,- for (d,a,b,c)=(49/50,1/1000,1/1000,73/100), hence at least three distinct critical points. The universal proof is analytic; the symbolic checks only corroborate identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier three-critical-point ceiling asserts <=3 roots for any positive a,b,c,d but neither excludes 3 when b>=sqrt(d) nor provides monotonic Wronskian ratios in that cone. The response-transition theorem addresses only b=sqrt(d)."
+        ],
+        "reasoning": "A global ceiling is weaker than an exactly-one-root guarantee on the stated cone; no logical implication of the sufficient condition.",
+        "searches": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-sharp-three-critical-point-ceiling-for-four-periodic-geometric--5b56907f7ca9/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/01/a-sharp-modulation-response-transition-for-four-periodic-geometr--758843895f92/RESULT.md",
+          "https://arxiv.org/abs/2608.17486"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.17486",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-sharp-three-critical-point-ceiling-for-four-periodic-geometric--5b56907f7ca9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/01/a-sharp-modulation-response-transition-for-four-periodic-geometr--758843895f92/RESULT.md",
+        "https://www.trureturing.org/research/ghosh-birbonshi-ojha-2026-weighted-shift-root-uniqueness/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior restricted profile uniqueness: b=sqrt(d). Prior full family: number of critical points <=3, witness attains 3. New result: b>=sqrt(d) forces exactly 1 via Q_A,Q13,Q23 positive Wronskian."
+        ],
+        "reasoning": "Neither prior statement supplies the inequality b>=sqrt(d) as a sufficient uniqueness condition over the independent-middle-parameter family. The overlapping witness is credited as known.",
+        "searches": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-sharp-three-critical-point-ceiling-for-four-periodic-geometric--5b56907f7ca9/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/01/a-sharp-modulation-response-transition-for-four-periodic-geometr--758843895f92/RESULT.md",
+          "https://arxiv.org/abs/2608.17486"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Birbonshi–Ojha use weights (1,sq,q²,tq³,q⁴,...), equivalent to b=q²=sqrt(d), while the assigned free b>=sqrt(d) cone allows independent variation."
+        ],
+        "reasoning": "Earlier restricted optimizer uniqueness proves only the boundary b=sqrt(d), not b>sqrt(d) for arbitrary a,c; same-object normalization and parameter map checked.",
+        "searches": [
+          "Resultary query: four block geometrically decaying weighted shift geometric trial vector critical points unimodality b >= sqrt(d)",
+          "https://arxiv.org/abs/2608.17486",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/01/a-sharp-modulation-response-transition-for-four-periodic-geometr--758843895f92/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The precise rational positive three-critical-point witness a=b=1/1000,c=73/100,d=49/50 is also in the earlier ceiling record; the witness is therefore already known."
+        ],
+        "reasoning": "The new value and originality rest on the free-parameter sufficient cone; reusing an earlier exact witness does not supply independent new quantitative data.",
+        "searches": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-sharp-three-critical-point-ceiling-for-four-periodic-geometric--5b56907f7ca9/RESULT.md",
+          "Resultary query: four block geometrically decaying weighted shift geometric trial vector critical points unimodality b >= sqrt(d)"
+        ]
+      },
+      "rationale": "The effective new statement is the free-middle-coefficient sufficient cone b>=sqrt(d), not previously known uniqueness for b=sqrt(d), together with analytically demonstrated non-unimodality when unconstrained. A published all-four-parameter three-zero ceiling reuses the same positive witness and removes novelty from that particular witness, but does not imply that all b>=sqrt(d) produce exactly one critical point. No inspected earlier covering theorem for the cone was found. This is best-of-knowledge, with a possible general total-positivity criterion remaining a risk.",
+      "residual_risks": [
+        "Published global three-critical-point ceiling already contains the assigned counterexample; that datum is not novel.",
+        "A general ratio-of-positive-polynomials/total-positivity uniqueness result may subsume the analytic cone; not ruled out by bounded searches.",
+        "Full first arXiv preprint not directly read; publication priority only best-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Proves <=3 roots and same 3-root witness; explicitly mentions but does not derive b>=sqrt(d) cone.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-sharp-three-critical-point-ceiling-for-four-periodic-geometric--5b56907f7ca9/RESULT.md",
+          "material_read": "Entire full pinned RESULT.md including Descartes proof, exact witness, and comparisons",
+          "method": "GitHub pinned full RESULT.md",
+          "title": "A sharp three-critical-point ceiling for four-periodic geometric shift tests",
+          "trigger": "Same complete test function and potential stronger coverage"
+        },
+        {
+          "assessment": "BOUNDARY_SUBFAMILY",
+          "evidence": "Only b=sqrt(d); classifies parameter-response not enlarged uniqueness cone.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/01/a-sharp-modulation-response-transition-for-four-periodic-geometr--758843895f92/RESULT.md",
+          "material_read": "Full RESULT.md proof/parameterization including b=q² and d=q⁴",
+          "method": "GitHub pinned full RESULT.md",
+          "title": "A sharp modulation-response transition for four-periodic geometric weighted-shift tests",
+          "trigger": "Prior unique optimizer for related period-four profile"
+        },
+        {
+          "assessment": "PARTIAL_SOURCE_INSPECTION",
+          "evidence": "Weights fixed to (1,sq,q²,tq³,q⁴,...) and initial uniqueness only limited regions; full text access not claimed.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17486",
+          "material_read": "Arxiv paper abstract and detailed indexed topic digest on weights, geometric bound, uniqueness open question and limitations; paper PDF full text not directly read this run",
+          "method": "arxiv abstract and indexed extended paper digest",
+          "title": "On the numerical radius of a class of weighted shift operators",
+          "trigger": "Origin of natural four-periodic geometric trial bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The geometric trial bound is a natural computable proxy for the numerical radius of a compact four-block shift. A nontrivial explicit sufficient uniqueness cone and a strictly positive counterexample outside it delimit optimizer geometry and rule out universal unimodality. It does not claim a sharp boundary or the operator numerical radius, but the analytic transition and obstruction have substantive standalone value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2608.17486",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-sharp-three-critical-point-ceiling-for-four-periodic-geometric--5b56907f7ca9/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/01/a-sharp-modulation-response-transition-for-four-periodic-geometr--758843895f92/RESULT.md",
+    "https://www.trureturing.org/research/ghosh-birbonshi-ojha-2026-weighted-shift-root-uniqueness/"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Geometric-vector lower bound, not exact numerical radius; b>=sqrt(d) only sufficient; witness not new; best-knowledge originality.",
+    "External bibliographic priority remains conditional except for directly covering earlier frozen full results."
+  ],
+  "residual_risks": [
+    "Published global three-critical-point ceiling already contains the assigned counterexample; that datum is not novel.",
+    "A general ratio-of-positive-polynomials/total-positivity uniqueness result may subsume the analytic cone; not ruled out by bounded searches.",
+    "Full first arXiv preprint not directly read; publication priority only best-knowledge."
+  ],
+  "schema_version": 1
+}

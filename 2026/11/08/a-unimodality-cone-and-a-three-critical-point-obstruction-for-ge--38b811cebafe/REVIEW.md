@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivative and Wronskian formulas were independently expanded in exact symbolic arithmetic from the stated general four-block weights. The universal sign argument uses only strict elementary inequalities and a concavity interpolation, not a finite grid. Monotonicity of the auxiliary shift function orders all four component roots; the Wronskian ratio decreases through every real value, proving uniqueness. The positive rational counterexample is certified by four exact values with alternating signs. The theorem addresses the lower-bound trial function, not the exact operator radius.
+## correctness
 
-## Originality — PASS, bounded best-knowledge assessment
-The 2026 initiating paper fixes the middle coefficient and block scale by one geometric parameter. Its unrestricted scalar root question was separately solved in a public later result; that established special case is acknowledged and is not the new contribution. The final theorem permits independent four-block parameters over an entire sufficient cone and establishes a strictly positive counterexample outside it. Neither the original paper nor the inspected scalar resolution states or implies this cone-wide theorem: one-dimensional specialization cannot establish a free middle parameter, and the separate exact counterexample is absent. Older two-period and geometric-weight papers have narrower weight patterns. Relevant mathematical-result and historical-claim searches did not identify an equivalent or broader coverage result. General ratio-unimodality literature remains a priority risk.
+PASS
 
-## Value — PASS
-The recent paper's optimization question motivates which geometric trial lower bounds have a unique optimum. The independent middle-block weight is the first natural perturbation of the geometric four-cycle. The theorem identifies a robust, infinite-dimensional weighted-shift family where uniqueness survives; the rational obstruction proves that positivity and geometric block decay alone cannot ensure it. This is a structural parameter boundary for the very quantity used to estimate the numerical radius, rather than a cosmetic reparameterization or merely a numerical check. The sufficient condition is not claimed optimal.
+With u=sqrt(d), independent symbolic differentiation confirms 2sqrt(z)(1-u²z⁴)²F'(z)=Σ_{k=0}^3 a_k G_k(z). The strictly increasing h(z)=z/(1-z)-1/2-4u²z⁴/(1-u²z⁴) orders the four G_k zero crossings. The polynomial Wronskians -W(G0+uG2,G3), -W(G1,G3), -W(G2,G3) factor as stated; Q13,Q23 have positive u=1 lower bounds, and Q_A is strictly concave in u with positive endpoint bounds. For b≥u, -W(G0+aG1+bG2,G3)>0, hence H/G3 decreases from +infinity to -infinity on (0,r3), producing exactly one zero and hence a strict interior maximum. Four independent exact rational derivative-sign checks at z=1/2,3/5,3/4,9/10 give +,-,+,- for (d,a,b,c)=(49/50,1/1000,1/1000,73/100), hence at least three distinct critical points. The universal proof is analytic; the symbolic checks only corroborate identities.
 
-## Closest literature and limits
-Ghosh–Birbonshi–Ojha, arXiv:2608.17486v1, full-text Sections 2–3 (positive coefficient pattern and its eighth-degree critical polynomial). Public later exact scalar resolution at trureturing.org/research/ghosh-birbonshi-ojha-2026-weighted-shift-root-uniqueness/ (covers only the original geometric relation). Chakraborty–Ojha, JMAA 543 (2025), article 129021 (generalized two-period weights; full text not obtained). Chien–Nakazato, ELA 18 (2009), 58–63 (unmodulated geometric shift). A broader unstated positivity theorem remains possible. Independent publication-priority assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The effective new statement is the free-middle-coefficient sufficient cone b>=sqrt(d), not previously known uniqueness for b=sqrt(d), together with analytically demonstrated non-unimodality when unconstrained. A published all-four-parameter three-zero ceiling reuses the same positive witness and removes novelty from that particular witness, but does not imply that all b>=sqrt(d) produce exactly one critical point. No inspected earlier covering theorem for the cone was found. This is best-of-knowledge, with a possible general total-positivity criterion remaining a risk.
+
+## value
+
+PASS
+
+The geometric trial bound is a natural computable proxy for the numerical radius of a compact four-block shift. A nontrivial explicit sufficient uniqueness cone and a strictly positive counterexample outside it delimit optimizer geometry and rule out universal unimodality. It does not claim a sharp boundary or the operator numerical radius, but the analytic transition and obstruction have substantive standalone value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
