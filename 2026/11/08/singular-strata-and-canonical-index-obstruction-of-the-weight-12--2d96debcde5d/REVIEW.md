@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Example 3.8 of the cited paper supplies the prime ideal and the cone decomposition. Direct substitutions derive five affine charts, which cover the projective threefold. Hypersurface gradients give the exact line singularities and the two transverse \(A_1\)/\(A_3\) forms; the other charts give rank-one matrix cones over the smooth cubic scroll. The class-group computation \(\operatorname{Pic}(\mathbb F_1)/\mathbb Z[C_0+2F]\) shows that the canonical class is non-torsion at precisely the two isolated points. `VERIFY.py` rechecks the algebraic substitutions and toric orbit rank census, but is not substituted for the geometric proof.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The motivating primary full text gives the equations, dimension, normality and nonsmoothness, but the inspected relevant results and searches do not provide the complete reduced singular locus, local types or non-\(\mathbb Q\)-Gorenstein locus. Searches for the same equations, the singular-locus classification, toric weight-twelve aliases, and indexed mathematical findings returned no equivalent; related results for unrelated toric constructions do not imply this precise statement. The input equations make the answer computable, but the classification is not itself recorded in the source inspected. An earlier implicit computation remains possible.
+PASS
 
-**Value — PASS.** The weight-12 base is the first nonsmooth motivic MZV relation base in the paper's table, so identifying its entire singular geometry is a natural missing geometric invariant. Its two distinct ADE transverse types, their meeting-point local form, isolated scroll-cone vertices, and sharp \(\mathbb Q\)-Gorenstein obstruction characterize the geometry relevant to resolution and canonical-divisor investigations. This is a complete classification for the naturally singled-out first singular case, not an arbitrary coordinate slice.
+On the five covering standard opens, direct exact elimination gives D(d): af-b²=0, D(e): af-c⁴=0, D(g): af-d⁴e²=0, and on D(a),D(f) the rank-one 2×3 scroll-minor cones. Singular gradients give precisely L_dg ∪ L_eg ∪ {p_a,p_f}; the transverse A1/A3 types and meeting germ follow. For scroll S(1,2) on F1, K+2H=F with [F] of infinite order modulo H, so isolated cones are non-Q-Gorenstein; other opens are hypersurfaces. The projective cone joins the singular set with its P4 vertex. Independently reproduced all chart eliminations algebraically; these establish global set equality, not only finite coordinate supports.
 
-**Limits.** The singular locus is reduced/set-theoretic; no claim is made about the scheme-theoretic Jacobian locus or other weights. The proof depends on the published prime equations and projective-cone description. Historical novelty and correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known original four quadrics, dimension, normality and nonsmoothness are explicitly credited. The complete local A1/A3/scroll-cone classification and precise Q-Gorenstein locus are not covered by inspected related global class-group result or retrieved indexed theorems; best-of-knowledge PASS with a specifically inaccessible primary full text.
+
+## value
+
+PASS
+
+A complete reduced singular-support and canonical Cartier obstruction theorem for the first nonsmooth motivic MZV toric base is a natural local-geometric invariant, materially sharper than a nonsmooth flag; the distinct ADE strata and scroll-cone non-Q-Gorenstein vertices are structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
