@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The characteristic-uniform theorem is proved algebraically in `RESULT.md` using the factorization of \(s^qt-st^q\), the rational-point ideal in \(\mathbb P^3\), and the rank-four alternating-form argument. No finite experiment substitutes for that proof.
+# Independent mathematical audit
 
-Run `python3 verify_binary_example.py` and `python3 verify_ternary_example.py` with Python 3. These scripts use only the standard library. They verify the rational-point and quadratic-extension counts and line incidences for the published examples over \(\mathbb F_2\) and \(\mathbb F_3\), respectively. They do not test geometric smoothness or prove the theorem for all prime powers.
+## correctness
 
-The proofs of the initial source examples' smoothness and existence are external to these scripts. No independent mathematical audit has been performed.
+PASS
+
+For each rational projective line L, binary restrictions of forms of degrees q+1 and q+2 vanishing at every point of P¹(F_q) are λ_L Δ and ℓ_L Δ, with Δ=s^q t−s t^q; geometric integrality excludes both restrictions zero. Thus every line has exactly its q+1 rational curve points and either reduced intersection or one rational doubled intersection. A degree-(q+1) projective-space rational-point equation is an alternating Frobenius minor combination. Degeneracy at a rational radical point would make its differential vanish and violate the curve Jacobian rank, forcing a nondegenerate symplectic form. Rational tangents are its isotropic lines, each of which has one unique doubled intersection; double count gives (q+1)(q²+1) tangents and a bijection. Nonrational quadratic conjugates span a rational line, contradicted by the line restriction. Adjunction gives g=1+(q+1)(q+2)(2q−1)/2 and Newton identities yield c1=q³+q²,c2=((q³+q²)²+q³+q)/2. Independent GF(2) and GF(4) point and line calculations recovered 15 rational points, 15 isotropic lines, 15 distinct tangents and no extra GF(4) points. This is a conditional all-prime-power theorem, not an assertion that the finite checker proves smoothness.
+
+## originality
+
+PASS
+
+The known minimum-degree space-filling complete intersections and their nondegenerate alternating Frobenius surfaces are prior art, notably Campbell et al. The new exact rational-line restriction dichotomy, induced canonical tangent-line perfect matching, all-degree-two-point exclusion and initial zeta spectrum are additional universal consequences not stated in the material examined. Best-of-knowledge originality; standard finite-geometry equivalents may be historical.
+
+## value
+
+PASS
+
+Gives a complete structural line-section/tangent classification for an entire naturally degree-minimal family of space-filling curves, with a striking arithmetic exclusion of quadratic closed points and fixed zeta coefficients. These are meaningful global geometric and arithmetic invariants, not only sample computations or relabelled symplectic incidence counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
