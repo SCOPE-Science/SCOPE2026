@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly checks all pairwise-proportionality constraints for the matching-block construction. The exact shared-vertex probabilities yield a finite union bound and a valid dependency-neighborhood Chen--Stein limit at the literal-reversal scale. The attached checker exhaustively verifies 14,652 input profiles and exact incident-event identities. The standard Chen--Stein theorem is cited; computations alone do not establish infinite-population claims.
+## correctness
 
-**Originality — PASS, qualified.** Halpern et al. (arXiv:2610.23193, first posted October 16, 2026) define the axiom, derive worst-case impossibility, and prove structured-domain positive results. They explicitly raise probabilistic existence as a future direction. The present result supplies a different, random-input theorem and separates the mirror's Poisson transition from the success of an explicit unanimous-block certificate. Targeted published-literature searches did not find an implication covering these two conclusions. A previously unindexed equivalent remains possible; the foundational Poisson approximation method itself is not new.
+PASS
 
-**Mathematical value — PASS.** Explicit high-probability existence for exponentially many alternatives directly addresses the motivating paper's gap. The nontrivial mirror failure window and successful block remedy explain why unanimous comparisons, not merely their expected number, govern a useful constructive representation method.
+Two synthetic output rankings formed from ordered unanimous-pair blocks and reversed block order preserve unanimous comparisons twice and orient every cross-block pair once each way. On any three candidates, the probability of at least two unanimous edges is exactly 6·3^-n−6·6^-n, yielding the matching-event union bound. The unanimous-pair indicators have marginal 2^(1-n) and incident-pair joint 2·3^-n+2·6^-n; disjoint index pairs have a valid dependency graph, so the Arratia–Goldstein–Gordon bound vanishes for m~c2^(n/2), giving Poisson(c²). The literal mirror construction works iff no unanimous edge. Independently exhaustively checked all m=3,n=2/3 and m=4,n=2 profiles and exact outputs for matching graphs. The Chen-Stein step, not finite enumeration, establishes the asymptotic law.
 
-**Limits.** The bound is sufficient, not a classification of all feasible profiles. The exponential rate is not proved optimal for full representability; the Poisson threshold is for literal reversal only. Other preference distributions and compression sizes are outside scope. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: published ranking-compression work identifies proportionality and asks for random-population guarantees; the exact matching-block construction and two different high-probability versus literal-mirror windows answer that question for impartial culture. Prior input-only thinning and structured-domain positive results do not imply synthetic two-output random-profile asymptotics.
+
+## value
+
+PASS
+
+Random-profile solvability of pairwise-proportional two-ranking compression is a motivated open direction in the original definition paper. The proof supplies a quantitative high-probability regime with exponentially many alternatives plus a sharp Poisson transition exposing failure of the naive mirror certificate without loss of representability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

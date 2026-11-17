@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses only the Python standard library. Running `python verify.py` exhaustively checks all labeled ranking profiles with (alternatives, voters) = (3,2), (3,3), (4,2), (4,3), totaling 14,652 profiles, against the block-reversal construction and the literal-reversal zero-unanimity criterion. It separately enumerates all ranking profiles on three alternatives for 2 to 5 voters and verifies the two exact overlap probabilities as rational numbers.
+# Independent mathematical audit
 
-Critical universal proof steps independent of computation: (i) unanimous matching blocks preserve unanimous orientations in both outputs and reverse all cross-block orientations; (ii) the six extreme-element events on three alternatives have total probability \(6\cdot3^{-n}-6\cdot6^{-n}\); (iii) disjoint candidate-pair comparisons have independent relative-order information; (iv) incident pair indicator products have expectation \(2\cdot3^{-n}+2\cdot6^{-n}\); (v) the cited dependency-neighborhood Poisson approximation theorem yields the displayed vanishing error. Finite checks cannot themselves prove these claims for arbitrarily many voters or candidates.
+## correctness
+
+PASS
+
+Two synthetic output rankings formed from ordered unanimous-pair blocks and reversed block order preserve unanimous comparisons twice and orient every cross-block pair once each way. On any three candidates, the probability of at least two unanimous edges is exactly 6·3^-n−6·6^-n, yielding the matching-event union bound. The unanimous-pair indicators have marginal 2^(1-n) and incident-pair joint 2·3^-n+2·6^-n; disjoint index pairs have a valid dependency graph, so the Arratia–Goldstein–Gordon bound vanishes for m~c2^(n/2), giving Poisson(c²). The literal mirror construction works iff no unanimous edge. Independently exhaustively checked all m=3,n=2/3 and m=4,n=2 profiles and exact outputs for matching graphs. The Chen-Stein step, not finite enumeration, establishes the asymptotic law.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: published ranking-compression work identifies proportionality and asks for random-population guarantees; the exact matching-block construction and two different high-probability versus literal-mirror windows answer that question for impartial culture. Prior input-only thinning and structured-domain positive results do not imply synthetic two-output random-profile asymptotics.
+
+## value
+
+PASS
+
+Random-profile solvability of pairwise-proportional two-ranking compression is a motivated open direction in the original definition paper. The proof supplies a quantitative high-probability regime with exponentially many alternatives plus a sharp Poisson transition exposing failure of the naive mirror certificate without loss of representability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

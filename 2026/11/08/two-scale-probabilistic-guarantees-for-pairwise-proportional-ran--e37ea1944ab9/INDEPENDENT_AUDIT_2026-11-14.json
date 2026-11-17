@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T19:17:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify.py",
+        "https://daniel-halpern.com/files/proportional-compression.pdf"
+      ],
+      "rationale": "Two synthetic output rankings formed from ordered unanimous-pair blocks and reversed block order preserve unanimous comparisons twice and orient every cross-block pair once each way. On any three candidates, the probability of at least two unanimous edges is exactly 6·3^-n−6·6^-n, yielding the matching-event union bound. The unanimous-pair indicators have marginal 2^(1-n) and incident-pair joint 2·3^-n+2·6^-n; disjoint index pairs have a valid dependency graph, so the Arratia–Goldstein–Gordon bound vanishes for m~c2^(n/2), giving Poisson(c²). The literal mirror construction works iff no unanimous edge. Independently exhaustively checked all m=3,n=2/3 and m=4,n=2 profiles and exact outputs for matching graphs. The Chen-Stein step, not finite enumeration, establishes the asymptotic law.",
+      "residual_risks": [
+        "The matching criterion is sufficient, not necessary; 3^(n/3) not a claimed sharp general existence threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halpern et al Theorems 4–5 treat single-peaked/crossing profiles; prior 3-to-4-boundary theorem restricts output choices to original input rankings."
+        ],
+        "reasoning": "Almost-all impartial-culture profiles need not lie in those single-domain classes, and synthetic output permissions differ materially from input-only selection.",
+        "searches": [
+          "pairwise proportionality ranking compression impartial culture unanimous matching reverse blocks Poisson number unanimous pairs",
+          "https://arxiv.org/abs/2610.23193",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-to-four-alternative-boundary-for-input-only-pairwise--5ddaae52241b"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches pairwise proportionality ranking compression impartial culture unanimous matching reverse blocks Poisson number unanimous pairs",
+        "https://daniel-halpern.com/files/proportional-compression.pdf",
+        "https://doi.org/10.1214/aop/1176991491",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-to-four-alternative-boundary-for-input-only-pairwise--5ddaae52241b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arratia–Goldstein–Gordon Poisson approximation is a general technique, not a specific unanimous-edge event calculation; Halpern Theorem 3 gives some worst-case failures, not random-population solvability."
+        ],
+        "reasoning": "Neither prior result yields the exact rare-event dependency probabilities or matching-block high-probability guarantee without new application and construction.",
+        "searches": [
+          "https://arxiv.org/abs/2610.23193",
+          "https://doi.org/10.1214/aop/1176991491",
+          "pairwise proportionality ranking compression impartial culture unanimous matching reverse blocks Poisson number unanimous pairs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Halpern et al define pairwise proportionality for synthetic output orders and explicitly identify random-profile guarantees as future work; the current block construction is not their single-peaked/single-crossing construction."
+        ],
+        "reasoning": "Literal reversal and block reversal are distinct certificates. In particular the former fails with positive limiting probability on the 2^(n/2) scale while the latter succeeds asymptotically.",
+        "searches": [
+          "pairwise proportionality ranking compression impartial culture unanimous matching reverse blocks Poisson number unanimous pairs",
+          "unanimity graph edge matching random rankings n m unanimous comparisons Poisson 2^(n/2) three extreme probability compression",
+          "https://arxiv.org/abs/2610.23193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched indexed compression records including input-only 3–4 candidate census; no corresponding probability bound or Poisson mirror limit was found."
+        ],
+        "reasoning": "The probabilistic theorem ranges over growing n,m rather than a finite exact database; a possible pre-existing special enumeration alone does not imply it.",
+        "searches": [
+          "pairwise proportionality ranking compression impartial culture unanimous matching reverse blocks Poisson number unanimous pairs",
+          "unanimity graph edge matching random rankings n m unanimous comparisons Poisson 2^(n/2) three extreme probability compression",
+          "Resultary search pairwise ranking compression unanimous edge Poisson"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: published ranking-compression work identifies proportionality and asks for random-population guarantees; the exact matching-block construction and two different high-probability versus literal-mirror windows answer that question for impartial culture. Prior input-only thinning and structured-domain positive results do not imply synthetic two-output random-profile asymptotics.",
+      "residual_risks": [
+        "A generic combinatorial theorem on two-order representations of oriented unanimous constraints may encode the matching-block sufficient condition.",
+        "The probabilistic result assumes independent uniformly random rankings and permits synthetic outputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Random-profile probability guarantee is not already established",
+          "evidence": "Theorems 3–5 concern worst cases and structured domains; Section 6 requests probabilistic existence.",
+          "identifier_or_url": "https://daniel-halpern.com/files/proportional-compression.pdf",
+          "material_read": "Full openly accessible manuscript, proportionality definition, main impossibility/positive theorems and Section 6 open directions",
+          "method": "Full PDF inspected, including relevant pages",
+          "title": "Proportionality in Ranking Compression",
+          "trigger": "Original definition and possible prior probabilistic guarantee"
+        },
+        {
+          "assessment": "General theorem supports calculation but does not cover this social-choice event",
+          "evidence": "Dependency graph has degree 2m−4 and incident joint probability 2·3^-n+2·6^-n.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "The standard bound invoked by the submitted proof and its source statement",
+          "method": "Published theorem as cited; application reconstructed from dependencies",
+          "title": "Two moments suffice for Poisson approximations: the Chen–Stein method",
+          "trigger": "Standard dependency-neighborhood theorem supporting limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Halpern et al Section 6",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "rationale": "Random-profile solvability of pairwise-proportional two-ranking compression is a motivated open direction in the original definition paper. The proof supplies a quantitative high-probability regime with exponentially many alternatives plus a sharp Poisson transition exposing failure of the naive mirror certificate without loss of representability.",
+      "residual_risks": [
+        "The sufficient growth condition is not proved sharp for general compressibility."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Sufficient matching condition not exhaustive and m=o(3^(n/3)) does not assert a sharp threshold.",
+    "Finite enumeration cannot replace Chen–Stein convergence or independence argument."
+  ],
+  "schema_version": 1
+}
