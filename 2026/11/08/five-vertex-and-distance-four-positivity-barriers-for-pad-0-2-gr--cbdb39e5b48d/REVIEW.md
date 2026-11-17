@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-distance expansion follows from the exact fourth-order Taylor coefficient of the Padé scalar function and the signed length-four walk count. The five-vertex assertion is an exhaustive *integer polynomial* classification across all labeled simple graphs on at most five vertices, canonicalized under every vertex permutation. The executable reconstruction checks all 31 connected isomorphism classes, 644 adjugate entries, the exact five-path rational identity, and rational isolation of the unique positive threshold. The determinant is positive on the entire asserted domain. The argument includes disconnected graphs by direct sums and all real step sizes by polynomial sign analysis, not by sampling a finite grid of steps.
+## correctness
 
-**Originality — PASS on available evidence.** Published positivity/SSP and Padé-smoothing work already provides general context; the specific exact finite-order classification and graph-distance obstruction were not found in the material searched. The 2026 full-text study of the \([0/2]\) Padé factor concerns a Fourier-spectral PDE solver and does not state the five-vertex classification or exact five-path recovery threshold. Earlier published records describing the diagonal \([2/2]\) Padé end-step do not cover the different \([0/2]\) rational function. Publication priority is not independently certified. Wade et al. (2004/2005) is an important full-text access risk.
+PASS
 
-**Mathematical value — PASS.** This identifies the minimal size and precise first graph at which an L-stable, second-order rational approximation reverses the positivity behavior of the true heat semigroup, including a sharp reentrant timestep interval. The diameter-four mechanism explains the failure on arbitrarily large networks, and the full five-vertex census shows the obstruction is structural rather than a numerical artifact. This matters when interpreting timestep refinement and positivity of linear diffusion propagators; it is not simply a recomputation of a known scalar stability bound.
+The scalar expansion is 1-z+z²/2+0z³-z⁴/4+O(z⁵). For graph-distance four the first nonzero L-power is a positive shortest-walk count at k=4, forcing a negative entry. For n≤5 the 31 connected simple-graph types have 644 exact cofactor polynomials; all are coefficientwise nonnegative except P5 endpoint pair. Positive determinant of 2I+2sL+s²L² and spectral block decomposition prove sign on the continuum s≥0 and disconnected cases. Independent exact P5 symbolic determinant inversion reproduced numerator s⁴(5s⁴+40s³+42s²-4) and positive denominator; its unique positive root is approximately 0.27387026089878946. The source finite exhaustive checker was read and its enumeration and positivity logic inspected; independent recalculation focused on the critical P5 identity rather than rerunning all 644 cofactors.
 
-**Closest literature and limits.** Horváth (2005) gives general positivity-threshold results for Runge–Kutta methods, Wade et al. (first online 2004) treat positivity-preserving Padé combinations, and Yousuf–Alshakhoury (2026) use \([0/2]\) in a specific fractional diffusion setting. The first two were available as abstracts/metadata, while the last was examined in relevant full-text sections. The full text of Wade et al. was not obtained; no broad claim that it is non-covering is made. Graphs beyond five vertices of diameter at most three are not classified, and weighted or directed settings are excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Oct 18 work already proves the general distance-four obstruction and eventual positive limit; originality is accepted only for the complete up-to-five-vertex all-graph census and exact P5 threshold, not for that prior structural lemma.
+
+## value
+
+PASS
+
+A complete sharp minimum-graph classification and exact positivity-recovery interval for a standard L-stable second-order inverse-Taylor heat update is a motivated graph semigroup property, not a routine scalar stability calculation. The general distance-four coefficient and eventual positivity are prior knowledge and do not themselves supply value for a new claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
