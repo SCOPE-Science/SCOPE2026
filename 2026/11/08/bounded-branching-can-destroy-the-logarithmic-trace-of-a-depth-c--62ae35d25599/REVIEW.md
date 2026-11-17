@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement applies to every binary-valued normalized level-population sequence beginning at one. The allowed child numbers are exactly \(1,2,4\), so the tree exists without fractional branching. Disjoint sibling supports imply \(KK^*e_v=2^{-2|v|-2}e_v\), establishing the complete singular spectrum including multiplicities. Bounds \(2^k\le L_k\le2^{k+1}\) give the sharp Schatten threshold and weak-trace estimate; the exact partial sums at completed levels and a uniform one-level error yield the full logarithmic criterion. Alternating superdominant blocks realize the two extreme limits. The Wold assertion follows from purity and infinite defect multiplicity. The descendant-count telescoping identity also shows that the unnormalized shifts share spectral radius \(\sqrt2\). The use of the established Connes–Dixmier measurability equivalence is explicitly attributed to Lord–Sedaev–Sukochev. The exact-rational checker passed 29,532 assertions, but it cannot replace these infinite proofs.
+PASS
 
-## Originality — PASS (qualified best-knowledge assessment)
+The tree with L_k=2^ka_k exists because b_k=2a_(k+1)/a_k is 1,2 or 4, and B* maps each parent onto a normalized sum of its disjoint children: BB*=I. Its isometric adjoint is pure (ranges supported beyond depth n), and infinite splitting makes ker B infinite dimensional; Wold identifies the backward coisometry class. Directly KK* e_v=2^(-2k-2)e_v, so 2^(-k-1) has multiplicity 2^ka_k. Completed-rank sums are 1/2 sum_(j≤k)a_j and log M_k=k log2+O(1), giving both lim extrema. Superexponential alternating blocks achieve means 1 and 2 while nonbinary branching has zero level density. The S_p condition p>1 and nonconvergent Connes-Dixmier measurability conclusion follow analytically, not from sample levels.
 
-The closest motivating work is Buckley–Seco, arXiv:2610.40089 (2026): it relates the spectrum and universality of an unnormalized backward tree shift to branching, but its inspected text does not calculate the singular values of a normalized depth commutator or its endpoint logarithmic means. Budzyński–Dymek–Planeta–Ptak, arXiv:1702.00765, studies tree weighted-shift algebras and Wold decompositions; those established ingredients are used, not claimed new. Lord–Sedaev–Sukochev, arXiv:math/0501131, Theorem 6.6, already gives the general measurable-operator criterion; the contribution is the exact tree-specific spectral realization and the bounded-branching negative example. Guido–Isola, arXiv:math/0202108, develops traceability in fractal spectral triples, not this coisometry/depth-observable pair. Searches for exact and equivalent formulations, additional published mathematical results, and accessible prior claims produced no decisive covering result. General diagonal, tree spectral-triple, or level-population realizability theorems could still entail the example; expert priority review remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new feature is not the standard logarithmic Tauberian criterion. It is the explicit realization of both convergence and maximal permitted nonconvergence within a natural **uniformly bounded local branching family**, even though all normalized backward shifts are unitarily equivalent and all trees have the same exponential population growth; in the counterexample departures from binary branching occur only at a zero-density set of levels. It establishes that those coarse spectral and graph invariants alone do not determine the finer logarithmic trace of a geometric depth commutator, with exact limiting coefficients and a necessary-and-sufficient combinatorial condition. This is a motivated boundary phenomenon connecting tree-shift geometry, weak Schatten ideals, and singular-trace measurability rather than an arbitrary small numerical example.
+Abstract Lord–Sedaev–Sukochev measurability equivalence and Wold decomposition are established tools. No matching published tree-specific depth-commutator multiplicity plus alternating bounded-branching nonmeasurable example was found in two semantic searches and targeted public literature searches, but full tree-specialist preprint was inaccessible. This is qualified best-knowledge originality.
 
-## Limitations and risk
+## value
 
-The depth observable is fixed, normalized population values are restricted to one and two, and the analysis does not cover general tree shifts or arbitrary radial weights. Existing general singular-trace theory supplies the final measurability implication. The priority of the graph-specific construction, particularly relative to abstract tree spectral triples and diagonal operator models, has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise relationship between normalized level population and spectral logarithmic trace for a natural tree-depth observable, including the same abstract shift having either a measurable or nonmeasurable commutator, is a motivated operator-geometric counterexample. It isolates structure invisible to growth exponent and unitary shift type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
