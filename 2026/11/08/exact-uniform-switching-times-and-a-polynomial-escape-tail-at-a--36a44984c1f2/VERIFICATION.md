@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof gives all-horizon results by exact full-branch Markov paths, not by numerical extrapolation. The four-cell adjacency matrix is stated in `RESULT.md`. It has \((2(n+1))\) length-\(n\) admissible paths and exactly two with each first-inner-cell entrance time; each path has initial Lebesgue mass \(1/(5\,2^{n-1})\). Its terminal path-count row is \((1,n,n,1)\). A two-cell graph proves the exact comparison hole law. Inverse-branch contraction proves the limits of conditional spatial measures.
+## correctness
 
-Run `python3 verify_escape.py` in the same directory using Python 3 and its standard-library `fractions` module. It independently enumerates exact preimage interval unions of the safe region for \(n=1,\ldots,25\) at both holes, without deriving them from the claimed path-count formula. It additionally computes graph powers, enumerates all legal first-entrance-time paths, checks each terminal weight and exact total-variation formula. Output observed from the submitted program:
+PASS
 
-`VERIFY_OK independent_exact_interval_horizons=1..25 matrix_terminal_initial=1..25 conditional_TV=1..25`
+The four-cell safe Markov partition and equal-length inverse branches yield two admissible n-cylinders per first inner-entry time j=0,...,n; terminal columns of A^(n-1) are (1,n,n,1). Reflection pairs plus branch contraction prove weak fixed-fraction atomic mixture, while uniform conditional densities on terminal cells give exact TV=1/(n+1). Independent path enumeration for all n<=16 agrees. Previously published scalar tail is used only for normalization; finite checks do not replace all-n proof.
 
-No limit theorem or global all-\(n\) assertion is inferred solely from those finite tests. Historical-priority checks remain provisional, and independent scientific audit is not performed.
+## originality
+
+PASS
+
+The earlier 26 October paper proves exact scalar survival and the 1/3 transition, which are credited rather than asserted new in complete corrected RESULT.md. Its full proof has no conditional first-inner-entry law, macroscopic conditional spatial law or terminal TV formula. The corrected final claim supplies those extra statements; they are not implications of a scalar survival function without a path-resolved Markov calculation. Best-of-knowledge priority is subject to inaccessible related 2026 negative-Lorenz full text.
+
+## value
+
+PASS
+
+The critical symmetric negative-doubling hole is motivated by known escape-time and symbolic phase transitions. Uniform conditioned first-inner entry and the nonuniform temporal limit with an exact terminal TV boundary layer answer natural conditioned orbit questions not fixed by previously known scalar survival statistics. The corrected presentation credits every known escape component.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
