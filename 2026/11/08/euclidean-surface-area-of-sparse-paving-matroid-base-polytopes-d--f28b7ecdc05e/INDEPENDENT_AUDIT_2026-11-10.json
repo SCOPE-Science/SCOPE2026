@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:47:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 2<=r<=n-2 with connected sparse paving M, the canonical polytope is the rank-r hypersimplex with each circuit-hyperplane corner cut by x(H)<=r-1. Hypersimplex coordinate facets have Eulerian-number Euclidean volumes. The removed corner has new facet Delta(r,r-1) x Delta(n-r,1) of (n-2)-volume sqrt(r(n-r))/((r-1)!(n-r-1)!) and old facet losses r L_1+(n-r)L_0. Distinct circuit hyperplanes overlap in at most r-2 elements, so their strict removed corners and positive-area cut patches have disjoint relative interiors. Summing produces A=A_0-lambda D. D is strictly positive and symmetric; comparison of factorial denominators and the displayed inequalities proves strict increase toward middle rank. Verified n=5,6,7 Euclidean convex hulls independently in an orthonormal affine basis and coefficient inequalities for n=4..34, including the n=6 r=3 two-intersection-pattern example; these finite tests do not replace the all-n proof. Lower-dimensional disconnected exceptional cases are excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 valuation identity applies to all valuative invariants and sparse paving matroids, a strictly broader abstract statement than lambda-dependence of Euclidean area."
+        ],
+        "reasoning": "Broader prior theorem dominates the invariance assertion, but no evaluated metric D(n,r) or its strict balanced-rank ordering was located in the relevant portions.",
+        "searches": [
+          "Resultary semantic search: Euclidean surface area sparse paving matroid base polytope hypersimplex circuit hyperplanes Eulerian numbers Euclidean facets",
+          "https://doi.org/10.1112/jlms.12984"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1112/jlms.12984",
+        "https://doi.org/10.1017/S0963548325000021",
+        "GitHub pinned RESULT.md b3894d940fe43f745f2d125812ddf1c42dc652c0 and check_surface.py f7ed8cbc714fa992447b2566c3af861722905f9f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier valuation identity implies dependence only on lambda; the face-vector corollary depends also on mu; original proof explicitly measures removed old facets plus new cut facets."
+        ],
+        "reasoning": "A straightforward corollary gives invariance, but obtaining the particular dimensionful coefficient and strict rank extremum still requires actual evaluation of the fixed Schubert difference and a nontrivial monotonicity argument. Only this remainder supports O/V PASS.",
+        "searches": [
+          "https://doi.org/10.1112/jlms.12984",
+          "https://doi.org/10.1017/S0963548325000021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferroni–Schröter 2024 Corollary 5.4: f(M)=f(U_{r,n})-lambda[f(T_{r,n})-f(U_{1,n-r} direct_sum U_{r-1,r})] for any valuative invariant."
+        ],
+        "reasoning": "Surface area (intrinsic volume V_{n-2}, up to fixed scale) is a valuation, so equal-area invariance with lambda is already a corollary. This pre-existing part of the claim is not credited; exact D and rank ordering require separate computation.",
+        "searches": [
+          "Resultary semantic search: Euclidean surface area sparse paving matroid base polytope hypersimplex circuit hyperplanes Eulerian numbers Euclidean facets",
+          "https://doi.org/10.1112/jlms.12984"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ferroni–Schröter 2025 Cor. 2.10 gives face vector with an additional pair-intersection parameter mu, not Euclidean surface-area tabulation."
+        ],
+        "reasoning": "Neither the examined table/corollary nor Resultary related geometric-polytopes records supplies the exact Euclidean area loss D and balanced-rank comparison; this is not proof of exhaustive priority.",
+        "searches": [
+          "Resultary semantic search: Euclidean surface area sparse paving matroid base polytope hypersimplex circuit hyperplanes Eulerian numbers Euclidean facets",
+          "https://doi.org/10.1017/S0963548325000021"
+        ]
+      },
+      "rationale": "PASS with a substantial and explicit prior-coverage restriction. Ferroni and Schroeter (2024) Corollary 5.4 ALREADY proves that every valuative matroid invariant of sparse-paving matroids depends only on n,r and number of circuit-hyperplanes, hence already covers this invariance for the surface-area intrinsic volume. The surviving result is the *evaluated ordinary Euclidean* coefficient D(n,r) with its metric covolume factors, strict positivity and exact rankwise balanced extremum; those numerical/ordering assertions were not found in the relevant Corollary 5.4 or the face-vector paper. Do not credit circuit-hyperplane-count invariance as new.",
+      "residual_risks": [
+        "The general fixed-lambda invariance is pre-existing in Ferroni–Schröter 2024, not an original discovery.",
+        "An earlier source may have separately evaluated the Euclidean coefficient D or rank extremum under intrinsic-volume or hyperplane-split terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS lambda-invariance but no displayed evaluated Euclidean D or rank monotonicity",
+          "evidence": "Corollary 5.4 valuation identity; theorem sets n,r,lambda and any valuative f.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12984",
+          "material_read": "Open-access published HTML abstract, Corollary 5.4 and its proof, Theorem 1.3/5.3 context and connected-matroid subdivision discussion",
+          "method": "Read relevant full theorem and proof passages in publisher HTML",
+          "title": "Valuative invariants for large classes of matroids",
+          "trigger": "Direct possible stronger theorem for sparse paving invariants"
+        },
+        {
+          "assessment": "DOES_NOT_COVER Euclidean metric coefficient; f-vector has an extra mu",
+          "evidence": "Corollary 2.10 f(P(M))(t)=f(hypersimplex)-lambda u(t)-mu(t^2+t^3).",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548325000021",
+          "material_read": "Published full-text Section 2.5 and Corollary 2.10",
+          "method": "Read publisher theorem text",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Exact competing f-vector and circuit-hyperplane interaction theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordinary Euclidean boundary area is a natural metric invariant distinct from lattice-normalized Ehrhart boundary coefficients; evaluating its exact corner loss and proving rank optimization provides a reusable quantitative fact. Its geometric metric weight requires actual facet-angle/volume analysis beyond simply invoking the earlier valuation formula. The independence assertion alone, being known, is NOT the basis for value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The general fixed-lambda invariance is pre-existing in Ferroni–Schröter 2024, not an original discovery.",
+    "An earlier source may have separately evaluated the Euclidean coefficient D or rank extremum under intrinsic-volume or hyperplane-split terminology."
+  ],
+  "schema_version": 1
+}

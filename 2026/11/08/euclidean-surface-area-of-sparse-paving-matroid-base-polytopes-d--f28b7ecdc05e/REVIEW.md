@@ -1,12 +1,21 @@
-# Scientific review: Euclidean surface area of sparse-paving matroid base polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The intrinsic metric is explicitly fixed in the \(\sum_i x_i=r\) affine hyperplane, and boundary measure is ordinary Euclidean Hausdorff measure. Sparse-paving nonbases are separated in the Johnson graph, so their *open* vertex caps cannot intersect. Each new facet is a product of two simplices, and the two classes of old-facet caps have separately computed Euclidean volumes. These exact components establish a linear correction per nonbasis, irrespective of intersection patterns. Eulerian hypersimplex volumes yield the baseline. An elementary consecutive-rank comparison establishes the sharp rank-balanced ordering. The standalone convex-hull checker passed 73 finite examples and 76 coefficient profiles. Numerical checks are not substituted for the proof.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Ferroni's circuit-hyperplane relaxation and sparse-paving Ehrhart formulas (arXiv:2105.04465) and Hanely et al.'s paving-matroid Ehrhart slicing (arXiv:2201.12442) are closest: the second Ehrhart coefficient measures lattice-normalized rather than ordinary Euclidean surface area. The exact Euclidean coefficient and its extremal ordering are not stated in the inspected relevant sections. Ferroni–Schröter's face-vector formula (DOI:10.1017/S0963548325000021) depends on intersection-pair counts, whereas this geometric boundary measure does not. A previously published equivalent under alternate valuation language is still possible.
+PASS
 
-## Value — PASS
-The theorem turns a potentially combinatorial-intersection-dependent geometric invariant into an exact function of three natural matroid parameters. The coefficient is positive and has a sharp balanced-rank maximum. Two connected six-element examples have identical Euclidean surface area but different face vectors, giving a tangible geometric distinction. The result does not address disconnected cases, arbitrary Euclidean embeddings or other intrinsic volumes.
+For 2<=r<=n-2 with connected sparse paving M, the canonical polytope is the rank-r hypersimplex with each circuit-hyperplane corner cut by x(H)<=r-1. Hypersimplex coordinate facets have Eulerian-number Euclidean volumes. The removed corner has new facet Delta(r,r-1) x Delta(n-r,1) of (n-2)-volume sqrt(r(n-r))/((r-1)!(n-r-1)!) and old facet losses r L_1+(n-r)L_0. Distinct circuit hyperplanes overlap in at most r-2 elements, so their strict removed corners and positive-area cut patches have disjoint relative interiors. Summing produces A=A_0-lambda D. D is strictly positive and symmetric; comparison of factorial denominators and the displayed inequalities proves strict increase toward middle rank. Verified n=5,6,7 Euclidean convex hulls independently in an orthonormal affine basis and coefficient inequalities for n=4..34, including the n=6 r=3 two-intersection-pattern example; these finite tests do not replace the all-n proof. Lower-dimensional disconnected exceptional cases are excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS with a substantial and explicit prior-coverage restriction. Ferroni and Schroeter (2024) Corollary 5.4 ALREADY proves that every valuative matroid invariant of sparse-paving matroids depends only on n,r and number of circuit-hyperplanes, hence already covers this invariance for the surface-area intrinsic volume. The surviving result is the *evaluated ordinary Euclidean* coefficient D(n,r) with its metric covolume factors, strict positivity and exact rankwise balanced extremum; those numerical/ordering assertions were not found in the relevant Corollary 5.4 or the face-vector paper. Do not credit circuit-hyperplane-count invariance as new.
+
+## value
+
+PASS
+
+Ordinary Euclidean boundary area is a natural metric invariant distinct from lattice-normalized Ehrhart boundary coefficients; evaluating its exact corner loss and proving rank optimization provides a reusable quantitative fact. Its geometric metric weight requires actual facet-angle/volume analysis beyond simply invoking the earlier valuation formula. The independence assertion alone, being known, is NOT the basis for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
