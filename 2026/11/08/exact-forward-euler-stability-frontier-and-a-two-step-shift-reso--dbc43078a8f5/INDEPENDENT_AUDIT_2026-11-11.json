@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T00:55:57.788332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source derives exact two-node exponential SBP D and positive diagonal P, then the Euler symbol characteristic μ²−(2−p)μ+1−p+q(1−z)=0 with p=ν(c+d),q=2ν²cd. The degree-two complex Schur criterion reduces to 0≤p≤2 and p²−pq−2q≥0 after an explicitly nonnegative x² term; the small-phase limit proves necessity. Substitution yields ν*(β)=2tanh(β/2)/β min(1,sinh²(β/2)). The two branches meet uniquely at β=2asinh1, where p=2,q=1 and Cayley–Hamilton gives G(z)²=zI for every phase. SymPy verified the exact polynomial identity and independent numeric symbol checked 41 resonance phases plus six inside/outside stability tests. The statement is spectral all-phase, not norm contraction; polynomial β=0 limit is zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inspected 2023 Sections 3-7 develop positive norms, construction and nonpolynomial examples; the 2026 paper available abstract advertises conservation, semidiscrete entropy stability and design order, not a sharp Euler all-frequency CFL."
+        ],
+        "reasoning": "No inspected broader theorem yields the explicit ν*(β) or the matrix-square identity. 2026 complete manuscript inaccessible and is an explicit residual risk.",
+        "searches": [
+          "Resultary semantic search: two node exponential summation by parts FSBP upwind forward Euler stability CFL optimal shape exact two step shift",
+          "arXiv:2203.05479v2",
+          "arXiv:2610.30272v1",
+          "Gassner–Kopriva 2011 DOI 10.1137/100807211"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2203.05479",
+        "https://arxiv.org/abs/2610.30272",
+        "https://doi.org/10.1137/100807211",
+        "Resultary semantic search: two node exponential summation by parts FSBP upwind forward Euler stability CFL optimal shape exact two step shift"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "FSBP construction gives D,P; the new proof needs the full quadratic Schur analysis and Cayley–Hamilton resonance condition p=2,q=1."
+        ],
+        "reasoning": "The temporal spectral claim is not a corollary of spatial SBP positivity or semidiscrete entropy inequalities without an additional nontrivial stability calculation.",
+        "searches": [
+          "arXiv:2203.05479v2 Sections 4-7",
+          "arXiv:2610.30272 abstract",
+          "Resultary semantic search: two node exponential summation by parts FSBP upwind forward Euler stability CFL optimal shape exact two step shift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General FSBP exactness with exponential functions concerns spatial operators; the claim is an exact coupled time-step spectral region with an isolated G²=zI all-data resonance."
+        ],
+        "reasoning": "Generic semidiscrete energy stability does not imply forward-Euler stability of eigenvalues, especially at the polynomial endpoint.",
+        "searches": [
+          "Resultary semantic search: two node exponential summation by parts FSBP upwind forward Euler stability CFL optimal shape exact two step shift",
+          "arXiv:2203.05479v2 FSBP constructions",
+          "arXiv:2610.30272v1 flux differencing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact numerical-stability records concern different multistep methods and scalar test equations, not the two-node exponential FSBP upwind PDE symbol."
+        ],
+        "reasoning": "No exact ν*(β) threshold or βc resonance found in the searched publication index; search absence does not certify novelty.",
+        "searches": [
+          "Resultary semantic search: two node exponential summation by parts FSBP upwind forward Euler stability CFL optimal shape exact two step shift",
+          "Resultary 2026/10/12 periodic CFL alternating AB2 ID d98a10387f35",
+          "Resultary 2026/11/2 two-periodic BDF2 Floquet ID 0f63ee987045"
+        ]
+      },
+      "rationale": "Best-of-knowledge original, qualified. Known FSBP semidiscretization, quadrature exactness and Fourier analysis are premises; the sharp all-phase forward Euler frontier and exact two-step shift at a tuned exponential shape are not established in inspected primary 2023 work or available 2026 abstract.",
+      "residual_risks": [
+        "Relevant October 21, 2026 Haase–Winters–Glaubitz full text could not be obtained by lawful OA or authorized institutional source (VPN disconnected).",
+        "Earlier obscure exponential-fitted SBP/DG dispersion studies might contain an algebraically equivalent stability curve; priority conclusion is provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides FSBP spatial theory but not the submitted exact Euler CFL/shift result",
+          "evidence": "Positive quadratures, exact derivatives, exponential examples, semidiscrete stability claims.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.05479",
+          "material_read": "Complete 22-page 2023 arXiv v2 PDF, definitions, construction Sections 4-6 and numerical examples, screenshot p9",
+          "method": "Web PDF text and screenshot",
+          "title": "Summation-by-parts operators for general function spaces",
+          "trigger": "Exact FSBP exponential basis and norm theory"
+        },
+        {
+          "assessment": "Insufficient full-text access to exclude implicit Euler result; 2026 abstract describes semidiscrete conservation/entropy and design order",
+          "evidence": "Full manuscript was not read; institutional retrieval returned vpn_disconnected.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30272",
+          "material_read": "Author abstract and indexed metadata only; full arXiv PDF and HTML inaccessible, OA alternatives failed",
+          "method": "ArXiv/OA attempts; authorized institutional access also unavailable",
+          "title": "Summation-by-parts operators for general function spaces: Flux differencing, entropy stability, and accuracy",
+          "trigger": "Same FSBP and flux-differencing framework; 2026 primary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-Fourier-mode CFL frontier for an exponential FSBP semidiscretization is a useful exact numerical-stability invariant. The surprising all-data two-step cell-shift resonance identifies an exact boundary behavior and sharp distinction from the polynomial limit. This is not merely a routine local truncation estimate; the resonance and nonzero Euler interval are informative even without accuracy promises.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Relevant October 21, 2026 Haase–Winters–Glaubitz full text could not be obtained by lawful OA or authorized institutional source (VPN disconnected).",
+    "Earlier obscure exponential-fitted SBP/DG dispersion studies might contain an algebraically equivalent stability curve; priority conclusion is provisional.",
+    "No claim that finite reproducibility checks prove every infinite-parameter case or establish novelty.",
+    "No complete source-package privacy-safe replacement was prepared; publication is withheld."
+  ],
+  "schema_version": 1
+}

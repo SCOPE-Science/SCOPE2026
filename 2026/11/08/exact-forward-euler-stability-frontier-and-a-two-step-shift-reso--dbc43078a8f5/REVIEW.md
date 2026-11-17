@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The discrete FSBP operator satisfies the exact two-point interpolation equations and the diagonal SBP identity. Applying standard upwind numerical flux produces a block-circulant amplification symbol with an explicitly computed quadratic characteristic polynomial. The degree-two Schur criterion reduces all-phase stability to two algebraic inequalities; both necessary boundary/small-frequency obstructions are reconstructed, not inferred from simulation. The optimal parameter and the exceptional two-step shift follow by exact hyperbolic identities and Cayley--Hamilton. An independently assembled full-ring matrix was compared against Fourier diagonalization, and an executable checker reproduces the algebra and exact shift within floating-point tolerances. No inference from finite tests to infinite phase coverage is used.
+## correctness
 
-## Originality — PASS, historically qualified
-The closest primary source, arXiv:2610.30272v1, proves conservation, entropy properties and accuracy for FSBP flux differencing; its Section 5 specifies high-order, SSP and relaxation Runge--Kutta integrators without a two-node exponential forward-Euler sharp all-wavenumber classification. The original FSBP source arXiv:2203.05479v2 develops the general operator theory and uses SSPRK(3,3) for advection, without the claimed Fourier frontier or two-step shift. Older polynomial DGSEM dispersion results cover the limiting spatial framework rather than this exponential parameter and resonance. published-finding corpus and published-literature statement/alias searches did not expose a covering claim. Residual priority risk: a broader pre-existing exponential-fitting DG stability treatment not indexed or not inspected in full may entail the identity.
+PASS
 
-## Value — PASS
-A stable semidiscrete method need not be stable under forward Euler; for the natural exponential fitting family, the exact admissible step displays a sharp switch between long-wave and fast-mode obstructions. The polynomial limit has no positive *grid-uniform* Euler CFL, an exponential fit creates one, and at the unique maximal step the otherwise dissipative method becomes an exact undamped two-step lattice shift. This is a structural, parameter-complete stability classification for an expressly proposed nonpolynomial discretization family, with a directly operational time-step threshold and a caution against equating modal stability with physical accuracy.
+The source derives exact two-node exponential SBP D and positive diagonal P, then the Euler symbol characteristic μ²−(2−p)μ+1−p+q(1−z)=0 with p=ν(c+d),q=2ν²cd. The degree-two complex Schur criterion reduces to 0≤p≤2 and p²−pq−2q≥0 after an explicitly nonnegative x² term; the small-phase limit proves necessity. Substitution yields ν*(β)=2tanh(β/2)/β min(1,sinh²(β/2)). The two branches meet uniquely at β=2asinh1, where p=2,q=1 and Cayley–Hamilton gives G(z)²=zI for every phase. SymPy verified the exact polynomial identity and independent numeric symbol checked 41 resonance phases plus six inside/outside stability tests. The statement is spectral all-phase, not norm contraction; polynomial β=0 limit is zero.
 
-## Scientific limitations and remaining risks
-Only scalar periodic constant-speed transport, two endpoint degrees per cell, fixed common shape parameter, a standard upwind interface, and modal stability of forward Euler are established. The result is not a full high-order FSBP time-step theorem, a monotonicity guarantee, or a claim that the resonant time step is accurate. Historical completeness and independent proof checking remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original, qualified. Known FSBP semidiscretization, quadrature exactness and Fourier analysis are premises; the sharp all-phase forward Euler frontier and exact two-step shift at a tuned exponential shape are not established in inspected primary 2023 work or available 2026 abstract.
+
+## value
+
+PASS
+
+A sharp all-Fourier-mode CFL frontier for an exponential FSBP semidiscretization is a useful exact numerical-stability invariant. The surprising all-data two-step cell-shift resonance identifies an exact boundary behavior and sharp distinction from the polynomial limit. This is not merely a routine local truncation estimate; the resonance and nonzero Euler interval are informative even without accuracy promises.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

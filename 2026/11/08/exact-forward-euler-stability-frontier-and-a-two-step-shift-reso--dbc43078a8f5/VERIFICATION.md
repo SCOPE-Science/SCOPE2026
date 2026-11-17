@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and NumPy. The deterministic test invokes the exact two-node derivative/norm identities, direct ring assembly, Fourier block spectra, characteristic polynomial coefficients, interior and exterior CFL probes, the resonance relation on several ring lengths, and the small/large shape asymptotics. The observed local output was `VERIFY_OK checks 1938 critical_beta 1.762747174039086 critical_nu 0.8022781617244772 resonance_verified True`.
+## correctness
 
-The exact all-phase proof is in `RESULT.md`, by applying the degree-two Schur criterion to a Fourier characteristic polynomial. Finite tests cannot certify all wavenumbers and do not establish historical novelty. No independent audit has been performed.
+PASS
+
+The source derives exact two-node exponential SBP D and positive diagonal P, then the Euler symbol characteristic μ²−(2−p)μ+1−p+q(1−z)=0 with p=ν(c+d),q=2ν²cd. The degree-two complex Schur criterion reduces to 0≤p≤2 and p²−pq−2q≥0 after an explicitly nonnegative x² term; the small-phase limit proves necessity. Substitution yields ν*(β)=2tanh(β/2)/β min(1,sinh²(β/2)). The two branches meet uniquely at β=2asinh1, where p=2,q=1 and Cayley–Hamilton gives G(z)²=zI for every phase. SymPy verified the exact polynomial identity and independent numeric symbol checked 41 resonance phases plus six inside/outside stability tests. The statement is spectral all-phase, not norm contraction; polynomial β=0 limit is zero.
+
+## originality
+
+PASS
+
+Best-of-knowledge original, qualified. Known FSBP semidiscretization, quadrature exactness and Fourier analysis are premises; the sharp all-phase forward Euler frontier and exact two-step shift at a tuned exponential shape are not established in inspected primary 2023 work or available 2026 abstract.
+
+## value
+
+PASS
+
+A sharp all-Fourier-mode CFL frontier for an exponential FSBP semidiscretization is a useful exact numerical-stability invariant. The surprising all-data two-step cell-shift resonance identifies an exact boundary behavior and sharp distinction from the polynomial limit. This is not merely a routine local truncation estimate; the resonance and nonzero Euler interval are informative even without accuracy promises.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
