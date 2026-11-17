@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:10:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coalition hypothesis 0<=r(S)=W(S)-2P(S)<=delta W(S), 0<delta<1, forces W(S)>=0; then 2P(S)>= (1−delta) W(S)>=0 and for every two-agent S implies each symmetric v_ij>=0. Hence grand coalition Nash stable against singleton exit, while any partition has sum W(S)<=2/(1−delta) sum P(S)<=2P(N)/(1−delta)<=W(N)/(1−delta). For three agents choose v12=(1−delta)/2, v13=v23=epsilon/2, W12=1, W13=W23=epsilon, W(N)=1−delta+2epsilon, singleton W=0, 0<epsilon<delta/2. Every nonempty coalition satisfies its own slack bound; v positive makes every nongrand partition unstable, unique optimal partition {12},{3} has welfare 1. Thus PoS=1/(1−delta+2epsilon) increases to 1/(1−delta). For n=2, grand welfare optimal, ratio one. Independent exact fractions for delta=2/5,epsilon=1/100 give stable 31/50 and optimum 1, ratio 50/31; all seven coalition slacks checked. Supremum not finite-epsilon attainment, and arbitrary W not assumed superadditive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hasan’s Corollary 5.12 has the same universal bound, so this component is explicitly prior work.",
+          "Donahue–Kleinberg model has predictive loss and distinct utility constraints; Resultary signed-coalition Nash diagrams do not impose all-coalition slack."
+        ],
+        "reasoning": "An older bound is insufficient to show sharpness under stronger hypotheses; the three-agent construction supplies what is missing. Literature on distinct federated-learning coalition models is not a dominating implication.",
+        "searches": [
+          "arXiv:2607.26788",
+          "arXiv:2106.09580",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-nash-phase-diagram-and-resonant-welfare-loss-in-balanced-s--0c7e71028a7a"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.26788",
+        "https://doi.org/10.21203/rs.3.rs-10405564/v1",
+        "https://arxiv.org/abs/2106.09580",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-nash-phase-diagram-and-resonant-welfare-loss-in-balanced-s--0c7e71028a7a",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharpness-of-the-coalition-level-relative-slack-price-of-stabili--c6cbdb7ac2bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected documented proposition from the motivating manuscript has a candidate optimal-partition-only tightness example with positive singleton coordinator retention; the new hypothesis requires every singleton W=0 because P(singleton)=0.",
+          "The new witness instead retains slack on pair {1,2}, so every coalition meets 0<=r<=delta W."
+        ],
+        "reasoning": "Corollary 5.12 immediately implies the upper ratio, so it is nonoriginal. Proposition 5.13 as described cannot be substituted under all-coalition slack; the new construction proves the missing lower bound, subject to uninspected full-paper priority risk.",
+        "searches": [
+          "Hasan Corollary 5.12 and Proposition 5.13, arXiv:2607.26788",
+          "arXiv:2106.09580"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relative slack inequality is equivalent to (1−delta)W(S)<=2P(S)<=W(S) for every coalition.",
+          "The source’s three-agent witness places all slack in the two-agent coalition, not in singletons."
+        ],
+        "reasoning": "The model is a symmetric additive-pair hedonic game with separate coalition surplus W; the exact issue is tightness of an already known stability-welfare guarantee, not derivation of the bound itself.",
+        "searches": [
+          "Resultary semantic: relative coordinator slack coalition price of stability sharpness bound three agents",
+          "arXiv:2607.26788",
+          "DOI:10.21203/rs.3.rs-10405564/v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-title November 8 Resultary index is the source archival record, not an earlier independent theorem; no separate indexed exact three-agent witness under every-coalition slack appeared."
+        ],
+        "reasoning": "Known upper bound 1/(1−delta) is credited; an exact prior matching lower construction was not located in accessible indexed results. No claim of exhaustive literature search.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharpness-of-the-coalition-level-relative-slack-price-of-stabili--c6cbdb7ac2bc",
+          "Resultary semantic: coalition-level relative slack price of stability symmetric pairwise hedonic coalition games sharp 1/(1-delta)"
+        ]
+      },
+      "rationale": "Hasan’s earlier Corollary 5.12 already gives the same universal 1/(1−delta) bound under coalition-level slack, and the submission must not claim that bound as new. The surviving three-agent positive-edge witness makes the constant sharp under all-coalition rather than only optimum-partition slack and shows minimal three-agent inefficiency; the earlier cited construction has positive singleton slack and violates the stricter hypothesis. Hasan full primary text could not be fully accessed, so retain explicit priority risk about other examples in that manuscript.",
+      "residual_risks": [
+        "Full text of Hasan 2026 not inspected; there may be a second three-agent all-coalition example, so novelty is best-of-knowledge and needs primary expert verification.",
+        "No claim when W has extra monotonicity, superadditivity or physical learning constraints; sharp ratio is supremum not attained at epsilon>0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_BOUND_WITH_UNRESOLVED_FULL_TEXT_PRIORITY",
+          "evidence": [
+            "Corollary 5.12 upper bound known; cited Prop5.13 uses weaker partition-local slack, but without full text cannot rule out a separate all-coalition witness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.26788",
+          "material_read": "ArXiv abstract, indexed description and cited Corollary 5.12/Proposition 5.13 content available through submitted source; complete primary preprint not newly retrieved",
+          "method": "ArXiv OA attempt plus submitted reference comparison",
+          "title": "Stable and Budget-Feasible Coalition Formation for Clustered Federated Learning: A Hedonic Potential-Game Approach",
+          "trigger": "Same retained-slack variables, matching stated upper theorem and near-sharp examples"
+        },
+        {
+          "assessment": "DIFFERENT_PAYOFFS",
+          "evidence": [
+            "Predictive accuracy incentive stability is not arbitrary primitive surplus W with pairwise v and relative retained slack."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.09580",
+          "material_read": "Public abstract/model and submitted comparative passage, not whole paper",
+          "method": "ArXiv metadata and mathematical model comparison",
+          "title": "Optimality and Stability in Federated Learning: A Game-theoretic Approach",
+          "trigger": "Potential broader PoS/PoA lower/upper results"
+        },
+        {
+          "assessment": "NOT_APPLICABLE_SAME_SLACK",
+          "evidence": [
+            "Friendship-hostility signed game lacks the all-coalition retained coordinator slack premise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-nash-phase-diagram-and-resonant-welfare-loss-in-balanced-s--0c7e71028a7a",
+          "material_read": "Resultary summary and different signed-coalition assumptions",
+          "method": "Resultary semantic search",
+          "title": "Exact Nash phase diagram and resonant welfare loss in balanced signed coalition games",
+          "trigger": "Potential broader symmetric hedonic efficiency theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Tests sharpness of a published universal efficiency guarantee under its exact stronger hypothesis; a minimal positive-incentive three-agent witness answers a concrete mathematical question by locating slack in a pair coalition rather than a forbidden positive singleton. Not merely the previously known upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of Hasan 2026 not inspected; there may be a second three-agent all-coalition example, so novelty is best-of-knowledge and needs primary expert verification.",
+    "No claim when W has extra monotonicity, superadditivity or physical learning constraints; sharp ratio is supremum not attained at epsilon>0."
+  ],
+  "schema_version": 1
+}
