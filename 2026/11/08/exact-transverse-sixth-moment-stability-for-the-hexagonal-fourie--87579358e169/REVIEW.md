@@ -1,19 +1,21 @@
-# Scientific review: hexagonal sixth Fourier moment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the continuous two-torus with normalized Haar measure, six explicitly stated integer frequencies, arbitrary complex coefficients, and squared Euclidean distance on the coefficient unit sphere. Parseval reduces the sixth moment to 216 cubic convolution terms occupying 37 sums, with total multiplicity-square 2040. Differentiating this exact homogeneous rational functional at the equal-modulus vector gives the two rational matrices displayed in RESULT.md. Their complete rational spectra exclude the radial mode and identify exactly the three symmetry directions in the imaginary kernel. All other tangent eigenvalues are negative, and their least absolute value is 15, attained in the explicitly specified normal direction. A tubular-neighborhood Taylor argument therefore establishes a strict local maximizing orbit and sharp coefficient 15. The bundled checker reconstructs the matrices from integer convolution incidences, verifies every rational eigenspace, and reproduces the moment count and sharp direction. The check is supplementary to the displayed analytical argument; it does not establish any global optimum.
+PASS
 
-## Originality — PASS, provisional
+For the specified six A2 root frequencies and Haar-probability torus measure, Parseval on P_c^3 yields 216 ordered triples, 37 occupied sums and sum_nu |T_nu|^2=2040, hence J(u)=2040/216=85/9. Independently rebuilt both exact rational 6x6 second-order matrices directly from integer triple incidence and obtained Hx eigenvalues 340/3 (radial), -77/3, -68/3 (twice), -65/3 (twice); Hy eigenvalues 0 (three), -15, -27 (twice). Explicit infinitesimal phase and translation vectors span all three zero eigenmodes. The radial mode is not tangent to the unit sphere, so all orbit-normal directions are strictly negative and the greatest normal eigenvalue is -15. Smooth tubular coordinates and a least-stable imaginary normal vector give a strict local maximizing orbit and exact limiting squared-distance deficit 15. The theorem expressly does not claim global maximality in arbitrary coefficients.
 
-The continuous Euclidean restriction results arXiv:2003.11955v1 and arXiv:2208.09441v1 concern other operator geometries and measures, so their local-stability and circle-arithmetic conclusions do not imply the present discrete six-wave torus Hessian. The fully read published six-point triangular Fourier aperture result `bea9cf2ed885` is a *fourth* moment for a noncentrally symmetric simplex support with unimodular coefficients; it does not dominate the centered hexagonal *sixth*-moment and unrestricted-amplitude local theorem. The fully read finite-field parabola result `158763dab4f3` has characteristic-three field convolution geometry, not the integer hexagonal triple-sum geometry. Actual published-finding corpus searches checked sixth-moment hexagons, local Hessian bands, and aliases, with no same-object covering result. This is a best-knowledge originality comparison, not a proof of bibliographic uniqueness. An unindexed earlier six-wave Hessian calculation remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first nontrivial hexagonal frequency shell is a standard symmetric spectral aperture. At a highly symmetric coefficient vector, it is not automatic that the sixth-moment functional has only the three expected symmetry zero directions, nor that no off-symmetry destabilizing amplitudes or phases occur. This exact full transverse spectrum and sharp distance coefficient provide a quantitative local concentration result and identify its weakest physical phase mode. The fact is structural and describes every complex perturbation, not merely a one-dimensional restriction or a numerical sample. The result is deliberately local; its sharp coefficient should not be used as a global inequality.
+An October 18 prior theorem on exactly the same A2 six-root frequencies proves the global unimodular phase range 546..2040 and uniqueness of the all-equal phase maximizer, but it assumes |c_j|=1, not arbitrary complex amplitudes. Its sharp global phase maximum does not imply the five nonradial amplitude Hessian eigenvalues, lack of off-phase normal unstable modes, or the sharp distance coefficient 15. Other local restriction-stability work acts on continuous surfaces, not this finite torus packet. This surviving full-coefficient local metric theorem is original best-of-knowledge.
 
-## Sources and remaining limits
+## value
 
-Gonçalves–Negro (2020), arXiv:2003.11955v1; Ciccone–Gonçalves (2022), arXiv:2208.09441v1; the two fully inspected published published-finding corpus `RESULT.md` records `bea9cf2ed885` and `158763dab4f3`. The principal unresolved risk is uncatalogued earlier exact spectral differentiation on this support. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The six-root hexagon is a natural lattice Fourier aperture. Computing the exact transverse spectrum and sharp infinitesimal stability gap distinguishes a merely phase-rigid maximum from robustness to all small complex coefficient perturbations and identifies least-stable modes; it is a motivated structural stability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
