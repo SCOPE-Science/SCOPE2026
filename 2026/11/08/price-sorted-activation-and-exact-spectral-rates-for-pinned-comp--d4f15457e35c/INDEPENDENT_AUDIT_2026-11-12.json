@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:52:03.298346Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With L_Kn=nI−11^T, PSD of diag(d_i)−11^T is equivalent to d_i>0 and Σ1/d_i≤1. The strict tangent inequality for 1/x gives a global unique least-cost prescribed-rate allocation, with active d_i proportional to 1/sqrt(p_i) and inactive d_i=n−λ. Solving the reciprocal equality yields exactly ell_q=q−T_q/sqrt(p_(q+1)), 1<=q<n, ordered thresholds, and F=(n−λ)(T_q²/(q−λ)−P_q); final all-active F=T_n²+(λ−n)P_n. At adjacent entry boundaries first derivatives P_q+(n−q)p_(q+1) agree, inverse rate is C1 concave and finally affine. n=3 prices(1,4,9) exact eigenspectra for budgets 8 and 10 match the stated unique gains and optimum; separately constrained numerical checks confirm those finite examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kp,q (p,q>=2) is bipartite and L has two block degrees, not K_n with diagonal nI−11^T.",
+          "Earlier complete-graph EDGE conductance optimization differs in variables, eigenvalue λ2 and budget."
+        ],
+        "reasoning": "Those broader graph optimization frameworks cover existence/convexity but do not yield explicit price-ordered activating support of fixed unit-edge K_n.",
+        "searches": [
+          "Resultary: complete graph pinned Laplacian arbitrary heterogeneous prices exact support water filling",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md",
+          "Resultary: edge-priced complete graph λ2"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md",
+        "https://arxiv.org/abs/1804.10818"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jafarizadeh uniform-cost all-pinned K_n optimizer is covered; replacing uniform p with independent unequal prices breaks symmetry and requires rank-one KKT case analysis.",
+          "Liu grounded-Laplacian pin-selection assumes effectively infinite gains and does not imply these finite continuous-gain phases."
+        ],
+        "reasoning": "An older uniform-price theorem is the p1=...=pn specialization; not a covering theorem for all price arrays.",
+        "searches": [
+          "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/",
+          "https://arxiv.org/abs/1804.10818"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou 2015 weighted gain design is an optimization framework, not an analytic phase solution for independently priced complete graphs.",
+          "Jafarizadeh 2022 analyzes uniform total-gain cost and selected pinning configurations; it does not supply p_i-dependent thresholds."
+        ],
+        "reasoning": "Eigenvalue placement for diagonal-loading nI−11^T relates to water filling and rank-one updating. Earlier results implement numerical or uniform-price optimization, not the exact all-positive-prices budget phase classification.",
+        "searches": [
+          "Resultary: all positive vertex prices diagonal pinning complete graph Kn exact entry thresholds",
+          "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching general-heterogeneous price active-set table was located.",
+          "The exact thresholds depend on ordered partial sums T_q and P_q and are not simply the usual equal-price complete-graph eigenvalue table."
+        ],
+        "reasoning": "Exact table/database check is material; absence of a search result is not novelty proof, so residual risk remains.",
+        "searches": [
+          "Resultary semantic: n clique pinned weighted feedback eigenvalue threshold piecewise affine table",
+          "web: pinned complete graph independent price node gains support budget optimal eigenvalue"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact heterogeneous-price K_n pinning support phase and smoothness classification; general weighted-gain SDP framework and equal-cost complete-graph results excluded from novelty.",
+      "residual_risks": [
+        "Unindexed diagonal-loading/water-filling literature might give the same exact price thresholds.",
+        "No independently exhaustive continuum optimization verification; universal proof relies on rank-one PSD and strict tangent certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General weighted-price design known, not exact arbitrary priced K_n phases",
+          "evidence": "The weighted cost formulation is not claimed new.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4660235/",
+          "material_read": "Primary full PMC HTML including feedback-gain LMI and numerical network sections",
+          "method": "Public HTML full text",
+          "title": "Enhancing speed of pinning synchronizability: low-degree nodes with high feedback gains",
+          "trigger": "Explicit weighted pinning price budget"
+        },
+        {
+          "assessment": "Equal total gain and prespecified pinned supports; no p_i sorted threshold formulas in inspected sections",
+          "evidence": "2022 analytic special cases treat homogeneous gain costs.",
+          "identifier_or_url": "https://www.researchgate.net/publication/359075019_Pinning_Control_of_Dynamical_Networks_With_Optimal_Convergence_Rate",
+          "material_read": "Full readable primary text: problem objective and complete graph/uniform gain examples",
+          "method": "ResearchGate full-text HTML",
+          "title": "Pinning Control of Dynamical Networks With Optimal Convergence Rate",
+          "trigger": "Potential complete-graph solution"
+        },
+        {
+          "assessment": "Different graph family and Schur rank structure; not covering Kn",
+          "evidence": "Kp,q only two equal-degree bipartitions, no complete clique adjacency.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e/RESULT.md",
+          "material_read": "Complete finding and proof",
+          "method": "Resultary GitHub full RESULT.md",
+          "title": "Exact heterogeneous-price pinning on complete bipartite networks",
+          "trigger": "Other all-price pinned graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact allocation of heterogeneous-priced pinning on K_n addresses a natural symmetry-breaking feedback design. Identifying every activation threshold, globally unique gains, derivative matching and eventual affine rates for arbitrary costs is useful structural information beyond a numerical convex program or already known equal-price symmetry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed diagonal-loading/water-filling literature might give the same exact price thresholds.",
+    "No independently exhaustive continuum optimization verification; universal proof relies on rank-one PSD and strict tangent certificate.",
+    "No Lean/expert verification is asserted; source VERIFICATION.md external channels remain unchanged.",
+    "Existing public metadata retain provenance; import is not ready."
+  ],
+  "schema_version": 1
+}
