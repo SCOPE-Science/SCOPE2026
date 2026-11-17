@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedure and limits
+# Independent mathematical audit
 
-The certificate `verify_sphere_census.py` was executed with Python 3 in the same directory as the completed research materials. The recorded terminal output is in `verification_output.txt`. Its only dependencies are Python standard-library modules (`collections`, `functools`, `hashlib`). For each \(1\le n\le6\), it carries out two full enumerations of the monoid, comparing exact sets; it then checks two independent implementations of the ultrametric level on every canonical element. The loop implements the published unique-canonical-word theorem and exhausts all \(85823\) words across the six cases. It prints exact sphere counts and reproducibility SHA-256 digests of sorted canonical words. The largest single case has \(83973\) elements. All checks passed and the complete printed output was compared with the table in `RESULT.md`.
+## correctness
 
-The canonical uniqueness theorem itself is cited from the mathematical literature and is **not** re-established by the code. Agreement with known total monoid orders is a consistency check, not the reason enumeration is exhaustive. The computation does **not** prove an all-size symmetry or supply any result for seven or more generators. Independent external audit has not been performed.
+PASS
+
+The exact claim is the six finite radius rows, not all-n palindromicity. The established canonical-word normal form requires both a smaller and a larger letter between consecutive equal letters. Valid-prefix extension exhausts that finite language, and the cited right-multiplication level rule gives the greedy decreasing-level statistic. The source also constructs independent reduction closure and deletion-level comparison for all 85,823 words. A fresh separate Python prefix/level enumeration reproduced every row, including K6=(1,1710,13170,27106,27106,13170,1710). This supports C for n<=6; order-sequence agreement alone would not prove exhaustive distance counts.
+
+## originality
+
+PASS
+
+The April 2026 definition and endpoint sphere theorem are fully credited. The exact interior shell table through six generators was not found in reviewed manuscript or targeted published-corpus and integer-sequence searches, so the finite evaluated refinement is accepted provisionally, not the underlying ultrametric or normal form.
+
+## value
+
+PASS
+
+The 2026 ultrametric makes distance-to-zero shells a canonical structural invariant of finite Kiselman monoids. Exact interior multiplicities cannot be inferred from total monoid orders and the known endpoint formula; the full six-size finite census is a natural cutoff before K7 grows to 22,263,378 elements. Its finite positive-radius reflection gives reproducible data without claiming a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
