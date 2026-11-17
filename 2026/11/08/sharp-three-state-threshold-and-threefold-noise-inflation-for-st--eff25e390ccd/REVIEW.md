@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Independent exact-rational transition calculations confirm the three-state balance formulas and example for rational cases. The analytic proof bounds every trajectory into an invariant four-state set, identifies all recurrent classes, derives the stationary masses by balance and the mean, proves uniqueness and convergence, and establishes the strict sharp factor \(3\) by an exact derivative identity. The proof uses no numerical extrapolation or infinite enumeration. The mean and variance statements are normalized on the unit lattice.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest quantized-training source (Li et al. 2017, Theorem 5/Appendix F) studies an asymptotic regime with a genuinely random stochastic-gradient law, not the exact negative-slope deterministic-gradient iteration. Connolly et al. (2020/2021) concern rounding errors, Croci et al. (2022) survey error analysis, and Xia et al. (2025) study descent-oriented small steps. A published negative-slope floor-quantization theorem concerns deterministic periodic orbits. Related unpublished or unindexed three-state stochastic-rounding calculations may exist. No search outcome is treated as proof of uniqueness.
+PASS
 
-**Value: PASS.** A single natural parameter family of scalar quadratic descent steps receives a complete stationary-law classification with a sharp support threshold and global, scale-free noise-inflation bound. It identifies a practical distinction between conditional unbiasedness/mean contraction and excess stationary variance in oscillatory but stable quantized iterations. The finding deliberately does not claim a downstream high-dimensional theorem.
+The unbiased integer stochastic rounding operator gives E[X_n]=u+a^n(X_0-u). For a>=0, {0,1} is invariant and integer states outside drift monotonically toward it almost surely. For a=-r, 0<r<=1/2, deterministic contraction plus subunit rounding error traps all states in S={-1,0,1,2}; transition inspection gives a single closed aperiodic Bernoulli class for b=(1+r)min(u,1-u)>=r and a three-state class otherwise. Solving stationary mass at -1 and mean determines all probabilities; the moment yields variance u(1-u)+2t[r-(1+r)t]/[1-r+(1+r)t]. Direct rational derivative is strictly negative and limiting inflation is (1+r)/(1-r)<=3, with unattained 3 at r=1/2,u->0. Independent exact-fraction stationary and derivative checks corroborate full transition arguments.
 
-**Scope and reproducibility.** The only randomness is the one final unbiased lattice-rounding operation at each step; no floating-point intermediate errors are modeled. The exact argument works for all allowed real parameters. Run `python3 verify.py` to reproduce the finite exact-rational checks and inspect `verification_output.txt` for their recorded output. This is a self-review, not external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact finite-overshoot stationary support/variance classification. Li et al. 2017 analyze small-step learning-rate limits and explicit stochastic-gradient noise, not noiseless overshoot a<0 in this parameter range. Connolly–Higham–Mary error analysis and Croci et al. stochastic rounding survey give general error behavior, not this exact Markov invariant law. A previous negative affine contraction theorem concerns deterministic floor quantization, mathematically different.
+
+## value
+
+PASS
+
+Model is the canonical scalar quadratic contraction with ideal unbiased final-step lattice rounding. It exhibits a sharp phase transition from minimum-variance two-state equilibrium to three-state overshoot and a sharp factor-three stationary variance inflation; these are motivated quantitative limits on numerical noise, not an arbitrary tiny instance or known arithmetic table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

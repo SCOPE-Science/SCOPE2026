@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:47:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unbiased integer stochastic rounding operator gives E[X_n]=u+a^n(X_0-u). For a>=0, {0,1} is invariant and integer states outside drift monotonically toward it almost surely. For a=-r, 0<r<=1/2, deterministic contraction plus subunit rounding error traps all states in S={-1,0,1,2}; transition inspection gives a single closed aperiodic Bernoulli class for b=(1+r)min(u,1-u)>=r and a three-state class otherwise. Solving stationary mass at -1 and mean determines all probabilities; the moment yields variance u(1-u)+2t[r-(1+r)t]/[1-r+(1+r)t]. Direct rational derivative is strictly negative and limiting inflation is (1+r)/(1-r)<=3, with unattained 3 at r=1/2,u->0. Independent exact-fraction stationary and derivative checks corroborate full transition arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Connolly–Higham–Mary present probabilistic backward-error expectations rather than a stationary negative-multiplier contraction law.",
+          "https://eprints.maths.manchester.ac.uk/2763/1/paper.pdf",
+          "Croci et al. survey stochastic rounding implementation/error analysis.",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8905452/"
+        ],
+        "reasoning": "General unbiasedness and stability-error bounds do not specify the invariant class transition at t=r/(1+r) or exact sharp variance ratio; the current calculation is an exact quantitative special model, not a direct corollary.",
+        "searches": [
+          "stationary stochastic rounding negative affine contraction scalar integer lattice three-state chain variance inflation overshooting",
+          "https://eprints.maths.manchester.ac.uk/2763/1/paper.pdf",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8905452/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1706.02379",
+        "https://eprints.maths.manchester.ac.uk/2763/1/paper.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8905452/",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md",
+        "Resultary semantic query: stationary stochastic rounding negative affine contraction scalar integer lattice three-state chain variance inflation overshooting",
+        "Pinned stationary rounding RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li et al. 2017 Theorem 5 assumes a stochastic gradient and takes learning rate small, while here eta*lambda in (1,3/2] and deterministic gradient followed by a single unbiased rounding.",
+          "https://arxiv.org/pdf/1706.02379",
+          "A floor-quantized negative-slope affine map has deterministic periodic basins, not stochastic transition probabilities.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md"
+        ],
+        "reasoning": "Their models do not imply the stationary three-state transition probabilities or sharp threefold inflation in the stated overshoot range.",
+        "searches": [
+          "stationary stochastic rounding negative affine contraction scalar integer lattice three-state chain variance inflation overshooting",
+          "https://arxiv.org/pdf/1706.02379",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published deterministic negative-slope floor quantization gives periodic orbits rather than the stochastic rounding Markov stationary distribution.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md",
+          "Li et al. Theorem 5 treats small-learning-rate stochastic-gradient noise.",
+          "https://arxiv.org/pdf/1706.02379"
+        ],
+        "reasoning": "Deterministic floor-map cycles and noisy-gradient small-step limiting laws are not equivalent to the exact finite-step unbiased rounding chain; they cannot imply the three-state masses.",
+        "searches": [
+          "stationary stochastic rounding negative affine contraction scalar integer lattice three-state chain variance inflation overshooting",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md",
+          "https://arxiv.org/pdf/1706.02379"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published mathematical records returned additive-noise signSGD and floor-quantized negative-slope orbit classification, and related near-flip laws, not an exact table for r<=1/2 ideal stochastic rounding.",
+          "Resultary semantic query: stationary stochastic rounding negative affine contraction scalar integer lattice three-state chain variance inflation overshooting"
+        ],
+        "reasoning": "No matching table was located. This is a bounded database check rather than a claim of complete novelty certification.",
+        "searches": [
+          "stationary stochastic rounding negative affine contraction scalar integer lattice three-state chain variance inflation overshooting"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact finite-overshoot stationary support/variance classification. Li et al. 2017 analyze small-step learning-rate limits and explicit stochastic-gradient noise, not noiseless overshoot a<0 in this parameter range. Connolly–Higham–Mary error analysis and Croci et al. stochastic rounding survey give general error behavior, not this exact Markov invariant law. A previous negative affine contraction theorem concerns deterministic floor quantization, mathematically different.",
+      "residual_risks": [
+        "Elementary finite Markov calculation could have been recorded in unindexed numerical analysis or stochastic approximation literature.",
+        "The 2021 backward-error preprint was not exhaustively inspected; no complete-literature no-coverage claim is made.",
+        "The threshold is proved only for negative multipliers r<=1/2 and exact single final rounding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering deterministic-gradient stable overshooting step sizes",
+          "evidence": "Earlier theorem assumes nondegenerate gradient noise and a small-learning-rate limit, unlike one-rounding-per-iteration a in [-1/2,0).",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.02379",
+          "material_read": "Primary arXiv PDF, small-learning-rate assumptions and Theorem 5 material contrasted with exact deterministic-gradient affine model",
+          "method": "Read relevant theorem/hypotheses from accessible primary PDF",
+          "title": "Training Quantized Nets: A Deeper Understanding",
+          "trigger": "Gradient training with quantization and stationary laws"
+        },
+        {
+          "assessment": "Foundational rounding error context; incomplete full-text priority check",
+          "evidence": "Error bounds do not themselves state a three-state stationary law; inaccessible unexamined sections remain a residual priority risk.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2763/1/paper.pdf",
+          "material_read": "Available cited preprint abstract and source discussion; no claim to complete full-text reading",
+          "method": "Statement-level citation and hypotheses comparison",
+          "title": "Stochastic Rounding and Its Probabilistic Backward Error Analysis",
+          "trigger": "Foundational unbiased rounding/error analysis"
+        },
+        {
+          "assessment": "Not the identical stochastic law",
+          "evidence": "Exact floor quantization is deterministic rather than conditionally Bernoulli stochastic rounding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md",
+          "material_read": "Published result statement and detailed summary of deterministic floor-map cycles",
+          "method": "Read statement-level public record evidence and compare deterministic versus stochastic transitions",
+          "title": "Outermost-cycle basin selection and logarithmic settling for quantized affine contractions",
+          "trigger": "Same negative-slope affine map under different rounding rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Model is the canonical scalar quadratic contraction with ideal unbiased final-step lattice rounding. It exhibits a sharp phase transition from minimum-variance two-state equilibrium to three-state overshoot and a sharp factor-three stationary variance inflation; these are motivated quantitative limits on numerical noise, not an arbitrary tiny instance or known arithmetic table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar exact affine update with one conditionally independent final unbiased integer-grid rounding, not rounded gradients, floating point, or multipliers below -1/2.",
+    "The variance factor 3 is an unattained supremum."
+  ],
+  "schema_version": 1
+}
