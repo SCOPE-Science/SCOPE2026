@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and limits
+# Independent mathematical audit
 
-The result has four proof components: an analytic all-horizon invariant for at most three machines, an explicit adaptive five-chore obstruction on four machines, a finite exhaustive certificate that four-machine streams of at most four chores admit online exact PROP1, and an all-population two/three-arrival adversarial threshold for at least five machines.
+## correctness
 
-Execute `python verify.py` with Python 3.10 or later. The run checks 91 feasible lattice discrepancy triples (364 min-discrepancy transitions), 16,105 non-singleton eligibility streams of length at most four, exact minimax reachability at horizons four and five, and 108 branches of the explicit adaptive adversary. The expected observed checks include `three invariant (91, 364)`, `four greedy prefixes 16105`, and `adversary (108, [0, 0, 0, 12, 0, 96])`.
+PASS
 
-Also execute `g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_independent.cpp -o verify_cpp && ./verify_cpp`. It enumerates all 54,241 eligibility-set sequences of lengths zero through four, including singletons, calculates allocations directly from current loads and proportional shares, and verifies exact PROP1 at each step. Expected output: `Direct all-eligibility 4-job prefixes checked: 54241; allocation transitions: 54240`.
+For three agents the minimum-discrepancy rule preserves all discrepancies in [-5/6,5/6] via the 1/6 lattice, zero sum, and eligible-set cases. The four-agent adaptive adversary gives 12 direct three-step losing branches and 96 five-step branches; direct independent enumeration of all 54,241 eligible-set histories of length 0..4 verifies the greedy rule up to four arrivals. For m>=5, two global chores followed by the pair of receivers forces 3/2-2/m>1; two chores cannot force failure by a minimum-discrepancy choice. Computation is used only for the finite four-agent horizon, not arbitrary m or time.
 
-Integer arithmetic with denominator 12 handles all eligible-set sizes on four machines; denominator 6 handles all sizes on three machines. The proof is complete because the finite enumeration covers every possible eligibility sequence of the claimed finite horizon, including adaptive realizations. No finite check is offered as an infinite-horizon theorem. Separate analytic arguments establish the unlimited-horizon three-machine guarantee, the five-chore obstruction at four machines, and the three-chore obstruction and two-chore feasibility bound at all larger populations. No external independent review or certification has been performed.
+## originality
+
+PASS
+
+No stronger statement or equivalent theorem located in inspected materials; best-of-knowledge with specific access and priority risks.
+
+## value
+
+PASS
+
+This is a natural complete small-population threshold and exceptional finite arrival cutoff for the central online unit-chore model; the exact m=4 boundary matters beyond asymptotic approximation ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
