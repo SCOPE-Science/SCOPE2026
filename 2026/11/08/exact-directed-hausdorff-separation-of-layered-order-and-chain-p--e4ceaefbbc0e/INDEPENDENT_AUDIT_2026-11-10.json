@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:11:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 antichain layers the chain polytope is a coordinatewise downward-closed intersection of chain inequalities, so the farthest order point is the unique all-ones vertex. Permuting coordinates inside each layer reduces its Euclidean projection to strictly convex water filling with t_i=(1-lambda/m_i)_+ and sum_i t_i=1. Reverse squared distance maximizes at an antichain vertex, whose order-polytope isotonic projection pools a selected layer subset of size a with U_i higher coordinates, giving a U_i/(a+U_i). Strict monotonicity in a yields the stated max over full layers; two-layer equality and strict k>=3 forward dominance follow from the quadratic comparison, and k=1 is handled separately. Independent exact/rational water-filling calculations yielded (1,2,3): (h(O,C)^2,h(C,O)^2)=(11/5,6/5), reversed (3,2,1):(11/5,3/2), equal unit layers k=3:(4/3,2/3), k=4:(9/4,3/4). These sample tests corroborate the unrestricted convex proof, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahmad et al. focus face counts; Freij-Hollanti–Lundström explicitly focus f-vectors; Lee arXiv abstract discusses edge lengths and graph diameters, not ambient set-to-set Hausdorff.",
+          "Other Resultary polytopal metrics are vertex-cloud dispersion, inballs and inertia, different functionals."
+        ],
+        "reasoning": "Their broader poset families do not dominate this metric theorem because they compute distinct invariants. Full-text exclusions not certified from accessible abstract-only materials.",
+        "searches": [
+          "arXiv:2309.01626 order chain maximal ranked posets",
+          "arXiv:2312.13890 f vector inequalities ordinal sums",
+          "arXiv:2610.07413 edge lengths diameters",
+          "Resultary poset polytope dispersion and inertia"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full RESULT and optional scipy check_hausdorff.py",
+        "Resultary semantic retrieval same poset metric and related cases",
+        "arXiv:2309.01626, 2312.13890, 2610.07413 abstract-level comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal Ehrhart and volume data do not determine Hausdorff distances.",
+          "Edge-length/face-count bounds are insufficient to imply unique farthest point and water-filling formulas."
+        ],
+        "reasoning": "There is no established mathematical implication from the inspected prior statements to this exact two-sided metric law; historical unindexed work remains possible.",
+        "searches": [
+          "arXiv:2610.07413 graph diameters edge lengths order chain polytopes",
+          "arXiv:2309.01626 ranked poset face comparison",
+          "Resultary exact geometric differences order chain polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection of all ones onto chain polytope produces water filling; reverse direction is isotonic projection of antichain indicators.",
+          "No retrieved published result with these same position-sensitive directional distances."
+        ],
+        "reasoning": "Stanley transfer maps between Ehrhart-equivalent polytopes are not Euclidean isometries; no equivalent formulation of the exact two directed distances was identified.",
+        "searches": [
+          "Resultary: Euclidean Hausdorff distance order chain polytopes ordinal sum antichains layered posets",
+          "water filling projection all ones chain polytope isotonic antichain to order polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact metric table retrieved; independent profiles (1,2,3) and its reverse have same symmetric 11/5 but different reverse 6/5 and 3/2."
+        ],
+        "reasoning": "The claim is an all-parameter classification, not a table lookup; the examples demonstrate nontrivial order sensitivity.",
+        "searches": [
+          "layered posets Hausdorff distance numeric tables 1 2 3 water filling",
+          "Stanley order chain Euclidean distance table"
+        ]
+      },
+      "rationale": "The direct canonical-position Euclidean Hausdorff problem is not equivalent to Ehrhart equality, f-vector inequalities, edge counts, edge lengths or 1-skeleton graph diameter. Accessible abstracts of Ahmad–Fourier–Joswig, Freij-Hollanti–Lundström and Lee address those other invariants, not the exact directed Hausdorff separation; no stronger result was identified in Resultary. Because complete texts of the closest papers could not be read here, this is a best-of-knowledge result with noncoverage NOT inferred from snippets alone.",
+      "residual_risks": [
+        "Closest poset-polytope primary full texts not independently inspected in entirety, so an earlier metric appendix cannot be excluded.",
+        "The result is canonical-coordinate and order-convention sensitive; no assertion for isometric alignment or arbitrary posets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "valid all-positive-layer theorem",
+          "evidence": "KKT, isotonic projection, sharp comparison",
+          "identifier_or_url": "SCOPE-Science/SCOPE2026 frozen RESULT.md, check_hausdorff.py",
+          "material_read": "complete proof and computational checker",
+          "method": "GitHub commit-pinned blob reading; independent rational instances",
+          "title": "Exact directed Hausdorff separation of layered order and chain polytopes",
+          "trigger": "actual submitted theorem"
+        },
+        {
+          "assessment": "distinct invariant; no whole-document NOT_COVERING assertion",
+          "evidence": "edge lengths and graph diameters do not compute Hausdorff distance",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+          "material_read": "complete abstract including edge-length and graph-diameter statements; not full proof",
+          "method": "arXiv abstract and mathematical implication comparison",
+          "title": "A refinement of the edge theorem for order and chain polytopes",
+          "trigger": "same poset objects and layers"
+        },
+        {
+          "assessment": "relevant background only; possible uninspected text risk",
+          "evidence": "focus on f-vector inequality under ordinal sums",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13890",
+          "material_read": "full abstract, not mathematical main-text body",
+          "method": "arXiv abstract comparison",
+          "title": "f-vector inequalities for order and chain polytopes",
+          "trigger": "ordinal sum and same polytope pair"
+        },
+        {
+          "assessment": "no decisive full-document coverage assertion",
+          "evidence": "face-number comparisons indicated by prior record",
+          "identifier_or_url": "https://arxiv.org/abs/2309.01626",
+          "material_read": "identified subject, abstract-level literature search; full text unavailable",
+          "method": "arXiv discovery",
+          "title": "Order and chain polytopes of maximal ranked posets",
+          "trigger": "same layered posets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stanley's order and chain polytopes are a canonical equi-Ehrhart pair; exact coordinate-space metric comparison quantifies a geometric discrepancy invisible to their lattice-point enumerators. The water-filling and suffix-mass formulas determine both directions for every fully layered poset, and the sqrt(k-1) unbounded ratio is a meaningful structural phenomenon, not merely a numerical case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen full RESULT and optional scipy check_hausdorff.py",
+    "Resultary semantic retrieval same poset metric and related cases",
+    "arXiv:2309.01626, 2312.13890, 2610.07413 abstract-level comparisons"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Closest poset-polytope primary full texts not independently inspected in entirety, so an earlier metric appendix cannot be excluded.",
+    "The result is canonical-coordinate and order-convention sensitive; no assertion for isometric alignment or arbitrary posets.",
+    "Scientific assessment complete but publication not_ready; no public file content or protected verification channel modified."
+  ],
+  "residual_risks": [
+    "Closest poset-polytope primary full texts not independently inspected in entirety, so an earlier metric appendix cannot be excluded.",
+    "The result is canonical-coordinate and order-convention sensitive; no assertion for isometric alignment or arbitrary posets."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "valid all-positive-layer theorem",
+      "evidence": "KKT, isotonic projection, sharp comparison",
+      "identifier_or_url": "SCOPE-Science/SCOPE2026 frozen RESULT.md, check_hausdorff.py",
+      "material_read": "complete proof and computational checker",
+      "method": "GitHub commit-pinned blob reading; independent rational instances",
+      "title": "Exact directed Hausdorff separation of layered order and chain polytopes",
+      "trigger": "actual submitted theorem"
+    },
+    {
+      "assessment": "distinct invariant; no whole-document NOT_COVERING assertion",
+      "evidence": "edge lengths and graph diameters do not compute Hausdorff distance",
+      "identifier_or_url": "https://arxiv.org/abs/2610.07413",
+      "material_read": "complete abstract including edge-length and graph-diameter statements; not full proof",
+      "method": "arXiv abstract and mathematical implication comparison",
+      "title": "A refinement of the edge theorem for order and chain polytopes",
+      "trigger": "same poset objects and layers"
+    },
+    {
+      "assessment": "relevant background only; possible uninspected text risk",
+      "evidence": "focus on f-vector inequality under ordinal sums",
+      "identifier_or_url": "https://arxiv.org/abs/2312.13890",
+      "material_read": "full abstract, not mathematical main-text body",
+      "method": "arXiv abstract comparison",
+      "title": "f-vector inequalities for order and chain polytopes",
+      "trigger": "ordinal sum and same polytope pair"
+    },
+    {
+      "assessment": "no decisive full-document coverage assertion",
+      "evidence": "face-number comparisons indicated by prior record",
+      "identifier_or_url": "https://arxiv.org/abs/2309.01626",
+      "material_read": "identified subject, abstract-level literature search; full text unavailable",
+      "method": "arXiv discovery",
+      "title": "Order and chain polytopes of maximal ranked posets",
+      "trigger": "same layered posets"
+    }
+  ]
+}

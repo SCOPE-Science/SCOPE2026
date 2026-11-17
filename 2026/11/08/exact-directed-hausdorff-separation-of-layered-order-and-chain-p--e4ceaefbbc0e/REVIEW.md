@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The result uses precisely the same canonical coordinate metric on the ordinary order and chain polytopes. Downward closure reduces the first directed Hausdorff extremum to the cube corner; strict convexity and the scalar budget equation prove its projection uniquely. Convexity reduces the second directed extremum to antichain vertices, where isotonic projection has the stated exact rational value. Comparing quadratic objectives proves all inequalities, including equality only for two layers and strict domination thereafter. The 33-profile independent numerical projection checks support but do not replace the proof. The one-layer cube case is explicitly separated.
+PASS
 
-## Originality
+For k>=2 antichain layers the chain polytope is a coordinatewise downward-closed intersection of chain inequalities, so the farthest order point is the unique all-ones vertex. Permuting coordinates inside each layer reduces its Euclidean projection to strictly convex water filling with t_i=(1-lambda/m_i)_+ and sum_i t_i=1. Reverse squared distance maximizes at an antichain vertex, whose order-polytope isotonic projection pools a selected layer subset of size a with U_i higher coordinates, giving a U_i/(a+U_i). Strict monotonicity in a yields the stated max over full layers; two-layer equality and strict k>=3 forward dominance follow from the quadratic comparison, and k=1 is handled separately. Independent exact/rational water-filling calculations yielded (1,2,3): (h(O,C)^2,h(C,O)^2)=(11/5,6/5), reversed (3,2,1):(11/5,3/2), equal unit layers k=3:(4/3,2/3), k=4:(9/4,3/4). These sample tests corroborate the unrestricted convex proof, not replace it.
 
-PASS with historical-priority uncertainty. The closest literature compares the same families' Ehrhart polynomials, face vectors, edges, edge lengths, and graph diameters. No equivalent two-sided *ambient Euclidean Hausdorff* formula or unbounded directional-ratio theorem was located in those primary texts or the examined research records. This is not a claim that failed search proves absolute novelty. Original projection facts are standard, and their application to the joint two-sided classification is the actual claim. Equivalent unindexed work or a known corollary under optimization terminology remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Canonically placed order and chain polytopes have equal Ehrhart polynomials and volumes, making quantitative Euclidean separation a natural finer invariant. The theorem gives exact answers for arbitrary layered widths, distinguishes forward and reverse directed distances, proves surprising insensitivity of the overall distance to rank-order permutations, and exhibits arbitrarily large directional disparity \(\sqrt{k-1}\). Both the full metric and its rank-order sensitivity can be used to study metric stability under poset operations.
+The direct canonical-position Euclidean Hausdorff problem is not equivalent to Ehrhart equality, f-vector inequalities, edge counts, edge lengths or 1-skeleton graph diameter. Accessible abstracts of Ahmad–Fourier–Joswig, Freij-Hollanti–Lundström and Lee address those other invariants, not the exact directed Hausdorff separation; no stronger result was identified in Resultary. Because complete texts of the closest papers could not be read here, this is a best-of-knowledge result with noncoverage NOT inferred from snippets alone.
 
-## Sources and limitations
+## value
 
-Primary comparisons: Ahmad–Fourier–Joswig, arXiv:2309.01626; Freij-Hollanti–Lundström, arXiv:2312.13890; Lee, arXiv:2610.07413. Foundation: Stanley, *Two poset polytopes* (1986). The results assume full comparability between distinct layers and the unshifted shared-coordinate metric. The claim does not extend to all posets, and possible equivalent earlier optimization formulations are not exhaustively ruled out. Independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stanley's order and chain polytopes are a canonical equi-Ehrhart pair; exact coordinate-space metric comparison quantifies a geometric discrepancy invisible to their lattice-point enumerators. The water-filling and suffix-mass formulas determine both directions for every fully layered poset, and the sqrt(k-1) unbounded ratio is a meaningful structural phenomenon, not merely a numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
