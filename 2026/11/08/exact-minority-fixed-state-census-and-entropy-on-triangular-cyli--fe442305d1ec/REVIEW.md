@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Every fixed binary minority assignment on \(C_n\square K_3\) is equivalent to a local opposite-neighbor count of at least two. The 64 pair-column transfer states encode each labelled cyclic assignment once, so the fixed-state number is exactly the trace of its \(n\)-th power. A standalone exact-arithmetic calculation reconstructs the entire transfer matrix, verifies its displayed characteristic factorization, and checks the trace and power-sum formula through length 14. Independently coded direct dynamics checks all \(2{,}396{,}672\) labelled states for lengths three through seven. Rouché's inequality \(81>75\) and disjoint real-root brackets establish the strict spectral separation needed for the stated entropy. Computation supplies a reproducible finite characteristic-polynomial certificate, not an inference from finitely many output counts.
+## correctness
 
-## Originality — PASS, qualified
-The most directly relevant historical comparison is Wacław–Burda (arXiv:0801.1224v1): their material uses Gaussian random couplings and a field-theoretic numerical approximation, whereas the present result uses fixed uniform negative interactions and gives an exact polynomial trace identity. Turau (arXiv:2312.13769v1) treats trees; Jen (DOI:10.1007/BF01221109) develops a general transfer-matrix method without, in the available abstract, specifying the present graph or spectral factors. Previously inspected exact majoritarian dynamics on the same graph has different local constraints and does not imply the minority census. Searches over equivalent terms including unfriendly partitions, locally maximal cuts, and one-spin-stable antiferromagnetic configurations did not return a covering all-length formula. This search is not a proof of universal historical priority. The full Jen article remained inaccessible, which is a specific residual risk.
+PASS
 
-## Mathematical value — PASS
-The fixed-state count is the number of locally stable antiferromagnetic configurations on a natural nonbipartite four-regular strip. Frustration makes the entropy a meaningful structural invariant distinct from a ferromagnetic or global optimum count. The result completely determines the entire infinite width-three family, including characteristic factors, every finite-size count and an algebraic exponential growth constant; it is not a sample-size table or a routine renaming of a known exact formula.
+For n>=3 each C_n□K3 vertex has four distinct neighbors, with tie retaining own color. It is fixed precisely if its own opinion occurs in at most two neighbors (at least two opposite). In a pair-of-columns 64x64 de Bruijn transfer, 218 transitions satisfy the central-three-bit test. Closed walks of length n correspond bijectively to labelled cyclic fixed states, so U_n=trace(T^n). Reconstructed exact integer charpoly X^40(X-2)(X-1)^3(X+1)^3(X²+X+1)^3p(X)q(X)^2, p=X³−3X²−3X+2, q=X⁴+X³+4X²−3X+3. Its eigenvalue-power trace yields U_n=2^n+3(-1)^n+9[3|n]+S_p(n)+2S_q(n). Cubic has one root lambda in (3,4), other two in (-2,-1),(0,1); on |z|=3 the degree-4 term of q dominates the remaining coefficients (81>75), proving all other roots <3. Thus U_n=lambda^n+O(3^n) and entropy log(lambda)/3. Independently exact charpoly checked and directly enumerated fixed states n3..7 =102,188,510,2918,9240.
 
-## Scope and residual risk
-This work does not classify transient states, period-two states, globally optimal cuts or broader triangular strips. The finite characteristic polynomial is reproducible and independently cross-checked on small graphs; the entire scientific claim remains subject to independent validation. The available Jen abstract does not settle priority concerning all applications of its method.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact rule-specific spectral formula for all 3xn minority fixed points is not the existing majority count, tree fixed-point classification, or general transfer-matrix method. A full same-graph majority result was compared at the fixed-point condition and at the characteristic roots, not by title. An older general cylindrical-cellular-automata paper was only accessible through bibliographic material, leaving a qualified priority risk.
+
+## value
+
+PASS
+
+Exact fixed-state entropy on the elementary nonbipartite width-three cylinder is a natural benchmark for unfriendly partitions and locally stable antiferromagnetic states. The explicit 64-state transfer factorization and cubic growth base resolve a nontrivial all-length enumeration, not simply a restatement of the trace method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
