@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The base-three doubling carry table determines both valuations exactly via Kummer and Legendre. Its two-state weighted matrix yields the stated formal generating function. Explicit digit words prove every support point is attained, and rule out the only forbidden strip. The Markov carry contraction and the digit-sum identity give each displayed exact moment. A simple analytic dominant eigenvalue proves joint Gaussian convergence, with mixed Hessian entry zero. An exact-arithmetic verifier independently checked 29,524 index/valuation instances and 301 integer binomial pairs across levels through nine. The infinite claims rely on the complete symbolic proof, not on those checks.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Directly inspected pinned RESULT.md. Kummer/Legendre give X=sum outgoing carries and Y=sum(digit-outgoing carry), so X+Y=s_3(n). The displayed two-state transition M=[[1+v,uv],[1,u(1+v)]] has the claimed trace and determinant; Cayley–Hamilton yields numerator 1-uz, exact recurrence and support by constructive digit strings. Carry Markov covariance calculation gives the moments, and dominant eigenvalue expansion at (u,v)=(1,1) has Hessian diagonal (1/2,1/6), proving the joint CLT. Independent direct integer-frequency and rational moment enumeration to r=6 matched; no finite enumeration alone proves all r.
 
-The exact **joint** bivariate polynomial at all ternary depths, support, finite covariance and limit are the proposed contribution. Kummer–Legendre, the product factorial identity, and general digital transfer-matrix methods are acknowledged as known. Barat–Grabner (2001) develops a general digital-function method and asymptotics for valuations throughout Pascal's triangle; the inspected introduction, Theorem 5, Remark 5 and multinomial extension do not give this same-index pair's finite-depth bivariate distribution. Spiegelhofer–Wallner (arXiv:1604.07089) counts individual valuations across each Pascal row, not the present pair. Straub–Moll–Amdeberhan investigates a different generalized binomial family. No covering claim was located in searches for exact terms or the equivalent factorial/digit-sum formulation; failure to locate one is not a uniqueness certificate. Generic framework coverage and unlocated older literature remain the main priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A classical product identity determines the **sum** of two valuations but not their joint law. The computed bivariate distribution resolves that natural gap at every length and reveals a structurally informative phenomenon: positive finite-depth dependence of order one, vanishing correlation coefficient and independent joint Gaussian limits with distinct variances. Exact positivity-support and moment formulas make the result reusable for simultaneous divisibility questions. This is not a routine restatement of the product valuation.
+Classical product valuation, carries, and generic digital transfer/CLT methods are known; the exact paired ternary joint polynomial, attainable-support frontier, bounded positive covariance and two-variable limit are not implied by the inspected general Pascal-triangle distribution or the published p=2 analogues. Best-of-knowledge result, not a novelty certificate.
 
-## Limits and closest literature
+## value
 
-The proof is restricted to the prime three and the indicated two binomial factors; it does not extend to all primes or prove a local limit theorem. The comparison is supported by material inspection of the author copy of Barat–Grabner, the 2016-preprint Spiegelhofer–Wallner, and initial sections of Straub–Moll–Amdeberhan. An equivalent consequence of a general digital-function theorem might be found elsewhere. All critical claims are proved directly here, and independent evaluation is still required.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Paired proportional binomial valuations are natural arithmetic invariants; their exact joint law clarifies nontrivial finite-depth dependence versus asymptotic Gaussian independence, with an all-depth rational generating function useful for further arithmetic statistics rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

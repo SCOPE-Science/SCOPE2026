@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact-arithmetic verification
+# Independent mathematical audit
 
-The included `verify.py` enumerates all \(n\) with \(0\le n<3^r\), separately for \(r=0,1,\ldots,9\), and obtains valuations from Legendre's factorial formula rather than the stated transition matrix. It independently generates the matrix coefficient distribution, checks all coefficients and sums, support, and the exact means, variances and covariance using `fractions.Fraction`. It also forms 301 actual pairs of integer binomial coefficients and divides out powers of three.
+## correctness
 
-Execute `python3 verify.py` (standard-library Python only). Actual result:
+PASS
 
-```text
-VERIFY_OK levels=0..9 direct_indices=29524 integer_binomial_cases=301 joint_polynomials=PASS support=PASS exact_moments=PASS
-```
+Directly inspected pinned RESULT.md. Kummer/Legendre give X=sum outgoing carries and Y=sum(digit-outgoing carry), so X+Y=s_3(n). The displayed two-state transition M=[[1+v,uv],[1,u(1+v)]] has the claimed trace and determinant; Cayley–Hamilton yields numerator 1-uz, exact recurrence and support by constructive digit strings. Carry Markov covariance calculation gives the moments, and dominant eigenvalue expansion at (u,v)=(1,1) has Hessian diagonal (1/2,1/6), proving the joint CLT. Independent direct integer-frequency and rational moment enumeration to r=6 matched; no finite enumeration alone proves all r.
 
-No finite enumeration certifies the theorem for all depths. The unrestricted result rests on the explicit carry-table proof, transfer-matrix identity, elementary Markov covariance calculation, constructive support argument, and analytic eigenvalue proof. Independent audit has not been performed.
+## originality
+
+PASS
+
+Classical product valuation, carries, and generic digital transfer/CLT methods are known; the exact paired ternary joint polynomial, attainable-support frontier, bounded positive covariance and two-variable limit are not implied by the inspected general Pascal-triangle distribution or the published p=2 analogues. Best-of-knowledge result, not a novelty certificate.
+
+## value
+
+PASS
+
+Paired proportional binomial valuations are natural arithmetic invariants; their exact joint law clarifies nontrivial finite-depth dependence versus asymptotic Gaussian independence, with an all-depth rational generating function useful for further arithmetic statistics rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
