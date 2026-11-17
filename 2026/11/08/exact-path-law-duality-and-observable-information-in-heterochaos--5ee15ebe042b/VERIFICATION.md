@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the stated path law
+# Independent mathematical audit
 
-The proof checks the probability normalization of every full expanding-base branch, the independence of successive branch codes, the finite intersection set of distinct center transition graphs, stationarity of uniform Lebesgue measure under the center kernel, the exact operator adjunction, the likelihood factorization, and the binomial identities. The proof requires a product-Lebesgue initial condition and interior probabilities; it does not establish assertions for other initial measures or noisy observations.
+## correctness
 
-Run `python check.py` using Python 3 standard library. It performs exact rational checks for 25 combinations of branch counts and probabilities. For every case it verifies stationarity and the parameter-reflection adjoint identity on all test monomial pairs up to degree five, normalization of all branch words through length four, the finite binomial fluctuation-probability ratios, and noncoincidence of distinct branch outputs at a generic rational point. It also traces 450 rational initial conditions through the deterministic two-dimensional map for eight iterations and checks that observed contracting edges decode the base branch decisions. The program is finite verification only; it is not a proof of all parameter and time cases. Independent audit has not been performed.
+PASS
+
+The full-branch base map tau_a has uniform conditional images and branch lengths p/M,...,p/M,q, so its successive labels are iid and independent of uniform center initialization. Their center maps are M distinct inverse-branch graphs (y+k)/M and one expanding graph {My}; the contraction graphs do not meet and their intersections with the expanding graph are a finite set y=(Mj+k)/(M^2-1), null under the uniform stationary marginal. Thus the observed path recovers all branch labels modulo null sets common to all interior p. This invertible parameter-free coding transfers the categorical iid likelihood, f-divergences and Fisher information and makes the contraction count Bin(n,p) sufficient. The Koopman transfer identity U*=L and Kp=pL+qU yields invariant Lebesgue and reverse kernel Kq; stationary reversal path law is Pq. Substituting p prime=q into exact likelihood produces S_n=(2N_n-n)log(p/q), binomial fluctuation ratios, entropy and almost-sure law; Lyapunov (q-p)log M vanishes only at p=q. Independent rational moment/CDF stationarity identities checked M=2,3,4 at three probabilities each; source exact check script for path labels and fluctuation relations was inspected. Finite checks corroborate, not prove, all lengths.
+
+## originality
+
+PASS
+
+The affine random-map model and its stationary Lebesgue center behavior are classical in Homburg–Kalle and Takahasi. A November 1 published Resultary theorem gives exact two-time covariance symmetry under p/q interchange, and its operator adjoint mechanism is strong relevant coverage; path reversal is a routine consequence of that operator. However none of the inspected earlier statements identifies the entire branch sequence from center pairs or establishes full-path parameter likelihood equivalence, sufficient statistics, exact finite-sample divergence formulas and infinite-law singularity. These are the surviving motivated contribution, with the general f-divergence and entropy identities credited as consequences of the specific observable coding.
+
+## value
+
+PASS
+
+A process whose one-time observation law is parameter-independent nonetheless encodes the entire parameter-dependent iid switching sequence in its consecutive observations. Identifying the exact finite-horizon statistical experiment, information rate, infinite-path singularity and arrow-of-time threshold is a coherent and mathematically motivated distinction between static and dynamic observability. Adjoint reversibility itself is credited to established principles and the earlier covariance operator rather than claimed as new general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

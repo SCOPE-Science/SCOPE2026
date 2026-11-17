@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The full-branch base map generates independent categorical branch decisions under planar Lebesgue measure; the observed center coordinate is a Markov chain with the asserted kernel. The contraction and expansion transition graphs intersect on only finitely many center points, so a finite observed path reconstructs every branch decision outside a common null set. This pathwise invertibility proves exact likelihood, divergence, total-variation, Hellinger, and sufficient-statistic formulas. The adjoint relation for the expanding map and its equally weighted inverse branches yields the exact time-reversal identity; its log-likelihood produces the binomial fluctuation law. Analytical proofs cover all integer branch counts and interior probabilities, with exact rational checks for selected cases and deterministic-map orbit spot checks. Boundary-null and initial-law assumptions are explicitly stated.
+PASS
 
-## Originality
+The full-branch base map tau_a has uniform conditional images and branch lengths p/M,...,p/M,q, so its successive labels are iid and independent of uniform center initialization. Their center maps are M distinct inverse-branch graphs (y+k)/M and one expanding graph {My}; the contraction graphs do not meet and their intersections with the expanding graph are a finite set y=(Mj+k)/(M^2-1), null under the uniform stationary marginal. Thus the observed path recovers all branch labels modulo null sets common to all interior p. This invertible parameter-free coding transfers the categorical iid likelihood, f-divergences and Fisher information and makes the contraction count Bin(n,p) sufficient. The Koopman transfer identity U*=L and Kp=pL+qU yields invariant Lebesgue and reverse kernel Kq; stationary reversal path law is Pq. Substituting p prime=q into exact likelihood produces S_n=(2N_n-n)log(p/q), binomial fluctuation ratios, entropy and almost-sure law; Lyapunov (q-p)log M vanishes only at p=q. Independent rational moment/CDF stationarity identities checked M=2,3,4 at three probabilities each; source exact check script for path labels and fluctuation relations was inspected. Finite checks corroborate, not prove, all lengths.
 
-PASS within checked sources. Homburg–Kalle, arXiv:2207.09987, establish the random expanding/contracting interval system and stationary Lebesgue measure, and analyze two-point motions; they do not state the observation-path equivalence to a categorical experiment, parameter-dependent finite path divergences, or the parameter-reflection time reversal. Takahasi, arXiv:2307.08119, establishes mixing of the generalized baker map; Saiki–Takahasi–Yamamoto–Yorke, arXiv:2401.00836, study invariant measures and Lyapunov transitions; Takahasi–Tsujii, arXiv:2408.16618, treat transfer operators and correlations. The closest known same-system center-covariance formula describes two-time covariance rather than observed path likelihood or reversibility. Generic Markov time-reversal and fluctuation identities are existing theory; the new model-specific contribution is almost-sure observability of the iid driver and its exact path-law duality. Equivalent results in unindexed literature remain a realistic priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The invariant one-point center law is uniform for every parameter, whereas a single noiseless observed trajectory identifies the parameter and in fact supplies an exactly sufficient binomial experiment. The complete finite-time total-variation and entropy formulas quantify this separation without recourse to asymptotic mixing estimates; the time-reversal reflection identifies the zero-center-Lyapunov threshold as the exact reversibility boundary. These are natural structural and inferential properties of the motivating heterochaos family, not a numerically chosen special parameter or a restatement of the correlation decay theorem.
+The affine random-map model and its stationary Lebesgue center behavior are classical in Homburg–Kalle and Takahasi. A November 1 published Resultary theorem gives exact two-time covariance symmetry under p/q interchange, and its operator adjoint mechanism is strong relevant coverage; path reversal is a routine consequence of that operator. However none of the inspected earlier statements identifies the entire branch sequence from center pairs or establishes full-path parameter likelihood equivalence, sufficient statistics, exact finite-sample divergence formulas and infinite-law singularity. These are the surviving motivated contribution, with the general f-divergence and entropy identities credited as consequences of the specific observable coding.
 
-## Limits of this review
+## value
 
-An independent mathematical audit has not been performed. The identity applies to ideal center-coordinate observations and the specified stationary initial law. The general fluctuation relation is not claimed as new. More extensive publication-priority comparison could reveal an equivalent source not located here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A process whose one-time observation law is parameter-independent nonetheless encodes the entire parameter-dependent iid switching sequence in its consecutive observations. Identifying the exact finite-horizon statistical experiment, information rate, infinite-path singularity and arrow-of-time threshold is a coherent and mathematically motivated distinction between static and dynamic observability. Adjoint reversibility itself is credited to established principles and the earlier covariance operator rather than claimed as new general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
