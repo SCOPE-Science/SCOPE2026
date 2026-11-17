@@ -1,15 +1,21 @@
-# Scientific review of the exact genus-four closed-point threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit curve is geometrically integral of genus four by the Artin–Schreier single-pole formula. The trace obstruction holds for every affine \(x\in\mathbb F_{64}\) and proves \(N_3=N_1=1\), hence \(B_3=0\). The universal part uses the Weil bounds and a strict inequality for every \(r\ge4\), proved by elementary induction; finite tests only check the boundary calculations. The forced zeta polynomial follows from equality at the Weil lower bound, rather than a guessed fit. Both verification programs returned their success markers.
+## correctness
 
-## Originality — PASS (historical-priority risk remains)
-Aubry–Herbaut–Monaldi's genus-at-most-three exact threshold results and general bounds do not supply the genus-four sharpness example. The subsequent diophantine-stability survey regards the relevant genus-four case as admissible, without a realizing curve in the inspected passages. The public Lario table **already lists** the exact characteristic polynomial \((t-2)^4(t^2+2t+4)^2\) as a **candidate**; novelty of that polynomial is explicitly disclaimed. The logical distinction is that a Weil-polynomial candidate does not imply a smooth curve with that polynomial. The present trace construction supplies such a curve and thus proves the sharp universal threshold. Searches of indexed mathematical records and primary literature found no explicit realizing equation or prior proof of \(\rho(4,4)=4\). A potentially relevant 2021 thesis could not be read in full and remains a specific priority risk; priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The universal closed-point threshold is an explicitly motivated exact invariant in recent finite-field algebraic geometry. Sharpness requires a real curve missing a degree, not just a compatible polynomial; this example resolves that distinction. The proof simultaneously gives all degrees above the threshold for every genus-four curve over the same base field. This is a complete natural small-genus finite-field classification of the threshold, not an arbitrary slice or a pure table reproduction.
+For y²+y=x⁹+omega over F4 (omega²+omega+1=0), odd sole pole of degree 9 gives genus (9−1)/2=4, affine derivative in y=1 and one rational infinity point. For all x in F64, x⁹ lies in F8, so absolute trace F64/F2 of x⁹=0, while trace of omega=1 (three-fold F4/F2 trace). Therefore no affine F64 points, N3=1, and same trace over F4 gives N1=1; B3=(N3−N1)/3=0. The universal assertion uses Weil N_r >=4^r+1−8*2^r, and all proper divisors d<=r/2 with N_d bounded by 2^r+1+8*2^(r/2), at most r/2 such d. This is <=49r/32 *2^r for r>=4. Since 2^r−8>49r/32 for every r>=4 by induction, N_r exceeds sum proper N_d and thus r B_r>0. Weil equality at r=3 forces all Frobenius eigenvalues cubed equal 8; N1 fixes multiplicities 4,2,2 among 2,2zeta,2zeta², yielding P(T)=(1−2T)^4(1+2T+4T²)^2 and B1=1,B2=4,B3=0,B4=54. Independently recomputed all shown counts; finite tests are not an all-r proof.
 
-## Limits
-No assertion is made about other field sizes, other genera, uniqueness of the curve, or uniqueness of its Frobenius polynomial. The candidate polynomial was previously tabulated. Full historical priority is unresolved because a relevant thesis full text and possible older equivalent models were not available for complete inspection. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with specific priority risk: Aubry–Herbaut–Monaldi classify exact closed-point thresholds through genus three and give general estimates, but no explicit genus-four F4 missing-degree-three curve in inspected primary. Lario public genus-four F64/F4 table already lists the matching Weil-polynomial candidate; the polynomial is NOT new. A candidate polynomial alone does not prove the existence of a geometrically integral genus-four curve realizing it, whereas the explicit Artin–Schreier equation plus trace does. No independently identified earlier actual realization of this candidate; an inaccessible thesis or database entry could eliminate historical priority.
+
+## value
+
+PASS
+
+PASS: exact universal closed-point threshold rho(q,g) is the precise natural invariant motivating the Aubry–Herbaut–Monaldi program. The sharp g=4, q=4 bound requires an actual smooth curve with B3=0, not only Weil-admissible coefficients. The theorem supplies an explicit witness and a uniform theorem for every larger degree, with no claim of genus/field-wide classification beyond this parameter pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
