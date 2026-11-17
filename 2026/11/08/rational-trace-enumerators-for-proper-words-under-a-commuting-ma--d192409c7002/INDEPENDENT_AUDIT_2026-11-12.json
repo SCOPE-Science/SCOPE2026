@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:45:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The commutation congruence preserves exactly (u,r), the A-subword u and the number r of marker letters. If u is nonempty of length m, linear properness is possible iff e(u)≤r≤m+1, where e counts equal consecutive A letters; cyclic properness iff e_circ(u)≤r≤m. The weighted projection sums are P_m=h(h−1+z)^{m−1} and Q_m=(h−1+z)^m+(h−1)(z−1)^m by the eigenvalues of the h×h adjacency-weight matrix. Geometric summation gives the displayed rational F_h,G_h, with empty and one-letter boundaries treated separately. Intersecting either trace closure with a* b* yields a nonregular linear count-balance language; hence neither closure is regular. Independent direct brute enumeration of original words and gap criteria agreed on 26 h,length comparisons for h=2,3,4; this supplements an all-h formal argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "POPL 2026 describes computational hardness and approximate trace sampling, not the displayed two exact rational forms.",
+          "CONCUR 2019 exhibits and computes derivatives of nonregular trace closures without the present proper/cyclic coefficient census."
+        ],
+        "reasoning": "The source generality is algorithmic or linguistic and does not automatically yield these explicit coefficient forms; specialization and gap combinatorics are needed.",
+        "searches": [
+          "arXiv:2512.00314 Counting and Sampling Traces in Regular Languages",
+          "arXiv:1908.03551 Reordering Derivatives of Trace Closures of Regular Languages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.00314 de Colnet–Meel–Mathur (POPL 2026)",
+        "doi:10.1145/3776723",
+        "arXiv:1908.03551 Maarand–Uustalu (CONCUR 2019)",
+        "doi:10.4230/LIPIcs.CONCUR.2019.40",
+        "Resultary semantic searches for trace closure proper words"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The POPL example with the h=2 alphabet admits words abcc/bacc with equal adjacent characters, contrary to L_h.",
+          "General nonregularity is known but does not entail the paired rational enumerators; the present a*b* intersection gives a specific witness."
+        ],
+        "reasoning": "An earlier matching independence graph alone does not imply the same trace counts: the language and cyclic boundary are decisive.",
+        "searches": [
+          "arXiv:2512.00314 Example 5.3",
+          "arXiv:1908.03551 trace closure nonregular example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Colnet–Meel–Mathur define the same general trace quotient objective but not this local language.",
+          "The complete invariant (u,r) is specialized to a marker commuting with each nonmarker letter; counts are not cyclic-rotation necklaces."
+        ],
+        "reasoning": "A general trace-closure algorithm is not an equivalent explicit all-h generating-function identity for the stated regular language.",
+        "searches": [
+          "Resultary: Mazurkiewicz trace closure proper adjacent unequal words one commuting marker rational generating function",
+          "Resultary: rational traces proper words commuting marker generating function exact cyclic",
+          "arXiv:2512.00314 regular languages trace quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact semantic hit is the assigned result itself; cyclic trigram-profile counts identify different equivalence relations (fixed subword histograms versus commuting b).",
+          "No earlier exact matching table or sequence for both F_h and G_h was identified in the checked corpus."
+        ],
+        "reasoning": "Different circular profile generating functions do not imply the traces modulo a central-letter commutation relation. Historical indexed databases may contain implicit specializations.",
+        "searches": [
+          "Resultary: rational traces proper words commuting marker generating function exact cyclic",
+          "Resultary: cyclic binary trigram profiles counting series"
+        ]
+      },
+      "rationale": "The exact pair of all-h rational trace-class enumerators under a single universally commuting marker and proper-word/cyclic-proper constraints is not the same as general trace-class counting complexity or reordering derivative formalisms. De Colnet–Meel–Mathur shares the h=2 independence graph in an example but its accepted language permits adjacent equal letters and is not the present proper language. Possible prior implicit trace-monoid enumeration remains a priority risk.",
+      "residual_risks": [
+        "Highly relevant POPL 2026 full primary paper was not materially read in its entirety this run; an overlooked appendix specialization is possible.",
+        "Trace-monoid enumerations may yield equivalent rational forms under a different formalism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No matching proper-word counts in material read; complete appendix coverage not certified",
+          "evidence": "The cited example accepts abcc and bacc, incompatible with adjacent-distinct L_h.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.00314",
+          "material_read": "Indexed abstract, example 5.3 description and accessible excerpts on complexity/approximation; full PDF was not read this run",
+          "method": "primary bibliographic/indexed excerpt comparison",
+          "title": "Counting and Sampling Traces in Regular Languages",
+          "trigger": "same trace equivalence and h=2 commuting marker relation"
+        },
+        {
+          "assessment": "Known general nonregularity, not an inspected exact paired enumerator",
+          "evidence": "Nonregularity itself is not the claimed novelty; closed forms are.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.03551",
+          "material_read": "Abstract and general derivative/nonregularity description; full paper unavailable this run",
+          "method": "indexed source comparison",
+          "title": "Reordering Derivatives of Trace Closures of Regular Languages",
+          "trigger": "nonregular closures of regular source languages"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact infinite-family benchmark for counts of partial-commutation execution traces intersecting a natural local-avoidance regular language and its cyclic variant, with nonregular closures but rational counting series. Researchers comparing trace-reduction enumeration to word counts need the precise coefficients; the result is not a tiny or arbitrary finite instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only h>=2 and exactly one commuting marker; cyclic means first-last different, not quotient by word rotation; no general arbitrary independence-graph result."
+  ],
+  "schema_version": 1
+}
