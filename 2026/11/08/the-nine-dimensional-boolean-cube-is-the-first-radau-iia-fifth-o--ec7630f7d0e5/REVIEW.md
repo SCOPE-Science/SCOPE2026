@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof defines the unnormalized Boolean-cube Laplacian and the exact [2/3] stability function, derives each matrix entry from the Walsh spectral decomposition, and reduces all real steps to positivity of integer polynomials. Exact coefficient certificates cover every entry type in the eight lower dimensions; the one non-coefficientwise-positive numerator is treated by two complementary nonnegative-polynomial transforms. The negative nine-cube entry is independently evaluated in exact rational arithmetic using the common denominator and Walsh sums. `verify.py` recomputes the complete arrays from first principles, without floating-point approximations. No unsupported larger-dimension claim is made.
+## correctness
 
-**Originality: PASS subject to publication-priority risk.** General implicit Runge–Kutta SSP analyses discuss method-wide absolute monotonicity and order limits, not the exact Boolean-cube endpoint map. The inspected Padé-positivity paper concerns diagonal rather than the off-diagonal [2/3] filter. The closest earlier graph-specific results cover lower-order Radau IIA on Hamming products, fourth-order Gauss on products, or fifth-order Radau IIA on paths, and neither imply this nine-dimensional cutoff. Relevant searches and the exact implication comparisons are recorded in AUDIT.json. Unindexed or inaccessible statements could establish equivalence and remain a residual risk.
+PASS
 
-**Value: PASS.** Strict positivity of a fifth-order, L-stable endpoint approximation on an entire infinite stepsize interval is meaningful even when its general nonlinear SSP coefficient vanishes. The exact first-failure dimension \(9\) (a \(512\)-state hypercube) sharply locates the boundary between unconditional positivity and a concrete violation for this canonical high-symmetry family. The distinction between fourth-/fifth-order integrators and between path/cube geometry matters in graph diffusion simulations. The theorem is deliberately limited to the first failing dimension, not a classification of every higher cube.
+Walsh diagonalization gives exact Krawtchouk shell sum. Positive cubic denominator factors reduce each d,k entry to an integer polynomial numerator. Independent reconstruction computed all 44 d<=8 numerator polynomials; 43 are nonnegative-coefficient, with first positive term at h^k; exceptional P_8,1 has nonnegative-coefficient transforms (1+t)^24P(t/(1+t)) and P(1+t), covering 0<h<1 and h>=1. Exact independent spectral and common-denominator rational checks give the displayed negative Q9 witness. This is a complete finite polynomial certificate of infinitely many real timesteps for eight fixed dimensions, not a grid scan.
 
-The full mathematical argument, precise limitations, primary-source comparisons, reproducibility instructions, and exact integer certificate are in RESULT.md and the standalone artifacts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Radau hypercube theorems apply the different two-stage third-order propagator; general SSP barriers and fifth-order path theorems do not establish a fifth-order cube d=9 endpoint threshold. Best-of-knowledge comparison supports a distinct statement.
+
+## value
+
+PASS
+
+Sharp first failure dimension for a standard high-order time integrator on a canonical family of graph heat semigroups, with globally valid all-step positivity certificates, is a motivated numerical-analysis boundary rather than an arbitrary single-step witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
