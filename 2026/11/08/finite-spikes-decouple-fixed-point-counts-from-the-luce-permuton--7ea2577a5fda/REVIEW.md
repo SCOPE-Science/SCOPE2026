@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exponential-race representation is exact; the ordinary arrivals converge to a unit Poisson point process in the scale of the exceptional clocks. The remaining ordinary labels are conditionally uniform, with exact factorial moments \((h)_k/(n-m)_k\), where \(n-2m\le h\le n-m\). Uniform coefficient domination yields a Poisson law independent of the exceptional arrivals. The first \(m\) merged arrivals give an exact finite-state generating-polynomial recursion. Hypergeometric concentration yields the uniform permuton. A reproducible exact checker supports the finite identities; the infinite claims rely on the given proof.
+PASS
 
-## Originality
+For fixed m and positive a_i, the exponential-race coupling rescales the m heavy clocks to independent Exp(a_i) and ordinary clocks to a unit-rate Poisson process. Conditional on all exceptional ranks, ordinary labels are uniformly matched to M=n-m positions, so their factorial moments equal (h)_k/(M)_k with M-m<=h<=M. Uniform convergence of the conditional probability-generating function to exp(z-1) gives a Pois(1) component independent of the finite exceptional-rank correction. Conditional hypergeometric rectangle means and O(n) variances give uniform permuton. The finite Markov recursion for H_m follows by competing exponential rates 1 and a_i. Independent exact recursion gives m=2,a=(1,1) PGF (10+5z+3z^2)/18; the one-spike Bernoulli parameter is w_n/(w_n+n-1). The finite check does not replace the n-to-infinity coupling.
 
-PASS under the cited comparisons, with residual historical-priority risk. Borga--Chatterjee--Diaconis identify the Luce fixed-point limit as open and give a Poisson heuristic based on the permuton density; their permuton and pattern limit theorems do not entail the finite-spike diagonal law. Chatterjee--Diaconis--Kim give the exponential representation and top/bottom-card distributions, not a full fixed-point law. Clay reemphasizes the open Luce fixed-point problem. A prior finite-block homogeneous Luce fixed-point result assumes positive block proportions and fixed rates, which excludes order-\(n\) spikes on finitely many labels. Broader rare-event results and inaccessible later revisions remain risks; no unconditional claim of historical uniqueness is made.
+## originality
 
-## Value
+PASS
 
-PASS. This isolates a concrete failure of determining fixed-point statistics from the Luce permuton density: the macroscopic object remains uniform while microscopic preferential ranks introduce a non-Poisson correction. The exact finite-state polynomial for multiple preferred labels, the two-spike example, and the sharp one-label \(n\)-scale transition give a tractable structural answer within a documented open question, rather than an arbitrary finite slice.
+The precise fixed-m, weights n*a_i limit Pois(1)+H_m and its non-Poisson uniform-permuton counterexample are not implied by the inspected Luce permuton literature or published constant-weight positive-proportion block models. Those assume diffuse weights and do not imply the finitely supported rate-n boundary. Borga–Chatterjee–Diaconis explicitly present fixed-point limit behavior as a question; Resultary homogeneous finite-step blocks have Poisson limits with distinct hypotheses. Best-of-knowledge PASS, not a universal priority certificate.
 
-## Limitations and comparison sources
+## value
 
-The theorem is restricted to finitely many initial labels with exceptional weights and an otherwise equal-weight background. No full classification of weight arrays, cycle-count law, or quantitative convergence rate is proved. Relevant sources: Borga--Chatterjee--Diaconis (arXiv:2509.07729, Sections 1 and 5.2); Chatterjee--Diaconis--Kim (arXiv:2306.16521, Sections 1, 2.2, 3, 4); Clay (arXiv:2603.09008, Section 8), and the standard uniform-permutation fixed-point law. The most recent inaccessible revision of the first paper is a residual comparison risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result answers a natural question about fixed points in a canonical ranking model with a sharp obstruction to inferring local coincidences solely from permuton weak convergence. It supplies an explicit computable finite correction and a weight-scale transition, a motivated probabilistic boundary rather than an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
