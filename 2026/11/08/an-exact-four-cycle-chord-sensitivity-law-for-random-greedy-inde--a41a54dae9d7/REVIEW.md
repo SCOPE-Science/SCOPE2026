@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim assessed:** Exact expected-size difference between random-order greedy maximal independent sets on a path and on the graph obtained by closing its first four vertices to a cycle.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The first-arrival decomposition is exact for every order. The graph remaining after a chosen tail vertex splits into a smaller cycle-tailed component and a path; the five distinguished initial positions have explicitly enumerated residual graphs. This proves recurrence (1). The generating-function identity, alternating increment formula and positive-sign classification follow algebraically, not numerically. The standalone checker executed 516 rational assertions and independent enumeration checks. There is no extrapolation from finite experiments.
+For random-order greedy MIS on a path P_n and endpoint-four-cycle graph B_n=P_n+{0,3}, first-vertex conditioning gives nf_n=n+2sum_{j=0}^{n-2} f_j and F(z)=(1-e^-2z)/(2(1-z)^2). Conditioning on B_n first vertex gives the stated convolution recurrence; the unique power-series solution yields Delta(z)=[(3-3z+z^2)-(3+3z+z^2)e^-2z]/[2(1-z)]. Coefficients give increments -(-2)^(n-2)(n-3)(n-4)/(2n!), Delta_5=1/15, Delta_6=0, alternating strictly shrinking tail, Delta_n>0 for n>=7, limiting (1-7e^-2)/2 and factorial alternating remainder. Independently computed exact expected output from induced-subgraph first-arrival dynamic programming for n=4..11; deltas were 0,1/15,0,4/105,1/45,26/945,41/1575,823/31185. Recurrence and analytic alternating bound, not bounded calculation, establish all orders.
 
-## Originality — PASS, with priority qualifications
+## originality
 
-Krivelevich, Mészáros, Michaeli and Shikhelman, *Greedy maximal independent sets via local limits* (arXiv:1907.07216, DOI:10.1002/rsa.21200), prove that paths minimize expected greedy size among **trees**, give the path formula, and exhibit a different example where deleting a bridge decreases expected greedy size. These statements do not provide the precise comparison for the bipartite unicyclic chorded path. Penrose and Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs* (arXiv:math/0503519), give general blocking-adsorption equations but do not state the evaluated four-cycle-tail sequence in the inspected results. The novelty claim is for the **specific exact family and its all-order sign/limit**, not for the already-known nonmonotonicity phenomenon.
+PASS
 
-The relevant full primary article sections were inspected, as were the process definitions and principal claims of the earlier adsorption study. Priority remains uncertain against less visible historical finite-graph calculations.
+PASS best-of-knowledge. The principal earlier path-minimal theorem is only among trees, whereas B_n is unicyclic; its known counterexamples to greedy edge monotonicity use different graphs. The separate previously published short-chord sign reversal is on rings C_n, not the endpoint chord of a path. No source inspected gives this exact all-order four-cycle-tail GF, exceptional n=4,6, positivity thereafter, or limiting sensitivity. Simple first-vertex recurrences are standard background but do not alone supply the classified chord law.
 
-## Value — PASS
+## value
 
-A single shortest-even-cycle edge perturbation is the most economical bipartite departure from a path, whose expected greedy occupancy is the extremal baseline among trees. The theorem identifies the exact effect at every order, two exceptional equalities, and a nonzero limiting gain with factorial correction. It gives a structural and quantitative boundary to edge-addition intuitions, beyond simply noting that edge monotonicity sometimes fails.
+PASS
 
-## Limitations
+A path is extremal for random-greedy independence among trees; adding a bipartite 4-cycle is a minimal structural perturbation beyond that tree class. An exact sign and equality classification for one edge addition supplies a useful sharp counterexample/boundary to monotonicity expectations, with a nontrivial all-order generating function and limit, rather than arbitrary small-size arithmetic.
 
-This is not a theorem about every chord, every unicyclic graph, or arbitrary edge addition. The expected gain is small, and the general nonmonotonicity phenomenon was known. The result has not undergone an independent mathematical audit or a comprehensive historical-priority review.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

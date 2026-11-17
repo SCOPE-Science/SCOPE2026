@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T00:11:00.175912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For random-order greedy MIS on a path P_n and endpoint-four-cycle graph B_n=P_n+{0,3}, first-vertex conditioning gives nf_n=n+2sum_{j=0}^{n-2} f_j and F(z)=(1-e^-2z)/(2(1-z)^2). Conditioning on B_n first vertex gives the stated convolution recurrence; the unique power-series solution yields Delta(z)=[(3-3z+z^2)-(3+3z+z^2)e^-2z]/[2(1-z)]. Coefficients give increments -(-2)^(n-2)(n-3)(n-4)/(2n!), Delta_5=1/15, Delta_6=0, alternating strictly shrinking tail, Delta_n>0 for n>=7, limiting (1-7e^-2)/2 and factorial alternating remainder. Independently computed exact expected output from induced-subgraph first-arrival dynamic programming for n=4..11; deltas were 0,1/15,0,4/105,1/45,26/945,41/1575,823/31185. Recurrence and analytic alternating bound, not bounded calculation, establish all orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-11-02 published short-chord sign reversal concerns chords added to an existing cycle; source-path graph is a path and adding its first chord forms one 4-cycle.",
+          "Tree minimum is inapplicable to B_n, which has one cycle."
+        ],
+        "reasoning": "Neither broader general RSA evolution equations nor cycle-chord/trees-only statements imply the submitted exact four-cycle-tail enumerated GF without another nontrivial calculation.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-opposite-short-chord-effects-on-random-greedy-jamming-of-cycles--40a6c4586bde",
+          "Krivelevich et al path minimality theorem",
+          "Penrose Sudbury 2005 deposition on graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md dda847305116f31171f95f4fc5afa1457589e900 and verify.py c1eea5306c62ed7b5d45b42f0e79cdc34db05649",
+        "Independent exact induced-subgraph recursion n=4..11",
+        "Krivelevich–Mészáros–Michaeli–Shikhelman (2024) theorem and published description",
+        "Resultary 2026-11-02 cycle-chord record",
+        "Penrose–Sudbury 2005 RSA graph process"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier trees theorem does not apply to B_n; earlier counterexamples use two joined stars; rings-with-chord result uses different graph sequence."
+        ],
+        "reasoning": "The submitted n-dependent δ is not a logical corollary of the exact tree-minimum theorem and needs the separate unicyclic first-vertex recurrence; bounded prior comparison supports originality.",
+        "searches": [
+          "Krivelevich et al arXiv:1907.07216 Theorem 1.4 and Section 8",
+          "Resultary cycle-chord record 2026-11-02",
+          "Penrose Sudbury arXiv:math/0503519"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform random vertex-priority MIS equals blocking random sequential adsorption; both denote the same first-arrival process.",
+          "Published tree-path extremality holds among trees, not the chorded unicyclic comparison."
+        ],
+        "reasoning": "Alias random greedy independent set/random sequential adsorption checked; existing equations cover the process, but no equal statement of this path-vs-four-cycle-tail sign law identified.",
+        "searches": [
+          "Resultary query: random greedy maximal independent set path with first four cycle chord edge addition expected size exact positive sensitivity",
+          "Krivelevich et al arXiv:1907.07216"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching n-indexed table/generating function in the inspected pertinent record and main tree-path comparison; the candidate supplies exact δ4,δ5,δ6 and every n≥7."
+        ],
+        "reasoning": "An all-order identity is not merely reprinting known finite density tabulations; known general tree asymptotics do not pin down the localized chord constant.",
+        "searches": [
+          "Resultary search: path chord random greedy independent set cycle-tailed generating function",
+          "Greedy maximal independent sets via local limits 2019/2024"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The principal earlier path-minimal theorem is only among trees, whereas B_n is unicyclic; its known counterexamples to greedy edge monotonicity use different graphs. The separate previously published short-chord sign reversal is on rings C_n, not the endpoint chord of a path. No source inspected gives this exact all-order four-cycle-tail GF, exceptional n=4,6, positivity thereafter, or limiting sensitivity. Simple first-vertex recurrences are standard background but do not alone supply the classified chord law.",
+      "residual_risks": [
+        "A previously unknown specialist adsorption analysis of a path with a four-cycle defect might derive an equivalent exact generating function.",
+        "The earlier cycle-chord indexed record was not read in full; summary suffices only to distinguish its stated cycle baseline, not exclude all possible appendices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Non-covering for this graph-pair claim: tree path minimality is restricted to trees and known edge counterexample is different",
+          "evidence": "Abstract and theorem describe path minimum over trees; B_n has a cycle.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+          "material_read": "Accessible published full-text abstract, statement of path minimum among trees and tree examples; paper background and Section 8 comparison considered",
+          "method": "Open-access journal page and arXiv paper description",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same random vertex ordering process and path extremum"
+        },
+        {
+          "assessment": "Different baseline graph (cycle C_n) and different chord lengths; no whole-document exclusion asserted",
+          "evidence": "Indexed stated theorem compares C_n and C_n plus distance-2/3 chords, not P_n plus {0,3}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-opposite-short-chord-effects-on-random-greedy-jamming-of-cycles--40a6c4586bde",
+          "material_read": "Resultary title, indexed theorem summary; complete original paper not read",
+          "method": "Published finding semantic index",
+          "title": "Opposite short-chord effects on random-greedy jamming of cycles",
+          "trigger": "Potential exact edge-addition sign classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A path is extremal for random-greedy independence among trees; adding a bipartite 4-cycle is a minimal structural perturbation beyond that tree class. An exact sign and equality classification for one edge addition supplies a useful sharp counterexample/boundary to monotonicity expectations, with a nontrivial all-order generating function and limit, rather than arbitrary small-size arithmetic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md dda847305116f31171f95f4fc5afa1457589e900 and verify.py c1eea5306c62ed7b5d45b42f0e79cdc34db05649",
+    "Independent exact induced-subgraph recursion n=4..11",
+    "Krivelevich–Mészáros–Michaeli–Shikhelman (2024) theorem and published description",
+    "Resultary 2026-11-02 cycle-chord record",
+    "Penrose–Sudbury 2005 RSA graph process"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the endpoint edge {0,3} and n>=4; nonmonotonicity under arbitrary edge addition is not established.",
+    "Finite exact enumerations support but do not replace the symbolic recurrence and sign proof."
+  ],
+  "residual_risks": [
+    "A previously unknown specialist adsorption analysis of a path with a four-cycle defect might derive an equivalent exact generating function.",
+    "The earlier cycle-chord indexed record was not read in full; summary suffices only to distinguish its stated cycle baseline, not exclude all possible appendices."
+  ],
+  "schema_version": 1
+}
