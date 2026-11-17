@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:57:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A coordinate multiplier is c=1-dah with probability 1/d, otherwise 1; the full-dimensional independent Gaussian innovation variance is v=(1-c^2)/(da). The shared selection couples chains with strict mean-square contraction u=1-(1-c^2)/d and every coordinate is selected infinitely often; the backward stationary innovation series converges in L4 since E[A_i^4]<1. Independently derived E[X_i^2]=1/a, fourth moment via M4=w M4+6uv/a+3v^2, and E[X_i^2 X_j^2] via exclusive coordinate selection; algebra gives the stated kurtosis and negative squared-pair covariance. At c=0 the time since last selection is geometric with success 1/d; conditional Gaussian variance is (k+1)/(da) and nonnegative geometric MGF series converges iff |t|<sqrt(2da log(d/(d-1))), with divergence at endpoints. Exact symbolic recurrence cross-checks independently corroborate the algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform conditionally sub-Gaussian gradient-noise hypothesis in Altschuler–Talwar fails because coordinate-gradient discrepancy scales with unbounded X.",
+          "The previous random-coordinate Gaussian covariance theorem gives second order information, not fourth or MGF."
+        ],
+        "reasoning": "Earlier broad guarantees do not cover the exact calibrated invariant law or imply its higher moments under their actual hypotheses.",
+        "searches": [
+          "Altschuler Talwar arxiv:2212.12629 section 6.2",
+          "Ding Li Lu Wright arxiv:2010.01405",
+          "Resultary sharp Gaussian covariance correlated curvature random coordinate Langevin 2026/11/8"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2007.14209, Algorithm 2 and Theorem 3",
+        "arxiv:2010.01405",
+        "Vollmer Zygalakis Teh JMLR 2016 17(159) Appendix 10",
+        "arxiv:2212.12629 section 6.2",
+        "Resultary 2026/11/8 sharp Gaussian covariance random-coordinate Langevin"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known covariance is a second-order identity and cannot determine fourth moments and MGF.",
+          "Vollmer et al deterministic multiplier cannot specialize to the present mutually-exclusive coordinate multipliers.",
+          "The cited concentration theorem relies on state-uniform sub-Gaussian gradient error, which fails for unbounded coordinate gradient sampling."
+        ],
+        "reasoning": "These prior claims do not imply the submitted exact non-Gaussian excess kurtosis, negative energy covariance, and sharp exponential-moment window.",
+        "searches": [
+          "Ding Li arxiv:2007.14209 Theorem 3 and Algorithm 2",
+          "Vollmer Zygalakis Teh 2016 Appendix 10",
+          "Altschuler Talwar arxiv:2212.12629 Theorem 6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full-noise stochastic-coordinate gradient differs from a coordinate-only state update; each step injects Gaussian noise in every coordinate.",
+          "JMLR Gaussian SGLD toy uses a deterministic AR multiplier and random additive gradient noise, rather than a random exclusive coordinate multiplier."
+        ],
+        "reasoning": "Related random affine moment methods do not by themselves identify the cross-square moment law and sharp geometric Gaussian mixture for this particular calibrated selector.",
+        "searches": [
+          "Resultary random coordinate Langevin full Gaussian noise covariance calibration stationary fourth moment geometric waiting MGF",
+          "Ding Li arxiv:2007.14209 algorithm 2",
+          "Vollmer Zygalakis Teh JMLR 2016 appendix 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Random-order OU splitting has different transition kernel and positive rather than the current negative cross-square covariance.",
+          "Second-moment-only covariance result omits the all-step fourth moment and MGF cutoff."
+        ],
+        "reasoning": "No matching dimension/stepsize fourth-moment table or reset mixture was found in bounded comparison, without asserting universal absence.",
+        "searches": [
+          "Resultary fourth-order dependence coordinate-sampled Langevin geometric age MGF",
+          "Resultary spectral minimax random-order Langevin splitting fourth-order dependence",
+          "Resultary random-coordinate Langevin exact covariance H^-1"
+        ]
+      },
+      "rationale": "Ding and Li introduced the full-noise coordinate-gradient algorithm and bounded its Wasserstein error, but did not establish this covariance-calibrated invariant fourth-order and geometric-age MGF classification. Prior exact covariance calculations are acknowledged, not claimed as new. Coordinate-only-noise RC-LMC and deterministic-multiplier SGLD toy recursions have different updates; general concentration theorems require a bounded conditional sub-Gaussian gradient proxy, which fails here. Potential unindexed specialist random-affine prior remains a risk.",
+      "residual_risks": [
+        "Earlier specialist exact calculation for randomly selected coordinate affine Gaussian chains could subsume kurtosis and MGF identities.",
+        "The analysis applies only to isotropic Hessian and full Gaussian innovation; no claim of performance benefit or arbitrary-target concentration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces the algorithm but not the exact stationary fourth-order or tail formulas",
+          "evidence": [
+            "Algorithm 2 uses sampled gradient and full Gaussian noise each step",
+            "Theorem 3 Wasserstein convergence bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.14209",
+          "material_read": "Primary PDF Algorithm 2 and Section 4/Theorem 3, with rendered PDF algorithm page",
+          "method": "Compared update and invariant diagnostics with published Wasserstein bounds",
+          "title": "Langevin Monte Carlo: Random Coordinate Descent and Variance Reduction",
+          "trigger": "Original same-model full-Gaussian-noise random-coordinate gradient method"
+        },
+        {
+          "assessment": "Coordinate-only update is a different scheme",
+          "evidence": [
+            "Only selected coordinate is updated in this method"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.01405",
+          "material_read": "Primary accessible algorithm description and convergence claims",
+          "method": "Compared which state coordinates receive noise",
+          "title": "Random Coordinate Langevin Monte Carlo",
+          "trigger": "Potential same-named algorithm"
+        },
+        {
+          "assessment": "Different stochastic recursion despite similar moment method",
+          "evidence": [
+            "Section 2 Gaussian toy model; Appendix 10 fourth-moment equations"
+          ],
+          "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume17/15-494/15-494.pdf",
+          "material_read": "Full primary PDF relevant introduction, model equations and Appendix 10 moment recurrence, with rendered page 38",
+          "method": "Compared deterministic-vs-random AR coefficients and forcing",
+          "title": "Exploration of the (Non-)Asymptotic Bias and Variance of Stochastic Gradient Langevin Dynamics",
+          "trigger": "Earlier fourth-moment analysis for Gaussian-target noisy SGLD"
+        },
+        {
+          "assessment": "Conditional sub-Gaussian assumption fails here, so cannot rule out the MGF cutoff",
+          "evidence": [
+            "Section 6.2 fixed noise proxy requirement"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.12629",
+          "material_read": "Primary accessible theorem statement and Section 6.2 conditional noise assumptions",
+          "method": "Compared conditional gradient error bound to unbounded sampled-coordinate gradient",
+          "title": "Concentration of the Langevin Algorithm's Stationary Distribution",
+          "trigger": "Potentially dominating stationary sub-Gaussian conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact covariance cannot certify a Gaussian stationary sampler: these formulas detect strict non-Gaussian marginals, negative dependence of coordinate energies and non-sub-Gaussian stationary tails at the natural reset step. The exact fourth-order/tail diagnostics are natural experimentally useful invariants of a published gradient-subsampling method and not a recomputation of its second moment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2007.14209, Algorithm 2 and Theorem 3",
+    "arxiv:2010.01405",
+    "Vollmer Zygalakis Teh JMLR 2016 17(159) Appendix 10",
+    "arxiv:2212.12629 section 6.2",
+    "Resultary 2026/11/8 sharp Gaussian covariance random-coordinate Langevin"
+  ],
+  "disposition": "passed",
+  "final_claim": "For isotropic Gaussian target N(0,a^-1 I_d) with d>=2, full-noise randomly selected-coordinate Langevin and scalar noise calibration, every stable positive step has exact target stationary covariance but positive excess kurtosis 3(d-1)(1-c^2)/(d(1+c^2)) and distinct squared-coordinate covariance -(1-c^2)/(2da^2); the complete-reset step has a geometric Gaussian scale mixture with a sharp bounded MGF domain.",
+  "limitations": "Full-noise coordinate-gradient update with isotropic Gaussian target, d>=2, 0<h<2/(da); reset-step mixture and MGF only when h=1/(da).",
+  "residual_risks": [
+    "Earlier specialist exact calculation for randomly selected coordinate affine Gaussian chains could subsume kurtosis and MGF identities.",
+    "The analysis applies only to isotropic Hessian and full Gaussian innovation; no claim of performance benefit or arbitrary-target concentration."
+  ],
+  "schema_version": 1
+}

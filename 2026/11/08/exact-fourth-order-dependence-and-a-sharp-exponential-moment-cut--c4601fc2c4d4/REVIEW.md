@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated target, full-Gaussian-noise update, admissible steps, calibration and all quantifiers are explicit. A shared-selection coupling contracts quadratic transport by the exact factor \(1-(1-c^2)/d\); a stationary Gaussian-innovation series with fourth-moment decay justifies moment recurrences. Exact fourth-order recursions yield the positive marginal excess kurtosis and negative distinct squared-coordinate covariance. At the reset step the backward geometric waiting time gives a Gaussian variance mixture, and the nonnegative geometric MGF series gives both its finite interval and divergence at the boundary. `check.py` independently enumerates selector coefficients with rational arithmetic; `check_output.txt` records an actual successful execution. Finite tests are not used to certify the universal conclusions.
+## correctness
 
-## Originality — PASS with residual precedence risk
-The 2020 full-noise random-coordinate Langevin analysis gives the underlying sampler and general distance-to-target bounds, not the stationary mixed fourth-moment and sharp exponential-moment results. An earlier second-moment analysis of this full-noise model already gives the uncalibrated covariance multiplier; noise calibration itself is not claimed as original. A separate covariance-calibrated random-projector fourth-moment result assumes a fourth-order directional design, whereas uniform axis projections fail its tensor condition, and does not produce the geometric age law. The 2016 Gaussian SGLD toy-model analysis has a deterministic autoregressive multiplier and random additive forcing; its fourth-moment calculations do not establish these coordinate-selecting multiplicative identities. The 2020 coordinate-only Langevin sampler uses a different update. The 2022 concentration theorem for inexact gradients assumes uniform sub-Gaussian estimator error, which fails here because the coordinate-gradient discrepancy scales with the current unbounded state. A specialist prior treatment of this precise invariant law remains possible.
+PASS
 
-## Value — PASS
-A covariance-matched sampler for an exactly Gaussian target can nevertheless have universally non-Gaussian marginals and strictly negatively correlated squared coordinates; at a natural exact-reset step its linear exponential moments have a finite radius. These exact fourth-order and moment-generating diagnostics expose a concrete limitation of covariance-only numerical sampling validation that second-order theory cannot diagnose. The special step is a canonical coefficient-annihilation point, not an arbitrary parameter slice. No general algorithmic speedup or arbitrary-potential guarantee is claimed.
+A coordinate multiplier is c=1-dah with probability 1/d, otherwise 1; the full-dimensional independent Gaussian innovation variance is v=(1-c^2)/(da). The shared selection couples chains with strict mean-square contraction u=1-(1-c^2)/d and every coordinate is selected infinitely often; the backward stationary innovation series converges in L4 since E[A_i^4]<1. Independently derived E[X_i^2]=1/a, fourth moment via M4=w M4+6uv/a+3v^2, and E[X_i^2 X_j^2] via exclusive coordinate selection; algebra gives the stated kurtosis and negative squared-pair covariance. At c=0 the time since last selection is geometric with success 1/d; conditional Gaussian variance is (k+1)/(da) and nonnegative geometric MGF series converges iff |t|<sqrt(2da log(d/(d-1))), with divergence at endpoints. Exact symbolic recurrence cross-checks independently corroborate the algebra.
 
-## Scope and limitations
-Only isotropic quadratic targets with the full-noise randomly sampled coordinate gradient are covered. At generic stable steps the fourth-order formulas hold, while the explicit geometric mixture and MGF cutoff hold at the reset step only. The independent publication-precedence check is limited to the inspected related sources, and independent scientific validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ding and Li introduced the full-noise coordinate-gradient algorithm and bounded its Wasserstein error, but did not establish this covariance-calibrated invariant fourth-order and geometric-age MGF classification. Prior exact covariance calculations are acknowledged, not claimed as new. Coordinate-only-noise RC-LMC and deterministic-multiplier SGLD toy recursions have different updates; general concentration theorems require a bounded conditional sub-Gaussian gradient proxy, which fails here. Potential unindexed specialist random-affine prior remains a risk.
+
+## value
+
+PASS
+
+Exact covariance cannot certify a Gaussian stationary sampler: these formulas detect strict non-Gaussian marginals, negative dependence of coordinate energies and non-sub-Gaussian stationary tails at the natural reset step. The exact fourth-order/tail diagnostics are natural experimentally useful invariants of a published gradient-subsampling method and not a recomputation of its second moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
