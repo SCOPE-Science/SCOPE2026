@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A direct Zak/Parseval criterion reduces the frame property at rectangular area \(1/2\) to two simultaneous Zak zeros. The exact parity-Wronskian calculation, positivity of its Gaussian coefficient for every aspect ratio, and the theta-product zero classification establish the full equivalence. The pure odd and pure Gaussian endpoints are handled separately. The standalone checker confirms sampled nontrivial identities; the proof, not the samples, covers infinite sums and all parameters.
+## correctness
 
-## Originality
-PASS relative to inspected research. Faulhuber and Petersen (arXiv:2609.02610) establish the obstruction for the pure first Hermite function. The 2019 Gröchenig–Romero–Stöckler vector-frame theorem does not imply a single-mixture result. Lemvig (arXiv:2611.05337) covers rational degree-one windows only when the denominator-minus-numerator exceeds one, leaving the exact area-\(1/2\) case outside its stated theorem. Related rational-lattice pure-Hermite results are likewise insufficient. Targeted index and accessible-ledger searches found no equivalent theorem. Risk: another theta/Zak formulation or unindexed publication may already contain the statement; the full text of one related rational-lattice paper was unavailable.
+PASS
 
-## Mathematical value
-PASS. The first excluded rational lattice for the first Hermite window is the natural setting for asking whether a Gaussian component repairs the obstruction. The theorem completely classifies the two-dimensional complex Gaussian–Hermite span there and all aspect ratios. The geometric Wronskian factorization explains the rigidity; optimal frame bounds and higher polynomial degrees remain outside scope.
+Unitary dilation reduces lattice to (1,1/2), where the Zak/Parseval frame multiplier is a sum of squared even-odd parity fibers. Simultaneous zeros imply W=H_E O-H_O E=0; absolutely convergent grouping gives W=C_lambda e^{2pi i omega} Z(exp(-2pi lambda t²))(x-1/2,2omega+1/2). Jacobi product shows C_lambda>0 at every lambda>0 and the Gaussian Zak transform has one zero per fundamental torus. At the resulting two-parity symmetry fibers H_E=H_O=0, while E,O nonzero, so a common zero exists only for shift delta=0, equivalent to B=0 for A≠0. Pure Gaussian A=0 is a frame by unique Gaussian Zak zero and half-frequency separation. Independent numeric Wronskian evaluations across multiple widths confirmed but cannot prove global zero geometry.
 
-## Limits
-No independent mathematical audit was performed. Numerical samples do not certify infinite-dimensional frame properties. Publication priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior first-Hermite work establishes B=0 failure, classical Gaussian theory B!=0 with A=0, but not every complex intermediate mixture. Lemvig 2026 Theorem 2 requires reduced denominator-minus-numerator q-p>polynomial degree n; at product 1/2, q-p=n=1 so does not cover. An independent November 8 later source explicitly cites the qualitative mixture classification to derive a stronger SHARP small-admixture optimal-bound expansion. Its near-zero conclusion is consistent with, but not a full all-amplitudes classification. Potential equivalence from alternative theta-function/Gabor-frame papers retained as residual risk.
+
+## value
+
+PASS
+
+The exact half-density frame obstruction for pure odd Hermite motivates asking whether arbitrary Gaussian admixture repairs the obstruction at every amplitude and aspect ratio, including complex coefficients. The sharp global if-and-only-if stability classification is not implied by openness of frames at a single endpoint. The parity Wronskian gives a structural mechanism and complements known frame-set arithmetic boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
