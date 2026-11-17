@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:00:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: common two-deletion unordered output iff d(u,v)=L1(u-v)/2 <=2; code iff conflict-graph independent set distance>=3. Each of 15 rows n6..20 in actual s3_cert.json was independently verified by BigInt exact rational arithmetic: witness length/uniqueness and distance>=3, positive-weight dual cliques pairwise dist<=2, every simplex vertex coverage>=1, dual_cost equality and < optimum+1, and residue-class counts. Integer optimum squeezed between witness size and floor of rational cover cost. No floating-point or solver trust required; outside n6..20 not asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://pdfs.assets.alphaxiv.org/2601.05636v1.pdf",
+          "https://arxiv.org/abs/2607.13733"
+        ],
+        "reasoning": "The 2026 deletion paper fixes output survivor count k=1,2,3 for its exact results, while the present theorem fixes deletion count t=2, so k=n-2 grows from 4 to18 in claimed range. The profile-graph full paper explicitly interprets its ordinary G_q(d) independent sets as correcting exactly one deletion; adjacency squared needed here.",
+        "searches": [
+          "Kreindel Essayag Zabokritskiy 2026 Multiset Deletion-Correcting Codes Bounds Constructions",
+          "Independent Sets in Multiset Profile Graphs via Weighted Local Covers 2607.13733"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2601.05636v1.pdf",
+        "https://arxiv.org/abs/2607.13733",
+        "https://arxiv.org/abs/2603.18322",
+        "https://arxiv.org/abs/1612.08837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://pdfs.assets.alphaxiv.org/2601.05636v1.pdf",
+          "https://arxiv.org/abs/2607.13733",
+          "https://arxiv.org/abs/1612.08837"
+        ],
+        "reasoning": "Sidon residue classes give a lower bound but thirteen of fifteen true optima are larger; the paper supplies exact rational dual clique covers and matching distance-three codewords for every n, verified in independent BigInt arithmetic. Hence the exact table is not an immediate specialization of the earlier constructions or their coarse asymptotic.",
+        "searches": [
+          "Kovačević Tan 1612.08837 multiset Sidon codes",
+          "Kreindel 2601.05636 t=n-2 vs t=2",
+          "arxiv 2607.13733 weighted local covers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://pdfs.assets.alphaxiv.org/2601.05636v1.pdf",
+          "https://arxiv.org/abs/2607.13733"
+        ],
+        "reasoning": "Two deletions means an independent set of the square of the unit-transfer simplex graph, because distinct vertices share a length n-2 output iff half-L1 distance <=2. The latest unit-transfer graph alpha_3(n) is only one-deletion and distance>=2, so not an equivalent invariant.",
+        "searches": [
+          "Resultary ternary multiset two deletion correcting codes maximum size length 6 to 20 exact simplex clique cover",
+          "Kreindel multiset deletion code S3(n,2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://pdfs.assets.alphaxiv.org/2601.05636v1.pdf",
+          "https://arxiv.org/abs/2603.18322"
+        ],
+        "reasoning": "Closest inspected tables treat extremal deletions, one-deletion codes or finite bounds. No table of all 15 exact two-deletion ternary maxima found. Published general asymptotic S3(n,2)~n²/14 does not identify these integer values.",
+        "searches": [
+          "Resultary ternary multiset two deletion sizes 6 7 8 20 exact table",
+          "2601.05636 finite ternary t=2 maximum codes table",
+          "2603.18322 deletion ball simplex code bounds"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: a complete exact n=6..20 table for ternary multiset codes correcting precisely TWO deleted elements is a natural finite coding invariant. The older exhaustive n-t=2 small-survivor regime varies t with n, and the 2026 multiset-profile graph theorem solves ONE deletion (distance>=2), not the required distance>=3 graph; neither implies the fifteen current exact maxima.",
+      "residual_risks": [
+        "An obscure prior exact table or supplementary computational artifact could duplicate some n; the source comparisons do not establish historical priority exhaustively.",
+        "Exact rational dual costs yield only floors: some fractional costs exceed the integer optimum, but the independent matching witness ensures sharpness. Does not prove values at n>20."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Its exact two-survivor regime is t=n-2, unlike fixed two deleted t=2 except a small crossing case.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2601.05636v1.pdf",
+          "material_read": "Full 24-page accessible primary PDF: abstract, parameter definitions and extremal n-t=1,2 results; initial page screenshot",
+          "method": "Full PDF text and screenshot",
+          "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+          "trigger": "Same multiset alphabet and deletion channel"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Independent set of G_3(n) corrects ONE deletion; current independent set is for graph square, so the exact ternary spreading number theorem does not cover S3(n,2).",
+          "identifier_or_url": "https://arxiv.org/abs/2607.13733",
+          "material_read": "Full arXiv HTML including §§3–4, Theorem 4.2, §10 explicit one-deletion interpretation",
+          "method": "Full HTML text",
+          "title": "Independent Sets in Multiset Profile Graphs via Weighted Local Covers",
+          "trigger": "Same triangular composition lattice, weighted rational covers"
+        },
+        {
+          "assessment": "PRIORITY_RISK",
+          "evidence": "Complete text was not examined; cannot claim it lacks exact overlapping tables.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+          "material_read": "Abstract and reference descriptions only",
+          "method": "arXiv record and citations",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Related same-channel general bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: finite-length exact optimum of natural ternary two-deletion correcting codes is important for choosing codebooks when asymptotic formulas are inconclusive. Fifteen rigorously certified maxima and non-cyclic improvements offer genuinely unknown natural integer invariants without requiring a general n formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed ternary alphabet n6..20 and two deletions; does not classify maximizing codebooks or larger n. Exact historical table priority not guaranteed.",
+    "This assessment is independent of prior stored audit verdicts; finite test evidence proves only the stated finite predicates.",
+    "Publication NOT READY due public provenance sanitization, a transport/privacy issue distinct from scientific disposition."
+  ],
+  "schema_version": 1
+}

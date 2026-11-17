@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Finite certificate verification
+# Independent mathematical audit
 
-Run from the directory containing the two files:
+## correctness
 
-```bash
-python3 s3_check.py s3_cert.json
-```
+PASS
 
-For each integer \(6\le n\le20\), this reconstructs all \(\binom{n+2}{2}\) nonnegative integral ternary multiplicity vectors and verifies a candidate code of the claimed size with pairwise deletion distance at least three. It verifies that every recorded rationally weighted clique consists of mutually confusable words, that the nonnegative weights cover every possible input vertex to weight at least one, and that the exact sum of weights is strictly smaller than the next integer above the witnessed code size. This gives matching lower and upper bounds. It independently recomputes the seven cyclic-syndrome class counts used as benchmarks. Rational sums use Python `fractions.Fraction`, with no floating-point optimization tolerance.
+PASS: common two-deletion unordered output iff d(u,v)=L1(u-v)/2 <=2; code iff conflict-graph independent set distance>=3. Each of 15 rows n6..20 in actual s3_cert.json was independently verified by BigInt exact rational arithmetic: witness length/uniqueness and distance>=3, positive-weight dual cliques pairwise dist<=2, every simplex vertex coverage>=1, dual_cost equality and < optimum+1, and residue-class counts. Integer optimum squeezed between witness size and floor of rational cover cost. No floating-point or solver trust required; outside n6..20 not asserted.
 
-The checked program prints fifteen length rows and the terminal message `CERTIFICATE VERIFIED: 15 length values, exact rational upper bounds and explicit lower witnesses` when all assertions succeed. The theorem is finite and the certificate makes no claim beyond length twenty. The mathematical derivation of the weighted clique upper bound is in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: a complete exact n=6..20 table for ternary multiset codes correcting precisely TWO deleted elements is a natural finite coding invariant. The older exhaustive n-t=2 small-survivor regime varies t with n, and the 2026 multiset-profile graph theorem solves ONE deletion (distance>=2), not the required distance>=3 graph; neither implies the fifteen current exact maxima.
+
+## value
+
+PASS
+
+PASS: finite-length exact optimum of natural ternary two-deletion correcting codes is important for choosing codebooks when asymptotic formulas are inconclusive. Fifteen rigorously certified maxima and non-cyclic improvements offer genuinely unknown natural integer invariants without requiring a general n formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
