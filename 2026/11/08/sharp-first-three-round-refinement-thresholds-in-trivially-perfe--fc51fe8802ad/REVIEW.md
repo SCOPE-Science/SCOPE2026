@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The two first-occurrence thresholds and uniqueness statements were reconstructed from the canonical representation of trivially perfect graphs by rooted forests. This is an exact, duplicate-free enumeration through nine vertices, not a sample. The included program builds every comparability graph and computes strict color-refinement rounds twice, once using global color signatures and once using direct equitable class splits; both methods agree on all 1,204 enumerated types through order nine. The program verifies that all generated graphs are \((P_4,C_4)\)-free. The exhaustive histograms establish both lower bounds and the unique extremizers, while the star/paw-neighbor argument independently explains their three splits. The only assumption not checked by code is the standard structural characterization of trivially perfect graphs; its recursive proof is included in RESULT.md.
+## correctness
 
-## Originality — PASS, qualified
-Arvind et al., arXiv:1502.01255, provide the global color-refinement/counting-logic framework. Rubio-Montiel (2015), doi:10.5614/ejgta.2015.3.1.3, addresses a different graph-coloring characterization of trivially perfect graphs. Kiefer–McKay, arXiv:2005.10182, determine maximum iteration numbers in unrestricted graphs and discuss finite orders but do not give the present exact two *class-relative* first-occurrence/uniqueness cutoffs. Exact-claim searches of available records and published-finding corpus found no direct covering claim. The argument uses exhaustive class-specific canonical enumeration rather than asserting uniqueness from search absence. Possible unindexed earlier tables remain a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-Strict color-refinement iteration number is a standard structural and descriptive-complexity invariant. The sharp first case of a third genuine refinement among \((P_4,C_4)\)-free graphs, and the distinct sharp connected case, identify the smallest delayed color-propagation obstruction, including its unique graph structure. The cutoffs are natural minimum-order thresholds in a broad hereditary graph class, not arbitrary parameter slices. The exact small-order histograms give reproducible base cases for studying class-specific logical-depth and refinement-iteration growth. No extrapolation to arbitrary orders is claimed.
+Canonical unordered rooted-forest representation of (P4,C4)-free trivially perfect graphs is exhaustive and nonduplicating by recursive deletion of universal vertices. Independent reimplementation enumerated exactly 1,2,4,9,20,48,115,286,719 graphs for orders 1..9 and two color-refinement recurrences agreed. Three strict rounds first occur at n=8 with unique star+paw disjoint union; connected first at n=9 unique cone. This is a complete finite classification, not extrapolation.
 
-## Limits
-The work is finite and does not classify all iteration numbers; the priority search was bounded. Later work on unrestricted extremal iteration numbers is background, not evidence of a new general upper bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural minimal-order complete classification for three strict 1-WL splits in trivially perfect graphs and its connected subclass is not implied by general unrestricted iteration extremality or foundational color refinement definitions. Its originality is a specific exhaustive graph-family fact, with no claim of a general asymptotic classification.
+
+## value
+
+PASS
+
+Sharp minimal-order complete classification with unique connected and disconnected witnesses for an intrinsic graph algorithm invariant is a motivated precise finite theorem, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
