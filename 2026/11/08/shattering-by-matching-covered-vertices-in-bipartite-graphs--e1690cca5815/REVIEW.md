@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The bipartite criterion has a complete two-direction proof: two prescribed one-shore-positive labelings extract disjoint crossing submatchings, and any crossing matching realizes every labeling by edge deletion. The maximum-matching formula and complete-bipartite polynomial are direct all-parameter consequences. The forced-partner proof makes the path face inclusion-maximal for every positive integer parameter. An independent finite trace enumerator agrees with the crossing-matching algorithm on 598 bipartite instances.
+## correctness
 
-**Originality — PASS within reviewed material.** The exact feasible-set representation is the classical matching delta-matroid (Koana–Wahlström 2024 §1.1), and is not new; the claim is the complete shattered-support cut characterization and nonpure path face family. The closest matching paper, Bucić et al. (arXiv:1906.05908), analyzes perfect-matching intersections and derangement ratios. Adler–Benediktsson–Macpherson (arXiv:2007.16042) analyze neighborhood-defined graph concept families. Simon (arXiv:2402.06729) analyzes ordered greedy matchings and concept/sample consistency graphs. None supplies an identified theorem with the present binary **vertex-coverage** concept class, Hall-type shattered-support criterion, and connected-path nonpurity construction. This is a bounded originality finding, not a statement of global historical uniqueness. Priority under alternate matching-system terminology remains a risk.
+PASS
 
-**Value — PASS.** The claim completely characterizes the shattering complex of a naturally occurring matching-defined concept class, gives a polynomial-time membership test and an exact VC invariant for every finite bipartite graph, and reveals unbounded nonpurity even for paths. The contrast with a full skeleton for complete bipartite graphs shows genuine structural content beyond the scalar VC formula.
+For any finite simple bipartite G and matching-covered-vertex concepts (empty matching allowed), shattering S requires separate labelings positive only on S∩L and only on S∩R, which yield vertex-disjoint crossing submatchings saturating S. Conversely any such crossing matching can be thinned to realize every trace; the two Hall inequalities follow. Hence VCdim=ν(G) (choose one endpoint from each maximum-matching edge), K_(a,b) has all supports of size≤min(a,b). On paths P_(5t+1), selecting vertex positions 5j+2,5j+3 gives unique forced outside neighbors; no unselected vertex can join, so facet size2t vs max floor((5t+1)/2). Triangle K3 boundary violates bipartite conclusion. Independent direct trace/matching cut enumeration for P5; inspected exhaustive checker and its boundary logic.
 
-**Boundaries.** The result relies on bipartiteness, includes the empty matching and isolated vertices, and concerns covered-vertex rather than matched-edge queries. No online dimension is inferred. No full priority guarantee or outside mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matching delta-matroid literature defines the feasible covered-vertex sets, already prior knowledge. This audit credits only Hall-cut shattering characterization, all-graph VC equality and unbounded connected-path facet nonpurity; the inspected relevant primary matching literature does not give these implications.
+
+## value
+
+PASS
+
+A natural matching-feasibility concept class receives a polynomial-time full shattered-face membership test, sharp maximum rank on every bipartite graph and explicit unbounded facet nonpurity even for paths, a structural distinction beyond a scalar VC number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
