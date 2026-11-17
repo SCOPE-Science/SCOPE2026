@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T01:00:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial-order graph model Γ_{m,k} has A-vertices equal to m ordered arm words, B-vertices equal to one center label plus words, and m edges from each B. Counts k! binom(k+m-1,m-1), k! binom(k+m-2,m-1), and m times the latter give known Betti rank E-V+1. Simultaneous symmetry fixes an A-word iff every d-cycle of particle labels is placed, with one of d phases, on an arm d-cycle, yielding F(α,β)=∏ d^{c_d}c_d! binom(c_d+a_d-1,a_d-1). Fixed B-vertices require a fixed center particle, count B; fixed edges are a_1 B. Lefschetz then yields 1-F+(a_1-1)B. Taking orbit arm occupancies gives A-partitions of k, B-partitions of k-1, and distinct Young-cover edge orbits, producing rank r_m(k). A six-vertex cycle exists for k≥5, with m≥3; direct partition enumeration gives tree for k≤4 and r_m(5)=1. Independently reconstructed 360 A, 240 B and 720 edges at (m,k)=(3,4), checked all 144 S_3×S_4 character values by actual fixed-word enumeration, and checked quotient partition ranks for k=2..8. The equivariant collar/graph-model equivalence uses the stated convex radial-order strata and central transfers; the finite check corroborates but does not replace that topology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Hook-Schur result computes H1 under S_m for *unordered* particles, quotient by S_k, and first invariant at k=5; Wawrykow studies generators/relations under particle stabilization."
+        ],
+        "reasoning": "These cover one-factor restrictions and a consequence, but cannot determine the full commuting joint action on ordered H1, nor the actual two-rank Young-lattice orbit graph.",
+        "searches": [
+          "Resultary semantic query: ordered star configuration space simultaneous arm particle symmetries character Young lattice quotient",
+          "Resultary: Hook-Schur homology first symmetric star cycle",
+          "Wawrykow arxiv:2401.13821"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 07dc64efc88c55686e95609e552d01e454ceffa8",
+        "Frozen verify.py Git blob 41f038b1fd7f563a9e492e9771a3cdb082c5fbe8",
+        "Lütgehetmann thesis Chapter 3.3",
+        "Resultary Hook-Schur 2026-11-01 full RESULT.md",
+        "Wawrykow arxiv:2401.13821 abstract",
+        "Resultary star joint 2/3 particle records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lütgehetmann has S_k-character only. Hook-Schur has S_m-character on S_k-invariants, with rank-one invariant emerging at k=5. The candidate specifies character for every (α,β) and graph covering edges."
+        ],
+        "reasoning": "Two restrictions of a representation to S_m×{1} and {1}×S_k do not determine the full joint character. The quotient first-cycle count overlaps known invariant dimension, but the orbit graph and mixed character survive.",
+        "searches": [
+          "Resultary semantic query: ordered star configuration space simultaneous arm particle symmetries character Young lattice quotient",
+          "Lütgehetmann 2014 Prop 3.5",
+          "Hook-Schur 2026-11-01 full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thesis Proposition 3.5 gives [H¹]=[Q]-χ(UConf)[QS_k] for star, character under particle permutations only. Three-particle joint character applies k=3, outside k≥4 result."
+        ],
+        "reasoning": "Setting α=id recovers the old regular-plus-trivial S_k character; old theorem has no arm action, hence does not force mixed character values.",
+        "searches": [
+          "Resultary semantic query: ordered star configuration space simultaneous arm particle symmetries character Young lattice quotient",
+          "Lütgehetmann 2014 thesis §3.3 Prop 3.5",
+          "Resultary: three-particle joint arm label star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary previously indexed 2- and 3-particle character tables, unordered all-particle arm characters, and the present k≥4 record."
+        ],
+        "reasoning": "Earlier small-cycle tables are special cases or different particle counts; no independent earlier all-k mixed cycle-index table identified. Search absence is not a novelty proof.",
+        "searches": [
+          "Resultary semantic query: ordered star configuration space simultaneous arm particle symmetries character Young lattice quotient",
+          "Resultary: S_m × S_k ordered star graph all particle cycles"
+        ]
+      },
+      "rationale": "Lütgehetmann 2014 Proposition 3.5 supplies the complete S_k-only rational module and old Betti rank, not mixed S_m×S_k character; previously published full arm module for unordered particles and two/three-particle cases imply some specializations but not the all-k simultaneous character. The two-rank Young-lattice quotient adds an explicit topological orbit classification.",
+      "residual_risks": [
+        "Equivariant graph-model collars for all subgroup fixed loci were assessed mathematically but no independent full explicit homotopy was constructed for every k.",
+        "Joint module priority could be disguised in unindexed ordered-star representation literature; existing known S_k-only and S_m-only restrictions acknowledged.",
+        "Five-particle invariant dimension is already known from unordered arm-symmetry results and is not independently novel as a number."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Prop 3.5: H¹(Conf_n(Y_k^ℓ)) ≅ Q - χ(UConf) Q[S_n], including known rank for ℓ=0, no mixed arm action."
+          ],
+          "identifier_or_url": "https://userpage.fu-berlin.de/luetge/pdfs/masters-thesis-luetgehetmann.pdf",
+          "material_read": "Full Introduction and Chapter 3.3 lines 900-999 (Proposition 3.5 and proof) read as parsed text; screenshot attempt HTTP 403; rest of thesis not represented as read",
+          "method": "web PDF extracted text with find/open",
+          "title": "Configuration Spaces of Graphs",
+          "trigger": "earlier complete S_k module and graph model on stars"
+        },
+        {
+          "assessment": "ONE_FACTOR_COVERAGE",
+          "evidence": [
+            "Unordered S_m module ⊕_{q=1}^{n-1}S_(q,1)(A_m), invariant threshold n=5, but ordered full S_m×S_n character not determined."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-hook-schur-homology-and-the-first-symmetric-cycle-for-particles--9c57549dcfff/RESULT.md",
+          "material_read": "Entire RESULT.md including theorem, proof, characters, invariant coefficient and limitations",
+          "method": "read-only GitHub full raw file",
+          "title": "Hook-Schur homology and the first symmetric cycle for particles on star graphs",
+          "trigger": "same star object, all numbers of particles and arm symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simultaneous arm and particle relabeling are natural physical and combinatorial symmetries. The full character and first cyclic quotient at five particles expose topology hidden in the previously known one-factor representation and rank formula; this is a structural all-parameter theorem, not a repackaged small example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob 07dc64efc88c55686e95609e552d01e454ceffa8",
+    "Frozen verify.py Git blob 41f038b1fd7f563a9e492e9771a3cdb082c5fbe8",
+    "Lütgehetmann thesis Chapter 3.3",
+    "Resultary Hook-Schur 2026-11-01 full RESULT.md",
+    "Wawrykow arxiv:2401.13821 abstract",
+    "Resultary star joint 2/3 particle records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivariant graph-model collars for all subgroup fixed loci were assessed mathematically but no independent full explicit homotopy was constructed for every k.",
+    "Joint module priority could be disguised in unindexed ordered-star representation literature; existing known S_k-only and S_m-only restrictions acknowledged.",
+    "Five-particle invariant dimension is already known from unordered arm-symmetry results and is not independently novel as a number."
+  ],
+  "residual_risks": [
+    "Equivariant graph-model collars for all subgroup fixed loci were assessed mathematically but no independent full explicit homotopy was constructed for every k.",
+    "Joint module priority could be disguised in unindexed ordered-star representation literature; existing known S_k-only and S_m-only restrictions acknowledged.",
+    "Five-particle invariant dimension is already known from unordered arm-symmetry results and is not independently novel as a number."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": [
+        "Prop 3.5: H¹(Conf_n(Y_k^ℓ)) ≅ Q - χ(UConf) Q[S_n], including known rank for ℓ=0, no mixed arm action."
+      ],
+      "identifier_or_url": "https://userpage.fu-berlin.de/luetge/pdfs/masters-thesis-luetgehetmann.pdf",
+      "material_read": "Full Introduction and Chapter 3.3 lines 900-999 (Proposition 3.5 and proof) read as parsed text; screenshot attempt HTTP 403; rest of thesis not represented as read",
+      "method": "web PDF extracted text with find/open",
+      "title": "Configuration Spaces of Graphs",
+      "trigger": "earlier complete S_k module and graph model on stars"
+    },
+    {
+      "assessment": "ONE_FACTOR_COVERAGE",
+      "evidence": [
+        "Unordered S_m module ⊕_{q=1}^{n-1}S_(q,1)(A_m), invariant threshold n=5, but ordered full S_m×S_n character not determined."
+      ],
+      "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-hook-schur-homology-and-the-first-symmetric-cycle-for-particles--9c57549dcfff/RESULT.md",
+      "material_read": "Entire RESULT.md including theorem, proof, characters, invariant coefficient and limitations",
+      "method": "read-only GitHub full raw file",
+      "title": "Hook-Schur homology and the first symmetric cycle for particles on star graphs",
+      "trigger": "same star object, all numbers of particles and arm symmetry"
+    }
+  ]
+}
