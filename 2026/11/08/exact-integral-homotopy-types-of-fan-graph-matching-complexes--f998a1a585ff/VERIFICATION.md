@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact cofiber argument in RESULT.md proves the claim over the integers for all \(n\ge2\). A completely separate finite checker enumerated the graph's matchings and computed reduced mod-two homology with binary simplicial boundary matrices. The checker passed on all \(n=2,3,\ldots,15\); output is embedded as `checker/verification_output.txt` and the source code as `checker/verify_fan_matching.py`.
+# Independent mathematical audit
 
-To reproduce after extracting the package, execute `python3 checker/verify_fan_matching.py`. The final output line must be `FAN_MATCHING_COMPLEX_EXACT_MOD2_CHECKS_OK 14`. The finite check does not independently prove the infinite theorem or certify integral homotopy equivalences; those follow from the fully specified deletion/link and mapping-cone proof. No independent external audit has been performed.
+## correctness
+
+PASS
+
+F_n=K_1 join P_n, n>=2. In the no-spoke matching complex A=Ind(P_{n-1}), each spoke-cone attaches along Ind(P_{i-2})*Ind(P_{n-i-1}); the path recurrence Ind(P_j)≃Sigma Ind(P_{j-3}) gives all link types. At n=3k links are spheres one dimension below A and maps null; at n=3k+1 the first spoke has link-to-A equivalence and kills A; at n=3k+2 A contractible. Residue counts yield respectively (k+1) spheres dimension k-1, k spheres dimension k, and (2k+2) spheres dimension k. n=2,3 have 3 components and the formal S^{-1} joining convention is handled separately. Independent direct mod-two boundary calculation for ALL n=2..11 agreed with reduced Betti rank/dimension; those finite checks do not establish the all-n proof.
+
+## originality
+
+PASS
+
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
+
+## value
+
+PASS
+
+Fan graphs are natural maximal outerplanar triangulations and matching complexes are fundamental topology-of-graphs invariants. The explicit all-n integral homotopy degree/multiplicity, torsion-freeness, and mod-three regime supply structural information absent from a generic wedge-of-spheres theorem; the spoke-inclusion equivalence at residue one is a nonroutine topological step. This result can serve as a benchmark for outerplanar matching-complex refinements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
