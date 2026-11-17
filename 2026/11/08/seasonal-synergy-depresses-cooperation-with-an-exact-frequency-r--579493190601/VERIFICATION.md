@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone `verify.py` (Python 3, SymPy) is included in this package. Running `python verify.py` prints `VERIFY_OK` after exact symbolic verification of the equilibrium, its Jacobian and trace/determinant, all quadratic Taylor contractions, the second-order mean shift, and the frequency optimizer. The proof of the local forced periodic orbit uses the ordinary real-analytic Poincaré-map implicit-function theorem, with a hyperbolic unforced fixed point. The code checks algebraic obligations, not the existence theorem by numerical enumeration.
+## correctness
 
-Independent numerical diagnostics used period-map root solving, high-accuracy adaptive integration, and period averaging at feedback speeds \(arepsilon=0.6,1,2\) and multiple frequencies. At \(arepsilon=1\), \(\omega=\sqrt3/4\), the finite-amplitude estimates of the normalized mean correction were \(-1.99888413\) at forcing amplitude \(0.01\) and \(-1.99305173\) at amplitude \(0.005\), approaching the exact \(-448/225\). These tests support but do not prove the asymptotic theorem.
+PASS
 
-The statement does not cover the stability boundary, the zero-frequency limit with coupled amplitude scaling, or any finite-amplitude global optimum. The supplementary continuous-forcing appendix of the peer-reviewed source remained inaccessible through the tested public link; publication-priority risk persists. Independent audit has not been performed.
+The exact polynomial payoffs at w=1 make z*=(2/3,2) an interior equilibrium. J=[[1/6,1/6],[-3epsilon/2,-3epsilon/8]] has trace (4-9epsilon)/24<0 and determinant 3epsilon/16>0 for epsilon>4/9; a nonresonant analytic period-map IFT gives the unique nearby attracting interior T=2pi/omega response at any fixed omega>0. The first harmonic h=(i omega I-J)^(-1)g and quadratic averaged Taylor forcing -J^(-1)Q produce mean second coefficient -256omega²(3epsilon+4)/(9[(9epsilon-48omega²)²+(18epsilon-8)²omega²]); half-period symmetry kills odd orders, and optimizing over omega² gives omega*=sqrt(3epsilon)/4. Independently differentiated the payoff equations and computed exact Jacobian, forcing and quadratic response at epsilon=1, omega=sqrt(3)/4: -448/225. The local, fixed-parameter and infinitesimal limits are explicit.
+
+## originality
+
+PASS
+
+Earlier theorems give an exact weighted cooperation balance at every group size and ordinary mean deficit at N=2, but not the four-player N=4 signed weak-forcing coefficient and its exact frequency resonance. The direct prior implication is explicitly limited.
+
+## value
+
+PASS
+
+The same public-goods model is used to investigate how periodic environments change coexistence. An exact negative sign for ordinary mean cooperation at every positive forcing frequency, plus a unique sharp resonance omega*=sqrt(3epsilon)/4, supplies a motivated quantitative observable that is not determined by the prior weighted balance. It distinguishes slow/fast weak forcing from resonant suppression over a continuous range of feedback speeds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
