@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The theorem follows from the exact monomial projection weights, strict gamma-moment log convexity, the reflected zero/positive tails, and a second-order asymptotic plus counting inversion. These analytical steps verify all infinite assertions without relying on computation.
+## correctness
 
-Run `python3 CHECK.py` using the Python 3 standard library. The program checks a finite grid of degrees and radial weights, sign/zero interval, coefficient reflection, and approximate tail constants. It prints the number of assertions tested. It neither exhausts continuous weights nor establishes asymptotic assertions by itself. Independent mathematical audit has not been performed.
+PASS
+
+Using the exact radial moments a_j and the three-branch bilateral Toeplitz weights, independently reconstructed the weighted shift C_{m,n}e_j=c_j e_{j+n-m}. Trigamma positivity gives strict log-convexity and hence c_j=0 precisely on |m-n|+1 consecutive indices; the reflection c_{m-n-j}=-c_j doubles all nonzero singular values. Second-order gamma expansion yields c_j~(α+1)mn/j² on both tails; counting inversion gives N²s_N→4(α+1)mn, Schatten p>1/2 and the sharp harmonic logarithmic sum. Independently checked 12 degree/weight combinations with high precision over 61 indices and at j=2000,8000; finite checks do not prove the asymptotic.
+
+## originality
+
+PASS
+
+The 2012/2013 Dong–Zhou zero-reflection theorem and 2014 finite-rank classification are real partial coverage, and the Nov 1 published weighted harmonic Bergman theorem proves the equal-degree case. The assigned result instead handles every unequal pair m≠n, gives an exact |m−n|+1 kernel, all strict signs, paired complete singular coefficients, and sharp mixed mn tail/logarithmic residue; no inspected prior result implies those precise assertions. Best-of-knowledge, with possible broader symbol calculus as a residual risk.
+
+## value
+
+PASS
+
+Quantifies a natural two-degree commutator family on every radial beta-weight harmonic Bergman space: exact finite nullity and nonzero pairing, sharp approximation-number coefficient and Schatten phase transition supplement previous qualitative results. This is a structural operator-spectrum classification, not a trivial renaming of the m=n case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
