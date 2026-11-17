@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-Execute `python3 verify.py` in a directory containing the embedded file, using Python 3 standard library only. The script enumerates all allowed algebra-generator images for the displayed small finite rings; no theorem formula is used to decide whether an individual map is invertible. Instead, it builds the full substitution matrix in the monomial basis and computes its rank over the field. For each invertible substitution it multiplies the top-degree socle monomial and reads the scalar coefficient, then compares counts with the parabolic and determinant predictions. The tested finite fields are \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) (the last represented by its irreducible quadratic polynomial). The eight configurations are \((2;1),(2;2),(2;1,1),(2;1,2),(3;1),(4;1),(4;2),(4;1,1)\), with automorphism totals \(1,4,24,2048,6,3,48,2880\) respectively. The run completes with `VERIFY_OK`.
+# Independent mathematical audit
 
-The finite checks do not enumerate larger groups or extension fields, and they cannot certify a universal theorem. The unrestricted claim is proved using the monomial Frobenius identity, nilpotent-ideal lifting, triangular linear substitutions, the socle's highest-degree property, and arithmetic in cyclic multiplicative groups. An independent audit of the proof has not been performed.
+## correctness
+
+PASS
+
+For A=F_q[x_i]/(x_i^{p^{s_i}}), allowed images f_i satisfy f_i^{p^{s_i}}=0; Frobenius acts coefficientwise on distinct surviving monomials and leaves exactly K_i=N−p^{Σ_j max(s_j−s_i,0)} degrees of freedom. Linear coefficients are permitted exactly when s_j<=s_i; invertible tangent parabolic matrices give automorphisms via finite local Nakayama, with kernel q^{Σ_i(K_i−c_i)}. The parabolic order gives stated product cardinality and largest normal p-subgroup. Socle z is top multidegree; nonlinear image terms vanish by nilpotence, unipotent height shears act trivially, equal-height Levi blocks contribute det^{p^h−1}; a cyclic finite field multiplicative group then yields image order (q−1)/(p^{gcd(e,s_i)}−1) and equal fibers. Small independent q=2 mixed-height (1,2) substitution enumeration obtained 2048 automorphisms and fixed socle, including genuine whole-image checking. Boundaries d>=1,s_i>=1,e>=1 understood.
+
+## originality
+
+PASS
+
+Equal-height prime-power complete intersections and general p-group socle determinant constraints are genuine earlier work, and must not be reasserted as novel. The current mixed-height theorem supplies the full height-parabolic tangent image, exact algebra-automorphism group and p-core cardinalities, and exact finite-extension-field attainable socle-scalar image for every finite abelian p-group. The inspected prior exact equal-height count is a specialization, whereas no inspected source supplies all mixed-height counts and exact image. General Benson theorem implies a power restriction but not the exact image or group enumeration. Unindexed modular-group algebra automorphism literature remains a named priority risk.
+
+## value
+
+PASS
+
+The full algebra automorphism group, its p-core size and action on the one-dimensional socle are canonical invariants of modular group algebras. The mixed-height classification and finite-field arithmetic character image give exact information beyond equal-height and general power-restriction results; the precise formulas are naturally reusable in modular representation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

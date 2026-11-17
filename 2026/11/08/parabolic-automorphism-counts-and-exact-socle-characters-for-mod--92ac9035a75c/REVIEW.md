@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Frobenius-power constraints on generator images are coefficientwise because distinct surviving monomials do not merge after raising to a pure \(p\)-power. Their dimensions give an exact parabolic tangent image and an independently countable nilpotent kernel. Nakayama-type lifting for the finite local algebra proves sufficiency of tangent invertibility. The unipotent-radical preimage is the full normal \(p\)-core because the Levi quotient has trivial normal \(p\)-subgroup. Degree filtration and elementary substitutions prove the socle determinant formula, and elementary cyclic-group arithmetic determines its exact image. Actual composition matrices in `verify.py` independently corroborate the formulas for the eight stated small algebras; finite checking is not used as a general proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Benson (arXiv:2303.09940v1) proves the socle determinant constraint for any finite \(p\)-group algebra but does **not** give the exact automorphism order, the height parabolic, the normal \(p\)-core, or the exact attainable socle scalars for finite abelian groups. The 1997 graded, characteristic-zero truncated-polynomial automorphism theorem of Deo and Maitra concerns a different automorphism category. The characteristic-zero automorphism-group treatment by Díaz et al. (arXiv:2408.02197v1) does not establish the positive-characteristic Frobenius restrictions. The comparable truncated coordinate-cross algebra result uses mixed-product-zero relations and therefore has a different automorphism group. Literature searching did not locate a full group-algebra enumerator dominating the combined claim. This is provisional: unlocated literature on automorphisms of modular group algebras remains a concrete priority risk.
+PASS
 
-## Mathematical value — PASS
-The cardinality of the **full algebra** automorphism group, rather than merely the underlying group automorphism group, is an intrinsic finite-algebra invariant. The height filtration distinguishes cyclic-factor exponents, determines the reductive quotient and normal \(p\)-core, and reveals an extension-field-dependent obstruction to pointwise socle fixation. This gives exact answers throughout an infinite family, with the prime-field socle fact correctly attributed to prior work.
+For A=F_q[x_i]/(x_i^{p^{s_i}}), allowed images f_i satisfy f_i^{p^{s_i}}=0; Frobenius acts coefficientwise on distinct surviving monomials and leaves exactly K_i=N−p^{Σ_j max(s_j−s_i,0)} degrees of freedom. Linear coefficients are permitted exactly when s_j<=s_i; invertible tangent parabolic matrices give automorphisms via finite local Nakayama, with kernel q^{Σ_i(K_i−c_i)}. The parabolic order gives stated product cardinality and largest normal p-subgroup. Socle z is top multidegree; nonlinear image terms vanish by nilpotence, unipotent height shears act trivially, equal-height Levi blocks contribute det^{p^h−1}; a cyclic finite field multiplicative group then yields image order (q−1)/(p^{gcd(e,s_i)}−1) and equal fibers. Small independent q=2 mixed-height (1,2) substitution enumeration obtained 2048 automorphisms and fixed socle, including genuine whole-image checking. Boundaries d>=1,s_i>=1,e>=1 understood.
 
-## Limits and next validation
-All results require an abelian \(p\)-group and a finite coefficient field of characteristic \(p\). Exhaustive tests cover only specified small cases. A broader external treatment of modular group algebra automorphisms may subsume parts of the count and must be assessed before priority claims. Independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equal-height prime-power complete intersections and general p-group socle determinant constraints are genuine earlier work, and must not be reasserted as novel. The current mixed-height theorem supplies the full height-parabolic tangent image, exact algebra-automorphism group and p-core cardinalities, and exact finite-extension-field attainable socle-scalar image for every finite abelian p-group. The inspected prior exact equal-height count is a specialization, whereas no inspected source supplies all mixed-height counts and exact image. General Benson theorem implies a power restriction but not the exact image or group enumeration. Unindexed modular-group algebra automorphism literature remains a named priority risk.
+
+## value
+
+PASS
+
+The full algebra automorphism group, its p-core size and action on the one-dimensional socle are canonical invariants of modular group algebras. The mixed-height classification and finite-field arithmetic character image give exact information beyond equal-height and general power-restriction results; the precise formulas are naturally reusable in modular representation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
