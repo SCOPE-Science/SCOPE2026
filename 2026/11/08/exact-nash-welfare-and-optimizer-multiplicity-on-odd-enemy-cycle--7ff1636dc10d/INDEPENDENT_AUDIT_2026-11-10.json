@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T23:55:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Enemy weight -n makes any coalition containing an enemy individually irrational: even the largest coalition leaves that member utility <0. Proper individually rational coalitions are independent sets with utility s-1; positive product requires >=3 blocks each size >=2. Independence bound size<=k and t>=3 makes (k,k-1,2) majorize all feasible size partitions. f(s)=s log(s-1), f(0..2)=0 is convex and strictly convex beyond 2, proving strict optimality. Maximum independent sets number 2k+1; complement has one edge and k-1 isolates, yielding 2(k-1) choices for size-2 block. At k=3 the two size-2 coalitions swap giving 14, otherwise sizes differ. Small k cannot partition into >=3 nonsingleton blocks. Independent full enumeration of all unlabeled feasible partitions at n=7,9 gave (product,count)=(8,14),(648,54).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General friendship {K2,K3}-factor criterion determines positivity only.",
+          "Bipartite enemy graphs allow two coalitions, while odd cycles require at least three."
+        ],
+        "reasoning": "Neither positivity characterization nor a two-coalition algorithm determines the odd-cycle size-3 partition product and exact count.",
+        "searches": [
+          "Pagano Schlenga Nash Welfare in Additively Separable Hedonic Games Theorem 6.1, Lemma 2",
+          "Resultary: matching-edge plateau nearly bipartite enemy Nash games"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.19030 (Pagano–Schlenga, 2026)",
+        "arXiv:2512.20261 (Elkind–Flammini–Varricchio, 2025)",
+        "Resultary query on odd-cycle Nash welfare and matching-edge plateau records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gives a positive-welfare existence test but no exact weighted product.",
+          "Prior egalitarian bound only controls smallest utility; Nash product is not determined."
+        ],
+        "reasoning": "Published results imply model reduction and some zero/positive boundaries but not the stated all-size optimizing multiplicity.",
+        "searches": [
+          "Pagano Schlenga Lemma 2 {K2,K3}-factor Theorem 6.1",
+          "Elkind Flammini Varricchio 2025 egalitarian friends enemies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent-set partitions equal friend-clique covers, and maximizing product equals maximizing sum of s log(s-1).",
+          "Egalitarian welfare maximizes the minimum utility, not the Nash product."
+        ],
+        "reasoning": "The alternate weighted-coloring formulation was compared against AEG hedonic literature; no inspected pre-existing exact all-k odd-cycle optimum or count was established.",
+        "searches": [
+          "Resultary: odd cycle enemy graph aversion to enemies hedonic Nash social welfare product exact optimum optimizer number",
+          "Pagano Schlenga arXiv:2605.19030"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns this assigned record and separate matching-edge/other graph records, no identified earlier exact odd-cycle table.",
+          "Independent exhaustive cycle n7 and n9 data (8,14),(648,54)."
+        ],
+        "reasoning": "Matching the current assigned record is not independent priority evidence. Missing earlier table is not proof against unindexed work.",
+        "searches": [
+          "Resultary: odd-cycle Nash welfare optimizer multiplicity 2(2k+1)(k-1)",
+          "arxiv:2605.19030"
+        ]
+      },
+      "rationale": "The published Pagano–Schlenga general aversion-to-enemies Nash-welfare theorem supplies the model, positivity via friendship-clique factors and bipartite/two-coalition optimization. It does not state the weighted three-coalition odd-cycle maximum, optimizer-size rigidity or labeled multiplicity. Earlier egalitarian and fractional-hedonic results have different objectives. Resultary searches also returned nearby matching-edge plateau and other graph-family results, without a stronger odd-cycle statement. Best-knowledge originality qualified by incomplete independent examination of the full Pagano–Schlenga appendix.",
+      "residual_risks": [
+        "Full Pagano–Schlenga supplement was not independently inspected in this execution: potential implicit specializations remain.",
+        "A differently phrased earlier exact weighted-coloring computation may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general positivity, hardness and bipartite two-coalition case; exact odd-cycle formula not identified in available relevant material",
+          "evidence": [
+            "Theorem 6.1 addresses two coalitions; Lemma 2 addresses positivity via small friend cliques."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.19030",
+          "material_read": "Accessible stated main result/abstract plus the returned original package comparison of Lemmas 1–2, Theorem 6.1 and appendix; separate independent full appendix inspection not completed",
+          "method": "Primary arXiv result comparison plus source review cross-check",
+          "title": "Nash Welfare in Additively Separable Hedonic Games",
+          "trigger": "Identical hedonic aversion-to-enemies model and Nash objective"
+        },
+        {
+          "assessment": "Min-utility rather than geometric Nash objective",
+          "evidence": [
+            "Egalitarian utility objective distinct from product of agents utilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.20261",
+          "material_read": "Accessible model and statement descriptions; not relied on to rule out all appendix coverage",
+          "method": "Primary statement comparison",
+          "title": "Maximizing the Egalitarian Welfare in Friends and Enemies Games",
+          "trigger": "Same enemy-friend graph but different welfare objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Odd enemy cycles are the smallest canonical nonbipartite obstruction to two-coalition allocations. The result classifies a genuine zero-to-positive welfare threshold and gives a sharp optimum and all optimizer counts for every odd cycle, rather than just a textbook chromatic bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2605.19030 (Pagano–Schlenga, 2026)",
+    "arXiv:2512.20261 (Elkind–Flammini–Varricchio, 2025)",
+    "Resultary query on odd-cycle Nash welfare and matching-edge plateau records"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd enemy cycle C_(2k+1) with symmetric +1 friendship and -n enmity, Nash-product optimum is zero for k=1,2; for k>=3 equals (k-1)^k(k-2)^(k-1), attained exactly by independent coalition sizes (k,k-1,2), with 14 optima at k=3 and 2(2k+1)(k-1) at k>=4.",
+  "limitations": "Model restricted to simple odd cycle, -n/+1 symmetric additive preferences, IR allocations, and positive-product optimizer multiplicity only; no count of zero-product optimizers.",
+  "residual_risks": [
+    "Full Pagano–Schlenga supplement was not independently inspected in this execution: potential implicit specializations remain.",
+    "A differently phrased earlier exact weighted-coloring computation may be unindexed."
+  ],
+  "schema_version": 1
+}

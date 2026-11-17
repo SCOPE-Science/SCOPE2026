@@ -1,11 +1,21 @@
-# Scientific review — odd-cycle Nash welfare
+# Independent mathematical audit
 
-**Correctness: PASS.** The valuation and individual-rationality reduction is exact. An analytic majorization bound, independent-set construction, and maximum-independent-set counting argument prove the infinite formula and optimizer multiplicity; no finite search is invoked as an infinite proof. The C++ verifier enumerates every proper independent-set partition through 13 vertices and a separate Python implementation checks through 11 vertices. The exceptional zero cases and the equal-size double count at seven vertices were treated separately.
+## correctness
 
-**Originality: PASS, qualified.** Pagano and Schlenga (arXiv:2605.19030, Sections 2–3 and 6 and their appendix proofs) provide the AEG framework, positivity criterion, general hardness/approximation results and a bipartite two-coalition algorithm. Even-cycle claims are deliberately not included: they are covered by that two-coalition treatment. For odd cycles, its positive-welfare criterion does not imply the exact product or multiplicity. Elkind, Flammini and Varricchio (arXiv:2512.20261) address egalitarian welfare, a different objective; fractional-hedonic Nash welfare uses average valuations. Accessible research-record comparisons did not identify an equivalent odd-cycle formula. This does not certify worldwide novelty; unindexed work remains a risk.
+PASS
 
-**Mathematical value: PASS.** Odd enemy cycles are the smallest canonical family requiring at least three colors. The result gives the all-size Nash optimum, a sharp zero-to-positive boundary (five to seven vertices), rigidity of the maximizing size distribution, and a closed count of every maximizing labeled-agent partition. All quantities are motivated by the nonbipartite obstruction and coalition welfare objective.
+Enemy weight -n makes any coalition containing an enemy individually irrational: even the largest coalition leaves that member utility <0. Proper individually rational coalitions are independent sets with utility s-1; positive product requires >=3 blocks each size >=2. Independence bound size<=k and t>=3 makes (k,k-1,2) majorize all feasible size partitions. f(s)=s log(s-1), f(0..2)=0 is convex and strictly convex beyond 2, proving strict optimality. Maximum independent sets number 2k+1; complement has one edge and k-1 isolates, yielding 2(k-1) choices for size-2 block. At k=3 the two size-2 coalitions swap giving 14, otherwise sizes differ. Small k cannot partition into >=3 nonsingleton blocks. Independent full enumeration of all unlabeled feasible partitions at n=7,9 gave (product,count)=(8,14),(648,54).
 
-**Limitations.** The theorem is confined to single simple odd cycles, symmetric additive valuations \(+1/-n\), individually rational allocations, and unweighted agents. No results are claimed for general graphs or zero-optimum optimizer counts. Exact computations are reproducibility checks, not a proof substitute; no external independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published Pagano–Schlenga general aversion-to-enemies Nash-welfare theorem supplies the model, positivity via friendship-clique factors and bipartite/two-coalition optimization. It does not state the weighted three-coalition odd-cycle maximum, optimizer-size rigidity or labeled multiplicity. Earlier egalitarian and fractional-hedonic results have different objectives. Resultary searches also returned nearby matching-edge plateau and other graph-family results, without a stronger odd-cycle statement. Best-knowledge originality qualified by incomplete independent examination of the full Pagano–Schlenga appendix.
+
+## value
+
+PASS
+
+Odd enemy cycles are the smallest canonical nonbipartite obstruction to two-coalition allocations. The result classifies a genuine zero-to-positive welfare threshold and gives a sharp optimum and all optimizer counts for every odd cycle, rather than just a textbook chromatic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
