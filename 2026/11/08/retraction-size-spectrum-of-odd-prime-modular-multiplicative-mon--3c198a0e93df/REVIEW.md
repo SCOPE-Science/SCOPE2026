@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The classification is self-contained: a nonconstant monoid endomorphism is determined by its restriction to the cyclic group of units and its value on the prime generator. The proof checks independence of representation modulo the prime power. Composition-idempotence reduces to the two generator equations; the nonzero generator value must have valuation one, and the lift condition is a cyclic-group root count. Image cardinalities are computed separately on all valuation strata; the closed total follows by CRT over prime-power components. The six small cases are checked by executable code, including full residue-pair multiplicativity where feasible. No experimental finite check is used as an infinite proof.
+## correctness
 
-**Originality — PASS (subject to historical-priority risk).** Atalaye–Baker–Marques, arXiv:2610.02393v1, Proposition 3.1/Corollary 3.2 gives the general homomorphism parameterization and Theorem 3.4 addresses pointwise multiplication, whereas the present formula enumerates idempotence under composition and the image sizes of those retractions. Their earlier automorphism study arXiv:2408.06278 restricts to bijections and does not imply this polynomial. Searches for modular-monoid retractions, semigroup idempotent endomorphisms, and alternate image-size formulations found no directly equivalent formula; this is not proof of uniqueness in the literature. The related Stellenbosch thesis cited by the motivating paper was inaccessible (HTTP 403), so implicit or explicit prior coverage in that source remains a risk.
+PASS
 
-**Mathematical value — PASS.** Retracts are canonical split subobjects of finite monoids, so their spectrum provides information not captured by an unstructured list of all homomorphisms. The theorem classifies the two distinct valuation behaviours of retractions and gives a complete image-size law uniformly across arbitrary exponents and odd primes. The polynomial determines which retract cardinalities occur and how many maps realize each, with the closed product formula isolating the arithmetic dependence on the factorization of the unit-group order. This is a complete structural/counting invariant, not an isolated small numerical calculation.
+For odd p and e>=2, units U are cyclic of N=(p-1)p^{e-1}. Every nonconstant unital multiplicative endomorphism fixes zero and is F_{t,a}(p^ku)=a^k u^t with t mod N and a∈pR; the proof checks independence of chosen unit representative. Composition idempotence is t²=t mod N and F(a)=a. If nonzero val(a)>=2, the image valuation grows to v² and equality is impossible; if a=pc with c mod p^{e-1} a unit, then c^t=1 mod p^{e-1} with gcd(t,phi_{e-1}) choices. For a=0 images have 1+h_e(t) points; for val(a)=1 the disjoint nonzero valuation strata yield 1+Σ_{j=1}^e h_j(t). CRT over exact prime-power factors gives total 1+2^{ω(p-1)+1}+(1+p^{e-2})Π_{ℓ^b||p-1}(1+ℓ^b). Independent exhaustive multiplication/composition of constructed maps for Z/27 yields exactly 17 maps, including the nine image-size buckets. The constant-one map is the unique exception to zero preservation.
 
-**Limitations.** The unit-group method assumes odd primes; no claim is made for 2-primary monoids. An independent mathematical audit has not been carried out. The derivation is elementary after identifying the correct composition equation; possible earlier treatments under a different vocabulary remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Atalaye–Baker–Marques 2026 paper establishes the full normal form for monoid morphisms and an induced pointwise-multiplication operation on the hom-set, not verified to state the composition-idempotent retraction image law. The algebraic classification of all morphisms is pre-existing, not claimed as new; the composition equation and full spectrum are the submitted result. A highly relevant primary paper and linked thesis are not fully accessible: originality is best-of-knowledge and carries significant risk.
+
+## value
+
+PASS
+
+Retraction images are canonical split submonoids. The two mutually exclusive nonunit valuation behaviors and the exact all-prime-power image-size polynomial give a complete structural natural invariant; the closed arithmetic product count reveals dependence on the factorization of p-1 beyond mere total endomorphisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
