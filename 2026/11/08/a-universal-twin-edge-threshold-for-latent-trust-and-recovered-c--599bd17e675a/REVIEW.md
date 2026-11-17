@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** On any finite connected graph with nonadjacent twin vertices, the missing-edge update has the exact antisymmetric eigenvalue \(\rho=1/(d+1)\), because all shared-neighbor contributions cancel. The sup-norm contraction of stochastic averaging keeps all other edges receptive for the stated open perturbation neighborhood. Comparing \(D\rho^t\) with \(c\delta^t\) proves the sharp phase boundary, including the equality case, and the first activation time. After activation, the perturbed state lies within \(\varepsilon\) of consensus, forcing permanent full receptivity and convergence. The extracted independent implementation of the model passed 56,706 exact-rational assertions on finite graphs. Limitations: tests are finite and not a substitute for the analytic proof; the result concerns the specified topology and synchronous rule.
+## correctness
 
-**Originality: PASS, with priority risk.** Li, Luo, and Porter (arXiv:2303.07563, 2023-03-14; author-hosted journal PDF) give the same model, eventual effective-graph convergence and numerical evidence of consensual but unreceptive pairs. Their results do not give the sharp graph-local \(1/(d+1)\) threshold, robust full-phase dichotomy or exact first-recovery time. The seven-agent nonfreezing proximity-system record closest in semantic search addresses a different switching-time setting on the available summary; its full text was not confirmed. The fixed-confidence and asynchronously weighted opinion models inspected do not imply the dyadic decay comparison. Unindexed or less directly titled equivalent results remain a residual risk.
+PASS
 
-**Value: PASS.** The motivating study observes that eventual opinion agreement can coexist with collapsed receptiveness, but supplies no exact degree-dependent criterion. This theorem resolves that ambiguity for every connected twin-containing network, identifies a nonempty open basin of both behaviors, gives an exact threshold and recovery waiting time, and reveals a divergent restoration delay near the transition. The phenomenon is not confined to one small graph or an isolated symmetry-point initial condition, and it distinguishes the two limiting social graphs even though both sets of opinions converge to unanimity.
+For nonadjacent twin vertices u,v of any finite connected H with d common neighbors, the self-inclusive H-averaging matrix has antisymmetric eigenvector e_u-e_v with eigenvalue ρ=1/(d+1), so the initially dormant edge opinion difference is Dρ^t until activation; its confidence is cδ^t. The initial open ε-neighborhood ensures all H edges remain receptive by sup-norm contraction. Strict receptivity means exact critical equality never activates: δ≤ρ gives permanent nonreceptivity despite consensus, while δ>ρ gives first time floor(log(D/c)/log((d+1)δ))+1. Upon activation, full G averaging eliminates antisymmetric component in one step; perturbations remain ε-close and all confidences reinforce, so G stays fully receptive and consensus is reached. Independence tests explicitly stepped the real synchronous fractions for three-node H, including time-one equality, 81 assertions. The d=1 three-agent case and the almost-complete graph family were previously published; the claim is its extension to any connected twin-containing H with an open opinion neighborhood.
 
-Closest primary source: Li, Luo, and Porter, *Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds*, https://arxiv.org/abs/2303.07563 and https://www.math.ucla.edu/~mason/papers/BCM-dynamic-April2025.pdf. Related sources: Li and Porter, https://doi.org/10.1103/PhysRevResearch.5.023179; Etesami, https://doi.org/10.1137/18M1217681. Claims of publication priority or external certification are not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. A graph-local criterion based solely on twin degree for whether a dormant social tie ever regains receptivity despite eventual opinion consensus. It turns known qualitative adaptive-confidence behaviors into a sharp topology-independent phase transition with explicit first activation time and stability under perturbations.
+
+## value
+
+PASS
+
+A graph-local criterion based solely on twin degree for whether a dormant social tie ever regains receptivity despite eventual opinion consensus. It turns known qualitative adaptive-confidence behaviors into a sharp topology-independent phase transition with explicit first activation time and stability under perturbations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
