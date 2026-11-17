@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition uses unit local extinction, edge-additive recolonization rate \(c\ge0\), uniform \(k\)-subset initial occupancy for each \(k\in\{1,\ldots,6\}\), and absorption at the empty state. Exact first-step equations reduce through graph automorphism groups to nine and twelve transient orbit variables; independent full-state rational solves agree at three positive rates for each graph. The complete-occupancy forms and all six fixed-occupancy-count differences are verified by exact rational identities. Four distinct gap polynomials have strictly positive coefficients, proving the ordering for each \(k\) and every real \(c>0\), not just at tested rates. Every occupancy-count mixture with nonzero occupation chance inherits the strict inequality. A complement classification proves these are the only two connected cubic six-vertex graphs. At zero colonization, each occupancy count has the correct \(k\)-th harmonic mean. Risk: the result need not rank prescribed individual occupied subsets, different transition mechanisms or larger graphs.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+For occupied S, diagonal generator sum |S|+c sum vacant infected-neighbor incidences and offdiagonal recoveries or colonizations yield a unique finite hitting-time linear system. The two six-vertex cubic graphs are exactly complements of C6 and 2C3, respectively. Their 63 nonempty states reduce to 9 and 12 automorphism orbits. Independently constructed quotient matrices and inverted over Q(c), reproducing all six submitted c^3 P_k/(s_k A B) identities, including P_4=P_5=P_6 and every strictly positive coefficient; at c=0 both are pure death chains with mean H_k. Additional unrelated full 63-state rational systems at c=1/3 and 1 agreed and gave all 12 strict inequalities. Thus positivity is an analytic all-c certificate, not grid extrapolation.
 
-Closest work is Holme and Tupikina (2018), arXiv:1802.08849: the paper computes exact expectations for all small graphs using the same general Markov-chain method but says its full symbolic expressions were not stored and does not state this between-graph uniform-initial-count dominance for every count and all rates. Barbillon et al. (2014), arXiv:1404.4287, examine finite ecological extinction–colonization networks and selected topologies without the six-vertex closed comparison. Shtilerman and Stone (2015), https://pmc.ncbi.nlm.nih.gov/articles/PMC4426627/, examine spectral mean-field criteria and degree correlations rather than exact finite mean hitting times. Van de Bovenkamp and Van Mieghem (2015), DOI 10.1103/PhysRevE.92.032806, derive exact mean times for complete and star graphs. These papers give broad methods and scientific motivation but no located theorem fixing all six uniform-initial-occupancy comparisons between the two cubic six-vertex networks for every real colonization rate. The 2018 exhaustive calculation is a substantial priority risk; independently check unpublished exact outputs and other finite contact-process comparisons before claiming historical first discovery.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a natural complete six-patch cubic design comparison across every possible number of initially occupied patches, rather than just starting from full occupancy. The two graphs have the same size, number of corridors, all local degrees, graph diameter, vertex-distance distribution and Perron root, so the strict all-rate dominance isolates topology beyond these usual coarse controls. The four sign certificates hold at all positive colonization rates and all six initial occupancy counts, not one simulation regime or a tiny gain. The uniform-count statement directly implies the advantage for random Bernoulli habitat occupancy. It illustrates why a deterministic spectral proxy cannot by itself rank finite stochastic extinction times. It does not claim universal extremality among larger networks.
+Holme–Tupikina 2018 studies exactly the same standard SIS extinction generator over every graph through eight vertices, including K3,3 and the prism, and describes symbolic solutions. It did not retain detailed symbolic expressions, and inspected text focuses on within-graph occupancy rankings/asymptotic structural correlations, not the six uniform-initial-count cross-graph all-rate inequalities with positive coefficients. Earlier SIR bond-percolation stochastic outbreak rankings of these graphs use a distinct model and do not imply this CTMC extinction-time order. O is best-of-knowledge with explicit computational-database priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is the smallest graph size with two nonisomorphic connected cubic networks: matching degree, nine edges, spectral radius, and distance distribution do not decide persistence. The exact all-rate uniform-by-k extinction comparison is a natural structural finite-network distinction with strong polynomial certificates, not just an arbitrary parameter-grid observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
