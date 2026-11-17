@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T08:09:00.949119Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For dot u=0,dot z=sum_{edge}u_i u_j, F_h is exact and designed G_h scales u by 1+delta. With C_S(u) the cut quadratic, direct evaluation yields F-S=(-delta Q_Su,h C_S(u)) and F-H=(-delta Q_Su,0). Subtract old/new first-time-point defect at u=(1+delta)1 and u=1 to get errors (-delta^2 1_Sc,h(2delta+delta^2)b_G(S)) and (-delta^2 1_Sc,0). Orthogonal coordinate and scalar parts imply exact squared gap. At h=1 minimizing squared error over |S|=n/2 is precisely minimum bisection; NP membership and the standard min-bisection hardness premise yield NP-completeness, while cardinality-indexed rooted forest dynamic programming yields polynomial optimization. Independent rational direct propagation passed 240 test cases. Only two coarse intervals/one correction and coordinate projectors are covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 parareal works obtain general convergence bounds for arbitrary orthogonal projections or Fourier-tail projection choices, not NP-hardness for balanced coordinate projector selection. The tree paper treats minimum bisection as a separate graph problem."
+        ],
+        "reasoning": "Greater solver generality in an upper-error-bound theorem does not dominate a sharp equality plus an algorithmic hardness statement. Bisection results supply, rather than supersede, the reduction's premise.",
+        "searches": [
+          "arXiv:2610.21680",
+          "arXiv:2607.12402 projection based periodic parareal",
+          "arXiv:1708.06411 minimum bisection trees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at 76075622476b821d6410c9f6f384421da7e6b5a4",
+        "https://www.paperpeel.com/paper/2610.21680",
+        "https://arxiv.org/abs/2610.21680",
+        "https://arxiv.org/abs/1708.06411",
+        "Resultary semantic query for graph-cut parareal NP-completeness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonlinear mixed term G(x)-G(Px)-G(Qx) is recognized previously; the special graph-quadratic flow makes that term the actual cut polynomial, and the parareal first correction amplifies it by (1+delta)^2-1."
+        ],
+        "reasoning": "Deriving NP-hardness requires the additional exact synthetic dynamical construction and fixed-time error identity, not implied solely by known bisection complexity or abstract parareal mixed terms.",
+        "searches": [
+          "arXiv:2610.21680 §2.3 Eq H-S",
+          "classical MINIMUM BISECTION",
+          "arXiv:1708.06411"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tan et al. define S_P=F(Px)+G((I-P)x), H_P=G(x)+F(Px)-G(Px) and the mixed defect H-S; no exact cut penalty or complexity reduction appears in the inspected sections."
+        ],
+        "reasoning": "The parareal definitions and abstract error orders are background; their statements do not give the exact graph-dependent second-time error objective.",
+        "searches": [
+          "Resultary query: nonlinear projection based parareal exact graph cut minimum bisection NP-hard projector",
+          "arXiv:2610.21680 full HTML §§2-4",
+          "Minimum Bisection decision classical"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted equality holds for arbitrary input graph G and even n, and decision equivalence works in exact rationals; it is not a lookup of finite parareal observations."
+        ],
+        "reasoning": "No exact published graph-to-parareal error table or general formula in the inspected comparisons reproduces this full parameter family.",
+        "searches": [
+          "Resultary query: nonlinear projection based parareal exact graph cut minimum bisection NP-hard projector",
+          "Tan et al. numerical experiments Allen-Cahn and FitzHugh-Nagumo",
+          "Minimum bisection benchmarks"
+        ]
+      },
+      "rationale": "PASS qualified. Tan-Xu-Zhang-Su already define both nonlinear projected parareal updates and prove general error order contrasts. They do not derive graph-cut exact-error identities, balanced-coordinate NP-hardness or the forest optimization frontier in their inspected full HTML. Classical minimum bisection is prior; the reduction embedding its objective in parareal error is not a mere restatement.",
+      "residual_risks": [
+        "Related projector-space optimization literature could contain an equivalent embedding; no global priority claim.",
+        "Hardness relies on standard NP-completeness of MINIMUM BISECTION rather than proving that classical fact anew.",
+        "Designed coarse propagator, coordinate (not arbitrary orthogonal or history-generated) projectors only; finite tests are not proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source establishes both scheme definitions and general residual orders, not the graph-cut reduction in the inspected material.",
+          "evidence": "Displayed map S_P, H_P and identity H_P-S_P=G(x)-G(Px)-G(Qx); no bisection formulation.",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.21680",
+          "material_read": "Accessible full article HTML: introduction, all section headings, Section 2 map definitions 2.2/2.3, general error material in Sections 3-4, experiments/conclusions; source text read.",
+          "method": "ArXiv 2610.21680 crosschecked against article full-text HTML.",
+          "title": "Projection-Based Parareal for Nonlinear Initial-Value Problems",
+          "trigger": "Identical projected maps and nonlinear error setting"
+        },
+        {
+          "assessment": "Bisection hardness and tree tractability are prior; not parareal error.",
+          "evidence": "The source topic is minimum bisection itself, used as an external NP-complete premise.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06411",
+          "material_read": "Paper title/abstract and known classical minimum bisection status; complete primary paper not represented as read.",
+          "method": "Open bibliographic search and source theorem citation.",
+          "title": "On Minimum Bisection and Related Cut Problems in Trees and Tree-Like Graphs",
+          "trigger": "Classical graph-theoretic hardness and forest tractability comparison"
+        },
+        {
+          "assessment": "Focuses time-periodic Fourier-tail projections, not balanced graph-cut error optimization as stated.",
+          "evidence": "No whole-document noncoverage assertion made from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.12402",
+          "material_read": "Abstract and scope only; full text not inspected.",
+          "method": "Primary preprint abstract retrieval.",
+          "title": "A Fourier-Aware Projection-Based Periodic Parareal Method for Time-Periodic Problems",
+          "trigger": "Broader nonlinear projection construction that could imply result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: projector choice is a genuine algorithmic design problem for projection-based parareal. An elementary smooth quadratic globally soluble ODE and a valid order-p coarse map already encode NP-complete coordinate selection, while forests give an exact tractable subclass; this is a meaningful mathematical obstruction and boundary, not a renamed graph-cut exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md at 76075622476b821d6410c9f6f384421da7e6b5a4",
+    "https://www.paperpeel.com/paper/2610.21680",
+    "https://arxiv.org/abs/2610.21680",
+    "https://arxiv.org/abs/1708.06411",
+    "Resultary semantic query for graph-cut parareal NP-completeness"
+  ],
+  "disposition": "passed",
+  "limitations": "Exactly the second coarse time point after one parareal correction, a deliberately chosen globally smooth quadratic flow, rank-n/2 coordinate projectors, exact arithmetic, zero-preserving order-p designed coarse map. Not an efficiency lower bound for arbitrary projectors.",
+  "residual_risks": [
+    "Related projector-space optimization literature could contain an equivalent embedding; no global priority claim.",
+    "Hardness relies on standard NP-completeness of MINIMUM BISECTION rather than proving that classical fact anew.",
+    "Designed coarse propagator, coordinate (not arbitrary orthogonal or history-generated) projectors only; finite tests are not proof."
+  ],
+  "schema_version": 1
+}
