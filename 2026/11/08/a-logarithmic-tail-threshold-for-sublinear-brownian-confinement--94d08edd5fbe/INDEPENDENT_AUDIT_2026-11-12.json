@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:07:12.560406Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 3e02a48845789cc1e094bd48b8920ffff0cf65aa",
+        "independent_checks.py: derivatives and root-Q asymptotics",
+        "Defaveri–Barkai–Kessler arXiv:2309.13126 full 12-page PDF and supplement"
+      ],
+      "rationale": "A rate-r regenerative resolvent supplies the positive unique stationary density. Away from the reset source, substituting psi=exp(V/(2D))*rho into the steady Fokker-Planck equation gives psi double-prime=Q*psi, where Q=k squared+potential derivative squared/(4D squared)-potential second derivative/(2D). The exact Liouville-Green ansatz has integrable residual O(x^{2alpha-4}) in L^1, allowing a unique positive decaying mode; the growing mode cannot produce an integrable density. The leading eikonal shift is lambda^2 alpha^2 x^{2alpha-2}/(8D^2k); integrating yields the trichotomy. Independent exact derivative/eikonal asymptotic tests passed for alpha 1/3,1/2,2/3,0.82; they support but do not establish x→infinity.",
+      "residual_risks": [
+        "Existence of positive finite amplitude for alpha<=1/2 uses the stated integrable-error WKB theorem and exclusion of growing mode; it is not numerically certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defaveri et al Eq(2)-(3) and supplement study sublinear V, but remove the resetting term rρ; Pal 2015 arbitrary potential covers existence framework."
+        ],
+        "reasoning": "Neither inspected accessible statement dominates the fixed-r exact half-power prefactor with the three subleading regimes. General solvability by a resolvent is not by itself an asymptotic evaluation.",
+        "searches": [
+          "Resultary search: Brownian motion stochastic Poisson resetting sublinear confining potential x power alpha stationary spatial tail WKB half exponent logarithmic prefactor",
+          "https://arxiv.org/pdf/2309.13126"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2309.13126",
+        "https://arxiv.org/abs/1408.1230",
+        "Resultary search: sublinear resetting Brownian stationary density WKB log prefactor threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defaveri Fig.1 and Eq(1)-(5): long-time rate function in an unreset diffusion; supplementary Schrödinger operator for unreset dynamics. Pal abstract: general stationary arbitrary-potential resetting, no accessible theorem for the specific coefficient."
+        ],
+        "reasoning": "Published general resolvent theory yields existence and a differential equation; obtaining the threshold and positive amplitude constants takes nontrivial WKB integration. Full Pal text remains inaccessible, so the originality judgment is best of knowledge.",
+        "searches": [
+          "https://arxiv.org/pdf/2309.13126",
+          "https://arxiv.org/abs/1408.1230"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Defaveri et al full text distinguishes its unreset equilibrium Boltzmann state and t→infinity relaxation; reset theorem studies r fixed and x→infinity."
+        ],
+        "reasoning": "The same asymptotic Schrödinger potential is a useful method antecedent, but unreset temporal relaxation and reset stationary spatial tails are not equivalent formulations.",
+        "searches": [
+          "Resultary search: sublinear resetting Brownian stationary density WKB log prefactor threshold",
+          "arXiv:2309.13126",
+          "arXiv:1408.1230"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search yielded the assigned mirror, but no independent tabulation of theta or the precise half-power stationary-reset asymptotics."
+        ],
+        "reasoning": "A spatial continuous one-parameter asymptotic is not intrinsically an OEIS-style finite table; no exact same tail coefficient appears in checked Resultary records.",
+        "searches": [
+          "Resultary search: sublinear confinement Poisson reset stationary tail half power",
+          "https://arxiv.org/abs/1408.1230"
+        ]
+      },
+      "rationale": "The inspected full Defaveri–Barkai–Kessler article develops **unreset** weak-potential equilibrium and long-time large-deviation relaxation (including a similar Schrödinger transform), but does not prove the stationary Poisson-reset resolvent spatial WKB correction. Pal supplies the general potential-and-reset stationary framework; his full paper was not accessible, which is a historical-priority risk rather than automatic scientific failure. No searched result demonstrated the exact three-regime subleading spatial law.",
+      "residual_risks": [
+        "Pal 2015 primary full text could not be read: arXiv fetch disabled and institutional access vpn_disconnected; unindexed general WKB applications may duplicate the coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Unreset diffusion converges to Boltzmann equilibrium; time-dependent large deviation, not Poisson-reset stationary resolvent far-tail.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.13126",
+          "material_read": "Main 6 pages and supplemental 6 pages: model, Eq(1)-(5), stationary Boltzmann state, eigenfunction transform and effective potential, temporal asymptotics",
+          "method": "12-page arXiv PDF full-text read and visual screenshot",
+          "title": "Stretched-exponential relaxation in weakly-confined Brownian systems through large deviation theory",
+          "trigger": "Same potential/exponent and Schrödinger-WKB technique"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Framework for arbitrary potential and steady state could conceal closer spatial asymptotics; cannot assert whole-paper noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.1230",
+          "material_read": "Abstract and bibliographic source only; full arXiv HTML/PDF unavailable and authorized institutional reader returned vpn_disconnected",
+          "method": "Abstract plus failed lawful full-text access",
+          "title": "Diffusion in a potential landscape with stochastic resetting",
+          "trigger": "Broad potential-and-reset overlap"
+        },
+        {
+          "assessment": "ASSESSED",
+          "evidence": "Trichotomy from integrability of x^{2alpha-2}.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-logarithmic-tail-threshold-for-sublinear-brownian-confinement--94d08edd5fbe/RESULT.md",
+          "material_read": "Complete RESULT.md proof including exact Q and WKB residual, boundary cases",
+          "method": "Frozen GitHub plaintext",
+          "title": "A logarithmic tail threshold for sublinear Brownian confinement with Poisson resets",
+          "trigger": "Assigned precise model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2309.13126",
+        "RESULT.md Git blob 3e02a48845789cc1e094bd48b8920ffff0cf65aa"
+      ],
+      "rationale": "A natural weak-trap resetting model has a qualitatively sharp change in the spatial tail at the critical square-integrability exponent 1/2; an exact positive multiplicative constant at and below the transition and the explicit above-threshold coefficient are useful for distinguishing leading exponential fits from true stationary tails. The value is in the precise resolvent-tail classification, not generic WKB technique.",
+      "residual_risks": [
+        "The result is restricted to one smooth even sublinear power potential and fixed resetting rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed D,r,lambda>0 and 0<alpha<1 then |x|→infinity; no uniform joint limits or general power-well universality.",
+    "No full-text claim made about inaccessible Pal (2015); originality remains provisional with named priority risk."
+  ],
+  "schema_version": 1
+}
