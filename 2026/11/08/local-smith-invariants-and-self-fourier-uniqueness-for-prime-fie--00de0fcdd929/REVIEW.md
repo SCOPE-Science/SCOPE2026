@@ -1,15 +1,21 @@
-# Scientific review: local Smith invariants for conic Fourier restriction
+# Independent mathematical audit
 
-## Correctness — PASS
-The identification of the norm-one conic with a cyclic group of order \(N\) changes the restricted matrix into multiplicative convolution. Since \(p\nmid N\), the multiplicative-character diagonalization is invertible over an unramified extension of the local cyclotomic ring, so the Smith exponents equal the valuations of the Fourier–Bessel eigenvalues. For a character of exponent \(r\), the integral binomial expansion in \(\pi=\zeta_p-1\) has all coefficient residues zero before degree \(\min(r,N-r)\); the first surviving coefficient is a nonzero multiple of \(N/(2^k k!)\), doubled only at the antipodal character. The earlier coefficients are divisible by \(p\) and hence cannot cancel that leading term, because \(v_\pi(p)=p-1\) and \(k<p\). This proves every exponent, the nonzero determinant and its valuation. Direct modular calculations checked six primes, with a separate exact cyclotomic determinant evaluation at \(p=3\); these finite cases are corroboration, not the proof.
+## correctness
 
-## Originality — PASS under bounded historical comparison
-The near literature concerns finite Bessel functions (Khekalo, 2001), Euclidean spherical Fourier uniqueness (González Vieli, 2011), group-symmetry compressed Fourier minors (Garcia–Karaali–Katz, 2018), and finite-conic tomography by full frequency lines. The principal conic Fourier matrix here samples a two-dimensional Fourier transform at the conic itself; its complete local Smith profile is not supplied by the inspected statements on Bessel identities, line-slice nullities, or subgroup-compressed Fourier minors. Exact character-valuation computation is the distinctive claim, not the underlying cyclic group or the classical character diagonalization. Remaining risk: an unstated general p-adic Gauss/Bessel valuation theorem might imply this particular profile. The partly machine-unreadable Russian source prevents an exhaustive negative assessment of its full text.
+PASS
 
-## Mathematical value — PASS
-This square self-restriction is a natural finite-field counterpart of spectral uniqueness on spheres. The claim settles an infinite family of support/frequency uniqueness problems and supplies all local cyclotomic elementary divisors, a stronger arithmetic invariant than nonzero determinant alone. Both split and anisotropic planar conics are covered uniformly. It is not a complete complex condition-number theorem, a minor classification, or an extension-field result.
+For every odd prime p, the conic x²+y²=1 is the cyclic norm-one group of order N=p-(-1/p)=2m (split or nonsplit). Dot-product restricted Fourier entries equal a group convolution kernel in real part (h+h^-1)/2. Since p does not divide N, unramified multiplicative character diagonalization is integral and preserves Smith exponents. Expanding zeta_p^a=(1+pi)^a shows for character r the first unit coefficient occurs exactly at k=min(r,N-r); earlier terms are p-divisible and acquire pi-order at least p-1+j>k, preventing cancellation. Hence exponents are 0,1,1,...,m-1,m-1,m and v_pi determinant=m², all nonzero (self-sampling uniqueness). Independent exact truncated-ring block ranks tested p=3,5,7 and every allowable precision. Finite primes do not prove arbitrary p; proof does.
 
-## Scope and limitations
-The argument assumes odd prime base fields and the exact dot-product matrix. Cyclotomic-local invariant factors are not integer Smith factors, and no historical-priority guarantee is possible from bounded literature comparison. The finite checker does not certify infinite quantifiers, and independent external review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite-field Bessel transform and norm-one convolution are classical, and are not claimed original. Khekalo 2001 concerns finite-field Bessel functions, but only catalogue details/abstract-level access was available, leaving a real priority risk. Garcia–Karaali–Katz concern symmetry-compressed Fourier minors/uncertainty, not full local cyclotomic Smith invariant lists of this conic self-restriction. The other fully inspected local Smith theorem is for a *parabola* and has different index set and invariant factors. On inspected evidence, the complete conic p-adic Smith valuation sequence and invertibility statement survive as qualified originality.
+
+## value
+
+PASS
+
+An explicit all-prime complete local Smith profile of a natural Fourier self-restriction operator determines precise local invertibility and optimal cyclotomic precision loss. Both split and nonsplit norm-one tori have the same uniform pattern. This is an independently useful arithmetic invariant, not merely a determinant nonvanishing experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 verify_conic_torus.py` with the Python 3 standard library. This constructs the exact prime-field conic, builds the restricted additive Fourier matrix in binomial-coefficient form, and independently computes ranks of its action on truncated polynomial modules over \(\mathbb F_p\). For the test primes \(3,5,7,11,13,17\), the observed ranks agree with the Smith-exponent predictions at every checked truncation length through \(\min(p-1,m+1)\). The last line is `CONIC_TORUS_LOCAL_SMITH_PASS`.
+## correctness
 
-The truncated characteristic-\(p\) model agrees with the cyclotomic \(\pi\)-adic quotient only at lengths at most \(p-1\), which is why the checker does not use higher lengths. In particular, for \(p=3\), these modular tests alone do not independently determine the final exponent \(2\). The checker also evaluates the full four-by-four cyclotomic determinant exactly as \(\det F_3=9\), consistent with total \(\pi\)-valuation four and the predicted last exponent. Infinite-prime validity still follows from the symbolic character proof in `RESULT.md`, not extrapolation. No computation attempts to prove nonvanishing for infinitely many primes or check unrelated Fourier minors.
+PASS
 
-The proof's pivotal steps can be checked directly: the dot product equals the real part of a quotient in the norm-one group; the character basis is invertible because the group order is prime to \(p\); the first nonzero binomial residue occurs at degree \(\min(r,N-r)\); every earlier coefficient has sufficient \(p\)-adic divisibility to preclude cancellation. Together they establish the entire local Smith list. Independent validation has not been performed.
+For every odd prime p, the conic x²+y²=1 is the cyclic norm-one group of order N=p-(-1/p)=2m (split or nonsplit). Dot-product restricted Fourier entries equal a group convolution kernel in real part (h+h^-1)/2. Since p does not divide N, unramified multiplicative character diagonalization is integral and preserves Smith exponents. Expanding zeta_p^a=(1+pi)^a shows for character r the first unit coefficient occurs exactly at k=min(r,N-r); earlier terms are p-divisible and acquire pi-order at least p-1+j>k, preventing cancellation. Hence exponents are 0,1,1,...,m-1,m-1,m and v_pi determinant=m², all nonzero (self-sampling uniqueness). Independent exact truncated-ring block ranks tested p=3,5,7 and every allowable precision. Finite primes do not prove arbitrary p; proof does.
+
+## originality
+
+PASS
+
+The finite-field Bessel transform and norm-one convolution are classical, and are not claimed original. Khekalo 2001 concerns finite-field Bessel functions, but only catalogue details/abstract-level access was available, leaving a real priority risk. Garcia–Karaali–Katz concern symmetry-compressed Fourier minors/uncertainty, not full local cyclotomic Smith invariant lists of this conic self-restriction. The other fully inspected local Smith theorem is for a *parabola* and has different index set and invariant factors. On inspected evidence, the complete conic p-adic Smith valuation sequence and invertibility statement survive as qualified originality.
+
+## value
+
+PASS
+
+An explicit all-prime complete local Smith profile of a natural Fourier self-restriction operator determines precise local invertibility and optimal cyclotomic precision loss. Both split and nonsplit norm-one tori have the same uniform pattern. This is an independently useful arithmetic invariant, not merely a determinant nonvanishing experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
