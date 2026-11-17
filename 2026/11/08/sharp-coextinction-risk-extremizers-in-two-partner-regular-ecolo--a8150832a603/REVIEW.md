@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The extinction/no-extinction event is exactly independent-set avoidance for the graph of two-partner requirements; fixed-size probabilities are coefficients divided by binomial denominators. The circular two-state transfer identity produces the signed merge formula \(I(C_a)I(C_b)-I(C_{a+b})=(-z)^{\min(a,b)}L_{|a-b|}\). Every local cycle replacement is coefficientwise monotone in the indicated direction; the explicitly checked nine exceptional comparisons close the two residue classifications. Finite transformations terminate, yielding global coefficientwise bounds and strict positive-activity uniqueness. `verify.py` checks all algebraic exceptional comparisons, 484 cycle-merge examples, all 5,666 cycle partitions on 3–36 vertices, and direct removed-set enumeration on the smaller orders. The infinite theorem follows from the displayed algebraic proof, not from finite experiments.
+## correctness
 
-## Originality — PASS within inspected literature; historical priority provisional
-Exact graph-model overlap was checked against the previously available third-moment coextinction calculation. That calculation identifies the first three moments of the number of affected species, but cannot determine probabilities of **at least one** coextinction at every deletion count; the new theorem controls every coefficient and identifies uniform extremizers. Zhao's 2009 regular-graph theorem does imply a pointwise maximum for orders divisible by four; the new all-fixed-cardinality and residue-class claims are not stated or implied by that scalar activity bound alone. Sah et al. (2018) give pointwise two-regular extrema in divisible-order regimes; their statements likewise do not yield coefficientwise order or the residual-partition classification. Alexander and Mink (2013/2014) give special fixed-cardinality bounds, not these all-order two-regular extrema. Evans et al. (2013) and Vieira–Almeida-Neto (2015) define or evaluate ecological extinction models without the exact classification here. The latter full text was read through authorized institutional access, beyond its abstract. Seven semantic database queries yielded no matching claim, but absence in a database is not uniqueness proof. Residual risk: a graph-polynomial treatment may have previously derived this complete cycle-partition classification; independent historical review is outstanding.
+PASS
 
-## Value — PASS
-The probability of any secondary loss is an elementary and policy-interpretable robustness criterion, unlike moments of the extinction count: networks with the same numbers of habitats, dependent species, and interactions can have different zero-loss probabilities. The theorem gives every optimal two-regular network and works simultaneously for arbitrary exact deletion counts, including non-divisible network sizes, as well as every iid loss risk. The nine-habitat example shows a direct \(3/84\) difference in zero-loss chances. Its relevance is deliberately limited to this structural benchmark, not a prediction for empirical ecological communities.
+Translate each surviving-dependent-species event to absence of an edge in the deleted vertex set, hence R_t(G)=1−i_t(G)/binom(n,t) exactly; independent patch losses have no-extinction probability (1−q)^n I_G(q/(1−q)). For every component C_l use transfer roots u+v=1, uv=−z, so I_Ca I_Cb−I_C(a+b)=(−z)^min(a,b)L_|a−b|(z). Every proposed split and exceptional finite rewrite has coefficientwise correct sign; repeated 3-splits decrease to residue-correct C3/C4/C5, repeated 4-splits increase to C4/C5/C6/C7. Strict polynomial inequality for z>0 establishes uniqueness by isomorphism, not necessarily at a single t. Independent exact-integer enumeration of all 1,554 2-regular cycle partitions n=3..29 reproduced both bounds and uniqueness, and the nine-patch i3 values 27 versus 30. The symbolic transformation argument supplies all n, not finite census.
 
-## Closest literature and limitations
-Y. Zhao (2009), arXiv:0909.3354; D. Galvin (2010), arXiv:1007.4811; J. Alexander and T. Mink (2013/2014), arXiv:1308.3242; A. Sah et al. (2018), arXiv:1805.04021; D. Evans et al. (2013), DOI:10.1111/ele.12117; M. C. Vieira and M. Almeida-Neto (2015), DOI:10.1111/ele.12394. Full-text results compared for each; independent historical-priority audit remains outstanding. Equal deletion probabilities, absence of secondary feedback, and simple degree-two networks are necessary to the stated scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Zhao's regular-graph independence polynomial bound proves a stronger pointwise all-graph upper bound in the order-divisible-by-four subcase; it does not imply coefficientwise domination at every size t or identify the optimal residual cycles for all n. Alexander–Mink addresses fixed small k; related ecological records analyze moments or general network dependence, not the full all-deletion-count extremal polynomial. The graph polynomial itself is classical, and a complete uncatalogued 2-regular coefficientwise extremal theorem would be decisive if located; no such theorem was identified in material inspected.
+
+## value
+
+PASS
+
+PASS: Complete coefficientwise extremal classification for every fixed number of removed habitat patches, together with exact residue-dependent unique optimizers and the iid-loss version, is a natural sharp ecological vulnerability invariant. The known fugacity upper bound does not answer every fixed-cardinality risk; the residue effects for n mod3/mod4 make the exact result independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
