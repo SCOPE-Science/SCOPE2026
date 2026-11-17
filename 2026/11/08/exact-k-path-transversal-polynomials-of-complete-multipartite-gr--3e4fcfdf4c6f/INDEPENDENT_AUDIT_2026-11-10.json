@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T23:08:37.946444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each selected induced complete multipartite subgraph with selected size s and largest part occupancy L, longest ordinary path length is min(s,2(s-L)+1). A P_k-free set therefore has size <=k-1 or outside-dominant count q<=floor((k-2)/2). Count all sets by unique dominant part for s>=k; inclusion maximality forces either (k-1)-sets with each part <=ceil(k/2)-1 or an entire dominant part plus exactly t outside vertices, with V(G) alone in the no-k-path case. Derivation covers k=4, k=N, small parts, ties and even/odd bipartite k; the complement gives minimal covers. Inspected original verify.py adjacency DFS. Fresh direct ordinary-path search and maximal-set extraction agreed with every coefficient across 207 multipartite size/k instances on total order 4..8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published dissociation polynomial describes induced maximum-degree-one sets / P3-free sets; submitted explicitly restricts to k>=4.",
+          "Tu reports bipartite scalar k-path cover numbers, and Li–Zuo abstract offers exact values of ψ_k, not coefficientwise enumeration."
+        ],
+        "reasoning": "Neither k=3 set enumeration nor scalar size formulas dominate arbitrary k>=4 all-set and maximal polynomial; Li–Zuo full text unavailable and remains an originality risk.",
+        "searches": [
+          "Resultary 2026/10/4 dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b",
+          "Tu 2022 Theorems 36-38",
+          "Li and Zuo DOI:10.1016/j.amc.2018.03.008"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md c4b56e9475aece0bbd178776e527b678348ee1b6 and verify.py 1f03cb33e29b68df8244eef5425e18ea574fe705",
+        "Tu 2022 Axioms 11(5):191 DOI:10.3390/axioms11050191",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b/RESULT.md",
+        "Li and Zuo DOI:10.1016/j.amc.2018.03.008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Occupancy lemma min(s,2q+1) is classical combinatorial input, not the full enumeration of maximal sets.",
+          "Bipartite odd k supports {2h,m+h-1} and even k one support, neither follows solely from a minimum cardinality."
+        ],
+        "reasoning": "Previous extremal values are consequences of the new maximal-set polynomial, but the implication does not reverse. Proof of all-formula requires novel maximality case split and coefficient enumeration.",
+        "searches": [
+          "Tu 2022 Theorems 37-38",
+          "Resultary dissociation polynomial 2026/10/4",
+          "Gutin longest path 1993"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusion-minimal k-path covers are precisely complements of inclusion-maximal induced P_k-free sets, hence dual polynomial z^N M(z^-1).",
+          "Tu Theorems 37-38 list scalar minimum vertex-cover values, not all inclusion-minimal covers."
+        ],
+        "reasoning": "Mathematical object equals maximal independent sets in the hypergraph of all k-vertex paths; enumerator is not reducible to the minimum cover number alone.",
+        "searches": [
+          "Resultary semantic k-path vertex transversal polynomial maximal path free sets complete multipartite graph enumeration",
+          "J. Tu Axioms 2022 DOI:10.3390/axioms11050191"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 37 of Tu gives minimum cover numbers/bounds for K_nn, Theorem 38 for K_mn; neither contains complete binomial-polynomial coefficients.",
+          "Submitted direct verifier claims 557 cases, independently redone subset of 207 cases with actual graph path DFS."
+        ],
+        "reasoning": "No matching all-size cardinality table was found in inspected records; finite experiment does not itself establish novelty.",
+        "searches": [
+          "Resultary query complete multipartite path transversal polynomial",
+          "Tu 2022 survey Section 6",
+          "Li–Zuo 2018 abstract"
+        ]
+      },
+      "rationale": "Prior minimum k-path vertex-cover formulas yield only extremal cardinality, not the complete polynomial of all feasible sets or inclusion-maximal sets. General dissociation polynomial handles k=3 and does not imply the new k>=4 classifications; prior longest-path occupancy lemma is explicitly credited. No prior all-complete-multipartite k-path transversal-size polynomial found in the checked primary survey and published records.",
+      "residual_risks": [
+        "Li–Zuo 2018 full text could not be accessed despite open-source and authorized-library attempts (VPN disconnected). An unstated complete enumerator in that work would affect priority.",
+        "A hidden k-path-free-hypergraph generating function or known complete multipartite maximal-set table may imply the exact polynomial; not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: records numerical minima/bounds; no full polynomial.",
+          "evidence": "Theorem 37 ψ_k(K_nn), Theorem 38 ψ_k(K_mn), no maximal-set distribution.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms11050191",
+          "material_read": "Full open-access web HTML survey, especially Section 6 Theorems 36-38 and references.",
+          "method": "Open HTML primary survey",
+          "title": "A Survey on the k-Path Vertex Cover Problem",
+          "trigger": "Same k-path hitting problem and complete bipartite cases"
+        },
+        {
+          "assessment": "NOT_COVERING: P3-free, outside submitted k>=4 scope.",
+          "evidence": "D_G(z)=sum(1+z)^ni-(r-1)+z²sum n_i n_j; differs from k>=4 path-free families.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b/RESULT.md",
+          "material_read": "Complete published RESULT.md proof of all dissociation sets and their polynomial.",
+          "method": "Published GitHub full mathematical text",
+          "title": "Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers",
+          "trigger": "Related P3-free complete-multipartite counting"
+        },
+        {
+          "assessment": "INACCESSIBLE plausible source, neither declared covering nor ruled out.",
+          "evidence": "Abstract reports estimates and exact values of ψ_k, not a full text proof of absence of polynomials.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2018.03.008",
+          "material_read": "Abstract and Tu 2022 Theorems 37-38 citing it; complete publisher article not accessed.",
+          "method": "ArXiv / legal OA search unsuccessful; authorized institutional access returned VPN disconnected",
+          "title": "The k-path vertex cover in Cartesian product graphs and complete bipartite graphs",
+          "trigger": "Closest title, complete bipartite parameter family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Path-transversal sets are natural graph deletion/hitting structures; knowing every inclusion-minimal solution and its cardinality distribution is a stronger mathematically motivated invariant than a minimum cover number. The sharp bipartite even/odd collapse, large gaps and asymptotic rarity of large maximal sets clarify a genuine structural phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md c4b56e9475aece0bbd178776e527b678348ee1b6 and verify.py 1f03cb33e29b68df8244eef5425e18ea574fe705",
+    "Tu 2022 Axioms 11(5):191 DOI:10.3390/axioms11050191",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b/RESULT.md",
+    "Li and Zuo DOI:10.1016/j.amc.2018.03.008"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All k satisfy 4<=k<=N, ordinary not induced paths; no general-graph extension.",
+    "Finite subset checks not an all-N theorem.",
+    "Authorized full-text attempt for closest publisher source blocked by disconnected VPN; no bypass."
+  ],
+  "residual_risks": [
+    "Li–Zuo 2018 full text could not be accessed despite open-source and authorized-library attempts (VPN disconnected). An unstated complete enumerator in that work would affect priority.",
+    "A hidden k-path-free-hypergraph generating function or known complete multipartite maximal-set table may imply the exact polynomial; not located."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING: records numerical minima/bounds; no full polynomial.",
+      "evidence": "Theorem 37 ψ_k(K_nn), Theorem 38 ψ_k(K_mn), no maximal-set distribution.",
+      "identifier_or_url": "https://doi.org/10.3390/axioms11050191",
+      "material_read": "Full open-access web HTML survey, especially Section 6 Theorems 36-38 and references.",
+      "method": "Open HTML primary survey",
+      "title": "A Survey on the k-Path Vertex Cover Problem",
+      "trigger": "Same k-path hitting problem and complete bipartite cases"
+    },
+    {
+      "assessment": "NOT_COVERING: P3-free, outside submitted k>=4 scope.",
+      "evidence": "D_G(z)=sum(1+z)^ni-(r-1)+z²sum n_i n_j; differs from k>=4 path-free families.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b/RESULT.md",
+      "material_read": "Complete published RESULT.md proof of all dissociation sets and their polynomial.",
+      "method": "Published GitHub full mathematical text",
+      "title": "Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers",
+      "trigger": "Related P3-free complete-multipartite counting"
+    },
+    {
+      "assessment": "INACCESSIBLE plausible source, neither declared covering nor ruled out.",
+      "evidence": "Abstract reports estimates and exact values of ψ_k, not a full text proof of absence of polynomials.",
+      "identifier_or_url": "https://doi.org/10.1016/j.amc.2018.03.008",
+      "material_read": "Abstract and Tu 2022 Theorems 37-38 citing it; complete publisher article not accessed.",
+      "method": "ArXiv / legal OA search unsuccessful; authorized institutional access returned VPN disconnected",
+      "title": "The k-path vertex cover in Cartesian product graphs and complete bipartite graphs",
+      "trigger": "Closest title, complete bipartite parameter family"
+    }
+  ]
+}

@@ -1,15 +1,21 @@
-# Mathematical review of the complete-multipartite \(k\)-path transversal theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-scope proof establishes the longest-path occupancy characterization \(\ell(S)=\min(|S|,2(|S|-\max_i |S\cap V_i|)+1)\), then proves both directions of the inclusion-maximal classification. The potential boundary when the whole graph is \(P_k\)-free is included, and the coefficient sums count only unique dominant parts. The complement map establishes minimal path covers without a separate assumption. A direct adjacency-and-path checker tested 557 parameter instances and 320576 vertex subsets, independently agreeing with both polynomials. The even/odd bipartite coefficient identities and the fixed-parameter asymptotic expansion are exact algebraic consequences.
+## correctness
 
-## Originality — PASS (provisional publication priority)
-The closest directly overlapping work concerns minimum \(k\)-path vertex-cover *numbers* on complete bipartite graphs (Li–Zuo 2018, as quoted in Tu 2022, Theorems 37–38), and the full accessible Bujtás–Jakovac–Tuza 2021 paper concerns general degree/chordal bounds. Known longest-path constructions in multipartite graphs imply the feasibility lemma, and known \(\(k=3\)\) dissociation enumerators cover that excluded boundary, but none of the accessible inspected results gives the complete cardinality census of inclusion-minimal covers for all \(k\ge4\) and part-size vectors. The partial-access Li–Zuo source remains a meaningful residual risk, not a claim of checked whole-document absence.
+PASS
 
-## Value — PASS
-The complete enumeration concerns a standard path-transversal problem, not an arbitrary slice. It simultaneously determines all minimal-solution sizes and multiplicities for an infinite class with arbitrary part-size profiles and all path orders \(4\le k\le N\). On balanced bicliques it proves a sharp parity-dependent well-coveredness analogue and unbounded gaps; for fixed odd path order almost every minimal cover is asymptotically about twice the minimum size. These statements refine previously known scalar optimum values and identify the structure of non-optimal minimal solutions.
+For each selected induced complete multipartite subgraph with selected size s and largest part occupancy L, longest ordinary path length is min(s,2(s-L)+1). A P_k-free set therefore has size <=k-1 or outside-dominant count q<=floor((k-2)/2). Count all sets by unique dominant part for s>=k; inclusion maximality forces either (k-1)-sets with each part <=ceil(k/2)-1 or an entire dominant part plus exactly t outside vertices, with V(G) alone in the no-k-path case. Derivation covers k=4, k=N, small parts, ties and even/odd bipartite k; the complement gives minimal covers. Inspected original verify.py adjacency DFS. Fresh direct ordinary-path search and maximal-set extraction agreed with every coefficient across 207 multipartite size/k instances on total order 4..8.
 
-## Limitations
-The graph class is complete multipartite; paths are subgraphs rather than induced paths. Primary publisher access to Li–Zuo 2018 was incomplete. No independent mathematical audit or priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior minimum k-path vertex-cover formulas yield only extremal cardinality, not the complete polynomial of all feasible sets or inclusion-maximal sets. General dissociation polynomial handles k=3 and does not imply the new k>=4 classifications; prior longest-path occupancy lemma is explicitly credited. No prior all-complete-multipartite k-path transversal-size polynomial found in the checked primary survey and published records.
+
+## value
+
+PASS
+
+Path-transversal sets are natural graph deletion/hitting structures; knowing every inclusion-minimal solution and its cardinality distribution is a stronger mathematically motivated invariant than a minimum cover number. The sharp bipartite even/odd collapse, large gaps and asymptotic rarity of large maximal sets clarify a genuine structural phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
