@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces the decomposition problem to a height-two comparability graph, then uses Mirsky, König, and Dilworth to show that any failure in the six-point boundary must be a connected bipartite double star. For the only cases in which this finite boundary matters, a complete six-subset enumeration establishes precisely zero such graphs in the \(4\times4\) grid and one in the \(5\times4\) grid. The bundled exact verifier tests the witness inequalities and nondecomposability, and independently constructs the comparability graph for each enumerated subset. The large-parameter strictness follows from embedding that one explicit six-point support; it is not inferred from finite experimentation.
+## correctness
 
-## Originality — PASS, subject to historical priority review
-Feigin and Makhlin (arXiv:2610.40891v1, Sections 3–4) define the objects and give a nonadditivity example only at \((d,n)=(6,12)\); the inspected material gives no sharp threshold or count of missing points. Their first/last-weight Minkowski result does not cover \(e_2\) when \(d\ge4\). Makhlin's earlier marked chain-order construction and the closest accessible published Grassmannian-polytope research results concern different polytopes or different invariants. Claim-level literature and research-record searches did not identify a statement implying this exact threshold. Absence from search results is not a proof of global priority; unstated consequences in specialized literature remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The theorem provides a natural, all-parameter boundary for lattice-point additivity exactly in the new polyhedral family used to index monomial bases for truncated Grassmannian representations. It improves the size of the known counterexample from a \(6\times6\) grid to the minimal \(5\times4\) grid and establishes a unique, explicit smallest obstruction. This is a structural boundary rather than a routine numerical restatement.
+The defining inequalities force S_e_r to consist of antichain indicators of size <=r. For any x in S_e2+ed, labeled multiplicities induce a height-two poset (all chains <=2); Mirsky gives two antichains, total mass <=d+2, hence smaller class <=2 for d<=3. For d=4 any nondecomposable case is exactly a six-vertex balanced connected bipartite comparability graph with no 3-matching. König vertex-cover and connectedness force a double star. Independent exact enumeration of all C(16,6)=8008 and C(20,6)=38760 supports counted respectively 0 and 1 double stars. The unique six-point witness satisfies all subset width inequalities, has no 2+4 antichain split and embeds in every h>=5,d>=4. Therefore equality exactly d<=3 or d=4,h=4; first hole unique for (4,9).
 
-## Scope and limitations
-Only the pair \(e_2,e_d\) is classified. The exact minimal-grid enumerations are finite proofs via transparent integer code; they do not independently establish the infinite claim. The latter is proved combinatorially. Independent review and exhaustive priority confirmation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Feigin–Makhlin introduces the same generalized chain-polytope objects and a nonadditivity example for a larger d=6,n=12 case; a restricted positive first/last-weight statement is not about e2+ed. A larger counterexample does not imply sharp boundary, equality classification, or unique minimal missing point. No indexed stronger equivalent was found. Full primary paper not accessible now; avoid claiming whole-document noncoverage.
+
+## value
+
+PASS
+
+The first failure of lattice-point Minkowski additivity for a naturally motivated fundamental-weight pair, together with an all-parameter dichotomy and the unique minimal missing point, is a meaningful structural boundary and exact finite classification; not an arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

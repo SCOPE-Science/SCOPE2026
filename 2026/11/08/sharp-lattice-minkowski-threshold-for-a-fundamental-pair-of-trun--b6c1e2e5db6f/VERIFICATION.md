@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible exact verification
-Run `python3 verify.py` from the directory containing the checker. It uses only the standard Python library, no internet access or third-party dependencies.
+# Independent mathematical audit
 
-The verifier (i) checks the exact width-based inequalities of the six-cell witness for the four-column case, (ii) checks all choices of the small antichain for failure of decomposition, (iii) exhaustively checks \(8008\) six-element supports in the \(4\times4\) poset and \(38760\) in the \(5\times4\) poset for the double-star comparability graph, and (iv) checks preservation of the explicit six-cell witness for several larger widths as a non-essential consistency test.
+## correctness
 
-Expected output:
+PASS
 
-```
-CERTIFICATE_OK
-four_by_four_double_stars= 0
-five_by_four_double_stars= 1
-witness= [(0, 3), (1, 2), (2, 0), (2, 3), (3, 1), (4, 0)]
-```
+The defining inequalities force S_e_r to consist of antichain indicators of size <=r. For any x in S_e2+ed, labeled multiplicities induce a height-two poset (all chains <=2); Mirsky gives two antichains, total mass <=d+2, hence smaller class <=2 for d<=3. For d=4 any nondecomposable case is exactly a six-vertex balanced connected bipartite comparability graph with no 3-matching. König vertex-cover and connectedness force a double star. Independent exact enumeration of all C(16,6)=8008 and C(20,6)=38760 supports counted respectively 0 and 1 double stars. The unique six-point witness satisfies all subset width inequalities, has no 2+4 antichain split and embeds in every h>=5,d>=4. Therefore equality exactly d<=3 or d=4,h=4; first hole unique for (4,9).
 
-The exhaustive steps are finite assertions and can be independently replicated by a different enumeration. The all-parameter claims depend on the proof in `RESULT.md`, not on the finite parameter checks in the code. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Feigin–Makhlin introduces the same generalized chain-polytope objects and a nonadditivity example for a larger d=6,n=12 case; a restricted positive first/last-weight statement is not about e2+ed. A larger counterexample does not imply sharp boundary, equality classification, or unique minimal missing point. No indexed stronger equivalent was found. Full primary paper not accessible now; avoid claiming whole-document noncoverage.
+
+## value
+
+PASS
+
+The first failure of lattice-point Minkowski additivity for a naturally motivated fundamental-weight pair, together with an all-parameter dichotomy and the unique minimal missing point, is a meaningful structural boundary and exact finite classification; not an arbitrary small slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
