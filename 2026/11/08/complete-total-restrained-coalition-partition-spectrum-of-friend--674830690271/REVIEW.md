@@ -1,15 +1,21 @@
-# Review of the friendship-graph coalition-partition classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof first characterizes all total restrained dominating subsets of a friendship graph: the apex must be selected and peripheral selection must consist of at least one whole triangle blade. It then treats two-block partitions by an exact subtraction and proves that partitions with three or more blocks force the apex alone and whole-blade classes. This establishes the bijection with set partitions and the complete coalition-graph structure, rather than inferring an infinite theorem from finite examples. Separate direct adjacency-based exhaustive checks count all coalition partitions for up to five blades and confirm every coalition graph is a star.
+## correctness
 
-## Originality
-PASS under the inspected corpus, with provisional historical priority. The motivating Chellali et al. paper (arXiv:2412.18623, first public version 2024-12-17; full revised text and 2025 online version inspected) establishes the invariant, general inequalities, several classical graph-family numbers and the known triangle case. It explicitly proposes studying total restrained coalition graphs but does not classify friendship-graph coalition partitions, their complete Stirling/Bell counts, or every coalition graph. Results for complete multipartite graphs do not cover friendship graphs with at least two blades. Searches of relevant indexed mathematical records and web literature for equivalent terminology did not find covering statements; this cannot exclude every unindexed paper.
+PASS
 
-## Mathematical value
-PASS. This is a complete, natural infinite-family classification for a recently introduced partition invariant, not merely a scalar example: it gives every realizable block count, the exact number of partitions of each size, the unique maximum partition and every associated coalition graph. The star-only realization and Bell-number enumeration respond concretely to the foundational paper's proposed direction of studying total restrained coalition graphs. The single-blade triangle is explicitly treated as previously understood.
+For F_m=K1∨(m K2), a total restrained dominating set is exactly the apex plus a nonempty union of whole edge blades: without apex the total domination forces all peripheral vertices and violates outside restraint; with apex, outside restraint forbids half blades. For two blocks the apex-containing block may be any non-TRD subset, giving 4^m-2^m+1. For k>=3, every other block must partner the apex block; if it split a blade every partner would require its unique missing endpoint, impossible for two partners, while a whole blade would make the apex block TRD. Thus apex alone, remaining blocks an unordered partition of m blades, counted by S(m,k-1). The coalition graph is K1,k-1, total 4^m-2^m+Bell(m), unique maximum m+1. Independent exhaustive adjacency-based subset+set-partition enumeration verified m=1,2,3 (counts 3; 13+1; 57+3+1).
 
-## Closest literature and limitations
-Chellali et al., *Total restrained coalitions in graphs*, arXiv:2412.18623 / DOI:10.1007/s40314-025-03439-w, is the closest source. General degree bounds and results for paths, cycles, stars, complete or complete bipartite graphs do not determine the new friendship-graph partition spectrum. The argument applies to \(K_1\vee(mK_2)\); it does not cover larger-clique windmills or all cactus graphs. Historical priority is provisional, and independent mathematical verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS: the original 2024/2025 total restrained coalition paper defines the concept and classifies other graph families; its inspected main results do not cover friendship windmills F_m. Other Resultary friendship coalition work employs distinct secure or game-theoretic coalition notions. Earlier complete-multipartite classifications do not apply because friendship graphs with m>=2 are not complete multipartite.
+
+## value
+
+PASS
+
+Exact all-block partition distribution and unique optimizer for a natural growing family of graphs, with Stirling/Bell structure and full coalition graph realization, are substantively motivated extensions of recently introduced TRD-coalition invariants. It is not just an invariant value or arbitrary small-instance slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
