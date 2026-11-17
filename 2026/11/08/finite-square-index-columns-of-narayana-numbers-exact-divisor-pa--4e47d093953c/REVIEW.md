@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The preexisting exact Narayana-square criterion reduces a square second index to \(y^2=a(a-b+1)\). The difference-of-two-squares identity gives a reversible factor-pair parametrization. Both parity cases are proved, with a proof of positivity, injectivity, one trivial pair, the divisor count, and the sharp maximum. The nonsquare direction is independently reconstructed from Pell units to state the exact global dichotomy. The standard-library verifier checks 149 fixed square indices and 108 Pell instances, but no infinite statement relies on enumeration.
+PASS
 
-## Originality — PASS (historical-priority uncertainty)
+Checcoli–D’Adderio identity N(a,b)=b/[a(a-b+1)]*binom(a,b)^2 yields N(a,b) square iff ab(a-b+1) square. For b=c^2, it becomes y^2=a(a-b+1). Difference of squares (2a-d)^2-(2y)^2=d^2, d=b-1. Factoring gives all proper divisor pairs of h^2, with parity proving a(u) integral in both c parity classes. Monotonicity of u+h^2/u on u<h gives uniqueness and maxima; tau(h^2) gives counts; h prime only c=2,3 gives zero nontrivial cases. Pell units give infinite rows when b nonsquare. Independent exact-integer checks for c=2..12 match classifications, including {16,20,27,64} and {25,27,32,49}; finite checks do not justify full Pell branch.
 
-The closest original source is Checcoli--D'Adderio, arXiv:1306.5929, equation (3.1) and Theorem 3.2 (published preprint 2013-06-25). It supplies the square criterion and generalized-Pell reduction and explicitly states the opposite conclusion at square \(b\). Those inherited components are not new; the precise finite exceptional branch, full divisor parametrization, count, two exceptional columns, and maximum are the distinct statement. The primary preprint's proof was read in context. Targeted scientific and published-result searches identified no stronger covering result; a possible unknown correction remains a material risk. The fact that the new argument is elementary and uses the prior criterion is an explicit limit, not concealed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The correction repairs a universal infinitude theorem at an infinite, mathematically natural boundary (square second indices). Beyond a counterexample, it resolves all of those columns with exact positive classifications and sharp extremes, distinguishing the exceptional columns without computation-dependent claims. This provides a reusable arithmetic boundary for fixed-column perfect-square questions.
+The published 2013 Theorem 3.2 asserts infinitely many square entries in EVERY fixed Narayana column; for b=c^2 its Pell discriminant degenerates to a square and the asserted infinitude is false. Its square criterion is correctly credited. The new exact finite divisor-pair classification, count, sharp maximal row and corrected if-and-only-if dichotomy are not stated by that paper and cannot follow from the paper’s claimed universal infinitude. Elementary derivability from the older criterion is acknowledged; the specific correction and census survive best-of-knowledge implication comparison.
 
-## Limitations and closest literature
+## value
 
-The source already proves the nonsquare Pell branch and the initial square criterion. Other published works may contain the correction under a different formulation. Higher perfect powers are not treated. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nontrivial boundary of a published Diophantine infinitude theorem is genuinely wrong. Providing the complete finite exceptional branch, its precise numerical census and sharp maxima corrects the mathematical classification of a natural integer family. This is substantive despite elementary final factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
