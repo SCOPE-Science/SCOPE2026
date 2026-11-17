@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The metric is translation invariant, and the q-ary Krawtchouk shell identity provides the exact Fourier eigenvalues of the powered-distance kernel with the diagonal excluded. Direct enumeration independently confirms the formula at representative integer and noninteger exponents, including composite alphabets. In the proportional-alphabet regime, uniform eventual positivity of the first three Krawtchouk coefficients outside bounded codimensions is the essential global step; it is proved with inequalities, not inferred from finitely many modes. The remaining bounded modes converge uniformly at the cubic scaling. The fixed-alphabet and fixed-dimension regimes have independent uniform or finite-layer analyses. The half-ratio proof is an exact polynomial discriminant argument. The unique full-weight critical layer for ratios strictly below one half follows from a strict gap for all bounded alternative codimensions, a global sign bound outside them, and an independently checked positive crossing derivative for the dimension-only full-weight root.
+## correctness
 
-## Originality
-PASS under bounded comparison. The closest primary text is Brouwer–Cioabă–Ihringer–McGinnis (2017, arXiv:1709.09011), which identifies Krawtchouk eigenvalues for Hamming distance-shell graphs and the fixed-dimension, large-alphabet minimizer of the pure degree-three shell. Sánchez (2011, arXiv:1108.0451) establishes general finite-metric negative-type methods; Dominici (2005, arXiv:math/0501072) explains Krawtchouk-to-Charlier passage. None of the inspected results derives the particular negative-type threshold for powered capped distance, its sharp \(q/n=1/2\) transition, or its three distinct asymptotic regimes. A published degree-two projection-norm Charlier crossover and a radius-two Turán extremal formula concern different operators. Related binary four-cap and nonbinary three-cap results neither imply the full proportional-alphabet phase diagram nor the new large-alphabet four-cap exponent. An implicit consequence of broader Hamming-scheme methods remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. The natural question is whether saturation of four-coordinate Hamming distance preserves Hilbert embeddability after snowflaking when both alphabet size and dimension grow. The theorem finds a sharp, unexpected phase boundary at alphabet/dimension ratio one half, describes its exact low-ratio full-weight stabilization and critical Fourier codimensions and degeneracy, and shows that fixed-dimension alphabet growth obeys a different quadratic law. This is not an arbitrary small-instance computation or a mere change of variables: the global spectral mode switches, and the q-ary metric's powered negative-type threshold changes scale.
+Four-capped Hamming distance is a translation-invariant metric on (Z/qZ)^n with q composite allowed, n>=5. The unnormalized q-ary Krawtchouk shell sum gives the exact nontrivial eigenvalue lambda_k(p)=-4^p+(1-4^p)K1+(2^p-4^p)K2+(3^p-4^p)K3. I separately summed finite-group character eigenvalues for q=3 and 4, n=5 and p=1/2 and recovered this formula for all nontrivial k. For q/n→c>0, the source supplies uniform-in-codimension inequalities making K1,K2,K3 nonnegative for all sufficiently large codimensions, hence only finitely many s=n-k matter; fixed s gives K3/n^3→P_c(s) and the sharp beta*n^3 limit. The exact polynomial factor and discriminant establish transition c=1/2 (minimizers 0,4,5 at equality), while the strict gap for c<1/2 and positive full-weight root derivative prove eventual sole null k=n and q-independent root. Fixed q uses uniform cubic K3/n^3, and fixed n with q→infinity isolates s=2 and beta~1/(q^2((n-2)ln(4/3)-ln2)). Independent symbolic P_c checks at c=1/3,1/2,3/5,1,2 agreed. Endpoint n=4 is ordinary Hamming beta=1. The source does not claim exact all-finite-parameter roots or tie-breaking at c=1/2.
 
-## Limits
-No exact root classification is supplied for every finite parameter pair. Tie-breaking among critical modes at proportional ratio one half is left open. Stronger unlocated results might imply a portion of the statement; no historical-priority guarantee is made. No independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on bounded full-text comparisons: Brouwer–Cioabă–Ihringer–McGinnis 2018 proves the q-ary Krawtchouk eigenmatrix and large-q smallest eigenvalues of individual Hamming distance-j relation graphs; its Proposition 2.6 indeed predicts k=n-2 for pure degree-three shell, but not the powered sum of degrees 1–3 with logarithmic coefficients nor c=1/2 competition. Sánchez 2011 gives general finite-space negative-type thresholds, and Dominici 2005 supplies Charlier-limit techniques. Related previously published Boolean four-cap and nonbinary three-cap results address different parameter regions/metrics and do not imply this mixed q/n phase transition or fixed-n q^2 law. No stronger equivalent four-capped q-ary theorem was found in actual bounded searches. Priority remains a best-of-knowledge judgment.
+
+## value
+
+PASS
+
+Hilbert/snowflake embeddability of a natural saturated categorical Hamming metric is a motivated sharp spectral question. Three incompatible q,n growth regimes and a genuine transition at q/n=1/2 with exact stabilization of null harmonic layer give structural information not reducible to a routine calculation or selected small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
