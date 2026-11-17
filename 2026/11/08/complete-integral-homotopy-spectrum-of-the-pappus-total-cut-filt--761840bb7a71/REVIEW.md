@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact vertex-set and independent-number recurrences determine every face of every total-cut level for the Pappus LCF graph. Two independent cardinality recurrences agree on all 262,144 masks, selected independent-set counts are enumerated directly, and full directed Hasse graphs are topologically sorted for all nine face-poset matchings. Every unmatched cell lies in dimension \(18-2k\), with cardinalities \((1,10,55,202,481,688,460,64,1)\). Removing the augmented empty-face pair leaves one critical vertex. Standard discrete-Morse theory gives the integral nonequivariant sphere-wedge types; the last level has two critical vertices. The attached code and output reproduce all finite counts; no unsampled/infinite inference is used.
+## correctness
 
-**Originality — PASS for the complete classification, especially \(4\le k\le8\).** The foundational total-cut paper and 2026 Alexander-dual extension were inspected in their relevant full-text sections; neither has a theorem specializing to the Pappus Levi graph's entire filtration. Indexed research on bipartite three-robust clique complexes already implies the \(k=3\) case, and the initial two levels are routine/prior. These are disclosed as nonoriginal parts of a complete statement. Existing indexed total-three-cut computations for Heawood and Möbius–Kantor graphs cannot imply levels \(4\) through \(8\) for Pappus; the earlier ordinary Pappus five-cut result has a different face predicate. Exact-value and alias searches supplied no stronger statement covering the five interior homotopy types. Residual risk: possible unindexed full-filtration classifications and limited material access to some research-record full text.
+PASS
 
-**Value — PASS.** The Pappus graph is a distinguished symmetric cubic incidence graph and a natural object for comparing bounded-independence/total-cut topology. The result supplies **a complete finite filtration**, not just a single unmotivated cardinality: nine explicit integral homotopy types, a uniform dimension drop by two at each level, and a sharp global non-shellability conclusion. Five consecutive previously unaccounted levels contribute independent homotopy information not fixed by the general known level-three theorem. It is a finite classification rather than a general theorem for all graphs; that limitation is explicit.
+The actual finite Pappus LCF model [5,7,-7,7,-7,-5]^3 has 18 vertices, 27 edges, bipartition 9+9 and independence number 9. Two exact subset recurrences give all 2^18 independence values, then determine the entire face poset at each threshold. The frozen verify.py explicitly constructs all 9 augmented face sets, performs deterministic toggling, tests every Hasse incidence by complete directed topological sort, and leaves b_k=(1,10,55,202,481,688,460,64,1) critical cells in dimension 18-2k with the augmented empty vertex paired. Removing this pair gives one critical vertex and the higher cells, hence integral sphere wedges by Forman; for k9 gives S0. Independent re-enumeration of ALL 2^18 masks reproduced the 9 face totals (262143,262098,261297,254118,220071,138000,48876,10140,1023) and the signed reduced Euler sequence equal to the stated b_k. These checks support the exact finite claim, with full Hasse sorting inspected as code rather than re-executed here. Purity dimension 17-k and nonzero lower-dimensional homology establish nonshellability for k≥2.
 
-**Closest literature and limits.** Bayer et al., *Total Cut Complexes of Graphs* (arXiv:2209.13503); Carnero Bravo, *Total cut complexes and their duals* (arXiv:2602.21427); the indexed three-robust clique complex theorem for connected bipartite graphs; related total-three-cut research on Heawood and Möbius–Kantor graphs. Inaccessible/unindexed equivalents remain possible; independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+New parts are precisely the five interior total-cut homotopy types k=4,5,6,7,8 with ranks 202,481,688,460,64; low levels k1–3 are credited as pre-existing. Bayer et al. and Carnero Bravo treat different graph families, and an indexed connected-bipartite robust-clique result subsumes k3 but not all higher thresholds. Ordinary Pappus five-cut complexes use disconnected induced complements rather than independent-set complements and are not the same complex. No exact Pappus k4–8 full series was identified in semantic searches or examined primary family statements.
+
+## value
+
+PASS
+
+For a canonical 18-vertex symmetric cubic Levi graph, determining every nonvoid level and the previously missing five middle integral homotopy types is a natural complete classification. The non-shellability at all nontrivial levels provides a structural topological property rather than a random isolated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

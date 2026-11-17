@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T22:08:42.509409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual finite Pappus LCF model [5,7,-7,7,-7,-5]^3 has 18 vertices, 27 edges, bipartition 9+9 and independence number 9. Two exact subset recurrences give all 2^18 independence values, then determine the entire face poset at each threshold. The frozen verify.py explicitly constructs all 9 augmented face sets, performs deterministic toggling, tests every Hasse incidence by complete directed topological sort, and leaves b_k=(1,10,55,202,481,688,460,64,1) critical cells in dimension 18-2k with the augmented empty vertex paired. Removing this pair gives one critical vertex and the higher cells, hence integral sphere wedges by Forman; for k9 gives S0. Independent re-enumeration of ALL 2^18 masks reproduced the 9 face totals (262143,262098,261297,254118,220071,138000,48876,10140,1023) and the signed reduced Euler sequence equal to the stated b_k. These checks support the exact finite claim, with full Hasse sorting inspected as code rather than re-executed here. Purity dimension 17-k and nonzero lower-dimensional homology establish nonshellability for k≥2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al. arXiv:2209.13503 §4 and Proposition 4.6",
+          "Carnero Bravo arXiv:2602.21427 §5 examples",
+          "Connected-bipartite three-robust theorem, k=3 only"
+        ],
+        "reasoning": "The connected cubic Pappus graph is neither complete bipartite/multipartite nor a cycle or the specified Cartesian-product families. General k3 coverage does not imply the five independent k4–k8 types.",
+        "searches": [
+          "Resultary semantic search: Pappus graph total cut complexes complements independent k subsets full k filtration homotopy wedge spheres k=4 5 6 7 8",
+          "Resultary semantic search: Pappus Levi graph Alexander dual of bounded independence complexes higher 4 robust 5 robust clique exact homotopy wedge",
+          "Bayer total cut complete bipartite cycles multipartite",
+          "Carnero Bravo total cut dual graph classes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 07c3ee309ff7569363dbdc4b396e25ec159afb53",
+        "Frozen verify.py c935e396fde91e2313f22f3f935dff425bec46e2",
+        "Independent full 2^18 mask + reduced Euler reconstruction",
+        "arXiv:2209.13503",
+        "arXiv:2602.21427",
+        "Resultary Resultary semantic search: Pappus graph total cut complexes complements independent k subsets full k filtration homotopy wedge spheres k=4 5 6 7 8",
+        "Resultary Resultary semantic search: Pappus Levi graph Alexander dual of bounded independence complexes higher 4 robust 5 robust clique exact homotopy wedge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known k1 boundary, k2 classical, k3 55 twelve-spheres by bipartite three-robust theorem",
+          "Bayer/Carnero family hypotheses omit the Pappus graph"
+        ],
+        "reasoning": "Knowledge of levels 1–3 cannot fix incidence constraints at levels 4–8; full acyclic matchings at each of the five further stages supply genuinely additional integer homotopy classifications.",
+        "searches": [
+          "Resultary semantic search: Pappus graph total cut complexes complements independent k subsets full k filtration homotopy wedge spheres k=4 5 6 7 8",
+          "Resultary semantic search: Pappus Levi graph Alexander dual of bounded independence complexes higher 4 robust 5 robust clique exact homotopy wedge",
+          "Pappus total 3 cut versus total 4 through 8 homotopy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer et al. arXiv:2209.13503 Definition 2.3",
+          "Carnero Bravo arXiv:2602.21427 duality definitions"
+        ],
+        "reasoning": "Δ_k^t complements independent k-sets, Alexander dual to the bounded independence-number complex; the ordinary cut complex instead requires disconnected subsets. The same graph and similar parameter k do not identify these different face constraints.",
+        "searches": [
+          "Resultary semantic search: Pappus graph total cut complexes complements independent k subsets full k filtration homotopy wedge spheres k=4 5 6 7 8",
+          "Resultary semantic search: Pappus Levi graph Alexander dual of bounded independence complexes higher 4 robust 5 robust clique exact homotopy wedge",
+          "total cut Alexander dual bounded independence number Pappus graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned the present same-day record plus other-graph full filtrations, such as Q4",
+          "Published ordinary Pappus five-cut rank 2074 in degree 12 has different face criterion"
+        ],
+        "reasoning": "No earlier direct full middle-level Pappus total-cut table identified; closest same-graph numerical table is for the ordinary five-cut complex, which is not an exact lookup for total cuts.",
+        "searches": [
+          "Resultary semantic search: Pappus graph total cut complexes complements independent k subsets full k filtration homotopy wedge spheres k=4 5 6 7 8",
+          "Resultary semantic search: Pappus Levi graph Alexander dual of bounded independence complexes higher 4 robust 5 robust clique exact homotopy wedge",
+          "Pappus graph total k cut 202 481 688 460 64"
+        ]
+      },
+      "rationale": "New parts are precisely the five interior total-cut homotopy types k=4,5,6,7,8 with ranks 202,481,688,460,64; low levels k1–3 are credited as pre-existing. Bayer et al. and Carnero Bravo treat different graph families, and an indexed connected-bipartite robust-clique result subsumes k3 but not all higher thresholds. Ordinary Pappus five-cut complexes use disconnected induced complements rather than independent-set complements and are not the same complex. No exact Pappus k4–8 full series was identified in semantic searches or examined primary family statements.",
+      "residual_risks": [
+        "Complete acyclicity verifier source was inspected, but exhaustive directed-Hasse topological sort at all stages not independently rerun here.",
+        "Unindexed equivalent Pappus total-cut table remains a possible priority risk.",
+        "Conclusions are ordinary nonequivariant finite homotopy; no filtration maps or automorphism modules are computed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING k4..8 Pappus",
+          "evidence": "Classifies complete bipartite and other listed families, not this sparse connected cubic Levi graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13503",
+          "material_read": "Full primary PDF obtained; inspected definitions and family-classification sections including Proposition 4.6 for complete bipartite graphs and absence of Pappus-specific result",
+          "method": "arXiv open full text, relevant PDF page/screenshot and text search",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Same Δ_k^t definition and possible general covering theorem"
+        },
+        {
+          "assessment": "NOT_COVERING k4..8 Pappus",
+          "evidence": "Families studied do not include the nine-level Pappus total-cut sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21427",
+          "material_read": "Full primary PDF obtained; inspected introduction, duality and §5.1–§5.4 family results; not a claim to read every page",
+          "method": "arXiv open full text with relevant PDF-page inspection",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Alexander-dual and broad graph-family coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical 18-vertex symmetric cubic Levi graph, determining every nonvoid level and the previously missing five middle integral homotopy types is a natural complete classification. The non-shellability at all nontrivial levels provides a structural topological property rather than a random isolated numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 07c3ee309ff7569363dbdc4b396e25ec159afb53",
+    "Frozen verify.py c935e396fde91e2313f22f3f935dff425bec46e2",
+    "Independent full 2^18 mask + reduced Euler reconstruction",
+    "arXiv:2209.13503",
+    "arXiv:2602.21427",
+    "Resultary Resultary semantic search: Pappus graph total cut complexes complements independent k subsets full k filtration homotopy wedge spheres k=4 5 6 7 8",
+    "Resultary Resultary semantic search: Pappus Levi graph Alexander dual of bounded independence complexes higher 4 robust 5 robust clique exact homotopy wedge"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite one-graph 9-level ordinary nonequivariant homotopy, not an infinite family; acknowledged low-level deductions are not separately novel.",
+  "residual_risks": [
+    "Complete acyclicity verifier source was inspected, but exhaustive directed-Hasse topological sort at all stages not independently rerun here.",
+    "Unindexed equivalent Pappus total-cut table remains a possible priority risk.",
+    "Conclusions are ordinary nonequivariant finite homotopy; no filtration maps or automorphism modules are computed."
+  ],
+  "schema_version": 1
+}
