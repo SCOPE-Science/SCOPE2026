@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Executable verification
 
-From the directory containing these files, run:
+# Independent mathematical audit
 
-```
-python3 verify_switch_5x5.py
-g++ -std=c++17 -O2 -Wall -Wextra verify_switch_5x5.cpp -o verify_switch_5x5
-./verify_switch_5x5
-```
+## correctness
 
-The Python program independently enumerates ten choices of five-bit row masks for each of five rows subject to five column-sum tests. It asserts \(2040\) states, \(26100\) reversible switch edges, orbit counts \(1440\) and \(600\), full orbit-specific shell profiles for **each** state, eccentricity histogram, \(1440\) diametral pairs, and the entire unordered pair distance histogram. It uses BFS over the complete generated graph and no stored distance database.
+PASS
 
-The C++17 program independently enumerates unions of edge-disjoint permutations, deduplicates them, constructs legal checkerboard switches without calling the Python generator, and checks edge reversibility, degrees, all shortest-path distances from both orbit representatives, and exactly the two displayed cyclic antipodes. One standalone source per method suffices to reproduce its own run.
+A labelled 5x5 0–1 table with all row/column degrees 2 is a 2-regular bipartite graph of ten vertices, hence support type C10 or C4⊔C6. Independent generation as unions of disjoint permutation matchings gives exactly 2040 states (1440 and 600). A separately written checker enumerated precisely the 26100 legal rectangular switches, verifies adjacency by row/column margin, and performs complete BFS from one representative of each support orbit. Shells are (1,25,230,810,831,141,2) and (1,27,242,840,810,120,0); S5×S5 transitivity extends these exact BFS distributions to every state. It confirms exactly two antipodes of the canonical C10 representative, given by two cyclic column shifts, and produces distance pair histogram (26100,238200,835200,841320,137520,1440). This exhaustive FINITE proof establishes radius 5 and diameter 6; does not extrapolate to all n.
 
-Observed successful terminal lines:
+## originality
 
-```
-PYTHON_EXHAUSTIVE_PASS states=2040 edges=26100 radius=5 diameter=6
-PYTHON_DIAMETRAL_PAIRS 1440
-CPP_SYMMETRY_PASS states=2040 edges=26100 canonical_distance_profiles_valid=true
-CPP_ANTIPODES_PASS two_cyclic_shifts=true
-```
+PASS
 
-The exact proof requires checking the complete finite graph. Agreement between independent enumerations and symmetry reduction is supporting evidence and does not constitute formal independent scholarly audit. This verification does not claim an all-order theorem or certify literature priority.
+The exact order-five shortest-path metric and two antipodal states per C10 configuration are not implied by the pre-existing general swap-distance bounds or cycle-partition Markov kernel. Finite enumeration is a meaningful natural graph invariant; no inspected primary source gives the two orbit shell vectors.
+
+## value
+
+PASS
+
+The 2040-state switch-reconfiguration graph for natural doubly-2-regular binary tables has an exact radius/diameter, full shortest-path spectrum, two distinct orbit eccentricities and an explicit antipodal geometry. Those fine metric invariants are not captured by known enumeration or type-lumping rates, and serve as meaningful exact benchmarks for fixed-margin reconfiguration beyond a trivial small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

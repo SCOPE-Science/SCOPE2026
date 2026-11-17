@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim has finite domain exactly all labelled \(5\times5\) binary matrices of row/column weight two. The elementary cycle classification establishes precisely two vertex orbits under row and column relabellings. An exhaustive all-source row-mask BFS reconstructs the complete 2040-state, 26100-edge undirected graph, checks reversibility and every distance shell, and verifies the pair histogram. An independently structured C++17 matching-union enumeration gives the same states and graph size and checks BFS profiles from each orbit representative plus the two shifted antipodes. The orbit-transitivity argument promotes these exact finite verifications to statements about every configuration. An explicit six-move path and a complete distance-five exclusion from BFS certify sharpness. All claims are finite; none uses a finite experiment to prove an unbounded theorem. Risks include a shared conceptual definition of the checkerboard move, independently checked against the standard description, but no unproved nonstandard lemma.
+## correctness
 
-**Originality — PASS, qualified.** In Erdős–Király–Miklós (2012; full text sections 2 and 4 inspected), the bipartite switch-distance formula reduces each pair to a maximum alternating-cycle decomposition; Theorem 4.1 yields at most eight for this fixed degree sequence, not the diameter six or the eccentricity/orbit/antipode census. Will (1999; abstract accessible) discusses a general minimum-switch circuit partition, which is not itself an explicit finite metric classification. Miklós–Erdős–Soukup (2013; published PDF, especially Sections 1–3) addresses switch-chain mixing rather than all-pairs distances. The already established cycle-type Markov transition kernel for arbitrary order includes this underlying graph and its state counts/degrees, but its quotient does not determine pairwise distances or the within-type antipode geometry. Targeted semantic-record searches and phrase searches did not locate a covering result; this does **not** establish absolute priority. Uninspected specialized source appendices and unpublished small-graph enumerations remain risks.
+PASS
 
-**Value — PASS.** It is the first order where two natural two-factor cycle structures have different maximal switch costs (the order-three and order-four graphs were independently checked to have uniform eccentricity). The result gives an exact small, standard Markov-fiber benchmark—sharp 6 versus the general 8-step bound—plus a complete classification of worst-case pairs and their two antipodes. State enumeration or cycle-type kernel rates alone do not imply these metrics. The fact is motivated by optimal reconfiguration paths, not arbitrary slicing or a routine next integer.
+A labelled 5x5 0–1 table with all row/column degrees 2 is a 2-regular bipartite graph of ten vertices, hence support type C10 or C4⊔C6. Independent generation as unions of disjoint permutation matchings gives exactly 2040 states (1440 and 600). A separately written checker enumerated precisely the 26100 legal rectangular switches, verifies adjacency by row/column margin, and performs complete BFS from one representative of each support orbit. Shells are (1,25,230,810,831,141,2) and (1,27,242,840,810,120,0); S5×S5 transitivity extends these exact BFS distributions to every state. It confirms exactly two antipodes of the canonical C10 representative, given by two cyclic column shifts, and produces distance pair histogram (26100,238200,835200,841320,137520,1440). This exhaustive FINITE proof establishes radius 5 and diameter 6; does not extrapolate to all n.
 
-**Scientific limits.** This is a finite exact census supported by executable enumerators, not an infinite-family formula. No mixing-time or external independence claim is made. Historical priority remains qualified against unindexed computations; Will's original full paper was inaccessible in this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact order-five shortest-path metric and two antipodal states per C10 configuration are not implied by the pre-existing general swap-distance bounds or cycle-partition Markov kernel. Finite enumeration is a meaningful natural graph invariant; no inspected primary source gives the two orbit shell vectors.
+
+## value
+
+PASS
+
+The 2040-state switch-reconfiguration graph for natural doubly-2-regular binary tables has an exact radius/diameter, full shortest-path spectrum, two distinct orbit eccentricities and an explicit antipodal geometry. Those fine metric invariants are not captured by known enumeration or type-lumping rates, and serve as meaningful exact benchmarks for fixed-margin reconfiguration beyond a trivial small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

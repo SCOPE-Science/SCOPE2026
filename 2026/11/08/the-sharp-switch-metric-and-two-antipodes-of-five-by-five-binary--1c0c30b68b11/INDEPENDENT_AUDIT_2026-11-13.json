@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:50:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A labelled 5x5 0–1 table with all row/column degrees 2 is a 2-regular bipartite graph of ten vertices, hence support type C10 or C4⊔C6. Independent generation as unions of disjoint permutation matchings gives exactly 2040 states (1440 and 600). A separately written checker enumerated precisely the 26100 legal rectangular switches, verifies adjacency by row/column margin, and performs complete BFS from one representative of each support orbit. Shells are (1,25,230,810,831,141,2) and (1,27,242,840,810,120,0); S5×S5 transitivity extends these exact BFS distributions to every state. It confirms exactly two antipodes of the canonical C10 representative, given by two cyclic column shifts, and produces distance pair histogram (26100,238200,835200,841320,137520,1440). This exhaustive FINITE proof establishes radius 5 and diameter 6; does not extrapolate to all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erdős et al Theorem 4.1 gives a general bipartite bound of 8 here, not sharp 6. Earlier lumping formula yields degree 25/27 and state counts, but no shortest paths in a fixed orbit."
+        ],
+        "reasoning": "Dominating general-domain statements are weaker for this exact metric and do not settle sharp eccentricities/antipodal geometry.",
+        "searches": [
+          "Erdős Király Miklós Theorem4.1",
+          "Will 1999 general symmetric circuit distance",
+          "Resultary November2 type kernel"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1205.2842",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-cycle-partition-lumping-for-bipartite-degree-two-switch-wa--b83f36e791a9/RESULT.md",
+        "https://doi.org/10.1137/S0895480197331156",
+        "local independent_checks.log",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-sharp-switch-metric-and-two-antipodes-of-five-by-five-binary--1c0c30b68b11/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General distance bound ≤8 cannot imply exact six or shell vectors; a Markov chain on types does not encode distances among same-type states. Independent complete BFS verifies the narrower exact new statement."
+        ],
+        "reasoning": "No inspected stronger theorem yields the distance spectrum and antipodal classification as a trivial corollary.",
+        "searches": [
+          "Erdős Király Miklós 2013 primary theorem4.1",
+          "Prior Resultary cycle kernel RESULT.md",
+          "Submitted RESULT.md and independent BFS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All sources use the same 2x2 checkerboard switch on binary fixed-margin matrices. Earlier November 2 lumping records only cycle types, transition counts, and Markov probabilities, not label-level distances."
+        ],
+        "reasoning": "Avoids confusing a two-state lumping kernel with the 2040-state metric; two antipodes lie in the same C10 type and are invisible to the quotient.",
+        "searches": [
+          "Resultary: binary 5x5 degree two switch graph diameter six antipodes",
+          "Resultary: degree-two switch cycle partition lumping",
+          "arXiv:1205.2842"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously tabulated state count 2040 and orbit sizes 1440/600 are background; the new full shortest-path profiles and exactly two antipodes per 10-cycle are absent from those counts."
+        ],
+        "reasoning": "The finite distance census is not a routine known-table reprint; we explicitly exclude state totals and degree counts from novelty.",
+        "searches": [
+          "OEIS A001499 for counts",
+          "Resultary degree-two cycle kernel n=5",
+          "Resultary switch graph 5x5 metric"
+        ]
+      },
+      "rationale": "The exact order-five shortest-path metric and two antipodal states per C10 configuration are not implied by the pre-existing general swap-distance bounds or cycle-partition Markov kernel. Finite enumeration is a meaningful natural graph invariant; no inspected primary source gives the two orbit shell vectors.",
+      "residual_risks": [
+        "The whole Will 1999 paper was not accessible through arXiv/OA and authorized institutional access returned vpn_disconnected; potential older exact table remains a priority risk.",
+        "The exact metric classification is n=5 only; do not infer rapid mixing or all-n diameter.",
+        "No independent reconstruction of full source-tree Git objects, though all primary claim/metadata blob identities were fetched at frozen commit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_ONLY",
+          "evidence": "Theorem4.1 bounds distance in this cell by 8, versus exact new six and full shell vectors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.2842",
+          "material_read": "Primary 20-page PDF, specifically Section 4 and Theorem4.1 on pp13–14, plus context definitions",
+          "method": "Primary PDF parsed text and screenshots of pp13–14",
+          "title": "On the swap-distances of different realizations of a graphical degree sequence",
+          "trigger": "Same switch distance and bipartite realizations"
+        },
+        {
+          "assessment": "NOT_COVERING_METRIC",
+          "evidence": "Strong lumping loses labels/within-orbit paths; does not determine pairwise distance or antipodes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-cycle-partition-lumping-for-bipartite-degree-two-switch-wa--b83f36e791a9/RESULT.md",
+          "material_read": "Full RESULT.md, formulas for transitions and stationary law, explicit limits",
+          "method": "GitHub Resultary/2026 read-only full source",
+          "title": "Exact cycle-partition lumping for bipartite degree-two switch walks",
+          "trigger": "Exactly same matrices but projection to cycle partitions"
+        },
+        {
+          "assessment": "MATERIAL_ACCESS_RISK",
+          "evidence": "Abstract gives symmetric-circuit optimization and NP-completeness, no explicit 5x5 census; no unsupported full-text exclusion.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895480197331156",
+          "material_read": "Official SIAM abstract, full text unavailable",
+          "method": "Web official abstract; institutional paper request returned vpn_disconnected",
+          "title": "Will, Switching Distance Between Graphs with the Same Degrees",
+          "trigger": "Historically relevant general exact swap-distance formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2040-state switch-reconfiguration graph for natural doubly-2-regular binary tables has an exact radius/diameter, full shortest-path spectrum, two distinct orbit eccentricities and an explicit antipodal geometry. Those fine metric invariants are not captured by known enumeration or type-lumping rates, and serve as meaningful exact benchmarks for fixed-margin reconfiguration beyond a trivial small example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The whole Will 1999 paper was not accessible through arXiv/OA and authorized institutional access returned vpn_disconnected; potential older exact table remains a priority risk.",
+    "The exact metric classification is n=5 only; do not infer rapid mixing or all-n diameter.",
+    "No independent reconstruction of full source-tree Git objects, though all primary claim/metadata blob identities were fetched at frozen commit.",
+    "All publication plans withheld until confidentiality-safe final artifacts with exact Git guards."
+  ],
+  "schema_version": 1
+}
