@@ -1,15 +1,21 @@
-# Scientific review: Hesse surface Zariski-chamber polynomial
+# Independent mathematical audit
 
-## Correctness
-PASS. The exhaustive negative-curve classification follows from adjunction with a nef elliptic fiber, Shioda–Tate rank zero, and the lattice-index calculation \(\sqrt{3^4}=9\) for the nine sections. The complete intersection form is determined by the affine plane of order three and four triangles of fiber components. The four forbidden local patterns have singular principal matrices; all remaining induced configurations have negative-definite component matrices. The standalone program separately enumerates all \(2^{21}\) subsets by incidence and all negative-definite principal matrices by exact rational Schur-pivot backtracking. It obtains the coefficient vector \((1,21,210,1236,4497,10308,14772,12612,5634,874)\) twice.
+## correctness
 
-## Originality
-PASS on the inspected record, with provisional priority. Artebani–Dolgachev (arXiv:math/0611590, §§2–3) give the Hesse arrangement and its four \(I_3\) fibers, not the claimed chamber classification. Bauer–Funke–Neumann (arXiv:0912.0958, Propositions 1.1, 1.5 and §3) provide the general chamber/submatrix correspondence and del Pezzo counts, but their general-position surfaces are not the Hesse rational elliptic surface. Bauer–Schmitz (arXiv:1204.4373, §§1–3) extend the algorithm and calculate a Segre–Schur quartic example, rather than this Hesse polynomial. Targeted literature and mathematical-record searches revealed no directly equivalent chamber polynomial. An unindexed specialist calculation or older table could preempt the numerical result.
+PASS
 
-## Mathematical value
-PASS. The Hesse blowup is an extremal rational elliptic surface with a finite Mordell–Weil group and a natural twenty-one-curve negative configuration, in contrast to general nine-point blowups where infinitely many negative sections can occur. The result gives the complete stable-negative-support distribution of big divisors, not just a count of one arbitrarily selected support type. The four local obstructions explain the entire distribution geometrically. The exact invariant is independent of a chosen ordering of the sections and fiber components.
+Adjunction and nef anticanonical fiber force negative curves to be precisely nine Mordell–Weil sections (Shioda–Tate rank zero and torsion order nine) and twelve I_3 fiber components. All forbidden negative supports are the four incidence-pattern obstructions, whose selected intersection forms have singular principal submatrices; all remaining components are small positive-definite chains. Independent complete 2^21 mask enumeration using affine F_3 point-line incidence reproduced coefficients (1,21,210,1236,4497,10308,14772,12612,5634,874), summing to 50165; unlike a timeout it is exhaustive. Geometric exhaustion is a separate proof step.
 
-## Limits of the review
-The matrix checks prove a finite enumeration *after* the geometric classification; they do not independently establish the Shioda–Tate calculation. The result is over \(\mathbb C\) and does not count chamber volumes or automorphism orbits. The historical-priority comparison covers the named accessible primary sources, not every possible table or unpublished note.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hesse pencil negative curves and affine-plane incidence and the general Zariski-chamber/support bijection are known. The particular 21-curve negative-definite support classification and exact 50,165-coefficient support polynomial are not implied by the inspected general papers or neighboring distinct rational elliptic-surface counts.
+
+## value
+
+PASS
+
+The Hesse blowup is a classical rational elliptic surface with finite negative curves. The complete support-size polynomial and forbidden-incidence criterion classify all Zariski chambers of a natural surface, answering a concrete geometric enumeration problem, not a random parameter slice. No broad all-surface classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

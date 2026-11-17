@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python3 verification/verify_hesse.py` in the directory containing this file. The script uses only the Python standard library. Its output is saved as `verification/execution.txt`.
+## correctness
 
-The first enumeration examines all \(2^{21}=2\,097\,152\) choices of the nine exceptional sections and twelve fiber components, using the explicit four-condition incidence criterion. Independently, a second enumeration constructs the integral twenty-one-by-twenty-one negative intersection matrix and recursively checks candidate principal submatrices using exact rational Schur pivots; hereditary pruning is valid because a positive-definite matrix has all principal submatrices positive definite. This computation tested \(106\,218\) candidate matrices.
+PASS
 
-Both methods returned the support polynomial coefficients \((1,21,210,1236,4497,10308,14772,12612,5634,874)\), total \(50\,165\), and maximum support size nine. The script asserts equality coefficient by coefficient and returns `ALL_CHECKS_PASSED` only when all checks succeed.
+Adjunction and nef anticanonical fiber force negative curves to be precisely nine Mordell–Weil sections (Shioda–Tate rank zero and torsion order nine) and twelve I_3 fiber components. All forbidden negative supports are the four incidence-pattern obstructions, whose selected intersection forms have singular principal submatrices; all remaining components are small positive-definite chains. Independent complete 2^21 mask enumeration using affine F_3 point-line incidence reproduced coefficients (1,21,210,1236,4497,10308,14772,12612,5634,874), summing to 50165; unlike a timeout it is exhaustive. Geometric exhaustion is a separate proof step.
 
-The finite certificate is exhaustive *for the stated twenty-one-curve matrix*. The geometric proof that there are no other negative curves uses adjunction and the Shioda–Tate lattice index, as explained in `RESULT.md`. There is no independent scientific audit, no claim about the priority of the result beyond the inspected literature, and no claim about surfaces outside the stated hypotheses.
+## originality
+
+PASS
+
+Hesse pencil negative curves and affine-plane incidence and the general Zariski-chamber/support bijection are known. The particular 21-curve negative-definite support classification and exact 50,165-coefficient support polynomial are not implied by the inspected general papers or neighboring distinct rational elliptic-surface counts.
+
+## value
+
+PASS
+
+The Hesse blowup is a classical rational elliptic surface with finite negative curves. The complete support-size polynomial and forbidden-incidence criterion classify all Zariski chambers of a natural surface, answering a concrete geometric enumeration problem, not a random parameter slice. No broad all-surface classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
