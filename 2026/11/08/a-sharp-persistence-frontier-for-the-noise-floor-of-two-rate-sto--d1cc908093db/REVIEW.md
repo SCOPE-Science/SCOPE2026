@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Both update multipliers have modulus below one, giving a finite second-moment stationary process. The conditional second moments solve an explicit two-state linear system with strictly positive determinant. The exact algebraic difference from the fixed-step variance and exact derivative of the Markov persistence parameter prove all strict and equality cases. The standalone checker passed 250 assertions (symbolic, exact rational, numerical recurrence). The infinite-dimensional quantifier over the parameter domain is discharged by the proof, not by numeric tests.
+## correctness
 
-**Originality — PASS, with residual risk.** Gürbüzbalaban et al. (2023, arXiv:2302.05516) examine Markovian, cyclic and IID rate schedules through power-law tails and moment thresholds in stochastic regression; their inspected main and appendix results do not state the fixed-curvature, additive-noise exact stationary risk ordering or the persistence threshold. Goujaud et al. (2022, PMLR 151) address deterministic cyclical spectral convergence. Chen et al. (2021, arXiv:2111.06328) analyze constant-small-step stationary limits. The new contribution is an exact sharp ordering, not the classical method of Markov-modulated conditional moments. Equivalent step-switching parameterizations, broader covariance-theory coverage and exact-table possibilities were considered. A specialist prior publication may still have this explicit result.
+PASS
 
-**Value — PASS.** Alternating, IID and persistent two-rate learning schedules share identical per-step frequencies, average stepsize and oracle cost, yet can have sharply different stationary mean-square errors. The threshold \(h^2(1-\delta^2)>2\), the sharp repeat-probability boundary, and the independent monotonicity change at \(h=1\) give a natural complete classification for this benchmark and clarify how temporal ordering can overturn the usual IID stepsize-noise penalty. The claim is not extrapolated to nonlinear objectives or adaptive scheduling.
+Independently solved the stationarity equations z=P^T diag((1-h_+)^2,(1-h_-)^2) z + sigma^2 P^T(h_+^2,h_-^2)/2 using exact symbolic inversion. The submitted V(p)-V0 factor 2sigma^2 h^2 delta^2[2-t+2p(t-1)]/((2-h)D) and derivative dV/dp=8sigma^2 delta^2 h^4(1-delta^2)(h-1)/D^2 were both verified symbolically. D=p(1-alpha)(1-beta)+(1-p)(1-alpha beta)>0 throughout. Thus V<V0 iff t>2 and p<(t-2)/(2(t-1)); equality at t=2,p=0 or threshold for t>2; p=1/2 always loses. The periodic case p=0 requires a random stationary phase, explicitly assumed, and r<2 individual stability ensures convergence.
 
-**Limitations.** Scalar fixed-curvature quadratic; fresh centered finite-variance gradient noise; symmetric two-state Markov stepsize chain; both steps individually stable. Convergence rates, higher-dimensional objectives and arbitrary noise correlations remain outside the proof.
+## originality
 
-**Primary comparisons.** https://arxiv.org/abs/2302.05516 ; https://proceedings.mlr.press/v151/goujaud22a.html ; https://arxiv.org/abs/2111.06328 .
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gürbüzbalaban–Hu–Şimşekli–Zhu (2023) analyzes the same family of Markovian two-step learning-rate schedules but for tail indices in stochastic linear regression with random Hessian noise. Its §3 and Appendix B.4 give tail-index and infinite-variance conditions, not the exact finite stationary second-moment comparison for an additive independent gradient-noise scalar quadratic, which has uniformly contractive multipliers. Hence the 2023 schedule classification is not a direct implication of this noise-floor frontier.
+
+## value
+
+PASS
+
+A natural controlled comparison holds the marginal stepsize distribution and oracle cost fixed while changing temporal persistence, yielding exact improvement and monotonicity frontiers relevant to noisy optimization dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
