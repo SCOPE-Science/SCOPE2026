@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:07:10.723410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 14-vertex Heawood incidence graph (points P_i, lines L_j with P_{j,j+1,j+3}) has exactly 3^14=4,782,969 labelled states. Deterministic rule 1->2,2->0,0->1 iff adjacent excited yields one successor per state. The original package includes census_indegree.cpp and paths-based alternative. Independently implemented a new C++ 4,782,969-state enumeration: construct all successor indices, peel indegree-zero vertices, traverse precisely surviving cycles for true least periods, then reverse peel order for exact preperiod T and eventual period P. Obtained 55 positive (T,P) classes, 21,099 periodic states, primitive orbit counts {1:1,3:5334,4:224,5:84,6:42,8:168,10:84,14:96}, entry populations T0..10 (21099,305203,1303711,1272154,1100708,526918,168336,42840,17136,12768,12096), no T>10 and all T10 in P4. Exhaustiveness follows from explicit iteration over every integer 0..3^14-1 and correct functional-graph peeling; the calculation is a finite proof, not extrapolation. lcm of periods is 840 so F^850=F^10 and 840 minimal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doba 2018 Theorem 1 classifies asymptotic quiescent vs periodic outcomes and Theorem 2 equates excitation rate with maximum cycle density",
+          "Gravner et al. formulate general covering-space excitation criteria and random graph behavior"
+        ],
+        "reasoning": "These general theorems constrain eventual excitation but supply neither the 55 classes nor T_max=10 by direct implication without additional complete graph-state analysis.",
+        "searches": [
+          "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "Resultary exact Greenberg-Hastings dynamics graph classification"
+        ]
+      },
+      "checked_sources": [
+        "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://arxiv.org/abs/1907.11978",
+        "Resultary search: Greenberg Hastings Heawood graph 14 vertex 3-state period 14 transient 10 census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Doba Section 6 Theorem 1/Section 7 Theorem 2 state limiting rhythm/density but not first-entry times or multiplicities",
+          "Independent enumeration obtains multiple least-period classes and exact basin populations beyond general activity constraints"
+        ],
+        "reasoning": "A qualitative eventual-activity theorem cannot logically fix the complete labeled preperiod/period counts for this particular graph. Thus submitted exact census survives inspected earlier results.",
+        "searches": [
+          "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General GHM and cyclic cellular automata (CCA) use different update rules; only GHM rule matches here",
+          "Other published Resultary excitation censes use Petersen, Frucht, tripartite or Kneser graphs"
+        ],
+        "reasoning": "Searched synonyms Fano incidence graph, Heawood 14-cage, three-color Greenberg–Hastings and excitable automaton; current complete census was the unique identified same finite object result.",
+        "searches": [
+          "Resultary: Greenberg Hastings Heawood graph 14 vertex 3-state period 14 transient 10 census",
+          "Heawood graph Fano incidence excitable cellular automaton transient orbit counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted verification/census.csv has 55 positive joint classes, each reproduced by independent 4,782,969-state computation",
+          "Earlier online references describe undirected Heawood graph cycles, not periodic orbits of 3^14 colorings"
+        ],
+        "reasoning": "The original full finite-state table is the claimed invariant; no prior exact table with these labeled state counts located, despite searches.",
+        "searches": [
+          "Heawood graph three-state CA full state transition table orbit counts",
+          "Resultary Heawood exact temporal census"
+        ]
+      },
+      "rationale": "Best of knowledge: Doba 2018 and Gravner–Lyu–Sivakoff 2018 establish qualitative synchrony/periodic-state and excitation-rate results for general graph Greenberg–Hastings dynamics. Their primary mathematical theorems and searchable full texts do not enumerate the Heawood 55-class entry-time/period table, its eight primitive orbit counts, or sharp ten-update entry bound. Resultary exact-dynamics records concern other specific graphs; no earlier Heawood numerical census identified. A preexisting unindexed exact computation remains possible.",
+      "residual_risks": [
+        "Unindexed historical Heawood GHCA computer enumeration or equivalent finite transition table could predate the result; this is a best-of-knowledge judgment.",
+        "Exact counts depend on precisely threshold-one synchronous rule, labelled vertices and no automorphism quotient; not generalized to arbitrary cubic cages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AFTER_READING",
+          "evidence": "Theorem 1 determines quiescence versus periodic excitation; Theorem 2 determines asymptotic activity via cycle density. No Heawood labeled 55-class table or transient-10 statement.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Full-access publisher PDF: definitions Section 2, convergence theorem Section 6, maximum-cycle-density theorem Section 7 and paper-wide search for Heawood",
+          "method": "Primary published PDF text and rendered page inspection",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Same 3-state graph GHCA update on arbitrary finite graph"
+        },
+        {
+          "assessment": "NOT_COVERING_AFTER_READING",
+          "evidence": "The paper analyzes graph-covering/circulation criteria and asymptotic behavior; no exact Heawood state-by-state basin census.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Author-hosted complete journal PDF, introduction/definitions and relevant general results, search for Heawood",
+          "method": "Author OA PDF with rendered page and text inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same three-color GHM graph dynamics, broad general periodicity implications"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Counts static graph cycles, not Greenberg–Hastings configuration orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.11978",
+          "material_read": "Abstract on graph cycles and automorphism group; not a dynamics census",
+          "method": "ArXiv abstract",
+          "title": "The Structure of the Heawood Graph",
+          "trigger": "Same underlying graph; possible graph-cycle table comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Heawood graph is the unique smallest cubic girth-six cage and a canonical finite incidence graph. A complete labelled-state 4.8-million-state functional-graph census yields the exact rare-period spectrum, basin-entry distribution and sharp global transient; these are nontrivial natural benchmark invariants for excitable network dynamics. Finite size does not diminish value because the entire natural model is classified, with exhaustive reproducible evidence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+    "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+    "https://arxiv.org/abs/1907.11978",
+    "Resultary search: Greenberg Hastings Heawood graph 14 vertex 3-state period 14 transient 10 census"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed historical Heawood GHCA computer enumeration or equivalent finite transition table could predate the result; this is a best-of-knowledge judgment.",
+    "Exact counts depend on precisely threshold-one synchronous rule, labelled vertices and no automorphism quotient; not generalized to arbitrary cubic cages."
+  ],
+  "residual_risks": [
+    "Unindexed historical Heawood GHCA computer enumeration or equivalent finite transition table could predate the result; this is a best-of-knowledge judgment.",
+    "Exact counts depend on precisely threshold-one synchronous rule, labelled vertices and no automorphism quotient; not generalized to arbitrary cubic cages."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_AFTER_READING",
+      "evidence": "Theorem 1 determines quiescence versus periodic excitation; Theorem 2 determines asymptotic activity via cycle density. No Heawood labeled 55-class table or transient-10 statement.",
+      "identifier_or_url": "https://content.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+      "material_read": "Full-access publisher PDF: definitions Section 2, convergence theorem Section 6, maximum-cycle-density theorem Section 7 and paper-wide search for Heawood",
+      "method": "Primary published PDF text and rendered page inspection",
+      "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+      "trigger": "Same 3-state graph GHCA update on arbitrary finite graph"
+    },
+    {
+      "assessment": "NOT_COVERING_AFTER_READING",
+      "evidence": "The paper analyzes graph-covering/circulation criteria and asymptotic behavior; no exact Heawood state-by-state basin census.",
+      "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+      "material_read": "Author-hosted complete journal PDF, introduction/definitions and relevant general results, search for Heawood",
+      "method": "Author OA PDF with rendered page and text inspection",
+      "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+      "trigger": "Same three-color GHM graph dynamics, broad general periodicity implications"
+    },
+    {
+      "assessment": "BACKGROUND_ONLY",
+      "evidence": "Counts static graph cycles, not Greenberg–Hastings configuration orbits.",
+      "identifier_or_url": "https://arxiv.org/abs/1907.11978",
+      "material_read": "Abstract on graph cycles and automorphism group; not a dynamics census",
+      "method": "ArXiv abstract",
+      "title": "The Structure of the Heawood Graph",
+      "trigger": "Same underlying graph; possible graph-cycle table comparison"
+    }
+  ]
+}

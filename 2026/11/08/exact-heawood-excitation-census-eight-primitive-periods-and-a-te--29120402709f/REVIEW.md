@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A fourteen-vertex ternary configuration has a unique base-three integer encoding from zero through \(3^{14}-1\), and each update is computed from the explicitly specified cubic incidence graph. The indegree-peeling theorem for finite functional graphs proves that the surviving vertices are exactly periodic states and that reverse peeling supplies exact entry times. Source `verification/census_indegree.cpp` implements this argument without heuristic stopping. An independently structured memoized-trajectory program based on an alternative Fano-plane line listing agrees on all fifty-five nonzero classes. The counts cover all \(4782969\) states. Periodic-cycle and maximal-transient witnesses have been checked directly. Arithmetic is exact and finite.
+PASS
 
-## Originality
+The 14-vertex Heawood incidence graph (points P_i, lines L_j with P_{j,j+1,j+3}) has exactly 3^14=4,782,969 labelled states. Deterministic rule 1->2,2->0,0->1 iff adjacent excited yields one successor per state. The original package includes census_indegree.cpp and paths-based alternative. Independently implemented a new C++ 4,782,969-state enumeration: construct all successor indices, peel indegree-zero vertices, traverse precisely surviving cycles for true least periods, then reverse peel order for exact preperiod T and eventual period P. Obtained 55 positive (T,P) classes, 21,099 periodic states, primitive orbit counts {1:1,3:5334,4:224,5:84,6:42,8:168,10:84,14:96}, entry populations T0..10 (21099,305203,1303711,1272154,1100708,526918,168336,42840,17136,12768,12096), no T>10 and all T10 in P4. Exhaustiveness follows from explicit iteration over every integer 0..3^14-1 and correct functional-graph peeling; the calculation is a finite proof, not extrapolation. lcm of periods is 840 so F^850=F^10 and 840 minimal.
 
-**PASS with historical-priority qualification.** The 2016 preprint by Gravner--Lyu--Sivakoff, inspected in its later full journal text, supplies global circulation criteria and asymptotic activity, not a Heawood-specific labelled-state census. Doba's full 2018 study similarly proves equilibrium-versus-periodic dichotomy and a maximum-cycle-density law, but no Heawood census or exact transient distribution. Searches for Heawood/Fano incidence excitation, alternative cellular-automaton terminology, complete functional-graph orbit counts, and the exact numerical signatures identified no covering statement. Earlier exact computations outside indexed sources remain possible, and the original 1978 model article was not inspected in full. Binary majority rules on the same graph and three-state excitation rules on other graphs are mathematically different maps and do not imply these counts.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The Heawood graph is the canonical smallest cubic graph of girth six, simultaneously bipartite, symmetric and the incidence graph of the Fano plane. Its full Greenberg--Hastings functional-graph census is a natural finite benchmark that the general asymptotic circulation criteria do not determine. The eight-period spectrum includes the unusual coexistence of temporal period five and period fourteen, while all states at the sharp ten-step delay feed exclusively four-cycles. These exact quantitative phenomena are not recoverable from the graph's girth or diameter alone. The result is intentionally finite and does not claim a general graph-family law.
+Best of knowledge: Doba 2018 and Gravner–Lyu–Sivakoff 2018 establish qualitative synchrony/periodic-state and excitation-rate results for general graph Greenberg–Hastings dynamics. Their primary mathematical theorems and searchable full texts do not enumerate the Heawood 55-class entry-time/period table, its eight primitive orbit counts, or sharp ten-update entry bound. Resultary exact-dynamics records concern other specific graphs; no earlier Heawood numerical census identified. A preexisting unindexed exact computation remains possible.
 
-## Limitations and comparison
+## value
 
-The work is an exhaustive computer-assisted finite proof, not an infinite theorem or a hand enumeration of every state. The full transition map is generated reproducibly from source, and the embedded table is checked against two implementations. The exact-census novelty assessment remains conditional on the accessible literature search. The current result does not classify orbit equivalence under the graph automorphism group and does not provide periods for other thresholds.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Heawood graph is the unique smallest cubic girth-six cage and a canonical finite incidence graph. A complete labelled-state 4.8-million-state functional-graph census yields the exact rare-period spectrum, basin-entry distribution and sharp global transient; these are nontrivial natural benchmark invariants for excitable network dynamics. Finite size does not diminish value because the entire natural model is classified, with exhaustive reproducible evidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
