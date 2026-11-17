@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T02:17:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact source score is positive constant C_d times Gamma ratio B(p) divided by two evaluation rounds when 2<=p<=c or ceil(p/c)+1 beyond, with a special 2/3 factor for p=1. The integral L(s)=d(log B)/ds=int_0^∞ e^(-su)/(1+e^-u)du is positive and strictly <1/[2(s−1)] for s>1. Hence H_c(s)=B(s)/(s+c) strictly decreases for s>=c+2, while Gamma recurrence gives exact equality H_c(c+2)=H_c(c). Since B(p) strictly increases, each partially filled batch is strictly dominated by its full batch; for k>=2, H_c(kc)<=H_c(c+2)=H_c(c), equality at k=2,c=2 only. p=1 and c=1 bounds compare elementary B(1),B(2),B(3) with 3<π<4, all d cases included. Independent exhaustive bounded score comparison d<=150,c<=64 matched all classifications, not used as all-integer proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roberts–Royer and Kozak et al study global convergence or directional derivatives, not exact Gamma ratio under ceil(p/c)+1 scheduling.",
+          "The source paper Theorem 4.5 is serial, not a parallel all-integer theorem."
+        ],
+        "reasoning": "General random-subspace convergence does not imply the exact discrete parallel argmax; a 2025 revision might include additional results and remains a priority risk.",
+        "searches": [
+          "Resultary: parallel Haar random subspace simplex gradient expected decrease optimum dimension equals number of cores global integer all core tie",
+          "arxiv:2204.01275 random subspace direct search",
+          "arxiv:2003.02684 stochastic subspace gradient-free optimization"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2308.04734 full primary paper Theorem 4.2 and section 4.2",
+        "arxiv:2204.01275",
+        "arxiv:2003.02684",
+        "Resultary parallel Haar semantic search",
+        "source RESULT.md and verify_parallel_haar.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result provides objective value and finite candidate ranking, not inequality valid for every positive integer c,d,p.",
+          "New monotonicity of B(s)/(s+c) above c+2 and exact H_c(c+2)=H_c(c) settles all integer batches."
+        ],
+        "reasoning": "Current claim is not merely numerical table extrapolation; it proves the unbounded comparison from an analytic inequality. Relies on prior score formula, which is fully credited.",
+        "searches": [
+          "Resultary: parallel Haar random subspace simplex gradient expected decrease optimum dimension equals number of cores global integer all core tie",
+          "https://arxiv.org/abs/2308.04734"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hare et al derive exact expected-decrease Gamma quotient and model-based per-parallel-evaluation-round score.",
+          "The source enumerates many c and integer multiples numerically and notes the c=2 tie, but no proof for all c,d,p."
+        ],
+        "reasoning": "Same score and model are deliberate, novelty restricted to the rigorous uniform argmax over every positive integer parameter and all nonmultiples.",
+        "searches": [
+          "Resultary: parallel Haar random subspace simplex gradient expected decrease optimum dimension equals number of cores global integer all core tie",
+          "arxiv:2308.04734 Theorem 4.2 Section 4.2 parallel Haar random subspace model based",
+          "Gamma ratio B(p) parallel cores ceil(p/c) 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2023 full preprint explicitly reports finite numerical scan up to c=256 and p=100c multiples and a tie at c=2."
+        ],
+        "reasoning": "The source finite optimization table is acknowledged; it is not a certification of an unbounded statement or partial-batch p values.",
+        "searches": [
+          "Resultary: parallel Haar random subspace simplex gradient expected decrease optimum dimension equals number of cores global integer all core tie",
+          "Hare Roberts Royer expected decrease parallel c cores 256 100c tie p2 p4"
+        ]
+      },
+      "rationale": "Hare–Roberts–Royer arxiv:2308.04734 Theorem 4.2/section 4.2 already gives B(p), the parallel cost model, empirical p=c rule over finite c and p multiples, and the c=2,p=2,4 tie. This review credits all those findings. Inspected 2023 full preprint section explicitly gives finite numerical exploration, not complete all-integer proof or nonmultiple exclusion; new proof closes their stated unbounded optimality gap. Later journal 2025 full text remains a risk, as different generic subspace descent papers optimize different objectives.",
+      "residual_risks": [
+        "Published Mathematics of Computation 2025 revision 10.1090/mcom/4011 not inspected in full; it might upgrade numerical rule to theorem.",
+        "Conclusion applies to idealized local linear score and synchronous parallel evaluation cost, not actual hardware runtime or nonlinear convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Provides score and finite parallel numerical evidence, c=2 tie, not complete all-integer theorem or nonmultiples.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.04734",
+          "material_read": "Full 2023 preprint including Theorem 4.2, Theorem 4.5 and section 4.2, parallel numerical discussion",
+          "method": "Read original preprint full and relevant PDF pages",
+          "title": "Expected decrease for derivative-free algorithms using random subspaces, Hare–Roberts–Royer",
+          "trigger": "Exactly same Haar local expected-decrease score and parallel cost"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Global direct-search complexity does not compare this exact parallel local score.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01275",
+          "material_read": "Introduction and theorem-scope discussion from available preprint",
+          "method": "Author preprint material",
+          "title": "Direct search based on probabilistic descent in reduced spaces, Roberts–Royer",
+          "trigger": "Random-subspace optimization broader method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-integer optimizer of an explicit, practically motivated idealized parallel evaluation model closes a published finite numerical conjecture and determines the only nonunique case, including sparse partial batches. This is a mathematically useful rigorous frontier even without a new optimization algorithm or hardware runtime assertion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2308.04734 full primary paper Theorem 4.2 and section 4.2",
+    "arxiv:2204.01275",
+    "arxiv:2003.02684",
+    "Resultary parallel Haar semantic search",
+    "source RESULT.md and verify_parallel_haar.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the source Haar model-based simplex-gradient score under c identical parallel evaluation cores, all integer d>=2,c>=1, the optimizing subspace p is 1 if c=1, {2,4} if c=2,d>=4, otherwise min(c,d).",
+  "limitations": "Idealized local linear descent divided by equal-time rounds only; no general nonlinear/hardware optimum.",
+  "residual_risks": [
+    "Published Mathematics of Computation 2025 revision 10.1090/mcom/4011 not inspected in full; it might upgrade numerical rule to theorem.",
+    "Conclusion applies to idealized local linear score and synchronous parallel evaluation cost, not actual hardware runtime or nonlinear convergence."
+  ],
+  "schema_version": 1
+}

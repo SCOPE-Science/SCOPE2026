@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof is reconstructed from the log-Gamma quotient, its two-step recurrence and the digamma integral representation. The bound \(L(s)<1/[2(s-1)]\) holds strictly for real \(s>1\), establishing strict decrease of \(H_c(s)\) beyond \(c+2\). Every integer subspace size is partitioned by the ceiling-cost batch. Equality and all boundary cases (one core, two cores, fewer dimensions than cores, and the opportunistic one-dimensional evaluation) are addressed. The separately runnable checker passed 460267 finite comparisons, but the proof is the analytic inequality, not the enumeration.
+PASS
 
-## Originality: PASS, qualified
+The exact source score is positive constant C_d times Gamma ratio B(p) divided by two evaluation rounds when 2<=p<=c or ceil(p/c)+1 beyond, with a special 2/3 factor for p=1. The integral L(s)=d(log B)/ds=int_0^∞ e^(-su)/(1+e^-u)du is positive and strictly <1/[2(s−1)] for s>1. Hence H_c(s)=B(s)/(s+c) strictly decreases for s>=c+2, while Gamma recurrence gives exact equality H_c(c+2)=H_c(c). Since B(p) strictly increases, each partially filled batch is strictly dominated by its full batch; for k>=2, H_c(kc)<=H_c(c+2)=H_c(c), equality at k=2,c=2 only. p=1 and c=1 bounds compare elementary B(1),B(2),B(3) with 3<π<4, all d cases included. Independent exhaustive bounded score comparison d<=150,c<=64 matched all classifications, not used as all-integer proof.
 
-The closest paper is Hare, Roberts and Royer, *Expected decrease for derivative-free algorithms using random subspaces*, first posted 2023-08-09 (arXiv:2308.04734), especially Theorem 4.2 and Section 4.2. It already supplies the score formula, cost model, and two-core tie, and reports only finite numerical evidence for the all-core rule. The new contribution is the complete analytic all-integer proof, including partial batches. Roberts and Royer (arXiv:2204.01275) and Kozak et al. (arXiv:2003.02684) have distinct random-subspace objectives and do not imply this precise allocation theorem on inspected content. A complete publisher-hosted journal revision was not accessible; the possibility of a prior stronger formulation remains a nonzero publication-precedence risk. Similarity search alone is not novelty certification.
+## originality
 
-## Value: PASS
+PASS
 
-Subspace dimension creates a genuine trade-off between stronger expected linear-model descent and the number of sequential evaluation rounds. This result closes an explicit bounded numerical observation with a sharp all-integer classification and determines precisely when the optimum is nonunique. It is valid for the natural exact Haar model-based score and ideal parallel timing assumption, not a theorem about real machine latency, nonlinear convergence, or arbitrary derivative-free algorithms.
+Hare–Roberts–Royer arxiv:2308.04734 Theorem 4.2/section 4.2 already gives B(p), the parallel cost model, empirical p=c rule over finite c and p multiples, and the c=2,p=2,4 tie. This review credits all those findings. Inspected 2023 full preprint section explicitly gives finite numerical exploration, not complete all-integer proof or nonmultiple exclusion; new proof closes their stated unbounded optimality gap. Later journal 2025 full text remains a risk, as different generic subspace descent papers optimize different objectives.
 
-## Limits
+## value
 
-All averages are for the cited linearized Haar benchmark; costs assume equal-duration evaluation rounds with a sequential final evaluation. The numerical verifier is supplementary. Publication precedence requires later independent review, particularly of the 2024 journal version.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp all-integer optimizer of an explicit, practically motivated idealized parallel evaluation model closes a published finite numerical conjecture and determines the only nonunique case, including sparse partial batches. This is a mathematically useful rigorous frontier even without a new optimization algorithm or hardware runtime assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
