@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The exact all-graph result is proved analytically in `RESULT.md` from the exhaustive local three-spin composition table, its sharp attainment by a three-edge-coloring, and graph bijections for the two coexistence sets. Computational checks are finite consistency tests, not replacements for the proof.
+## correctness
 
-With Python 3 and no external packages, run:
+PASS
 
-```
-python verification/exhaustive_cube.py
-python verification/combinatorial_cube.py
-python verification/other_cubic_graphs.py
-```
+Each interaction edge of L(G) lies in exactly one base-vertex triangle and each spin appears in two triangles. Local energy Phi=sum_{i<j}s_i s_j+(delta/2)sum s_i²-(b/2)sum s_i has six relevant minimizing triples; assigning their three labels to a proper base-edge colouring realizes local minima simultaneously, giving exact n*min of six affine forms. Uniquely minimizing compositions force perfect matchings or labeled 3-edge colorings; at D=J,h=0 occupied components are alternating even cycles, and at h=4J,D<0 negative-spin edges form arbitrary matchings. Independent direct full 3^6 configuration enumeration on K4 reproduced strict regimes and both boundary counts 7 and 10; source also provides cube and K3,3 checks. Finite checks corroborate the universal decomposition.
 
-The cuboctahedron verifier visits every one of its \(3^{12}=531441\) classical spin states, constructs all exchange bonds directly from cube-edge incidence, and tests the six strict-phase samples plus both boundary samples with rational arithmetic. The second verifier independently enumerates every cube-edge subset, its matching counts, its even-cycle contributions, and every admissible labeled proper edge-coloring. The third checks every state on two distinct cubic bases, \(K_4\) and \(K_{3,3}\), without extrapolation. Expected final markers are `EXHAUSTIVE_CUBE_OK`, `COMBINATORIAL_CUBE_OK`, and `OTHER_CUBIC_GRAPHS_OK`.
+## originality
 
-Only the displayed uniform, classical, finite-graph Hamiltonian is established. Arbitrary-field ground energies are exact; complete degeneracies at unspecified coexistence loci, temperature-dependent physics, and graphs without three-edge-colorings remain outside scope. Independent scientific audit has not been performed.
+PASS
+
+Best-of-knowledge partial earlier coverage must be credited: the November 2 three-colorability theorem proves the zero-field H(0,D) slice and 69 weighted even-cycle states for the cube. It does not imply the complete joint field/anisotropy six-branch envelope, all open-field degeneracies, or total-matching count on h=4J,D<0. A contemporaneous Potts line-graph theorem has a distinct equality-indicator interaction and weighted matching count M_G(2), not the bilinear Blume–Capel Hamiltonian. Hwang–Park–Kwak has uninspected full text, noted as residual risk.
+
+## value
+
+PASS
+
+The complete two-parameter zero-temperature phase diagram of a natural frustrated spin-one family and exact graph-invariant coexistence multiplicities distinguish physical phases, not merely a small-instance census. The new h=4J matching polynomial formula and all-field envelope remain meaningful despite known zero-field special cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
