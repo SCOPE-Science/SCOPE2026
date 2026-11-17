@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the reported sixth-moment theorem
+# Independent mathematical audit
 
-Run `python3 verify_sparse_pairs.py` with a standard Python interpreter. The script is standalone and uses only `fractions`, `itertools` and `random` from the standard library. It checks the sixth- and second-moment formulas by exact enumeration over all pairs and all four independent sign choices for 420 seeded rational coefficient vectors. It also checks the exact lower and upper equality witnesses for dimensions 2 through 100, two-coordinate algebraic identities on thousands of rational instances, and the Euclidean-distance arithmetic formulas.
+## correctness
 
-Expected terminal line: `ALL_SPARSE_PAIR_SIXTH_MOMENT_CHECKS_PASSED`. Exact output from this package was:
+PASS
 
-```
-INDEPENDENT_EXACT_SIGN_AND_PAIR_ENUMERATION_OK 420
-EXACT_ALL_ENDPOINT_CONFIGURATIONS_OK 99
-EXACT_TWO_COORDINATE_VARIATION_IDENTITY_OK
-EXACT_EUCLIDEAN_DISTORTION_FORMULAS_OK
-ALL_SPARSE_PAIR_SIXTH_MOMENT_CHECKS_PASSED
-```
+PASS: Reconstructed sign/pair average E F²=2S₂/n and E F⁶=2[15S₂S₄+(n−16)S₆]/[n(n−1)]. Writing x_i=a_i²/S₂, the two-coordinate identity 15(u²+v²)−(16−n)(u³+v³)=15s²−(16−n)s³+3[((16−n)s)−10]uv proves all global extrema on the closed simplex, including n=2,3,4,5,6 and n>=7 and the n=6 continuum. Averaging any comparison ellipsoid over signed coordinate permutations forces optimal scalar Euclidean comparator. Independently enumerated exact signs and pairs on 40 coefficient patterns and tested formulas; finite checks are corroboration, analytic smoothing supplies all dimensions.
 
-The universal claims are not inferred from finite tests. The proof in `RESULT.md` uses an exact algebraic variation identity, a global support argument and symmetry averaging for arbitrary integer dimension. No formal external audit, computational certification of the infinite argument or independently performed mathematical validation is asserted.
+## originality
+
+PASS
+
+PASS (bounded): Fixed-cardinality signed sparse measurements are classical, but the specific two-active-coordinate sharp sixth-to-second moment full-n phase diagram, equality classes and Banach–Mazur distortion are not the statements of the inspected primary articles, nor implied by the published signed-rook fourth-moment theorem. Mere absence from semantic index is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: Natural minimal nontrivial dependent fixed-support sparse-sign ensemble; sharp all-dimensional sixth-moment norm classification, n=4 mixed minimizer and n=6 entire maximizing stratum expose nontrivial phase structure, with a precise Euclidean distortion invariant useful for comparing sparse sensing laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

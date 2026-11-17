@@ -1,15 +1,21 @@
-# Scientific review: sharp sixth-moment bifurcations for two-site signed sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof computes the sixth moment by an exact sign-and-pair expansion, normalizes squared coefficients on a probability simplex, and uses the polynomial pair variation identity to rule out all other maximizers and minimizers. The exceptional dimension-four minimum has precisely two support geometries, and the dimension-six maximum is flat on the entire two-support stratum. Compact signed-permutation averaging proves optimality of the Euclidean comparator. The exact-arithmetic checker runs independently and confirms 420 sign-pair cases, all endpoint classes over 99 dimensions and the algebraic variation identity. These finite cases corroborate but do not prove the universal claim; the analytic pair argument supplies the proof.
+## correctness
 
-## Originality — PASS, qualified
-Kane--Nelson (arXiv:1012.1577, Section 1.1) studies dependent fixed-cardinality sparse indicators with independent signs, but bounds embedding errors rather than optimizing this sixth moment. Pass--Spektor (arXiv:1412.7859) optimizes moment inequalities for pairwise-independent nonzero Rademacher variables. Havrilla--Tkocz (arXiv:1912.13345) treats independent symmetric discrete summands with atom at zero, not fixed-sum indicators. Previously documented theorem statements include a signed-rook fourth-moment classification (98540322-4fa2-4805-8177-1f23fe618f87) and other unrelated sixth moments; none supplies the present statement by implication. Actual semantic searches returned no covering theorem or exact table. This is a bounded bibliographic assessment, not proof of uniqueness; an unindexed equivalent result remains possible.
+PASS
 
-## Mathematical value — PASS
-The natural fixed-two-site signed sampling ensemble is the simplest genuinely dependent sparse-sign model. The complete sixth-moment classification for every dimension, the isolated mixed minimum at dimension four, the dimension-six continuum of maximizers, and the exact Euclidean Banach--Mazur distance give more than a numerical or routine special case. The source motivation concerns norm geometry and sparse random constructions; broader sparsity levels and higher exponents are not claimed.
+PASS: Reconstructed sign/pair average E F²=2S₂/n and E F⁶=2[15S₂S₄+(n−16)S₆]/[n(n−1)]. Writing x_i=a_i²/S₂, the two-coordinate identity 15(u²+v²)−(16−n)(u³+v³)=15s²−(16−n)s³+3[((16−n)s)−10]uv proves all global extrema on the closed simplex, including n=2,3,4,5,6 and n>=7 and the n=6 continuum. Averaging any comparison ellipsoid over signed coordinate permutations forces optimal scalar Euclidean comparator. Independently enumerated exact signs and pairs on 40 coefficient patterns and tested formulas; finite checks are corroboration, analytic smoothing supplies all dimensions.
 
-## Scientific limitations and closest literature
-The random vector has exactly two active coordinates and real unbiased signs. The theorem does not address independently zero-inflated coordinates, general support cardinalities or arbitrary moments. The closest fully read primary sources are arXiv:1012.1577, arXiv:1412.7859, arXiv:1912.13345 and DOI:10.1007/s00208-023-02669-9; none states the exact result under the examined hypotheses. Bibliographic uniqueness and mathematical independence have not been externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded): Fixed-cardinality signed sparse measurements are classical, but the specific two-active-coordinate sharp sixth-to-second moment full-n phase diagram, equality classes and Banach–Mazur distortion are not the statements of the inspected primary articles, nor implied by the published signed-rook fourth-moment theorem. Mere absence from semantic index is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: Natural minimal nontrivial dependent fixed-support sparse-sign ensemble; sharp all-dimensional sixth-moment norm classification, n=4 mixed minimizer and n=6 entire maximizing stratum expose nontrivial phase structure, with a precise Euclidean distortion invariant useful for comparing sparse sensing laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
