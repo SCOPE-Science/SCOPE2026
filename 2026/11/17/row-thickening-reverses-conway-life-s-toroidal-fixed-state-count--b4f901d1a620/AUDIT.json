@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For \\(h∈\\{3,4\\}\\) and \\(n\\ge3\\), the \\(T_h\\) closed-walk bijection is exact because every 3-column local neighborhood obeys the same B3/S23 rule; repeated columns at length three are distinct lattice sites and counted correctly. An explicit 256-state \\(T_4\\) has exactly one cyclic SCC, its 127-state adjacency B is primitive by strong connectivity and empty-column self-loop. Exact symbolic determinant, independent SCC check and Collatz-Wielandt positive integer vector \\(B^{400}\\mathbf 1\\) bound the Perron root between 2.55371542 and 2.55371544. Every \\(F_4(n)\\) is \\(\\operatorname{tr}(B^n)\\); trace <=127 \\(\\lambda^n\\). Height-three independently constructed \\(T_3\\) has a 27-state SCC with exact charpoly \\(x^{24}(x^3-27)\\), hence contributes \\(3^{n+1}\\) when \\(3\\mid n\\); all other fixed state contributions are nonnegative. The exact inequality \\(127\\cdot13^{27}<3\\cdot15^{27}\\) handles all \\(n\\ge27\\), and exact transfer counts handle \\(n=3,6,\\ldots,24\\). A separate direct 2^(4n) exhaustive B3/S23 checker confirms n=3..6. No finite empirical extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "E. Jen (1988), Cylindrical cellular automata, DOI 10.1007/BF01221109: a general transfer framework, not an accessed statement of the particular B3/S23 127-state component or an inequality between heights.",
+        "Relevant records about modular toroidal automata use incompatible rules or are fixed-width studies."
+      ],
+      "reasoning": "A universal finite-transfer construction provides a way to compute these numbers but does not by itself report the exact specialized spectrum, Perron bound, or strict family-wide row-thickening effect. A broader theorem giving these consequences directly would cover this result; none was identified in accessible sources.",
+      "searches": [
+        "published-finding corpus: periodic toroidal Conway Life width height 3 versus 4 stationary pattern entropy reversal every length divisible by 3",
+        "published-finding corpus: exact fixed configurations still lifes of Conway Game of Life on four by n toroidal strip leading eigenvalue 2.553715429",
+        "web: enumerating fixed points Life on cylinders four rows transfer matrix"
+      ]
+    },
+    "checked_sources": [
+      "https://www.scientificamerican.com/article/mathematical-games-1970-10/",
+      "https://doi.org/10.1007/BF01221109",
+      "https://conwaylife.com/forums/viewtopic.php?t=3383",
+      "https://playgameoflife.com/lexicon/still_life",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+      "Related prior height-three Conway Life torus result, ID 123f185b-2261-4406-96cd-cda7ce11387d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior height-three toroidal B3/S23 result concerns F3 but not F4 or cross-width inequality; the height-three bound is independently recomputed.",
+        "The majority-rule width-three torus and three-color cyclic-dominance Moore torus are distinct dynamics.",
+        "General transfer constructions and isolated square-torus entries lack the specific all-n 127-state Perron bound and comparison."
+      ],
+      "reasoning": "The new F4(n) count is not a corollary of a height-three trace formula. Conversely the exact height-four spectral radius 2.5537 and height-three eigenvalue 3 with triple resonance together imply the new strict inequality, and no accessed prior statement provides both ingredients.",
+      "searches": [
+        "Own research ledger: prior fixed-point spectrum on 3xn Conway Life torus, item 123f185b-2261-4406-96cd-cda7ce11387d",
+        "published-finding corpus: exact fixed-point entropy gap for majority tie-breaking on a width-three torus 2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+        "published-finding corpus: exact stationary-state growth on three-row cyclic-dominance tori 2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+        "web: Jen 1988 cylindrical cellular automata abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent height-four B3/S23 transfer spectral count or 3-to-4 row comparison among retrieved indexed findings.",
+        "The closest width-three and three-color automaton records concern different widths or update rules."
+      ],
+      "reasoning": "Equivalent traces, recurrence, entropy-rate formulae, and cyclic-word formulations were compared by object and rule, not wording. The searched indexed results did not establish any height-four formula matching the theorem or its all-triple-circumference inequality.",
+      "searches": [
+        "published-finding corpus: Conway Game of Life width four torus fixed states still lifes entropy transfer matrix exact spectrum",
+        "published-finding corpus: B3/S23 Moore periodic lattice height 4 still life trace 127 adjacency spectral entropy",
+        "web: Conway Life B3/S23 4xN torus still life transfer generating function",
+        "web: stationary patterns periodic 4-row Life strip fixed points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2018 Small Tori in B3/S23 indexed discussion explicitly contains the previously known F4(4)=53; this number is credited and not claimed novel.",
+        "No accessible exact all-n width-four table/recurrence or entire 3|n comparison was recovered."
+      ],
+      "reasoning": "The previously published isolated 4-by-4 entry is subsumed by this theorem and cannot establish its all-n transfer spectrum, asymptotic, or row comparison. The full forum thread was not accessible for exhaustive historical exclusion, so its coverage remains a source risk.",
+      "searches": [
+        "ConwayLife forum: Small Tori in B3/S23 2018 F_rank 4x4 53",
+        "web: Conway life 4xn toroidal still lifes count 127 53 313",
+        "published-finding corpus: Conway Life periodic 4xN width-4 still life stationary states count recurrence"
+      ]
+    },
+    "rationale": "Against the inspected scope of the 1970 B3/S23 rule, 1988 cylindrical-transfer methodology, 2018 finite torus counts, and indexed mathematical records, no identified statement implies an all-circumference height-four fixed-state spectral formula or the strict comparison \\(F_4\\)(n)<F3(n) for every 3|n. The previous height-three fixed-state analysis alone cannot provide \\(F_4\\). The already published \\(F_4(4)=53\\) and generic transfer technique are acknowledged. Accessible source limitations leave absolute priority uncertain.",
+    "residual_risks": [
+      "A relevant 1988 methodological work was not available in full text, leaving risk of more specialized results not visible in abstract.",
+      "The 2018 Small Tori forum discussion was only accessible via indexed excerpts; other thread content may contain wider counts.",
+      "Search absence does not prove absolute novelty or independent external priority; no independent mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines original Life context, does not present the exact height-three vs height-four torus fixed-state comparison",
+        "evidence": [
+          "Publisher publication date 1970-10-01; B3/S23 background"
+        ],
+        "identifier_or_url": "https://www.scientificamerican.com/article/mathematical-games-1970-10/",
+        "material_read": "Publisher bibliographic page, publication date and scope",
+        "method": "Publisher-page inspection",
+        "title": "The fantastic combinations of John Conway’s new solitaire game life",
+        "trigger": "First public source date and defining B3/S23 dynamics"
+      },
+      {
+        "assessment": "General approach is prior art; no whole-document noncoverage claim is made, and possible specialized content is a residual originality risk",
+        "evidence": [
+          "E. Jen, Commun. Math. Phys. 118 (1988) 569–590, abstract-level method"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+        "material_read": "Accessible bibliographic record and abstract, not full text",
+        "method": "Public and open-access search; restricted institutional full-text retrieval did not yield readable text",
+        "title": "Cylindrical cellular automata",
+        "trigger": "Plausible generic finite-width transfer method potentially covering statement"
+      },
+      {
+        "assessment": "Already provides F4(4)=53; no accessible exact all-n F4 formula or triple-circumference inequality; full-thread scope unresolved",
+        "evidence": [
+          "F_rank, discussion dated 2018-05-10; 4x4 count 53"
+        ],
+        "identifier_or_url": "https://conwaylife.com/forums/viewtopic.php?t=3383",
+        "material_read": "Indexed excerpts including explicit 4x4 still-life count, not full inaccessible thread",
+        "method": "Search-indexed source excerpt inspection",
+        "title": "Small Tori in B3/S23",
+        "trigger": "Direct named toroidal Life enumeration and previously known 4x4 entry"
+      },
+      {
+        "assessment": "A terminology source, not an all-n torus count",
+        "evidence": [
+          "Defines unchanged configurations under Life update"
+        ],
+        "identifier_or_url": "https://playgameoflife.com/lexicon/still_life",
+        "material_read": "Full short public terminology entry",
+        "method": "Public HTML inspection",
+        "title": "Life Lexicon: Still life",
+        "trigger": "Check standard fixed-state terminology and potential scope"
+      },
+      {
+        "assessment": "Different four-neighbor majority rule, so its reported fixed counts cannot imply eight-neighbor B3/S23 comparisons",
+        "evidence": [
+          "Studies majority on C3×Cn rather than B3/S23 Moore torus"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fixed-point-entropy-gap-for-majority-tie-breaking-on-a-wid--d7b5940b2c83",
+        "material_read": "Indexed title and complete available research summary, not full paper",
+        "method": "Semantic mathematical-record search",
+        "title": "Exact fixed-point entropy gap for majority tie-breaking on a width-three torus",
+        "trigger": "Close geometry and fixed-state entropy keywords"
+      },
+      {
+        "assessment": "Three-color threshold cyclic dynamics, not binary B3/S23",
+        "evidence": [
+          "Three-color threshold-four stationary counts"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-stationary-state-growth-on-three-row-cyclic-dominance-tori--24a3474f1bb8",
+        "material_read": "Indexed title and complete available research summary, not full paper",
+        "method": "Semantic mathematical-record search",
+        "title": "Exact stationary-state growth on three-row cyclic-dominance tori",
+        "trigger": "Related thin Moore torus stationary-growth result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4f901d1-a620-4d81-a2ad-4d5913614047",
+  "value": {
+    "rationale": "The fixed-configuration population is a canonical combinatorial-dynamical invariant of Life. Row thickening increases configuration space but provably reduces all fixed configurations at every naturally selected triple circumference. The selection arises from a genuine height-three cubic spectral resonance, while a primitive height-four Perron component grows strictly below base three. The exact 127-state transfer and rigorous eigenvalue bound give an all-circumference asymptotic, not a tiny arbitrary table or trivial substitution. It links structural spectral shifts to a sharp cross-width count reversal. Limits: no assertion for nonmultiples or oscillators, and the isolated prior \\(4\\times4\\) count is credited.",
+    "status": "PASS"
+  }
+}
