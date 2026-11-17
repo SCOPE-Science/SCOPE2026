@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:49:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact claim covers every k>=0 at n=3·4^k, distinct linear Thue–Morse factors, and palindrome pairs with an empty part allowed. For φ=μ² with palindromic blocks B0=0110, B1=1001, every cyclic φ-image has a reversal-invariant six-factor histogram because each six-factor uses at most three source letters and cyclic binary 3-grams obey reversal balance. A factor of length 4m with a seam between unequal boundary source letters acquires one of six exceptional four-blocks. Exhaustive local cases for six-factor reversal imbalance (six anomalous blocks × 16 nearby binary contexts, plus short circular cases) give a strictly positive obstruction, so such a word cannot be a palindrome pair. Equal-boundary factors are rotations of a φ-image; unique cyclic block decoding and reflection symmetry descend the palindrome-pair property. Base length three has exactly two rotation classes (010 and 101), and actual squares in Thue–Morse ensure every rotation survives at each induction step. Primitivity and disjointness descend as well, yielding exactly 2n. Independent local checks reproduced positive seam asymmetry minima and all-good symmetry; inspected separate factor-counter independently corroborates k=0..3 only, not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Lie complexity studies cyclic rotation classes wholly inside the factor language, but palindrome-pair status also includes possibly incomplete classes.",
+          "Other indexed Thue–Morse conjugacy classes concern lengths 2^k, unlike 3·4^k."
+        ],
+        "reasoning": "No inspected all-length upper bound or stronger universal palindrome-pair formula implies the exact asserted equality. A later unindexed exact result remains possible.",
+        "searches": [
+          "https://arxiv.org/abs/1509.05396",
+          "https://arxiv.org/abs/2102.03821",
+          "Resultary: conjugacy-class inflation Thue Morse dyadic orbit sizes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1509.05396",
+        "https://arxiv.org/abs/2102.03821",
+        "SCOPE-Science/SCOPE2026 pinned RESULT.md, proof_checks.py, independent_counts.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Proposition 11 ensures both complete rotation classes occur.",
+          "A palindrome pair has a reversal-symmetric cyclic six-factor histogram; the exceptional seam cases break that symmetry."
+        ],
+        "reasoning": "The new upper bound is not implied by the earlier lower bound. The local obstruction plus cyclic φ-descent forbids every extra candidate and completes the induction; this is the additional structural contribution.",
+        "searches": [
+          "https://arxiv.org/abs/1509.05396",
+          "https://arxiv.org/abs/2102.03821",
+          "arxiv:1509.05396 Proposition 11 lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 11 of Borchert–Rampersad constructs the same 2n examples but establishes only ≥2n.",
+          "Exact equality requires showing no partial orbit contains further palindrome pairs; a Lie-conjugacy count cannot alone enforce that."
+        ],
+        "reasoning": "Same lower-bound witnesses do not make a statement about the complete factor set equivalent. The new six-factor reversal exclusion is logically additional to the prior construction.",
+        "searches": [
+          "Thue Morse exact palindrome pair complexity 3 times 4^k rotation classes",
+          "arxiv:1509.05396 Proposition 11",
+          "Bell Shallit Lie complexity Thue Morse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original 2015 paper contains a lower-bound family and poses exact enumeration as a problem.",
+          "The submitted algorithm and exact local cases certify infinitely many lengths; initial sequence 6,24,96,384 is not the proof."
+        ],
+        "reasoning": "A finite table for k=0..3 does not settle all k; no prior inspected database gives all distinct palindrome-pair factors at every 3·4^k.",
+        "searches": [
+          "Thue Morse palindrome pair counts 6 24 96 384",
+          "arxiv:1509.05396 palindrome pair 3 12 48 192",
+          "Resultary: exact palindrome-pair factors Thue Morse"
+        ]
+      },
+      "rationale": "Borchert–Rampersad Proposition 11 gives the **same two rotation classes as a lower bound** at exactly n=3·4^k and asks for exact palindrome-pair complexity; the inspected original proposition does not provide an upper bound or rule out additional partial conjugacy classes. The submitted local reversal-spectrum seam obstruction and cyclic desubstitution prove that missing upper bound, producing exact equality and full factor classification. Bell–Shallit Lie complexity counts complete conjugacy classes, but not all partial palindrome-pair factors; no inspected stronger result implies the exclusion lemma. Originality is best-of-knowledge and limited to the exact equality and upper-bound method, not the existing lower-bound construction.",
+      "residual_risks": [
+        "An unindexed later exact palindrome-pair complexity result could duplicate this infinite tetradic count.",
+        "The six-factor local-table sufficiency is crucial; finite tables were separately checked but only the local-to-global proof supplies all-length correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LOWER BOUND only; does not settle missing ≤2n inequality",
+          "evidence": [
+            "Prop. 11 gives ≥6·4^k by conjugate classes generated from 010 and 101.",
+            "Conclusion asks for exact formulas for Thue–Morse palindrome-pair complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.05396",
+          "material_read": "Primary PDF Proposition 11 and conclusion/problem discussion, including the constructed 2n lower bound at 3·4^k",
+          "method": "Read actual PDF pages containing Proposition 11 and concluding complexity question; checked proposition statement against source",
+          "title": "Words with many palindrome pair factors",
+          "trigger": "Exactly same two Thue–Morse rotation families and published open exact question"
+        },
+        {
+          "assessment": "Not a demonstrated cover of partially realized palindrome-pair factor classes",
+          "evidence": [
+            "Complete conjugacy counting does not exclude extra palindrome-pair factors in incomplete orbit classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.03821",
+          "material_read": "Abstract, definitions and available theorem statements, not full-document inspection",
+          "method": "Compared complete-conjugacy-class definition and its logical consequences",
+          "title": "Lie complexity of words",
+          "trigger": "Related invariant counts cyclic rotation classes in Thue–Morse factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closing a named published lower bound for infinitely many naturally morphic lengths supplies a precise word-combinatorics result rather than an arbitrary fixed-length table. The complete two-orbit classification and reusable local seam obstruction explain why no extra palindrome-pair factors appear. The general all-length palindrome-pair complexity problem remains open outside this tetradic subsequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact only the infinite subsequence n=3·4^k; not the entire palindrome-pair complexity spectrum.",
+    "Some related full texts incomplete; no general priority certificate."
+  ],
+  "schema_version": 1
+}
