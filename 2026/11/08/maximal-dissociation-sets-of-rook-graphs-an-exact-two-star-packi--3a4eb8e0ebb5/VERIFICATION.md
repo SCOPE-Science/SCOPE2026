@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone verification script `verify_rook.py` can be executed with Python 3 and no external packages. It constructs the original labelled rook graphs without referring to any structural component decomposition, enumerates vertex subsets, checks induced maximum degree at most one, and checks maximality through every unselected vertex. It compares the resulting exact cardinality counts with the proposed formula.
+# Independent mathematical audit
 
-Observed result:
+## correctness
 
-`VERIFY_OK instances=17 vertex_subsets=1419214 dissociation_sets=9778 maximal_sets=1467 all_coefficients=PASS single_vertex_extensions=PASS`
+PASS
 
-The tested dimensions are all \(1\le m\le4\), \(m\le n\le6\), with \(mn\le20\). The finite computation does not certify infinite parameter ranges. The mathematical proof relies on a unique component decomposition and a complete coverage/maximality argument. Independent mathematical audit has not been performed.
+Identify R_{m,n}=L(K_{m,n}), m,n>=1. An induced maximum-degree-one vertex set becomes a vertex-disjoint bipartite edge component packing of K_{1,1}, K_{1,2}, K_{2,1}. The unique triple (a,b,c) uses r=a+b+2c rows, s=a+2b+c columns, and k=a+2b+2c selected vertices. Insertion of a missing edge proves the exact maximality condition (r=m and s=n) OR (a=0 and (r=m or s=n)); in particular the a=0 condition when only one shore is covered is necessary. Counting labeled star slots gives m!n!/[a!b!c!2^(b+c)(m-r)!(n-s)!]. For 1<=m<=n, n>=2m, coverage forces all rows and a=0, b=m-2c, giving all even sizes 2ceil(m/2)..2m. Independently tested all subsets for boards (1,1),(2,2),(3,3),(3,5): polynomials z,6z²,6z³+9z⁴,90z⁴+90z⁵. Includes clique K_n and n=2m boundaries.
+
+## originality
+
+PASS
+
+Earlier same-day complete rook-graph dissociation polynomial counts ALL feasible sets and gives component decomposition, but explicitly does NOT count inclusion-maximal sets. The new saturation test, irredundant maximal-set factorial summation, and gapped rectangular facet spectrum are not stated in that prior all-set polynomial. Results on ordinary grid P_m square P_n and general maximal-dissociation bounds do not settle these facets. Best of knowledge with same-day coverage attributed.
+
+## value
+
+PASS
+
+The inclusion-maximal dissociation complex and its cardinality gap/purity behavior are natural invariants beyond the all-set dissociation polynomial. The exact criterion and arbitrary-rectangle labeled maximal-set count determine irredundant configurations and an unbounded gap in valid facet sizes; useful independently of a broader graph-theoretic downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

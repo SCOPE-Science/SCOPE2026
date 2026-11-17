@@ -1,11 +1,21 @@
-# Scientific review: rook-graph maximal dissociation polynomial
+# Independent mathematical audit
 
-**Correctness (PASS).** The identification \(R_{m,n}=L(K_{m,n})\) makes every dissociation set a vertex-disjoint packing of \(K_{1,1}\), \(K_{1,2}\), and \(K_{2,1}\) components. All three possibilities for the supports—neither side covered, both sides covered, exactly one side covered—are addressed; the exact one-cell extension rule yields the maximality predicate. Labeled row/column slot partitions give the factorial coefficients. The rectangular restriction is algebraically derived. Independently enumerated graph subsets match every coefficient in 17 boundary and interior test instances.
+## correctness
 
-**Originality (PASS, subject to publication-priority uncertainty).** The full 2021 Tu–Li–Du preprint is about extremal total counts across all graphs and does not give a rook-graph cardinality enumerator. The 2011 Orlovich–Dolgui–Finke–Gordon–Werner article treats complexity and maximum size for some line graphs; its Hamiltonian-path formula includes balanced rook graphs but not the new all-maximal distribution. The 2024 Tian–Tu paper concerns ordinary and periodic grid graphs, whose published abstract does not identify rook graphs; its full text was not accessible. Existing rook-graph results for general-position or induced-forest subsets do not imply the degree-at-most-one polynomial. No equivalent exact enumerator was found in the targeted record and literature searches; absence from search is not proof of priority.
+PASS
 
-**Mathematical value (PASS).** Maximal dissociation sets are central to the minimum-maximal variant of induced-degree-bounded selection. This theorem solves a complete labelled enumeration for all rook graphs, not just an optimal cardinality or a fixed small dimension. The structural bijection to disjoint short-star packings yields a new saturation characterization; for \(n\ge2m\) it produces an explicit family with an unbounded gap between lower and upper maximal cardinalities and a parity-restricted support spectrum.
+Identify R_{m,n}=L(K_{m,n}), m,n>=1. An induced maximum-degree-one vertex set becomes a vertex-disjoint bipartite edge component packing of K_{1,1}, K_{1,2}, K_{2,1}. The unique triple (a,b,c) uses r=a+b+2c rows, s=a+2b+c columns, and k=a+2b+2c selected vertices. Insertion of a missing edge proves the exact maximality condition (r=m and s=n) OR (a=0 and (r=m or s=n)); in particular the a=0 condition when only one shore is covered is necessary. Counting labeled star slots gives m!n!/[a!b!c!2^(b+c)(m-r)!(n-s)!]. For 1<=m<=n, n>=2m, coverage forces all rows and a=0, b=m-2c, giving all even sizes 2ceil(m/2)..2m. Independently tested all subsets for boards (1,1),(2,2),(3,3),(3,5): polynomials z,6z²,6z³+9z⁴,90z⁴+90z⁵. Includes clique K_n and n=2m boundaries.
 
-**Residual scientific risks.** A relevant 2024 grid-enumeration paper could not be inspected in full; an unindexed equivalent rook-graph theorem cannot be ruled out. The exhaustive computational cases, although numerous, are finite and do not constitute an independent all-parameter proof. Prior line-graph extremal-size results are acknowledged as known.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier same-day complete rook-graph dissociation polynomial counts ALL feasible sets and gives component decomposition, but explicitly does NOT count inclusion-maximal sets. The new saturation test, irredundant maximal-set factorial summation, and gapped rectangular facet spectrum are not stated in that prior all-set polynomial. Results on ordinary grid P_m square P_n and general maximal-dissociation bounds do not settle these facets. Best of knowledge with same-day coverage attributed.
+
+## value
+
+PASS
+
+The inclusion-maximal dissociation complex and its cardinality gap/purity behavior are natural invariants beyond the all-set dissociation polynomial. The exact criterion and arbitrary-rectangle labeled maximal-set count determine irredundant configurations and an unbounded gap in valid facet sizes; useful independently of a broader graph-theoretic downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

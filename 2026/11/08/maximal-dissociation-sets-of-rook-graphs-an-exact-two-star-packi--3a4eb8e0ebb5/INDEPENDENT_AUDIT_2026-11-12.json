@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:02:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Identify R_{m,n}=L(K_{m,n}), m,n>=1. An induced maximum-degree-one vertex set becomes a vertex-disjoint bipartite edge component packing of K_{1,1}, K_{1,2}, K_{2,1}. The unique triple (a,b,c) uses r=a+b+2c rows, s=a+2b+c columns, and k=a+2b+2c selected vertices. Insertion of a missing edge proves the exact maximality condition (r=m and s=n) OR (a=0 and (r=m or s=n)); in particular the a=0 condition when only one shore is covered is necessary. Counting labeled star slots gives m!n!/[a!b!c!2^(b+c)(m-r)!(n-s)!]. For 1<=m<=n, n>=2m, coverage forces all rows and a=0, b=m-2c, giving all even sizes 2ceil(m/2)..2m. Independently tested all subsets for boards (1,1),(2,2),(3,3),(3,5): polynomials z,6z²,6z³+9z⁴,90z⁴+90z⁵. Includes clique K_n and n=2m boundaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "Prior theorem determines entire all-set polynomial and maximum feasible size, a strong coverage of ingredients but not its facets.",
+          "Tu–Li–Du bounds count maximal sets in broad graph classes without this all m,n coefficient formula."
+        ],
+        "reasoning": "General enumeration of all sets does not determine inclusion-maximal counts by size without individual incidence extension relationships.",
+        "searches": [
+          "maximal dissociation sets rook graph line graph complete bipartite two edge stars enumeration",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "https://arxiv.org/abs/2103.01402"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+        "https://arxiv.org/abs/2103.01402",
+        "https://doi.org/10.1016/j.amc.2024.128711",
+        "https://doi.org/10.1016/j.dam.2011.04.023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "Earlier all-set sum lacks condition (r=m and s=n) OR (a=0 and (r=m or s=n))."
+        ],
+        "reasoning": "Adding the new maximal support condition to known component enumeration is necessary mathematical work; the prior all-set theorem does not itself state or mechanically provide the saturated facet counts.",
+        "searches": [
+          "maximal dissociation sets rook graph line graph complete bipartite two edge stars enumeration",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "https://arxiv.org/abs/2103.01402"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "The all-dissociation generating function uses the same isolated-edge and two-edge-star components but sums ALL feasible triples, not only saturated triples."
+        ],
+        "reasoning": "Line graph equality is explicit, yet inclusion-maximal is a different condition; adding one cell changes feasibility and is not answered by raw coefficients.",
+        "searches": [
+          "maximal dissociation sets rook graph line graph complete bipartite two edge stars enumeration",
+          "rook graph maximal dissociation sets K_m square K_n complete size distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "Example 2x3 all-set polynomial 1+6z+15z²+6z³, unlike maximal-set polynomial of this problem.",
+          "The 2024 grid enumeration concerns Cartesian products of paths, not complete-factor rook graphs."
+        ],
+        "reasoning": "Known coefficient tables and the 2010 6x6 maximum do not supply complete inclusion-maximal rook polynomial or rectangular even-only spectrum.",
+        "searches": [
+          "maximal dissociation sets rook graph line graph complete bipartite two edge stars enumeration",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "https://doi.org/10.1016/j.amc.2024.128711"
+        ]
+      },
+      "rationale": "Earlier same-day complete rook-graph dissociation polynomial counts ALL feasible sets and gives component decomposition, but explicitly does NOT count inclusion-maximal sets. The new saturation test, irredundant maximal-set factorial summation, and gapped rectangular facet spectrum are not stated in that prior all-set polynomial. Results on ordinary grid P_m square P_n and general maximal-dissociation bounds do not settle these facets. Best of knowledge with same-day coverage attributed.",
+      "residual_risks": [
+        "The full Orlovich et al and Tian–Tu primary papers could not be inspected; historical priority risk of unstated rook facets in additional sections remains.",
+        "No finite test proves the all-m,n formula; proof uses component/maximality bijection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG RELATED PRIOR; component formula and all sets known, facets explicitly excluded",
+          "evidence": [
+            "Limitation: does not count maximal dissociation sets separately"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+          "material_read": "Complete Finding/Assumptions/Proof/Verification/Relationship/Limitations of RESULT.md",
+          "method": "Fetched and read full GitHub public RESULT.md",
+          "title": "Complete dissociation polynomial and sharp occupancy threshold for rook graphs",
+          "trigger": "Same rook graph and dissociation object"
+        },
+        {
+          "assessment": "PARTIAL PRIOR; structural complexity and special maximum results, not whole maximal facet polynomial in accessible evidence",
+          "evidence": [
+            "Earlier maximum claims for line graphs with Hamiltonian paths"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+          "material_read": "Accessible bibliographic abstract/secondary citation to maximum dissociation size; full text inaccessible",
+          "method": "DOI lookup attempted; full article not retrieved",
+          "title": "The complexity of dissociation set problems in graphs",
+          "trigger": "Line-graph dissociation prior"
+        },
+        {
+          "assessment": "DIFFERENT graph classes P_m square P_n, cylindrical grids; residual overlap risk if appendices discuss rook graphs",
+          "evidence": [
+            "2024 paper DOI 10.1016/j.amc.2024.128711"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128711",
+          "material_read": "Abstract/bibliographic title only; no complete article",
+          "method": "Bibliographic web lookup",
+          "title": "Enumerating maximal dissociation sets in three classes of grid graphs",
+          "trigger": "Maximal dissociation and product graph possible overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inclusion-maximal dissociation complex and its cardinality gap/purity behavior are natural invariants beyond the all-set dissociation polynomial. The exact criterion and arbitrary-rectangle labeled maximal-set count determine irredundant configurations and an unbounded gap in valid facet sizes; useful independently of a broader graph-theoretic downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-dissociation-polynomial-and-sharp-occupancy-threshold-f--2c17c229c0af/RESULT.md",
+    "https://arxiv.org/abs/2103.01402",
+    "https://doi.org/10.1016/j.amc.2024.128711",
+    "https://doi.org/10.1016/j.dam.2011.04.023"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The full Orlovich et al and Tian–Tu primary papers could not be inspected; historical priority risk of unstated rook facets in additional sections remains.",
+    "No finite test proves the all-m,n formula; proof uses component/maximality bijection."
+  ],
+  "schema_version": 1
+}
