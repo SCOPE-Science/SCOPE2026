@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:13:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Since q is even, Q=P+N is idempotent iff P^2=P and PN+NP=N. With a canonical decomposition U plus W plus Z of dimensions (r,r,s), N:W->U identity and elsewhere zero, the anticommutator forces P=[[A,B,C],[0,I-A,0],[0,H,K]]. Direct squaring gives A^2=A, K^2=K, AB+BA=CH, AC+CK=C, HA+KH=0. For rank(A)=a and rank(K)=b, the C and H constraints allow opposite/equal eigenspaces respectively and have combined dimension rs; CH is off-diagonal with respect to A, so the B-commutator map has a^2+(r-a)^2 free entries. Gaussian-binomial numbers of projections A,K yield exactly the claimed product-sum H(n,r,b). Reordering to (U,Z,W) makes the idempotent triangular with diagonal A,K,I-A, so both summands have common rank r+b and no other ranks. Direct independent literal enumeration of all n=2,3 matrices over F2 for r=0,1 agrees: n=3,r=1 has eight solutions rank1 and eight rank2; n=3,r=0 has 1,28,28,1. Inspected actual extension-field verification code for F4/F8; it is finite corroboration, not proof of all fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Seguins Pazzis Theorem 5 states characteristic-two Jordan existence conditions; no finite-field rank multiplicities are asserted.",
+          "Xu abstract covers structural square-zero conditions, no explicit finite-field witness counts in inspected abstract, but complete text not accessible."
+        ],
+        "reasoning": "The general existence theorem and the rank-one-restricted complete fiber do not dominate arbitrary target rank and both arbitrary summand ranks. Xu is plausible but unresolved due to full-text access, retained explicitly.",
+        "searches": [
+          "arXiv:0907.4436 Theorem 5",
+          "Chuang Xu 2015 DOI:10.1080/03081087.2014.966646",
+          "Resultary 2026/11/8 rank-one-idempotent sum fibers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0907.4436",
+        "https://arxiv.org/abs/0907.5360",
+        "https://doi.org/10.1080/03081087.2014.966646",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-fibers-of-sums-of-two-rank-one-idempotents-over-finite--d85f889ccb7f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence conditions imply only the support can be nonempty, not q^(rs) times a Gaussian-binomial sum for each common rank.",
+          "The rank-one-summand result cannot be summed to obtain higher-rank idempotent decompositions without additional constraints."
+        ],
+        "reasoning": "The submitted theorem adds an exhaustive canonical block count and equal-rank theorem. It survives available specific prior coverage; Xu’s inaccessible full paper and Hall-product formulas remain material risks, not scientific failure by access alone.",
+        "searches": [
+          "de Seguins Pazzis Theorem 5 2009",
+          "Resultary 2026/11/8 all rank-one-summand fibers",
+          "Xu 2015 abstract and OA/Oxford retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In characteristic 2, P+Q=N is equivalent to the single-operator condition P^2=P and PN+NP=N; ordered pairs are in one-to-one correspondence with such P.",
+          "The target is classified under similarity solely by rank r and Jordan type (2^r,1^s)."
+        ],
+        "reasoning": "Existence of solutions and count of witnesses are different; the latter requires a block eigenspace and shear count for each rank b.",
+        "searches": [
+          "Resultary: characteristic two sum two idempotents prescribed square zero matrix rank spectra",
+          "de Seguins Pazzis arXiv:0907.4436 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published rank-one-summand law gives 2q^(n-1) for nonzero rank-one square-zero target and two rank-one summands, matching one entry of the candidate.",
+          "Direct q=2 n=3 and n=2 entire first-summand matrix enumerations agree with the stated rank distribution."
+        ],
+        "reasoning": "The previously published special subcase is correctly treated as covered, not newly original. No checked exact all-b product-sum table for arbitrary r,s was found.",
+        "searches": [
+          "Resultary Search: complete fibers sums two rank one idempotents finite fields",
+          "Resultary Search: rank-resolved idempotent decomposition fibers square zero",
+          "arXiv:0907.4436 prescribed sum"
+        ]
+      },
+      "rationale": "PASS (best of knowledge, with significant access risk): The 2009 de Seguins Pazzis paper solves existence of two-idempotent sums using Jordan-type criteria and contains no finite-field ordered witness/rank enumeration. A same-day published theorem gives complete rank-one-summand fibers, including the rank-one target subcase 2q^(n-1); this is credited and does NOT imply the unrestricted decomposition ranks of arbitrary square-zero targets. Xu 2015 precisely characterizes when a combination of two idempotents is square-zero; only its abstract was accessible despite arXiv/OA search and authorized Oxford attempt (VPN disconnected), so potential stronger mathematical overlap remains. A general Hall-algebra or structure-constant theorem could also imply the formula.",
+      "residual_risks": [
+        "Chuang Xu (2015) full primary article could not be inspected: after lawful open-access attempts, the authorized Oxford VPN was disconnected. This is access uncertainty, not evidence that the paper does not cover the claim.",
+        "A general finite-field idempotent conjugacy-class convolution/Hall-polynomial formula may provide the same product-sum implicitly.",
+        "The rank-one-summand fiber for rank-one target is already covered in separate published work; no novelty claimed for that subcase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_NOT_COUNTING",
+          "evidence": [
+            "Characteristic-two Jordan characterization does not enumerate ordered finite-field witnesses or common summand rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0907.4436",
+          "material_read": "Full primary arXiv PDF, Theorem 5 and surrounding Jordan-sum criteria",
+          "method": "OA PDF, parsed lines and screenshot of Theorem 5 page",
+          "title": "On linear combinations of two idempotent matrices over an arbitrary field",
+          "trigger": "Same existence problem in characteristic two"
+        },
+        {
+          "assessment": "SPECIAL_CASE_COVERED",
+          "evidence": [
+            "The rank-one summands special case is prior; rank(P)=rank(Q)>1 and general N of rank r are not covered."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-fibers-of-sums-of-two-rank-one-idempotents-over-finite--d85f889ccb7f",
+          "material_read": "Full RESULT.md including all six proof sections and total-fiber laws",
+          "method": "Published GitHub primary full text using connected read",
+          "title": "Complete fibers of sums of two rank-one idempotents over finite fields",
+          "trigger": "Same sum, same finite fields, but both summand ranks fixed to one"
+        },
+        {
+          "assessment": "PLAUSIBLE_UNINSPECTED_RISK",
+          "evidence": [
+            "Abstract gives structural characterizations of square-zero sums, no witness counts specified, but full contents unavailable and potential coverage cannot be excluded."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2014.966646",
+          "material_read": "Title, complete abstract, bibliographic and reference context only; full text not obtained",
+          "method": "Open-access/arXiv search, publisher abstract; one authenticated Oxford institutional request returned vpn_disconnected, no bypass/retry",
+          "title": "On the idempotency, involution and nilpotency of a linear combination of two matrices",
+          "trigger": "Highly relevant same square-zero idempotent combination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Prescribing a square-zero sum and asking for all ordered decompositions into idempotents is a natural finite-field refinement of a classical existence/classification question. The complete rank distribution for arbitrary nilpotent square-zero target rank, and forced equality of summand ranks, are nontrivial structural/counting facts; inclusion of boundary targets and extension fields makes it a complete natural invariant rather than a narrow arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Characteristic two only, square-zero targets only, ordered labeled pairs of two idempotents; no odd characteristic or non-square-zero target.",
+    "No claim of independent formal proof certification or complete historical originality.",
+    "Prior search and primary reading were bounded; no claim of exhaustive historical novelty, publisher bypass, source-code-based proof, or formal independent certification.",
+    "Public file publication is withheld independently of scientific PASS."
+  ],
+  "schema_version": 1
+}

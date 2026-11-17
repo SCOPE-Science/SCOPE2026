@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The direct anticommutator normal form is equivalent to the original two-idempotent equation in characteristic two; the fixed-idempotent block counts and the rank calculation yield every fiber without quotienting by basis changes. The finite-field checker exhaustively enumerates each specified small case and reproduces the formula. The unrestricted theorem is proved by the block-parameter bijection rather than the finite checks.
+## correctness
 
-## Originality — PASS, provisional
-The 2009 first-public source arXiv:0907.4436 proves an existence criterion via Jordan data, including characteristic two (Theorem 5); it does not determine finite-field witness counts, let alone the full common-rank spectrum. The 2009 companion focuses on the minimum number of summands. Xu's relevant 2015 structural characterization was compared at the abstract level but not read in full: this is a genuine source-access limitation, not evidence of noncoverage. Related published computational records on idempotent-times-nilpotent factorizations and low-rank idempotent sums have different objects or give only a special case. Historical originality remains provisional, and no search establishes uniqueness.
+PASS
 
-## Value — PASS
-The canonical nilpotent square-zero class is a natural prescribed-target boundary of the two-idempotent problem. The exact formula resolves the whole family of labeled witness counts with a rank refinement, including the zero target and maximal-rank boundary; it cannot be obtained simply by knowing existence. It also proves a structural equal-rank constraint that cleanly organizes the fibers.
+PASS: Since q is even, Q=P+N is idempotent iff P^2=P and PN+NP=N. With a canonical decomposition U plus W plus Z of dimensions (r,r,s), N:W->U identity and elsewhere zero, the anticommutator forces P=[[A,B,C],[0,I-A,0],[0,H,K]]. Direct squaring gives A^2=A, K^2=K, AB+BA=CH, AC+CK=C, HA+KH=0. For rank(A)=a and rank(K)=b, the C and H constraints allow opposite/equal eigenspaces respectively and have combined dimension rs; CH is off-diagonal with respect to A, so the B-commutator map has a^2+(r-a)^2 free entries. Gaussian-binomial numbers of projections A,K yield exactly the claimed product-sum H(n,r,b). Reordering to (U,Z,W) makes the idempotent triangular with diagonal A,K,I-A, so both summands have common rank r+b and no other ranks. Direct independent literal enumeration of all n=2,3 matrices over F2 for r=0,1 agrees: n=3,r=1 has eight solutions rank1 and eight rank2; n=3,r=0 has 1,28,28,1. Inspected actual extension-field verification code for F4/F8; it is finite corroboration, not proof of all fields.
 
-## Limitations
-Only characteristic two, square-zero targets, ordered labeled matrices, and two summands are treated. The most plausible accessible-but-incomplete comparison is Xu's article; an unidentified general finite-field convolution theorem could imply the result. No independent mathematical audit is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge, with significant access risk): The 2009 de Seguins Pazzis paper solves existence of two-idempotent sums using Jordan-type criteria and contains no finite-field ordered witness/rank enumeration. A same-day published theorem gives complete rank-one-summand fibers, including the rank-one target subcase 2q^(n-1); this is credited and does NOT imply the unrestricted decomposition ranks of arbitrary square-zero targets. Xu 2015 precisely characterizes when a combination of two idempotents is square-zero; only its abstract was accessible despite arXiv/OA search and authorized Oxford attempt (VPN disconnected), so potential stronger mathematical overlap remains. A general Hall-algebra or structure-constant theorem could also imply the formula.
+
+## value
+
+PASS
+
+PASS: Prescribing a square-zero sum and asking for all ordered decompositions into idempotents is a natural finite-field refinement of a classical existence/classification question. The complete rank distribution for arbitrary nilpotent square-zero target rank, and forced equality of summand ranks, are nontrivial structural/counting facts; inclusion of boundary targets and extension fields makes it a complete natural invariant rather than a narrow arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
