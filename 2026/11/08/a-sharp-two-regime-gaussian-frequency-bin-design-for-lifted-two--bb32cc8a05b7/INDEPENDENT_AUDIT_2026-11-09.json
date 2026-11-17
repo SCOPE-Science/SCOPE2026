@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:44:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The Gaussian transform of two tempered monochromatic tones is absolutely convergent; with u=e^{-π(x+a)²}, v=e^{-π(x-a)²}, one full beat period T=(2a)^{-1}, and real Hermitian Frobenius input/normalized L² two-bin output, Fourier-mode orthogonality exactly splits the lift into the 2×2 swapped diagonal block and two equal off-diagonal scalar blocks. Singular values are u²+v², v²-u² and √2uv twice. Since v>u>0, smallest m_a(x)=min{2e^{-2π(x²+a²)}sinh(4πax), √2e^{-2π(x²+a²)}}. The ratio is √2sinh(4πax) and crosses 1 once at x_C=asinh(1/√2)/(4πa); the difference branch has exactly one maximum x_D tanh(4πax_D)=a, while the other branch strictly decreases. Therefore unique global optimizer min(x_C,x_D) and regime threshold a_*²=asinh(1/√2)/(4π√3). At equality both positions coincide. Independently solved xD,xC at a=.08,a_*,.35 and checked that a grid had no superior candidate. A single bin has a nonzero Hermitian diagonal kernel, and its weighted-diagonal swap preserves rank-one intensity coefficients generically. The proof is exact; a sampled frequency grid cannot by itself establish global optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 3-tone theorem has an eight-value quotient spectrum and optimizes phase stagger η at fixed bins.",
+          "Wellershoff proves sampling uniqueness for general Paley–Wiener signals, not quantitative conditioning of the present finite lift."
+        ],
+        "reasoning": "Generality of signal class does not imply an exact stability constant/optimized offset; a 3-tone Hermitian quotient result does not algebraically specialize to the 2-tone 4×data lift because both measurement design and nonzero singular values change.",
+        "searches": [
+          "Gaussian STFT two tone phaseless retrieval two frequency bins singular values optimal symmetric offset hyperbolic threshold",
+          "two Gaussian tones spectral bins two by two Hermitian lifting optimal singular value",
+          "https://arxiv.org/abs/2206.03946",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d",
+        "https://arxiv.org/abs/2206.03946",
+        "https://arxiv.org/abs/1901.05296",
+        "https://arxiv.org/abs/2109.02494",
+        "Gaussian STFT two tone phaseless retrieval two frequency bins singular values optimal symmetric offset hyperbolic threshold",
+        "two Gaussian tones spectral bins two by two Hermitian lifting optimal singular value"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current exact singular spectrum {u²+v²,v²-u²,√2uv,√2uv}; Wellershoff uniqueness is a zero-kernel statement for different class.",
+          "Published 3-tone stagger theorem has 8 nonzero values and cannot yield this x_D/x_C crossover just by changing a symbol."
+        ],
+        "reasoning": "Prior assertions do not entail the numerical optimum or unique bin placement for the stated normalized two-tone lift; the new claim is not a mere corollary of the other design's closed-form spectrum.",
+        "searches": [
+          "Gaussian STFT two tone phaseless retrieval two frequency bins singular values optimal symmetric offset hyperbolic threshold",
+          "two Gaussian tones spectral bins two by two Hermitian lifting optimal singular value",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d",
+          "https://arxiv.org/abs/2206.03946"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wellershoff arXiv:2206.03946 proves uniqueness from Gabor magnitudes on two lines for bandlimited L², with no two-tone maximin offset.",
+          "Resultary three-tone exact conditioning RESULT.md SHA 4bd7b6845b248371519cfc43e814fad4781875c1 uses Herm(3)→R^8 and time staggering."
+        ],
+        "reasoning": "Frequency-line and intensity-lifting terminology overlaps, but signal class, dimensions, objective, data norm and optimized control differ. Neither inspected theorem is equivalent to symmetric two-tone frequency-offset singular optimization.",
+        "searches": [
+          "Gaussian STFT two tone phaseless retrieval two frequency bins singular values optimal symmetric offset hyperbolic threshold",
+          "two Gaussian tones spectral bins two by two Hermitian lifting optimal singular value",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d",
+          "https://arxiv.org/abs/2206.03946"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified published table or exact prior formula for a_* = sqrt(asinh(1/sqrt2)/(4πsqrt3)) for this Gaussian two-tone offset optimization."
+        ],
+        "reasoning": "This is a continuum singular-value optimization rather than database enumeration; checked prior spectral formulae and sharp thresholds instead of looking for a finite table.",
+        "searches": [
+          "Gaussian STFT two tone phaseless retrieval two frequency bins singular values optimal symmetric offset hyperbolic threshold",
+          "two Gaussian tones spectral bins two by two Hermitian lifting optimal singular value"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): Earlier two-line Gabor phase-retrieval results establish qualitative uniqueness for bandlimited L² signals, but do not optimize Gaussian symmetric frequency placement or a 4-dimensional real Hermitian singular spectrum for two tempered plane waves. Another published Gaussian-bin result derives a different 3-tone, 8-sample spectrum and optimizes relative sampling time stagger, not this two-tone bin offset. Standard Gaussian Fourier integrals and 2×2 singular-value calculus are shared methods; the precise sharp design and normalization-dependent threshold were not located in examined sources.",
+      "residual_risks": [
+        "A specialized unindexed 2-tone Gaussian spectral-bin calculation might give identical threshold; searches do not prove priority.",
+        "This is linear lifting sensitivity for two tempered waves, not an arbitrary signal-space or nonlinear phase-orbit stability theorem.",
+        "Other Gabor primary full papers beyond the nearest two-line one were compared by published claims but not all newly read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different 3-tone and time-offset design; does not cover symmetric two-tone frequency-bin offset threshold",
+          "evidence": "Finding; Assumptions and scope; Proof §§zero-frequency/first-frequency/Nyquist.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-conditioning-and-optimal-stagger-of-two-gaussian-spectral--f2400580db9d",
+          "material_read": "Entire published RESULT.md, theorem, block Fourier proof, zero/first/Nyquist harmonic decomposition, all 8 singular values, optimal stagger; blob 4bd7b6845b248371519cfc43e814fad4781875c1",
+          "method": "GitHub published Resultary full file",
+          "title": "Exact conditioning and optimal stagger of two Gaussian spectral-bin intensity measurements",
+          "trigger": "Very close Gaussian-bin Hermitian-lifting title"
+        },
+        {
+          "assessment": "Different signal class and uniqueness rather than sharp 4-real-parameter Hermitian lift conditioning",
+          "evidence": "arXiv:2206.03946, main uniqueness theorem and discussion of Paley–Wiener signals.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03946",
+          "material_read": "arXiv full PDF and theorem/proof sections for bandlimited L² two-frequency-line magnitude uniqueness",
+          "method": "Open-access PDF inspected in research with screenshot; abstract separately reverified",
+          "title": "Sampling at twice the Nyquist rate in two frequency bins guarantees uniqueness in Gabor phase retrieval",
+          "trigger": "Earlier exact two-line qualitative result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: For minimal two-frequency-line phaseless measurements of a natural two-tone model, conditioning directly governs stability of a specified linear lift. The unique optimal symmetric offset and exact separation threshold are motivated design rules; they determine quantitative tradeoffs beyond qualitative identifiability and give a meaningful boundary, not an arbitrary parameter choice. No broader nonlinear universal stability is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No asymmetric bin pairs, other windows, finite observation intervals, broadband L² classes or universal nonlinear reconstruction bounds.",
+    "All claims use normalized beat-period data norm and Hermitian Hilbert–Schmidt input."
+  ],
+  "schema_version": 1
+}
