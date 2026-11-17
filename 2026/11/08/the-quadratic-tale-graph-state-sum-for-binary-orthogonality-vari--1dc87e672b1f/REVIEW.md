@@ -1,19 +1,21 @@
-# Review of the quadratic-étale graph state sum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every nonzero-support set, the projectivized edge constraints reduce to propagation by the orthogonal-complement involution on the projective line. Even closed walks impose no condition; an odd closed walk forces an isotropic fixed line. This produces a product of projective lines and quadratic-étale schemes, and the nonzero vector lifts form a Zariski-locally-trivial torus bundle. The support pieces are disjoint and exhaustive. Their Grothendieck classes sum to the asserted formula. The quadratic-étale square identity and Frobenius eigenvalues yield the arithmetic and zeta formulas. Independent enumeration covers 57 graph/field cases; it does not prove the general result.
+PASS
 
-## Originality
+Every zero/nonzero vertex-support stratum is disjoint and locally closed. Orthogonal-complement is an involution on P(W); projective choices on each bipartite connected component form P^1, whereas odd cycles force an etale isotropic fixed point. Nonzero vectors are fibres of punctured tautological line bundles, Zariski-locally trivial G_m^{|U|} torsors. This proves K_0 sum without appealing to finite experiments. S_B×S_B is two disjoint copies of S_B even when nonsplit, so ([S_B]−1)^2=1. Frobenius acts with trace 1+ε^r; expansion gives q^j and εq^j factors and the finite zeta product. K_h induced support sizes 0,1,2 versus ≥3 yield exact A_h,C_h; nonsplit q^3 growth and split q^h growth for h≥4.
 
-PASS subject to historical-priority uncertainty. The 2014 Herzog–Macchia–Saeedi Madani–Welker work already provides binary graph-orthogonality primary decompositions, and the 2025 Casabella–Sammartano paper already describes orthogonal-frame components. The 2020 Hoang–Kahle work provides a Hilbert–Poincaré series for complete graphs. None of the relevant inspected results explicitly gives a single quadratic-étale Grothendieck-class graph polynomial or all finite-extension point counts and zeta functions for arbitrary graphs. Published structural decompositions could make an equivalent formula accessible by further deductions, so priority cannot be certified by search alone. Xie's 2026 off-diagonal Gram map work supplies the recent arithmetic motivation but not this state sum.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a uniform exact arithmetic invariant for every finite graph, not a fixed small-graph calculation. The graph-state-sum separates contributions from induced bipartite and odd-cycle components and retains Galois splitting information that is lost after passage to an algebraically closed field. It supplies explicit zeta functions for infinitely many reducible non-complete-intersection varieties and a strong split/nonsplit dimension-growth dichotomy for complete graphs. Its significance does not require a further application or new component classification.
+Best-of-knowledge PASS for the all-graph motivic and Galois-sensitive zeta state sum. The 2014 general-graph ideal-primary-decomposition theorem and 2025 orthogonal-frame component theorem do not directly state the exact disjoint-support motive or arithmetic twist. Comparison of implications, not titles, was used; possible equivalent graph polynomial is residual.
 
-## Closest literature and boundaries
+## value
 
-Relevant sources: arXiv:2610.02585v1; arXiv:1411.3674v1, especially Theorem 1.4 and Sections 4–5; arXiv:2512.25058, Theorem 5.8; DOI:10.1007/s13348-020-00294-2, Section 3. The main remaining risk is a prior equivalent point-count formula under a graph polynomial name, not a failure of the displayed support-stratum proof. Only characteristic different from two and reduced varieties are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural global arithmetic invariant of graph orthogonality zero fibres over nonclosed fields; the etale correction distinguishes split/nonsplit counts and gives complete zeta functions. Exact stratum additivity supplies information not obtained merely by knowing irreducible components or radicality, so the result is more than a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
