@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each binary alternating run skeleton, the proof supplies exact coordinate-box criteria for subsequence occurrence. Single-letter deletion conditions determine the minimal absent frontier, including equality and singleton-run boundaries. The exhaustive ten-row skeleton table gives exactly seven unconditional and six conditional words; patterns of six or more runs cannot be minimal because their proper subsequences contain an absent five-run alternating pattern. The independent standalone program verifies 1024 exhaustive parameter tuples, plus 116099 deletion witnesses and 6600 randomized membership checks on larger tuples. Its finite checks are supplemental, not a substitute for the symbolic proof.
+PASS
 
-## Originality — PASS (with residual bibliographic uncertainty)
+For W=0^a1^b0^c1^d0^e with all positive exponents and scattered-subsequence order, the proof classifies all possible alternating skeletons of at most five runs using exact run-capacity rectangles and one-letter deletion minimality. Patterns with >=6 runs contain the absent 10101 proper subsequence and cannot be minimal. Seven unconditional and six conditional corner patterns exhaust the 13 templates. The exact count 7+x+y+z+xy+yz+xyz follows, and possible values are 7,8,9,10,13. Independently generated full subsequence downsets for 243 parameter 5-tuples in {1,2,3}^5 match every predicted basis and count; finite cases corroborate but are not the universal proof.
 
-The closest primary material is Kosche et al., *Absent Subsequences in Words* (arXiv:2108.13968), sections on general minimal absent subsequence characterizations and compact representations; it defines and algorithmically characterizes the same objects, but does not state the five-run closed basis in the inspected sections. Adamson et al., arXiv:2407.18599, bounds counts of absent subsequences at given lengths and universality indices, a different quantity. The later general enumeration results of Manea et al., arXiv:2504.21471, do not state the symbolic parameter classification in inspected material. Searches for the five-run template and its equivalent subsequence-antidictionary formulation did not disclose a direct equivalent. A related 2023 conference paper's full text was unavailable; therefore this remains a possible overlap risk. A general algorithm's ability to compute a specific case does not amount to an already-stated symbolic formula, though it lowers the conceptual distance.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A five-run host is the first family with three interior run multiplicities interacting through singles, two adjacent products, and a triple product. The complete minimal forbidden-subsequence antichain is a canonical description of its entire subsequence downset, and the result identifies an unexpected absence of cardinalities 11 and 12 and the exact threshold for the maximum of thirteen. This is a natural complete infinite-parameter classification rather than an isolated numeric slice or a restatement of membership testing.
+Best-of-knowledge PASS for an explicit five-run scattered-subsequence basis, including the 10101 conditional pattern and precise seven-to-thirteen count. The published four-run symbolic basis is genuinely analogous but has different endpoint capacity and cannot imply this five-run statement; general algorithms for arbitrary words are computationally broad but do not state a uniform five-parameter template formula in accessible material. Risk: uninspected full older MAS literature or simple specialization may supply it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: the minimal scattered-subsequence antichain is a canonical finite-language invariant; the closed symbolic basis for all five-run hosts supplies exact thresholds and a surprisingly outer-run-independent size. The result is a complete natural classification of an infinite parameter family, rather than a known-table recomputation or arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
