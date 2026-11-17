@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-coplayer-type combinatorial identity establishes the exact quadratic unilateral payoff advantage. Its sign at cooperators and defectors is necessary and sufficient for every finite pure equilibrium, including all ties. The central maximum and descending crossing prove the onset and parity census; the direct calculation with one defector yields the sharp cutoff. Separate direct-payoff rational testing from direct payoffs passed 49,976 action-advantage comparisons and the integer threshold/cutoff controls. The tests are supporting checks, not substitutes for the unrestricted proof.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The closest initiating study is Civilini et al., *Explosive Cooperation in Social Dilemmas on Higher-Order Networks* (arXiv:2303.11475, 2023; PRL 2024), whose well-mixed evolutionary mean-field bistability and original game structure are fully credited. Here the exact labeled pure-Nash census in the specified *static weighted complete* model, finite parity-dependent onset, and sharp 12/13 one-defector boundary are not obtained from its evolutionary fixed-point theorem. Related external searches and accessible prior exact-claim records did not show a covering finite classification. A potentially unindexed anonymous-game equivalent is an unresolved priority risk.
+PASS
 
-## Value — PASS
-The first appearance of cooperation is quantified exactly at every finite population size, the parity tie multiplicity is resolved, and the one-defector state has a sharp, weight-independent population cutoff. A complete natural equilibrium census is useful as a finite benchmark for higher-order social dilemma studies. The result does not claim new stochastic dynamics, a general hypergraph theorem or an independent discovery of continuum bistability.
+A player facing j other cooperators among L=n-1 has exact action advantage d_L(j)=-L/2+lambda[3j(L-j)-L(L-1)/4], obtained by counting j(L-j) mixed coplayer pairs and the two homogeneous triple cases. A k-cooperator pure profile is Nash iff d_L(k-1)>=0>=d_L(k), with all defectors always stable and all cooperators never stable. The resulting binomial labeled census holds including indifference. The discrete concave quadratic has maximum at floor(L/2), giving lambda_c=L/[2(3floor(L²/4)-L(L-1)/4)] and parity-sensitive first-appearance counts. Its descending zero crossing allows at most two consecutive cooperative k-values. The one-defector inequality d_L(L-1)>=0 is possible exactly for n<=12, at lambda>=2(n-1)/[(n-2)(13-n)]. Independently enumerated 1,240 exact rational payoff profiles; infinite-n proof is the combinatorial advantage identity and discrete concavity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Civilini et al. introduced the relevant two- and three-player payoff table and analyzed its continuum evolutionary/replicator cooperation transition in the fully inspected full paper and supplement. This is credited as prior motivation. The submitted theorem is a finite static pure-Nash census of all labeled profiles and a sharp parity/tie/onset and n=12/13 obstruction; the mean-field evolutionary bifurcation does not supply these integer pure-equilibrium counts. An equivalent anonymous game equilibrium classification could exist in unindexed literature.
+
+## value
+
+PASS
+
+The complete exact Nash census of a physically motivated higher-order cooperation game is a natural small combinatorial model, especially because finite parity changes equilibrium multiplicity at the onset and there is a strict population cutoff for a one-defector state. This gives a benchmark without claiming stochastic adoption dynamics or a general hypergraph theorem; the enumerative answer itself is useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
