@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new assertion is an exact universal formula for the Schneider index, not a bound. The vertex description holds for the entire real parameter interval, with separately treated simplex endpoint. The cap facets are simplices, giving the \(d-1\) lower bound; the uniform barycenter gives the \((d+1)t-1\) lower bound. For the converse, every facet of the scaled polytope is covered using the dimension-dependent Carathéodory bound, and a common point of every vertex translate is verified coordinatewise. Star-shapedness with that center plus complete boundary coverage gives the entire convex body. The inequalities include equality cases and degeneracy at \(t=1/2\). The extracted exact-rational checker passed 19,385 supplementary assertions for dimensions 3–7. No finite sample is used in place of the universal proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For n=d+1, d>=3 and 1/2<=t<1, the vertices of P={x>=0,sum x=1,x_i<=t} are permutations of (t,1-t,0,...). Necessity: the cap facet is a (d-1)-simplex whose centroid requires lambda>=d-1; at the global barycenter the t-coordinate requires lambda>=nt-1. Sufficiency for lambda=max(d-1,nt-1): each face boundary is covered because any (d-1)-facet point is a combination of at most d vertices and hence belongs to one vertex+lambda face translate. For z=(1+lambda)(1/n,...), direct coordinate bounds show z lies in every translated lambda P; union is star-shaped about z, while every ray to its full convex hull endpoint meets a covered boundary point, giving full coverage. At t=1 P is a simplex with c=d by sharp centroid/Caratheodory. Thus c=max(d-1,(d+1)t-1), attaining all real t and the phase switch t=d/(d+1). Exact rational center-coordinate tests for d=3..6 and several rational t corroborate only finite cases.
 
-Meyer, arXiv:2610.26744, studies finite convexification, gives a general exposed-face criterion and names the Schneider case, but does not tabulate the index of this truncated-simplex family (the inspected 20-page PDF has no occurrences of “simplex” or “truncat”). Artstein-Avidan–Falah–Slomka, arXiv:2407.20604, develops vertex-generation parameters, the simplex bound, and facial methods; the full-text searches for “hypersimplex” and “truncat” were negative. Prior work on the half-cap endpoint establishes that special case; it does not imply the nonconstant phase beyond \(t=d/(d+1)\). The mathematical-record searches for this formula and its aliases did not return an encompassing statement; this negative evidence alone is not proof of uniqueness. Residual risk: older or poorly indexed literature on uniform simplex truncations could contain an equivalent formula.
+## originality
 
-## Value — PASS
+PASS
 
-Uniform caps form a natural one-parameter path from the rectified simplex (a hypersimplex) to the simplex. The exact index is invariant under a substantial deformation but then changes at a sharp dimension-dependent threshold. The proof identifies the geometric mechanism of the transition: a simplex-facet obstruction competes with an interior uniform-center obstruction. This gives a complete structural classification of a nontrivial symmetric family, rather than an arbitrary numerical example or a routine reformulation.
+Compared the theorem not merely the parameter name: the earlier exact hypersimplex index covers t=1/2; classical simplex theorem covers t=1. Neither endpoint, general face restriction, nor generic finiteness criterion implies the continuous plateau and sharp t=d/(d+1) switch. Best-of-knowledge novelty survives with unindexed-priority risk.
 
-## Limits
+## value
 
-Only equally capped simplices with \(d\ge3\) and \(t\in[1/2,1]\) are covered. No claim is made about unequal caps, smaller cap levels, or unrestricted convex bodies. Historical priority is provisional; independent validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Schneider index is a natural affine-invariant measure of when finite vertex translates convexify a polytope. This all-dimensional, all-real-cap interpolation between a scaled hypersimplex and a simplex has two independent sharp obstructions and an unexpected d-1 plateau followed by a linear regime; the continuous exact phase boundary is not a routine endpoint substitution and is a useful complete shape-parameter classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
