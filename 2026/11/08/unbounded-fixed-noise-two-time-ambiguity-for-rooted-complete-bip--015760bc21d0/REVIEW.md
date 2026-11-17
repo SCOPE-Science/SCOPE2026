@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact stationary equal-time pair-covariance equations for the *synchronous* fair-noise voter process. It establishes that opposite-part covariance is zero, solves the two within-part equations, and uses the complete-bipartite two-step kernel to obtain every temporal autocorrelation at the root. At refresh probability \(1/2\), the exact identity \((5a-4n-1)b=n(a-1)\) characterizes equality with the balanced graph's lag-two correlation. The proposed integer construction satisfies it identically. The lcm choice guarantees integrality and at least two vertices in each part; increasing larger part sizes guarantee nonisomorphism. The independent full-pair rational solver checks two small collisions and all lags through 12; the bundled checker printed `VERIFY_OK 560 exact-rational assertions`.
+PASS
 
-Scientific risk: computations are finite consistency checks; universality depends on the displayed algebraic and Markov arguments, which are fully included. The claim does not extend to nonstationary starting laws.
+For K_(a,b), independent simultaneous parent samples give cross-part covariance z=qz=0, within-part x=q[1+(b-1)y]/b, y=q[1+(a-1)x]/a with q=(1-epsilon)^2. The temporal Markov kernel alternates between uniform part supports and gives R_(2l)=c^(2l-2)y; sign symmetry determines the entire pair law. At epsilon=1/2, y=(a+4b-1)/(15ab+a+b-1). Setting y=1/(3n+1) yields (5a-4n-1)b=n(a-1), satisfied identically by a_j=1+j(n-1), b_j=jn/(5j-4), n=2*lcm_j(5j-4). This ensures integrality, both parts >=2 and strictly increasing largest part a_j, including k=2. No step infers unbounded k from finite checks.
 
-## Originality — PASS (priority qualified)
+## originality
 
-The closest primary source is Benjamini–Helman Tov–Zhukovskii, arXiv:2207.01224, Theorem 6.1 and Section 6. It already proves pairs of complete-bipartite structures that cannot be separated by any repetition-frequency statistic, for carefully selected noise levels; pairwise second-order nonidentifiability is therefore **prior work**. The reviewed new assertion is stronger and logically distinct: for *every* prescribed cardinality \(k\), one can produce a *single common* collision class containing \(k\) nonisomorphic rooted connected nonstar graphs while keeping the same fixed refresh rate \(1/2\). Prior pair-existence assertions do not imply unbounded simultaneous multiplicity or fixed-rate existence. The exact lcm construction establishes both. The source's four-time separation results are consistent with the stated two-time-only claim. Pymar–Rivera, arXiv:2112.01478, has a different update rule and global-density observables. Primary literature and indexed mathematical findings yielded no stronger implication.
+PASS
 
-Residual originality risks: natural number-theoretic parametrization might be known outside indexed literature; a negative search is not proof of priority. The original paper supplies the covariance framework; no novelty is attributed to it.
+Best-of-knowledge PASS with restricted credit: the already-published pairwise nonidentifiability is excluded; the new quantified fixed-noise arbitrary finite multiplicity is established constructively and not implied by the examined Theorem 6.1(4).
 
-## Value — PASS
+## value
 
-The result proves a qualitative, unbounded ambiguity phenomenon, not merely another isolated pair or a narrow numerical table. Even infinite-precision access to *every* two-time statistic at a known ordinary noise level cannot limit candidate rooted complete bipartite graph structures to any universal finite count. This gives a motivated boundary for local graph reconstruction and underscores why higher-order observations are mathematically necessary in some settings. No full-stream indistinguishability or finite-sample estimator is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Graph reconstruction from local noisy dynamics is a natural inverse problem. The theorem rules out every uniform finite candidate bound even if every two-time stationary statistic is known exactly at a fixed standard rate; this is qualitatively stronger than a second example of ambiguity, without asserting full-stream indistinguishability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
