@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_complement_spectrum.py` with ordinary Python 3. No third-party dependencies are needed. The checker directly enumerates contiguous factors of the periodic host for every ordered run-length pair from 1 through 16, at lengths 1 through \(3(a+b)+2\) inclusive, and intersects the sets with their bitwise complements. It independently constructs the predicted language for unequal runs, and obtains the full periodic factor language for equal runs. It asserts exact *word-set* equality, per-length multiplicities, and total count for each unequal-run pair.
+## correctness
 
-Observed output: `PASS 256 parameter pairs, 13568 length profiles, 41616 total per-length complemented-word occurrences checked`.
+PASS
 
-This is not an exhaustive check over unbounded run lengths or factor lengths. The infinite claim relies on the structural transition-count argument in RESULT.md. The equal-run case uses the half-period bit-flip symmetry. No independent external review or audit has been performed.
+A factor with at least two letter changes contains a full internal run of length a or b; complementing it requires a full run of the opposite letter of the same length, impossible if a!=b. Thus complemented factors have zero or one transition. Both 0^i and 1^i occur iff i<=m=min(a,b); both 0^i1^j and 1^i0^j occur iff i,j<=m. These are exhaustive and disjoint word families, so the length generating polynomial is 2z(1-z^m)/(1-z)+2[z(1-z^m)/(1-z)]²=2z(1-z^m)(1-z^(m+1))/(1-z)²; coefficients are 2n for n<=m, 2(2m-n+1) for m<n<=2m, zero later. Total 2m(m+1), and exact cutoff 2m. For equal runs, shift by m complements the host and all 2m period phases are distinct at length >=m, giving 2min(n,m) for all n. The one-sided word contains every cyclic phase, so no boundary ambiguity. An independent literal factor-language enumeration checks all 100 run pairs a,b<=10 up to length 3(a+b)+2, including complete word sets, not only counts.
+
+## originality
+
+PASS
+
+Currie et al (2022/2025) introduce complemented-factor-avoidance and finite total-number invariants, and investigate critical exponent thresholds in broad infinite-word classes, but the complete special two-run periodic language and sharp min(a,b) count are not their theorems. Earlier same-family Resultary records calculate ordinary, 2-Abelian and closed/open factor complexity, not intersection with the bitwise complementary language. The full family classification therefore survives, although the proof uses elementary run decomposition.
+
+## value
+
+PASS
+
+An exact finite/infinite threshold in a natural complement-avoidance parameter family, with the entire language, sharp maximum common-complement factor length and full enumerator, not just sample counts. This supplies explicit canonical periodic benchmarks for complement-avoidance and factor-language intersections; it is narrow and elementary but the problem's defined invariant and complete answer are mathematically motivated, not an arbitrary slice or recomputation of a known complement table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:10:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A factor with at least two letter changes contains a full internal run of length a or b; complementing it requires a full run of the opposite letter of the same length, impossible if a!=b. Thus complemented factors have zero or one transition. Both 0^i and 1^i occur iff i<=m=min(a,b); both 0^i1^j and 1^i0^j occur iff i,j<=m. These are exhaustive and disjoint word families, so the length generating polynomial is 2z(1-z^m)/(1-z)+2[z(1-z^m)/(1-z)]²=2z(1-z^m)(1-z^(m+1))/(1-z)²; coefficients are 2n for n<=m, 2(2m-n+1) for m<n<=2m, zero later. Total 2m(m+1), and exact cutoff 2m. For equal runs, shift by m complements the host and all 2m period phases are distinct at length >=m, giving 2min(n,m) for all n. The one-sided word contains every cyclic phase, so no boundary ambiguity. An independent literal factor-language enumeration checks all 100 run pairs a,b<=10 up to length 3(a+b)+2, including complete word sets, not only counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2209.09598v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-2-abelian-complexity-of-two-run-periodic-binary-words-and--05343ed94867",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-closed-and-open-factor-complexity-of-0-a1-b-omega--b1ff4ad32c25"
+        ],
+        "reasoning": "Currie and collaborators treat arbitrary infinite binary words and optimal critical exponents under complement avoidance, not the exact two-run periodic intersection formula. Same-host broader word-complexity papers compute related spectra, not the complete complemented-factor set.",
+        "searches": [
+          "binary periodic word (0^a 1^b) complemented factor intersection language min a b counts"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2209.09598v2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-closed-and-open-factor-complexity-of-0-a1-b-omega--b1ff4ad32c25",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-2-abelian-complexity-of-two-run-periodic-binary-words-and--05343ed94867"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2209.09598v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-closed-and-open-factor-complexity-of-0-a1-b-omega--b1ff4ad32c25"
+        ],
+        "reasoning": "Even if the conventional ordinary length-n factor count is known, deciding which factors have complements requires identifying run transitions and both letter-wise run bounds. For unequal runs the resulting language is finite and for equal runs it is infinite, which the ordinary factor complexity does not by itself classify.",
+        "searches": [
+          "binary periodic word (0^a 1^b) complemented factor intersection language min a b counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2209.09598v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-closed-and-open-factor-complexity-of-0-a1-b-omega--b1ff4ad32c25"
+        ],
+        "reasoning": "Complemented-factor occurrence is equivalent to intersection of the factor languages of W_{a,b} and its bitwise complemented/phase-shifted W_{b,a}. Ordinary factor complexity or 2-Abelian equivalence is a different relation and cannot directly substitute for exact complement intersections.",
+        "searches": [
+          "binary periodic word (0^a 1^b) complemented factor intersection language min a b counts",
+          "two run periodic binary words complemented factors 0^a1^b count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2209.09598v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-closed-and-open-factor-complexity-of-0-a1-b-omega--b1ff4ad32c25",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-2-abelian-complexity-of-two-run-periodic-binary-words-and--05343ed94867"
+        ],
+        "reasoning": "The published total number of complemented words is an invariant in Currie et al but its theorems report optimal thresholds and witness constructions, not a table for all (a,b). Resultary ordinary two-run complexity tables are not tables of complementary factor pair counts.",
+        "searches": [
+          "two run periodic binary words complemented factors 0^a1^b count"
+        ]
+      },
+      "rationale": "Currie et al (2022/2025) introduce complemented-factor-avoidance and finite total-number invariants, and investigate critical exponent thresholds in broad infinite-word classes, but the complete special two-run periodic language and sharp min(a,b) count are not their theorems. Earlier same-family Resultary records calculate ordinary, 2-Abelian and closed/open factor complexity, not intersection with the bitwise complementary language. The full family classification therefore survives, although the proof uses elementary run decomposition.",
+      "residual_risks": [
+        "An unindexed elementary exercise or prior binary run-factor intersection formula could subsume the result.",
+        "The proof uses straightforward run analysis; independent mathematical significance rests on natural completeness for the complement-avoidance invariant rather than technical difficulty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_COVERING: introduces total complemented count and repetition thresholds, not exact two-run periodic language",
+          "evidence": "Section 3 gives optimal critical-exponent regimes for given number of complemented words, not 2m(m+1) for every period run pair.",
+          "identifier_or_url": "https://arxiv.org/html/2209.09598v2",
+          "material_read": "Full arXiv HTML: introduction, sections 2–3 definitions, Theorems 3–4, and section 5/Conclusion; searched entire rendered text for periodic family",
+          "method": "Full primary 2023 arXiv HTML (2025 journal article)",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Original complemented-factor total and no-long-complement framework"
+        },
+        {
+          "assessment": "NOT_COVERING: closed/open factors differ from bitwise complemented pairs",
+          "evidence": "Its scope concerns return-word border condition and stabilization, no complement-intersection language.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-closed-and-open-factor-complexity-of-0-a1-b-omega--b1ff4ad32c25",
+          "material_read": "Published indexed finding synopsis and formulas",
+          "method": "Resultary semantic search",
+          "title": "Exact closed and open factor complexity of (0^a1^b)^omega",
+          "trigger": "Exact factor invariant on identical host family"
+        },
+        {
+          "assessment": "NOT_COVERING: Parikh/digram equivalence versus bitwise complement",
+          "evidence": "The result gives phase distinguishability, not common factors with complementary host.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-2-abelian-complexity-of-two-run-periodic-binary-words-and--05343ed94867",
+          "material_read": "Published indexed finding synopsis",
+          "method": "Resultary semantic search",
+          "title": "Exact 2-Abelian complexity of two-run periodic binary words",
+          "trigger": "Same two-run host with another refined factor statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact finite/infinite threshold in a natural complement-avoidance parameter family, with the entire language, sharp maximum common-complement factor length and full enumerator, not just sample counts. This supplies explicit canonical periodic benchmarks for complement-avoidance and factor-language intersections; it is narrow and elementary but the problem's defined invariant and complete answer are mathematically motivated, not an arbitrary slice or recomputation of a known complement table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only periods with exactly two constant runs; no general periodic or aperiodic statement.",
+    "Finite phase checks verify up to a,b<=10; full all-run proof uses internal-run argument."
+  ],
+  "schema_version": 1
+}
