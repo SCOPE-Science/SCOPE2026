@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T02:57:48.484079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "When m unseen coupon types remain, the probability an offered d_N-subset contains none is a_{m,N}=C(N−m,d_N)/C(N,d_N). By independent rounds, successive failure runs are independent geometric variables; exact hypergeometric product comparison gives 0≤q_N^m−a_{m,N}≤q_N^m m(m−1)/(2(N−d_N)), including the zero-probability cutoff. Monotone inverse-CDF geometric coupling yields dTV(L(T_N−N),L(S(q_N)))≤q_N/[N(1−q_N)^5]. The geometric PGF product gives the Euler q-series mass law and moments, and dominated logarithmic expansion produces positive C(q)/N no-delay correction on rational fixed-q subsequences, proving sharp N^-1 order. Independently verified all finite-stage inequalities exactly for 3≤N≤26, all 1≤d<N and all m; infinite TV and asymptotic assertions follow from the explicit summable proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01463",
+          "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+          "https://arxiv.org/abs/2605.06953",
+          "2026 fixed-d Gumbel theorem has coefficients depending on d; retain-all package collectors have different stopping dynamics."
+        ],
+        "reasoning": "Fixed-d asymptotics cannot directly dominate d_N≈θN without a uniform theorem; the inspected package-drawing model retains all observed types, hence is inapplicable.",
+        "searches": [
+          "multi draw coupon collector least collected proportional d/N Euler product 1/N convergence Doumas Spektor",
+          "Resultary search multi draw coupon proportional offer Euler q-product",
+          "Berend Sher 2605.06953 group drawing"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.01463",
+        "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+        "https://arxiv.org/abs/2605.06953"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01463",
+          "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+          "Prior phase failures a_{m,N} depend on N,d; taking d_N/N→θ and obtaining O(N^-1) TV with positive correction requires new uniform domination and dominated first-order expansion."
+        ],
+        "reasoning": "The prior input determines finite distribution in principle, but does not mathematically state/quantify the bulk-offer sharp convergence; proof derives it as meaningful new asymptotic analysis.",
+        "searches": [
+          "multi draw coupon collector least collected proportional d/N Euler product 1/N convergence Doumas Spektor",
+          "Full primary theorem 20 fixed offer-size asymptotics and Xu Tang fixed-size results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01463",
+          "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+          "Prior independent geometric holding-time decomposition is the same finite starting point, and classical q-products give the resulting limit law once the proportional regime is derived."
+        ],
+        "reasoning": "The old geometric-phase identity is credited; the new regime, quantitative TV bound and correction do not appear as standalone prior equivalent claims in the inspected primary material.",
+        "searches": [
+          "multi draw coupon collector least collected proportional d/N Euler product 1/N convergence Doumas Spektor",
+          "Doumas Spektor arxiv 2607.01463 equations 74–75",
+          "Xu Tang 2011 generalized coupon collector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.01463",
+          "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+          "(q;q)_∞ and coefficients q^k/(q;q)_k are classical q-series, which the submission explicitly does not claim to have invented."
+        ],
+        "reasoning": "Exact distribution of this proportional-choice policy is the new model-specific identification, rather than copying an already identified numerical table for the same model and scaling.",
+        "searches": [
+          "multi draw coupon collector least collected proportional d/N Euler product 1/N convergence Doumas Spektor",
+          "q-binomial Euler product coupon completion exact probability table"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Doumas and Spektor 2026 prove the finite geometric-phase representation and fixed d Gumbel limit, which do not allow substituting d_N proportional to N into a fixed-d asymptotic with nonuniform constants. Xu–Tang 2011 give a generalized collector model and means, not this tight limiting law. Berend–Sher analyze a retain-all rather than retain-one coupon policy. Classical Euler q-product/probability generating functions are known but their sharp distributional emergence in this natural proportional-choice retain-one model, uniform TV bound and first-order correction were not found as corollaries of inspected full texts.",
+      "residual_risks": [
+        "Other classical q-series or stochastic limit results may encode the same proportional-choice law implicitly; search nonmatches are not novelty certification.",
+        "The correction is proved only for fixed rational q along integral d_N subsequences, not arbitrarily rounded q_N."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact phase representation and fixed-d Gumbel scaling; proportional d_N/N tight q-law and sharp N^-1 rate not found in inspected statements",
+          "evidence": "Theorem 20 fixed d; geometric-stage formulas for Problem II.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+          "material_read": "Accessible arXiv full PDF; geometric stages equations 74–75, Theorem 20 and fixed-d asymptotic discussion",
+          "method": "Full PDF text plus page screenshot inspected via web",
+          "title": "Two Multi-Draw Coupon Collector models with different retention rules",
+          "trigger": "Exact same least-collected retain-one process, potential dominating distribution theorem"
+        },
+        {
+          "assessment": "Earlier exact means and fixed-offer regime, not a covering sharp proportional-offer distribution",
+          "evidence": "Fixed d and expectation; no stated Euler limiting TV rate.",
+          "identifier_or_url": "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+          "material_read": "Accessible author-hosted full PDF, formulation, mean results and theorem 4",
+          "method": "Full PDF text and screenshot inspected via web",
+          "title": "A Generalized Coupon Collector Problem",
+          "trigger": "Older source on same retain-one multichoice model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Keeping just one coupon from a macroscopic offered batch produces a different order-of-fluctuation regime from fixed offer size. The theorem determines the complete limiting distribution, all moments, a uniform quantitative finite-size error and a matching optimal rate with explicit correction; these are natural operational statistics of the underlying collector, not arbitrary finite checks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.01463",
+    "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+    "https://arxiv.org/abs/2605.06953"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes independent uniform d_N-subsets of distinct coupons each round, retaining exactly one unseen coupon when present.",
+    "Endpoints q→0,1 and multi-copy collection are outside scope; the displayed TV bound can be loose near q=1."
+  ],
+  "residual_risks": [
+    "Other classical q-series or stochastic limit results may encode the same proportional-choice law implicitly; search nonmatches are not novelty certification.",
+    "The correction is proved only for fixed rational q along integral d_N subsequences, not arbitrarily rounded q_N."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Supplies exact phase representation and fixed-d Gumbel scaling; proportional d_N/N tight q-law and sharp N^-1 rate not found in inspected statements",
+      "evidence": "Theorem 20 fixed d; geometric-stage formulas for Problem II.",
+      "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+      "material_read": "Accessible arXiv full PDF; geometric stages equations 74–75, Theorem 20 and fixed-d asymptotic discussion",
+      "method": "Full PDF text plus page screenshot inspected via web",
+      "title": "Two Multi-Draw Coupon Collector models with different retention rules",
+      "trigger": "Exact same least-collected retain-one process, potential dominating distribution theorem"
+    },
+    {
+      "assessment": "Earlier exact means and fixed-offer regime, not a covering sharp proportional-offer distribution",
+      "evidence": "Fixed d and expectation; no stated Euler limiting TV rate.",
+      "identifier_or_url": "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+      "material_read": "Accessible author-hosted full PDF, formulation, mean results and theorem 4",
+      "method": "Full PDF text and screenshot inspected via web",
+      "title": "A Generalized Coupon Collector Problem",
+      "trigger": "Older source on same retain-one multichoice model"
+    }
+  ]
+}
