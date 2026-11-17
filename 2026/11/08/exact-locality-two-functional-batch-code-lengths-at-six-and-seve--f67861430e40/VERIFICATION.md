@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verifying the exact finite constructions
+# Independent mathematical audit
 
-Use Python 3.10 or later, from the directory containing `verify.py` and `certificates/recovery_witnesses.json`:
+## correctness
 
-```bash
-python3 verify.py
-```
+PASS
 
-The verifier reads the bundled certificate and checks the two literal rank-three generator-column multisets. It enumerates each multiset of size six (924 instances) and each multiset of size seven (1716 instances) over the seven nonzero binary length-three request types. For each encoded list of subset masks it checks: exactly one subset per requested type; masks nonempty and within column range; popcount one or two; pairwise disjointness; and bitwise XOR of selected columns equal to the requested vector. The lists are tied to a deterministic lexicographic combination-with-replacement enumeration, not to data obtained from an external source.
+For each nonzero request a, three distinct disjoint XOR-pair types and singleton copies give the exact equal-request capacity M_a=x_a+sum_{b<c,b XOR c=a}min(x_b,x_c). Summing all a gives 4n-(1/2)sum_{b<c}|x_b-x_c|; balanced integer multiplicities minimize discrepancy r(7-r), giving total capacity at n=11 of 38<42 and at n=12 of 43<49. Padding excludes all shorter lengths. The pinned full 66,621-byte recovery_witnesses.json was read and an independently written 2640-case mixed-request enumerator checked all masks, disjointness, max-two size, and exact XOR (924 for t=6,1716 for t=7; zero invalid). The 12/13-column generators contain a binary basis. This is an exhaustive finite certificate for exactly these two parameters, not an infinite-parameter extrapolation.
 
-It also exhaustively enumerates all weak seven-part integer compositions of 11 (12,376 cases) and 12 (18,564 cases) to cross-check their minimum multiplicity discrepancy, and confirms the exact strict bounds on aggregate equal-request capacity. The proof in `RESULT.md` separately establishes the discrepancy minimization for all seven-component integer multiplicities and the validity of the capacity identity, so the lower-bound argument does not depend solely on an observed finite sample.
+## originality
 
-Expected last line: `ALL_CERTIFICATES_OK`. The run requires only the standard Python library and no network. The output verifies mathematical conditions for the exact two instances; it is neither an independent third-party audit nor evidence about uninspected publications.
+PASS
+
+The exact locality-two six/seven request optima are not determined by known unrestricted or locality-three constructions; the restricted certificate is a genuine new finite computation and proof at natural neighboring request counts. Extensive comparison with the same-object 2026 locality-two primary work and earlier published length-eleven six-request theorem found no same statement or theorem implying both length values.
+
+## value
+
+PASS
+
+The minimum storage length under a strict two-symbol recovery budget is a natural and operationally meaningful parameter, and six and seven are consecutive nontrivial batch-load cutoffs. Exact tight lower bounds plus all mixed-request recoveries resolve a finite problem that unrestricted or locality-three results do not settle. Generalization or paper-sized theory is not required for the precise finite optimal values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

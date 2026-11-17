@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:51:32.984338Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md d9bf3a6787668540b0d64f69404de9de75ba3db0",
+        "pinned verify.py d7543431102e09167b5de100a18f1389caa62671",
+        "pinned certificates/recovery_witnesses.json 9123d58566f7aa1ee8dbf0289b4d01435339694c",
+        "independent_checks.log BATCH; independent connected JS enumeration of 2640 requests"
+      ],
+      "rationale": "For each nonzero request a, three distinct disjoint XOR-pair types and singleton copies give the exact equal-request capacity M_a=x_a+sum_{b<c,b XOR c=a}min(x_b,x_c). Summing all a gives 4n-(1/2)sum_{b<c}|x_b-x_c|; balanced integer multiplicities minimize discrepancy r(7-r), giving total capacity at n=11 of 38<42 and at n=12 of 43<49. Padding excludes all shorter lengths. The pinned full 66,621-byte recovery_witnesses.json was read and an independently written 2640-case mixed-request enumerator checked all masks, disjointness, max-two size, and exact XOR (924 for t=6,1716 for t=7; zero invalid). The 12/13-column generators contain a binary basis. This is an exhaustive finite certificate for exactly these two parameters, not an infinite-parameter extrapolation.",
+      "residual_risks": [
+        "The certified optima are restricted to dimension three over GF(2), t=6 or 7 and recovery locality at most two. No classification of all optimizers is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Resultary Oct13 theorem https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-binary-dimension-three-six-request-functional-batch-length--4abf711d3224 gives length eleven for t=6 with recovery sets of size up to THREE, not two.",
+          "The general functional-batch minimum has weaker locality restrictions; the double simplex at t=8 does not imply the punctured t=6 and 7 locality-two witnesses."
+        ],
+        "reasoning": "An unrestricted or locality-three solution cannot imply a max-two recovery solution; stronger request count for the unpunctured 14-column code does not force optimal lengths under puncturing.",
+        "searches": [
+          "Resultary 2026/10/13 exact binary dimension-three six-request functional batch length",
+          "arXiv:2508.02586 functional batch lengths; arXiv:2101.06722 double-simplex construction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.12302v2",
+        "arXiv:2508.02586",
+        "arXiv:2101.06722",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-binary-dimension-three-six-request-functional-batch-length--4abf711d3224",
+        "Resultary semantic searches: locality-two k3 t6/t7; functional batch small recovery sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier 11-column t=6 functional batch witness explicitly uses 77 triple-coordinate recovery subsets; it is NOT a locality-two code.",
+          "Published t=8 double-simplex length14 upper bound does not imply that arbitrary 12/13-column puncturings cover all mixed t=6/7 requests."
+        ],
+        "reasoning": "Neither earlier bound/construction entails the submitted sharp locality-two 12/13 values. The current proof supplies a new locality-constrained lower obstruction and exhaustive mixed-request certificates.",
+        "searches": [
+          "Prior full proof https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-binary-dimension-three-six-request-functional-batch-length--4abf711d3224",
+          "arXiv:2601.12302v2 Theorems 5/8 and Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Locality-two means each requested vector is XOR of no more than two distinct stored columns; the paper uses retrieval-set cardinality r=2, the same quantifier. Its Table 2 has k=3,t=8 bounds, not complete t=6,7 optima."
+        ],
+        "reasoning": "Translated both coding conventions into length n / dimension k / request count t / max recovery size r; no exact-table alias covering these two values was found.",
+        "searches": [
+          "Resultary query: locality-two functional batch code length L2(3,6) 12 L2(3,7) 13",
+          "arXiv:2601.12302v2 Tables 2-3 and definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026 numerical Table 2 explicitly lists k=3,t=8 lower bound 10 and upper bound 14, and no t=6/7 exact rows.",
+          "The submitted full certificate has 924+1716 genuine request classes, each verified against the displayed concrete generator."
+        ],
+        "reasoning": "The inspected published numerical table does not reproduce these exact restricted optima, and no code-table equality was found; incompleteness of search alone does not prove novelty.",
+        "searches": [
+          "arXiv:2601.12302v2 Table 2 (PDF p.10)",
+          "Resultary query k3 locality2 functional batch t6 t7 punctured double simplex"
+        ]
+      },
+      "rationale": "The exact locality-two six/seven request optima are not determined by known unrestricted or locality-three constructions; the restricted certificate is a genuine new finite computation and proof at natural neighboring request counts. Extensive comparison with the same-object 2026 locality-two primary work and earlier published length-eleven six-request theorem found no same statement or theorem implying both length values.",
+      "residual_risks": [
+        "Other unindexed coding-theory tables or implicit puncturing theorems may contain these exact small-parameter values; no certified historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Table 2 k=3,t=8 length bound 10..14; does not list exact k=3,t=6/7 lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.12302",
+          "material_read": "Definitions, theoretical bound sections and Tables 2-3, including PDF page 10 Table 2; screenshot viewed",
+          "method": "lawful arXiv PDF text and page-10 rendered screenshot",
+          "title": "On the Minimum Length of Functional Batch Codes with Small Recovery Sets",
+          "trigger": "Same k=3 and recovery locality r=2"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Length eleven only with recovery sets of cardinality up to three; total 77 3-symbol sets in 924 cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-binary-dimension-three-six-request-functional-batch-length--4abf711d3224",
+          "material_read": "Complete RESULT.md theorem, generator, proof and certificate description",
+          "method": "pinned full repository file read",
+          "title": "Exact binary dimension-three six-request functional batch length",
+          "trigger": "Strongest near-identical k=3,t=6 theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "prior six-request locality-three theorem https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-binary-dimension-three-six-request-functional-batch-length--4abf711d3224",
+        "arXiv:2601.12302v2 Table 2",
+        "independent full witness enumeration"
+      ],
+      "rationale": "The minimum storage length under a strict two-symbol recovery budget is a natural and operationally meaningful parameter, and six and seven are consecutive nontrivial batch-load cutoffs. Exact tight lower bounds plus all mixed-request recoveries resolve a finite problem that unrestricted or locality-three results do not settle. Generalization or paper-sized theory is not required for the precise finite optimal values.",
+      "residual_risks": [
+        "Value is parameter-specific; does not imply optima for dimension >3, larger t or different alphabets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent numerical/finite checks are not formal proofs; unrestricted statements rely on reconstructed analytical arguments.",
+    "Best-of-knowledge historical originality and precise residual risks recorded in originality axis.",
+    "Publication withheld: public-file privacy-safe replacements not completed and verified."
+  ],
+  "schema_version": 1
+}
