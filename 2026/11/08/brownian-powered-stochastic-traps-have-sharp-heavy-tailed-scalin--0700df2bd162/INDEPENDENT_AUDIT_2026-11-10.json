@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T04:46:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/brownian-powered-stochastic-traps-have-sharp-heavy-tailed-scalin--0700df2bd162/RESULT.md",
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/brownian-powered-stochastic-traps-have-sharp-heavy-tailed-scalin--0700df2bd162/verify.py",
+        "arxiv:2609.33751",
+        "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9"
+      ],
+      "rationale": "Conditioned on the driving Brownian environment, the linear SDE integrates to N(M_t,V_t) with M_t=x0 exp[−at−λ∫_0^t|B_s|^p ds], V_t=2D∫_0^t exp[−2au−2λ∫_{t−u}^t|B_s|^p ds]du. Brownian scaling identifies t^{p/2}V_t with an endpoint Laplace integral T=t^{1+p/2}. For any continuous f≥0 with f(1)>0, endpoint DCT gives 2D∫ exp[−2λT∫_{1−y/T}^1 f]dy →D/(λ f(1)), and the tail outside the endpoint neighborhood is bounded by T e^{−cT}; B_1≠0 almost surely. M_t t^{p/4}→0, yielding the joint weak limit (G,√(D/λ)Z/|G|^{p/2}). From Pr(|G|<u)∼√(2/π)u, conditioning on |Z| and DCT yields tail constant 2^{1/2+1/p}Γ(1/2+1/p)(D/λ)^{1/p}/π and moment cutoff s<2/p. For p=2, Z/|G| is Cauchy. No assertion of prelimit moment convergence. Independently checked Cauchy p=2 tail coefficient and the limiting conditional variance scaling algebra; inspected original SciPy verifier.",
+      "residual_risks": [
+        "Uniformity as p→0 or p→∞ not claimed; only each fixed p>0 is proved. Weak convergence does not imply convergence of unbounded moments or fixed-distance rare-excursion intensities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta–Klapp arxiv:2609.33751v1 abstract claims all-time first-four moment formulas for Brownian-squared stiffness, not all-p positive exponents or the joint weak limit. Earlier Resultary rare-excursion analysis proves t^{1/2}Pr(|X_t|>u) at fixed physical u and a vague measure limit, not t^{p/4}X_t convergence."
+        ],
+        "reasoning": "The prior rare-event statement is stronger in a distinct fixed-threshold regime for p=2 but does not imply the power-parameter family; the central weak limit cannot by itself imply its fixed-u rare-event limit, either.",
+        "searches": [
+          "Resultary query: Brownian motion stochastic stiffness |B_t|^p time-dependent harmonic trap Cauchy scaling t^(p/4) position normal ratio heavy tail",
+          "Resultary query: Cauchy central scaling Brownian squared stochastic trap thermal position limit Gupta Klapp",
+          "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+          "arxiv:2609.33751",
+          "arxiv:2507.20915",
+          "arxiv:1602.08181"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: Brownian motion stochastic stiffness |B_t|^p time-dependent harmonic trap Cauchy scaling t^(p/4) position normal ratio heavy tail",
+        "Resultary query: Cauchy central scaling Brownian squared stochastic trap thermal position limit Gupta Klapp",
+        "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+        "arxiv:2609.33751",
+        "arxiv:2507.20915",
+        "arxiv:1602.08181"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full October 2026 rare-excursion RESULT.md has J_{κ,σ}(u) = (2π)^−1/2 ∫ E erfc[u/√(2V_a)] da, with small-u coefficient 2/(π√σ), and explicitly notes the previously known central p=2 Cauchy result. 2025 stationary OU paper instead has OU stiffness."
+        ],
+        "reasoning": "At p=2,D=1, the sharp tail coefficient of central Cauchy limit agrees with the inner rare-excursion coefficient, but agreement of constants does not imply the fixed-threshold theorem or the full p-family. Gupta paper complete text is missing, so no unsupported whole-document noncoverage claim.",
+        "searches": [
+          "Resultary query: Brownian motion stochastic stiffness |B_t|^p time-dependent harmonic trap Cauchy scaling t^(p/4) position normal ratio heavy tail",
+          "Resultary query: Cauchy central scaling Brownian squared stochastic trap thermal position limit Gupta Klapp",
+          "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+          "arxiv:2609.33751",
+          "arxiv:2507.20915",
+          "arxiv:1602.08181"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio Z/|G| at p=2 is the classical Cauchy identity and explicitly treated as previously known in published 2026-10-26 rare-excursion paper; Gaussian-mixture at a nonstationary random stiffness is not equivalent to stationary OU-stiffness 2025 results."
+        ],
+        "reasoning": "The arbitrary p-dependent ratio exponent p/2, joint G coordinate and moment cutoff are additional implications beyond mere p=2 Cauchy marginal. Normal ratio identity itself not novel.",
+        "searches": [
+          "Resultary query: Brownian motion stochastic stiffness |B_t|^p time-dependent harmonic trap Cauchy scaling t^(p/4) position normal ratio heavy tail",
+          "Resultary query: Cauchy central scaling Brownian squared stochastic trap thermal position limit Gupta Klapp",
+          "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+          "arxiv:2609.33751",
+          "arxiv:2507.20915",
+          "arxiv:1602.08181"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary queries on Brownian-powered trap, stochastic harmonic stiffness and Cauchy scaling found the assigned theorem plus a fixed-threshold 2026-10-26 finding, not an all-p scaling-law table."
+        ],
+        "reasoning": "A parametric positive-p weak-limit formula cannot be replaced by a finite sample or numerical table; no exact previously published table of the full parameterized family was observed.",
+        "searches": [
+          "Resultary query: Brownian motion stochastic stiffness |B_t|^p time-dependent harmonic trap Cauchy scaling t^(p/4) position normal ratio heavy tail",
+          "Resultary query: Cauchy central scaling Brownian squared stochastic trap thermal position limit Gupta Klapp",
+          "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+          "arxiv:2609.33751",
+          "arxiv:2507.20915",
+          "arxiv:1602.08181"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is located in the joint entire-law scaling for arbitrary Brownian stiffness powers p>0 and sharp tail/moment family. The p=2 Cauchy scaling was already acknowledged in a 2026-10-26 rare-excursion study and should not be presented as independently unprecedented. Gupta–Klapp analyze identical p=2 physical model and moments, not a published all-p joint weak-limit theorem in the accessible abstract. The full 2026 preprint was inaccessible; exact implicit coverage is a material residual risk, not automatic rejection.",
+      "residual_risks": [
+        "Full 24-page Gupta–Klapp arXiv:2609.33751 could not be inspected: arXiv PDF returned DisabledError and lawful indexed mirrors exposed only the abstract; their model-specific full-law derivation might overlap. Earlier rare-excursion paper explicitly says Cauchy central scaling was known; historical p=2 priority not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERAGE OF KNOWN p=2 CAUCHY CORE, NOT ALL-p FAMILY: proves fixed-threshold t^-1/2 rare-excursion intensity with noncommuting limits; acknowledges earlier central Cauchy scaling",
+          "evidence": "Sections Finding, 4, Relationship to prior work explicitly contrast fixed physical u versus √t X_t and match constant 2/(π√σ).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+          "material_read": "Complete published RESULT.md: finding, assumptions, five proof steps, source relations and limitations",
+          "method": "GitHub connector read full research text in Resultary/2026",
+          "title": "Rare-excursion intensity in Brownian-squared harmonic confinement",
+          "trigger": "Identical nonstationary p=2 physical model, cites central Cauchy scaling"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE FULL-TEXT COVERAGE RISK: accessible abstract describes moment formulas and energetic observables, no stated all-p family",
+          "evidence": "Abstract says first four positional moments evaluated with long-time behavior; no all-positive-p distributional theorem appears in material actually read.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33751",
+          "material_read": "2026-09-27 arXiv abstract and bibliographic metadata only; PDF/html route denied; full text NOT read",
+          "method": "arXiv abstract, independent academic mirror, failed full-PDF request",
+          "title": "Non-stationary Statistics and Energetics of Brownian Motion under Stochastic Harmonic Confinement",
+          "trigger": "Precisely the p=2 Brownian-square stiffness model"
+        },
+        {
+          "assessment": "DIFFERENT ENVIRONMENT: stationary Ornstein–Uhlenbeck stiffness instead of unconfined Brownian-powered stiffness",
+          "evidence": "2025 abstract describes a stationary OU process, correlation-time limits and steady state; not the nonstationary power-Brownian family.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-5468/ae09a5",
+          "material_read": "Publisher open-access article bibliographic description and abstract; full methods not read",
+          "method": "Official publisher article summary",
+          "title": "Non-equilibrium fluctuations in a harmonic trap with annealed stochastic stiffness",
+          "trigger": "Same authors, adjacent trap model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/brownian-powered-stochastic-traps-have-sharp-heavy-tailed-scalin--0700df2bd162/RESULT.md",
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/brownian-powered-stochastic-traps-have-sharp-heavy-tailed-scalin--0700df2bd162/verify.py",
+        "arxiv:2609.33751",
+        "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+        "Resultary query: Brownian motion stochastic stiffness |B_t|^p time-dependent harmonic trap Cauchy scaling t^(p/4) position normal ratio heavy tail",
+        "Resultary query: Cauchy central scaling Brownian squared stochastic trap thermal position limit Gupta Klapp",
+        "Resultary:2026/10/26/SCOPE-rare-excursion-intensity-in-brownian-squared-harmonic-confinemen--ac0f8defa0e9",
+        "arxiv:2609.33751",
+        "arxiv:2507.20915",
+        "arxiv:1602.08181"
+      ],
+      "rationale": "The full scaling family yields a distributional limit with strongly coupled environmental endpoint and a sharp continuum of nonintegrable-moment thresholds. The p=2 Cauchy identification resolves a physically motivated density limit, while p≠2 and the exact tail constants quantify how changing the power of Brownian stiffness changes transport fluctuations. Nonuniform integrability explains finite prelimit versus divergent limit moments. This is more than reporting routine Gaussian-ratio algebra: the endpoint singular Laplace localization in a nonstationary random trap is the substantive step.",
+      "residual_risks": [
+        "The Gaussian ratio identity is classical, and the p=2 central law has been mentioned earlier; value rests on nonstationary joint scaling, entire p>0 family and sharp constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "p>0 fixed, λ,D>0, a≥0, deterministic X0 and independent Brownian noises; no pathwise limit, convergence rates or prelimit moment limit. Full identical-model Gupta–Klapp preprint inaccessible, residual originality risk.",
+  "schema_version": 1
+}

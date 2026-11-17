@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional Itô-integral representation gives the exact mean and conditional variance. Brownian self-similarity turns the rescaled variance into a deterministic singular-endpoint Laplace integral, and a pathwise dominated-convergence argument applies whenever the Brownian endpoint is nonzero, an almost-sure event. The independent Gaussian mixture gives the full joint limit, and a separate dominated-convergence calculation proves the two-sided tail constant and moment threshold. The 16 deterministic numerical checks independently confirm the integral scaling and Gaussian-mixture constants. Finite experiments are not a proof; the analytical argument is the proof.
+PASS
 
-## Originality — PASS, qualified
+Conditioned on the driving Brownian environment, the linear SDE integrates to N(M_t,V_t) with M_t=x0 exp[−at−λ∫_0^t|B_s|^p ds], V_t=2D∫_0^t exp[−2au−2λ∫_{t−u}^t|B_s|^p ds]du. Brownian scaling identifies t^{p/2}V_t with an endpoint Laplace integral T=t^{1+p/2}. For any continuous f≥0 with f(1)>0, endpoint DCT gives 2D∫ exp[−2λT∫_{1−y/T}^1 f]dy →D/(λ f(1)), and the tail outside the endpoint neighborhood is bounded by T e^{−cT}; B_1≠0 almost surely. M_t t^{p/4}→0, yielding the joint weak limit (G,√(D/λ)Z/|G|^{p/2}). From Pr(|G|<u)∼√(2/π)u, conditioning on |Z| and DCT yields tail constant 2^{1/2+1/p}Γ(1/2+1/p)(D/λ)^{1/p}/π and moment cutoff s<2/p. For p=2, Z/|G| is Cauchy. No assertion of prelimit moment convergence. Independently checked Cauchy p=2 tail coefficient and the limiting conditional variance scaling algebra; inspected original SciPy verifier.
 
-The closest same-object source, Gupta and Klapp (arXiv:2609.33751v1), obtains finite-time conditional representations and moment asymptotics, and notes that averaging the thermal positional law is difficult. Its identifiable distributional calculation concerns the zero-temperature model, not the rescaled positive-temperature law. The earlier Gupta–Klapp stationary OU-stiffness paper (arXiv:2507.20915) concerns a stationary, sign-changing environment and has no direct implication for the growing positive Brownian-power stiffness. The Cauchy distribution of a Gaussian ratio is classical (Pillai, arXiv:1602.08181), but the reduction of this time-dependent stochastic trap to that ratio in the long-time limit is not furnished by the cited ratio theorem. Searches of published mathematical claim summaries did not reveal a covering assertion. Absence from a search is not proof of absolute novelty.
+## originality
 
-Residual priority risk: a more general, unindexed stochastic-averaging theorem could imply the entire family. Not all sections of every potentially relevant article were accessible at full-text level. The prior literature's moment formulas are stronger in a *different* direction (finite-time moments), not in the distributional scaling direction.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality is located in the joint entire-law scaling for arbitrary Brownian stiffness powers p>0 and sharp tail/moment family. The p=2 Cauchy scaling was already acknowledged in a 2026-10-26 rare-excursion study and should not be presented as independently unprecedented. Gupta–Klapp analyze identical p=2 physical model and moments, not a published all-p joint weak-limit theorem in the accessible abstract. The full 2026 preprint was inaccessible; exact implicit coverage is a material residual risk, not automatic rejection.
 
-The source leaves the positive-temperature position density unaveraged, while its moment asymptotics decay anomalously. The exact weak limit identifies what a typical rescaled particle sees: a heavy-tailed Gaussian scale mixture, and at the physically studied quadratic stiffness a Cauchy distribution. Its sharp tail exponent and moment threshold explain why a typical scaling limit cannot be recovered by rescaling the source's low-order moments. Extending to all positive Brownian powers also resolves the natural higher-power direction explicitly identified in the motivating paper, with a single structural theorem rather than arbitrary parameter examples.
+## value
 
-## Scientific limits and verification status
+PASS
 
-The result does not establish convergence of unbounded prelimit moments, convergence rates, multitime limits, or claims about heat and work. Independent validation has not been performed. The numerical checker is supplementary to the proof, not a substitute for it.
+The full scaling family yields a distributional limit with strongly coupled environmental endpoint and a sharp continuum of nonintegrable-moment thresholds. The p=2 Cauchy identification resolves a physically motivated density limit, while p≠2 and the exact tail constants quantify how changing the power of Brownian stiffness changes transport fluctuations. Nonuniform integrability explains finite prelimit versus divergent limit moments. This is more than reporting routine Gaussian-ratio algebra: the endpoint singular Laplace localization in a nonstationary random trap is the substantive step.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
