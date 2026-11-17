@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** An exact discrete-convexity bound on the six incident-edge degrees of each color, together with one explicitly checkable edge-coloring witness per occupancy, proves all sixteen sector minima. The field diagram follows from the exact lower convex hull. Three exact enumerators exhaust the same \(3^{15}\) labeled configurations, via ternary degree counts, mask decompositions, and physical bond adjacency, and agree on every ground-state multiplicity. This verifies all claimed finite counts; there is no inference from a partial experiment.
+## correctness
 
-**Originality — PASS on examined material, with residual historical risk.** The 2006 gain-graph paper treats completely frustrated states and chromatic-style enumeration, whereas the present graph has unavoidable positive frustration with three colors. The 2010 generalized-field Potts treatment explicitly evaluates paths, complete graphs and wheel families; its complete graph is not the triangular line graph \(L(K_6)\). Previous results on cubic base-graph line graphs require three-regular bases and do not apply to the five-regular complete-graph base. Previous exact results for the complementary Kneser graph determine a different energy minimization and do not yield the required maxima under color-class constraints. Search results did not identify the exact sixteen-sector table or five-field coexistence profile. Unindexed work, precomputed edge-coloring tables, and unevaluated general generating functions remain possible coverage risks.
+PASS
 
-**Mathematical value — PASS.** The triangular graph is a canonical strongly regular graph and the line graph of a complete six-point interaction network. Three colors underfill its five-color edge-chromatic requirement, making finite frustration unavoidable. The sharp simultaneous local degree-balancing construction across all sixteen magnetization sectors, five exact four-sector coexistence fields, and their macroscopic degeneracy spikes provide a complete benchmark for the zero-temperature response of a natural frustrated Potts cluster. This is more than an isolated ground-energy computation, and does not purport to establish a thermodynamic phase transition.
+The T(6)=L(K6) model has 15 labelled sites and 60 interaction bonds. The exact equal-color energy is F=sum_{v,c} binom(d_c(v),2), with each color-class degree sum 2t; discrete convexity gives a computable lower bound B(t) in every occupancy sector. Sixteen concrete color words from the pinned sector_witnesses.tsv attain the minimum L(s)=B(s)+min_t[B(t)+B(15−s−t)], proving e_s for all sixteen occupancies and the iff balanced-degree criterion. The lower convex hull has vertices (0,24),(3,12),(6,12),(9,18),(12,36),(15,60), yielding exactly five coexistence fields −4,0,2,6,8 with four consecutive tied sectors at each. Independently compiled C++17 fully enumerated all 3^15=14,348,907 assignments and reproduced all sixteen exact degeneracies and sector energies, including g_3=300,g_5=19530,g_15=1; this is exhaustive finite mathematics, not sampling.
 
-The potentially older two-color endpoint count and the general Potts/chromatic identities are not presented as independently novel results. Bibliographic priority is not exhaustive, and no finite-temperature result is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge complete 16-sector minimal positive-frustration table and its five-field coexistence classification are not supplied by the checked general Potts external-field literature or the complementary Kneser graph field census. Their spectra are mathematically different: minimizing L(K6) monochromatic intersecting edge pairs requires maximizing complementary KG(6,2) penalties at fixed color sizes, whereas the earlier KG result determines minima. The result is not a new general partition-function formalism and does not assert novelty of each isolated small integer.
+
+## value
+
+PASS
+
+T(6) is a canonical 15-vertex strongly regular graph and the line graph of K6. Three colors are fewer than the underlying graph edge-chromatic requirement, giving naturally unavoidable frustration and a nontrivial finite magnetic-field occupancy response. The sixteen exact sector minima, all degeneracies, and five four-sector coexistence fields constitute a complete, independently useful classification for this fixed model, supported by a constructive degree-convexity principle. A finite exact invariant can be mathematically valuable without a thermodynamic extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
