@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's domain is exactly odd prime-power fields and a five-dimensional generator space. The proof explicitly partitions the bilinear input pairs by rank of their span and identifies the ranks \(0\), \(4\), \(5\) of the coefficient map to four-forms. The stabilizer count \(q(q^2-1)\), the line counts, and the multiplicity factor \(q^{34}\) were reconstructed independently from definitions. The target-fiber mass is \(q^{64}\). Direct finite-field multiplication and linear-system checks reproduce each stated fiber type. There is no extrapolation from finite enumeration.
+## correctness
 
-## Originality — PASS (best-knowledge, not priority certification)
-Domokos–Zubor (2014, arXiv:1403.2916, Sections 1–2 and 6–8) establish context on maximal commutative subalgebras and classical Plücker decomposability; their Example 8.6 already identifies zero-square bivectors with decomposable ones. Bavula (2007, arXiv:math/0703352) studies automorphisms of the same algebra. The present target-by-target finite-field fibers and exact commutator width are not statements supplied by the examined material, and the normal-form and fiber comparisons are not immediate implications of the cited maximal-subalgebra or automorphism classifications. The ingredients are classical; a more general unpublished or differently named count may encompass this specific family. Prior-result searches and accessible local research claims did not reveal the same formula.
+PASS
 
-## Value — PASS
-The ordinary commutator map is a natural central bilinear operation on the exterior algebra viewed as an associative algebra. The complete counting invariant distinguishes two target constraints: a Plücker obstruction to being one commutator, and a special enlargement of the zero-degree-two fibers. It determines all output populations, the commuting probability, and the sharp number of commutators needed to span the derived additive subspace. These facts provide a reproducible exact benchmark for counting commutator witnesses beyond mere existence or centrality.
+In odd characteristic ordinary commutator [X,Y]=2(u∧v+u∧t+s∧v); even and degree-five coordinates contribute q^34. For u∧v=a!=0 simple, SL_2(q) gives q(q²-1) degree-one pairs and the linear map on two cubic forms is onto Λ4V (rank5), giving q^50(q²-1) fibers. For a=0, zero u=v contributes q^20 only to b=0; nonzero dependent u,v span a line and the map has rank4, and for b!=0 the eligible lines are in the four-dimensional annihilator of b. This recovers both a=0 formulas. Non-simple bivectors are outside the image. Every bivector in dim5 is sum of <=2 simples, and e12+e34 requires two. Independently checked total weighted target mass simplifies exactly to q^64 and compared source literal wedge-multiplication checker.
 
-## Scope and residual risk
-The result is specific to five generators and odd finite fields; it does not extend automatically to rank six or characteristic two. The priority search examined accessible primary works and topical searches, not every historical source or every possible general bilinear-map theorem. The verification code and sample results are supplementary to the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Domokos–Zubor full primary text gives the supercommutativity relation and decomposable bivector/Plücker criterion (Example 8.6), not finite-field target-by-target commutator multiplicities or exact width. A published four-generator commutator formula concerns Λ(k^4), while a five-generator centralizer census gives only the zero-target sum, not the nonzero fiber distribution. An unlocated general wedge-product fiber theorem remains plausible.
+
+## value
+
+PASS
+
+PASS: This is a complete arithmetic fiber law for a natural noncommutative algebra bracket. The decomposition obstruction and the nonconstant fiber size at a=0 distinguish output types and determine the minimal number of commutators; it is motivated by the geometry of Λ²V and derived subspaces rather than a contrived enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
