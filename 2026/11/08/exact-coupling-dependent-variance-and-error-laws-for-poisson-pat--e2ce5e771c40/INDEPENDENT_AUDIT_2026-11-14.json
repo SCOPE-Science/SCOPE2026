@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T23:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a jump in cell phase v and offset u the exact error mark is w(v,u)=v−1_{u<v}. Its phase mean is u−1/2 and phase square mean u²−u+1/3; conditional Poisson variance decomposition and each U_i uniform yield λ/6+λ² Var(sum U_i)/n² for any coupling. For even n, (V,1−V) pairs force constant sum. Independent offsets assign each isolated jump an independently uniform mark; double-jump cell collision probability ≤λ²/(2n), and two-cell-block collision probability ≤λ²/n for paired design, yielding triangular compound-Poisson TV bounds. Shared U yields a conditionally uniform jump on [U−1,U], exactly resolution invariant. Direct independent rational uniform moments and 9 variance-order cases corroborate without proving the all-n theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doerr derives asymptotic star discrepancy of independent jittered point sets in arbitrary dimensions.",
+          "Beentjes studies Poisson-bridge antithetic process simulation for chemical reaction networks, a different estimator.",
+          "General Poisson Campbell identities yield conditional moment tools, not the coupling comparisons."
+        ],
+        "reasoning": "Neither generic independent-stratum discrepancy estimates nor bridge simulation prove an all-couplings quadrature variance floor or distributional TV limits.",
+        "searches": [
+          "Poisson counting process time integral stratified sampling jointly uniform jitter coupling variance floor triangular compound Poisson common uniform shift",
+          "arXiv:2103.15712",
+          "Beentjes thesis 2020"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1712.08152",
+        "https://arxiv.org/abs/2103.15712",
+        "https://ora.ox.ac.uk/objects/uuid:3360f4a7-f78b-4da9-8431-c0899bb198c5",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-spectral-variance-cost-of-periodic-poisson-count-sampling--ce7808e766d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional Poisson variance plus identity ∫w²=u²−u+1/3 gives exactly λ/6+λ² Var(sum U_i)/n².",
+          "None of the cited primary statements includes the covariance of the sum of offsets for general dependence or triangular jump-TV convergence."
+        ],
+        "reasoning": "The Poisson machinery is a reusable elementary premise; a specific theorem establishing all current comparisons still requires the mark/coupling derivation. A hidden special-case implication is possible.",
+        "searches": [
+          "Poisson counting process time integral stratified sampling jointly uniform jitter coupling variance floor triangular compound Poisson common uniform shift",
+          "arXiv:1712.08152",
+          "arXiv:2103.15712"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eisenmann–Kruse section 1 defines stochastic Itô integration ∫G dW, with Poisson G in a numerical test, rather than ordinary ∫N(t)dt with arbitrary cell-offset dependence.",
+          "Poisson stochastic-integral quadrature and pathwise Lebesgue quadrature are not equivalent targets."
+        ],
+        "reasoning": "The same Poisson sample paths appearing as integrands do not equate the integration measures; their error and conditional unbiasedness differ.",
+        "searches": [
+          "Poisson counting process time integral stratified sampling jointly uniform jitter coupling variance floor triangular compound Poisson common uniform shift",
+          "arXiv:1712.08152"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finding concerns a continuum of λ>0, all n≥1 and arbitrary joint uniform-marginal couplings, with compound-Poisson limits and finite-n bounds."
+        ],
+        "reasoning": "A precomputed finite table or sampled moment values cannot imply the arbitrary-coupling exact formula; no exact table of the same invariant was identified.",
+        "searches": [
+          "Poisson counting process time integral stratified sampling jointly uniform jitter coupling variance floor triangular compound Poisson common uniform shift",
+          "arXiv:1712.08152"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: elementary Poisson random-measure calculus and independent jittering are standard, but the exact arbitrary-dependence variance functional, attained pairwise coupling floor and three mutually distinct scaled error laws are not consequences of the inspected cited results as written. No broad precedence certification; specialized Monte Carlo sampling literature could imply portions.",
+      "residual_risks": [
+        "Classic Poisson-point-process calculations could have appeared earlier under other quadrature terminology.",
+        "Beentjes thesis full text was not accessible and should not be represented as inspected.",
+        "Pairwise constant-sum attainment is asserted only for even n; odd joint mixability not evaluated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant stochastic integration but different integrator measure; does not give the stated ordinary Poisson-path all-offset-coupling identity.",
+          "evidence": [
+            "arXiv:1712.08152 pp.1–2, section 6; source integral ∫G dW"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.08152",
+          "material_read": "Abstract, introduction, Itô-integral quadrature definitions and numerical Poisson application (sections 1 and 6); PDF page images attempted",
+          "method": "Primary PDF text and section inspection",
+          "title": "Two quadrature rules for stochastic Itô-integrals with fractional Sobolev regularity",
+          "trigger": "Poisson process integrand plus randomly shifted quadrature"
+        },
+        {
+          "assessment": "Treat as related independent-jitter background, not evidence of entire-article noncoverage.",
+          "evidence": [
+            "Doerr (2021), expected non-normalized star discrepancy of independent cube jitters"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.15712",
+          "material_read": "Full abstract and theorem bounds; full article not read",
+          "method": "ArXiv abstract/theorem statement",
+          "title": "A Sharp Discrepancy Bound for Jittered Sampling",
+          "trigger": "Independent stratification terminology"
+        },
+        {
+          "assessment": "Poisson bridge reaction-network simulation differs on its face; complete thesis not checked, remains priority risk.",
+          "evidence": [
+            "Beentjes 2020 thesis repository summary, antithetic Poisson bridge"
+          ],
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:3360f4a7-f78b-4da9-8431-c0899bb198c5",
+          "material_read": "Repository abstract only; full ORA text returned access failure",
+          "method": "Repository metadata/abstract",
+          "title": "Variance reduction techniques for chemical reaction network simulation",
+          "trigger": "Poisson-bridge antithetic thesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural numerical integration problem for a discontinuous random path: the dependence structure changes leading-order mean-square error even with unchanged uniform marginals, and an explicit attainable lower bound guides stratified sampling design. The distributional distinction prevents using variance alone as a full error description; this is a motivated exact coupling optimization rather than arbitrary finite slicing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1712.08152",
+    "https://arxiv.org/abs/2103.15712",
+    "https://ora.ox.ac.uk/objects/uuid:3360f4a7-f78b-4da9-8431-c0899bb198c5",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-spectral-variance-cost-of-periodic-poisson-count-sampling--ce7808e766d8"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a homogeneous Poisson counting path and one jointly uniform-marginal independent-of-path offset per equal cell, the unconditional scaled error variance is λ/6+λ² Var(sum U_i)/n²; complementary pairs attain λ/6 for even n, and independent/common-shift designs have distinct exact error laws.",
+  "limitations": [
+    "Classic Poisson-point-process calculations could have appeared earlier under other quadrature terminology.",
+    "Beentjes thesis full text was not accessible and should not be represented as inspected.",
+    "Pairwise constant-sum attainment is asserted only for even n; odd joint mixability not evaluated."
+  ],
+  "residual_risks": [
+    "Classic Poisson-point-process calculations could have appeared earlier under other quadrature terminology.",
+    "Beentjes thesis full text was not accessible and should not be represented as inspected.",
+    "Pairwise constant-sum attainment is asserted only for even n; odd joint mixability not evaluated."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Relevant stochastic integration but different integrator measure; does not give the stated ordinary Poisson-path all-offset-coupling identity.",
+      "evidence": [
+        "arXiv:1712.08152 pp.1–2, section 6; source integral ∫G dW"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1712.08152",
+      "material_read": "Abstract, introduction, Itô-integral quadrature definitions and numerical Poisson application (sections 1 and 6); PDF page images attempted",
+      "method": "Primary PDF text and section inspection",
+      "title": "Two quadrature rules for stochastic Itô-integrals with fractional Sobolev regularity",
+      "trigger": "Poisson process integrand plus randomly shifted quadrature"
+    },
+    {
+      "assessment": "Treat as related independent-jitter background, not evidence of entire-article noncoverage.",
+      "evidence": [
+        "Doerr (2021), expected non-normalized star discrepancy of independent cube jitters"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2103.15712",
+      "material_read": "Full abstract and theorem bounds; full article not read",
+      "method": "ArXiv abstract/theorem statement",
+      "title": "A Sharp Discrepancy Bound for Jittered Sampling",
+      "trigger": "Independent stratification terminology"
+    },
+    {
+      "assessment": "Poisson bridge reaction-network simulation differs on its face; complete thesis not checked, remains priority risk.",
+      "evidence": [
+        "Beentjes 2020 thesis repository summary, antithetic Poisson bridge"
+      ],
+      "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:3360f4a7-f78b-4da9-8431-c0899bb198c5",
+      "material_read": "Repository abstract only; full ORA text returned access failure",
+      "method": "Repository metadata/abstract",
+      "title": "Variance reduction techniques for chemical reaction network simulation",
+      "trigger": "Poisson-bridge antithetic thesis"
+    }
+  ]
+}
