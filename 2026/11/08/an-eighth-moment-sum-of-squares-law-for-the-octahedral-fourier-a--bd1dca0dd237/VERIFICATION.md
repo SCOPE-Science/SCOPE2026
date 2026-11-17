@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of exact Fourier eighth-moment identity
+# Independent mathematical audit
 
-Run `python3 octahedral_eighth_check.py` from a directory containing the checker, using Python 3 standard library only. The checker computes the coefficients of the square, cube and fourth power of \(1\cdot(z_1+z_1^{-1})+v(z_2+z_2^{-1})+w(z_3+z_3^{-1})\) as integer Laurent polynomials in \(v,w\), constructs their absolute-square coefficient energies, and verifies exact equality to the predicted expressions by matching every Laurent coefficient. It also counts fourth-power frequency sums, verifies integer values of the all-equal eighth moment and checks cubic-root product-pattern combinatorics for three alphabet sizes. Its final success marker is `OCTAHEDRAL_EIGHTH_EXACT_PASS`.
+## correctness
 
-The exact symbolic check supports the finite expansion. The mathematical proof separately shows that the identity holds for all six original unimodular coefficient phases, that three unit products sum to zero precisely in the equilateral case, and that the alphabet-count and finite-sampling conclusions hold for every declared integer. No numerical sampling, external certificate or independent audit is asserted.
+PASS
+
+The moment is the Fourier coefficient energy of P^4 by Parseval, with coefficient multinomial sum over 85 distinct lattice frequencies. Independent four-fold Laurent convolution and evaluation at aligned and equilateral antipodal phases agreed with 6390+3360|S|^2+36|T+4Q|^2 and with 44730 at all-aligned phases; the source's integer Laurent identity checker was inspected (not treated as an external certificate). Since both added terms are squares, equality at the minimum requires 3 unit products summing to 0, exactly a rotated equilateral triple, automatically T=Q=0. The upper bound follows |S|<=3, |T|<=3, |Q|<=3 and equality requires all products equal. The six-phase torus is connected, so intermediate values attained; the specified 4-torus equivalence leaves 2 minimizing orbits. In mu_q, products realize an equilateral triple iff 3 divides q, with 2q choices of product triples each with q^3 factorizations; maximum q^4. Since P^4 is supported inside [-4,4]^3, sampled grids Ni>=9 avoid Fourier aliasing. No smaller-grid claim is inferred.
+
+## originality
+
+PASS
+
+The exact claim survives bounded search at best current knowledge, subject to explicit source inspections and residual risks. Neither moment-six upper bound nor array complementarity algebraically determines the eighth-moment exact SOS, equilateral equality and all-q counts; a higher-moment estimate alone would not yield sharp phase minima.
+
+## value
+
+PASS
+
+Sharp eighth-moment phase minimization on the three-dimensional octahedral aperture is a concrete nontrivial higher-convolution invariant of a natural sparse sensing/Fourier support. The exact sum-of-squares identity supplies rigidity, full attainable interval, two optimizer orbits, alphabet divisibility and finite-grid transfer; these are not routine relabelings of sixth-moment cross bounds or fourth-moment triangular aperture optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
