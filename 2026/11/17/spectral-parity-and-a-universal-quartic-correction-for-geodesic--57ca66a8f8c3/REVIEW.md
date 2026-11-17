@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The domain is the smooth flat Klein-bottle quotient with positive horizontal glide length and vertical period. Each minimizing edge is selected by an exact competition between orientation-preserving and orientation-reversing deck images. Taking the product of the selected edge signs is intrinsic for a **closed** loop, unlike an individual open edge. The antiperiodic Fourier basis gives the limiting trace \(c_n\), and differentiation of one signed threshold gives \(-4c_{n-2}\). The independent vertical variables supply exact variance \(b^4/(360a^4)\) and zero covariance between distinct edges. Three-interface events have measure \(O_n((b/a)^6)\) because any three distinct edges form a forest. This proves the stated fourth-order coefficient for every fixed \(n\ge4\), with no finite experiment used in place of an infinite proof.
+
+## Originality — PASS, with historical priority provisional
+published-finding corpus searches of Klein-bottle geodesic parity, random geodesic polygons, circle winding and beta/zeta spectra were compared by scientific implication. The published three-vertex Klein-bottle orientation-reversal theorem already gives the \(n=3\) coefficient and is specifically excluded. The published unmarked pair-distance Klein-bottle law supplies a covering-space reduction, not the parity of arbitrary closed polygons. The published projective-space spectral polygon theorems treat different metrics/topology, and the published flat-torus homotopy law concerns translation-valued winding rather than orientation reversal. Their spectral methodology does not supply the finite-width coefficient \(n c_{n-2}/360\) in this Klein-bottle family. Residual risk includes less-indexed classical work on winding of shortest circular arcs; the limiting constants could be independently known. The new finite-width family is the originality-bearing statement.
+
+## Mathematical value — PASS
+The result classifies, for every fixed cyclic polygon size at least four, a natural topological observable of random minimizing-geodesic loops on degenerating nonorientable surfaces. It gives a complete explicit limiting spectrum, a quantitative convergence rate in polygon size, and a nonzero sharp first correction which unifies a size-dependent family instead of merely repeating the earlier triangle calculation. The positive quartic coefficient provides a geometric, aspect-sensitive perturbation of the nonorientable winding distribution.
+
+## Evidence and limitations
+The independent standard-library checker compared direct deck enumeration with the nearest-image formula (600 pairs), Fourier trace values and one-edge quadratic coefficients, and direct independent polygon sampling across seven cases (1,260,000 polygons). The analytic proof controls the limit and the remainder; finite sampling is corroboration only. The aspect-ratio expansion is fixed-size, not uniform as polygon size grows. A full exhaustive search of all historical circular-winding literature was not possible, and no independent mathematical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
