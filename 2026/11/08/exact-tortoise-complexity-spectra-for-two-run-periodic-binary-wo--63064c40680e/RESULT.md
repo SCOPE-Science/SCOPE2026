@@ -1,85 +1,62 @@
-# Exact tortoise-complexity spectra for two-run periodic binary words
+# Exact one-step tortoise complexity of nontrivial two-run binary periods
 
 ## Finding
-
-Let \(a,b\geq1\) be integers and let \(\mathbf{x}_{a,b}=(0^a1^b)^\omega\). For a finite binary word \(w\), define \(T(w)\) by deleting its leftmost \(1\), if any, and appending \(1\) at the right; set \(T(0^n)=0^n\). For integers \(n,k\geq1\), let
+Let \(a,b\ge 2\) and let \(\mathbf x_{a,b}=(0^a1^b)^\omega\), of least period \(p=a+b\). For a finite binary word \(w\), define \(T(w)\) by deleting its leftmost occurrence of \(1\), if one exists, and appending \(1\); let \(T(0^n)=0^n\). Let \(c_{a,b}(n)\) count **distinct image words** \(T(w)\) as \(w\) ranges over the distinct contiguous length-\(n\) factors of \(\mathbf x_{a,b}\). Then, for every \(n\ge1\),
 \[
- c_{a,b}^{(k)}(n)=\bigl|\{T^k(w):w\text{ is a contiguous factor of }\mathbf{x}_{a,b}\text{ of length }n\}\bigr|.
-\]
-Put \(p=a+b\). The following two formulas give a complete one-step spectrum for **every** two-run period, and the complete iteration hierarchy when the \(1\)-run is a singleton.
-
-**One-step spectrum for \(b\geq2\).** For every \(n\geq1\),
-\[
- c_{a,b}^{(1)}(n)=
- \begin{cases}
+ c_{a,b}(n)=\begin{cases}
  2,&n=1,\\
- \min(n,a)+\min(n,b)-1,&2\leq n\leq p,\\
- p,&n\geq p+1.
+ \min(n,a)+\min(n,b)-1,&2\le n\le a+b,\\
+ a+b,&n\ge a+b+1.
  \end{cases}
 \]
-For each \(2\leq n\leq p\), exactly one pair of **distinct** length-\(n\) factors is identified by \(T\); there are no other nonsingleton equivalence classes.
 
-**All iterations for \(b=1\).** Fix any \(k\geq1\), now put \(p=a+1\), and write \(n=qp+r\), where \(q\geq0\) and \(0\leq r<p\). Then
+For each \(2\le n\le a+b\), **exactly one** unordered pair of distinct length-\(n\) factors has the same image under \(T\), and there is no fiber of size three or larger. The sole collision pair is
 \[
- c_{a,1}^{(k)}(n)=
  \begin{cases}
- 1,&q<k\ \text{and }r=0,\\
- 2,&q<k\ \text{and }1\leq r<p,\\
- r+1,&q=k,\\
- p,&q>k.
+ \{0^{n-1}1,\ 10^{n-1}\},&2\le n\le a+1,\\
+ \{0^a1^{n-a},\ 10^a1^{n-a-1}\},&a+2\le n\le a+b.
  \end{cases}
 \]
-In particular, every one of the lengths \(p,2p,\ldots,kp\) has a single \(k\)-tortoise equivalence class, and the exact least length from which the complexity is permanently equal to the ordinary factor complexity \(p\) is \((k+1)p-1\). The value immediately before this least length is \(p-1\).
+The one-step map is injective on this factor set for every \(n\ge a+b+1\); this cutoff is sharp.
 
-## Assumptions and scope
-
-All factors are **contiguous**, not scattered. The word \(\mathbf{x}_{a,b}\) is one-sided, infinite, purely periodic and over the ordered alphabet \(0<1\). Its least period is \(p=a+b\). Positions begin at zero, but all statements are independent of the initial phase because the set of finite factors contains every cyclic phase. The operation \(T\) is the binary specialization of the Defant--Kravitz tortoise map as used for the \(k\)-tortoise complexity of Campbell and Rampersad; exponent \(k\) denotes **iteration**, not deletion of an arbitrary set of \(k\) symbols. No assertion is made about the complete \(k\)-step spectrum when both \(b\geq2\) and \(k\geq2\).
+## Scope and conventions
+The infinite word is one-sided but all cyclic phases occur, so the factor language is independent of the starting phase. Factors are contiguous, images are counted as distinct labelled words rather than occurrences, and the map moves exactly **one** leftmost \(1\) per step. The theorem assumes both run lengths at least two. It does not claim an all-iterate formula, any result for an arbitrary multi-run period, or originality for the one-run boundary cases \(a=1\) or \(b=1\). The latter are already covered by published rational-Christoffel tortoise theorems.
 
 ## Proof
-
-**The operation.** A finite binary word with \(m\geq1\) ones has a unique presentation
+Every binary word with \(m\) ones has a unique zero-gap representation
 \[
- w=0^{z_0}1\,0^{z_1}1\cdots1\,0^{z_m},\qquad z_i\geq0.
+ w=0^{z_0}1\,0^{z_1}1\cdots1\,0^{z_m},\qquad z_i\ge0.
 \]
-Directly from the definition,
+If \(m\ge1\), moving the first one to the end gives
 \[
  T(w)=0^{z_0+z_1}1\,0^{z_2}1\cdots0^{z_m}1.
 \]
-Repeated application removes the first \(\min(k,m)\) ones and places the removed ones at the end in the same number. If \(k\geq m\), the image is the sorted word \(0^{|w|-m}1^m\).
+Thus the number \(m\) of ones is preserved. Equality of two images with \(m\ge2\) fixes \(z_0+z_1\), all \(z_2,\ldots,z_m\), and \(m\). For a factor of \((0^a1^b)^\omega\), the first two ones are either consecutive (\(z_1=0\)) or separated by a complete zero-run (\(z_1=a\)). If their gaps \(z_1\) agree, all gaps agree, so the factors coincide. Otherwise \(0\le z_0\le a\), and equality of the first image gap forces the two initial gap pairs to be \((a,0)\) and \((0,a)\). These correspond respectively to a factor beginning at the start of a zero-run and to a factor beginning at the last one of a one-run.
 
-**Ordinary factor complexity and phases.** The \(p\) starting phases of \(\mathbf{x}_{a,b}\) give exactly \(\min(n,a)+\min(n,b)\) distinct length-\(n\) factors. To see this, different phases giving a factor with both letters are distinguished by the initial symbol and the position of its first change, while an all-zero or all-one factor can be repeated in respectively \(\max(a-n+1,0)\) or \(\max(b-n+1,0)\) starting phases. Thus the number of duplicate phases is \(\max(a-n,0)+\max(b-n,0)\), and subtraction from \(p\) gives the claimed expression. For \(n\geq p\), all \(p\) factors are distinct.
-
-**One step when \(b\geq2\).** The number of ones is invariant under \(T\), so only factors with the same number \(m\) of ones can collide. If \(m=0\), there is just one all-zero factor. If \(m=1\), every factor has image \(0^{n-1}1\). For \(2\leq n\leq a+1\), precisely the two distinct one-one factors \(0^{n-1}1\) and \(10^{n-1}\) occur; outside that range at most one distinct one-one factor occurs.
-
-For \(m\geq2\), suppose distinct factors \(u,v\) have the same image. In the gap representation above, equality of the images fixes \(m\), the sum \(z_0+z_1\), and each of \(z_2,\ldots,z_m\). In this periodic word, the first two ones of a factor are either adjacent (so \(z_1=0\)) or are separated by exactly \(a\) zeros (so \(z_1=a\)). If the two factors have the same \(z_1\), their equality follows, contradicting distinctness. Hence they have different \(z_1\), and equality of their sums, together with \(0\leq z_0\leq a\), forces their initial gap pairs to be \((z_0,z_1)=(a,0)\) and \((0,a)\). These are the phases at the very beginning of a zero-run and at the last one of a one-run. Comparing the remaining gaps shows equality exactly for
+For the remaining image gaps to agree, both factors must finish within the same relevant one-run: their common trailing zero gaps must all vanish. Consequently the only possible distinct multi-one collision is
 \[
- u=0^a1^m,\qquad v=10^a1^{m-1},\qquad 2\leq m\leq b,\qquad n=a+m.
+ u=0^a1^m,\qquad v=10^a1^{m-1},\qquad 2\le m\le b,
 \]
-Indeed, for those lengths the tails have all remaining zero gaps equal to zero. If a further one occurs, the gap between the \(b\)-th and \((b+1)\)-st ones is \(a\) in one factor and zero in the other; if the window is merely extended without an extra one, their terminal gaps differ. Thus no longer collision is possible. The one-one collision ranges over \(2\leq n\leq a+1\), and the displayed multi-one collision ranges over \(a+2\leq n\leq a+b=p\). Exactly one pair collides at every length \(2\leq n\leq p\), and no pair collides at \(n\geq p+1\). Subtracting one from the ordinary factor count proves the first formula.
+with common length \(n=a+m\). Both factors occur: \(u\) begins at the start of the zero-run and \(v\) begins at the last one before that zero-run. If an additional one is included, the following complete zero-run appears in different image-gap positions; if only zeros extend the factor, the terminal zero gaps differ. Hence these are exactly the multi-one collisions, at lengths \(a+2,\ldots,a+b\).
 
-**All steps when \(b=1\).** Write \(p=a+1\). Identify each cyclic starting phase with the integer \(d\in\{0,\ldots,a\}\) counting the zeros until the first one. For \(n=qp+r\), the \(p\) phase windows have \(q\) or \(q+1\) ones. If \(r=0\), all have \(q\) ones; otherwise precisely \(r\) windows have \(q+1\) ones and \(p-r\) have \(q\).
+If \(m=1\), the image is always \(0^{n-1}1\). Because \(b\ge2\), a factor containing only one \(1\) cannot contain zeros both before and after it: any one is adjacent to another one within its run on at least one side. Thus the only possible distinct single-one factors are \(0^{n-1}1\) and \(10^{n-1}\), and both occur exactly for \(2\le n\le a+1\). A zero-only factor has its own image and cannot collide with a positive-one factor.
 
-If \(q<k\), all these windows contain at most \(k\) ones, so every image is sorted. Its ones count is the only invariant: there is one class for \(r=0\), and two for \(r>0\). If \(q=k\), the \(p-r\) phases with exactly \(k\) ones give one sorted image (when \(r=0\) this is every phase). For each of the remaining \(r\) phases, \(d=0,\ldots,r-1\), there are \(k+1\) ones and their images are exactly
+For comparison, the ordinary length-\(n\) factor complexity of the two-run primitive period is
 \[
- T^k(w_d)=0^{d+ka}1\,0^{r-d-1}1^k.
+ p_{\mathbf x}(n)=\min(n,a)+\min(n,b).
 \]
-These \(r\) images have distinct initial zero-run lengths, and their number of ones distinguishes them from the sorted \(k\)-one image. Hence the number is \(r+1\).
-
-Finally, if \(q>k\), every phase factor has at least \(k+1\) ones. After deleting the first \(k\), its initial zero run has length exactly \(d+ka\), so all \(p\) phases have distinct images. This proves the second formula. At length \((k+1)p-1\), the formula yields \(p\), and all subsequent lengths also yield \(p\); at the preceding length it yields only \(p-1\), proving sharpness.
+Indeed, among the \(a+b\) starting phases, all duplicates are due to homogeneous windows: \(0^n\) contributes \(\max(a-n,0)\) redundant starts, and \(1^n\) contributes \(\max(b-n,0)\); the remaining factors are distinguished by the first letter and position of their first change. This also shows all \(a+b\) factors are distinct at and beyond length \(a+b\). We have classified exactly one double fiber at every \(2\le n\le a+b\), none at \(n=1\), and none at \(n\ge a+b+1\). Subtracting its single excess member from the ordinary factor count proves the formula and sharpness. \(\square\)
 
 ## Verification
+The accompanying standalone `verify.py` checks the operator both by direct first-one deletion and by the zero-gap recurrence, enumerating all \(a+b\) cyclic starting phases for many pairs \(a,b\ge2\) and every tested length through several periods. It checks the complete image count, exact collision-pair identities, and absence of other collisions. These finite experiments corroborate the all-parameter collision argument above, not replace it.
 
-The embedded standalone program `verify.py` implements \(T\) in two independently written ways: direct first-one deletion and the zero-gap recurrence. It enumerates the entire cyclic factor set, compares both image sets, and checks the formulas. It passed 15,810 parameter-length comparisons, including all \(1\leq a,b\leq12\) for the one-step statement and all \(1\leq a\leq12\), \(1\leq k\leq10\) for the singleton-one-run hierarchy, over the length ranges specified in the code. The program uses only the Python standard library. These finite checks corroborate but do not replace the proof for all parameter values.
+## Relationship to previous results and limitations
+Campbell and Rampersad, *Subword enumeration up to stack-sorting equivalence* (arXiv:2604.25811v2, October 5, 2026), develop the tortoise-factor-complexity invariant and provide general bounded-gap comparisons and spectra for other words. Defant and Kravitz, *Stack-sorting for words* (arXiv:1809.09158), introduce the underlying map. Exact rational-Christoffel one-step complexity was published on October 25, 2026, and the complete iterated Christoffel spectrum on November 2, 2026. They already imply the \(a=1\) or \(b=1\) boundary cases; these are **excluded** rather than asserted anew here. For \(a,b\ge2\), the period has both \(00\) and \(11\), so it cannot be Christoffel/balanced (its length-two factor weights differ by two). The surviving classification therefore does not follow as a rational-Christoffel special case. An unindexed separate enumeration of two-block periodic factors could still affect historical priority.
 
-## Relationship to prior work
-
-Campbell and Rampersad introduced factor complexity under iterative tortoise equivalence, established a coarse comparison with ordinary factor complexity for bounded-gap words of linear complexity, and calculated the tortoise complexity of the paperfolding and Thue--Morse words [1]. That comparison implies a bounded eventual deficit for the periodic words here, but it does not determine the exact finite spectrum, the unique collision at every intermediate one-step length, or the sharp dependence of the recovery threshold on \(k\). The prior source's general operator definition is used, not claimed as novel. Defant and Kravitz previously defined the underlying sorting map and studied its preimages for finite words [2]. Their finite-word preimage framework is different from an exact all-length factor spectrum for a fixed periodic infinite word.
-
-## Limitations
-
-The complete all-iteration formula is restricted to singleton \(1\)-runs. For \(b\geq2\), only the first iterate is classified. There is no assertion for arbitrary periodic binary words with three or more runs per period, for aperiodic words, or for other sorting operators. Exhaustive computations establish only finite test cases. The bibliographic comparison does not exclude unpublished or unindexed equivalent results; independent external mathematical validation has not been performed.
+The result supplies an exact all-length classification of the one-step fibers, not the higher-iterate distributions when both run lengths exceed one. It is not a claim about arbitrary stack-sorting transformations, and no finite experiment proves the infinite-parameter statement.
 
 ## References
-
-1. J. M. Campbell and N. Rampersad, *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811. First public version 2026-04-28 UTC; version 2, 2026-10-05. https://arxiv.org/html/2604.25811v2
-2. C. Defant and N. Kravitz, *Stack-sorting for words*, arXiv:1809.09158, first public version 2018-09-24 UTC; Australasian Journal of Combinatorics 77 (2020), 51–68. https://arxiv.org/abs/1809.09158
+- J. M. Campbell and N. Rampersad, *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811v2 (2026), https://arxiv.org/abs/2604.25811.
+- C. Defant and N. Kravitz, *Stack-sorting for words*, arXiv:1809.09158 (2018), https://arxiv.org/abs/1809.09158.
+- *Exact tortoise-image complexity of periodic Christoffel words* (October 25, 2026), https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-tortoise-image-complexity-of-periodic-christoffel-words--0a43126d45d9/RESULT.md.
+- *Exact iterated tortoise complexity of periodic Christoffel words* (November 2, 2026), https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-iterated-tortoise-complexity-of-periodic-christoffel-words--068034d6a525/RESULT.md.

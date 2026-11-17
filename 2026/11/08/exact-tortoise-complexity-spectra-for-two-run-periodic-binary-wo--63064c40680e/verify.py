@@ -1,85 +1,40 @@
-"""Independent exhaustive small-parameter checks of the stated tortoise spectra.
-
-Run with Python 3: python verify.py
-
-These are finite checks; the theorem for arbitrary parameters uses the proof.
-"""
-
-def tortoise_delete(word):
-    at = word.find('1')
-    return word if at < 0 else word[:at] + word[at + 1:] + '1'
+"""Finite checks of the one-iterate tortoise map for a,b >= 2."""
+from collections import Counter
 
 
-def tortoise_gaps(word):
-    gaps = word.split('1')
-    if len(gaps) == 1:
-        return word
-    return gaps[0] + gaps[1] + '1' + ''.join(
-        gaps[j] + '1' for j in range(2, len(gaps))
-    )
+def tortoise_delete(w):
+    i = w.find('1')
+    return w if i < 0 else w[:i] + w[i+1:] + '1'
 
 
-def predicted_one_step(a, b, n):
-    p = a + b
-    if b == 1:
-        q, r = divmod(n, p)
-        if q == 0:
-            return 2
-        if q == 1:
-            return r + 1
-        return p
-    if n == 1:
-        return 2
-    if n <= p:
-        return min(n, a) + min(n, b) - 1
-    return p
-
-
-def predicted_sparse(a, k, n):
-    p = a + 1
-    q, r = divmod(n, p)
-    if q < k:
-        return 1 if r == 0 else 2
-    if q == k:
-        return r + 1
-    return p
+def tortoise_gaps(w):
+    g = w.split('1')
+    return w if len(g) == 1 else g[0] + g[1] + '1' + ''.join(z+'1' for z in g[2:])
 
 
 def factors(a, b, n):
-    block = '0' * a + '1' * b
-    p = len(block)
-    text = block * (n // p + 3)
-    return {text[i:i + n] for i in range(p)}
-
-
-def check():
-    comparisons = 0
-    for a in range(1, 13):
-        for b in range(1, 13):
-            for n in range(1, 4 * (a + b) + 4):
-                words = factors(a, b, n)
-                out1 = {tortoise_delete(w) for w in words}
-                out2 = {tortoise_gaps(w) for w in words}
-                expected = predicted_one_step(a, b, n)
-                assert out1 == out2, (a, b, n, 'different maps')
-                assert len(out1) == expected, (a, b, n, len(out1), expected)
-                comparisons += 1
-    for a in range(1, 13):
-        p = a + 1
-        for k in range(1, 11):
-            for n in range(1, (k + 3) * p + 3):
-                words = factors(a, 1, n)
-                out1 = set(words)
-                out2 = set(words)
-                for _ in range(k):
-                    out1 = {tortoise_delete(w) for w in out1}
-                    out2 = {tortoise_gaps(w) for w in out2}
-                expected = predicted_sparse(a, k, n)
-                assert out1 == out2, (a, k, n, 'different maps')
-                assert len(out1) == expected, (a, k, n, len(out1), expected)
-                comparisons += 1
-    print(f'PASS: {comparisons} parameter-length comparisons; two operator implementations agree.')
+    period = '0'*a + '1'*b
+    t = period*(n//len(period)+3)
+    return {t[i:i+n] for i in range(len(period))}
 
 
 if __name__ == '__main__':
-    check()
+    count=0
+    for a in range(2, 13):
+        for b in range(2, 13):
+            p=a+b
+            for n in range(1, 4*p+4):
+                w=factors(a,b,n)
+                assert {tortoise_delete(u) for u in w} == {tortoise_gaps(u) for u in w}
+                fibers={}
+                for u in w: fibers.setdefault(tortoise_delete(u), []).append(u)
+                total=len(fibers)
+                expect=2 if n==1 else (min(n,a)+min(n,b)-1 if n<=p else p)
+                assert total==expect,(a,b,n,total,expect)
+                doubled=[set(v) for v in fibers.values() if len(v)>1]
+                if 2<=n<=p:
+                    pair={('0'*(n-1)+'1'),('1'+'0'*(n-1))} if n<=a+1 else {'0'*a+'1'*(n-a),'1'+'0'*a+'1'*(n-a-1)}
+                    assert doubled==[pair],(a,b,n,doubled,pair)
+                else: assert doubled==[],(a,b,n,doubled)
+                count+=1
+    print('VERIFY_OK one_step_nontrivial_two_run',count)
