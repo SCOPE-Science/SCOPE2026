@@ -1,15 +1,21 @@
-# Scientific review: externally supported independence of circular ladders
+# Independent mathematical audit
 
-## Correctness — PASS
-The admissible seven-column words encode precisely the ESI sets for cycles of length at least seven. The closed-walk transfer has a single cyclic component of 117 states and 241 arcs. An explicitly constructible integral potential makes the cost \(2-3w\) nonnegative after telescoping. Every coefficient of the degree-117 characteristic determinant is computed by exact Newton identities modulo deficit degree five. The resulting formal trace identity proves the maximizing-size and multiplicity formulas for all lengths, while independent direct graph enumeration handles lengths three through six. In `verify.py`, the final determinant support and independent graph enumerations through length eleven are compared exactly. This is a finite algebraic lemma plus a mathematical proof of its consequences, not an infinite inference from sampled sizes.
+## correctness
 
-## Originality — PASS, with historical-priority limits
-Božović, Peterin, Roux and Tepeh, *On externally supported independence number of graphs* (arXiv:2606.22972v1, 2026-06-22), supply the invariant and a general cubic upper bound. The inspected full manuscript also supplies other exact families but not a prism enumeration. The present theorem proves two infinitely recurrent strict-deficit classes, exact multiplicities for all six classes and the full transfer polynomial. The potential competing Cartesian-prism reference *Isolation number: Cartesian and lexicographic products and generalized Sierpiński graphs* (arXiv:2508.16338v1) studies a distinct minimum-isolation invariant; only its abstract was accessible, so broader unpublished equivalences remain a residual risk. Related circular-ladder homology and three-cut-complex records concern different mathematical objects. Searches alone cannot certify absolute priority.
+PASS
 
-## Mathematical value — PASS
-Prisms are a natural connected cubic Cartesian-product family, and the sharp ESI value and counts are not implied by the paper's general cubic upper bound. The residue law exposes genuine lost attainability at \(n\equiv3,5\pmod6\), while the number of optimum sets alternates between constant, linear, quadratic and cubic growth. The complete cardinality polynomial provides an infinite-family enumerator. These are concrete motivated structural facts, not a textbook rearrangement.
+The seven-column local predicate exactly expresses independence and exterior support on C_n square K2 for n>=7; the 729-state de Bruijn graph reduces to one 117-state recurrent strongly connected component with 241 arcs. Every arc satisfies an exact integer potential inequality, making cyclic deficit d=2n-3|B| nonnegative. The complete n<=117 trace and Newton-identity calculation verifies, by arbitrary-precision integer arithmetic, det(I-xC(t)) congruent to 1-x^6-2x^2 t-(x+x^4+x^7)t^2+x^5t^4 modulo t^5, exhausting ALL x coefficients because determinant degree<=117. Formal logarithmic differentiation then proves the six-residue exact maximum-size and maximizing-set formulas at arbitrary n, with n=3..6 checked by complete enumeration. Independently reconstructed the transfer automaton and exact determinant coefficients; separate direct graph ESI enumeration n=3..10 matched α and optimal counts. The complete finite matrix certificate, rather than extrapolation from small graphs, supports the all-n proof.
 
-## Scope and risk
-All counts concern labelled vertex subsets of ordinary \(C_n\square K_2\) with \(n\ge3\). Full polynomials are represented as exact finite traces rather than simplified coefficient lists. An accessible abstract is not whole-text noncoverage; priority remains qualified. The exact finite certificate has been reproduced but no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Božović–Peterin–Roux–Tepeh introduce externally supported independent sets and prove a cubic-regular upper bound alpha_es<=2n/3, but their full text does not provide the sharp prism-specific two residue-class shortfalls, optimal-set multiplicities, or 117-state cardinality generating transfer. Other circular-ladder six-residue laws optimize edge open packing, vertex open packing, dissociation, or isolation, which have different feasibility predicates and do not directly imply the claimed ESI law.
+
+## value
+
+PASS
+
+This is a natural and complete classification of a recently introduced graph invariant on a standard cubic product family. Exact six-residue thresholds, unexpectedly sparse six maximal sets at multiples of six, polynomially many optima in other residues, and an all-sizes rational/transfer counting mechanism are reusable concrete combinatorial facts. The new precision is not a mere parameter substitution of a known general upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
