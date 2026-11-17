@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The included `verify.py` is the complete checker. It constructs the original \(4\times4\) rate generator rather than taking the reduced cubic as input, and tests the exact characteristic polynomial, discriminant, shifted coefficients and singular-limit polynomials. Independent floating-point generator diagonalizations compare 52 noncritical parameter points against the analytic sign classification; six additional threshold substitutions are checked.
+## correctness
 
-Reproduce with `python verify.py` using Python 3.10 or later, SymPy 1.11 or later and NumPy 1.22 or later. The checker writes diagnostic messages to standard output. Exact root uniqueness and the singular limits are proved in RESULT.md; sampling cannot establish either universal statement. No external scientific certification or independent audit has been performed.
+PASS
+
+For the four-site generator with bonds (1,1,1,k), the exact characteristic polynomial is zQ_{k,t}(z); substituting t²=4+s into the cubic discriminant yields P_k(s). All three nonconstant coefficients are strictly negative for k>0 because their quadratics have negative discriminants. P_k(0)>0 except k=1, and P_k(s)→−∞, giving one threshold; the k↓0 and k→∞ limits follow by dominant balance. Independently reconstructed exact SymPy characteristic polynomial and cubic discriminant in this run (initial simplification not canonical; polynomial factorization confirmed zero).
+
+## originality
+
+PASS
+
+Avnit–Cohen 2023 treats stochastic ring spectra and quantum coherent effects, and Hurowitz–Cohen 2015 provides general ring machinery and asymptotic weak-link criteria. Retrieved abstracts and the submitted bibliography do not establish the exact all-k four-site monotone cubic discriminant, its unique threshold, or its k→∞ limit log(3)/2. Resultary semantic search found the assigned record but no clearly dominating earlier published finite four-site theorem. This is best-of-knowledge, not a proof of priority; the directly relevant Avnit–Cohen primary full text was not obtained for a comprehensive theorem-by-theorem comparison.
+
+## value
+
+PASS
+
+A sharp minimal finite-state example differentiates real overdamped from complex underdamped relaxation, including a nontrivial strong-defect limiting boundary. It is a motivated complete parametric classification and useful benchmark, not merely an arbitrary numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full column-conservative Markov generator is reconstructed with four clockwise and four anticlockwise transitions. The exact characteristic cubic and discriminant are reproduced independently in the included symbolic checker. Strict negativity of every positive-degree discriminant coefficient, with an explicitly nonnegative constant term, proves the unique transition over the entire parameter domain; singular-limit equations yield the two stated asymptotics. Numerical eigenvalues cross-check the signs but are not used as universal proofs.
+## correctness
 
-**Originality — PASS, with risk.** The original stochastic bond-jump spectrum and thermodynamic driving framework are prior work, and general spectral inequalities are not claimed as new. Relevant primary material was checked: the 2023 quantum-walk article, the 2015/2016 conservative random-ring paper's exact spectral relation and continuum weak-link analysis, and a 2026 affinity/winding spectral theorem. None of the inspected exact statements specifies the finite four-site one-defect cubic discriminant, proves the one-crossing law for all positive defect strengths, or derives both singular limits. Targeted scholarly and research-record searches found no covering presentation, but this is not proof of priority. An unindexed or differently parameterized finite-cycle analysis could imply the result; the 2019 affinity-bound paper was not fully accessible for inspection.
+PASS
 
-**Mathematical value — PASS.** Finite molecular-motor and ring-relaxation models require knowing whether a fixed kinetic defect can prevent oscillatory relaxation even under very strong bias. The exact classification shows the threshold exists uniquely for every strength and quantifies two qualitatively different defect limits. It sharpens long-ring/continuum weak-link analyses by determining a complete natural finite-state spectral phase diagram, rather than supplying an arbitrary isolated eigenvalue calculation.
+For the four-site generator with bonds (1,1,1,k), the exact characteristic polynomial is zQ_{k,t}(z); substituting t²=4+s into the cubic discriminant yields P_k(s). All three nonconstant coefficients are strictly negative for k>0 because their quadratics have negative discriminants. P_k(0)>0 except k=1, and P_k(s)→−∞, giving one threshold; the k↓0 and k→∞ limits follow by dominant balance. Independently reconstructed exact SymPy characteristic polynomial and cubic discriminant in this run (initial simplification not canonical; polynomial factorization confirmed zero).
 
-The result applies only to the four-site classical sector. It does not imply quantum coherent behavior, nor does it determine transition counts for arbitrary rings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Avnit–Cohen 2023 treats stochastic ring spectra and quantum coherent effects, and Hurowitz–Cohen 2015 provides general ring machinery and asymptotic weak-link criteria. Retrieved abstracts and the submitted bibliography do not establish the exact all-k four-site monotone cubic discriminant, its unique threshold, or its k→∞ limit log(3)/2. Resultary semantic search found the assigned record but no clearly dominating earlier published finite four-site theorem. This is best-of-knowledge, not a proof of priority; the directly relevant Avnit–Cohen primary full text was not obtained for a comprehensive theorem-by-theorem comparison.
+
+## value
+
+PASS
+
+A sharp minimal finite-state example differentiates real overdamped from complex underdamped relaxation, including a nontrivial strong-defect limiting boundary. It is a motivated complete parametric classification and useful benchmark, not merely an arbitrary numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
