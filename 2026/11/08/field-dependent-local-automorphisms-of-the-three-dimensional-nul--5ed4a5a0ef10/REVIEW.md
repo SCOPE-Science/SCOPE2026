@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A local automorphism is determined by its lower-triangular matrix because genuine automorphisms preserve the radical-power filtration and have nonzero leading coefficients. The three scalar interpolation equations in RESULT.md are necessary and sufficient, partitioned by the first nonzero coefficient of a tested element. In characteristic two, the uniqueness of a square root and vanishing of the mixed \(2uv\) term force the same parameter to govern the square and cube entries; in odd characteristic the mixed term lets the coefficients be adjusted separately. Counting parameter choices proves the finite-field formulas; the explicit examples and \(\mathbb F_2\) normal form settle the iff assertion. Exhaustive direct finite-field checks in the attached source code agree for four fields, including \(\mathbb F_4\). No finite sample is used as an all-field proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The original algebra has genuine automorphisms phi(t)=ut+vt^2+wt^3, u!=0; therefore phi(t^2)=u^2t^2+2uvt^3 and phi(t^3)=u^3t^3. The local orbit equations split into x_1!=0 (solve v,w), x_1=0,x_2!=0 (force c square and, in characteristic 2, e=0 and f=u^3), and x_1=x_2=0 (force f cube). This proves necessary/sufficient lower-triangular forms for arbitrary fields, including imperfect ones; in odd finite q the diagonal square/cube image sizes give q^3(q-1)^3/(2 gcd(3,q-1)), and in even q they give q^2(q-1)^2. A nontrivial local but nongenuine example exists outside F_2. Direct orbit-definition enumeration for F_2 and F_3 and inspected independent F_4/F_5 checker support boundary groups; arbitrary-field proof does not depend on finite enumeration.
 
-The closest primary source is Arzikulov–Karimjanov–Umrzaqov (arXiv:2305.13720, 2023; DOI:10.13069/jacodesmath.v11i3.279, 2024). Their genuine-automorphism substitution form is known, and their local-automorphism theorem describes lower-triangular matrices in the setting treated there. The published proof divides by integer coefficients and takes roots (journal pp. 156–158); these operations are not generally available over finite fields or characteristic two. The present full arbitrary-field classification, coupled characteristic-two condition, exact finite-field group sizes, and sharp \(\mathbb F_2\) local-to-global criterion are not provided by those inspected passages and cannot be obtained from the characteristic-zero lower-triangular form by specialization alone. Published record searches and accessible earlier claim comparisons did not reveal a covering theorem. Nonindexed or unexamined field-dependent classifications remain a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A local automorphism is a pointwise symmetry that need not preserve multiplication globally. The question of when local symmetries are genuine is a structural local-to-global problem. The theorem supplies a complete arbitrary-field answer for the minimal three-dimensional null-filiform example where the mixed-square coefficient appears, identifies the exact obstruction at characteristic two, and shows that \(\mathbb F_2\) is uniquely rigid among all fields for this algebra. The finite-field group-order formulas distinguish residue-subgroup constraints from the characteristic-two coupling; they are not merely a recomputation of the known automorphism order. The claim does not extend to higher-dimensional or non-linear local maps.
+Arbitrary-field local automorphisms of the three-dimensional null-filiform associative algebra: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact pointwise-local-to-global classification over every field records a real characteristic-two rigidity boundary, genuinely distinct from the previously known characteristic-zero triangular normal form. Square/cube residue groups and a unique F_2 local-to-global field are natural algebraic invariants potentially useful when extending local-automorphism rigidity over finite and imperfect fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
