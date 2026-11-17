@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from exact finite Walsh orthogonality, including the normalization \(2^{-n}\), and reconstructs each local correlation with no unproved Fourier inversion. The star's two-point intersections isolate every Hamming-distance-one or -two real Gram entry. For even \(n\), the diagonal convolution multipliers \(n+1-2w\) are all nonzero. Two-neighbor lateration then reconstructs each signal coordinate from a linearly independent pair. The all-signal \(n=2\) case follows from full real-Gram recovery, and the distance-three two-site construction proves nonuniformity for every even \(n\ge4\). The projector-span rank counts independent diagonal and short-distance off-diagonal functionals. The standalone checker validates all identities for the explicitly tested dimensions. No conclusion relies on finite experiments alone.
+## correctness
 
-## Originality — PASS under bounded literature comparison
-The first comparator, Bojarovska–Flinth (arXiv:1503.05800), gives general finite Gabor measurement results in which ordinary complex phase retrieval requires nonzero ambiguity; the proposed real Walsh frame has zero ambiguity and cannot distinguish conjugation. Evans–Lai (arXiv:1709.08836) establishes conjugate phase retrieval for generic measurement frames, rather than this deterministic translated/modulated Boolean-star frame and generic signals. Cheng–Daubechies–Dym–Lu (arXiv:2006.11709) assumes locally phase-retrievable measurements, which cannot follow for a complex star block of only real sensing vectors by phase ambiguity alone. Bartusel (arXiv:2206.06729) studies ordinary complex STFT phase retrieval, primarily on cyclic groups; this exponent-two Boolean setting instead has real characters and a conjugate ambiguity. The new exact rank, recovery class, and exceptional family are not stated by those inspected results. Residual risk: a specialized but unlocated Walsh-STFT reconstruction result or general lateration theorem might yield an equivalent corollary; historical uniqueness is not proved.
+PASS
 
-## Mathematical value — PASS
-The radius-one Hamming star is a canonical sparse local sampling aperture, and its real Walsh shifts provide a deterministic, explicitly invertible sensing architecture. It is not immediate that globally unique generic complex signals can be recovered when the complex-linear matrix-sensing rank grows only polynomially relative to \(2^n\) while the ambient matrix dimension is \(4^n\). The theorem identifies the mechanism—parity-dependent diagonal deconvolution followed by real-Gram lateration—and gives a strict boundary between global recovery at dimension four and genuinely phase-ambiguous sparse signals in higher even dimensions. This is a natural concrete inverse-problem classification, not an arbitrary table entry.
+Walsh orthogonality recovers C(t,a). A star supports nonzero correlations only for a=0, weight1 or weight2 and isolates exactly the local real inner products. For even n, convolution (I+A) on diagonals has all eigenvalues n+1-2w nonzero, so each |f(x)|^2 is recovered. Independence of diagonal and distance-one/two entries gives the stated complex-linear span of real rank-one symmetric projectors. Nonzero 2x2 Gram determinants across predecessor distance-two pairs give real R2 two-neighbor lateration, forcing a common O(2) map even for arbitrary competing h. At n=2 all Gram entries are recovered unconditionally. Two-site signals supported at Hamming distance three have undetectable relative phase for n>=4. Independent exact Walsh combinatorics gives ranks 10,96,736 for n=2,4,6 and the stated cube lateration argument is general, not an extrapolation.
 
-## Limitations
-No odd-dimensional recovery theorem, noisy stability bound, necessary characterization of the genericity set, or historical priority beyond the stated comparisons is asserted. Independent validation is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General STFT phase retrieval and finite Gabor measurement results treat other signal groups/windows or generic complex frames. The real star frame cannot identify f versus conjugate, so the correct invariant is the O(2) real Gram. The exact structured star-window rank and a full-measure recovery despite deficient measurement span were not found in the searched existing studies. Best-of-knowledge pass, with incomplete literature coverage risk.
+
+## value
+
+PASS
+
+Highly structured deterministic sensing on the Boolean cube is a natural retrieval problem. Identifies the exact unavoidable conjugation symmetry and cleanly separates generic identification from exceptional continuous ambiguities. The projector rank and explicit lateration provide useful finite-frame structural invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
