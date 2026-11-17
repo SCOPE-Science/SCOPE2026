@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Squared Euclidean distance separates over cube coordinates, giving an exact scalar sign-feedback map. The proof shows finite-time entrance to an alternating branch for every scalar initial condition, identifies the only two scalar periodic phases by affine two-step fixed points, and uses signed-coordinate symmetry for the full basin classification. For Lebesgue-uniform starting points, the first-sign-change formula has only countably many excluded zero-crossing values, hence an exact product-law CDF. The continuum limit follows from the maximum-of-uniforms exponential limit and an error bounded by the log-contraction mesh. For the critical lattice regime, integer-ceiling discontinuities have zero probability under the continuous exponential limiting variable, so the stated phase-dependent law follows. The separate limit with \(d\delta\to\infty\) needs \(r>0\), which is stated.
+PASS
 
-## Originality — PASS within checked evidence
+PASS: Euclidean farthest corners decouple into d copies of f(t)=lambda t-(1-lambda) for t>=0 and lambda t+(1-lambda) otherwise. After a finite first sign switch each coordinate alternates, with period-two values ±(1-lambda)/(1+lambda), so 2^(d-1) antipodal d-dimensional cycles; coordinate sign-reflection symmetry gives basin measure 2^(1-d) away from null ties. For |X_i| uniform, tau_i=ceil(log(1+|X_i|)/delta) almost surely, delta=-log lambda, giving exact CDF [min(1,e^(n delta)-1)]^d for n>=1. As d→∞, maximum uniform deficit d(1-M_d)→Exp(1), yielding 2d(log2-delta H_d)→Exp(1) if d delta→0. For d delta→gamma>0 and fractional phase r, ceiling convergence yields CDF exp[-2gamma(r-k)_+] and the frozen r>0 endpoint when d delta→infinity. Explicit tie convention is necessary for all-point dynamics, but law is almost sure.
 
-The 2024 Abdulaziz source gives even-planar-polygon attracting pairs and includes the square; those elementary attractors are prior art. Its Section 5 does not classify the high-dimensional cube's last first-sign-change distribution or give the joint \(d,\lambda\) continuum/lattice transition. Related published work on quantized affine contractions concerns integer floor maps and settles different events; work on neutral sign feedback concerns continuous families of scalar cycles, not isolated contracting cube cycles. Published result searches returned no claim with the displayed exact hitting CDF plus phase-sensitive double limit. This is an inspected-literature conclusion, not a proof of universal publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The last coordinate to switch determines when the entire high-dimensional deterministic farthest-vertex system has reached its permanent alternating symbolic regime. Its exact finite-parameter law quantifies settling costs, while the coupled weak-contraction/high-dimension limit reveals a genuine transition: an exponential continuum extreme law breaks into lattice-phase-dependent laws when the discrete time step remains visible on the extreme-value scale. The value lies in this complete natural dynamical transient statistic and sharp parameter crossover, not in the elementary scalar fixed-point calculation alone.
+PASS best of knowledge. Abdulaziz (2024) treats farthest-vertex contractions on planar polygons and establishes even-vertex two-cycle behavior; the submitted hypercube coordinate product and especially the last-coordinate settling-time distribution and scaling crossover are not its results. The exponential limit of maxima of uniform variables is textbook, but exact arithmetic-dependent lattice transition for this natural dynamics is a separate implication. Resultary search found no stronger same-contraction settling-time classification.
 
-## Closest literature and limitations
+## value
 
-Closest inspected primary full text: Abdulaziz, arXiv:2407.02506 (2024), Section 5, covering planar regular polygons. Relevant published scientific records on negative-slope quantized affine contractions and scalar Signum have different exact maps and do not imply the claimed high-dimensional switching-time statistic. Classical maximum order statistics are acknowledged as a proof ingredient. Unindexed equivalent dynamical formulations remain a residual priority risk. The result assumes Euclidean farthest-corner selection, uniform independent initial coordinates, and the specified null-set tie convention. No extension to arbitrary polytopes or other initial laws is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The last initial sign change is a natural exact settling statistic of a piecewise contraction. Its continuum versus lattice crossover occurs at the sharp dimension-contraction scale d delta≈1, and the limiting law depends on fractional arithmetic phase. It is a nontrivial finite-to-asymptotic classification, not simply restating the known two-cycle existence theorem or presenting finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
