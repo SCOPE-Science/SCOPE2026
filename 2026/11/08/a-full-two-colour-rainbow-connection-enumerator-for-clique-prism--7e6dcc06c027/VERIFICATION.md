@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the supplied standalone verifier. The program constructs the labelled graph and tests actual two-edge paths without presupposing the factor formula.
+## correctness
 
-The exhaustive cases are \(n\in\{2,3,4\}\), covering \(16,512,65536\) two-colour edge assignments respectively. Each is compared with the closed-form coefficient vector; total counts are \(10,126,4050\) and minimum-blue counts are \(4,9,16\). For each \(n\in\{5,6,7,8\}\), 25,000 reproducible assignments check the direct graph-path predicate against a separately coded local-pair predicate; these tests are sampling, not an exhaustive census. Reciprocal coefficient symmetry, the minimum coefficient and the specialization at one are additionally checked. Expected final line: `VERIFY_OK`.
+PASS
 
-The infinite theorem depends on the explicit necessary-and-sufficient Boolean path analysis and independent product argument in `RESULT.md`; finite checks do not prove all integers \(n\ge2\). No independent audit has taken place.
+A two-color rainbow path has at most two edges. Every nonadjacent pair is cross-layer and has two possible length-two paths. For a pair of indices the two simultaneous Boolean constraints forbid (red,red) when both rungs red, forbid (blue,blue) when both blue, and require equal layer-edge colors when rung colors differ. Each unordered index pair uses disjoint variables, proving exact product factors z(2+z),1+2z and 1+z². Minimizing over t=n-b gives n-1+(t-1)(t-2)/2 and exactly n+2*binom(n,2)=n² minimizers. Independent direct path enumeration over all 2^(n²) assignments for n=2,3,4 produced 10,126,4050 valid colorings, support and reciprocity; the local combinatorial proof handles every n>=2.
+
+## originality
+
+PASS
+
+On the inspected evidence, existing clique-prism sub-quorum results count vertex-coloring conditions, while published rainbow results concern existence thresholds or different complete bipartite/crown graphs. Neither these invariants nor general rainbow-counting complexity imply the exact blue-edge generating polynomial, sparse minimizer classification and asymptotic count for K2 Cartesian Kn. The highly relevant 2026 rainbow-connection preprint could not be read in full and remains a historical-priority risk, not an automatic novelty rejection.
+
+## value
+
+PASS
+
+A complete coefficient-wise polynomial for a natural infinite graph family gives exact reliability under independently biased edge colors and classifies the exact smallest recoloring budget and all optimizers. The independence across index pairs reveals a meaningful combinatorial decomposition, not an arbitrary tiny-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

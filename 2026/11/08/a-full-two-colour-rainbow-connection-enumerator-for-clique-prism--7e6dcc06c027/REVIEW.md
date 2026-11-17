@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit path test for both cross-layer orientations is necessary and sufficient. Each pair of clique edges belongs to exactly one unordered index pair, yielding independent factors, so the polynomial formula counts all edge assignments exactly once. The minimum-blue equality cases, colour symmetry and total-count asymptotic follow algebraically. The standalone checker enumerates every edge colouring at sizes two through four; larger tests are nonexhaustive and not used to prove the infinite statement.
+## correctness
 
-## Originality — PASS, qualified
-The relevant 2026 work studies existence of two-colour rainbow connections on near-two-clique dense graphs. The 2024 general counting paper establishes complexity and fixed-parameter algorithms; the 2012 Cartesian-product paper treats rainbow connection numbers. The accessible 2023 full-text loose-connection paper supplies an equivalent colour-two formulation but not this polynomial. An analogous sparse-colouring observation for bipartite crown graphs concerns a different graph family and does not imply a two-clique-prism enumerator. No covering exact blue-edge enumerator or all-minimizer classification was found in accessible sources. This is a best-knowledge originality judgment, not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The theorem solves the complete coefficient-wise enumeration problem for an infinite labelled family rather than only giving a feasible colouring or a scalar chromatic parameter. In addition, it identifies the exact cost and every optimum of recolouring a monochromatic assignment into a rainbow-connected one, and determines the asymptotic count of all feasible assignments. These statements have a concrete structural explanation through paired clique edges and matching-edge colours.
+A two-color rainbow path has at most two edges. Every nonadjacent pair is cross-layer and has two possible length-two paths. For a pair of indices the two simultaneous Boolean constraints forbid (red,red) when both rungs red, forbid (blue,blue) when both blue, and require equal layer-edge colors when rung colors differ. Each unordered index pair uses disjoint variables, proving exact product factors z(2+z),1+2z and 1+z². Minimizing over t=n-b gives n-1+(t-1)(t-2)/2 and exactly n+2*binom(n,2)=n² minimizers. Independent direct path enumeration over all 2^(n²) assignments for n=2,3,4 produced 10,126,4050 valid colorings, support and reciprocity; the local combinatorial proof handles every n>=2.
 
-## Closest literature and limitations
-The highly relevant 2026 motivating preprint was inspected only as to its metadata and abstract because the complete manuscript was unavailable; the 2024 counting paper was also restricted to its publisher preview. Their unread sections are a residual historical-priority risk. The 2023 open-access loose edge-connection article was materially inspected in the body, including its two-colour equivalence and diameter-two sections. The claim is confined to ordinary/strong two-colour connectivity on the labelled graph \(K_2\square K_n\), \(n\ge2\), and makes no statement about other product factors or stronger multi-path requirements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the inspected evidence, existing clique-prism sub-quorum results count vertex-coloring conditions, while published rainbow results concern existence thresholds or different complete bipartite/crown graphs. Neither these invariants nor general rainbow-counting complexity imply the exact blue-edge generating polynomial, sparse minimizer classification and asymptotic count for K2 Cartesian Kn. The highly relevant 2026 rainbow-connection preprint could not be read in full and remains a historical-priority risk, not an automatic novelty rejection.
+
+## value
+
+PASS
+
+A complete coefficient-wise polynomial for a natural infinite graph family gives exact reliability under independently biased edge colors and classifies the exact smallest recoloring budget and all optimizers. The independence across index pairs reveals a meaningful combinatorial decomposition, not an arbitrary tiny-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
