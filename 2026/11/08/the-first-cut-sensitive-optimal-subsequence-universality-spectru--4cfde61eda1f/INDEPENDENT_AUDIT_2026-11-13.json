@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:04:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md ad4dd71b44da1b291c6cb59030f3f9f2b7d47cc2",
+        "frozen verify.py be9cf5aea1cacd8319e3b527973563ed5753cde2",
+        "CENSUS.csv blob 3c8b2c8e3cb1e729b87eb0e6fb0c034d85e42b51",
+        "independent_checks.py independent feedback cycle arch counts",
+        "check_debruijn_orbits.py independent symmetry action and 528-orbit census"
+      ],
+      "rationale": "A length-m zero window is unique, rooting every cycle once; an Euler-circuit enumerator and exhaustive invertible-feedback enumeration yield identical canonical-cycle sets (2048 at m5). The arch-count characterization follows by constructing a shortest absent scattered subsequence; all 2^m cuts of each root and an independent next-occurrence DP are evaluated. Independent Python feedback/arch reimplementation reproduces (2,2):1, (3,4):2, m4 (5,7):8 and (6,7):8, and m5 (10,12):512,(11,13):1536. Independent orbit normalization reproduces the 528 reversal/complementation orbit classes and their 16/120/16/376 breakdown. The full saved CSV was not byte-recomputed; verify.py source and original Git blob were inspected. Finite proof only through m5.",
+      "residual_risks": [
+        "Independent check is bounded to the stated finite ranges; any unrestricted proof rests on analyzed mathematics rather than numerical output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-type-circular-subsequence-universality-law-for-binary-de-b--0c5342f70e1a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-six-factor-criterion-for-circular-subsequence-universality-in--466547ad59ec",
+          "The all-order n-bit cut law determines K and number of shorter cuts, a very strong prior structural statement."
+        ],
+        "reasoning": "These dominate the unpadded cut statistics, the n5 512/1536 split, the 528 reversal/complementation orbit counts and first unpadded optimal-cut nonconstancy. Their theorems do not explicitly calculate each cycle’s padded length-(2^m+m-1) min/max; that narrow residual is the only originality supported.",
+        "searches": [
+          "Resultary all-order two-type de Bruijn arch throughput and all-cut histogram",
+          "Resultary 2026 Oct 26 512 1536 orbit census",
+          "Resultary 2026 Nov 2 six-factor criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-type-circular-subsequence-universality-law-for-binary-de-b--0c5342f70e1a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+        "https://www.researchgate.net/publication/403541142_Absent_Subsequences_in_Words",
+        "Resultary de Bruijn circular scattered-subsequence universality arches order five",
+        "circular linear cuts with appended n-1 bits versus plain N-bit rotation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-type-circular-subsequence-universality-law-for-binary-de-b--0c5342f70e1a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+          "An all-cut histogram of u(B_i) for |B_i|=2^m is not the histogram of u(B_i + first m-1 symbols); added symbols can create up to m-1 additional arches depending on the starting/ending states."
+        ],
+        "reasoning": "The broader unpadded results provide deep constraints and likely simplify derivation of the padded census, but their stated implications do not supply the exact paired padded cut extrema without analyzing the appendage. This narrow independent computation is credited only with the appropriate prior attribution risk.",
+        "searches": [
+          "Resultary Oct18 all-order circular arches formula",
+          "padded de Bruijn linearization extension by m-1",
+          "Resultary Oct26 whole cycle universality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-type-circular-subsequence-universality-law-for-binary-de-b--0c5342f70e1a",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+          "Current linearization length 2^m+m-1 versus prior 2^m exactly"
+        ],
+        "reasoning": "Prior papers treat unpadded one-circle cuts and their circular universality; the submitted invariant adds the m-1 closing symbols and measures both min and max over cuts. These are distinct numerical invariants; identical 512/1536 partitions alone do not prove equivalence of full statements.",
+        "searches": [
+          "Resultary de Bruijn circular scattered-subsequence universality arches order five",
+          "circular linear cuts with appended n-1 bits versus plain N-bit rotation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-six-factor-criterion-for-circular-subsequence-universality-in--466547ad59ec",
+          "2026/10/26 RESULT.md gives exactly the same 512/1536 and 16/120/16/376 orbit counts for an unpadded invariant."
+        ],
+        "reasoning": "The order-five class split and symmetry counts are already known for the unpadded setting; unpadded optimal-cut variability even occurs already at order four. The distinct first order of padded best-cut variability is five. Newness can attach solely to the padded Umin/Umax table (especially the Umax=12,13), not to these copied numbers as such.",
+        "searches": [
+          "order-five de Bruijn circular 512/1536 orbit counts 16 120 16 376",
+          "order-five padded indices (10,12) (11,13)"
+        ]
+      },
+      "rationale": "Critical correction: earlier 2026 Oct18/Oct26 publications already cover the unpadded class split and exactly the same orbit numbers, contra overly strong self-review. The surviving distinct result is the paired best/worst subsequence indices for the natural padded 2^m+m-1 cut (m<=5); no earlier inspected statement establishes this exact new statistic. Acceptance is only for that tightly scoped claim and must not imply the prior numbers themselves are novel.",
+      "residual_risks": [
+        "Strong prior all-order unpadded arch theorem may allow a short derivation of the padded min/max; no proof of exact implication located.",
+        "Original package requires prior attribution correction before public publication.",
+        "A full historical table of padded extrema could exist under a different term."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: all unpadded length-2^m cuts, not padded extension",
+          "evidence": "Every B_i of length 2^m has index K(B)-1 or K(B) with exact frequency; no appended m-1 symbols in its theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-type-circular-subsequence-universality-law-for-binary-de-b--0c5342f70e1a",
+          "material_read": "Full RESULT.md including repeat-gap proof, K(B) formula, all-cut histogram and scope",
+          "method": "read published mathematical result and proof full",
+          "title": "A two-type circular subsequence-universality law for binary de Bruijn cycles",
+          "trigger": "Strong all-orders dominating theorem"
+        },
+        {
+          "assessment": "COVERS class split and 528 symmetry orbit numbers for N-bit cuts; not stated padded extrema",
+          "evidence": "Its main definition is max over length-32 rotations, while assigned claim uses length-36 cuts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+          "material_read": "Full RESULT.md table, proof, verification and exact orbit census",
+          "method": "read published mathematical record full",
+          "title": "Circular subsequence-universality spectrum of binary de Bruijn cycles of order five",
+          "trigger": "Exact 512/1536 prior count and symmetry orbit names"
+        },
+        {
+          "assessment": "METHOD_COVERAGE, no demonstrated order-five padded census",
+          "evidence": "Shortest absent subsequences and arch factorization are generic algorithms; no direct conditional de Bruijn class frequencies identified.",
+          "identifier_or_url": "https://www.researchgate.net/publication/403541142_Absent_Subsequences_in_Words",
+          "material_read": "Public full HTML transcript including introduction, definitions, abstract and standard methods; not a de Bruijn-order-five table in material read",
+          "method": "read primary article hosted full-text representation (selected sections)",
+          "title": "Absent Subsequences in Words, Kosche–Koß–Manea–Siemer",
+          "trigger": "Primary earlier arch and missing-subsequence methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-type-circular-subsequence-universality-law-for-binary-de-b--0c5342f70e1a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-circular-subsequence-universality-spectrum-of-binary-de-bruijn-c--964dfe5e22aa",
+        "https://www.researchgate.net/publication/403541142_Absent_Subsequences_in_Words"
+      ],
+      "rationale": "The standard linearization of a de Bruijn cycle of order m has 2^m+m-1 letters to cover all m-factors once as a linear word. Its scattered-subsequence universality under all cuts is a separately motivated exact invariant; a complete census at first differing best-cut order is a useful finite boundary, even though the unpadded 512/1536 classification and symmetry orbits were known.",
+      "residual_risks": [
+        "Overlapping earlier results substantially narrow novelty.",
+        "Does not prove an all-order padded formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary de Bruijn cycles of order m=2..5, evaluating all cuts of the natural length-2^m+m-1 linearization gives exact (minimum,maximum) scattered-subsequence-universality pair distributions; at order five these are (10,12) for 512 cycles and (11,13) for 1536.",
+  "limitations": [
+    "Strong prior all-order unpadded arch theorem may allow a short derivation of the padded min/max; no proof of exact implication located.",
+    "Original package requires prior attribution correction before public publication.",
+    "A full historical table of padded extrema could exist under a different term.",
+    "Overlapping earlier results substantially narrow novelty.",
+    "Does not prove an all-order padded formula."
+  ],
+  "schema_version": 1
+}

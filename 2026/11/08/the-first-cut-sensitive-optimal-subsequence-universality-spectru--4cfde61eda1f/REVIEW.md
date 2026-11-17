@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The theorem is an exact finite census, not an extrapolation: each order-\(m\) de Bruijn cycle has a unique all-zero length-\(m\) window, so one root choice enumerates the full rotation quotient. Two independent exhaustive generating mechanisms (Eulerian circuits versus all nonsingular feedback maps), each with a mathematical completeness argument, agree on every canonical cycle. All cuts are tested. A direct shortest-absent-subsequence dynamic program agrees with the greedy-arch count at every cut, and every saved certificate row is independently reproduced. The symmetry actions are explicitly normalized and their orbit sizes sum to the labeled count.
+## correctness
 
-## Originality
-PASS under accessible-source comparison, with unresolved unindexed priority risk. Gabrić–Sawada's primary 2026 full text treats necklaces and generation of one canonical de Bruijn cycle, not the cycle-conditioned distribution of scattered-subsequence universality. Kosche–Koß–Manea–Siemer treat generic absent-subsequence algorithms; published general results on all binary-word universality and a distinct order-five maximal-closed-substring census do not logically entail these de Bruijn-specific counts. Direct searches for the order-five \(512/1536\) dichotomy, aliases based on arch factorization, and symmetry orbit spectra produced no covering result. The older absent-subsequence work was available principally in abstract/metadata, so unindexed supplementary tables remain a risk.
+PASS
 
-## Value
-PASS. De Bruijn cycles are canonically universal for all length-\(m\) *contiguous* windows. The result measures the distinct, natural question of how much *scattered-subsequence* universality survives under the best and worst linearization cut. Order five is the smallest order where the optimal cut depends on the cycle; the full 2,048-cycle census and 528 symmetry classes quantify this first qualitative transition. This is a complete finite classification at the first nonconstant order, rather than an arbitrary sampled parameter.
+A length-m zero window is unique, rooting every cycle once; an Euler-circuit enumerator and exhaustive invertible-feedback enumeration yield identical canonical-cycle sets (2048 at m5). The arch-count characterization follows by constructing a shortest absent scattered subsequence; all 2^m cuts of each root and an independent next-occurrence DP are evaluated. Independent Python feedback/arch reimplementation reproduces (2,2):1, (3,4):2, m4 (5,7):8 and (6,7):8, and m5 (10,12):512,(11,13):1536. Independent orbit normalization reproduces the 528 reversal/complementation orbit classes and their 16/120/16/376 breakdown. The full saved CSV was not byte-recomputed; verify.py source and original Git blob were inspected. Finite proof only through m5.
 
-## Scope and limits
-The claim covers only binary orders two through five, the specified length-\(2^m+m-1\) linearization, and the stated rotation/symmetry identifications. Independent mathematical priority confirmation and independent external audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Critical correction: earlier 2026 Oct18/Oct26 publications already cover the unpadded class split and exactly the same orbit numbers, contra overly strong self-review. The surviving distinct result is the paired best/worst subsequence indices for the natural padded 2^m+m-1 cut (m<=5); no earlier inspected statement establishes this exact new statistic. Acceptance is only for that tightly scoped claim and must not imply the prior numbers themselves are novel.
+
+## value
+
+PASS
+
+The standard linearization of a de Bruijn cycle of order m has 2^m+m-1 letters to cover all m-factors once as a linear word. Its scattered-subsequence universality under all cuts is a separately motivated exact invariant; a complete census at first differing best-cut order is a useful finite boundary, even though the unpadded 512/1536 classification and symmetry orbits were known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
