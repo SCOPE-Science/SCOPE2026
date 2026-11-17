@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:43:18.756640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a candidate vertex subset S with uniform arrival order, conditioning on the earliest attempted v gives f_G(S)=1+(1/|S|)sum_{v∈S}f_G(S\\N[v]) where N[v] is closed. Multiplying by |S|! gives integer DP a_G(S)=|S|!+sum_{v∈S}(|S|-1)!/|S\\N[v]|! *a_G(S\\N[v]); this exhausts all 2^20 masks. The average over |S|=k yields exact mu_G(k) and differences delta_k=mu_H(k)-mu_D(k). The supplied complete rational 21-entry table has delta_0..delta_4=0, delta_5=1/3876, each delta_5..delta_20>0 and delta_20=2030003/3144960. Independently reimplemented an exact integer mask recursion in C++ using 128-bit arithmetic and recomputed every mu and delta without running repository code; results matched all 21 rational table entries, including positive signs. Bernoulli-p subset sampling for independent exponential first attempts gives E[X_H(t)-X_D(t)]=sum_k binom(20,k)p^k(1-p)^(20-k)delta_k, with p=1-exp(-t): positive for each t>0, and leading coefficient binom(20,5)*delta_5=4. The inspected separate available-candidate polynomial and occupied-independent-set recursions give full terminal distributions D: {6:1/90,7:302009/336960,8:31207/336960}, H: {6:1055/6912,7:2152/7371,8:81557/207360,10:37763/232960}; their survival tails reverse order between thresholds 7 and 8. This is exhaustive finite computation on named 20-vertex graphs, not a claim for arbitrary graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Shrikhande/rook comparison is on two different 16-vertex strongly regular graphs; infinite/random regular limits average over ensembles."
+        ],
+        "reasoning": "No inspected general criterion proves strict all-time ordering between these two distinct cubic twenty-site graphs; girth alone is not a general guarantee.",
+        "searches": [
+          "Resultary: dodecahedral Desargues graph random greedy independent set monomer adsorption kinetic expected occupancy exact",
+          "Resultary: strict kinetic separation two cospectral graphs",
+          "Brightwell–Janson–Luczak arXiv:1510.05560",
+          "Dhara et al arXiv:1604.03918"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: dodecahedral Desargues graph random greedy independent set monomer adsorption kinetic expected occupancy exact",
+        "Resultary: random sequential adsorption generalized Petersen GP(10,2) GP(10,3) dodecahedron Desargues comparison",
+        "https://doi.org/10.1137/0402034",
+        "https://arxiv.org/abs/1510.05560",
+        "https://arxiv.org/abs/1604.03918",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-kinetic-separation-of-two-cospectral-graphs-under-hard-co--0f9e5993c6ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pippenger describes occupancy probabilities as shortest cycles become long in regular graphs; Dodecahedron and Desargues are fixed graphs with different finite girths.",
+          "Static independence polynomials count independent sets without arrival-order weights."
+        ],
+        "reasoning": "Neither high-girth limit nor another graph-pair kinetic comparison implies all twenty positive exact delta_k signs, the p^5 onset and tail crossing for the specified pair.",
+        "searches": [
+          "Pippenger 1989 abstract",
+          "Resultary: dodecahedral Desargues graph random greedy independent set monomer adsorption kinetic expected occupancy exact",
+          "Resultary Shrikhande rook kinetic comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exponential first attempts are equivalent to a Bernoulli-p candidate set with independent uniform attempt ordering, p=1-e^-t. This is the classical finite-graph random greedy independent set/RSA process."
+        ],
+        "reasoning": "The random greedy independent-set alias is checked. Published large-order and infinite regular RSA models do not give the exact two finite graph distributions by simple renaming.",
+        "searches": [
+          "Resultary: dodecahedral Desargues graph random greedy independent set monomer adsorption kinetic expected occupancy exact",
+          "Resultary: random sequential adsorption generalized Petersen GP(10,2) GP(10,3) dodecahedron Desargues comparison",
+          "Pippenger DOI 10.1137/0402034"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published independence complexes classify static independent sets, not probabilities of sequential greedy acceptance histories.",
+          "The submitted twenty-one Bernstein rational coefficients are exactly reproducible by exhaustive 2^20 subset DP."
+        ],
+        "reasoning": "Known static graph census and topology are insufficient to imply kinetic coefficients; no prior same kinetic table was identified. Exhaustive enumeration is proof for fixed finite graphs when recurrence and all masks are checked.",
+        "searches": [
+          "Resultary: random sequential adsorption generalized Petersen GP(10,2) GP(10,3) dodecahedron Desargues comparison",
+          "Resultary: dodecahedral Desargues independence complexes",
+          "GP(10,2) GP(10,3) greedy independent set terminal law"
+        ]
+      },
+      "rationale": "Resultary searches for these exact canonical generalized Petersen graphs and hard-core monomer kinetics found no earlier evaluated all-time pair comparison; related exact jamming laws concern Petersen dimers, Shrikhande/rook monomers, Frucht or other graph classes. Pippenger (1989) treats regular high-girth regimes and provides the foundational RSA model; its available abstract does not state the computed finite-pair inequality, but complete full text is inaccessible via publisher, OA, arXiv and authorized institutional route. Static independence-complex studies of the two graphs do not determine the order-weighted greedy histories. Best-of-knowledge credit applies to the complete exact Bernstein ordering and terminal crossing, not RSA or graph topology generally.",
+      "residual_risks": [
+        "Pippenger (1989) full text inaccessible via normal OA/arXiv and authorized institution (vpn_disconnected); cannot claim the whole earlier paper does not contain special finite-graph formulas.",
+        "Unindexed exact finite-graph random greedy RSA data could contain the same pair.",
+        "All-time strict mean ordering does NOT imply stochastic domination of terminal occupancy laws (proved false by tail crossing)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential historical-priority risk: entire paper NOT READ; abstract concerns high-girth limits, does not report this exact pair",
+          "evidence": "1989 abstract treats regular graphs with few short cycles and asymptotic jamming occupancy.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Publisher abstract and bibliographic metadata read; searched arXiv and lawful OA for same full text without success, then institutional oxford_paper returned vpn_disconnected job 70f769f9fb1289f62d91464fdc8830e8",
+          "method": "SIAM publisher abstract and authorized institutional full-text attempt",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Same irreversible hard-core model and finite regular graphs (Pippenger 1989)"
+        },
+        {
+          "assessment": "Different random-graph large-order setting; no exact deterministic finite-pair theorem observed",
+          "evidence": "Asymptotic greedy independent-set size on random graphs of given degree distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.05560",
+          "material_read": "Abstract, main asymptotic scope and original paper model comparison",
+          "method": "arXiv publication/abstract and submitted references",
+          "title": "The greedy independent set in a random graph with given degrees",
+          "trigger": "Random greedy process, degree-three graphs as possible dominating model"
+        },
+        {
+          "assessment": "Not directly covering named fixed cubic twenty-vertex graphs",
+          "evidence": "Erdős–Rényi random-graph generalized adsorption and jamming limits.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.03918",
+          "material_read": "ArXiv abstract and core model parameters as cited; original full-body not required for unrelated Erdős–Rényi regime",
+          "method": "arXiv source overview",
+          "title": "Generalized random sequential adsorption on Erdős–Rényi random graphs",
+          "trigger": "Related stochastic adsorption model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated exact kinetic comparison of two canonical 20-vertex cubic networks of equal order/degree, with a strict all-time sign certificate, a sharp fifth-attempt onset linked to five-cycles and full terminal law crossing. The exact 21 rational coefficients distinguish dynamics beyond degree and static independence-set counts and are independently useful fixed-graph invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific GP(10,2) and GP(10,3) only; no graph-universal girth or stochastic-order claim.",
+    "Full-text historical comparison with Pippenger 1989 blocked by institutional VPN; scoped as residual originality risk, not correctness failure."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise process is single-attempt irreversible monomer adsorption with independent rate-one exponential clocks on \(GP(10,2)\) and \(GP(10,3)\). Exchangeability gives an exact first-arrival recursion for the conditional means, and the integer-scaled form yields exhaustive rational certificates for all \(2^{20}\) subsets. All twenty-one coefficients are evaluated: exactly five vanish and the remaining sixteen are strictly positive. Conditioning on the Bernoulli set of attempted sites proves the strict inequality for every real positive time. A separate terminal-law polynomial calculation and a differently represented occupied-state recursion agree on the terminal laws and their crossing tails. The five-vertex motif census checks the leading coefficient independently. The scripts and data are included as exact embedded files.
+## correctness
 
-## Originality — PASS on the evidence examined, with residual risk
-The 2015 and 2016 primary papers give random-graph asymptotic jamming theory, which does not evaluate this finite graph pair. The complete accessible graph-specific independence-complex reports concern topology and static face numbers, not arrival-order-weighted laws. Semantic mathematical-result and literal literature searches did not locate an equivalent all-time inequality or a stronger theorem that supplies it. Pippenger's 1989 full text was inaccessible despite an open-access and authorized institutional attempt; only the abstract was compared. Hidden tables or differently titled finite calculations remain a material but not decisive priority risk. No search failure is treated as novelty proof.
+PASS
 
-## Mathematical value — PASS
-The comparison is not an arbitrary graph slice: the two canonical twenty-vertex cubic distance-transitive graphs have the same order and degree, so equal local blocking capacity does not determine their kinetic response. The strict all-time conditional and unconditional mean ordering coexists with crossing terminal tails, a physically relevant distinction between mean packing performance and the chance of a moderate coverage threshold. The fifth-order discrepancy has a reproducible five-cycle motif explanation. This is a full finite-volume kinetic benchmark, not a claim of a general girth monotonicity theorem.
+For a candidate vertex subset S with uniform arrival order, conditioning on the earliest attempted v gives f_G(S)=1+(1/|S|)sum_{v∈S}f_G(S\N[v]) where N[v] is closed. Multiplying by |S|! gives integer DP a_G(S)=|S|!+sum_{v∈S}(|S|-1)!/|S\N[v]|! *a_G(S\N[v]); this exhausts all 2^20 masks. The average over |S|=k yields exact mu_G(k) and differences delta_k=mu_H(k)-mu_D(k). The supplied complete rational 21-entry table has delta_0..delta_4=0, delta_5=1/3876, each delta_5..delta_20>0 and delta_20=2030003/3144960. Independently reimplemented an exact integer mask recursion in C++ using 128-bit arithmetic and recomputed every mu and delta without running repository code; results matched all 21 rational table entries, including positive signs. Bernoulli-p subset sampling for independent exponential first attempts gives E[X_H(t)-X_D(t)]=sum_k binom(20,k)p^k(1-p)^(20-k)delta_k, with p=1-exp(-t): positive for each t>0, and leading coefficient binom(20,5)*delta_5=4. The inspected separate available-candidate polynomial and occupied-independent-set recursions give full terminal distributions D: {6:1/90,7:302009/336960,8:31207/336960}, H: {6:1055/6912,7:2152/7371,8:81557/207360,10:37763/232960}; their survival tails reverse order between thresholds 7 and 8. This is exhaustive finite computation on named 20-vertex graphs, not a claim for arbitrary graphs.
 
-## Limits
-The conclusion is graph-specific and exact for independent rate-one attempts only. No large-volume scaling, general edge-monotonicity, or stochastic dominance is asserted. Unindexed past calculations and the inaccessible full text noted above remain priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary searches for these exact canonical generalized Petersen graphs and hard-core monomer kinetics found no earlier evaluated all-time pair comparison; related exact jamming laws concern Petersen dimers, Shrikhande/rook monomers, Frucht or other graph classes. Pippenger (1989) treats regular high-girth regimes and provides the foundational RSA model; its available abstract does not state the computed finite-pair inequality, but complete full text is inaccessible via publisher, OA, arXiv and authorized institutional route. Static independence-complex studies of the two graphs do not determine the order-weighted greedy histories. Best-of-knowledge credit applies to the complete exact Bernstein ordering and terminal crossing, not RSA or graph topology generally.
+
+## value
+
+PASS
+
+A motivated exact kinetic comparison of two canonical 20-vertex cubic networks of equal order/degree, with a strict all-time sign certificate, a sharp fifth-attempt onset linked to five-cycles and full terminal law crossing. The exact 21 rational coefficients distinguish dynamics beyond degree and static independence-set counts and are independently useful fixed-graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
