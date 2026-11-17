@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the SPD inverse-Hessian Gram G with offdiagonal signs (+,+,-) and 0<c<=d<1, 2c²+d<1, exact minimization of the two retained coordinates leaves a rank-one H-energy residual. Its worst conditional expected retention is lambda_max(sum p_j v_jv_j^T)=lambda_max(P^{1/2}GP^{1/2}). Symmetrizing leaf probabilities is valid by convexity. For (a,b,b), antisymmetric mode T(a)=(1-a)(1+d)/2 decreases and the larger symmetric mode L(a) crosses it once at a*=d(1+d)/(2c²+d²+3d); L is increasing after crossing on this domain, establishing the global minimum. Cofactor identity makes determinant-volume sampling uniform; eigenvalue comparison gives retention (1+d)/3, strict gap for c<d and 4/3 sharp supremum. Independent numerical simplex optimization at four SPD (c,d) examples agrees with exact probabilities and eigenvalues; finite tests only corroborate the all-real proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1904.04587",
+          "https://arxiv.org/abs/1506.03296",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26"
+        ],
+        "reasoning": "Rodomanov–Kropotov develops determinant-based block sampling and rates, while Gower–Richtárik supplies arbitrary-sketch spectra, not this exact minimax comparison. The broad sign-conjugated nonnegative sufficient theorem is inapplicable because the cycle product is negative.",
+        "searches": [
+          "volume sampling frustrated triangle block coordinate descent minimax omission fixed probabilities negative cycle",
+          "general randomized block coordinate descent optimal sampling signed triangle SDP E design"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5",
+        "https://arxiv.org/abs/1904.04587",
+        "https://arxiv.org/abs/1506.03296"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5",
+          "The 2026 Oct26 theorem uses exact ONE-coordinate updates and lambda_min; current one uses exact TWO-coordinate updates and lambda_max.",
+          "Earlier sign-nonnegative sufficient condition fails since G_01 G_02 G_12=-c²d."
+        ],
+        "reasoning": "A generic SDP implicitly defines an optimum but does not imply a fully evaluated two-parameter formula and exact strict determinant comparison without additional spectral analysis. The earlier signed triangle Kaczmarz theorem also concerns a different complementary operator.",
+        "searches": [
+          "volume sampling frustrated triangle block coordinate descent minimax omission fixed probabilities negative cycle",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5",
+          "The actual minimized observable is lambda_max(P^{1/2} G P^{1/2}), distinct from single-coordinate descent lambda_min of a Hessian."
+        ],
+        "reasoning": "Equivalently rank-one omitted-coordinate residual projection, or a three-unit-vector E-spectral upper design. Sign conjugation preserves the product -c²d<0, so the nonnegative-Gram closed form cannot be transformed into this case.",
+        "searches": [
+          "volume sampling frustrated triangle block coordinate descent minimax omission fixed probabilities negative cycle",
+          "all but one coordinate exact block residual lambda max inverse gram E optimal sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact table gives p0:p1:p2=d(1+d):(c²+d):(c²+d) under the same all-but-one block rule.",
+          "Earlier three-variable formula p∝(1-s,1,1) uses a different star Gram with zero triangle frustration."
+        ],
+        "reasoning": "The claimed sharp 4/3 retention ratio is not a free parameter renaming of earlier star formula; negative leaf correlation changes eigenmode competition and the minimizing weights.",
+        "searches": [
+          "volume sampling frustrated triangle block coordinate descent minimax omission fixed probabilities negative cycle",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5"
+        ]
+      },
+      "rationale": "Best-of-knowledge original specialization: a prior frustrated three-coordinate quadratic result optimizes one-coordinate updates and the minimum eigenvalue, NOT two-coordinate omission and largest residual eigenvalue. Prior volume-vs-uniform SPD stars has a positive/signable inverse Gram; its sufficient theorem cannot cover this negative cycle. General volume sampling and randomized sketch convergence set up the objective without computing the sharp signed-family law. Explicit residual E-optimal-design priority risk remains.",
+      "residual_risks": [
+        "A classical E-optimal-design or signed-vector diagonal scaling theorem may contain this specific three-vector closed form under different terminology.",
+        "The result concerns exact one-step conditional retention, not asymptotic multi-step convergence or runtime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_UPDATE_AND_EIGENVALUE",
+          "evidence": [
+            "Earlier one-coordinate descent uses lambda_min(P^.5 C P^.5) to maximize decrement; no two-coordinate complement minimax theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-sampling-phase-transition-for-a-frustrated-three-coordinat--4e38fb84c26f",
+          "material_read": "Full published RESULT.md including precise Hessian, one-coordinate update, optimized lambda_min and phase transition",
+          "method": "GitHub primary RESULT.md complete proof and scope",
+          "title": "Sharp sampling phase transition for a frustrated three-coordinate quadratic",
+          "trigger": "Same signed-triangle language and minimax coordinate sampling"
+        },
+        {
+          "assessment": "INAPPLICABLE_SIGN_CONE",
+          "evidence": [
+            "Earlier assumes inverse-Gram sign-conjugate nonnegative; present G_01G_02G_12<0, so no sign switch satisfies it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "material_read": "Complete scientific RESULT.md: residual projection, sign-nonnegative sufficient optimizer, star family volume-versus-uniform comparison",
+          "method": "GitHub primary RESULT.md complete proof and scope",
+          "title": "A sharp volume-versus-uniform reversal for two-coordinate sampling on SPD stars",
+          "trigger": "Nearest all-but-one block residual and volume comparison"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_COMPLEMENT",
+          "evidence": [
+            "Earlier maximizes minimum eigenvalue of expected row projection for Kaczmarz; current minimizes largest eigenvalue of omitted-coordinate residual rank-one projections."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5",
+          "material_read": "Complete scientific RESULT.md, diagonal SDP/elliptope proof, three-case signed inverse Gram formula and phase transition",
+          "method": "GitHub primary RESULT.md complete proof and scope",
+          "title": "A signed-triangle formula for minimax three-row randomized Kaczmarz sampling",
+          "trigger": "General signed three-vector optimum might dominate"
+        },
+        {
+          "assessment": "FRAMEWORK_NOT_EXPLICIT_OPTIMIZER",
+          "evidence": [
+            "Volume selection proportional to principal minors; no exact negative-cycle 3-coordinate minimax table in material inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+          "material_read": "Published abstract, main sampling definition and convergence-rate statement; full paper not freshly reopened during this execution",
+          "method": "ArXiv primary abstract and journal metadata",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Original determinant-volume sampling method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal sampling of exact large coordinate blocks is a natural E-spectral minimax question. The frustrated negative sign-cycle prevents the usual nonnegative Gram Perron optimization, so a sharp closed-form optimizer and strict determinant-volume gap in a full nontrivial two-parameter cone are mathematically motivated and useful, even though only one step and three coordinates are treated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proof assumes 0<c<=d<1, 2c²+d<1; it does not classify other SPD frustrated G, adaptive laws or nonquadratic updates.",
+    "Related all-but-one block theory is credited; only the negative-sign-cycle exact classification is assessed as new."
+  ],
+  "schema_version": 1
+}

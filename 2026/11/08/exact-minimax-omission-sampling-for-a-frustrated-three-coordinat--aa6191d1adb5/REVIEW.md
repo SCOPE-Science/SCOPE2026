@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact block minimizer is a rank-one energy projection because the omitted coordinate remains fixed and the remaining gradient coordinates vanish. Its normalized residual vectors have Gram matrix \(G\). Positive definiteness follows from the explicit signed-triangle eigenvalue decomposition. Leaf-symmetrization reduces minimax sampling to one scalar parameter. The two spectral modes have one crossing; convexity and a positive derivative certify the unique symmetric optimum. The determinant cofactor identity gives uniform volume sampling, and direct eigenvalue comparison proves the sharp ratio. Exact symbolic identities and the finite reproducer support the analytic argument, but are not its substitute.
+## correctness
 
-**Originality (PASS, subject to publication precedence).** The primary 2019 volume-sampling analysis contains a general expected inverse-principal-minor identity, and the 2015 sketch-and-project theory gives spectral convergence formulations. Neither inspected discussion states the optimal weights for the sign-frustrated three-coordinate family, the strict comparison when \(c<d\), or the limiting ratio. The closest related result with opaque identifier `e118fcf8-fe26-4446-9cab-ac751657eead` treats a general sufficient condition requiring a sign-conjugated entrywise nonnegative inverse Gram matrix. That condition cannot hold here because the product of the three off-diagonal signs is negative. It is therefore not a direct application of that sufficient theorem. Publication precedence in E-optimal experimental design and signed-frame sampling remains a residual risk.
+PASS
 
-**Value (PASS).** A standard determinant-based sampling law is exactly uniform on this geometrically asymmetric quadratic family, while the minimax expected-retention law is nonuniform. The complete admissible \(d\ge c\) regime has a closed-form optimal law and strict boundary, and the sharp factor \(4/3\) quantifies how the failure grows. This supplies a testable structural benchmark for comparing block-selection rules; it is not an isolated numerical coincidence or an unmotivated parameter slice.
+For the SPD inverse-Hessian Gram G with offdiagonal signs (+,+,-) and 0<c<=d<1, 2c²+d<1, exact minimization of the two retained coordinates leaves a rank-one H-energy residual. Its worst conditional expected retention is lambda_max(sum p_j v_jv_j^T)=lambda_max(P^{1/2}GP^{1/2}). Symmetrizing leaf probabilities is valid by convexity. For (a,b,b), antisymmetric mode T(a)=(1-a)(1+d)/2 decreases and the larger symmetric mode L(a) crosses it once at a*=d(1+d)/(2c²+d²+3d); L is increasing after crossing on this domain, establishing the global minimum. Cofactor identity makes determinant-volume sampling uniform; eigenvalue comparison gives retention (1+d)/3, strict gap for c<d and 4/3 sharp supremum. Independent numerical simplex optimization at four SPD (c,d) examples agrees with exact probabilities and eigenvalues; finite tests only corroborate the all-real proof.
 
-The assertion is confined to the one-step worst-direction expected quadratic error, not an optimal asymptotic iteration count. An independent audit remains necessary to verify publication precedence and mathematical arguments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specialization: a prior frustrated three-coordinate quadratic result optimizes one-coordinate updates and the minimum eigenvalue, NOT two-coordinate omission and largest residual eigenvalue. Prior volume-vs-uniform SPD stars has a positive/signable inverse Gram; its sufficient theorem cannot cover this negative cycle. General volume sampling and randomized sketch convergence set up the objective without computing the sharp signed-family law. Explicit residual E-optimal-design priority risk remains.
+
+## value
+
+PASS
+
+Optimal sampling of exact large coordinate blocks is a natural E-spectral minimax question. The frustrated negative sign-cycle prevents the usual nonnegative Gram Perron optimization, so a sharp closed-form optimizer and strict determinant-volume gap in a full nontrivial two-parameter cone are mathematically motivated and useful, even though only one step and three coordinates are treated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
