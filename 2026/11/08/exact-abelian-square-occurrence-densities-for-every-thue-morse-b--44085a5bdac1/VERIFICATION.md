@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run the included standalone `verify.py` with Python 3.10 or later. It implements exact rational correlation recurrences and directly counts ones in adjacent finite factors of the digit-parity sequence. It checks the exact local characterization for block lengths \(1\) through \(128\) at the first \(2048\) starting positions and compares frequencies at the first \(65536\) starts with the predicted rational limits to an explicit tolerance of \(1/1000\). It also checks the bounded correlation-extremizer implications through offset \(8192\).
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK local_and_density_tests=295046
-first_16_densities=1/3,1/2,1/6,1/2,1/4,3/4,1/4,1/2,5/24,5/8,7/24,3/4,7/24,5/8,5/24,1/2
-```
+The even/odd aligned-pair counting proves the exact pointwise occurrence conditions: even n=2r has every even start and odd start iff t(q)=t(q+r)=t(q+2r); odd n has no even starts and odd start iff t(q)!=t(q+n). Signed-correlation finite recursions B_j(2r)=B_(j-1)(r), B_j(2r+1)=-(B_(j-1)(r)+B_(j-1)(r+1))/2, plus dyadic-interval boundary O(h log M), rigorously produce the ordinary natural limits. Triple-sign identity then yields both formulas. Induction identifies eta=-1/3 exactly at powers of two and eta=+1/3 exactly at 3*2^k; adjacent-extreme arguments give odd extremizers n=9,11,13,15 and global extrema. New independent direct digit-parity comparisons verified 12,800 (n,start) pairs for n<=64 and start<200, with exact first 16 rational densities; these checks alone do not prove infinite claims.
 
-The checks reproduce the elementary identities on finite samples. They do not themselves prove convergence of natural densities, all-period bounds, completeness of extremizers, or novelty. Those infinite claims use the mathematical proof in `RESULT.md`; originality is supported by the stated source comparisons subject to their listed residual risks.
+## originality
+
+PASS
+
+Fici–Mignosi–Shallit 2017 gives a complete decision procedure for an indexed factor and counts distinct Abelian-square factor spellings, not natural density across starting positions at each fixed block length or the sharp all-period extremizer sets. Known signed Thue–Morse two-point autocorrelations are explicit prior tools. A straightforward automaton may yield an alternative algorithm for the count, but the closed uniform density/extremizer theorem is not explicitly implied by the inspected statements.
+
+## value
+
+PASS
+
+Fixed-length density of Abelian-square *occurrences* is a natural frequency invariant, different from word-factor complexity. The theorem supplies a uniform exact all-block-length law, strict parity patterns, and completely characterizes the largest and smallest frequencies. These sharp infinite families are structurally informative and not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

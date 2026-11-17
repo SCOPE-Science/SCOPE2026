@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-letter pairing identity gives a pointwise decision criterion for every indexed factor. The signed two-point correlation has a natural limit: the proof first derives exact finite dyadic recurrences and then controls arbitrary prefixes by aligned dyadic blocks. The binary three-equal indicator converts this limit to both parity branches of the density formula. An induction on the correlation recurrence classifies all extremal offsets, including the exceptional odd lengths. The self-contained finite checker exercises both the pointwise criterion and the predicted frequencies, but the infinite claims do not rely on its bounded samples.
+## correctness
 
-**Originality — PASS, qualified.** The strongest close predecessor is Fici–Mignosi–Shallit (2017, arXiv:1701.00948): its Section 4.1 supplies a general two-dimensional automaton deciding occurrences and a separate 2-regular enumeration of distinct factor spellings. This subsumes the *computability* of the pointwise predicate, which is not claimed as new, but does not explicitly supply all starting-position densities or classify the period lengths yielding sharp extrema. Aedo–Grimm–Nagai–Staynova (2021, arXiv:2101.02056) classify aspects of monochromatic arithmetic-progression lengths, not the present frequencies. Thue–Morse correlations themselves are established tools. Searches for equivalent formulations and dominant results did not identify an explicit covering density/extremizer theorem. A result encoded in an uninspected source or derived elsewhere from the previous automaton remains a genuine bibliographic risk.
+PASS
 
-**Value — PASS.** Exact fixed-period occurrence frequencies are a natural statistic distinct from the previously tabulated number of distinct Abelian-square factors. The result solves this statistic simultaneously for *every* positive block length, exhibits a strict odd/even density gap, and identifies all global and parity-restricted extremizing periods. These all-length extremizer families are not a finite table, an arbitrary cutoff, or a numerical improvement; they reveal an arithmetic structural law linking Abelian repetition and the correlation spectrum.
+The even/odd aligned-pair counting proves the exact pointwise occurrence conditions: even n=2r has every even start and odd start iff t(q)=t(q+r)=t(q+2r); odd n has no even starts and odd start iff t(q)!=t(q+n). Signed-correlation finite recursions B_j(2r)=B_(j-1)(r), B_j(2r+1)=-(B_(j-1)(r)+B_(j-1)(r+1))/2, plus dyadic-interval boundary O(h log M), rigorously produce the ordinary natural limits. Triple-sign identity then yields both formulas. Induction identifies eta=-1/3 exactly at powers of two and eta=+1/3 exactly at 3*2^k; adjacent-extreme arguments give odd extremizers n=9,11,13,15 and global extrema. New independent direct digit-parity comparisons verified 12,800 (n,start) pairs for n<=64 and start<200, with exact first 16 rational densities; these checks alone do not prove infinite claims.
 
-**Source scope and limitations.** The primary same-object paper was inspected in its relevant complete mathematical sections and checked for frequency/density claims. The arithmetic-progression paper was read in its relevant sections and conclusions, with the older general Abelian-power paper examined in its opening results. Full absence of an unindexed equivalent cannot be certified; finite tests are not infinite proofs; the theorem does not treat higher Abelian powers or distinct-factor counts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fici–Mignosi–Shallit 2017 gives a complete decision procedure for an indexed factor and counts distinct Abelian-square factor spellings, not natural density across starting positions at each fixed block length or the sharp all-period extremizer sets. Known signed Thue–Morse two-point autocorrelations are explicit prior tools. A straightforward automaton may yield an alternative algorithm for the count, but the closed uniform density/extremizer theorem is not explicitly implied by the inspected statements.
+
+## value
+
+PASS
+
+Fixed-length density of Abelian-square *occurrences* is a natural frequency invariant, different from word-factor complexity. The theorem supplies a uniform exact all-block-length law, strict parity patterns, and completely characterizes the largest and smallest frequencies. These sharp infinite families are structurally informative and not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
