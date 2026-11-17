@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The product \(yz\) is conserved because the two logarithmic partner derivatives cancel exactly. On a product leaf the focal growth reduces to a logistic equation and agrees with a pairwise system for all positive initial states on that leaf. The noninteger relaxation-rate ratio forces a noninteger leading exponent in the focal abundance, distinguishing it from the integer-power expansions of \(1,y,z\). This proves single-leaf rank four and a one-dimensional coefficient ambiguity. Two different conserved products remove the ambiguity and give rank five. Explicit subtraction gives the out-of-leaf rate and limiting-abundance errors. The included exact-rational checker verifies ODE identities and nonzero sample minors, but finite sample checks are not the proof of the quantified theorem.
+PASS
 
-## Originality — PASS, with residual risk
+For positive three-species system xdot=x(r-bx+theta yz), ydot=y(lambda-y), zdot=z(y-lambda), product yz=q is conserved identically. On each q leaf x has logistic growth g_q=r+theta q. With x,y nonstationary and g_q/lambda positive noninteger, x(e^-lambda t) has a noninteger leading exponent but 1,y,z are integer-power analytic, proving exact single-leaf regressor rank 4 and kernel span(yz-q). Distinct q0,q1 kill the kernel, yielding pooled rank 5 and unique five coefficients. Exact subtraction yields theta(q1-q0) rate and theta(q1-q0)/b limiting abundance discrepancy. Independent symbolic checks and an unrelated rational exact full-rank five-point sample support the proof.
 
-The May 2026 ecological paper by Calleja-Solanas et al. (arxiv:2605.06301) presents approximate numerical camouflage by pairwise equations, not the exact invariant-leaf equality or the one- versus two-trajectory rank theorem. Malizia et al. (doi:10.1038/s41467-024-49278-x) provide a general reconstruction design-matrix framework and a full-rank sufficiency principle, not a proof of the exact rank of this model's observed regressors. Kleinhesselink et al. (doi:10.1111/ele.14022) analyze detection and interpretation of higher-order ecological interactions but do not provide the stated dynamical invariant or rank transition. Unindexed equivalent coverage, additional supplements, and alternate parameterizations remain possible. The claim does not assert priority for general regression identifiability.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A genuine hard three-body ecological term can be perfectly concealed from a full noiseless trajectory even arbitrarily far from equilibrium. The explicit conserved leaf and exact experiment threshold distinguish nonidentifiability from a lack of measurement accuracy. The second distinct initial partner product is both necessary and sufficient within the quantified model and dictionary, while the off-leaf prediction error quantifies the cost of a pairwise-only fit. This is a structural experiment-design statement motivated by the source question rather than a parameter-specific numerical curiosity.
+Published 2026 generic hard-triad identifiability theorem provides the abstract full-column-rank criterion and its own exact blind orbit, but does not identify this integrable product-leaf family's single-trajectory rank under noninteger relaxation resonance or two-leaf sharp experiment threshold and off-leaf error. Primary ecology paper shows near-perfect pairwise fitted trajectories, rather than exact global leaf camouflage with a rank-five second experiment. These facts distinguish the new concrete structural result; rank criterion itself is not claimed original.
 
-## Scope and scientific limitations
+## value
 
-This is a constructed conserved-product flow with full-state noise-free observations, not a generic guarantee for arbitrary communities or noisy finite data. The rank proof requires nonstationary coordinates and noninteger rate ratios; the full-leaf equivalence does not. Source comparisons are based on inspected accessible main texts; no independent audit or exhaustive literature-priority certification has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A completely observed nonstationary ecological trajectory may be structurally insufficient even with exact derivatives; a second controlled conserved-product leaf is demonstrably necessary and sufficient within a natural five-term polynomial dictionary. Exact off-leaf prediction error makes the mathematical obstruction operationally interpretable. A small explicit witness is valuable here because it isolates sharp identifiability geometry, not because generic design-matrix rank is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
