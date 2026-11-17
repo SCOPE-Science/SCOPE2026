@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof starts with the original connected vertex-cover definition in the one-subdivision. It derives that omitted original vertices form an independent set, that cut subdivision vertices are forced, and that internal subdivision vertices form a spanning tree. Conversely, all selected vertices of the constructed set are indispensable, using the degree-at-least-two boundary and the upward-closed character of connected vertex covers. The size identity \(|C|=2n-1+\sum_{v\in I}(\deg(v)-2)\) and the spanning-tree multiplicity yield the stated polynomial. Tests from the actual `verify.py` file independently match complete families for all 264 labeled graphs of orders 3--5 satisfying the assumptions.
+## correctness
 
-**Originality: PASS (provisional priority).** The general 2016 and 2023 enumeration papers do not imply a spanning-tree-weighted exact polynomial for full subdivisions. Adak--Nanoti's September 2026 Section 5.1 addresses minimum connected-cover size and spanning-tree examples, explicitly warning that these are not necessarily all minimum covers; our classification includes all inclusion-minimal covers and the omitted-vertex alternatives. The closest overlap is with previously recorded connected domination on subdivided complete graphs, which is a different predicate and has different exact counts. Targeted graph-incidence/subdivision/connected-cover searches and published research-record searches found no statement subsuming this result. Unindexed literature may contain earlier equivalent results.
+PASS
 
-**Mathematical value: PASS.** The correspondence applies to every connected simple input graph of minimum degree two or more and determines the entire minimal-solution hypergraph and weighted size distribution, not just a scalar minimum. The equality characterization gives *all* minimum covers, including those omitted by the previously known canonical tree construction when input degrees equal two. The complete bipartite specialization exhibits arbitrarily long gaps between possible minimal-cover cardinalities. This is a structural enumerative transform with an independently meaningful specialization.
+For any connected simple G with n>=3 and minimum degree>=2, an inclusion-minimal connected vertex cover C of S(G) omits an independent set I of original vertices. Every subdivided cut edge incident to I is forced; selected subdivision vertices on edges of G-I must connect all retained originals and form a tree, since cycle edges are deletable. Conversely, any such I with G-I connected and spanning tree T gives a connected vertex cover C(I,T); the three original-vertex essentiality cases (omitted neighbor, unchosen incident internal edge, or tree degree>=2) use min degree 2 and establish full inclusion-minimality. The size is 2n-1+sum_(v in I)(deg_G(v)-2), and the sum of tau(G-I) yields the stated polynomial. For K_(2,q), summing over degree-two omissions gives q*3^(q-1), while omitting one high-degree vertex gives 2 at exponent 3q+1. Independent exact mask tests S(K4) produced 16 covers size 7 and 12 size 8; S(K2,3) produced 27 size 9 and 2 size 10; these match theorem. Infinite proof is structural.
 
-**Limits.** The hypothesis on input minimum degree cannot be discarded without modifying the construction: tree covers need not remain inclusion-minimal when original leaves are present. Finite tests are supplementary. Novelty is a best-knowledge comparison, not proof of publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): the 2026 full-subdivision connected vertex cover study establishes only the scalar minimum 2n-1 and expressly notes that tree-generated minima do not exhaust all minimizers when original degree-two vertices occur. The 2023 general enumeration paper proves algorithmic and hardness results without an exact all-minimal subdivision size polynomial. The earlier general full-subdivision connected DOMINATION theorem has a different invariant and external-leaf/boundary-choice structure. No broader exact connected-cover enumerator was located; unindexed equivalent classification remains a residual risk.
+
+## value
+
+PASS
+
+PASS: complete all-graph inclusion-minimal connected vertex cover classification captures the nontrivial distinction among independent deletion patterns via tau(G-I), including all nonminimum covers. The sharp two-term K2q specialization exhibits unbounded genuine gaps q-3 for q>=4, a natural and potentially useful exact structural fingerprint for connected cover enumeration. Known scalar minimum alone does not mechanically yield these counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

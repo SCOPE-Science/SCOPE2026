@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:15:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any connected simple G with n>=3 and minimum degree>=2, an inclusion-minimal connected vertex cover C of S(G) omits an independent set I of original vertices. Every subdivided cut edge incident to I is forced; selected subdivision vertices on edges of G-I must connect all retained originals and form a tree, since cycle edges are deletable. Conversely, any such I with G-I connected and spanning tree T gives a connected vertex cover C(I,T); the three original-vertex essentiality cases (omitted neighbor, unchosen incident internal edge, or tree degree>=2) use min degree 2 and establish full inclusion-minimality. The size is 2n-1+sum_(v in I)(deg_G(v)-2), and the sum of tau(G-I) yields the stated polynomial. For K_(2,q), summing over degree-two omissions gives q*3^(q-1), while omitting one high-degree vertex gives 2 at exponent 3q+1. Independent exact mask tests S(K4) produced 16 covers size 7 and 12 size 8; S(K2,3) produced 27 size 9 and 2 size 10; these match theorem. Infinite proof is structural.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kobayashi et al. Theorems 2-4: general enumeration and hardness. Adak–Nanoti Section 5.1: minimum cover 2n-1 and a spanning-tree construction, explicitly incomplete for degree-two exceptional minimizers."
+        ],
+        "reasoning": "General enumeration capability and known minimum value do not imply the exact all-inclusion-minimal weighted polynomial, and the known canonical minimum tree family is incomplete.",
+        "searches": [
+          "https://arxiv.org/html/2308.16426v2",
+          "https://www.paperpeel.com/paper/2609.39103"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2308.16426v2",
+        "https://www.paperpeel.com/paper/2609.39103",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-minimal-connected-domination-of-full-edge-subdivisions-a-tree-co--24085e47f2b4",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior minimum 2n-1 follows by taking I empty or independent degree-two omissions, but provides neither upper size nor counts. General minimal CDS on subdivisions instead requires boundary choices and different set definition."
+        ],
+        "reasoning": "The known scalar value is a corollary of current polynomial, not a theorem implying its classification; other nearby graph invariant is logically distinct.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2609.39103",
+          "https://arxiv.org/html/2308.16426v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-minimal-connected-domination-of-full-edge-subdivisions-a-tree-co--24085e47f2b4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-subdivision graph is the vertex-edge incidence graph. Kobayashi et al. Proposition 1 gives upward closure of connected covers, but no formula for their minimal generators in S(G)."
+        ],
+        "reasoning": "Equivalent incidence/barycentric graph formulation examined; none of the inspected statements computes the current independent-set-weighted tree enumerator.",
+        "searches": [
+          "Resultary query: inclusion minimal connected vertex cover polynomial full subdivision connected graph independent subset spanning trees",
+          "https://arxiv.org/html/2308.16426v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matched independent exact database or polynomial table arose; K2q cardinalities checked independently against supplied formula."
+        ],
+        "reasoning": "Negative table search does not prove novelty; positive comparison of earlier theorem statements is the basis for O assessment.",
+        "searches": [
+          "Resultary semantic query for subdivision connected vertex cover exact polynomial",
+          "https://arxiv.org/html/2308.16426v2"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): the 2026 full-subdivision connected vertex cover study establishes only the scalar minimum 2n-1 and expressly notes that tree-generated minima do not exhaust all minimizers when original degree-two vertices occur. The 2023 general enumeration paper proves algorithmic and hardness results without an exact all-minimal subdivision size polynomial. The earlier general full-subdivision connected DOMINATION theorem has a different invariant and external-leaf/boundary-choice structure. No broader exact connected-cover enumerator was located; unindexed equivalent classification remains a residual risk.",
+      "residual_risks": [
+        "Unindexed historical incidence-graph connected-cover enumeration may already give an equivalent transform.",
+        "Only Kobayashi full HTML independently read now; Adak–Nanoti relevant section was available from the prior audit but full primary document not reread this execution.",
+        "General formula is not a polynomial-time general counting algorithm; finite testing does not establish infinite theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_ENUMERATION_NOT_EXACT_COVERAGE",
+          "evidence": [
+            "Proposition 1 establishes upward closure; Theorems 2-4 provide enumeration algorithms/hardness, not subdivision spanning-tree size polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.16426v2",
+          "material_read": "HTML introduction, definition and Proposition 1 in Section 2, supergraph technique and Theorems 2-4 in Section 4, with full-document search for subdivision",
+          "method": "Read primary full-text HTML and compare precise theorem outputs",
+          "title": "Enumerating minimal vertex covers and dominating sets with capacity and/or connectivity constraints",
+          "trigger": "General exact same minimal connected vertex cover object"
+        },
+        {
+          "assessment": "SCALAR_MINIMUM_COVERED; COMPLETE_ENUMERATOR_NOT_SHOWN",
+          "evidence": [
+            "Earlier scalar minimum does not specify nonminimum minimal covers or spanning-tree multiplicities."
+          ],
+          "identifier_or_url": "https://www.paperpeel.com/paper/2609.39103",
+          "material_read": "Relevant abstract and supplied prior primary Section 5.1 reflowed material on cvc(S(G))=2n-1; full paper not independently opened in this execution",
+          "method": "Compared specifically quoted full-subdivision scalar result and the admitted gap for degree-two inputs",
+          "title": "On Eternal Connected Vertex Cover",
+          "trigger": "Same full subdivision and known minimum cover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: complete all-graph inclusion-minimal connected vertex cover classification captures the nontrivial distinction among independent deletion patterns via tau(G-I), including all nonminimum covers. The sharp two-term K2q specialization exhibits unbounded genuine gaps q-3 for q>=4, a natural and potentially useful exact structural fingerprint for connected cover enumeration. Known scalar minimum alone does not mechanically yield these counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Connected simple G of order >=3 and minimum degree at least 2; does not claim general efficient evaluation or other subdivision depths."
+  ],
+  "schema_version": 1
+}
