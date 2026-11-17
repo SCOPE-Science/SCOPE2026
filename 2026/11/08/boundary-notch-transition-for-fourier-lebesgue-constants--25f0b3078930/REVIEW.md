@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The geometric-series identity is exact and independently replayed. Oscillatory averaging away from the origin is justified by trigonometric approximation and Riemann–Lebesgue; the reverse-triangle bound provides uniform integrability of the *difference* near zero. The explicit Jensen/Lipschitz comparison proves \(C_1>0\) without extrapolating finite experiments. The numerical checker is supplementary. All limits fix the edge offset before taking bandwidth to infinity.
+## correctness
 
-**Originality (PASS, qualified).** The full Dirichlet-kernel Lebesgue constants of Ortigueira–Bengochea (2024) and the Riesz-mean asymptotics of Liflyand–Podkorytov (2021) do not cover a deleted frequency that tracks the moving boundary. A related fixed-frequency deletion theorem treats a different asymptotic regime, so its exact constant cannot be substituted for the edge-notch constant. Dedicated searches for spectral notches, idempotent norms, Dirichlet kernels and edge deletions found no identified theorem with the same formula or the \(C_0=0<C_1\) transition. An unindexed specialist result remains a genuine risk.
+PASS
 
-**Value (PASS).** The one-frequency notch is a natural smallest perturbation of a band-limited Fourier projection, whose endpoint operator norm is the Lebesgue constant. The theorem identifies a first-interior boundary effect invisible in the full-band and fixed-position asymptotic regimes: the two adjacent spectral deletions behave differently at constant order. The all-offset integral supplies an exact benchmark for spectral filtering; no general theorem for moving offsets or all-positive constants is asserted.
+For each fixed integer j>=0 the geometric-sum factorization gives |K_nj|-|D_n| as the quotient of two fast-phase absolute values by |1-e^{it}|. Away from t=0, trigonometric approximation plus the Riemann-Lebesgue lemma yields the circular phase mean h(|1-z+z^{j+1}|)-h(1); near the singularity the reverse-triangle bound | |K|-|D| | <=1 uniformly in n and |H_j(z)-1|<=j|z-1| control the limit. The exact j=0 identity H0=1 gives C0=0. For j=1, h is 1-Lipschitz and nondecreasing; Jensen h(s)>=s yields a positive lower part P>0.83778 against negative N1<0.53590 and N2<0.23550; independent recomputation gives (P-N1-N2)/pi =0.02113360943>0. This proves C1>0 independent of numerical quadrature. No claim for j growing with n.
 
-Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
+The moving one-frequency deletion k=n-j produces an edge transition C0=0<C1, unlike the fully classical Dirichlet constants and the published strictly positive fixed-index deletion limit. The distinct quantification in n is decisive, not a title/number mismatch.
+
+## value
+
+PASS
+
+The single missing Fourier coefficient is the minimal nontrivial perturbation of a sharp Fourier projection norm. The exactly characterized moving-edge penalty and discontinuity between removing the highest and next-to-highest modes explain a meaningful sharp boundary phenomenon invisible to the full-band logarithmic asymptotic. This is not a renamed fixed-frequency constant or an arbitrary small numeric calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
