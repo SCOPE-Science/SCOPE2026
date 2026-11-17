@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Running `python check.py` using Python 3 and its standard library printed `VERIFY_OK 181 exact assertions`. Tests independently build the Laplacian from listed graph edges, compute spanning-tree cofactors by the fraction-free Bareiss algorithm, and derive expected leaves from the individual vertex-deleted cofactors. For small graphs, the checker also enumerates every edge set of the required size and tests whether it is a spanning tree. All equalities and inequalities are compared as exact rational numbers.
+## correctness
 
-These tests cover bounded integer parameters only. The all-integer conclusions follow from the matrix-tree spectral argument, the leaf-extension bijection, Bernoulli inequality and strict Jensen inequality proved in `RESULT.md`. The checks do not establish literature uniqueness or independent audit status.
+PASS
+
+Read the complete exact proof in the assigned RESULT.md. The leaf identity E L(G)=sum_v deg(v)tau(G-v)/tau(G) is a direct leaf-edge bijection. Orthogonal deleted matching edges and the r-star Laplacian eigenvalues give the two tree enumerators, and vertex deletion gives both normalized leaf formulas. The inequalities follow strictly from Bernoulli for matching and Jensen for star, with the n=2r and r=1 boundary handled. Independently checked exact rational comparison for n=4,5,6,8 across valid r. The finite checks complement the all-n algebra.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. Evaluation through general theories may be possible, but no cited prior implication gives the opposite signs as an immediate corollary without additional graph-specific computation.
+
+## value
+
+PASS
+
+Missing-edge *intersection geometry* matters: removing r disjoint edges lowers the mean number of leaves, while clustering the same r deletions into a star raises it. The strict all-parameter comparison is a natural and useful structural response law for uniform spanning trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

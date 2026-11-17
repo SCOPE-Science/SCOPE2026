@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The counted-leaf identity \(\Pr(v\text{ leaf})=\deg_G(v)\tau(G-v)/\tau(G)\) is a bijection between leaf-rooted spanning trees and a spanning tree on the remaining vertices with one attachment edge. Deleted matching and star Laplacian spectra give independent closed forms for tree counts; the vertex-orbit decomposition yields both claimed expected-leaf ratios. Strict Bernoulli inequality and strict Jensen inequality establish signs for all stated integer parameters, including the \(r=1\) neutrality boundary. The standalone exact-minor and small-graph enumeration checker passed 145 assertions. Finite checks corroborate but do not replace the proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Targeted published-mathematics and mathematical-record queries did not find this explicit paired expected-leaf sign reversal. Rapoport (2023) does provide a general algorithmic expression for the degree field, including leaf probabilities; therefore the mere ability to calculate these examples is covered. What is not identified in the inspected sections is the actual closed-form comparison and sign theorem, whose strict inequalities use extra structure. Fita Sanmartín et al. (2024) treat the expectation and variance of degree, a different statistic. The 2019 mean-subtree-order edge-addition paper concerns random **subtrees' size**, not degree-one vertices in **spanning trees**. An inaccessible or unindexed historical statement could still cover this classification.
+PASS
 
-**Value — PASS.** A fixed count of edge deletions does not predict whether a random spanning tree has more or fewer expected leaves. The two most canonical overlap patterns (disjoint edges and common-center edges) produce the opposite strict signs, while one missing edge is neutral. The formulas classify the effect throughout each valid family and provide a concrete test case for claims of monotonicity under graph perturbations. This is a natural structural boundary, not a numerical experiment or an arbitrary parameter slice.
+Read the complete exact proof in the assigned RESULT.md. The leaf identity E L(G)=sum_v deg(v)tau(G-v)/tau(G) is a direct leaf-edge bijection. Orthogonal deleted matching edges and the r-star Laplacian eigenvalues give the two tree enumerators, and vertex deletion gives both normalized leaf formulas. The inequalities follow strictly from Bernoulli for matching and Jensen for star, with the n=2r and r=1 boundary handled. Independently checked exact rational comparison for n=4,5,6,8 across valid r. The finite checks complement the all-n algebra.
 
-**Limitations.** Neither all-deletion-pattern extremality nor distributional stochastic order is established. Historical novelty is assessed on accessible evidence, not certified. No external mathematical review was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. Evaluation through general theories may be possible, but no cited prior implication gives the opposite signs as an immediate corollary without additional graph-specific computation.
+
+## value
+
+PASS
+
+Missing-edge *intersection geometry* matters: removing r disjoint edges lowers the mean number of leaves, while clustering the same r deletions into a star raises it. The strict all-parameter comparison is a natural and useful structural response law for uniform spanning trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
