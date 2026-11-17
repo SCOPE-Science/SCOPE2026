@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3's standard library. A successful replay ends with `VERIFY_OK`. The script independently constructs the complete multipartite adjacency relation and checks all vertex partitions for five small graphs (up to ten vertices); checks the upper-bound deficit arithmetic for \(4\le r\le24\); builds exact coalition partitions for four large unequal part profiles; and verifies the injective hub-label allocation count for two small profiles. These are finite tests.
+## correctness
 
-The universal statement is proved in `RESULT.md` by the structural inequality \(E\ge s(r-2)+(r-s)(m-s)/2\), the integrality boundary for \(s=r-1\), the explicit matching construction, and equality rigidity. Review of the mathematical argument was same-model only. No external or independent audit, mechanical formal proof, or global literature-completeness certificate is claimed.
+PASS
+
+A set globally dominates the graph and its complement iff it meets each part. Selecting one singleton from each of s parts forces s distinct complementary-support hub blocks, each with at least r-1 vertices. Marking r-1 vertices per hub and charging remaining nonsingleton vertices gives E=N-classes >= s(r-2)+(r-s)(m-s)/2, valid at s=0 and s=r. For m>=3r-6 the bound is >=r(r-2) for s<=r-2 and s=r, and >=r(r-2)-1/2 for s=r-1, where E integer finishes the argument. The r disjoint minimal hubs attain equality, while m>=3r-4 rules out s<r strictly and forces all hubs minimally supported. Their uniquely omitted parts label the otherwise unordered blocks, giving product falling-factorial bijection. Independently verified threshold inequalities for r=4..49 and product for (8,9,10,11): 120708403200; this arithmetic check is not the proof.
+
+## originality
+
+PASS
+
+Anholcer et al. establish the definitions, multipartite lower-bound hub constructions, exact numbers for at most three parts, and pose a general multipartite conjecture. The separately published complete four-partite formula now covers the submitted GC equality for r=4 (and in broader size ranges), but not r>=5, the large-r rigidity, or enumeration of all maximizers. Those surviving components require the submitted excess inequality and equality analysis. The full original 32-page paper could not be read due access; priority is qualified.
+
+## value
+
+PASS
+
+For every number r>=5 of parts and arbitrary unbalanced sufficiently large sizes, the theorem establishes a matching universal upper bound for an explicit infinite tail of a published conjecture and an exact structural/counting classification of all optimal labeled partitions. Even though four-part GC values are known, general-r rigidity and the product census answer a motivated structural question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge4\), the proof first reduces global domination of a complete multipartite graph to meeting every part. Each selected singleton from part \(i\) has a partner omitting precisely that part; partners selected from distinct singleton-bearing parts are distinct, so there are \(s\) hubs of at least \(r-1\) vertices. The excess accounting inequality charges each hub \(r-2\) and every vertex in a part without a singleton at least one-half after its \(s\) marked positions. The three integer cases \(s\le r-2\), \(s=r-1\), and \(s=r\) establish the upper bound; the disjoint hub construction attains it. At the stronger threshold, strict inequality excludes \(s<r\), and equality forces every class, proving the independent injection product. No finite test is used for the universal quantifiers. The included verifier checks exact arithmetic and independent sample partitions and constructions.
+PASS
 
-## Originality — PASS (historical priority provisional)
+A set globally dominates the graph and its complement iff it meets each part. Selecting one singleton from each of s parts forces s distinct complementary-support hub blocks, each with at least r-1 vertices. Marking r-1 vertices per hub and charging remaining nonsingleton vertices gives E=N-classes >= s(r-2)+(r-s)(m-s)/2, valid at s=0 and s=r. For m>=3r-6 the bound is >=r(r-2) for s<=r-2 and s=r, and >=r(r-2)-1/2 for s=r-1, where E integer finishes the argument. The r disjoint minimal hubs attain equality, while m>=3r-4 rules out s<r strictly and forces all hubs minimally supported. Their uniquely omitted parts label the otherwise unordered blocks, giving product falling-factorial bijection. Independently verified threshold inequalities for r=4..49 and product for (8,9,10,11): 120708403200; this arithmetic check is not the proof.
 
-Anholcer, Besharati, Mojdeh, and Samadzadeh, *Global coalitions in graphs*, arXiv:2509.15386, Proposition 6, already give a construction with \(N-r(r-2)\) classes; that construction is expressly not claimed as new. Their Theorem 7 covers only up to three parts, whereas their Conjecture 54 asks for exactness in general. The present upper bound at \(m\ge3r-6\), rigidity at \(m\ge3r-4\), and product enumeration are stronger statements not implied by the cited lower bound. Semantic searches of available research findings and primary literature did not identify a covering result. A failed search does not prove absolute priority, and unindexed or later manuscripts remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies a theorem for an explicit infinite tail of a named open conjecture, for arbitrary numbers of parts and unequal sizes. The structural accounting bound and the forced form of every optimal partition are not routine substitutions into the known construction, and the exact product enumeration is a natural additional invariant.
+Anholcer et al. establish the definitions, multipartite lower-bound hub constructions, exact numbers for at most three parts, and pose a general multipartite conjecture. The separately published complete four-partite formula now covers the submitted GC equality for r=4 (and in broader size ranges), but not r>=5, the large-r rigidity, or enumeration of all maximizers. Those surviving components require the submitted excess inequality and equality analysis. The full original 32-page paper could not be read due access; priority is qualified.
 
-## Limits and literature
+## value
 
-The published conjecture remains unresolved outside the stated sufficient-size regime. The thresholds need not be sharp. The proof concerns global coalitions, not related domination polynomials, global offensive alliances, or merely the existence of domination sets. Primary inspection was of arXiv:2509.15386 (version 4), including Proposition 6, Theorem 7, and Conjecture 54; the original introductory coalition framework is Haynes et al. (2020).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For every number r>=5 of parts and arbitrary unbalanced sufficiently large sizes, the theorem establishes a matching universal upper bound for an explicit infinite tail of a published conjecture and an exact structural/counting classification of all optimal labeled partitions. Even though four-part GC values are known, general-r rigidity and the product census answer a motivated structural question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
