@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Use Python 3 and run \(\texttt{python3 verify.py}\) in a directory containing the attached checker. No third-party packages or data downloads are needed. The checker reconstructs each root-to-leaf branch indicator from explicit tree tuples, enumerates all taxon-survival subsets, and expands each probability into an integer polynomial in extinction probability. It checks the entire four-leaf probability-generating-function difference, the mean-response difference, and the half-initial-PD probability difference for each size from four through eleven leaves. It also confirms the rooted binary shape counts through four leaves. All checks passed in the documented run.
+## correctness
 
-The proof of the exact statement for all \(n\ge4\) is given in RESULT.md through the common-root graft generating-function identity and coefficient calculation. Finite enumeration does not constitute an infinite proof, empirical ecological validation or independent certification. The theorem excludes correlated extinction, non-unit edge lengths and non-rooted PD scores.
+PASS
+
+The 16-survivor-subset enumeration of the nonplane rooted four-leaf caterpillar and balanced fork supplies the stated polynomial PGF difference. Grafting a common new root and singleton multiplies the PGF difference by qz+(1-q)z^2, since contributions from all-extinct old leaves cancel. Induction gives the all-n factorization, its derivative at z=1 gives q²(1-q), and summing coefficient degrees >=n-1 gives q^(n-2)(1-q)((n-2)q-(n-4)). Since 2-,3-leaf trees are unique and the only 4-leaf ordering agrees, discordance first occurs at n=5 with q<1/3. Independently enumerated rooted descendant-edge masks and exact integer q-polynomials for n=4..8; these finite tests corroborate the PGF identities and do not replace induction.
+
+## originality
+
+PASS
+
+A natural sharp minimal taxon count and entire-family half-retention crossing are not already stated by the primary distribution algorithm or published variance crossover theorem. Both prior works provide related ingredients, not these probability-ordering implications.
+
+## value
+
+PASS
+
+The probability of retaining half the original phylogenetic diversity is an interpretable risk quantity distinct from expectation. Five taxa as sharp first mean-risk discordance and a closed crossover q=(n-4)/(n-2) for every larger n give a useful exact structural witness. This is not an arbitrary instance or a downstream theorem requirement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

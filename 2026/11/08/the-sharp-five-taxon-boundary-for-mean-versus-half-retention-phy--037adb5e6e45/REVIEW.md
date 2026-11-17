@@ -1,19 +1,21 @@
-# Scientific review: sharp mean-versus-half-retention phylogenetic risk
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument is an exact probability-generating-function identity, not an inference from sampled outcomes. Direct enumeration of all sixteen four-leaf survivor configurations yields the base polynomial; common-root grafting multiplies the **difference** of distribution polynomials by \(qz+(1-q)z^2\) because both input trees share the same all-extinct probability. The coefficient sum at retention level \(n-1\) factors into the stated crossover law, and differentiating at one gives the expectation gap. The only two rooted full-binary shapes through four leaves have concordant half-retention and expectation rankings, while the five-leaf pair disagrees for \(0<q<1/3\). Exact finite enumeration for leaf counts four through eleven independently confirms the formulas. The proof applies to every integer \(n\ge4\); finite tests are supplementary.
+PASS
 
-## Originality — PASS, with historical-priority limits
+The 16-survivor-subset enumeration of the nonplane rooted four-leaf caterpillar and balanced fork supplies the stated polynomial PGF difference. Grafting a common new root and singleton multiplies the PGF difference by qz+(1-q)z^2, since contributions from all-extinct old leaves cancel. Induction gives the all-n factorization, its derivative at z=1 gives q²(1-q), and summing coefficient degrees >=n-1 gives q^(n-2)(1-q)((n-2)q-(n-4)). Since 2-,3-leaf trees are unique and the only 4-leaf ordering agrees, discordance first occurs at n=5 with q<1/3. Independently enumerated rooted descendant-edge masks and exact integer q-polynomials for n=4..8; these finite tests corroborate the PGF identities and do not replace induction.
 
-Faller, Pardi and Steel's *Distribution of phylogenetic diversity under random extinction* (arXiv:0708.0425; 2008) is the essential primary precedent. It explicitly defines the distribution and critical-loss tail risk and provides a general exact computation algorithm; the ability to compute tail probabilities and the qualitative risk-versus-mean distinction are already known. Steel, Mimoto and Mooers (2007) provides a related expected-contribution formulation. The inspected literature does not state the sharp five-taxon half-retention exception or the exact infinite-family crossover formula. Earlier comparisons of the same four-leaf local tree rotation address mean and variance, not this event probability. The 2015 Faith paper was checked at abstract level only. Historical priority is provisional; no independent audit has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-A half-retention target is an interpretable biodiversity risk criterion. The theorem shows exactly when expectation-based and threshold-based tree comparisons first disagree in a constrained homogeneous model. The \((n-4)/(n-2)\) crossover is a structural rule for arbitrarily large tree families and changes systematically with tree size, rather than an isolated numerical curiosity. The result responds to the published mean-versus-tail-risk question without asserting ecological field applicability beyond its explicit assumptions.
+A natural sharp minimal taxon count and entire-family half-retention crossing are not already stated by the primary distribution algorithm or published variance crossover theorem. Both prior works provide related ingredients, not these probability-ordering implications.
 
-## Scope and residual risk
+## value
 
-All lengths are unit **edge counts**, not equal root-to-tip temporal lengths. Extinction events are independent and identical; both trees have the same leaf count and initial rooted diversity; the result compares a particular family rather than classifying all possible trees. The underlying distribution algorithm and much of the motivation predate this result. Priority assessment is limited to inspected accessible evidence. Future independent literature and mathematical review is warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The probability of retaining half the original phylogenetic diversity is an interpretable risk quantity distinct from expectation. Five taxa as sharp first mean-risk discordance and a closed crossover q=(n-4)/(n-2) for every larger n give a useful exact structural witness. This is not an arbitrary instance or a downstream theorem requirement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
