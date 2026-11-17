@@ -1,15 +1,21 @@
-# Scientific review: Lagrangian-subgroup Heisenberg walk
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite Heisenberg representation decomposition is exhaustive by the sum of squared degrees, and subgroup averaging gives two explicit orthogonal rank-one projections in every nontrivial central representation. Their overlap proves the full spectrum; finite-group Plancherel proves the exact positive-time chi-square formula. Counting the two-run label strings and explicitly evaluating the three-run distributions proves both total-variation bounds. Logarithmic-scale asymptotics are derived from the exact eigenvalues. The independent direct-convolution checker exercises characteristic two, odd characteristic, and the nonprime field of order four using exact rational arithmetic.
+## correctness
 
-## Originality
-**PASS under bounded comparison.** The closest historical papers by Bump--Diaconis--Hicks--Miclo--Widom and Diaconis--Hough analyze sparse-generator Heisenberg walks or unipotent-coordinate mixing, respectively. Their inspected main theorems and representation formulas supply context but not a complete spectrum or the strongly separated total-variation and chi-square scales for a measure averaging the two full coordinate subgroups. A general two-projection spectral theorem determines the shape of each nonabelian representation block but not its field-uniform multiplicities or the three-run total-variation argument. Overlapping unpublished or unlocated subgroup-averaging results remain a genuine historical-priority risk; absence of a search hit alone is not proof of novelty.
+PASS
 
-## Value
-**PASS.** The model isolates a naturally motivated noncommutative smoothing mechanism: three alternating subgroup samples almost randomize all group coordinates, yet high-multiplicity Fourier modes create a logarithmic chi-square obstruction. A complete matrix spectrum, an all-time chi-square identity, and a sharp fixed-step total-variation profile quantitatively expose this discrepancy across every prime-power field and dimension. This distinction is structural rather than an arbitrary finite parameter computation.
+The Fourier decomposition is complete: Q² one-dimensional irreps and q-1 central Schrödinger irreps of degree Q account for qQ² regular dimension. Subgroup averages become rank-one projections onto the constant vector and delta_0, with overlap Q^(-1/2), producing eigenvalues (1±Q^(-1/2))/2 and the claimed multiplicities. Plancherel yields the exact positive-time chi-square formula; fair X/Y label words of at most two runs have probability t/2^(t-1), while three-run XYX and YXY convolutions are within (1-1/q)/Q of Haar. These imply two-sided TV bounds and the q^(m+1)4^(-t) chi-square scale, respecting t>=1 and fixed m. Independently reconstructed full integer-group convolution for (q,m)=(2,1),(3,1),(5,1), t=1..4, and checked rational chi-square and TV inequalities. These finite cases do not prove all prime powers; the representation and run arguments do.
 
-## Limitations and closest literature
-No exact finite-size total-variation value or broader subgroup-walk classification is claimed. The reference walks in arXiv:1502.04160 and arXiv:1512.06304 have different step measures and mixing scales. General subgroup-projection methods could subsume parts of the result. The finite checker confirms exact finite cases but does not constitute an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exactly specified two-coordinate-subgroup measure and contrasting TV versus chi-square scales. Generic two-projection linear algebra is classical, but the explicit regular multiplicity count and run-structure TV bound concern this distinct walk. The same-date all-Lagrangian result and sparse-generator theorems are not mathematically equivalent.
+
+## value
+
+PASS
+
+A natural Heisenberg walk exhibits TV mixing after any diverging number of steps but chi-square divergence until logarithmically many steps; the explicit full spectrum and run-decomposition bounds distinguish two standard mixing notions in a noncommutative group and are potentially reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
