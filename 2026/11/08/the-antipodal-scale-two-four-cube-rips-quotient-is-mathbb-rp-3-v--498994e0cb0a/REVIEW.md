@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quotient's regular CW face-orbit structure is verified directly: 392 simplicial faces in 196 free orbits, with 600 proper face incidences. The parity-even subcomplex is exactly the four-cross-polytope boundary with simultaneous opposite-vertex swap, yielding \(\mathbb{RP}^3\) after quotient. The standalone verifier independently checks the certificate of 76 pairwise-disjoint relative matching incidences and **acyclicity of the entire oriented Hasse graph**, leaving exactly four relative three-cells. Relative discrete Morse theory leaves those cells attached to the projective subcomplex; all maps from \(S^2\) to \(\mathbb{RP}^3\) are null since its second homotopy group vanishes. Hence the claimed wedge is a genuine homotopy equivalence. Explicit scope: one finite geometric orbit quotient; no extrapolation to higher dimensions.
+## correctness
 
-## Originality — PASS (best-knowledge, not proof of global uniqueness)
-The closest known 2021 theorem classifies the upstairs Rips homotopy type, not this antipodal quotient. The 2026 hypercube papers analyze cohomology and rational equivariant homology of the upstairs complex; their results may imply the rational rank five in the quotient but not the geometric projective splitting or integral torsion. Indexed published-record searches for antipodal Hamming projectivization, real projective wedge, exact four-cube and scale-two aliases found no equivalent. Accessible previous claims concerning hypercube Rips *fixed-point sets* instead of the free orbit quotient are not equivalent. Residual risk: unindexed quotient calculations or a general quotient theorem could imply the specific result; none was identified in the inspected relevant primary works.
+PASS
 
-## Mathematical value — PASS
-The first nontrivial antipodal identification after the cross-polytope three-cube case produces a canonical \(\mathbb{RP}^3\) summand **and** exactly four additional three-spheres. This gives full integral topological information, including the fundamental group and \(2\)-torsion, that is lost by taking rational invariant homology. The canonical parity subcomplex and exact relative collapse offer a reusable proof pattern for projectivized Hamming metric complexes. The result is not a claim of an all-dimensional classification.
+The 16 Q4 vertices with inclusive pairwise Hamming distances <=2 give 392 nonempty simplices and 196 orbit cells. Antipodes never share an edge, so the geometric involution has a regular orbit-CW structure. The eight even-parity vertices form the boundary of the four-dimensional cross-polytope; its antipodal quotient is RP^3. Independently reconstructed and validated the 76 exact relative face/coface pairs from matching.json, all 600 orbit Hasse incidences, acyclic reversed Hasse digraph, and exactly four critical dimension-3 orbit cells outside RP^3. Relative Forman reduction attaches four 3-cells to RP^3. Their S^2 attaching maps are null because pi_2(RP^3)=pi_2(S^3)=0, hence RP^3 wedge four S^3; the claimed integral homology and fundamental group follow. This finite exhaustive certificate proves only Q4 at scale two.
 
-## Closest literature and limits
-Relevant primary papers: Adamaszek–Adams (arXiv:2103.01040), Feng (arXiv:2305.07084), Bendersky–Elia–Grbić (arXiv:2605.00705), Galetto–Montaño–Wellner (arXiv:2606.20784). The latter two were first posted in 2026. Evidence is the combination of exact certificate and mathematical comparison; external independent checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result is a geometric orbit-space integral HOMOTOPY classification. Existing all-cube statements concern unquotiented Rips homotopy, B_n-representations or cohomological bounds; neither invariant rational homology nor equivariant character formally implies the RP^3 summand and integral orbit-space wedge splitting.
+
+## value
+
+PASS
+
+This is a nontrivial integral geometric quotient classification of a natural central symmetry of the first dimension-four hypercube scale-two Rips complex. The projective subcomplex yields a previously unaccounted fundamental group and 2-torsion, and the explicit relative discrete-Morse splitting supplies information not retrievable from rational group characters. It is a motivated exact finite homotopy result, not a raw table or generic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
