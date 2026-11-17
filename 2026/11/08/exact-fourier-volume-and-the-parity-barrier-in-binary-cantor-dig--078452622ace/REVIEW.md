@@ -1,11 +1,21 @@
-# Review of exact Fourier volume for finite Cantor digit towers
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is a self-contained exact identity for normalized finite complex exponential evaluation matrices, including singular cases. Grouping the last spatial digit and the highest frequency digit gives an explicit two-by-two block matrix whose determinant multiplies by \(|e^{2\pi i d t/b}-1|^{2^{n-1}}\). The normalization yields the product of sine factors with exponent \(2^{n-1}\). Residue optimization modulo \(q=b/\gcd(b,d)\) proves the exact maximum and all maximizing digit steps. Hadamard's inequality characterizes unitarity, while the singular-value product and Frobenius norm give the stated (not claimed sharp) conditioning lower bound. Direct-matrix computations of 88 configurations and exhaustive small-depth optimizations corroborate the argument. Scope: integer digit steps, two spatial digits, all positive depths.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** de Dios Pont--Liehr--Taylor (2026) and Fu--Song--Wang (2026) prove infinite-measure non-frame theorems and do not state a full finite-level determinant optimum. Łaba--Wang's compatible-pair and finite-stage Hadamard theory covers the unitary endpoint, not the nonunitary sharp volume formula. Lai--Wang's non-spectral frame-tower work provides general product-level Riesz estimates, not this complete digit-by-digit determinant and congruence optimum. A distinct finite odd-base two-character coherence result optimizes one two-vector Gram minor rather than the determinant of the entire level-\(n\) Fourier transform. Related published-finding corpus exact cyclic-grid determinant problems use different point/frequency configurations. The main residual risk is an equivalent twisted-tensor determinant identity in older literature, not found in the targeted searches.
+PASS
 
-**Value — PASS.** The finite-level atomic Cantor transform is the canonical approximation to a self-similar Fourier system. Its determinant measures the total exponential-basis volume, a natural conditioning invariant. The exact optimum shows a sharp parity phase transition controlled by the reduced digit quotient: compatible towers can be unitary if that quotient is even, whereas every integer digit-tower square sampling system has exponentially collapsing least squared singular value if it is odd. The result therefore quantifies a specific finite-stage obstruction exposed by the recent odd-base frame impossibility, while clearly *not* proving that impossibility for arbitrary infinite frequency sets. Both the complete all-depth classification and the optimized value are motivated and not supplied by the qualitative literature results.
+Reconstructed last-digit block matrix [M,DM; M,omega DM], where omega=exp(2 pi i d t/b), and the determinant recurrence det M_n=(omega-1)^(2^(n-1)) det(M_(n-1))^2 times unit factors. Holds even for a singular earlier block. Normalization gives the product exponent 2^(n-1). The reduced residue quotient q yields all sine maximum congruences. Hadamard equality enforces unitarity and the product of singular values yields A_n<=s_q^n; the least singular value bound is not claimed sharp. Independently built small explicit matrices and evaluated determinants for b,d,steps=(3,2,(1,2)), (4,1,(1,2)), (6,2,(1,3)) and compared to closed formula.
 
-**Limitations.** No claim is made about optimality among arbitrary frequency sets, real frequency steps, redundant frames, or a sharp least singular value. The elementary block argument may have independent antecedents that require priority review; no independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational compatible-pair theorem implies the even-q unitary endpoint and tower Riesz estimates bound singular values, but neither inspected source gives the non-Hadamard exact all-depth determinant/optimizer. Recent 2026 infinite-measure non-frame theorems do not numerically determine a finite-square determinant. A previously known twisted Kronecker determinant identity remains a plausible originality risk.
+
+## value
+
+PASS
+
+The finite square Fourier transform on a two-digit Cantor approximation is a natural sampling matrix, and its determinant is its intrinsic basis-volume invariant. The exact complete digit-step optimum quantifies an arithmetically sharp even/odd quotient dichotomy beyond existence of compatible Hadamard digits, with an immediate conditioning implication restricted to that family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
