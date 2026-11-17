@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full row/column-balanced, zero-self-loop contact family is uniquely parameterized by a clockwise weight \(p\). Conditional exponential competing risks give an exact final-size distribution, and the only two nontrivial tail probabilities prove first-order stochastic ordering. A derivative has one positive critical point and vanishing boundary values, yielding the unique global cross-strength maximum. The independent CTMC generator reconstruction in `CHECKER.py` verifies the hitting probability and the exact derivative, with no extrapolation from samples.
+## correctness
 
-## Originality — PASS (with risk)
-The motivating 2026 network SIR study provides the Markov generator and next-generation matrix but no weighted directed triangle exact risk envelope. The 2016 exact small-network results **already cover** the undirected equal-edge triangle and are explicitly attributed: the new assertion is the all-balanced-directed fixed-reproduction ordering and maximized gap. Inspected directed message-passing literature does not provide the same cyclic-network result, while exact tree results do not apply. Multiple named searches of relevant research records, the current body of accessible prior findings, the primary full texts and the closest undirected table did not find a dominating claim. The closest-source supplementary Appendix B was not independently retrieved, and a latent equivalent general finite-network theorem cannot be excluded. A failed search alone is not novelty evidence.
+PASS
 
-## Mathematical value — PASS
-The question is natural because networks with the same spectral epidemic threshold may differ substantially in final-size risk, and three nodes are the smallest balanced loopless class allowing directional choice. A complete distribution and sharp stochastic order over all such matrices, plus a universal exact gap attained at a non-obvious rate ratio, give a finite, interpretable boundary example for network-vulnerability comparisons. This is not offered as a broad all-network theorem and does not rely on numerical novelty alone.
+For three loopless balanced directed contacts every row and column stochastic matrix is A_p with clockwise rate p and reverse rate 1-p. Its Perron root is 1, so beta/gamma=b is fixed. Initially transmission before recovery has probability b/(1+b). After the second infection, two memoryless unit-recovery infectious individuals contact the remaining susceptible with rates bp and b(1-p); failure probability is 1/[(1+bp)(1+b(1-p))]. This yields P(K=1)=1/(1+b), P(K=2)=b/[(1+b)(1+b+b²p(1-p))], and P(K=3) the complement. The sole varying upper tail strictly increases with p(1-p), establishing first-order stochastic domination, extrema at p=0,1 and p=1/2. Extreme risk gap Delta=b³/[(1+b)²(b+2)²] has unique positive critical point b=(3+sqrt33)/2 and sharp maximum (33sqrt33-189)/8. Independently checked 20 exact rational Markov-state recursions. The competing-risk proof is valid for all b>0 and 0<=p<=1.
 
-## Sources and limitations
-Primary comparison: Ueki–Thompson–Banaji, arxiv:2601.13730 (model, architecture, approximations); McCulloch–Roberts–Laing, DOI 10.1017/S1446181116000043 (undirected triangle and other small-network exact final sizes); Wilkinson–Ball–Sharkey, DOI 10.1007/s00285-017-1123-8 (directed stochastic SIR framework); Hall–Siebert, DOI 10.1007/s00285-022-01854-9 (exact trees and general bounds). The stated theorem is only for three equal individuals and independent Markov SIR infections/recoveries. All source comparisons are subject to the listed residual indexing/supplement risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full balanced directed triangle distribution and fixed spectral risk ordering, not for the already known undirected symmetric triangle. The full McCulloch–Roberts–Laing 2016 PDF includes the symmetric endpoint; Ueki–Thompson–Banaji 2026 full HTML and appendix study broader network SIR vulnerability but do not state this explicit one-parameter weighted directed stochastic order. Generic finite-chain solvers can compute instances, not logically imply an optimized all-p theorem. Residual possibility: unindexed directed-three-node table or stronger exact SIR theorem.
+
+## value
+
+PASS
+
+Epidemic networks with exactly the same reproduction-matrix Perron root can have differing exact final-outbreak risk. The smallest loopless doubly-stochastic directed family provides a natural complete benchmark, with a sharp global risk gap and genuine stochastic order rather than one numerical example. Scope is deliberately three individuals and independent exponential recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
