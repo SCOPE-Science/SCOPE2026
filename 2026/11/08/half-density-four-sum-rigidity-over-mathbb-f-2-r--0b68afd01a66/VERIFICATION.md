@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The self-contained `verify.py` uses exact bitwise addition for \(\mathbb F_2^r\). It checks every one of the \(12{,}870\) size-eight subsets at \(r=4\), independently reconstructs all restricted four-sums, determines whether an affine-hyperplane condition holds, and separately identifies full-fiber exceptional lifts. The verified classes are \(12{,}000\) fully covering sets, \(840\) sets with exactly one missing nonzero target, and \(30\) hyperplanes with eight missing targets. It checks each of the \(62\) affine hyperplanes for \(r=5\) and a fixed-seed collection of \(2000\) further half-sized subsets.
+## correctness
 
-Run `python verify.py` with Python 3.10+. Expected terminal marker is `VERIFY_OK` after the preceding `R4_OK` and `R5_OK` lines. The checks are finite corroboration; the unrestricted theorem is proved by exact quotient-fiber reasoning. Independent mathematical audit has not been performed. Historical priority, especially equivalent inverse-sumset terminology, remains subject to specialist review.
+PASS
+
+The pinned RESULT.md treats 0 by pair-sum pigeonhole for m>=8. For a nonzero missing g, full/single/empty fibers of V/<g> satisfy 2f+s=m and z=f; f=0 forces vanishing second differences of a transversal graph and hence an affine hyperplane. If f>0, a sum-free set around a full fiber forces f>=m/2-1; a four-vertex zero-sum collision rules out f=m/2-1 and, for m>=16, f=m/2. At m=8 remaining occupied quotient four-set must be affinely independent, giving exactly 15*56=840 exceptions with one omitted g. Hyperplane direction four-sums are full for direction dimension>=3. Independently enumerated all 12870 eight-sets: covering 12000, missing-one 840, missing-eight 30, 56 exceptions for each nonzero g. No finite r=5 sampling substitutes for the all-rank proof. Domain r>=4, four distinct summands, exactly half density.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for unbounded-rank r>=5 inverse classification. Roth-Lempel 1992 and Bajnok 2014 give restricted four-sum size thresholds, not structure of every equality-case obstruction. The published October 11 four-cube Walsh-spectrum census already determines the 840/30 finite exceptional counts under equivalent complementing-translation terminology; this r=4 component is credited and not claimed new. Later Chen-Huang 2026 torsion-size requirement excludes F2^r. An unlocated general restricted-sumset inverse theorem remains a historical priority risk.
+
+## value
+
+PASS
+
+The equality case at the sharp half-density restricted-four-sum critical number is a natural inverse problem; r=4 gives genuine extra exceptions, while an exact sharp structural transition at r=5 classifies every extremizer in infinitely many groups. This is neither routine threshold substitution nor an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
