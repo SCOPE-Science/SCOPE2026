@@ -1,19 +1,21 @@
-# Scientific review — rare frozen propulsion and restart reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely specified absorbing/reflecting frozen-drift diffusion, the backward equations yield exact conditional moment integrals. Gaussian averaging, an interior-free unique corner in each compact integration polytope, and dominated Laplace scaling prove the distinct exponential first- and second-moment laws and the centered Gaussian moment-biased velocity limits. Renewal theory gives the resetting slope. A small-time Gaussian/Brownian estimate proves divergence at large reset rate and hence finite positive existence of a minimizer at high width. The passive Brownian slope factors exactly into a polynomial with critical starting distance \(x/L=1-1/\sqrt5\). The included deterministic checker passed 45 tests. Infinite-parameter claims use the proof, not the tests.
+PASS
 
-## Originality — PASS, qualified
+For fixed drift v, killed/reflected generator D∂²+v∂ with m_j(0)=0 and m_j'(L)=0 yields positive nested spatial integrals for first two moments. Gaussian averaging gives exp(sigma²h²/(2D²)); unique corners at h=L (two coordinates) and h=2L (four coordinates) give M1~D³sigma^-4L^-2 exp(sigma²L²/2D²) and M2~D^6/(8sigma^8L^4) exp(2sigma²L²/D²). Conditional Gaussian tilt centers v at j sigma²L/D with sigma residual. Renewal gives restart slope M1²-M2/2; its large-sigma negativity plus inverse-hitting-time control gives an attained finite positive global optimizer. Passive m1,m2 yield slope x(x-2L)(5x²-10Lx+4L²)/(24D²) and threshold x/L>1-1/sqrt(5). Independent exact-rational checks of the passive slope at x/L=1/4,3/4,1 agreed, and source quadrature code was inspected. Infinite Laplace limits rest on analytic corner localization.
 
-The closest primary source is Georgiou, Bressloff and Bertrand (arXiv:2609.21124v1): it investigates the same mixed-boundary active-particle first-passage setting with velocity resampling, but its analytical solution is weak-activity and finite-persistence. Montero, Masó-Puigdellosas and Villarroel (arXiv:1706.04812) supply a randomly oriented monotone walk and general renewal framework, not the reflected Gaussian-drift model. Woillez, Kafri and Lecomte (arXiv:1912.04010) study metastable-potential escape in a small-active-noise regime. Standard stochastic-resetting literature already supplies the renewal condition, which is credited as prior. The distinct contribution is the exact high-width Gaussian-moment asymptotics, biased velocity scales and consequent reset-sign reversal. Relevant published records and accessible previous mathematical claims were compared by implication, not wording; undiscovered broader literature remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Rare frozen outward propulsion can dominate mean search time despite its small Gaussian probability, and its second moment grows at a still faster exponential scale. The result provides a concrete mechanism explaining why resetting can become beneficial even where ordinary Brownian resetting initially hurts, and identifies the moment-conditioned velocities responsible. This supplies a motivated exact benchmark for highly persistent active search and restart-protocol design.
+Best-of-knowledge PASS for specific frozen-Gaussian-drift high-width moment asymptotics, moment-tilt velocity laws and large-noise reset-benefit reversal. Georgiou–Bressloff–Bertrand address finite-persistence active Ornstein–Uhlenbeck dynamics with weak activity and a related interval geometry, not an identical frozen drift redrawn each attempt. Standard resetting renewal identities, coefficient-of-variation threshold, and backward moments are prior ingredients, not original. Full primary 2026 text unavailable, so possible persistent-limit or unindexed quenched-disorder formulations are residual risks.
 
-## Limits
+## value
 
-The proof is for a frozen velocity re-drawn at every attempt; finite-persistence active Ornstein--Uhlenbeck trajectories, unique optimizing rates, physical resetting costs and independent scientific validation are outside the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The high-variance frozen-propulsion surrogate supplies a motivated singular limit of active first-passage dynamics: rare outward drifts dominate moments on distinct exponential scales and reverse the first-order response to resetting. The exact Laplace constants and selected-velocity Gaussian laws are reusable physical statistics. No claim is made for finite-persistence dynamics or a unique transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
