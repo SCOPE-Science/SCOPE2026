@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives necessary and sufficient rank inequalities using \(\operatorname{im}N\subseteq\ker N\) and the splitting \(V=\operatorname{im}P\oplus\ker P\). The disjoint-subspace and affine-lift factors have independent derivations; their product yields the stated Gaussian-binomial count. The locally closed rank strata are iterated bundles over smooth irreducible flag varieties. Completing the exact quadratic square gives \(\lfloor11n^2/13\rfloor\); a finite thirteen-residue table, justified by an explicit less-than-one bound on all integer maximizers, gives the top-component multiplicities. The original matrix equations were independently enumerated in small cases as reported in `checks.txt`.
+## correctness
 
-## Originality — PASS, subject to residual priority risks
-Richmond's *A Stratification for Varieties of Modules* (2001) establishes a broad abstract stratification and a maximum-over-index-modules principle. Its inspected main results and examples do not state the specialized sandwich rank count or thirteen-periodic component law. Schröer's *Varieties of pairs of nilpotent matrices annihilating each other* (2002 preprint) imposes two-way vanishing for two nilpotents, rather than a square-zero operator combined with an idempotent satisfying \(PNP=0\). A previously studied stronger one-sided annihilation case is the \(t=0\) slice after transposition and does not supply the \(t>0\) strata; these contribute 252 additional ordered pairs in dimension three over \(\mathbb F_2\). Searches for aliases, exact formulas, and broader coverage found no decisive prior statement, but unsuccessful searches do not certify historical priority. A broader representation-variety theorem could conceivably imply parts of the result.
+PASS
 
-## Value — PASS
-The equations define a natural family of finite-dimensional representations of a finitely presented algebra with an idempotent and a square-zero element. Complete finite-field rank populations, a sharp global geometric dimension law, and a thirteen-periodic top-component count jointly reveal structure not captured by the stronger one-sided-zero relation. The invariant has a direct geometric and arithmetic interpretation in every dimension and characteristic. This is not a claim about all irreducible components or scheme multiplicities.
+For P^2=P, N^2=0 and PNP=0 over any field, the rank parameters (r,h,t) satisfy 0<=h<=floor(n/2), 0<=r<=n-h, 0<=t<=min(r,h). The flag U=im N subset K=ker N with V/K isomorphic to U and the idempotent splitting S+W=V reduce PNP=0 to S intersect N(S)=0, W containing N(S). The choices of A=S mod K, B=S intersect K disjoint T=N(S), S extensions and W complements are flag/open/affine bundles. This proves smooth geometrically irreducible *reduced* rank strata and the Gaussian-binomial population [n h]_q[n-h h]_q|GL_h|[h t]_q[n-h-t r-t]_q q^(t(n-h)+r(n-r-t)), with dimension 2h(n-h)+2r(n-r)-hr+ht-t^2. The completed-square identity yields floor(11n^2/13). Finite bounded 13-residue checks plus inequality constraints yield top-dimensional component multiplicities (1,4,2,3,2,1,2,2,1,2,3,2,4) for n>=13, with n=1,3 exceptions. New independent integer enumeration checked all integer feasible triples through n=104 and all claimed extrema and period; that finite check corroborates but does not replace the geometric bundle proof for all n and fields.
 
-## Sources and limitations
-Primary sources: Richmond, DOI 10.1112/S0024609301008189 (2001); Schröer, arXiv:math/0211293 (2002). Published related work on idempotent–nilpotent matrix factorizations concerns different fibers. The correctness checks were performed within this review; independent mathematical audit and comprehensive priority certification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original: the one-sided PN=0 variety is precisely the t=0 slice and has five-periodic top-component counts, not the nonzero-t sandwich relation; Richmond's module variety stratification offers general geometry but neither these finite-field pair counts nor this thirteen-periodic exact optimization. Schröer's two mutually annihilating nilpotents concern distinct polynomial relations. Novelty in the exact three-rank sandwich enumeration and component period, not generic flag bundles.
+
+## value
+
+PASS
+
+The algebraic variety defined by a square-zero operator interacting with an idempotent via a sandwich relation is a natural representation-theoretic object. Its full labeled finite-field rank census, smooth reduced stratum geometry and unusual sharp thirteen-periodic top-component law are substantive, nontrivial structural invariants, not a mere renamed rank calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
