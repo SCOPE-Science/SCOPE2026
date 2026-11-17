@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The theorem has two parts: exact nonemptiness at each binary blocklength and a uniform asymptotic-size construction. The one-orbit criterion follows by expanding all four ordered prefix/suffix comparisons. The binary endpoint restriction reduces the only exclusions to a finite list at lengths three, five and seven; an explicit table exhibits one forbidden proper segment for each remaining candidate. The family \(0^{n-5}11011\) proves feasibility at every length at least eight. The guarded family \(0^k1u01^k\), with four symmetric restrictions on \(u\), has a unique marker \(0^k\), is reverse-complement invariant, and satisfies a union-bound size estimate. The unrestricted size bound \(M_n\le2^n\) completes the rate argument. The direct and independent-integer programs reproduce the finite cases and independently check the defining conditions. No all-length assertion is inferred from finite enumeration.
+## correctness
 
-## Originality: PASS (best-knowledge comparison)
-The nearest foundational works, Chee et al. (arXiv:1209.0236) and Blackburn (arXiv:1303.1026), treat unrestricted cross-bifix-free codes, whose constructions do not impose reverse-complement closure. In particular, unrestricted positive size at binary length five cannot imply positive size under this closure, which the theorem excludes. King and Gaborit (DOI:10.1016/j.dam.2005.07.015) study DNA templates, reverse-complement separation, and comma-freeness on a four-letter alphabet, rather than this exact binary closure/constrained-prefix–suffix problem. A public finite unrestricted length-five classification confirms the neighboring parameter is addressed but does not subsume the all-length symmetric result. Targeted equivalence, broader-coverage, and table searches did not reveal the exact feasibility theorem or the constructed full-rate invariant family. Inaccessible and unindexed literature remain a historical-priority risk; this assessment is not independent priority certification.
+PASS
 
-## Value: PASS
-Ordinary cross-bifix-free codes are useful for locating synchronization boundaries, while reversal plus complementation represents an orientation constraint relevant to paired-symbol reading. The two constraints do not commute automatically with known constructions. The result identifies exactly the exceptional lengths where this symmetry makes even a nonempty code impossible, and shows that at large lengths it nevertheless costs no asymptotic **information rate**. A complete feasibility classification together with an explicit polynomial-loss full-rate construction is more than a small enumeration or a routine substitution. The code-size lower bound is not claimed sharp, and no noise-correction or biochemical guarantee follows.
+The orbit {w,rho(w)} is non-overlapping exactly when w is unbordered and has no self-reverse-complementary proper prefix or suffix; this follows by enumerating both self and cross overlaps. The binary length-one overlap forces all nonempty codewords to share one start/end orientation. For lengths 3,5,7 the residual middle-bit candidates have an explicit forbidden even antipalindromic segment, while the length 1,2,4,6 witnesses and w_n=0^(n-5)11011 for all n>=8 pass the same criterion. The guard family 0^k1u01^k is rho-closed, has unique initial 0^k marker and no cross bifixes; the union bound yields at least 2^(n-2k-3)>2^n/(512n^2) for k=ceil(log2(4n)). Limits use n sufficiently large, not the small-length witness. Independent exhaustive small codeword-orbit checks support the proof.
 
-## Closest literature and limitations
-Chee et al. (2012), Blackburn (2013), and King–Gaborit (online 2006) were compared at the level of their definitions, constructions, and theorems. The non-overlap condition is stronger than comma-free concatenation but does not imply Hamming-distance correction. The unpublished possibility of an earlier equivalent reverse-complement symmetric construction remains a residual risk. The optimum size at fixed lengths is not classified, and the asymptotic bound establishes rate one, not tight constant-factor packing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical non-overlapping code constructions (Chee et al. 2012, Blackburn 2013) do not require closure under reversal and bitwise complement. Published small fixed-point-free complement-alphabet size spectra at length three do not establish the binary existence gap or the invariant full-rate construction. No searched published statement implies both the exceptional lengths and the binary rate.
+
+## value
+
+PASS
+
+Preserving non-overlap under a natural involution is a structurally motivated synchronization-code constraint. The exact exceptional lengths 3,5,7 and existence of positive exponentially large symmetric code families resolve concrete feasibility and asymptotic-capacity questions, rather than only an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

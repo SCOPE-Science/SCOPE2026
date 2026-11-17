@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limits
+# Independent mathematical audit
 
-The two included standalone source programs test the same binary reverse-complement and prefix/suffix definitions using distinct representations. Run `python verify.py`; then run `g++ -O2 -std=c++17 verify_independent.cpp -o verify_independent` followed by `./verify_independent`.
+## correctness
 
-The Python program compares the direct orbit test to the unbordered/antipalindromic criterion for all binary words through length fourteen, checks exact finite exclusions through nine, tests the long-form witness through length eighty, and enumerates several finite guard families through length thirty-two, including their predicted counting lower bounds, closure, and uniqueness of the marker. The independently written C++ program enumerates every indexed binary word through length nine, reconstructs all four overlap comparisons using integer masks, and counts the reverse-complement orbits. The observed results are `DIRECT_ALL_CHECKS_OK` and `INDEPENDENT_INTEGER_OK`.
+PASS
 
-These are finite tests only. The universal existence statement and the asymptotic rate claim rely on the explicit combinatorial proof in RESULT.md. No independent scientific audit or exhaustive literature-priority certification was performed.
+The orbit {w,rho(w)} is non-overlapping exactly when w is unbordered and has no self-reverse-complementary proper prefix or suffix; this follows by enumerating both self and cross overlaps. The binary length-one overlap forces all nonempty codewords to share one start/end orientation. For lengths 3,5,7 the residual middle-bit candidates have an explicit forbidden even antipalindromic segment, while the length 1,2,4,6 witnesses and w_n=0^(n-5)11011 for all n>=8 pass the same criterion. The guard family 0^k1u01^k is rho-closed, has unique initial 0^k marker and no cross bifixes; the union bound yields at least 2^(n-2k-3)>2^n/(512n^2) for k=ceil(log2(4n)). Limits use n sufficiently large, not the small-length witness. Independent exhaustive small codeword-orbit checks support the proof.
+
+## originality
+
+PASS
+
+Classical non-overlapping code constructions (Chee et al. 2012, Blackburn 2013) do not require closure under reversal and bitwise complement. Published small fixed-point-free complement-alphabet size spectra at length three do not establish the binary existence gap or the invariant full-rate construction. No searched published statement implies both the exceptional lengths and the binary rate.
+
+## value
+
+PASS
+
+Preserving non-overlap under a natural involution is a structurally motivated synchronization-code constraint. The exact exceptional lengths 3,5,7 and existence of positive exponentially large symmetric code families resolve concrete feasibility and asymptotic-capacity questions, rather than only an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
