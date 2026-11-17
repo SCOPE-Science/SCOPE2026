@@ -1,15 +1,21 @@
-# Scientific review: a binary-field exception for power-commuting linear maps
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining commutator equation is reconstructed in matrix-unit coordinates, with exact field and size quantifiers. A 59 by 59 unimodular minor gives formal coefficient rank at least 59 in every characteristic, and 41 independent standard solutions give the reverse bound. Multivariate interpolation applies because each input variable has degree at most two, strictly less than the size of every field of order greater than two. In the binary field, the Boolean-reduced 83 by 100 matrix has a certified 55 by 55 nonsingular minor, while 41 standard plus four explicit exceptional solutions are linearly independent and satisfy the literal equation. Thus the two dimensions are exact. The independent direct verifier enumerates all 1,024 binary inputs and reproduces the 55-dimensional constraint rank. The all-size statement is only the explicit existence construction.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Bounds's 2023 centralizing-map paper is motivating prior work, and the paper's 2025 revision already proves the standard power-commuting form over characteristic-zero fields. Neither proves the finite-field dichotomy or the binary exceptions: the latter violate the asserted standard formula if it were naively extended to all fields. Lan and Liu (2024) prove a theorem for the stronger commuting condition on infinite matrices; this does not imply the present result. The closely related 2025 bilinear commuting preprint is withdrawn and concerns a different equation. Targeted primary-literature, mathematical-index, and published-claim searches showed no directly covering theorem. The remaining risk is an unlocated finite-field functional-identity classification.
+PASS
 
-## Mathematical value — PASS
-This is a sharp field-size boundary in a natural functional-identity classification: \(\mathbb F_2\) has exactly four extra directions in dimension five, whereas \(\mathbb F_4\) and every other larger finite field have no such directions. This is not merely a recalculation of a known characteristic-zero count: it provides a complete new finite-field dichotomy, explicit exceptional maps, exact cardinalities, and a natural infinite family of counterexamples to any characteristic-free extension of the standard form. The precise dimensions arise from the smallest-field polynomial-function collapse \(u^2=u\), offering a reusable obstruction in finite-ring functional identities. It does not claim a classification in higher matrix sizes.
+The 5x5 strictly upper triangular algebra has ten basis units. A generic linear map has 100 coefficients; expanding each [f(X),X²] entry in commuting cubics gives a 93x100 formal matrix. Independent construction of the 93 formal rows and 83 Boolean-reduced rows matched source dimensions, with ranks 59 over F3 and 55 over F2. Critically, using independently constructed integer coefficient rows and the source certificate column/row guards, a 59x59 determinant was recomputed exactly by SymPy domain elimination as -1. It gives characteristic-independent formal rank at least 59; 41 independent maps (40 maps into Psi plus identity) supply the matching upper bound. The binary reduction has independently checked rank 55 and four explicit additional maps, giving the 45-dimensional F2 solution. Multivariate polynomial interpolation is valid for q>2 because the degree in each variable is <=2<q. In F2 the reduction x²=x characterizes all evaluations. This verifies precise q=2 versus q>2 separation, without extending the complete classification to n>5.
 
-## Closest sources and limitations
-Bounds, arXiv:2301.03422 (initial public version January 2023; revised November 2025), especially Theorem 1.2 and its proof, is the closest direct source. Lan and Liu, Electronic Journal of Linear Algebra 40 (2024), is a finite-field commuting-map comparison with different algebra and functional equation. Bounds et al., arXiv:2502.11263, is a withdrawn bilinear-map comparison. A broader, unlocated theorem might still imply the classification, so independent priority checking is needed. Only field-linear maps on 5 by 5 matrices are completely classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Bounds Theorem 1.2 is a characteristic-zero result with the same standard form, and proof explicitly uses char !=2. Its all-char-zero assertion does not imply dimensions over finite fields; F2 exceptional maps are ruled out by that proof only in excluded fields. Relevant other published finite-field twisted-commutator work studies the rank of Y->XY-lambda YX for fixed X, not field-linear maps f with [f(X),X²] identically zero.
+
+## value
+
+PASS
+
+This identifies a sharp genuine field-size boundary in the first nontrivial 5x5 niltriangular case: 41 generic directions versus exactly 45 over F2, with explicit nonstandard maps and an integral unit-minor certificate. A complete natural finite-field classification and motivated counterexamples to characteristic-zero extrapolation are independently useful; no general-n classification is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

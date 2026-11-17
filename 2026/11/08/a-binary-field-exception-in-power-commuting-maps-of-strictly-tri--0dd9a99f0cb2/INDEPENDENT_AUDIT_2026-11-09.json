@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:18:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-binary-field-exception-in-power-commuting-maps-of-strictly-tri--0dd9a99f0cb2/RESULT.md",
+        "GitHub blob ad1006f9ab1d23e2065f641610edad4aab9d7512",
+        "GitHub blob f5569fa3a5ef735ee18ed9d49a722772c6513b73",
+        "Independent exact 59x59 determinant -1 and finite-field ranks 59/55",
+        "arXiv:2301.03422v3 Theorem 1.2"
+      ],
+      "rationale": "The 5x5 strictly upper triangular algebra has ten basis units. A generic linear map has 100 coefficients; expanding each [f(X),X²] entry in commuting cubics gives a 93x100 formal matrix. Independent construction of the 93 formal rows and 83 Boolean-reduced rows matched source dimensions, with ranks 59 over F3 and 55 over F2. Critically, using independently constructed integer coefficient rows and the source certificate column/row guards, a 59x59 determinant was recomputed exactly by SymPy domain elimination as -1. It gives characteristic-independent formal rank at least 59; 41 independent maps (40 maps into Psi plus identity) supply the matching upper bound. The binary reduction has independently checked rank 55 and four explicit additional maps, giving the 45-dimensional F2 solution. Multivariate polynomial interpolation is valid for q>2 because the degree in each variable is <=2<q. In F2 the reduction x²=x characterizes all evaluations. This verifies precise q=2 versus q>2 separation, without extending the complete classification to n>5.",
+      "residual_risks": [
+        "Own rank check uses finite coefficient enumeration but the coefficient matrix is an exact finite encoding of the universal field-linear functional identity; the unit determinant and interpolation complete the proof.",
+        "Did not independently verify all the proposed n>5 embeddings by explicit high-n matrices, but endpoint identity follows by direct matrix-unit multiplication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2301.03422",
+          "Electronic Journal of Linear Algebra 40 (2024) 361-369"
+        ],
+        "reasoning": "Bounds covers arbitrary matrix size n>=4 but only characteristic zero; this is not broader in the finite-field direction. Lan/Liu study [f(X),X]=0 on infinite triangular rings, a strictly stronger functional condition for a different algebra, which does not classify the assigned 2-power commuting solutions.",
+        "searches": [
+          "Resultary query: strictly upper triangular N5 F2 power commuting linear maps commutator with X squared binary field exception",
+          "Resultary query: \"power commuting\" \"F_2\" \"N_5\" dimension 45",
+          "arXiv:2301.03422v3",
+          "Electronic Journal of Linear Algebra 40 (2024) 361-369"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.03422",
+        "https://journals.uwyo.edu/index.php/ela/article/view/8381",
+        "Resultary search for finite-field 2-power commuting N5 and twisted commutators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2301.03422#page=2",
+          "https://arxiv.org/pdf/2301.03422#page=7"
+        ],
+        "reasoning": "The older normal form is for char 0 and the proof uses char !=2 at equation (2.11); it cannot establish the four extra F2 maps or their complete dimension. The 59x59 unit minor and F2 Boolean quotient are new finite-field-specific data not deduced by direct parameter substitution.",
+        "searches": [
+          "Resultary query: strictly upper triangular N5 F2 power commuting linear maps commutator with X squared binary field exception",
+          "Resultary query: \"power commuting\" \"F_2\" \"N_5\" dimension 45",
+          "arXiv:2301.03422v3",
+          "Electronic Journal of Linear Algebra 40 (2024) 361-369"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2301.03422",
+          "Resultary/2026/2026/10/26/SCOPE-uniform-twisted-commutator-rank-spectrum-in-the-5-times5-nilradi--7990fa0b63b3"
+        ],
+        "reasoning": "The field-linear functional equation [f(X),X²]=0 involves a single map at every X; computing the commuting fiber for arbitrary pair (X,Y) does not furnish its solution vector space. Bounds has the equation but excludes all finite characteristic.",
+        "searches": [
+          "Resultary query: strictly upper triangular N5 F2 power commuting linear maps commutator with X squared binary field exception",
+          "Resultary query: \"power commuting\" \"F_2\" \"N_5\" dimension 45",
+          "arXiv:2301.03422v3",
+          "Electronic Journal of Linear Algebra 40 (2024) 361-369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query: strictly upper triangular N5 F2 power commuting linear maps commutator with X squared binary field exception",
+          "Resultary query: \"power commuting\" \"F_2\" \"N_5\" dimension 45"
+        ],
+        "reasoning": "The nearest indexed result is the assigned claim itself; other searched records tabulate twisted commutators or different algebraic identities. No earlier explicit 41/45 pair or four specified binary directions was found, but search noncoverage is not proof of priority.",
+        "searches": [
+          "Resultary query: strictly upper triangular N5 F2 power commuting linear maps commutator with X squared binary field exception",
+          "Resultary query: \"power commuting\" \"F_2\" \"N_5\" dimension 45",
+          "arXiv:2301.03422v3",
+          "Electronic Journal of Linear Algebra 40 (2024) 361-369"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Bounds Theorem 1.2 is a characteristic-zero result with the same standard form, and proof explicitly uses char !=2. Its all-char-zero assertion does not imply dimensions over finite fields; F2 exceptional maps are ruled out by that proof only in excluded fields. Relevant other published finite-field twisted-commutator work studies the rank of Y->XY-lambda YX for fixed X, not field-linear maps f with [f(X),X²] identically zero.",
+      "residual_risks": [
+        "Another small-characteristic theorem under a different functional-identity convention may be unindexed.",
+        "Finite N5 classification is proved; higher-N directions are examples only, and their higher-size completeness is unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CHARACTERISTIC_ZERO_ONLY",
+          "evidence": "Theorem 1.2 explicitly assumes characteristic zero; equation (2.11) proof uses characteristic !=2, so finite-field exception is not covered.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03422",
+          "material_read": "Full 10-page revised arXiv PDF v3, particularly abstract, Theorem 1.2, Lemma 2.8 and proof pages 2-7; page 3 screenshot checked",
+          "method": "Read primary PDF source and inspected page image",
+          "title": "Power commuting and centralizing maps on the ring of strictly upper triangular matrices",
+          "trigger": "Same exact functional identity and Psi on N_n"
+        },
+        {
+          "assessment": "DIFFERENT_IDENTITY",
+          "evidence": "Commuting with X in infinite triangular rings versus power commuting with X² for finite 5x5.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/view/8381",
+          "material_read": "Bibliographic theorem statement and assigned source comparison only, not full article",
+          "method": "Cross-check title, scope and theorem type",
+          "title": "Commuting additive maps on upper triangular and strictly upper triangular infinite matrices",
+          "trigger": "Possible dominating matrix-functional-identity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [],
+      "rationale": "This identifies a sharp genuine field-size boundary in the first nontrivial 5x5 niltriangular case: 41 generic directions versus exactly 45 over F2, with explicit nonstandard maps and an integral unit-minor certificate. A complete natural finite-field classification and motivated counterexamples to characteristic-zero extrapolation are independently useful; no general-n classification is needed.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For field-linear maps f:N_5(F_q)->N_5(F_q) satisfying [f(X),X^2]=0, dimension is 41 for all q>2 with standard lambda X + Hom(N_5,Psi) form; over F2 it is 45 with exactly four explicit extra maps; those four extra directions extend as examples to all n>=5, not a complete higher-size classification.",
+  "limitations": [
+    "No claim of complete n>5 classification or classification of arbitrary additive non-field-linear maps."
+  ],
+  "schema_version": 1
+}
