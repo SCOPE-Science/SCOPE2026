@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The substitution forces all ones in a factor onto one parity and forbids four consecutive zeros. For odd length, this makes exactly one cyclic zero gap even; a represented rotation must place its cut in that gap. Boundary zero-run limits then permit at most three cuts. For every positive even substitution exponent, the length-\(2^{2j}+1\) witness has three distinct rotations contained in the two-block factor. Aperiodicity and Morse–Hedlund justify the growth consequence. The standalone finite test was executed successfully, and is not substituted for the proof.
+## correctness
 
-## Originality
-PASS under available-source comparison, with historical-priority risk. The closest published source proves a dyadic class *count*, not a bounded class *size* for all odd lengths. The general group-complexity paper does not treat this specific orbit-size restriction, and the Lie-complexity paper concerns entirely represented cycles rather than partial cycles. Existing compatible work about substitution-induced doubling of classes at even lengths does not imply the odd-length ceiling. Searches for aliases, odd cyclic classes, parity gaps, and a bound of three found no covering result. Unindexed results or other formulations remain a residual risk.
+PASS
 
-## Value
-PASS. A uniform sharp bound on how many rotations of an odd-length factor can appear is a structural classification of partial conjugacy orbits. Together with aperiodicity, it supplies a linear lower bound for cyclic complexity along all odd lengths and contrasts sharply with the known bounded dyadic subsequence. Its scope is an infinite automatic-word language, not a single finite instance.
+From p_(2r)=0 and p_(2r+1)=1-p_r, ones of every factor occur in one local parity, and neither 11 nor 0000 occurs. At odd length the sole even cyclic gap between 1s must straddle the cut in any represented rotation; its at-most-three boundary runs allow at most three cuts. Zero-one factors have a singleton orbit. For B=mu^(2j)(0), applying mu^(2j) to 00 gives BB as a factor, and its three distinct rotations B0,0B,00B[:-1] are represented. Morse-Hedlund plus known c_p(2^k)=2 yield limsup at least 1/3 and liminf zero. Independent finite factor enumeration at odd lengths 1,3,5,7,9,17,31,65 found maximum one or three, corroborating not proving the quantified statement.
 
-## Limitations
-The exact number of odd-length cyclic classes and their full size distribution are unresolved here. Infinite sharpness does not claim sharpness at every odd length. No independent mathematical or exhaustive historical-priority audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement/implication comparison: Lie complexity counts completely represented cyclic orbits, whereas this counts the size of each partially represented orbit at odd lengths. The 2014 Cassaigne result c(2^k)=2 is at even dyadic lengths, no odd class-size ceiling. The named reductions and remaining inaccessible plausible sources are recorded as residual risks, not treated as proof of originality.
+
+## value
+
+PASS
+
+Partially represented conjugacy classes are central to cyclic factor complexity. A universal sharp ceiling at every odd length and infinitely many extremal witnesses explain a nontrivial coexistence of linear odd-length growth and bounded dyadic complexity; not merely recomputing a known Lie table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
