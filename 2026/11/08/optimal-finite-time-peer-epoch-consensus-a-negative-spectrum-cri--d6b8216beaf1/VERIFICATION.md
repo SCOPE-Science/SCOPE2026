@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Executed checks
+# Independent mathematical audit
 
-Executed the standalone `VERIFY.py` using Python 3 with NumPy and NetworkX. The checker reported:
+## correctness
 
-- `PASS: 15 connected regular graph types, 360 spectral/filter comparisons`
-- `PASS: weighted complete three-node example has two distinct negative eigenvalues [-0.48027756377319947, -0.11972243622680057, 1.0000000000000002]`
-- `PASS: two FJ one-inner-step epochs yield exact rank-one averaging (floating) [0.675548981132308, 0.8930784698480841]`
-- `PASS: exact rational three-node rank-one product ('[Fraction(-1, 12), Fraction(-1, 6)]', '[Fraction(12, 13), Fraction(6, 7)]')`
+PASS
 
-The code checks the matrix polynomial independently of its rational eigenvalue expression; it also checks the spectrum sign of connected simple regular noncomplete versus complete graphs. Exact rational arithmetic proves the indicated finite three-node instance without numerical tolerances.
+For irreducible reversible stochastic W the D^1/2 W D^-1/2 similarity is symmetric with stationary projection 1*pi^T. Derive finite peer epoch multiplier (1-alpha+alpha^(K+1)*mu^K*(1-mu))/(1-alpha*mu): denominator >0, for mu>=0 always positive; even K strictly positive for all mu; odd K exactly one possible negative root. Each epoch kills at most one distinct negative nonconstant eigenvalue, so generic initial vectors require at least their number of epochs, regardless of adaptive choices. K=1 and alpha=1/(1-mu) constructs the exact projection when all nonconstant eigenvalues are negative. Reversible nonedge implies principal 2x2 matrix diagonal and mu_2>=min W_uu,W_vv>=0 via interlacing; for simple regular graphs only complete graph qualifies. Independent three-state exact Fraction calculation annihilates two distinct negative eigenvalues and produces J/3. Strong statement is restricted to fixed W, shared scalar alpha in (0,1), finite K and anchor resetting; generic-input lower bound is not a uniform bound over every degenerate initial vector.
 
-## Proof checks and limitations
+## originality
 
-The finite checks do not establish universal quantification. The proof requires a reversible similarity transform, the exact scalar peer-filter identity, the sign and uniqueness of odd-horizon zeros, and principal-submatrix interlacing. These steps are explicitly proved in `RESULT.md`. No formal machine proof or external mathematical validation is claimed. Any conclusion about exact finite-time reachability is specific to fixed-network shared-susceptibility peer epochs, not more general social networks.
+PASS
+
+Wu/Abebe/Mendler-Dünner 2026 already derive finite FJ peer filter and their Theorem 4 treats equilibrium/asymptotic opinions. Kibangou 2012 Theorem 1 already constructs a Laplacian-eigenvalue factor product, hence the K=1 product by itself is not original. The additional necessity across all positive-susceptibility finite peer filters, even/odd horizon optimality, generic adaptive lower bound, reversible nonedge obstruction and topology classification survive these comparisons as a complete model-specific controllability theorem. Qualified by possible existing finite-factor consensus literature.
+
+## value
+
+PASS
+
+Exact finite-time control is materially different from asymptotic convergence; showing a sharp obstacle for noncomplete support under a physically constrained common-susceptibility FJ protocol, and proving longer horizons never help, settles a natural protocol design question. It is not a general topological impossibility for arbitrary time-varying consensus matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

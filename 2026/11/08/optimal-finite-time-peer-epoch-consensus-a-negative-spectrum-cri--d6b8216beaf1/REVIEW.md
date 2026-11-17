@@ -1,15 +1,21 @@
-# Review: finite-time peer-epoch controllability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Reversibility provides a real common spectral basis. Each finite-horizon peer update is a stochastic polynomial of the same transition matrix, and its exact scalar multiplier is derived in `RESULT.md`. The denominator is positive, nonnegative eigenvalues never vanish, even inner horizons never vanish, and odd horizons have at most one negative real root. This proves both impossibility and the optimal number of outer epochs, including for state-dependent schedules on generic inputs. Cauchy interlacing rigorously handles missing edges. The provided standalone script passed 360 spectral comparisons on 15 small connected regular graph types and an exact rational weighted example. Finite checks are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For irreducible reversible stochastic W the D^1/2 W D^-1/2 similarity is symmetric with stationary projection 1*pi^T. Derive finite peer epoch multiplier (1-alpha+alpha^(K+1)*mu^K*(1-mu))/(1-alpha*mu): denominator >0, for mu>=0 always positive; even K strictly positive for all mu; odd K exactly one possible negative root. Each epoch kills at most one distinct negative nonconstant eigenvalue, so generic initial vectors require at least their number of epochs, regardless of adaptive choices. K=1 and alpha=1/(1-mu) constructs the exact projection when all nonconstant eigenvalues are negative. Reversible nonedge implies principal 2x2 matrix diagonal and mu_2>=min W_uu,W_vv>=0 via interlacing; for simple regular graphs only complete graph qualifies. Independent three-state exact Fraction calculation annihilates two distinct negative eigenvalues and produces J/3. Strong statement is restricted to fixed W, shared scalar alpha in (0,1), finite K and anchor resetting; generic-input lower bound is not a uniform bound over every degenerate initial vector.
 
-The 2026 predictive-loop study already derives the peer-filter multiplier; Kibangou's 2012 Laplacian result already contains the one-inner-step spectral annihilation construction. Neither of those is presented here as new. The inspected texts did not state the additional optimality assertion *across arbitrary longer finite peer horizons*, under adaptive repeated homogeneous anchor resets, or the reversible support-graph obstruction in that setting. Broader finite-time consensus theorems allow controls outside this restrictive family. Residual uncertainty: a full text of the 2019 directed spectral-factor paper was unavailable and an equivalent older nonnegative-filter theorem might be unindexed. See `AUDIT.json` for actual comparisons and inspection limits.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp minimum number of outer episodes quantifies an intervention cost and rules out the intuitive but false hope that arbitrarily long inner peer averaging can produce exact consensus faster. It separates complete-support finite-time reachability from ordinary asymptotic consensus on sparse networks, and gives exact tuning choices when reachability holds. This is a specific, structural limitation of a recently studied predictive-loop opinion mechanism, not a general finite-time consensus claim.
+Wu/Abebe/Mendler-Dünner 2026 already derive finite FJ peer filter and their Theorem 4 treats equilibrium/asymptotic opinions. Kibangou 2012 Theorem 1 already constructs a Laplacian-eigenvalue factor product, hence the K=1 product by itself is not original. The additional necessity across all positive-susceptibility finite peer filters, even/odd horizon optimality, generic adaptive lower bound, reversible nonedge obstruction and topology classification survive these comparisons as a complete model-specific controllability theorem. Qualified by possible existing finite-factor consensus literature.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact finite-time control is materially different from asymptotic convergence; showing a sharp obstacle for noncomplete support under a physically constrained common-susceptibility FJ protocol, and proving longer horizons never help, settles a natural protocol design question. It is not a general topological impossibility for arbitrary time-varying consensus matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
