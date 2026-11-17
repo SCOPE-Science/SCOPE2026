@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact iterates; explicit common-uniform coupling yields O(N^-kappa) with matching first-coordinate lower bound for unequal seeds. Bernoulli means and variance justify Lindeberg Gaussian law; Laplace functionals and Le Cam plus whole-path TV justify Poisson process and count limits. Telescoping proves exact first-hit survival. Checker reran successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 Markov-measures paper studies stability and equivalence/singularity criteria, not a moving initial-data observational limit.",
+        "The closest parabolic public theorem proves eventual-coordinate coupling for each fixed s_i but with parameter dependence that is not uniform as s_i tends to zero."
+      ],
+      "reasoning": "General fixed-initial-data regularity and product-measure equivalence do not imply a quantitative full-path O(N^-kappa) estimate when initial data vanish, or a sharp transition from diverging to finite occupation. Standard Le Cam approximation is used and credited, not repackaged as independent novelty.",
+      "searches": [
+        "published-finding corpus: F-stochastic operators Jamilov Mukhamedov 2024 nonsummable g iterates Markov measures equivalence singularity polynomial decay",
+        "published-finding corpus: Nonhomogeneous Markov chain rare visits probabilities n^-alpha sharp strong law and mutual absolute continuity",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/mma.10191"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44198-024-00172-6",
+        "title": "Nonlinear Stochastic Operators and Associated Inhomogeneous Entangled Quantum Markov Chains"
+      },
+      {
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/mma.10191",
+        "title": "Dynamics of nonlinear stochastic operators and associated Markov measures"
+      },
+      {
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-parabolic-stochastic-dynamics-full-path-measure-classes-and-a-cr--c3b72a8ef229/RESULT.md",
+        "title": "Parabolic stochastic dynamics: full path-measure classes and a critical rare-visit window"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest RESULT.md Step 2 compares a fixed-seed Markov chain to the fixed reference (n+1)^(-1/gamma) with a mismatch constant proportional to a_i-1, where a_i=s_i^(-gamma).",
+        "Substituting s_i=beta_i N^-kappa into that fixed-reference constant makes it increase as N^kappa; it does not yield the shrinking-seed O(N^-kappa) coupling bound, while the natural reference q_n=1/(n+N^kappa/beta_0) is different.",
+        "Primary articles define transition matrices as iterated row seeds and focus on regularity, mixing and absolute continuity."
+      ],
+      "reasoning": "The new optimal path TV rate relies on coupling to the correct moving reference and using the rarity of the previous state to sum mismatches. The first-hit and critical Poisson law follow from the new moving-denominator structure. Neither is an immediate corollary of the cited fixed-seed theorem, though standard Bernoulli techniques enter the proof.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-parabolic-stochastic-dynamics-full-path-measure-classes-and-a-cr--c3b72a8ef229/RESULT.md",
+        "https://link.springer.com/article/10.1007/s44198-024-00172-6",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/mma.10191"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complete public parabolic RESULT.md has fixed positive seeds s_i and an exponent sequence gamma_N=1+u/log N; its reference Bernoulli probabilities are (n+1)^(-1/gamma).",
+        "Current theorem has shrinking seeds beta_i/N^kappa and reference probabilities 1/(n+N^kappa/beta_0); the limiting intensity at kappa=1 is beta_0/(1+beta_0 t)."
+      ],
+      "reasoning": "Neither moving exponent at fixed seeds nor fixed seed at fixed exponent is the moving initial row singular regime. Changes in the time-dependent denominator cannot be absorbed by parameter renaming because the entire count scale changes from logarithmic to finite/zero.",
+      "searches": [
+        "published-finding corpus: parabolic F-stochastic Markov measures initial nonbase mass scaled 1/N inhomogeneous Poisson limit point process",
+        "published-finding corpus: triangular data parabolic stochastic map rare-state visits Poisson log hazard",
+        "2026/11/8/SCOPE-parabolic-stochastic-dynamics-full-path-measure-classes-and-a-cr--c3b72a8ef229"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected operator sources present the exact matrix construction and convergence, not a tabulated moving-seed count distribution or first-hit expression.",
+        "Exact rising-factorial count PGF and telescoping first-hit identity are derived directly here; no numerical data table is asserted as novel."
+      ],
+      "reasoning": "This is an analytic count/process law, not a database or finite invariant; no stronger exact reference table was found in the actual targeted searches. Failed search alone is not novelty proof.",
+      "searches": [
+        "published-finding corpus: parabolic Markov operator no-event probability log(1+lambda T) Poisson process",
+        "published-finding corpus: quadratic stochastic F map x/(1+x) rare excursion near critical initial mass Poisson limit",
+        "https://link.springer.com/article/10.1007/s44198-024-00172-6"
+      ]
+    },
+    "rationale": "Direct comparison with the full open-access 2024 primary publications and the entire closest public parabolic fixed-seed result shows that the moving-initial-seed full-path sharp rate and critical Poisson crossover are not stated or implied by their fixed-seed and moving-exponent theorems; generic probabilistic tools credited.",
+    "residual_risks": [
+      "The theorem uses standard independent Bernoulli Gaussian/Poisson results; an equivalent triangular moving-seed special case may appear in unindexed probability literature.",
+      "The result proves a specific two-state parabolic case only; extension to arbitrary F-stochastic operators or arbitrary shrinking seed sequences is not established.",
+      "Independent mathematical auditing and definitive worldwide publication-priority certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the class and iteration-row chain, but no moving-seed sharp whole-path approximation or Poisson critical point-process result",
+        "evidence": [
+          "Published 2024-02-26, Definition 3.1 and equation (6), full HTML inspected"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44198-024-00172-6",
+        "material_read": "HTML full text: Introduction, Definitions 3.1, dynamics, transition matrix formula (6), associated Markov definitions, conclusions",
+        "method": "Direct section-level inspection of lawful open-access HTML",
+        "title": "Nonlinear Stochastic Operators and Associated Inhomogeneous Entangled Quantum Markov Chains",
+        "trigger": "Defines F-stochastic operators and original transition-row construction"
+      },
+      {
+        "assessment": "General regularity and equivalence criteria, not triangular shrinking-row initial data or critical Poisson rare-event occupation",
+        "evidence": [
+          "First published 2024-05-16; Sections 3–4 inspected in HTML"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/mma.10191",
+        "material_read": "HTML full text: Introduction, Section 3 F-stochastic operators, Section 4 absolute continuity of associated Markov measures, conclusions",
+        "method": "Direct section-level inspection of lawful open-access full HTML",
+        "title": "Dynamics of nonlinear stochastic operators and associated Markov measures",
+        "trigger": "Closest 2024 primary Markov path-law construction and singularity conditions"
+      },
+      {
+        "assessment": "Covers fixed seeds, path equivalence and moving-exponent CLT; not moving shrinking seeds, sharp N^-kappa decoupling, Poisson startup, or exact moving-seed first-hit scaling",
+        "evidence": [
+          "Theorem parts i–iv and proof Steps 2–6 explicitly compared by implication"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-parabolic-stochastic-dynamics-full-path-measure-classes-and-a-cr--c3b72a8ef229/RESULT.md",
+        "material_read": "Complete RESULT.md: full theorem, assumptions, proof Steps 1–6, relationship to prior work and limitations",
+        "method": "Read entire publicly available markdown scientific manuscript",
+        "title": "Parabolic stochastic dynamics: full path-measure classes and a critical rare-visit window",
+        "trigger": "Same parabolic nonlinear operator; highly plausible overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7301bb76-5ee0-4ea1-a0cb-a4985790afa6",
+  "value": {
+    "rationale": "A natural horizon-dependent small initial rare-species fraction produces a full Gaussian/Poisson/empty startup trichotomy at the sharp seed N^-1 scale. Matching whole-path TV lower/upper bounds quantify persistence of previous-state memory, while exact first hit identifies a nonexponential Pareto startup and its Poisson hazard connection. These quantities are not determined by fixed-seed asymptotics.",
+    "status": "PASS"
+  }
+}

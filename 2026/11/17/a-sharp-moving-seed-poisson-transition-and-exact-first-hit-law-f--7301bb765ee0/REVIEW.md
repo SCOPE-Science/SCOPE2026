@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The nonlinear map has exact iterates \(h^{\circ n}(s)=1/(n+1/s)\). A common-uniform coupling yields an exact expected disagreement sum, bounded by \(O(N^{-\kappa})\), while the first-coordinate marginal gives the nonzero matching lower bound when the row seeds differ. Telescoping gives the first-hit identity; independent Bernoulli generating functions, Lindeberg's theorem and a Laplace-functional/Riemann-sum argument establish the three regimes. The standard Le Cam count bound yields quantitative total variation for the Poisson *count*, not the point process. The standalone rational checker corroborates exact small cases but is not used as an infinite proof.
+
+**Originality — PASS within inspected evidence.** The full published texts by Souissi–Mukhamedov and Jamilov et al. establish the operator class and Markov-measure construction, not the triangular moving-row-seed theorem. The closest published analytic result on this exact parabolic operator covers fixed positive seeds, path equivalence and a moving-exponent Gaussian window; it has no uniform path approximation for \(s_{i,N}\to0\), no moving-seed Poisson transition, and no optimal first-coordinate total-variation rate. The analytic implication was checked rather than relying on title differences. Generic rare-event approximation theorems supply tools but do not directly state this model's sharp coupling or complete phase diagram; unindexed equivalents remain possible.
+
+**Mathematical value — PASS.** The observation-horizon/seed-magnitude competition is intrinsic to nonhomogeneous population Markov models and has a natural critical ratio \(N/N^\kappa\). The full-path sharp memory-loss estimate is stronger than weak convergence of counts, and the exact first-hit clock connects the individual startup behavior with the limiting Poisson intensity. It identifies three distinct observation regimes not resolved by known fixed-seed limits.
+
+The result is restricted to this parabolic two-state model, and the law concerns horizon-dependent experiments. Wider generalization, original-priority certification, and independent validation remain outside scope.
+
+Self-review: passed. Independent audit: not yet performed.
