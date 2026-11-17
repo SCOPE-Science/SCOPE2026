@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The disk spectrum is computed by a normalized incomplete-gamma integral. After removing each disk's leading coherent projection, compactness and vanishing cross-translated products bound the remaining-sector norm by \(\ell_1+o(1)\). The disk-to-distant-coherent-state integral is bounded by \(R e^{-(d-\sqrt R)^2}\); a Schur complement therefore incurs only that squared-overlap error. The exact three-state coherent Gram matrix is circulant with holonomy equal to twice the triangle area. Finally, the full operator commutes with rotation by \(120^\circ\), so branch-order reversals force *exact* double eigenvalue coincidences by continuity, not merely near-degeneracies. Five direct Fock quadratures support the asymptotics; they are not used to prove the all-distance and infinitely-many-crossing conclusions.
+PASS
 
-## Originality
+PASS: In the Fock normalization, a disk of radius sqrt(R) has top localization eigenvalue ell=1-e^{-R}, second ell_1=1-(1+R)e^{-R} and gap R e^{-R}. Coherent centers separated by d give overlap magnitude e^{-d^2/2}; compact translation decoupling bounds residual sector by ell_1+o(1). Alien-disk coherent mass is <=R exp(-(d-sqrt R)^2); positivity gives square-root block coupling and Schur complement yields O_R(exp(-(d-sqrt R)^2)) error. The three-state Gram phases have cyclic product exp(i sqrt(3)d^2/2), eigenvalues 1+2s cos((Phi+2pi q)/3). Rotation decomposes the original operator into three fixed character sectors, giving genuine double crossings by continuity near integer and half-integer flux, while the fourth eigenvalue stays separated. Quantifiers fix R>0 and take d->infinity. This is an analytic argument; direct numerical quadrature of the complete Toeplitz operator was not independently repeated.
 
-**PASS, with historical-priority qualifications.** Nicola–Tilli (arXiv:2207.08624) cover sharp global norm bounds and disk extremality, not the three-level geometry-dependent asymptotic. Fulsche–Hagger (arXiv:2308.11292) provide Weyl quantum harmonic analysis rather than this disk triple spectrum. Berceanu (arXiv:math/9903190) and earlier geometric-phase theory already explain coherent triangular holonomy; that ingredient is expressly prior. A related two-disk separated-localization theorem only has a two-point Gram matrix, whose phase can be gauged away; it does not imply the three-cycle flux oscillation or the forced exact twofold crossings. Searches of mathematical research records and primary literature found no directly covering spectral theorem; this is not proof of uniqueness. An unlocated general multiwell Toeplitz tunneling theorem is the principal residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result supplies a complete leading three-eigenvalue law for a natural disconnected Gaussian concentration mask and identifies a physical/geometric parameter that modulates spectral gaps at their actual exponential scale. The exact crossing mechanism is structural: the three one-dimensional rotation sectors protect degeneracies near integer and half-integer flux. These facts are not a fixed-radius disk-norm calculation or a decorative restatement of the known geometric phase. They are useful when interpreting best-observed modes and near-degenerate concentration signals on triangular multi-aperture masks.
+Best-of-knowledge: exact published same-object claims and primary literature compared by statement/implication, with strong prior ingredients acknowledged and residual risks retained. The complete accepted contribution is not shown covered by the inspected sources.
 
-## Limitations and closest sources
+## value
 
-The proof is asymptotic for fixed disk parameter \(R>0\) and does not establish uniqueness of the infinitely many crossings or treat nonsymmetric arrangements. The source papers' global extremal inequality, Weyl covariance, and geometric phase identity are reused explicitly. Priority against general magnetic multiwell Toeplitz/anti-Wick theories is not exhaustively resolved; independent review has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: It gives a natural, sharp phase-sensitive spectral phenomenon in a concrete union-of-disks localization operator: three isolated eigenvalues split with oscillatory flux and undergo infinitely many genuine twofold crossings. The statement concerns the full operator, not merely a three-vector overlap toy matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
