@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full fixed-anchor evolution equations are stated, and the signed eigenvector gives an exactly invariant two-dimensional flow. A positive invariant rectangle and an eventual strict positive lower bound on the scalar opinion amplitude establish exponential convergence of leadership and opinion. The ambient two-agent Jacobian splits into two independently reconstructed blocks; its exact transverse determinant gives the necessary and sufficient strict hyperbolic stability criterion. At equality, zero linear growth is not misreported as nonlinear stability. The accompanying SymPy/NumPy/SciPy checker reproduces the symbolic calculations and 120 numerical network reductions; finite experiments are corroborative only.
+## correctness
 
-**Originality — PASS, subject to literature uncertainty.** The March 2026 primary preprint develops general leadership--opinion dynamics but not the identified sharp two-agent transverse stability boundary and its contrast with attraction on a signed polarization mode. The 2020 activity-driven leader--follower model treats a different stochastic mechanism, while the June 2026 follow-up uses a different leadership law. Published research-index semantic searches for the formula, source, synonyms, and equivalent eigenmode/symmetry-reduction descriptions did not yield an equivalent or stronger claim. This is a comparison against actual inspected texts and accessible records, not an assertion that all unpublished or unindexed literature was checked. The later follow-up could not be reviewed in full.
+PASS
 
-**Value — PASS.** The exact threshold identifies when apparently convergent polarized simulations hide a symmetry-breaking instability; this separates in-manifold convergence from physically robust attraction in the smallest genuine influence network. Its amplitude independence and explicit cubic dependence on inter-camp interaction strength provide a structural phase boundary, not a numerical parameter example or trivial restatement of a general stability test.
+For every nonnegative row-stochastic W with a two-sign eigenvector Ls=κs (0<κ≤2), the signed initial opinions and common leadership remain an exact invariant manifold. Reconstructing the scalar flow gives y*=α/(α+βκ²), u*=aα/(α+βκ³); invariant rectangle and eventual positive u establish exponential on-manifold convergence. For exactly two symmetric agents, direct differentiation of the ORIGINAL full four-component fixed-anchor ODE, not merely the reduced map, splits longitudinal and transverse blocks; the latter has determinant a²α²(α−2βκ³)/(α+βκ³)² and negative trace. Hence local full-state sink iff α>2βκ³, exactly one unstable mode iff <, and a single zero eigenvalue at equality (nonlinear critical behaviour deliberately not asserted). Independent SymPy full-Jacobian computation matches the determinant. The two-agent restriction, a>0, common anchors and local nature are essential.
 
-**Scope and risk.** The full-state theorem is limited to two agents. The sign-eigenmode reduction allows larger networks but does not imply their transverse stability. Critical nonlinear stability is unresolved, and the originality comparison carries ordinary unindexed-source risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise signed-eigenvector attraction and FULL two-agent transverse cubic threshold are not the general sufficient convergence criterion in Alutto et al. (2026). Resultary returns the same result itself and different logistic-adaptive-tie models, not this fixed-anchor leadership field. A theorem covering the present full Jacobian inequality has not been identified; self-search is not independent proof of global novelty.
+
+## value
+
+PASS
+
+A potentially deceptive invariant polarization trajectory can converge while arbitrarily small unstructured opinion/leadership errors grow. The exact amplitude-independent cubic sharp boundary separates on-mode and ambient stability in the smallest nontrivial influenced network; it is not a mere textbook eigenvalue exercise because the longitudinal/transverse coupling must be reconstructed from the state-dependent original model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
