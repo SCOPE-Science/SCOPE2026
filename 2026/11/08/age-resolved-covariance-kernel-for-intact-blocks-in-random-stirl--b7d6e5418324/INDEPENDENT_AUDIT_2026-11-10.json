@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T01:18:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform insertion of each new maximum as a contiguous r-run into r(k-1)+1 equiprobable gaps uniquely enumerates r-Stirling words. If selected older labels are still intact, exactly (r-1)c_k(S) disjoint internal gaps destroy at least one; multiplication gives exact joint survival product. For a pair i<j, factorizing the joint product into marginals and R_{n,j}=product_{k>j}(1-2h_k)/(1-h_k)^2 gives negative covariance and local n^-1 limit -beta^2*a^beta*b^beta*(1/b-1). Summing diagonals yields single integral, offdiagonals double integral; uniform bound |cov(X_i,X_j)|<=C_r/max(i,j) controls near-origin pairs after n^-1 scaling. The proof text describes this discarded region as O(delta), but its explicit sum is O(delta+delta*log(1/delta)) and still tends to zero; this imprecise rate does not affect the convergence claim. Direct independent exact inclusion tests on all subsets for r,n=(2,5),(3,4),(4,3) and generated word histories passed. Full finite tests cannot prove n->infinity; harmonic estimates and dominated Riemann sums do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson treats aggregate plateau counts; r-Stirling work refines by occurrence number, not first floor(nt) distinct birth labels.",
+          "Acan–Hitczenko covariance indexed by vertex outdegree class rather than birth time."
+        ],
+        "reasoning": "These results do not directly dominate a birth-age two-parameter kernel; value-indexed Haglund–Visontai is the major comparison.",
+        "searches": [
+          "Janson plane recursive trees Stirling permutations urn model 2007 0803.1129",
+          "Janson Kuba Panholzer generalized Stirling permutations 0805.4084",
+          "Acan Hitczenko 1411.5756 covariances outdegrees plane recursive trees"
+        ]
+      },
+      "checked_sources": [
+        "https://sites.math.washington.edu/~billey/classes/561.fall.2021/past.articles/haglund.vis.2012.pdf",
+        "https://arxiv.org/abs/0803.1129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stable multivariate polynomial can in principle determine finite joint moments; extracting asymptotic scaling, boundary control and closed covariance curve requires new work.",
+          "An aggregate full-count variance does not determine K(s,t) for s!=t or any t<1."
+        ],
+        "reasoning": "Prior qualitative negative dependence and finite generating functions do not mechanically state the explicit continuum kernel; the submitted proof establishes the stronger quantitative form.",
+        "searches": [
+          "Haglund Visontai 2012 stable multivariate Eulerian polynomials full text",
+          "Janson Kuba Panholzer 0805.4084 generalized Stirling permutation plateau count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haglund–Visontai Theorems 3.3–3.5 use plateau-label multivariate generating polynomials and imply qualitative negative dependence; their polynomial permits finite coefficient extraction.",
+          "The new observable is the rescaled covariance for all birth-prefix pairs s,t and an explicit K_r(s,t), not simply a finite labelled generating polynomial."
+        ],
+        "reasoning": "Finite joint information is substantially prior-implied, but direct large-n covariance kernel is not explicitly stated in inspected source; a nontrivial asymptotic derivation is supplied.",
+        "searches": [
+          "Haglund Visontai stable multivariate Eulerian polynomials generalized Stirling permutations 2012",
+          "Resultary: joint survival probability plateau indicators by labels Stirling permutations all subsets negative correlations covariance profile"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary lists own age-resolved kernel and unrelated plateau–nesting aggregate covariance.",
+          "2012 multivariate polynomial is an implicit finite-value database, not an explicit n->infinity age-covariance table."
+        ],
+        "reasoning": "An explicit exact table of the limiting kernel was not identified, although it may be recoverable from earlier finite generating functions.",
+        "searches": [
+          "Resultary: r Stirling permutation value indexed plateau indicators covariance birth time joint probability multivariate Eulerian stable polynomial",
+          "Haglund Visontai Theorem 3.5 plateau index stable polynomial"
+        ]
+      },
+      "rationale": "Haglund–Visontai (2012) already construct stable multivariate Eulerian polynomials tracking value-indexed plateaux, implicitly encoding the full finite joint distribution and strong negative-dependence structure. That substantive prior is acknowledged; no novelty is assigned to labelled plateau statistics or generic negative correlations. The submitted exact insertion product directly produces an explicit two-parameter birth-prefix scaling covariance kernel, local 1/n covariance law, and closed all-t variance curve; no inspected primary theorem gives these explicit quantitative limits. Janson/Janson–Kuba–Panholzer cover aggregate and occurrence-indexed plateaux; Acan–Hitczenko concerns outdegree classes, not birth-age prefixes.",
+      "residual_risks": [
+        "Haglund–Visontai multivariate finite polynomial may allow the same age-kernel by unreported or elementary coefficient asymptotics; historical priority for this specific limit remains qualified.",
+        "The source proof near-origin wording says O(delta) despite an O(delta log(1/delta)) estimate; the latter still vanishes and suffices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongly covers finite multivariate plateau-by-value statistics and stable/negative-dependence properties but not stated birth-prefix continuum covariance kernel.",
+          "evidence": "Theorem 3.5 concerns plateau-value variables; no explicit K_r(s,t) found in the inspected theorem/proof.",
+          "identifier_or_url": "https://sites.math.washington.edu/~billey/classes/561.fall.2021/past.articles/haglund.vis.2012.pdf",
+          "material_read": "Full accessible author-copy PDF; Sections 3.2–3.5 and Theorems 3.3–3.5 inspected, with screenshots including pages 7 and 8.",
+          "method": "primary full-text PDF theorem and indexing comparison",
+          "title": "Stable multivariate Eulerian polynomials and generalized Stirling permutations",
+          "trigger": "Strong plausible complete labelled plateau coverage"
+        },
+        {
+          "assessment": "Aggregate/urn statistics, not known to state age-resolved kernel.",
+          "evidence": "Does not substitute a full-document novelty finding.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.1129",
+          "material_read": "Abstract and indexed theorem summary; no full-text inspection in current audit.",
+          "method": "preprint abstract and stated-result comparison",
+          "title": "Plane recursive trees, Stirling permutations and an urn model",
+          "trigger": "Ancestor aggregate plateau statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A covariance kernel indexed by every pair of birth-age fractions provides a natural and precise second-order description of a canonical growing permutation/tree model, distinguishable from aggregate plateau variance. It can support later process-limit analysis without claiming a CLT; the explicit age structure is a mathematically useful invariant rather than a random finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://sites.math.washington.edu/~billey/classes/561.fall.2021/past.articles/haglund.vis.2012.pdf",
+    "https://arxiv.org/abs/0803.1129"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed r>=2, the birth-prefix number W_n(t) of intact r-copy blocks in a uniform r-Stirling permutation has n^-1 covariance converging for all s,t in [0,1] to an explicit integral K_r(s,t), with a closed variance curve; every finite joint survival probability of labelled intact-block events equals an exact insertion-gap product.",
+  "limitations": [
+    "Fixed r>=2 and pointwise covariance limits in [0,1]^2 only; no process CLT or uniform rates; prior full finite labelled distribution acknowledged."
+  ],
+  "residual_risks": [
+    "Haglund–Visontai multivariate finite polynomial may allow the same age-kernel by unreported or elementary coefficient asymptotics; historical priority for this specific limit remains qualified.",
+    "The source proof near-origin wording says O(delta) despite an O(delta log(1/delta)) estimate; the latter still vanishes and suffices."
+  ],
+  "schema_version": 1
+}

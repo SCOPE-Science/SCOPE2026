@@ -1,11 +1,21 @@
-# Review of age-resolved covariance kernel
+# Independent mathematical audit
 
-**Correctness — PASS.** Uniform increasing-label gap insertion proves the subset-survival product exactly; this gives all pair covariances. Harmonic-sum estimates and a summable inverse-index bound justify all two-parameter covariance limits, including the axes. All 6,375 exact rational assertions in `verify.py` passed. Exhaustive tests are corroboration only, not the proof of the limit.
+## correctness
 
-**Originality — PASS, with explicit priority risk.** Janson's earlier paper covers aggregate plateau statistics and increasing-tree bijections. Janson–Kuba–Panholzer treat generalized Stirling permutations and plateaux indexed by occurrence number. The strongest comparison is Haglund–Visontai (2012), whose full value-indexed stable generating polynomial already implies a finite labelled joint distribution and negative-dependence properties. That prior work substantially covers the qualitative background; the present assessed claim is specifically the explicit two-parameter birth-prefix covariance kernel and closed variance profile, not the discovery of labelled plateau statistics. No matching quantified kernel was identified in the completed comparisons. The stable polynomial may permit an earlier implicit derivation and is a serious priority risk.
+PASS
 
-**Value — PASS.** This resolves a motivated exact limiting second-order statistic for arbitrary birth-age windows in a canonical random growth model. The full-count variance is a known specialization; the nonconstant two-parameter covariance kernel is the contribution. It is potentially useful for age-profile inference and subsequent functional limit theory without asserting such a theorem.
+Uniform insertion of each new maximum as a contiguous r-run into r(k-1)+1 equiprobable gaps uniquely enumerates r-Stirling words. If selected older labels are still intact, exactly (r-1)c_k(S) disjoint internal gaps destroy at least one; multiplication gives exact joint survival product. For a pair i<j, factorizing the joint product into marginals and R_{n,j}=product_{k>j}(1-2h_k)/(1-h_k)^2 gives negative covariance and local n^-1 limit -beta^2*a^beta*b^beta*(1/b-1). Summing diagonals yields single integral, offdiagonals double integral; uniform bound |cov(X_i,X_j)|<=C_r/max(i,j) controls near-origin pairs after n^-1 scaling. The proof text describes this discarded region as O(delta), but its explicit sum is O(delta+delta*log(1/delta)) and still tends to zero; this imprecise rate does not affect the convergence claim. Direct independent exact inclusion tests on all subsets for r,n=(2,5),(3,4),(4,3) and generated word histories passed. Full finite tests cannot prove n->infinity; harmonic estimates and dominated Riemann sums do.
 
-**Limitations.** Only finite exact identities and covariance convergence are proved. There is no Gaussian-process limit or uniform rate. Independent bibliographic and mathematical assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Haglund–Visontai (2012) already construct stable multivariate Eulerian polynomials tracking value-indexed plateaux, implicitly encoding the full finite joint distribution and strong negative-dependence structure. That substantive prior is acknowledged; no novelty is assigned to labelled plateau statistics or generic negative correlations. The submitted exact insertion product directly produces an explicit two-parameter birth-prefix scaling covariance kernel, local 1/n covariance law, and closed all-t variance curve; no inspected primary theorem gives these explicit quantitative limits. Janson/Janson–Kuba–Panholzer cover aggregate and occurrence-indexed plateaux; Acan–Hitczenko concerns outdegree classes, not birth-age prefixes.
+
+## value
+
+PASS
+
+A covariance kernel indexed by every pair of birth-age fractions provides a natural and precise second-order description of a canonical growing permutation/tree model, distinguishable from aggregate plateau variance. It can support later process-limit analysis without claiming a CLT; the explicit age structure is a mathematically useful invariant rather than a random finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
