@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3. The script uses only standard-library exact integers and rational fractions. It reconstructs the defining six squarefree quartic monomials, expands the gradient under arbitrary linear parameters to test identically that each proposed plane and line is singular, deduplicates nine noncoordinate lines by primitive Plücker coordinates, and computes exact Hessian matrix ranks along all dihedral orbits.
+## correctness
 
-Expected terminal result:
+PASS
 
-```text
-HEXAGON_ADJOINT_EXACT_CHECKS_PASS
-TWO_PLANES 2 NINE_COORDINATE_LINES 9 NINE_NONCOORDINATE_LINES 9
-HESSIAN_RANKS: plane=3; coordinate_line=4; noncoordinate_line=4
-```
+For F=sum_{i mod6} ∏_{j∉{i,i+1}} x_j in P5_C, support-size case analysis exhausts all singular points: ≤2 automatically singular; size3 only alternating triples; size4 requires two nonadjacent zeros and gives nine explicit noncoordinate lines; size5 has nonzero derivative; full support via y_i=x_i^-1 has y_(i+2)=-y_i, incompatible with six-periodicity. Thus reduced support is 2 alternating planes, 9 mixed-parity coordinate lines, 9 noncoordinate lines, all irredundant. Tangency to component bounds Hessian rank≤5-d; independent exact rational Hessian calculations attain rank 3 on planes (minor720) and rank 4 on each of four line symmetry orbits (minor16), proving generic normal nondegeneracy. Holomorphic Morse–Bott lemma gives 3- or 4-square transverse node and generically reduced Jacobian scheme; nothing claimed at intersections.
 
-The proof of exhaustiveness is an independent support stratification, not a finite sample. The claimed analytic normal forms use the standard holomorphic Morse–Bott lemma at generic smooth points of the singular strata. Intersection germs and embedded Jacobian scheme structure at their intersections are outside the claim.
+## originality
+
+PASS
+
+Telen primary Example 7.6 explicitly already finds the same set-theoretic singular locus through a redundant cover by 30 lines and two planes. This prior coverage is acknowledged; it does not assert minimal 20 irreducible components or generic normal Hessian ranks, Morse–Bott germs, and scheme-theoretic reducedness for the hexagonal quartic. Telen Hessian discussion concerns the pentagonal Segre cubic. Related published balanced-polygon adjoint Morse–Bott theorem is n≥8 with a different full-coordinate singular line, not this n=6 coordinate-stratum theorem. Best-of-knowledge priority accepted only for the additional local structure.
+
+## value
+
+PASS
+
+The singular locus was known set-theoretically, but transverse analytic singularity types and generic Jacobian scheme reducedness are meaningful missing local invariants. Exact distinction of the two plane transverse surface nodes from eighteen line transverse threefold nodes supports further resolution, vanishing-cycle and singular-scheme analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
