@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original affine field was independently reduced using the exact basis identity for the polygon edge normal, giving \(\dot r=-\lambda_i\|e_i\|^2(r-1)\) and the sector-coordinate angular numerator \(\omega_i+(B_i^0+\lambda_i\|e_i\|^2u)(r-1)\). Checking its minimum at the two radial endpoints proves both directions of the sharp all-plane sign criterion, including equality. A positive lower bound on angular progression on every individual invariant compact radial interval gives well-posed transverse crossings without finite-time switch accumulation. Integrating the radial ODE proves whole-plane exponential attraction and excludes all other periodic orbits. The exact-rational checker corroborates 80 coordinate identities and representative sign boundaries. No infinite conclusion rests solely on computation.
+PASS
 
-## Originality — PASS within inspected evidence
+RESULT.md blob ba2787: in sector x=r(p_i+u e_i), n_i.p_i=Delta_i and n_i.e_i=0 give V_i=Delta_i(r-1) and exact ODE dot r=-c_i(r-1), r dot u=omega_i+(B_i^0+c_i u)(r-1), c_i=lambda_i||e_i||^2>0. For r<1 minimum angular numerator at u=1, for r>1 at u=0: strictly positive for all r>0 iff B_i^0>=0 and omega_i>=B_i^1. Violate B0 at large r or omega threshold near origin to prove necessity. Radial r remains in compact positive interval between initial r and 1, angular rate bounded above/below, so no stalled or Zeno switches. Integrating radial ODE yields exponential attraction; all sectors recur, so omega-limit is C; periodicity forces r=1. Floquet multiplier and T from edge times. Independent exact rational diamond confirms each Delta=1,B0=1,B1=3 with lambda=1,mu=-2,omega=4; T=1 and multiplier e^-2. Equality boundaries covered; no origin/Filippov assertions.
 
-Kai (2026) supplies the model and a *local* invariant-annulus attraction theorem, explicitly declining to claim global uniqueness. Kai (2013), whose full primary text was inspected, treats a no-tangential-shear reference field and proves existence/uniqueness there. Its whole-plane angular-positivity coverage is not implied: the new theorem proves that zero-shear coefficients cannot meet the sharp global sign condition for any closed polygon. The closely related previously recorded calibrated polygon result proves a finite interior-plus-collar basin with \(B_i^0<0\), rather than the unbounded full-plane basin in this finding. No equivalent or stronger result surfaced in targeted published-record and literature searches. The inaccessible 2012 full text is a residual priority risk, not positive evidence of independence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-plane region is natural and sharp for the precise global counterclockwise-transversality question, eliminating the source's local-basin limitation in a constructive and verifiable parameter regime. Its existence depends structurally on tangential shear (absent in the old reference class), and yields both global uniqueness and an explicit convergence and Floquet law, useful when designing oscillators with a guaranteed global attraction basin rather than just near-orbit recovery.
+Kai (2026) primary introduces full three-parameter affine model but explicitly confines attraction result to small invariant annulus and does not claim global uniqueness. Published calibrated shape-conjugacy result has bounded exterior collar and B_i^0<0, cannot satisfy candidate global monotone-angular criterion. Earlier regular-polygon Filippov result takes mu=0 and sliding convention, while candidate proves no zero-shear polygon can have B_i^0>=0 on all sides because sum_i p_i.e_i=-sum||e_i||^2/2<0. No implication from these other results to sheared, all-plane, positive-transversal crossing regime.
 
-## Scope and residual limits
+## value
 
-The proof requires simple star-shaped polygons and the stated no-reset crossing convention; it excludes the origin and does not claim stability for arbitrary coefficients violating the angular sign criterion. Full text of the 2012 precursor was inaccessible, leaving possible priority limitations. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Establishes a sharp, nonempty computable global-positivity regime in a natural previously local-only polygonal oscillator model. Its shear necessity is a structural obstruction; the whole punctured-plane basin, uniqueness, rate and Floquet formula make it a meaningful exact global dynamics classification, not parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

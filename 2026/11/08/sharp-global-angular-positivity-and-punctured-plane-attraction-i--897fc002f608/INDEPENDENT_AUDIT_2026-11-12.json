@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:15:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md blob ba2787: in sector x=r(p_i+u e_i), n_i.p_i=Delta_i and n_i.e_i=0 give V_i=Delta_i(r-1) and exact ODE dot r=-c_i(r-1), r dot u=omega_i+(B_i^0+c_i u)(r-1), c_i=lambda_i||e_i||^2>0. For r<1 minimum angular numerator at u=1, for r>1 at u=0: strictly positive for all r>0 iff B_i^0>=0 and omega_i>=B_i^1. Violate B0 at large r or omega threshold near origin to prove necessity. Radial r remains in compact positive interval between initial r and 1, angular rate bounded above/below, so no stalled or Zeno switches. Integrating radial ODE yields exponential attraction; all sectors recur, so omega-limit is C; periodicity forces r=1. Floquet multiplier and T from edge times. Independent exact rational diamond confirms each Delta=1,B0=1,B1=3 with lambda=1,mu=-2,omega=4; T=1 and multiplier e^-2. Equality boundaries covered; no origin/Filippov assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filippov global theorem uses mu=0 and ray sliding; calibrated polygon theorem requires radius r<R and has B0<0."
+        ],
+        "reasoning": "Neither uses the candidate no-reset transversal hybrid dynamics on ALL r>0 with nonzero shear satisfying B0>=0.",
+        "searches": [
+          "polygonal piecewise affine oscillator global attraction angular positivity tangential shear entire punctured plane limit cycle",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-global-radial-contraction-and-sliding-transients-for-regul--a4051e2f73c1/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-polygon-shape-conjugacy-and-an-explicit-full-interior-basin-for--595e7a393d3f/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s40435-026-02340-6",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-polygon-shape-conjugacy-and-an-explicit-full-interior-basin-for--595e7a393d3f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-global-radial-contraction-and-sliding-transients-for-regul--a4051e2f73c1/RESULT.md",
+        "https://doi.org/10.1016/j.mcm.2011.08.028",
+        "polygonal piecewise affine oscillator global attraction angular positivity tangential shear entire punctured plane limit cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate sharp iff B0>=0 and omega>=B0+c. Zero-shear sum p_i.e_i=-sum||e_i||²/2<0 forces some B0<0."
+        ],
+        "reasoning": "Known no-shear/finite-collar theorems cannot imply the candidate all-plane positive-angular regime. Candidate retains legitimate independent statement distinct from global sliding.",
+        "searches": [
+          "polygonal piecewise affine oscillator global attraction angular positivity tangential shear entire punctured plane limit cycle",
+          "https://link.springer.com/article/10.1007/s40435-026-02340-6",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-polygon-shape-conjugacy-and-an-explicit-full-interior-basin-for--595e7a393d3f/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-global-radial-contraction-and-sliding-transients-for-regul--a4051e2f73c1/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kai 2026 uses sector field (omega_i-mu_i V_i)e_i-lambda_i V_i n_i and proves local near-cycle stabilization."
+        ],
+        "reasoning": "Same vector-field model but new quantifier over all r>0 and sharp B0/B1 bounds; earlier local theorem does not establish global positive traversal.",
+        "searches": [
+          "polygonal piecewise affine oscillator global attraction angular positivity tangential shear entire punctured plane limit cycle",
+          "everywhere positive angular speed globally attracting polygon limit cycle piecewise affine switching shear",
+          "https://link.springer.com/article/10.1007/s40435-026-02340-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published related exact radial conjugacy, one-sided crossings, and Filippov sharp contraction are distinct statements and parameter regimes."
+        ],
+        "reasoning": "No stronger same-field all-plane positivity theorem found in inspected database; failure of search alone is not novelty proof.",
+        "searches": [
+          "polygonal piecewise affine oscillator global attraction angular positivity tangential shear entire punctured plane limit cycle",
+          "Resultary polygonal oscillator semantic searches"
+        ]
+      },
+      "rationale": "Kai (2026) primary introduces full three-parameter affine model but explicitly confines attraction result to small invariant annulus and does not claim global uniqueness. Published calibrated shape-conjugacy result has bounded exterior collar and B_i^0<0, cannot satisfy candidate global monotone-angular criterion. Earlier regular-polygon Filippov result takes mu=0 and sliding convention, while candidate proves no zero-shear polygon can have B_i^0>=0 on all sides because sum_i p_i.e_i=-sum||e_i||^2/2<0. No implication from these other results to sheared, all-plane, positive-transversal crossing regime.",
+      "residual_risks": [
+        "The 2012 precursor full text was inaccessible in this run; one cannot rule out a different equivalent global crossing theorem.",
+        "Results concern a specified next-sector hybrid convention, not a Filippov set-valued completion and not the origin."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING",
+          "evidence": "Local annulus does not imply all-plane transversal crossing or sharp global sign iff.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40435-026-02340-6",
+          "material_read": "Full public article HTML inspected, including model definitions and local annulus stability Theorem 2 and explicit nonclaim of global uniqueness",
+          "method": "Primary HTML text across definitions and stability sections",
+          "title": "Piecewise affine oscillators with polygonal limit cycles — Kai (2026)",
+          "trigger": "Exact same 3-parameter source model"
+        },
+        {
+          "assessment": "NOT COVERING",
+          "evidence": "Outer collar finite, angular coefficient B0<0; cannot satisfy global r->infinity positivity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-polygon-shape-conjugacy-and-an-explicit-full-interior-basin-for--595e7a393d3f/RESULT.md",
+          "material_read": "Complete RESULT.md, including radial/angular calibration, r<R and proof",
+          "method": "Read complete published RESULT.md",
+          "title": "Polygon-shape conjugacy and an explicit full interior basin for calibrated affine oscillators",
+          "trigger": "Published alternate all-interior/global-looking polygon result"
+        },
+        {
+          "assessment": "NOT COVERING",
+          "evidence": "Filippov completion with mu=0 differs; cannot imply positive angular flow throughout punctured plane.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-global-radial-contraction-and-sliding-transients-for-regul--a4051e2f73c1/RESULT.md",
+          "material_read": "Complete RESULT.md, dynamics, Filippov ray switching, sharp rate and sliding proof",
+          "method": "Read complete published RESULT.md",
+          "title": "Sharp global radial contraction and sliding transients for regular-polygon Filippov oscillators",
+          "trigger": "Published global same-polygon convergence claim"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE SOURCE",
+          "evidence": "Historical priority risk remains; earlier known model predates the 2026 tangential shear family.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mcm.2011.08.028",
+          "material_read": "Abstract/candidate scientific reference only; full text not obtained",
+          "method": "Bibliographic abstract/reference review",
+          "title": "Limit cycle synthesis of multi-modal and 2-dimensional piecewise affine systems — Kai and Masuda (2012)",
+          "trigger": "Precursor original polygonal oscillator uniqueness results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Establishes a sharp, nonempty computable global-positivity regime in a natural previously local-only polygonal oscillator model. Its shear necessity is a structural obstruction; the whole punctured-plane basin, uniqueness, rate and Floquet formula make it a meaningful exact global dynamics classification, not parameter relabeling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Radially star-shaped simple polygons, positive angular sector widths and specified no-reset crossing; origin excluded.",
+    "No necessity of global attraction when the sharp angular-positivity criterion fails; only necessity of pointwise positive traversal."
+  ],
+  "schema_version": 1
+}
