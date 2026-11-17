@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The rank-one locus of left multiplication recovers the false-twin coordinate subspaces without requiring independent neighborhood vectors globally. Distinct nonzero binary neighborhood vectors cannot be proportional. On a recovered block, multiplication preservation forces a positive scalar times an orthogonal map; comparing images of common squares forces graph-quotient adjacency preservation and the exact directed-edge equations \(t_j=t_i^2/d_i\). Connectivity and parity of the quotient then give degree rigidity. Explicit diagonal/block-orthogonal maps establish sufficiency. The argument separately handles nonsingular and singular twin classes and never divides by zero. All statements are over \(\mathbb R\).
+PASS
 
-## Originality
+PASS: For the false-twin decomposition G=blowup(H), write s_i=Σ_(j~i)1_(C_j). Distinct nonzero 0/1 neighborhood vectors s_i are pairwise nonproportional even if linearly dependent globally. Because inputs y_i vary in disjoint blocks, rank(L_x)≤1 iff x lies in one of the V_i; hence algebra isomorphisms permute the intrinsic maximal linear subspaces. Orthogonality and equal squares force scaled isometries, support comparison forces a weighted quotient automorphism, and comparing squares gives t_j=t_i²/d_i on every directed quotient edge. Connected odd cycles force one scale and regularity; a bipartition gives two scales and biregularity. Cube-root constants give constructive converses. Independent degree/edge-equation checks on C8, P3 and K_(1,3) patterns; no finite graph enumeration was used to claim every real isomorphism.
 
-PASS, subject to historical-priority risk. The 2017 theorem addresses invertible full adjacency matrices; the 2024 singular-graph paper identifies the conjectural extension and provides selected examples, not an all-graphs necessity proof. The established nonsingular-quotient result does not cover a singular quotient such as the false-twin-free path on seven vertices or the eight-cycle. The 2025 automorphism classification concerns self-isomorphisms, not the two distinct multiplication tables. The present statement supplies the missing singular-quotient necessity and a complete positive real block normal form. Searches of relevant research records and published primary text revealed no stronger covering theorem; lack of a hit is not proof of absolute novelty.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The classification answers the isomorphism half of a published graph-evolution-algebra question for the full remaining natural singular-quotient family, including arbitrary connected singular graphs with and without twins. The intrinsic rank-one geometry replaces determinant assumptions and makes explicit every allowed isomorphism, not only its existence. It does not settle the stronger zero-homomorphism conjecture.
+PASS: Survives statement-level primary-literature and published-finding comparisons, subject to recorded residual risks. The new mathematical step removes the quotient-rank restriction, and is not implied by the invertible-quotient theorem. Construction of t_i and orthogonal U_i supplies full isomorphism normal form. Historical equivalence searches remain nonexhaustive.
 
-## Limitations and closest literature
+## value
 
-The result is real-field only; finite computations are consistency checks. The closest papers are Cadavid–Rodiño Montoya–Rodríguez–Vidal (2024), *On some singular graphs with non-isomorphic associated evolution algebras*; Cadavid–Rodiño Montoya–Rodríguez (2017), *On the isomorphisms between evolution algebras of graphs and random walks*; Rodiño Montoya–Viana Bedoya–Henao (2025), *Group actions and automorphisms of evolution algebras associated to finite graphs*; and Kaygorodov–Martín González–Viruel (2026), *Evolution algebras: a survey of results and a list of open problems*. Exact prior coverage is distinguished in the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Resolves the remaining singular-false-twin-quotient case of the graph-versus-random-walk evolution algebra isomorphism question over R and, together with the previously proven nonsingular-quotient case, yields the all-connected-real-graph characterization. Full normal form of arbitrary invertible real algebra homomorphisms, including nonpermutation orthogonal mixing on false-twin blocks, is a structural theorem rather than a narrow example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
