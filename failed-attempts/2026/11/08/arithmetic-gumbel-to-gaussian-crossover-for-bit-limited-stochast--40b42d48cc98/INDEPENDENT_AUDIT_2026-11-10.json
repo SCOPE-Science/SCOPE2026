@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T05:19:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With K=2^r and eps=1/(qK), floor(K(j-eps*j))=Kj-ceil(j/q), so transition j->j-1 has exactly p_j=ceil(j/q)/K (valid because j<qK) and independent geometric holding times. Their product pgf, first two moments and q-fold exponential-block decomposition follow directly. Fixed q gives maxima of exponentials and the stated q-averaged Gumbel shifted by -log(q); uniform coupling requires n/K->0. For q->infinity a Lyapunov ratio bounded by const/min(q,n)^(1/2) proves Gaussian, including q>=n negative-binomial range. A small exact rational check with n=11,q=2,K=8 matches the stated kernel and geometric moments. Correctness is supported by the proof, not logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier exact waiting-time/coupon-collector decomposition covers all finite dyadic L,K under its model and the fixed-L Gumbel limit; general absorption theory supplies Gumbel/Gaussian regime context."
+        ],
+        "reasoning": "The previous finite law is at least as strong for the same translated parameter range, and classical Lyapunov theory immediately yields the remainder once rates are known.",
+        "searches": [
+          "2026-11-02 finite-bit stochastic-rounding decay convolution coupon collectors",
+          "Hathcock Strogatz arXiv:2103.08522 absorption time laws"
+        ]
+      },
+      "checked_sources": [
+        "2026-11-02 SCOPE finite-bit rounding/coupon collectors full RESULT.md",
+        "arXiv:2103.08522 Hathcock--Strogatz",
+        "Resultary finite-bit stochastic rounding matching query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct identity floor((j+q-1)/q)=ceil(j/q).",
+          "Previously known independent geometric waiting times imply complete finite current law and fixed-q limit; the normal limit requires only standard Lyapunov third-moment bound."
+        ],
+        "reasoning": "Prior mathematical conclusion dominates the purportedly new hitting-time theorem despite its differing truncation procedure, and the narrow CLT addition is a routine consequence rather than a separately motivated contribution.",
+        "searches": [
+          "SCOPE 2026-11-02 full RESULTS exact coupon-collector theorem",
+          "Current 2026-11-08 RESULT.md exact transition p_j"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior chain has p_old(m)=floor(m/L)/K; the new chain has p_new(j)=ceil(j/q)/K.",
+          "Choosing L=q and m=j+q-1 yields p_old(m)=p_new(j) identically and the old chain traverses exactly the shifted positive states."
+        ],
+        "reasoning": "The different stochastic-rounding implementations are equivalent as pure-death chains after translation of transient states; the exact distribution and moments are covered.",
+        "searches": [
+          "Resultary finite-bit stochastic-rounding decay as a convolution of coupon collectors 2026-11-02",
+          "full prior SCOPE 2026/11/02/finite-bit-stochastic-rounding-decay-as-a-convolution-of-coupon--d4febfbf759f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published exact pgf and shifted coupon-collector law encode the entire current hitting-time distribution without relying on a numerical table."
+        ],
+        "reasoning": "The exact-database check is satisfied by an analytical probability-law record; absence of identical model terminology is irrelevant.",
+        "searches": [
+          "Resultary: finite random bit stochastic rounding truncated scalar descent absorbing time Gumbel Gaussian crossover geometric waiting times",
+          "published 2026/11/02 finite-bit stochastic-rounding decay"
+        ]
+      },
+      "rationale": "Decisive prior statement-level coverage: the published 2026-11-02 finite-bit stochastic-rounding decay theorem already gives an exact geometrical holding-time kernel, shifted convolution of coupon collectors, q-fold averaged Gumbel and many-deficit self-averaging, although expressed in a decrement-rounding model. Under state translation m=j+q-1 and parameter L=q,K=2^r its transition probability floor(m/L)/K equals ceil(j/q)/K for every state j>=1. Thus its exact finite Markov law already implies the present pgf, moments, and fixed-q Gumbel law. The new Gaussian claim as q diverges is a routine Lyapunov CLT for these same already-specified independent geometric holding times and supplies no separately motivated new invariant. The physical implementations differ, but the final mathematical absorbing-time claims coincide by an exact kernel reduction.",
+      "residual_risks": [
+        "Distinguish exactly equivalent absorbing-time mathematics from non-equivalent physical rounding semantics; this failure is not a claim of identical implementation.",
+        "The diverging-q CLT is correct but not an independent mathematically motivated extension beyond the exact prior waiting-time array."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Earlier p=floor(Kj/N)/K and L=N/K, with exact geometric and coupon-collector decomposition; translate old state m=j+q-1, L=q to match new p exactly.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/02/finite-bit-stochastic-rounding-decay-as-a-convolution-of-coupon--d4febfbf759f/RESULT.md",
+          "material_read": "Full primary RESULT.md: finding, model, exact kernel, geometric and coupon-collector proof, moments, limits",
+          "method": "Retrieved and read actual earlier GitHub source at frozen commit",
+          "title": "Finite-bit stochastic-rounding decay as a convolution of coupon collectors",
+          "trigger": "Same discrete holding-time distributions and q-fold Gumbel statistics"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Gumbel and Gaussian classes generally known; specific exact chain already covered by 2026-11-02 publication.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.08522",
+          "material_read": "Relevant published theorem description and bibliographic scope, not asserted full-document exclusion",
+          "method": "Compared primary abstract and cited general framework",
+          "title": "Asymptotic absorption-time distributions in birth-death processes",
+          "trigger": "General universality of hitting-time limits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The broad finite-bit precision-to-termination question is worthwhile, but this submitted exact law repeats a previously published chain after an affine state relabeling. The remaining normal approximation is a standard triangular-array CLT for the same known exact independent waiting times, without additional structural or application-specific consequence. Novelty, code quality and kernel reparameterization cannot establish independent value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "2026-11-02 SCOPE finite-bit rounding/coupon collectors full RESULT.md",
+    "arXiv:2103.08522 Hathcock--Strogatz",
+    "Resultary finite-bit stochastic rounding matching query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For the two-stage truncated probability stochastic rounding pure-death chain with p_j=ceil(j/q)/2^r, exact moments/pgf and fixed-q averaged-Gumbel versus diverging-q Gaussian absorbing-time limits.",
+  "limitations": [
+    "Distinguish exactly equivalent absorbing-time mathematics from non-equivalent physical rounding semantics; this failure is not a claim of identical implementation.",
+    "The diverging-q CLT is correct but not an independent mathematically motivated extension beyond the exact prior waiting-time array."
+  ],
+  "residual_risks": [
+    "Distinguish exactly equivalent absorbing-time mathematics from non-equivalent physical rounding semantics; this failure is not a claim of identical implementation.",
+    "The diverging-q CLT is correct but not an independent mathematically motivated extension beyond the exact prior waiting-time array."
+  ],
+  "schema_version": 1
+}
