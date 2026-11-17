@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (same-model).** Equations (1)–(2) are derived by eliminating the scalar auxiliary variable in the first SAV/RSAV step at consistent initialization. The proof reduces the all-input objective inequality to \(B\preceq2I\), proves necessity by arbitrarily small inputs, and uses Loewner inversion to give the exact criterion \(h(H-2L)\preceq2I\). Courant–Fischer gives the rank lower bound, attained by spectral truncation. The \(C>0\) boundary and every rank \(0\le r<d\) are included. An independently executable diagnostic script passed 17,663 numerical assertions, which do not replace the proof.
+PASS
 
-## Originality
+With z=H^(1/2)x and B=h H^(1/2)(I+hL)^(-1)H^(1/2) positive definite, the coherently initialized SAV step is z1=(I-B/(1+eta))z where eta=z^TBz/(||z||^2+2C)>0 for z!=0. Thus beta_max(B)<=2 guarantees strict energy decrease for every nonzero z; if beta>2, arbitrarily small eigenvector inputs give increase since eta->0. Congruence plus inverse ordering gives beta_max(B)<=2 iff h(H-2L) preceq 2I without assuming H,L commute. Courant-Fischer applied to ker L dimension >= d-r gives lambda_max(H-2L)>=lambda_(r+1)(H), attained by half the leading r spectral components. Boundary eta>0 is essential and correctly handled. Finite noncommuting NumPy checks in inspected verify.py supplement this argument; diagonal H=diag(9,4,1) gives rank1 hmax=1/2 and rank2 hmax=2.
 
-**PASS (literature-qualified).** The most directly related paper [1] proves conditional original-objective descent for all iterations using a general smoothness restriction, not a necessary-and-sufficient coherent-first-step criterion nor an optimal rank-budget ceiling. The separate original-energy R-SAV formulation [2] and the higher-rank *pullback correction* of [3] are different operators and do not supply the same theorem. Earlier SAV optimization literature [4] discusses auxiliary-energy discrepancies without identifying the rank-\(r\) spectral-tail frontier. Searches for quadratic SAV original-energy thresholds, low-rank curvature and spectral eigenvalue tails, together with comparisons against indexed mathematical records, found no direct covering result. The main residual priority risk is a classical spectral preconditioning or SAV calculation that gives an equivalent statement without the present terminology.
+## originality
 
-## Value
+PASS
 
-**PASS.** The source's unconditional *modified*-energy dissipation makes its original-objective behavior an important but distinct issue. The theorem supplies a sharp design constraint for curvature-rank budgets, proves rank-deficient methods have finite universal original-energy step limits, and identifies precisely which neglected Hessian eigenvalue controls the best possible limit. These are nontrivial, universally quantified structural and worst-case statements, not merely a numerical example or a small constant improvement. The theorem is restricted to the first coherently initialized step and makes no unsupported all-iteration claims.
+Best-of-knowledge PASS: the identified SAV literature covers the algorithm, modified-energy dissipation, conservative original-objective sufficient bounds and low-rank approximations, whereas the exact necessary-and-sufficient first-step spectral bound including noncommuting L and optimal rank budget is a sharper classification. Full Sagawa source was not accessible and this remains an explicit priority risk; no demonstrated dominating theorem was found.
 
-## Sources, scope and risk
+## value
 
-Closest: [1] arXiv:2606.10562v1, especially equations (5)–(6) and Theorem 4.6; [2] DOI 10.1016/j.aml.2026.109905; [3] arXiv:2606.18551v1; [4] arXiv:2301.02942. A differently reformulated SAV positive-root method and general matrix spectral-step results do not subsume the fixed-curvature rank theorem. The principal limitations are first-step coherent initialization, SPD quadratics, exact arithmetic and absence of a Nyström-sample-quality guarantee. Unindexed equivalence remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact original-energy first-step safety frontier and optimal rank-versus-step-size cost tradeoff isolate a meaningful gap between auxiliary modified-energy dissipation and actual quadratic descent; min-max extremizers and arbitrarily-small-data necessity are reusable structural statements rather than a routine renamed lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
