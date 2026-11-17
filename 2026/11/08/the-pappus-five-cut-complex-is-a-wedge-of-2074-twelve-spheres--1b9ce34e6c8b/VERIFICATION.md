@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 pappus5cut_verifier.py` with Python 3 and its standard library. The script explicitly defines all vertices and edges. No remote service, numerical tolerance, external data or third-party package is needed.
+## correctness
 
-The verifier checks all \(262144\) vertex masks and compares a facet down-closure construction with an independent Boolean-zeta-transform membership test. It enumerates the \(324\) connected and \(8244\) disconnected induced five-sets; verifies the eighteen induced six-cycles and their one-to-one match with missing twelve-vertex faces; generates a specified augmented discrete-Morse matching and converts it to an ordinary matching; then exhaustively verifies directed acyclicity on all \(2296998\) Hasse incidences. The resulting ordinary critical cells are one vertex and \(2074\) twelve-cells, so the cited discrete-Morse theorem proves the claimed homotopy equivalence. The script also checks the independent reduced Euler characteristic.
+PASS
 
-The recorded `pappus5cut_verification_output.txt` is included for comparison. The critical scientific evidence is the reconstruction and verification performed by the standalone program, not an unexamined log. Exact graph size, homotopy type, and numerical checks hold only for the graph and complex defined in the manuscript. Independent external audit has not been performed.
+The ordinary cut complex uses complement of disconnected induced 5-subsets, not total cut. My independent full 2^18 mask enumeration confirmed 324 connected and 8244 disconnected five-sets, exactly 18 induced hexagons and exactly eighteen missing twelve-element faces. The augmented toggle matching has 127840 pairs, leaving an ordinary matching with a single vertex and 2074 critical 12-simplices. The complete 2296998-incidence ordinary Hasse graph topologically sorted to completion. Forman then gives integral 2074 S12 with no attaching maps; Euler identity binom(17,4)-324+18=2074 corroborates but alone would not prove wedge.
+
+## originality
+
+PASS
+
+The exact Pappus ordinary five-cut homotopy lies at the girth-six boundary outside the published k=5 girth≥7 formula and outside the complete codimension-one skeleton hypothesis. Earlier Pappus total-cut filtration is a different complex. No covering exact earlier record identified.
+
+## value
+
+PASS
+
+The Pappus graph is a natural canonical girth-six boundary example for k=5 ordinary cut complexes: eighteen induced hexagons specifically defeat the full skeleton premise of general high-girth theorems. The exact 2074 S12 homotopy type and +18 correction supply a motivated finite boundary fact rather than an arbitrary slice or re-evaluation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact graph representation contains eighteen vertices and twenty-seven edges with girth six. Two independent face-membership enumerations agree on every one of the \(262144\) vertex subsets, giving \(257754\) faces including the empty face. A deterministic augmented element-toggle matching has \(127840\) pairs and \(2074\) critical twelve-simplices. After omitting the empty face and its matched vertex, the ordinary matching has one critical zero-cell and these top-dimensional cells. The full directed Hasse graph contains \(2296998\) incidences; a complete topological sort processes all \(257753\) nonempty faces. Discrete Morse theory gives the claimed integral homotopy type. Independent Euler counting yields \(2380-324+18=2074\). The standalone source and output are supplied.
+## correctness
 
-## Originality: PASS with residual risk
-The closest primary sources are arXiv:2304.13675 (the original cut-complex paper) and arXiv:2407.08158 (its sequel). The first paper's face-lattice simplification requires a complete codimension-one skeleton, which fails for this example; its triangle-free classification is specifically for two-cuts. The sequel treats disjoint unions, squared paths and grid graphs, not this graph. An indexed high-girth statement requires girth at least \(k+2\), i.e. seven for five-cuts, while the graph here has girth six. Prior Pappus matching and Čech complexes have different face conditions and yield no implication. Exact parameter and equivalent-formulation searches found no dominating statement. The indexed high-girth record's full text was inaccessible and unindexed literature may contain equivalent work; neither is claimed as exhausted or ruled out.
+PASS
 
-## Value: PASS
-The Pappus graph is a canonical cubic symmetric girth-six incidence graph. For five-cuts it lies precisely one girth unit below the high-girth regime; this case has eighteen missing codimension-one faces caused by its induced hexagons. Their correction \(\binom{17}{4}-324+18\) is structurally motivated, and the result completely determines the integral homotopy type rather than only a computed Euler characteristic. This provides a precise boundary benchmark without claiming a general classification.
+The ordinary cut complex uses complement of disconnected induced 5-subsets, not total cut. My independent full 2^18 mask enumeration confirmed 324 connected and 8244 disconnected five-sets, exactly 18 induced hexagons and exactly eighteen missing twelve-element faces. The augmented toggle matching has 127840 pairs, leaving an ordinary matching with a single vertex and 2074 critical 12-simplices. The complete 2296998-incidence ordinary Hasse graph topologically sorted to completion. Forman then gives integral 2074 S12 with no attaching maps; Euler identity binom(17,4)-324+18=2074 corroborates but alone would not prove wedge.
 
-## Limits
-No broader girth-six theorem, shellability assertion, natural equivariant equivalence or independent validation is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Pappus ordinary five-cut homotopy lies at the girth-six boundary outside the published k=5 girth≥7 formula and outside the complete codimension-one skeleton hypothesis. Earlier Pappus total-cut filtration is a different complex. No covering exact earlier record identified.
+
+## value
+
+PASS
+
+The Pappus graph is a natural canonical girth-six boundary example for k=5 ordinary cut complexes: eighteen induced hexagons specifically defeat the full skeleton premise of general high-girth theorems. The exact 2074 S12 homotopy type and +18 correction supply a motivated finite boundary fact rather than an arbitrary slice or re-evaluation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
