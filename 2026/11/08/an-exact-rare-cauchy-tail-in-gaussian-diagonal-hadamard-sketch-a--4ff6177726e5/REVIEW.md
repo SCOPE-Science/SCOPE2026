@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts with the exact two-column Gram identity for uniformly sampled Hadamard rows, derives the coefficient rational form, and checks almost-sure nonvanishing of its denominator including the rank-one Gram collision cases. Gaussian angular integration gives the conditional CDF and finite support when \(|\rho|<1\). When \(\rho=\pm1\), independent normal sum and difference give a standard-Cauchy quotient. The two collision events have total probability \(2^{1-m}\); the other finitely many mixture components are bounded by \(m/(2\sqrt{m-1})\) for \(m\ge2\). This proves the exact far-tail and the complete \(0<p<1\) absolute-moment regime. The 105 arithmetic/quadrature tests in `check_tail.py` are supporting finite checks, not the proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+The sketched normal equation for unit A=(e1+e2)/sqrt2 and orthogonal response gives xhat=(gamma1²-gamma2²)/(gamma1²+gamma2²+2rho gamma1 gamma2), with rho the average of m independent uniform Hadamard pair-sign products. Conditioning on rho=a and isotropic Gaussian angle gives Z_a=cos(2theta)/(1+a sin(2theta)). For |a|<1 it has the stated arcsine CDF and bounded support (1-a²)^(-1/2); for a=±1 it equals a ratio of independent equal-variance normals and is standard Cauchy. The collision mass P(|rho|=1)=2^(1-m), verified independently via exact binomial weights through m=16; all other components have support bounded by T_m=m/(2sqrt(m-1)). Thus the exact two-sided tail above T_m is mass*2arctan(1/t)/pi, and integrability threshold p<1 follows for each finite m. Uniqueness a.s. holds also at rho=±1 because its Gram denominator is a nonzero squared Gaussian except on a null set.
 
-Song and Zhang (2026, Section 3) already give the starting coefficient formula and state that a ratio of independent Gaussians is Cauchy. They establish a constant-probability failure on a *different event*, but not the exact rare-event mixture, support cutoff, far-tail coefficient or all-integer sampling-budget moment threshold. Price, Song and Woodruff (2017) and Song, Ye, Yin and Zhang (2023) use a sign-diagonal SRHT and do not imply the new Gaussian-diagonal distribution. Comparisons with accessible previous mathematical claims and relevant searches yielded no stronger direct coverage. Because Gaussian quotient identities are classical, earlier equivalent priority is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The example exposes a substantive gap between high-probability regression accuracy and integrated-risk guarantees for a natural random-sketch modification: the estimator is defined almost surely yet has infinite expected absolute error and squared error at every finite row count. The exact finite-\(m\) collision weight identifies the mechanism and the precise rare-tail scale. It is a sharp, self-contained benchmark for analyzing or preventing undesirable sketch-conditioning events, not a claim about the separate Gaussian-pooling construction.
+The motivating 2026 method already recognizes an unsafe Gaussian diagonal and a Cauchy Gaussian ratio, so this is NOT claimed as discovery of the failure mechanism. Best-of-knowledge surviving contribution is the exact all-m collision-weight mixture, compact remainder, sharp far-tail cutoff and moment dichotomy in the specified row-replacement model. A plausible highly relevant primary manuscript was not readable in full, so priority remains qualified.
 
-## Limits and closest literature
+## value
 
-The conclusion is restricted to one-column full-rank least squares, independent row sampling with replacement, and a shared Gaussian diagonal. It does not cover sampling without replacement, regularized coefficients, fresh per-row Gaussian weights, or the balanced pooled sketch. The 2026 primary paper already identifies failure of the same Gaussian-diagonal modification by a different argument; the present claim is the exact full risk-tail classification. Priority remains best-knowledge.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically motivated sharp risk diagnosis of a proposed randomized least-squares sketch: almost-surely defined estimates have infinite absolute and squared risk at every finite row budget, and the exact collision-weight and cutoff localize the rare catastrophic event. This is practically and mathematically substantive rather than an arbitrary small counterexample, while not contradicting success of the separate balanced-pooling sketch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
