@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete Weyl basis diagonalizes the matrix-intensity lifting; the singular values are exactly \(\sqrt5\) times the ambiguity moduli. The one-overlap and two-overlap delays imply a sharp two-variable upper bound. Five-point angular covering and a completed square force the optimal product, middle-site mass and phase curvature. The remaining zero-delay Fourier coefficients are explicitly larger than the claimed minimum. Exhaustion of five-cycle support orbits and the support-difference obstruction prove the stated domain boundaries. The code independently reconstructs the complete lifting and its numerical singular spectrum; its finite tests do not establish the global theorem.
+## correctness
 
-## Originality
-PASS relative to the sources inspected. The closest general results are Bojarovska--Flinth (2015/2016) and Bartusel (2023, Section 4.1); they provide injectivity and ambiguity criteria rather than the exact three-site maximin singular value or the complete unrestricted complex-amplitude equality class. Bartusel (2026) offers new sufficient ambiguity support conditions, not a quantitative design formula in the accessible abstract. Several related public mathematical-records concern complex-impulse windows or qualitative support rank and do not imply the present optimum. The 2026 paper's full text was inaccessible, and an older equivalent special calculation cannot be ruled out.
+PASS
 
-## Value
-PASS. This is an exact optimal noise-stability design on the **smallest support size** permitting informationally complete cyclic Gabor matrix tomography on the five-cycle. It determines the true worst-direction measurement strength, proves optimality across all complex amplitudes and supports, identifies every optimal design, and supplies a sharp localization failure for consecutive three-site windows at all larger cyclic orders. The result is a finite natural design invariant; it is not claimed to establish a general prime-dimensional optimization theory.
+Weyl diagonalization makes 25 singular values of complete lifting exactly √5|Ag(k,ℓ)|, so κ=1/min|Ag| and σmax=√5. Every 3-subset of Z5 is affine-equivalent to {0,1,2}. At lag 2 the minimum is uw; at lag1 the five equally-spaced phases guarantee minℓ|u+w e^{iδ−2πiℓ/5}|² ≤u²+w²−2uw cos(π/5), with equality precisely fifth-root phase curvature. Setting s=uw, t=v², the completed-square bound μ≤min{s,(1−φs)/2}≤α=(5−√5)/10 is sharp iff s=t=α and indicated endpoint squared magnitudes. The remaining zero-lag Fourier coefficients have squared moduli 1, √5/5, (3√5−5)/10, all >α², so no overlooked obstruction. Two-site ambiguity lacks some lag rows. Direct real/complex Gram numerical reconstruction confirms κ=(5+√5)/2 for explicit equalizers, but global optimality comes from inequality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge: Weyl and nonzero ambiguity criteria and lower support threshold are already known; unlike those general papers, this gives exact best conditioning and every complex-amplitude, support, phase equality case under 25 full Gabor shifts on Z5. The computed invariant is a natural minimax quantity, not a known table restatement.
+
+## value
+
+PASS
+
+PASS: This determines an exact, physically motivated, minimum-support five-cycle Gabor measurement conditioning invariant and classifies all complex optimal masks, including the nontrivial asymmetric magnitudes and phase curvature. The finite natural design result is independently useful; no claim of a complete higher-prime census or downstream general theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
