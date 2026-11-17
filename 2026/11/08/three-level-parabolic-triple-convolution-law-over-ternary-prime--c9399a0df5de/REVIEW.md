@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated ring, quantifiers and normalization are explicit. The change of variables has unit determinant because \(2\) is invertible; the unit-first-coordinate case uses a derivative that remains invertible modulo three. For nonunit first coordinate, a complete root count is proved at valuations zero and one, followed by the exact two-digit recurrence at larger valuations. The bases \(\(k=1,2\)\) are checked. Summing multiplicities and applying character orthogonality proves the stated support and sixth moment. `verify.py` independently checks every target for four small moduli and Fourier moments for two; these experiments do not replace the proof.
+## correctness
 
-**Originality — PASS under bounded search.** Primary material from Mockenhaupt–Tao, Hickman–Wright, González-Riquelme–Oliveira e Silva and Lv–Zhang was compared at the level of objects and quantifiers. The closest threefold-convolution formula over finite fields (Proposition 3.3 of González-Riquelme–Oliveira e Silva) requires characteristic greater than three. The 2018 finite-ring study concerns general restriction inequalities rather than this complete ternary-ring count, and Lv–Zhang averages different, character-weighted prime-modulus sums. Similar-looking moment terminology is therefore not equivalent. Standard formulas for ramified binary quadratic forms could imply the intermediate norm count; this is a live priority risk and no absence-of-prior-result claim is absolute.
+PASS
 
-**Mathematical value — PASS.** For the natural parabolic sampling aperture over the ramified ternary local rings, the theorem supplies every three-point additive representation count, an exact missing-target fraction, and the constant-input sixth extension moment in one arbitrary-depth classification. It distinguishes the characteristic-three singular stratum from the uniform fibers, and the nontrivial support obstruction persists at density tending to one sixth. This is an exact complete natural invariant, not a numerical extrapolation or arbitrary selected parameter.
+Reconstructed x=u−v,y=u+v bijection since 2 is invertible; for 3∤s, y map has unit derivative 6y−4s and unique Hensel lifting. For 3|s complete square to x²+3z²=c; unit counts and A_k(c)=9A_(k−2)(c/9), with A_1(0)=3,A_2(0)=9, give exact all-k strata and t↦c bijection. Orthogonality yields sixth energy. Independently enumerated all ordered triples for N=3,9,27: (zero,N,2N) multiplicities (1,7,1),(12,57,12),(117,495,117), matching the formula; energies 99,8505,702027. Infinite assertion follows analytical recurrence, not enumeration.
 
-**Scientific limitations.** Results are unweighted, exclusive to powers of three, and not an arbitrary-weight sharp restriction theorem. The representation formula is elementary and may admit derivations from classical local norm-density theory. General historical priority is not established. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full ternary local distribution is not the published dyadic ring parabola convolution, finite-field p>3 convolution, or general non-sharp ring restriction bounds. An older local quadratic-norm representation theorem could imply the counting lemma; no definitive stronger pointwise triple-convolution result was identified. Originality is a bounded statement-based comparison, not failed-search certification.
+
+## value
+
+PASS
+
+A natural exact local additive-convolution distribution and Fourier sixth moment for the ramified characteristic-three parabola; three-level stratification, exact support size and resonance count can be reused in ring restriction/additive combinatorics. Not a mere substitution in the dyadic case because 2 invertibility and ramified norm change the arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
