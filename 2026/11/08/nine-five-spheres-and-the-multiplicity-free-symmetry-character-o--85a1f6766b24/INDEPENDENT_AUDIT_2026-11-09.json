@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T00:54:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Explicit labeled Franklin graph is cubic on 12 vertices with 18 edges, cyclic edges i-(i+1) and alternating long chords. Faces are exactly vertex subsets omitting every closed neighborhood N[v], i.e. complements of dominating sets; independent 4096-mask computation yields 2417 faces including empty, vector by dimension (-1 through 7) (1,12,66,220,483,696,612,276,51). Independent sorted-toggle Morse matching gives 1203 pairs, one critical 0-cell, nine critical 5-cells, with all 2416 nonempty face-poset vertices exhausted by full topological sort; hence integral homotopy wedge 9S5. Independent adjacency-preserving permutation enumeration finds 48 automorphisms, including central shift i→i+6. Direct signed fixed-face Lefschetz sums (the reduced empty-face sign included) give degree-five rational character multiset {-3:6,-1:24,1:9,3:8,9:1}, invariant dimension zero and central trace -1, thus 4+5 central eigenspaces. Inspected exact verifier checks the S4×C2 splitting via a 24-element kernel acting faithfully on its four Sylow-3 subgroups, verifies all 48² products, and yields exactly five distinct S4×C2 irreducibles with multiplicity one as claimed. This does not establish an integral equivariant wedge splitting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marietti–Testa Section 4.3 treats forests; Franklin has cycles. Matsushita–Wakatsuki general duality and examples do not compute Franklin 48-group homology character."
+        ],
+        "reasoning": "A topological duality for all graphs is not itself a stronger explicit character classification for this graph.",
+        "searches": [
+          "Resultary: Franklin graph dominance complex rational character S4 times C2 nine 5 spheres",
+          "https://arxiv.org/pdf/0705.1461",
+          "https://arxiv.org/pdf/2312.02639"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md (blob d89a1d4ef7461c2e6f70a37d899d27773b24c875)",
+        "assigned franklin_dom_verify.py (blob 9382b3877a849d918cfb7a6bd135c02b52b1a692) inspected",
+        "independent exhaustive face/Morse DAG, 48 automorphisms and signed Lefschetz character",
+        "https://arxiv.org/pdf/0705.1461",
+        "https://arxiv.org/pdf/2312.02639",
+        "Resultary targeted full symmetry/dominance search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dominance complex forest classification and Alexander-dual formalism leave numeric critical cells and action of all 48 automorphisms undetermined."
+        ],
+        "reasoning": "Neither inspected prior statement implies the current nine 5-sphere wedge or five irreducible constituent decomposition without an independent computation.",
+        "searches": [
+          "Resultary: Franklin graph dominance complex rational character S4 times C2 nine 5 spheres",
+          "https://arxiv.org/pdf/0705.1461",
+          "https://arxiv.org/pdf/2312.02639"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dom(F) faces are complements of dominating sets iff they avoid all graph closed-neighborhood sets; equivalently related to Alexander dual of a neighborhood complex on complement graph."
+        ],
+        "reasoning": "Definitions reconciled. Published duality does not supply this graph-specific integral wedge nor S4×C2 character.",
+        "searches": [
+          "Resultary: Franklin graph dominance complex rational character S4 times C2 nine 5 spheres",
+          "https://arxiv.org/pdf/0705.1461",
+          "https://arxiv.org/pdf/2312.02639"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Franklin dissociation complex is wedge five S4, matching complex has a 12-sphere matching homotopy result, total four-cut is wedge 43S4, whereas here dominance is wedge nine S5 with separate rational character."
+        ],
+        "reasoning": "The same underlying graph appears in other exact tables but the simplicial face functor is different; those numbers do not imply the present value.",
+        "searches": [
+          "Resultary: Franklin graph dominance complex rational character S4 times C2 nine 5 spheres",
+          "Resultary 2026/11/01 Franklin dissociation complex",
+          "Resultary 2026/11/08 Franklin matching complex character",
+          "Resultary 2026/11/08 Franklin total four-cut character"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Earlier Marietti–Testa dominance-complex theorem covers forests, not this cyclic cubic Franklin graph; the general complement-neighborhood Alexander duality of Matsushita–Wakatsuki is a change of representation, not the nine-sphere count or full group character. Published Franklin results for its dissociation, matching and total four-cut complexes are different complexes. Resultary returned this current dominance complex exactly, not a prior specific full character.",
+      "residual_risks": [
+        "Full integral Aut(F)-module or equivariant sphere-wedge splitting not established; rational character only.",
+        "Unindexed earlier exact Franklin domination character cannot be categorically excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INAPPLICABLE_GRAPH_CLASS",
+          "evidence": [
+            "Dominance-complex results there require forest input; Franklin is cubic with cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0705.1461",
+          "material_read": "PDF abstract, sections on dominance complexes particularly 4.3 and its forest restriction",
+          "method": "ArXiv PDF textual reading and visual inspection first page",
+          "title": "A Simple Uniform Approach to Complexes Arising from Forests",
+          "trigger": "Potential direct Dom(G) classification"
+        },
+        {
+          "assessment": "GENERAL_DUALITY_NOT_EXACT_CHARACTER",
+          "evidence": [
+            "General Dom/complement-neighborhood duality and applications to selected graph families; no inspected statement produces Franklin wedge nine S5 and full S4×C2 character."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02639",
+          "material_read": "PDF abstract, Theorem 1.1 and section descriptions; sought Franklin named graph",
+          "method": "ArXiv PDF full-text textual read of relevant sections and selected-page visual inspection",
+          "title": "Dominance Complexes, Neighborhood Complexes and Combinatorial Alexander Duals",
+          "trigger": "Possible general graph duality covering same object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural well-known 12-vertex cubic graph and its intrinsic 48-element automorphism group lead to a nontrivial complete integral sphere-wedge calculation and complete rational representation decomposition. The multiplicity-free five-constituent character and zero invariant line are independent mathematical structure, not a routine renamed Betti count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md (blob d89a1d4ef7461c2e6f70a37d899d27773b24c875)",
+    "assigned franklin_dom_verify.py (blob 9382b3877a849d918cfb7a6bd135c02b52b1a692) inspected",
+    "independent exhaustive face/Morse DAG, 48 automorphisms and signed Lefschetz character",
+    "https://arxiv.org/pdf/0705.1461",
+    "https://arxiv.org/pdf/2312.02639",
+    "Resultary targeted full symmetry/dominance search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full integral Aut(F)-module or equivariant sphere-wedge splitting not established; rational character only.",
+    "Unindexed earlier exact Franklin domination character cannot be categorically excluded."
+  ],
+  "residual_risks": [
+    "Full integral Aut(F)-module or equivariant sphere-wedge splitting not established; rational character only.",
+    "Unindexed earlier exact Franklin domination character cannot be categorically excluded."
+  ],
+  "schema_version": 1
+}
