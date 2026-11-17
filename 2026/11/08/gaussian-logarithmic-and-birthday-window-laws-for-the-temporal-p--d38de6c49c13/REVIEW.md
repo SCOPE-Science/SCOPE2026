@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For static, disjoint singleton approvals, every temporal PJR, EJR or EJR+ allocation must meet each homogeneous party quota. With horizon \(an\), these quotas add to the total number of rounds, so every feasible allocation has the same multiplicities \(ab_j\), yielding exact constrained welfare \(a\sum_jb_j^2\) and price \(n\max_jb_j/\sum_jb_j^2\). The stochastic proof uses an exact collision-count identity, multinomial CLT, second moments for occupied bins and factorial moments for Poisson windows. The standalone checker exhaustively verified 848 literal small-profile cases and 62 rational occupancy-moment identities; neither finite enumeration nor Monte Carlo is offered as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Teh (2026), arXiv:2605.11157, develops the worst-case temporal price of PJR/EJR/EJR+, with the same welfare metric, but does not give an iid party-choice price law, the Gaussian-maximum limit, the logarithmic typical-case growth, or the staircase and birthday-window laws. Elkind, Neoh and Teh (2024) use related temporal fairness notions; Elkind et al. (2024) study one-shot committee price. Standard balls-into-bins extreme-value phenomena are credited as prior probabilistic ingredients. The principal additional insight is the common exact temporal quota optimum, its collision normalization, and resulting full multiscale distribution. Unindexed direct equivalents or inaccessible detailed derivations in adjacent literature remain possible.
+PASS
 
-## Value — PASS
-The stochastic model is a motivated benchmark complementary to worst-case temporal welfare bounds, with a mathematically sharp nonmonotone response to party diversity. It supplies a baseline for quantifying whether proportionality costs persist under random voters, and explains the lattice-to-logarithmic transition and its eventual return to unit cost. The fixed arbitrary horizon multiplier demonstrates that these effects arise from representation rather than a chosen round count.
+In the static one-approved-candidate-per-voter party model with horizon ell=an, a whole party's unanimous coalition forces at least a b_j wins under PJR, EJR and EJR+; since these minima sum to ell, every fair outcome has x_j=a b_j. Conversely these counts satisfy all three axioms, yielding exact welfare a Q_n and price nM_n/Q_n. For iid uniform party labels, Q_n=n+2 times the number of coinciding voter pairs; coincidence indicators are pairwise independent, giving the required denominator concentration. Multinomial CLT yields the fixed-menu Gaussian maximum; occupancy maximum bounds yield log n/loglog n for linear menu; factorial moments of k-occupied bins give Poisson critical staircase and birthday cases, including eventual price one above n² labels. Independent exhaustive small profile checks confirmed exact integer quotas and welfare; classical occupancy proofs, not simulations, establish limits.
 
-## Scope and residual risks
-The conclusion is restricted to static one-party-per-voter approvals with uniform iid party choices and a horizon divisible by the number of voters. Classical occupancy results are not claimed to be new, and no assertion is made for unequal voter probabilities or arbitrary temporal profiles. The related one-shot committee source was not materially inspected in full; a hidden equivalent theorem is possible. No external independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Teh (IJCAI 2026) defines the same temporal price and group proportionality axioms, including static EJR/EJR+ equivalence, but its primary paper focuses on worst-case prices and algorithms. Classical balls-into-bins limit laws cover occupancy maxima and collisions, not the fair-welfare identity or combination across all menu scales. Resultary stochastic two-option lotteries and FJR price works use different proportionality objectives. The combined exact price identity and multi-regime typical-case phase diagram appear not to be implied by inspected prior results.
+
+## value
+
+PASS
+
+The precise pricing behavior across fixed, linear, critical occupancy, and extreme sparse party menus is a natural and useful complete probabilistic complement to established worst-case temporal fairness prices. The nonmonotone Gaussian-to-logarithmic-to-staircase-to-one pattern depends on a rigorous additional denominator, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:50:05.460797Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md f7396c1de1afa4062971f1b7c827b6f4eec03c74",
+        "Frozen check.py source",
+        "Independent exact profile/welfare enumeration n<=6, R<=3",
+        "Teh IJCAI 2026 temporal axioms definitions"
+      ],
+      "rationale": "In the static one-approved-candidate-per-voter party model with horizon ell=an, a whole party's unanimous coalition forces at least a b_j wins under PJR, EJR and EJR+; since these minima sum to ell, every fair outcome has x_j=a b_j. Conversely these counts satisfy all three axioms, yielding exact welfare a Q_n and price nM_n/Q_n. For iid uniform party labels, Q_n=n+2 times the number of coinciding voter pairs; coincidence indicators are pairwise independent, giving the required denominator concentration. Multinomial CLT yields the fixed-menu Gaussian maximum; occupancy maximum bounds yield log n/loglog n for linear menu; factorial moments of k-occupied bins give Poisson critical staircase and birthday cases, including eventual price one above n² labels. Independent exhaustive small profile checks confirmed exact integer quotas and welfare; classical occupancy proofs, not simulations, establish limits.",
+      "residual_risks": [
+        "The theorem requires static exclusive approvals and integer ell/n, not arbitrary temporal utility profiles.",
+        "The literature uses several PJR/EJR variants; the audited definitions are those explicitly in Teh 2026."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary IJCAI 2026 paper analyzes broad temporal elections but its inspected statements are worst-case inefficiency and axiom relations, rather than iid random menus.",
+          "Resultary FJR+ result concerns a different stronger proportionality notion."
+        ],
+        "reasoning": "Neither the more general electoral setting nor FJR+ bound implies exact typical-party occupancy thresholds without the special-model calculation.",
+        "searches": [
+          "temporal proportionality welfare price stochastic random parties birthday window Gaussian occupancy PJR EJR EJR+",
+          "Teh Price of Proportional Representation in Temporal Voting IJCAI 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://ijcai.org/proceedings/2026/0394.pdf",
+        "temporal proportionality welfare price stochastic random parties birthday window Gaussian occupancy PJR EJR EJR+",
+        "arxiv:2408.13637"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh shows static-profile group axiom relation; the current fair allocations have x_j=ab_j for all j.",
+          "Classical bin maxima and pair collisions determine nM/Q under iid uniform choices."
+        ],
+        "reasoning": "The earlier fairness relation does not force the exact price or its staircase under independent party labels by itself.",
+        "searches": [
+          "temporal proportionality welfare price stochastic random parties birthday window Gaussian occupancy PJR EJR EJR+",
+          "Teh 2026 Lemma 4.2 EJR EJR+ static"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fairness collapses in this special static profile to the party-count quota vector x=a b and price n max b/sum b².",
+          "Teh 2026 defines the general welfare ratio and static-EJR equivalence."
+        ],
+        "reasoning": "The quota identity is a specialized deterministic reduction, not simply the classical occupancy maximum.",
+        "searches": [
+          "temporal proportionality welfare price stochastic random parties birthday window Gaussian occupancy PJR EJR EJR+",
+          "temporal price of PJR EJR EJR+ single party list votes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical occupancy has known maximum load and critical Poisson k-cell counts.",
+          "Current price requires the additional denominator Q_n/n concentration, with Q=n+2 collisions."
+        ],
+        "reasoning": "The known occupancy tables are acknowledged tools; they do not tabulate group-fair temporal welfare prices.",
+        "searches": [
+          "temporal proportionality welfare price stochastic random parties birthday window Gaussian occupancy PJR EJR EJR+",
+          "balls into bins birthday occupancy maximum thresholds k"
+        ]
+      },
+      "rationale": "Teh (IJCAI 2026) defines the same temporal price and group proportionality axioms, including static EJR/EJR+ equivalence, but its primary paper focuses on worst-case prices and algorithms. Classical balls-into-bins limit laws cover occupancy maxima and collisions, not the fair-welfare identity or combination across all menu scales. Resultary stochastic two-option lotteries and FJR price works use different proportionality objectives. The combined exact price identity and multi-regime typical-case phase diagram appear not to be implied by inspected prior results.",
+      "residual_risks": [
+        "A preexisting special-party probabilistic price calculation in unindexed social-choice literature could cover portions; no priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS definitions and general worst-case results, not displayed random-party price limits",
+          "evidence": "Temporal group quotas and lemma on EJR/EJR+ static equivalence are the inherited results.",
+          "identifier_or_url": "https://ijcai.org/proceedings/2026/0394.pdf",
+          "material_read": "Full primary IJCAI proceedings PDF; definitions of PJR/EJR/EJR+, price, and Lemma 4.2 static relation, conclusions and relevant theorems",
+          "method": "Primary PDF text and page screenshot",
+          "title": "The Price of Proportional Representation in Temporal Voting",
+          "trigger": "Identical temporal axioms and welfare-price definition"
+        },
+        {
+          "assessment": "Different stationary lottery and success probability",
+          "evidence": "Its Bernoulli coin-choice quota threshold is not an iid party-menu welfare price.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-single-cross-approving-voter-creates-a-quadratic-stochastic-re--a80d92283597",
+          "material_read": "Published semantic summary only",
+          "method": "Resultary search",
+          "title": "A single cross-approving voter creates a quadratic stochastic-representation threshold",
+          "trigger": "Another probabilistic temporal voting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Teh IJCAI 2026",
+        "Classical occupancy theory",
+        "independent_checks.log"
+      ],
+      "rationale": "The precise pricing behavior across fixed, linear, critical occupancy, and extreme sparse party menus is a natural and useful complete probabilistic complement to established worst-case temporal fairness prices. The nonmonotone Gaussian-to-logarithmic-to-staircase-to-one pattern depends on a rigorous additional denominator, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "Applies only to the stylized static singleton-party model; broader voter preference distributions are unresolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem requires static exclusive approvals and integer ell/n, not arbitrary temporal utility profiles.",
+    "The literature uses several PJR/EJR variants; the audited definitions are those explicitly in Teh 2026.",
+    "A preexisting special-party probabilistic price calculation in unindexed social-choice literature could cover portions; no priority certification.",
+    "Applies only to the stylized static singleton-party model; broader voter preference distributions are unresolved."
+  ],
+  "schema_version": 1
+}

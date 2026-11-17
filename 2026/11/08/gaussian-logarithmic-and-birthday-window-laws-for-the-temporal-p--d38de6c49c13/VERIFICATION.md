@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 check.py` using Python 3 with standard-library modules only. The program exhaustively verifies 848 small temporal approval profiles by evaluating literal PJR, EJR and EJR+ requirements against every candidate-multiplicity vector; it checks 62 finite sparse occupancy factorial-moment identities against direct enumeration. Seeded simulations provide additional sanity checks for the fixed-party and linear-party regimes and the three birthday windows. All limit theorems require the analytic argument in `RESULT.md`, including the exact bin-pair variance and Poisson factorial moment proof. Finite enumeration does not establish asymptotic claims. The independent-audit status in the front matter is unperformed; this is not an independent certification.
+## correctness
+
+PASS
+
+In the static one-approved-candidate-per-voter party model with horizon ell=an, a whole party's unanimous coalition forces at least a b_j wins under PJR, EJR and EJR+; since these minima sum to ell, every fair outcome has x_j=a b_j. Conversely these counts satisfy all three axioms, yielding exact welfare a Q_n and price nM_n/Q_n. For iid uniform party labels, Q_n=n+2 times the number of coinciding voter pairs; coincidence indicators are pairwise independent, giving the required denominator concentration. Multinomial CLT yields the fixed-menu Gaussian maximum; occupancy maximum bounds yield log n/loglog n for linear menu; factorial moments of k-occupied bins give Poisson critical staircase and birthday cases, including eventual price one above n² labels. Independent exhaustive small profile checks confirmed exact integer quotas and welfare; classical occupancy proofs, not simulations, establish limits.
+
+## originality
+
+PASS
+
+Teh (IJCAI 2026) defines the same temporal price and group proportionality axioms, including static EJR/EJR+ equivalence, but its primary paper focuses on worst-case prices and algorithms. Classical balls-into-bins limit laws cover occupancy maxima and collisions, not the fair-welfare identity or combination across all menu scales. Resultary stochastic two-option lotteries and FJR price works use different proportionality objectives. The combined exact price identity and multi-regime typical-case phase diagram appear not to be implied by inspected prior results.
+
+## value
+
+PASS
+
+The precise pricing behavior across fixed, linear, critical occupancy, and extreme sparse party menus is a natural and useful complete probabilistic complement to established worst-case temporal fairness prices. The nonmonotone Gaussian-to-logarithmic-to-staircase-to-one pattern depends on a rigorous additional denominator, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
