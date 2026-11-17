@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Exact reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with the files in this directory. The program uses only Python 3 standard library and a fixed deterministic seed. Successful output begins with `VERIFIED` and reports the number of checked laminar-support tuples and committee-count comparisons.
+## correctness
 
-## Checked quantities
+PASS
 
-The verifier independently evaluates the claimed coefficient of the product of binomial polynomials and the count from direct enumeration of all size-\(k\) committees, testing their JR condition voter by voter. It also checks an eight-voter feasible election and the nonlaminar counterexample.
+JR violation is equivalent to a candidate having at least q=ceil(n/k) supporters unrepresented by W. Laminarity makes distinct supporter sets of cardinality q pairwise disjoint, so r≤floor(n/q)≤k. Any all-quota committee omitting a quota class leaves all q voters of that block unrepresented; thus every such class is mandatory and every DR committee covers exactly U, the union of quota blocks. Selecting one from each is feasible exactly when M≥k (since r≤k), with remaining candidates quota-sized. JR then reduces to |S_c\U|<q for every candidate. Counting labeled nonempty selections by class yields [z^k] product_i((1+z)^w_i−1). Empty classes, duplicate supports, k≥n (q=1), and nonlaminar boundary accounted for; an independent k=5 pair-block enumeration found 32 DR committees among 252 total, matching 2^k/C(2k,k).
 
-The exact-count computation is integer-valued: it uses Python integers and bit operations, not floating-point approximations. The universal proof relies on laminarity, residual JR and combinatorial counting, not on exhaustive finite testing. The asymptotic probability uses the classical central binomial coefficient asymptotic; the finite verifier does not constitute an infinite-limit proof.
+## originality
 
-## Boundaries
+PASS
 
-The code verifies only the enumerated finite ranges. Any claim about all election sizes rests on the analytic argument in RESULT.md. Source-priority comparisons and an independent scientific audit are outside the program's scope.
+Chingoma et al. (2026) introduce DR and prove unrestricted hardness but do not in accessible statements establish the laminar-candidate-support exact-count and common-coverage classification. The November 2 prior SCOPE candidate-interval dynamic program counts DR committees on a distinct ballot domain, not all laminar candidate supporter sets, nor a unique represented voter union. An older near-quota tractable result covers a subcase but does not dominate the laminar residual criterion. Primary Chingoma full text inaccessible here, explicitly retained as a material risk.
+
+## value
+
+PASS
+
+An exact feasibility criterion, complete generating-function count, and invariant represented-voter set for a natural hierarchical approval domain are useful structural results within hard committee-selection problems. The pair-block example also quantifies an exponentially small success fraction under uniform lotteries. This is more than a routine renaming of JR; laminarity enforces a strong rigidity theorem and polynomial counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

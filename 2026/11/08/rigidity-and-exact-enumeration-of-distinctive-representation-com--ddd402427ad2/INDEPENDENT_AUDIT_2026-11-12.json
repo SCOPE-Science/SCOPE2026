@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:10:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "JR violation is equivalent to a candidate having at least q=ceil(n/k) supporters unrepresented by W. Laminarity makes distinct supporter sets of cardinality q pairwise disjoint, so r≤floor(n/q)≤k. Any all-quota committee omitting a quota class leaves all q voters of that block unrepresented; thus every such class is mandatory and every DR committee covers exactly U, the union of quota blocks. Selecting one from each is feasible exactly when M≥k (since r≤k), with remaining candidates quota-sized. JR then reduces to |S_c\\U|<q for every candidate. Counting labeled nonempty selections by class yields [z^k] product_i((1+z)^w_i−1). Empty classes, duplicate supports, k≥n (q=1), and nonlaminar boundary accounted for; an independent k=5 pair-block enumeration found 32 DR committees among 252 total, matching 2^k/C(2k,k).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior candidate-interval dynamic program counts DR for interval voter ballots; earlier over-quota theorem gives a special easy case if all candidates have ≤q supporters. Neither is the same as laminar family of candidate supports with nested supersets."
+        ],
+        "reasoning": "The candidate-interval restriction is not equivalent to arbitrary laminar candidate-support sets, and the easy all-under-quota premise does not cover the current possible over-quota residual condition.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-one-over-quota-candidate-is-enough-for-hard-distinctive-represen--b20882119338",
+          "https://arxiv.org/abs/2609.29332"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.29332",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-one-over-quota-candidate-is-enough-for-hard-distinctive-represen--b20882119338",
+        "SCOPE-Science/SCOPE2026 pinned RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chingoma general NP-completeness does not imply an easy laminar class; https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md counts a different candidate-interval domain."
+        ],
+        "reasoning": "The residual JR test plus laminar disjointness forces common coverage and exact coefficient formula; neither follows directly from the cited hardness or interval gap-count theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md",
+          "https://arxiv.org/abs/2609.29332",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-one-over-quota-candidate-is-enough-for-hard-distinctive-represen--b20882119338"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "JR is equivalent to candidate-by-candidate uncovered-support condition, while DR additionally restricts every selected candidate to exactly q supporters; this matches the primary published DR definition."
+        ],
+        "reasoning": "The reformulation is standard, but laminar quota classes being disjoint and necessarily selected is the new structural reduction.",
+        "searches": [
+          "Resultary semantic distinctive representation laminar approval supports counting",
+          "https://arxiv.org/abs/2609.29332"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior interval recurrence counts committees from ballot gaps, not the factorized product ∏((1+z)^w_i−1) for all laminar supporter-set instances."
+        ],
+        "reasoning": "No same-domain complete count/database was identified; the current count derives from obligatory classes rather than reusing an existing tabulation.",
+        "searches": [
+          "Resultary semantic laminar support committee exact count",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md"
+        ]
+      },
+      "rationale": "Chingoma et al. (2026) introduce DR and prove unrestricted hardness but do not in accessible statements establish the laminar-candidate-support exact-count and common-coverage classification. The November 2 prior SCOPE candidate-interval dynamic program counts DR committees on a distinct ballot domain, not all laminar candidate supporter sets, nor a unique represented voter union. An older near-quota tractable result covers a subcase but does not dominate the laminar residual criterion. Primary Chingoma full text inaccessible here, explicitly retained as a material risk.",
+      "residual_risks": [
+        "Full Chingoma 2026 manuscript inaccessible through attempted arXiv/OA and Oxford VPN disconnected; a relevant exact laminar case in its body/appendix cannot be ruled out without full reading.",
+        "The formula is elementary once one proves disjoint quota blocks; an earlier unindexed observation could supersede priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE FULL TEXT; BEST-KNOWLEDGE LIMITATION",
+          "evidence": "DR introduced and general NP-complete; no affirmative full-text NOT_COVERING assertion. Authorized retrieval returned VPN disconnected.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29332",
+          "material_read": "Accessible arXiv abstract/metadata and earlier package’s cited Definition 25 and Theorem 28 scope; full PDF and HTML retrieval failed",
+          "method": "arXiv full-text attempts, lawful OA search and authorized institutional retrieval",
+          "title": "Diverse Representation in Approval-Based Committee Voting",
+          "trigger": "original exact DR definition and potential same domain"
+        },
+        {
+          "assessment": "RELATED BUT DIFFERENT DOMAIN",
+          "evidence": "Requires voters approve contiguous candidate positions; no laminar supporter-set coverage rigidity or product of nonempty choices stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md",
+          "material_read": "Entire RESULT.md: domain, gap-equivalence proof, dynamic recurrence, uniform sampling, verification and limitations",
+          "method": "Full primary published theorem fetched from GitHub",
+          "title": "Exact counting and uniform sampling of quota-JR and distinctive committees on candidate intervals",
+          "trigger": "strongest related exact counting theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact feasibility criterion, complete generating-function count, and invariant represented-voter set for a natural hierarchical approval domain are useful structural results within hard committee-selection problems. The pair-block example also quantifies an exponentially small success fraction under uniform lotteries. This is more than a routine renaming of JR; laminarity enforces a strong rigidity theorem and polynomial counting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.29332",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-counting-and-uniform-sampling-of-quota-jr-and-distinctive--5c8aaca8ea0c/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-one-over-quota-candidate-is-enough-for-hard-distinctive-represen--b20882119338",
+    "SCOPE-Science/SCOPE2026 pinned RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; inaccessible plausible sources documented and not treated as automatic failure.",
+    "No claim of formal proof-assistant certification or independent external attestation; no publication operations supplied."
+  ],
+  "residual_risks": [
+    "Full Chingoma 2026 manuscript inaccessible through attempted arXiv/OA and Oxford VPN disconnected; a relevant exact laminar case in its body/appendix cannot be ruled out without full reading.",
+    "The formula is elementary once one proves disjoint quota blocks; an earlier unindexed observation could supersede priority."
+  ],
+  "schema_version": 1
+}
