@@ -1,19 +1,21 @@
-# Assessment of exact rainbow two-colour reliability for cocktail-party graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The only nonadjacent vertex pairs of \(K_{2m}-M\) are the \(m\) deleted matching edges. Under two colours, a missing pair is rainbow-connected precisely when some common neighbour sees opposite edge colours. In the simultaneous failure of \(k\) pairs, each four-edge block between two matched vertex pairs is either fully monochromatic, split into two independent equal-colour pairs, or unrestricted; these are exhaustive and disjoint cases. The exact block product and inclusion–exclusion prove the full polynomial, and probabilistic weighting proves the reliability expression. The critical window follows from exact fixed-order event intersection probabilities and Bonferroni bounds, without inferring an asymptotic theorem from a finite experiment. Boundary \(m=2\) and \(p\in\{0,1\}\) are included. The standalone original-definition verifier exhausts all colourings for \(m=2,3\) and checks the polynomial for \(m=4\).
+PASS
 
-## Originality — PASS (provisional historical priority)
+For each missing matched pair P_i rainbow connection fails iff every other vertex sees equal colors from its two endpoints. Simultaneously requiring k failures produces independent four-edge blocks: both failing -> 1+t^4, exactly one -> (1+t^2)^2, neither -> (1+t)^4. Inclusion-exclusion proves polynomial and Bernoulli-bias reliability, including p=0,1 and m=2. With p=(log m+c)/(4m), fixed k factorial moments converge to e^{-ck}, so finite Bonferroni truncations prove P(no bad pairs)->exp(-e^{-c}); this is not an unwarranted independence assumption. Separately enumerated all 2^4 and 2^12 two-color assignments and matched full red-edge histograms (10,3416).
 
-Aruna–Jeyakokila (2023, Theorem 2.1, Section 2) proves existence of a rainbow two-colouring on cocktail-party graphs but neither weights nor enumerates all assignments. Gyárfás–Sárközy (2025 preprint, 2026 paper, Theorem 1 and proof) studies monochromatic two-reachable covers of *arbitrary* two-edge-colourings of precisely the same graph, not rainbow connection between every vertex pair or a reliability polynomial. Barát–Boyadzhiyska–Freschi (2026, arXiv:2609.11437v1) studies general Dirac-type existence conditions and probabilistic construction, not the graph-specific all-colouring intersection polynomial or this exact window. The Cartesian product \(K_2\square K_n\) is a different host graph for \(n>2\) (edge count \(n^2\) versus \(2n(n-1)\)), despite the shared four-cycle boundary. Searches under cocktail-party, complete multipartite parts of size two, matching-deleted complete graph, edge-colour reliability, and rainbow two-connection yielded no covering exact count. This is best-knowledge originality, not a proof of priority against every unindexed work.
+## originality
 
-## Value — PASS
+PASS
 
-This is a full red-weighted exact enumerator for an infinite, natural dense graph family, not merely a demonstration that its rainbow connection number equals two. The same exact intersection law yields a sharp logarithmic probability transition with an exponential limiting profile under biased random colourings; the joint exact–asymptotic treatment identifies the dependence structure of overlapping failed paths. The coefficient polynomial supports further questions about the distribution of red-edge counts, large deviations, and symmetry-class enumeration. Such information is not determined by the known existence and monochromatic-covering theorems.
+The inspected published results provide 2-rainbow-colorability/existence or reachability covering, not the complete labeled red-edge polynomial or the precise biased independent-edge Poisson threshold. The similar K_2 square K_m prism is a different graph for m>2. Historical priority remains qualified because the 2026 existence paper full text was not available; the exact block argument makes a specific natural uncomputed reliability observable.
 
-## Scope and residual risks
+## value
 
-The claims concern two named colours on a fixed labelled graph and the specified independent-edge distribution. No quotient by automorphism or general palette result is claimed. Generic inclusion–exclusion is classical; the graph-specific block intersections, full polynomial and critical law form the claimed combined contribution. The assessment is not an independent external mathematical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Counting all named colourings with the red-class weight is a natural complete reliability invariant for the cocktail-party family; it refines known existence results and gives a nontrivial sharp Poisson rare-failure threshold. The graph-specific dependence structure is not a routine numerical recomputation or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
