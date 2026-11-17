@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and scope
+# Independent mathematical audit
 
-Run `python verify_cyclic_nakayama.py` from the directory containing this document. The checker uses Python's standard library, builds the original path-product multiplication table and enumerates every row-reduced subspace over \(\mathbb F_2\) in four small ambient spaces. Closure under primitive idempotents and arrows is independently tested for each subspace; results are compared against the profile-classification formula. All ordered products of the enumerated ideal pairs are then independently evaluated as spans of original path products and compared with the profile formula.
+## correctness
 
-Cases: \((n,\ell)=(1,3),(2,2),(2,3),(3,2)\). These have \(16,67,2825,2825\) subspaces; exactly \(4,7,10,18\) are two-sided ideals. All \(489\) ideal products pass. Further direct combinatorial checks compare the transfer-polynomial coefficients with dimension reciprocity at small \(n,\ell\) and verify the central-binomial increment at \(1\le n\le7\) in the cutoffs emitted by the checker. The printed record is retained in `verification_output.txt` and terminates with `CYCLIC_NAKAYAMA_IDEAL_MONOID_DIRECT_CHECK_PASS`.
+PASS
 
-The proofs for all fields and arbitrary cycle length and cutoff are the mathematical arguments in RESULT.md. The finite tests do not prove infinite parameter ranges, scheme-theoretic claims, novelty, or priority. No independent audit has been performed.
+Right projective e_iA is uniserial, giving unique thresholds 0≤t_i≤ell. Left-arrow closure iff t_{i−1}≤t_i+1. For products, u_{j+1}≥u_j−1 ensures a+u_{i+a} nondecreasing in a, hence (t⋆u)_i=min(ell,t_i+u_{i+t_i}). Trace of weighted transition matrix sums all labeled cyclic profiles by dimension. Shifting positive thresholds reduces N_{n,ell+1}−N_{n,ell} to minimum-zero profiles; their Catalan zero-to-zero gaps give 1/2*C(2n,n)=C(2n−1,n−1) for ell≥max(2,n−2). Frobenius path complement pairing proves dimension reciprocity. Independent exact profile enumeration n=2..7, multiple ell, confirmed palindromicity and stabilization; direct ordered product law inspected algebraically. Infinite n,ell results rely on combinatorial proof.
+
+## originality
+
+PASS
+
+PASS qualified: classical Nakayama uniserial structure and radical-square-zero special cases are prior; Eisenbud–Griffith 1971 serial-ring results and Han 2010 truncated-cycle homology do not state this full ordered ideal multiplication monoid, dimension transfer trace, or sharp central binomial Loewy increment. Relevant Resultary cyclic Nakayama results concern Jordan types/Cartan invariants, not these ideal products. The novel natural invariant is not just substituting a standard one-sided module classification.
+
+## value
+
+PASS
+
+PASS: the full multiplicative monoid of *two-sided* ideals, including noncommuting products, and their dimension distribution are natural representation-theoretic invariants of cyclic Nakayama algebras. Sharp eventual linear growth with an explicit Catalan central-binomial slope is a motivated structural cutoff and offers a uniform calculation for all fields, not an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
