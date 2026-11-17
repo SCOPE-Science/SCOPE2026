@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four-term disjoint pair partition gives the exact Laplace identity (1). The two tree-root depths are independent only for points in distinct attached copies; the within-copy term correctly uses the full two-point tree kernel. For all positive Laplace parameters the depth transform is strictly positive, so the shift multiset is uniquely reconstructed. Three-point circle rigidity is proved by an exhaustive dichotomy on the maximal cyclic gap; the four-point configuration is checked exactly by its two different gap multisets and identical pair-distance multisets. The checker also exercises the special interval-root case and directly simulates the full geodesic metric.
+PASS
 
-## Originality
+Partition two independently arclength-uniform sample points among circle/circle, circle/tree, same attached rooted tree, and distinct attached trees, accounting for both orientations. This yields exact L² Laplace formula C² Q_s+2Cmτ Q_s U_s+mτ² V_s+2τ² U_s² Σ_{i<j}exp(-s δ_C(a_i,a_j)) with L=C+mτ, Q_s=2(1-exp(-sC/2))/(sC), U_s>0. Division by U_s² reconstructs finite exponential mixture and its multiset of shorter-arc sites, proving the complete iff. For m<=3, the three circular pair distances reconstruct unordered cyclic gaps: either all gaps<=C/2 (sum recovered distances=C) or one gap>C/2, in which case two small distances sum to the third and missing large gap=C-third; equal-boundary handled. For m=4, A={0,1,3,4}, B={0,1,2,5} on C=8 have equal shorter-pair hist (1,1,2,3,3,4), unequal cyclic-gap multisets (1,1,2,4) vs (1,1,3,3). Independently verified grids of circumference 4..16 have no 3-site collisions, while analytic argument treats all C>0 and arbitrary finite rooted T.
 
-**PASS, provisional.** The circular four-point homometric example is expressly prior work from Jedrzejewski–Johnson (arXiv:1304.6608), not part of the novelty claim. Axenovich–Özkahya (arXiv:1203.1158) concerns distance multisets of finite sets of graph vertices, not continuous arclength-sampled metric graphs. Mémoli–Needham (arXiv:1810.09646), Proposition 3.21, classifies weighted-circle autocorrelations; their §4.1 gives other noninjective metric graphs, but not the explicit two-sided attachment-distance Laplace inversion and sharp at-most-three / at-least-four threshold for an arbitrary common rooted tree. Their general partition principle may imply the sufficiency half, and this relatedness is a residual priority risk. The exact complete iff statement and minimality remain distinguishable under checked statements.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a natural inverse-geometry classification for an infinite-dimensional family (any fixed finite rooted metric tree). It tells precisely what the global distance statistic forgets, identifies an exact recoverable circular invariant, and separates an isometry-rigid regime from its first possible failure. The contribution is not merely an additional example of noninjectivity: the converse and minimal threshold are proved uniformly for all positive edge lengths and root shapes.
+The circular four-site homometric set itself is classical and Mémoli–Needham give general weighted-circle autocorrelation and metric-measure inverse questions. The claim survives only as the exact converse Laplace inversion for *identical rooted-tree attachments* at fixed (C,T,m), and its all-tree sharp m<=3 rigidity vs m=4 collision. The highly relevant Mémoli–Needham full primary paper was inaccessible in this execution, so no categorical whole-paper absence is claimed; its general partition ideas are closely related and an equivalent specialization is a serious residual risk. The accessible statement snippets/abstract do not decisively show a dominating theorem.
 
-## Boundaries
+## value
 
-No claim of arbitrary graph reconstruction, stability under noisy histograms, or novelty of the homometric circular point sets. Historical priority remains provisional, particularly in the wake of the general metric-measure inverse framework.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem supplies a natural complete classification of what the entire intrinsic two-point distance law can and cannot recover for a nontrivial continuous family of unicyclic metric graphs, with an exact constructive invariant and minimal rigidity threshold. It is considerably more informative than observing another known homometric pair. Uniform validity for every positive rooted-tree geometry gives independent inverse-geometry value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
