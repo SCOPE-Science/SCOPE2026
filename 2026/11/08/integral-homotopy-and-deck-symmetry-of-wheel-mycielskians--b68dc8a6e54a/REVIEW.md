@@ -1,11 +1,21 @@
-# Scientific review: wheel Mycielskian independence complexes
+# Independent mathematical audit
 
-**Correctness — PASS.** The cone-cover decomposition describes every possible face according to which hub vertices it contains. Each hub simplex attaches along a full contractible face, after which the last hub edge creates one circle because the remaining rim-cover complex is connected. The cycle-cover parity decomposition and the previously proved general Mycielskian identity yield all three index-congruence formulas; the exceptional cone case is treated separately. The orientation of the added edge proves the deck sign on the unique integral first-homology generator. Exact finite-field experiments on 75 small cone covers, five wheel covers, and six Mycielskians corroborate but do not replace the infinite proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The January 2026 Carnero Bravo preprint establishes the general Mycielskian splitting but leaves the Kronecker cover of a wheel unevaluated. The 2023 categorical-product analysis gives only the rim-cycle cover; the 2019/2021 complete-graph work does not address wheels. The new structural lemma computes the effect of a universal cone on its Kronecker-cover independence complex, then turns the generic splitting into explicit wheel homotopy types for every length and layer order. Searches of indexed mathematical records and prior related claims identified no equivalent statement. An unindexed cone-cover or wheel formulation could affect priority.
+PASS
 
-**Mathematical value — PASS.** Wheels are a canonical non-bipartite family on which the Mycielskian construction is natural. The classification is for infinitely many graph orders and layer counts, has mixed sphere dimensions, and distinguishes a new circle and its nontrivial deck involution from the high-dimensional rim terms. The general one-hub splitting is a transferable structural calculation rather than an arbitrary finite example. The contribution relies on the existing general theorem and does not claim a new independent proof of it.
+PASS. For every nonempty finite loopless simple H, in B(K1 vee H) the two rim-sheet full simplices P0,P1 lie in connected Z=Ind(B(H)); the two new hub cones attach along these contractible bases and are homotopically inessential, while the hub-hub edge joins two points of the connected rim-cover complex and adds precisely one S1. This gives Ind(B(H^+)) ~= Ind(B(H)) vee S1. For wheel rim Cn (n>=5), its Kronecker cover is C_(2n) if n odd or two disjoint Cn if even; known cycle independence sphere homotopy gives z,d with d>=2. Carnero Bravo's general three-residue Mycielskian join/suspension theorem, with the special ell=0 cone case, yields all displayed wedge ranks and dimensions. The extra oriented hub edge is the integral H1 generator since Z has H1=0; sheet swap reverses it and rim dihedral maps preserve it. Verified source definitions and finite verifier logic (75 labeled small graphs, 5 wheel covers, six Mycielskians), but mod-two experiments are not infinite/integral proof.
 
-**Primary comparisons and limits.** Carnero Bravo, arXiv:2601.13432 (Theorem 5 and family applications); Antolín Camarena–Carnero Bravo, arXiv:2307.12401 (cycle-cover calculation); Goyal–Shukla–Singh, arXiv:1905.06926 (complete-graph Mycielskians). Limited to ordinary independence complexes, not higher or iterated Mycielskians. Finite verification uses mod-two homology; integral homotopy is supplied by the topological proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Carnero Bravo arXiv:2601.13432 states a general Mycielskian homotopy decomposition for arbitrary graphs but does not explicitly compute the wheel's Kronecker cover/added S1/deck sign in the inspected family examples. Antolín Camarena–Carnero Bravo treat cycle products (rim input), Goyal–Shukla–Singh complete graphs. An unindexed general cone-cover splitting may be known and would weaken the novel contribution; no explicit dominating formula located in read primary results and Resultary.
+
+## value
+
+PASS
+
+PASS. Wheel graphs are a canonical nonbipartite family and generalized Mycielskians form a standard graph construction; the transferable cone-Kronecker-cover splitting supplies an explicit all-wheel, all-layer homotopy classification, mixed sphere dimensions and a nontrivial natural deck action on H1. These are structural facts not mechanically tabulated from the general theorem without the additional cone-cover analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

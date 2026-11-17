@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library. The script constructs the graph edges from definitions, enumerates all independent faces, constructs reduced simplicial boundary matrices over \(\mathbb F_2\), and computes their exact ranks without external symbolic libraries or network access. It verifies the cone-cover Betti splitting for all 75 labeled simple graphs on one to four vertices, checks wheel covers for \(n=5,6,7,8,9\), and checks six small direct Mycielskian constructions. Successful output ends with `ALL_VERIFY_OK wheel_covers=5 coned_graphs=75 mycielskians=6` and is saved in `verification_output.txt`.
+## correctness
 
-The program checks finite mod-two Betti numbers only. It does not establish infinite-parameter formulas, integral torsion-freeness, attaching-map vanishing, or deck-module actions; these require the mathematical proof in `RESULT.md` and the cited general Mycielskian theorem. The deck-sign argument is an exact orientation calculation in an integral relative chain complex. A separate independent audit has not been performed.
+PASS
+
+PASS. For every nonempty finite loopless simple H, in B(K1 vee H) the two rim-sheet full simplices P0,P1 lie in connected Z=Ind(B(H)); the two new hub cones attach along these contractible bases and are homotopically inessential, while the hub-hub edge joins two points of the connected rim-cover complex and adds precisely one S1. This gives Ind(B(H^+)) ~= Ind(B(H)) vee S1. For wheel rim Cn (n>=5), its Kronecker cover is C_(2n) if n odd or two disjoint Cn if even; known cycle independence sphere homotopy gives z,d with d>=2. Carnero Bravo's general three-residue Mycielskian join/suspension theorem, with the special ell=0 cone case, yields all displayed wedge ranks and dimensions. The extra oriented hub edge is the integral H1 generator since Z has H1=0; sheet swap reverses it and rim dihedral maps preserve it. Verified source definitions and finite verifier logic (75 labeled small graphs, 5 wheel covers, six Mycielskians), but mod-two experiments are not infinite/integral proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Carnero Bravo arXiv:2601.13432 states a general Mycielskian homotopy decomposition for arbitrary graphs but does not explicitly compute the wheel's Kronecker cover/added S1/deck sign in the inspected family examples. Antolín Camarena–Carnero Bravo treat cycle products (rim input), Goyal–Shukla–Singh complete graphs. An unindexed general cone-cover splitting may be known and would weaken the novel contribution; no explicit dominating formula located in read primary results and Resultary.
+
+## value
+
+PASS
+
+PASS. Wheel graphs are a canonical nonbipartite family and generalized Mycielskians form a standard graph construction; the transferable cone-Kronecker-cover splitting supplies an explicit all-wheel, all-layer homotopy classification, mixed sphere dimensions and a nontrivial natural deck action on H1. These are structural facts not mechanically tabulated from the general theorem without the additional cone-cover analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
