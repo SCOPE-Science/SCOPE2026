@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The critical finite-type continuous-time branching survival equations are derived by first-event conditioning; coupling bounds survival away from zero; a maximum-ratio argument proves the strictly positive solution is unique. At any tie of sites 1 and 2, the site-1 equation forces the survival probability \(r_1/b\), the center equation constrains migration, and the site-3 equation gives a quadratic with exactly one positive root. The strict parameter cone makes the root smaller than \(r_1/b\). The crossing therefore exists exactly once, and the large-migration and small-migration signs identify both sides. The remaining pair comparisons and two-habitat impossibility complete the classification. The extracted standalone script verifies the exact factorization and a finite selection of numerical cases; the infinite-parameter theorem rests on the written proof.
+PASS
 
-## Originality — PASS within inspected literature, provisional
+The branching generating-function backward equations are F_i=r_i*p_i-b*p_i^2+m sum_neigh(p_j-p_i)=0. A birth-death stochastic comparison bounds all positive survival probabilities away from 0 and 1; the max-ratio argument makes the positive solution unique. If p1=p2=t, the endpoint forces t=r1/b, the center imposes m(z-t)=(r1-r2)t, and the third component gives b z^2-r3 z+(r1-r2)t=0 with unique root z<t by 2r1>r2+r3. Continuity and small/large migration signs yield precisely one crossing; endpoint comparisons exclude any tie with the poorest site. Two sites cannot switch with common birth rate. Independent rational witness b=10, r=(6,8,1), m=6, p=(3/5,3/5,2/5) has exactly zero three-equation residual.
 
-Closest is Bansaye and Lambert (2011), arXiv:1111.2535: the inspected 30-page preprint studies stochastic source-sink persistence conditions, the growth rate and ancestor-habitat occupancy, but not the unique founder survival ranking inversion for a continuous-time three-habitat path. Hautphenne, Latouche and Nguyen (2012), arXiv:1211.4129, study multitype extinction-vector numerical methods in a countably infinite setting, without a three-patch reversal or minimality theorem in inspected material. General extinction-vector tools could numerically evaluate this model but do not imply the formula for the unique switch, full all-rate ordering, or sharp minimal three-site theorem. A potentially relevant older general algorithmic paper (Hautphenne, Latouche, and Remiche, DOI 10.1007/s11009-009-9141-7) was available only as metadata and abstract, leaving unresolved historical priority risk. Searches across equivalent terminology, global/partial extinction, multitype branching, migration placement, and source-sink persistence did not reveal a stronger result; nonappearance is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A single-founder reintroduction question—where should the initial individual be released to maximize ultimate survival?—has a natural difference from maximizing immediate local growth. The theorem demonstrates an exact and sharply minimal reversal caused solely by migration, gives a closed-form threshold and a reproducible rational witness, and identifies a clear boundary for founder-site heuristics. This is meaningful for testing ecological branching approximations even though it is not a density-dependent or empirical management model.
+Best-of-knowledge originality survives statement/implication comparison: The October 2026 three-habitat path result optimizes placement of *growth-rate values* using a linear Perron exponent; here the rates stay fixed and a single founder is moved, with nonlinear survival generating-function equations. These are distinct quantifiers and objectives. The named reductions and remaining inaccessible plausible sources are recorded as residual risks, not treated as proof of originality.
 
-## Remaining scientific limits
+## value
 
-Shared birth rate, homogeneous symmetric path migration, local supercriticality, infinite time horizon, no density dependence. Originality priority is provisional because an older equivalent variant could exist outside inspected literature, particularly general population-placement and extinction-probability papers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Initial-founder survival probability is a natural nonlinear stochastic target distinct from spectral growth, and a sharp reversal with explicit unique crossing and minimal habitat count establishes a meaningful boundary for heterogeneous population dispersal rather than a cosmetic relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
