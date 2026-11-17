@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The all-size arguments are in `RESULT.md`; the finite programs serve as independent numerical cross-checks and are not themselves certificates for unbounded parameters.
+## correctness
 
-Run `python3 check_recurrent.py` with a standard Python 3 interpreter. For \(m=2\) through \(7\), this constructs the full transition graph by examining the actual closed neighborhood of each chosen vertex, computes its strongly connected components, checks closure, and compares the closed recurrent set against independently counted maximum cuts. The six state-space sizes total \(21{,}840\) and the recorded output is `recurrent_output.txt`.
+PASS
 
-Run `python3 check_spectrum.py` with Python 3 and NumPy. For odd \(m=3,5,7\), this constructs independent Markov matrices, checks their symmetry and stochasticity, reconstructs the middle-level inclusion graph, confirms its eigenvalue multiplicities numerically, and compares the second Markov eigenvalue to the closed spectral formula. The actual results are in `spectrum_output.txt`.
+For m>=2, the cocktail-party graph K_{2m} minus a fixed perfect matching has local closed-neighborhood rule based on total ones S minus the chosen mate bit. With k mixed deleted-matching pairs, cut c=m^2-(S-m)^2-k, which never decreases under the strict minority move. Reach S=m using allowed updates, then consume two mixed pairs via a two-step path until maximal cut; this gives finite positive-probability access from every state to the recurrent maximum-cut locus. Even m gives exactly C(m,m/2) absorbing homogeneous configurations. Odd m gives (m+3)C(m,(m-1)/2) configurations in one reversible communicating class; the transition graph is the doubled-edge subdivision of the connected middle-two-rank inclusion graph. Its Laplacian BB^T=2(dI+A_H) has least positive eigenvalue d+1-sqrt((d+1)^2-2), and each edge transition has rate 1/(2m), proving the exact gap. Independent literal full-transition SCC census m=2,3,4,5 matches populations and the odd-m spectral gaps.
 
-The proof does not rely on floating-point eigenvalues to establish any infinite-family assertion. Source originality and historical priority are not settled by these tests.
+## originality
+
+PASS
+
+The original Regnault–Rouquier–Thierry fully asynchronous minority work defines the same update, potential and general cut-energy monotonicity and studies complete cliques, trees, paths, grids and bipartite graphs, not deletion of a full perfect matching and the resulting one-class odd-m subdivision spectrum. Published complete split-graph minority analysis has a structurally different graph and spectral gap 1/(a+b), not this shrinking ~m^-2 gap. Classical middle-level inclusion graph eigenvalues are honestly used as input. No exact matching dynamic classification or dominating theorem identified.
+
+## value
+
+PASS
+
+The natural perfect-matching deletion of a clique changes the terminal stochastic-minority attractor type dramatically with the number of pairs: absorbing combinatorial family versus a connected nonabsorbing class. Its exact mixing spectral gap and doubled-subdivision representation are substantive dynamics and spectral graph information, not a textbook application once the recurrent configuration graph is identified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

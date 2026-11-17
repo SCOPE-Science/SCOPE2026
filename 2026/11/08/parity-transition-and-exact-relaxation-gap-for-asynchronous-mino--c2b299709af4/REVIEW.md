@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact local minority update and cut identities are derived directly from all \(2m-1\) closed-neighborhood sites. Parity enumerates the maximum-cut configurations. A directed path to that locus from every configuration rules out other recurrent classes. For odd pair count, the middle-level inclusion graph and its two parallel subdivision choices give a single reversible communicating class. The classical middle-level adjacency spectrum, together with an explicit block Laplacian, gives the stated spectral gap. Two independently written programs verified the complete small-state SCCs and spectral predictions. No finite check was substituted for the all-parameter proof.
+PASS
 
-## Originality
+For m>=2, the cocktail-party graph K_{2m} minus a fixed perfect matching has local closed-neighborhood rule based on total ones S minus the chosen mate bit. With k mixed deleted-matching pairs, cut c=m^2-(S-m)^2-k, which never decreases under the strict minority move. Reach S=m using allowed updates, then consume two mixed pairs via a two-step path until maximal cut; this gives finite positive-probability access from every state to the recurrent maximum-cut locus. Even m gives exactly C(m,m/2) absorbing homogeneous configurations. Odd m gives (m+3)C(m,(m-1)/2) configurations in one reversible communicating class; the transition graph is the doubled-edge subdivision of the connected middle-two-rank inclusion graph. Its Laplacian BB^T=2(dI+A_H) has least positive eigenvalue d+1-sqrt((d+1)^2-2), and each edge transition has rate 1/(2m), proving the exact gap. Independent literal full-transition SCC census m=2,3,4,5 matches populations and the odd-m spectral gaps.
 
-**PASS, with historical-priority qualification.** Regnault–Rouquier–Thierry establishes the stochastic minority framework and analyzes other graph topologies, but its inspected full text does not give this exact cocktail-party parity transition and gap. Dalfó–Fiol–Mitjana establishes the middle-level eigenvalues used as an ingredient; the new dynamical reduction is not their result. Published work on XOR parity automata for complete multipartite graphs, and acyclic-orientation signatures for the same graph, treats different mathematical operators. An unidentified prior equivalent recurrent-state theorem remains possible; this is not a claim of absolute priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Deleting a perfect matching from a clique gives a natural, highly symmetric family at the boundary between complete and multipartite interaction. The resulting parity-sensitive transition between many absorbing states and a single irreducible class is a global change of recurrent structure, not a local counting refinement. Its exact \(m^{-2}\)-order relaxation gap is an additional quantitative invariant that connects graph dynamics to known middle-level spectra.
+The original Regnault–Rouquier–Thierry fully asynchronous minority work defines the same update, potential and general cut-energy monotonicity and studies complete cliques, trees, paths, grids and bipartite graphs, not deletion of a full perfect matching and the resulting one-class odd-m subdivision spectrum. Published complete split-graph minority analysis has a structurally different graph and spectral gap 1/(a+b), not this shrinking ~m^-2 gap. Classical middle-level inclusion graph eigenvalues are honestly used as input. No exact matching dynamic classification or dominating theorem identified.
 
-## Scientific limitations
+## value
 
-The rate is the relaxation spectral gap within the odd-parameter recurrent class, not a hitting-time or worst-case mixing-time bound. The even-parameter full chain is nonergodic. Weighted updates and positive temperature are outside scope, and independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural perfect-matching deletion of a clique changes the terminal stochastic-minority attractor type dramatically with the number of pairs: absorbing combinatorial family versus a connected nonabsorbing class. Its exact mixing spectral gap and doubled-subdivision representation are substantive dynamics and spectral graph information, not a textbook application once the recurrent configuration graph is identified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
