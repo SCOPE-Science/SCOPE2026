@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every closed-neighborhood identifying code is exactly a hitting set of the 32 neighborhoods and 496 distinct-vertex neighborhood symmetric-difference requirements. A 161-clause inclusion-minimal reduction preserves the hitting condition. The complete C++ search finds no valid set of at most 11 vertices and exactly 58 valid 12-vertex subsets. An independently written Python search on unreduced literal-word adjacencies reproduces both outcomes and exactly the same 58 masks. The symmetry and eight forbidden vertices are direct computations from the complete list, checked again by Python. The proof relies on finite exhaustiveness with explicit branching and safe disjoint-clause pruning, not on probabilistic exploration.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** Boutin, Horan Goliber and Pelto, arXiv:1412.5842, report the minimum cardinality 12 for this very graph, which is acknowledged as prior work. Their accessible paper does not provide a complete labeled optimal-code census. Horan, arXiv:1508.00403, proves undirected binary one-identifiability for length at least three and explicitly raises minimum-size problems; her accessible treatment does not enumerate the 58 optima. Searches of related mathematical research records, distinct code terminology, symmetry classifications and graph-code tables found no covering result. Search incompleteness and unpublished enumeration tables remain residual historical-priority risks; this review is not independent certification.
+PASS
 
-**Value — PASS.** The undirected binary five-bit de Bruijn graph is an explicitly named small benchmark in the original coding literature. Knowing that the already established 12-sensor optimum has exactly 58 arrangements, sixteen symmetry types and eight vertices absent from every optimal arrangement describes the complete design space and constrained sensor placements rather than merely recalculating an optimum. This finite classification is a motivated fact for benchmarking identification/search algorithms, although no stronger algorithmic or asymptotic claim is made.
+At word length five, each identifying-code constraint is a closed-neighborhood or distinct-neighborhood symmetric-difference hitting clause (32+496=528 clauses). A complete include/exclude search with disjoint-unhit-clause feasibility pruning and no sampling independently excluded all codes of size <=11 and found exactly 58 size-12 masks; independently recomputed orbits (13x4,3x2), complementation fixed6, reversal fixed0 and eight never-selected vertices. Closed-neighborhood and labeled-word normalization checked; no extrapolation beyond 32 vertices.
 
-The closest prior result supplies the minimum value 12 but not the full extremizer classification; the later existence theorem does not imply the census. The graph size and observation radius are fixed, and no statements about robustness or larger graphs follow.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The previously known minimum cardinality 12 leaves a natural and unsolved optimizer classification problem on the smallest well-studied 32-vertex de Bruijn instance. The exact set of 58 codebooks, 16 symmetry orbits and forbidden-vertex incidence provide full useful combinatorial data for identifying-code design; the finite census is mathematically motivated and exhaustively certified, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

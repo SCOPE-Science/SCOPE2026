@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Run `g++ -std=c++17 -O2 count_cpp.cpp -o count_cpp`, `./count_cpp > enumerated_masks.txt`, `python3 independent_verify.py`, and `diff -u optima_58.txt enumerated_masks.txt` from the directory containing these files.
+# Independent mathematical audit
 
-The exact graph is built from all 32 length-five words, with symmetric shift-adjacency and closed neighborhoods. C++ constructs and inclusion-minimizes all 528 nonempty identifying-set constraints to 161, exhaustively excludes any identifying set of size at most 11, enumerates all 58 identifying sets of size 12, and verifies the stated four-element symmetry action. Python independently uses direct string-overlap edge tests and a different include/exclude branching recursion on the unreduced constraints. The two enumerations give identical sets. `orbits_16.tsv` is checked against the raw optimal masks, and each final codebook is tested against all 32 exact identifying signatures.
+## correctness
 
-Results from package replay: `CXX_SIZE_11=0`, `CXX_SIZE_12=58`, `CXX_ORBITS_SIZE2=3`, `CXX_ORBITS_SIZE4=13`, `INDEPENDENT_EXACT_11=0`, `INDEPENDENT_EXACT_12=58`, `INDEPENDENT_COMPLETE_OK`; the final file diff is empty.
+PASS
 
-Scientific scope: this is an exhaustive finite statement solely for undirected binary word length five with radius-one closed neighborhoods. No claim is made for unexamined graph parameters, or for historical priority beyond the inspected sources. Independent audit is not yet performed.
+At word length five, each identifying-code constraint is a closed-neighborhood or distinct-neighborhood symmetric-difference hitting clause (32+496=528 clauses). A complete include/exclude search with disjoint-unhit-clause feasibility pruning and no sampling independently excluded all codes of size <=11 and found exactly 58 size-12 masks; independently recomputed orbits (13x4,3x2), complementation fixed6, reversal fixed0 and eight never-selected vertices. Closed-neighborhood and labeled-word normalization checked; no extrapolation beyond 32 vertices.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The previously known minimum cardinality 12 leaves a natural and unsolved optimizer classification problem on the smallest well-studied 32-vertex de Bruijn instance. The exact set of 58 codebooks, 16 symmetry orbits and forbidden-vertex incidence provide full useful combinatorial data for identifying-code design; the finite census is mathematically motivated and exhaustively certified, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
