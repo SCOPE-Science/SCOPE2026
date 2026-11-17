@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The precise 18-edge graph and ternary local update are explicitly specified. The total state space contains exactly \(3^{12}\) configurations. The proof uses exact indegree peeling of the complete functional graph, primitive-cycle traversal, and reverse topological propagation of transient lengths. An independently implemented path-memoization traversal on an LCF-labeled isomorphic graph agrees on all 74 temporal classes, primitive periods and the three sharp 21-step witnesses. Both executable programs passed from their actual packaged paths; full outputs and an independent census digest are embedded. This is exhaustive finite computation, not extrapolation or a claim about other cubic graphs.
+PASS
 
-## Originality: PASS, with residual priority risk
+Independently reimplemented full finite functional graph using pinned exact cubic 12-vertex edge list and state encoding: all 531441 images, indegree-peeling cycles, reversed transient recursion. Confirmed 74 occupied (T,P) classes, 1979 orbits, 6115 periodic states, periods 1,3,4,5,6,7,8, maximum entry T=21 at exactly integer states 190008,190010,436809. The independent pinned LCF-memoization script was read and specifies an explicit label permutation; exhaustive computation proves this FIXED finite case, not universal behavior.
 
-The closely relevant 2016 primary paper by Gravner, Lyu and Sivakoff provides a general initial-circulation characterization of synchronization and asymptotic activity on finite graphs. Its Theorem 3 and proof, inspected in the primary full text, do not enumerate the Frucht graph's seven primitive periods, their 1979 orbit multiplicities, exact 74 first-entry/period cells, or its 21-update maximizers. MathWorld and NetworkX establish that both graph descriptions represent the canonical Frucht graph; they contain no corresponding dynamics. Published mathematical-record queries and searches for equivalent terms and stronger coverage found no exact table. A separately indexed earlier or unpublished table remains a historical-priority risk; a negative search is not treated as a proof of uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The standard asymmetric cubic Frucht graph gives a natural finite benchmark with no graph automorphism compression. Its complete excitation census reveals a maximum first-entry delay larger than its vertex count and diameter, attained by just three configurations, alongside a nontrivial mixture of seven primitive periods. These are motivated temporal invariants of a canonical graph and offer an exact comparator for finite network excitation models. The claim is not generalized beyond its proved finite scope.
+Best-of-knowledge new complete 3^12-state Frucht-graph GHM orbit/entrance classification; current Resultary self-match is not prior evidence. Related complete graph-family and Heawood audits address different graphs, and general theorem does not explicitly determine these exact populations.
 
-## Limitations
+## value
 
-All state-space enumeration is computer-assisted but exhaustive and reproducible. The graph and local excitation rule are fixed. This does not assert a universal upper bound, a universal transient-to-size comparison, or a historical novelty guarantee. The absence of a separate independent audit is explicit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Frucht graph is the canonical asymmetric cubic graph; its exact complete 3-state dynamical basin portrait, with surprisingly long 21-step transient exceeding 12 vertices and diameter four, is a motivated independently reproducible benchmark and exact invariant, not an arbitrary tiny subcase. Full 74-cell census is useful for comparison of structure and dynamics despite no all-graph bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
