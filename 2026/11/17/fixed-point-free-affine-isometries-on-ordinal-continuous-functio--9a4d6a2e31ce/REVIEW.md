@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The transfinite definition of the linear shift is checked at each limit ordinal and at infinity, with isometry proved from the successor sampling identities. The ball map is an exact distance-preserving affine embedding, and any fixed point would be identically one by transfinite induction, contradicting vanishing at infinity. The averaged recurrence has an exact binomial expansion with disjoint isolated singleton supports; Stirling gives the sharp asymptotic. The finite rational checker supports the binomial algebra but does not prove topological claims.
+
+**Originality — PASS (qualified).** The closest reviewed recent manuscript proves qualitative failure of BFPP on every noncompact C0 space, without this affine-isometric strengthening or exact rates. Barroso's earlier transfinite construction involves nonlinear order propagation. Search comparisons covered fixed-point-free affine isometries, ordinal shifts, and relaxed binomial residuals in the relevant result index, source literature and accessible historical claims. An older equivalent isometric ordinal shift could be unindexed or embedded within a paper and remains an explicit priority risk. The 2025 Avilés et al. technical paper was not fully inspected.
+
+**Mathematical value — PASS.** For the order-topological ordinal spaces, a nonexpansive witness is upgraded to a single positive affine isometry of the **whole ball** into its sphere. The construction works at all limit ordinals, including uncountable-cofinality cases where an ordinary countable escaping-support argument does not work, and it gives a sharp exact asymptotic-regularity constant for every averaged iterate from zero. It distinguishes the large fixed-point-free class from merely qualitative nonexpansive examples.
+
+**Closest literature and limitations.** DiPaulo, arXiv:2611.01486v1, and Barroso, arXiv:2609.16318, are the nearest conceptual precedents; Avilés et al., arXiv:2506.17995, provide the broader BFPP context. The theorem does not cover arbitrary locally compact spaces; the averaging limit is only for fixed \(0<	heta<1\). An independent mathematical review and exhaustive bibliographic priority check have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
