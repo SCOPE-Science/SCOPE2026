@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_compact.py` using a standard Python 3 interpreter. The verifier independently constructs induced adjacencies for each complete bipartite instance, computes graph distances by breadth-first search, and tests all allowable center subsets; it does not call the generating-function or star-center criteria to decide compactness. It counts all labeled equitable allocations and compares the results with exact combinatorial predictions.
+## correctness
 
-Test coverage: 51 parameter settings and 1,506,716 complete equitable allocations, with equality of the three predicted counts in every setting. Additional integer coefficient computations check the balanced four-item fraction at even sizes \(2,4,8,16,32,64\). These numerical comparisons are finite, are not infinite proof certificates, and do not independently validate originality or value. The universal theorem is established by the written proof, including the central coefficient asymptotic via Fourier inversion.
+PASS
 
-The exact printed examples are \(N_{1,1}=0\), \(N_{1,2}=N_{2,1}=29{,}700\) for \(K_{6,6}\) and \(n=3,q=4\), and \(N_{1,1}=7{,}526{,}400\), \(N_{1,2}=N_{2,1}=47{,}745{,}600\) for \(K_{8,8}\) and \(n=4,q=4\). External independent validation has not been performed.
+For identical unit utilities an EF full allocation necessarily partitions nq goods into bundles of q. Each mixed induced bundle is K_{j,q-j}; a radius-one dominating vertex exists precisely for j=1 or q-1, whereas any 1<=j<=q-1 is covered by one radius-two vertex or two radius-one vertices. Counting labeled class assignments yields N11=binom(n,t)a!b!/((q-1)!)^n for integer t=(a-n)/(q-2) in [0,n], and N12=N21=a!b![x^a](sum_{j=1}^{q-1}x^j/(j!(q-j)!))^n. For q=4,a=b=2n parity makes t=n/2; dividing coefficients reduces to the centered -1,0,1 walk with probabilities 2/7,3/7,2/7 and variance 4/7. Its span-one Fourier local CLT with the central binomial Stirling estimate gives ratio (4/sqrt7)(4/7)^n. These arguments cover q=3, arbitrary positive a,b, boundary t=0,n and even-subsequence restriction; direct n=3 K6,6 count 0 vs 29,700 corroborates finite case.
+
+## originality
+
+PASS
+
+Existing compact-fair-division and star-partition work covers the model and bare arithmetic center feasibility. It does not, in the material inspected, provide this labeled factorial-coefficient census, equality of two different budgets, or the sharp (4/7)^n conditional fraction. The count is more than renaming the earlier existence criterion; this is best-of-knowledge originality, subject to older star-factor enumeration overlap.
+
+## value
+
+PASS
+
+The first natural bundle size where strict-radius feasibility develops gaps is q=4. The exact distribution of all fair allocations under different compactness budgets measures scarcity rather than mere existence; an exponentially small tight-budget fraction has direct combinatorial and fair-allocation significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

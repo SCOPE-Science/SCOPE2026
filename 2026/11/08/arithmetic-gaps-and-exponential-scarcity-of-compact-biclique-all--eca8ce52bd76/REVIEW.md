@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Equal additive unit valuations force equal bundle size. The classification of induced \(K_{j,q-j}\) by one radius-one center versus one radius-two or two radius-one centers is complete for \(q\ge3\). Exact multinomial enumerations cover all feasible bundle profiles without overcounting labeled agents. The gap count follows from the complete interval of feasible sums; the sharp even-subsequence rate follows from a nondegenerate span-one lattice local central limit argument, with its Fourier expansion included in `RESULT.md`. An independent induced-distance enumerator agreed with the formulas on 51 parameter settings and 1,506,716 allocations. This is a proof over every permitted \(a,b,n,q\), not an extrapolation from the finite enumerations.
+## correctness
 
-**Originality — PASS, with specified residual risk.** Madathil [1] defines compact fair bundles and studies complexity, but the examined material does not state the three-budget labeled census or the balanced four-item fraction. Van Bevern et al. [2] explicitly derive the bipartition center-count equation for star partitions; that equation already covers the bare existence obstruction, which is not claimed as new. The counted profile distributions, equivalence between two compactness budgets, precise gap density, and the \((4/7)^n\) exponential comparison were not found in the primary sources or indexed mathematical-result comparisons. A counting equivalence in unindexed star-factor literature remains possible and requires human priority review.
+PASS
 
-**Value — PASS.** Compactness budgets model how tightly related the goods in each fair bundle must be. Even at the first structurally interesting cardinality, upgrading from a radius-two center to a radius-one center can make all fair allocations impossible by parity, and when possible the tighter allocations form an exponentially vanishing fraction with an explicit sharp rate. Exact counts quantify the full solution space, rather than merely giving a yes/no feasibility test. The first-gap case is fixed by the smallest natural bundle size that admits obstructions, not by arbitrary parameter selection.
+For identical unit utilities an EF full allocation necessarily partitions nq goods into bundles of q. Each mixed induced bundle is K_{j,q-j}; a radius-one dominating vertex exists precisely for j=1 or q-1, whereas any 1<=j<=q-1 is covered by one radius-two vertex or two radius-one vertices. Counting labeled class assignments yields N11=binom(n,t)a!b!/((q-1)!)^n for integer t=(a-n)/(q-2) in [0,n], and N12=N21=a!b![x^a](sum_{j=1}^{q-1}x^j/(j!(q-j)!))^n. For q=4,a=b=2n parity makes t=n/2; dividing coefficients reduces to the centered -1,0,1 walk with probabilities 2/7,3/7,2/7 and variance 4/7. Its span-one Fourier local CLT with the central binomial Stirling estimate gives ratio (4/sqrt7)(4/7)^n. These arguments cover q=3, arbitrary positive a,b, boundary t=0,n and even-subsequence restriction; direct n=3 K6,6 count 0 vs 29,700 corroborates finite case.
 
-The principal limitation is the uniform-value complete-biclique setting and a residual priority risk for existing enumeration formulas under alternative terminology. No result for heterogeneous values or arbitrary graphs is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] https://arxiv.org/abs/2305.06864 (May 11, 2023 first public release; introductory compactness definitions and results)
+Existing compact-fair-division and star-partition work covers the model and bare arithmetic center feasibility. It does not, in the material inspected, provide this labeled factorial-coefficient census, equality of two different budgets, or the sharp (4/7)^n conditional fraction. The count is more than renaming the earlier existence criterion; this is best-of-knowledge originality, subject to older star-factor enumeration overlap.
 
-[2] https://arxiv.org/abs/1402.2589 (Section 4, center-count equations and star-partition feasibility structure)
+## value
 
-[3] https://gorogoro.cis.ibaraki.ac.jp/web/papers/kano1997-a.pdf (Egawa, Kano and Kelmans, 1997, general induced star-factor existence; full text inspected)
+PASS
+
+The first natural bundle size where strict-radius feasibility develops gaps is q=4. The exact distribution of all fair allocations under different compactness budgets measures scarcity rather than mere existence; an exponentially small tight-budget fraction has direct combinatorial and fair-allocation significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

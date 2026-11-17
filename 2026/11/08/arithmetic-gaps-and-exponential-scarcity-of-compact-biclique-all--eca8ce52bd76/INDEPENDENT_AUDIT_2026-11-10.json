@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T05:19:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For identical unit utilities an EF full allocation necessarily partitions nq goods into bundles of q. Each mixed induced bundle is K_{j,q-j}; a radius-one dominating vertex exists precisely for j=1 or q-1, whereas any 1<=j<=q-1 is covered by one radius-two vertex or two radius-one vertices. Counting labeled class assignments yields N11=binom(n,t)a!b!/((q-1)!)^n for integer t=(a-n)/(q-2) in [0,n], and N12=N21=a!b![x^a](sum_{j=1}^{q-1}x^j/(j!(q-j)!))^n. For q=4,a=b=2n parity makes t=n/2; dividing coefficients reduces to the centered -1,0,1 walk with probabilities 2/7,3/7,2/7 and variance 4/7. Its span-one Fourier local CLT with the central binomial Stirling estimate gives ratio (4/sqrt7)(4/7)^n. These arguments cover q=3, arbitrary positive a,b, boundary t=0,n and even-subsequence restriction; direct n=3 K6,6 count 0 vs 29,700 corroborates finite case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General star partitions cover possible center capacities, not the exact number of labeled full allocations satisfying both EF and three induced-compactness budgets.",
+          "Outer-EF1 counting uses a different fairness and connectedness predicate."
+        ],
+        "reasoning": "Stronger existence/complexity results do not dominate the new labeled distribution; the overlap is precisely documented.",
+        "searches": [
+          "van Bevern 2014 Partitioning Perfect Graphs into Stars Section 4",
+          "Madathil 2023 Fair Division of a Graph into Compact Bundles",
+          "Resultary complete bipartite EF1 counting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.2589, van Bevern et al., Section 4",
+        "arXiv:2305.06864, Madathil",
+        "Resultary searches for compact biclique exact counts and related EF1 allocations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known equation a=n+t(q-2) recovers only existence and gap locations.",
+          "New N12 coefficient includes all 1<=j<=q-1 and conditional probability requires its coefficient asymptotic."
+        ],
+        "reasoning": "A decision theorem does not entail numerical solution counts; direct multinomial and local central limit analysis is needed. The restricted existence subclaim is credited rather than independently accepted.",
+        "searches": [
+          "arXiv:1402.2589 star partition equations",
+          "arXiv:2305.06864 compact fair bundles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Star-factor center counts impose a=n+t(q-2), the same feasibility equation for radius-one complete biclique allocations.",
+          "Exact labeled profile count has an additional multinomial coefficient and conditional central-lattice rate."
+        ],
+        "reasoning": "The known star-partition condition is algebraically equivalent to the bare radius-one existence portion and must not count as novel; the full enumerative statement and asymptotic comparison do not follow from the feasibility equation without new counting and local-CLT work.",
+        "searches": [
+          "van Bevern et al 1402.2589 Section 4 center counts",
+          "Resultary: compact biclique fair division graph connected compact bundles exact allocation counts complete bipartite EF labeled radius 1 radius 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related indexed tables address EF1, coalitions, and star feasibility but no exact N11/N12 profile or its asymptotic prevalence under these constraints."
+        ],
+        "reasoning": "This is a natural infinite parameter family, not a previously tabulated finite graph invariant; prior exact-count equivalence remains an open historical risk.",
+        "searches": [
+          "Resultary exact compact biclique allocation enumeration",
+          "published complete bipartite fairness count radius two compact bundle",
+          "arXiv 1402.2589 star partition Section 4"
+        ]
+      },
+      "rationale": "Existing compact-fair-division and star-partition work covers the model and bare arithmetic center feasibility. It does not, in the material inspected, provide this labeled factorial-coefficient census, equality of two different budgets, or the sharp (4/7)^n conditional fraction. The count is more than renaming the earlier existence criterion; this is best-of-knowledge originality, subject to older star-factor enumeration overlap.",
+      "residual_risks": [
+        "Unindexed exact star-factor counting formulas might encode the same factorial-coefficient distribution.",
+        "Only even n are included in the sharp asymptotic; no heterogeneous valuations or general graph claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FEASIBILITY_ONLY",
+          "evidence": "Section 4 gives center-count feasibility under complete bipartite star partitions; it does not state the distinct budget-specific labeled factorial enumerators or sharp fraction.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2589",
+          "material_read": "Section 4 full relevant proof, center-count equations and conclusions (PDF relevant pages), not every unrelated section",
+          "method": "Opened original arXiv primary PDF and inspected relevant original pages",
+          "title": "Partitioning Perfect Graphs into Stars",
+          "trigger": "Same complete-bipartite center counts and star-factor existence"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": "Compact-bundle model and complexity context; no covering enumerator established in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.06864",
+          "material_read": "Accessible definitions, abstract and pertinent compactness framework; no claimed exhaustive whole-paper exclusion",
+          "method": "Searched original arXiv and inspected accessible relevant text",
+          "title": "Fair Division of a Graph into Compact Bundles",
+          "trigger": "Original definition and structural budget setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first natural bundle size where strict-radius feasibility develops gaps is q=4. The exact distribution of all fair allocations under different compactness budgets measures scarcity rather than mere existence; an exponentially small tight-budget fraction has direct combinatorial and fair-allocation significance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1402.2589, van Bevern et al., Section 4",
+    "arXiv:2305.06864, Madathil",
+    "Resultary searches for compact biclique exact counts and related EF1 allocations"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact labeled envy-free compact allocation counts on K_{a,b} at budgets (1,1),(1,2),(2,1), first feasibility gaps at q=4, and exponential conditional rarity (4/sqrt(7))(4/7)^n for even balanced q=4.",
+  "limitations": [
+    "Unindexed exact star-factor counting formulas might encode the same factorial-coefficient distribution.",
+    "Only even n are included in the sharp asymptotic; no heterogeneous valuations or general graph claim."
+  ],
+  "residual_risks": [
+    "Unindexed exact star-factor counting formulas might encode the same factorial-coefficient distribution.",
+    "Only even n are included in the sharp asymptotic; no heterogeneous valuations or general graph claim."
+  ],
+  "schema_version": 1
+}
