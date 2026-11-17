@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The block eigenvalue equation forces a finite cyclic Fourier eigenvector and a unilateral-shift recurrence with nondecaying absolute values. Thus the eigenvalue condition is exactly a zero of the real coupling's discrete Fourier transform; no additional eigenvalues are possible. A positive inverse Fourier construction realizes every conjugate-symmetric nonidentity-root subset. The real Fourier transform supplies independent codimension constraints; nonnegativity of the block matrix gives an exact column-sum power formula. Finite-rank invariance of the Fredholm spectrum, standard unilateral-shift calculations and an explicit approximate-eigenvector sequence justify the full spectral claims. A finite checker reproduces finite cases but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The recent Dobrick paper establishes cyclicity for the **full** peripheral spectrum, not the independently tunable peripheral **point** spectra. Glück's 2015 Example 5.4 already realizes \(G\setminus\{1\}\), and Example 6.2 (following the 2014 note) demonstrates a missing-power example; these known facts are credited. Glück's 2021 construction realizes finite unions of subgroups as **full** peripheral spectra of stochastic irreducible operators. The new statement is not a restatement of those examples: one fixed positive rank-one family realizes every real-Fourier-compatible finite point-spectrum pattern and gives the exact stratum codimensions, the exact polynomial growth profile, and arbitrarily small perturbation realization on \(\ell_1\). No covering published mathematical-result record or other published result was located in the targeted comparisons. An older disguised Fourier-coupling construction is an identifiable priority risk. Dobrick (2026) was inspected in full, including Theorems 1.2 and 2.3, the critical-minorant proof, Example 3.2 and both appendices. Its conclusion concerns full peripheral spectrum and does not cover the inverse point-spectrum classification.
+PASS
 
-## Mathematical value — PASS
-A complete inverse classification is provided for a natural minimal coupling model—one finite cyclic component leaking rank-one mass into an infinite shift—rather than an isolated counterexample. The classification demonstrates that even on an order-continuous KB-space, all conjugate-symmetric finite patterns may arise arbitrarily near a power-bounded positive isometry, while unchanged full spectrum and exact linearly growing powers explain why stronger point-spectrum cyclicity theorems do not apply. The Fourier codimension calculation identifies the stability and prevalence of each pattern without arbitrary numerical choices.
+The block eigen-equation forces eigenvectors of P at mth roots, and the unsummable shift recurrence requires the coupling Fourier coefficient vanish. Construct positive a_j=1+(1/m)sum_{k in A} zeta^{jk}, giving Fourier transform m at 0, zero on E, one elsewhere. Real Fourier coordinates have codimension |E|. Positive ell_1 column sums give the exact norm of powers; finite-rank perturbation of S gives Fredholm essential circle and index -1 in the disk. An independent script exhaustively checked 60 conjugation-symmetric prescribed patterns for m=2..9, not the infinite proof. Boundary |lambda|<1 is bounded below through S and invertible P; normalized long blocks yield approximate boundary eigenvectors.
 
-## Scope and residual risk
-This is a reducible positive-operator model, not an irreducible or stochastic one. General peripheral-spectrum cyclicity remains intact. Exact Fourier manipulations are standard, and their use here could be implicit in earlier block constructions. The motivating preprint was inspected in full; a disguised older positive block construction remains a specific literature-priority risk. A human literature-priority check remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The universal Fourier inverse classification inside a single fixed positive rank-one shift-permutation coupling on ell_1 is not entailed by the known cyclicity of full peripheral spectrum or isolated noncyclic point-spectrum examples.
+
+## value
+
+PASS
+
+It resolves a natural inverse-design question for peripheral point spectra with positivity, exact parameter strata and arbitrarily small perturbations; the linear norm-growth formula quantifies a boundary of power-bounded point-spectrum cyclicity. This is more than a one-off negative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

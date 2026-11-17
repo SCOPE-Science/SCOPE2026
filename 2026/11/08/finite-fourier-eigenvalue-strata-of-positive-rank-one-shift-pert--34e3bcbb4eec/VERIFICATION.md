@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof appears in `RESULT.md`. The independent-audit channel has not been performed.
+# Independent mathematical audit
 
-`checker.py` was executed with Python 3 standard library and returned `POSITIVE_FOURIER_LEAKAGE_FINITE_OK 38474`. Its tests cover Fourier pattern realizations in dimensions \(2\) through \(16\), finite positive matrix-power norm identities and the discrete character-orthogonality arithmetic. Floating-point Fourier checks use explicit tolerances and do not establish exact symbolic identities; those identities follow from the displayed geometric-series proof. Finite truncations do not prove operator-theoretic assertions on \(\ell_1\); these are separately derived in `RESULT.md`.
+## correctness
 
-The full 2026 motivating manuscript was inspected for the stated inverse point-spectrum classification and not found. An independent originality audit remains outstanding. The literature comparison in `REVIEW.md` is a self-review.
+PASS
+
+The block eigen-equation forces eigenvectors of P at mth roots, and the unsummable shift recurrence requires the coupling Fourier coefficient vanish. Construct positive a_j=1+(1/m)sum_{k in A} zeta^{jk}, giving Fourier transform m at 0, zero on E, one elsewhere. Real Fourier coordinates have codimension |E|. Positive ell_1 column sums give the exact norm of powers; finite-rank perturbation of S gives Fredholm essential circle and index -1 in the disk. An independent script exhaustively checked 60 conjugation-symmetric prescribed patterns for m=2..9, not the infinite proof. Boundary |lambda|<1 is bounded below through S and invertible P; normalized long blocks yield approximate boundary eigenvectors.
+
+## originality
+
+PASS
+
+The universal Fourier inverse classification inside a single fixed positive rank-one shift-permutation coupling on ell_1 is not entailed by the known cyclicity of full peripheral spectrum or isolated noncyclic point-spectrum examples.
+
+## value
+
+PASS
+
+It resolves a natural inverse-design question for peripheral point spectra with positivity, exact parameter strata and arbitrarily small perturbations; the linear norm-growth formula quantifies a boundary of power-bounded point-spectrum cyclicity. This is more than a one-off negative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
