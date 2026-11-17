@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim is for each integer \(n\ge3\), every removed cube vertex, and the **open** neighborhood complex. Translating the puncture to zero, the odd component loses precisely one full neighborhood simplex except that all of its edges remain. The proof independently checks the unique-facet condition, constructs elementary collapses to dimension two, fills the boundary of **every** lost triangle by a three-triangle disk whose centers remain present, and proves simple connectivity by explicit cubical square relators. Exact face counts yield the sphere multiplicity. The nerve of the surviving neighborhood cover is exactly the other parity component. Both shores have the stated complete integral wedge homotopy type. The attached checker computes the finite graph complexes independently and replays elementary collapses through dimension six. Boundary-case \(n=3\) is included, and finite evidence is not substituted for the symbolic argument.
+
+## Originality — PASS, with residual risk
+The closest directly inspected primary mathematical statement is the published intact-cube theorem, which specifies the homotopy of \(\mathcal N(Q_n)\), not of \(\mathcal N(Q_n-v)\), and gives no vertex-deletion map. The present statement is not implied by that numerical classification: proving it additionally requires a precise missing-face census, retained nullhomotopies for deleted relators, and a nerve comparison between altered shores. The inspected 2025 quadrangulation paper assumes a nonbipartite situation distinct from this graph family. General neighborhood-complex definitions, degree-bounded graph classifications, and Rips-complex deletion results do not subsume the claim. Named published-finding corpus and web alias searches found no exact or dominating statement. This is **not** a guarantee of first discovery: alternate-language or unindexed formulations remain a genuine risk.
+
+## Value — PASS
+The ordinary open-neighborhood complex is a canonical topological invariant of a graph. Vertex deletion is the simplest possible disturbance of a cube and acts asymmetrically on the two bipartition shores; nevertheless both shores exhibit a matching explicit loss of an increasing number of integral sphere classes. The result gives a natural all-dimensional classification, a stable two-dimensional homotopy mechanism, and a useful counterexample to the idea that vertex-deletion effects follow simply from the parent's homotopy type. Its significance rests on the exact perturbation theorem and its local triangle fillings, not on mere face-count computation.
+
+## Prior work and remaining limitations
+The unpunctured hypercube sphere formula and facet collapse are prior work; the contribution is the graph-vertex puncture homotopy classification and shore comparison. The computation ends at dimension seven and the full symbolic proof extends to all dimensions. Equivalent results in not-yet-inspected literature cannot be excluded; no outside mathematical validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
