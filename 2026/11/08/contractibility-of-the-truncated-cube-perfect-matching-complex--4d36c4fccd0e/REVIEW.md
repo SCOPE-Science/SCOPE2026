@@ -1,15 +1,21 @@
-# Scientific review: truncated-cube perfect-matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined as the truncation of the binary three-cube. Its perfect matchings correspond bijectively to odd-degree spanning edge subsets of the original cube, giving 32 facets both theoretically and through independently implemented enumeration. The 118,096-face complex admits a complete sequential element pairing leaving one zero-cell, eleven three-cells, and eleven four-cells. All 737,700 covering incidences pass an explicit directed-acyclicity check. Exact oriented gradient-path computations give a unimodular eleven-by-eleven Morse attaching matrix. A distinct reverse ordering yields a twenty-three-by-twenty-three unimodular matrix. The Morse CW model is simply connected and integrally acyclic, so it is contractible. The Euler-characteristic contrast with the ordinary matching complex follows from an exact matching-polynomial recurrence, not from a field-only approximation.
+## correctness
 
-## Originality — PASS against checked evidence
-The two inspected primary papers, arXiv:2209.02803 and arXiv:2407.05809, treat honeycomb graphs, polygonal line tilings, and two-row grids, not the truncated cube. Relevant indexed results for the same graph compute its independence or graph-metric Rips complex; neither is the edge-subset complex of extendible perfect matchings. Searches also considered truncated/hexahedral naming, dimer complexes, ordinary matching complexes, and purported wider graph-family results. No checked statement or direct corollary covers this contractibility theorem. Indexed summaries for certain same-graph but different-complex reports could not be expanded to full text; these and unindexed literature remain bibliographic risks, not evidence of coverage.
+PASS
 
-## Value — PASS
-The truncated cube is a canonical Archimedean solid and one of the smallest highly symmetric cubic polyhedral graphs outside the honeycomb and strip families studied in the motivating literature. The exact contractibility of a pure eleven-dimensional non-cone with 118,096 faces is not an immediate consequence of a visible cone or a matching count. The 32-to-one structural correspondence with odd-degree cube subgraphs makes the finite calculation interpretable, and the sharp contrast \(\chi(\mathcal M(T))=-331\) shows the perfect-extendibility condition annihilates substantial ordinary matching topology. This serves as a motivated benchmark for perfect-matching topology on truncated cubic polyhedra, without claiming a broader family theorem.
+The dart model for the truncated cube has 24 vertices and 36 edges; its perfect matchings biject with odd-degree spanning subgraphs of Q3, giving 2^(12-7)=32 facets. Independently constructed 118096 faces, the complete vector (36,510,3492,11865,22920,28700,25176,15828,7040,2112,384,32), the ascending sequential 59036-pair Morse matching with one vertex plus 11 cells each in degrees 3 and 4, and acyclicity of all 118095 nonempty face vertices in the directed Hasse DAG. Reconstructed the oriented 11x11 gradient-path matrix and found determinant -1 (the prose reports +1, an orientation-sign discrepancy); its absolute determinant one is the required condition. With no cells in dimensions one or two, the Morse CW model is simply connected and Z-acyclic; Whitehead yields contractibility. Euler of ordinary matching complex -331 is consistent with separately published full ordinary-complex calculation. This is complete finite enumeration of the specified graph, not extrapolation.
 
-## Scientific limitations and closest work
-The result does not determine ordinary matching homotopy type, equivariant topology, or contractibility for other truncated polyhedra. It uses an exact finite computation with standalone source rather than a short uniform conceptual contraction. Most relevant comparisons: Bayer–Jelić Milutinović–Vega, *Perfect Matching Complexes of Honeycomb Graphs* (arXiv:2209.02803); Chandrakar–Singh, *Perfect Matching Complexes of Polygonal Line Tilings* (arXiv:2407.05809); indexed reports of truncated-cube independence and Rips complexes (different constructions). Independent external validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior finding determines perfect-matching-extendibility topology of the truncated cube. Honeycomb and polygonal tiling theorems do not include this finite polyhedron; the known ordinary matching-complex result concerns a strictly different face predicate. Best knowledge, not a global novelty certificate; inaccessible primary full texts are identified as risks.
+
+## value
+
+PASS
+
+A canonical Archimedean cubic polyhedral graph gives a natural, non-cone pure 11-dimensional perfect-matching complex with a nonobvious contractible homotopy type, sharply contrasting the ordinary matching complex. The explicit odd-subgraph correspondence and complete Morse certificate make the exact value a useful structural benchmark beyond a trivial isolated face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

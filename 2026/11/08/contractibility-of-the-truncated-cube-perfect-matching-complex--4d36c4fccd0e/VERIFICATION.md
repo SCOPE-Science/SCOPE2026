@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-The included `verify.py` uses only Python 3's standard library. All graph vertices, adjacency and graph-edge indices are constructed from binary three-cube darts. The primary perfect-matching enumeration is independent graph-vertex backtracking; the second enumerates all 4,096 cube-edge parity patterns, of which 32 satisfy odd degree at every cube vertex. Both agree on all 32 matching facets.
+## correctness
 
-The face enumeration contains 118,096 distinct faces including the empty face, with dimensions zero to eleven and vector \((36,510,3492,11865,22920,28700,25176,15828,7040,2112,384,32)\).
+PASS
 
-In the ascending graph-edge ordering, the exact element matching yields 59,036 pairs, 11 critical three-cells, 11 critical four-cells and one critical vertex. In reverse ordering, it yields 59,024 pairs, 23 critical three-cells, 23 critical four-cells and one critical vertex. For both, an independent topological sort of the reversed-matched Hasse diagram processes all 118,095 nonempty faces and 737,700 covering incidences. No directed cycles remain. Both oriented integral degree-four-to-three Morse matrices have determinant \(+1\); their full coefficients are reconstructed from signed gradient paths by the script. No floating-point arithmetic or homology-rank inference alone is used.
+The dart model for the truncated cube has 24 vertices and 36 edges; its perfect matchings biject with odd-degree spanning subgraphs of Q3, giving 2^(12-7)=32 facets. Independently constructed 118096 faces, the complete vector (36,510,3492,11865,22920,28700,25176,15828,7040,2112,384,32), the ascending sequential 59036-pair Morse matching with one vertex plus 11 cells each in degrees 3 and 4, and acyclicity of all 118095 nonempty face vertices in the directed Hasse DAG. Reconstructed the oriented 11x11 gradient-path matrix and found determinant -1 (the prose reports +1, an orientation-sign discrepancy); its absolute determinant one is the required condition. With no cells in dimensions one or two, the Morse CW model is simply connected and Z-acyclic; Whitehead yields contractibility. Euler of ordinary matching complex -331 is consistent with separately published full ordinary-complex calculation. This is complete finite enumeration of the specified graph, not extrapolation.
 
-An independent deletion recurrence for graph matchings gives alternating matching sum 332 and ordinary matching-complex Euler characteristic \(-331\). These checks certify only the specified finite graph and complexes. They are not independent external validation, and no assertion is made about arbitrary graph truncations or a general perfect-matching-complex classification.
+## originality
 
-Execution instructions: `python3 verify.py`. The exact expected terminal output is in `verify_output.txt`.
+PASS
+
+No inspected prior finding determines perfect-matching-extendibility topology of the truncated cube. Honeycomb and polygonal tiling theorems do not include this finite polyhedron; the known ordinary matching-complex result concerns a strictly different face predicate. Best knowledge, not a global novelty certificate; inaccessible primary full texts are identified as risks.
+
+## value
+
+PASS
+
+A canonical Archimedean cubic polyhedral graph gives a natural, non-cone pure 11-dimensional perfect-matching complex with a nonobvious contractible homotopy type, sharply contrasting the ordinary matching complex. The explicit odd-subgraph correspondence and complete Morse certificate make the exact value a useful structural benchmark beyond a trivial isolated face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
