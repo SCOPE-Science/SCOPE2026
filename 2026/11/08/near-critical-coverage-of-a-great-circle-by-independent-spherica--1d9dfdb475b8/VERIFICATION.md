@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction and analytical verification
+# Independent mathematical audit
 
-The accompanying `check_onset.py` requires Python, NumPy and SciPy. Run `python check_onset.py` from the directory containing this file and `check_onset.py`. The checker uses the independent direct-sphere center sampler rather than the analytically derived conditional gap law for its Monte Carlo component.
+## correctness
 
-The verified analytic steps are the uniform Euclidean-ball transverse marginal, the localized adjacent-gap equivalence, the exact simplex volume, the gamma-function radial integral, and the \(L^1\)/total-variation normalization. For fixed positive \(\varepsilon\), the conditional Dirichlet statement follows from a uniform simplex density, not a simulation.
+PASS
 
-Numerical checks performed using `check_onset.py`:
+For fixed m>=2,n>=3, uniform spherical centers project to independent uniform B^{m-1} transverse coordinates and iid azimuths. Coverage near w0=pi/n forces O(sqrt eps) transverse offsets and near-regular gap spacings. With labeled-first cyclic origin, the uniform gap simplex has volume S_+^{n-1}/(n-1)! and hence conditional probability (S_+/(2pi))^{n-1}, giving exact independent Dirichlet slack. Rescaling U=sqrt(eps)y and a compact Taylor bound yields exponent n(m+1)/2-1 and gamma coefficient, with L1/TV convergence to Beta(n(m-1)/2,n) radial law. Independently recomputed C_{2,4}=64/(5pi).
 
-- \(m=2,n=3\): computed gamma coefficient approximately \(3.656210113434\), exact-integral-to-leading ratio at \(\varepsilon=0.02\) approximately \(0.983007\).
-- \(m=2,n=4\): coefficient approximately \(4.074366543153=64/(5\pi)\), ratio at \(\varepsilon=0.02\) approximately \(0.9998764\).
-- \(m=3,n=3\): coefficient approximately \(17.05796216889\), ratio at \(\varepsilon=0.02\) approximately \(0.965585\).
-- Three million independently sampled \(S^2\) four-center configurations at \(\varepsilon=0.1\) gave 117 complete-circle-covering events, proportion \(0.000039\); independent simplex-integral quasi-Monte Carlo yielded approximately \(0.000040623666\). The empirical standard error is approximately \(0.000003606\).
+## originality
 
-Expected success marker: `GREAT_CIRCLE_RANDOM_CAP_ONSET_CHECKS_OK`.
+PASS
 
-The numerical verification is finite and approximate, and hence not a substitute for the exact analytic proof, historical-priority confirmation, or independent validation. The current claim does not concern coverage of the entire ambient sphere.
+General random-arc circle-coverage formulas and their Schur convexity are prior art. They do not by themselves state this fixed-great-circle spherical cap onset coefficient or conditional transverse Beta plus exact Dirichlet gap-shape law. The Siegel–Holst article is a plausible dominating source but only its abstract was accessible; unavailable full text is explicitly retained as a serious priority risk, not assumed absent.
+
+## value
+
+PASS
+
+A sharp critical coverage exponent and explicit probability coefficient for a canonical sphere-target geometry, together with the rare-event configuration law, are natural useful geometric-probability invariants. The exact Dirichlet component and TV-normalized Beta radial law describe successful configurations rather than merely a numeric scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

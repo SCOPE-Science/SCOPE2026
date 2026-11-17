@@ -1,19 +1,21 @@
-# Scientific review: near-critical great-circle coverage
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is for a prescribed great circle and iid uniform cap centers on \(S^m\), fixed integers \(m\ge2,n\ge3\), with \(\varepsilon\downarrow0\). The proof checks the transverse marginal exactly (uniform Euclidean \((m-1)\)-ball), localizes every covering configuration to transverse scale \(\sqrt\varepsilon\) and angular-gap scale \(\varepsilon\), and establishes that all near-critical coverage inequalities involve only adjacent arcs. Cyclic gaps are indexed starting at the labeled first center (avoiding the size-biased fixed-axis wrap gap). The corresponding fixed-width angular-gap region is exactly a simplex, yielding \(\bigl(S_+/(2\pi)\bigr)^{n-1}\) and an independent exact uniform-simplex slack law. Uniform second-order Taylor control and a compact support cutoff justify the beta-integral coefficient and the stated remainder. Convergence of normalized conditional densities is in \(L^1\), hence in total variation; the polar-radius law has beta parameters \(N/2,n\). The independent Gaussian-orientation Monte Carlo and quasi-Monte Carlo integrations corroborate these formulae but do not replace the proof.
+PASS
 
-## Originality — PASS, with historical priority explicitly provisional
+For fixed m>=2,n>=3, uniform spherical centers project to independent uniform B^{m-1} transverse coordinates and iid azimuths. Coverage near w0=pi/n forces O(sqrt eps) transverse offsets and near-regular gap spacings. With labeled-first cyclic origin, the uniform gap simplex has volume S_+^{n-1}/(n-1)! and hence conditional probability (S_+/(2pi))^{n-1}, giving exact independent Dirichlet slack. Rescaling U=sqrt(eps)y and a compact Taylor bound yields exponent n(m+1)/2-1 and gamma coefficient, with L1/TV convergence to Beta(n(m-1)/2,n) radial law. Independently recomputed C_{2,4}=64/(5pi).
 
-Siegel–Holst (1982), DOI 10.2307/3213488, gives exact formulas for arbitrary iid random arc lengths and therefore broadly covers the scalar circle-covering probability as a functional of the arc-length distribution. The scalar integral alone is not a novelty claim. Its accessible abstract does not state the present spherical-dimension onset coefficient or conditional Beta–Dirichlet configuration law, but its full text was not accessible, a material residual risk. Huffer–Shepp (1987), DOI 10.2307/3214266, was inspected in full; it establishes Schur convexity and coordinate convexity for arbitrary fixed arc lengths, not the present near-critical transverse conditional law. Finch's whole-sphere four-cap problem (arXiv:1502.06931v1) has a different event and a different threshold. Maehara's large-number spherical covering threshold addresses a different limit. Related published research records about deterministic simplex-centered cap unions or circle-sector geometry do not imply the claimed conditional law. Reproducing a general random-arc formula under spherical notation would not suffice; here the claimed distinct contribution is the explicit dimension-dependent sharp coefficient **together with** the joint shape theorem. A hidden equivalent treatment in the inaccessible source or unlocated classical work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-great-circle event is a canonical, rotationally invariant target-coverage problem intermediate between planar random-arc coverage and covering an entire sphere. The probability turns on at the sharp geometric optimum, with a fractional exponent that depends simultaneously on the ambient dimension and the number of centers. The conditional Beta–Dirichlet law quantitatively describes *how* the rare successful configurations concentrate near evenly spaced centers, dividing excess coverage into transverse displacement and neighboring angular overlaps. This is a motivated structural geometric-probability classification rather than a digit computation or routine renamed general formula. Both the explicit coefficient and conditional configuration law are necessary to the unified claim.
+General random-arc circle-coverage formulas and their Schur convexity are prior art. They do not by themselves state this fixed-great-circle spherical cap onset coefficient or conditional transverse Beta plus exact Dirichlet gap-shape law. The Siegel–Holst article is a plausible dominating source but only its abstract was accessible; unavailable full text is explicitly retained as a serious priority risk, not assumed absent.
 
-## Boundaries and remaining risks
+## value
 
-The asymptotics hold only for fixed \(m,n\) near \(\pi/n\). The finite-\(\varepsilon\) beta law is not asserted (it is limiting); the Dirichlet gap-slack law is exact only for sufficiently small \(\varepsilon\). The general circle-coverage results can already give a probability representation; historical priority for the sharpened geometric conditional law is not independently certified. The unavailable full text of Siegel–Holst is the principal unresolved bibliographical risk. No independent mathematical audit has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp critical coverage exponent and explicit probability coefficient for a canonical sphere-target geometry, together with the rare-event configuration law, are natural useful geometric-probability invariants. The exact Dirichlet component and TV-normalized Beta radial law describe successful configurations rather than merely a numeric scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

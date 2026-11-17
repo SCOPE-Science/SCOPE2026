@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T23:02:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/near-critical-coverage-of-a-great-circle-by-independent-spherica--1d9dfdb475b8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/near-critical-coverage-of-a-great-circle-by-independent-spherica--1d9dfdb475b8/check_onset.py"
+      ],
+      "rationale": "For fixed m>=2,n>=3, uniform spherical centers project to independent uniform B^{m-1} transverse coordinates and iid azimuths. Coverage near w0=pi/n forces O(sqrt eps) transverse offsets and near-regular gap spacings. With labeled-first cyclic origin, the uniform gap simplex has volume S_+^{n-1}/(n-1)! and hence conditional probability (S_+/(2pi))^{n-1}, giving exact independent Dirichlet slack. Rescaling U=sqrt(eps)y and a compact Taylor bound yields exponent n(m+1)/2-1 and gamma coefficient, with L1/TV convergence to Beta(n(m-1)/2,n) radial law. Independently recomputed C_{2,4}=64/(5pi).",
+      "residual_risks": [
+        "Fixed m,n and a prescribed target great circle; whole-sphere coverage and uniformity in dimension/cap count are excluded; Beta law only asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huffer–Shepp proves Schur convexity and coordinate convexity for any fixed arc widths; Siegel–Holst advertises general random-length coverage probability."
+        ],
+        "reasoning": "These are broader in arc width distribution, but the inspected full Huffer text does not derive the transverse geometric beta shape or onset coefficient. Siegel–Holst full text unavailable, creating explicit uncertainty.",
+        "searches": [
+          "random spherical caps fixed great circle covering critical radius Beta Dirichlet slack joint asymptotic",
+          "https://doi.org/10.2307/3214266",
+          "https://doi.org/10.2307/3213488"
+        ]
+      },
+      "checked_sources": [
+        "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Covering-the-circle-by-random-arcs.pdf",
+        "https://doi.org/10.2307/3213488",
+        "https://doi.org/10.2307/3213488"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huffer–Shepp Sections 1–3 discuss probability convexity and reflection argument; they contain no conditional transverse distribution because no sphere-normal coordinates are present."
+        ],
+        "reasoning": "Classical arc probability could imply a coefficient after a new calculation; mere availability of an integral does not automatically establish the claimed normalized limit and exact slack independence.",
+        "searches": [
+          "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Covering-the-circle-by-random-arcs.pdf",
+          "https://doi.org/10.2307/3213488"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Given transverse U, coverage becomes randomly rotated arcs on the circle with widths 2alpha_i; conditional arc probability is (S/(2pi))^{n-1} near onset."
+        ],
+        "reasoning": "The general random-arc formulation covers the scalar conditional integral, which is explicitly credited. The spherical scaling and joint conditional configuration theorem remain separate steps.",
+        "searches": [
+          "random spherical caps fixed great circle covering critical radius Beta Dirichlet slack joint asymptotic",
+          "https://doi.org/10.2307/3213488"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-whole-sphere-cap tetrahedral onset has different event threshold acos(1/3); the fixed great-circle event has pi/4 for four caps."
+        ],
+        "reasoning": "No identified exact table of the fixed-circle all-(m,n) C_{m,n} coefficients or the joint Beta–Dirichlet law; failed search alone is not priority proof.",
+        "searches": [
+          "random spherical caps fixed great circle covering critical radius Beta Dirichlet slack joint asymptotic",
+          "Resultary 2026/11/8/SCOPE-quartic-onset-of-coverage-by-four-random-spherical-caps--6e87ccc2abc2"
+        ]
+      },
+      "rationale": "General random-arc circle-coverage formulas and their Schur convexity are prior art. They do not by themselves state this fixed-great-circle spherical cap onset coefficient or conditional transverse Beta plus exact Dirichlet gap-shape law. The Siegel–Holst article is a plausible dominating source but only its abstract was accessible; unavailable full text is explicitly retained as a serious priority risk, not assumed absent.",
+      "residual_risks": [
+        "Full Siegel–Holst (1982)/1981 technical report inaccessible; it may contain a stronger conditional gap law or applicable asymptotic.",
+        "Potential unindexed geometric-probability near-threshold treatment of spherical cap intersections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Schur and coordinate convexity theorem, no spherical transverse law",
+          "evidence": [
+            "Theorem (1.1) Schur-convex and (1.2) coordinate convex; Stevens formula for equal widths."
+          ],
+          "identifier_or_url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Covering-the-circle-by-random-arcs.pdf",
+          "material_read": "Read complete 1987 eight-page PDF text, Sections 1–3 and proof; inspected web PDF page image",
+          "method": "Full source text inspected",
+          "title": "On the Probability of Covering the Circle by Random Arcs",
+          "trigger": "Same circle coverage function for fixed arc widths"
+        },
+        {
+          "assessment": "Cannot certify full-document NOT_COVERING; explicit priority risk",
+          "evidence": [
+            "Abstract advertises exact random-arc coverage probabilities and uncovered-gap distribution."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213488",
+          "material_read": "Read published abstract and bibliographic references only; full text unavailable; Stanford 1981 technical-report link found but inaccessible",
+          "method": "Partial available material or abstract",
+          "title": "Covering the circle with random arcs of random sizes",
+          "trigger": "Highly relevant potentially dominating random-length coverage source"
+        },
+        {
+          "assessment": "Access failure only, not scientific rejection",
+          "evidence": [
+            "No article text obtained from institutional route; requires owner to connect VPN."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213488",
+          "material_read": "Access request returned vpn_disconnected; no content was obtained",
+          "method": "Authorized institutional access attempt, blocked",
+          "title": "Oxford institutional retrieval attempt for Siegel–Holst",
+          "trigger": "Required authorized fallback after arXiv/OA attempt failed"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/near-critical-coverage-of-a-great-circle-by-independent-spherica--1d9dfdb475b8/RESULT.md",
+        "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Covering-the-circle-by-random-arcs.pdf",
+        "https://doi.org/10.2307/3213488",
+        "https://doi.org/10.2307/3213488"
+      ],
+      "rationale": "A sharp critical coverage exponent and explicit probability coefficient for a canonical sphere-target geometry, together with the rare-event configuration law, are natural useful geometric-probability invariants. The exact Dirichlet component and TV-normalized Beta radial law describe successful configurations rather than merely a numeric scalar.",
+      "residual_risks": [
+        "Full Siegel–Holst (1982)/1981 technical report inaccessible; it may contain a stronger conditional gap law or applicable asymptotic.",
+        "Potential unindexed geometric-probability near-threshold treatment of spherical cap intersections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed m,n and a prescribed target great circle; whole-sphere coverage and uniformity in dimension/cap count are excluded; Beta law only asymptotic.",
+    "Independent finite checks were corroborative; full quantified claim was assessed from the proof.",
+    "Publication withheld due to public-metadata provenance concerns; this is not a scientific failure."
+  ],
+  "schema_version": 1
+}
