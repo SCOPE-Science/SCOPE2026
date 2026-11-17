@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof constructs the entire affine residue image, proves all points are reachable, and verifies that the binary transition graph has uniform stationary measure, a single communicating class, and an aperiodic state. The full natural-density limit follows from uniform convergence on arbitrary sufficiently long binary suffix blocks.
+# Independent mathematical audit
 
-Checks performed before acceptance: direct recurrence enumerations up to \(2^{15}\), exhaustive reachable-state and predecessor counts for moduli \(2^1\) through \(2^8\), projective branch images and inverse formulas through modulus \(2^9\), cyclic unit generation through modulus \(2^{12}\), and dyadic distributions at finite depths. Verification code: `verify.py`. All tests are finite and cannot substitute for the general proof.
+## correctness
 
-Scientific limits: no claim for odd prime moduli, other Stern-polynomial evaluations, or historical uniqueness. Independent audit: not performed.
+PASS
+
+The precise binary transitions L(a,b)=(-2a,a+b) and R(a,b)=(a+b,-2b) preserve ell=b-5a congruent 1 mod 8; the corresponding projective maps have odd denominators and determinant -2, contract exact 2-adic differences by one power, and their images are the complementary even/odd classes. An R followed by k L letters acts on a vertical state as scalar -5/3 mod 2^k, generating all units 1+8Z/2^k. This yields every allowed affine pair at every level. Each admissible pair has exactly two labeled incoming transitions, uniform stationarity; reachability from v0 plus L(v0)=v0 give irreducibility and aperiodicity. Binary prefix-block decomposition turns dyadic distribution into full natural densities. Independently recomputed full reachable modular graph and coset equality for k=1,...,7; these finite checks corroborate rather than replace infinite proof.
+
+## originality
+
+PASS
+
+The primary Stern diatomic modular equidistribution theorem is for the t=1 primitive-pair action, not the noninvertible t=-2 Stern polynomial action or its affine index-eight support. Ulas and Gawron investigate evaluations or polynomial algebra, not this pair-state coset. Exact Resultary duplicate at Nov 8 is not independent prior art. No decisive broader claim was found; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A natural special value of classical Stern polynomials has a surprising exact affine index-eight joint orbit and uniform all-N densities, fundamentally different from Stern diatomic primitive residues. The complete orbit and mixing classification are useful arithmetic dynamics, not a substituted evaluation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The binary evaluation maps have an invariant affine residue coset. Their projective Möbius maps have determinant \(-2\), disjoint parity images, and exact contraction factor two, yielding every projective state. A repeatable \(RL^k\) loop generates the full allowed scalar unit group, so every affine residue pair is reached; repeated cycles give infinitely many witnesses. Each finite transition state has exactly two labeled incoming edges, and the reachable finite chain has aperiodic uniform stationary measure. Dyadic block decomposition extends this measure to unrestricted initial intervals. Explicit formulas at boundary powers \(2^1,2^2,2^3\) agree with the general constraints. The included checker independently tests the decisive combinatorial identities.
+## correctness
 
-## Originality — PASS, with historical-priority limitation
+PASS
 
-Ulas (2011), full journal PDF Section 5 and main results examined: exact evaluations at \(0,-1,1,2\), not this \(-2\) image and natural-density law. Gawron (2014), arXiv full text examined: rational roots, polynomial degree patterns and reciprocity; its modular arguments apply to the different arguments \(-1/2\) and \(-1/3\). Reznick (2006), complete accessible article examined: uniform modular distribution of classical Stern pairs \(t=1\), with a different support and determinant. A prior equivalent result elsewhere cannot be ruled out, and web/semantic searches alone cannot certify uniqueness.
+The precise binary transitions L(a,b)=(-2a,a+b) and R(a,b)=(a+b,-2b) preserve ell=b-5a congruent 1 mod 8; the corresponding projective maps have odd denominators and determinant -2, contract exact 2-adic differences by one power, and their images are the complementary even/odd classes. An R followed by k L letters acts on a vertical state as scalar -5/3 mod 2^k, generating all units 1+8Z/2^k. This yields every allowed affine pair at every level. Each admissible pair has exactly two labeled incoming transitions, uniform stationarity; reachability from v0 plus L(v0)=v0 give irreducibility and aperiodicity. Binary prefix-block decomposition turns dyadic distribution into full natural densities. Independently recomputed full reachable modular graph and coset equality for k=1,...,7; these finite checks corroborate rather than replace infinite proof.
 
-## Value — PASS
+## originality
 
-The theorem gives a complete, arithmetic and metric description of a natural, nontrivial negative specialization of a classical number-theory polynomial sequence. The affine coset is not the primitive-pair constraint of classical Stern values; the proof explains its exact index eight and establishes both infinite attainment and uniform natural density. This produces a meaningful natural exact invariant, not merely a finite table or normalization identity.
+PASS
 
-## Limitations and independent verification
+The primary Stern diatomic modular equidistribution theorem is for the t=1 primitive-pair action, not the noninvertible t=-2 Stern polynomial action or its affine index-eight support. Ulas and Gawron investigate evaluations or polynomial algebra, not this pair-state coset. Exact Resultary duplicate at Nov 8 is not independent prior art. No decisive broader claim was found; priority remains best-of-knowledge.
 
-The theorem concerns exactly \(t=-2\), modulo powers of two; all infinite assertions require the written structural proof. The exhaustive computations are cross-checks only. Additional literature could contain a logically equivalent formulation.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A natural special value of classical Stern polynomials has a surprising exact affine index-eight joint orbit and uniform all-N densities, fundamentally different from Stern diatomic primitive residues. The complete orbit and mixing classification are useful arithmetic dynamics, not a substituted evaluation identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
