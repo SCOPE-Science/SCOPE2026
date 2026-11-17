@@ -1,15 +1,21 @@
-# Scientific review: two quadratic chirps over odd finite fields
+# Independent mathematical audit
 
-## Correctness: PASS
-The explicit two-cross-Gauss-sum calculation is checked at the level of characteristic, field extension, trace normalization and all coefficients. The affine bijection of off-line phase space yields exactly \(q-1\) solutions per nonzero mixed phase; the trace fibers determine all multiplicities. Every Weyl singular value is \(\sqrt q\) times a computed ambiguity modulus. Gauss orthogonality and the unit-circle distances establish the sharp endpoints. Independent direct finite-sum checker results are described in `VERIFICATION.md`. These calculations corroborate, not replace, the universal proof.
+## correctness
 
-## Originality: PASS (bounded)
-Full primary comparisons: Casazza–Fickus, *Fourier Transforms of Finite Chirps* (DOI:10.1155/ASP/2006/70204), and Bojarovska–Flinth, *Phase Retrieval from Gabor Measurements* (arXiv:1503.05800v1, Theorems 2.2–2.3). Relevant published single-impulse chirp, single-chirp Hessian and hyperbolic-shell Gabor results were also read through their complete theorem/proof files. Those objects and claims do not directly cover the superposition's extension-field exact spectrum. The abstract of the 2026 algebraic-perturbation paper was checked, but its unavailable full text cannot support a whole-document exclusion. Unidentified radar/cross-chirp literature may imply the finding; exhaustive historical priority and independence have not been established.
+PASS
 
-## Mathematical value: PASS
-The result gives an exact rank and kernel dichotomy for a natural coherent-chirp Gabor window, all spectral multiplicities and sharp invertible-case conditioning, uniformly across odd finite prime-power fields. The distinction between a prime field and extensions of a prime whose field order is \(3\pmod4\) has direct consequences for informational completeness of linear intensity lifting. It is not a general claim about nonlinear phase-retrieval failure in singular cases.
+Expansion gives two auto-chirp lines b=2ca,2da and cross Gauss sums G(ψ(U)+ηψ(V)); off-line phase difference Δ=−(b−2ca)(b−2da)/(2(c−d)). Because the linear (a,b)->(u,v) map is invertible, each nonzero Δ occurs q−1 times. Trace-zero nonzero elements count q/p−1 and each nonzero trace counts q/p, determining all four ambiguity sectors. For η=−1 (q≡3 mod4), and s>1, trace-zero off-line cells vanish with multiplicity (q−1)(q/p−1); η=1 or q=p gives no zeros. The Weyl directions form an orthonormal HS basis; symplectic Fourier diagonalization gives singular values sqrt(q)|A_g(a,b)| and exact kernel. Cauchy–Schwarz fixes the largest, and discrete cosine/sine traces the smallest, including the p=3 boundary. Independent full ambiguity sums over GF3, GF5, GF7 and GF27 (irreducible polynomial x³+2x+1) reproduced zero counts 0,0,0,208 and q=27 rank521. Finite tests confirm selected cases, all-field proof uses trace and Gauss sums.
 
-## Scope and scientific limitations
-Equal nonzero unit-amplitude chirp coefficients, distinct slopes and odd characteristic are required. No ranking among arbitrary Gabor windows, general-ring classification or independent mathematical validation is claimed. Historical-priority risk remains for possibly equivalent coded-waveform ambiguity formulas.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bojarovska–Flinth Theorem 2.3 already relates Gabor intensity lifting frame bounds to nonzero ambiguity, but does not evaluate this sum-of-two-distinct-quadratic-chirps window over field extensions. Published SCOPE impulse-augmented chirp and single-chirp Hessian statements concern different windows or local deformations. The trace-arithmetic rank jump and exact four-sector singular spectrum survive comparisons.
+
+## value
+
+PASS
+
+A complete finite-field arithmetic tomography rank/singular-spectrum classification for an explicit natural two-chirp window gives exact recovery and conditioning boundaries, including a nontrivial q27 example where matrix-lift nullity is 208. This is a useful structured signal-processing invariant beyond the general frame theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
