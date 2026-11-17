@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For rank-one idempotents P=diag(1,0), Q=[[a,b],[c,1−a]] with a(1−a)=bc, the bracket [[0,b],[−c,0]] has determinant a(1−a). A prescribed traceless C must interchange the image and kernel lines of P. Zero gives 2q(q+1); nonzero nilpotent gives 4q; invertible nonscalar targets give (q+1−e(C))ρ_q(det C); characteristic-two scalar tracezero targets cannot arise. The quadratic character and Artin–Schreier cases give the claimed image sizes. Fresh independent literal enumeration of all ordered idempotent pairs and all target matrices over q=2,3,5 matched fiber counts, total mass and image sizes 4,15,75. These finite tests corroborate the all-prime-power proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct25 prior proves for every n≥2 and all finite fields the full similarity spectrum of same additive commutator; the present claim is n=2 with finer-looking output labels but derivable.",
+          "Nov8 sum-of-idempotents deals with addition and is not the decisive prior."
+        ],
+        "reasoning": "An all-n prior theorem dominates the current n=2 statement after conjugation invariance; no new parameter survives.",
+        "searches": [
+          "Resultary Oct25 similarity spectra commutators rank-one primitive idempotents all matrix sizes",
+          "Resultary 2026/11/08/SCOPE-complete-fibers-of-sums-of-two-rank-one-idempotents-over-finite--d85f889ccb7f"
+        ]
+      },
+      "checked_sources": [
+        "Prior Resultary full Oct25 commutator similarity theorem",
+        "Frozen source tree 8142746342507c4097e4d4afe8444066eaf1668c, RESULT.md and scripts/check_commutator.py",
+        "Khurana–Lam–Shomron determinant theorem arXiv:1003.5420 referenced within current primary comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For zero C: prior fixed-E 2 choices F, multiply T→2q(q+1).",
+          "For nonzero nilpotent C: prior fixed-E 4(q−1), multiply T and divide its q²−1 element conjugacy class→4q.",
+          "For invertible tr0 C: prior fixed-E m_q(−det C)(q−1), multiply T; divide by q(q+1) split or q(q−1) nonsplit orbit to get ρ_q(det C)(q−1) or ρ_q(det C)(q+1), equal (q+1−e(C))ρ_q(det C)."
+        ],
+        "reasoning": "All three prior similarity strata imply the exact current formula and image size, including even-field cyclic non-scalar blocks. This is decisive prior coverage, not merely topical proximity.",
+        "searches": [
+          "Resultary Oct25/RESULT.md full theorem n=2 special case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior fixed-E similarity spectrum with d=n−1, B=(q^d−1)q^{d−1}, T=q^d(q^{d+1}−1)/(q−1).",
+          "At n=2, B=q−1, T=q(q+1); δ=c(c−1) corresponds to minus output determinant and m_q(δ)=ρ_q(det C)."
+        ],
+        "reasoning": "Prior counts by conjugacy classes, current counts for a prescribed matrix; orbit-stabilizer division makes exact equality.",
+        "searches": [
+          "Resultary rank-one idempotent M2 finite-field commutator target fibers",
+          "Resultary 2026/10/25/SCOPE-similarity-spectra-of-commutators-of-primitive-idempotents-over--42456512d337"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior table enumerates zero, J2(0), J3(0) when n≥3, and cyclic quadratic companion blocks, with exact m_q(δ) and all field characteristics."
+        ],
+        "reasoning": "The existing table is an exact database of every similarity class. For n=2 each class orbit size is explicit, producing every matrix target count and hence exact support size.",
+        "searches": [
+          "2026-10-25 complete similarity spectrum fixed E rank-one idempotents finite fields",
+          "source prior RESULT.md full similarity-type table"
+        ]
+      },
+      "rationale": "FAIL: The complete 2026-10-25 published similarity spectrum of commutators of primitive rank-one idempotents proves a stronger theorem for every n≥2. Specializing its fixed-E similarity census at n=2, multiplying by q(q+1) possibilities for E and dividing by each target conjugacy-class size yields exactly the current per-target fibers, including characteristic-two scalar exclusions and the same δ=c(c−1)=−det(C) scalar-root condition. Thus the named target formula and image cardinalities are already mathematically determined despite not sharing identical display text.",
+      "residual_risks": [
+        "No material originality uncertainty: formal orbit-stabilizer derivation from prior results closes the comparison.",
+        "Independent all-target enumeration only q=2,3,5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING VIA n=2 PLUS CONJUGACY: full per-target fibers follow by orbit-stabilizer",
+          "evidence": "Fixed E table with T and B parameters, δ=c(c−1), and nilpotent/companion blocks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-similarity-spectra-of-commutators-of-primitive-idempotents-over--42456512d337",
+          "material_read": "Entire RESULT.md, including finding/table, rank-one P block parametrization, proofs, characteristic-two case, normalization and limitations",
+          "method": "Retrieved and materially read complete published GitHub RESULT.md",
+          "title": "Similarity spectra of commutators of primitive idempotents over finite fields",
+          "trigger": "same bracket map and rank-one idempotent factors; broader n"
+        },
+        {
+          "assessment": "Correct but completely implied by October25 full similarity census",
+          "evidence": "Compatibility e(C)=2/0 odd, e(C)=1 characteristic 2; scalar obstruction.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-commutator-fibers-of-two-rank-one-idempotents-over-finite--f41e2580e43e",
+          "material_read": "Entire RESULT.md and Python verifier check_commutator.py",
+          "method": "Frozen GitHub source files",
+          "title": "Exact commutator fibers of two rank-one idempotents over finite fields (assigned)",
+          "trigger": "assigned proof and comparison target"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as independent research: the natural exact finite-field target fiber histogram is an elementary orbit-stabilizer corollary of an already published complete all-dimensional similarity distribution. The submitted proof is correct but contributes no new unknown, independently useful exact invariant under the required originality bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Published theorem has broader n and implies this special case.",
+    "No claim for higher dimensions within submitted result.",
+    "Publication withheld; scientific rejection preserves entire source package."
+  ],
+  "schema_version": 1
+}
