@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns all length-\(19\) words over five labeled symbols containing all \(120\) permutations as scattered subsequences, modulo the explicitly defined group actions. Consecutive equal letters are removable. First-appearance normalization loses no class and is unique. For each \(t\)-pattern, the earliest embedding must finish at most \(L-m_{5-t}\) because its suffix must embed all permutations of the complementary alphabet. The needed smaller-alphabet minima \(1,3,7,12\) were independently checked. This lemma justifies *every* pruning deadline in the exhaustive canonical search. Two separate state constructions—greedy matching of the 120 full permutations and explicit distinct-letter-subsequence languages—give identical results at lengths 18 and 19, including the exact 128-word file. Direct permutation tests, free relabeling, and a complete reversal-orbit partition verify the remaining consequences. There is no use of finite samples to infer an unbounded claim: the claimed domain is completely enumerated.
+PASS
 
-## Originality — PASS, with residual historical priority risk
+The finite census has a complete justified search domain. Repeated adjacent letters may be deleted without losing a distinct-letter permutation subsequence; canonical first-appearance renaming is unique and has free S5 action. For any t-distinct-letter pattern p, its earliest greedy completion in a length-L universal word leaves a suffix universal for the 5-t complementary symbols; hence the deadline L-m_{5-t} with verified m_1..m_4=1,3,7,12 is necessary. Actual C++17 enum_greedy and enum_subseq source blobs were fetched and Git hashes checked; one maintains greedy progress in 120 target permutations, the other explicit bitsets of all distinct-letter subsequences. Both independently compiled and searched the complete normalized, adjacent-repeat-free trees: zero canonical solutions at 18 and an identical list of precisely 128 at 19. Independent Python checks confirmed all 120 patterns in each 19-word, proper normalization and 16 fixed/56 paired reversal orbits; rank-five lower bound follows from empty 18 and extension argument. A full finite exhaustive proof is warranted because every branch and pruning rule is justified; a mere log or numerical sample would not be.
 
-Newey (March 1973, Section 9, printed page 12) **already reported 128 distinct construction classes**, and stated that they *may or may not be all of them*. The novelty assessed here is the previously unproved global upper bound and resulting exact equality-case census; the construction, numerical lower bound, and minimum length 19 are expressly credited. Newey fully settled the nine four-letter classes. Radomirović (2012) and Engen–Vatter (2018) treat constructions and universal-word lengths but provide no exact exhaustive five-letter class count in the inspected material. The OEIS entries give lengths and examples, not the upper bound. Search comparisons found no published assertion settling the 1973 uncertainty; this is best-knowledge priority, not an independent certification. A later, unindexed census remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This closes the explicit 1973 equality-class completeness question in the first alphabet size where the known 128-class construction was not asserted exhaustive. It determines all optimal words, establishes that every optimum starts with a permutation, and gives exact labeled and reversal-symmetry spectra. The invariant is the natural number of minimal universal words, rather than an arbitrary slice or a small numerical improvement. The result is a meaningful self-contained finite classification with complete reproducibility.
+Best-of-knowledge statement/implication comparison: Compared alphabets relabeling and reversal as distinct group quotients; the new assertion is the upper bound of 128, not the previously known construction count. An optimal construction lower bound and minimal length theorem do not imply the number of all shortest words. The upper bound is provided by complete independent finite searches. An example list is not global enumeration unless soundly exhaustive. The two independently implemented pruning traversals provide that missing closed-world certificate; unindexed later lists remain possible priority overlap. The prior lower bound plus a new exact upper bound implies equality, while no inspected previous construction, length bound or OEIS entry entails that upper bound.
 
-## References and scope boundaries
+## value
 
-Newey, *Notes on a Problem Involving Permutations as Subsequences*, STAN-CS-73-340 (March 1973), Sections 5, 7 and 9; Radomirović, *Electronic Journal of Combinatorics* 19(4), P31 (2012); Engen–Vatter, arXiv:1810.08252, Section 4 (2018); OEIS A062714 and A351468. No classification is claimed for six or more letters. Earlier March 1973 source has no verified exact day; the exact day in metadata identifies a later day-verified primary publication and does not erase or redate the original source.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers Newey’s explicit March 1973 question whether his 128 constructible five-letter shortest universal words exhaust the equality cases. A sharp exhaustive classification at the first unsettled alphabet size is a natural useful combinatorial invariant; it determines exact labeled and reversal spectra and structural occurrence constraints. It is not presented as a general alphabet theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

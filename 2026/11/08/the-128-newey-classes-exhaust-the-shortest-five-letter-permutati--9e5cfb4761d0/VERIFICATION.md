@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 tools/verify.py` with Python 3 and a C++17 compiler available. The script compiles both independent five-letter enumeration programs and the small-alphabet control program from source and runs them. The expected console messages end with `VERIFY_OK`.
+## correctness
 
-The greedy-state program tracks the longest matched prefix of each of \(120\) permutations. The explicit-language program separately tracks every realized distinct-letter subsequence of lengths \(1\) through \(5\). Both search all first-appearance-normalized, adjacent-repeat-free words subject only to a proved length-dependent prefix-completeness cutoff. The mathematical cutoff is derived in `RESULT.md`; it is not a heuristic.
+PASS
 
-The programs produce exactly \(0\) complete canonical words at length \(18\) and exactly \(128\) at length \(19\), matching the full `data/canonical_optima.txt` list. A separate exhaustive search confirms the cutoffs \((1,3,7,12)\) for smaller alphabets. Python additionally retests each of the \(128\) words against all \(120\) permutations, checks first-appearance normalization and multiplicities, and verifies every class in the supplied reversal partition (\(16\) fixed, \(56\) paired). The three programs and their input data are self-contained and require no external services or downloaded datasets.
+The finite census has a complete justified search domain. Repeated adjacent letters may be deleted without losing a distinct-letter permutation subsequence; canonical first-appearance renaming is unique and has free S5 action. For any t-distinct-letter pattern p, its earliest greedy completion in a length-L universal word leaves a suffix universal for the 5-t complementary symbols; hence the deadline L-m_{5-t} with verified m_1..m_4=1,3,7,12 is necessary. Actual C++17 enum_greedy and enum_subseq source blobs were fetched and Git hashes checked; one maintains greedy progress in 120 target permutations, the other explicit bitsets of all distinct-letter subsequences. Both independently compiled and searched the complete normalized, adjacent-repeat-free trees: zero canonical solutions at 18 and an identical list of precisely 128 at 19. Independent Python checks confirmed all 120 patterns in each 19-word, proper normalization and 16 fixed/56 paired reversal orbits; rank-five lower bound follows from empty 18 and extension argument. A full finite exhaustive proof is warranted because every branch and pruning rule is justified; a mere log or numerical sample would not be.
 
-The result is a finite, exhaustively checked classification. Generalization to more letters is neither performed nor implied. Historical-priority comparisons and independent scientific review are distinct from computational verification; an independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison: Compared alphabets relabeling and reversal as distinct group quotients; the new assertion is the upper bound of 128, not the previously known construction count. An optimal construction lower bound and minimal length theorem do not imply the number of all shortest words. The upper bound is provided by complete independent finite searches. An example list is not global enumeration unless soundly exhaustive. The two independently implemented pruning traversals provide that missing closed-world certificate; unindexed later lists remain possible priority overlap. The prior lower bound plus a new exact upper bound implies equality, while no inspected previous construction, length bound or OEIS entry entails that upper bound.
+
+## value
+
+PASS
+
+This answers Newey’s explicit March 1973 question whether his 128 constructible five-letter shortest universal words exhaust the equality cases. A sharp exhaustive classification at the first unsettled alphabet size is a natural useful combinatorial invariant; it determines exact labeled and reversal spectra and structural occurrence constraints. It is not presented as a general alphabet theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
