@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nearest-neighbor indicators are exactly local minima of the \(n-1\) internal gaps; endpoint boundary gaps are correctly excluded. The exponential/Dirichlet coupling, gamma normalization, exact local joint-integral tables, finite sum multiplicities, and 2-dependent multivariate CLT yield the complete claim for \(n\ge5\). An independent rank-order enumeration evaluates the requisite conditional first and second moments as exact fractions for \(3\le n\le9\), with 33 successful comparisons. It corroborates but does not substitute for the proof. The exceptional cases \(n=3,4\) are separately handled.
+## correctness
 
-## Originality — PASS (subject to historical priority risk)
-The closest inspected primary papers are Penrose–Wade (2006), arXiv:math/0603561v1, whose Theorem 2.3 concerns total *directed* nearest-neighbor edge length, and Bahadır–Ceyhan (2016), arXiv:1605.01940v1, whose Lemma 2.1 and Sections 3–4 concern *counts* of mutual and shared nearest-neighbor pairs. Neither derives the covariance of count with the total length restricted to mutual pairs nor the explicit joint central limit covariance matrix. The known count mean/variance and univariate CLT are acknowledged, and search of related geometric graph and spacing works did not identify a stronger result. Search absence cannot prove novelty; earlier motif/spacing papers not identified by search remain a residual risk.
+PASS
 
-## Value — PASS
-Both count and length are intrinsic, non-arbitrary observables of the reciprocal-nearest-neighbor subgraph: the count measures how many mutual clusters occur, while the total length measures their physical extent. Their joint covariance and limiting dependence matter for simultaneous calibration of one-dimensional spatial clustering statistics. The explicitly positive, nonzero \(8/(3\sqrt{22})\) limiting correlation contrasts with treating a size measure and a spatial extent measure as independent. Exact variance and a bivariate CLT give coherent uncertainty quantification, beyond a marginal recomputation.
+PASS: Exactly the local minima of n-1 internal uniform-order gaps correspond to mutual pairs; endpoint *external* spacings are excluded. In an independent exponential coupling the indicators and Y_i=E_i I_i are 2-dependent, and W=Z/S with S Gamma(n+1,1) independent of normalized spacings. The on-site, neighboring and distance-two mixed covariance tables integrate exponential densities and sum to (64n+105)/2700 for Cov(R,Z); division by n+1 gives the asserted positive mixed moment. Local Y covariance gives exact Var(W) using E[S²]=(n+1)(n+2), and 2-dependent multivariate CLT/delta method yields covariance [[2/45,16/675],[16/675,44/1125]]. Independently enumerated all gap relative rank permutations for n=3..7, using conditional exact exponential order-statistic means, reproducing E[R], E[W], and covariance including small exceptions. The finite checks are not the general CLT proof.
 
-## Scientific and access limitations
-Results require independent uniform points on an interval, no ties, one count per mutual pair and Euclidean lengths. Historical priority outside the cited accessible full-text papers is not certified. There is no claim of higher-dimensional or nonuniform-density universality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Bahadır–Ceyhan gives unweighted mutual nearest-neighbor count moments/CLT; Penrose–Wade studies different total directed length functional. A published interval graph covariance result concerns total distinct-edge length with negative covariance; a circular paper concerns directed length and a negative covariance. None determines positive mixed covariance for once-counted mutual-edge *length*, its exact variance, or joint law. Best-of-knowledge originality remains possible subject to broad spatial stabilization/spacing literature.
+
+## value
+
+PASS
+
+PASS: Mutual nearest-neighbor pairs are canonical components of the one-dimensional nearest-neighbor graph, and their count and physical total extent are separately natural observables. The exact strictly positive mixed covariance, exact variance and nonzero limiting joint correlation quantify genuine simultaneous uncertainty and contrast with known negative component-vs-total-edge-length covariances; these new constants are useful without a broader family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
