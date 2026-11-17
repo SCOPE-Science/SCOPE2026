@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the faithful correspondence between universal modal operations and binary accessibility relations, an explicit class-incidence distance characterization for every alternating relation product, strict growth until the join-equivalence relation, and a parity-sensitive graph extremum. Crucially, it treats disconnected components and parallel world-edges. On every ordered pair of set partitions through six worlds, direct relational closure agrees with the independent graph-distance calculation (44,168 cases). The finite tests are not offered as proof of the all-size result. The key extremal obstruction at even world count is that a full-length shortest path occupies every edge and cannot have opposite types of same-side endpoints simultaneously.
+PASS
 
-## Originality — PASS, with priority limits
+Faithful relation-to-universal-event-operator map uses single-world-complement tests; reflexive E,F imply alternating normal words. Each product corresponds to bounded parity-correct shortest path in the E-class/F-class incidence multigraph; recurrence and padding prove both directions, including disconnected graphs and parallel edges. The strict-growth argument via closure under both final generators shows no premature duplicate before join C=E∨F; different leading chains meet only at C. The sharp graph bound uses N-edge connected-component path diameter and parity obstruction when N even; path frame attains upper bounds and N=1,2 handled. Existing checker enumerated 44,168 partition pairs through N=6 as corroboration, not all-N proof.
 
-Bílková–Fussner–Kuznets, arXiv:2505.23401 (2025), treats alternating multi-agent S5 formulas in proof theory and interpolation, not the fixed-frame monoid-size formula. Schulman's 2011 quantifier semigroup concerns existential/universal neighbor maps on bipartite **vertex** sets, rather than two equivalence-class knowledge operators on **world edges**. East et al. (2024) studies a different semigroup notion of right-congruence diameter. The current statement is not implied by these inspected results or by the relevant accessible historical claims. Residual risk: an older algebraic or database-theoretic theorem may describe these same two-equivalence products without modal terminology; database searches are not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete finite-frame classification for pure two-agent knowledge nesting, with a directly computable exact invariant, a shortest modal-depth bound, and a sharp all-world-count extremum exhibiting an even/odd gap. The result explains quantitatively how finite epistemic correlations control depth collapse. It is not a general complexity theorem, a classification with Boolean connectives, or a claim of independent proof certification.
+Searches and statement comparisons found no prior exact arbitrary-frame two-equivalence alternating knowledge monoid size and parity-sharp world-count maximum. Multi-agent modal proof theory concerns formulas and interpolation, not the relational composition count; bipartite quantifier semigroup uses cross-side existential/universal neighbor maps, not two same-carrier equivalence operators. Earlier commuting-equivalence rank counts cover special commuting pairs, not arbitrary noncommuting alternating powers. Classical semigroup/distance result under a different name remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural structural finite-frame classification measuring the exact number and depth of independent iterated pure knowledge operations; its graph-distance normal form is computable and the extremal 2N versus 2N-1 parity phenomenon is sharp. This is beyond renaming an existing commuting-pair count and does not claim arbitrary Boolean modal formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
