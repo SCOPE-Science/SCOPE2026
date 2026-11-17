@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:51:51.749443Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-drag-exponent-frontier-for-coefficient-lagged-implicit-mid--737228d36587/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-drag-exponent-frontier-for-coefficient-lagged-implicit-mid--737228d36587/VERIFICATION.md",
+        "independent_checks.py",
+        "verify_git_trees.py"
+      ],
+      "rationale": "Identical a_ij=1/4 midpoint rows with equal initial stage guesses yield exact scalar Picard F_x(y)=x/[1+s(1+b y^2)^(m/2)] and unique implicit positive root. The logarithmic slope q_m(y)=m*(b y^2/(1+b y^2))*(s(1+b y^2)^(m/2)/(1+s(1+b y^2)^(m/2))) increases strictly to m. On (0,x] q_m(x)<1 for 0<m<=1, establishing true contraction in log coordinates. For m>1 the unique q_m(y_c)=1 gives a repelling fixed point when x>x_c; F_x is decreasing on [0,x], hence F_x^2 increasing and initial upper/lower subsequences monotone. Repelling r excludes coincident limits, proving real nonvanishing two-cycle. For m=2 the two-cycle equations imply yz=A/B and x=A(y+z), giving the exact pair and multiplier 4A^3/(Bx^2). Boundary x=x_c has no distinct period-two roots and converges. 50 independent bounded numerical tests agree, not a universal proof.",
+      "residual_risks": [
+        "Unconditional global convergence concerns iterations from y0=x and 0<m<=1 at finite x; the contraction constant tends to 1 in stiff limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Method papers have broader physical systems but no identified same scalar sharp convergence theorem in available material.",
+          "Classical monotone-iteration theory supplies monotone upper/lower subsequence convergence but not the exponent m=1 threshold derived from exact drag."
+        ],
+        "reasoning": "A general dynamical method covers the technique but does not automatically give the sharp coefficient threshold without the application-specific logarithmic derivative.",
+        "searches": [
+          "general implicit Runge Kutta integrator multifluid charged dust gas 2610.18979",
+          "general GIRK drag Tedeschi Prades 2511.07562",
+          "monotone decreasing interval map Picard two-cycle theorem"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.18979 metadata/accessible method text, full primary inaccessible",
+        "arxiv:2511.07562 abstract/method context",
+        "Resultary related Picard two-cycle published theorem index",
+        "Assigned actual RESULT.md and verify.py read",
+        "Independent quadratic iteration and log-contraction diagnostics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published implementation of frozen Picard coefficients does not by itself imply convergence for all x at m=1, or failure for m>1.",
+          "The reviewed theorem proves q_m(x)<1 at any finite x for m<=1 and q_m(r)>1 for x>x_c when m>1."
+        ],
+        "reasoning": "Quantitative all-input convergence and existence of an actual limiting two-cycle require further mathematics beyond stating the scheme.",
+        "searches": [
+          "arxiv:2610.18979 Picard iteration section II.4 II.5",
+          "arxiv:2511.07562 drag source integrator methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "State-dependent frozen-stage implicit midpoint specializes to F_x(y)=x/(1+s(1+b y²)^(m/2)).",
+          "The quadratic case m=2 is the rational anti-monotone map with yz=A/B, whose generic period doubling is standard."
+        ],
+        "reasoning": "The model-specific stage reduction and uniform growth-exponent dichotomy distinguish this result from generic period-doubling labels.",
+        "searches": [
+          "Chen Li He Wibking Krumholz Bai 2610.18979 midpoint drag Picard coefficient freezing",
+          "reciprocal rational iteration x/(A+B y squared) flip bifurcation threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published index finds the reviewed record and related Picard cycles in different numerical methods, not an existing exact drag-specific x_c table."
+        ],
+        "reasoning": "The m=2 exact formula is a special rational-map calculation whose historical priority is a distinct risk; it is paired here with an m>0 uniform frontier and physical stage reduction.",
+        "searches": [
+          "Resultary sharp drag exponent midpoint Picard two cycle",
+          "published coefficient lagging m=1 Epstein Baines global convergence"
+        ]
+      },
+      "rationale": "The nonlinear GIRK gas/dust literature supplies the exact midpoint tableau, coefficient-lagged iteration and physically important square-root Epstein–Baines drag. It does not establish, in accessible inspected descriptions, the sharp all-step m<=1 contraction versus m>1 period-two frontier for the precisely specified scalar iteration. General decreasing-map two-cycle theory is already known and not claimed as new; applying it requires exact model-specific slope identity and a complete global classification. Full primary Chen paper inaccessible through checked legitimate full-text routes; authorized Oxford returned vpn_disconnected, so this is a priority risk rather than a FAIL.",
+      "residual_risks": [
+        "Full original Chen primary PDF inaccessible via lawful options; authorized institutional source reported vpn_disconnected. Do not assume complete paper noncoverage.",
+        "Generic rational-map bifurcation may predate explicit m=2 corollary.",
+        "Identical equal-initial-guess midpoint Picard only; no claims for coupled dust, general GIRK, finite-iteration solver tolerances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact full-paper noncoverage cannot be certified; priority residual risk",
+          "evidence": "Describes frozen coefficient Picard and midpoint tableau but no inspected universal m threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18979",
+          "material_read": "Accessible bibliographic and method excerpts and article descriptions; full primary arXiv/preprint not read because access failed; Oxford returned vpn_disconnected",
+          "method": "Source-level scope comparison, authorized full-text attempt",
+          "title": "A Nonlinear General Implicit Runge-Kutta Integrator for Multifluid Charged Dust and Gas",
+          "trigger": "Same GIRK algorithm and Epstein–Baines drag"
+        },
+        {
+          "assessment": "No whole-document noncoverage claimed",
+          "evidence": "General drag integration and numerical methods, distinct from proved m-growth frontier.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.07562",
+          "material_read": "Abstract and publicly described method scope; complete full text not read in this execution",
+          "method": "Relevant published source comparison, access qualified",
+          "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag",
+          "trigger": "Closely related drag stage methods"
+        },
+        {
+          "assessment": "Different nonlinear operator and forcing threshold; general anti-monotone technique overlaps",
+          "evidence": "Prior g=2 forcing cutoff for Kirchhoff FEM, not Epstein drag rate m=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-forcing-threshold-for-picard-two-cycles-in-a-conforming--bf663838cf18",
+          "material_read": "Published research-index detailed theorem summary, not full text",
+          "method": "Semantic related-theorem comparison",
+          "title": "A sharp forcing threshold for Picard two-cycles in a conforming Kirchhoff finite element step",
+          "trigger": "Potential broad exact flip theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-drag-exponent-frontier-for-coefficient-lagged-implicit-mid--737228d36587/RESULT.md",
+        "Resultary related Picard two-cycle published theorem index"
+      ],
+      "rationale": "The m=1 boundary is physically meaningful because it coincides with the square-root Epstein–Baines velocity correction used in real gas/dust source solvers. The unconditional convergence guarantee and exact quadratic-drag pathological two-cycle despite a unique implicit root supply a reproducible algorithmic stability boundary, not an arbitrary small test case. Scope is one scalar stage solver, not an entire simulation.",
+      "residual_risks": [
+        "Unconditional global convergence concerns iterations from y0=x and 0<m<=1 at finite x; the contraction constant tends to 1 in stiff limits.",
+        "m>1 produces failure for sufficiently large x, not for every x."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unconditional global convergence concerns iterations from y0=x and 0<m<=1 at finite x; the contraction constant tends to 1 in stiff limits.",
+    "m>1 produces failure for sufficiently large x, not for every x."
+  ],
+  "schema_version": 1
+}
