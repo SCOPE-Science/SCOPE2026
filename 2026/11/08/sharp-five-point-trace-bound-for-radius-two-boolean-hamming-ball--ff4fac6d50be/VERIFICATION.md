@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Verification of the radius-two Boolean-ball theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10 or later. No third-party packages or network access are required. The checker uses exact integers and exact Hamming distances.
+## correctness
 
-The critical universal step is the exhaustive template certificate: 31 distinct nonzero five-row masks, at most two instances of each, and five row-degree upper bounds of two. All allowed assignments are enumerated. A valid template is tested against all center active-coordinate masks of weight at most four and auxiliary zero-coordinate weights from zero to four minus that weight. The script verifies 14,778 allowed templates, 7,260 with pairwise distinct rows, zero fully shattered five-row templates, and a sharp maximum of 27 traces. The histogram check follows from the full enumeration. The mathematical reduction from arbitrary ambient dimension to these finite templates is proved in `RESULT.md`.
+PASS
 
-Independently of that template evaluation, `basic_dimensions` directly constructs all radius-two Boolean balls for dimensions one through six and enumerates support candidates within the ball centered at zero (every shattered support can be translated into that ball). It checks the sharp VC dimensions zero, zero, one, three, four, four. Separate direct checks verify that five stated points in the six-cube have precisely 27 traces and that four basis vectors in the five-cube are shattered.
+Any five-point support admitting a full radius-two trace can be translated into weight<=2 rows. Its nonzero five-row column masks have at most two copies and five row incidence bounds <=2, yielding an exhaustive finite canonical certificate for every dimension, not finite-dimension extrapolation. An independently written complete enumeration reproduced 14,778 column multisets, 7,260 with five distinct rows, maximum 27 traces, zero fully shattered and entire histogram. Direct Q6 witness attains 27 and Q5 four-point witness yields lower bound; Q1-Q4 bounds follow direct counting.
 
-Expected terminal lines include:
+## originality
 
-```
-TEMPLATE_CERTIFICATE_PASS 14778 7260 0 27
-DIRECT_DIMENSION_PASS 1 0
-DIRECT_DIMENSION_PASS 2 0
-DIRECT_DIMENSION_PASS 3 1
-DIRECT_DIMENSION_PASS 4 3
-DIRECT_DIMENSION_PASS 5 4
-DIRECT_DIMENSION_PASS 6 4
-SHARP_27_TRACE_WITNESS_PASS [16, 3, 5, 6, 24] [15, 19, 21, 25, 30]
-FOUR_SHATTERED_WITNESS_PASS [1, 2, 4, 8]
-ALL_RADIUS_TWO_CUBE_CERTIFICATES_PASS
-```
+PASS
 
-The script fails an assertion if a checked claim is false. The direct checks are finite cross-checks; the proof of the unrestricted dimension theorem additionally uses the exhaustive dimension-independent reduction. No independent audit has been performed.
+The exact 27-pattern bound for jointly covered five-point supports is stronger and distinct from the already published VCdimension=4 classification. Correct originality attribution is solely the sharp local 27-of-32 trace invariant and explicit tight support; the VC formula is pre-existing and treated as a corollary.
+
+## value
+
+PASS
+
+A sharp local trace complexity bound for fixed-radius Boolean metric-ball ranges is a natural exact invariant refining the known VC dimension; the explicit tight support makes the improvement quantitatively meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
