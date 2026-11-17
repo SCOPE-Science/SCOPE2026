@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In even bases the two affine last-digit formulas split each aligned q-block into disjoint parity classes; s_q(2k+1)=s_q(2k)+1 has no carry and each aligned q-block is exactly a permutation. Thus gaps are at most 2q-1. The displayed q-2 carry-string for 2k constructs an occurrence at the start of one block and at the end of the next, with no intervening hit; positive high-digit shifts give infinitely many. For odd q, s_q(m)=m mod 2 uniquely selects the even digit-sum class r_j mod 2q. Each q^2-block of m realizes 0,...,2q-2 plus s_q(k), so omits at most one residue; consecutive block omissions differ because s_q(k+1)-s_q(k) is odd. Two full omitted blocks cannot occur. Integer parity tightens the m-gap to 3q^2-1, and the explicit prefix 3q^2-1 with digit sum 2q yields equality. Verified endpoint and interior cases independently for every j in q=2,...,11; finite tests are corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/10/18 Extremal modular digit-sum gaps in every integer base treats residues modulo b+1, not s_b(2n) modulo b.",
+          "Boreico et al. 2014 Theorem 1.2 concerns discrepancy oscillations rather than all local intervals."
+        ],
+        "reasoning": "General automatic-word or global discrepancy theorems may give qualitative recurrence, but inspected prior statements do not imply both parity-sensitive sharp gap constants.",
+        "searches": [
+          "Resultary: digit sums of even numbers modulo base exact largest gaps consecutive occurrence recurrence generalized Thue Morse",
+          "Web: digit sums of even numbers maximum gaps generalized Thue Morse"
+        ]
+      },
+      "checked_sources": [
+        "Boreico–El-Baz–Stoll, Journal de théorie des nombres de Bordeaux 26 (2014), 17–24, DOI:10.5802/jtnb.856; arXiv:1305.1017",
+        "Resultary 2026/10/18 SCOPE-extremal-modular-digit-sum-gaps-in-every-integer-base-exact-leng--454a60116eea",
+        "SCOPE pinned RESULT.md and verify_gap.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2014 primary theorem proves discrepancies change sign infinitely often, not that every interval of given length contains each target.",
+          "Current proof constructs witnesses with long prescribed empty intervals and proves absence of longer ones."
+        ],
+        "reasoning": "The prior discrepancy theorem cannot imply the strongest possible local missing run; the 2026 b+1 theorem has different modulus and argument.",
+        "searches": [
+          "Boreico El-Baz Stoll arXiv:1305.1017 theorem 1.2",
+          "Resultary: extremal modular digit-sum gaps in every integer base"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longest target-symbol-free blocks in the generalized Thue–Morse coding of s_q(2n) have length one less than the asserted gaps.",
+          "Boreico–El-Baz–Stoll 2014 defines precisely the same digit-sum residues but measures excess counts."
+        ],
+        "reasoning": "A longest-absence statement and a return-gap theorem are equivalent, but global discrepancy oscillation is insufficient to determine a uniform optimal local gap.",
+        "searches": [
+          "Resultary: digit sums of even numbers modulo base exact largest gaps consecutive occurrence recurrence generalized Thue Morse",
+          "Web: Boreico El-Baz Stoll digit sum even numbers maximum gaps generalized Thue Morse 2q-1 3q²-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older exact all-base two-constant table was returned; the assigned record itself occurs among newer indexed results and is not used as independent priority evidence."
+        ],
+        "reasoning": "A pre-existing database of exact return spacings could cover this claim; none of the matched earlier tables/data addresses the same sequence and invariant, subject to historical search limitations.",
+        "searches": [
+          "Resultary: exact largest gaps between successive n with s_q(2n) mod q; digit-sum return gaps",
+          "Web: longest omitted residue block digit sums even numbers"
+        ]
+      },
+      "rationale": "Boreico–El-Baz–Stoll 2014 studies exactly s_q(2n) mod q, but the principal result proves global discrepancy oscillation, not sharp consecutive-return spacing. Equivalent formulation as longest constant-symbol avoidance in generalized Thue–Morse coding was queried; no dominating formula or exact earlier table was established. The explicit local covering and sharp carry construction are not consequences of discrepancy signs. Positive best-of-knowledge decision, with historical word-combinatorics and original Dekking literature risks.",
+      "residual_risks": [
+        "1983 Dekking report not read in full.",
+        "Possible earlier equivalent generalized-Thue–Morse maximal return-gap theorem in older unindexed word-combinatorics literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish maximal consecutive gaps; establishes Dekking discrepancy oscillation.",
+          "evidence": [
+            "Paper defines counts of s_q(2n)=j mod q and resolves signed fluctuations about N/q.",
+            "No sharp all-interval covering theorem in the inspected mathematical argument."
+          ],
+          "identifier_or_url": "https://www.numdam.org/articles/10.5802/jtnb.856/",
+          "material_read": "Primary 2014 paper PDF including Theorem 1.2 and proof sections, plus journal abstract/reference list",
+          "method": "Full PDF/textual inspection and PDF page screenshots",
+          "title": "On a conjecture of Dekking: The sum of digits of even numbers",
+          "trigger": "Same sequence and congruence, most plausible older covering source"
+        },
+        {
+          "assessment": "Different modulus b+1 and unmultiplied digit-sum setup; does not imply q and multiplier-two theorem",
+          "evidence": [
+            "Maximal omitted blocks specified modulo b+1, unlike assigned s_q(2n) modulo q."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-extremal-modular-digit-sum-gaps-in-every-integer-base-exact-leng--454a60116eea",
+          "material_read": "Published mathematical statement and scope, not full mathematical proof",
+          "method": "Resultary semantic search summary",
+          "title": "Extremal modular digit-sum gaps in every integer base (2026)",
+          "trigger": "Nearby Resultary match for exact digit gaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the natural sharp recurrence-gap invariant of an independently studied digit-sum sequence, quantified for all bases and all residues with infinitely recurring witnesses. The surprising even/odd growth transition (linear versus quadratic) is a real structural distinction not implied by average frequency or discrepancy estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Boreico–El-Baz–Stoll, Journal de théorie des nombres de Bordeaux 26 (2014), 17–24, DOI:10.5802/jtnb.856; arXiv:1305.1017",
+    "Resultary 2026/10/18 SCOPE-extremal-modular-digit-sum-gaps-in-every-integer-base-exact-leng--454a60116eea",
+    "SCOPE pinned RESULT.md and verify_gap.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer base q>=2 and digit-sum residue j modulo q, successive n with s_q(2n)=j modulo q have sharp maximum gap 2q-1 for even q and (3q^2-1)/2 for odd q; these maxima recur infinitely often.",
+  "limitations": [
+    "Only multiplier 2 and residues modulo the digit base; no full gap histogram, general multiplier, or priority certification."
+  ],
+  "residual_risks": [
+    "1983 Dekking report not read in full.",
+    "Possible earlier equivalent generalized-Thue–Morse maximal return-gap theorem in older unindexed word-combinatorics literature."
+  ],
+  "schema_version": 1
+}

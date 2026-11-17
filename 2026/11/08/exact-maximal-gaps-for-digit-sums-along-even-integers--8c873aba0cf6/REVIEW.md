@@ -1,19 +1,21 @@
-# Review of exact maximal digit-sum gaps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantifiers cover every integer base \(q\ge2\), every target residue, and all consecutive hits. For even \(q\), the no-carry identity for \(2k+1\), aligned-block permutation, and explicit \(2k\) with \(q-2\) consecutive carry interactions yield the sharp \(2q-1\) gap. For odd \(q\), parity lifts the residue to its unique even class modulo \(2q\); each two-digit block omits at most one residue and two adjacent blocks cannot omit the same one. The three-digit prefix witness supplies equality and arbitrarily many translated witnesses. Boundary cases \(q=2,3\) and every residue are included. Independently calculated finite examples agree; finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS (qualified)
+In even bases the two affine last-digit formulas split each aligned q-block into disjoint parity classes; s_q(2k+1)=s_q(2k)+1 has no carry and each aligned q-block is exactly a permutation. Thus gaps are at most 2q-1. The displayed q-2 carry-string for 2k constructs an occurrence at the start of one block and at the end of the next, with no intervening hit; positive high-digit shifts give infinitely many. For odd q, s_q(m)=m mod 2 uniquely selects the even digit-sum class r_j mod 2q. Each q^2-block of m realizes 0,...,2q-2 plus s_q(k), so omits at most one residue; consecutive block omissions differ because s_q(k+1)-s_q(k) is odd. Two full omitted blocks cannot occur. Integer parity tightens the m-gap to 3q^2-1, and the explicit prefix 3q^2-1 with digit sum 2q yields equality. Verified endpoint and interior cases independently for every j in q=2,...,11; finite tests are corroboration, not proof.
 
-Boreico–El-Baz–Stoll, arXiv:1305.1017, studies the same digit-sum sequence, proves discrepancy sign oscillation, and gives Fourier-counting formulas; its inspected full text does not address maximal recurrence gaps. The exact parity-dependent consecutive-gap formula is neither a corollary of their stated discrepancy inequalities nor a direct evaluation of their block-count formulas, because the conclusion demands *all local intervals* and sharp carry witnesses. No exact covering claim was found in the research-index and public-literature searches. A generalized-Thue–Morse gap result outside the accessible searches remains a genuine priority risk; the original 1983 Dekking paper was not read in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact longest-gap constant is a natural local invariant of the same sequence whose global discrepancy was studied in the originating literature. It measures the strongest possible absence of any fixed digit-sum class and supplies a complete all-base/all-residue classification. The odd/even transition from quadratic to linear growth, with sharp infinitely repeating witnesses, is substantive and cannot be inferred from a density statement or an asymptotic counting error bound alone.
+Boreico–El-Baz–Stoll 2014 studies exactly s_q(2n) mod q, but the principal result proves global discrepancy oscillation, not sharp consecutive-return spacing. Equivalent formulation as longest constant-symbol avoidance in generalized Thue–Morse coding was queried; no dominating formula or exact earlier table was established. The explicit local covering and sharp carry construction are not consequences of discrepancy signs. Positive best-of-knowledge decision, with historical word-combinatorics and original Dekking literature risks.
 
-## Limitations
+## value
 
-The result is for multiplier two and reduction modulo the base. It makes no claim about arbitrary multipliers, the finer return-time histogram, or the distribution of extremal starts. Historical priority is qualified by the uninspected Dekking original and possible equivalent formulations in word combinatorics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the natural sharp recurrence-gap invariant of an independently studied digit-sum sequence, quantified for all bases and all residues with infinitely recurring witnesses. The surprising even/odd growth transition (linear versus quadratic) is a real structural distinction not implied by average frequency or discrepancy estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
