@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`python verify.py` reads the neighboring `torsion_witness.json` and uses only standard-library exact modular arithmetic. It verifies the complete \(21\)-vertex, \(105\)-edge, \(105\)-triangle matching complex, the complete mod-three triangle-boundary rank \(84\), the integral five-edge cycle, the cycle's nonzero mod-three class, and a supplied 32-triangle two-chain whose boundary is the cycle plus its coordinate-transposed image. It also recomputes the \(84,1680,6720\) inflated face counts and the \(5103\) additional two-sphere count. Full output is embedded separately in `verification-output.txt`.
+## correctness
 
-The published integral homology calculation \(\widetilde H_1(M_7;\mathbb Z)=\mathbb Z/3\mathbb Z\), \(\widetilde H_2(M_7;\mathbb Z)=\mathbb Z^{20}\), and the inflation homotopy theorem are external mathematical premises, not claims of independently recomputed Smith form. The direct mod-three chain check does not itself prove those integral premises or the general homotopy decomposition. No independent audit has been carried out.
+PASS
+
+Map every edge of boundary cross-polytope to a pair of distinct signed coordinates: precisely four alternative signed choices above each pair of K_d; disjointness and cross-polytope face condition are exactly Infl_4(M_d). The published vertex inflation homotopy splitting and known M7 integral H1=Z/3, H2=Z^20 combine with 21*3*6+105*9*2+105*27=5103 extra S2 to give H2 rank 5123. Small M_d links are torsion-free for d<=6. Deflation p to M7 has plus-sign section, identifies first integral H1; sign flips commute with p and act trivially. Independent exact mod3 chain reconstruction of all 105 triangle columns gives rank 84, a five-edge nonboundary cycle z, and 32-triangle witness certifying tau z=-z modulo boundaries, so all transpositions act -1. For order-two quotient, characteristic 3 transfer/averaging identifies quotient homology with invariants, which vanish in degree one. Mod3 computations do not by themselves prove integral torsion: that is supplied by the cited M7 result.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: the exact final claim and its critical new proof or torsion representation are not logically implied by checked stronger/related sources; known numerical/theorem components are explicitly attributed. Inaccessible plausible primary full text is recorded as residual risk and never represented as read.
+
+## value
+
+PASS
+
+Identifies the full natural signed-coordinate action on the first torsion of a geometrically canonical shellable flag sphere double, distinguishing a sign character from the trivial module and yielding a concrete quotient-homology consequence. The pre-existing nonequivariant inflation splitting and torsion groups are acknowledged, while the explicit equivariant torsion character and finite witness supply the motivated additional fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

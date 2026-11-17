@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Simplicial doubling of the cross-polytope boundary is exactly fourfold vertex inflation of the complete-graph matching complex. The cited inflation theorem and the known integral homology of \(M_7\) prove the ordinary homology and the sharp first-torsion cutoff. The deflation map has a simplicial section and induces an isomorphism on the unique first-homology torsion group; this verifies the trivial sign-flip action. An explicit integral five-edge cycle and 32-triangle mod-three boundary certificate prove that one coordinate transposition acts by \(-1\). Full exact field elimination independently establishes nontriviality of the chosen class. The involution quotient follows by transfer in characteristic three. No finite test is extrapolated to an infinite assertion.
+## correctness
 
-**Originality — PASS, qualified.** Lesh--Schreiner--Wahl's connectivity theorem, the Björner--Wachs--Welker inflation splitting, and the integral computation of \(M_7\) are all credited. The resulting non-equivariant homology is not independently claimed as novel. The compared primary texts give no formula for the complete signed-coordinate action on this particular torsion group, and targeted record searches and recoverable existing claims found no equivalent module statement. Strongest remaining risk: older integral \(S_7\)-representation work may implicitly supply the same sign character, which would cover the claimed refinement despite different terminology.
+PASS
 
-**Value — PASS.** The double operation is a recently highlighted topological construction and the cross-polytope boundary a canonical symmetric flag sphere. The first \(3\)-torsion obstruction shows that doubling a shellable flag sphere need not preserve a sphere-wedge homotopy type. Its integral signed-coordinate representation additionally distinguishes two natural quotient operations, information not obtainable from ordinary Betti numbers or rational characters. The target is a motivated, complete natural torsion invariant rather than an arbitrary slice of a table.
+Map every edge of boundary cross-polytope to a pair of distinct signed coordinates: precisely four alternative signed choices above each pair of K_d; disjointness and cross-polytope face condition are exactly Infl_4(M_d). The published vertex inflation homotopy splitting and known M7 integral H1=Z/3, H2=Z^20 combine with 21*3*6+105*9*2+105*27=5103 extra S2 to give H2 rank 5123. Small M_d links are torsion-free for d<=6. Deflation p to M7 has plus-sign section, identifies first integral H1; sign flips commute with p and act trivially. Independent exact mod3 chain reconstruction of all 105 triangle columns gives rank 84, a five-edge nonboundary cycle z, and 32-triangle witness certifying tau z=-z modulo boundaries, so all transpositions act -1. For order-two quotient, characteristic 3 transfer/averaging identifies quotient homology with invariants, which vanish in degree one. Mod3 computations do not by themselves prove integral torsion: that is supplied by the cited M7 result.
 
-**Scope and limits.** The proof does not classify later cross-polytope doubles, higher-degree integral symmetry modules, or general equivariant homotopy. Only ordinary degree-one torsion is represented. Any independent external audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact final claim and its critical new proof or torsion representation are not logically implied by checked stronger/related sources; known numerical/theorem components are explicitly attributed. Inaccessible plausible primary full text is recorded as residual risk and never represented as read.
+
+## value
+
+PASS
+
+Identifies the full natural signed-coordinate action on the first torsion of a geometrically canonical shellable flag sphere double, distinguishing a sign character from the trivial module and yielding a concrete quotient-homology consequence. The pre-existing nonequivariant inflation splitting and torsion groups are acknowledged, while the explicit equivariant torsion character and finite witness supply the motivated additional fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
