@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact character diagonalization gives the operator norm as a scalar extremum. A uniform comparison reduces the deficit to the infimum of \(tn^s+\delta_n^2\). A two-sided limsup argument using the fixed-target approximation exponent proves the logarithmic identity without assuming uniform hitting; continued-fraction rational grids give the separate bounded-type upper bound, and bad approximability gives the lower bound. A residue analysis proves both rational cases. An independent finite-mode numerical checker passes 950 assertions; it is only corroboration.
+## correctness
 
-**Originality: PASS (provisional historical priority).** The named prior papers develop (i) inhomogeneous shrinking-target laws for almost all affine parameters, (ii) statistical stability of rotation-invariant measures, and (iii) Poisson semigroup hypercontractivity. Their inspected statements do not imply an exact fixed-angle smoothed-translation Fourier multiplier deficit or the transfer law \(2\tau/(s+2\tau)\) without the new scalar minimization connection. Searches also compared closely related indexed results on Sturmian cocycles and on fractional Fourier trace defects, which involve different operators and quantities. An earlier equivalent spectral-envelope calculation may exist, so the result is not claimed to have an independently certified priority date.
+PASS
 
-**Mathematical value: PASS.** Fractional diffusion is a canonical frequency cut-off and antiphase rotation is the maximally observable translation discrepancy. The exact exponent transfer identifies which inhomogeneous Diophantine property is measured by the **sharp** operator norm after regularization, with a uniform bounded-type law and a rational parity boundary. This is a structural classification for every smoothing order in a natural semigroup family, not a selected low-mode numerical example.
+Exact Fourier diagonalization yields M=2sup_{n>=1} exp(-tn^s)|sin(pi*n alpha)| and E_n=2(1-exp(-tn^s)cos(pi delta_n)). Uniform two-sided E_n comparison with min(1,tn^s+delta_n^2) converts the deficit to the infimum of scalar Diophantine penalties. For finite tau, eventual delta_n >= n^(-(tau+eta)) bounds the logarithmic limsup from above, while a best-approximating subsequence and t_n=delta_n^2/n^s give the opposite direction; tau=infinity follows with Delta >=2(1-e^-t). Convergent modular grids and bounded partial quotients supply the uniform t^{2/(s+2)} order. The rational residue argument correctly identifies the least angular-maximizing frequency for even and odd q. The boundary q=1 and all fixed s in (0,2] are explicitly treated. Independently checked rational winning modes for six reduced fractions and s=1,2. No finite test establishes the infinite limsup.
 
-**Scientific limits.** Only circle \(L^2\) multiplier norms and \(0<s\le2\) are covered. General irrational angles need not have a full logarithmic limit or a single asymptotic coefficient. Historical coverage beyond inspected sources remains a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for an exact fixed-angle smoothed-rotation L2 spectral-deficit transfer law involving the antipodal inhomogeneous exponent. Prior metric inhomogeneous approximation, invariant-measure stability and fractional-sphere hypercontractivity differ in quantifiers, operator and observable. The Fourier diagonalization alone is standard; the fixed-target exponent-to-small-time minimization and rational/irrational asymptotic classification form the claimed original joint result. Earlier equivalent spectral envelopes remain possible.
+
+## value
+
+PASS
+
+The natural translation-contrast operator distinguishes rational parity and the fine Diophantine difficulty of approaching a half-turn through sharp smoothing deficit rates. It transfers an independently important fixed-target exponent into a measurable operator norm, with uniform bounded-type heat/Poisson asymptotics and correctly separated limsup versus full-order cases. Not a mere commutator or general semigroup fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
