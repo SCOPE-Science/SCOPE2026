@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: independently reconstructed exact inward vertex solid angles Ω0=2atan(bc/[(s+a)(L+s)]), Ω3=2atan(ab/[(t+c)(L+t)]), Ω1=atan(c/b), Ω2=atan(a/b), s=sqrt(a²+b²), t=sqrt(b²+c²), L=sqrt(a²+b²+c²), with diameter L and volume abc/6. If a>=c, (s+a)²(L+s)²>=4Ls(s+a)²>=4bL³ (using c<=a, b<=s, and L²<=s²+a²); combine strict atan x<x and selected endpoint Ω0 to get Ω_min²<abc/L³=6μ, reversing path if c>a. As a=c=ε,b=1, Ω_min∼ε and μ∼ε²/6, yielding optimal coefficient 1/6 with no attained equality. Recomputed vector-determinant angles and tests on 4000 triples; ε sequence gives ratios 0.1700108, 0.1670001, 0.1667000 approaching 1/6. Angle in steradians, unnormalized by 4π.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Licht general inequality has coefficient smaller than 1/6; the exact sharp constant for all path orthoschemes is not a consequence.",
+          "Godland–Kabluchko full article works with fixed Schläfli types A/B and angle sums, not arbitrary three positive path lengths or sharp Ω² fullness ratio.",
+          "Axis-intercept simplices have all mutually orthogonal edges from one vertex, not three successive mutually perpendicular edges."
+        ],
+        "reasoning": "The general theorem supplies the qualitative quadratic relationship but not its optimal subclass constant; other orthogonal-simplex results address a non-equivalent geometrical class.",
+        "searches": [
+          "Licht arxiv:2610.05883 abstract theorem 1.1 and shape comparisons",
+          "Godland Kabluchko Angle Sums of Schläfli Orthoschemes 2022",
+          "Resultary sharp linear minimum solid angle fullness for axis-intercept simplices"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.05883 (Licht 2026; abstract, cited Theorem 1.1, full inaccessible)",
+        "https://link.springer.com/article/10.1007/s00454-021-00326-z (Godland–Kabluchko 2022, accessible full HTML)",
+        "https://doi.org/10.1007/BF01955874 (Liu–Joe 1994 bibliographic abstract only)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-angle-fullness-constants-for-orthogonal-corner-sim--c0e0bfaba03a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Numerically 1/(12+3π)≈0.0467, whereas 1/6≈0.1667, so the general lower bound is strictly weaker on path orthoschemes.",
+          "A sharp global solid-angle upper bound for this path family (#4) cannot control the ratio μ/Ω_min² in arbitrary degenerating shapes: μ→0 along ε→0."
+        ],
+        "reasoning": "The new implication is a sharp *quadratic* lower bound for normalized volume with its unique boundary sharpness mechanism, rather than generic finite shape regularity.",
+        "searches": [
+          "arxiv:2610.05883 Theorem 1.1 and abstract",
+          "Godland Kabluchko Discrete Comput Geom 2022 Sections 1 and angle-sum formulas",
+          "Resultary 2026/11/8 orthogonal-corner comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Statement is inf_{a,b,c>0} [abc/(6L^3 Ω_min²)] = 1/6 with strict > at every interior point, a=c=ε,b=1 degenerating.",
+          "Licht gives dimension-dependent general comparison with lower coefficient 1/(12+3π) for general tetrahedra; cannot certify the exact restricted infimum."
+        ],
+        "reasoning": "Same exponent and same shape variables are not identical sharp constants: generic inequality is too weak, and degeneration identifies the new sharpness proof.",
+        "searches": [
+          "arxiv:2610.05883 Theorem 1.1 minimum solid angle fullness squared",
+          "orthoscheme best volume diameter cube over minimum vertex solid angle squared constant",
+          "Liu Joe 1994 Relationship between tetrahedron shape measures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matching record is this assigned source; related same-date axis-intercept and orthogonal-corner simplex comparisons are different objects.",
+          "No checked numerical table contains the sharp all-ratio bound or the ε degeneration; an unavailable older paper cannot be declared noncovering."
+        ],
+        "reasoning": "The statement is a global continuum sharp inequality, not merely evaluation of one tetrahedron; tabulated isolated shape qualities would not prove its best constant.",
+        "searches": [
+          "Resultary orthoscheme solid-angle fullness exact coefficient 1/6",
+          "Liu Joe tetrahedron shape measures 1994 solid angle volume constant",
+          "Schläfli orthoscheme solid angle table"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge with significant literature access residual: Licht (2026) establishes the same general Ω_min² exponent and a weaker universal tetrahedral constant 1/(12+3π); this does NOT imply the sharp orthoscheme constant 1/6, strictness, or the a=c→0 extremizing family. Godland–Kabluchko treats Schläfli-orthoscheme angle sums, not variable-path fullness. Earlier Liu–Joe 1994 paper is plausibly relevant but full primary text unavailable; named limitation alone is not scientific failure. No stronger exact coverage was identified from actual checked material, not asserted universally absent.",
+      "residual_risks": [
+        "Licht full primary article could contain an unstated sharp three-dimensional orthoscheme specialization; only abstract and cited general constant read. Authorized institutional retrieval reported VPN disconnected and was not bypassed.",
+        "Liu–Joe 1994 shape measure study inaccessible in full and may cover an equivalent optimized ratio.",
+        "The finite numerical checks do not certify the continuum or global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS; neither assertion of full-document NOT_COVERING nor priority certificate",
+          "evidence": "Abstract explicitly states general quadratic fullness lower comparison; submitted theorem identifies general coefficient 1/(12+3π); cannot verify whether other sections include orthoscheme sharpness.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05883",
+          "material_read": "Both arXiv versions abstract/metadata and statement of Theorem 1.1 as quoted in checked submitted primary reference; full PDF and HTML were not obtainable",
+          "method": "ArXiv abstract, literature comparisons, open-access full-text attempts; authorized institutional full-text attempt returned disconnected VPN",
+          "title": "On solid angles and simplex shape measures",
+          "trigger": "Same minimum solid angle/fullness inequality; possible stronger theorem"
+        },
+        {
+          "assessment": "NOT_COVERING for arbitrary lengths a,b,c and sharp volume/fullness vs smallest vertex angle",
+          "evidence": "The source defines fixed Schläfli path simplex K_n^B, and computes sums of conic intrinsic volumes over faces rather than varying positive edge-length ratios.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-021-00326-z",
+          "material_read": "Accessible full Springer HTML including introduction, K_n^A/K_n^B definition, tangent-cone and intrinsic-volume formulas and main theorem scope",
+          "method": "Open-access primary full-text HTML with geometric model comparison",
+          "title": "Angle Sums of Schläfli Orthoschemes",
+          "trigger": "Exact same keyword orthoscheme; angle sum identities could dominate"
+        },
+        {
+          "assessment": "UNRESOLVED_ACCESS_RISK, not negative coverage evidence",
+          "evidence": "Possible equivalent sharp orthoscheme inequality not ruled out; no fabricated full-text finding.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01955874",
+          "material_read": "Title, bibliographic information and available abstract only; whole 1994 article NOT read",
+          "method": "Metadata/abstract access only",
+          "title": "Relationship between tetrahedron shape measures",
+          "trigger": "Potential older general tetrahedron shape comparison theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact best shape-comparison constant for a natural two-dimensional family of tetrahedral mesh elements tightens a general minimum-solid-angle/fullness inequality and locates the sharp degeneration mechanism. The unnormalized convention and strict unattained boundary are meaningful for transfer of simplex shape estimates; the result is neither a mere parameter renaming nor a random sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.05883 (Licht 2026; abstract, cited Theorem 1.1, full inaccessible)",
+    "https://link.springer.com/article/10.1007/s00454-021-00326-z (Godland–Kabluchko 2022, accessible full HTML)",
+    "https://doi.org/10.1007/BF01955874 (Liu–Joe 1994 bibliographic abstract only)",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimum-angle-fullness-constants-for-orthogonal-corner-sim--c0e0bfaba03a"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Vertex angle is steradian spherical area, not angle probability divided by 4π.",
+    "Only 3D path orthoschemes; no all-simplex optimal constant.",
+    "Sharp constant is a boundary infimum, equality not attained for positive lengths.",
+    "Full primary literature access limited, with named residual risks.",
+    "Licht full primary article could contain an unstated sharp three-dimensional orthoscheme specialization; only abstract and cited general constant read. Authorized institutional retrieval reported VPN disconnected and was not bypassed.",
+    "Liu–Joe 1994 shape measure study inaccessible in full and may cover an equivalent optimized ratio.",
+    "The finite numerical checks do not certify the continuum or global priority."
+  ],
+  "schema_version": 1
+}
