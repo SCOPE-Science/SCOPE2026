@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 42274f8440597e09c15760120dc82b97791bc453",
+        "Independent standard-library exact arithmetic script independent_checks.py, 728 full count-chain cases, and 3-holdout counterexample"
+      ],
+      "rationale": "The bounded A-count martingale preserves fixation probability x/n under uniform speaker-copying. With one omitted agent, the first survival probability is 2x(n-x)/(n(n-1)), then exactly 2/n from a single dissenter. For two omitted agents, first-event surviving 1- and 2-dissenter masses are u(2,1), u=x(n-x)/(n(n-1)); the exact 2x2 substochastic matrix has proportional rows, with (2,1)Q=lambda(2,1), lambda=(4n-6)/(n(n-1)). This gives the geometric survival law for all integer t>=1 and the stated means including n=4. Hypergeometric transition kernel checks n=6,k=3,x=1 survival 2/3,1/2,59/150, refuting a universal 3-holdout rate. Independently coded Fraction count-chain reproduced 728 cases for n=4..11, c=1,2, all nontrivial x, t=1..7. Finite tests corroborate exact matrix eigenvector proof.",
+      "residual_risks": [
+        "Does not concern active-only clock, noncomplete hypergraph or population-scaled continuous-time transitions"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Golovin et al. covers adaptive higher-order voter dynamics, motif theory and fragmentation; Kim et al. changes a single observed node, not all simultaneously copying the speaker"
+        ],
+        "reasoning": "Broader model classes and opinion fixation asymptotics do not imply this entire all-n all-initial-x first-consensus distribution under the explicit clock.",
+        "searches": [
+          "Query Resultary: complete hypergraph speaker uniformly sampled full group copying 1 holdout 2 holdouts exact finite time to unanimity",
+          "arXiv:2308.03640",
+          "arXiv:2407.11261"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search for consensus clock near-complete groups",
+        "Golovin–Mölter–Kuehn arXiv:2308.03640 accessible primary full-text model details",
+        "Kim et al. arXiv:2407.11261 voter update model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full original adaptive group-voter paper discusses copying a whole sampled hyperedge but clocks only mixed hyperedges and may rewire; Kim et al. uses a group-observed individual flip"
+        ],
+        "reasoning": "The exact survival formula depends on unconditional hypergeometric group sampling: probability a first update survives is not invariant to dropping idle events, so neither prior theorem implies these formulas. Martingale fixation x/n is standard and explicitly credited.",
+        "searches": [
+          "arXiv:2308.03640",
+          "arXiv:2407.11261",
+          "Query Resultary: complete hypergraph speaker uniformly sampled full group copying 1 holdout 2 holdouts exact finite time to unanimity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The consensus process is a hypergeometric absorbing count-chain with rank-one transient kernel for c=2; Golovin et al. uses proportional whole-hyperedge copying on adaptively selected active hyperedges"
+        ],
+        "reasoning": "Copying rule resembles a polyadic voter update, but the chance of choosing monochromatic groups and complete fixed group family give a different transition kernel and event time. Exact rank-one transient law cannot be imported from an active-only schedule.",
+        "searches": [
+          "Query Resultary: complete hypergraph speaker uniformly sampled full group copying 1 holdout 2 holdouts exact finite time to unanimity",
+          "arXiv:2308.03640"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite rational transition enumeration matches exact rates through n=11; published search returned no complete rank-one all-size census table"
+        ],
+        "reasoning": "Finite-n transition tables, even if separately known, cannot mechanically determine arbitrary-n geometric tails without the structural rank-one eigenvector argument.",
+        "searches": [
+          "Query Resultary: complete hypergraph speaker uniformly sampled full group copying 1 holdout 2 holdouts exact finite time to unanimity"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact finite-population first-consensus law for complete, fixed k=n-1,n-2 hyperedges under unconditional uniform-group events, not just generic voter-model fixation probabilities. Relevant existing adaptive polyadic voter work samples active groups and studies rewiring, not this event-clock full first-passage distribution.",
+      "residual_risks": [
+        "Broad voter-model hitting-time literature is not exhaustively indexed; model equivalences require clock normalization care"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Non-covering for exact complete-hypergraph unconditional-event first-consensus law; model clock differs",
+          "evidence": "Explicit active mixed-hyperedge selection and adaptive topology",
+          "identifier_or_url": "https://arxiv.org/abs/2308.03640",
+          "material_read": "Accessible HTML primary text including microscopic copying rule, active-hyperedge sampling, rewiring and main motif/fragmentation focus",
+          "method": "Read accessible arXiv HTML body and compared clock specification",
+          "title": "Polyadic Opinion Formation: The Adaptive Voter Model on a Hypergraph",
+          "trigger": "Very similar speaker opinion propagation in hyperedges"
+        },
+        {
+          "assessment": "Single-node group-driven updates, not whole-group identical copying; whole-text noncoverage not asserted",
+          "evidence": "Group-driven voter rule updates a single node",
+          "identifier_or_url": "https://arxiv.org/abs/2407.11261",
+          "material_read": "Model-level description and bibliographic abstract; not complete full-text inspection",
+          "method": "Read primary abstract and compared group update definition",
+          "title": "Competition between group interactions and nonlinearity in voter dynamics on hypergraphs",
+          "trigger": "Similar group dynamics and consensus-times keywords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact arbitrary-n count-chain/eigenvector proof and independent rational checks",
+        "Prior hypergraph voter theory distinguishes clocks"
+      ],
+      "rationale": "A natural stochastic consensus hitting-time problem receives a complete, all-population-size, all-initial-count exact distribution, from a non-obvious rank-one transient kernel, plus a sharp boundary example where three excluded agents destroy the one-rate law. The event-clock normalization is operationally meaningful and is not a routine fixation-probability martingale calculation.",
+      "residual_risks": [
+        "Limited to fixed complete groups of sizes n,n-1,n-2; no universal rule for smaller groups"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not concern active-only clock, noncomplete hypergraph or population-scaled continuous-time transitions",
+    "Broad voter-model hitting-time literature is not exhaustively indexed; model equivalences require clock normalization care",
+    "Limited to fixed complete groups of sizes n,n-1,n-2; no universal rule for smaller groups"
+  ],
+  "schema_version": 1
+}

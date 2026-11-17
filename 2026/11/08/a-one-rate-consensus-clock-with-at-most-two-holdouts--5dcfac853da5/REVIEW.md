@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The general proof treats the exact finite discrete Markov chain, including self-loop events. A single omitted agent leads to a one-state transient quotient; two omissions lead to a rank-one two-state quotient with left eigenvector \((2,1)\). The eigenvalues and initial mixture weights give the exact full survival law, first-passage probabilities, means and fixation probabilities. Independently coded labeled-state and hypergeometric checks agree. The theorem requires \(n\ge4\), and the boundary example makes no universal claim for smaller groups.
+## correctness
 
-**Originality (PASS, with residual priority risk).** The initiating proportional hyperedge propagation model is analyzed under active-triggered events and optional adaptation, not the complete-family all-event clock. Related group-driven voter theory changes only one sampled node per event; a finite-hypergraph expected-discordance identity does not imply this first-passage distribution. Targeted comparisons found no publication or indexed result giving the one-rate two-holdout clock, but do not prove absolute priority. The residual risk is unindexed or differently named simultaneous-copying calculations.
+PASS
 
-**Value (PASS).** Exact distributions of time to consensus are central performance observables in opinion dynamics. The theorem replaces generic matrix inversion or simulation by a constant-size structural reduction for an infinite class of finite populations, gives sharp exponential tails and expected times for every starting split, and proves by explicit calculation that the special one-rate phenomenon need not survive a third holdout. This is a motivated structural boundary, not a single arbitrary numerical instance.
+The bounded A-count martingale preserves fixation probability x/n under uniform speaker-copying. With one omitted agent, the first survival probability is 2x(n-x)/(n(n-1)), then exactly 2/n from a single dissenter. For two omitted agents, first-event surviving 1- and 2-dissenter masses are u(2,1), u=x(n-x)/(n(n-1)); the exact 2x2 substochastic matrix has proportional rows, with (2,1)Q=lambda(2,1), lambda=(4n-6)/(n(n-1)). This gives the geometric survival law for all integer t>=1 and the stated means including n=4. Hypergeometric transition kernel checks n=6,k=3,x=1 survival 2/3,1/2,59/150, refuting a universal 3-holdout rate. Independently coded Fraction count-chain reproduced 728 cases for n=4..11, c=1,2, all nontrivial x, t=1..7. Finite tests corroborate exact matrix eigenvector proof.
 
-**Closest literature and scope.** Golovin–Mölter–Kuehn, arXiv:2308.03640, Sections on propagation, numerical investigations and discussion; Kim et al., arXiv:2407.11261, single-node group-driven voter model; Cooper et al., ICALP 2016, active discordant pair interactions. The theorem concerns all-group discrete sampling, not those distinct clocks or updating rules. Independent literature completeness is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact finite-population first-consensus law for complete, fixed k=n-1,n-2 hyperedges under unconditional uniform-group events, not just generic voter-model fixation probabilities. Relevant existing adaptive polyadic voter work samples active groups and studies rewiring, not this event-clock full first-passage distribution.
+
+## value
+
+PASS
+
+A natural stochastic consensus hitting-time problem receives a complete, all-population-size, all-initial-count exact distribution, from a non-obvious rank-one transient kernel, plus a sharp boundary example where three excluded agents destroy the one-rate law. The event-clock normalization is operationally meaningful and is not a routine fixation-probability martingale calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

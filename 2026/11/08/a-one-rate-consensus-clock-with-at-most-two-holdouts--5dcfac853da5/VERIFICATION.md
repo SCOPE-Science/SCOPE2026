@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify_consensus.py` was run with CPython using only the standard library. All assertions passed: 14,940 exact labeled-state survival checks for every mixed binary state, \(4\le n\le9\), three near-complete group sizes and five event steps; 1,575 separately programmed hypergeometric count-chain checks for \(4\le n\le13\), together with exact expected hitting times obtained by rational Gaussian elimination; and a three-step counterexample check at \((n,k,x)=(6,3,1)\).
+# Independent mathematical audit
 
-The labeled checker enumerates each selected subset and each potential speaker and does not use the asserted occupancy transition matrices. The count checker instead uses a separate hypergeometric kernel. Both operate with rational arithmetic and are reproducible without external data. The general theorem rests on the algebraic argument in RESULT.md; finite enumeration alone would not establish it for unbounded \(n\). The source literature comparison remains subject to unindexed priority risk, and an independent audit has not been performed.
+## correctness
+
+PASS
+
+The bounded A-count martingale preserves fixation probability x/n under uniform speaker-copying. With one omitted agent, the first survival probability is 2x(n-x)/(n(n-1)), then exactly 2/n from a single dissenter. For two omitted agents, first-event surviving 1- and 2-dissenter masses are u(2,1), u=x(n-x)/(n(n-1)); the exact 2x2 substochastic matrix has proportional rows, with (2,1)Q=lambda(2,1), lambda=(4n-6)/(n(n-1)). This gives the geometric survival law for all integer t>=1 and the stated means including n=4. Hypergeometric transition kernel checks n=6,k=3,x=1 survival 2/3,1/2,59/150, refuting a universal 3-holdout rate. Independently coded Fraction count-chain reproduced 728 cases for n=4..11, c=1,2, all nontrivial x, t=1..7. Finite tests corroborate exact matrix eigenvector proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact finite-population first-consensus law for complete, fixed k=n-1,n-2 hyperedges under unconditional uniform-group events, not just generic voter-model fixation probabilities. Relevant existing adaptive polyadic voter work samples active groups and studies rewiring, not this event-clock full first-passage distribution.
+
+## value
+
+PASS
+
+A natural stochastic consensus hitting-time problem receives a complete, all-population-size, all-initial-count exact distribution, from a non-obvious rank-one transient kernel, plus a sharp boundary example where three excluded agents destroy the one-rate law. The event-clock normalization is operationally meaningful and is not a routine fixation-probability martingale calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
