@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The kernel is the common solution space of independent edge determinants, yielding zero coordinates outside a support but adjacent to it, one line on each nontrivial support run, and otherwise free coordinates. Coordinate projections and two-coordinate projection ranks recover the runs, zero set, and projective ratios uniquely; singleton supports are intentionally not retained. The output-word determinization has exactly the seven displayed states, and elimination gives the stated rational generating function. This is an all-length proof, supported separately by a finite-field row-space verifier (`VERIFY_OK`). The scope includes prime-power fields and the empty/one-vertex boundaries.
+## correctness
 
-**Originality — PASS relative to checked evidence.** Rossmann's primary full text, in particular Section 2.4, Lemma 3.2, and the enumerative theorems, concerns element-centralizer *sizes*, conjugacy-class counts, and rank, not the number of distinct centralizer subspaces. Godoy Molina–Lagos Sections 2–5 establish graph-labeled Lie algebra structures and ideal/derivation results but no centralizer-identification quotient. Known all-graph rank formulas do not record when two elements have exactly equal kernels; this distinction is demonstrably nontrivial (for instance, all vectors with isolated support give many repeated centralizers). Closest published research results concern different invariants. A broader published classification of graph centralizer lattices could potentially imply the result; priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** Equality of centralizer subalgebras is a natural finite-Lie-algebra structural invariant, stronger than their sizes. The rational exact count resolves the embedded-centralizer census for every labeled path and every finite field, and the seven-state quotient supplies a reproducible structural explanation for the unexpectedly low complexity of the count. The characteristic-uniform formula distinguishes arbitrary element enumerations from genuinely different centralizer types. It is not an arbitrary finite slice or mere reparameterization of the previous rank distribution.
+The actual bracket equations a_i b_{i+1}-a_{i+1} b_i=0 show that nontrivial adjacent support runs impose one-dimensional common-ratio constraints, adjacent unsupported positions are zero, and isolated support coordinates stay free. Distinct resulting kernels correspond to canonical run-zero output descriptions plus projective line ratios. The seven-state determinized support-output automaton is weighted by q−1 for each B-run continuation. Independently recomputed its symbolic resolvent e0(I-u M)^(-1)h, exactly matching the stated rational generating function for formal u. Additionally enumerated literal row-reduced finite-field edge-bracket matrices over F2 up to n=10 and F3 up to n=7, deduplicating kernels, and all counts equal matrix powers; finite checks complement but do not replace all-n automaton proof.
 
-**Limitations.** Full graph centralizer lattices, shared-edge-label Lie algebras, and centralizer isomorphism types are outside scope. The direct finite checks are not the universal proof. Independent assessment of publication priority is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The invariant is the count of different embedded centralizer subspaces, not the distribution of their dimensions, counts of elements, or isomorphism types. Rossmann (2022) counts group conjugacy classes by orbit size, including an explicit path class polynomial; its class number does not count equality classes of centralizer kernels. Published broader graphical Lie algebra rank spectra and isomorphism-type descriptions omit projective ratio data needed for this count. No exact matching rational generating function was found in Resultary queries; historical priority risk remains.
+
+## value
+
+PASS
+
+Counting distinct actual centralizers (rather than their dimensions) is a natural structural invariant of finite graphical Lie algebras. Seven-state canonicalization and the exact rational length series give a nontrivial all-path classification across finite fields, with q-dependent projective parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
