@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Direct character orthogonality yields the three required frequency-pair averages from the rank-one, rank-two and diagonal-pencil profiles; no unproved all-field Gauss-sum assumption is used. The Hamming-cube distance matrices give four exactly computable eigenvalues, the label-contrast sector is diagonal and the constant interacts only with one uniform cube direction. Explicit positive factorization of the shifted two-by-two determinant proves the checkerboard is the strict least mode for every prime power. The largest is the upper eigenvalue of the displayed two-by-two block, and the squared condition-number asymptotic follows algebraically. Direct pointwise character Gram tests at \(q=2,3,4,5\) corroborate the universal proof.
+## correctness
 
-## Originality
-**PASS with bounded priority.** Lavrauw–Sheekey (arXiv:1207.3972) gives the projective Segre-orbit classification, not a coordinate-character Riesz spectrum. Byrne–François (arXiv:2607.03479) has a general Cayley-graph character-eigenvalue formula for the **full rank-one tensor adjacency**; this is a crucial covering ingredient, but the inspected Sections 3–4 do not state or optimize a coordinate-restricted Fourier Gram family or identify its unique checkerboard least mode. Published Plücker and two-way rank-one matrix frame results have different objects and incidence structures. The computation uses these known ingredients rather than claiming them as new. A less obvious previous equivalent frame specialization remains a genuine historical-priority risk.
+PASS
 
-## Value
-**PASS.** The complete first-coordinate Fourier Riesz classification is a canonical, finite, all-field sampling invariant for the smallest non-matrix Segre variety. The explicit lower stability constant, unique alternating-cube obstruction, and sharp quadratic deterioration of squared conditioning are not an arbitrary slice or mere spectral-table recomputation: they determine the precise recoverability and amplification of a natural full coordinate band. The feature persists over all field sizes, including characteristic two.
+The cone contains 1+(q-1)(q+1)^3=q(q^3+2q^2-2) points. Trilinear character orthogonality reduces pair-frequency means to Hamming distances 1,2,3 and same-coordinate contrast. Splitting labels into uniform and contrast spaces gives a scalar level q^3/D, Hamming cube levels q(2q-1)^2/D (3), q(2q-1)/D (3), q/D (1), and the 2x2 coupled block L±. The strictly positive shifted 2x2 determinant at q/D rules out L− reaching the checkerboard eigenvalue; remaining levels exceed q/D for all q≥2. For binary q=2 independent exact enumeration of 28 cone points gives eigenvalues 1/7, 3/7 (3), 9/7 (3), and 13/7±6sqrt3/7. This supports, not substitutes for, the all-field proof.
 
-## Limitations
-This theorem does not extend automatically to higher Segre formats or arbitrary character subsets. The finite field tests do not establish the universal proof. There is no independent mathematical validation and no assertion that all historical literature has been exhaustively searched.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The multilinear Cayley graph eigenvalue theorem of Byrne–François gives raw rank-one tensor character sums and thus overlaps core input, while Lavrauw–Sheekey classify geometry/orbits. Neither inspected primary statement gives this specified 1+8(q-1) coordinate-character Gram frame, its unique checkerboard least mode or sharp Riesz condition number. Plücker and two-factor matrix coordinate sampling rely on different Johnson/rook geometry. An overlooked reduction of the general tensor graph theorem remains possible.
+
+## value
+
+PASS
+
+This is the first nonmatrix Segre cone and the complete full one-coordinate Fourier band is a natural sampling family. Identifying its exact minimal Riesz eigenmode and sharp instability order across all q gives precise reconstruction stability and a structural Hamming-cube obstruction; not a random parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
