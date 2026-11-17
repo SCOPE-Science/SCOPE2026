@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T14:14:39.728453Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba/RESULT.md",
+        "frozen verify_ou_quadrature.py blob e10b99c9f2ac6d02ac5a6cc220fa2c4656f78145",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c"
+      ],
+      "rationale": "Stationary Gaussian Markov bridge conditioning gives independent conditional-integral gap residuals, with exact terminal b(x)=2x−3+4e^(−x)−e^(−2x) and interior v(x)=2x−4tanh(x/2). Strict convexity bʺ,vʺ>0 for x>0 forces equal interior gaps h and equal terminal margins a>0; bʹ(λa)=vʹ(λh) yields a=h/2+λ⁻¹log cosh(λh/2) and n h+2λ⁻¹log cosh(λh/2)=1. Cubic b≈2x³/3, v≈x³/6 imply optimal n²V→σ²λ/6. Independent uniform jitters yield 1-dependent Y=(1+U_{i+1}−U_i)^3 with E=3/2, Var=16/7, lag-one Cov=−307/336, long-run 11/24; its CLT yields 11σ⁴λ²/864 after normalization. Independent 30 Schur-complement/covariance cases, 4 exact cubic moments and 12 optimum stationarity cases agree.",
+      "residual_risks": [
+        "Gaussian-process Markov property and standard bounded 1-dependent CLT are invoked; all n with σ²,λ fixed, noiseless integral observations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Bayesian quadrature framework and old integral-estimation design work are relevant; the inaccessible 2003 theorem may dominate exact OU spacing."
+        ],
+        "reasoning": "No full proof comparison can exclude Mukherjee; no observed source definitively supplies both exact OU endpoint node equation and jitter CLT, so best-of-knowledge pass with explicit material risk.",
+        "searches": [
+          "Pronzato Zhigljavsky 2018 Bayesian quadrature exponential covariance",
+          "Mukherjee 2003 On Sampling Designs for Integral Estimation of a Random Process DOI:10.1081/STA-120022249"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+        "https://doi.org/10.1081/STA-120022249",
+        "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "https://arxiv.org/abs/1808.10722"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current proof derives OU-specific b,v convex marginal matching and exact optimum for every n≥1, plus asymptotic coefficient and location CLT; Brownian result shares cubic moment because of local Brownian universality."
+        ],
+        "reasoning": "Brownian theorem alone does not imply all-λ OU statement verbatim; inaccessible integral-design thesis may imply the finite-n optimum but its exact contents cannot be assumed.",
+        "searches": [
+          "Brownian jitter full RESULT.md",
+          "Current OU RESULT.md",
+          "Mukherjee dissertation abstract and 2003 paper abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brownian one-per-stratum posterior integral variance has 3/2 and 11/3456 after its own normalization; OU gap costs b,v are exponential and not identical finite-n Brownian costs."
+        ],
+        "reasoning": "Same Brownian local scaling gives common cubic moments, but complete OU all-n spacing and joint normal limit require taking a λ-dependent exponential-kernel limit; not the identical result.",
+        "searches": [
+          "Resultary Ornstein Uhlenbeck posterior integrated functional variance optimal sampling positions",
+          "Purdue 2001 Mukherjee sampling stochastic process integral estimation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brownian exact 1-dependent cubic-gap law proves same universal jitter ratio, but its kernel is min(s,t) not σ²e^(−λ|s−t|)."
+        ],
+        "reasoning": "Published Brownian table covers only limiting constants for a different GP and not exact finite-λ OU quadrature variance or unique all-n nodes.",
+        "searches": [
+          "Resultary OU Bayesian quadrature optimal nodes and stratification penalty",
+          "Resultary stratified Brownian quadrature 2026-11-08"
+        ]
+      },
+      "rationale": "Best-of-knowledge: this OU-exponential *integral* variance has exact all-n endpoint spacing and jittered-stratification CLT. A separate Brownian-motion quadrature result computes universal 3/2 and 11/24 constants in its different boundary/covariance model; these constants alone are not novel. A strongly relevant Mukherjee dissertation and 2003 integral-estimation paper were not available in complete text; this may cover the optimal OU design and is explicitly the leading priority risk, not automatically grounds for failing O without demonstration of implication.",
+      "residual_risks": [
+        "Material historical priority risk: Mukherjee 2001 dissertation and 2003 integral-estimation article might already cover unique OU optimum; authorized Oxford VPN disconnected and OA full text not located.",
+        "The Brownian jitter 3/2 and cubic-gap variance law were published earlier for a different kernel and are not claimed as wholly new constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR covers Brownian design limit 3/2 and 11/24 cubic sums, not OU exponential-kernel all-n nodes",
+          "evidence": "Brownian conditional variance has different terminal cost and different leading scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+          "material_read": "Complete published RESULT.md findings, exact Brownian bridge proof and limit theorem",
+          "method": "GitHub full content",
+          "title": "Exact design loss and Gaussian fluctuations for stratified Brownian kernel quadrature",
+          "trigger": "same sampling scheme and asymptotic cubic moments"
+        },
+        {
+          "assessment": "CANNOT EXCLUDE potential stronger classical exact OU optimal-design theorem",
+          "evidence": "Oxford returned vpn_disconnected, no paper text available; priority material risk.",
+          "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+          "material_read": "Accessible abstract/bibliography only; complete article unavailable",
+          "method": "Lawful OA/preprint search then authorized Oxford attempt",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "specifically integral-estimation sampling design for random processes"
+        },
+        {
+          "assessment": "Potential older optimal designs; full dissertation not inspected",
+          "evidence": "No whole-document NOT_COVERING claim made.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Purdue dissertation abstract only",
+          "method": "institutional repository abstract",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "same 2001 experimental design family and abstracts mentioning integral estimation"
+        },
+        {
+          "assessment": "Establishes general framework; not independently shown to imply exact OU result",
+          "evidence": "Any precise hidden theorem remains residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.10722",
+          "material_read": "Available abstract and cited description, not full source text",
+          "method": "arXiv index/abstract",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "general Bayesian integral variance and exponential kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-optimal-nodes-and-stratification-penalty-for-ornstein-uhle--971795799fba/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-design-loss-and-gaussian-fluctuations-for-stratified-brown--f119d713d36c",
+        "https://doi.org/10.1081/STA-120022249",
+        "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "https://arxiv.org/abs/1808.10722"
+      ],
+      "rationale": "Exponential covariance is a fundamental Gaussian-Markov prior; optimal exact noiseless integral sampling rather than pathwise prediction is natural. A non-equally spaced unique finite-n optimum, exact terminal correction, stratified inefficiency ratio and location-noise CLT constitute useful design guidance in the same problem. Value is OU-specific combined design and uncertainty result, not mere rediscovery of universal Brownian 3/2.",
+      "residual_risks": [
+        "Precedence uncertainty for optimal OU spacing limits scientific priority; do not claim origin of shared Brownian asymptotic constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exponential covariance, known hyperparameters, noiseless integral functional; inaccessible earlier integral-estimation design primary source creates substantial best-of-knowledge O risk. Oxford VPN disconnected; no protected-auth bypass."
+  ],
+  "schema_version": 1
+}
