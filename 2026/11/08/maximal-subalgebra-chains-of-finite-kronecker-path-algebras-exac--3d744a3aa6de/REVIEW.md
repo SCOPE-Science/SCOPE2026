@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The classification of subalgebras by their diagonal projection and radical intersection is explicit and includes nonunital cases. Counting all codimension-one covers produces four independently checkable recurrences, which yield the exact chain total and first-quotient-drop weights. The quantitative uniform limit follows from an absolutely summable error term. Exhaustive small-field subspace enumeration independently verifies the numerical counts. The infinite theorem rests on the proof rather than finite calculations.
+## correctness
 
-## Originality
-PASS relative to the inspected literature and record searches, not a publication-priority certification. Iovanov–Sistko (2017) classify maximal subalgebra types and Sistko (2018) describes maximal-subalgebra varieties for Kronecker quivers. Sercombe–Shalev (2020) already settles the common length of unrefinable chains for split basic algebras. None of their inspected results counts all embedded complete chains or establishes the law of the first semisimple-quotient drop. The cover classification is treated as a premise rather than an originality claim. The remaining risk is an uninspected general flag-enumeration theorem whose specialization might supply the same count and limit.
+PASS
 
-## Mathematical value
-PASS. The number of complete subalgebra filtrations is a natural refinement of chain length/depth and records incidence multiplicities that the length invariant omits. A uniform limiting location for the first change in semisimple quotient is an additional genuinely global feature of these filtrations. The proof gives the exact finite-field count for every arrow multiplicity and identifies the law's quantitative rate, rather than merely calculating small isolated examples.
+All possible image subalgebras of the semisimple diagonal F_q^2 are 0, two idempotent coordinate lines, the diagonal line and the whole plane. Their lifts yield the Z,T,L,K types, with explicit q[d]_q codimension-one cover multiplicities; the recurrences z_d=f_d, t_d=(d+1)f_d, ell_d=[d+1]_q f_d and c_d=2ell_d+t_d+q[d]_q c_(d-1) give the stated formula, including m=0 count 3. Before the first quotient drop, q^(m-j)f_m/f_j full-quotient continuations and 2ell_j+t_j lower choices give exact J_m law. After q^-m normalization each summand is 2q/(q-1)+summable O_q((j+1)q^-j); TV O_q(1/m) follows. Independent direct F2 m1 enumeration checked 13 subalgebras and 14 chains.
 
-## Scope and residual risk
-Only Kronecker path algebras with two vertices and arbitrary parallel-arrow multiplicity are covered, and the chains include nonunital subalgebras. The asymptotic requires fixed finite-field order. The direct enumeration uses prime fields for small dimensions; the proof covers all prime powers. Publication priority should be checked further against subalgebra-lattice and flag-enumeration papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Iovanov–Sistko classify maximal subalgebras, Sistko analyzes Kronecker maximal-subalgebra varieties, and Sercombe–Shalev establishes equality of algebra length and depth for split basic algebras. None of their inspected full statements gives the number of embedded complete nonunital chains at finite q or the first quotient-rank-drop distribution. The exact Gaussian factorial and quantitative uniform limit are distinct from chain length and codimension-one orbits.
+
+## value
+
+PASS
+
+Embedded subalgebra flags are a natural invariant of finite-dimensional quiver algebras. An exact finite-field flag census and nontrivial asymptotic stopping-location law refine maximal-subalgebra classifications, with the full intermediate quotient filtration counted. This is a mathematically motivated all-m parameter family, not an arbitrary small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
