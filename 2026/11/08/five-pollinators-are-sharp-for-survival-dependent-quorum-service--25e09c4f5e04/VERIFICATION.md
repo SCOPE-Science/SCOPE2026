@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`python3 verifier.py` completed without third-party dependencies. It exhaustively checked all 341 eligible nontrivial neighborhood multisets through five pollinators, including 1,284 independently recalculated action coefficient vectors. It established coefficientwise universal winners for the 13 three-pollinator and 77 four-pollinator classes, and 245 of 251 five-pollinator classes; the remaining six form one plant-symmetry orbit. The canonical two winning action vectors are `(0,0,1,3,3,1)` and `(0,0,0,4,5,1)`, yielding the exact difference `p^2*(1-p)*(1-3*p)`. Test cases with `Fraction` additionally verify the factorization. The mathematical proof is finite: the code loops over the entire set of incidence classes and permitted link types. No exhaustive or asymptotic result beyond five pollinators is tested.
+## correctness
+
+PASS
+
+PASS: Every nonempty pollinator neighborhood is one mask 1..7, and sorted m-tuples exhaust pollinator-label isomorphism classes. Independently enumerated all valid m≤5 with each plant initially degree≥2 and at least one absent link: 0,13,77,251 for m=2,3,4,5, respectively. Scanned all 1284 possible action types and every live-pollinator subset with integer Bernstein coefficients. Every m≤4 case has one coefficientwise dominating action. At m=5 precisely six exceptions, all S3-images of (1,1,2,6,7), with two upper candidate vectors (0,0,1,3,3,1) and (0,0,0,4,5,1); their exact difference factors as p²(1−p)(1−3p). This proves sharp switch and unique action types for 0<p<1 excluding tie. Finite exhaustion does not generalize to >5.
+
+## originality
+
+PASS
+
+PASS on best-of-knowledge for sharp five-pollinator first switch and all six exceptional labeled-plant neighborhood multisets in the exactly stated two-survivor nonexclusive-service model; generic survival polynomials and prior network-ecology motivation are known.
+
+## value
+
+PASS
+
+PASS: Two distinct surviving service partners is a naturally motivated functional-redundancy threshold; exact one-interaction prioritization is a concrete mathematical optimization problem. First switching at five partners and exact p=1/3 boundary give a meaningful complete finite classification, without unsupported field-restoration claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
