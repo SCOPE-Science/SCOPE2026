@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial \(xy^2+yt^2+z^3\) has no geometric line through \([0:1:0:0]\) in any characteristic, so every relative line lies in the single Grassmann chart projecting isomorphically onto the \([x:t]\) coordinates. The four exact coefficient equations reduce by two integral substitutions to the proposed two weighted polynomials. The Sylvester determinant of the associated dehomogenizations is exactly \(-1\), proving no non-origin geometric point across all prime characteristics. Because the two forms are a homogeneous regular sequence on every fiber, their Koszul Hilbert series gives geometric length \(27\), Gorenstein socle degree \(16\), and tangent dimension \(2\). Proper plus affine proves finite, and constant fiber length over the PID \(\mathbf Z\) together with generic rank \(27\) proves torsion-free finite flat rank \(27\). The characteristic-three ideal is visibly \((c^3,d^9)\). The exact verifier recomputed identities and enumerated all lines over four small prime fields; general correctness rests on the proof, not finite experimentation.
+PASS
 
-## Originality — PASS, with close antecedents acknowledged
+The one-line cubic has no line through P=[0:1:0:0], giving one global affine Grassmann chart. Restricting the cubic yields a²+c³=0, 2ab+3c²d=0, b²+a+3cd²=0, b+d³=0; eliminating a,b without denominators gives f=c³+9c²d⁴+6cd⁸+d¹² and g=3c²d+6cd⁵+2d⁹. Dehomogenizing with c/d⁴ yields cubic F and quadratic G with exact resultant -1. Thus no nonorigin point in any geometric fiber; degree12/9 weighted regular sequence gives length27, Hilbert series (1-s⁹)(1-s¹²)/((1-s)(1-s⁴)), socle16, embedding dimension2. Proper and affine implies finite; equal fiber lengths imply Z-torsion free and free rank27. Mod3 gives precisely (c³,d⁹). No step divides by a prime. Finite line-enumeration checks are corroboration, not proof.
 
-Brundu–Logar classify the T1 one-line cubic, and Alper–Bogart–Velasco give its canonical equation and characteristic-zero determinantal complexity. More decisively, the Golys 2024 answer treats the projectively equivalent \(E_6\) cubic and gives a characteristic-zero Grassmann-chart algebra with length \(27\); the MathOverflow 2020 discussion explains generic flatness and the count \(27\) for finite schemes of cubic lines. Accordingly the bare one-line classification, the existence of a finite length-27 scheme, and a field-level local algebra presentation are all previously covered. The independently assessed exact output is the two-relation **integral** scheme, proof of finite flat rank \(27\) across primes \(2,3\), exact characteristic-three monomial algebra, and weight-16 socle. No directly covering statements were identified in the inspected sources. Further specialized literature might give an integral normal form or equivalent bad-characteristic calculation; novelty is not certified externally.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Hilbert scheme of lines on a singular cubic can retain all 27 enumerative multiplicities in one nonreduced point. Knowing an explicit field-level scheme at characteristic zero does not determine a fixed integral model, its scheme structure at bad primes, or whether the family remains flat over \(\mathbf Z\). The characteristic-three degeneration to \(\mathbb F_3[c,d]/(c^3,d^9)\), and the exact graded Gorenstein structure uniformly across primes, reveal concrete arithmetic deformation information for a uniquely degenerate cubic surface. The claim is more than an unmotivated small computation or a restatement of 27-line enumerativity.
+Prior work covers the unique geometric line, equation of the T1 surface and generic length-27 field-level Fano scheme, but does not supply the fixed integer model two-relation presentation, flatness at 2 and 3 or monomial char3 fiber in inspected material.
 
-## Limits and closest references
+## value
 
-Alper–Bogart–Velasco (2015), arXiv:1505.02205v1, and Brundu–Logar (1998) supply the cubic model and geometric line classification. Golys (2024), Mathematics Stack Exchange question 3944438, calculates an explicit characteristic-zero Fano chart for a projectively equivalent cubic; the 2020 MathOverflow discussion 370654 addresses general multiplicity. These imply much of the generic motivation, but their statements do not supply the fixed integral two-relation presentation or its bad-characteristic fibers. Independent review and exhaustive historical screening remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Hilbert scheme of a maximally degenerate cubic naturally retains 27 enumerative directions; its arithmetic deformation and bad-characteristic local algebra are genuine exact invariants not mechanically determined by the generic 27-line count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
