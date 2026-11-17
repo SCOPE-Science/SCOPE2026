@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:10:46.973151Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine arclength fractions reduce to reference triangle; decomposing it into the random inner hull and three corner triangles and integrating P in one corner gives F(x,y)=1-x-y-xy log(((1-x)(1-y))/(xy)). Summing cyclic corners yields sum_{t=a,b,c}t(1-t)log((1-t)/t). The derivative difference g'(a)-g'(b) under a+b<1 proves strict Schur concavity, centroid value (2/3)log2, zero boundary, and mean area 1/4. The uniform vertex error follows directly from uniform bounds on t^2|log t|. Independent 600 balancing and 18 boundary checks corroborated the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5",
+          "https://math.stackexchange.com/questions/1040314/find-probability-that-random-triangle-covers-centre-of-circumscribed-circle"
+        ],
+        "reasoning": "The full 2026-10-18 profile already covers all nondegenerate triangles, all target locations and strict Schur concavity, strictly stronger than the 2014 centroid-only calculation. The submitted result does not enlarge the object family or change a meaningful invariant.",
+        "searches": [
+          "Resultary 2026/10/18 exact barycentric inclusion depth",
+          "MSE 2014 equilateral centroid random triangle covers center"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5",
+        "https://math.stackexchange.com/questions/1040314/find-probability-that-random-triangle-covers-centre-of-circumscribed-circle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5"
+        ],
+        "reasoning": "The 18 October theorem directly implies every headline assertion: exact profile, affine invariance, zero boundary, strict majorization, unique centroid maximum and mean 1/4. Its fixed-direction entropy expansion has the identical leading coefficient. The newer uniform error bound follows by the elementary uniform maximum of t^2|log t| and yields no meaningful original mathematical content.",
+        "searches": [
+          "2026/10/18 published RESULT.md full formula and entropy expansion",
+          "2026/11/8 submitted barycentric strict majorization full formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5"
+        ],
+        "reasoning": "The older result samples exactly one independent uniform arclength point on each of AB,BC,CA and asks for containment of a fixed arbitrary barycentric target. This is precisely the same probability space and coordinate normalization. It states the identical sum t(1-t)log((1-t)/t).",
+        "searches": [
+          "Resultary: one point uniformly on each side triangle containment arbitrary target barycentric Schur concave log formula strict majorization",
+          "Resultary: exact barycentric inclusion depth for side-stratified random triangles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5",
+          "https://math.stackexchange.com/questions/1040314/find-probability-that-random-triangle-covers-centre-of-circumscribed-circle"
+        ],
+        "reasoning": "The exact formula is already explicitly tabulated as a theorem in the earlier published record, not merely implicit in an external table. The centroid constant is even older.",
+        "searches": [
+          "Published exact barycentric inclusion depth side stratified random triangles",
+          "side-sampled centroid containment 2 log 2 /3"
+        ]
+      },
+      "rationale": "Earlier exact theorem mathematically covers the same final claim. The major findings do not survive originality.",
+      "residual_risks": [
+        "Historical priority of earlier result is not disputed; original submitted theorem cannot be passed by renaming spatial depth as coverage.",
+        "A purely uniform-in-direction remainder estimate is an elementary minor refinement and is not independently valuable under the common audit bar."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covering main theorem, original scientific priority fails.",
+          "evidence": [
+            "2026-10-18 published RESULT Finding, proof steps 1–6; identical phi sum and centroid value"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-barycentric-inclusion-depth-for-side-stratified-random-tri--7079f4ade0b5",
+          "material_read": "Full earlier RESULT.md including proof, assumptions, strict Schur majorization, directional entropy expansion, integral and references.",
+          "method": "Read GitHub source RESULT.md and compare formula/quantifiers term by term",
+          "title": "Exact barycentric inclusion depth for side-stratified random triangles",
+          "trigger": "Exact same objects/parameters and theorem"
+        },
+        {
+          "assessment": "Already gives centroid value log(4)/3; does not give general profile, which is instead covered by 2026-10-18.",
+          "evidence": [
+            "2014-11-29 accepted answer, corner integral and exact constant"
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/1040314/find-probability-that-random-triangle-covers-centre-of-circumscribed-circle",
+          "material_read": "Full Mathematics Stack Exchange question and accepted solution including corner integral.",
+          "method": "Read HTML source, answer and date",
+          "title": "Find probability that random triangle covers centre of circumscribed circle",
+          "trigger": "Historical same sampling at centroid"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the earlier full barycentric profile already supplies the natural exact probability, strict spatial majorization, centroid extremum, boundary entropy coefficient and mean-area identity. The only apparent extension is uniformity of an already known O_q(epsilon^2 log 1/epsilon) remainder, an immediate elementary bound from the same exact formula, not a separately motivated useful invariant or structural theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": "Original formula correct for independent uniform points on three specified sides; it is not new. No separate surviving new scientific claim in unchanged RESULT.md.",
+  "schema_version": 1
+}
