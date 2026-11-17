@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T11:05:00.849638Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In Z_(p)[[x]] the expansion (1-x)^p=1-x^p-p*sum_{1<=j<p}x^j/j modulo p^2, after substituting x^(2d+1) and dividing the two series, gives C_d(p)=1-p sum_{(2d+1)j<=dp, p|(2d+1)j} j^(-1) mod p^2. Nonexceptional primes make the sum empty. If p|(2d+1), the range is j<= (p-1)/2, yielding -H_{(p-1)/2}=(2^p-2)/p mod p by binomial expansion. Boundary d=0 and Wieferich collisions handled as congruences, not strict residue inequality. Independent exact sliding-window vs inclusion-exclusion coefficient calculations tested 85 (p,d) cases, 3<=p<=13, 0<=d<=16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mellit–Vlasenko Theorem 1 explicitly assumes origin unique interior lattice point of Newton polytope. For Laurent support [-d,d], d>=2 has other interior integer points."
+        ],
+        "reasoning": "The cited general Dwork congruence theorem cannot be applied to dominate unrestricted d>=2 and does not by itself give exceptional residue.",
+        "searches": [
+          "prime-index congruence central odd nominal coefficients modulo p squared exceptional 2d+1",
+          "arxiv:1306.5811"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1008.3887",
+        "https://arxiv.org/pdf/1306.5811",
+        "https://arxiv.org/abs/1403.5942",
+        "https://oeis.org/A005191"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new formula directly distinguishes p|2d+1 and gives exceptional value 2^p-1 mod p².",
+          "Existing p-modular and conditional Dwork statements are logically weaker or inapplicable; obtaining the p-adic harmonic correction requires new coefficient analysis."
+        ],
+        "reasoning": "Absence of alternate historical equivalent is bounded by inspected materials and cannot establish global novelty.",
+        "searches": [
+          "prime-index congruence central odd nominal coefficients modulo p squared exceptional 2d+1",
+          "arxiv:1008.3887",
+          "arxiv:1306.5811"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun Section 2 Lemma 2.5 gives central trinomial T_p(b,c)≡b mod p, not complete all-width mod p^2. Rudolph–Muller describes coefficients by trigonometric formulas."
+        ],
+        "reasoning": "These neither identify the all-width exceptional-prime correction nor state equivalent modulo-p^2 residue after parameter change.",
+        "searches": [
+          "prime-index congruence central odd nominal coefficients modulo p squared exceptional 2d+1",
+          "arxiv:1008.3887",
+          "arxiv:1403.5942"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS names a particular d=2 sequence; a coefficient table at fixed d is not a uniform p-adic congruence for every d."
+        ],
+        "reasoning": "No inspected database/table establishes the two-parameter congruence or the exceptional p|(2d+1) correction.",
+        "searches": [
+          "prime-index congruence central odd nominal coefficients modulo p squared exceptional 2d+1",
+          "OEIS A005191 central pentanomial coefficients"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Sun Lemma 2.5 gives T_p(b,c) congruent to b only modulo p for central trinomials; Mellit–Vlasenko Theorem 1 requires the origin to be the sole Newton-polytope interior lattice point, failing for Laurent x^(-d)+...+x^d when d>=2. Rudolph–Muller provides general trigonometric coefficient representations without the exact prime-square exception. No inspected result determines the all-d two-case p^2 residue. Older combinatorial congruence alias remains possible.",
+      "residual_risks": [
+        "General p-adic combinatorial coefficient identities might re-express this residue under a different older name.",
+        "Rudolph–Muller entire paper not reread this run; comparison of its trigonometric representation is bounded.",
+        "Only odd p and modulo p^2; finite checks do not support stronger moduli."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN MOD-p SPECIAL CASE ONLY",
+          "evidence": "Lemma 2.5 states T_p(b,c)≡b (mod p); not the full odd-nomial prime-square classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3887",
+          "material_read": "Abstract/definitions and page 15 Lemma 2.5 proof",
+          "method": "ArXiv PDF text and screenshot page 15",
+          "title": "Congruences involving generalized central trinomial coefficients",
+          "trigger": "Same central trinomial sequence at prime index"
+        },
+        {
+          "assessment": "HYPOTHESIS DOES NOT APPLY TO FULL d>=2 FAMILY",
+          "evidence": "Unique interior lattice point hypothesis excludes [-d,d] when d>=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.5811",
+          "material_read": "First-page Theorem 1 hypotheses and congruence statement, proof setup",
+          "method": "ArXiv PDF text and screenshot first page",
+          "title": "Dwork's congruences for the constant terms of powers of a Laurent polynomial",
+          "trigger": "Potential stronger all-index prime-power theorem"
+        },
+        {
+          "assessment": "LIMITED COMPARISON; PRIORITY RISK",
+          "evidence": "No checked full-text exclusion; a hidden arithmetic specialization remains possible.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.5942",
+          "material_read": "Title, abstract and representation description; not complete paper",
+          "method": "ArXiv metadata and research source discussion only",
+          "title": "On an explicit representation of central (2k+1)-nomial coefficients",
+          "trigger": "Same central coefficients at general odd widths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This uniform exact p^2 classification across arbitrary odd alphabet widths has a structurally exceptional divisibility boundary p|(2d+1) and a Fermat-quotient correction independent of the alphabet quotient. It sharpens the natural central multinomial coefficient problem at prime exponents and distinguishes a genuine arithmetic resonance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1008.3887",
+    "https://arxiv.org/pdf/1306.5811",
+    "https://arxiv.org/abs/1403.5942",
+    "https://oeis.org/A005191"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "General p-adic combinatorial coefficient identities might re-express this residue under a different older name.",
+    "Rudolph–Muller entire paper not reread this run; comparison of its trigonometric representation is bounded.",
+    "Only odd p and modulo p^2; finite checks do not support stronger moduli."
+  ],
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient extraction is performed in the localized formal power-series ring \(\mathbb Z_{(p)}[[x]]\). The binomial expansion of \((1-x)^p\) modulo \(p^2\), geometric-series inversion, and harmonic-sum calculation each follow from explicit integer or modular identities. The exceptional index range is exactly \(1\le j\le(p-1)/2\), regardless of the quotient \((2d+1)/p\). The standalone checker compares two independent exact integer coefficient algorithms for 319 parameter pairs. Boundary cases \(d=0\), \(p=3\), and arbitrarily large \(d\) are included in the proof.
+## correctness
 
-## Originality — PASS, with residual historical priority risk
-Searches for central odd-nomial, pentanomial, multinomial, Fermat-quotient, and prime-square congruences, plus semantic research-index searches using the complete two-branch formula and aliases, did not identify a theorem covering this statement. Sun (arXiv:1008.3887, full text) proves weaker \(\pmod p\) prime-index statements for trinomial coefficients. Rudolph-Lilith and Muller (arXiv:1403.5942, full HTML) give central odd-nomial trace and trigonometric formulas, not this congruence. Mellit–Vlasenko (arXiv:1306.5811, full PDF) impose a Newton-polytope hypothesis inapplicable for \(d\ge2\). OEIS A005191 lists the pentanomial sequence and other congruences but not this two-parameter classification. As with any elementary identity, the possibility of an earlier equivalent statement cannot be excluded by searches alone.
+PASS
 
-## Mathematical value — PASS
-This is a complete sharp prime-square congruence for the prime-index return-to-origin count of a symmetric random walk with every step from \(-d\) to \(d\), simultaneously for all odd primes and all step radii. A single arithmetic relation, \(p\mid (2d+1)\), produces an exact universal jump to \(2^p-1\), a Fermat-quotient correction independent of the quotient \((2d+1)/p\). The result naturally generalizes the classical trinomial and pentanomial coefficient families and gives a reusable coefficient-extraction method at the first nontrivial prime-power modulus. It does not classify higher powers of \(p\) or general exponents.
+PASS: In Z_(p)[[x]] the expansion (1-x)^p=1-x^p-p*sum_{1<=j<p}x^j/j modulo p^2, after substituting x^(2d+1) and dividing the two series, gives C_d(p)=1-p sum_{(2d+1)j<=dp, p|(2d+1)j} j^(-1) mod p^2. Nonexceptional primes make the sum empty. If p|(2d+1), the range is j<= (p-1)/2, yielding -H_{(p-1)/2}=(2^p-2)/p mod p by binomial expansion. Boundary d=0 and Wieferich collisions handled as congruences, not strict residue inequality. Independent exact sliding-window vs inclusion-exclusion coefficient calculations tested 85 (p,d) cases, 3<=p<=13, 0<=d<=16.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Sun Lemma 2.5 gives T_p(b,c) congruent to b only modulo p for central trinomials; Mellit–Vlasenko Theorem 1 requires the origin to be the sole Newton-polytope interior lattice point, failing for Laurent x^(-d)+...+x^d when d>=2. Rudolph–Muller provides general trigonometric coefficient representations without the exact prime-square exception. No inspected result determines the all-d two-case p^2 residue. Older combinatorial congruence alias remains possible.
+
+## value
+
+PASS
+
+PASS: This uniform exact p^2 classification across arbitrary odd alphabet widths has a structurally exceptional divisibility boundary p|(2d+1) and a Fermat-quotient correction independent of the alphabet quotient. It sharpens the natural central multinomial coefficient problem at prime exponents and distinguishes a genuine arithmetic resonance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
