@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:21:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For reflected Brownian generator D d²/dx² with occupation local time D/epsilon integral, the inverse-local-time transform at threshold ell is exp[-(R+ell)sqrt(s/D)]. A Poisson cycle of rate r has positive local-time reward Y with probability a=exp(-R sqrt(r/D)), conditional Y exponential rate k=sqrt(r/D). Hence E Y=a/k and long-run production J=r a/k=sqrt(Dr) exp(-R sqrt(r/D)). Poisson count bounds plus exponential moment of iid Y give exponentially small deviations of L_t/t from J without assuming cycle duration/reward independence. For independent regular-varying threshold Psi in RV_-alpha, squeeze E Psi(L_t) at (J±delta)t and Karamata yield survival ~Psi(Jt); for Lomax mean iff alpha>1. Freshly redrawing both progress and threshold produces geometric independent attempts p=exp(-Rk) E exp(-k Lambda)>0; renewal transform has a moment-generating function for small positive argument, hence exponential tail. Reviewed CHECK.py only supplies finite integral checks; proofs handle infinite time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exponential concentration of Y_i and Poisson N_t plus regular variation imply current surviving tail via standard probabilistic ingredients",
+          "Bressloff first-passage transform for deterministic threshold"
+        ],
+        "reasoning": "General renewal reward theory could be used to deduce the special statement once the exact law Y and hidden variable protocol are supplied, but no checked published theorem explicitly specializes and dominates the paired boundary-reaction conclusion.",
+        "searches": [
+          "Brownian boundary local time retained threshold Poisson resetting heavy tail survival renewal refreshed threshold",
+          "Bressloff 2022 inverse local time Poisson reset",
+          "Karamata renewal reward heavy tail random threshold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.01119",
+        "arXiv:2203.04868",
+        "arXiv:2303.10483",
+        "Resultary Brownian boundary local time retained threshold Poisson resetting heavy tail survival renewal refreshed threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full renewal reset transform and deterministic-threshold means attributed to Bressloff",
+          "The exact random-threshold survival ~Psi(Jt) survives in contrast with fresh-redraw exponential tail"
+        ],
+        "reasoning": "Neither prior deterministic-threshold mean nor Pareto-II complete renewal implies retained random-threshold tail constant without additional concentration argument. General probabilistic tools underlie—not render vacuous—the precise two-protocol model classification.",
+        "searches": [
+          "arXiv:2202.01119",
+          "arXiv:2203.04868",
+          "arXiv:2303.10483",
+          "Brownian boundary local time retained threshold Poisson resetting heavy tail survival renewal refreshed threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff distinguishes position reset retaining local time from complete progress resetting; same local-time boundary normalization has to be checked",
+          "Current fresh protocol ALSO redraws independent random Lambda on every attempt"
+        ],
+        "reasoning": "Position-only resetting and full-renewal resetting are known mechanisms, but a fixed quenched heavy-tail threshold and independently redrawn heavy-tail thresholds are different stochastic laws; the sharp Psi(Jt) and exponential comparison are not asserted by equivalence of labels.",
+        "searches": [
+          "Brownian boundary local time retained threshold Poisson resetting heavy tail survival renewal refreshed threshold",
+          "arXiv:2202.01119",
+          "arXiv:2203.04868"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published prior work includes threshold-dependent means and Pareto-II under complete renewal",
+          "Current exact equivalence covers all ultimately positive RV_-alpha thresholds, not a fixed numerical table"
+        ],
+        "reasoning": "The sharp tail-class contrast and coefficient J are not identified as a matching tabulated result in material inspected; relevant family of renewal papers remains broad.",
+        "searches": [
+          "Brownian boundary local time retained threshold Poisson resetting heavy tail survival renewal refreshed threshold",
+          "arXiv:2202.01119 Pareto-II threshold resetting",
+          "arXiv:2203.04868 deterministic-threshold mean"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Bressloff 2022 treats the same boundary local-time process with conserved progress under position-only resetting and reset-progress renewal; related equations are prior. The current claim is the precise regularly varying random-threshold survival equivalence and its contrasted fresh independent threshold-redraw protocol, especially persistence of algebraic tails with a finite production constant. The earlier source inspected describes different renewal variables and deterministic thresholds, and Resultary had no direct earlier same all-parameter tail equivalence. Standard renewal-reward and regular-variation theory are powerful antecedents and pose an originality risk, not a full matching published implication located.",
+      "residual_risks": [
+        "Generic compound-renewal reward/concentration plus regular variation may implicitly yield the same asymptotic in older renewal literature.",
+        "Refresh must redraw the random threshold as well as local time. The conclusion is false if one silently retains the same quenched heavy-tail threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers reset regimes and transforms, but inspected passages do not explicitly give arbitrary RV threshold survival ~Psi(Jt) under retained local time",
+          "evidence": [
+            "Position-only vs complete local-time renewal discussion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.01119",
+          "material_read": "Original primary PDF: theoretical setup, retained position-only vs complete renewal and threshold examples; relevant page 15 inspected by screenshot",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "Diffusion-mediated surface reactions and stochastic resetting",
+          "trigger": "Same local-time encounter reaction and resetting"
+        },
+        {
+          "assessment": "Describes full internal-state resetting, no verified claim of the all-RV retained-threshold tail",
+          "evidence": [
+            "Bressloff 2022 renewal formulation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.04868",
+          "material_read": "Primary abstract plus accessible source scope; complete article not fully compared in this execution",
+          "method": "arXiv source abstract and title record",
+          "title": "Threshold surface reactions and local time resetting",
+          "trigger": "Reset reaction threshold and half-line Brownian dynamics"
+        },
+        {
+          "assessment": "Fractional subdiffusion in bounded geometry rather than normal diffusion with position-only reset",
+          "evidence": [
+            "Bressloff 2023 fractional context"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.10483",
+          "material_read": "Abstract and originating package literature comparison, not the full article",
+          "method": "Published bibliographic source",
+          "title": "Encounter-based reaction-subdiffusion model I",
+          "trigger": "Competing heavy tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: In a natural encounter-based reaction model, two reset conventions differing only in whether the hidden threshold is redrawn lead to different tail *classes* (power versus exponential) and different moment finiteness despite common spatial reset dynamics. An exact survival equivalence with prefactor J is needed to classify heavy-tailed reaction time; not merely recomputation of the preknown optimization of J or a tiny numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional normal reflected diffusion, r,D,R>0, fixed independent random threshold continuous with regular variation, fresh redraw on each reset; Lomax alpha=1 criterion not universal for arbitrary slowly varying factors."
+  ],
+  "schema_version": 1
+}

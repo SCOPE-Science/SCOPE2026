@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact per-cycle boundary-contact reward has distribution \(\Pr(Y>\ell)=e^{-\sqrt{r/D}(R+\ell)}\), a mixture with exponential moments. The proof controls cumulative local time using Poisson count deviations and independent Cramér bounds without falsely assuming reward/duration independence; regular variation then yields the sharp survival equivalence. The fresh independent threshold redraw is modeled as a genuine renewal, with an explicit finite mean and an exponential moment from its transform. A deterministic checker confirms 30 separate integral, algebra, optimization, and limiting identities. Infinite-time assertions are established analytically.
+PASS
 
-## Originality — PASS, qualified
+PASS: For reflected Brownian generator D d²/dx² with occupation local time D/epsilon integral, the inverse-local-time transform at threshold ell is exp[-(R+ell)sqrt(s/D)]. A Poisson cycle of rate r has positive local-time reward Y with probability a=exp(-R sqrt(r/D)), conditional Y exponential rate k=sqrt(r/D). Hence E Y=a/k and long-run production J=r a/k=sqrt(Dr) exp(-R sqrt(r/D)). Poisson count bounds plus exponential moment of iid Y give exponentially small deviations of L_t/t from J without assuming cycle duration/reward independence. For independent regular-varying threshold Psi in RV_-alpha, squeeze E Psi(L_t) at (J±delta)t and Karamata yield survival ~Psi(Jt); for Lomax mean iff alpha>1. Freshly redrawing both progress and threshold produces geometric independent attempts p=exp(-Rk) E exp(-k Lambda)>0; renewal transform has a moment-generating function for small positive argument, hence exponential tail. Reviewed CHECK.py only supplies finite integral checks; proofs handle infinite time.
 
-Closest source: Bressloff (2022), arXiv:2202.01119, for incomplete position-only contact-state resetting and Pareto-II thresholds only in the complete-renewal worked example; Bressloff (2022), arXiv:2203.04868, for deterministic-threshold half-line mean times; Bressloff (2023), arXiv:2303.10483, for fractional subdiffusion with heavy-tailed reaction thresholds in bounded intervals. The inverse boundary-contact transform, deterministic-threshold mean law, and optimum local-time production rate are not claimed new. The distinctive proposition is the sharp all-regularly-varying retained survival law and its contrast with a refreshed random threshold. An implicit consequence of broader renewal-reward theory or uninspected papers remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a natural nonrenewal asymptotic in encounter-controlled surface chemistry: positive-rate position resetting cannot regularize a heavy-tailed conserved reaction budget, whereas independently replacing the budget at every reset yields an exponentially tailed reaction time. The exact coefficient and mean-transition boundary distinguish measurable kinetics, rather than merely reproducing known means. No claim extends to finite domains, threshold reuse under progress resetting, or general index-one slowly varying mean criteria.
+PASS best-of-knowledge: Bressloff 2022 treats the same boundary local-time process with conserved progress under position-only resetting and reset-progress renewal; related equations are prior. The current claim is the precise regularly varying random-threshold survival equivalence and its contrasted fresh independent threshold-redraw protocol, especially persistence of algebraic tails with a finite production constant. The earlier source inspected describes different renewal variables and deterministic thresholds, and Resultary had no direct earlier same all-parameter tail equivalence. Standard renewal-reward and regular-variation theory are powerful antecedents and pose an originality risk, not a full matching published implication located.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: In a natural encounter-based reaction model, two reset conventions differing only in whether the hidden threshold is redrawn lead to different tail *classes* (power versus exponential) and different moment finiteness despite common spatial reset dynamics. An exact survival equivalence with prefactor J is needed to classify heavy-tailed reaction time; not merely recomputation of the preknown optimization of J or a tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
