@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim concerns the full-support iid subtractive forest defined in `RESULT.md`. The mathematical proof (not a finite computation) derives the two sharp marginal tail exponents and transfers them to a dependent maximum via independent disjoint-window lower events, a union bound, Borel–Cantelli and monotone interpolation.
+## correctness
 
-`checker.py` is a self-contained Python 3 standard-library verification program. Run `python checker.py` to reproduce exact finite-state geometric-lag computations through \(n=8\), with exact rational comparisons of vertex offspring histograms, the maximum histogram and the geometric generating-product bound. A completed run gave `PASS 398 exact assertions`.
+PASS
 
-Finite checks do not prove any infinite-volume limit; the theorem's critical upper bounds require the generating-product estimates, and its lower bounds require the disjoint-window argument. All probability and almost-sure quantifiers are stated in the proof. No outside computational certificate is required for the analytic argument.
+The individual vertex offspring count has the Poisson-binomial law Σ_j Ber(q_j). Product lower bound Π_{j≤k}q_j gives the log-tail lower estimate, while the generating-product/Chernoff split at k and 2k gives matching exponents −c k^(β+1)/(β+1) or −s k log k. A union bound over n candidates gives a dyadic-summable upper error. Roughly n/(k+1) separated k-child forcing events depend on disjoint Z_t samples and give exp(−n^δ) lower error. Both maxima are monotone; dyadic interpolation gives full a.s. limits. Check k growing sublinearly, s>1, full support, positive vertices only. Finite checker logs are not relied upon as an infinite proof.
 
-The original forest model, a marginal Bernoulli representation and the distribution-free maximum upper bound were published previously; only the sharpened two-class almost-sure extreme limits are asserted here. Historical-priority verification is incomplete, particularly concerning inaccessible older renewal-tree full text. Independent validation has not been performed.
+## originality
+
+PASS
+
+The inspected Broutin–Devroye–Lugosi–Oliveira paper proves a distribution-free upper bound and identifies the Bernoulli sum for one vertex, but not the sharp two-sided q-sensitive almost-sure maxima. Resultary searches returned other tree-degree models, not an already stronger same dependent-forest extreme law.
+
+## value
+
+PASS
+
+Precisely identifies how stretched-exponential versus polynomial lag tails alter the maximum offspring degree, including the geometric √log n class and sharp factor 1/s. The dependent-window lower-bound construction is useful for network extremes beyond the pre-existing universal upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

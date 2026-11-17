@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:19:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The individual vertex offspring count has the Poisson-binomial law Σ_j Ber(q_j). Product lower bound Π_{j≤k}q_j gives the log-tail lower estimate, while the generating-product/Chernoff split at k and 2k gives matching exponents −c k^(β+1)/(β+1) or −s k log k. A union bound over n candidates gives a dyadic-summable upper error. Roughly n/(k+1) separated k-child forcing events depend on disjoint Z_t samples and give exp(−n^δ) lower error. Both maxima are monotone; dyadic interpolation gives full a.s. limits. Check k growing sublinearly, s>1, full support, positive vertices only. Finite checker logs are not relied upon as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://alea.impa.br/articles/v21/21-23.pdf",
+          "General n-dependent upper bound for every lag law is weaker than sharp q-specific two-sided limits.",
+          "https://arxiv.org/abs/2405.10455"
+        ],
+        "reasoning": "Distribution-free first-order upper bound does not imply a sharper stretched-exponential exponent or power-law constant; two-choice process changes the model.",
+        "searches": [
+          "Resultary semantic: subtractive random forest maximum degree geometric power-law attachment lag almost sure",
+          "Broutin et al Proposition 6.2 and Remark 6.4",
+          "Calvillo Devroye Lugosi two-choice subtractive forests"
+        ]
+      },
+      "checked_sources": [
+        "https://alea.impa.br/articles/v21/21-23.pdf",
+        "https://arxiv.org/abs/2210.10544",
+        "https://arxiv.org/abs/2405.10455",
+        "Resultary semantic search q2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://alea.impa.br/articles/v21/21-23.pdf",
+          "Earlier proposition provides one side and a marginal construction; the independent-block lower proof is new relative to inspected results."
+        ],
+        "reasoning": "The marginal Bernoulli law alone cannot justify almost-sure extremes of dependent vertex degrees without a separate lower-bound decorrelation construction.",
+        "searches": [
+          "Resultary semantic: subtractive random forest maximum degree geometric power-law attachment lag almost sure",
+          "Broutin et al Section 6",
+          "Two-choice forest paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://alea.impa.br/articles/v21/21-23.pdf",
+          "Proposition 6.2 upper bound is not q-sensitive; Remark 6.4 gives one-vertex distribution only"
+        ],
+        "reasoning": "The earlier model is identical (positive-child count), but its statements lack the matching q-dependent a.s. lower and upper constants.",
+        "searches": [
+          "Resultary semantic: subtractive random forest maximum degree geometric power-law attachment lag almost sure",
+          "Broutin et al subtractive forests maximum indegree offspring lag",
+          "Resultary subtractive forest extreme degrees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only target same-title result found among close matches, other entries concern recursive tree models, not a subtractive-forest tail table."
+        ],
+        "reasoning": "No cited exact pre-existing table evaluates both finite-horizon and eventual maxima for these lag classes; absence in search is only a bounded negative finding.",
+        "searches": [
+          "Resultary semantic: subtractive random forest maximum degree geometric power-law attachment lag almost sure",
+          "Resultary forest-degree and recursive tree entries"
+        ]
+      },
+      "rationale": "The inspected Broutin–Devroye–Lugosi–Oliveira paper proves a distribution-free upper bound and identifies the Bernoulli sum for one vertex, but not the sharp two-sided q-sensitive almost-sure maxima. Resultary searches returned other tree-degree models, not an already stronger same dependent-forest extreme law.",
+      "residual_risks": [
+        "Independent full-text coverage beyond the primary subtractive-forest paper and cited two-choice work is not exhaustive.",
+        "First-order a.s. laws do not yield second-order centering or limiting extreme-value distributions; positive-index roots excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_FOUNDATION_NOT_COVERING",
+          "evidence": "Proposition 6.2 only general upper bound in probability, Remark 6.4 independent Bernoulli trials for one vertex; no matched two-sided tail-dependent limits in inspected Section 6.",
+          "identifier_or_url": "https://alea.impa.br/articles/v21/21-23.pdf",
+          "material_read": "Full primary PDF, with introduction and Section 6 Proposition 6.2/Remark 6.4 directly inspected, including page image of the relevant section",
+          "method": "Open-access published primary full text and PDF screenshot",
+          "title": "Subtractive random forests",
+          "trigger": "Same exact stochastic forest model and maximum-child statistic"
+        },
+        {
+          "assessment": "DIFFERENT_PROCESS",
+          "evidence": "Uses two-choice construction, not same independent one-parent lag setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.10455",
+          "material_read": "Bibliographic abstract/model description; full paper not represented as inspected",
+          "method": "OA bibliographic source and semantic search",
+          "title": "Subtractive random forests with two choices",
+          "trigger": "Potential stronger forest model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Precisely identifies how stretched-exponential versus polynomial lag tails alter the maximum offspring degree, including the geometric √log n class and sharp factor 1/s. The dependent-window lower-bound construction is useful for network extremes beyond the pre-existing universal upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full support, iid delay law, s>1 or β,c>0, and eventual maximum over first n positive vertices; no statement for zero masses or irregular tails."
+  ],
+  "schema_version": 1
+}

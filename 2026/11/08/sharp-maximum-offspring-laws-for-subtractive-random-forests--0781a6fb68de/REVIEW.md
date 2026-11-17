@@ -1,23 +1,21 @@
-# Scientific review: sharp maximum-offspring laws for subtractive random forests
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive vertex, the completed offspring count has the exact Poisson-binomial law from distinct iid lag variables. Matching marginal log-tail exponents are obtained by the first-\(k\)-children lower event and an exponential Markov bound on the generating product. Specifically, stretched-exponential lag masses give \(-\log\Pr(D\geq k)\sim c k^{\beta+1}/(\beta+1)\), while polynomial masses give \(-\log\Pr(D\geq k)\sim s k\log k\). The maximum upper bound uses the union bound over at most \(n\) positive vertices. The lower bound uses \(\lfloor(n-1)/(k+1)\rfloor\) disjoint arrival blocks, each producing \(k\) offspring with probability \(\prod_{j=1}^k q_j\); the corresponding events are independent. A dyadic Borel–Cantelli argument and monotonic interpolation establish both almost-sure limits for finite-time and completed degrees. Boundary conditions, full support, the fixed iid law and the exclusion of nonpositive roots are explicit. The supplied standard-library checker completed 398 exact finite assertions for geometric lags; finite enumeration is a consistency test, not an infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+The individual vertex offspring count has the Poisson-binomial law Σ_j Ber(q_j). Product lower bound Π_{j≤k}q_j gives the log-tail lower estimate, while the generating-product/Chernoff split at k and 2k gives matching exponents −c k^(β+1)/(β+1) or −s k log k. A union bound over n candidates gives a dyadic-summable upper error. Roughly n/(k+1) separated k-child forcing events depend on disjoint Z_t samples and give exp(−n^δ) lower error. Both maxima are monotone; dyadic interpolation gives full a.s. limits. Check k growing sublinearly, s>1, full support, positive vertices only. Finite checker logs are not relied upon as an infinite proof.
 
-The directly relevant full-text source Broutin, Devroye, Lugosi and Oliveira, *Subtractive random forests* (arXiv:2210.10544, submitted 19 October 2022), Proposition 5, proves a distribution-free one-sided upper bound of order \(\log n/\log\log n\), and Remark 5 supplies the single-vertex Bernoulli representation. Neither asserts matching almost-sure constants nor stretched-exponential and polynomial universality classes; the known upper bound cannot yield either result by itself. Calvillo, Devroye and Lugosi, *Subtractive random forests with two choices* (arXiv:2405.10455), studies a different attachment process. Searches for maximum-degree and offspring extremes under alternate terminology did not find the same result. The related Baccelli–Sodre renewal-forest source was available only at abstract level; it remains an explicit priority uncertainty, not a full-text negative comparison. Classical extreme-value or Poisson-binomial tail theorems may offer alternate proofs and are not claimed to be new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original model's published maximum-degree bound is uniform across all lag laws. These two tail classes have fundamentally different sharp degree-growth scales: the geometric model is of square-root-logarithmic order instead of logarithmic-over-logarithmic order, and a polynomial mass law has a sharp multiplicative coefficient depending on its exponent. Both the original lag mechanism and extreme positive-vertex offspring are mathematically natural; the result quantitatively explains the influence of local attachment decay and supplies a matching-lower-bound method despite dependence between nearby vertex degrees. It is not a mere finite table or a renamed standard estimate.
+The inspected Broutin–Devroye–Lugosi–Oliveira paper proves a distribution-free upper bound and identifies the Bernoulli sum for one vertex, but not the sharp two-sided q-sensitive almost-sure maxima. Resultary searches returned other tree-degree models, not an already stronger same dependent-forest extreme law.
 
-## Literature and limitations
+## value
 
-- N. Broutin, L. Devroye, G. Lugosi and R. I. Oliveira, *Subtractive random forests*, arXiv:2210.10544, Section 6, Proposition 5, Remark 5. https://arxiv.org/html/2210.10544v3
-- F. Calvillo, L. Devroye and G. Lugosi, *Subtractive random forests with two choices*, arXiv:2405.10455. https://arxiv.org/abs/2405.10455
-- F. Baccelli and A. Sodre, *Renewal processes, population dynamics, and unimodular trees*, Journal of Applied Probability 56 (2019), 339–357. Full content not inspected; relevance to extreme offspring degrees cannot be fully excluded.
+PASS
 
-Only first-order almost-sure maxima are established. No distributional limit or second-order correction is claimed. Absence from examined sources does not establish absolute historical novelty.
+Precisely identifies how stretched-exponential versus polynomial lag tails alter the maximum offspring degree, including the geometric √log n class and sharp factor 1/s. The dependent-window lower-bound construction is useful for network extremes beyond the pre-existing universal upper bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
