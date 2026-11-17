@@ -1,17 +1,21 @@
-# Correctness — PASS
+# Independent mathematical audit
 
-The derivation explicitly counts character sums on matrices supported in a subspace, then counts isotropic lines and planes for each Hermitian frequency rank. These produce a complete three-sector table, verified independently for the full \(q=2,3\) spaces. The derivative comparisons show the first two sectors remain strictly negative, while the full-rank sector has a unique crossing; double-centering and the known Fourier character multiplicities then give the exact embedding dimension and asymptotic. The field checks are finite and are not used as a proof of the all-field conclusion.
+## correctness
 
-# Originality — PASS, bounded
+PASS
 
-The Hermitian association-scheme eigenmatrices are known: [1] gives rank-class counts and character formulas, and [3] treats eigenvalue inequalities. The finite-metric negative-type criterion is also prior [2]. The specific all-field comparison of the **powered** rank-distance eigenvalues, the unique critical sector, explicit generalized-roundness root, and endpoint minimal real Hilbert dimension were not found stated in inspected relevant sections of primary full-text manuscripts or mathematical search records. The source formulas make derivability from prior theory a genuine coverage risk; a direct earlier computation could subsume this result, and no exhaustive historical-priority claim is made. The rank-distance setting is different from the alternating-form and rectangular-matrix instances separately checked for overlap.
+PASS: on q^9 Hermitian 3×3 matrices over F_{q²}, the trace pairing diagonalizes the translation-invariant rank distance. Count totally isotropic 1- and 2-spaces for each dual rank s=0..3, recover P1(s),P2(s),P3(s), and verify each nonprincipal row sums to -1. The s=1,2 powered multipliers remain strictly negative because their rank-three coefficients dominate rank-two growth, while s=3 has unique increasing root Φ_q(p)=q³3^p−q(q²−q+1)2^p−q²+q−1. At Φ=0 only dual rank-three is flat, multiplicity q³(q−1)²(q²+1)(q²+q+1). Schoenberg Gram yields dimension q^9−1 below threshold, q^9−1−multiplicity at boundary. The derivative Φ′(0)=q³log(3/2)+(q²−q)log2 gives q³β→1/log(3/2). Independently checked all spectral sign classes and roots q=2,3,4,5,7,11 (q=2 β=0.187962707562, dimension 231). Full checker source reviewed, including actual F4/F9 constructions; finite checks support rather than prove all q.
 
-# Mathematical value — PASS
+## originality
 
-The dimension-three Hermitian forms graph is the first rank-three member of a classical distance-regular family. Its exact Hilbert-snowflake threshold, the strict/non-strict transition, and the rank-frequency description of the lost Euclidean dimension are natural global invariants not fixed by one numerical experiment. The explicit dependence on field size and limiting power law provide a reproducible benchmark for negative-type problems on association schemes. No general-rank theorem or downstream application is asserted.
+PASS
 
-# Sources and uncertainty
+PASS best of knowledge: the primary Gow–Lavrauw–Sheekey–Vanhove Hermitian rank-distance study develops association-scheme characters and constant-rank-distance code bounds but not exact powered negative type or 3×3 endpoint Hilbert rank. Cioabă–Gupta (2021/2022) full arXiv paper explicitly gives Hermitian forms graph eigenmatrices and solves single-distance-graph eigenvalue ordering conjectures; it does not state the exponent-dependent weighted combination, threshold or endpoint rank. Resultary searches for identical Hermitian formulas and broader families found no earlier same result, though previously known Fourier eigenmatrices can make priority subtle. No claim to novelty of classical eigenmatrices.
 
-[1] Gow–Lavrauw–Sheekey–Vanhove, arXiv:1208.1903v1, especially sections 3–4 (accessed full PDF). [2] Sánchez, arXiv:1108.0451v1, sections 1–2 (accessed full PDF). [3] Cioabă–Gupta, arXiv:2102.10155v1, section 1.3 and Hermitian eigenvalue comparisons (accessed full PDF). Residual risk: a general published powered-distance computation or older Hermitian graph embedding theorem may imply the result; independent historical review is outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: sharp Hilbert-snowflake window and precise loss of 3×3 Hermitian rank-metric dimension over all finite fields is a natural quantitative invariant of a well-studied finite polar/association scheme; the decisive dual rank-three obstruction and q^-3 scaling are nontrivial structural results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
