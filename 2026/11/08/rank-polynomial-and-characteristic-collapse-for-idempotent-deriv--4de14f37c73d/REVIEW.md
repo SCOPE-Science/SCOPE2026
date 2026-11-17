@@ -1,9 +1,21 @@
-# Assessment of the rank census for bipartite graph Lie algebras
+# Independent mathematical audit
 
-**Correctness: PASS.** The derivation decomposition follows from the defining brackets and the independent edge tensors when both parts have size at least two. Idempotence forces two ordinary projections, with the characteristic-dependent obstruction \(2A\otimes B=0\). The central-shear equation has explicitly counted eigenspace blocks; direct elimination and rank measurement in the standalone small-field checks agree with the closed polynomial. The odd- and even-characteristic concentration estimates follow from Gaussian-binomial bounds and separately exhibited exponent gaps. Finite tests support rather than replace the proof; their scope is disclosed.
+## correctness
 
-**Originality: PASS, qualified by the searched corpus.** Godoy Molina–Lagos (arXiv:2308.00272, full text, Sections 2 and 5.2) establish the graph-algebra framework and strata-preserving derivation identities, but do not enumerate all idempotent derivations including arbitrary central shears or derive the fixed-field characteristic transition. Burde–Moens (arXiv:2009.05434) treats polynomial-identity derivations structurally, not their rank counts. Eick–Moede (arXiv:2205.03155, full text, Section 2) constructs gradings via inner idempotents in simple Lie algebras, not the noninner derivations of the nilpotent complete-bipartite family. Related rank-spectrum results on filiform Lie algebras count different operators on different algebras. The searches and detailed statement-implication comparisons are in `AUDIT.json`; a previously unidentified general enumeration theorem remains a residual risk.
+PASS
 
-**Mathematical value: PASS.** Operator-rank multiplicities refine classification of derivation spaces into a concrete invariant of every finite bipartite graph Lie algebra in the stated family. The exact formulas reveal a sharp and quantitatively strong field-characteristic phase change, from quadratic-rank typical idempotents in odd characteristic to linear-rank typical idempotents in characteristic two. Neither existence of a grading nor dimension of a derivation space determines this distribution.
+PASS: Reconstructed all derivations from [U,U]=[W,W]=0 and the independently labeled U tensor W brackets (a,b>=2 eliminate off-diagonal quotient blocks). The invariant-center action is S=A tensor I+I tensor B with arbitrary central shear. The idempotence equations T^2=T, S^2=S, S Phi+Phi T=Phi yield A,B projections and S^2-S=2 A tensor B; thus odd characteristic demands ij=0, while characteristic 2 has unrestricted i,j. The allowed Phi eigenspace blocks have dimension (a+b-i-j)s+(i+j)(ab-s), s=i(b-j)+(a-i)j, giving precisely the stated rank t+s and Gaussian-binomial multiplicities. For balanced n in odd characteristic, the log-q weight is (3n^2+2n)k-(2n+2)k^2 with maximizer ~3n/4. In characteristic 2, the A=B=I stratum alone has q^(2n^3) maps of rank 2n; all competitor exponents are separated by order n^2. Checked the actual verify.py construction of the Phi nullspace and source code; the explicit finite-field histograms are corroborative, not an asymptotic proof. A test of q=2,n=2 gives the formula 1+3072 z^3+74752 z^4+3072 z^5+512 z^6.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge): The examined graph-Lie derivation literature gives structural blocks and derivation dimensions but not the complete finite-field idempotent-operator rank census with arbitrary shears, and related idempotent-derivation rank spectra are for nonisomorphic Lie algebras. The odd/characteristic-two concentration law is a separate claim beyond the original graph algebra framework. A general unlocated counting theorem for two-step nilpotent graph Lie algebras remains possible.
+
+## value
+
+PASS
+
+PASS: The number of distinct idempotent derivations of each operator rank is a natural invariant of a precisely specified graph Lie algebra, not a generating-set rank or arbitrary restriction. The stark fixed-field transition (typical rank quadratic in n in odd characteristic but linear in n in characteristic two) is mathematically structural and is not determined by the existence of gradings or Lie algebra dimension. The center shears are an essential, nontrivial part of the actual operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
