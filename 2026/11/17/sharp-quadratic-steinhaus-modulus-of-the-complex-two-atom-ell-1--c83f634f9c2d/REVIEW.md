@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The upper construction consists of two positive swapped unit vectors at exact separation \(d\), and a uniform second-order Taylor expansion establishes the coefficient. The lower proof treats arbitrary approximate minimizers: compactness; exclusion of vanishing coordinates by an exact symmetric transverse increment; matching of complex phases by the first variation; coordinatewise quadratic lower bounds by the symmetric second variation; and the unique minimax of two reciprocal products. The coefficient is therefore universal for every fixed \(0<d<2\). The finite checker provides independent numerical corroboration only. The proof does not assert a finite-radius exact expression.
+
+**Originality — PASS, qualified.** Johnson–Kania [1] introduce the original modulus and compute a linear exact expression on nonatomic real \(L^1\). Their Hilbert formula concerns squared norms. The qualitative complex direct-sum Steinhaus result [3] supplies no sharp modulus. The nearest published sharp quadratic formula [4] applies to the distinct real scalar–Hilbert direct sum and produces \(d/(4-2d)\), not the claimed \(d/(1-d^2/4)\). A real \(\ell_p\) formula [5] is linear at small radii. Direct comparison of their hypotheses and conclusions does not establish the new two-complex-atom law. An equivalent formulation in older curvature or Banach geometry literature could exist and remains an explicit priority risk.
+
+**Mathematical value — PASS.** The new exact invariant quantitatively distinguishes the simplest atomic complex \(L^1\) space from both real \(\ell_1^2\), which lacks property \((S)\), and the nonatomic real \(L^1\) case, where the modulus has a different order. The unique limiting worst pairs explain the geometric obstruction rather than merely numerically bounding it. This is a complete sharp small-scale classification in a natural minimal atomic model, not a substitution into an existing formula.
+
+The limitations are the fixed separation range, two complex coordinates, asymptotic rather than finite-radius identity, and absence of independent review. See RESULT.md and AUDIT.json for proof details and source comparisons.
+
+Self-review: passed. Independent audit: not yet performed.
