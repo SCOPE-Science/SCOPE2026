@@ -1,15 +1,21 @@
-# Scientific review: ring-square primitive-three census
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite dynamical state space is exactly three-state Greenberg–Hastings threshold-one dynamics on the simple graph with offsets one and two, for every integer length at least five. The proof identifies all three-periodic temporal words, excludes mixed rotating/fixed vertices using connectedness, converts the condition into an exact local successor test, and proves a labelled closed-walk/transfer bijection. An explicit 81-state integral matrix is provided. Its complete characteristic factorization is reproduced by an exact symbolic program; independent direct state simulation confirms the dynamical interpretation. The roots yield the stated closed form and a strict spectral gap. Scope excludes transients and other periods. The determinant identity relies on exact finite computation whose source is included and replayed, not on numerical root fitting.
+## correctness
 
-## Originality — PASS, with qualification
-Primary literature was searched for cyclic range-two excitation, three-color Greenberg–Hastings rings, finite period-three populations, and equivalent transfer-root formulations. The open-access Gravner–Lyu–Sivakoff full text (2018 version of arXiv:1610.07320) was inspected in its definitions, main theorems, and finite-graph sections: it treats limiting activity, circulation, and synchronization rather than the present exact cyclic transfer count. Durrett–Griffeath (1993) addresses neighborhood range and excitable-medium scaling, but the accessible abstract does not resolve the exact finite-ring comparison; its unavailable full text is a residual risk, not evidence of noncoverage. An earlier second-power open-path calculation has the same cubic growth factor, but does not imply the doubled quartic spectral correction from cyclic closure. The present claim is not asserted to establish absolute literature priority.
+PASS
 
-## Mathematical value — PASS
-The square-of-a-cycle family is a standard, geometrically motivated change of interaction radius, not an artificial parameter slice. Its primitive-three count is exactly computable for all graph sizes and changes qualitatively from the arithmetic resonance of nearest-neighbor rings to exponential proliferation. The exact cubic/quartic spectral decomposition, sharp leading coefficient, uniform asymptotic rate, and finite-size examples provide a structural finite-dynamical census with use for comparing local neighborhood designs. This is more than a generic transfer-algorithm observation or a small fixed-size computation.
+Every vertex of a 3-periodic GHM trajectory is either always zero or advances through 0,1,2 once; a connected graph cannot mix both types because a cycling neighbor would excite a stationary zero. Hence nonfixed 3-periodic colorings are exactly those where every i has a successor-colored neighbor at offsets ±1,±2. The 81-state length-four-word transfer T tests the central vertex, and closed walks of length n biject to labelled period-three states for n>=5. An independently built exact integer 81×81 matrix has characteristic polynomial X^69(X+1)(X³−3X²+2X−2)(X⁴+X³+2X²+3X+4)^2; Newton/trace identity yields the all-n formula. Independent direct GHM simulations gave P5..P8=150,270,588,1548. The cubic has unique root rho≈2.52138 and other roots modulus sqrt(2/rho)<1; scaled Eneström–Kakeya bounds quartic roots by 2, so P_n=rho^n+O(2^n). For nearest-neighbor cycles every directed successor edge must be used, forcing cyclic ±1 color increments and six states iff 3|n. Exact polynomial matrix identity is a finite certificate proving all n jointly with the transfer bijection, not an extrapolated enumeration.
 
-## Remaining limits
-The historical 1993 source was accessible only as an abstract, and possible unindexed equivalent enumerations remain priority risks. The mathematical proof is self-contained conditional on its fully reproducible exact integer-matrix characteristic identity. The independent scientific audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published November 8 open range-two chain result has the same dominant cubic f but different open boundary and generating function; it cannot directly yield periodic closure, extra −1 term, or doubled quartic g spectrum. Another November 8 squared-cycle contact-threshold theorem counts theta=2 (six/zero) and only gives theta=1 lower bound 3·2^(n/3); its finite sample theta=1 counts agree for n<=11 but do not establish the all-n exact theta=1 transfer factorization. The arbitrary-graph activity theorem does not give period-three population numbers. Thus the exact periodic-boundary family and spectral correction survive, with historic original-paper access limitations stated.
+
+## value
+
+PASS
+
+Changing nearest-neighbor to range-two on a labelled cycle is a standard local-interaction perturbation of excitable media. The exact all-length census and exponential entropy rho quantify a real structural transition from bounded arithmetic resonance to extensive primitive-period-three states. The precise quartic spectral correction distinguishes periodic from open boundary, and is a useful finite-dynamics invariant, not a fitted finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

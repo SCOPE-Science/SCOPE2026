@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every vertex of a 3-periodic GHM trajectory is either always zero or advances through 0,1,2 once; a connected graph cannot mix both types because a cycling neighbor would excite a stationary zero. Hence nonfixed 3-periodic colorings are exactly those where every i has a successor-colored neighbor at offsets ±1,±2. The 81-state length-four-word transfer T tests the central vertex, and closed walks of length n biject to labelled period-three states for n>=5. An independently built exact integer 81×81 matrix has characteristic polynomial X^69(X+1)(X³−3X²+2X−2)(X⁴+X³+2X²+3X+4)^2; Newton/trace identity yields the all-n formula. Independent direct GHM simulations gave P5..P8=150,270,588,1548. The cubic has unique root rho≈2.52138 and other roots modulus sqrt(2/rho)<1; scaled Eneström–Kakeya bounds quartic roots by 2, so P_n=rho^n+O(2^n). For nearest-neighbor cycles every directed successor edge must be used, forcing cyclic ±1 color increments and six states iff 3|n. Exact polynomial matrix identity is a finite certificate proving all n jointly with the transfer bijection, not an extrapolated enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff main theorem studies limiting circulation and synchronization on arbitrary graphs, not exact initial primitive-three counts on a specific family.",
+          "General half-degree rigidity describes theta=2 (or greater), not the theta=1 population formula."
+        ],
+        "reasoning": "A theorem broader in graph family may only describe existence/activity, not the exact state census; the specific n-dependent formula is not implied by inspected general criteria.",
+        "searches": [
+          "three-color Greenberg Hastings dynamics square cycle C_n^2 primitive period three transfer matrix count",
+          "https://arxiv.org/abs/1610.07320",
+          "https://arxiv.org/abs/patt-sol/9303002",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1610.07320",
+        "https://arxiv.org/abs/patt-sol/9303002",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md",
+        "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path-square counts N_n obey cubic recurrence, whereas ring-square P_n contains doubled quartic-root spectral sum and −1.",
+          "Threshold-two squared-cycle law gives six or zero, and a lower bound for threshold-one; it cannot produce the exact theta-one P_n."
+        ],
+        "reasoning": "Neither stronger geometry (general arbitrary graphs) nor shared leading eigenvalue implies the full primitive-three ring-square population. The new ring closure requires an independent cyclic trace, whose factorization is checked.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md",
+          "https://arxiv.org/abs/1610.07320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The open-chain theorem gives the SAME local successor condition and cubic f for path square P_n², but uses open transfer boundary vectors.",
+          "The threshold-two squared-cycle theorem uses same C_n² geometry but counts a different excitation threshold and provides only theta-one lower bound."
+        ],
+        "reasoning": "The local phase criterion is established generally, and not novel. The periodic closure transfer TRACE and full quartic spectral correction are not algebraically given by the open-boundary matrix coefficient or a threshold-two count.",
+        "searches": [
+          "three-color Greenberg Hastings dynamics square cycle C_n^2 primitive period three transfer matrix count",
+          "primitive period three phase assignment local successor test Greenberg Hastings",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The threshold-two paper reports finite direct theta-one C_n² counts for 5≤n≤11, identical to the first entries in this claim, but does not state their cubic+quartic all-length formula.",
+          "Open-path formula has rational generating function 6/(1−3z+2z²−2z³) and leading cubic, not periodic-boundary quartic correction."
+        ],
+        "reasoning": "Finite tabulated counts are prior and not sufficient novelty. The complete all-length transfer determinant is the novel invariant; local transfer characteristic identity was independently verified exactly.",
+        "searches": [
+          "three-color Greenberg Hastings dynamics square cycle C_n^2 primitive period three transfer matrix count",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md",
+          "C_n square three state primitive three 150 270 588 1548 count"
+        ]
+      },
+      "rationale": "Published November 8 open range-two chain result has the same dominant cubic f but different open boundary and generating function; it cannot directly yield periodic closure, extra −1 term, or doubled quartic g spectrum. Another November 8 squared-cycle contact-threshold theorem counts theta=2 (six/zero) and only gives theta=1 lower bound 3·2^(n/3); its finite sample theta=1 counts agree for n<=11 but do not establish the all-n exact theta=1 transfer factorization. The arbitrary-graph activity theorem does not give period-three population numbers. Thus the exact periodic-boundary family and spectral correction survive, with historic original-paper access limitations stated.",
+      "residual_risks": [
+        "Earlier finite-periodic-boundary wave-count formula in unindexed older excitable-automata literature could overlap.",
+        "Durrett–Griffeath 1993 original full text not inspected in this run; no whole-document noncoverage claim is made.",
+        "Exact finite determinant factorization is computer-aided with supplied explicit 81-state matrix definition, independently reconstructed; no hand factorization is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_BOUNDARY_ONLY",
+          "evidence": "N_n=ellᵀM^(n−4)r, cubic f; ring requires tr(T^n) and additional quartic g.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c/RESULT.md",
+          "material_read": "Full published RESULT.md with boundary-vector transfer, cubic recurrence, proof and limitations",
+          "method": "published complete primary mathematical text",
+          "title": "A cubic recurrence for three-periodic excitation on range-two chains",
+          "trigger": "same dynamics/range on open path"
+        },
+        {
+          "assessment": "THETA1_FULL_CENSUS_NOT_COVERED",
+          "evidence": "P_2(n)=6 or 0, P_1(3m)≥3·2^m; finite P_1 samples are listed but not all-n formula.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md",
+          "material_read": "Full published RESULT.md, all theta>=2 theorem, theta1 block lower bound and finite verification count",
+          "method": "published complete primary mathematical text",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "same graph and dynamics at adjacent excitation thresholds"
+        },
+        {
+          "assessment": "ACTIVITY_ONLY",
+          "evidence": "Theorems characterize eventual activity/synchronization, not exact cyclic word enumeration for C_n².",
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "Primary arXiv HTML introduction, circulation theorem and finite-graph implications",
+          "method": "primary full-text theorem sections",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "same threshold-one three-state model on arbitrary graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Changing nearest-neighbor to range-two on a labelled cycle is a standard local-interaction perturbation of excitable media. The exact all-length census and exponential entropy rho quantify a real structural transition from bounded arithmetic resonance to extensive primitive-period-three states. The precise quartic spectral correction distinguishes periodic from open boundary, and is a useful finite-dynamics invariant, not a fitted finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1610.07320",
+    "https://arxiv.org/abs/patt-sol/9303002",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d/RESULT.md",
+    "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Counting initially primitive-three labelled configurations only, not all attraction basins or all eventual periods.",
+    "Nearest-neighbor comparison assumes ordinary C_n ring; asymptotic error O(2^n) is for n→∞."
+  ],
+  "residual_risks": [
+    "Earlier finite-periodic-boundary wave-count formula in unindexed older excitable-automata literature could overlap.",
+    "Durrett–Griffeath 1993 original full text not inspected in this run; no whole-document noncoverage claim is made.",
+    "Exact finite determinant factorization is computer-aided with supplied explicit 81-state matrix definition, independently reconstructed; no hand factorization is claimed."
+  ],
+  "schema_version": 1
+}
