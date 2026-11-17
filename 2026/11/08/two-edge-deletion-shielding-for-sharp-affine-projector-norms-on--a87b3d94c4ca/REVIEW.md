@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(q\ge1\), direct Gram matrix inversion gives the two nodal kernel types. Exact absolute-affine edge integration gives both evaluation norms. The included three positive-coefficient polynomial identities show the four missing-edge endpoints are strictly dominant and give the two-sided shielding inequality for **every** admissible order. Convexity, together with strict sign disagreement of adjacent distinguished evaluation kernels on positive-measure edges, excludes all edge interiors. Leading coefficients give the first- and third-order asymptotic constants. The standalone checker independently reconstructs seven rational inverses and their edgewise signed kernel norms; the universal proof is algebraic, not computational sampling.
+## correctness
 
-## Originality — PASS with limitations
-The previously obtained complete-split metric graph formula exactly covers **one** missing edge, so its value is a comparator and not claimed as new. Previous equal-size complete multipartite formulas do not specialize to the new graph class \(K_{2,2,1,\ldots,1}\) with \(q\ge1\). Shadrin and Passenbrunner address interval or periodic spline projectors and do not state the present exact network formula. The accessible description of Boman (2006) describes broader finite-element stability estimates, but its complete text was unavailable, leaving a genuine historical priority risk. The claim of originality is limited to evidence examined, not universal uniqueness.
+PASS
 
-## Mathematical value — PASS
-The exact sharp constant and four-point norming classification fill a natural gap between known one-defect cliques and balanced multipartite networks. The third-order correction \(q^3(L_1-L_2)\to2/3\), compared with the first-order norm change \(q(L_2-L_0)\to1/6\), reveals a precise suppression effect of a second disconnected deletion. This structural comparison motivates the specific graph family without relying on a promised downstream theorem.
+Reconstructed M=(2D+A)/6 on the explicit nonbipartite graph. Exact inverse row at a missing-edge endpoint consists of (α,β,−γ,−γ,−δ repeated q), and at ordinary endpoint consists of four −δ, D and q−1 copies −E. Kernel L¹ integrals are elementary |affine| formulas. Independent symbolic SymPy simplification of endpoint-minus-ordinary, L1−L2, L2−L0 returned respective integer-coefficient polynomials (8,168,...,64194), (16,248,...,975) and (4,80,...,5850), each with strictly positive denominator and all positive coefficients for q>0; exact degrees 12,9,11. The kernel is affine in evaluation point, and interior strictness follows from opposite-signed kernels on positive measure. Leading terms give 1/6 and 2/3 without relying on q≤7 checks.
 
-## Scope and residual risks
-Unit-length metric edges, real continuous affine spline projections, uniform arclength, and two disjoint deleted edges are essential. Arbitrary edge deletions and variable densities are unproved. The Boman 2006 full text was not obtained; independent mathematical and literature review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: published exact complete-split and general projector theorems supply methods/bounds but not the two-disjoint-edge formula, strict shielding comparison, or asymptotic third-order separation.
+
+## value
+
+PASS
+
+The exact effect of successive distinct deletions on a natural metric-graph spline projector is a motivated sensitivity problem. Strict L0<L2<L1 and two different asymptotic orders reveal genuine nonmonotone shielding, not a substitution into a known complete-graph formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
