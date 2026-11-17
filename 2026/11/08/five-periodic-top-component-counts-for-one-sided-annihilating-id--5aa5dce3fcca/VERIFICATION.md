@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of original equations
+# Independent mathematical audit
 
-The companion `verify_mixed_pairs.py` enumerates full matrix spaces over prime fields and tests `P*P==P`, `N*N==0`, and `P*N==0` directly. It checks each joint rank cell, not just the total. The test file `verify_output.txt` contains the exact output from the program executed on the packaged source. The program also verifies every proposed dimension and maximal-rank profile through dimension 40 by finite integer optimization. It is a reproducibility aid and not a proof for all fields or dimensions.
+## correctness
 
-Verified direct equation cases: (n, p)=(1,2),(2,2),(2,3),(3,2),(3,3). The total pair counts for these cases are respectively 2, 17, 46, 415, 5020. The terminal success line is `MIXED_PAIR_DIRECT_CHECK_PASS`.
+PASS
 
-The mathematical proof uses square-zero flag data, complements of subspaces, a positive-definite quadratic bound, and rank-stratum closure arguments. A separate independent mathematical audit has not been performed.
+PASS: Reconstructed the exact equivalence of N²=0 with image/kernel flag L⊂K and an isomorphism V/K→L; of idempotent P with V=im P ⊕ ker P; and PN=0 with L⊂ker P. Flag/Grassmannian and affine-complement fiber give the stated finite-field count, geometric irreducibility and dimension. Positive-definite deficit quadratic bounds d≤floor(4n²/5). Independent integer evaluation of every feasible (r,h) for n=1,...,100 verifies all residue-five maximizers, including n=1 two components; geometry argument proves the all-n result. Reduced-variety and one-sided boundary hypotheses preserved. No claim concerning nonreduced schemes.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS for the complete one-sided PN=0 rank-census/geometry and exact five-phase maximal-component law; standard flags and quadratic optimization are methods, not claimed novel in themselves.
+
+## value
+
+PASS
+
+PASS: Ordered mixed annihilator variety is natural in representations and matrix algebra. Exact rank-stratified counts over every finite field plus a genuine mod-five jump in the number of top-dimensional geometric components provide structural information beyond small finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Correctness, originality, and mathematical value
+# Independent mathematical audit
 
-**Correctness — PASS.** A pair is determined by a square-zero endomorphism \(N\), a kernel \(W\) of an idempotent containing \(\operatorname{im}N\), and a complementary image \(U\). The Gaussian-binomial formula independently counts those three choices. Flag varieties and affine complement bundles give the geometric dimension and irreducibility. The explicit positive-definite deficit quadratic establishes the \(4/5\) bound and the residue-five list of top-dimensional strata; closure and dimension arguments count the corresponding top-dimensional components. The independent original-equation checker matches all rank cells at five tested field/dimension settings. No experimental case is used to establish the infinite theorem.
+## correctness
 
-**Originality — PASS, with explicit priority risk.** Schröer's 2002 paper treats *mutually* annihilating nilpotent matrices; the idempotent first factor and absence of \(NP=0\) mean that neither its hypotheses nor its component theorem imply the present assertion. Published work and available exact databases already cover the dimension-two zero product fiber, explicitly excluded as a separate novelty. The evaluated new result is the uniform one-sided mixed rank-stratified census and its sharp five-periodic maximal-component count. Actual published-finding corpus searches over mixed idempotent–nilpotent product ranks and available archival-ledger claim comparisons did not yield a dominating higher-dimensional statement. It remains possible that a broader representation-variety or incidence-correspondence theorem subsumes this argument; no proof of historical priority is claimed. The newer two-dimensional product paper was accessible at abstract level, not enough for a blanket negative conclusion about its full text.
+PASS
 
-**Value — PASS.** The ordered one-sided equations define a natural finite-dimensional representation variety that is different from varieties of two mutually annihilating nilpotents. Exact counts across all finite fields, a uniform geometric rank decomposition, the sharp \(\lfloor4n^2/5\rfloor\) growth law, and a residue-dependent jump between one and three maximal-dimensional components are substantive structural information, not merely an isolated numerical experiment. The top-component phenomenon is intrinsically motivated by the geometry of the original equation locus.
+PASS: Reconstructed the exact equivalence of N²=0 with image/kernel flag L⊂K and an isomorphism V/K→L; of idempotent P with V=im P ⊕ ker P; and PN=0 with L⊂ker P. Flag/Grassmannian and affine-complement fiber give the stated finite-field count, geometric irreducibility and dimension. Positive-definite deficit quadratic bounds d≤floor(4n²/5). Independent integer evaluation of every feasible (r,h) for n=1,...,100 verifies all residue-five maximizers, including n=1 two components; geometry argument proves the all-n result. Reduced-variety and one-sided boundary hypotheses preserved. No claim concerning nonreduced schemes.
 
-**Scope and limits.** This identifies only maximal-dimensional components, not every component or the nonreduced scheme. The result counts labeled pairs, not conjugacy classes. Independent mathematical validation and exhaustive historical-priority verification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the complete one-sided PN=0 rank-census/geometry and exact five-phase maximal-component law; standard flags and quadratic optimization are methods, not claimed novel in themselves.
+
+## value
+
+PASS
+
+PASS: Ordered mixed annihilator variety is natural in representations and matrix algebra. Exact rank-stratified counts over every finite field plus a genuine mod-five jump in the number of top-dimensional geometric components provide structural information beyond small finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
