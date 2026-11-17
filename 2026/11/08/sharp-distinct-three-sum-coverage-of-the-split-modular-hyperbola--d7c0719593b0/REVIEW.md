@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The defining reciprocal-sum equations reduce to a quartic character sum after choosing one summand. The discriminant polynomial and the separate repeated-summand polynomial have the same nonzero quadratic discriminant, allowing the exact correction \(4+3r\). The degenerate products \(st=0,1,9\) are evaluated directly. Hasse's bound on the smooth quartic yields the strict positive lower bound \(q-11-2\sqrt q\) for \(q\ge23\). The submitted standalone verifier independently enumerated all target fibers for 20 finite fields, 42,620 targets, including the six smaller prime fields.
+## correctness
 
-**Originality — PASS (qualified).** A previously available unrestricted triple-sum classification does not impose pairwise distinctness and does not imply the new positive threshold: distinct triples omit nonzero targets at \(q=19\), while the unrestricted sumset is already cofinite in this range. Bower–Evans–Luo–Miller, arXiv:1212.2930v1, studies coordinate sums along modular hyperbolas, including a higher-dimensional product-constrained sum, not the simultaneous two-coordinate sum of three distinct inverse-graph points. Zhao, arXiv:1402.3383v1, proves lower bounds for one-coordinate restricted sumsets of arbitrary subsets, not the two-coordinate graph problem or its exact elliptic fibers. Relevant external research-record searches did not locate an equivalent result. Historical priority cannot be certified by a negative search; an unlocated specialist result remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a sharp additive-basis classification for a canonical arithmetic curve under the natural distinct-summand restriction, not a parameter substitution or an isolated small computation. It changes the universal covering threshold from the previously known unrestricted regime, identifies the unique persistent structural obstruction, and determines all representation fibers through an elliptic trace formula with exact collision corrections.
+For char(F)>=5, recalculate yz=x(s-x)/(tx-1) and the quadratic-discriminant correction for y=z and x=y or x=z: the two collision polynomials have discriminant (st-1)(st-9). This gives R=q+sum(chi(D))-4-3(1+chi(Delta)) for st not 0,1,9. Degeneracies st=1, st=0, st=9 and (s,t)=(0,0) give exactly the asserted four branches. The generic squarefree quartic has square leading coefficient, two rational points at infinity, and Hasse |a|<=2 sqrt(q), yielding R>=q-11-2sqrt(q)>0 for q>=23. Explicit tested prime-field missing targets establish sharpness for all smaller allowed field orders. Independently enumerated 4,714 prime-field target fibers; none disagreed. Finite enumeration is corroboration, not the infinite proof.
 
-**Closest literature and limitations.** The above primary sources were compared at the level of the objects and implications. No claims are made for characteristics two and three. The exact generic multiplicity still depends on a Frobenius trace and is not reduced to a trace-free elementary formula. Priority remains qualified without an exhaustive specialist review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2012 scalar coordinate-sum study and 2014 restricted scalar-sum result do not determine two prescribed coordinate sums with three distinct inverse-graph points. Two fully read published split-hyperbola theorems already establish unrestricted 3H_q support (q>=13) and a stronger ordinary ordered convolution formula, but neither their unrestricted coverage nor their three-step support implies distinct summands or the sharp distinct q=23 threshold (q=19 has missing nonzero targets). The new character formula is closely related to subtracting collision contributions from the earlier R3; novelty resides primarily in collision-free exact fibers and the sharp restricted threshold, not in discovery of elliptic convolution itself.
+
+## value
+
+PASS
+
+The canonical inverse graph is a natural additive basis. Requiring three distinct summands changes the uniform covering threshold from 13 to 23 and yields exact representation counts and the structural origin obstruction, substantive additive-combinatorial information that can be used independently. Finite small-field gaps are essential to the sharp infinite classification rather than arbitrary tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

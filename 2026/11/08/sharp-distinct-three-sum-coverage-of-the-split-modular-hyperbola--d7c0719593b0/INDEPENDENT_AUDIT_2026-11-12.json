@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:51:51.749401Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-distinct-three-sum-coverage-of-the-split-modular-hyperbola--d7c0719593b0/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-distinct-three-sum-coverage-of-the-split-modular-hyperbola--d7c0719593b0/VERIFICATION.md",
+        "independent_checks.py",
+        "verify_git_trees.py"
+      ],
+      "rationale": "For char(F)>=5, recalculate yz=x(s-x)/(tx-1) and the quadratic-discriminant correction for y=z and x=y or x=z: the two collision polynomials have discriminant (st-1)(st-9). This gives R=q+sum(chi(D))-4-3(1+chi(Delta)) for st not 0,1,9. Degeneracies st=1, st=0, st=9 and (s,t)=(0,0) give exactly the asserted four branches. The generic squarefree quartic has square leading coefficient, two rational points at infinity, and Hasse |a|<=2 sqrt(q), yielding R>=q-11-2sqrt(q)>0 for q>=23. Explicit tested prime-field missing targets establish sharpness for all smaller allowed field orders. Independently enumerated 4,714 prime-field target fibers; none disagreed. Finite enumeration is corroboration, not the infinite proof.",
+      "residual_risks": [
+        "Finite checks cover prime fields 5 through 37 in the independent run, not all extension fields; the proof handles arbitrary finite-field order using Hasse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov 1 published result establishes unrestricted q>=13; Nov 8 full convolution R3=q-4+sum chi(P_c) in the generic case with exceptional cases, but allows repeated parameters.",
+          "At q=19 unrestricted coverage holds but new distinct-triple enumeration has 18 missing targets."
+        ],
+        "reasoning": "The prior unrestricted theorem is strictly weaker on the distinct-summand constraint. Its elliptic count supplies some of the new formula by correction; it does not make the positive restricted threshold a corollary of the support theorem.",
+        "searches": [
+          "Resultary sharp three-sum covering split modular hyperbola 2026/11/1",
+          "Resultary elliptic three-step convolution inverse graph Cayley walks 2026/11/8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Nov1 sharp three-sum covering complete RESULT.md",
+        "Resultary Nov8 elliptic three-step convolution complete RESULT.md",
+        "arxiv:1212.2930 (scoped bibliographic/theorem comparison)",
+        "arxiv:1402.3383 (scoped bibliographic/theorem comparison)",
+        "source RESULT.md and verify_hyperbola.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Hasse genus-one argument ensures some three-summand representation but may be a repeated triple; this is realized as a genuine implication failure at q=19.",
+          "The source collision corrections -4-3(1+chi(Delta)) require explicit treatment and improve the positivity lower bound."
+        ],
+        "reasoning": "Prior ordinary coverage cannot imply this sharp restricted coverage; collision-free exact fibers and the new q=23 cutoff survive the comparison.",
+        "searches": [
+          "Hasse restricted three-sum inverse graph q>=23",
+          "ordinary versus distinct three-sum modular hyperbola 2026/11/1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bower et al. arxiv:1212.2930 addresses coordinate sums along product-constrained hyperbolas; the reviewed R(s,t) imposes both moments and pairwise distinctness."
+        ],
+        "reasoning": "The simultaneous (sum x_i,sum x_i^{-1}) fiber is not the coordinate sum of fixed-product tuples, and restricted scalar-set sums do not enforce a second nonlinear moment.",
+        "searches": [
+          "Resultary split modular hyperbola restricted triple sum; finite field simultaneous first and inverse moments; arxiv:1212.2930"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published unrestricted convolution table has no collision-free field-size threshold or six small prime-field restricted hole counts; new verifier records 21,36,41,48,49,18 holes at q=5,7,11,13,17,19."
+        ],
+        "reasoning": "An ordinary convolution table is not a pre-existing table of the distinct three-summand counts; subtraction is substantial but elementary where collision equations are known. No independently published exact restricted table was found.",
+        "searches": [
+          "Resultary exact distinct three-sum hyperbola target fiber enumeration",
+          "modular hyperbola restricted sumset F_19 missing count"
+        ]
+      },
+      "rationale": "The 2012 scalar coordinate-sum study and 2014 restricted scalar-sum result do not determine two prescribed coordinate sums with three distinct inverse-graph points. Two fully read published split-hyperbola theorems already establish unrestricted 3H_q support (q>=13) and a stronger ordinary ordered convolution formula, but neither their unrestricted coverage nor their three-step support implies distinct summands or the sharp distinct q=23 threshold (q=19 has missing nonzero targets). The new character formula is closely related to subtracting collision contributions from the earlier R3; novelty resides primarily in collision-free exact fibers and the sharp restricted threshold, not in discovery of elliptic convolution itself.",
+      "residual_risks": [
+        "The elliptic character identity is closely recoverable from the earlier unrestricted convolution after collision correction; novelty is narrower than the full exact trace formula.",
+        "Specialized unindexed literature might have restricted-summand counts.",
+        "Only characteristics at least five; the exact generic fiber still depends on elliptic trace."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted summands allowed; cannot prove new restricted threshold",
+          "evidence": "Theorem states 3H_q=F_q^2 up to origin for q>=13 and q=11 counterexample.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-three-sum-covering-of-the-split-modular-hyperbola-over-fin--02aca6c7a46d",
+          "material_read": "Complete RESULT.md: theorem, axes, singular cubics, Hasse argument and finite exception",
+          "method": "Read actual GitHub raw full text",
+          "title": "Sharp three-sum covering of split modular hyperbola",
+          "trigger": "Same inverse graph and threefold Minkowski sum"
+        },
+        {
+          "assessment": "Provides powerful prior ordinary fiber formula but not distinct-summand counts",
+          "evidence": "Generic R3=q-4+sum chi(P_c); distinct R requires collision subtraction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-elliptic-three-step-convolution-and-exact-diameter-exceptions-fo--78c59ab544e6",
+          "material_read": "Full RESULT.md: R2 identity, generic R3, singular cases, proof and exceptions",
+          "method": "Read actual raw GitHub text",
+          "title": "Elliptic three-step convolution and diameter exceptions",
+          "trigger": "Same parameters and elliptic character formula"
+        },
+        {
+          "assessment": "Do not assert full-text noncoverage; scalar-coordinate setting differs",
+          "evidence": "Original product-constrained coordinate sum does not by itself give simultaneous inverse graph moment fibers.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.2930",
+          "material_read": "Theorem 4.1 and problem scope as reported within full reviewed source and bibliographic record; independent full PDF not opened",
+          "method": "Bibliographic/source comparison, limited",
+          "title": "Coordinate sum and difference sets of d-dimensional modular hyperbolas",
+          "trigger": "Primary hyperbola prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-distinct-three-sum-coverage-of-the-split-modular-hyperbola--d7c0719593b0/RESULT.md",
+        "Resultary Nov1 sharp three-sum covering complete RESULT.md",
+        "Resultary Nov8 elliptic three-step convolution complete RESULT.md"
+      ],
+      "rationale": "The canonical inverse graph is a natural additive basis. Requiring three distinct summands changes the uniform covering threshold from 13 to 23 and yields exact representation counts and the structural origin obstruction, substantive additive-combinatorial information that can be used independently. Finite small-field gaps are essential to the sharp infinite classification rather than arbitrary tabulation.",
+      "residual_risks": [
+        "Finite checks cover prime fields 5 through 37 in the independent run, not all extension fields; the proof handles arbitrary finite-field order using Hasse.",
+        "Earlier related results first-published November 8 may have uncertain intraday ordering; the accepted claim survives by distinct constraint rather than claimed intraday priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks cover prime fields 5 through 37 in the independent run, not all extension fields; the proof handles arbitrary finite-field order using Hasse.",
+    "Earlier related results first-published November 8 may have uncertain intraday ordering; the accepted claim survives by distinct constraint rather than claimed intraday priority."
+  ],
+  "schema_version": 1
+}
