@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete analytic proof is in `RESULT.md`, including Gaussian normalization, the strict curvature sign change, existence and uniqueness of the tangent, the global concave envelope, Jensen equality cases, and a renewal-reward argument.
+## correctness
 
-The standalone `CHECK.py` was executed using standard Python. It returned `PASS 11424 checks`, testing the curvature inflection, unique tangency, sharp support chord, envelope majorization, and comparison with deterministic-grid two-point competitors over four variance contrasts, three relaxation rates, and multiple dwell-time ratios. The illustrative parameters \(c=\omega=1\), \(\delta=0.2\), \(\mu=0.4\) give \(b_\delta=0.661755102085\ldots\) and a relative reward-rate improvement of \(0.029509253746\ldots\).
+PASS
 
-These finite checks support reproducibility but are not an exhaustive search over renewal laws and are not an infinite proof. The global theorem is supported by the derivative and concave-majorant arguments. The statement concerns conditional Gaussian endpoint relative entropy and does not certify physical irreversibility for an unspecified implementation.
+PASS: For λ,D>0, q∈(0,1), 0<δ≤μ<∞, the OU variance ODE yields σ_t²=(D/λ)[1-(1-q)e^{-2λt}], and Gaussian symmetric KL reward f(t)=c²(1-e^{-ωt})²/[2(1+c(1-e^{-ωt}))], c=(1-q)/q, ω=2λ. Independent symbolic differentiation verifies exactly f''=(c²ω²/2)(1-y)(2-4y-3cy²-c²y³)/(1+cy)³. Its cubic decreases strictly and has one zero. The tangency residual hδ(t)=(t-δ)f'(t)-f(t)+f(δ) increases until t_inf and then decreases to the strictly negative limit f(δ)-f(∞), hence for δ<t_inf exactly one bδ>t_inf, and none for δ≥t_inf. Joining the supporting chord δ--bδ to the strict-concave post-bδ curve produces a global concave majorant; Jensen, strict contact sets and the prescribed mean identify the unique optimum: two atoms at δ,bδ for δ<μ<bδ, deterministic otherwise, with boundary cases μ=δ and μ=bδ. Finite mean/bounded reward permit renewal-reward, even with heavy-tailed admissible intervals. Independent high-precision roots for c=1,ω=1,δ=.2 give t_inf=.47609687563148 and bδ=.66175510208479, with supporting-line checks, while the universal claim rests on calculus, not the grid. No assertion about pathwise thermodynamic entropy production.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge; qualified): A published earlier Gaussian OU renewal-clock theorem solves the same Jeffreys divergence at fixed mean with merely W>0 and NO positive minimum interval. It has an unattained burst supremum when the mean is below its critical time and states that positive dwell constraints change the feasible class. The present lower-bounded constraint δ>0 changes the exact concave envelope and yields a new attained two-atom law with a δ-dependent tangent and unique transition: not an equality or fixed-parameter corollary of that earlier statement. The underlying one-inflection lemma and concavification approach, plus Farago's Gaussian reward and physical interpretation, are not new. Priority against a more general constrained one-inflection envelope theorem remains an explicit risk.
+
+## value
+
+PASS
+
+PASS: A strictly positive minimum physical dwell time is a natural constraint, not an arbitrary slice. It eliminates a nonattained zero-wait supremum, produces an achievable optimal renewal schedule with a sharp deterministic-versus-random transition, and gives the explicit parameter boundary bδ. This is a motivated exact structural classification for renewal controls of a fixed physical information reward, despite the classical Jensen/envelope method and without claiming implementation-wide dissipation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

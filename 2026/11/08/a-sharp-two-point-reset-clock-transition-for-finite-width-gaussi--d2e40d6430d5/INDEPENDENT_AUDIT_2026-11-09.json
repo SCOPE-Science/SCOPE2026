@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:44:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For λ,D>0, q∈(0,1), 0<δ≤μ<∞, the OU variance ODE yields σ_t²=(D/λ)[1-(1-q)e^{-2λt}], and Gaussian symmetric KL reward f(t)=c²(1-e^{-ωt})²/[2(1+c(1-e^{-ωt}))], c=(1-q)/q, ω=2λ. Independent symbolic differentiation verifies exactly f''=(c²ω²/2)(1-y)(2-4y-3cy²-c²y³)/(1+cy)³. Its cubic decreases strictly and has one zero. The tangency residual hδ(t)=(t-δ)f'(t)-f(t)+f(δ) increases until t_inf and then decreases to the strictly negative limit f(δ)-f(∞), hence for δ<t_inf exactly one bδ>t_inf, and none for δ≥t_inf. Joining the supporting chord δ--bδ to the strict-concave post-bδ curve produces a global concave majorant; Jensen, strict contact sets and the prescribed mean identify the unique optimum: two atoms at δ,bδ for δ<μ<bδ, deterministic otherwise, with boundary cases μ=δ and μ=bδ. Finite mean/bounded reward permit renewal-reward, even with heavy-tailed admissible intervals. Independent high-precision roots for c=1,ω=1,δ=.2 give t_inf=.47609687563148 and bδ=.66175510208479, with supporting-line checks, while the universal claim rests on calculus, not the grid. No assertion about pathwise thermodynamic entropy production.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published earlier RESULT.md states supremum at support approaching {0,t_c} is not attained when W>0, and says positive dwell-time constraints alter the feasible class."
+        ],
+        "reasoning": "The earlier theorem covers the δ→0 boundary benchmark, but does not dominate the positive-δ attained law. A generic concave-envelope theorem could furnish the proof once the new δ-dependent tangency is established; background technique is acknowledged.",
+        "searches": [
+          "Ornstein Uhlenbeck Gaussian resetting symmetric endpoint KL Jeffreys divergence optimal renewal waiting clock mean lower cutoff tangency concave envelope two point",
+          "minimum dwell interval constrained renewal Gaussian endpoint KL tangency unique two atom optimal",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897",
+        "https://arxiv.org/html/2605.28445v1",
+        "https://arxiv.org/html/2310.11267v5",
+        "Resultary searches: Ornstein Uhlenbeck Gaussian resetting symmetric endpoint KL Jeffreys divergence optimal renewal waiting clock mean lower cutoff tangency concave envelope two point",
+        "minimum dwell interval constrained renewal Gaussian endpoint KL tangency unique two atom optimal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier claim optimizes over all strictly positive intervals, giving an unattained supremum for μ<t_c. Present claim optimizes over [δ,∞), giving unique support {δ,bδ} for δ<μ<bδ.",
+          "Farago treats periodic and Poisson clocks, not arbitrary mean-constrained renewal distributions."
+        ],
+        "reasoning": "Minimizing over a smaller admissible class cannot be inferred from the earlier unconstrained maximum and nonattainment, and neither t_c nor {0,t_c} is the new optimizer at δ>0. Need a fresh δ-specific supporting tangent and equality analysis.",
+        "searches": [
+          "minimum dwell interval constrained renewal Gaussian endpoint KL tangency unique two atom optimal",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897",
+          "https://arxiv.org/html/2605.28445v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary Nov 2 full RESULT.md gives f(ωt) with c_prior=q and unbounded-below positive W; changing parameter c_current=(1-q)/q recovers same Jeffreys reward.",
+          "Farago harmonic oscillator arXiv:2605.28445v1 §§II.2–II.3 analyzes endpoint KL periodic/Poisson cycles."
+        ],
+        "reasoning": "Exact reward and one-inflection curve are equivalent to earlier work; the constrained feasible law W≥δ>0, δ-specific support chord and unique attained optimizer are not analyzed by it.",
+        "searches": [
+          "Ornstein Uhlenbeck Gaussian resetting symmetric endpoint KL Jeffreys divergence optimal renewal waiting clock mean lower cutoff tangency concave envelope two point",
+          "minimum dwell interval constrained renewal Gaussian endpoint KL tangency unique two atom optimal",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier envelope and all checked Gaussian reset literature give no table of bδ for every positive lower dwell, or its uniqueness and monotonicity."
+        ],
+        "reasoning": "This is a continuum optimization, not a finite table/data invariant; the relevant equivalent check is for formulas and parametric envelopes, not a numerical database.",
+        "searches": [
+          "Ornstein Uhlenbeck Gaussian resetting symmetric endpoint KL Jeffreys divergence optimal renewal waiting clock mean lower cutoff tangency concave envelope two point",
+          "minimum dwell interval constrained renewal Gaussian endpoint KL tangency unique two atom optimal",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge; qualified): A published earlier Gaussian OU renewal-clock theorem solves the same Jeffreys divergence at fixed mean with merely W>0 and NO positive minimum interval. It has an unattained burst supremum when the mean is below its critical time and states that positive dwell constraints change the feasible class. The present lower-bounded constraint δ>0 changes the exact concave envelope and yields a new attained two-atom law with a δ-dependent tangent and unique transition: not an equality or fixed-parameter corollary of that earlier statement. The underlying one-inflection lemma and concavification approach, plus Farago's Gaussian reward and physical interpretation, are not new. Priority against a more general constrained one-inflection envelope theorem remains an explicit risk.",
+      "residual_risks": [
+        "A general published theorem on lower-bounded convex-then-concave reward envelopes could imply the δ-specific result without matching subject wording; no exhaustive mathematical-optimization literature scan.",
+        "The reward is a conditional endpoint information diagnostic and not full dissipation; numerical root checks do not prove general optimizer uniqueness.",
+        "Paper on finite-time resetting costs (arXiv:2310.11267) used for differing work objective; the exact whole text was not newly re-inspected in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact δ=0 benchmark; no positive dwell constraint and explicit warning this alters feasible class",
+          "evidence": "Finding and Proof: envelope chord from zero to z_c; no attainment among W>0 below z_c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-renewal-clock-envelope-for-gaussian-endpoint-divergence--3fdf1f9dc897",
+          "material_read": "Entire RESULT.md (finding, exact least concave majorant, proof, asymptotic expansion and limitations), Git blob 896e43d7bc7748f76c352e8ae33b3da8fd851c25",
+          "method": "GitHub published Resultary repository full file",
+          "title": "Sharp renewal-clock envelope for Gaussian endpoint divergence",
+          "trigger": "Exact same OU Gaussian and endpoint Jeffreys reward"
+        },
+        {
+          "assessment": "Existing Gaussian reward/thermodynamic context, not fixed-mean lower-bounded renewal optimizer",
+          "evidence": "Farago arXiv:2605.28445v1 §§II.2–II.3.",
+          "identifier_or_url": "https://arxiv.org/html/2605.28445v1",
+          "material_read": "Open-access full HTML, §§II.1–II.4 and summary; periodic/Poisson expressions and their physical qualifications",
+          "method": "arXiv HTML full paper",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "Harmonic Gaussian endpoint divergence and resetting timing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A strictly positive minimum physical dwell time is a natural constraint, not an arbitrary slice. It eliminates a nonattained zero-wait supremum, produces an achievable optimal renewal schedule with a sharp deterministic-versus-random transition, and gives the explicit parameter boundary bδ. This is a motivated exact structural classification for renewal controls of a fixed physical information reward, despite the classical Jensen/envelope method and without claiming implementation-wide dissipation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No pathwise entropy production, reset work cost, feedback timing, finite reset duration or other reward functional is covered.",
+    "Closest same-quantity prior δ=0 theorem shares method and part of the result; novelty rests on positive-dwell sharp optimization and carries broad convex-envelope antecedent risk."
+  ],
+  "schema_version": 1
+}
