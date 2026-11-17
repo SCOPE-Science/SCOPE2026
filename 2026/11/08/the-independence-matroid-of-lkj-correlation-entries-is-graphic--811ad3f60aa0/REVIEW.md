@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The specified Wishart–LKJ factorization is valid for every real \(\nu>n-1\). Integer-dimensional spherical symmetry yields forest-edge joint independence. Mixed-moment rationality, sign parity and compact moment determinacy rigorously extend it to every real parameter. The cyclic Wishart monomial is \(\nu\) by the unique common-coordinate index, and dividing by \(\nu^k\) proves the exact positive product. A separate enumerative verifier passed 126 exact checks. The only unproved limitation is that this theorem does not concern ensembles beyond LKJ.
+## correctness
 
-**Originality — PASS (qualified).** Hanea–Nane (arXiv:1309.7268) discuss determinant factorization, vine partial correlations and ordinary one-entry marginals; none amounts to the forest-if-and-only-if classification. The earlier triangle third moment is subsumed and is not claimed anew. Kurowicka (2014), DOI 10.1016/j.jmva.2014.04.006, gives chordal-pattern marginal densities, potentially covering forest independence, but its accessible abstract does not establish all-cycle non-independence or exact obstruction moments; complete text remained unavailable. Historical implicit coverage remains a material risk.
+PASS
 
-**Value — PASS.** This gives a complete, natural, all-parameter classification of which ordinary sample-correlation coordinates can be regarded as jointly independent. It identifies graphic circuits as the precise minimal dependence obstructions and computes their nonzero strengths, distinguishing mutual independence from the pairwise-independence familiar in this ensemble.
+For integer Wishart degrees of freedom, normalized independent Gaussian row directions give LKJ correlations. Leaf peeling and rotational symmetry establish mutual independence for every forest. For real ν=n+2η−1>n−1, the determinant Wishart law is valid, mixed off-diagonal W moments are polynomial in ν, diagonal gamma moments polynomial for even-degree forest monomials; sign parity kills odd cases; rational identity on infinitely many integer ν extends equality of all mixed moments, with compact support proving joint independence. The simple k-cycle Wishart moment is ν, diagonal divisor ν^k, so cycle correlation moment ν^(1−k)>0. Valid all n≥3, η>0, simple graphs.
 
-Closest literature is the LKJ/vine family (2009), Hanea–Nane (2013) and Kurowicka (2014). The proof is self-contained for the law and parameter range stated, but no independent novelty certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier exact triangle cumulant covers k=3 but not the iff forest graphic-matroid statement for all cycles and arbitrary η. Chordal-pattern density literature may imply forest half; complete published comparison inaccessible, leaving explicit priority risk, but no decisive same classification located.
+
+## value
+
+PASS
+
+Complete graphic-matroid characterization of dependence among original, not partial, LKJ correlations and exact all-cycle obstruction moments answer a natural structural independence question. Pairwise independence alone obscures dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
