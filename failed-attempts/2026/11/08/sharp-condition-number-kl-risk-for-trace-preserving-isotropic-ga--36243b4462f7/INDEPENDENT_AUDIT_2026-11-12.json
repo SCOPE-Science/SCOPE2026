@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:53:55.178522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-condition-number-kl-risk-for-trace-preserving-isotropic-ga--36243b4462f7/RESULT.md",
+        "/mnt/data/scope_worker03_20261112T1438Z/independent_checks.py"
+      ],
+      "rationale": "The directed Gaussian KL identity with m=tr Γ/n gives 2D=m∑1/y_i-n+∑log y_i-n log m. A one-coordinate derivative has cubic numerator P=Ty^3+(BT-n(n-1))y^2+(n-1)By-B^2; Cauchy–Schwarz BT≥(n-1)^2 makes P strictly increasing on y>0, so the one-coordinate objective first decreases then increases; every maximum is at box endpoints. Exactly j eigenvalues κ and n-j eigenvalues 1 give n/2 times Fκ(j/n) as claimed, and the Fκ derivative crosses zero exactly once. Independent symbolic differentiation proved the cubic identity; 2,400 random spectral vectors and all endpoint multiplicities for n=2,3,4,5,7 corroborated the sharp discrete maximum. The formula is mathematically correct but does not establish novelty.",
+      "residual_risks": [
+        "The current proof is not identified as false; rejection is solely prior mathematical coverage and lack of a distinct valuable remainder.",
+        "Bounded finite checks are corroboration and not universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem adds explicit nonzero Lanczos-residual SPD realization; Nov 2 gives finite-n sharp bound; Nov 8 companion same exact covariance theorem."
+        ],
+        "reasoning": "The earlier results cover the exact submitted extremum and stricter applications, not merely a special n or weaker bound.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-spectral-kl-loss-of-trace-matched-isotropic-gaussian-covar--25172c8070e7/RESULT.md",
+          "worst case Gaussian KL divergence equal trace isotropic covariance condition number spectral endpoints rank multiplicity"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-spectral-kl-loss-of-trace-matched-isotropic-gaussian-covar--25172c8070e7/RESULT.md",
+        "https://arxiv.org/abs/2609.10080",
+        "Resultary semantic searches: worst case Gaussian KL divergence equal trace isotropic covariance condition number spectral endpoints rank multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier: sup D=(n/2)max_j Φκ(j/n); current sup D=(n/2)max_j Fκ(j/n), equal by j↔n-j. Earlier proves all equality spectra and Lanczos realization."
+        ],
+        "reasoning": "All main novelty assertions follow directly from earlier results. The remaining n=2 simplification and strict Kantorovich envelope are elementary and do not yield a new valuable result.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-spectral-kl-loss-of-trace-matched-isotropic-gaussian-covar--25172c8070e7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier uses precision B and C=B^{-1}, present uses Γ as covariance. Earlier Φκ(t)=A t(1-t)-log(1-(1-1/κ)t)-t logκ."
+        ],
+        "reasoning": "Substitute Γ=B^{-1} and t=1-q; then Fκ(q)=Φκ(1-q), with j high covariance eigenvalues corresponding to n-j high precision eigenvalues. Same oriented KL, same exact optimum and extremizer set.",
+        "searches": [
+          "worst case Gaussian KL divergence equal trace isotropic covariance condition number spectral endpoints rank multiplicity",
+          "SCOPE October 18 sharp condition-number KL envelope",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior October 18 complete analytic formula and equality spectra; the current finite maximum is literally the same discretized analytic function."
+        ],
+        "reasoning": "This is a known formula, not a new table; the prior expressions give every value via q=1-t, including the continuous root and large κ coefficient.",
+        "searches": [
+          "worst case Gaussian KL divergence equal trace isotropic covariance condition number spectral endpoints rank multiplicity",
+          "Resultary searches: worst case Gaussian KL divergence equal trace isotropic covariance condition number spectral endpoints rank multiplicity"
+        ]
+      },
+      "rationale": "Decisive complete prior coverage. The October 18 published SCOPE theorem gives the identical KL orientation, exact trace-matched inverse covariance, all finite dimensions, sharp two-point optimizer spectra, adjacent-integer optimizer and fixed-k large-K coefficient, PLUS an explicit nonzero-residual Lanczos realization. The Nov 2 and same-day Nov 8 companion results confirm the identical formula. Let precision B=Γ^{-1} and set t=1-q. The earlier Φκ(t)=A t(1-t)-log(1-(1-1/κ)t)-t log κ equals the present Fκ(q)=A q(1-q)+q logκ-log(1+(κ-1)q) identically. This is mathematically the same theorem, not merely a similar title. The n=2 formula and simpler nonsharp Kantorovich envelope are routine corollaries.",
+      "residual_risks": [
+        "The current proof is not identified as false; rejection is solely prior mathematical coverage and lack of a distinct valuable remainder.",
+        "Earlier first-public dates Oct 18 and Nov 2 precede Nov 8; no ambiguous same-day priority is needed.",
+        "Exact Gaussian KL orientation and trace matching must be retained to establish equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior mathematical coverage including stronger realization",
+          "evidence": [
+            "Formula Φκ(t), vertex theorem, optimal multiplicities, large-K asymptotics, exact B↔Γ equivalence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944/RESULT.md",
+          "material_read": "Complete RESULT.md, finding, assumptions, five-step proof including explicit Lanczos realization, verification and references",
+          "method": "Full source file read via retrieved published Git text",
+          "title": "Sharp condition-number KL envelope for trace-matched Gaussian inverse covariance",
+          "trigger": "Identical trace-matched oriented KL extremal problem"
+        },
+        {
+          "assessment": "Independent earlier corroboration, exact same theorem",
+          "evidence": [
+            "Fixed n,κ max over j; equality spectra; adjacent integer optimizing multiplicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82/RESULT.md",
+          "material_read": "Complete RESULT.md with separate strict-coordinate convexity proof and sharp bound",
+          "method": "Full source file read",
+          "title": "Sharp dimension-dependent KL cost of trace-matched isotropic inverse covariance",
+          "trigger": "Same problem and formula, earlier date"
+        },
+        {
+          "assessment": "Identical statement with same covariance parameter and orientation; same-day chronological priority not required",
+          "evidence": [
+            "F_K(p) identical to submitted finite objective, with the same optimal spectra."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-spectral-kl-loss-of-trace-matched-isotropic-gaussian-covar--25172c8070e7/RESULT.md",
+          "material_read": "Complete RESULT.md, proof and relation to primary work",
+          "method": "Full source file read",
+          "title": "Sharp spectral KL loss of trace-matched isotropic Gaussian covariance",
+          "trigger": "Same-date exact covariance formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-spectral-kl-loss-of-trace-matched-isotropic-gaussian-covar--25172c8070e7/RESULT.md",
+        "https://arxiv.org/abs/2609.10080",
+        "Resultary semantic searches: worst case Gaussian KL divergence equal trace isotropic covariance condition number spectral endpoints rank multiplicity"
+      ],
+      "rationale": "The exact KL extremum is a meaningful mathematical result but already established in stronger earlier form. Rephrasing precision B as covariance Γ, reorienting endpoint multiplicity and adding the elementary n=2 or coarse strict envelope yields no independent unknown invariant or motivated new classification. Correctness and exact rational tests do not rescue covered science.",
+      "residual_risks": [
+        "The current proof is not identified as false; rejection is solely prior mathematical coverage and lack of a distinct valuable remainder.",
+        "Earlier first-public dates Oct 18 and Nov 2 precede Nov 8; no ambiguous same-day priority is needed.",
+        "Exact Gaussian KL orientation and trace matching must be retained to establish equivalence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The current proof is not identified as false; rejection is solely prior mathematical coverage and lack of a distinct valuable remainder.",
+    "Earlier first-public dates Oct 18 and Nov 2 precede Nov 8; no ambiguous same-day priority is needed.",
+    "Exact Gaussian KL orientation and trace matching must be retained to establish equivalence."
+  ],
+  "schema_version": 1
+}
