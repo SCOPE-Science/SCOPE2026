@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed the all-m closed-neighborhood minority update, tie-retention rule, clique/leaf/hub status, reachability and closure, and Boolean two-rank inclusion graph. The set with h=b, leaf=1-b, core-one count m or m+1 comprises exactly two communicating classes each binomial(2m+1,m). Symmetric update edges each have probability 1/(2m+2); the Boolean up/down commutator gives Laplacian eigenvalues j, 2m+1-j, with unmatched m eigenspace, gap 1/(2m+2). This is correct including m=1. Audited source check_exhaustive.py independently constructs the full transition graph; bounded m=1..4 is corroboration, not an all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-blade recurrent class theorem already states hub pinning and total R=2 product w_i. Complete split theorem Section 4 computes the general Laplacian of adjacent Boolean ranks through up/down commutator."
+        ],
+        "reasoning": "All-clique-bouquet theorem permits arbitrary numbers and sizes of blades, explicitly including pendant-edge blades, and dominates the submitted structural classification. Other complete-split spectral theorem gives universal exact inclusion-graph spectrum, making the remaining fixed-rank calculation routine.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-controlled-attractors-and-a-universal-relaxation-gap-on-c--9f3469962f47/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-controlled-attractors-and-a-universal-relaxation-gap-on-c--9f3469962f47/RESULT.md",
+        "https://arxiv.org/abs/1011.5119",
+        "https://arxiv.org/abs/0911.0126"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bouquet gives two classes; each size binomial(2m+1,m). Incidence Laplacian eigenvalues j,2m+1-j plus m unmatched are standard harmonic decomposition; P=I-L/(2m+2)."
+        ],
+        "reasoning": "Set bouquet blade parameters (2m,1) and count classes. Read off the within-class Boolean two-rank adjacency graph, then apply the already published general up/down incidence block spectrum with N=2m, k=m-1 and rescale by vertex-choice denominator 2m+2. This yields the claimed P spectrum and gap, leaving no nonroutine independent theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-controlled-attractors-and-a-universal-relaxation-gap-on-c--9f3469962f47/RESULT.md",
+          "arxiv:0911.0126"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bouquet theorem mixed-parity case: K=2*binomial(1,0)=2 classes and S=binomial(2m+1,m) each. The submitted class graph is the even-blade rank (m-1,m) inclusion graph."
+        ],
+        "reasoning": "The one-leaf graph is the clique-bouquet with precisely two blades: r1=2m private vertices forming K_(2m+1) with the hub and r2=1 for the leaf. Its same tie-retaining minority update, accessible maximum cuts and frozen hub give the exact submitted two recurrent sets, each of size binomial(2m+1,m).",
+        "searches": [
+          "Resultary semantic: stochastic minority odd clique with pendant leaf recurrent classes spectral gap middle levels",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual audited scripts implement m=1..4 and m=1..3; no independent exhaustive all-m census is asserted."
+        ],
+        "reasoning": "This is an infinite-parameter theorem, not a finite database result. Finite terminal-SCC and symbolic-spectrum outputs check only small m and cannot supply originality.",
+        "searches": [
+          "Resultary semantic: stochastic minority odd clique with pendant leaf recurrent classes spectral gap middle levels",
+          "SCOPE2026 source check_exhaustive.py and check_spectrum.py"
+        ]
+      },
+      "rationale": "FAIL: Full published clique-bouquet theorem specializes literally to two blades of sizes (r1,r2)=(2m,1), namely K_(2m+1) plus one leaf, and proves the entire attractor and recurrence classification and counts. Its proof even explicitly describes the Boolean adjacent-rank inclusion graph. A separate published spectral lemma for adjacent-rank incidence graphs and the general complete-split-graph spectrum supply the remaining spectral formula by a classical fixed-rank calculation. The submission does not establish an independently new dynamical implication beyond this prior-covered special case and routine spectral extraction. Same-day priority ordering is not claimed.",
+      "residual_risks": [
+        "Exact intra-day public ordering of two November 8, 2026 findings unverified; coverage judgment is statement-and-implication based.",
+        "Spectral formula is correct but not shown to provide a new motivated invariant beyond general incidence decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for dynamical result; single leaf is r2=1 explicitly permitted.",
+          "evidence": [
+            "Theorem gives K=2 and S=binomial(2m+1,m); private even blade uses adjacent Boolean ranks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b/RESULT.md",
+          "material_read": "Complete Finding, assumptions, six proof steps, verification and relation to one-private-leaf special case.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "One odd clique blade pins the hub: exact attractors of asynchronous minority on clique bouquets",
+          "trigger": "Direct same-model graph superfamily in Resultary semantic results"
+        },
+        {
+          "assessment": "Spectral method and eigenvalue law are known, despite different host graph.",
+          "evidence": [
+            "Full up/down-incidence Laplacian factorization; translating to a known adjacent-rank graph is classical."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-controlled-attractors-and-a-universal-relaxation-gap-on-c--9f3469962f47/RESULT.md",
+          "material_read": "Complete statement, proof with Boolean incidence spectral block and all boundary cases.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "Parity-controlled attractors and a universal relaxation gap on complete split graphs",
+          "trigger": "Same stochastic-minority update and harmonic two-rank spectrum"
+        },
+        {
+          "assessment": "Covers baseline clique, not leaf; bouquet theorem is the decisive coverage.",
+          "evidence": [
+            "Original clique has one recurrent class, 2 binomial(2m+1,m) states."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.5119",
+          "material_read": "Accessible full HTML relevant definitions and complete-graph attractor theorem.",
+          "method": "Read complete published RESULT.md mathematical proof and statement at Git blob via read-only GitHub; compared definitions, hypotheses and implications.",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Primary source for exact update and baseline odd complete graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL for the claimed standalone contribution: the core one-leaf class splitting and population invariance are already the specialization of a multi-blade theorem, while the residual full spectrum of its identified two-rank inclusion graph follows standard harmonic incidence calculus. Once this coverage is removed the package offers no independently motivated, unknown invariant or structural gap; exact finite checks and reproduction are not independently sufficient for value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": "No new computation of every small-m spectrum was executed here; finite source verification is not proof and the all-m result follows from checked combinatorial reasoning. Unverified historical intra-day ordering does not change coverage comparison.",
+  "schema_version": 1
+}
