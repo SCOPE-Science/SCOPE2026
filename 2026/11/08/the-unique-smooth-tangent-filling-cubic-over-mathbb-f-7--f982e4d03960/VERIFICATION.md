@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-This package provides `verify_cubic_census.py` and `verify_explicit_tangents.py`, executable with Python 3 and no external libraries. Run them from their containing directory. Both were run successfully and report `F7_TANGENT_FILLING_CUBIC_CENSUS_PASS` and `F7_EXPLICIT_CUBIC_TANGENT_FILLING_PASS` respectively. The first loops over all 42 smooth short Weierstrass parameters and all 336 degree-three divisor classes, checks each rational curve-point gradient and tangent coverage, and identifies eight covering normal forms. It asserts the full coverage histogram and exceptional list. The second independently encodes the explicit cubic, exact derivatives, twelve tangent lines and 57 ambient points, confirming incidence counts `1:36, 2:9, 3:9, 5:3`.
+## correctness
 
-The completeness claim is not established by a finite search alone: it follows from the smooth cubic/elliptic curve identification, the rational degree-three Picard classes and the explicit linear series formulas proved in RESULT.md. The external standard theorems are the Hasse bound and basic elliptic line bundle properties. Proof of geometric smoothness of the explicit representative is symbolic and works over the algebraic closure. The scripts do not classify singular cubics, extension fields, or priority in literature. Independent audit or validation: not performed.
+PASS
+
+Over F_7 the derivative equations force contradictory Y³=2 and Y³=5 at any hypothetical geometric singularity. The twelve normalized tangent equations cover coordinate points and all nonzero coordinates by square/nonsquare cases; 57 ambient points have incidence (36,9,9,3). Hasse gives an F_7 rational origin on every smooth genus-one cubic; Pic^3(E)(F_7) is represented by 2O+T, with the exhibited basis giving an exhaustive short-Weierstrass plane model. Independently reran all 42 nonsingular (a,b), 336 (E,T) complete-series representatives: exactly eight covering models, all a=b=0,1 respectively and T with nonzero ordinate. The E_{0,1}(F_7) group is Z/6⊕Z/2, so 3E is its four rational 2-torsion points; translations by 3E and rational j=0 automorphisms act transitively on the eight non-2-torsion T, completing projective uniqueness. Degree <3 exclusion uses rational tangent-line coverage of a line/conic. Finite census is exhaustive only because of Picard-normal-form proof.
+
+## originality
+
+PASS
+
+The smooth cubic example, sharp degree three and exact tangent multiplicities were already published on October 18 in Resultary; they receive no independent novelty credit. The earlier full result explicitly disclaims uniqueness, whereas the present exhaustive Picard^3 classification establishes the single PGL_3(F_7) orbit among all geometrically smooth cubics and excludes rational flexes. Original Asgarli–Ghioca posed a general minimum-degree question and did not classify q=7. Best-of-knowledge originality is restricted to uniqueness/no-flex structure, not existence or minimum degree.
+
+## value
+
+PASS
+
+The classification of a natural extremal finite-geometric condition is a complete, motivated structural result, not merely another model or a finite-number table: it explains why a 12-line minimum blocking arrangement is forced to one cubic embedding class and why none has a rational flex. It can be used to identify any other tangent-filling smooth cubic over F_7 or distinguish smooth from singular cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

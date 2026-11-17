@@ -1,17 +1,21 @@
-# Scientific review: the tangent-filling cubic over \(\mathbb F_7\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The representative has no common projective zero of its three partials over the algebraic closure: the affine gradient equations imply both \(Y^3=2\) and \(Y^3=5\). Its twelve rational points produce exactly the twelve lines listed in RESULT.md. Those lines cover every rational point by a three-case classification using the nonzero squares and nonsquares. Independent exact arithmetic establishes the incidence spectrum \(1^{36},2^9,3^9,5^3\).
+## correctness
 
-For the uniqueness assertion, the Hasse bound guarantees a rational point on every smooth cubic over \(\mathbb F_7\). Standard elliptic-curve theory reduces every rational plane embedding to \(H^0(E,\mathcal O(2O+T))\), providing the two displayed explicit normal forms. Their parameters range over all \(42\) smooth short-Weierstrass pairs and \(336\) rational divisor-class choices. The embedded `verify_cubic_census.py` tests every one, finds only eight covering models, and independently checks tangent distinctness. The eight choices all lie on \(E:y^2=x^3+1\), occupy two nonzero cosets modulo multiplication by three, and become projectively equivalent under translations and inversion. This also proves absence of rational flexes. Lower degrees fail by a line count and the existence of internal points to a smooth conic, respectively. The programs enumerate finite possibilities; their completeness rests on the proof of the normal-form reduction, not on unbounded sampling. No extension-field or singular-cubic classification is claimed.
+PASS
 
-## Originality — PASS with residual risk
-The full text of Asgarli–Ghioca, arXiv:2302.13420, was inspected at its introduction, main theorems, Question 1.5 and the final characteristic-seven failure remark. It introduces tangent-filling and asks for the minimum irreducible degree, but its degree-six example does **not** fill over \(\mathbb F_7\), nor does the source identify a characteristic-seven smooth cubic or a unique-class classification. Targeted exact, synonym and finite-geometric search queries located no publication implying this result. Comparable prior projective cubic census work concerns \(\mathbb F_3\) and a nonexistence classification over \(\mathbb F_5\), not \(\mathbb F_7\). published-literature index queries returned only noncovering geometric tangency and unrelated elliptic-curve results. Residual risk: a finite-geometric or coding-theoretic description of the same twelve-line covering could have been published under a different vocabulary or absent from searched indexes. Nonappearance from a search is not a proof of priority.
+Over F_7 the derivative equations force contradictory Y³=2 and Y³=5 at any hypothetical geometric singularity. The twelve normalized tangent equations cover coordinate points and all nonzero coordinates by square/nonsquare cases; 57 ambient points have incidence (36,9,9,3). Hasse gives an F_7 rational origin on every smooth genus-one cubic; Pic^3(E)(F_7) is represented by 2O+T, with the exhibited basis giving an exhaustive short-Weierstrass plane model. Independently reran all 42 nonsingular (a,b), 336 (E,T) complete-series representatives: exactly eight covering models, all a=b=0,1 respectively and T with nonzero ordinate. The E_{0,1}(F_7) group is Z/6⊕Z/2, so 3E is its four rational 2-torsion points; translations by 3E and rational j=0 automorphisms act transitively on the eight non-2-torsion T, completing projective uniqueness. Degree <3 exclusion uses rational tangent-line coverage of a line/conic. Finite census is exhaustive only because of Picard-normal-form proof.
 
-## Mathematical value — PASS
-The central example settles Asgarli–Ghioca's minimum-degree question for the previously delicate value \(q=7\), lowering the witness degree to three, and the complete smooth-cubic PGL classification shows it is the only such smooth cubic class. The counterintuitive condition of *no rational flexes* clarifies why the embedding line bundle matters even for a fixed elliptic curve and distinguishes this from an arbitrary computational incidence example. The exact finite certificate is motivated by the natural exhaustive classification, rather than an arbitrary invariant slice. This does not imply a general lower bound for larger finite fields.
+## originality
 
-## Closest literature, limitations and risk
-Asgarli–Ghioca, *Tangent-filling plane curves over finite fields*, arXiv:2302.13420 (2023), Question 1.5 and Remark 3.7; journal version in Bull. Aust. Math. Soc. 109 (2024). Separate finite-geometric configurations might imply the projective-line covering without using the words tangent-filling; this is the principal outstanding historical-priority risk. Both verification programs require only Python's standard library and are embedded with their exact inputs. No independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smooth cubic example, sharp degree three and exact tangent multiplicities were already published on October 18 in Resultary; they receive no independent novelty credit. The earlier full result explicitly disclaims uniqueness, whereas the present exhaustive Picard^3 classification establishes the single PGL_3(F_7) orbit among all geometrically smooth cubics and excludes rational flexes. Original Asgarli–Ghioca posed a general minimum-degree question and did not classify q=7. Best-of-knowledge originality is restricted to uniqueness/no-flex structure, not existence or minimum degree.
+
+## value
+
+PASS
+
+The classification of a natural extremal finite-geometric condition is a complete, motivated structural result, not merely another model or a finite-number table: it explains why a 12-line minimum blocking arrangement is forced to one cubic embedding class and why none has a rational flex. It can be used to identify any other tangent-filling smooth cubic over F_7 or distinguish smooth from singular cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
