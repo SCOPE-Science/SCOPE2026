@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The column-convention master equations and discrete Fourier transform lead to the explicitly stated two-by-two blocks. Their characteristic equation excludes the eigenvalue \(-s\), making the eigenvalue-to-Fourier-index map injective. The discriminant vanishes for nonreal Fourier harmonics precisely at the displayed positive-rate pairs; the zero and (when applicable) alternating harmonics remain nondefective. At a repeated eigenvalue, the nonzero off-diagonal entry forces a size-two Jordan block. The full-generator inactive-probability mode follows exactly from the block exponential. The density of the rate pairs and the sharp \(r\le p/4\) bound are elementary consequences of the continuous, increasing sine parameter. The attached separately assembled generator checker passed 420 Fourier Jordan identities, 900 off-locus checks, and 100 full-generator propagations. These finite tests corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS on examined evidence, with residual risk
+Independently reconstructed master equations and Fourier transformation into B_k. Equation (lambda+s)(lambda+p+r−pe^{iθ})−rs=0 excludes lambda=−s and makes Bloch index injective. For nonreal Fourier modes, vanishing discriminant yields r=pη(1−η), s=pη(1+η), η=sin(πk/n); θ=0 and θ=π stay nondefective. Two conjugate n−k,k blocks are each nonzero nilpotents shifted by eigenvalue, so Jordan size exactly two, all other eigenvalues simple. The nilpotent exponential gives inactive Fourier rt exp(lambda t). Dense parabolic locus follows density of k/n, and maximum r=p/4 iff 6 divides n. Independently assembled real full 2n-state generators and expm propagation corroborated n=5,8,12; finite numerics not an all-n proof.
 
-The 2013 Pinkoviezky–Gov active/immobile motor exclusion work uses the same physically motivated two-motility-state motif but studies interacting motors, stationary current–density relations and jam statistics, not a rate-exact classification of exceptional points in the finite, one-particle continuous-time ring. Their second 2013 paper treats an open linear track with interacting motors. Weber–Pande (2015) study complex eigenmodes and damped oscillations in a biased network of triangular cycles with a special slow link, rather than the uniform two-state ring's Jordan degeneracies. Berry–Uzdin (2011) establish general non-Hermitian exceptional-point methods for a different Hamiltonian model; no priority is claimed for the discriminant method itself. Searches for the displayed parametric exceptional locus, aliasing as active–inactive Markov Fourier eigenvalue coalescence, and its time-domain signature returned no exact covering source. The nearby 2016 run–pause motor paper's full text was not inspected, and historical priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a full classification, over all ring sizes and all strictly positive switching rates, of when a natural irreversible kinetic generator loses diagonalizability. The exceptional set has an exact finite arithmetic count, a shared parabolic geometry, a dense infinite-size union, and a sharp universal upper bound on the pause-entry rate. Unlike a bare determinant calculation, the coalescence is tied to a directly observable time-linear, exponentially damped oscillatory Fourier response. These features furnish a reproducible benchmark for transient relaxation and non-Hermitian Markov kinetics without requiring any unproved downstream claim.
+This exact single-particle clockwise ring with local active/inactive switching has a full positive-rate spectral-degeneracy classification for all n, paired Jordan blocks and directly observable transient. The inspected published active/inactive motor papers treat interacting or open-track transport, while complex-oscillation studies of other Markov networks and generic exceptional-point principles do not state this complete arithmetically enumerated locus. Best-of-knowledge, with possible specialist ring-network precedence.
 
-## Sources and limitations
+## value
 
-Primary comparison: Pinkoviezky and Gov (2013), https://doi.org/10.1088/1367-2630/15/2/025009; Pinkoviezky and Gov (2013), https://doi.org/10.1103/PhysRevE.88.022714; Weber and Pande (2015), https://doi.org/10.1103/PhysRevE.91.032136. Methodological context: Berry and Uzdin (2011), https://doi.org/10.1088/1751-8113/44/43/435303. The current proof assumes a single particle, homogeneous rates, clockwise motion, and exact rate tuning. Independent literature-completeness and experimental validation are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit all-size finite-ring exceptional-point classification in strictly positive rates, with an observable transient enhancement, is a natural invariant of the active/inactive stochastic-transport model. Counting all resonant wave numbers and identifying the dense parabolic rate locus goes beyond merely invoking a textbook quadratic discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
