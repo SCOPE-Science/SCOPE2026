@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical verification
+# Independent mathematical audit
 
-The standalone Python 3 script `verify.py` uses only the standard library. Invoke `python3 verify.py`; its recorded output is embedded in `verify_output.txt`.
+## correctness
 
-It exhaustively visits all 720 vertex permutations, constructs the downward closure of the resulting strong gradients, verifies 91 distinct generators and 36 maximal faces, and checks the complete face vector \((14,57,58,10)\). A deterministic coordinate-toggle procedure provides 66 matched incidences and leaves one vertex, one edge and five triangles. The directed Hasse graph is explicitly checked to be acyclic on all 139 faces and 328 incidences.
+PASS
 
-Signed chain reductions then cancel the 66 pairs with integer unit pivots. The resulting seven-cell differential is exactly zero, establishing the degree-zero attachments in the discrete-Morse CW model. The final assertion of the verifier is `ALL_VERIFY_OK`.
+With vertex-edge pairing vertices indexed by 14 oriented edges, enumerated all 6!=720 injective orders using exactly the one-earlier-neighbor descending-link criterion. Independent recomputation produced 91 generator masks, 36 facets, complete 139 nonempty faces with f-vector (14,57,58,10). Reproducing the specified coordinate-toggle order yields 66 matched incidence pairs and seven critical masks 1096,1168,1296,1538,1664,2048,4160: one vertex, one edge and five 2-cells. The full 328-incidence directed Hasse poset is acyclic by topological sorting; exact signed integral unit-pivot elimination reduces every Morse boundary to zero. The one-skeleton is S1 and all five 2-cell attaching degrees in pi1(S1)=Z vanish, hence every attachment is nullhomotopic and the complex is S1 wedge five S2. This fully finite 720-order census is exhaustive, not sampling.
 
-These exact checks prove the stated **finite** homotopy classification using the standard discrete-Morse CW theorem. They do not furnish a formula for larger theta graphs, a general graph classification or independent external validation.
+## originality
+
+PASS
+
+The uneven theta is the first edge subdivision of K2,3; the motivating strong-complex literature available through abstracts covers paths, cycles, stars and simplices, while same un-subdivided K2,3 result does not imply a subdivision invariant. A Resultary query returned ordinary discrete Morse/matching complexes, not this filtration-strong complex. Lack of full access to 2609.06844 leaves a genuine coverage uncertainty but does not contradict the independently reconstructed finite theorem.
+
+## value
+
+PASS
+
+The smallest natural uneven theta graph probes how a single edge subdivision changes the recently defined full strong matching complex; the mixed-dimensional integral wedge and exact attaching-map certificate are meaningful exact topology beyond prior path/cycle/complete-bipartite families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

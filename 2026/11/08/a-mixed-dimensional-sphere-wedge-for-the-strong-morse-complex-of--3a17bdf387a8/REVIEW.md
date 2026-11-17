@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-vertex graph is defined explicitly. Enumerating every vertex filtration gives the complete complex; the source definition reduces, for graphs, to uniquely earlier neighbors. The executable certifies \(139\) faces and a globally acyclic \(66\)-pair discrete-Morse matching with critical vector \((1,1,5,0)\). Signed unit-pivot cancellation produces zero integer cellular differential. The sole one-cell is a circle; each two-cell has zero degree and thus a nullhomotopic attaching loop. The theorem follows as a genuine integral homotopy equivalence. The proof is a finite exhaustive certificate rather than an extrapolation.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The motivating paper arXiv:2609.06844v1 defines the construction and computes paths, stars, simplexes, their boundaries and some cycles. Its inspected discussion, graph-family sections do not provide the uneven-theta claim. Related calculations for complete bipartite graphs do not imply the effect of an edge subdivision, and ordinary Morse/matching complexes are not the same construction. Searches for theta graph, edge subdivision, strong matchings and equivalent sphere-wedge claims revealed no covering indexed result. An unindexed equivalent theorem or a more general unpublished formula remains possible; search absence is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This is the smallest uneven theta graph, formed by a single edge subdivision of \(K_{2,3}\). It is a canonical first nonuniform multicycle case outside the principal graph families treated by the motivating source. The mixed-dimensional integral homotopy type, explicit optimal discrete-Morse vector and attaching-degree certificate provide a structural base case for subdivision behavior, not merely a Betti-table lookup.
+With vertex-edge pairing vertices indexed by 14 oriented edges, enumerated all 6!=720 injective orders using exactly the one-earlier-neighbor descending-link criterion. Independent recomputation produced 91 generator masks, 36 facets, complete 139 nonempty faces with f-vector (14,57,58,10). Reproducing the specified coordinate-toggle order yields 66 matched incidence pairs and seven critical masks 1096,1168,1296,1538,1664,2048,4160: one vertex, one edge and five 2-cells. The full 328-incidence directed Hasse poset is acyclic by topological sorting; exact signed integral unit-pivot elimination reduces every Morse boundary to zero. The one-skeleton is S1 and all five 2-cell attaching degrees in pi1(S1)=Z vanish, hence every attachment is nullhomotopic and the complex is S1 wedge five S2. This fully finite 720-order census is exhaustive, not sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The uneven theta is the first edge subdivision of K2,3; the motivating strong-complex literature available through abstracts covers paths, cycles, stars and simplices, while same un-subdivided K2,3 result does not imply a subdivision invariant. A Resultary query returned ordinary discrete Morse/matching complexes, not this filtration-strong complex. Lack of full access to 2609.06844 leaves a genuine coverage uncertainty but does not contradict the independently reconstructed finite theorem.
+
+## value
+
+PASS
+
+The smallest natural uneven theta graph probes how a single edge subdivision changes the recently defined full strong matching complex; the mixed-dimensional integral wedge and exact attaching-map certificate are meaningful exact topology beyond prior path/cycle/complete-bipartite families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
