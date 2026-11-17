@@ -1,0 +1,12 @@
+# Scientific review: Cubic threshold clearance in equal-latency phage cocktails
+
+## Correctness — PASS
+The published delay model and physical compatibility equation are quoted explicitly. At the neutral dosage the linearization has a simple zero root and all other roots strictly left of the imaginary axis. On its center manifold the first phage slopes yield a quadratic bacterial coefficient \(K\). Under \(K=0\), delay differences first appear at cubic order, while the infected-population integral cancels its quadratic coefficient. The phage equations then give exactly the positive cubic magnitude \(C=\sum_i k_i d_iA_i^2/m_i^3\). Stable-foliation tracking and the positive bacterial logarithmic identity transfer the inverse-square-root law to nearby positive compatible histories. The explicit all-positive two-type parameters prove realizability. Computer checks confirm symbolic coefficients and a finite-time trend but are not infinite-time proofs.
+
+## Originality — PASS, with residual priority risk
+The original full-text model analysis establishes strict dose-side stability and counts coexistence equilibria, but does not determine the dynamics on the simultaneous zero-eigenvalue / zero-quadratic-coefficient locus. Closest same-model earlier work establishes the nonzero-quadratic \(t^{-1}\) law and expressly excludes coefficient zero; another same-model equilibrium classification supplies no nonlinear time-asymptotic. General critical \(t^{-1/2}\) theorems in other ecological systems do not specify this delayed multi-phage invariant, its positive-definite coefficient, or the continuum alternative. Generic retarded center-manifold theory and older single-phage literature remain potential routes for implicit prior derivations, not identified direct coverage.
+
+## Value — PASS
+The first nonlinear critical coefficient is naturally tunable by combining phage types with different burst yields, and can cancel with all biological parameters positive. The new positive sum-of-squares third-order law distinguishes guaranteed algebraic clearance from a neutral continuum and identifies its exact speed. The critical exponent changes from the generic inverse-time law to inverse-square-root; this is a structural nonlinear phase boundary, not an arbitrary numerical slice. The conclusion is local, deterministic, and limited to common latency.
+
+Self-review: passed. Independent audit: not yet performed.
