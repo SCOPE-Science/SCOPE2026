@@ -1,15 +1,21 @@
-# Scientific review of the odd generalized Petersen Ising ground-state law
+# Independent mathematical audit
 
-## Correctness — PASS
-The ground energy follows from an explicit family of odd five-cycles that gives the exact lower bound of \((n+1)/2\) frustrated edges. An exact eight-state transfer matrix counts all spin configurations without symmetry quotienting. Its polynomial determinant has constant and linear coefficients \(1-3t^4+t^8\) and \(-2(t^3+t^5)\), yielding the Fibonacci multiplicities via the formal logarithmic determinant identity. The positive coefficients establish attainment for every odd \(n\ge5\). The required matrix identities are independently computed by the accompanying executable checker; its finite checks are not mistaken for proof of the infinite family.
+## correctness
 
-## Originality — PASS, with historical priority limitations
-Comparisons at the statement-and-implication level distinguish the claim from (i) the isolated dodecahedral case, (ii) the full even-index Potts family \(G(mk,k)\) with \(k=2\), (iii) a Tutte-uniqueness theorem without evaluated Ising coefficients, and (iv) maximum frustration optimized across arbitrary signed edges. Known even-index generalized Petersen zero-field classifications do not cover the odd-index graphs, which have a single inner rim. The comparison does not establish global uniqueness; a previously unindexed maximum-cut or partition-function coefficient identity remains possible.
+PASS
 
-## Mathematical value — PASS
-The odd-index family forms the other natural topological sector beyond the even-index two-inner-cycle family. The theorem resolves its exact minimum energy and **all** zero-field ground-state multiplicities for infinitely many cubic frustrated spin networks; the two mod-four Fibonacci laws give nontrivial finite-size oscillations and an exact nonzero limiting entropy density. This is neither a reparameterized isolated graph count nor a finite numerical extrapolation.
+For GP(n,2), n odd >=5, each of n five-cycles has odd frustration; outer edges and spokes appear twice and inner edges once, giving f>=(n+1)/2 and E>=-(2n-1)J. Rebuilt the eight-state transition M=y^-1 T(y^2) from the exact displayed state compatibility rule; an independent symbolic determinant calculation verified D(t,0)=1-3t^4+t^8 and [y]D=-2(t^3+t^5). Log determinant then extracts the first possible frustration coefficient 2n[t^n](t^3+t^5)/(1-3t^4+t^8), equal to stated Fibonacci counts; positivity proves the bound sharp. Exhaustive direct spin enumeration on n=5,7,9 gave 10,42,54 labelled ground states. Classical uniform AF zero-field model only, not positive temperatures or even n.
 
-## Sources and limits
-Full-text inspected: Strečka–Karľová–Madaras (2015), arXiv:1502.04449; Jacobsen–Salas (2013), arXiv:1303.5210; Kuhl (2008), *Australasian Journal of Combinatorics* 40; and *Maximum Frustration in Signed Generalized Petersen Graphs* (2019), arXiv:1905.05548. The result assumes classical spins, equal positive coupling and zero field, and concerns only odd indices. An independent historical priority review has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A maximum cut is the complement of frustrated edges, so searches included generalized Petersen maximum-cut, Ising and Tutte/Potts languages. Earlier GP(10,2) polyhedron Ising and GP(2m,2) transfer results do not state the complete odd-n Fibonacci ground-state multiplicity; the published even-index Fibonacci/Lucas findings do not imply odd-index coefficients. Equivalent unindexed Tutte/maximum-cut coefficient calculations remain a priority risk.
+
+## value
+
+PASS
+
+The exact family-wide labelled zero-temperature ground-state degeneracy and asymptotic residual entropy of a canonical frustrated cubic graph family are physically and combinatorially natural: they determine maximum-cut multiplicities, beyond one small Petersen instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

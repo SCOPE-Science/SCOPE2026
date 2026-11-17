@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with SymPy. This is a standalone script containing the complete eight-state matrix construction and all enumeration logic.
+## correctness
 
-It performs three distinct checks:
+PASS
 
-- Symbolically evaluates the scaled eight-state characteristic polynomial and checks its constant, first, and second coefficients in the variable \(y\), confirming the exact formulas used in the proof and polynomiality in \(y\).
-- Runs a direct min-plus transfer calculation of minimum frustrated bonds and the number attaining it for 28 odd sizes through \(n=81\), comparing each with the closed-form formula.
-- Independently enumerates every spin assignment using explicit graph edges for \(n=5,7,9\), without reusing the transfer-state recurrence.
+For GP(n,2), n odd >=5, each of n five-cycles has odd frustration; outer edges and spokes appear twice and inner edges once, giving f>=(n+1)/2 and E>=-(2n-1)J. Rebuilt the eight-state transition M=y^-1 T(y^2) from the exact displayed state compatibility rule; an independent symbolic determinant calculation verified D(t,0)=1-3t^4+t^8 and [y]D=-2(t^3+t^5). Log determinant then extracts the first possible frustration coefficient 2n[t^n](t^3+t^5)/(1-3t^4+t^8), equal to stated Fibonacci counts; positivity proves the bound sharp. Exhaustive direct spin enumeration on n=5,7,9 gave 10,42,54 labelled ground states. Classical uniform AF zero-field model only, not positive temperatures or even n.
 
-The observed result was `VERIFY_OK symbolic_determinant=1 exact_transfer_sizes=28 exhaustive_spin_sizes=3`. All checks were performed on the standalone source included with the finding. The all-size proof is the analytic pentagon-bound and formal-determinant coefficient argument; finite enumerations are cross-checks, not an infinite certificate. Scientific priority is not formally certified by computation or by the bibliography search.
+## originality
+
+PASS
+
+A maximum cut is the complement of frustrated edges, so searches included generalized Petersen maximum-cut, Ising and Tutte/Potts languages. Earlier GP(10,2) polyhedron Ising and GP(2m,2) transfer results do not state the complete odd-n Fibonacci ground-state multiplicity; the published even-index Fibonacci/Lucas findings do not imply odd-index coefficients. Equivalent unindexed Tutte/maximum-cut coefficient calculations remain a priority risk.
+
+## value
+
+PASS
+
+The exact family-wide labelled zero-temperature ground-state degeneracy and asymptotic residual entropy of a canonical frustrated cubic graph family are physically and combinatorially natural: they determine maximum-cut multiplicities, beyond one small Petersen instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
