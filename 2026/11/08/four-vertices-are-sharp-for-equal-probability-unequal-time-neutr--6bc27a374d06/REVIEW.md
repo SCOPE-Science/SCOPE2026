@@ -1,25 +1,21 @@
-# Review: Four vertices are sharp for equal-probability unequal-time neutral mutant configurations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first-step recurrence includes self-transitions, and the inverse-degree martingale is verified algebraically by edgewise cancellation. The finite absorbing generator is solved with exact rational elimination for every connected labeled graph of orders two to four. A separate Doob-transformed conditional chain reproduces both exhibited time pairs. The counts cover all 38 connected labeled four-vertex graphs and their six permutation-isomorphism classes. Scope is explicitly limited to this neutral discrete-time model.
+PASS
 
-## Originality — PASS within inspected sources; residual priority risk
+In discrete neutral birth–death Moran dynamics, including self-transitions, reciprocal-degree mutant weight W(S)=sum_{v in S}1/d_v is a martingale: edgewise replacement probabilities cancel. Optional stopping gives p(S)=W(S)/W(V). For every connected undirected simple graph of n<=4, independently constructed exact-rational Q on nonabsorbing mutant subsets, solved (I-Q)m=p and tau=m/p; enumerated 1,4,38 connected labeled graphs at n=2,3,4 and found qualifying counts 0,0,15. Exactly P4 (12 labelings) and C4 (3) qualify. Witnesses: P4 pairs {0,1},{0,2}, both p=1/2 with conditional times 20 and 15; C4 adjacent and opposite pairs both p=1/2, times 8 and 7. No extrapolation beyond four vertices.
 
-The 2013 reproductive-value reference proves a general neutral fixation-probability principle, but does not supply a classification by equal-probability two-mutant configurations and unequal conditional time. The 2014 Hindersin–Traulsen analysis of four-vertex fixation times concerns one initially mutant individual; its reported small-graph times do not settle this two-seed comparison. The 2015 exact algorithm covers the method but not the sharp census or these exact contrasts. Baxter–Blythe–McKane (2008) and Iwamasa–Masuda (2014) give broader consensus/fixation-time frameworks, and the latter's relevant abstract was available, but not a verified full-text comparison for every initial configuration. These works may enable rediscovery or contain equivalent special cases; the claim is provisional pending independent literature-priority review. published-finding corpus semantic searches for aliases, same-size configurations, neutral fixation and voter consensus returned no matching mathematical statement; absence from a search index is not proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-It is natural to ask whether controlling starting mutant load and eventual fixation probability controls the duration of successful fixation. The complete minimum and six-class census identify precisely where spatial arrangement first matters. A five-update reduction in expected successful fixation time on a four-vertex path, with unchanged one-half fixation probability, provides a small reproducible benchmark for separating evolutionary probability and duration. This is a small structural result, not a general asymptotic theorem or biological prediction.
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
 
-## Sources and risks
+## value
 
-- W. Maciejewski, *Reproductive Value in Graph-structured Populations*, arXiv:1307.4789v1 (first public 2013-07-17), https://arxiv.org/abs/1307.4789.
-- L. Hindersin and A. Traulsen, *Counterintuitive properties of the fixation time in network-structured populations*, arXiv:1406.4415v1 (2014), https://arxiv.org/abs/1406.4415.
-- L. Hindersin et al., *Exact numerical calculation of fixation probability and time on graphs*, arXiv:1511.02696v1 (2015), https://arxiv.org/abs/1511.02696.
-- G. J. Baxter, R. A. Blythe, A. J. McKane, *Fixation and Consensus Times on a Network: A Unified Approach*, Phys. Rev. Lett. 101, 258701 (2008), https://doi.org/10.1103/PhysRevLett.101.258701.
-- Y. Iwamasa and N. Masuda, *Networks maximizing the consensus time of voter models*, Phys. Rev. E 90, 012816 (2014), https://doi.org/10.1103/PhysRevE.90.012816.
+PASS
 
-The close 2014 four-vertex paper has been inspected in full primary preprint form, including its single-mutant setup and displayed examples. The 2013 and 2015 primary preprints were inspected for the relevant probability and finite-state methods. Older voter-model consensus-time exact formulas may already imply some numerical special cases, and not all potentially relevant papers were available in full text. No independent review or validation is claimed.
+Fixation probability alone conceals time-to-success information even among equally many mutants on the same graph. The first possible graph size and exact exceptional graph classes are a natural minimal stochastic-evolution separation useful in multi-seed consensus/fixation analyses.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

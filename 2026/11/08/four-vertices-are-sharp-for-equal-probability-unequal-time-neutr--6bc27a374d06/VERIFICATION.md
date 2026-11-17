@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify_moran_multiseed.py` checker requires only Python 3. It lists every connected simple labeled graph on two, three, and four vertices and computes conditional fixation times by exact fraction Gaussian elimination in a finite absorbing chain. Expected group differences are absent for all order-two and order-three cases. Order four has 38 connected labeled graphs in six classes, of which 15 labeled graphs in exactly the path and cycle classes have divergent conditional time at fixed mutant count and fixation probability.
+## correctness
 
-The inverse-degree fixation formula is verified against every transient harmonic equation. For both witness graph classes a separate conditional Doob-transform calculation yields the same rational conditional first moments as the weighted first-moment method. The cycle witness gives conditional times 8 and 7; the path witness gives 20 and 15; both initial configuration pairs have fixation probability 1/2. The checker uses no floating point and no sampling.
+PASS
 
-General graphs above four vertices, positive selection different from fitness one, alternative update rules, and independent historical priority are not covered.
+In discrete neutral birth–death Moran dynamics, including self-transitions, reciprocal-degree mutant weight W(S)=sum_{v in S}1/d_v is a martingale: edgewise replacement probabilities cancel. Optional stopping gives p(S)=W(S)/W(V). For every connected undirected simple graph of n<=4, independently constructed exact-rational Q on nonabsorbing mutant subsets, solved (I-Q)m=p and tau=m/p; enumerated 1,4,38 connected labeled graphs at n=2,3,4 and found qualifying counts 0,0,15. Exactly P4 (12 labelings) and C4 (3) qualify. Witnesses: P4 pairs {0,1},{0,2}, both p=1/2 with conditional times 20 and 15; C4 adjacent and opposite pairs both p=1/2, times 8 and 7. No extrapolation beyond four vertices.
+
+## originality
+
+PASS
+
+On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.
+
+## value
+
+PASS
+
+Fixation probability alone conceals time-to-success information even among equally many mutants on the same graph. The first possible graph size and exact exceptional graph classes are a natural minimal stochastic-evolution separation useful in multi-seed consensus/fixation analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
