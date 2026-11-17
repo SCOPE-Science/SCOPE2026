@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T20:12:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 8bd59f4e8e2acfc22dbed63d64b99699ced3c60f",
+        "verify_krylov.py blob 6ebdeb114dbe3d4d5a637a8cfaf8f3e338c786db",
+        "independent /mnt/data/audit_checks_20Z.py exact rational four row types"
+      ],
+      "rationale": "For every integer N≥2, u=βe1+εe2 and v=εe3+γ∑e_j are orthonormal for ε=1/N, β²=1−ε², γ=β/√N. A=2I+uvᵀ+vuᵀ has eigenvalues 1,3 on span(u,v), 2 elsewhere, so is SPD of condition 3 and a single Arnoldi step from u gives v exactly. With disjoint column supports every full-rank two-row sketch must pick one of first two rows and one of next N+1; four row-amplitude types exhaust selection. Since β>γ>ε, all min-singular-value maximizers {1,j≥4} have sketch condition √N, whereas unique condition-minimizer {2,3} has condition one. DEIM and pivoted-QR Q-DEIM both pick the former. With orthonormal V, κ(VR^{-1})=κ(SV) for SV=QR. Independent exact rational tests covered selected N=2,3,9,100; symbolic four-type proof supplies uniform quantifier.",
+      "residual_risks": [
+        "Exact arithmetic, unweighted row subsets, rank two; the tiny-amplitude condition-optimal pair is not asserted numerically stable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ipsen–Saibaba arxiv:2511.02740 studies complexity of column subset selection criteria.",
+          "Earlier Resultary https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-optimal-two-row-sketches-can-produce-nonreal-ritz-values-for-con--15c0a9d20140 constructs nonreal sketched Ritz eigenvalues for E-optimal sketches on SPD matrices."
+        ],
+        "reasoning": "Complexity and nonreal-Ritz claims do not entail an exact unbounded gap in the condition distortion between E-optimal and condition-optimal selectors for every N.",
+        "searches": [
+          "Krylov row subset minimum singular value versus condition number unbounded gap SPD DEIM QDEIM"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.07158",
+        "https://arxiv.org/abs/1505.00370",
+        "https://arxiv.org/abs/2511.02740",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-optimal-two-row-sketches-can-produce-nonreal-ritz-values-for-con--15c0a9d20140"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bergermann equation (3.5) plus Q-DEIM algorithm supplies the distortion definition and a motivated selection objective; no universal ratio is given.",
+          "All E-optimal selectors in candidate have distortion √N but a unique different selector achieves distortion one even though A has cond3."
+        ],
+        "reasoning": "The sharp unbounded all-N separation is not entailed by an isolated bad-sketch example or a general heuristic conditioning bound.",
+        "searches": [
+          "Krylov row subset minimum singular value versus condition number unbounded gap SPD DEIM QDEIM"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bergermann arxiv:2604.07158 (Eq. 3.5) defines whitening distortion κ(VR^-1), equal to κ(SV) for orthonormal V.",
+          "Drmač–Gugercin arxiv:1505.00370 addresses selected inverse norms; these are not identical to κ(SV)."
+        ],
+        "reasoning": "The candidate compares optimizing σ_min and optimizing κ, not equivalent objectives because the latter also depends on σ_max; the counterexample is a strict objective separation.",
+        "searches": [
+          "Krylov row subset minimum singular value versus condition number unbounded gap SPD DEIM QDEIM"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four full-rank row amplitude types allow exact classification over all integer N; this is symbolic rather than a finite database entry.",
+          "The inspected Bergermann and pivoted-QR literature supplies no matching uniformly SPD Arnoldi N-dependent table."
+        ],
+        "reasoning": "No exact prior data table on this family was found; any known general theorem with a qualifying substitution must still be independently checked for implication.",
+        "searches": [
+          "Krylov row subset minimum singular value versus condition number unbounded gap SPD DEIM QDEIM"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Bergermann 2026 motivates E-optimal row selection and whitening-condition distortion but does not give an unbounded optimality mismatch on an exact fixed-condition SPD Krylov basis; Q-DEIM inverse norm analyses and NP-hardness studies concern different guarantees. Nearby prior SPD two-row sketch/Ritz failures have different output criteria.",
+      "residual_risks": [
+        "A general experimental-design row-subset theorem might imply a similar E-optimal-versus-conditioning distinction, but no matching fixed-condition SPD Krylov result was inspected.",
+        "No finite precision, noise-resilience or solver performance conclusion is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_METRIC_NOT_COVERING",
+          "evidence": "Introduces distortion κ(VR^-1) and motivates maximizing σ_min but no unbounded comparison to condition-optimal row subset",
+          "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+          "material_read": "Full accessible arxiv HTML, especially Sections 3–5 and equations (3.5)–(3.6)",
+          "method": "Full-text web inspection",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "Same Arnoldi, DEIM/Q-DEIM and whitening condition-number metric"
+        },
+        {
+          "assessment": "DIFFERENT_OUTPUT",
+          "evidence": "Focuses nonreal Ritz values rather than optimal row condition distortion",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-optimal-two-row-sketches-can-produce-nonreal-ritz-values-for-con--15c0a9d20140",
+          "material_read": "Published semantic record abstract/summary, not full mathematical proof",
+          "method": "Resultary search only",
+          "title": "Optimal two-row sketches can produce nonreal Ritz values for condition-two SPD systems",
+          "trigger": "Relevant exact two-row SPD Krylov counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.07158",
+        "https://arxiv.org/abs/1505.00370",
+        "https://arxiv.org/abs/2511.02740",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-optimal-two-row-sketches-can-produce-nonreal-ritz-values-for-con--15c0a9d20140"
+      ],
+      "rationale": "PASS: The exact counterexample falsifies a natural surrogate-objective implication for a current deterministic Krylov selection strategy even when the parent SPD matrix is well conditioned, and the algorithm pivots exhibit the theoretically inferior selection. It is a motivated structural limitation of the chosen metric, not a recommendation to sample vanishing-amplitude rows in floating point.",
+      "residual_risks": [
+        "No assertion of better numerical reconstruction under additive errors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic, unweighted row subsets, rank two; the tiny-amplitude condition-optimal pair is not asserted numerically stable.",
+    "A general experimental-design row-subset theorem might imply a similar E-optimal-versus-conditioning distinction, but no matching fixed-condition SPD Krylov result was inspected.",
+    "No finite precision, noise-resilience or solver performance conclusion is justified.",
+    "No assertion of better numerical reconstruction under additive errors."
+  ],
+  "schema_version": 1
+}

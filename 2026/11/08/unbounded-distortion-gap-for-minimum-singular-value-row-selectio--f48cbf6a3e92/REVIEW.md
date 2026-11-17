@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed family is fully defined for every integer \(N\ge2\). Direct orthogonality and the exact two-dimensional invariant block of the SPD operator establish its condition number \(3\) and the Arnoldi basis identity. All full-rank row pairs fall into exactly four amplitude classes, and the strict inequalities \(\beta>\gamma>\varepsilon\) determine **all** global optima. The DEIM and Q-DEIM pivot conclusions are exact. For an orthonormal frame the whitening distortion equals the condition number of the sketched frame. The standalone checker verifies 95,274 finite row subsets, without treating this as the proof of the infinite result.
+PASS
 
-## Originality
+For every integer N≥2, u=βe1+εe2 and v=εe3+γ∑e_j are orthonormal for ε=1/N, β²=1−ε², γ=β/√N. A=2I+uvᵀ+vuᵀ has eigenvalues 1,3 on span(u,v), 2 elsewhere, so is SPD of condition 3 and a single Arnoldi step from u gives v exactly. With disjoint column supports every full-rank two-row sketch must pick one of first two rows and one of next N+1; four row-amplitude types exhaust selection. Since β>γ>ε, all min-singular-value maximizers {1,j≥4} have sketch condition √N, whereas unique condition-minimizer {2,3} has condition one. DEIM and pivoted-QR Q-DEIM both pick the former. With orthonormal V, κ(VR^{-1})=κ(SV) for SV=QR. Independent exact rational tests covered selected N=2,3,9,100; symbolic four-type proof supplies uniform quantifier.
 
-**PASS, qualified.** Bergermann's arXiv:2604.07158v1 (sections 3–5) motivates maximum-smallest-singular-value selection and analyzes condition-number distortion, but its inspected equations and algorithms do not give the exact E-versus-condition optimality separation. Drmač–Gugercin arXiv:1505.00370v1 analyzes interpolation inverse norms, while Ipsen–Saibaba arXiv:2511.02740v2 gives complexity comparisons of subset criteria. Neither inspected analysis implies this explicit all-selector and actual DEIM/Q-DEIM separation on SPD Krylov spaces with fixed parent condition number. General E-optimal versus condition-optimal experimental-design distinctions remain a priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS, scoped.** The demonstrated objective mismatch concerns precisely the two quantities used to motivate a recent deterministic Krylov-sketch design. Even perfect global optimization of the E-criterion cannot uniformly control the stated whitening metric, and the two named pivot procedures exhibit the same gap. The explicit uniformly SPD example rules out attributing the gap to parent ill-conditioning. This is a methodological boundary rather than a new practical row-selection recommendation; the condition-optimal sketch has entries vanishing as dimension grows and may be inferior in noisy arithmetic.
+PASS best of knowledge: Bergermann 2026 motivates E-optimal row selection and whitening-condition distortion but does not give an unbounded optimality mismatch on an exact fixed-condition SPD Krylov basis; Q-DEIM inverse norm analyses and NP-hardness studies concern different guarantees. Nearby prior SPD two-row sketch/Ritz failures have different output criteria.
 
-## Sources and residual limitations
+## value
 
-Primary comparison: Bergermann (2026), arXiv:2604.07158v1, equations (3.5)–(3.6), Algorithms 4.1–4.2 and sections 4–5. Earlier comparisons: Drmač–Gugercin (2015/2016), arXiv:1505.00370v1, and Ipsen–Saibaba (2025/2026), arXiv:2511.02740v2. No claim of broad literature exhaustiveness or finite-precision advantage is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact counterexample falsifies a natural surrogate-objective implication for a current deterministic Krylov selection strategy even when the parent SPD matrix is well conditioned, and the algorithm pivots exhibit the theoretically inferior selection. It is a motivated structural limitation of the chosen metric, not a recommendation to sample vanishing-amplitude rows in floating point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

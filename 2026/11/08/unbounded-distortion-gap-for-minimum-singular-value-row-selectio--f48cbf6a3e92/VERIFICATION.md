@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical checks
+# Independent mathematical audit
 
-The exact derivation classifies every two-row subset of the prescribed two-column orthonormal frame, checks strict amplitude ordering for every integer \(N\ge2\), and proves the SPD matrix and exact Arnoldi realization symbolically. The proof is in `RESULT.md`.
+## correctness
 
-`python verify_krylov.py` was executed from the candidate files with Python 3, NumPy and SciPy. It returned:
+PASS
 
-```text
-CHECKS_OK; 95274 exact row pairs over N=2..80; 10 numerical DEIM/QR/whitening tests; 6 SPD Arnoldi tests
-```
+For every integer N≥2, u=βe1+εe2 and v=εe3+γ∑e_j are orthonormal for ε=1/N, β²=1−ε², γ=β/√N. A=2I+uvᵀ+vuᵀ has eigenvalues 1,3 on span(u,v), 2 elsewhere, so is SPD of condition 3 and a single Arnoldi step from u gives v exactly. With disjoint column supports every full-rank two-row sketch must pick one of first two rows and one of next N+1; four row-amplitude types exhaust selection. Since β>γ>ε, all min-singular-value maximizers {1,j≥4} have sketch condition √N, whereas unique condition-minimizer {2,3} has condition one. DEIM and pivoted-QR Q-DEIM both pick the former. With orthonormal V, κ(VR^{-1})=κ(SV) for SV=QR. Independent exact rational tests covered selected N=2,3,9,100; symbolic four-type proof supplies uniform quantifier.
 
-The checker enumerates squared singular amplitudes using `fractions.Fraction`, computes the true QR-pivoted row selection using SciPy, and reconstructs the SPD operator and Arnoldi pair. This finite evidence does not prove the uniform-in-\(N\) statement by itself; the complete symbolic four-type classification supplies that proof.
+## originality
 
-Known scope limits: no rounding-error analysis, no guarantee for additive sketch noise, no solver residual or runtime guarantee, and no assertion of independent mathematical validation.
+PASS
+
+PASS best of knowledge: Bergermann 2026 motivates E-optimal row selection and whitening-condition distortion but does not give an unbounded optimality mismatch on an exact fixed-condition SPD Krylov basis; Q-DEIM inverse norm analyses and NP-hardness studies concern different guarantees. Nearby prior SPD two-row sketch/Ritz failures have different output criteria.
+
+## value
+
+PASS
+
+PASS: The exact counterexample falsifies a natural surrogate-objective implication for a current deterministic Krylov selection strategy even when the parent SPD matrix is well conditioned, and the algorithm pivots exhibit the theoretically inferior selection. It is a motivated structural limitation of the chosen metric, not a recommendation to sample vanishing-amplitude rows in floating point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
