@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The standalone `CHECKER.py` was executed with Python 3, producing the embedded `CHECKER_OUTPUT.txt`, with final line `EXACT_CERTIFICATE_OK count=15 largest=13026 tested_prime_triples=399`. It requires no network connection or external modules. Its 15-entry output was compared against an independent prime/divisor enumeration using integer arithmetic. Each omitted pair is proper, distinct, and has sum equal to the exact divisor-sum excess.
 
-The odd squarefree four-prime case is excluded by the universal exact bound \(\sigma(n)/n\le2304/1155<2\). The even infinite scope then relies on four mathematically proved reductions: abundancy bounds limiting the least two odd primes except for the case \(p=3\); separation of divisor pairs according to whether each includes \(r\); the resulting universal \(q\le23\) for \(p=3\); and the ensuing bound \(r\le167\) in every case. Enumeration is exhaustive *only after* those reductions. No claim is made that an arbitrary raw computation to 167 would by itself certify all primes.
+# Independent mathematical audit
 
-Scientific review covers correctness, prior-implication and value. An independent scientific audit has not been conducted.
+## correctness
+
+PASS
+
+The odd-prime product bound gives sigma(n)/n <=2304/1155<2. For n=2pqr the deficit D=(3p+3q+3-pq)r+3(p+1)(q+1) must be positive; monotonicity and divisor-coefficient comparisons force p in {3,5,7}, the stated finite q lists and r<=167. Exhaustion of all 399 ordered prime triples within these proven necessary bounds checked each of 105 unordered pairs of 15 distinct proper divisors. All 15 values and their uniqueness follow; the finite enumeration is exhaustive only because the analytic cutoff is proved.
+
+## originality
+
+PASS
+
+No claim-dominating theorem was found in inspected primary sources and published mathematical record searches; originality is best of knowledge with explicit residual risks.
+
+## value
+
+PASS
+
+Natural next four-distinct-prime squarefree case of the 2-near-perfect divisor-sum problem. The infinite parameter family is classified sharply, with genuinely new cutoff reasoning and unique certificates; this is not an arbitrarily chosen table slice or a mere computation of previously listed integers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
