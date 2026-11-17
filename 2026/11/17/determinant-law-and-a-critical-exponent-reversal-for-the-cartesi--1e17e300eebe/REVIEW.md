@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof gives a complete chain from Cayley--Hamilton for traceless Hermitian two-by-two matrices, through the exactly normalized cosine profile and determinant-to-singular-value identity, to strict convexity/concavity of angular power averages. It establishes every quantified real exponent and both boundary equality classes; no numerical extrapolation is used. The standard-library checker passed 512 exact rational moment checks and 24 finite numerical integral comparisons. The exact fourth-moment specialization provides an easily replayed independent consequence.
+
+**Originality — PASS, qualified.** The primary source arXiv:2610.04844v2 introduces the functional and proves general bounds (Theorems 18 and 23), but its relevant inspected sections do not prove the full determinant profile, the fixed-Frobenius extremizers at every exponent, or their reversal at the critical exponent. The closest identified public research records address the rank-one \(\(p=2\)\) profile (identifier 846b702b24b7) and unitary finite-spectral \(\(p=2\)\) behavior (identifier f6644dc86b39). These include boundary special cases, which are credited, but do not entail the full theorem on invertible nonnormal traceless matrices for variable \(p\). Search noncoverage is not a priority certificate; inaccessible full texts and older equivalent formulations remain risks.
+
+**Mathematical value — PASS.** The new \(L^p\)-Cartesian radius has a natural fixed-Hilbert--Schmidt shape question in the first nontrivial matrix class. An exact dependence on determinant modulus, sharp endpoint characterizations and a sharp phase reversal at \(\(p=2\)\) complete that small-dimensional problem and give a usable calibration for the general operator inequalities. The result is intentionally restricted to traceless complex two-by-two matrices; it does not address arbitrary dimension or general two-by-two trace.
+
+**Verification limits.** Finite diagnostics are not a substitute for the analytical proof. Full linked pages for two public related records were inaccessible. No independent audit was commissioned or performed.
+
+Self-review: passed. Independent audit: not yet performed.
