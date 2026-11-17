@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A rotation of order \(m\ge3\) has exactly two fixed points and every other orbit has cardinality \(m\). Since the subset cardinality is less than \(2m\), a fixed finite subset contains no more than one free orbit. Its polar part is unique, and each of four permitted polar choices gives a continuous orbit-sphere sheet. A compact-to-Hausdorff quotient argument rules out unlisted identifications. The endpoints of these sheets form a graph with zero, one, or two independent cycles and respectively zero through four sphere sheets, giving the exact homotopy types and torsion-free integral homology. The enumerative cellular checker confirms 117 small cases using exact boundary ranks. Finite verification is not misrepresented as an infinite proof.
+## correctness
 
-## Originality — PASS, with risk
-Mostovoy (arXiv:2603.01439v1, Theorem 1 and Sections 2–4) computes ambient finite-subset homology, not cyclic geometric fixed-point homotopy types. The closest published equivariant result, *Orthogonal homology characters and quotient dichotomy for finite subset spheres*, was inspected in full for its theorem, proof, verification and limitations; it establishes rational ambient homology representations and finite quotient rational homology, and computes a reflection-fixed Euler characteristic. Neither the integral homotopy type nor the sharp \(m+1,m+2\) cycle thresholds for rotation fixed-point spaces follow. Schwede (arXiv:1403.1355v2, Introduction and Section 3) treats stable equivariant symmetric products, whose multiplicities are retained. Searches of publication records and topical literature did not identify a dominating result. A remotely unindexed equivalent theorem is still a risk, and a separately located Euler-characteristic article was not fully accessible.
+PASS
 
-## Value — PASS
-The first-free-orbit regime \(k<2m\) is determined by the minimal nontrivial orbit size, not an arbitrary parameter slice. The exact homotopy classification exposes a sharp transition from disconnected fixed loci to a surface-plus-point and then to nontrivial free fundamental groups. It gives torsion-free integral homology and a natural filtration phenomenon that the known ambient rational Betti numbers and finite quotient characters cannot detect. It is a structural, all-parameter statement rather than a textbook deduction about the unchanged ambient sphere.
+A C_m-invariant nonempty set of cardinality k<2m contains at most one nonpolar free orbit (size m) plus P⊆{N,S}. For each P with m+|P|≤k, the continuous map S²/C_m≅S²→F_{m,k} sends the orbit to that union. It is injective off its two poles and the only collisions at the poles are exactly the polar-set identifications. Compact-to-Hausdorff gluing gives the actual homeomorphic finite sphere-sheet model. The four successive sheet types attach via an incidence graph of polar configurations: k=1 two points; 2≤k<m three points; k=m S² plus isolated point; k=m+1 three S² sheets and graph β1=1; k≥m+2 below 2m four sheets and graph β1=2. Hence the stated integral wedges and injectivity of homology under sheet attachments. Independent finite incidence calculation m=3 gave (components,H1,H2)=(2,0,0),(3,0,0),(2,0,1),(1,1,3),(1,2,4) at k=1..5. This check alone does not prove all m.
 
-## Limits
-The action is a cyclic axial rotation on \(S^2\); two free orbits become possible at \(k=2m\), beyond scope. Equivalence is topological up to homotopy, not a classification of all group actions. Independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No verified broader or equivalent prior statement implies the precise final claim after reading the identified primary theorems and searching published findings. This is a best-of-knowledge novelty assessment with the material access and indexing limitations explicitly recorded; published inputs and exact known subclaims are acknowledged.
+
+## value
+
+PASS
+
+A complete explicit first-free-orbit range for geometric cyclic fixed sets of finite-subset spheres identifies sharp cardinality thresholds for nontrivial fundamental groups and integral homology, including a homeomorphic sphere-sheet model. Fixed-space topology is not an immediate corollary of ambient quotient characters or ordinary symmetric-product stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

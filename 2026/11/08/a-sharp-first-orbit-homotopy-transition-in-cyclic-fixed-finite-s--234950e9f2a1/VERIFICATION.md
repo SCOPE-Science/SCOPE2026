@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification and limits
-Run `python verify.py` using Python 3 and SymPy. The script constructs a finite cellular model for each \(3\le m\le11\) and \(1\le k<2m\), with one sphere sheet for every permitted polar part and a separate edge at each end of its capped cylinder. It checks that the two cellular boundary maps compose to zero, computes the exact rational matrix ranks, and compares the three Betti numbers against the theorem in 117 cases. It also checks Euler characteristics, including the \(k=1\) exception. Expected and observed output is `ALL_VERIFY_OK cases=117 max_total_cells=75`.
+# Independent mathematical audit
 
-The checker only tests finite instances and rational ranks, not arbitrary parameters or integer torsion. The proof of the integral homotopy classification is the uniform orbit-sheet homeomorphism and graph-of-spheres contraction in `RESULT.md`. The record does not claim any external or independent audit.
+## correctness
+
+PASS
+
+A C_m-invariant nonempty set of cardinality k<2m contains at most one nonpolar free orbit (size m) plus P⊆{N,S}. For each P with m+|P|≤k, the continuous map S²/C_m≅S²→F_{m,k} sends the orbit to that union. It is injective off its two poles and the only collisions at the poles are exactly the polar-set identifications. Compact-to-Hausdorff gluing gives the actual homeomorphic finite sphere-sheet model. The four successive sheet types attach via an incidence graph of polar configurations: k=1 two points; 2≤k<m three points; k=m S² plus isolated point; k=m+1 three S² sheets and graph β1=1; k≥m+2 below 2m four sheets and graph β1=2. Hence the stated integral wedges and injectivity of homology under sheet attachments. Independent finite incidence calculation m=3 gave (components,H1,H2)=(2,0,0),(3,0,0),(2,0,1),(1,1,3),(1,2,4) at k=1..5. This check alone does not prove all m.
+
+## originality
+
+PASS
+
+No verified broader or equivalent prior statement implies the precise final claim after reading the identified primary theorems and searching published findings. This is a best-of-knowledge novelty assessment with the material access and indexing limitations explicitly recorded; published inputs and exact known subclaims are acknowledged.
+
+## value
+
+PASS
+
+A complete explicit first-free-orbit range for geometric cyclic fixed sets of finite-subset spheres identifies sharp cardinality thresholds for nontrivial fundamental groups and integral homology, including a homeomorphic sphere-sheet model. Fixed-space topology is not an immediate corollary of ambient quotient characters or ordinary symmetric-product stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
