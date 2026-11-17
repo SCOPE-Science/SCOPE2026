@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The finite state space has exactly 512 color masks, nine ant positions and four headings. The time-one map has an explicit inverse. The source file cover_certificate.py independently validates all 72 symmetry commutations, primitive periods of eight representatives, disjointness and exact covering of all 18,432 states with the claimed period-specific orbit counts. exhaustive_cycles.cpp separately traces every state and independently inverts the map, reproducing the complete table. Both actual output files are included. No sample-to-infinite inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gale et al. 1995 prove planar Truchet-tile statements for generalized ant rule strings and explicitly note the failure of a key planar argument on tori (arXiv:math/9501233v1, section 4).",
+        "Tsukiji–Hagiwara 2011 obtain complexity bounds for reversible generalized ants on infinite square/hexagonal lattices, DOI:10.3390/a4010001, sections 1–2 and theorem statements.",
+        "The earlier 2-by-n Langton-ant orbit theorem applies to a two-row torus, not the 3-by-3 torus."
+      ],
+      "reasoning": "These are broader contexts or related families, but none provides a 3-by-3 all-state cycle decomposition with the claimed symmetry classes. The previously treated 2-by-n grid has geometrically identified opposite vertical neighbours, unlike a 3-by-3 grid.",
+      "searches": [
+        "\"Langton ant finite torus temporal periods\"",
+        "\"Langton ant on finite 3 row torus exact classification periods and invariant\"",
+        "\"Langton ant three by three torus exact temporal orbit census all initial colors orientations symmetry\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/9501233v1",
+      "doi:10.3390/a4010001",
+      "math.stackexchange:3296855",
+      "OEIS:A386970"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MSE 2019 provides reversibility and order-72 symmetry mechanisms on square tori but no orbit representatives or all-state covering.",
+        "Gale et al. 1995 discuss a planar symmetry property and explicitly caution about toroidal failure, without asserting all-state 3-by-3 spectra.",
+        "The separately checked earlier 2-by-n all-state formula is inapplicable to this geometrically distinct square torus."
+      ],
+      "reasoning": "A finite group of 72 elements acting on a permutation does not by itself imply exactly eight temporal-orbit types, a maximal period of 102, or the multiplicities 24/72. Those quantities require the new exhaustive covering certificate. Conversely, the presence of one known 66-cycle is consistent with many different unknown remaining cycle decompositions.",
+      "searches": [
+        "\"reversible Langton ant full cycle decomposition square torus color complement reflection\"",
+        "\"Langton ant 3x3 torus all configurations 288 cycles\"",
+        "\"Langton ant on narrow tori 3x4 and 3x3 different period orbit counts\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 1995 preprint describes the two-colour ant with cell-entry turns and bit flipping, arXiv:math/9501233v1, sections 2–4.",
+        "The 2011 paper uses an arrival-cell representation; a re-indexing of pre-turn/ post-turn ant position yields an equivalent dynamical coding.",
+        "The 2019 torus discussion already describes reflection plus global colour inversion; this is the same underlying symmetry operation used here."
+      ],
+      "reasoning": "The proposed census is invariant under one-step time re-indexing and under global colour inversion followed by reflection. Prior formulations of the standard ant describe the same dynamics but do not give its complete 3-by-3 permutation or cycle counts. The known 66-step full return is explicitly included rather than treated as novel.",
+      "searches": [
+        "\"Langton ant all initial configurations on 3 by 3 torus\"",
+        "\"exact complete cycle decomposition of Langton’s ant on 3x3 toroidal grid modulo translations rotations and color reversal\"",
+        "\"Langton's ant\" \"288\" cycles 3x3",
+        "\"Langton ant\" \"3x3\" orbit period spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A386970 tabulates special all-white 3-by-n return periods, including 66 at n=3, not all 18,432 starting states.",
+        "The 2019 Mathematics Stack Exchange answer gives a rectangular-torus table for the all-white initial state; for 3-by-3 it reports 66 and three quasi-recurrences.",
+        "No inspected table lists the full period spectrum 18, 30, 42, 66, 70, 74, 78, 102 and the vector of primitive-orbit counts."
+      ],
+      "reasoning": "The strongest tabular match fixes one orbit period, 66, already credited. A single special-state return cannot determine the complete finite permutation, its other cycle lengths, multiplicities, or spatial-symmetry structure.",
+      "searches": [
+        "\"Langton's ant\" torus \"18432\" configurations",
+        "\"Langton\" \"3x3\" \"70\" \"74\" torus cycle",
+        "\"Langton ant\" \"3x3\" orbit period spectrum",
+        "https://oeis.org/A386970",
+        "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus"
+      ]
+    },
+    "rationale": "Neither the fully inspected 1995 paper nor the 2011 generalized-ant paper concerns the exact all-state dynamics on the finite 3-by-3 torus. The 2019 torus discussion and later OEIS entry give the period 66 of an all-white special initial state, as well as general symmetries, but not the other seven periods, the numbers of primitive cycles, or the demonstration that their 288 cycles form precisely eight extended symmetry orbits. Own available earlier research gives an all-n census on the 2-by-n band, with different geometry, so it does not imply this 3-by-3 classification. Relevant published-record searches found no exact covering result; unindexed prior enumerations remain possible.",
+    "residual_risks": [
+      "No exhaustive search can exclude nonindexed unpublished or privately circulated complete 3-by-3 orbit enumerations.",
+      "The scientific conclusion depends on the correctness of the two fully inspectable finite-state programs and their stated operation convention.",
+      "No independent external expert audit has yet been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the present 3-by-3 torus census; supplies earlier ant and symmetry theory",
+        "evidence": [
+          "arXiv submission v1 recorded 1995-01-19",
+          "Section 2 defines two-colour original ant; section 4 observes a key planar lemma fails on tori"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/9501233v1",
+        "material_read": "Complete accessible HTML sections 1–4 including theorem, diagrams descriptions, the planar-versus-torus remark in section 4, and references",
+        "method": "Direct full HTML reading with arXiv submission record cross-check",
+        "title": "Further Travels with My Ant",
+        "trigger": "Earliest dated open public preprint of classic ant mathematics and natural symmetry methods"
+      },
+      {
+        "assessment": "Reversibility and complexity for generalized infinite-lattice systems, not complete cycle census on this finite torus",
+        "evidence": [
+          "Published 2011-01-28",
+          "Section 1.2 describes reversibility; Theorems 1–3 concern complexity on infinite lattices"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/4/1/1",
+        "material_read": "Full abstract, introduction, model definitions, previous results, theorem statements, reduction overview, and gadget overview",
+        "method": "Direct open-access HTML inspection, including sections 1 and 2",
+        "title": "Recognizing the Repeatable Configurations of Time-Reversible Generalized Langton’s Ant Is PSPACE-Hard",
+        "trigger": "Exact reversibility and generalized-ant recurrence may dominate finite recurrence claims"
+      },
+      {
+        "assessment": "Gives known 66-step return from uniform 3x3 board and symmetry/invariant principles; no complete all-state orbit-and-symmetry decomposition",
+        "evidence": [
+          "Question initially asked 2019-07-18",
+          "The tabulated 3-by-3 full return is 66; one answer already notes reflection plus colour complementation"
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+        "material_read": "Full question, all three answers, all-white return table, discussion of reflection/complement symmetries and invariants",
+        "method": "Direct HTML reading of displayed question and answer sections",
+        "title": "What is the period of Langton’s ant on a torus?",
+        "trigger": "Direct prior investigation of finite square and rectangular tori; potential complete 3x3 answer"
+      },
+      {
+        "assessment": "Tabulates one standard initial-state return across circumferences; does not tabulate all-color cycles on 3-by-3",
+        "evidence": [
+          "Sequence begins 6, 8, 66, 72, 954",
+          "The entry states a uniform all-white or all-black board and fixed initial direction"
+        ],
+        "identifier_or_url": "https://oeis.org/A386970",
+        "material_read": "Sequence definition, first terms, comment on special all-white initial condition, formula and program",
+        "method": "Direct public sequence page reading",
+        "title": "OEIS A386970, period of Langton’s ant on an n by 3 torus",
+        "trigger": "Potential existing exact period table for three-row toroidal ant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c61af5d-4a6f-4360-bec5-1717433ad710",
+  "value": {
+    "rationale": "The first nondegenerate 3-by-3 square torus is the smallest periodic two-dimensional square grid with distinct nearest neighbours in both coordinates. The 288-cycle permutation is a natural complete invariant of the original ant on that canonical board, and the 72-element physical symmetry action unexpectedly reduces all orbits to exactly eight classes. Seven of the eight periods are invisible to the previously published all-white starting-state tables. The precise finite classification supplies an interpretable, reproducible base case, while making no unsupported claim of an all-size law.",
+    "status": "PASS"
+  }
+}
