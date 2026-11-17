@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The five-bit local face test is equivalent to induced maximum degree at most one for every \(n\ge5\). The signed transfer trace has a completely specified 16-state matrix and a directly computed exact characteristic polynomial. The factorization \(x^7-(x+1)^2=(x^2+x+1)(x^5-x^4+x^2-x-1)\) yields the positive seven-step recurrence. Twelve exact base terms show nonzero values from \(5\) to \(16\), after which positivity follows by induction. Uniqueness of the dominant positive root follows from triangle inequality and monotonicity, giving the homology-growth bound by Euler–Poincaré. The included executable checks characteristic coefficients and independently enumerates faces through \(n=16\). These checks are not substituted for the infinite induction.
+## correctness
 
-**Originality (PASS on inspected evidence).** The closest archive-period sources on devoid complexes of ordinary cycles and on circle Rips clique complexes have different face conditions. The 2020 higher-independence classification covers original cycles, not their squares. Published-record and scientific-index searches for dissociation polynomial, squared cycles, cycle powers and the exact transfer polynomial identified no covering theorem. An unindexed exact polynomial or table could subsume the claim; priority is not conclusively certified.
+PASS
 
-**Value (PASS).** Cycle-square graphs form a canonical second-neighbor metric-circle family, and two-independence is their first higher-independence topology. A complete sign/nonvanishing theorem at every size, with the isolated nine-vertex sign reversal and a spectral exponential lower bound for total rational homology, answers a structural question rather than merely tabulating coefficients. It does not assert a homotopy classification or individual Betti ranks.
+Reconstructed the 16-state four-bit transfer automaton exactly from cyclic five-bit vertex tests for Ind_2(C_n^2). Independent SymPy characteristic polynomial is x^11(x^5-x^4+x^2-x-1); direct subset enumeration n=5..12 agrees with trace, initial Z_5..Z_16 are [6,10,8,1,-2,6,23,34,27,8,3,33]. The factor (x²+x+1)P(x)=x^7-(x+1)² gives the stated exact 7-step recurrence. Positivity for Z10..Z16 plus recurrence proves all later terms positive, with the sole negative Z9. The dominant real root rho is simple and strictly larger in modulus than all other quintic roots via the equality case of triangle inequality; Euler–Poincaré yields exponential lower growth of total reduced rational Betti numbers. Finite examples were not used as infinite proof.
 
-**Scientific limits.** The result does not determine homotopy types, torsion, individual homology degrees, or extensions to higher powers. The verification program independently checks finite cases, while the infinite conclusion rests on proved recurrence and induction. Publication-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An infinite family nonvanishing theorem and exact signed growth for 2-independence of graph squares is not implied by accessible ordinary-cycle, clique/Rips, or different circular-ladder signed enumeration. The signed quintic recurrence is an independent parameter-specific calculation, with residual dissociation-table risk.
+
+## value
+
+PASS
+
+A natural graph-power higher-independence family has a complete all-n nonvanishing result and explicit positive exponential growth obstruction. The transfer recurrence identifies an actual topological phenomenon and leaves degreewise Betti/homotopy questions open; the graph-power choice is canonical rather than arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

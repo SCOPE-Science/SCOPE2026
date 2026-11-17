@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification notes
-The standalone code `verify_square_cycle.py` uses the original 16-state signed transition rule and computes the exact characteristic polynomial using Newton identities over integers, without an external algebra package. It also computes independent direct face sums for every \(5\le n\le16\) and checks the two local predicates separately. The recorded output file `verify_square_cycle.out` ends in `ALL_CHECKS_PASS`.
+# Independent mathematical audit
 
-For a reproducible replay in a folder containing both files, run `python3 verify_square_cycle.py`; its standard output is the provided text file. The characteristic-polynomial step is exact integer arithmetic. The 7-step positive recurrence plus the displayed initial values proves universal nonvanishing by induction, so the claim does not require extrapolation of finite enumeration. The asymptotic and rational homology bound are mathematical deductions described in RESULT.md; no numerical root approximation is used as proof.
+## correctness
 
-No independent mathematical validation has been carried out, and these checks neither identify individual Betti numbers nor classify homotopy types.
+PASS
+
+Reconstructed the 16-state four-bit transfer automaton exactly from cyclic five-bit vertex tests for Ind_2(C_n^2). Independent SymPy characteristic polynomial is x^11(x^5-x^4+x^2-x-1); direct subset enumeration n=5..12 agrees with trace, initial Z_5..Z_16 are [6,10,8,1,-2,6,23,34,27,8,3,33]. The factor (x²+x+1)P(x)=x^7-(x+1)² gives the stated exact 7-step recurrence. Positivity for Z10..Z16 plus recurrence proves all later terms positive, with the sole negative Z9. The dominant real root rho is simple and strictly larger in modulus than all other quintic roots via the equality case of triangle inequality; Euler–Poincaré yields exponential lower growth of total reduced rational Betti numbers. Finite examples were not used as infinite proof.
+
+## originality
+
+PASS
+
+An infinite family nonvanishing theorem and exact signed growth for 2-independence of graph squares is not implied by accessible ordinary-cycle, clique/Rips, or different circular-ladder signed enumeration. The signed quintic recurrence is an independent parameter-specific calculation, with residual dissociation-table risk.
+
+## value
+
+PASS
+
+A natural graph-power higher-independence family has a complete all-n nonvanishing result and explicit positive exponential growth obstruction. The transfer recurrence identifies an actual topological phenomenon and leaves degreewise Betti/homotopy questions open; the graph-power choice is canonical rather than arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
