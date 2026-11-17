@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:54:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/shortest-absent-subsequences-of-repeated-binary-runs-a-complete--ca2fce037c00/RESULT.md",
+        "2026/11/08/shortest-absent-subsequences-of-repeated-binary-runs-a-complete--ca2fce037c00/verify.py"
+      ],
+      "rationale": "For u with maximal runs c_i^ell_i and source-run capacities a,b, greedily embedding in (0^a1^b)^m yields last occupied host run J(u)=1_{first run is 1}+(h−1)+2 sum_i(ceil(ell_i/d_i)−1); u is present iff J(u)<=2m−1. The per-run inequality 2(ceil(ell/d)−1)<=ell−1 for d>=2 has equality exactly at odd ell for d=2, and ell=1 for d>=3. Hence when a,b>=2, shortest absent length 2m and words starting with 1 having exactly those run restrictions, with counts F_{2m}, 2^(m−1), or 1. If capacity one, shortest absent length m+1 and explicit two-word boundary (or m+2 alternating list). Independent brute-force checks for all a,b=1..4 and m=1..4 confirmed five counts and no shorter absence. These are mathematically sound but are already a shortest-length layer of a published complete minimal-absent language theorem.",
+      "residual_risks": [
+        "The correctness test is finite; the infinite claim is supported by direct greedy proof but rejected for stronger existing mathematical coverage."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier record covers **all minimal absent subsequences** for every a,b,m in precisely the submitted host family, not just the shortest ones."
+        ],
+        "reasoning": "The old universal language criterion logically dominates the new shortest-absent-layer criterion without changing hypotheses, alphabet, or counting convention. Its count of all MAS alone would not suffice, but its complete membership criterion does.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+          "Resultary: a run-length invariant and complete minimal-absent-subsequence spectrum for periodic binary words",
+          "Resultary: exact minimal-absent-subsequence spectrum of alternating binary words"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+        "https://arxiv.org/html/2108.13968v6",
+        "https://arxiv.org/html/2504.21471v1",
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a finite host any shortest absent subsequence has all one-symbol deletions present and is an MAS. Prior all-parameter MAS iff test therefore classifies the shortest layer when filtered by minimal |u|; it has the same (0^a1^b)^m host and alphabet."
+        ],
+        "reasoning": "This is a direct logical corollary, not merely a topical or parameter coincidence. General algorithm papers give background but are not the decisive coverage; the complete same-host MAS theorem is.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+          "https://arxiv.org/html/2504.21471v1",
+          "https://arxiv.org/html/2108.13968v6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published complete MAS criterion: B(u)=m+1, ell_i≡1 mod capacity and explicit boundary/internal singleton constraints. Every SAS is MAS by definition, and the degree-minimal subset of MAS is precisely SAS."
+        ],
+        "reasoning": "The two objects differ only by restricting the prior fully determined language to its minimum word length. This formal restriction reproduces the submitted run language and all five count cases.",
+        "searches": [
+          "Resultary: (0^a1^b)^r shortest absent subsequences minimal absent spectrum periodic binary run blocks",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published table for total MAS counts: F_{2m+2} (both capacities>=2), 3*2^(m−1) (exactly one capacity1), and an alternating-word recurrence (both1); more decisively its explicit full-language test enables the exact shortest-layer enumeration."
+        ],
+        "reasoning": "SAS counts are not identical to total MAS counts, so no false equation is used; the published **language**, not just the total table, yields each submitted five-branch SAS formula by minimizing length.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+          "https://arxiv.org/html/2108.13968v6",
+          "Resultary: shortest absent subsequences repeated binary runs Fibonacci"
+        ]
+      },
+      "rationale": "FAIL: Fully inspected published Resultary record \"Minimal absent scattered subsequences of repeated binary run blocks\" proves the COMPLETE minimal absent scattered subsequence language for exactly (0^a1^b)^m, all a,b,m>=1, with necessary-and-sufficient run-length/congruence and first/last/internal singleton restrictions. Every shortest absent word is automatically minimal absent; selecting the smallest length among the prior fully characterized MAS set gives all the submitted shortest-absent words and the five cardinalities. This is decisive stronger mathematical coverage even though the earlier result phrases its answer as a minimal-absent language rather than the shortest-layer count. Both publication records carry the same 2026-11-08 date; no unverified intraday priority ordering is claimed.",
+      "residual_risks": [
+        "Both published result records are dated 2026-11-08, so this mathematical coverage conclusion does not assert which result was uploaded first that day.",
+        "The correctness test is finite; the infinite claim is supported by direct greedy proof but rejected for stronger existing mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the submitted SAS classification",
+          "evidence": "All shortest absent words are minimal absent; the earlier iff criterion covers all MAS for every a,b,m, and minimum-length extraction yields exactly the submitted words and cardinalities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+          "material_read": "Entire published RESULT.md: B(u)=sum ceil(ell_i/c_i) minus #0->1 changes, iff test B(u)=m+1 and run congruence + singleton conditions, full proof and counts",
+          "method": "GitHub read of full primary published result",
+          "title": "Minimal absent scattered subsequences of repeated binary run blocks",
+          "trigger": "Identical host, broader complete language"
+        },
+        {
+          "assessment": "GENERAL BACKGROUND, not decisive direct coverage",
+          "evidence": "Arch decomposition gives conceptual tools; the decisive covering source is the separately inspected same-host full MAS-language theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+          "material_read": "HTML introduction, arch/absence definitions and relevant structural sections",
+          "method": "arXiv full-text HTML sections read",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Generic arch decomposition, possibly full binary-run family"
+        },
+        {
+          "assessment": "GENERAL enumeration method, not specific closed formula",
+          "evidence": "Output-sensitive algorithms do not themselves give the five branches; a separate published complete same-host MAS language does.",
+          "identifier_or_url": "https://arxiv.org/html/2504.21471v1",
+          "material_read": "HTML introduction, theorems and algorithmic scope",
+          "method": "arXiv full-text HTML sections read",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General algorithm for both SAS and MAS"
+        },
+        {
+          "assessment": "CORRECT, BUT COVERED",
+          "evidence": "The greedy J formula matches literal subsequence checks; no independent mathematical remainder remains outside full earlier MAS characterization.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/shortest-absent-subsequences-of-repeated-binary-runs-a-complete--ca2fce037c00/RESULT.md",
+          "material_read": "Entire mathematical proof and source verify.py",
+          "method": "GitHub frozen blob inspection and independent small-case brute force",
+          "title": "Shortest absent subsequences of repeated binary runs: a complete phase diagram",
+          "trigger": "Assigned claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/shortest-absent-subsequences-of-repeated-binary-runs-a-complete--ca2fce037c00/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+        "https://arxiv.org/html/2108.13968v6"
+      ],
+      "rationale": "FAIL: The exact SAS phase diagram is a finite-degree/minimal-length specialization of the known complete MAS language for identical hosts, with Fibonacci extraction from already known run restrictions. A correct alternate greedy proof or numerical recomputation does not create a distinct valuable mathematical fact once the full language and its length filtration are published. It is not rejected for being finite or for lacking downstream applications but because the entire submitted mathematical classification is covered.",
+      "residual_risks": [
+        "Both published result records are dated 2026-11-08, so this mathematical coverage conclusion does not assert which result was uploaded first that day.",
+        "The correctness test is finite; the infinite claim is supported by direct greedy proof but rejected for stronger existing mathematical coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Both published result records are dated 2026-11-08, so this mathematical coverage conclusion does not assert which result was uploaded first that day.",
+    "The correctness test is finite; the infinite claim is supported by direct greedy proof but rejected for stronger existing mathematical coverage.",
+    "No GitHub writes, publisher/auth bypass, external certification or formal proof asserted.",
+    "Scientific C/O/V completeness and import/readiness are separate; publication status not_ready is a transport/privacy blocker, not scientific failure."
+  ],
+  "schema_version": 1
+}
