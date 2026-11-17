@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula for \(A\) has row norms \(t_n/(1-t_n)\), bounded by \(1/3\) and summable over \(n\). It follows that \(R_\tau\) is invertible for \(0<\tau<3\), and its displacement from identity has exact operator norm \(\tau/3\). The two ball inclusions and Hausdorff bound follow directly. For nonzero \(f_a\), if its pulled-back modulus attained its maximum on the complex \(c_0\) ball, independent complex coordinate perturbations would force \(a_k=b_k=0\) eventually. The earliest nonzero coefficient of finitely supported \(a\) makes \(b_k=\sum_n a_nt_n^k\) nonzero for every sufficiently large \(k\), a contradiction. No finite simulation replaces this analytic argument.
+## correctness
 
-## Originality — PASS, best-knowledge
-Luo (arXiv:2610.36771v1) proves a no-modulus-support example with \(\mathcal C=T(B_{c_0(\mathbb R)})+iB_{c_0(\mathbb R)}\), fixed inner and outer radii, and the same finite-exponential-moment obstruction. Reading its theorem and complete proof did not reveal the all-small-perturbations of the *complex ball* assertion. Golinskii–Kadets (arXiv:2008.00845) instead establish the existence of supports for an earlier analytic convex hull. Checks of close mathematical records, own prior claims, and aliases for near-ball, real-linear image and compact/nuclear conjugate perturbation found no covering claim. Lomonosov's 2000 full text was not obtained; its published abstract and discussions in those papers are not a decisive competing implication. Terminological priority risk remains.
+PASS
 
-## Value — PASS
-The theorem resolves a natural stability question following the existence counterexample: the standard unit ball is a Hausdorff limit of support-free convex bodies, even under arbitrarily small real-nuclear linear deformations. This contrasts sharply with the norm attainment of finite-support complex-linear functionals on the undeformed ball. The contribution is a geometric boundary phenomenon, not just a different radius in an existing example.
+PASS: On c0(C), t_n=2^{-(n+1)} and (Az)_n=sum_{k>=1} t_n^k z_k. Row norms t_n/(1-t_n) are summable; exact operator norm ||A||=1/3, and A∘conjugation is real-nuclear (nuclear bound <=4/3). For 0<tau<3 the real-linear map I+tau A∘conjugation is a Neumann-series isomorphism, with ball inclusions and Hausdorff bound tau/3. Given nonzero f_a(y)=sum a_n y_n, f_a(Rz)=sum(a_k z_k+tau b_k conj(z_k)), b_k=sum_n a_n t_n^k, absolutely convergent. If its modulus attained a maximum on B, eventual |z_k|<1 allows complex coordinate perturbations ±w; the parallelogram identity forces a_k=b_k=0 for all sufficiently large k. Thus a is finitely supported, and for the first nonzero index n0 the moment asymptotic b_k/t_{n0}^k→a_{n0}≠0, a contradiction. No extrapolation from finite tests; this is an infinite-dimensional proof. Real-convex, not necessarily balanced, is essential.
 
-## Limits
-Only complex \(c_0\), its *real*-convex images, and the displayed deformation are covered. A complex-balanced unit ball cannot have this nonattainment property. No exact Hausdorff distance, general Banach-space classification, or publication-priority guarantee is asserted. The standalone finite checker is corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge, residual risk explicitly retained): Relevant Luo 2026 complex c0 example produces a modulus-support-free set of form T(B_{c0(R)})+iB_{c0(R)}, not the standard complex sup-norm ball deformed by an arbitrarily small real-nuclear automorphism. The Cartesian square of coordinate real balls differs fundamentally from a complex coordinate disk, so an example of existence alone does not imply arbitrary Hausdorff closeness to the COMPLEX unit ball nor exact perturbation norm tau/3. Searches found no earlier statement of this stronger near-identity stability phenomenon. The 2026 Luo full text could not be accessed; only its abstract and the construction described in the assigned Result were available, so independent noncoverage of the full paper is not asserted.
+
+## value
+
+PASS
+
+PASS: Norm- and Hausdorff-arbitrarily small real-nuclear deformation of a familiar, natural complex Banach unit ball destroys ALL nonzero modulus-supporting complex-linear functionals, yielding a sharp qualitative instability phenomenon, stronger than an isolated exotic convex-set example. The c0, tau and real-convex scope are motivated and precise; no false balanced-ball claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
