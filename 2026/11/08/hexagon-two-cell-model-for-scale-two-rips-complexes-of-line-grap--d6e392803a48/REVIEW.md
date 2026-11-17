@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central combinatorial lemma is proved for all finite simple graphs of girth at least six: after removing the closed-neighborhood core, precisely two maximal alternating-edge triangles remain per source hexagon. The proof gives an explicit free-face collapse of the core onto the line-graph clique complex, classifies all possible exceptional triples by unique connectors, and excludes a fourth compatible edge using a length-at-most-five cycle contradiction. Both attaching maps follow the corresponding hexagon loops, so the second is null after the first disk is attached. The integral chain calculation explicitly permits torsion in the first-homology quotient rather than assuming saturation. The standalone standard-library verifier independently reconstructs all faces and runs complete collapses for each listed finite graph; the unlimited conclusion follows from the argument, not testing.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The closest full primary text is Matsushita's closed-neighborhood-complex theory (arXiv:2511.12608), which concerns a proper core of the new Rips complex. The published line-graph Čech/closed-neighborhood collapse proves the core contraction but never classifies exceptional hexagon triangles in the full Rips complex. An earlier restricted line-graph result treats only pairwise edge-disjoint source hexagons, giving circle-and-sphere wedges. That statement is a proper subclass of the present all-overlap CW model and does not yield its dependent-hexagon-lattice formula or the highly overlapping Heawood case. A distinct published hexagon-packing Rips result treats vertex Rips complexes, again requiring edge-disjoint source hexagons. Goyal–Shukla–Singh cover the line-graph clique complex itself, not its scale-two Rips thickening. Shin and collaborators investigate edge-feature learning and graph-embedding persistence rather than a discrete graph-metric homotopy classification. Actual mathematical-record queries and source comparison revealed no dominating equivalent result. Unindexed or differently stated prior theorems remain an explicit risk.
+PASS
 
-## Mathematical value — PASS
-The structural classification has unbounded graph order and arbitrarily many overlapping hexagons; it identifies their attaching maps and the first persistent integral homology map, not just Betti-number experiments. For the Heawood graph, 28 hexagons give second homology rank 48, whereas six-cycles in subdivided complete graphs overlap extensively. The result isolates how local girth-six configurations change line-graph scale-two topology, with a reusable cell model for fundamental-group and integral-homology computations. It is not a special-case recomputation or a formal rewording of the neighborhood-core result.
+For every connected girth>=6 finite source graph G with at least one edge, the centered ball core B collapses by unique-connector free pairs to Cl(L(G))~G. A Rips simplex outside B must contain three pairwise disjoint source edges whose three unique connectors alternate around a simple hexagon; the sixth-cycle reconstruction is injective. An extra compatible source edge cannot touch an alternating edge or be disjoint from all three: either yields a 3-, 4- or 5-cycle by connector restrictions/pigeonhole; thus exactly two maximal exceptional triangles per hexagon EVEN WHEN hexagons overlap. Their boundary loops are the original graph six-cycles; attaching one cell for each and then a second homotopic cell yields K~X(G) vee (vee^h S^2). Cellular boundary image is hexagon lattice rank r, so H1 is its quotient, H2 free rank 2h-r and no higher homology; possible H1 torsion is explicitly retained. The source verifier constructs centered/Rips complexes, replays collapses, and tests overlapping theta graphs, subdivisions of complete graphs and Heawood. Finite mod-two tests are only corroboration.
 
-## Sources and limitations
-Primary source: T. Matsushita, arXiv:2511.12608, first published 2025-11-16, inspected Definition 1.1 and the main statements. Goyal–Shukla–Singh, arXiv:2009.12130, is background for the line-graph core. Two relevant 2026 published mathematical research results were read at the full RESULT.md level and compared by implications. Shin et al., JMLR 25 (2024), has a line-graph persistence title but concerns learning/expressivity; relevant introduction and main-contribution pages were inspected. Adams et al., arXiv:2502.07134, concerns torus-grid Rips complexes. The conclusion is not a published priority determination. The theorem excludes girth at most five, higher scales, and equivariant statements; the integral first-homology quotient is allowed to carry torsion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior line-graph Čech collapse provides only the subcomplex B, the published vertex-Rips hexagon-packing result works with G rather than L(G) and restricts overlapping cycles, and known line-graph clique-complex and graph-power papers treat scale one or different squares. No checked primary theorem implies the exact two-cell model for all source graphs including overlapping hexagons. Best-of-knowledge conclusion with unindexed literature risk.
+
+## value
+
+PASS
+
+A graph-family structural classification now permits arbitrary overlap of hexagon relations and gives an explicit integral two-cell homotopy model and cycle-lattice persistence. Dependence among hexagons appears in H1 and H2; this materially expands beyond the edge-disjoint wedge special case and is useful for graph-metric persistent homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

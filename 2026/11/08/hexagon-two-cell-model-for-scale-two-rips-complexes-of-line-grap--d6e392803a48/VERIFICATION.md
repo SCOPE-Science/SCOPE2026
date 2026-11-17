@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and its limitations
-The companion `verify_line_hex.py` is self-contained and uses only the Python standard library. It constructs the original graph, its line graph and square, enumerates every Rips face and every closed-neighborhood-core face, enumerates all simple six-cycles and both alternating triangles, checks the exact set difference, performs every claimed elementary collapse with a complete remaining-face coface check, and compares binary Betti numbers with the two-cell predictions. Its emitted output is included as `verification_output.txt`.
+# Independent mathematical audit
 
-The checks cover seven source graph families: cycles \(C_6,C_7,C_8\); two theta graphs with respectively three and four length-three arms; three once-subdivided complete graphs with four through six original vertices; and the Heawood incidence graph. The most overlapping case, subdivision of \(K_6\), has twenty distinct hexagons, forty exceptional triangles and 450 directly checked elementary-collapse pairs. The Heawood graph has twenty-eight hexagons, fifty-six exceptional triangles and mod-two second Betti number forty-eight. Checks report the full graph counts and face counts.
+## correctness
 
-The argument for arbitrary graph order is the explicit combinatorial proof in `RESULT.md`. Finite homology checks are over \(\mathbb F_2\), not an integral Smith-normal-form computation. The integral result is instead established by the two-dimensional CW model and its exact integer boundary map; the only possible torsion mentioned is in first homology. No test of finitely many graphs could by itself prove the universal claim. Independent validation has not been performed.
+PASS
+
+For every connected girth>=6 finite source graph G with at least one edge, the centered ball core B collapses by unique-connector free pairs to Cl(L(G))~G. A Rips simplex outside B must contain three pairwise disjoint source edges whose three unique connectors alternate around a simple hexagon; the sixth-cycle reconstruction is injective. An extra compatible source edge cannot touch an alternating edge or be disjoint from all three: either yields a 3-, 4- or 5-cycle by connector restrictions/pigeonhole; thus exactly two maximal exceptional triangles per hexagon EVEN WHEN hexagons overlap. Their boundary loops are the original graph six-cycles; attaching one cell for each and then a second homotopic cell yields K~X(G) vee (vee^h S^2). Cellular boundary image is hexagon lattice rank r, so H1 is its quotient, H2 free rank 2h-r and no higher homology; possible H1 torsion is explicitly retained. The source verifier constructs centered/Rips complexes, replays collapses, and tests overlapping theta graphs, subdivisions of complete graphs and Heawood. Finite mod-two tests are only corroboration.
+
+## originality
+
+PASS
+
+Prior line-graph Čech collapse provides only the subcomplex B, the published vertex-Rips hexagon-packing result works with G rather than L(G) and restricts overlapping cycles, and known line-graph clique-complex and graph-power papers treat scale one or different squares. No checked primary theorem implies the exact two-cell model for all source graphs including overlapping hexagons. Best-of-knowledge conclusion with unindexed literature risk.
+
+## value
+
+PASS
+
+A graph-family structural classification now permits arbitrary overlap of hexagon relations and gives an explicit integral two-cell homotopy model and cycle-lattice persistence. Dependence among hexagons appears in H1 and H2; this materially expands beyond the edge-disjoint wedge special case and is useful for graph-metric persistent homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
