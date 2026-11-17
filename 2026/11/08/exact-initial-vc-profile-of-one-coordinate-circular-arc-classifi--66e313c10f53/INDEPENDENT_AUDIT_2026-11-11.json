@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T04:02:38.162373Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite d-point sample, each selected circular coordinate induces a cyclic ordering; a connected arc has exactly consecutive-subset traces, and ties cannot enlarge them. Conversely independent strict cyclic orders can be embedded as d distinct vectors in (S1)^l. One order contributes d distinct k-subsets for 1<=k<d, giving l*d>=C(d,floor(d/2)). Explicit families for d=3,4,5,6,7 use 1,2,2,4,5 cyclic orders and independently cover every subset. The middle-layer inequalities exclude d=4 for l=1, d=6 for l<=3, d=7 for l<=4, d=8 for l<=8. Therefore the eight exact VC dimensions (3,5,5,6,7,7,7,7) follow; all endpoint and constant-label cases are included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "K_7^(3) tight Hamilton-cycle decompositions cover 3-subsets but do not automatically certify all lower-size subsets and the circular-coordinate learning class.",
+          "The general middle-layer obstruction is established here for every d and is sharp at d=3..7 by explicit cycles."
+        ],
+        "reasoning": "Related uniform-hypergraph decomposition overlaps only one subproblem; a general covering of all subset sizes by Hamiltonian permutations was not found.",
+        "searches": [
+          "Resultary search: circular arc decision stumps VC dimension one-coordinate circular permutations covering all subsets kappa 5 6 7",
+          "https://doi.org/10.1007/s00373-016-1727-6",
+          "https://doi.org/10.7494/OpMath.2019.39.3.383"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2010.07374",
+        "https://doi.org/10.1007/s00373-016-1727-6",
+        "https://doi.org/10.7494/OpMath.2019.39.3.383"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear-stump corollary does not imply cyclic-arc trace counts.",
+          "A triple-decomposition result alone would not imply all-cardinality cyclic-interval cover or that every 8-point sample fails for at most 8 coordinates."
+        ],
+        "reasoning": "Neither inspected antecedent suffices to derive the complete announced VC profile, although the seven-label triple decomposition component is known.",
+        "searches": [
+          "https://arxiv.org/abs/2010.07374",
+          "https://doi.org/10.7494/OpMath.2019.39.3.383",
+          "Resultary search: circular arc decision stumps VC dimension one-coordinate circular permutations covering all subsets kappa 5 6 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Connected circular arcs on d angles generate cyclic consecutive subsets; linear thresholds generate prefixes/suffixes of line orders.",
+          "Middle-layer capacity of circular order is d per coordinate, not 2 as in the closest stump theorem."
+        ],
+        "reasoning": "Reduction to circular permutation covering number kappa(d) is exact; it is not equivalent to linear stump VC dimension.",
+        "searches": [
+          "Resultary search: circular arc decision stumps VC dimension one-coordinate circular permutations covering all subsets kappa 5 6 7",
+          "https://arxiv.org/abs/2010.07374"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit witness cycles yield kappa(3..7)=(1,2,2,4,5) and VCdim for l=1..8 (3,5,5,6,7,7,7,7).",
+          "Earlier K_7 triple decompositions reuse underlying designs, but no inspected prior VCdim table for the connected circular arc coordinate model."
+        ],
+        "reasoning": "No exact prior profile under the same classifier semantics was observed; past design data are credited instead of rebranded.",
+        "searches": [
+          "Resultary search: circular arc decision stumps VC dimension one-coordinate circular permutations covering all subsets kappa 5 6 7",
+          "https://arxiv.org/abs/2010.07374",
+          "https://doi.org/10.7494/OpMath.2019.39.3.383"
+        ]
+      },
+      "rationale": "The distinct circular two-endpoint one-coordinate model has an exact low-feature VC profile not implied by older linear decision stump bounds or existing seven-point uniform-hypergraph decompositions. Existing triple designs are explicitly acknowledged, not misclaimed.",
+      "residual_risks": [
+        "A differently named circular-permutation covering design could contain the same kappa(d) table; full Dębski–Lonc article not inspected.",
+        "No classification for l>=9 or d>=8 is asserted; first-eight VC profile only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT CLASS; linear one-threshold cuts per coordinate rather than two-endpoint connected circular intervals",
+          "evidence": "Its 2l >= C(d,floor(d/2)) threshold-stump relation differs from circular-arc l*d >= C(d,floor(d/2)) and from the exhibited d=5 two-circle construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.07374",
+          "material_read": "2020 primary NeurIPS/arXiv PDF material: theorem on linear threshold partition counts, Corollary 8 and Appendix A compared with current connected circular-arc definition; PDF screenshot viewed",
+          "method": "Public primary PDF inspection",
+          "title": "Decision trees as partitioning machines to characterize their generalization properties",
+          "trigger": "Closest learning-theory VC dimension for coordinate stumps"
+        },
+        {
+          "assessment": "LIMITED; single long universal cycles with repeats differ from a family of Hamiltonian permutations covering all cardinalities",
+          "evidence": "Permutations use each label once and cover all subset sizes at once, whereas k-uniform universal cycles allow repetition.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-016-1727-6",
+          "material_read": "Bibliographic title and model description available; full article not read",
+          "method": "Published bibliographic context plus audited mathematics",
+          "title": "Universal Cycle Packings and Coverings for k-Subsets of an n-Set",
+          "trigger": "Related cyclic subset designs"
+        },
+        {
+          "assessment": "PARTIAL PRIOR DESIGN COVERAGE; seven-label triple cover already established",
+          "evidence": "The current five 7-cycles cover each of 35 triples once but also need 21 pairs and a model-specific VC upper bound; no novelty asserted for isolated hypergraph decomposition.",
+          "identifier_or_url": "https://doi.org/10.7494/OpMath.2019.39.3.383",
+          "material_read": "Bibliographic result and comparison of its K_7^(3) cycle decomposition; complete article not inspected",
+          "method": "Published bibliographic context",
+          "title": "Decomposing complete 3-uniform hypergraph into 7-cycles",
+          "trigger": "Potential earlier 7-point triple-covering witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest circular-feature budgets needed to shatter d=3..7 points are a natural statistical learning capacity invariant. Exact small-d obstructions and explicit witnesses distinguish circular stumps from ordinary linear stumps and resolve the first eight feature budgets; this is more than a renaming of the known 7-triple design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2010.07374",
+    "https://doi.org/10.1007/s00373-016-1727-6",
+    "https://doi.org/10.7494/OpMath.2019.39.3.383"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Connected arcs on precisely one selected coordinate; no intersections/unions or arbitrary feature counts beyond eight."
+  ],
+  "residual_risks": [
+    "A differently named circular-permutation covering design could contain the same kappa(d) table; full Dębski–Lonc article not inspected.",
+    "No classification for l>=9 or d>=8 is asserted; first-eight VC profile only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT CLASS; linear one-threshold cuts per coordinate rather than two-endpoint connected circular intervals",
+      "evidence": "Its 2l >= C(d,floor(d/2)) threshold-stump relation differs from circular-arc l*d >= C(d,floor(d/2)) and from the exhibited d=5 two-circle construction.",
+      "identifier_or_url": "https://arxiv.org/abs/2010.07374",
+      "material_read": "2020 primary NeurIPS/arXiv PDF material: theorem on linear threshold partition counts, Corollary 8 and Appendix A compared with current connected circular-arc definition; PDF screenshot viewed",
+      "method": "Public primary PDF inspection",
+      "title": "Decision trees as partitioning machines to characterize their generalization properties",
+      "trigger": "Closest learning-theory VC dimension for coordinate stumps"
+    },
+    {
+      "assessment": "LIMITED; single long universal cycles with repeats differ from a family of Hamiltonian permutations covering all cardinalities",
+      "evidence": "Permutations use each label once and cover all subset sizes at once, whereas k-uniform universal cycles allow repetition.",
+      "identifier_or_url": "https://doi.org/10.1007/s00373-016-1727-6",
+      "material_read": "Bibliographic title and model description available; full article not read",
+      "method": "Published bibliographic context plus audited mathematics",
+      "title": "Universal Cycle Packings and Coverings for k-Subsets of an n-Set",
+      "trigger": "Related cyclic subset designs"
+    },
+    {
+      "assessment": "PARTIAL PRIOR DESIGN COVERAGE; seven-label triple cover already established",
+      "evidence": "The current five 7-cycles cover each of 35 triples once but also need 21 pairs and a model-specific VC upper bound; no novelty asserted for isolated hypergraph decomposition.",
+      "identifier_or_url": "https://doi.org/10.7494/OpMath.2019.39.3.383",
+      "material_read": "Bibliographic result and comparison of its K_7^(3) cycle decomposition; complete article not inspected",
+      "method": "Published bibliographic context",
+      "title": "Decomposing complete 3-uniform hypergraph into 7-cycles",
+      "trigger": "Potential earlier 7-point triple-covering witness"
+    }
+  ]
+}

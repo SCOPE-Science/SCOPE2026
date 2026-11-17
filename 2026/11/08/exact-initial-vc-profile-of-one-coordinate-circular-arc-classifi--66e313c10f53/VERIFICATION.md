@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and logical boundaries
+# Independent mathematical audit
 
-Run `python3 check_circular_arc.py` with Python 3 (standard library only). The program checks every one of the \(2^d\) target label sets at each \(d\in\{3,4,5,6,7\}\) against all cyclic intervals in each displayed witness row, yielding 248 distinct supported patterns and 14 witness rows overall. It also tests equality of all 35 triple traces and positive coverage of all 21 pair traces in the seven-point construction, and numerical strictness of four middle-layer bounds.
+## correctness
 
-Observed successful final line:
+PASS
 
-```text
-CIRCULAR_ARC_STUMP_PASS 248 WITNESSES 14 LOWER_BOUNDS 4
-```
+For a finite d-point sample, each selected circular coordinate induces a cyclic ordering; a connected arc has exactly consecutive-subset traces, and ties cannot enlarge them. Conversely independent strict cyclic orders can be embedded as d distinct vectors in (S1)^l. One order contributes d distinct k-subsets for 1<=k<d, giving l*d>=C(d,floor(d/2)). Explicit families for d=3,4,5,6,7 use 1,2,2,4,5 cyclic orders and independently cover every subset. The middle-layer inequalities exclude d=4 for l=1, d=6 for l<=3, d=7 for l<=4, d=8 for l<=8. Therefore the eight exact VC dimensions (3,5,5,6,7,7,7,7) follow; all endpoint and constant-label cases are included.
 
-The proof that \(\ell d\ge\binom d{\lfloor d/2\rfloor}\) is necessary for arbitrarily selected \(d\) points is mathematical, not empirical. The finite checker verifies explicit constructive lower bounds only. The classification stops at eight features; nothing here determines the next coordinate threshold or an asymptotic covering rate. The cited seven-point tight-cycle decomposition is established prior work, not independently claimed as novel. Independent audit has not been performed.
+## originality
+
+PASS
+
+The distinct circular two-endpoint one-coordinate model has an exact low-feature VC profile not implied by older linear decision stump bounds or existing seven-point uniform-hypergraph decompositions. Existing triple designs are explicitly acknowledged, not misclaimed.
+
+## value
+
+PASS
+
+The smallest circular-feature budgets needed to shatter d=3..7 points are a natural statistical learning capacity invariant. Exact small-d obstructions and explicit witnesses distinguish circular stumps from ordinary linear stumps and resolve the first eight feature budgets; this is more than a renaming of the known 7-triple design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
