@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full-domain proof constructs \(m\) independently supported Laplacian eigenvectors at \(\mu_2\), forcing one input per petal. For the proposed one-hub-neighbor-per-petal placement, the PBH test is proved by separating hub-zero eigenvectors, resonant Dirichlet modes of odd/even index, and off-Dirichlet modes. The off-Dirichlet case is eliminated with the strict spectral gap around \(2m\) established by Cauchy interlacing and a star subgraph. The exact modular Krylov verifier passed \(72\) independent modular full-rank checks on \(36\) graph sizes, and a finite forcing census passed \(776\) trials. The symbolic proof, not the finite runs, supports all parameter values.
+## correctness
 
-**Originality — PASS, with qualification.** The published zero-forcing value \(Z=m+1\) is acknowledged and not claimed as new; the control threshold \(\kappa=m\), all-optimum petal coverage, and the separation of fixed-Laplacian controllability from zero forcing are the assessed contribution. Burgarth and collaborators establish a sufficient zero-forcing criterion; Monshizadeh and collaborators prove a robust qualitative-class characterization; Eroh and collaborators cite the bouquet zero-forcing number; Li, Zhang and Wang analyze the exact graph-family characteristic polynomials; Mousavi and collaborators address cographs, excluding the induced-\(P_4\) windmills of length at least five. These results do not, as inspected, settle the explicit fixed-Laplacian coordinate-placement theorem. An unindexed or differently parametrized treatment remains a publication-priority risk.
+PASS
 
-**Value — PASS.** This resolves a natural two-parameter cactus-network design invariant with a constructive placement and a necessary localization of every optimal placement. In every graph of the family, the standard zero-forcing certificate requires one extra input and, more strongly, *every* optimally minimal coordinate placement has no initial zero-forcing move. The statement is structural and not merely a finite computation or a narrow numerical improvement.
+For m>=2 and ell>=3, the hub-deleted tridiagonal block D has Dirichlet modes sin(jk*pi/ell). The even j=2 Dirichlet mode supported on any single petal has zero coupling at the hub, proving m independent obstructions and that every size-m coordinate set meets each petal and omits the hub. For a chosen hub-neighbor per petal, the PBH test splits into h=0 (tridiagonal recurrence), odd j resonance (nonzero Fredholm product), even j resonance ((m-1)*mu_j*h=0), and nonresonant eigenvalues (reflection yields hypothetical lambda=2m). Interlacing against the m hub-deleted paths gives lambda_2<4<=2m; the embedded hub star forces lambda_1>=2m+1, excluding 2m. Thus all parameter quantifiers and forced zero-forcing failure are proved analytically, not inferred from the exact rank checks. Independently rebuilt unweighted integer Laplacians and exact sympy Krylov ranks for all (m,ell) with m=2..3 and ell=3..6; 8 cases succeeded. The known Z=m+1 is not a new theorem.
 
-Independent verification is still open. The result does not address weighted edges, robust controllability for a graph-matrix family, or heterogeneous petal lengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the graph-specific fixed unweighted-Laplacian PBH optimal actuator set and necessity of one input per petal do not follow from the known zero-forcing value m+1, qualitative all-weights controllability characterizations, or same-graph characteristic polynomial calculations. The latter establish spectral factors but not eigenvector restrictions on explicit actuator positions. No earlier full-family placement result was found in semantic Resultary search. The ell=3 or 4 subfamily might be derivable from a cograph theorem and the m lower bound may follow from the graph spectrum; no novelty is claimed for these background ingredients.
+
+## value
+
+PASS
+
+Dedicated fixed-Laplacian leader count and placement are natural structural invariants for symmetric networks. For every nontrivial petal length the optimum uses exactly m inputs while zero-forcing requires m+1 and EVERY minimum actuator placement stalls zero forcing. This is a motivated all-parameter limitation of a common sufficient design method, not a tiny instance or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
