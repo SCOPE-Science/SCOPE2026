@@ -1,12 +1,21 @@
-# Review of the quadric-cycle intersection-cohomology theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the explicit proper projective-bundle parametrization from Chen--Hu--Ma and reconstructs every fiber dimension. Its double-plane locus has codimension \(n+\binom{k}{2}\), whereas its exceptional fibers have dimension \(n-k\); the precise small and semismall cutoffs follow by direct algebra. At equality, de Cataldo--Migliorini's projective semismall decomposition theorem gives one and only one shifted \(\operatorname{Gr}(k,n+1)\) contribution because its exceptional fibers are irreducible projective spaces. The two polynomial formulas follow from Schubert calculus and projective-bundle cohomology. The standalone checker confirms representative coefficients, symmetry, dimension constraints and Euler counts; finite checks are not substituted for the proof. Risks: the underlying published geometric fiber statement and semismall decomposition theorem are used as cited hypotheses/results.
+## correctness
 
-## Originality
-PASS, qualified. The inspected 2026 Chen--Hu--Ma manuscript computes ordinary cohomology of the full Chow variety, not middle-perversity intersection cohomology of the closed quadric-cycle image; its Proposition 3.1 gives the required fiber data but not the new dimension wall or relevant-stratum correction. The 2008/2010 Hu article gives virtual invariants and cycle decomposition; de Cataldo--Migliorini proves the general semismall theorem, with no special quadric-cycle computation. Targeted mathematical-record queries and published-literature searches found no statement giving the same exact wall and Gaussian correction. The result combines known tools and may be implicit in broader geometric machinery, so historical priority remains provisional.
+PASS
 
-## Mathematical value
-PASS. The theorem identifies exactly where a canonical resolution of a natural singular algebraic-cycle locus changes from small to semismall and then to non-semismall, and computes all rational intersection Betti numbers throughout the first two regimes. The boundary correction detects a nontrivial topological contribution that ordinary Chow-variety cohomology does not isolate. It is a uniform structural classification in both cycle and ambient dimension, not a selected special-case computation.
+Chen–Hu–Ma span incidence resolution Y=P_Gr(k+1,N)(Sym² S^∨) has positive-dimensional fibers solely over doubled k-plane cycles Z=Gr(k,N), with fiber P^{n-k}. Dimensions dimY=(k+1)(n-k)+binom(k+2,2)-1, dimZ=k(n+1-k) give codimZ=n+binom(k,2). Semismall iff 2(n-k)≤codim, equality iff n=2k+binom(k,2). Small resolution theorem then identifies IH(Q)=H(Y); at equality semismall decomposition gives one constant rank-one local system on Z shifted 2r, requiring subtraction q^r P_Gr(k,N). Projective-bundle and Schubert formulas yield claimed Gaussian products and even pure Tate groups. Independent Gaussian q calculation at p=1,n=5 produced (1,2,4,6,9,11,13,13,13,11,9,6,4,2,1), sum105. The cited source fiber classification is a necessary substantive premise and is explicitly credited.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: inspected actual primary statements for possible coverage by equivalence and implication, not just matching titles. The input Prop.3.1 of Chen–Hu–Ma plus standard small/semismall theorems logically imply the formulas after elementary codimension and fiber-top-homology work. Their stated results do not themselves give the wall or IH(Q). This is a short but motivated new application of general theorems, with novelty confined to this singular locus.
+
+## value
+
+PASS
+
+Pinpoints the geometric smallness/semismallness wall and computes middle-perversity Betti polynomials of the natural singular irreducible quadric-cycle locus, including a nontrivial boundary correction. Distinguishes intersection cohomology of Q from ordinary cohomology of the reducible Chow variety.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
