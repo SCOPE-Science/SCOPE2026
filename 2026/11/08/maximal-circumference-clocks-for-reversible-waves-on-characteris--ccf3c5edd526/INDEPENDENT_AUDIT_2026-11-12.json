@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:01:00.672139Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/maximal-circumference-clocks-for-reversible-waves-on-characteris--ccf3c5edd526/RESULT.md",
+        "RESULT.md:7f8407a3ba8462ffda0bba6fca5998866ea74c78",
+        "verification/check_graph.py:cfe3cca3ef737563d27f9a71894b3e3e61c7f873",
+        "METADATA.json:c4fff53ac83aa6081fd222a8b009c39f70cc5d67"
+      ],
+      "rationale": "For every dyadic side length n_i, the cyclic shift module k[x_i]/(x_i^{n_i}-1) has x_i+x_i^{-1}=x_i^{-1}(x_i+1)^2 and therefore exactly two nilpotent Jordan chains of size h_i=n_i/2. After tensoring all d independent sides, the orthogonal-neighbor operator is multiplication by w=sum t_i on 2^d copies of B=k[t_i]/(t_i^{h_i}). Select maximal h_k=H and change variables t_k=w+sum others; characteristic-two Frobenius gives t_k^H=w^H since other h_i divide H. Thus A has exactly N/H copies of J_H(0). The two-layer reversible F satisfies F^2+I=diag(A,A)F, F^{2H}=I, and ker(F+I) is isomorphic to ker A; with c=N/H blocks in dimension 2N, all unipotent blocks have length L=2H. This proves exact fixed and primitive periods for all d>=3 over GF(2^f), not a finite experimental extrapolation. Independent full physical neighbor-matrix check on a 4x4x4 torus verified spatial rank 32, F order 4, and fixed dimensions 32,64,128.",
+      "residual_risks": [
+        "Hypothesis all cycle lengths >=4 is necessary for the simple two-distinct-neighbor graph and ordinary XOR matrix; n=2 would double-count an edge.",
+        "All side lengths must be powers of two and field of characteristic two; no statement for mixed odd components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martin–Odlyzko–Wolfram Theorem 4.8 excludes side lengths divisible by field characteristic, while every n_i here is divisible by 2.",
+          "2026/11/2/SCOPE-a-dyadic-circumference-law-for-four-neighbor-binary-torus-dynami--a5383f1b22d7 treats two-dimensional first-order rule."
+        ],
+        "reasoning": "General theory methods provide tools but no actually inspected stronger theorem covering all d>=3 two-layer F similarity. The 2D first-order result does not directly determine this class without the tensor variable-change argument.",
+        "searches": [
+          "Martin Odlyzko Wolfram Theorem 4.8 applicability",
+          "Resultary: one-dimensional reversible waves",
+          "Resultary: dyadic torus Jordan"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/BF01223745",
+        "https://arxiv.org/abs/1609.09572",
+        "2026/11/2/SCOPE-a-dyadic-circumference-law-for-four-neighbor-binary-torus-dynami--a5383f1b22d7",
+        "2026/11/8/SCOPE-parity-split-orbit-census-for-reversible-nearest-neighbor-waves--a400d5cad467"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older paper establishes general characteristic-polynomial and period methods but not the uniform all-d Jordan blocks under dyadic boundary conditions.",
+          "One-dimensional reversible formulas do not directly quantify multidirectional dyadic tensor multiplicities."
+        ],
+        "reasoning": "The new claim depends on simultaneous Frobenius truncations and the nontrivial change w=sum t_i, so it does not follow by merely renaming the scalar circumference in a 1D result.",
+        "searches": [
+          "Martin–Odlyzko–Wolfram 1984 §4D multidimensional, §4E higher order",
+          "Macfarlane 2004 reversible second-order linear CA",
+          "Resultary 2026/11/2 four-neighbor XOR torus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adjacency A is multiplication by the sum of independent cyclic-shift neighbor polynomials; reversible F is a second-order linear CA of state dimension 2N.",
+          "Prior exact 2D XOR dynamics describes a one-layer nilpotent adjacency law, not this F-block form across d>=3."
+        ],
+        "reasoning": "Equivalent presentation is a module-theoretic Jordan decomposition of F; fixed point and period counts follow uniquely from that decomposition, and are not independently new abstract orbit-count methods.",
+        "searches": [
+          "Resultary: dyadic circumference four-neighbor binary torus",
+          "Martin–Odlyzko–Wolfram 1984 §§4D–4E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published table of all dyadic d-dimensional two-layer wave primitive-cycle counts found among targeted searches.",
+          "The source provides closed formulas uniform in dimensions and finite field size."
+        ],
+        "reasoning": "This is not a finite table: all finite dimensions, circumferences and times are covered by a structural proof; its natural exact clock is a dynamical invariant.",
+        "searches": [
+          "Resultary: reversible wave full Jordan dyadic hypertori fixed temporal orbit",
+          "Source polynomial/Jordan counts"
+        ]
+      },
+      "rationale": "Martin–Odlyzko–Wolfram describes general multidimensional additive cellular automata and second-order rules, but its cited Theorem 4.8 period bound assumes circumferences prime to the characteristic, specifically excluding these dyadic hypertori. Earlier exact 1D reversible and 2D first-order cyclic cases are related and credited, but do not state the all-d two-time-level uniform Jordan similarity and complete orbit census. The polynomial change-of-variable proof supplies the substantive higher-dimensional specialization.",
+      "residual_risks": [
+        "Characteristic-two module methods are classical; an earlier unindexed multidimensional specialization of the identical nilpotent uniform-block argument could cover the theorem.",
+        "Not all plausible multidimensional boundary-condition papers were available in full; limit priority claim to inspected mathematical statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General setting is older; Theorem 4.8 prime-to-characteristic assumption rules out the present dyadic sides",
+          "evidence": "Theorem 4.8 assumes side lengths not divisible by p; its formula cannot be simply instantiated at 2-power lengths in characteristic two.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Accessible full primary PDF text, with focused reading of §§4D–4E and Theorems 4.7–4.8; page screenshot attempt was blocked by large PDF service",
+          "method": "Checked hypotheses and comparison at theorem level",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Same additive-CA objects, multidimensional and higher-order rules"
+        },
+        {
+          "assessment": "General Jordan algorithms with different boundary conventions; unexcluded historical derivation risk",
+          "evidence": "Source chiefly studies reversibility and null-boundary first-order automata, not the explicit periodic two-layer all-d orbit census.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.09572",
+          "material_read": "Accessible abstract and theorem context; complete paper not independently inspected",
+          "method": "Scope and boundary comparison",
+          "title": "Reversibility Problem of Multidimensional Finite Cellular Automata",
+          "trigger": "Neighbor-sum Kronecker-sum and Jordan techniques"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1007/BF01223745",
+        "https://arxiv.org/abs/1609.09572",
+        "2026/11/2/SCOPE-a-dyadic-circumference-law-for-four-neighbor-binary-torus-dynami--a5383f1b22d7",
+        "2026/11/8/SCOPE-parity-split-orbit-census-for-reversible-nearest-neighbor-waves--a400d5cad467"
+      ],
+      "rationale": "Complete Jordan similarity, maximum clock, fixed spaces and every primitive-orbit population for a natural reversible nearest-neighbor wave on arbitrary high-dimensional dyadic tori yield a structural classification far beyond sample simulations. The uniform dependence on the *largest* circumference rather than the spatial dimension is a motivated spectral dynamical fact of possible independent use.",
+      "residual_risks": [
+        "No broad downstream theorem is claimed; value is from the motivated exact invariant and classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hypothesis all cycle lengths >=4 is necessary for the simple two-distinct-neighbor graph and ordinary XOR matrix; n=2 would double-count an edge.",
+    "All side lengths must be powers of two and field of characteristic two; no statement for mixed odd components.",
+    "Characteristic-two module methods are classical; an earlier unindexed multidimensional specialization of the identical nilpotent uniform-block argument could cover the theorem.",
+    "Not all plausible multidimensional boundary-condition papers were available in full; limit priority claim to inspected mathematical statements.",
+    "Scientific conclusions are best-of-knowledge, not independent external certification or claimed exhaustive literature access.",
+    "Publication withheld for privacy/transport reasons separate from C/O/V."
+  ],
+  "schema_version": 1
+}
