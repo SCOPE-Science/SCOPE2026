@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the joint five-coordinate weak law for fixed Poisson rate and a symmetric stable flight on a widening interval. The proof makes an explicit one-jump approximation with a quantified small-jump maximal estimate, then uses an exact marked geometric renewal transform to derive the distinct macroscopic lifetime and microscopic successful-excursion clocks. The reset count follows from a stopped compensated Poisson martingale. All boundary assumptions and normalizations are explicit. Direct integrals, a Laplace identity, and a coarse-grid diagnostic were replayed in `CHECKER.py`; the simulation is not a proof.
+## correctness
 
-## Originality — PASS, with priority qualification
-Żbik and Palmowski (2026, arXiv:2610.20410) give large-interval MFPT asymptotics for this same model. Linn and Lawley (2023, arXiv:2302.05409) already imply the exponential lifetime marginal under general frequent resets, and their 2024 paper (arXiv:2404.01142) gives stable-flight exit-side probabilities. Högele and Pavlyukevich (2013, arXiv:1303.5031) give joint exit-time/location asymptotics for Lévy perturbations of deterministic attractors, with different dynamics. The inspected theorems do not present the whole five-coordinate marked limit under hard resets. The residual risk of a general unindexed marked-renewal or small-noise exit theorem is material; absent that overlap, the additional continuous overshoot and last-success mark dependence is not subsumed merely by separate marginals.
+PASS
 
-## Value — PASS
-Exit location, overshoot distance, terminal age and number of unsuccessful attempts answer distinct physical questions that mean first-passage time and left/right probabilities cannot answer. The explicit Pareto law and full dependence structure distinguish a very fast final escape excursion from a long search composed of many failed excursions. The result has a natural complete domain and does not require arbitrary parameter restrictions beyond stable flights and a fixed relative interior start.
+For fixed 0<alpha<2, sigma,r>0, -1<lambda<1, stable scaling makes one physical reset excursion a small-time flight from lambda in (-1,1). The Lévy–Itô single-jump measure gives successful mass epsilon*a/r and marked density epsilon*e^(-rt)c|v-lambda|^(-1-alpha), with pre-jump position tending lambda. The proof splits large jumps at a fixed boundary-safe cutoff and bounds bounded-jump excursions by an exponential martingale; the boundary-strip contribution vanishes. Inserting this measure into the exact geometric renewal transform yields the joint Laplace limit a/(a+u) times the independent Exp(r) age and normalized exit mark. For the reset count, the stopped Poisson martingale has variance r E S_L=O(L^alpha), proving (R_L-rS_L)/L^alpha→0. Direct integration gives c and a_±, and centered |Y| tail z^(-alpha). The limit excludes alpha=2, varying lambda or r; no assertion of finite-L independence or error rate.
 
-## Limits and comparison risks
-The Gaussian endpoint, moving boundary starts, finite-interval error rates and non-Poisson resetting are not addressed. The 2013 heavy-tailed attractor paper was assessed from accessible summaries rather than its whole proof. The numerical diagnostic is discretized. An independent literature and proof audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the specific contemporaneously unestablished full five-coordinate marked law, not for its known exponential lifetime or overshoot marginal. Stronger equivalent later result is documented with dated source chronology and priority uncertainty.
+
+## value
+
+PASS
+
+The entire five-coordinate law (macroscopic escape time and reset count coupled, microscopic final age independent of exit-side/overshoot and pre-jump location) is a natural refined first-passage observable. It fills a meaningful joint-distribution gap beyond formerly known time/side marginals, even though each marginal is simple and a later stronger version is known. No claim of a new general regenerative principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at Git blob 42194e18a143115c451365b4c40844b0d409f3a9",
+        "Assigned CHECKER.py Git blob d8dcf49c9f980e47eb957944aabc92f02afd9848"
+      ],
+      "rationale": "For fixed 0<alpha<2, sigma,r>0, -1<lambda<1, stable scaling makes one physical reset excursion a small-time flight from lambda in (-1,1). The Lévy–Itô single-jump measure gives successful mass epsilon*a/r and marked density epsilon*e^(-rt)c|v-lambda|^(-1-alpha), with pre-jump position tending lambda. The proof splits large jumps at a fixed boundary-safe cutoff and bounds bounded-jump excursions by an exponential martingale; the boundary-strip contribution vanishes. Inserting this measure into the exact geometric renewal transform yields the joint Laplace limit a/(a+u) times the independent Exp(r) age and normalized exit mark. For the reset count, the stopped Poisson martingale has variance r E S_L=O(L^alpha), proving (R_L-rS_L)/L^alpha→0. Direct integration gives c and a_±, and centered |Y| tail z^(-alpha). The limit excludes alpha=2, varying lambda or r; no assertion of finite-L independence or error rate.",
+      "residual_risks": [
+        "The delicate small-jump o(epsilon) probability follows an exponential martingale only after choosing cutoff relative to desired displacement; the proof spells out this order, but no complete independent martingale writeup reproduced."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley exponential first-passage theorem establishes the exponential marginal, and their target-selection analysis overlaps limiting exit-side probabilities.",
+          "Högele–Pavlyukevich heavy-tail attractor exit theory addresses different dynamical hypotheses without independent Poisson hard resetting."
+        ],
+        "reasoning": "Generic exponentiality and heavy-tail one-jump mark principles cover mechanisms but the checked prior statements do not present the same joint reset count, terminal age, pre-jump coordinate and overshoot at the target source date. The later clock theorem does cover these marks, with explicit chronology caveat.",
+        "searches": [
+          "Resultary query: Lévy flights stochastic resetting expanding interval rare jump exit overshoot pre-exit position reset age joint limit (2026-11-09)",
+          "arxiv:2302.05409 first-passage times under frequent resetting",
+          "arxiv:2404.01142 hitting probabilities for fast stochastic search",
+          "arxiv:1303.5031 heavy-tailed exit attractors"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.20410",
+        "arxiv:2302.05409",
+        "arxiv:2404.01142",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-a-marked-exponential-exit-law-for-poisson-reset-stable-flights--59a3c7eb0c4b/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-marked-clock-fluctuation-law-for-frequently-reset-stable-fligh--fc90c0f60b27/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target source committed 2026-11-08T22:10:33Z.",
+          "Later clock source committed 2026-11-08T23:18:28Z. Both records were added to Resultary on 2026-11-09T01:09:49Z."
+        ],
+        "reasoning": "The earlier 2026/10/26 theorem does not entail the joint B,R,P assertions without new renewal and stopped-martingale steps. The later r→∞ six-dimensional clock theorem DOES imply them after stable space-time rescaling, but its available source chronology is later; no claim of independent first discovery or externally certified precedence is made.",
+        "searches": [
+          "Resultary query: Lévy flights stochastic resetting expanding interval rare jump exit overshoot pre-exit position reset age joint limit (2026-11-09)",
+          "SCOPE source commit 368c4903cb6348a5ad760347fec41dbc2404c80d",
+          "SCOPE later clock record commit 81a1f68821f0fb7414d42fda14f0389e9ed04bc3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-a-marked-exponential-exit-law-for-poisson-reset-stable-flights--59a3c7eb0c4b/RESULT.md states the precise same (scaled lifetime, scaled exit location) marginal and independent Pareto-type overshoot.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-marked-clock-fluctuation-law-for-frequently-reset-stable-fligh--fc90c0f60b27/RESULT.md proves a marked joint limit for fixed interval and r→∞; stable scaling identifies its r_eff=r L^alpha parameter with the present L→∞ regime."
+        ],
+        "reasoning": "The 2026/10/26 theorem is exactly the (T,Y) projection, not the claimed (T,rT,B,lambda,Y) five-coordinate joint. The later 2026/11/08 clock theorem is mathematically stronger and implies the new limit after scaling (its Gaussian clock error disappears under the first-order normalization). Its SCOPE source commit at 2026-11-08T23:18:28Z follows this assigned source at 22:10:33Z; commit chronology is not external priority certification.",
+        "searches": [
+          "Resultary query: Lévy flights stochastic resetting expanding interval rare jump exit overshoot pre-exit position reset age joint limit (2026-11-09)",
+          "Resultary finding 2026/10/26 marked exponential exit law",
+          "Resultary finding 2026/11/08 marked clock fluctuation law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives the full density c/a |y-lambda|^(-1-alpha) outside (-1,1), exactly matching the exit marginal.",
+          "The later record includes the same terminal mark and terminal-success exponential duration under the scaling equivalence."
+        ],
+        "reasoning": "The apparent new overshoot density and side masses are not new data entries; the specific five-variable joint law is the assessed unit. A later stronger statement is openly recorded but not retroactively claimed as earlier priority.",
+        "searches": [
+          "Resultary query: Lévy flights stochastic resetting expanding interval rare jump exit overshoot pre-exit position reset age joint limit (2026-11-09)",
+          "Resultary 2026/10/26 full RESULT.md",
+          "Resultary 2026/11/08 clock full RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the specific contemporaneously unestablished full five-coordinate marked law, not for its known exponential lifetime or overshoot marginal. Stronger equivalent later result is documented with dated source chronology and priority uncertainty.",
+      "residual_risks": [
+        "Strong related later mathematically implying result; source/Resultary publication times are not unchallengeable priority evidence.",
+        "Potential general marked regenerative exit theorem not fully screened."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS (T,Y) two-coordinate projection, not extra terminal age, count, or pre-jump coordinate",
+          "evidence": "Joint weak limit (T_L/L^alpha, X_exit/L), explicit independent Pareto-type exterior density and side probabilities.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-a-marked-exponential-exit-law-for-poisson-reset-stable-flights--59a3c7eb0c4b/RESULT.md",
+          "material_read": "Complete RESULT.md, finding/proof/limitations/references",
+          "method": "GitHub read-only raw source inspection",
+          "title": "A marked exponential exit law for Poisson-reset stable flights",
+          "trigger": "Very high similarity: same alpha-stable symmetric resetting model and exactly matching exit-location law"
+        },
+        {
+          "assessment": "STRONGER mathematically, but available source committed later than assessed result",
+          "evidence": "Frequent-r limit gives reset count/time, terminal age and side/excess; source Git commit 2026-11-08T23:18:28Z vs target 22:10:33Z.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-marked-clock-fluctuation-law-for-frequently-reset-stable-fligh--fc90c0f60b27/RESULT.md",
+          "material_read": "Complete RESULT.md with joint theorem, renewal identity, random-index fluctuation proof and limitations",
+          "method": "GitHub read-only raw source inspection",
+          "title": "A marked clock-fluctuation law for frequently reset stable flights",
+          "trigger": "Same marks under stable scaling; mathematically dominating later theorem"
+        },
+        {
+          "assessment": "Partial coverage of leading mean; cannot certify whole-document noncoverage",
+          "evidence": "Expected first-exit time leading rate, not an established full joint mark in inspected material.",
+          "identifier_or_url": "arxiv:2610.20410",
+          "material_read": "Abstract and the precise comparison as quoted in assigned source; complete full text not accessed",
+          "method": "arXiv abstract/metadata and source citation comparison",
+          "title": "Asymptotic behaviour for escaping an interval by Lévy flights under stochastic resetting",
+          "trigger": "Same process, already known mean exit asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-a-marked-exponential-exit-law-for-poisson-reset-stable-flights--59a3c7eb0c4b/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-a-marked-clock-fluctuation-law-for-frequently-reset-stable-fligh--fc90c0f60b27/RESULT.md",
+        "Assigned RESULT.md"
+      ],
+      "rationale": "The entire five-coordinate law (macroscopic escape time and reset count coupled, microscopic final age independent of exit-side/overshoot and pre-jump location) is a natural refined first-passage observable. It fills a meaningful joint-distribution gap beyond formerly known time/side marginals, even though each marginal is simple and a later stronger version is known. No claim of a new general regenerative principle.",
+      "residual_risks": [
+        "Value is modest because components follow standard renewal and big-jump estimates; the contribution rests on the explicit simultaneous limit, not an individual one-line marginal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No quantitative convergence rate; Gaussian endpoint and non-Poisson resetting excluded.",
+    "Exact priority of the five-coordinate joint limit remains qualified by a later mathematically stronger record and unindexed broader renewal theory."
+  ],
+  "schema_version": 1
+}
