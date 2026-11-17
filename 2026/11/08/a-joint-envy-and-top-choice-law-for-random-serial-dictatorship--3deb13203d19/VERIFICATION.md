@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The standalone `verify_joint.py` has no nonstandard dependencies and is intended to run as `python3 verify_joint.py`. It derives an exact rational bivariate transition table and tests all probability masses and identities for \(n=1,\ldots,7\). Independently, for \(n=1,\ldots,4\), it exhausts all \((n!)^n\) labeled strict preference profiles, constructs RSD assignments, and directly counts both envy statistics and their joint table. The exhaustive check also computes the number of agents in both categories; its exact expectation equals one for all four exhaustively tested market sizes. The computed tables agree with the recurrence.
+## correctness
 
-The general proof is the conditional-uniform-rank argument followed by telescoping survival factors, presented in RESULT.md. These analytic steps, and not the bounded enumeration, establish the quantifiers for every integer \(n\ge1\).
+PASS
 
-**Scope:** No independent audit has been performed. The checker provides finite diagnostic support, not an infinite-machine certificate or independent scientific validation.
+PASS: conditional uniform ordering among s old unenvied and r available schools yields p(s,r,k)=r(s)_k/(s+r)_(k+1). First choice probability r/n implies K=0; three transition cases partition mass and evolve full bivariate law. Conditional survival telescope gives E(U|history through j)=S_j/r+H_(r-1), so covariance position sum equals 1-H_n/n. Intersection each position probability (r/n)(1/r)=1; n=1 boundary correctly degenerate. Independent exact-fraction recursion n1..7 verifies unit mass, expectations, covariance; finite diagnostics not an all-n proof.
+
+## originality
+
+PASS
+
+PASS for full bivariate (U,T) recurrence and covariance, not for previously known separate means, intersection mean/distribution, or union mean. Primary article §3 and older intersection record were directly compared.
+
+## value
+
+PASS
+
+PASS: full dependence between two natural and policy-motivated envy groups is not determined by their separate means or intersection. An exact all-n joint law and positive covariance quantify simultaneous distribution rather than a marginal reiteration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
