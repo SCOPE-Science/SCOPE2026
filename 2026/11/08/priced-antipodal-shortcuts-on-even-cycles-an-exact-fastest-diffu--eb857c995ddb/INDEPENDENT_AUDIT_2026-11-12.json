@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:52:03.298354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=4, the k=1 and k=2 real normalized Fourier pairs give universal two-mode upper bound λ2≤min(D_m a_bar+2b_bar,A_m a_bar) for any independently weighted design. Uniform orbit rates attain this bound because their full Fourier spectrum has first odd and first nonzero even minima. With 2m a+mcb=B, maximizing the minimum of two affine functions yields positive-chord intersection if c<4/D_m, a whole segment at equality, rim-only if c>4/D_m. Equality in the first Fourier pair forces its cos/sin into the λ2 eigenspace; the complex equation sin(π/m)(a_(j−1)−a_j)=0 forces all rim rates equal and real parts all antipodal rates equal. Hence unrestricted optimizer rigidity holds. Taylor D~π²/m² and A~4π²/m² establishes O(m^-2) chord spending and fourfold spectral gain. Independent eigenspectra for m=4,5,7 across sub/supercritical prices agree; finite tests are not all-m proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al 2006 covers general continuous-time priced graph SDP, including plain cycle but no explicit antipodal matching pricing/all-optimum locus.",
+          "Boyd et al 2007 treats symmetries in discrete-time Markov SLEM; continuous-time weighted λ2 is not the same optimization."
+        ],
+        "reasoning": "Abstract semidefinite solvability is established prior work but does not give the critical csc² cutoff, full interval, or rigidity.",
+        "searches": [
+          "Resultary: priced fastest diffusion Möbius ladder matching continuous-time",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "https://arxiv.org/pdf/0709.0955"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://arxiv.org/pdf/0709.0955",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b/RESULT.md",
+        "https://arxiv.org/abs/1510.06785"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun SDP solves same general convex class but specializes to unchorded cycle, not this priced graph family.",
+          "The 2026/11/2 discrete-time Möbius calculation gives a fourfold asymptotic gain under a different normalization/constraint, not the full price threshold nor all continuous-time optimal conductances."
+        ],
+        "reasoning": "Quantifier comparison: all c>0, all real B>0, m>=4 and every independent edge conductance are proved here with exact rigidity; no inspected earlier theorem supplies these simultaneous conclusions.",
+        "searches": [
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "https://arxiv.org/pdf/0709.0955",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Möbius ladder FMMC paper optimizes discrete-time SLEM subject to nonnegative stochastic rows and possible holding; it has parity-dependent branches.",
+          "This theorem maximizes λ2 of continuous-time generator under a global linear edge budget, no row stochasticity and no control over negative eigenvalue modulus."
+        ],
+        "reasoning": "The same graph alias Möbius ladder is recognized, but objective and feasible set differ; its parity-dependent optimal transition probabilities do not mathematically imply the present price cutoff.",
+        "searches": [
+          "Resultary: continuous-time weighted Möbius ladder antipodal matching conductance cost spectral gap exact price threshold phase uniqueness",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b/RESULT.md",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located exact continuous-time orbit-priced antipodal-matching table with critical c_m*; generic graph spectral tables treat fixed weights.",
+          "The graph has 2m vertices and m long chords; for m=3 its K3,3 boundary is already a separately known family, deliberately excluded."
+        ],
+        "reasoning": "The exact table check specifically distinguishes an optimization formula from a fixed-Laplacian spectral table; lack of match is not novelty proof.",
+        "searches": [
+          "Resultary: exact spectral gap priced antipodal even cycles full size table",
+          "web: Möbius ladder continuous time optimal algebraic connectivity antipodal weighted budget"
+        ]
+      },
+      "rationale": "Best-of-knowledge original continuous-time priced Möbius ladder algebraic-connectivity phase transition and unrestricted all-optimizer locus, distinct from known discrete-time stochastic SLEM and generic SDP.",
+      "residual_risks": [
+        "Unindexed exact priced continuous-time Möbius ladder SDP solution may precede this result.",
+        "m=3 excluded; unequal prices within edge orbit and directed stochastic cases unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general framework and bare cycle, not chord-price cutoff",
+          "evidence": "Optimal λ2 edge budget is a known SDP; no matching antipodal pair price regime there.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Original 19-page PDF: introduction, objective formulation, optimization framework and cycle section 5.3",
+          "method": "Published PDF text and page screenshots",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exact same continuous-time spectral gap optimization class"
+        },
+        {
+          "assessment": "Discrete-time SLEM and stochastic constraints; not same continuous-time optimization",
+          "evidence": "Objective μ(P)=max nontrivial abs eigenvalues under P>=0,P1=1, differs from λ2(L).",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "Original 39-page arXiv PDF: introduction, stochastic SLEM formulations, cycles, wheel and graph-class sections",
+          "method": "PDF text and page screenshot",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Graph automorphism and Möbius ladder-like spectral method"
+        },
+        {
+          "assessment": "Not covering priced continuous-time cutoff",
+          "evidence": "Parities and holding probabilities in discrete-time SLEM, no c-price budget parameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b/RESULT.md",
+          "material_read": "Full published RESULT statement and Fourier proof",
+          "method": "Resultary full GitHub source",
+          "title": "Exact fastest-mixing probabilities on Möbius ladders",
+          "trigger": "Same graph and fourfold ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimizing investment in long-range shortcut edges of a ring is natural for diffusion networks. A sharp finite-size critical price and optimizer interval, all-asymmetric rigidity, and the surprising fourfold asymptotic gap improvement from a vanishing shortcut budget fraction form a mathematically motivated complete graph-family classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed exact priced continuous-time Möbius ladder SDP solution may precede this result.",
+    "m=3 excluded; unequal prices within edge orbit and directed stochastic cases unproved.",
+    "No Lean/expert verification is asserted; source VERIFICATION.md external channels remain unchanged.",
+    "Existing public metadata retain provenance; import is not ready."
+  ],
+  "schema_version": 1
+}
