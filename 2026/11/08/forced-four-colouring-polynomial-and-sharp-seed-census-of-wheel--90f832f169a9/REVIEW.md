@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof independently characterizes successful partial assignments with the hub precoloured and with the hub blank. In the former case the blank rim set must be independent and every blank's two rim neighbours must have distinct colours; in the latter, the initially coloured rim vertices must additionally use three different colours so that the hub is forced before any rim blank. This yields disjoint, unique-completion counting and the twelve-state transfer. The all-order minimum and optimizer count follow from the maximum independent blank sets and surjective cycle three-colourings. Direct original-rule enumeration (rim sizes \(4\) through \(7\)), separate construction counts (through \(10\)), transfer arithmetic, and extremal checks (through \(12\)) all agree. The proof handles boundary \(n=4\) separately. Risk: finite tests cannot replace proof; the proof is self-contained and relies only on elementary cycle colouring.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Farr's initiating arXiv:2609.17108v1 introduces the forced-colouring function; the accessible HTML sections include definitions and sample small-graph formulas, but no universal wheel transfer or minimum-domain census. Its abstract advertises general properties, derivatives, and complexity, not this result. Exact-title, object, parameter, local forcing, and graph-family searches on public literature and the published mathematical findings search found no covering wheel result. A high-similarity known formula for complete multipartite graphs is inapplicable: the wheel rim has nonedges and cycle adjacency constraints, and the claim there has a different graph class and colouring structure. The rest of the initiating paper was not retrieved after later access failures; it remains a real priority risk, not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Wheel graphs form the canonical planar join of a cycle with one universal vertex; their chromatic number changes with rim parity. For the recently studied forced-colouring probability, the theorem gives every coefficient of a natural all-order polynomial using only twelve transfer states and derives a sharp seeding threshold with exact, parity-sensitive optimizer counts. The structural requirement of three distinct initially seeded rim colours when the hub is blank is crucial and is not captured by a generic zero-forcing analogy. This is substantive enumeration and characterization, not a single small numerical example. Risk: this is an elementary restricted graph family, not a universal complexity breakthrough.
+PASS: For any proper 4-coloured wheel, the hub uses one named colour and the rim uses at most the remaining three. If the hub is seeded, a blank rim vertex must have both rim neighbours initially seeded with distinct colours, so blank positions form a good independent set. If the hub is blank, it must be forced first from three distinct initially seeded rim colours. The 12-state (previous colour,current colour,seed bit) transfer enforces exactly these local conditions; inclusion-exclusion over seeded colours enforces hub-first feasibility and the weights p^{n+1-j}r^j and p^{n-j}r^{j+1} are correct. At minimum seed for n>=5, every other rim position is blank, giving two maximum independent sets for even n or n for odd n; seeded constraint graph is C_t and its surjective proper 3-colouring count is Q_t=2^t+2(-1)^t-6*1_even. The n=4 exception includes 96 hub-blank and 48 hub-seeded size-three assignments. Independent direct adjacency-rule enumeration reproduced coefficient distributions n=4,5,6 (including M_4=144, M_5=120, M_6=48). The infinite claim is supported by the complete transfer/construction proof rather than these tests.
 
-## Closest literature and scope
-G. E. Farr, *The forced colouring function of a graph*, arXiv:2609.17108v1, 2026-09-15. Its explicit general definition, small examples, and complexity results do not establish the stated all-wheel result in the material actually inspected. Formula is for four named colours, finite simple labelled wheels with rim size at least four, and exact sequential local forcing. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: in the inspected published records no exact wheel-specific four-colour local-forcing transfer and optimum seed census was found. Farr defines the local process and proves general results, not known to imply the wheel structural criterion without new work; inaccessible later full text is a real residual priority risk.
+
+## value
+
+PASS
+
+PASS: A natural full counting polynomial at the graph chromatic palette and a sharp parity-dependent extremal seed census for every wheel size, with a fixed-size transfer matrix and exceptional small boundary, are mathematically useful nontrivial structured enumerations, not a routine substitution of the ordinary chromatic polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
