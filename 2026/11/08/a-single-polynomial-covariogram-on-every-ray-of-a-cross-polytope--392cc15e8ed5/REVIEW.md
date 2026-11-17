@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The analytic box-partition formula reconstructs both L1-ball inequalities, performs an exact integration of the outer orthants, and uses a valid truncated-power expansion. The global sign-pattern cancellation leaves only degree-at-most-\(d\) terms. Positivity and endpoint limits are proved under their explicit hypotheses. Exact fraction comparisons and an independent convex-hull computation support the critical identity, but do not replace the universal proof.
+## correctness
 
-## Originality: PASS (provisional)
-The closest motivating source, Ramesh–Weiss (arXiv:2602.04707, first public 2026-02-04), gives a general semi-algebraic volume algorithm and examples for translated \(\ell_4\)-balls rather than this congruent \(\ell_1\) all-ray polynomial. Ando–Kijima (arXiv:1607.06173, full Sections 4–5) gives convolution-based approximations and hardness for the general intersection problem, not the stated exact cancellation. Related indexed findings treat cubes, discrete ball counts, or cross-polytope intersections with a cube; none directly implies the final theorem. A 2014 octahedron correlation study is averaged over direction. Historical priority is not guaranteed: implicit consequences of older spline theory or inaccessible full texts remain possible.
+PASS
 
-## Mathematical value: PASS
-The result gives a complete exact all-dimensional covariogram profile for a natural norm ball and exposes a no-knot cancellation along every translation direction. Its fixed-radius, fixed-orientation hypotheses matter; the generic two-cross-polytope intersection problem remains hard and is not solved here. The explicit support slope is sharp for directions with no zero coordinates.
+For B_1^d and any nonzero ray v, sign changes reduce to v>=0. Midpoint coordinates partition the overlap into coordinates inside/outside their separation intervals; outside orthants integrate to (U-|sum(z)-a|)_+^k/k!. The truncated-power identity and exact inclusion-exclusion for box moments make the outer two terms cancel after summing every sign/subset pattern. Remaining terms are products t^(d-k+r)*(1-Lt/2)^(k-r) with direction-only positive-part coefficients, hence a single polynomial of degree <=d on [0,2/L]; empty intersection after endpoint. Continuity covers zero coordinates; simple linear endpoint slope is claimed ONLY for all v_i>0 and d>=2. Independently evaluated geometric convex hull volumes via SciPy HalfspaceIntersection for v=(1,1), (1,1,1), (1,2,3) at three interior separations each and matched explicit polynomials to <1e-9; finite geometric checks corroborate the algebraic proof.
 
-## Limitations
-The polynomial varies with direction; the finite sum may be exponentially long; nonzero-coordinate support slope does not extend to coordinate-hyperplane directions. Publication priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier sparse-direction cross-polytope overlap polynomials treat only 1,2,3 equal-size translated coordinates, and general convex-body covariogram, FPTAS and semialgebraic integration results do not imply a single polynomial with NO knots along every ray. The all-ray cancellation is a mathematically stronger distinct statement.
+
+## value
+
+PASS
+
+The l1 ball is a canonical high-dimensional convex body and its directional autocorrelation is a natural integral-geometric invariant. A nonobvious cancellation of every interior knot gives an exact polynomial for ALL rays, not merely isolated axis formulas; useful for explicit overlap geometry, Fourier analysis and exact integration. The scope distinguishes one ray-wise polynomial from a globally multivariate polynomial, and it states the sharp endpoint slope with necessary positivity assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

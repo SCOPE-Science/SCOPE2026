@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T20:50:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-single-polynomial-covariogram-on-every-ray-of-a-cross-polytope--392cc15e8ed5/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-single-polynomial-covariogram-on-every-ray-of-a-cross-polytope--392cc15e8ed5/verification/verify.py",
+        "private geometric halfspace/hull volume checks"
+      ],
+      "rationale": "For B_1^d and any nonzero ray v, sign changes reduce to v>=0. Midpoint coordinates partition the overlap into coordinates inside/outside their separation intervals; outside orthants integrate to (U-|sum(z)-a|)_+^k/k!. The truncated-power identity and exact inclusion-exclusion for box moments make the outer two terms cancel after summing every sign/subset pattern. Remaining terms are products t^(d-k+r)*(1-Lt/2)^(k-r) with direction-only positive-part coefficients, hence a single polynomial of degree <=d on [0,2/L]; empty intersection after endpoint. Continuity covers zero coordinates; simple linear endpoint slope is claimed ONLY for all v_i>0 and d>=2. Independently evaluated geometric convex hull volumes via SciPy HalfspaceIntersection for v=(1,1), (1,1,1), (1,2,3) at three interior separations each and matched explicit polynomials to <1e-9; finite geometric checks corroborate the algebraic proof.",
+      "residual_risks": [
+        "The inclusion-exclusion cancellation is the key nonstandard symbolic lemma; detailed finite checks do not prove its general all-subset cancellation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior sparse formula concerns k=1,2,3 equal displacements, d>=3; submitted v may be any unequal-coordinate vector and d>=1.",
+          "General intersection complexity/FPTAS for cross-polytopes and exact semialgebraic volume methods do not assert a universal no-knot ray identity."
+        ],
+        "reasoning": "The older general algorithms address broader inputs but weaker structural conclusions; they do not directly dominate this special-case theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f/RESULT.md",
+          "E. Ando, S. Kijima, arXiv:1607.06173",
+          "L. Ramesh, N. Weiss, arXiv:2602.04707"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f/RESULT.md",
+        "https://arxiv.org/abs/1607.06173",
+        "https://arxiv.org/abs/2602.04707",
+        "G. Bianchi, DOI:10.1112/plms/pdw020",
+        "Resultary semantic all-ray cross-polytope covariogram queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting v=(1,1,...,1) at k<=3 recovers prior formulas, but the converse extrapolation to arbitrary v is invalid; generic piecewise polynomial behavior often has knots.",
+          "Exact shape of the polynomial depends on direction subset sums, making a distinct and useful structural result."
+        ],
+        "reasoning": "Submitted law strictly extends cited sparse cases and cannot be derived by plain parameter substitution from an approximate volume algorithm.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f/RESULT.md",
+          "Ando Kijima 2016 intersection volume cross polytopes FPTAS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Covariogram equals convolution of two l1-ball indicators, evaluated along a ray; general polyhedral convolution is a piecewise polynomial, not automatically one polynomial on its entire positive support.",
+          "Resultary earlier sparse directions k=1,2,3 give only special rays, even though each is polynomial."
+        ],
+        "reasoning": "Known spline descriptions and two-ball intersection problems are aliases, but no inspected theorem removes all internal knots for all v in all dimensions.",
+        "searches": [
+          "Resultary search: cross polytope l1 ball radial covariogram polynomial intersection congruent translated cross polytopes",
+          "Resultary search: radial covariogram cross-polytope 1 norm ball polynomial no interior knots exact formula intersection volume"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 2018/2014 octahedron orientation-averaged or sparse-axis tables do not list generic anisotropic ray coefficients or prove no knots."
+        ],
+        "reasoning": "Finite table entries for axes do not imply an all-dimensional all-direction theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f/RESULT.md",
+          "Cross-polytope octahedron autocorrelation Ciccariello arXiv:1407.2788",
+          "Bianchi covariogram polytope 2008"
+        ]
+      },
+      "rationale": "Earlier sparse-direction cross-polytope overlap polynomials treat only 1,2,3 equal-size translated coordinates, and general convex-body covariogram, FPTAS and semialgebraic integration results do not imply a single polynomial with NO knots along every ray. The all-ray cancellation is a mathematically stronger distinct statement.",
+      "residual_risks": [
+        "Generic polyhedral convolution/covariogram or geometric tomography literature may encode this simplification implicitly; the relevant Ando–Kijima and Ramesh–Weiss full proofs were not read, so novelty is best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of all-ray claim; strict restricted-direction special case",
+          "evidence": "Source explicitly restricts to 1,2,3 equally displaced nonzero coordinates and disclaims arbitrary directions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f/RESULT.md",
+          "material_read": "Full published RESULT.md including k=1,2,3 formulas, integral proof, limitations",
+          "method": "GitHub repository full primary-file read",
+          "title": "Exact sparse-direction covariograms and two symmetry-axis overlap reversals for cross-polytopes",
+          "trigger": "Same body, displacement covariogram and some polynomial rays"
+        },
+        {
+          "assessment": "Priority risk: general intersection algorithm not an all-ray no-knot theorem on material read",
+          "evidence": "Claims hardness and deterministic approximation, not a closed polynomial on all rays.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.06173",
+          "material_read": "Public arXiv record and abstract; complete proof text not read",
+          "method": "Open-access scholarly metadata/abstract inspection",
+          "title": "An FPTAS for the Volume of a V-Polytope—It Is Hard to Compute the Volume of the Intersection of Two Cross-polytopes",
+          "trigger": "Potential broader theorem for exactly cross-polytopes"
+        },
+        {
+          "assessment": "No decisive coverage found; do not assert full-document absence",
+          "evidence": "General exact computation examples for translated lp bodies do not from abstract imply a single radial polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.04707",
+          "material_read": "Public arXiv metadata/abstract and research summary; full text not read",
+          "method": "Open-access search/abstract inspection",
+          "title": "Exact Volumes of Semi-Algebraic Convex Bodies",
+          "trigger": "Potential general exact intersection-volume machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-single-polynomial-covariogram-on-every-ray-of-a-cross-polytope--392cc15e8ed5/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-sparse-direction-covariograms-and-two-symmetry-axis-overla--2a7c143e0e7f/RESULT.md"
+      ],
+      "rationale": "The l1 ball is a canonical high-dimensional convex body and its directional autocorrelation is a natural integral-geometric invariant. A nonobvious cancellation of every interior knot gives an exact polynomial for ALL rays, not merely isolated axis formulas; useful for explicit overlap geometry, Fourier analysis and exact integration. The scope distinguishes one ray-wise polynomial from a globally multivariate polynomial, and it states the sharp endpoint slope with necessary positivity assumptions.",
+      "residual_risks": [
+        "Potential prior generic parametric-integration simplification; exponential explicit formula is a computational limitation, not loss of structural value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment is qualified best-of-knowledge, not independent external certification.",
+    "Exact Git source tree was fetched read-only and matches frozen assignment.",
+    "Only bounded independent computations were performed; all-family proof assessed separately.",
+    "All publication/public metadata changes withheld due to unresolved privacy safety; no GitHub writes."
+  ],
+  "schema_version": 1
+}
