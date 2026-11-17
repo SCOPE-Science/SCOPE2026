@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The equality-constrained change of variables uses the unit \(3^{-1}\) and converts ordered triples to the unramified dyadic norm \(Q(a,b)=a^2+ab+b^2\), with exactly four lifting choices when a target parity is admissible. Primitive norm values have three solutions modulo two and exactly two valid lifts per doubling; nonprimitive valuation strata and the zero fiber are counted explicitly. These formulas give the full three-value histogram and, with normalized Parseval, the exact sixth moment. Every boundary case, notably exponent one, is included. The packaged checker directly exhausts exponents one through seven and separately checks Fourier sixth moments through six. The infinite assertion rests on the lifting proof, not the experiments.
+## correctness
 
-**Originality (O): PASS under bounded comparison.** The closest primary papers examined are the finite-field restriction framework of Mockenhaupt--Tao (arXiv:math/0204234), general residue-ring restriction estimates of Hickman--Wright (arXiv:1801.03176), the finite-field parabola threefold convolution of González-Riquelme--Oliveira e Silva (arXiv:2405.16647, Proposition 3.3, characteristic exceeding three), and Tóth's diagonal quadratic-congruence counts (arXiv:1404.4214). None of the inspected results states or directly yields the exact threefold dyadic-parabola histogram and its parity split. Published mathematical search records on the dyadic parabolic fourth moment, prime-field sixth extremizers, and ternary parabolic triple sums solve distinct problems. The norm-fiber lifting calculation is elementary, so it is not separately claimed as novel. Risk: more general old dyadic local-norm density results could imply part of the enumeration or even the theorem by specialization; historical priority is not exhaustively established.
+PASS
 
-**Mathematical value (V): PASS.** Threefold convolution is the natural distribution whose squared energy is the constant-input sixth Fourier moment on a quadratic graph. Unlike odd-field models, the dyadic graph leaves an asymptotic two-thirds of target pairs unattainable, and the exceptional positive count changes with exponent parity. A complete all-exponent target-by-target law, its exact incidence frequencies, sumset size and sixth moment constitute a natural additive-harmonic invariant, beyond a single numerical evaluation or a contrived parameter slice. No arbitrary-coefficient sharp restriction inequality is claimed.
+The bijective centered change (x,y,z)=(h+a,h+b,h−a−b), h=3⁻¹s, gives the exact congruence t−3h²=2Q(a,b) with Q=a²+ab+b² and four lifts from modulus 2^{k−1}. Q is odd at primitive pairs, and v₂(Q)=2min(v₂(a),v₂(b)) off the zero fiber; the primitive norm equation has exactly 3·2^{ell−1} solutions by nonvanishing mod-2 gradient, giving 3N nonzero even-valuation fibers and the zero-fiber parity exception. Counting valuation strata gives all target multiplicities; Parseval yields the claimed sixth moment including k=1. Independently enumerated every ordered triple and histogram through k=7 (N=128), agreeing with exact moments. Finite checks supplement the algebraic proof.
 
-**Limits.** Published and current ledger comparisons are bounded rather than a claim of globally certified historical novelty; the argument is a self-review, not independent validation. The result concerns dyadic prime powers only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the all-k dyadic ordered triple-sum target distribution and its parity-sensitive exceptional class. Finite-field convolution over characteristic greater than three is not the cyclic ring mod 2^k; general diagonal quadratic-congruence formulas in Tóth primarily have odd modulus and do not state this non-diagonal two-variable 2-adic norm histogram. Older general 2-adic local-density theory could imply the norm count but not an examined covering theorem.
+
+## value
+
+PASS
+
+This is the natural threefold additive energy profile whose second moment is the unweighted parabola sixth Fourier moment. The exact disappearance of two-thirds of target sums, uniform 3N bulk values and parity-specific exceptional fiber are structural arithmetic features not visible from a generic field restriction inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
