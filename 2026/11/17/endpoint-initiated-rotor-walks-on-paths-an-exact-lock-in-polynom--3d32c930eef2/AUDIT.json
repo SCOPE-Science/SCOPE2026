@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Periodic rotor states on a path are exactly rooted orientations; necessity follows from last departures, sufficiency from explicit directed Euler tour. Successive marked-rotor excursions return to 0 in 2i steps except the final arrival, establishing first-entry formula for every n and subset. Conditioning on the largest mark yields the polynomial. Strict coordinate monotonicity proves extremizers. The weighted Bernoulli sum plus bounded farthest mark proves mean and CLT. All independent embedded checks replay from package bytes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Menc–Pająk–Uznański, arxiv:1502.05545, Theorem 2.2: worst-case exploration/first opposite endpoint reach (n−1)^2, not first periodic-entry law.",
+        "Chalopin et al., arxiv:1407.3200, Section 5.1 and Proposition 5.3: generic exploration phase representation and fast single-instance simulation, without endpoint-run ensemble formulas.",
+        "Yanovski–Wagner–Bruckstein (2003) publicly visible abstract describes eventual Euler tour and broad lock-in upper bounds; full text unavailable."
+      ],
+      "reasoning": "The strongest comparable general statements bound exploration time or compute phases. Even their explicit full-graph algorithms do not provide the closed clock polynomial indexed by arbitrary endpoint rotor subsets, unique conditional extrema, mean, or Gaussian limit. The exact (n−1)^2 cover time is a different statistic: the all-right state enters its Euler-tour orbit at (n−2)^2 before the far endpoint is first visited at (n−1)^2.",
+      "searches": [
+        "rotor-router finite path graphs transient time exact formula rotor configurations",
+        "rotor router path graph time to reach Euler tour arbitrary initialization first recurrent state",
+        "rotor router first recurrence time endpoints path generic graph Euler tour",
+        "arxiv:1407.3200 Section 5.1 single token rotor router phase algorithms"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1502.05545",
+      "https://arxiv.org/pdf/1407.3200",
+      "https://d3ccyth396mz21.cloudfront.net/publications/a-distributed-ant-algorithm-for-efficiently-patrolling-a-network",
+      "https://livrepository.liverpool.ac.uk/3003004/",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=37B52"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 Theorem 2.2 computes minimax first-visit cover time (n−1)^2 for arbitrary oblivious agents; direct statement cannot imply a different first-entry clock.",
+        "2014 Section 5.1, Propositions 5.2–5.3, describes arc phase nesting; this permits instancewise simulation but makes no all-size distributional claim.",
+        "A canonical path recurrent-state orientation criterion and explicit excursion decomposition have been proved from definitions in RESULT.md."
+      ],
+      "reasoning": "A bound on a later exploration event does not determine first recurrence, and a general algorithm for an individual trajectory is not an enumerative theorem over all choices. The rotor-orientation average and central limit are not covered as corollaries by the inspected sources. Unavailable foundational source remains an explicit priority risk.",
+      "searches": [
+        "\"rotor-router\" path \"(n-2)^2\" stabilization",
+        "\"rotor-router\" \"path\" \"lock-in\" \"exact\" time",
+        "\"rotor router\" \"path\" \"average\" \"transient\"",
+        "Time and space optimality of rotor-router graph exploration 2015 PDF Section 2",
+        "Lock-in Problem for Parallel Rotor-router Walks arxiv:1407.3200 Section 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest accessible one-walker claim treats a cyclic graph, not a path.",
+        "2014 preprint arxiv:1407.3200, Section 5.1, represents individual walks as expanding Eulerian phases; it gives no exact distribution over endpoint-initialized rotor strings."
+      ],
+      "reasoning": "The recurrence clock is the first entrance into the FULL state orbit (position plus all rotors), not first vertex coverage or first return to launch. Cyclic and path walks are not equivalent under boundary conditions: deleting an edge creates two degree-one ends and changes the state space. The general phase simulation makes the observable computable for any given initial rotor state but does not state or trivially specialize to the claimed exact distribution and fluctuation law.",
+      "searches": [
+        "single rotor-router graph recurrent cycle transient entry path versus cycle, initial rotor orientations and endpoint launch",
+        "rotor-router walker on finite path precise first-recurrence time extremizers expectation",
+        "rotor router lock-in transient endpoint path lengths m squared unique extremal and expected transient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic index returned no directly relevant title or formula; its nearest indexed hits addressed different dynamics, including XOR systems on triangle–pentagon windmill graphs.",
+        "Accessible earlier claims include a rotor-router theorem for a cyclic graph rather than a path; no endpoint-started path theorem was identified in those recoverable claims.",
+        "Independent integer checks of newly obtained polynomial and recurrence are computation, not literature evidence."
+      ],
+      "reasoning": "No matching exact table was found in the searched index or accessible own claims. Failure to find one is not proof of global novelty. The exhaustive small-size outputs were created for verification and do not claim exhaustive literature coverage.",
+      "searches": [
+        "path graph rotor router walker starts at endpoint first periodic entry time exact generating polynomial of initial rotor orientations, quadratic worst-case and Gaussian limit",
+        "rotor-router deterministic Euler tour endpoint initiated path n, initial arrows to one endpoint, exact 2 sum indexed right rotors minus furthest right",
+        "rotor router lock-in transient endpoint path lengths m squared unique extremal and expected transient"
+      ]
+    },
+    "rationale": "The direct source comparison distinguishes worst-case cover time, generic individual-instance phase simulation and first full-state recurrent entry. No inspected source or accessible prior claim gives the exact endpoint-initialized clock polynomial, fixed-mark extrema, mean or Gaussian limit. Originality is provisional because 2003 and 1996 full texts were unavailable.",
+    "residual_risks": [
+      "Historical priority: original 2003 Algorithmica full text could not be accessed.",
+      "Historical priority: antecedent 1996 conference and technical report were known by bibliographic references, not read.",
+      "Published general phase algorithm could permit a different independent derivation, but no equivalent ensemble enumeration was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN_COVER_TIME_NOT_SAME_CLAIM",
+        "evidence": "Theorem 2.2: first opposite-endpoint visit takes worst-case (n−1)^2; the new event is complete-state first recurrence with maximum (n−2)^2.",
+        "identifier_or_url": "https://arxiv.org/pdf/1502.05545",
+        "material_read": "5-page preprint; introduction and Theorem 2.2 proof, summary and references, PDF text and relevant page screenshot",
+        "method": "Opened full preprint, read Sections 1–2 and examined PDF page 3 and remaining section text",
+        "title": "Time and space optimality of rotor-router graph exploration",
+        "trigger": "Direct path rotor-router worst-case benchmark"
+      },
+      {
+        "assessment": "GENERIC_PHASE_METHOD_DOES_NOT_STATE_ENSEMBLE_DISTRIBUTION",
+        "evidence": "Section 5.1 provides phase-based simulation; no endpoint-started first-periodic-entry polynomial or Gaussian law identified in the inspected material.",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.3200",
+        "material_read": "Introduction, related work, Sections 4.13 and 5.1 (Propositions 5.2–5.3, 5.4–5.10); selected relevant PDF screenshots",
+        "method": "Read and searched full parsed PDF for path, single token and phase decomposition; examined Section 5.1 screenshot",
+        "title": "Lock-in Problem for Parallel Rotor-router Walks",
+        "trigger": "General lock-in and single-agent exploration algorithm could dominate exact path formula"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_PRIORITY_RISK",
+        "evidence": "2003 abstract establishes eventual uniform Eulerian patrol and upper bounds; unavailable full text could contain more.",
+        "identifier_or_url": "https://d3ccyth396mz21.cloudfront.net/publications/a-distributed-ant-algorithm-for-efficiently-patrolling-a-network",
+        "material_read": "Public bibliographic record and full abstract only; original article not obtained",
+        "method": "Read accessible publisher-linked abstract, checked release date and attempted lawful institutional retrieval",
+        "title": "A distributed ant algorithm for efficiently patrolling a network",
+        "trigger": "Original 2003 rotor-router mechanism and lock-in estimate"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_NONDECISIVE",
+        "evidence": "Work is concerned with general worst-case lock-in and graph perturbations; no endpoint distribution in abstract.",
+        "identifier_or_url": "https://livrepository.liverpool.ac.uk/3003004/",
+        "material_read": "University repository bibliographic record and article abstract; PDF server request unsuccessful",
+        "method": "Read university repository abstract and documented inability to inspect attached manuscript",
+        "title": "Robustness of the Rotor-Router Mechanism",
+        "trigger": "Could address sharper initial-pointer lock-in times"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d32c930-eef2-4aed-8c6f-1b6817caa807",
+  "value": {
+    "rationale": "First full-state periodic entry is a canonical operational quantity of rotor-walk graph exploration. The exact clock polynomial simultaneously resolves every finite-time population for all path lengths, sharp worst-case and fixed-rotor-count extremizers, exact expected initialization delay, and universal m^(3/2) Gaussian fluctuations. Unlike a single n-specific census or worst-case bound, the result characterizes the entire initialization ensemble.",
+    "status": "PASS"
+  }
+}
