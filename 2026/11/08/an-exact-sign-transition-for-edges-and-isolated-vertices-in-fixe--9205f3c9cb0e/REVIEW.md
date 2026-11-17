@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A fixed selected-isolate indicator reduces the edge--isolate covariance to the difference of two exact hypergeometric edge expectations. Equations (6)--(10) prove the full closed expression and cover the zero-probability boundaries. Sign ranges follow from a strictly positive conditional prefactor and the linear factor \(m(k-2r)+2\), with the capacity-two exception checked separately. Within-block independence gives the separate independent-retention formula. Fixed-parameter limits follow from the exact binomial-ratio product; direct exact arithmetic independently checks finite cases. No claim of stronger association or all-parameter finite verification is made.
+PASS
 
-## Originality
+For r,m>=2 uniform k-subset of G=r K_m, put N=rm, B=(r-1)m, Q=k*C(B,k-1)/C(N-1,k-1), Q=0 outside range. E[E]=(m-1)k(k-1)/(2(N-1)); marking an isolated selected vertex removes its entire clique and leaves uniform k-1 subset of r-1 other cliques, yielding E[E|isolated v]=(m-1)(k-1)(k-2)/(2(B-1)). Cov(E,I)=Q times their difference, exactly Q*(m-1)*(k-1)*(m(k-2r)+2)/(2(B-1)(N-1)). Q>0 iff 1<=k<=B+1. This yields sharp sign negative 2<=k<=2r-1 and positive 2r<=k<=B+1 for m>=3, with remaining zero and m=2 exceptional. Bernoulli per-vertex retention yields blockwise E*I identically zero and covariance -r C(m,2)m p^3(1-p)^(m-1)<0. Fixed-r,k,m->infty limits derive from product ratios. Independent exact hypergeometric weighted occupancy enumeration verified all allowed k for 2<=r<=4, 2<=m<=5. These are corroborations of an all-integer algebraic argument.
 
-**PASS, with material historical risk.** The distinguishing claim is the complete all-parameter sign phase boundary for induced-edge versus isolate counts under finite-capacity *fixed-cardinality* sampling, including the capacity-two exception and the independent-retention sign reversal. Janson (arXiv:0804.1656) studies random-graph percolation and cores rather than this fixed host covariance. Penrose (arXiv:0901.3493) treats iid occupancy singleton normal approximation. The published richness--occupancy and richness--collision covariance theorems inspect different response statistics and a with-replacement model. Holst (1979) and Charalambides (1981, 2005) treat highly relevant general finite-urn and joint-frequency frameworks; their abstracts/bibliographic descriptions are available but full texts were not accessible. Their broader machinery might subsume the covariance identity after algebra; whether their results already include this sharp sign classification is unresolved. A lack of exact-title matches is not treated as proof of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The number of induced edges and the number of isolated selected vertices jointly measure collision and singleton structure in finite groups. Their dependence matters for fixed-budget site sampling and finite-species allocation. The exact threshold \(k=2r\) is independent of group capacity \(m\ge3\), while \(m=2\) has no positive phase. This nontrivial full-range sign classification, in direct contrast to independent vertex retention, is more informative than a generic moment formula; the critical-size positive effect is quantified to order \(1/m\).
+Same objects rewritten as capped occupancy vector and singleton/pair collision counts; compared true sampling mechanism and statistic to with-replacement richness/frequency, random graph motif covariance, and foundational finite-urn distributions. No inspected prior theorem states or dominates this sharp all-parameter sign law. Restricted-occupancy 1981 source is particularly plausible, but only abstract readable; retain explicit access risk rather than pretending full noncoverage.
 
-## Closest sources and limitations
+## value
 
-The closest theoretical risk is that general historical finite-population occupancy generating functions or joint moments encode the exact mixed covariance. Retrieved abstracts do not resolve whether they also contain the sign threshold; stronger implicit coverage remains possible. Other limitations are equal clique sizes, covariance rather than conditional regression, and finite-program checks used only as independent corroboration.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Edges and isolates are natural induced-subgraph counts. The sharp k=2r threshold (independent of clique capacity for m>=3), capacity-two exception, boundary m^-1 correction, and reversal relative to independent vertex percolation make a motivated complete finite-population correlation phase diagram. Raw multivariate hypergeometric moments are classical, but the exact threshold and contrasting sampling law are a useful precise result, not an arbitrary unmotivated table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
