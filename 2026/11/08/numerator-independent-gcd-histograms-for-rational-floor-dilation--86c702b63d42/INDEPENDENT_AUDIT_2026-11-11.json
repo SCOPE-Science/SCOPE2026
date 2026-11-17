@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T23:53:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/numerator-independent-gcd-histograms-for-rational-floor-dilation--86c702b63d42/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/numerator-independent-gcd-histograms-for-rational-floor-dilation--86c702b63d42/verify.py",
+        "https://arxiv.org/html/2611.02223v1"
+      ],
+      "rationale": "For every coprime positive p,q with q>=2, write n=qk+r. The Bezout matrix [[U,V],[-p,q]] is unimodular and converts gcd(n,floor(pn/q)) to gcd(k+Ur+V floor(pr/q), pr mod q). Nonzero residual values permute 1,...,q-1 and each divides L=lcm(1,...,q-1), so every qL-block has per-fiber counts (L/d)Σ_{j<=floor((q-1)/d)}φ(j)/j. The r=0 fiber contributes indicator(BL<d<=(B+1)L), since gcd(qk,pk)=k. Averaging blocks yields delta_q and lost mass 1/q; Möbius inversion gives fixed-d limit 1/(ζ(2)d²) with O(log q/(dq)). Independently enumerated q=5 reduced numerators and B=0,1,2 with exact agreement.",
+      "residual_risks": [
+        "The q→∞ statement fixes d, and the n→∞ density fixes q first. No joint q,n limit or irrational-slope claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2611.02223v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-periods-and-a-prime-denominator-transition-law-for-rationa--b7932551eaf2"
+        ],
+        "reasoning": "The Holdridge theorem requires total homogeneous equidistribution and treats the gcd=1 event, excluding a reduced rational linear slope. The prime-denominator monomial work covers k>=2 and its coprimality indicator only; neither controls this full rational linear histogram.",
+        "searches": [
+          "Holdridge integer parts of polynomials coprime totally homogeneously equidistributed",
+          "Resultary exact periods prime denominator rational floor polynomial k≥2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.02223v1",
+        "https://doi.org/10.3247/SL5Math14.005",
+        "https://ojs.utlib.ee/index.php/ACUTM/article/download/ACUTM.2023.27.04/17067/30529",
+        "https://oeis.org/A250031"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2611.02223v1",
+          "https://ojs.utlib.ee/index.php/ACUTM/article/download/ACUTM.2023.27.04/17067/30529",
+          "https://doi.org/10.3247/SL5Math14.005"
+        ],
+        "reasoning": "The irrational equidistribution theorem has an inapplicable hypothesis; rational slopes produce 1/q escaping mass, inconsistent with an all-mass zeta law at fixed q. The other identified sources concern different index pairings or only coprimality.",
+        "searches": [
+          "arXiv:2611.02223v1 theorem totally homogeneous equidistribution",
+          "Srichan 2023 integral part sets gcd pair counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2611.02223v1",
+          "https://oeis.org/A250031",
+          "https://doi.org/10.3247/SL5Math14.005"
+        ],
+        "reasoning": "The floor relation transforms under an SL_2(Z) matrix into gcd(k+c_r,pr mod q); summing over a complete period is invariant under p. This is stronger than the irrational Weyl-equidistributed coprimality limit and stronger than a tabulation of a single gcd=1 density.",
+        "searches": [
+          "Resultary gcd(n, floor(p n / q)) numerator independence rational floor dilation coprimality totient distribution",
+          "floor rational dilation gcd unimodular congruence modular residue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://oeis.org/A250031",
+          "https://doi.org/10.3247/SL5Math14.005"
+        ],
+        "reasoning": "The existing p=1,d=1 density table is a genuine previously known specialization, explicitly credited. New finite-block counts for arbitrary reduced numerator and all gcd d, including growing r=0 tail, are not the same data.",
+        "searches": [
+          "OEIS A250031 rational floor coprimality density",
+          "Sykora 2014 gcd(n floor(n/q)) coprimes"
+        ]
+      },
+      "rationale": "The unimodular residue-class reduction yields exact numerator-independent full gcd histograms on every block of q*lcm(1,...,q-1), including escaping 1/q mass. Prior literature supplies irrational polynomial coprimality densities and p=1 gcd=1 tables; those cannot imply every positive gcd value for every numerator on every finite block.",
+      "residual_risks": [
+        "Sykora 2014 and the 2023 Srichan full articles were not fully material-read: any direct generalization hidden there remains a priority risk; this does not by itself negate the explicit new full-histogram theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Totally-homogeneous equidistribution and gcd-one density; fixed rational slopes fail hypotheses and finite gcd histograms absent from stated results.",
+          "evidence": "Introduction definitions/theorem arXiv 2611.02223v1",
+          "identifier_or_url": "https://arxiv.org/html/2611.02223v1",
+          "material_read": "arXiv HTML abstract, introduction, definitions and theorem assumptions, and relevant proof structure inspected",
+          "method": "Primary full HTML with searchable sections",
+          "title": "On the probability that the integer parts of polynomials are coprime",
+          "trigger": "Potential general floor-polynomial gcd coverage"
+        },
+        {
+          "assessment": "An earlier coprimality special case is acknowledged; unable to rule out further equivalent histograms inside inaccessible full text.",
+          "evidence": "DOI:10.3247/SL5Math14.005",
+          "identifier_or_url": "https://doi.org/10.3247/SL5Math14.005",
+          "material_read": "Citation and reported p=1 gcd-one result; protected primary full text not inspected",
+          "method": "Bibliographic/cited statements only",
+          "title": "On some number densities related to coprimes",
+          "trigger": "Direct p=1 rational floor coprimality antecedent"
+        },
+        {
+          "assessment": "Previously known p=1,d=1 table cannot itself establish all finite histograms.",
+          "evidence": "OEIS:A250031",
+          "identifier_or_url": "https://oeis.org/A250031",
+          "material_read": "Named sequence and relation as cited; full database entry not read in this run",
+          "method": "Indexed sequence reference",
+          "title": "OEIS A250031",
+          "trigger": "Exact rational coprimality table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2611.02223v1",
+        "https://oeis.org/A250031",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/numerator-independent-gcd-histograms-for-rational-floor-dilation--86c702b63d42"
+      ],
+      "rationale": "The full finite-block gcd histogram of the natural correlated pair (n,floor(pn/q)) is a motivated exact arithmetic invariant: the SL2Z invariance explains why every reduced numerator has identical counts, and the pointwise density loses exactly 1/q mass despite approaching the zeta coprimality profile as q grows. Previous gcd-one tables neither determine every fiber nor the mass-escape mechanism.",
+      "residual_risks": [
+        "Large-block L may be enormous; no claim of efficient all-q simultaneous computation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Missing full Sykora/Srichan specialized literature is a residual originality risk, not a correctness defect or automatic originality failure.",
+    "Finite checks are corroboration, not substitute for universal proof.",
+    "Publication not_ready is a transport/privacy status, not a scientific axis failure."
+  ],
+  "schema_version": 1
+}

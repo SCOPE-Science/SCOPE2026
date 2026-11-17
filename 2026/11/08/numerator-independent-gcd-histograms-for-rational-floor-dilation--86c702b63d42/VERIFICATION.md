@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python3 verify.py` using the standard Python library; no external packages or network access are required. The recorded replay of the embedded checker gave:
+# Independent mathematical audit
 
-```
-EXACT_BLOCK_HISTOGRAMS_OK cases=276 q=2..11 blocks=0,1,2
-UNIMODULAR_GCD_IDENTITY_OK cases=2133 q=2..699
-MASS_IDENTITY_OK cases=98 q=2..99
-SAMPLE q=5 L=12 block=0 p=2 or 3: d=1 count=33 d=2 count=10 d=3 count=5 d=4 count=4
-VERIFY_OK arithmetic=exact finite_checks_do_not_replace_general_proof=true
-```
+## correctness
 
-The first test independently enumerates all gcd values for the complete tested blocks; the second checks unimodular identities on randomly but deterministically sampled exact integers; the third verifies the totient mass identity with exact fractions. A finite test cannot prove the all-denominator theorem, the natural-density assertion, or the large-denominator asymptotic: those are established by the symbolic argument in RESULT.md. No independent mathematical audit has been performed.
+PASS
+
+For every coprime positive p,q with q>=2, write n=qk+r. The Bezout matrix [[U,V],[-p,q]] is unimodular and converts gcd(n,floor(pn/q)) to gcd(k+Ur+V floor(pr/q), pr mod q). Nonzero residual values permute 1,...,q-1 and each divides L=lcm(1,...,q-1), so every qL-block has per-fiber counts (L/d)Σ_{j<=floor((q-1)/d)}φ(j)/j. The r=0 fiber contributes indicator(BL<d<=(B+1)L), since gcd(qk,pk)=k. Averaging blocks yields delta_q and lost mass 1/q; Möbius inversion gives fixed-d limit 1/(ζ(2)d²) with O(log q/(dq)). Independently enumerated q=5 reduced numerators and B=0,1,2 with exact agreement.
+
+## originality
+
+PASS
+
+The unimodular residue-class reduction yields exact numerator-independent full gcd histograms on every block of q*lcm(1,...,q-1), including escaping 1/q mass. Prior literature supplies irrational polynomial coprimality densities and p=1 gcd=1 tables; those cannot imply every positive gcd value for every numerator on every finite block.
+
+## value
+
+PASS
+
+The full finite-block gcd histogram of the natural correlated pair (n,floor(pn/q)) is a motivated exact arithmetic invariant: the SL2Z invariance explains why every reduced numerator has identical counts, and the pointwise density loses exactly 1/q mass despite approaching the zeta coprimality profile as q grows. Previous gcd-one tables neither determine every fiber nor the mass-escape mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
