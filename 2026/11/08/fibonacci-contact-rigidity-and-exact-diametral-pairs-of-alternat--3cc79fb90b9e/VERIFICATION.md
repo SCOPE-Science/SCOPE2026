@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification of the contact and diameter formulas
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`. For an independent finite check, execute `python3 verify.py` with a standard Python installation. It enumerates all feasible nonnegative integer coordinate vectors directly from the alternating inequalities for each \(d\in\{2,3,4,5,6,7,8\}\) and \(s\in\{1,2,3,4\}\), calculates each vector's exact squared distance from the asserted center after multiplying by four, counts equality cases, and counts unordered pairs of contact vectors whose coordinatewise midpoint equals the proposed center. The script checks the expected four-times-squared radius, contact counts and diametral-pair counts and exits on any mismatch.
+## correctness
 
-The checked parameter grid has 28 cases and 74,364 feasible integer vectors in total; all checks passed. Integer feasible points are enough to test these predictions in the small examples because the proof shows all contacts are integral in this family. But neither the finite enumeration nor those observations establish the theorem in arbitrary dimension; the analytic argument provides that step. Exact integer arithmetic avoids floating-roundoff effects.
+PASS
 
-Independent audit: not performed.
+The product of T_s triangles plus an optional terminal interval contains P_d^(s). The product circumball has unique center and radius from block geometry; two feasible mutually antipodal points force optimality, uniqueness and diameter 2R. Strict convexity shows contacts must be container vertices. Even-index bounds are equivalent to no adjacent positives for integer s>=2, so contacts correspond bijectively to path independent sets (F_(d+2)); when s=1 all product corners survive except odd-dimensional terminal restrictions (3^r or 5*3^(r-1)). Antipodal corners in each triangle must be (s,0)/(0,s); cross-interface feasibility forces one unordered orientation pair for s>=2, whereas s=1 leaves 2^(r-1). Independently enumerated all block-corner contacts and antipodal pairs for 36 (d,s) instances, including d=2,3; finite checks corroborate but do not establish arbitrary d.
+
+## originality
+
+PASS
+
+No available published result supplies the exact ball-contact and antipodal-pair classification for this precise noncyclic two-period adjacent-sum family. The motivating July 2026 preprint describes lattice counts, transfer matrices, Gorenstein behavior and s=1 triangle products in its public abstract. Its full primary text was not obtainable and authorized access is unavailable; this is a substantial named priority risk, but inaccessible literature alone is not a proof of coverage. Classical path independent-set Fibonacci counts are credited.
+
+## value
+
+PASS
+
+Complete equality-case geometry reveals a sharp discrete transition at s=2 and an exponential-to-unique collapse in diametral pairs within a natural recently studied lattice-polytope family. The radius is elementary from a product relaxation; the boundary-contact classification and all unordered diametral configurations are the substantive original invariants, potentially useful when studying extremal Euclidean geometry of these polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
