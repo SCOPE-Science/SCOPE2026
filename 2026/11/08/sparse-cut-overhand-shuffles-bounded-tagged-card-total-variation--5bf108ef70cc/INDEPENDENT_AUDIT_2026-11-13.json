@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:07:06.105992Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 1ea657fb206857dca43198b3760d2a5a27ef9df2, standalone verify.py blob 9423910e2aaeb616e52a613d7f5404baef1158d5",
+        "independent exact symbolic normalization: q^n yields residual 0 whereas q^(n+1) leaves (-1)^k q^(n+1)(1-q)ell/(p^2+q ell)",
+        "independent direct finite matrix eigenvector checks n=4,7,16,31",
+        "corrected full proof SHA256 e2789f350211da2a2801e20bb1844f3c5442d0b1f9ed030fe88198fa64b8b549"
+      ],
+      "rationale": "The original package contains a false exact bulk identity: it subtracts (-1)^k q_n^(n+1) instead of (-1)^k q_n^n from Jiang’s eigenvalue. Algebra leaves a nonzero term of size O(n^-1) in the old identity. The complete replacement RESULT.md now sets b_n=q_n^n and proves exactly lambda_{n,k}-(-1)^k b_n = p_n^2(1-(-1)^k b_n)/(p_n^2+q_n ell_{n,k}). This repairs the uniform bulk estimate, retaining the correct n exp(-2ct)+o(1) theorem. Independently checked the exact kernel, symmetry, Doeblin minorization and cosine eigenvalues for n=4,7,16,31 and three cut intensities; this confirms finite identities, not the infinite limit. The corrected low/bulk proof bounds low modes by n^alpha r^{2t}=o(1) and the bulk by O(k^-2), uniformly in starts and integer times.",
+      "residual_risks": [
+        "The conclusion concerns one tagged-card marginal, not mixing of the full permutation deck.",
+        "All n-limit claims rely on analytic bounds, not the finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang 2026 abstract states fixed p and whole-deck TV/entropy cutoff.",
+          "Jonasson 2006 pp 231–243 Sections 1–3 uses p=1/2 then fixed p generalization and studies full deck."
+        ],
+        "reasoning": "The known full-deck fixed-p theorems do not cover n-dependent p=c/n one-card chi-square mixing. The spectrum itself is credited.",
+        "searches": [
+          "arxiv:2610.00137 Cutoff for the Overhand Shuffle",
+          "Jonasson The overhand shuffle mixes in n2 logn steps 2006 full transcription"
+        ]
+      },
+      "checked_sources": [
+        "pinned source RESULT.md and verify.py at frozen Git commit",
+        "https://arxiv.org/abs/2610.00137",
+        "https://studylib.net/doc/18250872/the-overhand-shuffle-mixes-in-n2-logn-steps",
+        "Resultary published research search: sparse-cut tagged card c/n mixing",
+        "Oxford full-text attempt for same arXiv paper returned vpn_disconnected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang finite eigenvalues require a new uniform k>n^alpha estimate to produce the stated limit.",
+          "Jonasson fixed-p method treats each card as diffusive with O(1) step variance, which fails in the sparse-cut regime."
+        ],
+        "reasoning": "One may compute the asymptotic from the earlier exact formula, but neither earlier main theorem entails the contrasting two-metric quantitative result by parameter specialization alone.",
+        "searches": [
+          "Jiang 2026 Proposition 3.2 eigenvalue formula and fixed-p theorem",
+          "Jonasson 2006 Section 3 overhand whole-deck eigenfunction method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact eigenvalues from Jiang Proposition 3.2 (as quoted in pinned source) imply Parseval chi-square sums.",
+          "The new limit evaluates these sums at t=(log n)/(2c)+O(1), uniformly in starting position."
+        ],
+        "reasoning": "A uniform singular spectral limit is not the same assertion as individual finite-n eigenvalues; no equivalent limit was located in checked sources.",
+        "searches": [
+          "Resultary semantic query: sparse-cut overhand shuffle tagged card c/n total variation bounded chi-square log n",
+          "web search: Jiang Cutoff for the Overhand Shuffle 2026 proposition 3.2 tagged card spectrum 2610.00137"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the present finding and related but distinct shuffling spectra, not a table of the singular window."
+        ],
+        "reasoning": "The theorem is not a finite-table lookup; the exact finite spectrum is a known input, while no precomputed asymptotic table was identified. Search absence is not novelty proof.",
+        "searches": [
+          "Resultary semantic search: sparse-cut overhand tagged card c/n TV chi-square",
+          "web: tagged card rare cut overhand spectrum p=c/n"
+        ]
+      },
+      "rationale": "Jiang supplies the complete exact one-card spectrum, an indispensable acknowledged input, but its stated full-deck cutoff is in the fixed-p regime. The corrected finding establishes a separate, uniform p_n=c/n singular chi-square window and a Doeblin-vs-chi-square mixing separation. Jonasson proves fixed-parameter whole-deck bounds, not this two-metric one-card limit. The finite spectrum makes the limit derivable but does not itself state or automatically justify the uniform low/bulk asymptotic. Best-of-knowledge originality is conditional on unaccessed primary sections.",
+      "residual_risks": [
+        "Jiang’s full Proposition 3.2 context and other unindexed finite-spectrum consequences could contain a more explicit matching singular limit; full text was inaccessible this run.",
+        "Pemantle (1989) not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-deck fixed-cut regime; not the p_n=c/n tagged-card chi-square claim",
+          "evidence": [
+            "§2.2 lines 133–152 fixes p, §3 lines 212–229 uses p=1/2 and §3 theorem lines 386–393 extends fixed p."
+          ],
+          "identifier_or_url": "https://studylib.net/doc/18250872/the-overhand-shuffle-mixes-in-n2-logn-steps",
+          "material_read": "Full-text transcription, introduction, model §2.2 and proof §3 through Theorem 3.1, lines 29–393",
+          "method": "full public HTML transcription read",
+          "title": "The overhand shuffle mixes in Theta(n^2 log n) steps",
+          "trigger": "same packet-reversal shuffling model"
+        },
+        {
+          "assessment": "Relevant exact input known, but complete primary text inaccessible this run; no whole-document NOT_COVERING claim",
+          "evidence": [
+            "Abstract explicitly fixes p in (0,1) and states full-deck TV cutoff; full-text priority risk remains."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00137",
+          "material_read": "Verified abstract only; source RESULT.md quotes its Proposition 3.2, cross-checked by independent kernel calculation",
+          "method": "indexed arXiv abstract, direct HTML/OA attempt failed, Oxford returned vpn_disconnected",
+          "title": "Cutoff for the Overhand Shuffle",
+          "trigger": "same exact finite-deck spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact tagged-card spectrum and uniform window proof in corrected RESULT.md",
+        "Independent finite matrix and symbolic checks"
+      ],
+      "rationale": "A natural high-dimensional Markov-chain separation shows uniformly bounded one-card TV mixing but diverging chi-square mixing with an explicit integer-time profile. The spectral low/bulk control is not a mere normalization or routine parameter substitution; both the metric contrast and exact window have identifiable probabilistic use.",
+      "residual_risks": [
+        "No claim about optimal TV constants, whole-deck dynamics, or varying c."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md Git blob 1ea657fb206857dca43198b3760d2a5a27ef9df2, standalone verify.py blob 9423910e2aaeb616e52a613d7f5404baef1158d5",
+    "independent exact symbolic normalization: q^n yields residual 0 whereas q^(n+1) leaves (-1)^k q^(n+1)(1-q)ell/(p^2+q ell)",
+    "independent direct finite matrix eigenvector checks n=4,7,16,31",
+    "corrected full proof SHA256 e2789f350211da2a2801e20bb1844f3c5442d0b1f9ed030fe88198fa64b8b549",
+    "Exact tagged-card spectrum and uniform window proof in corrected RESULT.md",
+    "Independent finite matrix and symbolic checks",
+    "pinned source RESULT.md and verify.py at frozen Git commit",
+    "https://arxiv.org/abs/2610.00137",
+    "https://studylib.net/doc/18250872/the-overhand-shuffle-mixes-in-n2-logn-steps",
+    "Resultary published research search: sparse-cut tagged card c/n mixing",
+    "Oxford full-text attempt for same arXiv paper returned vpn_disconnected"
+  ],
+  "disposition": "repaired",
+  "limitations": [
+    "The original exact bulk identity is false; the corrected final proof uses b_n=q_n^n.",
+    "The corrected full RESULT.md is complete in operations, but publication is not ready because publicly exposed package metadata still require sanitization."
+  ],
+  "residual_risks": [
+    "The conclusion concerns one tagged-card marginal, not mixing of the full permutation deck.",
+    "All n-limit claims rely on analytic bounds, not the finite checks.",
+    "No claim about optimal TV constants, whole-deck dynamics, or varying c.",
+    "Jiang’s full Proposition 3.2 context and other unindexed finite-spectrum consequences could contain a more explicit matching singular limit; full text was inaccessible this run.",
+    "Pemantle (1989) not read in full."
+  ],
+  "schema_version": 1
+}

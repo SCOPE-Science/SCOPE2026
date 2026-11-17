@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The packet run lengths admit an independent truncated-geometric representation. Choosing an endpoint packet for each target cell proves a dimension-free Doeblin minorization; the no-cut event provides the complementary fixed-time lower bound. The exact published cosine diagonalization supplies the full spectral input. The proof then separates at \(k\asymp n^\alpha\) and controls low modes geometrically and bulk modes through a \(k^{-2}\) perturbation, obtaining the uniform integer-time \(\chi^2\) profile. A standalone finite checker tests the identities directly; it cannot certify asymptotic uniformity on its own.
+## correctness
 
-## Originality — PASS, provisional
-Jiang's arXiv:2610.00137v1 contains the exact finite-deck spectrum and proves fixed-cut full-deck cutoff; those spectral formulas are not claimed as new. The singular-cut scaling \(p_n=c/n\), its uniform initial-position \(\chi^2\) profile, and its separation from one-card TV mixing are not stated in the inspected paper. Jonasson's fixed-parameter full-deck analysis is also inapplicable to the same singular-window conclusion without new estimates. Possible prior formulations, especially in earlier one-card shuffling literature, remain an acknowledged risk.
+PASS
 
-## Mathematical value — PASS
-The finding exhibits and quantitatively explains a nontrivial divergence of two natural mixing metrics in a physical shuffle's one-card marginal. The chi-square transition has an exact logarithmic location and a discrete-time window, even while the stronger entrywise minorization provides total-variation equilibration in bounded time. This distinguishes sparse-packet behavior from the fixed-cut diffusive regime.
+The original package contains a false exact bulk identity: it subtracts (-1)^k q_n^(n+1) instead of (-1)^k q_n^n from Jiang’s eigenvalue. Algebra leaves a nonzero term of size O(n^-1) in the old identity. The complete replacement RESULT.md now sets b_n=q_n^n and proves exactly lambda_{n,k}-(-1)^k b_n = p_n^2(1-(-1)^k b_n)/(p_n^2+q_n ell_{n,k}). This repairs the uniform bulk estimate, retaining the correct n exp(-2ct)+o(1) theorem. Independently checked the exact kernel, symmetry, Doeblin minorization and cosine eigenvalues for n=4,7,16,31 and three cut intensities; this confirms finite identities, not the infinite limit. The corrected low/bulk proof bounds low modes by n^alpha r^{2t}=o(1) and the bulk by O(k^-2), uniformly in starts and integer times.
 
-## Scope and limitations
-No assertion about full-deck equilibration, any \(c\) varying with \(n\), or a continuous-time profile at arbitrary floor-centered times is made. Independent historical-priority validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jiang supplies the complete exact one-card spectrum, an indispensable acknowledged input, but its stated full-deck cutoff is in the fixed-p regime. The corrected finding establishes a separate, uniform p_n=c/n singular chi-square window and a Doeblin-vs-chi-square mixing separation. Jonasson proves fixed-parameter whole-deck bounds, not this two-metric one-card limit. The finite spectrum makes the limit derivable but does not itself state or automatically justify the uniform low/bulk asymptotic. Best-of-knowledge originality is conditional on unaccessed primary sections.
+
+## value
+
+PASS
+
+A natural high-dimensional Markov-chain separation shows uniformly bounded one-card TV mixing but diverging chi-square mixing with an explicit integer-time profile. The spectral low/bulk control is not a mere normalization or routine parameter substitution; both the metric contrast and exact window have identifiable probabilistic use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
