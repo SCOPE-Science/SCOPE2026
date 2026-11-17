@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every selected pair of disjoint edges in the auxiliary complete graph restricts the entire dissociation set to their four endpoints. Without a disjoint pair, every pairwise-intersecting edge family is contained in a star or triangle. The proof establishes these exhaustive alternatives, counts the classes without double counting (including all \(n=4\) boundary cases), and checks all directions of inclusion-maximality. The displayed polynomials and the \(n=4,7\) uniformity classification follow. Direct independent adjacency enumeration checks every subset for \(n=4\) through \(n=7\). These finite checks corroborate, but do not replace, the unrestricted proof.
+## correctness
 
-## Originality — PASS, provisional publication priority
-The closest same-object paper is Brešar and Dravec (2021), *On the dissociation number of Kneser graphs*, especially Proposition 2.1. **Their proof already includes the four-support containment for two disjoint selected pairs and proves the maximum cardinality \(\max\{n-1,6\}\). Neither point is new here.** The assessed increment is the full all-cardinality polynomial, exact inclusion-maximal families and their multiplicities, and the sharp \(n=4,7\) uniform-dissociation criterion. These statements require additional disjoint versus intersecting family accounting; they are not equivalent to knowing the maximum size. Brešar–Hartnell–Rall (2017) defines and investigates uniform dissociation, without this Kneser-family determination. Tu–Li–Du (2021) treats general extremal bounds on the number of maximal dissociation sets, not the exact enumerator for this family. Tu–Xiao–Lang (2023) treats cubic-graph dissociation polynomials, not the all-order family. Unindexed equivalent formulations remain a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The number of all dissociation sets and the distribution of **inclusion-maximal** dissociation sets are natural invariants motivated by graph polynomials and the uniformly dissociated graph problem. The complete classification reveals the exceptional nontrivial uniformly dissociated graph \(KG(7,2)\), differentiates maximum from maximal solutions, and yields unbounded missing-cardinality intervals. It is not merely a rederivation of the previously known maximum dissociation number. The simple finite support of one of the two families makes the structural dichotomy particularly useful for exact enumeration.
+For n>=4 the vertices of KG(n,2) are edges on n labels; any selected disjoint pair ab,cd forces every other selected edge into {ac,ad,bc,bd}, giving a unique four-point support. Without disjoint pairs, a 2-uniform intersecting family is a star or triangle. Counting sizes 0,1,2 separately and the 12 three-edge,15 four-edge,6 five-edge,1 six-edge four-support families yields the displayed D_n. Adding any missing four-support edge preserves dissociation, and n>=5 complete stars have at least two neighbors disjoint from every outside pair, so precisely the claimed maximal sets survive (n=4 exceptional). Independent enumeration of all 2^6+2^10+2^15+2^21=2,131,008 subsets gives dissociation counts [64,261,747,1751] and maximal size distributions n=4 {6:1},n=5 {4:5,6:5},n=6 {5:6,6:15},n=7 {6:42}. This is finite corroboration of unrestricted proof.
 
-## References and limitations
-Closest inspected primary sources: Brešar–Hartnell–Rall, *Uniformly dissociated graphs* (2017), DOI 10.26493/1855-3974.1013.46a; Tu–Li–Du, *Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs* (2021), arXiv:2103.01402; Brešar–Dravec, *On the dissociation number of Kneser graphs* (2021), arXiv:2108.10801, especially Proposition 2.1; Tu–Xiao–Lang, *Counting the number of dissociation sets in cubic graphs* (2023), DOI 10.3934/math.2023507. The theorem only addresses \(KG(n,2)\) for integers \(n\ge4\); it does not address higher subset rank, nor does the finite verifier prove the unrestricted result. No independent priority search or independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2021 Brešar–Dravec proposition already proves maximum size max(n-1,6) and the four-support restriction; these are explicitly excluded from new credit. The complete all-set polynomial and all inclusion-maximal sets including the purity n=4,7 classification and arbitrary cardinality gaps are not implied by that numerical maximum. Triangular/rook graph dissociation polynomials are for different adjacency graphs.
+
+## value
+
+PASS
+
+An exact dissociation polynomial and complete list of inclusion-maximal sets solve natural enumerative and facet/purity questions for the classical Kneser family, not just recomputation of the known extremal dissociation number. The n=7 equality and n>=9 unbounded missing-size interval are structural phenomena a graph researcher can cite; proof is uniform in n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

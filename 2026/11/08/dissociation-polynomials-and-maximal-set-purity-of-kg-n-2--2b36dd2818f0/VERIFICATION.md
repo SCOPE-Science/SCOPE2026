@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The included `verify.py` uses only the standard Python library. It constructs the vertex set of \(KG(n,2)\) from the two-element subsets of \([n]\), constructs every adjacency independently using disjointness, enumerates every candidate subset for \(n=4,5,6,7\), and tests induced degrees, plus maximality by attempted addition of each missing vertex. It compares the entire resulting coefficient vectors to both claimed polynomials. The exact number of examined subsets is
-\[
-2^{\binom42}+2^{\binom52}+2^{\binom62}+2^{\binom72}=2,131,008.
-\]
-There are 2,823 dissociation sets and 74 inclusion-maximal dissociation sets over these four orders. The output expected after an ordinary run is:
+## correctness
 
-```text
-VERIFY_OK full_orders=4..7 subsets=2131008 dissociation_sets=2823 maximal_sets=74 polynomials=PASS structural_families=PASS generated_orders=8..12 generated_maximal_sets=1281
-```
+PASS
 
-Additionally, for \(n=8,9,10,11,12\), the verifier independently builds every proposed complete-star and four-support maximal set, tests it against the graph's adjacency, and checks that its count is \(\binom n4+n\). This last check is **not** an exhaustive search of all subsets for those orders. All finite checks agree with the proof; the infinite statement is established by the structural dichotomy and maximality arguments in `RESULT.md`, not by extrapolation. There is no external mathematical certification or independent audit.
+For n>=4 the vertices of KG(n,2) are edges on n labels; any selected disjoint pair ab,cd forces every other selected edge into {ac,ad,bc,bd}, giving a unique four-point support. Without disjoint pairs, a 2-uniform intersecting family is a star or triangle. Counting sizes 0,1,2 separately and the 12 three-edge,15 four-edge,6 five-edge,1 six-edge four-support families yields the displayed D_n. Adding any missing four-support edge preserves dissociation, and n>=5 complete stars have at least two neighbors disjoint from every outside pair, so precisely the claimed maximal sets survive (n=4 exceptional). Independent enumeration of all 2^6+2^10+2^15+2^21=2,131,008 subsets gives dissociation counts [64,261,747,1751] and maximal size distributions n=4 {6:1},n=5 {4:5,6:5},n=6 {5:6,6:15},n=7 {6:42}. This is finite corroboration of unrestricted proof.
+
+## originality
+
+PASS
+
+The 2021 Brešar–Dravec proposition already proves maximum size max(n-1,6) and the four-support restriction; these are explicitly excluded from new credit. The complete all-set polynomial and all inclusion-maximal sets including the purity n=4,7 classification and arbitrary cardinality gaps are not implied by that numerical maximum. Triangular/rook graph dissociation polynomials are for different adjacency graphs.
+
+## value
+
+PASS
+
+An exact dissociation polynomial and complete list of inclusion-maximal sets solve natural enumerative and facet/purity questions for the classical Kneser family, not just recomputation of the known extremal dissociation number. The n=7 equality and n>=9 unbounded missing-size interval are structural phenomena a graph researcher can cite; proof is uniform in n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
