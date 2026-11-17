@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_quadratic.py` and `python3 verify_extensions.py` using standard-library Python 3 from the directory containing the scripts. These programs are standalone and contain no external data dependencies.
+## correctness
 
-The first enumerates the 25 values in \(\mathbb F_5[w]/(w^2-2)\), independently computes the norm/character table, and checks \(N_1=N_2=8\), so \(B_2=0\). The second implements polynomial-basis fields in extension degrees one through four, verifies field multiplicative identities, computes \((N_1,N_2,N_3,N_4)=(8,8,152,592)\), and checks the complete zeta numerator and its listed factorization.
+PASS
 
-The all-curve assertion \(B_r(X)>0\) for every integer \(r\ge3\) follows from exact symbolic inequalities of the Weil bounds, explained in `RESULT.md`. No finite enumeration purports to prove the universal quantifier. The characteristic-five squarefreeness calculation is algebraic and the finite-field witness count is exhaustive.
+Verified squarefreeness of f=x^9+3x^3+2x via derivative, t=x² and f′−4A(t)=2t+4, where A(3)=2 nonzero, giving smooth genus4 odd-degree hyperelliptic model. Independently counted all pairs x,y in F25=F5[w]/(w²−2) and in F5 with exact field arithmetic, obtaining N1=N2=8 and thus B2=0. For all genus4 curves, Weil bounds yield N3−N1>=120−48√5>0 and B3>0; for r>=4, proper divisor sum bound <25/4·5^(r/2) and N_r lower bound >5^(r/2)(5^(r/2)−57/4)+1 ensure r B_r>0. All finite-field and universal quantifiers checked independently; other degrees/fields are not claimed.
 
-No machine-readable evidence of an independent mathematical audit is claimed. Historical-priority uncertainty is disclosed in the result and review.
+## originality
+
+PASS
+
+Aubry–Herbaut–Monaldi prove general bounds and genus<=3 exact thresholds; Bars–Lario–Vrioni present genus-four Diophantine-stable candidate isogeny classes but explicitly do not construct a genus-four F5 witness from the tabulated Weil polynomial. The published Lario candidate polynomial is prior and not novel. The explicit hyperelliptic realization and universal rho(5,4)=3 survive current comparisons, subject to Vrioni thesis historical risk.
+
+## value
+
+PASS
+
+Natural exact threshold rho(q,g) left open at the first genus beyond surveyed low genus, resolved by a concrete genus-four Diophantine-stable witness and uniform all-degree proof. Independently useful closed-point existence boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
