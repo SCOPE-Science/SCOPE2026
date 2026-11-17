@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:59:24.139260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2, all mirrored leaf prices c_i>0, bridge price d>0 and B>0, strict convexity of trace inverse on 1-perp and injectivity of simple edge Laplacians give a unique global connected optimum; hub reflection enforces equal optimal conductance on each leaf spoke pair. The resistance decomposition gives unscaled K=(m+1)/2 Σ1/x_i+(m+2)/(Σx_i+2y). At y=0 KKT yields unique monotone rho from Σsqrt(A/(rho c_i−C))=1 and dcrit=4C/rho. For d<dcrit interior KKT yields positive k_i, Σk_i<1, explicit y and x_i with budget exhaustion, while d>=dcrit gives y=0; equality and equal-price 8/m² limits handled. Independent exact rational Laplacian inversion for a heterogeneous three-leaf design agrees with the scalar objective. Finite design checks corroborate, not replace, global strict convexity/KKT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published book result proves the equal-price support cutoff for every m and budget, and biclique result proves any leaf-specific prices with no shunt.",
+          "Neither of the two read complete published proofs permits independent direct hub conductance y>0 with arbitrary mirrored c_i."
+        ],
+        "reasoning": "A direct extension requires deriving threshold 4C/rho from the no-bridge KKT inequality and interior k_i=sqrt(Ad/[C(4c_i-d)]), not a parameter rename. Classical generic numerical convexity alone does not imply these evaluated formulas.",
+        "searches": [
+          "Resultary semantic: heterogeneous two hub K2m weighted conductance budget resistance Kirchhoff shortcut price threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md",
+          "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_design.py (tree 2d126845a90926f5e73b4e9d94958fad1bc658c8)",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "Resultary semantic: heterogeneous two hub K2m weighted conductance budget resistance Kirchhoff shortcut price threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The root rho solves Σsqrt(A/(rho c_i−C))=1; dcrit=4C/rho. At c_i=c this becomes the prior exact R_c/c.",
+          "For unequal c_i, the y>0 optimum has x_i=B sqrt(Ad/[C(4c_i−d)])/H and y=B(1−Σk_i)/(2H); prior K_(m,2) has no variable y."
+        ],
+        "reasoning": "Earlier same-graph equal-price theorem implies only the c_i=c specialization, while heterog biclique theorem implies only y=0. Neither implies the whole heterogeneous-with-shortcut active regime; this distinction is the basis for O PASS.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md",
+          "Resultary semantic: heterogeneous two hub K2m weighted conductance budget resistance Kirchhoff shortcut price threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same graph is K_{1,1,m}=K2 join independent m, also called an m-page book; setting c_i=c reduces exactly to published R_c/S.",
+          "Removing the direct edge gives K_{m,2}, identical to a published heterogeneously priced biclique case."
+        ],
+        "reasoning": "The accepted original scope is NOT an independently new uniform-price shortcut law nor a new no-bridge square-root law: it is an unrestricted heterogeneous optional-shunt threshold and active allocation.",
+        "searches": [
+          "Resultary semantic: heterogeneous two hub K2m weighted conductance budget resistance Kirchhoff shortcut price threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior exact equal-price threshold is a closed formula, not merely a precomputed table.",
+          "The submitted theorem quantifies arbitrary m≥2 and arbitrary positive real c_i,d,B; finite tables cannot prove that."
+        ],
+        "reasoning": "Not a known-table recomputation for heterogeneous prices; however the whole equal-price subcase, its asymptotic 8/m² and page-count comparison are already exactly in a published theorem.",
+        "searches": [
+          "Resultary semantic: heterogeneous two hub K2m weighted conductance budget resistance Kirchhoff shortcut price threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+          "Resultary: price-threshold deletion of a perfect matching in determinant-optimal bipartite networks"
+        ]
+      },
+      "rationale": "Originality survives only for the heterogeneous c_i direct-bridge support threshold and positive-bridge radical optimum: published equal-price book theorem already covers the entire c_i=c case, while published heterogeneous biclique covers the y=0 branch; both are explicitly credited. The global activation KKT synthesis across arbitrary positive c_i and d is not entailed by those two published statements without additional argument.",
+      "residual_risks": [
+        "The special equal-price threshold, no-bridge heterogeneous biclique optimum and generic convexity are published prior results and are excluded from standalone novelty claims.",
+        "Unexamined other network-design literature may present the same shunt-activation closed form; search failure is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS EXACTLY the equal-price specialization of audited graph and its dcrit/c ~8/m² asymptotic; does not give unequal c_i formula",
+          "evidence": "Its S=every spoke price and R=bridge price yield R_c/S=8(m+2)/(m³+m²+2m+4), identical after setting c_i=c. The main heterogeneous extension is a different quantifier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+          "material_read": "Complete published RESULT.md proof including spectrum, budget KKT, exact threshold and optimized conductances",
+          "method": "Read complete primary published mathematical record",
+          "title": "Quadratic page-count threshold for retaining a shortcut in optimal-resistance book networks",
+          "trigger": "Identical two-hub book graph and equal spoke prices, prior stronger than a mere similar title"
+        },
+        {
+          "assessment": "COVERS EXACTLY the inactive-bridge y=0 subproblem as K_(m,2), but not an optional direct bridge with its activation threshold or active-regime optimum",
+          "evidence": "The left-vertex prices ρ_i can be set to c_i on m leaves, with q=2 hub vertices; its exact optimum is the no-shunt branch only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md",
+          "material_read": "Complete published RESULT.md (proof and formulas for p left-vertex prices, q right vertices)",
+          "method": "Read complete primary published mathematical record",
+          "title": "Shifted square-root conductance law for heterogeneously priced bicliques",
+          "trigger": "Same K_(m,2) subgraph without candidate direct edge and per-leaf prices"
+        },
+        {
+          "assessment": "Foundational generic convexity and spectral identity are prior; no claim that this general technique is new",
+          "evidence": "General inverse-trace minimization can numerically optimize arbitrary graphs, but does not by itself evaluate this heterogeneous two-hub threshold in closed scalar form.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Accessible paper abstract / earlier source-based sections on convexity and named analytical graph classes; full paper not independently reproduced this run",
+          "method": "Published author-hosted source information and source summary, with access limitations noted",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Foundational convex weighted-conductance budget design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Heterogeneous shortcut purchase decisions are a natural exact network-design problem with a real support transition and evaluated all-conductance optimizer; the result adds nontrivial closed analytic formulas beyond both the known uniform-price book and shunt-free biclique. The known subresults must be clearly credited in any public description; no new generic convexity theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify_design.py (tree 2d126845a90926f5e73b4e9d94958fad1bc658c8)",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md",
+    "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+    "Resultary semantic: heterogeneous two hub K2m weighted conductance budget resistance Kirchhoff shortcut price threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The special equal-price threshold, no-bridge heterogeneous biclique optimum and generic convexity are published prior results and are excluded from standalone novelty claims.",
+    "Unexamined other network-design literature may present the same shunt-activation closed form; search failure is not novelty proof."
+  ],
+  "residual_risks": [
+    "The special equal-price threshold, no-bridge heterogeneous biclique optimum and generic convexity are published prior results and are excluded from standalone novelty claims.",
+    "Unexamined other network-design literature may present the same shunt-activation closed form; search failure is not novelty proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS EXACTLY the equal-price specialization of audited graph and its dcrit/c ~8/m² asymptotic; does not give unequal c_i formula",
+      "evidence": "Its S=every spoke price and R=bridge price yield R_c/S=8(m+2)/(m³+m²+2m+4), identical after setting c_i=c. The main heterogeneous extension is a different quantifier.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-page-count-threshold-for-retaining-a-shortcut-in-optim--51c2db896f59/RESULT.md",
+      "material_read": "Complete published RESULT.md proof including spectrum, budget KKT, exact threshold and optimized conductances",
+      "method": "Read complete primary published mathematical record",
+      "title": "Quadratic page-count threshold for retaining a shortcut in optimal-resistance book networks",
+      "trigger": "Identical two-hub book graph and equal spoke prices, prior stronger than a mere similar title"
+    },
+    {
+      "assessment": "COVERS EXACTLY the inactive-bridge y=0 subproblem as K_(m,2), but not an optional direct bridge with its activation threshold or active-regime optimum",
+      "evidence": "The left-vertex prices ρ_i can be set to c_i on m leaves, with q=2 hub vertices; its exact optimum is the no-shunt branch only.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md",
+      "material_read": "Complete published RESULT.md (proof and formulas for p left-vertex prices, q right vertices)",
+      "method": "Read complete primary published mathematical record",
+      "title": "Shifted square-root conductance law for heterogeneously priced bicliques",
+      "trigger": "Same K_(m,2) subgraph without candidate direct edge and per-leaf prices"
+    },
+    {
+      "assessment": "Foundational generic convexity and spectral identity are prior; no claim that this general technique is new",
+      "evidence": "General inverse-trace minimization can numerically optimize arbitrary graphs, but does not by itself evaluate this heterogeneous two-hub threshold in closed scalar form.",
+      "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "material_read": "Accessible paper abstract / earlier source-based sections on convexity and named analytical graph classes; full paper not independently reproduced this run",
+      "method": "Published author-hosted source information and source summary, with access limitations noted",
+      "title": "Minimizing Effective Resistance of a Graph",
+      "trigger": "Foundational convex weighted-conductance budget design"
+    }
+  ]
+}
