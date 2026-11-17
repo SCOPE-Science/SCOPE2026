@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The odd-prime rank and lifting formula is the published Lucas valuation theorem [Murru–Sanna, arXiv:1603.09310v3, Theorem 1.5], specialized to discriminant \(P^2+4\). Its three cases, including ramification and parity at \(2\), are explicitly reconstructed in the proof. The Möbius transform is computed for all positive indices, and its support is exactly the rank times a prime power; the minimal repair multiplier is forced by rational denominators. Splitting in the quadratic characteristic algebra gives the necessary and sufficient criterion. Nonnegativity of every transform proves almost realizability. Tests are finite corroborations, not substitutes for the universal argument.
+PASS
 
-## Originality — PASS (with residual priority risk)
+Rank-of-apparition and Lucas valuation theorem give v_p(U_n)=e+v_p(n/r) on multiples of r and zero otherwise at odd p, including ramification where r=p and e=1. Möbius transform is supported at r p^j with coefficients p^e-1 and p^(e+j-1)(p-1), nonnegative. Dold denominators yield minimal repair r/gcd(r,p-1). Split ranks divide p-1; inert ranks divide p+1 but exceed 2; ramified ranks p. Binary valuations differ by parity of P, yielding repairs 2 versus 3. Discriminant P^2+4 is nonsquare for P>=2, so Chebotarev/Dirichlet gives density 1/2. Independent direct recurrence and Möbius enumeration tested 77 (P,p) combinations for indices 1..120, corroborative only.
 
-The September 2026 paper by Chuysurichay et al. establishes the classical Fibonacci and Lucas cases, not this entire \(P\ge2\) family, and expressly identifies general Lucas recurrences as a direction. Murru–Sanna's prior theorem gives raw valuations but not Dold spectra or orbit-count transforms; the latter calculations require the new convolution analysis. The 2021 general survey and Minton's linear-recurrence theorem do not treat the nonlinear prime-part transform. A published mathematical record about split companion Lucas sequences concerns \(V_n\) with square discriminant, not first-kind \(U_n\) with nonsquare discriminant. Unindexed previous derivations and incomplete inspection of Minton's original full text remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a natural infinite-parameter branch of the generalization suggested in the motivating paper. Its exact quadratic splitting law, dichotomy at prime \(2\), minimal repairs and universal nonnegative orbit counts answer substantially more than a single numerical instance, while not claiming classification of arbitrary \(Q\). The arithmetic-to-dynamics correspondence gives a usable uniform criterion for a standard number-theoretic family.
+The complete even-parameter P>=2 subfamily was already published 2026-10-12, including the same odd-prime repair, binary repair 2, and prime density. This subset is explicitly credited rather than counted as novel. The surviving contribution is the uniform extension to every odd P>=3, including the distinct binary Möbius tower and optimal repair 3, together with a parity-unified classification. Classical Fibonacci P=1 and valuation formulas are earlier ingredients, not asserted new. No covering odd-P theorem found in targeted Resultary and primary-source inspection; best-of-knowledge.
 
-## Reproducibility and limitations
+## value
 
-The attached programs verify hundreds of parameter-prime pairs and exact transforms to bounded indices. The global theorem uses Lucas valuation and rank identities and Dirichlet's theorem. General Lucas second parameters, possible unindexed equivalent results, and independent validation are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Extending the complete local dynamic realizability spectrum from only even P to all odd P, including the precise dyadic exception and optimal repair, closes a natural parity gap in a classical Lucas recurrence family. It gives exact all-prime orbit-count positivity and splitting-density results, not simply recomputation of one small index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
