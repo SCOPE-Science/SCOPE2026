@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T06:48:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every b,k≥2 write k=2^s t (t odd), U=(b^t−1)/(b−1), H=(b^k−1)/(b^t−1). Fixed-width leading block coefficients include consecutive integers (or 1), so gcd reduces to gcd of R_{b,k}(h). For odd h each b^(2^i t)+1 divides b^(2^i t h)+1, giving H; KSS unrestricted gcd for the odd t-part supplies gcd(t,U). Since U is odd, H≡2^s (mod U) is a unit, and widths 1,t give the matching upper bound. For t=1 the coincident witness is handled separately. Even widths reduce exactly to base b² KSS. The independent exact-integer diagnostic passed 161 (b,k) pairs with all necessary witness widths; earlier fixed bounded-width tester was corrected, not used to draw mathematical conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kane–Sanna–Shallit Theorem 1 determines gcd_{h≥1} R_{b,k}(h) and its Waring-type extension; for odd k its 1,k witnesses already settle the odd widths. Their base b² substitution settles even widths. Their theorem does not supply the even-k odd-width higher gcd as stated."
+        ],
+        "reasoning": "The bigger unrestricted class has a smaller gcd; a theorem about that gcd does not imply the exact restricted gcd. b=2,k=4 yields unrestricted 1 but odd-width 15. No stronger exact odd-only theorem found.",
+        "searches": [
+          "repeated block kth powers odd block length gcd geometric sums two width witnesses Kane Sanna Shallit",
+          "Waring theorem for binary kth powers parity restricted h arxiv 1801.04483",
+          "Resultary repeated blocks odd length gcd"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1801.04483",
+        "https://cseweb.ucsd.edu/~dakane/waring.pdf",
+        "Resultary semantic search repeated block kth powers odd block length gcd geometric sums two width witnesses Kane Sanna Shallit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published unrestricted gcd is gcd(k,(b^k−1)/(b−1)), while proposed odd-width gcd is H*gcd(t,U). For b=2,k=4, these are 1 versus 15; for t odd with s=0 the older 1,k witnesses suffice."
+        ],
+        "reasoning": "The accepted new remainder is exactly the even-k odd-width classification, not base substitution or inherited additive semigroup principle. Two-width 1,t witness demonstrates a genuinely sharper congruence obstruction.",
+        "searches": [
+          "arxiv:1801.04483 Theorem 1 proof base b",
+          "repeated block kth powers odd block length gcd geometric sums two width witnesses Kane Sanna Shallit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd-width repeated k-block numbers reduce exactly to geometric sums R_{b,k}(h), h odd. KSS unrestricted theorem takes all h and has witnesses h=1,k. For k=2^s t with even k those witnesses do not both lie among odd h."
+        ],
+        "reasoning": "The equivalent geometric-sum formulation was checked. The parity-constrained infimum/gcd is a different object when k is even, not a mere renaming of the unrestricted theorem.",
+        "searches": [
+          "repeated block kth powers odd block length gcd geometric sums two width witnesses Kane Sanna Shallit",
+          "gcd of repunit polynomial (b^(k*h)-1)/(b^h-1) for odd h",
+          "arxiv:1801.04483"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned target and otherwise unrelated repunit, cyclic and arithmetic identities; the available relevant primary theorem gives no odd-width table or complete parity stratification."
+        ],
+        "reasoning": "No matching exact database or tabulation was identified, but absence of search hits is only negative evidence. Algebraic implication and the strict k=4 counterexample carry the substantive comparison.",
+        "searches": [
+          "OEIS gcd of repeated blocks with odd block length",
+          "gcd repunits odd exponent width two witnesses",
+          "repeated block kth powers odd block length gcd geometric sums two width witnesses Kane Sanna Shallit"
+        ]
+      },
+      "rationale": "Kane–Sanna–Shallit Theorem 1 determines unrestricted-width gcd and gives two witnesses at widths 1,k. It already implies the odd-k odd-width result and the even-width b² result, both credited as prior. For even k the new odd-width gcd H*gcd(t,U), certified at widths 1,t, can differ arbitrarily from unrestricted gcd. No equivalent odd-width restriction was found in targeted original-text/Resultary/database searches; unindexed number-theoretic coverage remains possible.",
+      "residual_risks": [
+        "Unindexed odd-width repunit-gcd folklore or a parity-constrained Waring paper could have equivalent result.",
+        "No bounded-summand Waring theorem, Frobenius number or exact representation count is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Unrestricted base-b gcd and witnesses at 1,k; odd k and b² even-width branches are known, but even-k odd-width enhanced gcd not supplied.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.04483",
+          "material_read": "Complete theorem/definitions, Section 2 Theorem 1 and proof, Section 5 on all bases",
+          "method": "Open-access arXiv PDF and inspected PDF page screenshot",
+          "title": "Waring's Theorem for Binary Powers",
+          "trigger": "Closest exact theorem on same repeated blocks and gcd"
+        },
+        {
+          "assessment": "SUBMITTED_PROOF_INSPECTED",
+          "evidence": "Odd exponent factor divisibility, modular gcd upper bound and t=1 boundary verified.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/parity-restricted-repeated-block-powers-exact-gcds-and-two-width--59bbf449713a/RESULT.md",
+          "material_read": "Entire source theorem/proof/references",
+          "method": "GitHub read-only frozen content and Git-tree/blob SHA",
+          "title": "Parity-restricted repeated-block powers: exact gcds and two-width witnesses",
+          "trigger": "Actual reviewed source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gcd of k-fold repeated digit blocks is a natural additive congruence invariant. Restricting block width to odd values, for even k, changes it by an arbitrarily large factor; exact closed form plus two specific witness widths gives a reusable arithmetic obstruction for parity-constrained digit powers. This is not an arbitrary slice or just the base-four corollary; those preexisting branches are expressly excluded from the originality claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No bounded Waring order or Frobenius count is established.",
+    "Odd k branch and even-width branch are not presented as independently original."
+  ],
+  "schema_version": 1
+}
