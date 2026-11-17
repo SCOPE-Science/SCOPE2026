@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result covers all six permutations of the triple `01?` and arbitrary infinite directives, including the single persistent-hole exception. An explicit infinite-recurrence lemma ensures that every extremal tail factor can be realized after a phase shift; the three exact hole-count and fixed-sign phase multisets then give max/min recurrences. A complete induction uses the balanced-ternary carry inequality to identify their solutions as opposite digit weights. Sliding one-position windows proves there are no gaps in Parikh counts. The standalone finite checker was run on the package candidate and passed 1794 phase cases, 100000 digit cases and 8960 word-window cases. Finite tests are not the proof.
+## correctness
 
-**Originality — PASS, qualified.** The fully inspected guiding preprint arXiv:2112.12125 gives ordinary complexity exactly \(2n\), but does not state the Parikh/digit-weight formula or prove its unboundedness. arXiv:2011.00453 assumes bounded abelian complexity and cannot imply this result; Khodier's 2026 relevant thesis sections concern ordinary factor complexity and critical exponents. Searches included Stewart, choral, Sierpiński gasket, Parikh, Toeplitz, Abelian complexity, and balanced-ternary aliases, as well as related mathematical results and claims. No exact or stronger covering theorem was found. The risk of unindexed prior equivalents is not eliminated.
+PASS
 
-**Mathematical value — PASS.** The claim is a full exact all-length Parikh classification for an uncountable, foundational Toeplitz family studied for ordinary complexity in 2021. Its weight formula identifies sharp infinitely many length-wise minima and logarithmic maxima, proving that these linear-factor-complexity words are uniformly unbalanced. It is not a finite table or a parameter substitution.
+Reconstructed all six template triple-block embeddings with one old hole and fixed +1,-1 at two residues. For each n mod3 the complete phase multiset (hole count, fixed signed contribution) is independent of template; finite factors recur infinitely often, including after one-hole completion, ensuring each phase accesses genuine tail extrema despite initial shifts. Thus signed-factor extrema satisfy U(3m)=U_tail(m), U(3m+1)=max(U_tail(m)+1,U_tail(m+1)), U(3m+2)=max(U_tail(m),U_tail(m+1)+1), with opposite minimum recurrences. Balanced-ternary digit weight H_3 satisfies precisely these recurrence cases plus |H(m+1)-H(m)|<=1, giving U=H and L=−H by induction over all directive tails. Sliding neighboring windows changes ones count by <=1, so no intermediate Parikh count is skipped. Verified both peak families. Fresh independent six-template simulated word windows and H3 parity at lengths n<=70 gave 420 matching cases; finite tests are not used as all-directive proof.
 
-The main scientific limitation is the six-template setting; vector occurrence frequencies and other Toeplitz alphabets are outside the theorem. The computed tests were run with a finite prefix and do not constitute independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fici–Shallit 2021/2022 original primary paper was read in its mathematical sections: identical six patterns and arbitrary directives, persistent-hole exception, and Theorem 9 ordinary factor complexity 2n; it does not state the complete Abelian/Parikh complexity and nonconstant balanced-ternary digit formula. Other published symbolic complexity results concern bounded-Abelian methods or different ternary morphic words, not this all-directive exact interval. Resultary semantic search located this record and several distinct abelian complexity families, no earlier equivalent; genuinely unindexed prior equivalent remains risk.
+
+## value
+
+PASS
+
+Exact Abelian factor complexity is a standard natural invariant distinct from ordinary factor complexity. Determining the full Parikh spectrum simultaneously for an uncountable family with all possible hole completions demonstrates unexpectedly universal digit-arithmetic behavior, with sharp unbounded peaks despite ordinary factor complexity 2n. The triple-block recurrence is a structural theorem, not an arbitrary numerical slice or finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

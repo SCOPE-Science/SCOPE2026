@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The mathematical argument uses exact triple-block decompositions, recurrence of all finite factors, and unique balanced ternary expansions. The included executable `verify.py` independently tests finite instances against direct word generation, with no use of the analytic maximum/minimum recurrence in the window-count check.
+## correctness
 
-Actual execution:
+PASS
 
-```text
-VERIFY_OK directives=34 phase_cases=1794 digit_cases=100000 window_cases=8960 peaks=11
-```
+Reconstructed all six template triple-block embeddings with one old hole and fixed +1,-1 at two residues. For each n mod3 the complete phase multiset (hole count, fixed signed contribution) is independent of template; finite factors recur infinitely often, including after one-hole completion, ensuring each phase accesses genuine tail extrema despite initial shifts. Thus signed-factor extrema satisfy U(3m)=U_tail(m), U(3m+1)=max(U_tail(m)+1,U_tail(m+1)), U(3m+2)=max(U_tail(m),U_tail(m+1)+1), with opposite minimum recurrences. Balanced-ternary digit weight H_3 satisfies precisely these recurrence cases plus |H(m+1)-H(m)|<=1, giving U=H and L=−H by induction over all directive tails. Sliding neighboring windows changes ones count by <=1, so no intermediate Parikh count is skipped. Verified both peak families. Fresh independent six-template simulated word windows and H3 parity at lengths n<=70 gave 420 matching cases; finite tests are not used as all-directive proof.
 
-Run with `python3 verify.py` and NumPy installed. The phase check enumerates all six patterns, all three starting residues and lengths \(1\) through \(299\); the word check uses \(34\) directive samples (six constant, four structured, 24 seeded pseudorandom), all lengths through \(256\) in \(3^9\)-letter prefixes. Both fills of the persistent-hole example are tested. The digit check covers the stated recurrences, parity and Lipschitz step for all positive integers through \(100000\); eleven peak instances are checked.
+## originality
 
-The finite tests establish **only** those finite instances. They do not certify infinitely many lengths or arbitrary directives. The symbolic proof provides those steps and must be assessed on its own. No independent audit or external certification has been performed.
+PASS
+
+Fici–Shallit 2021/2022 original primary paper was read in its mathematical sections: identical six patterns and arbitrary directives, persistent-hole exception, and Theorem 9 ordinary factor complexity 2n; it does not state the complete Abelian/Parikh complexity and nonconstant balanced-ternary digit formula. Other published symbolic complexity results concern bounded-Abelian methods or different ternary morphic words, not this all-directive exact interval. Resultary semantic search located this record and several distinct abelian complexity families, no earlier equivalent; genuinely unindexed prior equivalent remains risk.
+
+## value
+
+PASS
+
+Exact Abelian factor complexity is a standard natural invariant distinct from ordinary factor complexity. Determining the full Parikh spectrum simultaneously for an uncountable family with all possible hole completions demonstrates unexpectedly universal digit-arithmetic behavior, with sharp unbounded peaks despite ordinary factor complexity 2n. The triple-block recurrence is a structural theorem, not an arbitrary numerical slice or finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
