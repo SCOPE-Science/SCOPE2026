@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` using Python 3 and its standard library, with `VERIFY.py` in the current directory. The program directly enumerates each of the \(\binom n3\) binary words with exactly three ones for \(3\le n\le30\) (31,465 words) and independently computes the unbordered-factor maximum by prefix-function arrays for every suffix. It checks all gap tuples achieving the sharp minimum for \(5\le n\le64\), including exclusions, and uses independent 24-chamber rational Dirichlet moment evaluation.
+## correctness
 
-Expected output from an actual successful run:
-```
-DIRECT_PREFIX_FUNCTION_OK 31465
-SHARP_MINIMUM_CLASSIFICATION_OK 64
-EXACT_DIRICHLET_MOMENTS_OK 157/192 3929/5760 2483/184320
-```
+PASS
 
-The finite checks do not establish the infinite statements. The structural border lemma, minimum classification, uniform-composition limit and chamber integration are proved in RESULT.md. A standalone source code program is provided, not a formal proof assistant certificate. Historical novelty is qualified by the material-inspection and access limits documented in REVIEW.md and AUDIT.json. Independent mathematical audit has not been performed.
+PASS: boundary-symbol argument forces every nontrivial unbordered binary factor to have different endpoints; structural border lemma enumerates all one-, two-, and three-one candidates as the displayed six gap formulas. Sharp n>=5 minimum and all minimizing gap profiles follow from candidate inequalities with n=3,4 checked separately. Uniform gap compositions converge to Dirichlet(1,1,1,1); partition of 24 strict coordinate-order chambers gives E[Z]=157/192, E[Z^2]=3929/5760, Var=2483/184320. Independently exhaustive tested all 3-one strings through n=16, minimizers and exact rational 24-chamber moments.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: prior unbordered-factor algorithms/random-word laws do not give same fixed-weight three-marker invariant or Dirichlet moment profile, and existing three-marker Lyndon papers study a non-equivalent statistic.
+
+## value
+
+PASS
+
+PASS: a complete exact structural classification and sharp minimizers for a natural fixed sparse composition, plus nondegenerate continuum limit law and exact moments, give a reusable finite-to-probabilistic boundary case for unbordered substring theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

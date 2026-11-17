@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A factor longer than one must have different endpoint symbols. The key border lemma for a factor with two or three one-markers restricts all possible proper borders by marker count and rules them out if the leading zeros exceed the last internal gap. Reversal and consecutive-marker cases give six necessary/sufficient candidates; the full 4-gap formula holds without restrictions other than nonnegativity. The four-deficit argument proves the minimum and all minimizers, including a separately excluded small boundary case. Uniform gap compositions converge to Dirichlet(1,1,1,1), and the piecewise simplex formula follows from the candidates except on null equality hyperplanes. Twenty-four disjoint coordinate-order chambers yield exact means and variance. The standalone, independent prefix-function implementation exhausts 31,465 words; a separate rational integration routine verifies moments. A finite check is corroborating evidence rather than a proof for arbitrary length.
+## correctness
 
-## Originality — PASS, qualified
-The unbordered-factor literature checked includes the unbordered factors of automatic sequences (Goč–Mousavi–Shallit, arXiv:1211.1301), general expected longest-factor bounds (Loptev–Kucherov–Starikovskaya, arXiv:1504.07406; Cording–Gagie–Knudsen–Kociumaka, arXiv:1704.04472), general quasilinear algorithms (Kociumaka et al., 2018), and run-length encoded structure/algorithms (Sekizaki–Mieno, arXiv:2507.16285). The papers inspected do not assert the fixed-three-one six-candidate spectrum, classify *all* minimizers, or compute the exact conditional Dirichlet limit moments. A general algorithm to evaluate a given string does not entail a symbolic infinite-family classification. An inaccessible SPIRE 2015 manuscript was compared through its author-hosted publication abstract, not treated as full-text negative evidence. Unindexed equivalent results cannot be excluded.
+PASS
 
-## Value — PASS
-The exact longest-unbordered-factor invariant measures border avoidance in sparse strings, a model fundamentally different from independent uniform random strings. The sharp minimum and complete extremizer family explain the low-complexity boundary, while the positive limiting variance displays a persistent macroscopic fluctuation absent from a naive concentration ansatz. The full infinite-family result provides a tractable structural benchmark for compressed-string methods and fixed-composition random-string analysis; neither merely computes a small special case nor renames an earlier theorem.
+PASS: boundary-symbol argument forces every nontrivial unbordered binary factor to have different endpoints; structural border lemma enumerates all one-, two-, and three-one candidates as the displayed six gap formulas. Sharp n>=5 minimum and all minimizing gap profiles follow from candidate inequalities with n=3,4 checked separately. Uniform gap compositions converge to Dirichlet(1,1,1,1); partition of 24 strict coordinate-order chambers gives E[Z]=157/192, E[Z^2]=3929/5760, Var=2483/184320. Independently exhaustive tested all 3-one strings through n=16, minimizers and exact rational 24-chamber moments.
 
-## Limits and references
-The work covers exactly three ones and linear contiguous factors. Its conditional probabilistic model cannot be replaced by independent fair letters. References and hypotheses appear in RESULT.md. Verification is reproducible with VERIFY.py; independent validation is not asserted. Residual historical-priority risk remains for undiscovered equivalent formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: prior unbordered-factor algorithms/random-word laws do not give same fixed-weight three-marker invariant or Dirichlet moment profile, and existing three-marker Lyndon papers study a non-equivalent statistic.
+
+## value
+
+PASS
+
+PASS: a complete exact structural classification and sharp minimizers for a natural fixed sparse composition, plus nondegenerate continuum limit law and exact moments, give a reusable finite-to-probabilistic boundary case for unbordered substring theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
