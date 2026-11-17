@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The rank-one projectors for disjoint matching edges are mutually orthogonal, giving exact eigenvalues and a full decomposition of the rational transition. Every ordinary off-diagonal entry has a strictly positive closed expression. Every exceptional endpoint entry has a quadratic numerator with positive constant and linear coefficients, and the leading coefficient is nonnegative exactly at the stated conductance bound. When that coefficient is negative there is a unique positive root and eventual negativity. Positivity of the scalar rational function on the nonnegative axis establishes strictly positive diagonal entries. The extracted standalone rational checks reproduce these identities, but do not purport to prove the infinite theorem by enumeration.
+## correctness
 
-**Originality: PASS on inspected evidence, with residual priority risk.** The inspected full-text 2013 rational-function study characterizes scalar absolute monotonicity, rather than the sharp domain for these weighted complete-network Laplacians. Unweighted complete and multipartite graph results do not logically imply this variable-conductance threshold. Searches for weighted-complete-graph Padé positivity, disjoint weighted edge perturbations, and equivalent matching-spectrum formulations yielded no exact dominating result. This is not a proof of bibliographic uniqueness; the unindexed specialist literature remains a risk.
+PASS
 
-**Value: PASS.** A complete network is a natural baseline for diffusion. Independent local conductance changes supported on a matching represent a nontrivial many-parameter robustness family. The theorem determines a sharp, dimension-dependent global-in-timestep positivity region, proves that all coordinates decouple in the parameter condition despite being coupled through the full network, and identifies the unique loss-of-positivity crossing when the bound fails. This is a classification and a stability-versus-positivity boundary, not a routine substitution of parameters into an earlier published formula.
+The actual assigned proof diagonalizes the unit complete-graph Laplacian L0=nI−J together with mutually orthogonal rank-one edge projectors P_e=(e_a−e_b)(e_a−e_b)^T/2 for disjoint exceptional edges. Each modified edge has eigenvalue λ_e=n−2+2t_e. Nonexceptional offdiagonals are (1−F(nh))/n>0 and exceptional endpoint entries are 6h Q/[D_n D_λ] with Q=λ[n²−(n−2)λ]h²+12λh+24t, D_s=s²h²+6sh+12. The only possible sign change is the leading coefficient, equivalent to t≤2(n−1)/(n−2) for n≥3. If violated Q has exactly one positive root, giving an eventual negative transition; other exceptional edges do not interfere. F(hL) is positive definite and stochastic, so diagonals remain positive; n=2 handled separately. Independently derived symbolic difference of the exceptional transition and claimed rational formula was identically zero.
 
-**Limitations.** Disjointness of the perturbed edges is essential to the orthogonal-projector argument. No general shared-endpoint perturbation result, stagewise positivity result or nonlinear SSP property is asserted. Expert publication-priority verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Resultary and primary literature comparison found method-wide rational absolute-monotonicity and sharp weighted split-graph thresholds, but not an exact independent-per-edge all-step criterion for arbitrary matching defects in K_n. The splitting/complete-multipartite theorem concerns a uniform clique edge orbit, not freely heterogeneous disjoint matching edges. This is best-of-knowledge; hidden specialized graph-kernel results remain a priority risk.
+
+## value
+
+PASS
+
+A sharp per-edge conductance-tolerance threshold under arbitrarily many noninteracting sparse defects is a natural robust positivity question for network heat integration. Exact no-recovery crossing laws and the independence from other edge weights provide reusable structural information, not merely a test for tiny graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
