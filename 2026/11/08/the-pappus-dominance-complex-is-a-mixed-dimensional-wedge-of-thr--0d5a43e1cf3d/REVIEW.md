@@ -1,15 +1,21 @@
-# Scientific review: Pappus graph dominance complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise face condition is the complement-of-dominating-set definition, equivalently exclusion of each closed neighborhood. The LCF graph model has 18 vertices and 27 edges, all vertices of degree 3. The standalone checker independently verifies the two face criteria for each of 262144 subsets, identifies 118562 nonempty faces, and checks two globally defined matchings. Every one of 900162 face-poset covers is oriented and tested for a directed cycle by topological sorting for each matching. The more economical matching has one 0-, two 8- and one 9-dimensional critical cells. Exact signed integral Morse elimination gives the zero row for the 9-to-8 differential. Since the 8-skeleton is a wedge of two 8-spheres and its attaching 8-homotopy group is identified with integral homology by Hurewicz, the null degrees force a null attaching map, proving the entire homotopy equivalence. A second independent pivot order gives a primitive rank-one differential and corroborates integral Betti ranks. Exhaustive finite computations are explicitly confined to this finite graph.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The original dominance-complex forest results of Ehrenborg–Hetyei and Marietti–Testa (including the March 2007 cores paper) and Taylan's chordal-graph theorem cannot entail this Pappus case through their graph hypotheses. Matsushita–Wakatsuki's Alexander-dual construction can rewrite the problem but their inspected graph-family results do not evaluate this fixed complex. Indexed Pappus matching-complex and graph-Čech-complex findings concern different simplicial face definitions, and indexed bounded-domination graph-complex results concern complexes *of graphs*, not complements of dominating sets in the Pappus graph. The accessible historical research ledger was compared for the Pappus graph and domination/dominance-complex aliases; no same-object claim was identified. Targeted mathematical-record searches were also performed; absence of an indexed match is not an absolute novelty certificate. Residual priority risk includes independently derived, unindexed or unpublished equivalent classifications.
+PASS
 
-## Value — PASS
-The Pappus graph is a natural symmetric finite-geometric incidence graph, while its dominance complex encodes dominating sets through their complements. The exact mixed-dimensional integral homotopy type of the substantial nonpure complex (118562 faces and 281 facets) is not recoverable from an Euler characteristic alone and is stronger than a single-coefficient homology count. The unusual coexistence of essential eight- and nine-dimensional sphere classes provides a meaningful benchmark for domination-complex topology beyond forests and chordal graphs. No broader theorem is necessary to make this natural exact instance informative.
+The Pappus LCF graph and neighborhood-avoidance face condition are exact and correct. My separate 18-bit face enumeration produced 118562 nonempty faces and the stated nonpure vector; I reconstructed 59279 unique toggling pairs with one critical vertex, two critical dimension-8 cells and one critical dimension-9 cell. An independent topological sort of the entire directed Hasse diagram exhausted 900162 cover relations. Independently signed integral Morse projection gives zero 1×2 d9, not just rank over a field. Since the 8-sphere wedge is 7-connected and π8 ≅ H8=Z², the attaching map of the nine-cell is null, yielding integral 2S8∨S9. Verification applies only to this finite explicit graph.
 
-## Literature limitations
-The four closest primary preprints provide the forest, chordal, and Alexander-duality contexts; their relevant theorem statements and sections were inspected, not every page of every paper. External unindexed results and implicit alternative constructions remain possible. No integral automorphism representation or equivariant CW decomposition is determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General dominance-complex Alexander duality, forest/chordal and family results do not yield the Pappus mixed-degree integral wedge. Full accessible primary duality theorem inspected at relevant passages; no stronger implication found.
+
+## value
+
+PASS
+
+The canonical 18-vertex Pappus incidence graph is a natural nonchordal test of dominance-complex homotopy; its exactly mixed 8/9-dimensional integral wedge is not determined by general forest/chordal theory. The exact attaching-map vanishing is a meaningful homotopy invariant and provides a reproducible benchmark for Alexander-dual graph-complex methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
