@@ -1,19 +1,21 @@
-# Review of exact dyadic factor and reflection complexity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every modulus \(m\ge2\) and dyadic length \(L=2^k\), the unique multiple of \(L\) in a factor's index interval yields a complete template parameterization \((j,c)\). Every parameter occurs, using a sufficiently large power of two with prescribed valuation residue. If two centers differ by a distance with valuation below \(k-1\), a witness offset of the next valuation distinguishes the templates modulo every \(m\ge2\); centers opposite by \(L/2\) collide exactly at residue \(k-1\). Reversal closure follows by reflection in a sufficiently large power of two. The even-palindrome obstruction and orbit counting then prove the advertised formulas. Finite tests validate all collision classes for 56 parameter pairs; they do not substitute for the uniform proof.
+PASS
 
-## Originality
+The window of 2^k positive indices contains exactly one multiple of 2^k, yielding templates T_{j,c} for all j,c; powers 2^e realize each c. For different center indices with v2(distance)<=k-2, a residue-class witness changes valuations t versus t+1 modulo m>=2. Only centers separated by 2^(k-1) collide, precisely for both labels c=k-1 mod m. There are m2^k-2^(k-1) factors. Reflection through a larger power of two proves reversal-closure at all lengths. Every length-2^k palindrome for k>=2 would force both offset parity classes to be zero, contradicted by a valuation-1 position; at length2 exactly 00. Independent all-template comparisons for m=2..6,k=1..7 agreed, not an infinite proof.
 
-**PASS (best-knowledge, with residual bibliographic risk).** The relevant 2024 reflection-complexity paper calculates the classical binary period-doubling case and supplies general automatic-sequence algorithms, but its inspected Section 6.2 does not state the \(m\ge3\) exact formulas or the two-center collision classification. The 2022 generalized period-doubling palindrome article and the 2025 generalized kernel/gap-factorization article supply different structural information, not the enumerated reversal orbit classes. The 2026 group-antimorphism paper addresses a generalized group action largely for binary examples. The novelty claim is restricted to the natural \(m\ge3\) all-modulus dyadic family, with the known binary answer reported solely for consistency. Residual risk: a related older generalized-period-doubling publication may contain an equivalent complexity formula that was not indexed or accessible in full.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Reflection complexity is a recognized invariant distinguishing factor languages modulo reversal, and cyclic period-doubling substitutions constitute a natural two-parameter family. The exact all-scale dyadic orbit counts and complete parameter-collision classification explain the sharp factor loss and its reversal structure, moving beyond algorithms, numeric tables, and the previously worked binary case. The dyadic restriction is motivated by the constant-length substitution, not a gratuitous slice. No result is asserted for arbitrary lengths.
+The new result is exact all-m>=3 dyadic collision classification, not the binary m=2 reflection formula or palindromic factors. Allouche et al. show binary evaluation/general automatic complexity regularity, which cannot immediately imply the precise template collisions for arbitrary modulus; Bognini/Ammar analyze kernel factors and gaps. The structural explicit formula is not a title substitution, but an unindexed broader generalized-complexity result remains possible.
 
-## Limits and closest literature
+## value
 
-The result is not an independent scientific validation and has no claim to solve full-length complexity. Relevant literature: Allouche–Campbell–Li–Shallit–Stipulanti (arXiv:2406.09302, Section 6.2), Barro–Kaboré–Bognini (Australasian Journal of Combinatorics 83(3), 2022), Bognini–Ammar (arXiv:2511.20881), Blažek–Dvořáková–Pelantová (arXiv:2610.14637). A 2020 generalized substitution factorization paper was identifiable bibliographically, but full-statement comparison remained an accessibility risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Factor complexity and reversal orbits are basic structural invariants of morphic/automatic words; the all-alphabet dyadic exact factor enumeration with a classified exceptional collision mechanism gives a potentially reusable sharp description, beyond known binary special cases. It is naturally motivated rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
