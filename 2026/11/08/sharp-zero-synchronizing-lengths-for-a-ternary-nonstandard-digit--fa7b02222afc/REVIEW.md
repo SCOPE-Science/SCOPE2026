@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The carry-to-represented-interval equivalence is exact, including all carry states \(c\in\{-M,\ldots,0\}\). The balanced-ternary argument rules out a third consecutive represented integer through length \(k+1\), including the extreme difference case. The projection to residue \(1\pmod3\) gives a valid recurrence for maximal represented runs; its bound is strictly below \(M+1\) at every shorter input length. A direct balanced-ternary construction covers the required interval at length \(2k+1\). Exact finite checks are corroboration, not the basis of the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2025 Cruz–Loquias–Thuswaldner primary MSC 11A63 paper provides digit transducers and attractor methods for irreducible two-dimensional matrices, not this scalar reset invariant. Zhou's November 2026 paper is a highly relevant later source and formulates the general quantitative synchronization question, but its qualitative existence theorem does not imply the sharp length or explicit optimal words. Targeted published-finding corpus and literature queries have not revealed a dominating result. Unindexed work remains possible.
+PASS
 
-**Value — PASS.** The minimal reset-word length is a natural, reproducible arithmetic invariant. Its exact logarithmic law and exponentially numerous distinct optimal witnesses form a meaningful new structural subfamily, rather than an isolated small automaton calculation.
+For D_k={0,1,3^{k+1}-1} and carry states K=[-M,0], M=(3^{k+1}-1)/2, iterating the carry equation gives zero synchronization iff [A-M,A] is contained in the unique ternary residue representative set T_l. The balanced ternary decomposition x=U+B V, B=3^{k+1}, shows that any run of consecutive values in T_l for l<=k+1 has length <=2: three consecutive low digits cannot keep the same -1 digit indicator V. The residue-1 elements of any represented run give r(l)<=3r(l-1)+2 and hence r(2k)<=3^k-1<M+1. At length 2k+1, balanced digit construction shows [BH-H,BH+M] contained in T_{2k+1}; A=3^k M+v, 0<=v<=H, gives at least H+1=(3^k+1)/2 shortest reset words. Independently enumerated carry-state image subsets for k=1..4: minimum lengths exactly 3,5,7,9, and verified construction on all states. Uniform symbolic lower and upper bounds, not finite enumeration, cover every integer k>=1.
 
-**Scientific limitations.** No general upper bound is asserted for arbitrary complete-residue digit sets; the number of optimal words is bounded below, not exhaustively classified for all parameters. The later related work is compared for priority but does not imply the theorem. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact logarithmic-in-digit-height synchronization length for one natural infinite family, beyond Zhou’s qualitative gcd(digit set) synchronization criterion. Classical slow-reset automata and existing Resultary automata studies have other transition maps; no dominant exact count found. Residual risk of unindexed scalar complete-residue automata classifications remains.
+
+## value
+
+PASS
+
+Determines a sharp reset length for an infinite naturally constructed family of nonstandard place-value systems, with matching combinatorial lower and constructive upper bounds, quantifying a genuine problem left beyond qualitative synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

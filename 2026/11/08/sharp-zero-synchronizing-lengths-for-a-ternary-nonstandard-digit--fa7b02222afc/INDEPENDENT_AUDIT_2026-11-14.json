@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:10:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D_k={0,1,3^{k+1}-1} and carry states K=[-M,0], M=(3^{k+1}-1)/2, iterating the carry equation gives zero synchronization iff [A-M,A] is contained in the unique ternary residue representative set T_l. The balanced ternary decomposition x=U+B V, B=3^{k+1}, shows that any run of consecutive values in T_l for l<=k+1 has length <=2: three consecutive low digits cannot keep the same -1 digit indicator V. The residue-1 elements of any represented run give r(l)<=3r(l-1)+2 and hence r(2k)<=3^k-1<M+1. At length 2k+1, balanced digit construction shows [BH-H,BH+M] contained in T_{2k+1}; A=3^k M+v, 0<=v<=H, gives at least H+1=(3^k+1)/2 shortest reset words. Independently enumerated carry-state image subsets for k=1..4: minimum lengths exactly 3,5,7,9, and verified construction on all states. Uniform symbolic lower and upper bounds, not finite enumeration, cover every integer k>=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cruz–Loquias–Thuswaldner investigate expanding two-dimensional rational matrices with collinear digits.",
+          "Traditional slowly synchronizing 9-state automata in Resultary do not share h_a(c)=(a+c-d)/3."
+        ],
+        "reasoning": "Neither a general qualitative criterion nor specific noncarry reset automata imply the sharp symbolic length and shortest word family for D_k.",
+        "searches": [
+          "arXiv:2611.07446v1",
+          "arXiv:2507.06158v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-shortest-reset-letter-enumerators-for-d-9-and-d-9--dce2d8b528af"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2611.07446v1",
+        "https://arxiv.org/html/2507.06158v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-shortest-reset-letter-enumerators-for-d-9-and-d-9--dce2d8b528af",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-zero-synchronizing-lengths-for-a-ternary-nonstandard-digit--fa7b02222afc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhou’s Theorem 1.3 supplies qualitative digit-system synchronization, while §6.3 identifies quantitative length bounds as a further question.",
+          "The assigned proof requires a new balanced-digit interval obstruction and a matching block construction."
+        ],
+        "reasoning": "The qualitative condition implies existence of some finite reset word but does not imply optimal 2k+1 or H+1 explicit words. The matrix paper uses different hypotheses.",
+        "searches": [
+          "arXiv:2611.07446v1",
+          "arXiv:2507.06158v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zero synchronization is equivalent to a block of M+1 consecutive represented integers in T_l by the carry-digit identity.",
+          "Zhou gives the qualitative necessary/sufficient synchronization condition tied to complete-residue digit systems, not ℓ=2k+1."
+        ],
+        "reasoning": "The interval/representative-set reformulation allows comparison with additive digit-system theory; the exact minimum length is not a mere special case of a yes/no synchronization result.",
+        "searches": [
+          "Resultary semantic: reset words complete residue digits base 3 slow synchronization 2k+1",
+          "arXiv:2611.07446v1",
+          "arXiv:2507.06158v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 8 same-title Resultary entry reproduces the audited record; older exact enumerators are for D9 and D9-doubleprime colorings, not carry D_k."
+        ],
+        "reasoning": "No searched older exact reset-length table covers the family; four finite cases alone would not prove the infinite theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-zero-synchronizing-lengths-for-a-ternary-nonstandard-digit--fa7b02222afc",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-shortest-reset-letter-enumerators-for-d-9-and-d-9--dce2d8b528af",
+          "Resultary semantic: ternary complete residue digit set 0 1 3^(k+1)-1 reset"
+        ]
+      },
+      "rationale": "An exact logarithmic-in-digit-height synchronization length for one natural infinite family, beyond Zhou’s qualitative gcd(digit set) synchronization criterion. Classical slow-reset automata and existing Resultary automata studies have other transition maps; no dominant exact count found. Residual risk of unindexed scalar complete-residue automata classifications remains.",
+      "residual_risks": [
+        "No exact count of all minimum words for arbitrary k is claimed, only at least (3^k+1)/2.",
+        "Unindexed previous work on scalar nonstandard digit carry sets might contain this exact family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_QUALITATIVE_NOT_DOMINATING",
+          "evidence": [
+            "Provides qualitative existence criterion; §6.3 discusses shortest synchronization lengths, not exact 2k+1 for D_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.07446v1",
+          "material_read": "Full 20-page PDF inspected, especially Theorem 1.3, carry construction and Section 6.3 quantitative open direction",
+          "method": "ArXiv PDF full text and relevant page images",
+          "title": "Periodic counting, carry synchronization, and primes in nonstandard numeration systems",
+          "trigger": "Exactly the same category of complete-residue carry synchronization"
+        },
+        {
+          "assessment": "DIFFERENT_MATRIX_SETTING",
+          "evidence": [
+            "Two-dimensional expanding rational matrix systems rather than this scalar base-three digit family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.06158v1",
+          "material_read": "Public abstract/introduction and source cited context, not a whole-paper claim",
+          "method": "ArXiv OA landing and comparison of hypotheses",
+          "title": "Addition Automata and Attractors of Digit Systems Corresponding to Expanding Rational Matrices",
+          "trigger": "Carry/digit automata close terminology and constructions"
+        },
+        {
+          "assessment": "DIFFERENT_AUTOMATA",
+          "evidence": [
+            "Ordinary nine-state colorings and their reset enumerator cannot be instantiated as the specified carry automaton."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-shortest-reset-letter-enumerators-for-d-9-and-d-9--dce2d8b528af",
+          "material_read": "Index title and full summary, no detailed proof retrieved",
+          "method": "Resultary semantic search",
+          "title": "Exact shortest-reset letter enumerators for D9 and D9-doubleprime",
+          "trigger": "Possible automaton reset-length tabulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines a sharp reset length for an infinite naturally constructed family of nonstandard place-value systems, with matching combinatorial lower and constructive upper bounds, quantifying a genuine problem left beyond qualitative synchronization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No exact count of all minimum words for arbitrary k is claimed, only at least (3^k+1)/2.",
+    "Unindexed previous work on scalar nonstandard digit carry sets might contain this exact family."
+  ],
+  "schema_version": 1
+}
