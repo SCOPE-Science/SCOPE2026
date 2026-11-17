@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:56:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a state (N,I,D), a root event at rate 1 sends (N,I,D) to (2N+1,2I-1,D+1); nonroot leaves at rate (N+I)/2 send I to I-1, other nonroot vertices send I to I+1. The generator yields G I=-2, G(I^2)=I^2-6I+N and G(I z^D)=[2(z-1)I-(1+z)]z^D. With E z^D=e^{(z-1)t}, solve the forced ODE from initial (3,1,0); differentiation and the second moment ODE give the stated mixed transform, covariance and exact variance. Independently checked the symbolic generator substitutions, including the boundary at z=1 and e^t coefficients. Moment localization is supported by finite size moments; simulations alone not invoked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Previous size weak limit addresses B_n/n in discrete steps; initial author theorem covers height and limiting degree distribution."
+        ],
+        "reasoning": "A theorem for normalized size or marginal limits does not dominate these finite-time joint imbalance moments; scope distinguishes clocks and initial state.",
+        "searches": [
+          "https://arxiv.org/html/2501.18466",
+          "Resultary 2026-10-18 weak limit root doubling tree size"
+        ]
+      },
+      "checked_sources": [
+        "Assigned pinned RESULT.md and root-transition verify.py",
+        "Björnberg and Mailler arXiv:2501.18466 full HTML",
+        "Resultary query for root doubling leaf imbalance covariance and weak size limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source introduces exponential root times and the degree-proportion theorem U_i/|tau|->2^-(i+1), but does not evaluate E[(2L-N)z^D]."
+        ],
+        "reasoning": "The proposed transform requires coupling size, leaves and root count in the generator and solving a nontrivial mixed equation; it is not a corollary of prior stated marginal limits.",
+        "searches": [
+          "https://arxiv.org/html/2501.18466",
+          "Resultary 2026-10-18 root doubling size weak limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2025/26 source counts degree-zero nodes asymptotically and size moments; current observable I_t=2L_t-N_t weighted by root-event number D_t."
+        ],
+        "reasoning": "A limit proportion of leaves equals 1/2 but cannot determine finite-time E[I_t z^{D_t}] or covariance; Poisson count alone also lacks the I-dependent generator.",
+        "searches": [
+          "https://arxiv.org/html/2501.18466",
+          "Resultary: root doubling recursive tree Poisson tilted leaf imbalance joint transform",
+          "Resultary: weak limit root doubling recursive tree normalized size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching table of -t^2 and 3e^{2t}+4e^t-7-8t-4t^2 found in the inspected full primary model theorem."
+        ],
+        "reasoning": "A negative search is not novelty proof; other Markov-process generator calculations may imply it.",
+        "searches": [
+          "Resultary: exact random root doubled recursive tree leaf covariance Poisson tilt",
+          "Björnberg Mailler arXiv 2501.18466"
+        ]
+      },
+      "rationale": "The full Björnberg–Mailler source supplies the continuous-time root-doubling model, asymptotic size, root-event clocks and limiting degree proportions, but not the joint Poisson-tilted leaf-imbalance transform or its finite-time covariance. Classical recursive-tree leaf results omit the global doubling shock.",
+      "residual_risks": [
+        "An unlocated prior joint Markov-generator calculation might coincide; source model includes many moment identities not necessarily indexed.",
+        "The model and law require the post-first-doubling initial three-vertex tree and continuous-time clocks; no discrete-step counterpart is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE MODEL, NOT COVERING THE FINITE-TIME MIXED TRANSFORM",
+          "evidence": "Model doubles whole tree at rate-one root clock; main Theorem 1.3 gives limiting proportion of leaves, not E[I z^D] or exact variance.",
+          "identifier_or_url": "https://arxiv.org/html/2501.18466",
+          "material_read": "Entire accessible arXiv HTML: model, Section 1.2 theorems, Section 2 size and root-time arguments, Section 3 degree distribution and proofs",
+          "method": "Read-only full HTML source",
+          "title": "A random recursive tree model with doubling events",
+          "trigger": "Original exact process and most plausible prior coverage"
+        },
+        {
+          "assessment": "RELATED, INCOMPLETE READING",
+          "evidence": "Size limit B_n/n is different from continuous-time Poisson-tilted leaf-imbalance law; risk kept because only summary consulted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588",
+          "material_read": "Resultary semantic match summary and exact result description; complete text not independently retrieved",
+          "method": "Resultary semantic search",
+          "title": "A weak limit for the root-doubling recursive tree via a contracting jump chain",
+          "trigger": "Nearest published same-process asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The imbalance I=2L-N is a natural centered leaf count whose degree-density limit is zero; exact finite-time variance of exponential order and negative covariance with the number of global doublings expose genuine second-order dependence invisible in first-order degree proportions. Poisson tilting also gives every conditional mean E[I|D=k].",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned pinned RESULT.md and root-transition verify.py",
+    "Björnberg and Mailler arXiv:2501.18466 full HTML",
+    "Resultary query for root doubling leaf imbalance covariance and weak size limit"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact continuous-time generating transform E[(2L_t-N_t) z^{D_t}] of the leaf imbalance and number of root-doubling events, plus exact covariance -t^2 and variance, for the root-doubling recursive tree initialized with root and two leaves.",
+  "limitations": [
+    "Finite numerical or enumerative checks only corroborate the accompanying general mathematical proof.",
+    "Historical priority is a best-of-knowledge comparison with specific residual risks, not an external certification.",
+    "Complete public source and certification status not changed by read-only independent audit."
+  ],
+  "residual_risks": [
+    "An unlocated prior joint Markov-generator calculation might coincide; source model includes many moment identities not necessarily indexed.",
+    "The model and law require the post-first-doubling initial three-vertex tree and continuous-time clocks; no discrete-step counterpart is certified."
+  ],
+  "schema_version": 1
+}
