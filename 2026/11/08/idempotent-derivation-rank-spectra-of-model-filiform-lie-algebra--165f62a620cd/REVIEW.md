@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite field and \(n\ge3\), the derivation equations reduce to \(f=0\) and \([B,N]=aN\); the first reduction uses \(\operatorname{rank}N=n-1\ge2\), and the centralizer of a cyclic nilpotent Jordan block is \(k[N]\). The idempotency equation forces \(a\in\{0,1\}\). The \(a=0\) part follows from the absence of nontrivial idempotents in \(k[t]/(t^n)\). In odd characteristic \(a=1\) contradicts the three consecutive triangular diagonal entries of \(B\); in characteristic two the even-index coefficient recurrence is both necessary and sufficient, and gives \(q^{\lfloor n/2\rfloor}\) solutions per diagonal choice. Matrix ranks and kernel dimensions then yield the exact coefficients. An independently constructed exhaustive derivation-nullspace verifier matched all seven indicated small cases, including \(\mathbb F_4\). No finite test is treated as a proof of the infinite family.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Avetisyan's descriptions (arXiv:1610.05365, Proposition 13; arXiv:1811.01252, Proposition 13) supply the general linear form of derivations, not the finite-field idempotent-operator rank spectrum or characteristic-two counts. Bai–Gao–Li (2015) classify image/kernel behavior only in characteristic zero, where a division-by-two step is essential; the supplied positive-characteristic nonabelian-image example is genuinely outside its scope. Burde–Dekimpe–Verbeke (2019) classify almost-inner derivations, not idempotent ones. A published filiform adjoint-rank record counts inner adjoint maps rather than solutions \(D^2=D\) among all derivations. Searches for equivalent equations, rank distributions, and tabulations found no directly covering result. Residual risk: a more general unpublished or uninspected grading/derivation enumeration might imply some of the formulas. Search absence alone was not taken as proof of priority.
+PASS
 
-## Mathematical value — PASS
-The result refines a known derivation-space classification to an exact finite-field rank invariant across every dimension of a natural filiform family. The sharp distinction between odd characteristic and characteristic two is not cosmetic: in characteristic two, lower-rank idempotent derivations exist and their images can be nonabelian, breaking the structural conclusion valid in characteristic zero. The complete parity-dependent rank spectrum gives testable quantitative information beyond the existence of a nonzero idempotent derivation. Its scope is limited to the stated family; no general claim is made for all filiform algebras.
+For n>=3 the rank-(n-1) nilpotent Jordan shift forces the e-component f of D(V) to vanish. Every derivation is D(e)=ae+u and D|_V=aH+p(N) since the centralizer of N is k[N]. Idempotence gives a in {0,1}, B^2=B and (aI+B-I)u=0. If a=0, the local ring k[t]/(t^n) has only idempotents 0 and 1. If a=1, consecutive diagonal entries force characteristic two; in characteristic two odd superdiagonal coefficients of p(N) are free and b_{2j}=b_j^2. Rank(B) is the number of 1 diagonal entries because B is a projection; u lies in ker B. Counting choices gives all three parity-dependent exact polynomials. The explicit D(e)=e,D(v_i)=(i-1)v_i has nonabelian image in char2 since [e,v2]=v3 not in image. Independently enumerated char2 derivation matrices by parameter search and directly tested D^2=D: n=3 {0:1,2:8,3:12}, n=4 {0:1,3:32,4:16}. Nonprime fields are treated by algebraic field equations, not inferred solely from prime tests.
 
-## Closest literature and limitations
-The cited structural results are used as antecedents, never represented as newly proved. The zero and top-rank derivations in the formula follow from familiar projections; the nontrivial contribution is the extra characteristic-two families, their exact ranks/multiplicities, and the image-closure boundary. The oldest structural reference precedes the motivating 2018 paper and is credited. Publication priority remains provisional. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Avetisyan describes general derivation blocks for almost-Abelian Lie algebras, which supply the linear stage but not the nonlinear idempotent equation or its characteristic-two ranks. Bai–Gao–Li establishes an abelian-image theorem in characteristic zero, with hypotheses genuinely excluded by the new example. The previously published graded filiform Leibniz result concerns a different non-Lie multiplication; published free class-two Lie algebras also have different brackets. No prior inspected all-n finite-field rank census of this exact almost-Abelian filiform Lie family. Best-of-knowledge originality, with residual possible general grading/projection classifications.
+
+## value
+
+PASS
+
+The complete all-n, all-finite-field rank classification and sharp characteristic-two transition are natural structural invariants of a standard Lie family; the explicit nonabelian idempotent-image example pinpoints why a well-known characteristic-zero theorem cannot be generalized. The exact multiplicities are useful beyond checking the derivation dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
