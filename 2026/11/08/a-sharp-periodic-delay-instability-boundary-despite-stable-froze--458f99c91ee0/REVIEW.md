@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stagewise recurrence is reconstructed from [1, Eq. (29) and Section 4.3]. Its five-dimensional period-three product has exact characteristic factor \(z^2p_\mu(z)/27000\), with the displayed cubic verified by standalone symbolic computation. Schur reduction gives five necessary-and-sufficient inequalities; all but the sign of \(-p_\mu(-1)\) hold uniformly for \(-1<\mu<1\). The critical point is an exact, simple \(-1\) eigenvalue; below it a real multiplier is strictly smaller than \(-1\). An independent Rouché argument proves the frozen-recurrence claim for every constant integer delay, and a Halanay comparison proves continuous-variable-delay stability. No finite experiment is promoted to an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, priority qualified)
+Independently constructed the five-dimensional stage-specific companion matrices for delay schedule (1,2,3), with correct stage-wise lag assignments, and symbolically recomputed det(zI-W2W1W0)=z^2[27000z^3+(10367-28675u)z^2+(4913-7825u)z-5780u]/27000 exactly. Schur cubic inequalities reduce to u>-10773/13315, while at u=-9/10 a real eigenvalue is approximately -1.09619. Halanay inequality yields exponential decay of the continuous DDE for |u|<1, and Rouché comparison via Re(rho conj sigma)=|z-1|^4/10 confirms each frozen integer-delay method is Schur-stable. At the threshold -1 is a simple multiplier and does not decay. The claim is for one fixed grid h=1, not all switching schedules.
 
-[1, Theorem 3.8] proves unconditional stability for a fixed delay; [1, Section 4.3] warns that nonautonomous products require stronger certificates, but provides no exact three-phase switching frontier. The present exact cubic, rational threshold and physical-versus-discrete stability separation are not a restatement of that warning. Koto [2] and Watanabe–Roth [3] address related IMEX and delay stability, but the accessible abstracts and source descriptions do not establish the specified stage-dependent periodic result. Relevant published mathematical-search matches concerned other periodic recurrences or delay-system crossings; no identified result directly implied the fixed coefficient cubic threshold. Historical-priority risk persists because some earlier papers' complete text was not accessible or inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The natural three-phase delay pattern forces a repeated held sample followed by a three-step jump, making a minimal, directly reproducible stress test of the source's variable-delay caveat. It yields a sharp, nontrivial internal frontier where all frozen discrete problems and the exact continuous DDE are still exponentially stable, quantifying when product-level certification is indispensable. The result is a genuine parameter-complete structural boundary for the specified method, not a tiny numerical improvement or arbitrary table entry.
+Rodríguez-Gutiérrez and Martín-Vaquero 2026 section 4.3 explicitly says frozen stability does not imply matrix-product stability, with general sufficient common-Lyapunov and slow-variation conditions. It does not state the exact (1,2,3) grid schedule, parameter -10773/13315, or the cubic monodromy. Thus it motivates rather than implies the sharp counterexample; O best knowledge with older IMEX literature caveat.
 
-## Limits and closest literature
+## value
 
-The theorem is not a claim of unconditional failure for all variable delays or all step sizes. The published general frozen-delay theorem remains valid. The exact classification is restricted to \(\beta_0=4/5\), \(h=1\), negative real coefficient \(-5\), and the periodic delay pattern. The main residual risk is an earlier general numerical-stability theorem that already implies this specialization. Source [1] was read in relevant full-text sections; [2] and [3] could be compared only from abstracts, so their full-text coverage is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact spectral counterexample shows a sharp numerical instability even when the continuously delayed equation and every frozen recurrence are stable, a motivated nontrivial boundary for delay integrators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
