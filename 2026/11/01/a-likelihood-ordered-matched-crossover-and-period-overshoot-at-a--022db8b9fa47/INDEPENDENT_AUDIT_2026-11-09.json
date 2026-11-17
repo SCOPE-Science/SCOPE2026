@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T04:50:43Z",
+  "axes": {
+    "correctness": {
+      "computational_limitations": [
+        "Prior arbitrary-precision direct nested quadrature suffered a removable endpoint cancellation/division-by-zero; replaced by independent t=1-v² integrand with analytic cancellation and stable SciPy integration.",
+        "Finite sampled numerical results are not proofs of global q monotonicity, infinite-amplitude asymptotics or uniqueness of maxima."
+      ],
+      "critical_checks": [
+        "Reconstructed conserved energy, topology of closed levels and original physical-time Jacobian factor four.",
+        "Verified exact matched scaling and endpoint-uniform R_q ratio and log derivative bounds.",
+        "Proved strict MLR using monotone hazard and conditional mean excess; proof is for all 0<z<1.",
+        "Verified q->infinity majorant and normalizing integral pi/2; checked exact rational overshoot with independent Fraction.",
+        "Independent finite scipy quadratures at 8 q values and 3 likelihood-ratio pairs; no reliance on supplied CHECK_OK."
+      ],
+      "rationale": "Independently reconstructed the unique periodic energy ovals via p(x)=exp(alpha x^4/4), V(x)=int_0^x p(s)^2(s+beta s^5)ds, and H=1/2 p² y²+V. Differentiating H cancels x³y² exactly. Positive V prime and even V imply one smooth closed orbit at each A and minimal original-time quarter-cycle integral 4int_0^A p/sqrt(2(V(A)-V(x)))dx. Substituting x=At yields exact J_{q,delta}, delta=(beta A^4)^-1. For 0<=q<=Q, 0<=R_q(t)<=3exp(Q/2) and -1/4<=d_q log w_q<=0 bound the relative errors uniformly even at the turning singularity, giving period convergence and TV density convergence. Set z=t^4 and g_q(v)=sqrt(v)e^{qv/2}; d_q(z)=E_q[v-z|v>=z] strictly decreases in z because the upper-truncated density has increasing hazard g/G, so d_q log w is strictly increasing in t. This proves strict MLR for q2>q1 and C decreases. At q=0, J_0=(1-t^6)/3 yields C0=2sqrt3/3 B(1/6,1/2) and rho0=6/(B sqrt(1-t^6)). For u=q(1-t), the exact boundary-layer F_q tends to 1-e^-2u; q>=2 yields an L1 majorant 4e e^-u/4 /sqrt(min(u,1)), hence sqrt(q)C(q)->2pi and the normalized law f(u)=(2/pi)e^-u/sqrt(1-e^-2u). The CDF and median follow by substitution. The inequality J_2<=e J_0, positive binomial expansion, sqrt2>7/5, sqrt3>17/10, sqrt(e)<5/3 produce exact S(2)>1575543/247000>44/7>2pi; continuity plus both endpoint limits forces an interior global maximum. Independent scipy desingularized nested quadrature gives C0=8.413092631952725 and C2=6.859953904491864, sqrt(2)C2=9.701439848986661; checked C monotonic at q in {0,.5,1,2,3,4,6,10}, strict unnormalized density-ratio ordering on seven t samples for q-pairs (0,1),(0,2),(1,4), and the rational inequality with Python Fraction. These bounded samples support, not replace, the all-q analytic argument. No uniqueness of maximum and no simultaneous arbitrary q->infinity/A->infinity limit are claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chanda et al. EJDE 2018(120), Prop. 2.1, gives for any xddot+f(x)xdot²+g(x)=0 the Jacobi multiplier M=exp(2int f) and potential U=int Mg; the assigned energy invariant is a direct instance.",
+          "October 11 same-flow paper proves strictly decreasing physical period for all amplitudes and its distinct fixed-alpha>0/alpha=0 high-energy asymptotics, but not a matched finite-q distribution or its MLR/overshoot.",
+          "November 1 and November 8 nonglobal quintic papers have +kappa x^3 v^2 (opposite sign), so a finite-ceiling nonglobal center and divergent periods rather than the submitted global-center regime.",
+          "Yang and Zeng 2013 accessible abstract studies classical Lienard xdot=-y+F(x), ydot=g(x), with sufficient period monotonicity/critical-point conditions. Full article was inaccessible."
+        ],
+        "reasoning": "A general Hamiltonian construction, a monotone period criterion, and opposite-sign asymptotic regimes do not dominate an explicit finite-q original-time occupancy law with MLR and a strict renormalized period overshoot. The strongest directly matching published theorem does not assert the latter. Full-text Yang and Zeng comparison remains limited.",
+        "searches": [
+          "Resultary: quintic global center alpha A^4 matched crossover",
+          "Resultary: nonmonotone renormalized period oscillator boundary layer time at turning point",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+          "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+          "https://doi.org/10.1017/S0308210511000096",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-singular-period-growth-regimes-at-a-nonglobal-quintic-center--2f484bc21d61/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+        "https://arxiv.org/pdf/2312.05709",
+        "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+        "https://doi.org/10.1017/S0308210511000096",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-singular-period-growth-regimes-at-a-nonglobal-quintic-center--2f484bc21d61/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30/RESULT.md",
+        "Resultary query: Quintic global center xdot=y ... alpha A^4 finite q occupation likelihood ratio period overshoot",
+        "Resultary query: strict period decrease sharp large amplitude quintic global center alpha A^4 crossover",
+        "Web: Yang Zeng The period function of Lienard systems DOI, arxiv and OA full-text attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-family October 11 theorem: for fixed alpha>0 the period normalized by sqrt(alpha) A² sqrt(1+beta A^4) tends to 2pi; for alpha=0 it tends to (2sqrt3/3sqrt(beta))B(1/6,1/2). It gives neither the finite q C(q) nor strict MLR.",
+          "The fixed-alpha positive boundary-layer limiting kernel e^{-u}/sqrt(1-e^{-2u}) is already in October 11 step 5 and must be credited; the submitted q->infinity successive limit is thus an interpretation/extension of known endpoint rather than the core novelty.",
+          "Da Cruz and Llibre Theorem 1 gives center locus but not physical-time occupation or period crossover. 2018 Jacobi multiplier alone yields a quadrature, not the monotonicity/overshoot conclusion.",
+          "November 1 and November 8 sign-reversed quintic results and October 11 cubic-beta-layer result concern different polynomial fields and scaling dimensions."
+        ],
+        "reasoning": "The prior full same-flow theorem is not logically sufficient to obtain limits for sequences alpha_A->0 with alpha_A A^4->q>0: fixed-alpha and alpha=0 limits need not commute. The MLR order requires an independent increasing-hazard argument; S(q) overshoot requires a separate strict integral inequality. Conversely the q->infinity layer itself is anticipated by prior fixed-alpha work and is not considered independently novel.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+          "https://arxiv.org/pdf/2312.05709",
+          "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-singular-period-growth-regimes-at-a-nonglobal-quintic-center--2f484bc21d61/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30/RESULT.md",
+          "https://doi.org/10.1017/S0308210511000096"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In exact same-flow October 11 RESULT step 5, q=alpha A^4 tends to infinity for fixed alpha>0; step 4 is the separate alpha=0 pure-quintic endpoint. The assigned finite-q limit fixes alpha=q/A^4 so the two hypotheses do not coincide.",
+          "Global Centers in a Class of Quintic Polynomial Differential System, Theorem 1, a32<=0,a50<=0 and four vanishing remaining quintic coefficients; no physical-time distribution or matched-q theorem in the inspected relevant sections."
+        ],
+        "reasoning": "The conservative change of variable and fixed-parameter endpoint formulas are equivalent background formulations of the energy quadrature but do not imply the one-parameter finite-q distribution, its strict likelihood-ratio order, or overshoot. The limit alpha_A A^4->q is singular at alpha=0 relative to fixed alpha>0.",
+        "searches": [
+          "Resultary semantic query: quintic global center xdot=y ydot=-x-alpha x^3 y^2-beta x^5 matched alpha A^4 finite q likelihood order overshoot",
+          "Resultary semantic query: strict period decrease sharp large amplitude quintic global center alpha A^4 crossover",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+          "https://arxiv.org/pdf/2312.05709"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the October 11 same-flow period theorem as the highest-scoring match, but its full RESULT has no function C(q) for finite q>0 or finite-q density rho_q.",
+          "The exact published formula in that source is the two fixed-parameter endpoint limits and a boundary layer at alpha>0; those do not provide an exact table of C(q), rho_q, all-q MLR or the S(2)>2pi inequality."
+        ],
+        "reasoning": "No inspected exact table/data entry states the claimed matched q continuum; the search record is positive evidence about located near-matches, not a claim that no unindexed table exists.",
+        "searches": [
+          "Resultary semantic search exact polynomial ODE, alpha A^4=q, C(q) and likelihood ratio",
+          "Resultary semantic search strict period decrease quintic and boundary-layer",
+          "Public published same-family RESULT.md: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+          "Web search: quintic global center matched alpha A^4 crossover occupation likelihood ratio period overshoot"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full finite-q matched original-time position density, strict monotone likelihood ratio for all 0<=q1<q2<infinity, and rigorously strict overshoot of sqrt(q)C(q). The original global-center classification (2023), general position-dependent-mass Hamiltonian (2018), and October 11 exact fixed-parameter period theorem are already known and credited. The published closest same-flow theorem proves only separate alpha=0 and fixed alpha>0 amplitude limits and no finite-q occupation family. Its q->infinity boundary-layer kernel is explicitly antecedent, not claimed new. Current searches and genuine full prior-result reading found no dominating result for the three remaining mathematical claims; unsuccessful searches are not proof of uniqueness or priority. An inaccessible 2013 Lienard period-function article remains a named limited-access risk.",
+      "residual_risks": [
+        "The 2013 Yang–Zeng full primary article could not be inspected due unavailable open full text and institutional VPN disconnect; abstract cannot exclude a special application.",
+        "A differently named/unindexed singular-perturbation, matched occupation law, or general stochastic-order theorem could potentially imply the new family; unsuccessful semantic and keyword search is not proof of global priority.",
+        "Large-q density kernel is already present in October 11 fixed-alpha result, so that endpoint must not be presented as a wholly novel kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: original-time fixed-parameter period and endpoint layer already known; finite matched q, MLR, overshoot not asserted.",
+          "evidence": [
+            "Proof sections 4 and 5, q=alpha A^4->infinity only when alpha>0 fixed; Finding displays fixed alpha and pure quintic limits. No finite-q C(q) or likelihood-ratio assertion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+          "material_read": "Entire publicly accessible RESULT.md, including Finding, exact energy and quadratures (1)-(4), separate alpha=0 and fixed alpha>0 asymptotics, boundary-layer proof, scope and limitations.",
+          "method": "Read full published RESULT.md through connected GitHub repository at blob ba8c7ad3ba082de156e2f72a875c186019e3efb8.",
+          "title": "Strict period decrease and sharp large-amplitude laws for quintic global centers",
+          "trigger": "exact same ODE, parameters, original-time period, boundary-layer endpoint"
+        },
+        {
+          "assessment": "CLASSIFICATION_COVERAGE_ONLY: alpha>=0, beta>0 lies in their global center locus, no matched physical-time period/statistical theorem established in read material.",
+          "evidence": [
+            "Theorem 1 p.2: a32<=0, a50<=0 and a14=a41=a23=a05=0. Theorem 2 and Section 4 concern center and infinity phase portraits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.05709",
+          "material_read": "Preprint PDF opened (18 pages); abstract, Theorem 1 and Theorem 2 (page 2-3), section 4/theorem-proof relevant passages and classification scope inspected; no claim to read every irrelevant calculation.",
+          "method": "arXiv PDF parsed text and visually inspected page 2 screenshot in web PDF viewer.",
+          "title": "Global Centers in a Class of Quintic Polynomial Differential System",
+          "trigger": "original six-parameter quintic flow includes exact model"
+        },
+        {
+          "assessment": "ENERGY_METHOD_COVERED; C/O/V excludes claim of novelty for conserved Hamiltonian; no model-specific q crossover.",
+          "evidence": [
+            "EJDE (2018) 120, page 4 Proposition 2.1: M(x)=exp(2F(x)), U(x)=int M(x)g(x), H=1/2 M xdot²+U."
+          ],
+          "identifier_or_url": "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+          "material_read": "Introduction, abstract and Proposition 2.1 with derivation, equations (2.11)-(2.17), page 4; visual PDF screenshot of page 4 inspected.",
+          "method": "Lawfully accessible EJDE PDF parsed text and visual screenshot.",
+          "title": "Jacobi-Maupertuis metric of Lienard type equations and Jacobi Last Multiplier",
+          "trigger": "general conserved energy covers the dynamics quadratic in velocity"
+        },
+        {
+          "assessment": "LIMITED_ACCESS: cannot assert whole-text NOT_COVERING. Abstract states period monotonicity/critical points of classical Lienard family, not explicit matched-q MLR.",
+          "evidence": [
+            "Proc. Royal Soc. Edinburgh A 143 (2013) pp.205-221; publisher abstract, DOI 10.1017/S0308210511000096."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0308210511000096",
+          "material_read": "Public abstract and bibliographic metadata only. No complete article obtained; arXiv and lawful OA lookups unsuccessful, authorized Oxford request returned vpn_disconnected and was not bypassed.",
+          "method": "Web searches on title/DOI, publisher abstract; authorized institutional retrieval attempt after open versions failed.",
+          "title": "The period function of Lienard systems",
+          "trigger": "plausibly broader period-function theory"
+        },
+        {
+          "assessment": "NOT_COVERING: positive velocity-feedback yields nonglobal center with escape; opposite alpha sign.",
+          "evidence": [
+            "Finding: ydot=-x-beta x^5 +alpha x³y², alpha>0. Energy potential finite ceiling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816/RESULT.md",
+          "material_read": "Complete published RESULT.md including proof and sign assumptions.",
+          "method": "Full public GitHub RESULT.md blob b61ff6b62f330ba960cc0c59f1793ff45c66ea4c.",
+          "title": "A sharp completeness boundary and two separatrix clocks in a quintic planar flow",
+          "trigger": "same quintic monomials but opposite sign of x^3 y²"
+        },
+        {
+          "assessment": "NOT_COVERING: +kappa x³v² forces finite-ceiling local center, divergent T(A); submitted alpha>=0 regime has minus sign.",
+          "evidence": [
+            "Finding states +kappa x³v² with kappa>0; T(A)~4sqrt(kappa/beta)log A for beta>0, not the submitted T(A)=O(A^-2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-singular-period-growth-regimes-at-a-nonglobal-quintic-center--2f484bc21d61/RESULT.md",
+          "material_read": "Complete public RESULT.md including (1)-(5), asymptotic proofs and limitations.",
+          "method": "Full GitHub RESULT.md blob 1bf94b87e2d3dfb5ccbce0e545437bc63f1763d2.",
+          "title": "Two singular period-growth regimes at a nonglobal quintic center",
+          "trigger": "same monomials and large-amplitude periods, plausible theorem overlap"
+        },
+        {
+          "assessment": "RELATED_METHOD_DIFFERENT_ODE: distinct cubic xdot=y(1+alpha x²), ydot=-x(1+beta y²), different log amplitude crossover; no implication for quintic MLR/overshoot.",
+          "evidence": [
+            "Critical log-contrast q_L=1+gamma/L and beta boundary laws, not alpha A^4 finite q in quintic model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30/RESULT.md",
+          "material_read": "Entire public RESULT.md, Finding, exact finite-amplitude law, regime-specific beta layers, critical q_L=1+gamma/L, and hypotheses.",
+          "method": "Full GitHub RESULT.md blob 25502c194b0af6f714ab2e8c2d1f530cd80569b7.",
+          "title": "Beta-layer concentration transition in asymmetric cubic global centers",
+          "trigger": "occupation distribution with a tuned coefficient crossover and stochastic statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": "The large-q layer is successive, its kernel is anticipated by an earlier fixed-alpha theorem; a quantitative global q/A joint rate or uniqueness of the peak is not established.",
+      "rationale": "This is a naturally motivated singular transition between the pure-quintic high-amplitude regime and the fixed-positive-velocity-square-coefficient regime of the same global-center family. The exact original-physical-time location law is an independent orbit-statistical invariant, not a time-rescaled trajectory artifact. Strict monotone likelihood ratios compare every upper-tail occupation event across all finite q, a structural fact beyond one moment or an endpoint constant. The rigorously certified overshoot of sqrt(q)C(q) falsifies a tempting monotone interpolation despite C itself decreasing; its eventual 2pi endpoint makes the global-max phenomenon nontrivial. A researcher studying parameter-dependent period laws or concentration near turning points could use the precise C(q), rho_q, and MLR result. The energy invariant and fixed-alpha endpoints are not themselves counted as new value, nor is an unproved uniqueness or a paper-sized downstream consequence required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f/RESULT.md",
+    "https://arxiv.org/pdf/2312.05709",
+    "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+    "https://doi.org/10.1017/S0308210511000096",
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-singular-period-growth-regimes-at-a-nonglobal-quintic-center--2f484bc21d61/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30/RESULT.md",
+    "Resultary query: Quintic global center xdot=y ... alpha A^4 finite q occupation likelihood ratio period overshoot",
+    "Resultary query: strict period decrease sharp large amplitude quintic global center alpha A^4 crossover",
+    "Web: Yang Zeng The period function of Lienard systems DOI, arxiv and OA full-text attempts"
+  ],
+  "disposition": "passed",
+  "limitations": "No uniqueness for the maximum, no q_A->infinity simultaneous uniform theorem. General Lienard article full text inaccessible due VPN. The earlier fixed-alpha kernel must remain credited. Independent checked 8 finite q samples plus exact algebraic/rational inequalities; no exhaustive external-priority guarantee.",
+  "residual_risks": [
+    "The 2013 Yang–Zeng full primary article could not be inspected due unavailable open full text and institutional VPN disconnect; abstract cannot exclude a special application.",
+    "A differently named/unindexed singular-perturbation, matched occupation law, or general stochastic-order theorem could potentially imply the new family; unsuccessful semantic and keyword search is not proof of global priority.",
+    "Large-q density kernel is already present in October 11 fixed-alpha result, so that endpoint must not be presented as a wholly novel kernel.",
+    "No structural computer formalization or human expert attestation was done; the independent mathematical reconstruction and bounded checks are exactly as described."
+  ],
+  "schema_version": 1
+}
