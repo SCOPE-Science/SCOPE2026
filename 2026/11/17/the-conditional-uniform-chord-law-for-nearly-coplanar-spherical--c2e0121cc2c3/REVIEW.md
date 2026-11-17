@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact latitude disintegration gives the conditional small-volume probability and a deterministic \(6/D\) domination. The nonstandard inverse-distance lemma is proved using the projected-sphere disk density and a Fourier–Bessel identity. It yields \(\mathbb E[D^{-1}]=\pi/2\), which normalizes the joint weak limit. Exchangeability and the known original chord density give the uniform conditional edge law. The embedded reproducibility program independently evaluates the fourth-point latitude integral and tests the constants numerically.
+
+**Originality — PASS, provisionally.** Miles (1971) studied this spherical simplex volume distribution via all scalar moments. Thus even the exact scalar near-zero probability could be implied by earlier moment completeness: that is **not** the new contribution. The assessed joint conditional four-vertex shape law and uniform-edge consequence carry additional information absent from inspected volume-only records. Brauchart et al. (arXiv:1512.07470) analyze a different large-sample random sphere polytope regime; MathWorld also only tabulates scalar moments. Relevant published-finding corpus entries on conditional near-maximal simplex volume, unconditioned spherical polytope edge lengths, origin visibility and larger-dimensional maximal volumes have different hypotheses or observables. Complete Miles full text was inaccessible, leaving a genuine historical-priority risk.
+
+**Value — PASS.** Near-coplanarity of inscribed random tetrahedra is a natural exceptional shape event. Its full limiting configuration is an explicit coarea-biased law, and every chord length has the unexpectedly simple uniform limit despite having increasing linear density without conditioning. This provides a useful exact benchmark for rare geometric degeneracies, beyond a narrowly chosen numerical invariant.
+
+**Limits.** No finite-threshold closed form, error estimate, higher-dimensional generalization, independent validation or comprehensive historical originality guarantee is provided. The numerical code corroborates but does not prove the statement.
+
+Self-review: passed. Independent audit: not yet performed.
