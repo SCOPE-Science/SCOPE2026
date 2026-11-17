@@ -1,17 +1,21 @@
-# Review: Conductor and characteristic-dividing polar collapse for dual rational normal scrolls
+# Independent mathematical audit
 
-## Correctness — PASS
-Over arbitrary k, the incidence factorization is finite and birational from a smooth product. On c0=1, the normalization B=A[x]/Q is free of rank n over A=k[b,c1,...,cn]; R is the A-submodule with basis 1,bx,...,b^(n-1)x^(n-1). The generic irreducibility of Q over k(c1,...,cn) makes multiplication by a nonzero residue invertible, ruling out conductor elements of b-adic order less than n−1. Therefore c=(a,b)^(n−1), globally by coordinate changes/descent. Coefficient derivatives give the entire Jacobian; when p divides n the Euler-derived factor G yields two independent degree n−1 jets and the stated length. The polar-degree and arithmetic formulas follow. Standalone symbolic and finite-projective enumeration checks replayed successfully; their finite scope is explicit.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The equation of the dual scroll is classical and explicitly in Gondim–Russo–Staglianò (2018), so no priority is claimed for the resultant equation. The inspected primary texts of D’Andrea–Chipalkatti (2006), Dickenstein–Di Rocco–Piene (2011), and Gondim–Russo–Staglianò (2018), together with eight targeted searches of published mathematical claims, including published-finding corpus records, did not establish the global conductor equality plus positive-characteristic polar/Jacobian jump. Closest related claims concern different varieties. Piene–Sacchiero (1984) remains a genuine inaccessible direct historical-priority risk, not asserted to be noncovering.
+PASS
 
-## Mathematical value — PASS
-The family S(1,n) is a natural classical scroll, and its projective dual is a fundamental discriminantal hypersurface. The exact global conductor measures nonnormality in all degrees, and the abrupt polar-degree collapse precisely when the characteristic divides n links this nonnormality to wild differential behavior. The generic transverse Jacobian length and uniform arithmetic formula give concrete geometric consequences. These are global structural invariants of an infinite natural family, not arbitrary tiny examples or only a recovered known polynomial.
+For every field and n>=2, adapted resultant F=sum c_i a^(n-i)b^i is the dual of S(1,n). The finite incidence map P1xPn -> D is birational and smooth upstairs. On monic charts the inclusion R=direct sum A b^i x^i inside B=direct sum A x^i has conductor precisely b^(n-1) B: the generic irreducible Q field disallows lower b-adic order. Descent gives I_Lambda^(n-1) globally. All c_i derivatives span (a,b)^n. For p|n, Euler gives F_a=-bG,F_b=aG, yielding generic Hilbert graded dims (1,2,...,n-1,n-2) and polar degree1; outside p|n generic degree n-1. Stratifying L=0 gives the motivic/count formula. Exhaustive independent F3 n2 projective count=49, matching 1+3+2*9+27; separate graded-length sanity for n=3..8. Note for n=2 no strict polar degree drop.
 
-## Closest literature and limitations
-D’Andrea–Chipalkatti (2006), arXiv:math/0601705v1, full text §§1,5, especially §5 two-polynomial resultants. Dickenstein–Di Rocco–Piene (2011), arXiv:1111.4641v1, full text §§1,4, higher duality and scrolls. Gondim–Russo–Staglianò (2018), arXiv:1802.01295v1, full text §3.2, Theorem 3.1 and characteristic-zero assumptions. Piene–Sacchiero (1984), DOI:10.1080/00927878408823038, only bibliographic page/abstract accessible; full text not obtained.
+## originality
 
-The source-inspection record and four scientific coverage comparisons are detailed in `AUDIT.json`. The universal claims follow from the accompanying mathematical proof, not from finite experiments. Only the nontrivial normalization/conductor and positive-characteristic Jacobian/polar assertions are proposed as new; neither the scroll construction nor the resultant equation is new.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best-of-knowledge: earlier Gondim/Russo/Stagliano establishes resultant geometry, prior binary resultants conductor covers degrees >=2 in char zero, but neither yields scheme-global linear-form conductor I^(n-1) and characteristic-dividing generic polar collapse. Piene–Sacchiero (1984) unread relevant primary remains explicit risk.
+
+## value
+
+PASS
+
+Exact nonnormality conductor sheaf and characteristic-sensitive polar/Jacobian invariant for natural dual scroll family; determines geometric multiplicity and arithmetic point counts beyond trivial resultant restatement. Both conductor and polar exception are useful structural facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
