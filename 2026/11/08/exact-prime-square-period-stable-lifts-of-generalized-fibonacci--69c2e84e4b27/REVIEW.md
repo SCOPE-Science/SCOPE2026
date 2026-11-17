@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix-period equivalence uses the cyclic initial state and the basis formed by it and its image. The kernel of reduction modulo a prime has exponent the prime, so the only two possible orders at the square are the old order and its prime multiple. In the separable case, distinct nonzero characteristic roots have unique order-preserving lifts, giving unique coefficients. In the repeated-root case, the identity \(N^2=(a^2+4b)I/4\) gives an explicit obstruction for every odd prime at least five, and a separately checked cubic cancellation at the prime three. The count of base coefficient pairs is exact. All 120894 admissible coefficient lifts for the six tested primes satisfy the formula; 2612 are also checked by independent recurrence iteration. Finite tests support but do not prove the infinite theorem.
+## correctness
 
-## Originality — PASS, with priority limits
-Renault (2013, Theorems 2–3, pp. 375–377) gives prime-power growth alternatives and the base discriminant analysis, plus individual stable examples, but not the all-fiber count of stable coefficient lifts. Li (1999, section 4, p. 348) directly raises the question of identifying parameters behind period stability, without the finite-local classification. Pal–Venkatesan (arXiv:1509.03794, sections 3–4) concerns divisibility and matrix formulas, not complete parameter-lift counts. Searches for recurrent-matrix lifts, equivalent characteristic-root constructions, and recurrence-period parameter enumerations did not identify a dominating result. These are comparisons of mathematical implications, not a claim that database nonmatches prove novelty. Priority outside the inspected literature remains unresolved.
+PASS
 
-## Mathematical value — PASS
-The result gives a natural complete classification over an infinite family of prime-square coefficient spaces, including a constructive regular lift and a sharp singular exception at three. It quantifies the rarity of the generalized prime-square period-stability phenomenon and refines fixed-parameter existence examples into a complete finite-local census. It does not address higher squares or the fixed-recurrence distribution of exceptional primes.
+Companion M=[[a,b],[1,0]], b unit, has a cyclic vector, so normalized recurrence period equals matrix order. Mod p order h lifts only to h or ph. With Δ mod p≠0 separable characteristic roots have unique h-torsion Teichmüller/Hensel lifts, giving exactly one stable coefficient pair per base. Δ=0 yields a Jordan block of order pt. For p>=5, lower-left entry of M^(pt)-I equals pt λ^(pt-1) mod p² and is nonzero, excluding all stable lifts. For p=3 the cubic expansion gives Δ≡6 mod9 and exactly three stable lifts per repeated-root base, total 10; otherwise totals (p-1)². Independent integer enumeration of every coefficient lift over p=3,5,7 found stable totals 10,16,36; not a proof for all odd p.
 
-## Limits and references
-The independent mathematical audit has not been performed. The 1999 Li paper was read via its scanned full text; available extracted text had optical defects, so the comparison is restricted to legible sections. The public author-upload date independently verified for the selected Renault paper is February 20, 2015; the 2013 issue date is not treated as an online release timestamp.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Renault classifies fixed-coefficient prime-power period growth and gives examples, Li handles fixed recurrence congruences, Pal–Venkatesan study other prime-power recurrences; earlier Resultary ramified p>=5 no-stable theorem is one ingredient, but none inspected gives the all-base-pair coefficient-fiber census plus p=3 exceptional congruence and global totals.
+
+## value
+
+PASS
+
+A natural exact parameter-space Hensel/Jordan classification answers which coefficient perturbations preserve the normalized period under the first p-adic lift and exposes a sharp characteristic-three exception; distinct from the fixed-coefficient Wall–Sun–Sun problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
