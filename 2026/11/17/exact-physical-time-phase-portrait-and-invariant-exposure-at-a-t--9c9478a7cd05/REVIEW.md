@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact positive-time coordinate equations \(\dot u=\omega xw\) and \(\dot w=-\omega xu\) follow by differentiation and fix every normalization. The complete energy-circle picture follows from the sign condition \(x>0\), including positivity of the critical loop, the invariant positive quadrant and the exterior endpoint equilibria. The standard trigonometric integral yields the minimal original-time period, while \(x\,dt=d\theta/\omega\) proves constant exposure. The rational pulse is directly substituted in the original vector field, and the exterior logarithmic derivative proves the claimed exponential rate. The standalone exact symbolic and numerical checker passed. Numerical tests are corroborative, not proofs of the quantified infinite statements.
+
+## Originality — PASS within inspected evidence
+The exact same 2023 network family and its reduced linear center, as well as the 2024 enlarged-network center argument, are known and explicitly credited. In the inspected primary theorem/proof, neither work gives the original-time \(T(E)\), normalized physical-time concentration law, invariant per-cycle exposure, explicit rational critical homoclinic pulse, or the exterior exponential rate. The 2024 paper's Bogdanov–Takens homoclinic analysis treats a different family of four-reaction systems. Nearby findings for a three-reaction extinction flow, for a quintic non-global center, and for chemical four-cycle timing do not imply this result because their vector fields and energy-boundary mechanisms differ. The original mathematical reduction is explicitly not claimed as novel. Publication priority against unindexed studies of the same special center remains a residual risk.
+
+## Value — PASS
+The invariant per-revolution first-species exposure in the face of divergent physical period gives a quantitative and experimentally interpretable distinction between mass processed and elapsed time in a minimal oscillatory chemical network. The theorem identifies the complete positive energy threshold, the explicit limiting critical pulse, the algebraic-to-exponential change in extinction clocks, and the exact occupation law. These are natural observables in the original time and chemical state space, rather than an arbitrary parameter slice or a rebranded center-existence claim.
+
+## Closest literature and limits
+Banaji, Boros, Hofbauer, *Oscillations in three-reaction quadratic mass-action systems*, arXiv:2304.02303, DOI:10.1111/sapm.12639, case 8 and its proof. Banaji, Boros, Hofbauer, *Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity*, arXiv:2406.13451, DOI:10.1007/s11071-024-10068-1, section on centers, Appendix Lemma 39 and the separate Bogdanov–Takens section. The result applies only on the exact center locus and does not address perturbations or stochastic reaction times. The physical-time formulas are proved here; independent review has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
