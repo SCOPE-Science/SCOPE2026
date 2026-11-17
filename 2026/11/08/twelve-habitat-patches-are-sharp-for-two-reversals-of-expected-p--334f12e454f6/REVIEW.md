@@ -1,19 +1,21 @@
-# Scientific review: twelve-site expected pair-connectivity onset
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On a tree, a connected retained pair requires survival of each vertex of its unique path, giving \(\mathbb E[Z_T(p)]=\sum_j a_j(T)p^{j+1}\). The center-rooted canonical encoding, exhaustive leaf-extension argument, and integer Möbius coefficients cover every equal-order tree comparison through eleven vertices. Of the 215 distance profiles at eleven sites, exactly one pair has two transformed sign variations; its difference is proportional to \(p^3(p-1)(3p^3+p^2-3p+1)\), and the cubic discriminant is \(-76\), with its only real zero negative. For twelve sites, the explicit edge lists yield exact profiles and \(p^3(p-1)(2p-1)(p^3+p^2-1)\), with exactly two simple interior roots. Standalone standard-library checks pass. The general result is only the *least* order allowing two reversals, not an all-larger-orders existence claim.
+PASS
 
-## Originality
+For every tree, F_T(p)=sum_j a_j(T)p^(j+1) follows from survival of all j+1 vertices on each unique path. Equal-order tree differences have p³(1-p) factors. Under t=p/(1-p), exact integer transformed coefficients and Descartes variations bound interior zeros. Independently regenerated every unlabeled tree with NetworkX graph atlas generator through n=11; tree counts for n=4..11 equal 2,3,6,11,23,47,106,235 and distinct distance-vector counts 2,3,6,11,23,45,104,215. All profile pairs have <=1 sign variation except a single n=11 pair with two; its residual 3p³+p²-3p+1 has discriminant -76 and sole real root <0. Independent direct breadth-first distance calculation for both 12-node witnesses gives (11,14,14,12,8,5,2) and (11,15,11,13,10,6,0), yielding D=p³(p-1)(2p-1)(p³+p²-1), with exactly two simple roots in (0,1). These finite checks exhaust the bounded lower domain; no claim made for all n>=12.
 
-PASS on the inspected evidence, with historical priority provisional. The distance polynomial and ecological network connectivity are old, and are expressly not claimed as new. Keitt et al. (1997) treat landscape percolation scales; Saura et al. (2013 online) analyze dispersal and stepping-stone connectivity; Mowshowitz and Dehmer (2015) analyze the local Hosoya polynomial and entropy. Brown, Oellermann and Mol (2018) already identify the *edge-survival* pair-resilience function on a tree exactly with the Wiener polynomial, and investigate roots of each single polynomial. The vertex-survival score here is therefore transparently equivalent to that old edge-resilience polynomial up to a positive factor. Their inspected relevant sections do not present the minimum twelve-vertex onset for two sign reversals of the difference of Wiener/Hosoya polynomials. Nearby indexed results about different graph spectra, two-terminal edge reliability and phylogenetic diversity do not imply this exact site-percolation pair-connectivity cutoff. Residual risk: older graph-polynomial ordering literature not fully indexed may contain an equivalent theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The expected number of mutually reachable surviving patch pairs is an immediately interpretable functional-connectivity score on a simple landscape network. The theorem fixes the smallest network complexity at which connectivity-based ranking can switch twice as homogeneous patch viability improves: comparing a landscape at one survival probability need not predict its relative standing at intermediate or high viability. The exact finite onset makes the limitation identifiable without fitted parameters. Applications to actual landscapes need separate model validation.
+The expectation is p times the classical Wiener/Hosoya distance polynomial, so polynomial definition is not new. The sharp first order n=12 for two crossing comparisons is an exact non-implied comparative invariant of tree distance distributions; inspected prior Wiener-root literature studies individual polynomial roots rather than positive roots of pairwise differences.
 
-## Closest literature and scope
+## value
 
-Keitt, Urban and Milne (1997); Saura, Bodin and Fortin (2013 online/2014 print); Mowshowitz and Dehmer (2015); Brown, Oellermann and Mol (2018). The result concerns only tree graphs, independent identically distributed patch survival, equal site weights and expected connected unordered pairs; it does not characterize arbitrary larger trees, general graphs or ecological persistence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp first finite order for two reversals in a natural stochastic habitat-connectivity ranking is mathematically motivated and requires an exhaustive all-small-tree obstruction plus explicit witness, not a textbook identity or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

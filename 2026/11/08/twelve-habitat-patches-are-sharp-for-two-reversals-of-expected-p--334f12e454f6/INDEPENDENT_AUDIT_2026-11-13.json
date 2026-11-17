@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:12:14.195720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every tree, F_T(p)=sum_j a_j(T)p^(j+1) follows from survival of all j+1 vertices on each unique path. Equal-order tree differences have p³(1-p) factors. Under t=p/(1-p), exact integer transformed coefficients and Descartes variations bound interior zeros. Independently regenerated every unlabeled tree with NetworkX graph atlas generator through n=11; tree counts for n=4..11 equal 2,3,6,11,23,47,106,235 and distinct distance-vector counts 2,3,6,11,23,45,104,215. All profile pairs have <=1 sign variation except a single n=11 pair with two; its residual 3p³+p²-3p+1 has discriminant -76 and sole real root <0. Independent direct breadth-first distance calculation for both 12-node witnesses gives (11,14,14,12,8,5,2) and (11,15,11,13,10,6,0), yielding D=p³(p-1)(2p-1)(p³+p²-1), with exactly two simple roots in (0,1). These finite checks exhaust the bounded lower domain; no claim made for all n>=12.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 paper investigates roots of W(T;z) for individual graphs; it does not give a sharp lower bound on sign changes of W(A;z)-W(B;z) for pairs of same-order trees in the inspected sections."
+        ],
+        "reasoning": "A theorem bounding roots of a single polynomial does not control differences, and the sharp n=12 classification uses exhaustive tree distance vectors.",
+        "searches": [
+          "Resultary: sharp minimum number vertices trees pair Wiener Hosoya polynomial differences two crossings 12",
+          "arXiv:1801.03985"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/twelve-habitat-patches-are-sharp-for-two-reversals-of-expected-p--334f12e454f6/RESULT.md",
+        "https://arxiv.org/abs/1801.03985",
+        "https://doi.org/10.1111/1365-2664.12179"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first source gives p*W as expected connectivity and investigates real/complex zeros of individual W, not first positive zeros of differences."
+        ],
+        "reasoning": "Neither the expectation equivalence nor the study of a single graph’s polynomial entails the pair-order reversal count, which requires comparison across all trees through 11.",
+        "searches": [
+          "Brown Oellermann Mol On the Roots of Wiener Polynomials of Graphs arxiv 1801.03985",
+          "Resultary: two crossings pairwise Wiener polynomial trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brown–Oellermann–Mol identifies the Wiener polynomial with expected pair connectivity after independent edge retention; the submitted vertex model adds a p factor on each tree and the comparison is of differences."
+        ],
+        "reasoning": "The graph-theoretic expectation is equivalent, but the sharp 12-tree onset is not a direct statement of the known expectation identity.",
+        "searches": [
+          "Resultary: Wiener Hosoya polynomial two strict order reversals trees same order",
+          "arXiv:1801.03985"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete finite tree-shape and distance-profile census through order 11 was independently reproduced; no earlier table of the first two-crossing pair was identified."
+        ],
+        "reasoning": "This is a natural finite classification problem, not a recomputation of a known table. Unindexed comparative-Wiener-polynomial tables remain possible.",
+        "searches": [
+          "Resultary: Wiener polynomial tree pair differences two crossings minimum order twelve vertex reliability",
+          "arXiv:1801.03985"
+        ]
+      },
+      "rationale": "The expectation is p times the classical Wiener/Hosoya distance polynomial, so polynomial definition is not new. The sharp first order n=12 for two crossing comparisons is an exact non-implied comparative invariant of tree distance distributions; inspected prior Wiener-root literature studies individual polynomial roots rather than positive roots of pairwise differences.",
+      "residual_risks": [
+        "A best-of-knowledge literature search is not proof that no unindexed older result exists.",
+        "Original package contains operational provenance in public-bound metadata; scientific audit is not permission to publish it.",
+        "A dedicated comparative Wiener-polynomial partial-order literature source might anticipate the n=12 bound.",
+        "The model assumes equal independent vertex survival, equal-sized trees and perfect surviving-path connectivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior expected connectivity identity covered; no direct sharp pairwise two-crossing bound in inspected material",
+          "evidence": "The W(T;z) identity is prior; source focuses roots of W(T;z), while the new claim concerns roots of W(A;z)-W(B;z).",
+          "identifier_or_url": "https://arxiv.org/abs/1801.03985",
+          "material_read": "Full arXiv PDF parsed, introductory and theorem sections on roots of individual polynomials; page images inspected for pages 2 and 3",
+          "method": "Web PDF parsing and page screenshots",
+          "title": "On the Roots of Wiener Polynomials of Graphs",
+          "trigger": "Exact Wiener-polynomial equivalence and potential broader crossing theorem"
+        },
+        {
+          "assessment": "Primary submitted proof checked; independent Python tree enumeration corroborated it",
+          "evidence": "Exact witness difference and complete profile comparison lower bound.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/twelve-habitat-patches-are-sharp-for-two-reversals-of-expected-p--334f12e454f6/RESULT.md",
+          "material_read": "Complete pinned RESULT.md and structure of CHECK.py including canonical tree center encoding and Descartes transform",
+          "method": "GitHub connector pinned file read",
+          "title": "Twelve habitat patches are sharp for two reversals of expected pair connectivity",
+          "trigger": "Own final claim and its reproducible finite certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp first finite order for two reversals in a natural stochastic habitat-connectivity ranking is mathematically motivated and requires an exhaustive all-small-tree obstruction plus explicit witness, not a textbook identity or arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Twelve is the sharp least number of independently surviving tree habitats for two strict reversals of expected connected-pair rankings.",
+  "limitations": [
+    "No assertion that every n>12 admits two reversals.",
+    "Independent homogeneous vertex retention on finite unweighted trees only."
+  ],
+  "schema_version": 1
+}
