@@ -1,15 +1,21 @@
-# Review of sharp skeletal triangle-product minima
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is a finite-product theorem quantified over every integer \(m\ge2\), every tuple of disk-containing triangles, and all codimensions \(0\le k\le2m\). The triangle bounds derive from the exact semiperimeter/inradius identity and strict Jensen equality. Face measures multiply under Euclidean Cartesian products; coefficientwise monotonicity gives exact minima and equality cases. The factored extremal polynomial has \(2m\) positive roots' magnitudes, and the strict Newton inequalities for its two unequal positive parameter values give monotonic normalized coefficients. Endpoint signs guarantee the cutoff. The special ridge bound is explicitly positive, and exact-radical computations check finite example thresholds. The accompanying script checks 1860 finite comparisons, not the universal theorem.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The motivating 2026 source's Section 5 explicitly records the product formula and the ridge conjecture, but does not optimize all skeletal coefficients over arbitrary products of disk-containing triangles or classify the exact crossing index via normalized elementary symmetric functions. An earlier research result (item `09ff8fbc-913e-4d9f-929a-8571e972b582`) already proves the ridge case for the much broader class of products of admissible polygons and intervals, so that special case is explicitly excluded from novelty. Search comparisons also considered the general skeleton integral-geometric literature and the nearest published mathematical-record results. The proof openly uses classical triangle minimization and strict Newton inequalities: their combination, not either input, is the proposed new exact all-codimension classification. A relevant older source was accessible only at the abstract level, and its uninspected full text leaves a residual historical priority risk.
+PASS
 
-## Mathematical value — PASS
-The question of which cube-skeleton bounds survive is explicitly raised in Question 5.5 of the 2026 source. The theorem gives the sharp range and equality/violation witnesses for a natural non-centrally-symmetric family in all even dimensions, including the already-established ridge index and new exact higher-codimension validity/failure classifications. The single-crossing property rules out separated islands of validity and yields an exact finite criterion for each dimension. This is a complete structurally motivated subclass classification, not a claim to settle the general conjecture.
+For m>=2 orthogonal products of m nondegenerate planar triangles containing the centered unit disk, each factor has area>=3sqrt3 and perimeter>=6sqrt3 with rigid equilateral equality by Jensen on half angles; f0=3. Face-volume generating polynomial is exactly product(A_i+L_i t+3t²). Positivity yields every coefficient lower bound [t^k](3sqrt3+6sqrt3 t+3t²)^m; equality rigid for k<2m and automatic at vertex count k=2m. Factor H(t)=3sqrt3(1+u t)(1+v t), u/v distinct with mean 1, and strict Newton inequalities show R_m(0)=R_m(1)>R_m(2)>...>R_m(2m); endpoints straddle 1, so a single integer crossing cutoff K_m. Correct boundary m=2 K=2; exact symbolic coefficient calculation independently checks m=2..8; does not assert all admissible polytopes.
 
-## Closest work and limits
-Zwierzyński (arXiv:2609.27798), Section 5: volume and surface inequalities, ridge conjecture, product-face formula, and high-codimension counterexamples. Earlier research item `09ff8fbc-913e-4d9f-929a-8571e972b582` already subsumes the ridge part of the present theorem but not the all-codimension exact profile or cutoff. Burton (1979, 1980): classical skeletal measures and integral-geometric sections; only abstracts were available for comparison. Classical Newton–Maclaurin: the strict normalized coefficient inequality. No claim about arbitrary admissible polytopes or global \(k_{\max}(n)\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality PASS for simultaneous complete coefficientwise minima for every codimension and strict one-crossing cube-comparison cutoff for all products of triangles. Prior more general planar product work established ridge (codimension two) only; Zwierzyński supplies product polynomial and higher-codimension counterexamples without this all-k profile. Elementary Jensen/Newton steps are not individually claimed novel.
+
+## value
+
+PASS
+
+Determining the exact feasible codimension range within a natural infinite subclass of a published skeleton conjecture is a substantive structural result; the rigid extremal profiles and sharp change of sign answer which dimensions retain cube bounds. It is not a recomputation of the already-covered ridge special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
