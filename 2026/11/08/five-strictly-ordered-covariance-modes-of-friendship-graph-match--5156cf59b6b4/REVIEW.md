@@ -1,11 +1,21 @@
-# Scientific review: friendship-graph matching-polytope covariance
+# Independent mathematical audit
 
-**Correctness — PASS.** All matching vertices are counted as either no-spoke or unique-spoke configurations; the exact total is \((m+1)2^m\). Direct coordinate moments produce the full covariance block matrix. Its complete orthogonal decomposition yields two exact symmetric \(2\times2\) blocks plus an \(m\)-dimensional antisymmetric-spoke eigenspace. Positive determinants, strict Rayleigh interlacing and elementary rational inequalities establish five strictly ordered eigenvalues for every \(m\ge2\). The asymptotic follows from the axial block determinant. The standalone checker rationally verifies 1,827 entries for 4,092 enumerated vertices and both block characteristic polynomials on integer profiles.
+## correctness
 
-**Originality — PASS (self-review, historical priority provisional).** The 2019 full-text matching-polytope source studies one-skeleton degrees, not uniform vertex covariance. Published monomer-dimer partition-function techniques are broadly related but do not, as examined, provide the exact eigenvalue classification for friendship graphs. A separate windmill symmetric-edge-polytope result concerns a different convex hull. Searches for windmill/friendship matching covariance, its five-mode spectrum and quadratic anisotropy did not locate a covering theorem. An unlocated equivalent in statistical-mechanics or finite-group representation terminology remains possible; unsuccessful searches cannot establish absolute novelty.
+PASS
 
-**Mathematical value — PASS.** The exact spectral hierarchy for a natural infinite family of full-dimensional matching polytopes is an invariant not supplied merely by matching counts. The five modes, unique least-variance axis and quadratic asymptotic conditioning identify global Euclidean shape information for geometrically nontransitive polytopes. The result is neither a single numerical instance nor an arbitrary restriction of a prior general formula.
+For friendship graph F_m (m>=2), exactly (m+1)2^m matchings; all indicator vectors are vertices, full dimension 3m including empty and singleton matchings. Direct joint inclusion counting gives block covariance AA=I/4-J/[4(m+1)^2], BB=I/[2(m+1)]-J/[4(m+1)^2], AB=J/[4(m+1)^2]-H/[4(m+1)]. Antisymmetric spoke vectors have eigenvalue q=1/[2(m+1)], contrast block C_m and uniform block U_m have two eigenvalues each. Algebraic determinants/interlacing prove 0<U-<C-<q<U+<C+ and condition ratio ~m^2/2 for every m>=2. Independent brute force matchings m=2,3,4 and full covariance diagonalization reproduced all eigenvalues with correct multiplicities; algebra establishes infinite family.
 
-**Relationship to prior literature and limits.** The graph has many triangular constraints, but the global hub induces nontrivial coupling; the decomposition quantifies its geometric effect. The case \(m=1\) is excluded because of spectral degeneracy. Priority, additional equivalent descriptions and possible stronger known formulae remain matters for independent literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing matching-polytope skeleton studies discuss degree/facets rather than uniform-vertex covariance. The complete-graph matching covariance theorem has a different graph and three modes, while the present windmill has five strict modes and quadratic anisotropy. General monomer-dimer partition functions give moments but do not directly supply this full decomposition.
+
+## value
+
+PASS
+
+Full vertex-uniform matching-polytope inertia for an explicitly non-edge-transitive windmill graph identifies five distinct axes and sharp growing anisotropy. Comparing eigenmode geometry with complete-graph matching polytope gives useful exact test case for second-moment geometric theory beyond elementary matching counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
