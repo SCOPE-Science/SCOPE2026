@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness (PASS).** The extension norm equals \(\max\{1,\max_i\phi_i(w)/r_i\}\) by exact zero-mass Kantorovich--Rubinstein duality for equilateral spaces. The strict positive-part normalization excludes negative minimizers of the new-point component. Feasibility of \(w_i\ge(1-ur_i)_+\) yields the sorted-prefix maximum, and saturation gives uniqueness. Strict feasibility below \(1\) gives the full affine dimension and the necessary-and-sufficient signed-optimizer condition. Metric boundary equalities and the floor \(1\) are included. A separately constructed dual-potential LP agrees on 60 rational profiles. Remaining correctness risks: independent proof review is absent; numerical LP comparisons are finite corroboration only.
+
+**Originality (PASS, qualified).** The closest general literature establishes random-projection representations, general doubling-space existence estimates and LP formulations for finite extension problems, but does not state the heterogeneous ordered-prefix formula with the full signed optimizer phase diagram in the inspected material. The homogeneous-radius extension value is explicitly excluded from novelty; it is subsumed by earlier equiradial results. Three differently worded database searches and targeted literature searches did not find the complete statement. Remaining priority risk: a weighted \(\ell_1\) Chebyshev or facility-location reformulation may already be known outside the inspected literature. A negative search is not proof of priority.
+
+**Mathematical value (PASS).** Arbitrarily unequal one-point attachments are a natural missing case of finite simultaneous linear extension, and the theorem solves them for all sizes and all metric-admissible radii. It supplies an exact \(O(n\log n)\) sorted-prefix computation, the rigidity boundary \(z=1\), the complete full-dimensional optimizer polytope, and the exact criterion for the appearance of signed optimal operators. These conclusions do not follow by merely substituting a radius in the equal-radius formula. The theorem makes no assertion for general finite base metrics.
+
+The review is same-model only; external mathematical validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
