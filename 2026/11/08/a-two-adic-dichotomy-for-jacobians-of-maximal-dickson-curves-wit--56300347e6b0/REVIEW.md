@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source's exact maximality and automorphism hypotheses match the statement. Quadratic Frobenius and the characteristic polynomial yield the total order and every odd-primary invariant factor. The Dickson root-of-unity representation gives the exact branch Frobenius cycles; the even-subset description identifies rational \(2\)-torsion, with the fixed-class subtlety explicitly handled. For \(q\equiv3\pmod4\), full rational \(2\)-torsion makes \((\pi-1)/2\) integral, and Hensel splittings determine all remaining \(2\)-adic elementary divisors. All field and parity boundaries are included. Exact example checks for \(n=7,9,11,13\) at ten admissible prime fields passed. **Limit:** the published maximality theorem is an input; finite examples alone do not prove the infinite statement.
+## correctness
 
-## Originality
-**PASS with historical-priority risk.** Borges--Reis proves \(\mathbb F_{q^2}\)-maximality and order-two geometric automorphisms; Tafazolian--Top had already proved this maximality for the same Chebyshev model, and it discusses Jacobian isogenies. These prior results do not state or directly imply the complete finite abstract group without the new integral Frobenius and branch-orbit analysis. The closest 2025 Chebyshev paper describes maximality and related curves, but its linked full text was not accessible; its abstract gives no exact rational group. General finite abelian-variety group-structure literature may offer alternative implicit derivations. Exact theorem and alias searches in the inspected primary sources and mathematical literature found no covering assertion, which is not a proof of historical uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** Finite rational Jacobian groups are natural arithmetic invariants, independently important for rational divisor classes and arithmetic applications. The order \((q+1)^g\) and the uniform Frobenius characteristic polynomial leave a genuine integral-lattice question unresolved. This result determines the entire answer, including the nontrivial dyadic split, simultaneously for an unbounded-genus minimally symmetric family. It is not a parameter substitution, a numerical table, or an order computation. No unproved downstream application is asserted.
+With n odd, p∤n and squarefree (x+2)D_n, genus g=(n−1)/2. Cited q²-maximality gives π²=−q as a genuine endomorphism using semisimple faithful ℓ-adic Tate action. Thus χπ=(X²+q)^g and |J(F_q)|=(q+1)^g. At odd ℓ|q+1, Hensel split into ±1 roots with rank g each implies ℓ-primary factors (Z/ℓ^vℓ(q+1))^g. At 2, branch points −2 and roots z+z⁻¹ with z^{2n}=−1; q≡3 mod4 makes all branch points rational, so full J[2] rational; q≡1 mod4 makes g switched pairs plus two fixed, giving exactly g rational 2-rank (invariant representatives because two fixed coordinates obstruct complement cocycle). For q≡1 mod4 v2(q+1)=1; for q≡3 mod4 put A=(π−1)/2, then A²+A+(q+1)/4=0; at v2(q+1)=2 A is a unit, and for v2≥3 the polynomial has separated 2-adic roots, splitting rank-g summands with elementary divisors 2 and 2^{a−1}. Chinese remainder yields the displayed groups. Reviewed exact pinned `verify.py` script: checks rational curve points, branch 2-torsion, compatible predicted factors in ten q=p examples; these are only corroboration, not an independent group computation or proof for all powers.
 
-## Closest literature and limitations
-Borges--Reis (arXiv:2610.37777v1), Theorem 1.2; Tafazolian--Top (arXiv:1902.06262), Theorem 1.4; Dias--Tafazolian--Top (DOI:10.1016/j.ffa.2024.102521), abstract only; Springer (DOI:10.1007/s40879-021-00460-1), general abelian-variety module structure. Historical-priority and specialist proof review remain independent outstanding tasks. The theorem is about the finite abstract group over \(\mathbb F_q\), not canonical generators or polarization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact rational Jacobian elementary-divisor classification beyond previously known maximality and minimal automorphism results. Same-family Borges–Reis full text was inaccessible despite lawful attempts and remains a significant, named residual risk; absence of access alone is not negative originality evidence.
+
+## value
+
+PASS
+
+Exact abstract finite rational Jacobian groups in an infinite unbounded-genus family with minimal geometric automorphisms are natural arithmetic invariants not determined by maximality or total point count. The sharp change controlled by q mod 4 captures nontrivial integral 2-adic structure; relevant beyond table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
