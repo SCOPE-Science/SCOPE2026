@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:17:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For strictly positive initial data with x0>y0 and R>0, alpha>1, log(x/y) increases by (alpha-1)(x-y); assuming it bounded would force both coordinates to zero, contradicting eventual positive growth when both are small. Thus log ratio diverges and boundedness of x makes y->0. With y sufficiently small, the winner grows whenever below R/4 and each step from above that threshold has a uniform positive lower bound, hence liminf x>0. Telescoping both logarithmic population recurrences yields Cesaro mean x=R and exact losing log exponent -(alpha-1)R. Relabeling swaps the winner. At alpha=1 the ratio is invariant and the scalar total Ricker population persists; for 0<alpha<1 the equal positive equilibrium is locally asymptotically stable at small R, establishing sharpness. The claim does not require convergence of the winning scalar Ricker orbit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ackleh–Salceanu Theorem 2.5 assumes c_1j < c_ij for the designated winner, whereas in this symmetric alpha>1 model c12=alpha>1=c22; the reverse winner also fails.",
+          "Kulakov–Neverova–Frisman discuss competitive bifurcations and exclusion regimes, not a uniform rate over irregular survivor dynamics."
+        ],
+        "reasoning": "The cited stronger-looking n-species theorem does not dominate this coefficient domain, so the all-initial exact rate remains outside its sufficient hypotheses.",
+        "searches": [
+          "symmetric two species Ricker competition global competitive exclusion order preservation exact exponential extinction rate",
+          "https://doi.org/10.1080/17513758.2015.1020576",
+          "https://www.mdpi.com/2227-7390/10/7/1076"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/17513758.2015.1020576",
+        "https://www.mdpi.com/2227-7390/10/7/1076",
+        "https://doi.org/10.1155/ddns/7255117"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing comparison models document excluded coexistence when interspecific competition is strong.",
+          "Submitted argument additionally proves the monotonically divergent ratio, positive winner lower floor and Cesaro identity, yielding a precise exponent for every positive off-diagonal state."
+        ],
+        "reasoning": "Qualitative exclusion without global order assignment and time-average control is insufficient to infer the exact exponent; the proof explicitly supplies both.",
+        "searches": [
+          "symmetric two species Ricker competition global competitive exclusion order preservation exact exponential extinction rate",
+          "https://doi.org/10.1080/17513758.2015.1020576",
+          "https://www.mdpi.com/2227-7390/10/7/1076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Log-ratio drift is the discrete relative-fitness identity; the exact exponent can be expressed as the time-average transverse Lyapunov exponent along an axis population."
+        ],
+        "reasoning": "Compared potential equivalent exclusion/permanence and invasion-exponent formulations. Common competitive exclusion of one species does not automatically give which initial condition selects the winner or the all-R universal rate.",
+        "searches": [
+          "symmetric two species Ricker competition global competitive exclusion order preservation exact exponential extinction rate",
+          "https://doi.org/10.1080/17513758.2015.1020576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bifurcation diagrams, numerical extinction regimes, and coexistence tables do not specify the exact exponent -(alpha-1)R over all R and initial populations."
+        ],
+        "reasoning": "A numerical phase diagram is not the theorem; no table providing the exact universal asymptotic rate and initial-order selection was found.",
+        "searches": [
+          "symmetric two species Ricker competition global competitive exclusion order preservation exact exponential extinction rate",
+          "https://doi.org/10.1155/ddns/7255117"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after testing whether the most relevant general Ricker competitive-exclusion result implies the symmetric alpha>1 case. Its winner coefficient-order criterion is incompatible with alpha>1. Other articles report local equilibria and bifurcations but not the all-positive-state initial-order theorem with exact extinction exponent. General theory under alternative names remains a real priority risk.",
+      "residual_risks": [
+        "Earlier global competitive-map or ratio-Lyapunov literature could contain the same theorem without the exact symmetric model title.",
+        "Publisher PDF screenshot was access-blocked despite textual theorem extraction; visual page verification limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUFFICIENT_HYPOTHESES_NOT_MET",
+          "evidence": "For proposed winner1 the paper requires c12<c22, but symmetric high competition has c12=alpha>1=c22.",
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2015.1020576",
+          "material_read": "Accessible publisher PDF extracted mathematical text, Theorem 2.5 and coefficient hypotheses; page-image screenshot access returned 403",
+          "method": "read precise theorem and coefficient inequalities",
+          "title": "Competitive exclusion and coexistence in an n-species Ricker model",
+          "trigger": "general n-species theorem might cover the symmetric model"
+        },
+        {
+          "assessment": "DOES_NOT_STATE_ALL_INITIAL_EXACT_EXPONENT",
+          "evidence": "Identifies dynamic modes and exclusion regions, not initial-order selection plus universal decay exponent for any R.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/10/7/1076",
+          "material_read": "Full freely accessible HTML, bifurcation and competition discussions",
+          "method": "read mathematical scope and conclusions",
+          "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+          "trigger": "same family, high-competition exclusion"
+        },
+        {
+          "assessment": "NOT_FOUND_COVERING_EXACT_EXPONENT",
+          "evidence": "Focuses on equilibria and period bifurcations, not the stated all-positive initial-data rate.",
+          "identifier_or_url": "https://doi.org/10.1155/ddns/7255117",
+          "material_read": "Available open publisher material and described local stability/bifurcation results",
+          "method": "reviewed relevant accessible sections",
+          "title": "Dynamics and Bifurcations in a Two-Species Ricker Competition Model With Nonmonotonic Growth",
+          "trigger": "recent same-family prior work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact initial-order selection and universal logarithmic extinction exponent in a symmetric, high-competition discrete Ricker system, uniformly over all intrinsic growth rates including chaotic surviving trajectories, form a useful sharp global exclusion theorem. Its statement is stronger than local coexistence/bifurcation criteria and answers a natural ecological dynamical question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Identical intrinsic log growth and self-regulation coefficients; strictly positive off-diagonal initial conditions.",
+    "No claim about arbitrary unequal competition coefficients, stochastic forcing, survivor single fixed-point attraction or a uniform prefactor on y_n."
+  ],
+  "schema_version": 1
+}

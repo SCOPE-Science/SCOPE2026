@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter; no external packages are required. The test confirms 12 one-step log identities at the stated numerical precision, four long-orbit extinction-rate approximations, and three positive-coexistence fixed-point stability cases for weak coupling. The expected terminal marker is:
+# Independent mathematical audit
 
-`VERIFY_OK one_step_log_identities=12 extinction_rates=4 coexistence_sinks=3`
+## correctness
 
-The numerical extinction rate approximation uses 12,000 updates per test, computes the losing abundance in logarithmic coordinates to avoid underflow, and requires absolute rate error below 0.006. It samples \(R=0.6,2.5,5\) and both initial orderings; high-growth trajectories do not assume periodicity.
+PASS
 
-The proof in `RESULT.md`, not these finite tests, establishes the universal theorem. The exact log-ratio drift and time-summed population growth identities can be verified directly by substituting the stated map. The eventual positive lower bound is the critical infinite-trajectory step and is proved separately. No independent audit or external validation has been performed.
+For strictly positive initial data with x0>y0 and R>0, alpha>1, log(x/y) increases by (alpha-1)(x-y); assuming it bounded would force both coordinates to zero, contradicting eventual positive growth when both are small. Thus log ratio diverges and boundedness of x makes y->0. With y sufficiently small, the winner grows whenever below R/4 and each step from above that threshold has a uniform positive lower bound, hence liminf x>0. Telescoping both logarithmic population recurrences yields Cesaro mean x=R and exact losing log exponent -(alpha-1)R. Relabeling swaps the winner. At alpha=1 the ratio is invariant and the scalar total Ricker population persists; for 0<alpha<1 the equal positive equilibrium is locally asymptotically stable at small R, establishing sharpness. The claim does not require convergence of the winning scalar Ricker orbit.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after testing whether the most relevant general Ricker competitive-exclusion result implies the symmetric alpha>1 case. Its winner coefficient-order criterion is incompatible with alpha>1. Other articles report local equilibria and bifurcations but not the all-positive-state initial-order theorem with exact extinction exponent. General theory under alternative names remains a real priority risk.
+
+## value
+
+PASS
+
+The exact initial-order selection and universal logarithmic extinction exponent in a symmetric, high-competition discrete Ricker system, uniformly over all intrinsic growth rates including chaotic surviving trajectories, form a useful sharp global exclusion theorem. Its statement is stronger than local coexistence/bifurcation criteria and answers a natural ecological dynamical question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

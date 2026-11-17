@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes exact positive invariance, a uniform upper bound, strict monotonicity of the log abundance ratio for \(\alpha>1\), and a contradiction excluding its boundedness. That yields extinction of the initially smaller population. The winner's eventual positive lower bound follows from the negative-regulation recurrence and vanishing interspecific pressure; bounded logarithms then justify telescoping the survivor equation. This proves the exact survivor time mean \(R\) and extinction exponent \(-(\alpha-1)R\) for every positive unequal initial state and every \(R>0\), without presuming a periodic or equilibrium survivor. At \(\alpha=1\) the conserved ratio and scalar Ricker persistence prove no exclusion, while at smaller coupling a stable coexistence equilibrium furnishes an open counterexample. The checker reproduces log identities and representative rates, not the infinite-orbit proof.
+## correctness
 
-**Originality — PASS within the checked literature.** The closest 2026 model study establishes equilibrium bifurcations and analyzes individual period-two examples; no all-initial-data global theorem with an exact extinction exponent appears in its inspected statements. The 2022 phase-multistability paper discusses exclusion qualitatively and uses numerical basin diagrams; these do not imply the universal limiting rate or initial-order selection for all positive states and arbitrarily high \(R\). Ackleh–Salceanu (2015) establishes important general exclusion results, but the sufficient ordering \(c_{1j}<c_{ij}\) in its main winner theorem does not hold for the symmetric \(\alpha>1\) matrix (\(c_{12}=\alpha>c_{22}=1\)). The exact log-ratio cancellation and scalar Ricker time-average identity are elementary established ingredients and are not themselves claimed as new. Accessible records for related results on Ricker Floquet spectra, stability of exchange cycles, and coexistence saddles do not imply the global high-competition rate. A broader uninspected global-exclusion theorem remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The natural threshold \(\alpha=1\) separates coexistence-capable weak competition from deterministic winner-take-all dynamics for every reproductive growth rate, including regimes with irregular scalar Ricker recurrence. The exact rate is not merely a local invasion eigenvalue at an equilibrium: it holds along every positive off-diagonal trajectory and is independent of the survivor's orbit statistics. This provides a sharp, fully dynamical extinction benchmark for the model, stronger than fixed-point or finite-parameter stability tests.
+For strictly positive initial data with x0>y0 and R>0, alpha>1, log(x/y) increases by (alpha-1)(x-y); assuming it bounded would force both coordinates to zero, contradicting eventual positive growth when both are small. Thus log ratio diverges and boundedness of x makes y->0. With y sufficiently small, the winner grows whenever below R/4 and each step from above that threshold has a uniform positive lower bound, hence liminf x>0. Telescoping both logarithmic population recurrences yields Cesaro mean x=R and exact losing log exponent -(alpha-1)R. Relabeling swaps the winner. At alpha=1 the ratio is invariant and the scalar total Ricker population persists; for 0<alpha<1 the equal positive equilibrium is locally asymptotically stable at small R, establishing sharpness. The claim does not require convergence of the winning scalar Ricker orbit.
 
-**Scope and risks.** The result is confined to the exchange-symmetric two-species map with \(R>0\). The 2015 article's complete publisher text could not be directly reopened, although its indexed theorem statement and coefficient hypothesis were inspected. Qualitative competitive exclusion is well established; novelty is limited to the stated global sharp classification and exact extinction rate. The claim has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after testing whether the most relevant general Ricker competitive-exclusion result implies the symmetric alpha>1 case. Its winner coefficient-order criterion is incompatible with alpha>1. Other articles report local equilibria and bifurcations but not the all-positive-state initial-order theorem with exact extinction exponent. General theory under alternative names remains a real priority risk.
+
+## value
+
+PASS
+
+The exact initial-order selection and universal logarithmic extinction exponent in a symmetric, high-competition discrete Ricker system, uniformly over all intrinsic growth rates including chaotic surviving trajectories, form a useful sharp global exclusion theorem. Its statement is stronger than local coexistence/bifurcation criteria and answers a natural ecological dynamical question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
