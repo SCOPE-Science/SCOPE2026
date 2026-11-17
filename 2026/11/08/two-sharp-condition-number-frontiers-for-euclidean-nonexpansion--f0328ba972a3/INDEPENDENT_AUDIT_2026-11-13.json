@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T15:02:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md 592c146a417777fbf78194326e17741672bef8b4",
+        "Exact Gram verifier artifacts/verify_gs3.py e85ce40214c383cf9298326d60b5fb23d6e202a6",
+        "Independent SymPy Gram and witness computation"
+      ],
+      "rationale": "The explicit 3x3 sweep B from three coordinate minimizations has vanishing first column. Gram nonzero 2x2 block obeys tr G=rho² S(rho), det G=rho^4(1+2rho²), det(I-G)=(rho-1)P(rho), S=2rho^4-6rho^3+7rho²-2rho+3, P=6rho^4+2rho²-rho-1. Independently checked exact coefficient polynomials against original verifier and SymPy. Psecond=72rho²+4>0, with endpoint signs yields exactly two real roots in SPD range. On P<=0, |rho|<2/3 gives detG<=272/729<1, ruling out both singular eigenvalues above one; on P>0 det(I-G)<0 gives one >1. At kappa=6, rho=5/8 gives ||B||~1.01807839 and rho=-5/13 gives ~0.85371231. Equalities at roots, all six update orders permutation-conjugate. The spectral eigenvalue modulus rho^(3/2) for positive rho is older and not the norm result.",
+      "residual_risks": [
+        "Per-sweep Euclidean error, not individual coordinate-step monotonicity or finite-precision performance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full published 2x2 result supplies dimension-2 best-order norm thresholds for arbitrary 2x2 SPD, not the three-coordinate equicorrelation phase.",
+          "2026 three-block momentum result explicitly provides positive-rho sweep spectrum, a weaker/different quantity."
+        ],
+        "reasoning": "A theorem guaranteeing energy norm descent or bounding 2x2 coordinate ordering does not imply Euclidean nonexpansion of a nonnormal 3x3 sweep.",
+        "searches": [
+          "Kamri Hendrickx Glineur cyclic coordinate worst case 2211.17018",
+          "Mohlenkamp Young Barany Transient Dynamics of Block Coordinate Descent in a Valley 2020",
+          "two-coordinate Euclidean Gauss Seidel sharp minimax"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query Gauss Seidel three coordinate equicorrelation Euclidean norm nonexpansion",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b/RESULT.md",
+        "arXiv:2211.17018",
+        "Mohlenkamp Young Barany 2020"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Momentum 2026 proves rho(B)<1 for 0<rho<1, which coexists with ||B||>1 at rho=5/8; it cannot imply the desired nonexpansion condition.",
+          "The 2D theorem concerns a family with one nonzero real eigenvalue and two coordinate orderings, not 3D complex modes."
+        ],
+        "reasoning": "Old exact B data are a premise reused transparently; additional Gram determinant/eigenvalue and negative-correlation analysis are necessary for the new two-frontier statement.",
+        "searches": [
+          "three blocks momentum stability 2026 RESULT.md full text",
+          "two coordinate Gauss Seidel Euclidean transient 2026 RESULT.md full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full 2026 momentum theorem prints precisely the same sweep B and characteristic eigenvalues, but analyzes Schur–Cohn lifted momentum stability, not ||B||_2<=1."
+        ],
+        "reasoning": "Matching the sweep matrix does not make its spectral-radius stability condition equivalent to the new operator singular-value threshold; 0 momentum is asymptotically stable even in the Euclidean-expansive interval.",
+        "searches": [
+          "Resultary Gauss Seidel three coordinate equicorrelation Euclidean norm nonexpansion condition number positive negative rho",
+          "published three blocks create a sharp momentum stability barrier Gauss Seidel sweep"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact polynomial P emerges from a newly evaluated 2x2 Gram; no matched published exact-norm table found."
+        ],
+        "reasoning": "This is a sharp all-parameter algebraic norm classification, not numerical lookup; direct special-function and polynomial certificates support it.",
+        "searches": [
+          "Resultary equicorrelation three coordinate Gauss Seidel norm quartic 6rho^4",
+          "condition number frontiers Gauss Seidel 5.792854 10.053432"
+        ]
+      },
+      "rationale": "The published October 2026 three-block momentum result already gives identical B and its eigenvalues, and is explicitly excluded from originality credit. A different published two-dimensional best-order Euclidean Gauss–Seidel minimax is not a 3-dimensional equicorrelation Gram classification. The sharp quartic singular-norm frontiers and sign-dependent kappa pair are not shown to be implied by either, nor by standard SPD energy descent. Historical specialized numerical iteration literature is a residual risk.",
+      "residual_risks": [
+        "Earlier specialized Gauss-Seidel and block coordinate transient formulas may imply this exact rho quartic without matching title; no complete historical bibliography certificate.",
+        "Restricted to exact 3x3 unit-diagonal equicorrelation SPD and Euclidean one-sweep error norm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original B and spectral modulus, not two Euclidean singular-norm thresholds",
+          "evidence": "Matrix G_c and characteristic polynomial; P_c(alpha) stability boundary",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3/RESULT.md",
+          "material_read": "Complete published RESULT.md and proof of the positive-correlation spectrum and momentum-stability criterion",
+          "method": "Connected GitHub full blob",
+          "title": "Three blocks create a sharp momentum-stability barrier for cyclic alternating minimization",
+          "trigger": "Identical three-coordinate sweep matrix"
+        },
+        {
+          "assessment": "Exact result is dimension two; does not imply 3D equicorrelation branch split",
+          "evidence": "2x2 best-order threshold kappa~8.35241",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b/RESULT.md",
+          "material_read": "Complete published RESULT.md with exact 2x2 norm, proof and limitations",
+          "method": "Connected GitHub full blob",
+          "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering",
+          "trigger": "Potential stronger general SPD norm theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Two sharp condition-number frontiers for Euclidean nonexpansion of three-coordinate Gauss–Seidel",
+        "Assigned proof and exact or independently reproduced structural boundary"
+      ],
+      "rationale": "Ordinary objective descent does not control Euclidean error amplification of nonnormal sweeps. Two matrices with identical condition number but opposite one-sweep Euclidean behavior are a mathematically meaningful sharp boundary example; exact all-rho classification gives useful non-asymptotic norm information beyond classical spectral convergence.",
+      "residual_risks": [
+        "Only exactly normalized 3x3 equicorrelation SPD family; no arbitrary 3x3 SPD minimax.",
+        "Per-sweep Euclidean error, not individual coordinate-step monotonicity or finite-precision performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact cyclic Gauss–Seidel on H_rho with diagonal 1, off-diagonal rho and -1/2<rho<1, one-sweep Euclidean nonexpansion occurs iff rho lies between the two roots of 6rho^4+2rho^2-rho-1=0. The sign-dependent condition-number thresholds differ, near 5.7928547 and 10.0534328; fixed kappa=6 separates the two behaviors.",
+  "limitations": [
+    "Only exactly normalized 3x3 equicorrelation SPD family; no arbitrary 3x3 SPD minimax.",
+    "Per-sweep Euclidean error, not individual coordinate-step monotonicity or finite-precision performance."
+  ],
+  "schema_version": 1
+}
