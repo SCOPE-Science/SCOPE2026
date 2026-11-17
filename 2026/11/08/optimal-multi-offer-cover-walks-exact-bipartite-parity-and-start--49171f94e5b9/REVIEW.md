@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof supplies exact hypotheses and normalization: synchronous one-step motion, fixed independent with-replacement offers, positive geometric waits and a starting vertex already counted. The optimality argument uses count-chain monotonicity and deterministic alternation, so the greedy policy is simultaneously all-deadline optimal. The likelihood-ratio comparison is reconstructed through strictly ordered geometric factors and log-concave convolution; summing the cross-product inequalities gives the exact strict-even parity statement. The expectation identity follows from maxima of coupled independent collector times. A standalone labeled-state checker independently confirms hundreds of finite exact CDF identities. Finite checks are not used to prove the infinite theorem.
+PASS
 
-## Originality
+In K_{a,b} with d>=2 i.i.d. uniform offers with replacement, each move deterministically changes part and new-target discovery probability is 1-(j/n)^d regardless of particular seen labels. A coupled greedy count chain proves optimality for every deadline against all adaptive randomized choices. The alternating independent offer streams yield C_A=max(2U_a,2U_b+1), C_B=max(2U_b,2U_a+1), where U_n starts with one coupon collected and equals sum_{r=1}^{n-1} Geom(1-(1-r/n)^d). Parity CDFs follow. Log-concavity of geometric masses, TP2 convolution and strict parameter monotonicity give likelihood-ratio order U_a>=lr U_b, hence strict even-time gap exactly k>=a-1 for a>b. Coupling maxima gives mean gap P(U_a>U_b)-P(U_a<U_b) in (0,1], equality 1 exactly b=1. Independent exact-rational labeled-mask process matched partwise collector CDFs for K_3,2 at d=2 and d=3 through nine traversals; at t=4 d2 larger-start CDF=10/27 and d3=1729/2916, versus 0 from smaller start. Finite checks are not proof of all sizes or MLR.
 
-PASS with historical-priority qualification. Georgakopoulos–Haslegrave–Sauerwald–Sylvester (arXiv:1911.05170) introduce the limited-offer random walk, but their paper's relevant statements concern general graph cover/hitting bounds, complete-graph asymptotics and computational complexity, rather than this exact all-size bipartite stochastic order. O'Neill (2023) proves monotonicity for a distinct linear-rate occupancy model, not for the nonlinear discovery probability induced by multiple simultaneous offers. The classical log-concave likelihood-ratio convolution lemma is explicitly attributed and not claimed as new. An older greedy edge-exploration walk is a materially different sampling rule. Remaining risk: a differently titled specialized coupon-collection theorem might imply the new inequalities.
+## originality
 
-## Value
+PASS
 
-PASS. The cover-time decision problem for controlled random walks is generally hard. Here an infinite family has a single policy minimizing the entire cover-time law, with an exact start-side stochastic ranking, parity equality at every odd deadline and a sharp universal one-step upper bound for its expectation gap. The nontrivial structural step is a likelihood-ratio comparison across changing geometric-stage arrays; neither optimality alone nor an ordinary expected-time calculation implies that order. This goes beyond an isolated example or a routine finite census.
+PASS with substantial prior coverage explicitly scoped: Nov 2 published theorem already establishes d=2 greedy all-deadline optimality, the same start-side ordering, parity laws and expected advantage, with extra logistic asymptotics. Nov 8 single-offer result covers d=1. The new claim extends all finite offer multiplicities d>=2 and proves the stronger likelihood-ratio ordering of individual multi-offer collector completion times; these are not statements of the earlier d=2 results. The d=2 special case is not original.
 
-## Closest literature and scope
+## value
 
-The closest source is *The Power of Two Choices for Random Walks* (2019 preprint, 2022 journal), whose inspected introduction, table of known cases, strategy-complexity section and conclusion do not assert this theorem. The complete 2023 open-access occupancy article supplies the strongest available related parameter-stochastic-order result but uses linear birth rates. The theorem applies only to independent uniform offers with replacement on complete bipartite graphs; no extension to arbitrary graphs or weighted choices is claimed. Independent historical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the number of independent offers is a natural intrinsic choice parameter; all-d stochastic optimization and a monotone likelihood-ratio theorem control the entire completion-time distribution, not merely a new numerical example. Strict parity threshold and exact expectation bound for every d are useful for controlled coverage on complete bipartite graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
