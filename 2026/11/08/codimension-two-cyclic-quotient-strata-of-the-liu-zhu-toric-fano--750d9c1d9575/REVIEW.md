@@ -1,15 +1,21 @@
-# Review: Codimension-two cyclic quotient strata of the Liu–Zhu toric Fano family
+# Independent mathematical audit
 
-## Correctness: PASS
-The full proof exhausts all edges of the truncated-simplex polar polytope. A rank-two lattice saturation calculation gives index \(1\) on every short edge and index \(4n\) on every long edge, with explicit quotient weights \((1,2n-1)\). The standard toric correspondence then proves the classification of codimension-two singular components. The canonical index, minimal log discrepancy, and Hirzebruch–Jung chain follow from exact formulas. A standalone checker independently recomputes the incidence and lattice arithmetic for \(3\le n\le9\); the symbolic proof covers every \(n\ge3\). No unproved high-codimension claim is made.
+## correctness
 
-## Originality: PASS, with residual priority risk
-Liu–Zhu (arXiv:2607.04005v1, Proposition 2.1 and Section 3) define the polar fan and establish K-polystability but do not report this codimension-two quotient-stratum classification. The closest inspected public same-family research note, *Local divisor class groups at the torus fixed points of the Liu–Zhu small-alpha examples* (2026), treats full-dimensional fixed-point charts only; those class groups do not determine the complete two-cone orbit structure or cyclic quotient weights. Wu (arXiv:2608.14115v1) studies a broader alpha-invariant spectrum, but only metadata and a detailed indexed summary could be read. Searches for quotient weights, HJ strings, aliases and singular locus strata returned no equivalent statement. An unindexed earlier application of general toric theory remains possible, and independent priority verification is outstanding.
+PASS
 
-## Mathematical value: PASS
-The family is a natural source of K-polystable singular Fano varieties whose local singularity geography had not been resolved by the motivating paper. The result completely identifies the codimension-two components, proves their uniform noncanonical transverse log discrepancy, and classifies their resolution configurations of arbitrarily growing length. It is a natural structural classification, not an arbitrary small parameter slice.
+Convert box-slice Q_n to simplex truncated at each vertex, so all edges are either short v_pq−v_pr or long v_pq−v_qp. Short two-ray lattice indices have coprime minors −2,−3 and hence smooth cones. In a saturated plane basis long rays are (−(2n−1),2) and (1,2), determinant −4n, and fractional generator has ray coefficients (1,2n−1)/(4n), giving type 1/(4n)(1,2n−1). HJ negative fraction 4n/(2n−1)=[3,2^(n−2),3], canonical index 4n/gcd(4n,2n)=2, minimum nontrivial cyclic age 1/2. Toric orbit-cone correspondence exhausts codimension-two singular components and does not claim higher codimension. Independently recomputed saturated indices, quotient ages and HJ chains for n=3..9; all-n proof from lattice identities.
 
-## Scope and limitations
-The theorem applies to complex dimensions \(n\ge3\), on dense torus orbits of codimension-two singular components. It does not classify higher-codimension singular components or their intersections, and it makes no claim for \(n=2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Original Liu–Zhu family is fully acknowledged; earlier fixed-point class-group decomposition does not imply all generic codimension-two transverse quotient weights and HJ chains by simple specialization. Wu generalizes alpha-invariant spectrum but full preprint unavailable, so stronger hidden coverage cannot be ruled out. Computed transverse quotient components are a distinct invariant with actual saturated lattice and fan-edge proof; acceptance remains explicitly provisional priority-wise.
+
+## value
+
+PASS
+
+Codimension-two generic singularities, cyclic weights, canonical index, minimal log discrepancy and resolution string are standard natural invariants for a named K-polystable toric Fano family. All-n uniform quotient classification and proof from fan-edge geometry give a meaningful complete codimension-two stratum theorem that the earlier torus-fixed class-group calculation does not supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
