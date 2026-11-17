@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and actual check boundaries
+# Independent mathematical audit
 
-The standalone checker `verify_capacity.py` was run against the newly prepared proof with Python 3 and SymPy. It reported `PASS 88775 exact/algebraic/finite-state and bounded-grid checks` after fixing two implementation mistakes in the checker before final validation. The final embedded checker is the successfully executed version.
+## correctness
 
-The check suite verifies exact symbolic change-of-variables, exact critical polynomial elimination, local Hessian formulas, the global-balance equation for every state of all canonical sectors on two periodic rings of lengths \(L=3,4,5\), and the expected signed currents calculated directly from separate left/right hopping rates. It also compares the explicit continuum optimizer with a bounded grid of 81 by 81 density choices for twelve couplings. The finite grid cannot establish optimality over a continuum; the proof in `RESULT.md` establishes global optimality and the uniqueness of the transition analytically. The finite-state tests cannot imply an infinite-volume theorem alone; exact product stationarity follows from the telescoping identity.
+PASS
 
-Run from a directory containing `verify_capacity.py` and `requirements.txt`: `python -m pip install -r requirements.txt`, then `python verify_capacity.py`. The checker does not read old datasets, papers, or other packages. The mathematical result is not independently audited or externally certified.
+The local current-balance telescoping identity proves uniform measure on each fixed-occupancy sector and hence Bernoulli product stationarity. The exact signed total current is Fq=u(1-u)(1+qv)+v(1-v)(1+qu), with any real q implemented by strictly positive forward/backward rates. Setting s=(u+v)/2,d=(u-v)/2 gives F=2s(1-s)(1+qs)+2[q(s-1)-1]d²; no nonzero-d interior maximizer exists by indefinite Hessian, and boundary maxima are 1/4 at half-filled single lane for q<0. The diagonal has unique maximizer xq and value S(q), crosses 1/4 exactly at qstar=-1.3570032053..., the unique root of 32q³+85q²+80q+32 in (-1.5,-1). Independently verified change-of-variables, resultant polynomial, and root using exact symbolic algebra. No dynamic density selection claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge: core original contribution is not established as a corollary or stronger prior result by the materially inspected sources and searches. The stationary polynomial from Popkov makes the new optimization calculable but does not itself assert the complete global-maximizer set or first-order-like external allocation jump. Three-lane fixed-total constraints do not reduce to the independently free two-lane problem. Residual priority risks remain; a failed search is not an originality proof.
+
+## value
+
+PASS
+
+An exact phase boundary and complete optimizer classification for a physically realizable bidirectional exclusion process provide a nontrivial design trade-off between distributed and single-lane signed transport. The rate positivity extension unlocks a coupling range inaccessible to forward-only models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

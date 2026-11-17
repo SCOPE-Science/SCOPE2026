@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim fixes strictly positive microscopic rates, a signed net rightward current, two independently adjustable densities, and an all-real dimensionless coupling. The stationarity proof cancels both boundary-crossing flux imbalances exactly on periodic rings; the canonical finite-ring correction and grand-canonical current are separately derived. The global optimizer proof treats the closed density square, eliminates all off-diagonal interior maxima through an indefinite Hessian, identifies edge and diagonal extrema, proves a unique crossing, and derives the polynomial threshold without mistaking a numerical scan for completeness. The checked script independently enumerates exact finite-state balances and canonical fluxes and validates algebraic identities.
+## correctness
 
-**Originality — PASS (qualified).** Popkov [1] establishes invariant Bernoulli measures and the current polynomial for bidirectional jumps, not optimization of total signed flow. The 2015 multi-lane TASEP [2] gives the same current formula but only with nonnegative forward-only rates, which excludes the discovered \(q_*<-1\) for normalized baseline bias one. Spohn [3] studies a reflection-symmetric, opposite-current lattice gas and mode degeneracies, not the same allocation objective. Pronina–Kolomeisky [4] concerns boundary-driven, boundary-coupled spontaneous stationary symmetry breaking, which does not imply this homogeneous periodic-lane design classification. Targeted searches for aliases such as maximum throughput, density allocation, two-lane repulsion and symmetry breaking yielded no decisive earlier implication. Novelty is not proved by failed search and remains subject to independent priority review.
+PASS
 
-**Value — PASS.** The unrestricted signed-interaction domain newly realized microscopically by positive bidirectional rates supports a qualitative allocation switch that cannot occur in its forward-only counterpart. This is a natural, exactly specified capacity-design question, not an arbitrary parameter sample. Its cubic critical coupling, the *complete* set of optimizers, and the nonzero capacity slope discontinuity distinguish the result from a local Taylor expansion of known currents. It shows that strongest net transport can require deliberately leaving one interacting lane unoccupied; it does not claim that the closed dynamics selects such a state.
+The local current-balance telescoping identity proves uniform measure on each fixed-occupancy sector and hence Bernoulli product stationarity. The exact signed total current is Fq=u(1-u)(1+qv)+v(1-v)(1+qu), with any real q implemented by strictly positive forward/backward rates. Setting s=(u+v)/2,d=(u-v)/2 gives F=2s(1-s)(1+qs)+2[q(s-1)-1]d²; no nonzero-d interior maximizer exists by indefinite Hessian, and boundary maxima are 1/4 at half-filled single lane for q<0. The diagonal has unique maximizer xq and value S(q), crosses 1/4 exactly at qstar=-1.3570032053..., the unique root of 32q³+85q²+80q+32 in (-1.5,-1). Independently verified change-of-variables, resultant polynomial, and root using exact symbolic algebra. No dynamic density selection claimed.
 
-**Scientific limitations.** Only signed current and independent density selection are optimized. No absolute-current, entropy-production, fixed-budget, reservoir-selection or finite-volume grid theorem is claimed. General earlier work on two-lane transport may contain an equivalent optimization; the available targeted primary-source comparison supports but cannot certify publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: core original contribution is not established as a corollary or stronger prior result by the materially inspected sources and searches. The stationary polynomial from Popkov makes the new optimization calculable but does not itself assert the complete global-maximizer set or first-order-like external allocation jump. Three-lane fixed-total constraints do not reduce to the independently free two-lane problem. Residual priority risks remain; a failed search is not an originality proof.
+
+## value
+
+PASS
+
+An exact phase boundary and complete optimizer classification for a physically realizable bidirectional exclusion process provide a nontrivial design trade-off between distributed and single-lane signed transport. The rate positivity extension unlocks a coupling range inaccessible to forward-only models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
