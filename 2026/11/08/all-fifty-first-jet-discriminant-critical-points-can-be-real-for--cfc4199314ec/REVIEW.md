@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact sphere-coordinate reduction is established modulo the unit-circle identity. Seven disjoint critical-point classes contain 30 nondegenerate real points at the zero-parameter limit, each with a nonzero exact Hessian determinant. The six remaining equatorial points each split into two distinct simple real points under a small negative meridional perturbation; both meridional and angular Hessian directions are checked. Independent blow-up charts at the two poles have four nondegenerate real critical points each, with exact local Taylor expansions. The implicit-function theorem turns all 50 limiting points into actual nondegenerate critical points for every sufficiently small positive parameter. The cited general theorem supplies the complex count 50 at generic coefficients, and the nonempty intersection of Euclidean-open and Zariski-open sets proves generic real sharpness. The included symbolic verifier returned `VERIFY_OK`.
+PASS
 
-## Originality
+In the actual RESULT.md the first-jet distance delta=-2F^2+||grad F||^2/3 is reduced in meridian coordinates to explicit rational N/(1+u^2)^3; derivative P and angular derivative -4(c+2u^3) at b=0 were checked symbolically. Seven classes yield 30 simple critical points by stated exact nonzero Hessian determinants. Each of six degenerate equatorial critical points splits into two simple points because P/u has derivative -24c and b derivative 8 at origin. Each polar chart has four nondegenerate stationary points of Q_sigma=4(X^2+Y^2)-8sigma(X^3-3XY^2), so total 30+12+8=50 persistent real simple points by IFT for small epsilon>0. A generic coefficient perturbation intersects the known Zariski-open complex-count-50 locus. The source verifier checks polynomial/Hessian identities; independent symbolic meridian and splitting checks corroborate. No numerical epsilon bound claimed.
 
-**PASS, with priority risk.** The motivating article by Kozhasov–Mourrain–Parusiński (arXiv:2610.06538v1) explicitly leaves the all-real question open as Problem 6.2, while proving only the complex count (Theorem 1.2). This result supplies a real witness and proves its persistence for the first non-binary cubic case. Kozhasov's prior fully-real eigenconfiguration theorem concerns critical points of the form itself, not critical points of the first-jet discriminant-distance function. The identified published exact-real cubic examples concerning Newton starts, ordinary singularities, and general Euclidean distance degrees do not imply the present claim. Searches for aliases and the exact count revealed no stronger covering statement; the literature search is not a historical-priority certificate.
+## originality
 
-## Value
+PASS
 
-**PASS.** Real attainment of algebraic Euclidean-distance critical-point upper bounds is a natural geometric optimization question, expressly posed in a recent primary article. The theorem resolves one natural, previously open variable-degree case with the full 50-point attainment, not a routine isolated low-degree invariant. It gives a stable open set of coefficients and an explicit analytic construction, while respecting the boundary that no general all-degree result follows.
+The motivating Kozhasov–Mourrain–Parusiński 2026 first-jet discriminant article supplies the exact complex critical point count 50 and poses all-real attainment, whereas Kozhasov 2018 concerns fully real tensor eigenconfigurations (critical points of F itself), not the first-jet discriminant distance. A targeted Resultary semantic query found only this record with the full 50 first-jet claim; similar examples about cubic Newton systems and discriminants use different functions. Full motivating paper was not retrieved through available arXiv/OA routes and Oxford VPN disconnected; theorem/problem numbering is supported by inspected source package but not independently confirmed in primary full text. Residual specialist-priority risk is stated; no decisive covering result found.
 
-## Sources and limitations
+## value
 
-Main source inspected in its full-text HTML form, including introduction, Theorem 1.2, the first-jet distance formula, §3, Proposition 4.3, and Problem 6.2: Kozhasov–Mourrain–Parusiński, arXiv:2610.06538v1 (2026-10-05). Older distinction: Kozhasov, *On fully real eigenconfigurations of tensors* (2018), DOI:10.1137/17M1145902, whose abstract and 2026 comparison concern a different optimization function. The perturbative theorem does not state a numerical cutoff for its small parameter, global minimizer classifications, or cases other than ternary cubics. Independent historical-priority verification and mathematical audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first-jet discriminant distance is a natural geometric optimization invariant. An explicit perturbative real family making all fifty complex critical points real and nondegenerate answers a specific all-real sharpness case for ternary cubics, with an open coefficient neighborhood, a meaningful unresolved geometric gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
