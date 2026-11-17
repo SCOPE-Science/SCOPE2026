@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Two-step Ricker equations fix u,v uniquely; triangular full-map Jacobian gives exactly lambda_x=(1-u)(1-v), lambda_y=(s+beta h(u))(s+beta h(v)). Unique positive fixed point iff beta>beta_eq follows from strict monotonic nullclines. Strict concavity log q implies beta_eq<beta_cyc. Hyperbolic sink implies open strictly positive attracting basin; explicit small-amplitude expansion and rational witness are algebraically checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hamada–El-Azab–El-Metwally DOI:10.1007/s12190-022-01737-8, eq. (5), uses the update with bilinear predation and no saturated juvenile recruitment.",
+        "Published related results on invasion of juvenile/adult predators over prey cycles require distinct stage variables and multipliers."
+      ],
+      "reasoning": "Related general invasion and Ricker stability principles do not supply a two-cycle census and simultaneous coexistence threshold in this exact rational response model. The 2022 model differs dynamically, and a parameter substitution cannot turn its bilinear predator update into this rational saturating one.",
+      "searches": [
+        "\"Ricker\" \"predator-free\" \"period-2\" \"coexistence\"",
+        "\"predator-free period-two\" \"coexistence equilibrium\" Ricker predator prey",
+        "Kolmogorov Ricker map r=t coth(t/2) sharp predator invasion window coexistence with attracting predator-free period 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2405.11806v1 full HTML sections 1–5",
+      "doi:10.1007/s12190-022-01737-8 open-access HTML equation (5)",
+      "2026 fear-modulated model abstract DOI:10.3390/math14183371 (full-text access limited)",
+      "Published scientific catalog entries on exact Ricker equilibria and distinct predator-invasion cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Niu–Wang Lemma 4 concerns predator-free fixed point for r<2, while present cycle exists only for r>2.",
+        "Niu–Wang Lemma 6 characterizes interior equilibrium existence (q(r)>1), not attraction of boundary cycles.",
+        "The positive-equilibrium bifurcation results are based at y>0 and therefore do not imply the Jacobian spectrum at (u,0),(v,0)."
+      ],
+      "reasoning": "An equilibrium may exist while its transverse competition with a periodic predator-free attractor depends on a different multiplier. The strict comparison q(u)q(v)<q(r)^2 plus the exact Ricker cycle yields a parameter window not contained in the inspected fixed-point results.",
+      "searches": [
+        "Niu Wang predator free cycle Floquet transverse threshold 2024",
+        "Niu Wang arxiv 2405.11806 Ricker map predator-free two-cycle transverse multiplier positive coexistence equilibrium attracting boundary periodic orbit invasion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Niu–Wang arXiv:2405.11806v1 Sections 3.1 and 4: predator-free fixed point is analyzed, whereas its periodic boundary orbit is not provided with a two-step predator Floquet threshold.",
+        "The explicit quadratic transverse multiplier involves two distinct Ricker prey abundances and cannot be inferred from the fixed-point Jacobian alone."
+      ],
+      "reasoning": "The proposed conclusion is simultaneous existence of an interior fixed point with local attraction to a distinct boundary primitive two-cycle. Neither a fixed point flip nor a generic Jensen comparison is the identical assertion or implies the exact parameter interval.",
+      "searches": [
+        "\"predator-free\" \"two-cycle\" \"Kolmogorov\" \"Niu\" \"Wang\" predator",
+        "\"Niu\" \"Wang\" \"predator-free\" \"2-cycle\" Kolmogorov",
+        "Niu Wang 2024 discrete Kolmogorov Ricker prey two-cycle predator invasion Floquet transverse multiplier exact r=t coth(t/2)",
+        "Niu Wang arxiv 2405.11806 Ricker map predator-free two-cycle transverse multiplier positive coexistence equilibrium attracting boundary periodic orbit invasion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact values 71/70 and 195/196 or threshold beta_cyc for Niu–Wang map appeared among returned catalog titles and summaries.",
+        "Closest catalog title: An admissible saddle contradicts the source criterion in a Ricker predator–prey stability lemma, deals with a distinct fixed-point trace/determinant comparison."
+      ],
+      "reasoning": "The checked catalog entries include same-map equilibrium stability and several different Ricker models, but no stated primitive predator-free two-cycle window or the rational witness. Search absence alone is not a novelty proof; the material statement comparisons govern this assessment.",
+      "searches": [
+        "exact Ricker prey two-cycle r=3 log 2 predator invasion product 195/196",
+        "two-cycle invasion deficit saturating predator fecundity Ricker Kolmogorov map",
+        "geometric mean predator growth concavity oscillating Ricker prey two-cycle bistability equilibrium"
+      ]
+    },
+    "rationale": "Primary Niu–Wang paper studies predator-free fixed points and flips at positive coexistence fixed points rather than invasion into a predator-free primitive two-cycle. The exact strictly positive parameter window with a positive coexistence equilibrium and the explicit rational witness are not implied by those results or by related different-model reports; publication-priority uncertainty remains.",
+    "residual_risks": [
+      "Unindexed literature or a general predator-invasion theorem might imply the same inequality; searches are not a uniqueness proof.",
+      "Recent fear-modulated article full text could not be compared beyond its model description because of HTTP 429; its available abstract clearly discusses a distinct update."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MAP_NOT_COVERING_BOUNDARY_PRIMITIVE_TWO_CYCLE_RESULT",
+        "evidence": "Equation (4) matches; the fixed-point theorems cover y=0 at x=r and y>0, but no published formula for the transversely stable predator-free prime two-cycle or its overlap with interior equilibrium was found in the inspected full text.",
+        "identifier_or_url": "arxiv:2405.11806v1 | https://arxiv.org/html/2405.11806v1",
+        "material_read": "Full HTML main text, sections 1–5; equations (4),(14), predator-free fixed point Lemma 4, interior fixed point Lemma 6, interior period doubling Section 4",
+        "method": "Read mathematical source with browser HTML text and examined equations, hypotheses, section claims and conclusions",
+        "title": "Global stability and period-doubling bifurcations of a discrete Kolmogorov predator-prey model with Ricker-type prey growth",
+        "trigger": "Exact same dynamical map and fixed-point existence criterion"
+      },
+      {
+        "assessment": "DIFFERENT_MAP_NOT_COVERING_EXACT_THRESHOLDS",
+        "evidence": "Its update is x_{n+1}=r x_n exp(1-x_n)-x_n y_n, y_{n+1}=alpha x_n y_n, not Niu–Wang’s rational-response update.",
+        "identifier_or_url": "doi:10.1007/s12190-022-01737-8 | https://link.springer.com/article/10.1007/s12190-022-01737-8",
+        "material_read": "Open-access article abstract, model derivation and displayed equation (5), fixed-point statements and bifurcation section",
+        "method": "Read full-text HTML with mathematical equations and conclusions",
+        "title": "Bifurcations and dynamics of a discrete predator–prey model of ricker type",
+        "trigger": "Plausibly similar Ricker predator–prey model and period doubling"
+      },
+      {
+        "assessment": "LIMITED_ACCESS_DIFFERENT_FEAR_MODEL",
+        "evidence": "Available text explicitly introduces an exponential predator-induced fear factor and numerical coexistence cycles, unlike the exact rational-responses-only model and boundary two-cycle Floquet calculation here.",
+        "identifier_or_url": "doi:10.3390/math14183371",
+        "material_read": "Search-returned detailed abstract and model discussion; full text unavailable after HTTP 429",
+        "method": "Read indexed abstract and supplied text; attempted direct full page, rate-limited",
+        "title": "Coexistence, Oscillations, and Chaos in a Discrete Predator-Prey System with Fear-Modulated Prey Growth",
+        "trigger": "Newer closely themed predator–prey multistability publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a692781-a1d2-4336-afc6-ce8d0f9ceadc",
+  "value": {
+    "rationale": "Gives a sharp nonempty and first-order quantified invasion/disappearance window in a biologically motivated Ricker model: existence of coexistence equilibrium at nominal carrying capacity differs from local invasion of the actual oscillating prey resident, with a full-dimensional extinction-attracting basin. An explicit rational witness and positive onset width make the effect testable and structurally meaningful.",
+    "status": "PASS"
+  }
+}
