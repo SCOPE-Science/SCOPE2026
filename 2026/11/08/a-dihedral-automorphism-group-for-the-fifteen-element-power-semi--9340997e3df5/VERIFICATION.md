@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite mathematical verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the standard library. The companion `verification_output.txt` is the observed stdout from that execution.
+## correctness
 
-The script constructs the fifteen nonempty subsets of \(\mathbb Z/4\mathbb Z\), validates every familywise multiplication identity, and forms the entire sumset multiplication table. By the symbolic proof in `RESULT.md`, any automorphism fixing the singleton unit group must commute with translations and preserve the five intrinsic orbit types. Exactly \(4\cdot2\cdot4=32\) permutations meet those necessary conditions while fixing the units. The checker enumerates all 32 and verifies that precisely four preserve all 225 ordered products. Composing those with the two group automorphisms gives eight distinct automorphisms; exactly two preserve subsets containing zero. It checks the explicit counterexample on \(\{0,1\}\).
+PASS
 
-The program does not enumerate all \(15!\) permutations; its exhaustive conclusion depends on the independently written symbolic argument showing that every automorphism belongs to the candidate class. It is finite corroboration, not independent audit or formal verification.
+The unit group consists exactly of singleton subsets, so automorphisms restrict to ±1 and unit-fixing maps commute with translations. Translation orbit sizes 4,4,2,4,1; A orbit squares lie in C whereas C squares absorb, B unique idempotent fixes shift; A+A enforces C shift 2k. All four K_k preserve 225 products and ± inversion gives order-eight semidirect with inversion conjugacy. Reduced-submonoid stabilizer is exactly ± group automorphisms. Independent finite product matrix and 32 normalized candidates checked; not inferred from 15! search.
+
+## originality
+
+PASS
+
+Novelty survives as exact full fifteen-element C4 power-semigroup automorphism classification; Rago treats reduced monoid, different prior finite groups have different orbit structure. Crucial correction: C4 is NOT a counterexample to Tringali–Wen Conjecture 5.2 because that conjecture expressly assumes trivial unit group.
+
+## value
+
+PASS
+
+The first cyclic four-group with nontrivial proper subgroup gives a motivated complete power-semigroup automorphism classification and an explicit non-characteristic reduced submonoid. It is not a counterexample to Tringali–Wen Conj.5.2, which assumes trivial units; source prose must be corrected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
