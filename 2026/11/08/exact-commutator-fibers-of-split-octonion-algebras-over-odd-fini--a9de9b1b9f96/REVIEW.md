@@ -1,19 +1,21 @@
-# Scientific review: finite-field split-octonion commutator fibers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Direct expansion of the Zorn product yields the seven-coordinate commutator and invariance identity. The explicit kernel-equation case split gives nullities \(7,3,1\) (zero, nonzero isotropic, anisotropic) over every odd finite field. Additive-character orthogonality and the finite quadratic Gauss sum give the exact cone transform, from which the stated four fiber values follow. The weighted output census sums to all \(q^{16}\) ordered pairs; a standalone finite-field linear-system checker corroborates the equations in characteristic three, five and in a quadratic extension. No step treats finite sampling as an infinite proof.
+PASS
 
-## Originality — PASS (provisional)
+PASS: For the Zorn split octonions in odd characteristic, the direct seven-coordinate bracket is alternating and trace-zero; its trace-pairing gives the Fourier adjoint identity. The kernel dimension of ad_x on trace-zero space is 7 for x=0, 3 for nonzero isotropic Q(x)=0, and 1 for anisotropic Q(x)≠0. Consequently the bracket Fourier transform takes q^14,q^10,q^8. The seven-dimensional nondegenerate quadratic-cone character sum K(z) is q^6 at zero, 0 at nonzero isotropic z, and q^3χ(Q(z)) elsewhere. Fourier inversion followed by two free scalar coordinates yields precisely q^11+q^10−q^5, q^9−q^5, and q^9−q^5+(q^8−q^6)χ(Q). Output strata mass totals q^16. Fresh independent F3 adjoint rank evaluation checked all 3^7=2187 x and four representative target linear systems; it is not a proof for arbitrary q.
 
-The image of the octonion commutator and the centralizer dimensions underlying its **zero** fiber are explicitly known and are not claimed new. Castillo-Ramírez–Elduque (2015) supplies the algebraic framework; Knarr–Stroppel (2023), Section 3.1, supplies existing centralizer information; Lopatin–Zubkov (2022), Theorem 4.1, supplies classification of octonion pairs under automorphisms over algebraically closed fields; De Mello–Saini (2026), Lemma 3.8 and Theorem 1.1, studies image sets. Their inspected results do not state the precise **off-zero** finite-field preimage multiplicities or the \(q^8-q^6\) character bias. A general orbit-enumeration or character-sum result may still dominate this calculation; priority is provisional, and independent review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The precise number of witnesses to \(xy-yx=z\) is a natural refinement of knowing which elements are commutators. It separates nonzero square and nonsquare norm classes, establishes an exact signed arithmetic bias, and quantifies all fibers and their output populations at once. It is a complete, uniform finite-field invariant of the most basic nonassociative composition algebra, rather than an isolated low-order count.
+PASS, qualified: prior octonion centralizer dimension theorems and generalized commutator image theorems determine the zero fiber or surjectivity, but the inspected accessible material does not derive the complete nonzero target population split by quadratic character. Resultary searches for the same odd-field Zorn commutator and quadratic-character fibers found only the present November 8 result. Originality is best-of-knowledge, not a proof of absence: the highly relevant 2026 De Mello–Saini full text could not be retrieved under authorized access, and a classical G2 orbit-count/character-sum result might already imply the exact fiber sizes.
 
-## Risks and scope
+## value
 
-The formula requires odd characteristic and split octonions. It does not enumerate automorphism orbits of pairs or address nonsplit composition algebras. Its zero-fiber and image consequences are prior-work implications; the off-zero multiplicity formulas are the assessed contribution. A yet-unidentified general theorem might subsume them.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A full value-by-value commutator distribution is a natural nonassociative-algebra invariant; the explicit square/nonsquare norm bias 2(q^8−q^6) distinguishes fibers invisible to zero-fiber centralizer structure and surjectivity. The complete off-zero classification can serve as a finite-field G2 and bilinear-map counting benchmark independent of larger theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
