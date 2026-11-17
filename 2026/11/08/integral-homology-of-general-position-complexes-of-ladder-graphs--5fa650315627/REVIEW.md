@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every integer \(n\ge2\), the ladder distance formula excludes repeated-column triples and all four-subsets, leaving precisely two alternating-row triple types for each increasing column triple. A direct oriented-boundary calculation translates 1-cocycle constraints into paired rectangle identities. Its all-characteristic normal form has \(2n+2\) dimensions on off-diagonal positions for \(n\ge4\); after diagonal and adjacent-edge freedoms the kernel has dimension \(5n\), giving rank \(2n(n-3)\) for the triangle boundary. The \(n=2,3\) bases are checked separately. Universal coefficients and field-uniform ranks exclude integer torsion. The executable exact verifier independently checks the face list for orders two through eight and modular boundary ranks at orders two through thirteen.
+PASS
 
-## Originality
+For L_n=P_n x K_2 the graph metric is |i-j|+[row change]; a graph-geodesic general-position triple must have i<j<k and alternate rows, yielding exactly 2*C(n,3) triangles; all pairs are edges and no larger faces occur. The oriented triangle-cocycle conditions reduce to offdiagonal four-index rectangle equations. Their all-field solution has dimension 2n+2, and including free diagonal and adjacent monochromatic edge cochains gives ker(d2^T) dimension 5n. Thus rank(d2)=2n(n-3), for n>=4. The n=2,3 exceptions follow directly. Euler-Poincare and H0=Z produce H1 ranks 3,8,3n+1 and H2 rank n(n-4)(n-5)/3 (n>=6). Since the rank is identical in every characteristic, UCT rules out torsion. Independently generated the actual GP triangles from distances and checked oriented boundary ranks over F2,F3,F5 for n=2..8. The all-n conclusion relies on the algebraic normal-form induction, not the finite rank experiment.
 
-PASS (provisional publication priority). The closest primary papers of Klavžar–Patkós–Rus–Yero (arXiv:1907.04535), Iršič–Klavžar–Rus–Tuite (arXiv:2401.05696), and Welton–Khudairi–Tuite (arXiv:2404.19451) respectively concern extremal and counting general-position results in Cartesian grids, entire face/cardinality polynomials, and lower general-position numbers. The 2024 polynomial gives the face numbers used here but does not itself determine the rank of the oriented triangle-boundary map, integral torsion, or the onset of second homology. The Euclidean affine general-position complex uses a different notion of general position. No directly implying indexed theorem was identified; this is not a claim of an exhaustive worldwide publication search. A differently phrased homology theorem remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result goes beyond the previously published face enumerator to a complete integral homological classification for a natural infinite family of graph-geodesic simplicial complexes. It detects a sharp topological transition at six ladder rungs, proves absence of torsion for every order, and provides a field-uniform combinatorial boundary-rank normal form. These are structural statements not inferred from the face numbers alone.
+Published general-position literature covers maximal sets and complete cardinality polynomials for ladder graphs, furnishing the same f-vector. It does not thereby determine the integral simplicial homology or torsion of the downward-closed general-position complex. The explicit all-characteristic triangle-boundary rank and first H2 order are additional topology. Different published multipath complexes of ladders are not the graph-geodesic general-position complex.
 
-## Limits and closest literature
+## value
 
-The result does not determine homotopy type, homology representation under ladder symmetries, or analogous invariants of circular ladders. The sources were checked for statement implication rather than title similarity. Computational checks of small orders are independent supporting evidence, not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire simplicial general-position complex of a natural graph family is a motivated topological object. Its torsion-free homology classification reveals a sharp first appearance of 2-dimensional cycles at n=6 and supplies information not recoverable from the known cardinality polynomial. A complete exact all-n structural calculation has independent value even without a claimed homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
