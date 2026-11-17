@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem is a fully quantified exact-arithmetic statement about all integer block sizes at least two, strict positive equicorrelation, positive regularization and replicated training centers. The three orthogonal subspaces exhaust the ambient dimension, give every generalized eigenvalue with multiplicity, and permit a direct min-max proof of a lower bound valid for *every* positive semidefinite rank-one denominator correction. A scalar global update attains the lower bound on the proven closed tuning interval. The example and parametric formulas were checked by the standalone verifier (4,216 assertions, including exact symbolic spectra). Finite tests do not serve as an infinite proof.
+PASS
 
-## Originality
+For q,s≥2, 0<ρ<1, λ>0, m=qs with t≥2 replicated Nyström centers, H=(n/m)K²+λnK and the full within-block-sketch denominator B decompose on global G, blockwise-constant zero-sum V and within-block zero-sum U. Eigenvalues of (H,B) are h_a/d_c (q−1), h_a/d_a (m−q), h_b/d_c (1), strictly increasing. Thus κ(B⁻¹/²HB⁻¹/²)=h_b/h_a=κ(H). For any PSD rank≤1 W, a nonzero U∩ker W yields λmax≥h_a/d_a and V yields λmin≤h_a/d_c, proving κ≥d_c/d_a without alignment assumptions. Global W=τP achieves equality exactly for τ in [d_a h_b/h_a−d_c, d_c(h_b/h_a−1)], endpoints give two spectral levels. Independent dense-matrix generalized eigenanalysis at q=s=t=2,ρ=1/2,λ=1/10 reproduced spectrum [3/68,9/28,9/28,145/204] and optimum 51/7. This theorem is not a generic kernel guarantee.
 
-**PASS, with priority uncertainty.** The motivating BLOKS paper provides the block-sketch construction and proposes future coarse corrections; its relevant algorithm and Appendix B do not state the exact sharp one-rank positive correction classification. General coarse-space methods and block-Jacobi scaling results address related but nonidentical optimization operators. Existing spectral interlacing is a known ingredient, and an older general theorem may subsume a portion of the derivation. No claim is made that rank-one correction or the min-max principle itself is new.
+## originality
 
-## Value
+PASS
 
-**PASS.** The all-parameter optimum directly addresses inter-block coupling in a newly proposed memory-bounded kernel preconditioner. A fixed-rank, constant-cost correction changes a growing condition number into a fixed-block-width bound; the proof establishes sharpness among arbitrary positive semidefinite rank-one additions, not just within a convenient tuned family. This is a structured spectral benchmark, not a claim about broad runtime improvements.
+Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.
 
-## Closest literature and limits
+## value
 
-Vitale et al., arXiv:2610.13382; Xu–Zikatanov, arXiv:1611.01917; Demmel, DOI:10.1137/22M1504901. The comparison with the latter two is constrained by the full material accessible from their abstracts and summaries. The theorem does not cover heterogeneous blocks, partial random sketches, numerical roundoff, general kernels or actual prediction error. Independent mathematical audit is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Responds to the explicitly identified inter-block coupling problem in memory-efficient sketched Nyström kernel ridge solvers. In a natural full-coherence stress family, standard block sketching cannot improve conditioning, while a single positive global correction produces an optimal block-count-independent condition bound and an exact tuning plateau. The negative-to-positive design contrast and two-eigenvalue endpoint are meaningful finite-dimensional spectral structure, not benchmark-only engineering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

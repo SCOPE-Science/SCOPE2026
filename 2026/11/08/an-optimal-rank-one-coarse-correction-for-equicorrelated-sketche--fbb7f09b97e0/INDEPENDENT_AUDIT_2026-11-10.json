@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T13:14:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q,s≥2, 0<ρ<1, λ>0, m=qs with t≥2 replicated Nyström centers, H=(n/m)K²+λnK and the full within-block-sketch denominator B decompose on global G, blockwise-constant zero-sum V and within-block zero-sum U. Eigenvalues of (H,B) are h_a/d_c (q−1), h_a/d_a (m−q), h_b/d_c (1), strictly increasing. Thus κ(B⁻¹/²HB⁻¹/²)=h_b/h_a=κ(H). For any PSD rank≤1 W, a nonzero U∩ker W yields λmax≥h_a/d_a and V yields λmin≤h_a/d_c, proving κ≥d_c/d_a without alignment assumptions. Global W=τP achieves equality exactly for τ in [d_a h_b/h_a−d_c, d_c(h_b/h_a−1)], endpoints give two spectral levels. Independent dense-matrix generalized eigenanalysis at q=s=t=2,ρ=1/2,λ=1/10 reproduced spectrum [3/68,9/28,9/28,145/204] and optimum 51/7. This theorem is not a generic kernel guarantee.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General optimal coarse-space theory optimizes other operators (multigrid energy correction).",
+          "Block-Jacobi nearly-optimal scaling studies diagonal or block scaling, not constrained PSD rank-one denominator additions as explicitly found in accessible summaries."
+        ],
+        "reasoning": "A general interlacing principle could yield the lower bound but does not itself give the exact Nyström spectral decomposition, positive allowable τ interval, and block-count scaling; this is an identified specialist-risk rather than an unexplained novelty assertion.",
+        "searches": [
+          "Nyström sketched block Jacobi equicorrelated kernel rank one positive semidefinite correction optimal condition number",
+          "arXiv:1611.01917",
+          "DOI:10.1137/22M1504901"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13382 accessible abstract and summarized method",
+        "Xu and Zikatanov arXiv:1611.01917 selected full-text sections",
+        "Demmel DOI:10.1137/22M1504901 summary",
+        "Resultary semantic query: Nyström sketched block Jacobi equicorrelated kernel rank one positive semidefinite correction optimal condition number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deriving the sharp condition bound requires the three invariant subspaces and an unchanged U Rayleigh direction for every rank-one correction.",
+          "The τ interval depends on h_b/h_a, d_a and d_c, with equality at two mode crossings."
+        ],
+        "reasoning": "The motivating kernel paper's block scheme does not immediately imply the negative no-improvement example or a dimension-free globally optimal PSD rank-one correction; earlier abstract multigrid results require nontrivial identification of operator and admissible class.",
+        "searches": [
+          "Nyström sketched block Jacobi equicorrelated kernel rank one positive semidefinite correction optimal condition number",
+          "arXiv:2610.13382 introduction/abstract",
+          "arXiv:1611.01917 multigrid spectral results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 2026 BLOKS preprint develops sketched block-Jacobi Nyström preconditioners and discusses interblock corrections, but accessible abstract/summary does not give this exact compound symmetry rank-one optimizer.",
+          "Xu–Zikatanov 2016 covers optimal coarse spaces in algebraic multigrid for different smoothers."
+        ],
+        "reasoning": "The exact rank-one PSD denominator perturbation and optimal τ plateau distinguish this theorem from generic two-level coarse correction; Sherman–Morrison and min–max ingredients alone are classical and not claimed new. Full BLOKS proof not read in this run, so no whole-paper exclusion is claimed.",
+        "searches": [
+          "Nyström sketched block Jacobi equicorrelated kernel rank one positive semidefinite correction optimal condition number",
+          "arXiv:2610.13382",
+          "arXiv:1611.01917"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No located published compound-symmetry duplicated-center Nyström table lists h_a/d_c,h_a/d_a,h_b/d_c or the exact rank-one optimum.",
+          "One four-center exact spectrum was independently reconstructed, not a claim about empirical performance."
+        ],
+        "reasoning": "The theorem is a continuous all-q,s,ρ,λ exact optimization, not an already tabulated finite numerical case; missing source coverage of the specific table remains an access risk.",
+        "searches": [
+          "Nyström sketched block Jacobi equicorrelated kernel rank one positive semidefinite correction optimal condition number",
+          "arXiv:2610.13382"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.",
+      "residual_risks": [
+        "BLOKS full original PDF not accessed; could contain a compound-symmetry example or coarse correction theorem.",
+        "An older rank-one generalized-eigenvalue minimax theorem may subsume the lower bound, though not yet the specific sharp model classification.",
+        "Only equal-size full-sketch blocks and strict positive compound symmetry; not general preconditioning practice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates problem; insufficient to exclude additional Appendix results",
+          "evidence": "kernel ridge sketched-block method; explicit need for global coupling corrections",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13382",
+          "material_read": "Accessible abstract/summary of sketched block method and proposed correction; full original PDF unavailable",
+          "method": "arXiv abstract and publicly indexed description",
+          "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+          "trigger": "Exact new sketched block-Jacobi denominator motivating example"
+        },
+        {
+          "assessment": "General coarse-space optimization, not matching exact Nyström denominator perturbation in accessed results",
+          "evidence": "optimal coarse-space and two-grid operator sections",
+          "identifier_or_url": "https://arxiv.org/abs/1611.01917",
+          "material_read": "Relevant coarse space and smoother discussion, not all 127 pages exhaustively",
+          "method": "arXiv PDF opened; relevant sections compared",
+          "title": "Algebraic Multigrid Methods",
+          "trigger": "Possible dominant optimal coarse-subspace theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Responds to the explicitly identified inter-block coupling problem in memory-efficient sketched Nyström kernel ridge solvers. In a natural full-coherence stress family, standard block sketching cannot improve conditioning, while a single positive global correction produces an optimal block-count-independent condition bound and an exact tuning plateau. The negative-to-positive design contrast and two-eigenvalue endpoint are meaningful finite-dimensional spectral structure, not benchmark-only engineering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "BLOKS full original PDF not accessed; could contain a compound-symmetry example or coarse correction theorem.",
+    "An older rank-one generalized-eigenvalue minimax theorem may subsume the lower bound, though not yet the specific sharp model classification.",
+    "Only equal-size full-sketch blocks and strict positive compound symmetry; not general preconditioning practice."
+  ],
+  "schema_version": 1
+}
