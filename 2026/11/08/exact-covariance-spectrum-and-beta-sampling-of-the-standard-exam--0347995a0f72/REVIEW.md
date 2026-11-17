@@ -1,15 +1,21 @@
-# Scientific review — standard-example order polytope
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof disintegrates Lebesgue volume by the two largest lower coordinates, verifies the exact beta laws, and uses independent uniform interval factors to reconstruct the full conditional joint law. Explicit beta moments and level-complementation yield the covariance orbit entries. Block diagonalization under simultaneous permutations gives the four rational spectral branches with stated multiplicities; all numerators are positive, and the correlation gap and isotropic limit follow algebraically. An independent ordered-simplex enumeration checked all first and second coordinate orbits in dimensions \(4,6,8\) without discrepancies. This finite replay corroborates, rather than certifies, the all-\(n\) proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest exact-object prior is Reilly, Scheinerman and Zhang (2014), Proposition 14, which **already establishes the volume** and rank order count. The volume is explicitly credited, not submitted as new. The 2021 generalized-snake order-polytope work by von Bell et al. supplies triangulation context but does not state the same-object second-moment spectrum. Chan and Pak (2022) prove general inequalities for weighted poset partitions rather than the evaluated continuous covariance entries. The closely named cyclic-crown family is geometrically different for \(n\ge4\). No inspected claim logically covers the submitted beta sampler plus exact four spectral branches and correlation gap. The strongest remaining risk is an earlier evaluation under conditional threshold weights or random linear-extension terminology; no search can establish universal priority.
+PASS
 
-## Value — PASS
-The standard example is the central extremal poset-dimension construction, making its order-polytope covariance a natural invariant rather than an arbitrary slice. The exact sampler is useful for geometric simulation and all-degree integration. The evaluated four-branch spectrum, strict matched/unmatched cross-correlation gap, and isotropic-constant limit provide a full-dimensional geometric classification not captured by the classical volume count alone.
+For the standard-example order polytope n>=2, conditioning on the largest two lower coordinates produces V~Beta(n-1,n+2), U=V+(1-V)Z with Z~Beta(1,n), correct n(n-1) pair normalization, and independent interval-uniform remaining coordinates. Integrating beta-polynomial factors yields all multivariate monomial moments. Simultaneous permutation and level-complement symmetry reduce covariance to S,C,M,N; recomputing all four eigenmode rational functions symbolically from those entries reproduces stated lambda_0±, lambda_1± and the strictly positive difference N-M=(n²+4n+8)/(8n(n+1)²(2n+1)). At n=2 the two independent chains explain zero off-diagonal cross-chain covariances. Determinant and factorial volume asymptotics imply L²→1/12; independent local symbolic checks for n=2..7 corroborate but do not prove the general disintegration. The source checker.py is an n=2,3,4 triangulation test, not a proof for arbitrary n.
 
-## Closest literature and limitations
-Reilly–Scheinerman–Zhang, *Random Threshold Digraphs*, EJC 21(2), P2.48 (2014); von Bell et al., arXiv:2102.11306 (2021); Chan–Pak, arXiv:2212.11954 (2022). The claims cover only \(n\ge2\) and standard Euclidean coordinates; they are not assertions about every height-two poset or cyclic crown. The code checks only three finite dimensions, and historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact-object prior linear-extension count determines volume, but not the full conditional beta sampler, evaluated covariance spectrum or unmatched-minus-matched covariance gap. Resultary comparison covers rooted-forest and complete two-level posets only; neither contains the standard-example missing-matching relations for n≥4. No directly dominating evaluated continuous-volume moment spectrum was located. Best-of-knowledge PASS with substantial residual risk of older threshold-digraph conditional moment formulas.
+
+## value
+
+PASS
+
+The standard example is a canonical extremal poset-dimension family. A uniform-volume exact sampler for all degrees and a complete evaluated covariance spectrum with a universal strict matched/unmatched gap and isotropic limit are natural analytic invariants; the known volume formula alone does not supply these. Not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
