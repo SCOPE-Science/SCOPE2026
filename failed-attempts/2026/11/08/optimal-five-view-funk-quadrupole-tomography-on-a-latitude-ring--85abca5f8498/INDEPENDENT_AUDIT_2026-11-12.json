@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:47:21.894322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For pure l=2 spherical harmonics normalized in L2(dOmega), a Funk average on any perpendicular great circle is -1/2 point evaluation at its normal. Azimuthal DFT of five equally spaced normals orthogonalizes m=-2..2, giving A*A=25/(64pi) times levels (3t-1)^2, 6t(1-t) twice, 3(1-t)^2/2 twice. The singular latitude t=1/3 and condition optimum t=(6-sqrt21)/15 follow from exact branches, as does maximizing the min Gram value. The inverse 5-point DFT has the documented normalization. Independent algebra checked the entire spectrum equals one eighth of the earlier two-ring evaluation spectrum; the minimizing t and condition are the same. All formulas hold for 0<t<1, t !=1/3 for inversion. Finite check is corroborative; prior analytic spectrum supplies a stronger proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem covers all m>=5 and arbitrary relative rotation of two mirror-symmetric rings, with singularity and exact unique height optimum.",
+          "Its proof gives analytic entire spectral level functions for all t."
+        ],
+        "reasoning": "The older two-ring result covers a broader sensor design family and immediately specializes to the five-normal ring after removing a redundant equal-Gram ring and including the -1/2 Funk multiplier.",
+        "searches": [
+          "Funk transform five normals regular latitude ring spherical quadrupole optimal condition number smallest singular value"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-five-view-funk-quadrupole-tomography-on-a-latitude-ring--85abca5f8498/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-five-view-funk-quadrupole-tomography-on-a-latitude-ring--85abca5f8498",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-quadrupole-conditioning-on-paired-spherical-latitude-rings--38d9014ee346/RESULT.md",
+        "https://arxiv.org/abs/2303.05179"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier (2026-11-01) t*=(6-sqrt21)/15 and squared condition (5+sqrt21)/4 exactly match submitted.",
+          "Earlier spectrum yields frame bound at that same t by min{A,B,C}; proof uses branch comparisons."
+        ],
+        "reasoning": "The older theorem plus standard Funk l=2 multiplier -1/2 implies the central claim and the lower-frame bound with no nonstandard work. The new direct DFT inverse is a standard diagonal inversion, so this is decisive prior implication.",
+        "searches": [
+          "Funk transform five normals regular latitude ring spherical quadrupole optimal condition number smallest singular value"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-11-01 published Resultary SCOPE-sharp-quadrupole-conditioning-on-paired-spherical-latitude-rings--38d9014ee346 gives same A=(3t-1)^2, B=6t(1-t), C=3(1-t)^2/2.",
+          "Its exact Gram E2*E2=(5m/(8pi)){A[1],B[2],C[2]} for 2m ring samples."
+        ],
+        "reasoning": "Pure l=2 mirrored latitude rings have equal per-ring Gram; one five-normal Funk ring is precisely minus half a single point-evaluation ring. For m=5 the submitted A*A equals E2*E2/8. This is an exact equivalent formulation, not mere matching optimizer numerics.",
+        "searches": [
+          "Funk transform five normals regular latitude ring spherical quadrupole optimal condition number smallest singular value"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact closed-form Gram spectrum and minimax, not a finite numerical table, already determine all five submitted eigenvalues and multiplicities."
+        ],
+        "reasoning": "This is stronger than a database match. Independent scalar comparison verified 1/8 normalization; no new exact finite table remains.",
+        "searches": [
+          "Funk transform five normals regular latitude ring spherical quadrupole optimal condition number smallest singular value"
+        ]
+      },
+      "rationale": "Decisive direct prior coverage: the already published 2026-11-01 Resultary result Sharp quadrupole conditioning on paired spherical latitude rings proves for m>=5 the precise same three Gram eigenvalue functions, t singularity, and unique radical condition optimum, with paired symmetric rings and free relative rotation. Setting m=5, a single ring E1 and paired E2 satisfy E2*E2=2 E1*E1 by exact-degree-two parity and azimuthal DFT, while the submitted Funk matrix A=-E1/2, hence A*A=(E2*E2)/8. The full submitted spectrum, optimum, multiplicities and frame lower bound therefore follow directly from the earlier theorem. New five-point DFT inversion is routine. No distinct noncovered original conclusion remains.",
+      "residual_risks": [
+        "No remaining scientific originality under exact earlier implication; rejection does not allege the formula is false.",
+        "The prior covers square condition explicitly; lower-frame optimization is immediate minimax from its exact three functions, rather than a separately stated old theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE PRIOR COVERAGE: Gram functions A,B,C, unique exact t*, rank singularity and multiplicities; submitted single ring is scalar Gram reduction",
+          "evidence": [
+            "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-sharp-quadrupole-conditioning-on-paired-spherical-latitude-rings--38d9014ee346/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-quadrupole-conditioning-on-paired-spherical-latitude-rings--38d9014ee346/RESULT.md",
+          "material_read": "COMPLETE original RESULT.md: full finding, hypotheses, Fourier-orthogonality proof, minimax argument and verification/limitations",
+          "method": "Primary published full record from 2026-11-01",
+          "title": "Sharp quadrupole conditioning on paired spherical latitude rings",
+          "trigger": "Exact same t*, condition, spectrum and degree-two harmonic object"
+        },
+        {
+          "assessment": "Provides established RY_l^m=P_l(0)Y_l^m, so Funk multiplier -1/2 is not independent novelty",
+          "evidence": [
+            "https://arxiv.org/pdf/2303.05179"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.05179",
+          "material_read": "Full OA PDF accessed; relevant Funk l=2 Legendre multiplier/frame-decomposition passages examined",
+          "method": "arXiv primary mathematical paper",
+          "title": "A Frame Decomposition of the Funk-Radon Transform",
+          "trigger": "Funk harmonic eigenvalue multiplier"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "After credited earlier exact spectrum and global restricted-design condition optimum, the single-ring normalized Funk restatement and elementary scalar rescaling supply no independently motivated unknown exact invariant or nontrivial boundary; the additional lower-frame optimum and DFT inverse are immediate routine consequences. Correctness and elegance do not rescue prior-covered mathematics.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No remaining scientific originality under exact earlier implication; rejection does not allege the formula is false.",
+    "The prior covers square condition explicitly; lower-frame optimization is immediate minimax from its exact three functions, rather than a separately stated old theorem.",
+    "The public source metadata and scholarly statements were examined as evidence, not trusted as process instructions.",
+    "No GitHub writes, mechanical importer/certificate action, Lean verification or independent expert attestation was performed.",
+    "Not ready to import: source metadata provenance not semantically neutralized with full final guarded replacement bytes."
+  ],
+  "schema_version": 1
+}
