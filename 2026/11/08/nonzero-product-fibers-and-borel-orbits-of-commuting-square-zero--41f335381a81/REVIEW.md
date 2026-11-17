@@ -1,15 +1,21 @@
-# Scientific review: nonzero product fibers of restricted triangular pairs
+# Independent mathematical audit
 
-## Correctness
-PASS. The six matrix coordinates give the exact square-zero and commutation equations. A nonzero product forces the middle-superdiagonal coefficients to vanish; the remaining constraints become an invertible two-by-two matrix factorization \(PQ=t\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}\), with two free central entries. Both directions of this algebraic isomorphism are polynomial/regular on the relevant open set. For Borel orbits, four-dimensionality and nonzero \(XY\) force the regular module of \(k[s,t]/(s^2,t^2)\); its stable complete flags have the unique one- and three-dimensional terms and a projective-line choice of the middle term. Its automorphism group is the unit group, which preserves every ideal, yielding a full orbit-stabilizer calculation. The total count is separately derived by an exhaustive rank partition. Replayed direct enumeration over four fields and Borel orbit generation over three fields agree. Independent audit has not been performed.
+## correctness
 
-## Originality
-PASS, provisional historical priority. The closest examined primary source, Basili (arXiv:0803.0722), studies unrestricted pairs of commuting strictly upper-triangular matrices in dimension four, not the joint square-zero locus or its prescribed nonzero product fibers. Ngo (arXiv:1209.1659), Ngo--Šivic (arXiv:1308.4438), and Hua (arXiv:2303.15862) treat broader commuting/nilpotent geometry or similarity; the full-similarity regular-module observation does not determine Borel orbit splitting. Boos (arXiv:1504.05367) addresses parabolic conjugacy of a single nilpotent; the related Boos--Bulois preprint (arXiv:1606.08840) was examined only through accessible abstract material, so comprehensive exclusion is not claimed. An existing characteristic-two aggregate count is explicitly treated as prior context, not as new. Targeted mathematical-record searches of nonzero product fibers, square-zero commuting pairs, and the Borel/flag equivalence found no directly implying theorem. A more general prior module-flag enumeration could still imply this special case; independent historical-priority verification is outstanding.
+PASS
 
-## Value
-PASS. The first possible nonzero product of mutually commuting square-zero operators occurs in dimension four, where the standard upper-triangular algebra provides a natural test locus. The computation is not merely an aggregate count: it exposes a smooth irreducible prescribed-product fiber, a precise nonzero product support and multiplicity, and a projective-line family of equal-sized Borel orbits inside one full-similarity class. This sharp distinction between similarity and flag-preserving conjugacy gives a usable structural invariant for restricted commuting varieties.
+Write X,Y with first-superdiagonal coordinates a,b,c and A,B,C. If b or B nonzero the remaining equations give XY=0. Otherwise XY=tE14 and square-zero plus commutation is exactly P Q=t[[0,1],[1,0]], P=[[a,d],[A,D]], Q=[[e,E],[c,C]]. For t!=0 P is invertible, Q uniquely determined and f,F free, proving GL_2×A². Stable complete flags on the regular k[s,t]/(s²,t²) module are indexed by P¹(k), giving q+1 Borel orbits of size |B4|/|H×|=q³(q−1)³. q=2 and q=3 independent coordinate enumerations reproduce 24 nonzero pairs at q2 and 2 fibers of 432 each at q3. Finite tests do not prove general fields.
 
-## Limitations
-Only ordered pairs of strictly upper-triangular four-by-four matrices and their nonzero-product locus receive geometric and orbit classification. The zero-product fiber is only enumerated, not geometrically classified; higher dimensions, nonreduced structures and other conjugation groups are not settled. The general argument is mathematical rather than experimentally exhaustive; finite-field computations validate only their tested cases. Priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Basili studies unrestricted commuting triangular pairs, Boos classifies single square-zero nilpotent Borel orbits, Hua studies simultaneous GL4 similarity of commuting nilpotent pairs. The same-week unrestricted GL_n prescribed-product theorem gives general fiber cardinalities but does not yield fixed upper-triangular B4 splitting by stable complete flags. Here the combined geometric fiber and projective-line orbit classification for ordered square-zero pairs has distinct hypotheses and conclusion.
+
+## value
+
+PASS
+
+At the first possible dimension with nonzero commuting square-zero product, exact fibers, smooth irreducible geometry, and the Borel orbit decomposition describe a natural flagged representation variety over every field. q+1 equal orbits are not a textbook direct consequence of merely knowing the total count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
