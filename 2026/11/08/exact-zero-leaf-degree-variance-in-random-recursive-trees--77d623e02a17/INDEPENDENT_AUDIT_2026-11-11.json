@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:58:17.220894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact terminal-child appointment probability 1/(n-1)_r leads to correct one-/two-vertex inclusion–exclusion excluding a younger counted parent. The uniform factorial-series covariance kernel c(a,b)=e^-a[(1+(a-1)b)e^-b-1] was checked algebraically, including r=1 boundary factors; its integral over 0<b<a<1 is (5-e^2)/(4e^2), diagonal 1/2-e^-1+e^-2/2, total (3-e)/e^2 independently integrated by SymPy. The undirected-root correction has probability 1/(n-1) and changes variance only O(1). Exhaustively enumerated all parent arrays n=3..8 directly for undirected M0, and checked source pair formulas against its verifier source. Existing Holmgren–Janson protected-count CLT supplies normality. Finite checks do not prove uniform o(n^-1) asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson general fringe-tree CLTs and implicit covariance formulas cover asymptotic Gaussianity for related protected-node counts.",
+          "Hartle–Krapivsky 2026 Appendix A supplies RRT joint single-vertex degree/leaf-degree frequencies, not Var(M0)/n as an exact closed constant."
+        ],
+        "reasoning": "An implicit general covariance formula could reproduce the constant after separate nontrivial calculation; it does not print or immediately identify this precise constant.",
+        "searches": [
+          "variance zero leaf degree count random recursive tree (3-e)/e^2 protected vertices CLT",
+          "arXiv:1406.6883 Section 8.2",
+          "arXiv:2602.01021 Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2511.04085v1",
+        "https://arxiv.org/html/1406.6883v1",
+        "https://arxiv.org/html/2602.01021v1",
+        "Resultary recursive-tree covariance search: root–protected 2026/11/2, unrelated observable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hartle–Krapivsky gives mean fraction 1-e^-1 and empirical extensive fluctuations.",
+          "The evaluated integral I=(5-e²)/(4e²) and diagonal D=1/2-e^-1+e^-2/2 produce (3-e)/e²; Holmgren–Janson do not provide this evaluated combination in the inspected passages."
+        ],
+        "reasoning": "Earlier Gaussianity and first-order frequency imply neither the exact cancellation constant nor the paper’s uniform two-parent avoidance covariance calculation.",
+        "searches": [
+          "variance zero leaf degree count random recursive tree (3-e)/e^2 protected vertices CLT",
+          "arXiv:2511.04085 Figure 2 and II.1",
+          "arXiv:1406.6883 8.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n>=3 M0 differs from Z=leaf-child-free rooted count only if the root has degree one; Z is leaves plus two-protected nodes.",
+          "Holmgren–Janson Theorem 8.6 supplies protected-count CLT but not this explicit evaluated sum covariance coefficient."
+        ],
+        "reasoning": "Aliases zero leaf-degree, vertices without leaf neighbors, protected-plus-leaves, and root-fringe counts were compared; Gaussianity is covered, the evaluated variance constant was not found in these full texts.",
+        "searches": [
+          "variance zero leaf degree count random recursive tree (3-e)/e^2 protected vertices CLT",
+          "arXiv:2511.04085 sections I.2, II.1",
+          "arXiv:1406.6883 Theorem 8.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hartle–Krapivsky 2025 Fig.2 contains a fitted value nu_0≈0.3816, unlike the proved candidate 0.0381264; source labels this a simulated/fitted parameter, not exact formula.",
+          "Independent exhaustive small trees and simulation at n=500,2000 corroborate ~0.0381; possible factor-of-ten transcription or normalization issue in Figure 2."
+        ],
+        "reasoning": "This is not a known sequence table: closest same-observable figure appears to have a decimal/normalization discrepancy. Do not silently substitute a fit for a proof or conclude the paper supplies an exact symbolic coefficient.",
+        "searches": [
+          "variance zero leaf degree count random recursive tree (3-e)/e^2 protected vertices CLT",
+          "published recursive-tree covariance catalogue leaf/depth/root/leaf",
+          "arXiv:2511.04085 Figure 2 caption"
+        ]
+      },
+      "rationale": "Existing Holmgren–Janson theory already implies the joint fringe-tree Gaussian limit (and hence a one-dimensional CLT); independent contribution is the explicit covariance kernel and evaluated limiting variance (3-e)/e² for undirected leaf-degree zero. Primary Hartle–Krapivsky work treats the same observable but only first-order count and fitted/simulated fluctuations.",
+      "residual_risks": [
+        "2025 simulation Figure 2 caption reports nu_0≈0.3816, a factor ten discrepancy from exact candidate; this is a primary source quantitative risk that requires external reconciliation.",
+        "General implicit fringe-tree covariance representations could give same coefficient after additional work, historical exact priority remains qualified.",
+        "Uniform asymptotic inclusion–exclusion expansion is critical and was reasoned through, not independently formalized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean frequency and simulations are prior; no derived exact symbolic M0 variance in inspected material",
+          "evidence": "Figure 2 fitted nu_0≈0.3816; exact derivation not stated.",
+          "identifier_or_url": "https://arxiv.org/html/2511.04085v1",
+          "material_read": "Full abstract, Introduction I.1–I.2, Section II.1, Figure 2 and its caption",
+          "method": "public full-text HTML; original substantive sections read",
+          "title": "Statistics of leaves in growing random trees",
+          "trigger": "Exactly same leaf-degree zero observable M0"
+        },
+        {
+          "assessment": "Covers CLT and implicit variances, not new explicit M0 coefficient",
+          "evidence": "Theorem 8.6 treats ℓ-protected counts; variance evaluation discussion notes explicit constants are difficult.",
+          "identifier_or_url": "https://arxiv.org/html/1406.6883v1",
+          "material_read": "Section 8.2, Theorem 8.6 and discussion of variance calculation difficulty",
+          "method": "public full-text HTML; original substantive sections read",
+          "title": "Limit laws for functions of fringe trees for binary search trees and recursive trees",
+          "trigger": "Joint protected-node CLT capable of implying submitted CLT"
+        },
+        {
+          "assessment": "One-vertex frequencies and preferential attachment asymptotics not the exact global RRT zero-leaf count variance",
+          "evidence": "Appendix A derives RRT local degree-leaf statistics.",
+          "identifier_or_url": "https://arxiv.org/html/2602.01021v1",
+          "material_read": "Abstract, Section III fluctuations and Appendix A sections on random recursive trees",
+          "method": "public full-text HTML; original substantive sections read",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Same degree/leaf-degree objects and recursive-tree appendix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact variance is a motivated natural invariant of leaf-neighbor statistics in recursive trees and quantifies cancellation among long-range indicator covariances. It provides the missing calibrated scale for the established Gaussian limit, not a relabeling of a known mean or CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Uniform random recursive tree undirected zero-leaf-neighbor count M0 has Var(M0)/n -> (3-e)/e^2 and an asymptotic centered Gaussian law with variance this constant; Gaussian existence derives from already published protected-count joint CLTs.",
+  "limitations": [
+    "Uniform recursive-tree independent attachment only, zero leaf-degree class only.",
+    "Published simulation fit 0.3816 conflicts by factor ten with independently checked exact variance, requiring separate external reconciliation.",
+    "2025 simulation Figure 2 caption reports nu_0≈0.3816, a factor ten discrepancy from exact candidate; this is a primary source quantitative risk that requires external reconciliation.",
+    "General implicit fringe-tree covariance representations could give same coefficient after additional work, historical exact priority remains qualified.",
+    "Uniform asymptotic inclusion–exclusion expansion is critical and was reasoned through, not independently formalized."
+  ],
+  "schema_version": 1
+}

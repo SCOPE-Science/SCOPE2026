@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`python3 check.py` is a complete, dependency-free verifier of the **finite** combinatorial identities cited in RESULT.md. It enumerates all \((n-1)!\) parent arrays for every order \(3\le n\le8\), independently computes the indicator of no childless children at each vertex, checks exact single and joint probabilities for all vertex pairs against falling-factorial inclusion–exclusion, compares first/second moments, and checks the sole undirected-root boundary correction. Rational comparisons use `fractions.Fraction` and are exact. The script also checks the algebraic constant and numerically integrates the two-point limiting covariance kernel; this integral check is approximate, with an explicit tolerance.
+## correctness
 
-Observed output on replay:
+PASS
 
-```
-n=3: 2 trees; mean=2; variance=0
-n=4: 6 trees; mean=5/2; variance=1/4
-n=5: 24 trees; mean=19/6; variance=5/36
-n=6: 120 trees; mean=91/24; variance=143/576
-n=7: 720 trees; mean=177/40; variance=1253/4800
-n=8: 5040 trees; mean=3641/720; variance=158879/518400
-constant= 0.03812640853839578 pair numerical= -0.08066388550615114
-PASS: all exhaustive rational and numerical consistency checks
-```
+Exact terminal-child appointment probability 1/(n-1)_r leads to correct one-/two-vertex inclusion–exclusion excluding a younger counted parent. The uniform factorial-series covariance kernel c(a,b)=e^-a[(1+(a-1)b)e^-b-1] was checked algebraically, including r=1 boundary factors; its integral over 0<b<a<1 is (5-e^2)/(4e^2), diagonal 1/2-e^-1+e^-2/2, total (3-e)/e^2 independently integrated by SymPy. The undirected-root correction has probability 1/(n-1) and changes variance only O(1). Exhaustively enumerated all parent arrays n=3..8 directly for undirected M0, and checked source pair formulas against its verifier source. Existing Holmgren–Janson protected-count CLT supplies normality. Finite checks do not prove uniform o(n^-1) asymptotics.
 
-**Proof boundaries.** Finite enumeration does not imply uniform asymptotic covariance estimates. The analytical proof derives the exact fixed-size probabilities, controls the inclusion–exclusion tails by factorial moments, and proves a uniform first-order covariance expansion without singular division by the age coordinates. Convergence of the resulting Riemann sums establishes the variance; the central limit theorem invokes the already-published joint fringe-tree Gaussian limit. This package has not received independent mathematical validation.
+## originality
+
+PASS
+
+Existing Holmgren–Janson theory already implies the joint fringe-tree Gaussian limit (and hence a one-dimensional CLT); independent contribution is the explicit covariance kernel and evaluated limiting variance (3-e)/e² for undirected leaf-degree zero. Primary Hartle–Krapivsky work treats the same observable but only first-order count and fitted/simulated fluctuations.
+
+## value
+
+PASS
+
+The exact variance is a motivated natural invariant of leaf-neighbor statistics in recursive trees and quantifies cancellation among long-range indicator covariances. It provides the missing calibrated scale for the established Gaussian limit, not a relabeling of a known mean or CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
