@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:50:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md (Git blob 363792f4d52dd8c636f5efa6746a577e0c786b4c)",
+        "assigned verify.py (Git blob a4a558cc2eab6c79bf797314bd9ae93fb5bc8b3d)",
+        "independent /mnt/data/scope06_current_checks.py (cycle section)"
+      ],
+      "rationale": "For every integer L>=5, the actual unit-edge graph C_(2L)+{0,2}+{L,L+2} has a reflection-even positive rank-two perturbation of the bare-cycle adjacency matrix and reflection-odd nonpositive perturbation. The cycle resolvent G(k)=(q^k+q^(2L-k))/[(q^(-1)-q)(1-q^(2L))], lambda=q+1/q>2, yields independent symmetric/antisymmetric scalar Birman-Schwinger equations F(q)(1±q^(L-2))/(1∓q^L)=1. Their monotonicity in lambda and the antisymmetric threshold (L-2)/2>1 prove exactly two simple adjacency eigenvalues above 2. Expansion at q_*^3+q_*^2+q_*-1=0 gives the claimed C_*q_*^L splitting; conjugacy of MERW P to A/lambda_1 gives the exact positive-mode time. Bare-cycle and one-chord comparisons use interlacing, and uniformly bounded degrees plus a sine test function give ordinary-walk gap Theta(L^-2). Independent NumPy eigensolutions and separate scalar-root bisections on L=5,6,9,12,20,30 matched both top roots within 1e-9, no third eigenvalue exceeded 2, and L=20/30 gap/C_*q_*^L approached 1. Finite tests do not prove every L.",
+      "residual_risks": [
+        "No total-variation mixing time, cutoff, general two-edge position theorem or statement about the absolute-value subleading eigenvalue is proved.",
+        "Numerical splitting loses floating-point precision at large L; analytic Taylor expansion, not finite floating checks, establishes the exponential coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burda et al. (2008/2010) show localization and an attractive rung; Ochab (2012), Section 4, shows numerically exponential MERW trapping in rung-defect ladders.",
+          "Their ladder graph has 3-regular base with missing rungs, while the submitted graph has degree-2 cycle base and exactly two added span-two chords."
+        ],
+        "reasoning": "General MERW spectral conjugacy and localization are covered; the sources neither give the two-chord first/second eigenvalue secular roots nor the claimed closed C_* coefficient.",
+        "searches": [
+          "arxiv:0810.4113 maximal entropy random walk localization defect",
+          "arxiv:1004.3667 two defects/one attractive rung",
+          "arxiv:1202.1160 ladder exponential relaxation",
+          "two shortcut chords 2L cycle maximum entropy random walk two localized eigenvalues exponential spectral gap tunnel splitting"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1202.1160",
+        "https://arxiv.org/abs/1004.3667",
+        "https://arxiv.org/abs/0810.4113",
+        "assigned RESULT.md and verify.py",
+        "two shortcut chords 2L cycle maximum entropy random walk two localized eigenvalues exponential spectral gap tunnel splitting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier papers establish defect-localization mechanism and existence of exponential relaxation in other graph families.",
+          "Submitted proof derives q_* from q^3+q^2+q-1=0 and C_*=2(1+q_*^2)(1-q_*^2)^3/[q_*^4(1+4q_*^2-q_*^4)] for the fixed cycle."
+        ],
+        "reasoning": "Prior qualitative existence of exponential trapping does not imply two-added-edge minimality or this spectral splitting with stated normalization; all shared general theory is explicitly excluded from priority.",
+        "searches": [
+          "arxiv:1202.1160 Section 4 (ladder graph)",
+          "arxiv:1004.3667 Section 6.3",
+          "two shortcut chords 2L cycle maximum entropy random walk two localized eigenvalues exponential spectral gap tunnel splitting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Birman–Schwinger double-well pair with even/odd branches is equivalent to two localized bound-state tunneling; Ochab studies two long intact regions on a defective periodic ladder."
+        ],
+        "reasoning": "Analogy of tunneling/defect localization is not identical to the two fixed span-two chords on one cycle. The secular equations specify a different adjacency problem; matching the word tunneling does not establish implication.",
+        "searches": [
+          "two shortcut chords 2L cycle maximum entropy random walk two localized eigenvalues exponential spectral gap tunnel splitting",
+          "Resultary: maximal-entropy two-defect tunneling spectral gap graph 2L",
+          "arxiv:1202.1160 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ochab Table 1 catalogs other graph relaxation regimes; Section 4 handles a ladder rather than the exact submitted two-chord graph.",
+          "Assigned analytic curve L->eigenvalues is not a finite table of known numerical graph invariants."
+        ],
+        "reasoning": "No exact same-graph table or algebraic constants found in checked searches. Absence of a hit alone is not proof of novelty.",
+        "searches": [
+          "two shortcut chords 2L cycle maximum entropy random walk two localized eigenvalues exponential spectral gap tunnel splitting",
+          "Resultary cycle spectral bound states finite rank perturbations",
+          "Ochab 2012 Table 1 and Section 4"
+        ]
+      },
+      "rationale": "The established MERW framework, defect localization and even exponential trapping in *other* graphs are previous work. Novelty survives only for the sharp comparison on an otherwise simple cycle with two added span-two chords, exactly two above-band states, explicit algebraic splitting prefactor, and bounded-versus-exponential-versus-diffusive positive-mode contrast. No inspected earlier primary result directly entails those fixed-cycle formulas; this is a best-of-knowledge verdict.",
+      "residual_risks": [
+        "An older unindexed two-defect tight-binding or graph-spectral calculation may give an algebraically equivalent doublet for this same graph.",
+        "The qualitative exponential MERW effect is already known from Ochab; do not assert novelty of trapping itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The qualitative exponential relaxation and defect localization are covered but on rung-defect ladders, not the 2L cycle with two added span-two chords.",
+          "evidence": [
+            "Section 4 starts p9; graph is two chains linked by rungs with removed-rung defects, not the submitted cycle; PDF page 9 and Section 4 prose."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.1160",
+          "material_read": "Paper Section 4 introduction and ladder definition and extracted discussion of bound-state and relaxation regimes, plus PDF page 9 screenshot (0-based p8).",
+          "method": "Primary arXiv full-text PDF search and page-image inspection",
+          "title": "Maximal Entropy Random Walk: solvable cases of dynamics",
+          "trigger": "Earlier numerical exponential MERW slowdown with defect-separated regions"
+        },
+        {
+          "assessment": "Background only; whole-source noncoverage cannot be inferred from excerpts.",
+          "evidence": [
+            "Published 2010 Section 6.3 on one attractive rung; explicit access limitation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1004.3667",
+          "material_read": "Source description and cited Section 6.3 discussion of one attractive rung; complete monograph not independently read in this audit.",
+          "method": "Primary arXiv search/context; limited passage assessment",
+          "title": "The various facets of random walk entropy",
+          "trigger": "Foundational attractive-defect localization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1202.1160",
+        "https://arxiv.org/abs/1004.3667",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Two edges of fixed local span, at opposite ends of a natural cycle, change the positive subleading MERW spectral time from the one-edge bounded regime to exponential in separation; removing both edges gives diffusive L². The full asymptotic prefactor and exactly-two-bound-states proof make a useful elementary benchmark for localized-state tunneling and distinguish entropy-weighted walks from degree-normalized walks. This is a motivated sharp graph-family boundary rather than an arbitrary finite enumeration.",
+      "residual_risks": [
+        "The positive-mode relaxation time is not a complete mixing-time theorem, and broader defect placements are not covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Exactly fixed positions (0,2),(L,L+2), L>=5, unit weights; only positive subleading MERW e-folding scale, not TV cutoff.",
+  "schema_version": 1
+}

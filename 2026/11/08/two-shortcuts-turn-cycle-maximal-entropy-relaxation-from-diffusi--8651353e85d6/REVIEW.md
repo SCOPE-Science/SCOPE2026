@@ -1,20 +1,21 @@
-# Scientific assessment: two-shortcut maximal-entropy relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for the explicitly labeled graph \(C_{2L}+\{0,2\}+\{L,L+2\}\) and every integer \(L\ge5\). The reflection decomposition separates positive and negative rank-two adjacency perturbations. The cycle Green function gives two scalar, strictly monotone Birman–Schwinger equations; their threshold values prove precisely two bound eigenvalues. Differentiation of the explicit equations gives the claimed exponential splitting with its stated constant. Eigenvalue interlacing and a degree-comparable Poincaré argument establish the zero/one/two-shortcut and ordinary-walk comparisons. A self-contained numerical verifier independently tests actual adjacency matrices and eigenvectors. Checks do not substitute for the analytic all-size proof. The stated time is one positive subleading-mode e-folding time, not the full mixing time.
+## correctness
 
-## Originality — PASS on checked evidence, provisional
-The established MERW construction and localization are due to Burda, Duda, Luck and Waclaw (2008, arXiv:0810.4113); attractive one-defect localization is analyzed by the same authors (2010, arXiv:1004.3667, Section 6.3). Ochab (2012, arXiv:1202.1160, Section 4) **already reports exponential MERW trapping** numerically on a distinct doubly intact periodic ladder. Thus neither localization nor exponential slowdown in general is asserted to be original. The exact edge-budget transition for a *single cycle*, the existence of precisely two eigenvalues above its band, and the closed algebraic splitting coefficient do not follow from the examined prior statements, which use structurally different graph families. Relevant published research records were also semantically compared by claim and consequence, not solely by title. Residual priority risk: an older, unindexed two-defect tight-binding or spectral-graph treatment may yield this formula through an equivalent parametrization.
+PASS
 
-## Mathematical value — PASS
-Only two added edges, a vanishing edge-density perturbation, create two separated localized states and an exponential positive-mode relaxation time. Removing one of these edges restores a bounded time; removing both gives the quadratic diffusive time. This exact natural graph family separates two spectral mechanisms and supplies an analytically sharp test of localized-state tunneling in global-entropy transport. The result is a motivated classification of an edge-budget threshold, not an arbitrary isolated eigenvalue computation.
+For every integer L>=5, the actual unit-edge graph C_(2L)+{0,2}+{L,L+2} has a reflection-even positive rank-two perturbation of the bare-cycle adjacency matrix and reflection-odd nonpositive perturbation. The cycle resolvent G(k)=(q^k+q^(2L-k))/[(q^(-1)-q)(1-q^(2L))], lambda=q+1/q>2, yields independent symmetric/antisymmetric scalar Birman-Schwinger equations F(q)(1±q^(L-2))/(1∓q^L)=1. Their monotonicity in lambda and the antisymmetric threshold (L-2)/2>1 prove exactly two simple adjacency eigenvalues above 2. Expansion at q_*^3+q_*^2+q_*-1=0 gives the claimed C_*q_*^L splitting; conjugacy of MERW P to A/lambda_1 gives the exact positive-mode time. Bare-cycle and one-chord comparisons use interlacing, and uniformly bounded degrees plus a sine test function give ordinary-walk gap Theta(L^-2). Independent NumPy eigensolutions and separate scalar-root bisections on L=5,6,9,12,20,30 matched both top roots within 1e-9, no third eigenvalue exceeded 2, and L=20/30 gap/C_*q_*^L approached 1. Finite tests do not prove every L.
 
-## Limitations and closest literature
-- Burda et al., *Localization of maximal entropy random walk* (arXiv:0810.4113): general MERW/localization, not the exact two-chord secular spectrum.
-- Burda et al., *The various facets of random walk entropy* (arXiv:1004.3667), Section 6: single attractive impurity and two repulsive impurities on a ladder, not paired attractive chords on one cycle.
-- Ochab, *Maximal Entropy Random Walk: solvable cases of dynamics* (arXiv:1202.1160), Section 4: the nearest qualitative exponential-slowdown precedent, for an extensive ladder-gap family with fitted numerical rates rather than a two-added-edge theorem.
-- Lin and Zhang, *Mean first-passage time for maximal-entropy random walks in complex networks* (arXiv:1406.3680): a distinct general spectral setting; no verified implication for the present graph.
+## originality
 
-No universal mixing cutoff, arbitrary defect placement, or historical uniqueness is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The established MERW framework, defect localization and even exponential trapping in *other* graphs are previous work. Novelty survives only for the sharp comparison on an otherwise simple cycle with two added span-two chords, exactly two above-band states, explicit algebraic splitting prefactor, and bounded-versus-exponential-versus-diffusive positive-mode contrast. No inspected earlier primary result directly entails those fixed-cycle formulas; this is a best-of-knowledge verdict.
+
+## value
+
+PASS
+
+Two edges of fixed local span, at opposite ends of a natural cycle, change the positive subleading MERW spectral time from the one-edge bounded regime to exponential in separation; removing both edges gives diffusive L². The full asymptotic prefactor and exactly-two-bound-states proof make a useful elementary benchmark for localized-state tunneling and distinguish entropy-weighted walks from degree-normalized walks. This is a motivated sharp graph-family boundary rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
