@@ -1,19 +1,21 @@
-# Review of the determinantal dual classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The smooth torus parametrization is birational onto the open positroid stratum, and the pullback of a general ambient hyperplane is the stated homogeneous quadratic. The three derivative equations reduce, on full-row-rank matrix coefficients, to one bilinear incidence relation and an augmented maximal-rank condition. The hyperplane section of the universal determinantal variety is irreducible for \(a\ge2\), via a surjective matrix-factorization parametrization satisfying one irreducible bilinear equation; hence the generic incidence determines the full reduced dual. Codimension follows from a dense incidence parametrization and degree from the standard maximal-minor class. The generic contact space is directly constructed. Exact script checks support the formulas in small cases but are not used as proof for all parameters.
+PASS
 
-## Originality — PASS (provisional priority)
+The dense parameterization is the toric monomial map (u,v,w)↦(u_iv_j,u_iw,v_jw), which is an immersion up to common scaling. Pulling a hyperplane back gives homogeneous quadratic u^TMv+wα^Tu+wβ^Tv. Its tangency gradient is (Mv+wα,M^Tu+wβ,α^Tu+β^Tv)=0. For generic full-row-rank M and w=1, this is precisely β=M^Tλ and λ^Tα=0, equivalent to rank≤a of T=[M α;β^T 0]; generic solutions with all torus coordinates nonzero exist. The rank≤a locus inside southeast-zero hyperplane is irreducible because each matrix factors PQ with rank factor a and constraint (PQ)_{last,last}=sum_{i=1}^a P_{last,i} Q_{i,last}=0, an irreducible polynomial for a≥2, so its generic tangencies are dense. Its open affine dimension ab+2a−1 in coefficient ambient ab+a+b gives codim b−a+1. The generic maximal-minor determinantal degree binomial(b+1,a) is unchanged by a proper non-contained projective hyperplane section. The Mv=−α solution affine fiber of dimension b−a maps linearly to contact closure P^(b−a); a=b yields adjugate determinant. Direct symbolic balanced a=b=2 and rectangular a=2,b=3 cases independently checked torus tangency, augmented rank, and adjugate identity. General proof independent of these small checks.
 
-McNeill's toricity criterion (arXiv:2610.35914) and the related Gonzales–Le–Lowen classification do not state the dual determinantal presentation. Furukawa–Ito's general toric dual-defect theorem does not specialize to an equation, degree, or contact linear spaces for this three-block family in the inspected text. Relevant searches of dual-variety, toric-discriminant, complete-tripartite, and rank-two positroid terminology did not reveal an implication covering this full assertion. Earlier primal singularity classifications are not equivalent. Remaining priority risk: the same \(A\)-discriminant may have been computed in older graph configuration literature under a different description. No independence or historical uniqueness is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-For an infinite, geometrically natural family of newly emphasized toric positroid varieties, the classification computes three central projective-dual invariants exactly: defining rank equations, degree, and dual defect, with explicit generic contact spaces. The balanced/nonbalanced dichotomy identifies when the dual changes from a hypersurface to a higher-codimension determinantal variety. These are not restatements of toricity or ordinary smoothness criteria.
+Classical maximal-minor determinantal degrees and Cayley/toric dual defect theory are established, as is toricity of regular positroids (McNeill). Neither gives the specific full augmented matrix equations, degree, and generic linear contact locus for (a,b,1). Earlier three-class rank-two positroid singular-stratum results concern the primal, not the projective dual. A possible graph A-discriminant alias or a general theorem covering K_{a,b,1} is residual risk, but no exact implication was found in inspected material.
 
-## Scope and limitations
+## value
 
-Complex ground field, exactly three consecutive parallel classes with sizes \((a,b,1)\) and \(a,b\ge2\), and duality in the Plücker linear span. No claim concerning dual singular schemes, arbitrary regular positroids, or independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It determines the entire projective dual variety, degree, defect and contact geometry in an infinite natural family of toric positroid embeddings. This is a genuine geometric classification with balanced/hypersurface phase transition and exact determinantal equations, not a routine isolated numerical calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
