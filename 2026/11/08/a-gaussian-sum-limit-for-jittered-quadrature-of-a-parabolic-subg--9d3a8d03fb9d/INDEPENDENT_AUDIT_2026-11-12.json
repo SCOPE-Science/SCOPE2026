@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:13:22.845740Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob f960b452e136537286f9103990de5b14cafd4573",
+        "independent_checks.py direct square-cell probabilities and phase integral"
+      ],
+      "rationale": "The cell Bernoulli variance is computed locally. The curvature term in each n-cell is u²/n, and only O(1) boundary cells per column have nonzero variance, so replacing the curve by its tangent changes the variance sum by O(1). The resulting phase dependence is v_{2i/n}({i²/n}). Complete quadratic Gauss-sum bound |G_n(k,l)|²<=n gcd(2k,n) proves equidistribution for all positive integer n, not only primes. Averaging unit vertical phase gives K(s)=.5 E|s(U1-U2)-(V1-V2)| with two exact rational branches; integrating K(2x) gives target 311/1440+log(2)/24. Independent code directly integrates actual curved boundary cells at grids up to n=4000 and exactly checks the phase-average integral; convergence tests are corroborative only.",
+      "residual_risks": [
+        "The theorem concerns fixed parabola and all integer grid sizes only, not generic smooth curves.",
+        "Finite calculations are not the Weyl equidistribution proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doerr bounds star discrepancy; Xian–Xu gives integrated anchored-box L² discrepancy formulas."
+        ],
+        "reasoning": "Bounds or expectations over all anchored boxes do not determine the exact coefficient of one curved set. Generic smooth-boundary stratification asymptotics could apply, but no covering exact theorem was established from the read material.",
+        "searches": [
+          "parabolic subgraph jittered square-grid exact variance constant 311/1440 log2 24",
+          "https://arxiv.org/abs/2103.15712",
+          "https://arxiv.org/abs/2211.07862"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2103.15712",
+        "https://arxiv.org/abs/2211.07862",
+        "https://arxiv.org/abs/1510.00251",
+        "Resultary Q5 semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source uses complete quadratic exponential sums to average changing intercept phases; prior line-segment computations need not control varying phases across grid columns."
+        ],
+        "reasoning": "The curved target needs arithmetic equidistribution in addition to known local tangent variance. Thus existing different-metric formulas do not automatically imply the stated constant.",
+        "searches": [
+          "parabolic subgraph jittered square-grid exact variance constant 311/1440 log2 24",
+          "https://arxiv.org/abs/2103.15712",
+          "https://arxiv.org/abs/2211.07862"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Target is L² integration error of the single discontinuous indicator of y<x² with one random point per square, not star discrepancy over all anchored boxes."
+        ],
+        "reasoning": "Different jittered-error nomenclature may conceal equivalent theorems, but no inspected same-target full formula emerged.",
+        "searches": [
+          "parabolic subgraph jittered square-grid exact variance constant 311/1440 log2 24",
+          "jittered sampling parabolic indicator exact asymptotic variance Gauss sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior straight-line triangle variance has rational-slope spikes; its fixed-slope constants differ from the integrated slope law for a parabola."
+        ],
+        "reasoning": "No known exact table for 311/1440+log(2)/24 was retrieved other than the mirror. Its log term arises when tangent slopes cross one.",
+        "searches": [
+          "parabolic subgraph jittered square-grid exact variance constant 311/1440 log2 24",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3"
+        ]
+      },
+      "rationale": "The exact curved-boundary constant is not implied by inspected star-discrepancy or expected L² discrepancy estimates for jittered samples, which concern different test function classes. Nearby published straight-line and triangular-indicator laws depend on fixed orientation and lattice phase, but do not give complete quadratic-phase equidistribution for the curved y=x² boundary. The calculation is a motivated exact constant for a first nonlinear shape, with meaningful risk of a broad older smooth-boundary theorem.",
+      "residual_risks": [
+        "A historical broad theorem for smooth-boundary stratified variance may specialize to the parabola; complete precedent literature review is not certified.",
+        "Relevant primary full text material was limited; evidence is adequate only for a qualified best-knowledge priority judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_METRIC",
+          "evidence": "Star discrepancy extremal anchored boxes, not exact variance for a fixed curved indicator.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.15712",
+          "material_read": "Abstract, main problem statement and PDF introductory page; not all proofs or appendices",
+          "method": "ArXiv PDF opened and page screenshot inspected",
+          "title": "A Sharp Discrepancy Bound for Jittered Sampling",
+          "trigger": "Most prominent primary jittered-grid paper"
+        },
+        {
+          "assessment": "DIFFERENT_METRIC",
+          "evidence": "Integrated box discrepancy is not the same fixed parabolic subgraph quadrature functional.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.07862",
+          "material_read": "Bibliographic abstract and main mathematical scope, not complete body",
+          "method": "ArXiv and source searches",
+          "title": "Improved Expected L2-Discrepancy Formulas on Jittered Sampling",
+          "trigger": "Potential formula for variance of stratified integration"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_BY_SUMMARY_ONLY",
+          "evidence": "A line with constant slope differs from a continuously varying quadratic boundary; no whole-text noncoverage asserted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3",
+          "material_read": "Resultary title and scientific summary; full published text not read",
+          "method": "Resultary Search",
+          "title": "An arithmetic jump law for triangular-indicator jittered integration",
+          "trigger": "Similar square-cell jitter and discontinuous indicator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "parabolic subgraph jittered square-grid exact variance constant 311/1440 log2 24",
+        "frozen RESULT.md"
+      ],
+      "rationale": "The area under y=x² is a natural first genuinely curved discontinuity for square-grid jittered Monte Carlo. Its exact all-grid asymptotic constant, including the log 2 contribution, quantifies geometric and arithmetic effects invisible in generic error-rate bounds and supplies an independently useful benchmark.",
+      "residual_risks": [
+        "Does not optimize the sampling design or establish a universal smooth-boundary law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact constant is model-specific; no more general curved-boundary classification is claimed.",
+    "Potential implication from unindexed smooth-boundary theory remains a historical risk."
+  ],
+  "schema_version": 1
+}
