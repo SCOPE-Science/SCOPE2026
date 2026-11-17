@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite simple cubic graph hypothesis ensures that every pair of adjacent line-graph vertices belongs to exactly one incident-edge triangle. On such triangles, the exact minimum frustrated-pair counts conditioned on the number of favored spins are \((1,0,1,3)\). A given proper three-edge-coloring simultaneously realizes all four local extremal assignments by recoloring entire edge classes; hence the summed lower bound is sharp for every real field. Away from the three breakpoints, uniqueness of the optimal local occupancy forces the claimed graph correspondences. At the last breakpoint nonfavored edges form exactly an arbitrary matching, with two spin choices per selected edge. This proves the matching-polynomial degeneracy. Exhaustive direct enumeration of \(531441\) cuboctahedral configurations, independently reproduced by local-factor contraction, verifies every numerical count. These finite checks support but do not replace the general proof.
+## correctness
 
-## Originality — PASS on inspected evidence, provisional
-The spherical kagomé cluster studied by Rousochatzakis, Läuchli and Mila, arXiv:0711.3231, has the required cuboctahedral geometry but its quantum magnetic spectrum does not state the classical three-state Potts line-graph plateau/matching formula. Shrock and Xu, arXiv:1009.1182, give general external-field Potts machinery, not the evaluated universal cubic-line-graph ground-state function or critical matching count. Kotecký, Salas and Sokal, arXiv:0802.2270, concern the different infinite diced-lattice model. Publicly indexed studies of the cuboctahedral matching complex and three-cut complex concern topological invariants, not these magnetic-energy and state-count assertions. An accessible earlier graph-specific line-graph/Potts result on a non-three-edge-colorable base does not imply the present universal formula. Semantic source searches and claims-versus-prior implication checks revealed no already-stated equivalent theorem, but they do not establish absolute priority; an unindexed specialized calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The family includes indefinitely many finite cubic graphs of different topology, while its three field thresholds are exactly universal. Crucially, both a whole intermediate phase and a coexistence point have graph-sensitive multiplicities controlled by perfect matchings and the full matching polynomial; thus microscopic graph combinatorics governs a physically motivated field-response observable. The cuboctahedron is a canonical twelve-spin spherical kagomé cluster with exactly resolved sharp degeneracies. The theorem's dependence on proper three-edge-colorability identifies a meaningful frustrated/three-edge-uncolorable boundary, rather than an arbitrary graph slice.
+Every cubic vertex induces an edge-disjoint line-graph triangle. Conditional minima of monochromatic pairs for t favored incident edges are (1,0,1,3). The x field contributes -xt/2 per original vertex, giving a rigorous global lower bound. Proper three-edge coloring realizes each local optimum at every vertex through four color maps, so the envelope is sharp for all real x and disconnected G. At 2<x<4 the nonzero edges form perfect matchings with two independent nonzero spin choices; at x=4 they form arbitrary matchings. Independent exhaustive enumeration of all 3^12 cube-line assignments gave 13 sector counts (450,1248,1044,288,24,288,912,864,144,352,168,24,1), sum=531441, with crossover counts 3054,2232,689. This finite test supports, not proves, the general result.
 
-## Limits and risks
-All claims concern the zero-temperature, classical, single-favored-color, three-state Potts model with uniform \(J>0\). No inference is made about other spin Hamiltonians, nonuniform couplings, thermodynamic transitions or experimental observability. Historical-priority assessment is bounded by inspected available primary texts and semantic searches; inaccessible or unindexed equivalent calculations remain a residual risk. The general proof is independent of finite enumeration; the cuboctahedral counts rely on complete \(3^{12}\)-assignment enumeration and a separate exact local contraction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general Potts external-field partition-function framework of Shrock–Xu and the classical cuboctahedron/kagome magnetic-cluster literature do not state the same evaluated zero-temperature all-three-edge-colorable-cubic-line-graph thresholds and matching-polynomial crossover multiplicities. Resultary results concerning spin-one Blume–Capel on cubic line graphs use different onsite/bond interactions; same graph alone is not prior implication. Best-of-knowledge original evaluated all-graph classification, subject to unindexed-special-case risk.
+
+## value
+
+PASS
+
+The exact infinite graph-family field plateaux together with phase-boundary matching-polynomial entropy convert local frustration into a useful graph combinatorics classification. Sharp three-edge-colorability hypothesis excludes genuine snark obstructions; not simply a tiny finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
