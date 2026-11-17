@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible verification
+# Independent mathematical audit
 
-The accompanying `verify.py` is a self-contained Python 3 integer-arithmetic checker. Execute `python3 verify.py`; the recorded run is in `verification_output.txt`. It reconstructs all seven-label triples, every orbit under each of the fifteen cycle types, valid orbit selection, cross-orbit incompatibility, and the exact independence-polynomial recursion at \(-1\). The algorithm does not use a precomputed character table.
+## correctness
 
-It also independently reconstructs the entire rational character table from Young permutation modules and weighted inner products, checks the exact Specht multiplicities, the identity dimensions \(29\) and \(7\), the character parity formula, and the sum \(5040\) of conjugacy-class sizes. Its only external mathematical premise is the published rational Betti concentration and ranks; the ninth-degree character follows independently by virtual-character saturation and is compared with the existing exterior-power calculation afterward.
+PASS
 
-The identity case was separately checked by cardinality-counting all independent triple families; its size-distribution vector sums to \(1,278,686\) and has alternating sum \(-22\). No large-matrix integral rank computation, torsion calculation, or homotopy-type assertion is made.
+The 35 triples of [7] and disjointness edges define Ind(KG(3,1)); invariant geometric simplices are precisely compatible unions of permutation orbits after barycentric subdivision. I independently enumerated the orbit incompatibility graphs and deletion-link values P_g(-1) for ALL fifteen partitions of seven; obtained p=[-1,-2,-1,3,-1,0,-4,-4,1,-3,5,-2,-2,-6,-22] in the RESULT.md cycle-type order, including 25,235 memoized states for the identity. Fixed-point Lefschetz gives virtual H6-H9=-P_g(-1). Feng supplies rational homology concentration in degrees 6 and 9 and Betti numbers 29 and 7 for k=1; exact integer Specht decomposition and 29/7 dimension saturation exclude any common constituents. The character is 1+(1+sign)(f3-f2) and decomposes as S^(7)+S^(4,3)+S^(2,2,2,1). No integral homotopy or torsion assertion.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of precise scientific statements supports originality of the new refinement; all described known premises are credited. The stated unexamined-primary and unindexed-coverage risks remain real.
+
+## value
+
+PASS
+
+Determines the full rational S7 module of a naturally central seven-label Kneser independence complex where only ungraded Betti numbers were available in inspected material; distinguishes invariant line, parity law and conjugate 14-dimensional modules. This precise symmetry invariant is independently useful for equivariant topology and is not a parameter rename or recomputation of a known rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
