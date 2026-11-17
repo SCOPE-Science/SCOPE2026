@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T17:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The overlap graph on q^2 ordered-pair vertices has diagonal degrees q and off-diagonal degrees 2 and is balanced and strongly connected through diagonal links. Each target triple labels a unique edge, including edge 000 once, so fixed-edge directed BEST removes rotational ambiguity. The off-diagonal Laplacian block consists of [2,-1;-1,2] for each unordered pair, determinant 3 per block; Schur complement on diagonal states is 2/3(qI-J). Directed matrix-tree gives rooted tree count T_q=2^(q-1)3^((q-1)(q-2)/2)q^(q-2). The BEST degree factorial product ((q-1)!)^q gives N_q. Independently built exact Laplacians for q=2,3,4 and obtained tree counts 2,36,3456 and cycle totals 2,288,4478976. The proof, not finite cases, is all-q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 gives the same all-alphabet T_q for the exact graph after removal of constant loops; q>=2, exact same labeling and rotational quotient.",
+          "Leitner/Godbole and Champlin/Godbole/Tomlinson previously establish restricted universal-cycle existence in related cases."
+        ],
+        "reasoning": "November 2 is structurally stronger for the needed arborescence calculation. Adding loops and multiplying BEST factorials directly implies the submitted universal count.",
+        "searches": [
+          "universal cycles noninjective length three words over q alphabet count Eulerian BEST 2^q 3^((q-1)(q-2)/2)",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+          "arxiv:0808.1309",
+          "arxiv:1303.3323"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+        "arxiv:0808.1309",
+        "arxiv:1303.3323",
+        "Resultary search universal cycles noninjective length three words over q alphabet count Eulerian BEST 2^q 3^((q-1)(q-2)/2)",
+        "assigned RESULT.md, verify.py and crosscheck.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier primary RESULT.md, section 3, shows off-diagonal 2I-R and Schur complement (2/3)(qI-J), identical to the submitted proof.",
+          "An added loop at vertex v cancels in L=diag(deg)-A, but changes (d_v-1)! to d_v!; for q diagonal vertices with former degree q-1 this contributes (q-1)^q."
+        ],
+        "reasoning": "Explicit derivation: N_new=T_old*((q-1)!)^q=N_prior*(q-1)^q. All claimed existence, counts and normalization follow without independent mathematical work; different permitted triples are no novelty escape.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+          "universal cycles noninjective length three words over q alphabet count Eulerian BEST 2^q 3^((q-1)(q-2)/2)",
+          "Directed BEST theorem self-loop degree change"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior November 2 family consists of triples with exactly two equal letters, excluding aaa.",
+          "Submitted family consists of all prior triples plus q constant triples aaa, one loop at each diagonal (a,a)."
+        ],
+        "reasoning": "The restricted digraphs differ only by one self-loop per diagonal vertex; loops do not change the directed Laplacian or spanning arborescence determinant. This explicit graph reduction is a direct equivalence of the nontrivial enumerative core.",
+        "searches": [
+          "universal cycles noninjective length three words over q alphabet count Eulerian BEST 2^q 3^((q-1)(q-2)/2)",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier explicit product is 2^(q-1)3^((q-1)(q-2)/2)q^(q-2)((q-2)!)^q.",
+          "Submitted product is precisely prior product times (q-1)^q, consistent with q diagonal outdegree increases."
+        ],
+        "reasoning": "This is not merely matching q=2,3 entries; it is an exact all-q functional algebraic implication of the published prior product and graph construction.",
+        "searches": [
+          "universal cycles noninjective length three words over q alphabet count Eulerian BEST 2^q 3^((q-1)(q-2)/2)",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159"
+        ]
+      },
+      "rationale": "The published November 2, 2026 theorem counts exactly all length-three words with precisely two equal symbols (omitting only aaa constants from the present noninjective set). It already computes the IDENTICAL q-dependent rooted arborescence number T_q and the same Schur complement and BEST count T_q*((q-2)!)^q. The submitted graph is obtained by adjoining one constant-loop edge aaa to each diagonal pair (a,a). Such self-loops cancel from the outdegree Laplacian, leaving T_q unchanged. Each diagonal degree changes q-1 to q, multiplying the BEST factorial by (q-1)^q; this mechanically yields the submitted full product, with no new structural argument. The older full proof and exact formula were read.",
+      "residual_risks": [
+        "Priority failure is decisive from fully inspected November 2 result; no unverifiable unknown-source argument is required."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BY_ONE_LOOP_PER_DIAGONAL",
+          "evidence": "Older T_q identical; current N_q=N_prior*(q-1)^q from addition of q constant loops.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+          "material_read": "Complete earlier RESULT.md, including graph definition, Schur-complement matrix calculation, BEST formula, degree distribution and q=2..6 values.",
+          "method": "Published Resultary Git blob",
+          "title": "Exact enumeration of universal cycles with precisely one repeated symbol per triple",
+          "trigger": "Full exact arborescence formula for neighboring restricted graph"
+        },
+        {
+          "assessment": "EXISTENCE_ONLY_FOR_COMPARISON",
+          "evidence": "Older November 2 exact count is decisive even absent full 2013 text.",
+          "identifier_or_url": "arxiv:1303.3323",
+          "material_read": "Published abstract and relevant cited existence statements; not used as decisive exact enumerative prior.",
+          "method": "Public arXiv listing and referenced statements",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "Related existence and ternary example"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural universal-cycle problem is mathematically sound, but its count follows through the routine addition of q self-loops from the prior explicit all-q enumeration. No independently motivated new boundary, theorem or computation beyond a one-line BEST factorial rescaling is present. Correctness or increased factorial terms do not make this known immediate corollary a new valuable finding.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-universal-cycles-with-precisely-one-repeate--ac5120e68159",
+    "arxiv:0808.1309",
+    "arxiv:1303.3323",
+    "Resultary search universal cycles noninjective length three words over q alphabet count Eulerian BEST 2^q 3^((q-1)(q-2)/2)",
+    "assigned RESULT.md, verify.py and crosscheck.cpp"
+  ],
+  "disposition": "failed",
+  "final_claim": "For every labeled alphabet q>=2, count universal cycles listing all noninjective length-three words, including constant triples, up to cyclic rotation: N_q=2^(q-1)*3^((q-1)(q-2)/2)*q^(q-2)*((q-1)!)^q.",
+  "limitations": "Not rejected because of an error or missing finite experiment; correct all-q claim is an immediate corollary of an earlier all-q evaluated graph with only constant-loop modification. No repair attempted.",
+  "residual_risks": [
+    "Priority failure is decisive from fully inspected November 2 result; no unverifiable unknown-source argument is required."
+  ],
+  "schema_version": 1
+}
