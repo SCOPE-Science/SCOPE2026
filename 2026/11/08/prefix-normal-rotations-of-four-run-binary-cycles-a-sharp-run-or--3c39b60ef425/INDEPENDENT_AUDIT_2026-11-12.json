@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:58:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://oeis.org/A006918",
+        "https://arxiv.org/pdf/1611.09017",
+        "prefix normal circular binary word four runs rotations cyclic necklace obstruction"
+      ],
+      "rationale": "Maximum ones in any circular window can be achieved starting at a 1-run boundary, so comparing prefixes P_U(n),P_C(n) of the two candidate rotations suffices. With a>=c the difference P_C-P_U increases up to n=a+b if b>d, then decreases; its positive maximum is min(c,b-d). If b<=d it is everywhere <=0. Thus a cycle has a periodically prefix-normal rotation iff (a-c)(b-d)<=0; equality cases and unique infinite word follow because the prefix-one counts determine a word. Necklace identification (a,b,c,d)~(c,d,a,b) gives the two rational generating series z^4/[(1-z)^2(1-z²)^2] and z^6/[(1-z)^2(1-z²)^2]. Direct independent circular windows checked all 625 quadruples 1<=a,b,c,d<=5. Infinite proof is case/series argument, not the finite test.",
+      "residual_risks": [
+        "Older cyclic run-gap normal form literature might state an equivalent formula without these four parameters.",
+        "Numeric sequence and generating function alone already indexed; do not claim those values independently new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier weight-three exact circular theorem handles three isolated one positions, not arbitrary a,c four-run blocks.",
+          "Earlier 10/25 theorem requires no crossing of the cut and gives only first failure threshold."
+        ],
+        "reasoning": "No inspected published stronger complete arbitrary-four-run classification/defect implication; general jumbled-index algorithms are computational tools, not the theorem.",
+        "searches": [
+          "prefix normal circular binary word four runs rotations cyclic necklace obstruction",
+          "https://arxiv.org/abs/1611.09017",
+          "Resultary 2026-11-02 weight-three circular classification"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A006918",
+        "https://arxiv.org/pdf/1611.09017",
+        "prefix normal circular binary word four runs rotations cyclic necklace obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 10/25 result explicitly restricts factors to nonwrapping intervals.",
+          "The 11/02 weight-three result controls ones-count rather than four cyclic runs."
+        ],
+        "reasoning": "Neither is a theorem quantified over all positive a,b,c,d with the specific min(c,(b-d)+) defect; they do not dominate this parameter space.",
+        "searches": [
+          "Resultary 2026-10-25 sharp cyclic prefix-normal obstruction",
+          "Resultary 2026-11-02 first circular prefix-normal obstruction",
+          "prefix normal circular binary word four runs rotations cyclic necklace obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Infinite periodic prefix-normality compares all circular factors; finite linear prefix normal cut compares only factors not crossing the cut.",
+          "An infinite periodic word is fully determined by its prefix counts, explaining uniqueness even for nonprimitive cycles."
+        ],
+        "reasoning": "Equivalence to all circular window maxima over lengths 1..L is valid, but the finite linear-cut threshold is a strictly weaker question.",
+        "searches": [
+          "prefix normal circular binary word four runs rotations cyclic necklace obstruction",
+          "arXiv:1611.09017",
+          "Resultary 2026-10-25 cyclic cut obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The successful coefficients 1,2,5,8,14,20,30,40,55 match the shifted indexed sequence A006918.",
+          "The complementary generating series shift B(z)=z²S(z) and prefix-normal interpretation are distinct statements."
+        ],
+        "reasoning": "Preknown numerical sequence/GF is not original numerical discovery and must be credited; the criterion and combinatorial interpretation survive independently.",
+        "searches": [
+          "https://oeis.org/A006918",
+          "prefix normal circular binary word four runs rotations cyclic necklace obstruction"
+        ]
+      },
+      "rationale": "The older cyclic-cut theorem checks only linear (nonwrapping) factors, and the separate 2026-11-02 weight-three theorem classifies exactly three ones using circular factors. They do not imply this four-run family with arbitrary two one-runs or its defect formula; standard linear prefix normal forms likewise may not be rotations. OEIS A006918 has the numeric coefficient sequence but not this run-order interpretation. Same-day self-result is not independent prior.",
+      "residual_risks": [
+        "Older cyclic run-gap normal form literature might state an equivalent formula without these four parameters.",
+        "Numeric sequence and generating function alone already indexed; do not claim those values independently new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses ordinary linear prefix normality of cuts; does not classify periodic all-factor four-run words",
+          "evidence": "Explicit nonwrapping-factor definition and first obstruction census",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-sharp-cyclic-prefix-normal-representative-obstruction--0cf8390c81fd",
+          "material_read": "Entire published RESULT.md including exact length eleven obstruction and factor definitions",
+          "method": "full published Git raw text",
+          "title": "The sharp cyclic prefix-normal representative obstruction",
+          "trigger": "Closest prior circular prefix question"
+        },
+        {
+          "assessment": "Different fixed weight three; cannot imply general 4run arbitrary length blocks",
+          "evidence": "Three zero gaps, root condition g_i shortest and g_{i-1} longest",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-circular-prefix-normal-obstructions-and-the-complete-three--3cb64ddcad03",
+          "material_read": "Entire published RESULT.md, weight-three threshold and gap enumeration",
+          "method": "full published Git raw text",
+          "title": "First circular prefix-normal obstructions and the complete three-one classification",
+          "trigger": "Strong circular-factor predecessor"
+        },
+        {
+          "assessment": "Foundations for linear prefix normality; no inspected complete circular four-run classification",
+          "evidence": "Linear prefix-normal form and jumbled-substring background",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09017",
+          "material_read": "Full PDF text considered with first-page image and queried for circular formulation",
+          "method": "opened PDF and first-page screenshot",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "Foundational prefix-normal definition and possible dominating classification"
+        },
+        {
+          "assessment": "Counts have prior numeric appearance, interpretation not shown to be covered",
+          "evidence": "Shifted successful coefficient sequence",
+          "identifier_or_url": "https://oeis.org/A006918",
+          "material_read": "Indexed sequence identification in source and public OEIS entry information",
+          "method": "database inspection",
+          "title": "OEIS A006918",
+          "trigger": "Exact numeric sequence already indexed"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://oeis.org/A006918",
+        "https://arxiv.org/pdf/1611.09017",
+        "prefix normal circular binary word four runs rotations cyclic necklace obstruction"
+      ],
+      "rationale": "The four-run family is the first nontrivial general run-structure boundary: a sharp signed gap obstruction and exact defect let one decide canonical rotation directly and enumerate successful/failed necklaces for all lengths. The meaningful structure is not the already-indexed integer sequence alone.",
+      "residual_risks": [
+        "Older cyclic run-gap normal form literature might state an equivalent formula without these four parameters.",
+        "Numeric sequence and generating function alone already indexed; do not claim those values independently new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Binary exactly four cyclic runs, positive run lengths and infinite periodic comparison; counts rotations only, not reversal or complement.",
+  "schema_version": 1
+}
