@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original dynamics reduces exactly to the five-link closure equation in the stated five-active branch. The proof accounts for all subsets containing the largest side, proves strict monotonicity of both wall functions and permanent signs of the other inequalities, and applies the full-text Farber–Schütz homology theorem. The exact-rational checker certifies the root enclosures and the three short-set counts. Boundary parameters are deliberately excluded from the smooth-surface classification.
+PASS
 
-## Originality — PASS within inspected evidence
+Substituting Z=0 rotating equilibria yields squared active amplitudes (βj-8Cr)/kr and phase closure sum rj exp(iθj)=0; division by common scale leaves the ordered five link polygon sqrt(t+j), j=0..4. Positivity of exactly five amplitudes equals 0<t<1. Among subsets containing the longest side sqrt(t+4), only triple {e,a,b} and pair {e,c} switch short/long; differentiating their signed square-root sums proves strict monotonicity and unique roots. Independent high precision root computation found t0=0.02075286255..., t1=0.38628071405..., and direct independent subset enumeration at t=.001,.1,.8 recovered (a0,a1,a2)=(1,2,1),(1,2,0),(1,3,0). Farber–Schütz Theorem1 then yields Betti (2,4,2),(1,4,1),(1,6,1); its disconnected result gives two tori in first regime, then genus2/3 by orientability and connectedness. At the wall a collinear configuration violates regular-value smoothness; no topology of singular fiber is asserted. Verified physical-line conversion Ci=0.005+(3-t_j)Δβ/14 and branch Ci>0 for chosen physical parameters. The bounded checks verify signs and examples; derivative/order and published polygon homology establish continuum classification.
 
-The inspected Zhao–Uchida Section 5 supplies the polygon construction and the number of shape coordinates, not a genus/connectedness phase diagram. The complete Farber–Schütz theorem supplies general homology of polygon spaces; the present application fully acknowledges and uses this broader result. The parameter-dependent bifurcation thresholds and three topological chambers for the particular dynamically selected square-root progression were not found in those full texts, relevant published-finding semantic searches. The result is a sharp classification of a natural dynamical-model parameter family, not a new general homology method. The central residual historical risk is an unlocated specialized earlier treatment of this progression; the general theorem makes the present conclusion accessible by additional inequality analysis, so originality must not be confused with independent discovery of polygon-space homology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source measures the dimension and samples transverse stability of a polygonal manifold, but those measurements miss internal changes in its number of connected components and genus at fixed active count. The two exact lines divide an experimentally defined five-active sector into three qualitatively distinct equilibrium geometries. This is a complete, exact classification of a natural model-specific invariant rather than an arbitrary set of sample lengths. The result does not infer stability, attractors or changes in observable chaos.
+PASS, restricted to the internal two-wall classification of this exact one-parameter square-root length family. Zhao–Uchida primary source covers original dynamical model and zero-mean polygon reduction; Farber–Schütz covers generic Betti numbers from short subsets, not the two physically realized internal thresholds, their uniqueness and exact chamber assignment. Thus no originality claimed for basic polygon-space homology or existence of oscillator zero-mean polygons; full original Section 5 and original homology theorem were materially inspected. Priority risk remains for an unindexed model-specific parametric wall chart.
 
-## Closest literature and limitations
+## value
 
-Zhao–Uchida, arXiv:2610.08239 Section 5: model and polygon reduction. Farber–Schütz, arXiv:math/0609140, Theorem 1: stronger general polygon-space homology theorem, explicitly applied here. Related general polygon-space chamber work (Farber–Fromm, arXiv:1105.0613, Theorem 1.3, principally for dimension at least three) was inspected and does not record the two oscillator-specific transition lines. Independent historical verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two distinct internal topology transitions occur while the active-oscillator number stays five, separating a physical active-count threshold from the intrinsic topology of the phase-closure manifold. Sharp algebraic balance equations and genus assignments give a natural, complete parameter-specific classification relevant to understanding the multiplicity/connectivity of relative equilibria. No stability or attractingness is falsely inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
