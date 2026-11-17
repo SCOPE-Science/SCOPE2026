@@ -1,19 +1,21 @@
-# Scientific assessment: rooted-phylogenetic-diversity variance crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is an infinite, fully quantified statement on rooted full-binary nonplane trees with unit edges, independent survival probability \(1-q\), and \(0<q<1\). Its central covariance formula follows from nested/disjoint descendant sets and is independently reconstructed in the proof. The local four-leaf expressions, the grafting covariance correction, and strictly increasing crossover polynomial yield the claim for every \(n\ge4\). The empty-tree endpoint is not silently treated as a surviving taxon. The exact standard-library checker passes 61 comparisons, including independent survivor-state enumeration for six orders and tree-shape counting. The infinite result does not depend on the finite tests. No extension to nonunit/ultrametric/correlated models is asserted.
+PASS
 
-## Originality — PASS within inspected evidence
+For descendant clade indicators I_e, E I_e=1-q^|D_e| and cov(I_e,I_f)=q^|D_e|(1-q^|D_f|) for nested D_f⊊D_e, zero for disjoint clades. This exactly gives the standard edge-covariance variance identity. The two bottom four-leaf topologies have mean difference q²(1-q) and variance difference q²(1-q)(q³+3q²+8q−5). On grafting the same backbone, each new ancestral edge of descendant size j contributes 2q^j times the bottom mean difference to variance; hence sum j=4..n−1. Independently reconstructed the mean/variance polynomials from all descendant-edge masks for n=4..8; exact symbolic equality held. H_n'(q)>0 and endpoints H_n(0)=−5,H_n(1)=2n−1 imply a unique switch. H_{n+1}=H_n+2q^n gives strict decrease, and uniform geometric-sum limit gives polynomial q^4−2q³−5q²+13q−5 and q_infty≈0.49114. For n<=3 there is only one unlabelled full-binary rooted shape. Finite polynomial checks corroborate, do not prove the all-n graft induction.
 
-The exact general covariance formula is *known* from Faller, Pardi and Steel (arXiv:0708.0425, Section 1 and Lemma 1.1). That source was inspected beyond the introduction through the algorithm, unrooted extension and conclusion. It supplies a formula for any given tree, but does not state, prove, or classify these topology-dependent variance crossings, the sharp four-leaf starting order, or the monotone infinite sequence of crossover probabilities. Faith (2008) discusses risk-sensitive use of future phylogenetic diversity, but not this exact tree-variance topology switch. Nipperess and Matsen (2013) address fixed-sample rarefaction rather than independent extinctions. Fischer, Francis and Wicke (2022/2023) address Fair Proportion rankings of species after deletion; their concept is not the variance of total rooted PD. Searches for variance/tree-shape/caterpillar/balanced/field-of-bullets formulations found no directly dominating theorem. Historical priority outside inspected material remains unverified; this is not an independent novelty certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The question is whether the topology with greater expected preserved evolutionary history also has greater uncertainty across extinction risks. An explicit sharp four-taxon boundary and a uniform all-size construction answer it negatively. The nontrivial structural feature is cancellation of shared backbone contributions and a strictly monotone crossover polynomial with a nonzero limiting threshold, rather than only a small numerical counterexample. It demonstrates why variance-sensitive biodiversity comparisons cannot be inferred from expected future PD, while remaining explicitly limited to this stylized model.
+The Faller–Pardi–Steel 2007/2008 primary paper establishes the general rooted-PD edge-covariance formula (a necessary antecedent), whereas the reviewed new conclusion is an explicit all-n pair of tree topologies with exactly one variance crossover, strict n-monotonicity, and an algebraic limiting threshold despite opposite fixed expectation ordering. Related phylogenetic variance rankings in Resultary involve rarefaction, different tree pairs, or multiple variance peaks and do not directly prove this all-n grafted pair. A broad covariance formula makes the computation possible, but alone does not state the topology family or uniqueness proof.
 
-## Closest literature and limitations
+## value
 
-The main technical ancestor is the Faller–Pardi–Steel formula. Faith motivates risk aversion; Nipperess–Matsen uses a different sampling design; Fischer–Francis–Wicke uses a distinct priority index. Existing private prior claims on full-tree mean identification, fixed-budget deletion variance, and bimodality of variance for two-block trees do not imply this exact independent-extinction comparison. The tree pair is not ultrametric, and all edges have unit length; no universality for arbitrary branch lengths or extinction dependencies is claimed. No independent expert audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This provides a mathematically motivated counterexample to treating higher expected future phylogenetic diversity as an ordering of uncertainty: the expected ranking never changes, yet the variance ranking switches once at a sharp extinction probability. The sharp four-tip onset, monotone dimension-dependent thresholds and exact algebraic limit are reusable structural information about a standard stochastic biodiversity functional, not a mere restatement of edge covariance or isolated finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

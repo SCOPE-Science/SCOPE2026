@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:50:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-variance-crossover-under-a-four-leaf-phylogenetic-tr--10677b5b3ee8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-variance-crossover-under-a-four-leaf-phylogenetic-tr--10677b5b3ee8/check_pd_swap.py",
+        "https://arxiv.org/abs/0708.0425"
+      ],
+      "rationale": "For descendant clade indicators I_e, E I_e=1-q^|D_e| and cov(I_e,I_f)=q^|D_e|(1-q^|D_f|) for nested D_f⊊D_e, zero for disjoint clades. This exactly gives the standard edge-covariance variance identity. The two bottom four-leaf topologies have mean difference q²(1-q) and variance difference q²(1-q)(q³+3q²+8q−5). On grafting the same backbone, each new ancestral edge of descendant size j contributes 2q^j times the bottom mean difference to variance; hence sum j=4..n−1. Independently reconstructed the mean/variance polynomials from all descendant-edge masks for n=4..8; exact symbolic equality held. H_n'(q)>0 and endpoints H_n(0)=−5,H_n(1)=2n−1 imply a unique switch. H_{n+1}=H_n+2q^n gives strict decrease, and uniform geometric-sum limit gives polynomial q^4−2q³−5q²+13q−5 and q_infty≈0.49114. For n<=3 there is only one unlabelled full-binary rooted shape. Finite polynomial checks corroborate, do not prove the all-n graft induction.",
+      "residual_risks": [
+        "Unit-edge non-ultrametric trees and independent homogeneous survival are essential; general branch lengths/ultrametricity not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Older paper studies future-PD distribution, CLT and efficient calculation on arbitrary trees.",
+          "Other results use a different variance observable (varying q for one tree) rather than pairwise variance ordering of this bottom-four rotation family."
+        ],
+        "reasoning": "General algorithmic evaluation for any fixed n does not automatically provide all-n exact single-root monotonicity and limiting algebraic root; no explicit earlier theorem implying this pair-wise statement was found.",
+        "searches": [
+          "phylogenetic diversity extinction variance caterpillar balanced four leaf subtree rotation variance crossing threshold",
+          "https://arxiv.org/abs/0708.0425",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-variance-peaks-in-future-phylogenetic-diversity-a-sharp-two--dc795447ff47"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-variance-crossover-under-a-four-leaf-phylogenetic-tr--10677b5b3ee8/RESULT.md",
+        "https://arxiv.org/abs/0708.0425",
+        "https://doi.org/10.1111/2041-210X.12042",
+        "https://arxiv.org/abs/2107.00748"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Faller Lemma 1.1 enables the covariance calculation, but no identical all-n rotation theorem or q_n monotonicity in the inspected theorem summaries.",
+          "Nipperess–Matsen fix surviving sample count (rarefaction), not independent Bernoulli extinction, so its variance formula is for another law."
+        ],
+        "reasoning": "A general variance formula has broad implicit capacity to compute this case, but does not directly assert or trivialize the one-crossing proof across all grafted n. The claimed new mathematical object is the all-n comparison itself.",
+        "searches": [
+          "phylogenetic diversity extinction variance caterpillar balanced four leaf subtree rotation variance crossing threshold",
+          "phylogenetic diversity variance four-leaf rotation caterpillar balanced cherry survival extinction",
+          "https://doi.org/10.1111/2041-210X.12042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source PD definition and descendant-edge indicator covariance are the same as Faller–Pardi–Steel Lemma 1.1.",
+          "The submitted difference polynomial uses that lemma on two distinct rooted unit-edge tree shapes and evaluates its sign for all n."
+        ],
+        "reasoning": "The general moment identity is explicitly prior and not presented as new. Its instance-wise application does not itself supply the identified universal monotone crossover family without a separate topology construction.",
+        "searches": [
+          "phylogenetic diversity extinction variance caterpillar balanced four leaf subtree rotation variance crossing threshold",
+          "phylogenetic diversity variance four-leaf rotation caterpillar balanced cherry survival extinction",
+          "https://arxiv.org/abs/0708.0425"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact q_5=1/2, polynomial q^4−2q³−5q²+13q−5, and unique entire family crossover were not located as a published table."
+        ],
+        "reasoning": "No natural database of these threshold roots was identified; novelty rests on the full topology-dependent theorem, not simply on an unlisted decimal or computed table.",
+        "searches": [
+          "phylogenetic diversity extinction variance caterpillar balanced four leaf subtree rotation variance crossing threshold",
+          "phylogenetic diversity variance four-leaf rotation caterpillar balanced cherry survival extinction",
+          "https://arxiv.org/abs/0708.0425"
+        ]
+      },
+      "rationale": "The Faller–Pardi–Steel 2007/2008 primary paper establishes the general rooted-PD edge-covariance formula (a necessary antecedent), whereas the reviewed new conclusion is an explicit all-n pair of tree topologies with exactly one variance crossover, strict n-monotonicity, and an algebraic limiting threshold despite opposite fixed expectation ordering. Related phylogenetic variance rankings in Resultary involve rarefaction, different tree pairs, or multiple variance peaks and do not directly prove this all-n grafted pair. A broad covariance formula makes the computation possible, but alone does not state the topology family or uniqueness proof.",
+      "residual_risks": [
+        "Original Faller paper full text was not retrieved directly during this run; potential appendices/unindexed literature may contain this exact rotation, although no indication was found.",
+        "All-n theorem is for stylized non-ultrametric unit-edge roots; no general risk-sensitive optimality implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR general covariance identity; no evidence of its stated all-n topology crossover in accessible summary",
+          "evidence": "The general nested-clade covariance identity under independent extinctions yields source equation (1), but no topology pair/root threshold appears in accessible primary abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/0708.0425",
+          "material_read": "Original public abstract describing extinction distribution and exact computational methods; the specific Lemma 1.1 identity is reproduced and verified mathematically in the assigned RESULT.md; direct arXiv HTML fetch failed",
+          "method": "Matched original abstract and theorem identity as quoted by assigned source; independently reconstructed edge-indicator moments",
+          "title": "Distribution of phylogenetic diversity under random extinction",
+          "trigger": "Direct same random-extinction PD framework and covariance formula"
+        },
+        {
+          "assessment": "DIFFERENT LAW in inspected statements; body coverage not exhaustively excluded",
+          "evidence": "Uniformly choosing a fixed number of tips is not independent common-q extinction.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12042",
+          "material_read": "Publisher abstract and documented fixed-sample rarefaction model only; not complete original full text",
+          "method": "Compared sampling laws and observables",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Similar PD variance title and possible dominating theorem"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT",
+          "evidence": "The source ranks individual-leaf Fair Proportion scores under extinctions, not variance of total future PD for two trees.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.00748",
+          "material_read": "Public arXiv abstract and summarized theorem context; full manuscript not newly inspected",
+          "method": "Compared species-level FP ranking versus global PD variance",
+          "title": "Phylogenetic Diversity Rankings in the Face of Extinctions: The Robustness of the Fair Proportion Index",
+          "trigger": "Potential topology ranking reversal antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-universal-variance-crossover-under-a-four-leaf-phylogenetic-tr--10677b5b3ee8/RESULT.md",
+        "https://arxiv.org/abs/0708.0425"
+      ],
+      "rationale": "This provides a mathematically motivated counterexample to treating higher expected future phylogenetic diversity as an ordering of uncertainty: the expected ranking never changes, yet the variance ranking switches once at a sharp extinction probability. The sharp four-tip onset, monotone dimension-dependent thresholds and exact algebraic limit are reusable structural information about a standard stochastic biodiversity functional, not a mere restatement of edge covariance or isolated finite calculation.",
+      "residual_risks": [
+        "It does not imply conservation decision optimality or an all-topology risk order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unit-edge non-ultrametric trees and independent homogeneous survival are essential; general branch lengths/ultrametricity not covered.",
+    "Original Faller paper full text was not retrieved directly during this run; potential appendices/unindexed literature may contain this exact rotation, although no indication was found.",
+    "All-n theorem is for stylized non-ultrametric unit-edge roots; no general risk-sensitive optimality implied.",
+    "It does not imply conservation decision optimality or an all-topology risk order."
+  ],
+  "schema_version": 1
+}
