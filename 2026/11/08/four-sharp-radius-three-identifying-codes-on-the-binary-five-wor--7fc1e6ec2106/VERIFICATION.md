@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Finite verification evidence
+# Independent mathematical audit
 
-The theorem has an analytic finite lower-bound proof using sixteen disjoint prefix pairs and a forced-word uniqueness argument. The verified finite upper bound consists of four explicit sixteen-vertex sets. The following standalone checks reproduce all nonempty and distinct identifying neighborhoods and the count of optimal subsets:
+## correctness
 
-```sh
-python3 verify.py
-python3 generate_signatures.py --check
-c++ -std=c++17 -O2 crosscheck.cpp -o crosscheck
-./crosscheck
-```
+PASS
 
-Observed output includes `VERIFY_OK`, `SIGNATURE_TABLE_OK`, and `CROSSCHECK_OK 4`.
+Every prefix pair p0,p1 has identical strictly positive in-neighbors, forcing at least one code vertex per 16 prefix pairs. In pinned RESULT.md, ten singleton, two triple and four double ball-symmetric-difference constraints force exactly fourteen selected words, leaving only prefixes 0001 and 1110 free. I separately constructed all 32 full in-balls as bitsets and independently enumerated all 65,536 one-per-prefix selectors; exactly masks [6949,6951,23333,23335] identify. Their complements form three orbits. Thus min 16 and exactly four labeled optima at (q,n,t)=(2,5,3); no claim beyond this finite graph.
 
-`verify.py` constructs in-balls from the binary prefix formula and checks all sixteen listed symmetric differences, then evaluates the complete set of \(2^{16}=65,536\) one-per-prefix selections. `crosscheck.cpp` independently constructs the directed graph's thirty-two vertices, computes its incoming radius-three balls by graph traversal, and tests the same exhaustive candidate universe. `signatures.csv` contains all 128 vertex-identification incidence masks for the four exact optima; `generate_signatures.py --check` compares it byte-for-byte against direct recomputation. All calculations use exact integer/bitset operations.
+## originality
 
-The verification covers **only** the specified 32-vertex finite graph. It does not infer an all-order theorem, certify publication priority, or represent an independent scientific audit. The general sixteen-element lower bound and the forcing implications are given as a mathematical proof in `RESULT.md`; execution output is supplementary evidence.
+PASS
+
+The numerical optimum 16 is ALREADY covered by another same-day published Resultary theorem for binary critical lengths 5,7,9. The novel surviving portion is the exact four-code labeled optimum census, forced-14 structure and complement orbit classification, not the already-known minimum size. Full prior RESULT.md explicitly disclaims number/structure of all optimal codes.
+
+## value
+
+PASS
+
+A natural complete classification of ALL minimum sensor sets, including fourteen forced sensors and only two free choices, gives rigidity and equivalence classes not supplied by a single previously published optimum witness. Exhausting the 2^16 possibilities is meaningful and proves the exact finite optimizer invariant for the smallest nonexceptional binary critical-radius network.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

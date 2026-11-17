@@ -1,28 +1,21 @@
-# Scientific review of the binary five-word radius-three identification classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object and orientation are explicit: the directed binary de Bruijn graph on all length-five words, and closed **incoming** directed balls of radius three. The elementary one-per-prefix argument forces at least one selected vertex in each of sixteen disjoint pairs, so the lower bound of sixteen has no computational premise. Under equality, sixteen listed symmetric-difference constraints force fourteen specified codewords, leaving only the final bits at the prefixes `0001` and `1110`. Each of the four surviving codebooks is independently verified to have thirty-two nonempty, pairwise distinct identifying sets. The exact signature certificate and two independent graph implementations prove the finite upper bound and exhaustiveness.
+PASS
 
-The symbolic in-ball generator and the separate directed-edge/reverse-BFS generator agree. Replaying `python3 verify.py` gives `VERIFY_OK`; replaying the C++17 verifier gives `CROSSCHECK_OK 4`, and the 128-row exact signature certificate passes its own reconstruction check. No conclusion about infinitely many graph orders is drawn from finite enumeration. A limitation of the result is that only the specified binary graph and radius are treated.
+Every prefix pair p0,p1 has identical strictly positive in-neighbors, forcing at least one code vertex per 16 prefix pairs. In pinned RESULT.md, ten singleton, two triple and four double ball-symmetric-difference constraints force exactly fourteen selected words, leaving only prefixes 0001 and 1110 free. I separately constructed all 32 full in-balls as bitsets and independently enumerated all 65,536 one-per-prefix selectors; exactly masks [6949,6951,23333,23335] identify. Their complements form three orbits. Thus min 16 and exactly four labeled optima at (q,n,t)=(2,5,3); no claim beyond this finite graph.
 
-## Originality — PASS, with historical-priority qualification
+## originality
 
-The most relevant primary paper is Boutin–Horan Goliber–Pelto, *Identifying Codes on Directed De Bruijn Graphs*, originally public on December 18, 2014 (arXiv:1412.5842; full revised text and author-hosted manuscript inspected). Theorem 3.5 gives the existing general lower bound, here sixteen. Their Theorem 3.9 gives a valid critical-length code with twenty-four vertices and expressly says that determining the minimum at the critical length is open. Theorem 3.6 addresses lengths at least twice the radius and thus excludes the pair of parameters in this result. Neither the minimum of sixteen nor the complete four-code classification follows from those statements. Search comparisons also checked equivalent notation such as \(\vec B(2,5)\), binary critical length, radius-three identifying sets, and one-per-prefix selector codes.
+PASS
 
-The nearest accessible prior local mathematical result concerns radius two on the three-letter-word graph with nonbinary alphabets. Its hypotheses and ball sets differ, and it neither implies nor contains this five-letter-word radius-three case. Related research on undirected de Bruijn graphs uses different neighborhoods and does not supply the asserted directed classification.
+The numerical optimum 16 is ALREADY covered by another same-day published Resultary theorem for binary critical lengths 5,7,9. The novel surviving portion is the exact four-code labeled optimum census, forced-14 structure and complement orbit classification, not the already-known minimum size. Full prior RESULT.md explicitly disclaims number/structure of all optimal codes.
 
-Residual risk: a later unindexed census or a different terminology could already contain the same enumeration. Searches and the available primary texts are evidence for originality, not a proof of global historical uniqueness. Independent priority assessment has not been performed.
+## value
 
-## Value — PASS
+PASS
 
-This is the first genuinely higher-radius critical-length binary case in the exact boundary family \(\(n=2t-1\)\), which the foundational paper isolates as unresolved in general. For this natural instance, the known general bounds were sixteen and twenty-four. The result closes that gap, proves the strongest possible lower bound is attained, and classifies **all** optimal solutions rather than only exhibiting one. A short finite forcing certificate explains why the optimum is highly rigid: fourteen decisions are compulsory and only two independent choices remain. This is a natural and reusable case study for identifying-sensor placement and constrained Boolean graph-search problems, not an arbitrary numerical slice.
+A natural complete classification of ALL minimum sensor sets, including fourteen forced sensors and only two free choices, gives rigidity and equivalence classes not supplied by a single previously published optimum witness. Exhausting the 2^16 possibilities is meaningful and proves the exact finite optimizer invariant for the smallest nonexceptional binary critical-radius network.
 
-## Sources and limitations
-
-- D. Boutin, V. Horan Goliber, M. Pelto, *Identifying Codes on Directed De Bruijn Graphs*, https://arxiv.org/abs/1412.5842 ; full text https://arxiv.org/pdf/1412.5842 . The original public record dates to December 18, 2014; Theorems 3.5, 3.6 and 3.9 establish the relevant prior bounds and boundary gap.
-- Author-hosted full manuscript, https://people.hamilton.edu/dboutin/publicationpdfs/boutingoliberpelto , particularly Section 3 and the critical-length remark.
-
-Only labeled binary length-five words and radius-three incoming balls are settled. The four optimal codes are counted separately, and the three natural complement classes identify only global alphabet interchange. No independent historical-priority validation has been conducted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
