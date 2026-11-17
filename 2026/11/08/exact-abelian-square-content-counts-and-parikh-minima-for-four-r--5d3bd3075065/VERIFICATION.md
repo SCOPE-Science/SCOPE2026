@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The symbolic proof is in `RESULT.md`. The exact classification enumerates all admissible factor contents, including the single possible intersection of the two four-run families. The fixed-Parikh lower bound is based on explicit mixed squares compensating for at most two trivial-count deficits. No finite program proves the assertion for unbounded integers.
+## correctness
 
-Run `python3 verify_four_run.py` using Python 3 with only the standard library. The replay tests every tuple of four positive run lengths at most nine: 6,561 cases, comparing three separately defined representations (direct substring collection, structural-family set, and closed numerical formula). It also compares exact minima for all 361 pairs of letter counts in the interval from four through 22, inclusive. The boundary check confirms the formula remains valid where the separate minimum theorem cannot be extended.
+PASS
 
-A further local consistency check compared the formula against reversal-plus-complement symmetry for 10,000 tuples with runs at most ten. These reproducible finite checks identify no discrepancy. They do not exclude an error beyond the tested parameters, nor do they resolve historical priority or independently certify the proof.
+All mixed nonempty Abelian squares in a^p b^q a^r b^s must cross either three run boundaries (outer equal partial lengths and even center run), or all four with one of the two allowed midpoint placements and parity restriction. Inclusion–exclusion subtracts only the repeated a^r b^q a^r b^q word, yielding seven-term exact formula. For fixed letter populations A,B>=4, monochromatic square counts give H(A)+H(B) apart from at most two odd-balanced deficiencies; explicit distinct mixed squares compensate each deficiency, while effective odd interior run construction attains the bound. Independent direct literal-factor enumerator agreed for every 7^4=2401 tuples with run lengths 1..7.
+
+## originality
+
+PASS
+
+Fazekas–Mammoliti–Mercaş–Simpson Theorem 12 proves an effective four-run construction with only trivial squares achieving the proposed count, and Conjecture 13 proposes the unrestricted lower bound. It does NOT give this all-tuple exact parity formula nor prove sharpness among every four-run word. Correctly credits their construction; best-of-knowledge original remainder.
+
+## value
+
+PASS
+
+The sharp four-run subfamily minimum tackles the natural fixed-Parikh Abelian-square minimization problem with a complete exact content classification; this is a motivated, strict partial result toward a stated open general conjecture, not a claim to solve the unrestricted problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

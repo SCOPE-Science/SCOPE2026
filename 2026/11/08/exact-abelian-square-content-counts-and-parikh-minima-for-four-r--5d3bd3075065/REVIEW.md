@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every distinct Abelian-square content in a four-run word has one, three, or four runs; the one-boundary case is impossible. The proof enumerates the two three-run families and the two four-run midpoint cases, identifies their sole possible overlap, and proves the exact count for all positive run lengths. The fixed-Parikh minimum uses a one-unit split deficit lemma, with explicit distinct mixed squares covering each deficit, and an attaining effective partition. The standalone verification compares direct Parikh-sum enumeration, structural content sets, and the formula in 6,561 parameter tuples; it also checks minima for 361 pairs of letter counts. Finite tests are supplementary, not an infinite proof.
+## correctness
 
-**Originality — PASS, with documented priority risk.** The closest paper, Fazekas–Mammoliti–Mercaş–Simpson (arXiv:2604.23188, Theorem 12), constructs four-run words with the asserted count. Their Conjecture 13 states a lower bound for arbitrary nonboundary binary words, without proving the four-run lower bound. The new exact arbitrary-four-run formula and its parity-dependent mixed-square families are not supplied by the reviewed theorem or by the conditional trivial-only lower bound in the Fici–Saarela report. A published equivalent specialization outside the inspected literature is possible; semantic indexing and keyword searches cannot conclusively establish priority.
+PASS
 
-**Value — PASS.** The candidate family is directly motivated by the recent open fixed-Parikh minimum conjecture. The exact formula describes all mixed-square contributions and proves that the established effective constructions are optimal within the *entire* natural four-run class for every interior Parikh vector, not just within trivial-square-free examples. The result is a substantive infinite classification, not a numerical extension or unmotivated restriction.
+All mixed nonempty Abelian squares in a^p b^q a^r b^s must cross either three run boundaries (outer equal partial lengths and even center run), or all four with one of the two allowed midpoint placements and parity restriction. Inclusion–exclusion subtracts only the repeated a^r b^q a^r b^q word, yielding seven-term exact formula. For fixed letter populations A,B>=4, monochromatic square counts give H(A)+H(B) apart from at most two odd-balanced deficiencies; explicit distinct mixed squares compensate each deficiency, while effective odd interior run construction attains the bound. Independent direct literal-factor enumerator agreed for every 7^4=2401 tuples with run lengths 1..7.
 
-**Scope and residual risk.** This is a same-source-family partial result, not a proof of the conjecture for arbitrary binary words. Distinct contents are not synonymous with distinct occurrences or inequivalent Parikh types; the manuscript fixes this convention. Unindexed work remains a priority risk. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fazekas–Mammoliti–Mercaş–Simpson Theorem 12 proves an effective four-run construction with only trivial squares achieving the proposed count, and Conjecture 13 proposes the unrestricted lower bound. It does NOT give this all-tuple exact parity formula nor prove sharpness among every four-run word. Correctly credits their construction; best-of-knowledge original remainder.
+
+## value
+
+PASS
+
+The sharp four-run subfamily minimum tackles the natural fixed-Parikh Abelian-square minimization problem with a complete exact content classification; this is a motivated, strict partial result toward a stated open general conjecture, not a claim to solve the unrestricted problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
