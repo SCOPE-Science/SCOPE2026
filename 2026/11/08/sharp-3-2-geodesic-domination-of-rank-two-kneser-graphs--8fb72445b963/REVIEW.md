@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A two-geodesic in a rank-two Kneser graph is precisely an induced three-vertex path, because intersecting ground-set pairs have distance two and disjoint pairs are adjacent. The argument independently rules out every dominating pair and every dominating triple containing intersecting ground-set edges. A three-edge matching dominates precisely when its six occupied ground vertices leave at most one unoccupied ground vertex. A fixed ground-set triangle together with a disjoint edge dominates at every order at least five. These statements prove the exact two-level formula, the classification, and the counts of size-three minimizers. Direct adjacency-based finite enumerations at orders five through ten confirm the cases and boundaries, without substituting for the proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Cody–Detore, arXiv:2601.04351v2, Definition 1.1 provides the exact parameter and Question 6.1 explicitly invites Kneser-graph evaluation. Ivančo–Zelinka (1993), Theorems 1 and 3, supply the ordinary and total domination numbers and characterize ordinary dominating triples, but do not evaluate the stronger geodesic condition or prove the four-set construction. Di Stefano et al., arXiv:2306.09965, Theorem 5.1, determine minimum *maximal general position* sets, which require an extra independence condition, and are strictly larger for all orders at least ten. Cornet–Torres use neighbor-counting multiple domination, not this geodesic predicate. Searches of accessible research records using the parameter, graph family, geodesic aliases and threshold words found no statement implying the displayed two-level formula; failure of a search is not proof of global uniqueness.
+PASS
 
-## Mathematical value — PASS
-This directly answers an explicit portion of a recent Kneser-graph question for a natural geometric domination invariant. The sharp nonmonotone transition from four to three and back to four, the complete size-three minimizer classification, and the strict gap from the previously determined lower general-position number at all orders at least ten give structural information that does not follow from scalar ordinary domination. The computation is not a routine restatement of the neighboring parameter: the universal four-set contains a forbidden general-position triple, and the large-order separation is real.
+For all n>=5, KG(n,2) has distance one for disjoint pairs and distance two for intersecting pairs. Reconstructing the selected-geodesic condition rules out all two-set selections; any selected triple with two intersecting ground edges has an outside witness lacking an admissible 2-geodesic. Three pairwise disjoint edges work precisely when only zero or one ground vertex is unused, i.e. n=6,7, with counts 15 and 105. The universal four-set {12,13,23,45} works for every n>=5 by the cases on an outside pair's ground support. The reported lower and upper bounds and extremizer classification follow for arbitrary n, not from finite checking. Independent direct graph-geodesic enumeration for n=5,6,7,8 found respectively 0,15,105,0 dominating triples and checked the four-set at n=5,8. Reviewed exact RESULT.md and verify.py from the pinned Git commit; no all-four-minimizer claim.
 
-## Closest literature and limitations
-The crucial closest sources are Cody–Detore (2026), Ivančo–Zelinka (1993), and Di Stefano et al. (2023); Cornet–Torres (2023) is a different notion of multiple domination. Historical priority remains provisional, especially against unindexed results. This work does not treat arbitrary \((k,d)\), larger Kneser rank, or classify all size-four optimizers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.
+
+## value
+
+PASS
+
+It answers the specific Kneser-graph instance of an explicitly posed (3,2)-geodesic domination problem, establishes a sharp two-order exception, and gives a structural characterization and labelled count of all optimal triples. This is a meaningful natural graph-invariant classification rather than a parameter substitution or textbook deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
