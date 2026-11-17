@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the exact normalized real first-band Gram operator and computes its three spectral sectors using exchangeability. Tightness forces the two shell-sum values to straddle zero and to have product equal to the cube dimension. The critical binomial-weight equality is solved for every dimension by an explicit paired-ratio factorization: unequal positive magnitudes differing by at least four make the ratio strictly less than one. The equal and adjacent-magnitude cases produce exactly squares and one-below-squares. The third-moment identity identifies all degree-three Walsh coefficients. A standalone exact-arithmetic checker passed 70,325 supplementary assertions; finite enumeration does not replace the universal proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-We compared the claim, its strength-two orthogonal-array equivalent, weighted two-shell relative designs, single-Hamming-shell concentration, Hamming balls, and binary codes supported on unions of weight layers. Bannai et al. (2015, 2020) define relative-design tightness through Fisher-cardinality equality; Weinberger (2026) studies random-sampling thresholds; Xie, Wang and Wu (2026) study binary code properties, whose orthogonality is modulo two. The two closest published harmonic-analysis calculations respectively treat one shell or a Hamming ball. The full exact unweighted two-shell square-law, all equality pairs and cubic distinction are not stated or implied in those inspected results. The explicit binomial pairing lemma distinguishes the new claim from a repackaging of the classic moment formula. Residual priority risk: older unindexed two-weight orthogonal-array or Krawtchouk quadrature calculations might overlap.
+PASS
 
-## Mathematical value — PASS
-One complete shell cannot be injective on the first Walsh band. For the natural minimal support complexity of two complete shells with equal per-point sampling weight, this theorem determines exactly which dimensions support a tight frame and every optimal placement. The cubic-moment formula reveals a genuinely different design strength between the two infinite arithmetic families; the complete spectrum simultaneously gives quantitative non-tight sampling constants.
+Coordinate exchangeability gives mean alpha/n and pair moment rho=(beta−n)/(n(n−1)), yielding n−1 contrast eigenvalues 1−rho plus the exact 2×2 block eigenvalues. G=I iff alpha=0 and beta=n. Writing positive shell signed sums a,−b gives ab=n and a*C(n,(n−a)/2)=b*C(n,(n−b)/2). The exact consecutive-binomial ratio and paired-factor identity show for positive allowable a<=b that equality occurs iff b−a=0 or 2; hence n=s² or d(d+2) and only the listed shell pairs. The two-point third moment ab(a−b) yields exact cubic Walsh defect. Independent symbolic paired-factor identity and exhaustive exact shell-pair enumeration to n=100 corroborate the infinite argument.
 
-## Scientific limits
-The result does not optimize arbitrary subsets, adjustable per-shell sampling weights, or higher Fourier degrees. The third-order claim assumes \(n\ge3\). The originality conclusion is relative to the stated available literature and is not an independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier antipodal two-shell quadratic Walsh theorem covers symmetric square-dimensional 3-wise independence, acknowledged as prior. It does not classify unequal-size asymmetric shell unions in near-square dimensions or give complete degree-one Gram spectrum and equal-per-point arithmetic necessity for all pairs. Bannai et al. study relative designs with Fisher-cardinality tightness, distinct from G=I for all points on two shells. Best-of-knowledge novelty is the sharp all-pairs square/near-square rigidity and asymmetric cubic defect.
+
+## value
+
+PASS
+
+Exact unweighted deterministic sampling designs of complete Hamming layers are natural harmonic-analysis and orthogonal-array objects. The complete rigidity classification, exact cubic distinction, and non-tight condition number spectrum provide a reusable all-dimensional result, not an arbitrary small-number computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

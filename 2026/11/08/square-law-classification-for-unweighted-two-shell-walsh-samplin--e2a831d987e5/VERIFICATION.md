@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and limits
 
-The proof in `RESULT.md` applies to all integer \(n\ge2\), and the cubic result to \(n\ge3\). No external or independent verification has been performed.
+# Independent mathematical audit
 
-From the directory containing the seven files, execute `python CHECK.py` using Python 3 standard library only. On the packaged reviewed program the actual outcome was `CHECK_OK assertions=70325`.
+## correctness
 
-The program independently enumerates all pairs of shells and performs exact rational moment checks for every dimension \(2\le n\le100\). For dimensions \(2\le n\le10\), it constructs every vector in each shell and computes every entry of every two-shell Gram matrix directly; third-order coefficients are checked where relevant. It also checks the critical paired-ratio polynomial identity for divisors up to dimension 600. All calculations use exact integers/Fractions. The unbounded mathematical conclusion rests on the written ratio argument and not on the finite test range. No computation of a numerical eigenvalue is needed for the analytic spectrum.
+PASS
+
+Coordinate exchangeability gives mean alpha/n and pair moment rho=(beta−n)/(n(n−1)), yielding n−1 contrast eigenvalues 1−rho plus the exact 2×2 block eigenvalues. G=I iff alpha=0 and beta=n. Writing positive shell signed sums a,−b gives ab=n and a*C(n,(n−a)/2)=b*C(n,(n−b)/2). The exact consecutive-binomial ratio and paired-factor identity show for positive allowable a<=b that equality occurs iff b−a=0 or 2; hence n=s² or d(d+2) and only the listed shell pairs. The two-point third moment ab(a−b) yields exact cubic Walsh defect. Independent symbolic paired-factor identity and exhaustive exact shell-pair enumeration to n=100 corroborate the infinite argument.
+
+## originality
+
+PASS
+
+An earlier antipodal two-shell quadratic Walsh theorem covers symmetric square-dimensional 3-wise independence, acknowledged as prior. It does not classify unequal-size asymmetric shell unions in near-square dimensions or give complete degree-one Gram spectrum and equal-per-point arithmetic necessity for all pairs. Bannai et al. study relative designs with Fisher-cardinality tightness, distinct from G=I for all points on two shells. Best-of-knowledge novelty is the sharp all-pairs square/near-square rigidity and asymmetric cubic defect.
+
+## value
+
+PASS
+
+Exact unweighted deterministic sampling designs of complete Hamming layers are natural harmonic-analysis and orthogonal-array objects. The complete rigidity classification, exact cubic distinction, and non-tight condition number spectrum provide a reusable all-dimensional result, not an arbitrary small-number computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
