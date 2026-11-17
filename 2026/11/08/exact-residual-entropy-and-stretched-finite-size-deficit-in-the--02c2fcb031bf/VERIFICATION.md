@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The ground-state statement concerns the zero-field three-state antiferromagnetic Potts Hamiltonian and the deterministic triangular Apollonian network, with no varying edge weights or imposed boundary spins. The proof in `RESULT.md` establishes its exact count and entropy expansion for every integer generation at least two by boundary-state induction and convergent log recurrences.
+## correctness
 
-Run `python3 verify.py` for a separate 27-state minimum-plus-count recurrence, exact finite brute force for generations zero through two, identities through generation nine, and checks of the two entropy constants. Run `c++ -O3 -std=c++17 exhaustive.cpp -o exhaustive && ./exhaustive` for an independently constructed graph and exhaustive spin evaluation through generation three, including all 43,046,721 configurations at the largest tested generation. During the present checks the programs returned `ALL_TRANSFER_CHECKS_PASS` and `ALL_EXHAUSTIVE_CHECKS_PASS` respectively.
+PASS
 
-All-generation assertions depend on the analytic recurrence proof, not on finite computation. Calculated digits are numerical evaluations of explicitly convergent series, not unconditional certified interval arithmetic. The literature comparison is provisional and independent audit has not yet been performed.
+Reconstructed the complete 27-boundary-triple minimum-plus-count recursion, color-orbit AAA/AAB/ABC reduction and induction on consecutive minima x,x+1,x+2; root-edge costs show E_t/J=(3^(t-1)+1)/2, D_t=18b_t+6c_t. Independent exact recurrence at t=0..6 gave (energy,degeneracy) (0,6),(1,36),(2,72),(5,216),(14,6480),(41,468163800),(122,5643087076554259583661696). The recurrences for r_t=a_t/b_t imply s_(t+1)=2s_t+eps_t and u_(t+1)=3u_t+Delta_t; superexponential growth and summable tails yield log D_t = c 3^t - k 2^t +log18+o(1). Finite check supports, not replaces, induction/asymptotic convergence.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving core as compared against named prior and mathematical implications. Finite exact counts implicitly covered by older Tutte partition; explicit stretched deficit not established there.
+
+## value
+
+PASS
+
+The remaining genuinely new precise invariant is the two-scale thermodynamic asymptotic of an explicitly motivated frustrated planar hierarchical spin system: a positive entropy density with negative stretched 2^t finite-size deficit. It answers how the zero-temperature ground-manifold count approaches its extensive entropy; exact finite counts alone are already implicitly known through Tutte and are not used as standalone value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

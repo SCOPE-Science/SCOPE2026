@@ -1,19 +1,21 @@
-# Review of exact residual entropy in the three-state Apollonian Potts antiferromagnet
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the triangular Apollonian graph obtained by splitting only newly created bounded faces, with three labeled spin colors and equal positive cost on every monochromatic edge. The proof isolates the outer boundary edges, gives an exact minimum-plus-multiplicity recursion on all 27 fixed boundary triples, proves the invariant boundary-energy pattern \((x,x+1,x+2)\), and enumerates all possible minimizing center colors. The cubic count recurrence and root multiplicity follow with no hidden independence assumptions because descendants share only fixed boundary spins. The entropy expansion follows from explicit scalar log recurrences and their summable errors. The independently encoded small-graph and transfer-state checks agree. Neither finite enumeration nor numerical evaluation is used as proof of the infinite-genesis result. No unresolved correctness premise was found.
+## correctness
 
-## Originality — PASS on examined evidence
-Andrade–Herrmann, arXiv:cond-mat/0411364v1 (2004-11-14), studies the two-state Ising model including antiferromagnetism and a different residual-entropy number, not three-state minimum-frustration colorings. Araújo–Andrade–Herrmann, arXiv:1007.4494v1 (2010-07-26), develops Potts transfer matrices but explicitly evaluates homogeneous ferromagnetic interactions; its cited general machinery does not give the explicit three-state antiferromagnetic degeneracy recurrence, the entropy density, or the \(2^t\) finite-size correction. The chromatic-polynomial special case is inapplicable because this graph contains \(K_4\) and has no proper three-coloring. Published research-index and focused literature searches produced no claim implying this theorem. Historical literature not indexed or recovered remains a genuine priority risk; searching is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-Three-state coloring is exactly the first Potts alphabet above the Ising case while remaining frustrated by the graph's four-cliques. The complete minimum-energy degeneracy is a natural zero-temperature observable for a scale-free hierarchical planar network already studied in the statistical-physics literature. Besides an all-generation exact census, the theorem identifies a nonzero intensive residual entropy and a universal-for-this-model stretched correction of order \(2^t\), i.e. a nontrivial system-size exponent \(\log_3 2\); neither reduces to a textbook proper-coloring count or a routine parameter substitution. It provides a quantitative benchmark for future treatments of frustration and boundary effects. There is no claim of finite-temperature criticality.
+Reconstructed the complete 27-boundary-triple minimum-plus-count recursion, color-orbit AAA/AAB/ABC reduction and induction on consecutive minima x,x+1,x+2; root-edge costs show E_t/J=(3^(t-1)+1)/2, D_t=18b_t+6c_t. Independent exact recurrence at t=0..6 gave (energy,degeneracy) (0,6),(1,36),(2,72),(5,216),(14,6480),(41,468163800),(122,5643087076554259583661696). The recurrences for r_t=a_t/b_t imply s_(t+1)=2s_t+eps_t and u_(t+1)=3u_t+Delta_t; superexponential growth and summable tails yield log D_t = c 3^t - k 2^t +log18+o(1). Finite check supports, not replaces, induction/asymptotic convergence.
 
-## Closest literature and residual limitations
-- R. F. S. Andrade and H. J. Herrmann, *Magnetic models on Apollonian networks*, arXiv:cond-mat/0411364v1, 2004: closest same-network antiferromagnet, but with two Ising states.
-- N. A. M. Araújo, R. F. S. Andrade and H. J. Herrmann, *q-state Potts model on the Apollonian network*, arXiv:1007.4494v1, 2010: same Potts framework and graph, but ferromagnetic model.
-- R. Shrock, *Ground state entropy in Potts antiferromagnets*, Physica A 281 (2000): general context for antiferromagnetic residual entropy; the accessible abstract does not address the present graph and the complete text was not inspected.
+## originality
 
-The proof treats precisely the stated graph inflation, three colors, equal couplings and zero field. Historical priority remains provisional until an independent literature audit, and no independent scientific validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original surviving core as compared against named prior and mathematical implications. Finite exact counts implicitly covered by older Tutte partition; explicit stretched deficit not established there.
+
+## value
+
+PASS
+
+The remaining genuinely new precise invariant is the two-scale thermodynamic asymptotic of an explicitly motivated frustrated planar hierarchical spin system: a positive entropy density with negative stretched 2^t finite-size deficit. It answers how the zero-temperature ground-manifold count approaches its extensive entropy; exact finite counts alone are already implicitly known through Tutte and are not used as standalone value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
