@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. Expected output: `VERIFY_OK 720 exact matrix and optimum cases; 72720 rational rate bounds`. Exact rational checks verify all reported candidate costs, a full spanning set of eigenvectors, and the scalar feasible bound over 101 budget-grid points in each case. The boundary price equality is included among those cases for suitable parameters, including explicit interval checks.
+## correctness
 
-The general theorem, the price threshold, and global optimality rest on the analytic concavity reduction and two-variable linear program written in RESULT.md, not on a finite computation. The checker does not establish full literature priority, classify all nonsymmetric optima, or perform independent mathematical audit.
+PASS
+
+The frozen RESULT.md establishes concavity of lambda_2 over Laplacian edge rates, hence averaging over S_p x S_q yields an optimal two-class assignment. Eigenvalues on independent-set internal, clique internal, and bipartite contrast subspaces give lambda_2=min(px,qx+py); minimizing cost for a unit spectral gap gives the exact two-variable linear program and its endpoint/flat-face regimes. The formula is valid for p,q>=2, A,C,B>0 and all nonnegative individual rates. The proof does not classify nonsymmetric optimal ties.
+
+## originality
+
+PASS
+
+PASS best of knowledge: Published complete-split Markov-chain theorems characterize SLEM under discrete-time stochastic probability constraints and need not imply the continuous-time linearly priced rate-budget formula here. Known Sun–Boyd–Xiao–Diaconis continuous-time convex spectral program supplies the general reduction, not the exact two-price K_p join I_q optimum and clique-price threshold for all p,q. The proof computes the explicit natural special-family solution, although algebraically short; specialized pricing results might overlap.
+
+## value
+
+PASS
+
+Complete split graphs model clique cores attached to peripherals; the price at which clique edges disappear from the spectral-gap-optimal design is a natural exact support phase transition. A fully explicit p,q,A,C,B formula is useful for network optimization even though its proof uses standard spectral and linear-programming tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

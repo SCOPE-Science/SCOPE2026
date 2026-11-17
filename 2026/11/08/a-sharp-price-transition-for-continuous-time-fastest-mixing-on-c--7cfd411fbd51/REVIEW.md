@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full weighted Laplacian is block-diagonalized by the natural clique and independent-part permutation representations, giving eigenvalues \(0\), \(px\), \(qx+py\), and \((p+q)x\) with their exact positive multiplicities. Rayleigh-quotient concavity under automorphism averaging establishes that the two-variable optimization covers the unrestricted rate assignment. The remaining linear program is solved on its feasible lower boundary, including strict inequality and tie cases. Exact-arithmetic recomputation in `verify.py` checks 720 parameter cases and 72,720 rational alternatives, but the infinite proof is analytic.
+PASS
 
-## Originality — PASS, with priority limitations
+The frozen RESULT.md establishes concavity of lambda_2 over Laplacian edge rates, hence averaging over S_p x S_q yields an optimal two-class assignment. Eigenvalues on independent-set internal, clique internal, and bipartite contrast subspaces give lambda_2=min(px,qx+py); minimizing cost for a unit spectral gap gives the exact two-variable linear program and its endpoint/flat-face regimes. The formula is valid for p,q>=2, A,C,B>0 and all nonnegative individual rates. The proof does not classify nonsymmetric optimal ties.
 
-The closest established full-text source is Sun–Boyd–Xiao–Diaconis (2006), which sets up the general continuous-time semidefinite program and solves other examples; the present split-graph two-price closed form and critical ratio are not stated there. Jafarizadeh (2015) analyzes other structured continuous-time networks, and Boyd–Diaconis–Xiao (2004) concerns the discrete-time SLEM problem. A related previous complete-split discrete-time SLEM characterization does not determine a continuous-time optimum under two independent rate prices. Mathematical implication, not wording, is the basis of comparison. A domain-specific unindexed exact formula remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Complete split graphs are canonical clique-plus-periphery networks. The exact all-integer, all-positive-price solution identifies when extra clique edges should receive **zero** mixing budget and when investment in them has unbounded relative value as the imbalance grows. The critical ratio and continuum of optimal designs at equality give a natural, closed phase diagram rather than an arbitrary numerical slice.
+PASS best of knowledge: Published complete-split Markov-chain theorems characterize SLEM under discrete-time stochastic probability constraints and need not imply the continuous-time linearly priced rate-budget formula here. Known Sun–Boyd–Xiao–Diaconis continuous-time convex spectral program supplies the general reduction, not the exact two-price K_p join I_q optimum and clique-price threshold for all p,q. The proof computes the explicit natural special-family solution, although algebraically short; specialized pricing results might overlap.
 
-## Limits and references
+## value
 
-This result does not classify nonsymmetric optimal assignments or solve the discrete-time fastest-mixing problem. Principal references: Sun et al., SIAM Review 48(4), 681–699 (2006), DOI:10.1137/S0036144504443821; Boyd et al., SIAM Review 46(4), 667–689 (2004), DOI:10.1137/S0036144503423264; Jafarizadeh, arXiv:1509.05823 (2015).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete split graphs model clique cores attached to peripherals; the price at which clique edges disappear from the spectral-gap-optimal design is a natural exact support phase transition. A fully explicit p,q,A,C,B formula is useful for network optimization even though its proof uses standard spectral and linear-programming tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
