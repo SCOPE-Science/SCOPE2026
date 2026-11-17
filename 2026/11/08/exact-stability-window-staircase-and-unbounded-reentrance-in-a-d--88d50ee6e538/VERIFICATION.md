@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact delay-stability staircase
+# Independent mathematical audit
 
-Execute `python CHECK.py` with NumPy and SymPy. The checker reconstructs the model's positive equilibrium and exact coefficients using rational arithmetic; verifies that \(\omega_+\omega_-=\gamma\) and that the imaginary characteristic equation and crossing derivative hold for both frequencies in four parameter cases; checks the integer staircase; and computes the winding number of the characteristic function along a positively oriented rectangle containing all potentially unstable zeros at seven delays.
+## correctness
 
-Recorded successful execution:
+PASS
 
-`VERIFY_OK exact_family=1 frequencies=8 crossing_signs=8 staircase_sizes=4 argument_principle_cases=7`
+Linearization at x*=d/(b-dh), y*=(1+hx*)r(1-x*/K)/a gives F(lambda,tau)=lambda^2-alpha lambda+beta lambda exp(-lambda tau)+gamma under 0<alpha<beta, gamma>0. At lambda=i omega, the imaginary-root equations separate the two frequencies omega± with product gamma and difference sqrt(beta²-alpha²). Their sine signs force respective theta and 2pi-theta phase branches. Implicit derivative Re lambda_tau=(omega^4-gamma²)/|F_lambda|² gives simple destabilizing A_n and stabilizing B_n. The right-half-plane modulus bound prevents uncounted crossings from infinity; zero-delay quadratic is Hurwitz. Thus U(tau)=#(A_n<tau)-#(B_n<tau), and B_n<A_{n+1} iff n+1<T, yielding J=max(0,ceil(T)-1), with coincident crossings excluded. The explicit positive parameter family gives T(r)=acos(3/5)*sqrt(1+60/r)/(2pi), J(r)=1,3,11,36 at r=1,.1,.01,.001 and asymptotic sqrt(r)J(r)=sqrt(15)acos(3/5)/pi. These bounded examples corroborate exact analytic reasoning, not an exhaustive scan over delays.
 
-For the family at \(r=1\), the checked delays \(0.5,1.2,7.5,7.95,8.1,8.25,15.0\) give respectively \(0,2,2,0,0,2,2\) right-half-plane roots. The analytic proof, rather than finite tests, establishes the results for all real delays and all positive parameters satisfying the theorem's hypotheses. This is not an independent scientific audit.
+## originality
+
+PASS
+
+The October 4, 2026 primary Alawfi study defines the same two-delay Holling II system and studies numerical Hopf and period doubling, but it neither counts every equilibrium-stability window on the tau2=0 slice nor supplies a positive family with arbitrarily many reentrances and exact count thresholds. Other searched earlier work proves reentrance with delayed predator self-regulation, a distinct characteristic equation. General transcendental stability-switch methods may prove an abstract count, but the exact model-parameter staircase and realizable r^-1/2 family were not found as a stated prior implication.
+
+## value
+
+PASS
+
+The full quantitative characterization of delay intervals and an explicit positive physical family realizing any finite number of reentries answer a natural gap left by numerical demonstrations of a few Hopf crossings; the exact integer threshold and scaling law are mathematically motivated and not a tiny numerical correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

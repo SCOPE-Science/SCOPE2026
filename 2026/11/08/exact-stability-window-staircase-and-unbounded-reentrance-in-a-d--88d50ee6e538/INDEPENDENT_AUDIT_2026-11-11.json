@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T06:52:59.302309Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md sha b4eb883b95093011447455ff879037b6ef69caa9",
+        "frozen CHECK.py sha 1f9dbf14e58d7b0aff093a5359960902f5271589"
+      ],
+      "rationale": "Linearization at x*=d/(b-dh), y*=(1+hx*)r(1-x*/K)/a gives F(lambda,tau)=lambda^2-alpha lambda+beta lambda exp(-lambda tau)+gamma under 0<alpha<beta, gamma>0. At lambda=i omega, the imaginary-root equations separate the two frequencies omega± with product gamma and difference sqrt(beta²-alpha²). Their sine signs force respective theta and 2pi-theta phase branches. Implicit derivative Re lambda_tau=(omega^4-gamma²)/|F_lambda|² gives simple destabilizing A_n and stabilizing B_n. The right-half-plane modulus bound prevents uncounted crossings from infinity; zero-delay quadratic is Hurwitz. Thus U(tau)=#(A_n<tau)-#(B_n<tau), and B_n<A_{n+1} iff n+1<T, yielding J=max(0,ceil(T)-1), with coincident crossings excluded. The explicit positive parameter family gives T(r)=acos(3/5)*sqrt(1+60/r)/(2pi), J(r)=1,3,11,36 at r=1,.1,.01,.001 and asymptotic sqrt(r)J(r)=sqrt(15)acos(3/5)/pi. These bounded examples corroborate exact analytic reasoning, not an exhaustive scan over delays.",
+      "residual_risks": [
+        "Only the zero-conversion-delay slice and coexistence coefficients 0<alpha<beta, gamma>0.",
+        "At critical delays a purely imaginary root excludes exponential stability; nonlinear Hopf criticality and global stable limit cycles are not addressed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026-10-11 studies delayed predator self-regulation (different delay placement), and Freedman/Rao 1986 develop general two-delay stability criteria."
+        ],
+        "reasoning": "General root-crossing machinery and one-window examples do not, in inspected material, imply exact J(r) for this Holling-II prey-maturation family. Partial coverage of method is acknowledged.",
+        "searches": [
+          "delayed predator prey Holling II exact number stability switches reentrant delay tau staircase arbitrarily many stable intervals",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-reentrant-coexistence-stability-with-delayed-predator-self--7c9d9417b683",
+          "Freedman Rao Stability Criteria for a System Involving Two Time Delays DOI:10.1137/0146037"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md sha b4eb883b95093011447455ff879037b6ef69caa9",
+        "frozen CHECK.py sha 1f9dbf14e58d7b0aff093a5359960902f5271589",
+        "https://www.nature.com/articles/s41598-026-74386-7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-reentrant-coexistence-stability-with-delayed-predator-self--7c9d9417b683",
+        "https://doi.org/10.1137/0146037"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-phase equation requires different signs for the high/low frequencies, and the uniform right-half-plane root bound plus crossing orientations yields the full count. Explicit family has beta-alpha>0 for all r>0."
+        ],
+        "reasoning": "One can infer qualitative stability switches from prior imaginary-root frequencies but cannot infer an exact exhaustive positive-parameter reentrance staircase without the sign and interlacing argument.",
+        "searches": [
+          "delayed predator prey Holling II exact number stability switches reentrant delay tau staircase arbitrarily many stable intervals",
+          "https://www.nature.com/articles/s41598-026-74386-7",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-reentrant-coexistence-stability-with-delayed-predator-self--7c9d9417b683"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alawfi Eq. (1) has precisely delayed prey self-regulation and conversion delay; setting tau2=0 gives source model; its linearized quasipolynomial factors as submitted."
+        ],
+        "reasoning": "The models are identical on the specified boundary slice. Novelty is confined to the complete sign-correct phase-stability window theorem and unbounded family, not introducing the model or linearization.",
+        "searches": [
+          "delayed predator prey Holling II exact number stability switches reentrant delay tau staircase arbitrarily many stable intervals",
+          "https://www.nature.com/articles/s41598-026-74386-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alawfi reports numerical finite Hopf bifurcations for baseline biological parameters and continuation of periodic branches, not a table of all-delay integer-valued J(r)."
+        ],
+        "reasoning": "No exact database/table for all r and all nonnegative delays was found; numerical examples do not entail unboundedly many windows.",
+        "searches": [
+          "delayed predator prey Holling II exact number stability switches reentrant delay tau staircase arbitrarily many stable intervals",
+          "https://www.nature.com/articles/s41598-026-74386-7"
+        ]
+      },
+      "rationale": "The October 4, 2026 primary Alawfi study defines the same two-delay Holling II system and studies numerical Hopf and period doubling, but it neither counts every equilibrium-stability window on the tau2=0 slice nor supplies a positive family with arbitrarily many reentrances and exact count thresholds. Other searched earlier work proves reentrance with delayed predator self-regulation, a distinct characteristic equation. General transcendental stability-switch methods may prove an abstract count, but the exact model-parameter staircase and realizable r^-1/2 family were not found as a stated prior implication.",
+      "residual_risks": [
+        "Older geometric stability-switch theory might imply the counting formula for this characteristic family after nontrivial specialization.",
+        "No claim of nonlinear periodic-orbit Hopf criticality or global attraction follows from spectral root counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_WEAKER_STABILITY_COVERAGE",
+          "evidence": "Published 2026-10-04; numerical multiple Hopf/Bautin/period doubling, no all-delay closed integer reentrance-count law or unbounded positive r family",
+          "identifier_or_url": "https://www.nature.com/articles/s41598-026-74386-7",
+          "material_read": "Original complete accessible HTML article model formulation, positivity, linearized/Hopf equations, numerical bifurcation analysis, discussion and conclusions",
+          "method": "read open-access primary scientific text",
+          "title": "Hopf bifurcations and period-doubling cascade in a two-delay predator–prey model with Holling type II response",
+          "trigger": "same exact ecological model and tau2=0 subfamily"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MODEL",
+          "evidence": "Predator-self-regulation delay and one reentrant window; cannot specialize directly to prey-maturation delay and J(r) unbounded",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-reentrant-coexistence-stability-with-delayed-predator-self--7c9d9417b683",
+          "material_read": "Resultary indexed finding title/abstract and specified model difference; full result not inspected",
+          "method": "semantic search result comparison",
+          "title": "Exact reentrant coexistence stability with delayed predator self-regulation",
+          "trigger": "possible general prior reentrance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md sha b4eb883b95093011447455ff879037b6ef69caa9",
+        "frozen CHECK.py sha 1f9dbf14e58d7b0aff093a5359960902f5271589",
+        "https://www.nature.com/articles/s41598-026-74386-7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-reentrant-coexistence-stability-with-delayed-predator-self--7c9d9417b683",
+        "https://doi.org/10.1137/0146037"
+      ],
+      "rationale": "The full quantitative characterization of delay intervals and an explicit positive physical family realizing any finite number of reentries answer a natural gap left by numerical demonstrations of a few Hopf crossings; the exact integer threshold and scaling law are mathematically motivated and not a tiny numerical correction.",
+      "residual_risks": [
+        "Older geometric stability-switch theory might imply the counting formula for this characteristic family after nontrivial specialization.",
+        "No claim of nonlinear periodic-orbit Hopf criticality or global attraction follows from spectral root counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "All-delay spectral stability staircase and unbounded reentrant windows in a delayed Holling-II coexistence model",
+  "limitations": [
+    "Only the zero-conversion-delay slice and coexistence coefficients 0<alpha<beta, gamma>0.",
+    "At critical delays a purely imaginary root excludes exponential stability; nonlinear Hopf criticality and global stable limit cycles are not addressed."
+  ],
+  "schema_version": 1
+}
