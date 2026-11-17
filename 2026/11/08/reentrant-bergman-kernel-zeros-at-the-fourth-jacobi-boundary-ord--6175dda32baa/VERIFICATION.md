@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the fourth-order Jacobi kernel classification
+# Independent mathematical audit
 
-The proof starts from \(\|z^n\|^2=B(n+t,5)\), obtains \(K_t(s)=Q_t(s)/(24(1-s)^6)\), and applies the Cayley map \(s=(w-1)/(w+1)\). The exact first Routh column and its two sign thresholds determine the full all-parameter root count. At \(t=\tau\) a simple root lies at \(s=-1\); at \(t=2\), factorization shows a conjugate pair at \(e^{\pm i\pi/3}\). The transformed quartic at the first threshold is strictly Hurwitz stable.
+## correctness
 
-To reproduce the actual algebra checks, execute `python jacobi_reentrance_check.py` with SymPy and NumPy. Observed output: `JACOBI_REENTRANCE_CHECK_PASS exact_identities=9 numerical_root_cases=8`. Exact identities check the Beta-series numerator, Routh formulas, boundary polynomial and factorizations. Eight numerical root sets check sample regimes, but do not certify all parameter values. The universal claim is justified by the displayed proof, not by numerical enumeration.
+PASS
 
-Limitations: The theorem applies to the stated disk radial weight and scalar-product disk, not arbitrary radial weights, arbitrary Jacobi orders, or kernels on other domains. Independent external validation has not been performed.
+Correct normalized weighted area beta integral, Q_t rational numerator and Cayley Routh entries reconstructed. Independent symbolic expansion verified the fifth-row sign factor −64t(t−2)... and t=2 boundary factorization. Routh signs and endpoint quartic establish counts 1,0,2 with simple roots, not just sampled numerics.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: earlier order-four work witnesses reentry at three selected parameters or proves only the positive-origin branch; it does not imply the full continuous-parameter two-threshold phase diagram proved here.
+
+## value
+
+PASS
+
+Exact continuous phase portrait at first reentrant Jacobi order adds the natural missing negative-origin threshold, open-disk boundary equality and nonreal entry mechanism beyond previously known witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
