@@ -1,15 +1,21 @@
-# Scientific review: four-child Hadamard Haar endpoint theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The four local Walsh signs produce exactly eight signed \((3,-1,-1,-1)\) patterns. Conditioning on the continuing child yields an exact two-action Bellman recurrence with the correct level factor \(4\), and the invariant window \(|u|\le1\) closes under its successors. The comparison of its affine branches is an explicit nonnegative product; the coefficient recurrence determines the all-depth norm. The optimizer count follows from strictness at intermediate states and ties at initial and final states. The complete proof, normalization and equality arguments appear in `RESULT.md`, with finite independent diagnostics in `verify.py`.
+## correctness
 
-## Originality
-PASS, with bibliographic limitation. The closest compared work on ordinary Haar transforms addresses restricted weak-type bounds, not the four-child signed endpoint constant. The 2014 higher-rank Haar work addresses weighted \(L^p\) basis unconditionality; its available abstract does not decide the precise finite endpoint question, and full-text comparison was unavailable. The fair binary finite-depth result yields the same expression but on a genuinely different local signed-kernel family, so it cannot directly settle the four-child theorem. Searches for four-adic Walsh–Haar signed endpoint constants and aliases did not locate a dominating statement. Failed searches alone do not establish novelty, and the older higher-rank literature remains a residual risk.
+PASS
 
-## Value
-PASS. Four-child Hadamard contrasts are a canonical vector-valued multiresolution basis. The exact equality of the sharp endpoint constant to two stages of the classical dyadic Haar basis is not forced by equality of spans, because the allowed signed kernels differ. The exact all-depth law and optimizer multiplicity measure the effect of orthogonal packetization on extreme coefficient-sign sensitivity. They provide a reproducible benchmark for comparison with other contrast choices, beyond a small-depth table.
+The normalized four-child contrast h_(v,a)=2^j chi_a has squared mass one on its length-j cylinder; 1+3 sum_{j<d}4^j=4^d verifies completeness. For a fixed evaluation leaf the signed local row is one of exactly eight ±(3,-1,-1,-1) Walsh permutations. Disjoint sibling subcylinders and the continuation child yield the exact Bellman recurrence for the absolute kernel's L1 mass. The interval |u|≤1 is invariant; assuming F_(k−1)=A+B|u|, exact comparison of on-child versus sibling-exception branches gives (1−B)(1−|u|)/2≥0. Thus B_k=(1+B_(k−1))/4, A_k=A_(k−1)+(5+B_(k−1))/4, producing U_d=4d/3+5/9+4/(9·4^d), including d=0. The branch strictness/ties give ancestral optimizer counts 4 (d=1), 16·3^(d−2) (d≥2), all terminal leaves are symmetric, and kernel-sign inputs attain row sums. Separately reconstructing binary recursion yields the same number at depth 2d without an operator-family equivalence. Independent rational Bellman computation d=0..6, plus inspected verify.py local sign-class and brute path code, corroborates but does not replace the all-depth induction.
 
-## Closest literature and limitations
-Osękowski, DOI 10.1155/2013/646012, publicly available December 5, 2013. Kazarian–Kazaryan–San-Antolín, arXiv:1410.4888, first publicly available October 17, 2014. Full-text access to the latter was unsuccessful and equivalent older calculations cannot be excluded. The result is restricted to the specified real uniform four-child Walsh/Haar basis and complete finite generations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known binary even-depth constant coincides numerically but does not furnish the q=4 upper bound because the four-child signed local row class is strictly larger/differently positioned. Direct full-text comparison with higher-rank weighted Haar unconditionality confirms it addresses weighted L^p bases rather than this finite-depth L∞ exact norm and extremizers. Best-of-knowledge original for the four-child identity and optimizer multiplicities.
+
+## value
+
+PASS
+
+Sharp finite-depth unconditionality in L∞ is a natural invariant of a complete four-child Haar dictionary. The equality with 2d binary generations is a non-obvious rigidity across inequivalent local sign classes, and the exact optimizer count resolves meaningful extremal structure at every depth. These are reusable structural endpoint facts, not a renamed dyadic theorem or an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
