@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:49:07.049944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence forbids two vertices in one column, forces opposite rows for adjacent selected columns. Three consecutive occupied columns necessarily alternate and give the vertex opposite their middle a forbidden third selected neighbor; conversely forbidding cyclic 111 prevents any vertex having three selected neighbors. Every occupied run length 1 or 2 has exactly two row choices. For k selected columns and r runs, count length-two runs binom(r,k−r), positive empty-column gaps binom(n−k−1,r−1), starting positions n/r and row assignments 2^r. Summing cyclic 3-window inequalities gives 3k≤2n and construction attains floor(2n/3); substitution yields all extremal counts. Fresh direct labelled-graph enumeration for n=3..10 checked coefficients independently, including seams and n=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dissociation constraints bound induced degree on selected S; 2-frugality here bounds number of selected neighbors at every vertex and also imposes independence. These are inequivalent predicates despite the same graph."
+        ],
+        "reasoning": "Complete dissociation-set generating polynomials do not imply this 2-frugal independent-set polynomial by substitution. General 2-frugal coloring bounds do not specify coefficient counts.",
+        "searches": [
+          "cycle prism graph 2-frugal independent set polynomial cyclic 111 avoiding occupancy run enumeration maximum floor two n over three",
+          "Resultary 2026/10/13 dissociation polynomial circular ladders",
+          "Resultary 2026/11/2 dissociation polynomials circular ladders",
+          "Brešar Hu Samadi 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.02876",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-dissociation-polynomial-and-lucas-maximum-set-law-for-c--862aa31d85c9",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dissociation-polynomials-and-extremal-configurations-of-circular--d2470e7871c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published general bounds cannot resolve the exact polynomial or extremal multiplicity, especially the n mod 3 cases."
+        ],
+        "reasoning": "The exact cycle-prism run bijection plus row-alternation counting is a nontrivial specialization. It is a natural infinite-family classification, not a trivially renamed prior theorem.",
+        "searches": [
+          "cycle prism graph 2-frugal independent set polynomial cyclic 111 avoiding occupancy run enumeration maximum floor two n over three",
+          "Brešar Hu Samadi arXiv:2602.02876 Sections on regular/cubic graphs and Cartesian products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic 111-avoiding word counts are a classical method after the prism reduction, but the bijection to exact 2-frugal independent sets and complete labelled count must be demonstrated."
+        ],
+        "reasoning": "The prior frugal coloring definition and bounds are acknowledged; no same size-enumerator was found. A generic cyclic run identity without the prism/row condition does not by itself yield the 2^r-weighted formula.",
+        "searches": [
+          "cycle prism graph 2-frugal independent set polynomial cyclic 111 avoiding occupancy run enumeration maximum floor two n over three",
+          "Brešar Hu Samadi arXiv:2602.02876",
+          "cyclic forbidden 111 occupancy enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-title hit is this assigned finding; other indexed circular-ladder size polynomials count different subset families."
+        ],
+        "reasoning": "No known-table recomputation was established. Enumeration formulas must be compared by predicate rather than graph name alone.",
+        "searches": [
+          "cycle prism graph 2-frugal independent set polynomial cyclic 111 avoiding occupancy run enumeration maximum floor two n over three",
+          "Resultary 2026/11/8 complete 2-frugal independent-set polynomial of cycle prisms",
+          "Resultary odd-independent-set and dissociation polynomials"
+        ]
+      },
+      "rationale": "Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.",
+      "residual_risks": [
+        "Unindexed pre-existing run/transfer-matrix enumerators of forbidden triples might give an equivalent 2^r-weighted formula despite different terminology.",
+        "Applies only to labelled C_n□K2, n≥3, no universal classification of cubic graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IDENTIFIED_CLAIM",
+          "evidence": "Defines frugal invariants and discusses product graphs; does not state the full labelled cycle-prism 2-frugal independent-set size polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.02876",
+          "material_read": "Full available PDF, including definitions, general bounds, discussion of Cartesian products and references",
+          "method": "arXiv PDF text sections and page image",
+          "title": "Frugal coloring of graphs revisited",
+          "trigger": "Introduces 2-frugal independence and bounds on cubic graphs"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE_LIMITED_INSPECTION",
+          "evidence": "Counts dissociation sets; cannot assert whole-document coverage or lack thereof solely on summary; relevant predicate differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-dissociation-polynomial-and-lucas-maximum-set-law-for-c--862aa31d85c9",
+          "material_read": "Resultary abstract/summary, not entire source theorem",
+          "method": "semantic search snippet",
+          "title": "Complete dissociation polynomial and Lucas maximum-set law for cycle prisms",
+          "trigger": "Same graph and exact polynomial but different subset property"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE_LIMITED_INSPECTION",
+          "evidence": "Dissociation sets are not required to be independent and obey a different vertex-condition, so not immediate coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dissociation-polynomials-and-extremal-configurations-of-circular--d2470e7871c7",
+          "material_read": "Resultary abstract/summary only",
+          "method": "semantic search snippet",
+          "title": "Dissociation polynomials and extremal configurations of circular ladders",
+          "trigger": "Same graph and enumeration title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2-frugal condition is a motivated cubic-graph invariant. This determines the whole cardinality polynomial and all extremal multiplicities for the natural infinite prism family, strictly refining previously known general maximum bounds. It is neither a single isolated number nor a restatement of a coloring count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed pre-existing run/transfer-matrix enumerators of forbidden triples might give an equivalent 2^r-weighted formula despite different terminology.",
+    "Applies only to labelled C_n□K2, n≥3, no universal classification of cubic graphs.",
+    "No GitHub modifications or publication. Verification/Lean/expert channels preserved; tests establish only their actual checked domain."
+  ],
+  "schema_version": 1
+}

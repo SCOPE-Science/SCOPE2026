@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact independent-set checks
 
-Run `python3 verify.py`; only the standard library is required. The verifier constructs every vertex and all three neighbours in the actual labelled prism, considers all three choices per column (vacant, row zero, row one), and independently checks every candidate for independence and at-most-two occupied neighbours. Its coefficient arrays agree exactly with the cyclic-run formula for each \(3\le n\le10\).
+# Independent mathematical audit
 
-For all \(3\le n\le80\), it additionally verifies integrality of every counted run summand and the proposed maximum size and extremal count by direct formula evaluation. These finite checks corroborate, but do not replace, the all-length structural bijection and counting proof. External independent review has not been performed. No assertion beyond the labelled cycle-prism family is implied.
+## correctness
+
+PASS
+
+Independence forbids two vertices in one column, forces opposite rows for adjacent selected columns. Three consecutive occupied columns necessarily alternate and give the vertex opposite their middle a forbidden third selected neighbor; conversely forbidding cyclic 111 prevents any vertex having three selected neighbors. Every occupied run length 1 or 2 has exactly two row choices. For k selected columns and r runs, count length-two runs binom(r,k−r), positive empty-column gaps binom(n−k−1,r−1), starting positions n/r and row assignments 2^r. Summing cyclic 3-window inequalities gives 3k≤2n and construction attains floor(2n/3); substitution yields all extremal counts. Fresh direct labelled-graph enumeration for n=3..10 checked coefficients independently, including seams and n=3.
+
+## originality
+
+PASS
+
+Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.
+
+## value
+
+PASS
+
+The 2-frugal condition is a motivated cubic-graph invariant. This determines the whole cardinality polynomial and all extremal multiplicities for the natural infinite prism family, strictly refining previously known general maximum bounds. It is neither a single isolated number nor a restatement of a coloring count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

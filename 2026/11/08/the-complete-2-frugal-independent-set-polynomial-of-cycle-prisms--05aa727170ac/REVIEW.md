@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The implication between the graph definition and cyclic binary occupancy words avoiding three consecutive ones, with alternating row labels in occupied runs, is proved both ways. Marked-run enumeration yields the exact coefficient formula without overcounting; the circular-arc cardinality bound and three attaining constructions establish the sharp maximum, and a two-case run calculation gives every extremal multiplicity. Direct exhaustive graph checks for lengths three through ten independently confirm all coefficients. Risk: the word/run encoding requires consistent cyclic seam handling; the proof and direct checks explicitly cover it.
+## correctness
 
-**Originality — PASS, provisional.** The 2026 frugal-colouring primary source introduces the maximum 2-frugal independent-set invariant and broad cubic bounds but does not compute this labelled-prism polynomial. Prior prism dynamic and homogeneous colouring theorems, and separate four-palette conflict-free colour-count identities, count full colourings or decide feasibility, not independent subsets. Mathematical-record and primary-literature comparisons did not reveal equivalent or stronger frugal-independent-set enumerators. Risk: an earlier cyclic words/independence enumeration may implicitly specialize to this formula, and priority has not been independently certified.
+PASS
 
-**Value — PASS.** This is a complete classification and exact coefficient-by-coefficient polynomial for a natural infinite cubic family, including a sharp frugal-independence number and explicit counts of *all* extremizers in the three congruence classes. It meaningfully refines the general maximum-cardinality bounds motivating the invariant, and supplies enumeration data for probabilistic sampling and future comparisons. Risk: it does not give a universal theorem on arbitrary cubic graphs.
+Independence forbids two vertices in one column, forces opposite rows for adjacent selected columns. Three consecutive occupied columns necessarily alternate and give the vertex opposite their middle a forbidden third selected neighbor; conversely forbidding cyclic 111 prevents any vertex having three selected neighbors. Every occupied run length 1 or 2 has exactly two row choices. For k selected columns and r runs, count length-two runs binom(r,k−r), positive empty-column gaps binom(n−k−1,r−1), starting positions n/r and row assignments 2^r. Summing cyclic 3-window inequalities gives 3k≤2n and construction attains floor(2n/3); substitution yields all extremal counts. Fresh direct labelled-graph enumeration for n=3..10 checked coefficients independently, including seams and n=3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.
+
+## value
+
+PASS
+
+The 2-frugal condition is a motivated cubic-graph invariant. This determines the whole cardinality polynomial and all extremal multiplicities for the natural infinite prism family, strictly refining previously known general maximum bounds. It is neither a single isolated number nor a restatement of a coloring count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
