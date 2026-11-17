@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:53:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Boolean pair overlap graph recognizes cyclic Rule110 one-step images iff product of labeled 4x4 Boolean matrices has nonzero diagonal; right-multiplication closes on 75 finite Boolean relations. For n>=1 image size a_n=h^TT^ne, with exact recurrence Q(z)=1−4z+6z²−5z³+z⁴+4z⁵−4z⁶+2z⁷−z⁹ and numerator P(z)=z−2z²+3z³−3z⁴+3z⁵−6z⁶+6z⁷−2z⁸+z⁹+z^10. Source verifies 75 consecutive residuals n=11..85; Cayley–Hamilton of the 75-state matrix forces all subsequent residuals to vanish; equality at n<=10 establishes rational GF. Dominant quartic root gives a_n≈rho^(-n) with leading coefficient one. Independent 75-relation integer calculation and first 100 recurrence coefficients plus direct binary enumeration n=1..12 confirmed finite certificate; the all-length implication uses the stated finite-dimensional linear recurrence argument rather than extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Nov2 establishes the same exact all-length GF with stronger growth error O(1.381^n); both use 75-state Boolean semigroup, prior proves exact vector annihilation."
+        ],
+        "reasoning": "Previous result implies not only all finite counts but the full asymptotic with better remainder; no stronger submitted conclusion exists.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md, verify_relation.py and verify_direct.py",
+        "Nov2 full primary https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md",
+        "Resultary query Rule 110 cyclic one step output count rational generating function 1 2 5 10 22 41 75 state",
+        "Rule110 earlier de Bruijn antecedent methods (context)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: A(z)=(N(z))/D(z) with a_0=1. Current: A(z)=(N(z)−D(z))/D(z), a_0=0. Denominator (1−z)(1−z−z^4)(1−2z+z²−z³−z^4) identical; dominant λ=1/rho and prior sharper error."
+        ],
+        "reasoning": "Algebraically identical all-length claim under constant coefficient normalization. Correctness does not rescue originality/value. Reject unchanged; no source edits.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier prior has same Rule110 local truth table, ring convention, 75 Boolean relation states, same denominator and a_n values."
+        ],
+        "reasoning": "Submitted a_0=0 is a formal renormalization of earlier a_0=1: its generating function is prior GF−1; positive-length counts identical.",
+        "searches": [
+          "Rule 110 cyclic one step output count rational generating function 1 2 5 10 22 41 75 state",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier full table a_1..a_15 equals 1,2,5,10,22,41,79,154,302,582,1113,2125,4058,7737,14725, and exact recurrence yields all a_n."
+        ],
+        "reasoning": "All later and earlier counts follow mechanically from the known rational generating function; extending a finite table to a_18 is not a new contribution.",
+        "searches": [
+          "Rule 110 cyclic one step output count rational generating function 1 2 5 10 22 41 75 state",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: Published Nov2 2026 Rule110 cyclic one-step image theorem gives precisely the same labelled finite-ring count, the identical denominator D(z), exactly the same sequence, dominant growth λ=1/rho and a sharper O(1.381^n) bound. The apparent numerator change is exclusively the convention a_0=1 in prior versus a_0=0 in submitted series: subtracting 1 from prior generating function gives the submitted numerator exactly. Both employ the same 75-state Boolean-relations recognition. Covered by mathematical identity, not merely similar titles.",
+      "residual_risks": [
+        "No scientifically novel theorem remains after algebraic normalization against full prior result.",
+        "Different recurrence certificates for the same 75-state representation are not separate motivated results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS every positive-length output count and sharp growth rate, with a formally different a_0 convention only",
+          "evidence": "Nov2 source a_0=1 versus current a_0=0; new GF equals prior GF−1; previous O(1.381^n) stronger than O(1.5^n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md",
+          "material_read": "Entire published RESULT.md: finding, 75-state Boolean automaton, vector annihilation recurrence, rational GF numerator/denominator, root-power identity and stronger error term",
+          "method": "GitHub primary Resultary/2026 full-text fetch_file",
+          "title": "Exact one-step image counts for cyclic elementary cellular automaton Rule 110",
+          "trigger": "Exact same Rule110 indexed cyclic output enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The exact natural one-step image series was valuable when new, but is already established with a stronger error term and finite exact vector certificate. A second 75-state computation of the same GF and weaker O((3/2)^n) asymptotic gives no distinct motivated invariant or boundary class.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md, verify_relation.py and verify_direct.py",
+    "Nov2 full primary https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md",
+    "Resultary query Rule 110 cyclic one step output count rational generating function 1 2 5 10 22 41 75 state",
+    "Rule110 earlier de Bruijn antecedent methods (context)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No scientifically novel theorem remains after algebraic normalization against full prior result.",
+    "Different recurrence certificates for the same 75-state representation are not separate motivated results."
+  ],
+  "residual_risks": [
+    "No scientifically novel theorem remains after algebraic normalization against full prior result.",
+    "Different recurrence certificates for the same 75-state representation are not separate motivated results."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS every positive-length output count and sharp growth rate, with a formally different a_0 convention only",
+      "evidence": "Nov2 source a_0=1 versus current a_0=0; new GF equals prior GF−1; previous O(1.381^n) stronger than O(1.5^n).",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3/RESULT.md",
+      "material_read": "Entire published RESULT.md: finding, 75-state Boolean automaton, vector annihilation recurrence, rational GF numerator/denominator, root-power identity and stronger error term",
+      "method": "GitHub primary Resultary/2026 full-text fetch_file",
+      "title": "Exact one-step image counts for cyclic elementary cellular automaton Rule 110",
+      "trigger": "Exact same Rule110 indexed cyclic output enumeration"
+    }
+  ]
+}
