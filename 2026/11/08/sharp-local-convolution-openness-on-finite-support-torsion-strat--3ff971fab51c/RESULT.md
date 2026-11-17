@@ -1,80 +1,66 @@
-# Sharp local convolution openness on finite-support torsion strata
+# Local openness at a finite-support factor in a torsion group algebra
 
-## Finding
-Let \(G\) be any discrete torsion abelian group and let \(A=\ell^1(G;\mathbb C)\) with convolution. Write \(B_A(c,\varepsilon)\) for its open norm ball. Then:
-
-1. **One finite-support factor.** For every finitely supported \(a\in A\), every \(b\in A\), and every \(\varepsilon>0\), there is \(\delta>0\) such that
+## Theorem (surviving new contribution)
+Let \(G\) be any discrete abelian torsion group, including an uncountable or infinite group, and let \(A=\ell^1(G;\mathbb C)\) with convolution. For **every finitely supported** \(a\in A\), **every** \(b\in A\), possibly of infinite support, and **every** \(\varepsilon>0\), there exists \(\delta>0\) such that
 \[
- B_A(a*b,\delta)\subseteq B_A(a,\varepsilon)*B_A(b,\varepsilon).
+\boxed{\ B_A(a*b,\delta)\subseteq B_A(a,\varepsilon)*B_A(b,\varepsilon).\ }
 \]
-In particular, convolution is locally open at every pair with at least one finitely supported factor, even when the product is zero and both factors are noninvertible.
+By commutativity the same holds with \(a\) and \(b\) exchanged. This includes zero divisors, \(a*b=0\), and pairs where neither factor is invertible. It establishes local openness in the full \(\ell^1(G)\)-norm for arbitrary infinite-support target perturbations, **not** only in a finite subgroup algebra. It makes no claim about pairs whose two factors both have infinite support, or about global openness of convolution.
 
-2. **Sharp local aperture for two finite-support factors.** For finitely supported \(a,b\in A\), define the local aperture
+A separate published November 8, 2026 theorem on **fully finitely supported tuples** already determines sharp \(k\)-fold openness exponents; for two finite factors this implies a linear/quadratic radius dichotomy according to their common Fourier zeros. That classification is **prior work**, not a new assertion of the present corrected result.
+
+## Proof for arbitrary second factor
+Because \(a\) has finite support and every element of \(G\) is torsion, its support generates a finite subgroup \(H\). Set \(m=|H|\). For each character \(\chi\in\widehat H\), write
 \[
- \rho_{a,b}(\varepsilon)=\sup\{\delta\ge0:B_A(a*b,\delta)\subseteq B_A(a,\varepsilon)*B_A(b,\varepsilon)\}.
+ e_\chi(h)=m^{-1}\overline{\chi(h)}\quad(h\in H),\qquad
+ e_\chi(g)=0\quad(g\notin H).
 \]
-Choose any finite subgroup \(H\le G\) containing both supports. For \(\chi\in\widehat H\), put
+The usual finite-group orthogonality identities hold *inside the full Banach algebra*:
 \[
- \alpha_\chi=\sum_{h\in H}a(h)\chi(h),\qquad
- \beta_\chi=\sum_{h\in H}b(h)\chi(h).
+ e_\chi*e_\psi=\mathbf1_{\chi=\psi}e_\chi,
+ \quad \sum_\chi e_\chi=\delta_0,
+ \quad\|e_\chi\|_1=1.
 \]
-If there is no \(\chi\) with \(\alpha_\chi=\beta_\chi=0\), then \(\rho_{a,b}(\varepsilon)=\Theta(\varepsilon)\) as \(\varepsilon\downarrow0\). If at least one such \(\chi\) exists, then \(\rho_{a,b}(\varepsilon)=\Theta(\varepsilon^2)\). These two cases exhaust every pair of finitely supported symbols; the dichotomy is independent of the chosen containing subgroup.
-
-The second statement gives the precise local openness **exponent** (linear or quadratic), not a universal leading coefficient. The first statement does not assert openness at arbitrary infinitely supported pairs or global openness of convolution.
-
-## Assumptions and scope
-All groups are discrete, abelian and torsion; no countability or bounded-exponent hypothesis is imposed. Their group algebras use the coefficient \(\ell^1\)-norm. The finite subgroup \(H\) exists because a finite set of elements in a torsion abelian group generates a finite group. Fourier transforms here are unnormalized; their primitive spectral idempotents are
+Consequently \(A\) is the finite direct sum of closed mutually annihilating unital corners \(A_\chi=e_\chi*A\), each with identity \(e_\chi\). Write
 \[
- e_\chi(h)=|H|^{-1}\overline{\chi(h)}\quad(h\in H),\qquad e_\chi(g)=0\quad(g\notin H).
+ a=\sum_\chi\alpha_\chi e_\chi,
+ \quad \alpha_\chi=\sum_{h\in H}a(h)\chi(h),
+ \quad b_\chi=e_\chi*b.
 \]
-They satisfy \(\|e_\chi\|_1=1\), \(e_\chi*e_\psi=\mathbf 1_{\chi=\psi}e_\chi\), \(\sum_\chi e_\chi=\delta_0\), and \(a*e_\chi=\alpha_\chi e_\chi\). The symbol \(\Theta\) has its standard two-sided fixed-pair asymptotic meaning, with positive constants allowed to depend on \(a,b,H\).
+All sums here are finite; \(b_\chi\) may have infinite support.
 
-## Proof
-**Lemma: units are dense in each spectral corner.** For every finite subgroup \(H\), every \(\chi\in\widehat H\), and \(c\in e_\chi*A\), the corner \(e_\chi*A\) (with identity \(e_\chi\)) contains invertible elements arbitrarily close to \(c\). To prove this, approximate \(c\) in \(\ell^1\)-norm by \(e_\chi*p\), where \(p\) has finite support. Since \(G\) is torsion abelian, the subgroup \(K\) generated by \(H\) and the support of \(p\) is finite. The finite-dimensional commutative algebra \(e_\chi*\mathbb C[K]\) is a direct sum of complex scalar fields by the finite-group Fourier transform. Therefore \(e_\chi*p+t e_\chi\) is invertible in this corner for every sufficiently small complex \(t\) outside a finite exceptional set. This proves the lemma, including the case \(H=\{0\}\).
+**Lemma (corner units are dense).** For any \(c\in A_\chi\) and any \(\tau>0\), there is an invertible \(v\in A_\chi\) with \(\|v-c\|_1<\tau\). Indeed approximate \(c\) by \(e_\chi*p\) with \(p\in\mathbb C[G]\) finitely supported. Let \(K\) be the subgroup generated by \(H\) and the support of \(p\); \(K\) is finite. The finite-dimensional commutative algebra \(e_\chi*\mathbb C[K]\) is a direct product of complex scalar fields by Fourier decomposition, with identity \(e_\chi\). Only finitely many values of \(t\in\mathbb C\) make \(e_\chi*p+t e_\chi\) noninvertible. Choose an arbitrarily small \(t\) outside this exceptional set. The resulting inverse in \(e_\chi*\mathbb C[K]\) is an inverse in \(A_\chi\), proving the lemma.
 
-**Local openness with one finite-support factor.** Let \(a\in\mathbb C[H]\), \(b\in A\), and write \(a=\sum_\chi\alpha_\chi e_\chi\), \(b_\chi=e_\chi*b\). Fix \(\varepsilon>0\). For each \(\chi\) with \(\alpha_\chi=0\), use the lemma to choose a corner-invertible \(v_\chi\) with \(\|v_\chi-b_\chi\|_1<\varepsilon/(4|H|)\). Set \(M=\sum_{\alpha_\chi=0}\|v_\chi^{-1}\|_1\) and \(L=\sum_{\alpha_\chi\ne0}|\alpha_\chi|^{-1}\), where the inverse is taken in the corner and empty sums equal zero. Choose any \(\delta>0\) such that \(\delta M<\varepsilon/4\) and \(\delta L<\varepsilon/4\).
-
-For a prescribed \(h\in A\) with \(\|h\|_1<\delta\), put \(h_\chi=e_\chi*h\). In a corner where \(\alpha_\chi\ne0\), choose
+**Exact local factorization.** Fix \(\varepsilon>0\). For each character with \(\alpha_\chi=0\), use the lemma to choose a corner-invertible \(v_\chi\) with \(\|v_\chi-b_\chi\|_1<\varepsilon/(4m)\). Define the finite nonnegative sums
 \[
- x_\chi=\alpha_\chi e_\chi,\qquad y_\chi=b_\chi+\alpha_\chi^{-1}h_\chi.
+ M=\sum_{\alpha_\chi=0}\|v_\chi^{-1}\|_1,
+ \qquad L=\sum_{\alpha_\chi\ne0}|\alpha_\chi|^{-1},
 \]
-Otherwise choose
+where empty sums are zero. Choose \(\delta>0\) small enough that \(\delta M<\varepsilon/4\) and \(\delta L<\varepsilon/4\) (possible even if either sum is zero).
+
+Given an arbitrary \(h\in A\) with \(\|h\|_1<\delta\), put \(h_\chi=e_\chi*h\); then \(\|h_\chi\|_1\le\|h\|_1\). Define in each corner
 \[
- x_\chi=h_\chi*v_\chi^{-1},\qquad y_\chi=v_\chi.
+ (x_\chi,y_\chi)=\begin{cases}
+ (\alpha_\chi e_\chi,\ b_\chi+\alpha_\chi^{-1}h_\chi),&\alpha_\chi\ne0,\\
+ (h_\chi*v_\chi^{-1},\ v_\chi),&\alpha_\chi=0.
+ \end{cases}
 \]
-Their finite sums \(x=\sum_\chi x_\chi\) and \(y=\sum_\chi y_\chi\) satisfy \(x*y=a*b+h\). Because all primitive idempotents have norm one, \(\|h_\chi\|_1\le\|h\|_1\), and hence
+Because different corners annihilate one another, \(x=\sum_\chi x_\chi\), \(y=\sum_\chi y_\chi\) satisfy exactly
 \[
- \|x-a\|_1\le\delta M<\varepsilon/4,\qquad
- \|y-b\|_1<\varepsilon/4+\delta L<\varepsilon/2.
+ x*y=a*b+h.
 \]
-This proves the first assertion. The same conclusion holds with the factors exchanged by commutativity.
-
-**Exact aperture orders when both factors are finitely supported.** Expand \(b=\sum_\chi\beta_\chi e_\chi\). For any perturbation \(h\) with \(\|h\|_1<\delta\), in every corner use the following explicit exact factorization of \(\alpha_\chi\beta_\chi e_\chi+h_\chi\): if \(\alpha_\chi\ne0\), keep \(x_\chi=\alpha_\chi e_\chi\) and add \(\alpha_\chi^{-1}h_\chi\) to \(y_\chi=\beta_\chi e_\chi\); otherwise if \(\beta_\chi\ne0\), keep \(y_\chi=\beta_\chi e_\chi\) and add \(\beta_\chi^{-1}h_\chi\) to \(x_\chi=0\); if both scalars vanish, take \(x_\chi=\sqrt\delta\,e_\chi\) and \(y_\chi=h_\chi/\sqrt\delta\). The sums of the factors give the required product.
-
-Let \(m=|H|\) and let \(\kappa>0\) be the minimum modulus among the nonzero numbers in the finite family \(\{\alpha_\chi,\beta_\chi\}\), with \(\kappa=+\infty\) if this family has no nonzero member. The two perturbation norms are at most
+The norm-one idempotents and our choices give
 \[
- m\bigl(\delta/\kappa+\sqrt\delta\bigr),
+ \|x-a\|_1\le\delta M<\varepsilon/4,
+\quad \|y-b\|_1<\varepsilon/4+\delta L<\varepsilon/2.
 \]
-where \(\delta/\infty\) means zero. If there are no simultaneous Fourier zeros, the square-root term is absent, so \(\rho_{a,b}(\varepsilon)\ge \kappa\varepsilon/(2m)\). Otherwise \(\rho_{a,b}(\varepsilon)\ge \min\{\kappa\varepsilon/(4m),\varepsilon^2/(16m^2)\}\). These are lower bounds for sufficiently small positive \(\varepsilon\) (indeed the selected formulas also work with the evident conventions at the endpoints).
+Thus **every** target in the claimed open ball factors with both factors in their prescribed balls. The construction uses only the finite support of \(a\), never that of \(b\) or \(h\), and works for arbitrary torsion abelian \(G\). This completes the proof.
 
-For the matching upper bounds, every \(x\in B_A(a,\varepsilon)\) and \(y\in B_A(b,\varepsilon)\) obey
-\[
- \|x*y-a*b\|_1\le \varepsilon(\|a\|_1+\|b\|_1)+\varepsilon^2.
-\]
-Thus \(\rho_{a,b}(\varepsilon)\) cannot exceed the right-hand side. If \(\alpha_\chi=\beta_\chi=0\) for some \(\chi\), then the stronger bound \(\rho_{a,b}(\varepsilon)\le\varepsilon^2\) follows by applying the contractive projection \(h\mapsto e_\chi*h\) to a proposed factorization of \(a*b+t\delta_0\): its \(\chi\)-component has norm \(t\), whereas \((e_\chi*x)*(e_\chi*y)\) has norm less than \(\varepsilon^2\). Any \(t>\varepsilon^2\) is therefore impossible. This proves both sharp asymptotic regimes.
+## Comparison, value and boundaries
+The earlier published result *Sharp local openness exponents at finite-support tuples in torsion group algebras* (November 8, 2026) proves a complete \(k\)-fold sharp aperture classification when **all** input factors have finite support, and in particular the previously claimed two-factor linear/quadratic Fourier-zero dichotomy. This paper **does not assert openness for an arbitrary infinitely supported second factor**, because its theorem and factorization start with every factor in \(\mathbb C[H]\). The present surviving theorem applies at a substantially larger natural stratum: just one input factor must have finite support, and the second may be arbitrary. A general local-openness theorem for dense-invertible finite-spectrum corners is a residual priority risk.
 
-Changing \(H\) to a larger finite subgroup only repeats the spectral scalars along characters restricting to each character of \(H\); hence the simultaneous-zero test is intrinsic.
+Flores, *The convolution product is generally not an open map* (arXiv:2610.38722), leaves the torsion-abelian case as the remaining global group-algebra challenge. Draga–Kania, *When is multiplication in a Banach algebra open?* (arXiv:1704.08608), distinguishes density of invertibles from open multiplication. Kania–Maślany, *Differential embeddings into algebras of topological stable rank 1* (arXiv:2301.02320), treats different sufficient hypotheses. The exact corner-by-corner factorization above identifies a motivated boundary of the open global problem: a counterexample to local openness on infinite torsion abelian groups cannot involve a finitely supported input.
 
-## Verification
-The proof is purely analytic and algebraic and applies to arbitrary (including uncountable) discrete torsion abelian groups. The independently runnable exact-arithmetic helper `check_exact.py` checks the primitive idempotents, convolution factorizations, perturbation bounds and the one-finite-factor corner inverse on finite binary groups of dimensions one through five. It reports `FINITE_SUPPORT_LOCAL_OPENNESS_EXACT_OK 2367`. Finite computations are not the proof of the universal assertions.
+This is a local theorem, with constants depending on \(a,b,\varepsilon\); no uniform local aperture is asserted, and no general global product-open conclusion follows. The companion `check_exact.py` verifies finite-group identities only and is not used as proof for arbitrary groups.
 
-## Relationship to prior work
-Flores, *The convolution product is generally not an open map* (arXiv:2610.38722v1, October 28, 2026), proves non-openness when the group is nonabelian or has an element of infinite order, and identifies infinite torsion abelian groups as the remaining class for the global question. The present theorem determines local openness on a natural dense algebraic stratum of that remaining class, without settling global openness. Draga and Kania (arXiv:1704.08608v2) show that density of invertibles need not imply open multiplication, and Kania and Maślany (arXiv:2301.02320v3) analyze joint nondegeneracy and lack of uniform openness for unbounded-exponent abelian groups. Neither source states the present local finite-support classification or its ambient \(\ell^1\) sharp aperture dichotomy.
-
-## Limitations
-The theorem makes no claim about a pair with two genuinely infinitely supported factors, even when one is close to the finitely supported subalgebra. It does not establish global or uniformly open convolution on any infinite group. The aperture bounds are orders in \(\varepsilon\), not optimal leading constants. Literature priority under alternative finite-spectrum or idempotent terminology remains a risk; the argument uses familiar finite-group Fourier decomposition and elementary Banach-algebra facts.
-
-## References
-1. F. I. Flores, *The convolution product is generally not an open map*, arXiv:2610.38722v1 (first posted 2026-10-28), https://arxiv.org/html/2610.38722v1.
-2. S. Draga and T. Kania, *When is multiplication in a Banach algebra open?*, arXiv:1704.08608v2 (2017), https://arxiv.org/pdf/1704.08608.
-3. T. Kania and N. Maślany, *Differential embeddings into algebras of topological stable rank 1*, arXiv:2301.02320v3 (2024), https://arxiv.org/pdf/2301.02320.
+Sources: [prior finite-tuple classification](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-local-openness-exponents-at-finite-support-tuples-in-torsi--3298eaf6f7fa); [Flores](https://arxiv.org/abs/2610.38722); [Draga–Kania](https://arxiv.org/abs/1704.08608); [Kania–Maślany](https://arxiv.org/abs/2301.02320).
