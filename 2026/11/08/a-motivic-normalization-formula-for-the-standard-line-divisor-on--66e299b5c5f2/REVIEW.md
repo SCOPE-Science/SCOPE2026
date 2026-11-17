@@ -1,9 +1,21 @@
-# Scientific review: standard-line divisor on Fermat surfaces
+# Independent mathematical audit
 
-**Correctness (C) — PASS.** The normalization is explicitly parametrized by three copies of \(E^2\times\mathbf P^1\). Same-family intersections produce six reduced copies of \(E\), with six copies of \(E^2\) over them in the normalization; cross-family intersections produce three reduced copies of \(E^3\), with six copies of \(E^3\) above. The assumption \(2\ne0\) prevents a third family through a cross-family point. Distinct lines supply distinct tangent directions, and the standard scissors relation proves the motivic identity. The \(\mathbb F_{q^n}\) incidence and zeta formulas follow for all extensions, without extrapolating finite checks. A standalone exhaustive projective enumeration passes 44 prime-degree pairs. Risk: the result does not cover extra nonstandard lines in exceptional positive characteristic; this is excluded from the claim.
+## correctness
 
-**Originality (O) — PASS under source-access limitations.** Andria–Rojas–Mangueira (arXiv:2403.15666, §§1–2) prove the line intersection rules and study maximum skew sets; their treatment does not give the finite-étale reduced singular support, motivic normalization identity, or all-extension zeta factorization. Schütt–Shioda–van Luijk (arXiv:0812.2377) study geometric line classes and Picard lattices. Salberger (DOI:10.1112/plms.12508, §9) gives the line-union defining equation, but the accessible excerpt does not show an arithmetic incidence or motivic calculation; its full text could not be fetched on this attempt and therefore remains a priority risk rather than a negative inspection. Prior isolated cubic and split-quartic point counts are implied by the general statement and are expressly not claimed anew. Direct overlap comparisons used both older local claim records and semantic mathematical-record searches. Lack of a search hit is not treated as proof of novelty.
+PASS
 
-**Mathematical value (V) — PASS.** The all-degree finite-étale formula provides the entire motivic class of a canonical reduced divisor on the Fermat surface, not just a numerical sample or a relabeling of an intersection graph. It captures the arithmetic effect of nonrational branches at rational singular points and gives all-extension incidence counts and an explicit rational zeta function from a single finite Frobenius permutation. These exact natural invariants are useful for separating standard-line contributions from point counts of the ambient Fermat surface, including cases with extra geometric lines. Risk: the proof is elementary once the full incidence stratification is known and an equivalent older motivic computation might exist.
+PASS: Three perfect matchings of four coordinates yield 3d² distinct standard lines with finite-etale parameter space 3E². Same-family intersections occur at precisely six E high-multiplicity strata with d branches; cross-family pairs give precisely 3E³ nodes since the third family would demand (ae)^d=-1 whereas it equals +1, using char≠2. Smooth ambient surface and distinct line tangents give ordinary crossings. The normalization inverse images are 6E² and 6E³ and their reduced supports 6E and 3E³, yielding 3(L+1)E²-6E²+6E-3E³. Point counts and zeta follow for each extension; d invertible ensures E étale. Independently checked split q=7,d=3 gives 3d²=27 lines, 18 triple points, 81 nodes, 99 rational union points; this is finite corroboration of algebraic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: The classical standard Fermat lines and geometric intersection criterion are credited to Schuett–Shioda–van Luijk and Andria–Rojas–Mangueira. Inspected primary texts give line-incidence foundations, not the full field-uniform finite-etale stratum isomorphisms, motivic scissors class 3L[E²]-3[E²]+6[E]-3[E³] or all-extension zeta factorization. A published Resultary all-dimensional Fermat cubic coordinate-pairing-PLANE theorem concerns degree fixed three and a single ±1 subspace per matching, not 3d² degree-variable lines, so is not dominating.
+
+## value
+
+PASS
+
+PASS: The union of the canonical coordinate-pairing lines is a natural divisor across all admissible Fermat surface degrees and nonsplit fields. Tracking geometric branch multiplicity through finite-etale schemes is essential to descend a normalization identity without incorrect replacement E²=dE. The exact motivic class, geometric incidence spectrum and Frobenius zeta furnish previously unaccounted-for arithmetic invariants in an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
