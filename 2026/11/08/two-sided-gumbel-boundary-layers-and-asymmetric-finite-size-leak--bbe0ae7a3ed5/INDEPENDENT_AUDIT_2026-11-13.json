@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:50:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md (blob 570bb97660e93f457521d2bc76b21297f2ad2b73)",
+        "assigned verify_edge.py (blob 343c7fc08a5c94f4a565dbeb905dc58e4871b61d)",
+        "Biroli et al arxiv:2312.02570 supplementary mixing representation",
+        "independent /mnt/data/scope06_current_checks.py (edge section)"
+      ],
+      "rationale": "The exact known stationary conditional-Gaussian representation has v(u)=v_-+Delta u and h(u)=v(u)u^(alpha-1)(1-u)^(beta-1)/[vbar B(alpha,beta)] for 0<u<1, with v_-=D/mu1<v_+=D/mu2, alpha=r1/(2mu1), beta=r2/(2mu2). For M_N=max of N signed coordinates, F_N(x)=integral h(u) Phi(x/sqrt(v(u)))^N du exactly. Gaussian Mills bounds at a_N=sqrt(2L)-(log L+log(4pi))/(2sqrt(2L)), b_N=1/sqrt(2L) and changes u=v_-s/(Delta L), 1-u=v_+s/(Delta L) yield the lower and upper fractional-Gumbel integrals with L^-alpha and L^-beta probabilities. Uniform exponentially integrable upper estimates justify dominated convergence and conditional weak limit of scaled latent U. At the *unshifted* lower endpoint, the transition s~(log L)/2 gives (A_-/alpha)(log L/(2L))^alpha; the upper unshifted endpoint has N normal-tail factor (4pi L)^-1/2 and beta integral Gamma(beta), yielding A_+Gamma(beta)L^(-beta-1/2)/sqrt(4pi). Independently evaluated the exact one-dimensional normal-mixture integrals at N=10^8 and 10^20: rescaled lower values 0.13305 and 0.12178 versus limit 0.11171, upper 1.0200 and 1.05361 versus limit 1.07541, the predicted directions of convergence. These are numerical diagnostics only.",
+      "residual_risks": [
+        "No uniform claim as rates vanish, stiffnesses coincide, t leaves compacts, or other large-N/parameter joint limit.",
+        "Rare-event convergence may be logarithmically slow; finite N quadrature alone is not an asymptotic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al 2024 give the exact stationary Gaussian mixture and limiting extrema; de Mauro et al 2026 study simultaneous resetting and a slow upper-edge cutoff rather than finite-rate two-state switching.",
+          "A separate 2026 Resultary record derives *quadratic empirical-energy* edge densities for the same switching-trap model, not maximum-coordinate Gumbel profiles."
+        ],
+        "reasoning": "Earlier methods are sufficiently general to motivate the endpoint calculation, but the checked primary statements do not mathematically imply the complete pair of fixed-parameter switching profiles and conditional latent-variable laws without new endpoint analysis.",
+        "searches": [
+          "arxiv:2312.02570 main & supplementary equations",
+          "arxiv:2307.15351 conditional i.i.d. extremes",
+          "Gaussian-edge leakage and a Gumbel boundary layer in a simultaneously reset Brownian gas",
+          "arxiv:2606.31634 Section VI"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2312.02570",
+        "https://arxiv.org/pdf/2606.31634",
+        "https://arxiv.org/abs/2307.15351",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-gaussian-edge-leakage-and-a-gumbel-boundary-layer-in-a-simultane--4cd7cf34fdd1",
+        "assigned RESULT.md and verify_edge.py",
+        "switching harmonic trap Brownian particles Gumbel boundary layer edge extremes finite N beta variance mixture leakage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior conditional-iid mixture yields finite-N F_N(x) exactly; no priority is claimed for this fact.",
+          "Resetting analogue gives upper raw leakage (log N)^(-beta-1/2) with Beta age, but has no positive lower variance endpoint at another stiffness; a different observable energy record has N^-1/2 edge smoothing."
+        ],
+        "reasoning": "The current double endpoint edge asymptotics and conditional U selection are not direct special cases of these published more restricted *observable/model* conclusions, although the upper proof mechanism is borrowed from general Gaussian tail methods.",
+        "searches": [
+          "arxiv:2312.02570 supplementary S26-S28",
+          "Gaussian-edge leakage and a Gumbel boundary layer in a simultaneously reset Brownian gas",
+          "arxiv:2606.31634 eqs 119-136",
+          "Resultary sharp rare energy tails in switching gas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Switching density h(u) from 2024 is precisely the submitted starting point; conditional iid Gaussian maxima have exact F_N(x) integral.",
+          "A beta-distributed age in the 2026 resetting model yields a similar upper endpoint Gumbel integral but a one-sided reset clock."
+        ],
+        "reasoning": "The submitted profiles are boundary Laplace asymptotics of the known mixture; no independent new particle model is claimed. The reset upper-edge formula is a related limit but does not cover arbitrary two positive stiffnesses and both switching-rate exponents.",
+        "searches": [
+          "switching harmonic trap Brownian particles Gumbel boundary layer edge extremes finite N beta variance mixture leakage",
+          "Biroli Kulkarni Majumdar Schehr 2024 S26 switching trap maximum",
+          "two sided beta-mixed Gaussian Gumbel fractional powers",
+          "arxiv:2606.31634 Sections VI.1, Appendix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known order-statistic scaling functions and endpoint singularity exponents are not the finite-N rare-probability constants.",
+          "The checked same-model energy statistics table concerns chi-square quadratic energy rather than a maximum of signed coordinates."
+        ],
+        "reasoning": "No exact tabulated value of both fractional-Gumbel integrals was found; absence is not by itself proof of originality.",
+        "searches": [
+          "switching harmonic trap Brownian particles Gumbel boundary layer edge extremes finite N beta variance mixture leakage",
+          "Resultary sharp rare energy tails finite size edge switching harmonic gas",
+          "Biroli 2024 supplementary Figure order-statistic edge"
+        ]
+      },
+      "rationale": "The stationary Gaussian beta-type mixture, conditional independence and compact limiting support are already the primary 2024 result. The analogous fractional-Gumbel smoothing and extra half-power above an upper edge in a resetting gas were derived in an earlier published 2026 finding. The best-of-knowledge surviving information is the paired LOWER and UPPER profiles for finite-rate two-stiffness SWITCHING, their distinct raw-edge powers, and both conditional environment laws; the reset model is a singular physical limit, not the asserted full two-sided finite-switching theorem.",
+      "residual_risks": [
+        "A general unindexed theorem on Gaussian maxima mixed over beta-edge variance laws could imply these formulas without naming the switching trap.",
+        "Upper edge shape and extra half-power already occur in the related resetting result; priority must be restricted to full two-sided finite-rate switching setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes exact mixture and leading extrema; compared main and supplement, finite-size fractional-Gumbel profile constants not identified in inspected statements.",
+          "evidence": [
+            "Supplement conditional mixture and Beta weights (S26-S28); leading compact support formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02570",
+          "material_read": "Full-text main formulas on stationary correlations and extreme positions; supplementary pages on h(u), variance mixture and support endpoints, including equations S26-S28.",
+          "method": "Primary arXiv PDF text and page-image inspection",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Exactly the same trap stochastic dynamics and latent-variance law"
+        },
+        {
+          "assessment": "Studies global resetting to origin, the singular trap-switching limit, and uses approximate cutoff; not a theorem for the two finite positive stiffnesses and both Gumbel edges.",
+          "evidence": [
+            "Introduction explicitly notes resetting as mu1 -> infinity special limit of switching; Section VI.1 equations 119,120,126,131-136."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31634",
+          "material_read": "Primary 67-page PDF introduction (p2), Section VI.1 (pp22-26) and equations (119)-(136) on Gumbel approximation and slowly resolved upper boundary.",
+          "method": "PDF full-text search and screenshot of p2; read relevant extreme-value section",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "Extremely close harmonic edge mechanism with reset/switch limiting relationship"
+        },
+        {
+          "assessment": "Earlier upper-edge result for resetting model; conditional age differs from two finite-stiffness switching variances.",
+          "evidence": [
+            "Stationary reset age Beta power, upper K_beta(x), raw upper Gamma(beta+1)/sqrt(4pi) exponent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-gaussian-edge-leakage-and-a-gumbel-boundary-layer-in-a-simultane--4cd7cf34fdd1",
+          "material_read": "Complete RESULT.md mathematical statement, assumptions, proof steps and boundary integral read via repository raw text.",
+          "method": "Resultary published record full scientific text",
+          "title": "Gaussian-edge leakage and a Gumbel boundary layer in a simultaneously reset Brownian gas",
+          "trigger": "Strong analogy of Gumbel exponent and rare-event conditional state"
+        },
+        {
+          "assessment": "Same latent variance but empirical mean-square energy, not max-position; no direct implication of rare maximum laws.",
+          "evidence": [
+            "Energy has conditional chi-square and N^-1/2 smoothing, versus maximum Gumbel with log N widths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rare-energy-tails-and-finite-size-edge-smoothing-in-a-swit--303656dc367a",
+          "material_read": "Complete RESULT.md read, including exact conditional chi-square mixture, rate function, and edge Gaussian convolution.",
+          "method": "Resultary published record full scientific text",
+          "title": "Sharp rare-energy tails and finite-size edge smoothing in a switching harmonic gas",
+          "trigger": "Same stochastic model potentially dominating the claimed two-edge profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2312.02570",
+        "https://arxiv.org/pdf/2606.31634",
+        "published reset-edge comparison",
+        "assigned RESULT.md"
+      ],
+      "rationale": "At fixed positive trap-switching rates, the stationary maximum has two natural endpoints but their finite-N probabilities decay at different logarithmic exponents. The sharper raw-edge enhancement/suppression and conditional latent-variance distributions distinguish the two environments and give useful rare-event benchmarks for correlated Gaussian extremes; this is a mathematically motivated asymptotic classification beyond known leading compact support.",
+      "residual_risks": [
+        "The expressions rely on specific strictly positive parameters; their logarithmic convergence may limit practical measurement at moderate N."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Signed-position stationary maximum only; fixed positive D, mu1>mu2>0 and r1,r2>0; no uniform parameter-degeneration or statistical estimation claims.",
+  "schema_version": 1
+}
