@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the antipodal quotient of a Boolean cube, not the halved cube. The parity character descends precisely because the ambient dimension is even. The quotient sum equals half the full-cube transform. Abel summation is an exact finite binomial identity, and all omitted increment pairs are strictly positive on the stated even-half-dimension regime. The last pair gives a uniform explicit positive Fourier multiplier at the asserted upper threshold. The lower bound uses a global symmetric operator-norm estimate at zero power; it proves strict conditional negative type without relying on finite experiments. The initial-interval property and continuity imply the strict upper bound and the two-sided exponential base.
+## correctness
 
-## Originality — PASS, bounded
-The antecedent graph definition and general negative-type tools are explicitly credited to Wang et al. (arXiv:1101.3386), Sánchez (arXiv:1108.0451), and Murugan (arXiv:1112.5657). Aalipour et al. (arXiv:1509.01196) determine spectra of several graph classes, notably halved cubes, not the powered antipodal quotient. Adjacent mathematical statements concern an unpowered distance spectrum and a special odd-dimensional negative-type comparison; these do not imply the new matching exponential base along dimensions divisible by four. Available mathematical-record searches did not yield directly covering statements. Residual risk: an older uniform result for Fourier multipliers of folded Hamming schemes or general negative-type metrics might already imply this rate.
+PASS
 
-## Mathematical value — PASS
-The family is a canonical distance-regular Cayley graph family in finite harmonic analysis. The critical negative-type exponent is the exact boundary for Hilbert snowflake embeddability, and the result identifies a sharp exponential scale across an infinite dimension subsequence, distinguishing it from the ordinary cube (whose Hamming distance has negative type at exponent one). The polynomial factor and exact finite-dimensional exponents are intentionally left undetermined.
+On antipodal quotient G=F2^n/<1> with n=4m≥12, distance min(w,n−w) is invariant under representatives. The even-weight parity character gives the Fourier eigenvalue S_h(p)/2, h=n/2 even. Exact alternating-binomial Abel summation expresses S_h(p)=−2 Σ_{w=0}^{h−1}(−1)^w binom(2h−1,w)[(w+1)^p−w^p]. Pairing consecutive even and odd w, the rigorous Δ_{w+1}/Δ_w≥w/(w+1) makes every pair positive; keeping final pair yields S_h(p)>0 by p=u_h=2(h+1)(h−1)²/(binom(2h,h)(h−3))<1, hence strict upper β<u_h. For all exponents 0<p≤(2^{n+1}log h)^−1, each off-diagonal d^p perturbation from discrete metric J−I is bounded and its operator norm <1/2, guaranteeing strict CND; combines to β≥this lower value. Stirling yields both n-th-root bases→1/2. Independent exact binomial Abel and bound calculations for n=12,16,20 corroborate (not establish) the infinite argument. Normalization of full versus quotient character transform checked.
 
-## Limits
-The result applies only to \(n=4m\ge12\). The included checker is finite corroboration, not an infinite proof. No absolute publication priority or independent mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete published folded-cube unpowered Walsh distance spectrum (Nov 1) determines Fourier signs at p=1 and the quadratic embedding constant, not the all-dimensional *small positive p* critical exponent decay. The separate sharp F6,F7,F8 study handles only finite dimensions, not n=4m≥12. Standard Hamming-cube negative type at p=1 concerns a different metric; Sánchez/Murugan develop generic power-negative-type methods. No inspected source gives the submitted matching exponential rate 1/2 from paired-binomial derivative and small-power perturbation. Priority remains best-of-knowledge for possible unindexed all-dimensional association-scheme result.
+
+## value
+
+PASS
+
+Negative-type exponent is a canonical Hilbert-snowflake embedding invariant of a natural distance-regular graph family, relevant to metric geometry, and an exact *exponential decay base* across an infinite subsequence is a substantial quantitative boundary. Finite single-dimension critical exponents and p=1 spectrum do not determine the uniform rate; the contribution is structural rather than merely an arbitrary n table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
