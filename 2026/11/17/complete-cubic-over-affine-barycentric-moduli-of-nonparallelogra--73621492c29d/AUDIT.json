@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary real a>b>0, nonnegativity on polygon edges forces p3=xy(A+Bx+Cy). Interpolation on top and slanted edges forces C=(a-b)B and fixes the affine denominator. Linear precision fixes the remaining three numerators. Their factorizations yield a necessary-and-sufficient two-half-space cone and strict positivity of q at all four polygon vertices. A polynomial cross-product separates parameter classes, and an explicit gcd argument rules out cancellation. SymPy independently verifies critical identities, reconstructs the general boundary solution and checks the known example. Finite rational grids are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Complete primary text: https://arxiv.org/html/2611.02110v1, Theorem 1.1, Sec. 2.3, Sec. 3.3, Appendix A.3.",
+        "Complete published polygon denominator theorem: https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-wachspress-denominators-have-minimum-degree-on-every-convex-poly--7b4aad67706d/RESULT.md, Finding, Proof, Relationship to prior work."
+      ],
+      "reasoning": "The broad planar theorem establishes minimum denominator degree one for noncentrally symmetric quadrilaterals, and Baumbach–Winter establish uniqueness when numerator degree is two; these facts do not classify numerator degree three. The source explicitly calls fixed intermediate-degree moduli an interesting challenge. No stronger inspected result determines the entire two-ray positivity cone.",
+      "searches": [
+        "Wachspress denominators have minimum degree on every convex polygon",
+        "nonnegative rational generalized barycentric systems exact minimum denominator degree for trapezoids",
+        "intermediate numerator degree rational GBC space fixed k Baumbach Winter",
+        "Rational barycentric coordinates and low degree adjoints 2611.02110"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.02110v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-wachspress-denominators-have-minimum-degree-on-every-convex-poly--7b4aad67706d/RESULT.md",
+      "https://doc.cgal.org/4.14/Barycentric_coordinates_2/index.html",
+      "https://arxiv.org/abs/2308.11634",
+      "https://doi.org/10.1017/S0962492914000129"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 of arXiv:2611.02110v1 excludes polynomial GBCs for nonparallelogram quadrilaterals; Section 3 establishes the Wachspress numerator-degree optimum; Example A.3 constructs one cubic alternative.",
+        "Published polygon theorem establishes minimum denominator degree, but not GBC family cardinality or sharp cone."
+      ],
+      "reasoning": "Existence of one cubic example and sharp minimum denominator degree do not imply classification of every cubic numerator with that denominator degree, necessity of the two inequalities, endpoint families, projective injectivity, or uniqueness of the quadratic member. The new proof derives these separately from edge interpolation and exact factor positivity; credited source statements are not restated as discoveries.",
+      "searches": [
+        "Baumbach Winter rational barycentric coordinates trapezoid cubic numerator linear denominator example A.3",
+        "Wachspress minimum numerator degree unique polygon theorem",
+        "published polygon denominator theorem affine trapezoid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baumbach–Winter arXiv:2611.02110v1, Sec. 3.3 and Appendix Example A.3: one explicit trapezoid non-Wachspress rational system with cubic numerators.",
+        "CGAL 2D Generalized Barycentric Coordinates manual: formula for Wachspress weights and supported classical coordinate constructions."
+      ],
+      "reasoning": "Rational GBC, Wachspress adjoint, rational interpolation and polygon finite-element shape functions describe related objects. The checked works state the Wachspress system and one cubic non-Wachspress example; neither an equivalence transformation nor a theorem about every positive cubic-over-affine representation on arbitrary nonparallelogram trapezoids was found. The present parameterization is confined to exactly that class.",
+      "searches": [
+        "complete classification rational generalized barycentric coordinates nonparallelogram trapezoid cubic numerator affine denominator",
+        "trapezoid barycentric coordinates linear denominator cubic",
+        "quadrilateral cubic numerator linear denominator barycentric",
+        "arXiv:2611.02110v1 Appendix A.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Baumbach–Winter Example A.3, equations for the specific vertices (0,0), (2,0), (1,1), (0,1), explicitly one set of cubic numerators and an affine denominator.",
+        "The polygon denominator paper contains degree formulas indexed by number of polygon sides and central symmetry, not tables of cubic coordinate systems."
+      ],
+      "reasoning": "The only exact same-object published example inspected has a single special trapezoid and one parameter ray; the new formulas reproduce it exactly while giving both extreme rays and every admissible intermediate projective class for all unequal-base trapezoids. No checked exact table or database supplies those classes.",
+      "searches": [
+        "trapezoid cubic GBC positivity A B extreme rays projective interval",
+        "quadrilateral rational barycentric coordinates degree three table",
+        "Baumbach Winter Appendix A.3 2+x-y"
+      ]
+    },
+    "rationale": "Primary full text arXiv:2611.02110v1 establishes underlying framework and one special cubic system, but not classification of all positive cubic/affine systems on trapezoids; a fully read published planar denominator theorem determines only minimum denominator degree. The theorem adds sharp entire projective interval, two extremal families, and necessity/sufficiency of positivity for all base ratios. Web, mathematical research record and local claim overlap searches revealed no dominating exact statement; priority remains historical-provisional.",
+    "residual_risks": [
+      "A differently named older interpolation family might implicitly yield the same cone and positivity characterization; no exhaustive proof of historical uniqueness is claimed.",
+      "The Floater 2015 survey was verified through bibliographic abstract and cited background, not its complete copyrighted full text.",
+      "Extrapolations to numerators of degree at least four, non-affine denominators and higher polygons are outside scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING complete all-trapezoid positive affine-denominator cubic classification; exact one-point source example is recovered as A=0,B=2 in a=2,b=1.",
+        "evidence": [
+          "Theorem 1.1, lines 65–73; Section 3.3, lines 496–506; Appendix Example A.3, lines 659–674."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.02110v1",
+        "material_read": "Full HTML: Definitions in Sections 1–2; degrees in 2.3; intermediate-degree discussion and stated challenge in 3.3; denominator theory in Section 4; Appendix Example A.3 and its complete polynomial formulas.",
+        "method": "Read actual source text, compared hypotheses, numerator degrees, parameter ranges and conclusions directly.",
+        "title": "Rational barycentric coordinates and low degree adjoints",
+        "trigger": "Directly same objects, intermediate-degree rational GBCs, and trapezoid non-Wachspress example"
+      },
+      {
+        "assessment": "NOT_COVERING full cone classification. It implies degree one minimal on noncentrally symmetric trapezoids but has no sharp positivity parameterization of numerators.",
+        "evidence": [
+          "Finding: polygon denominator degree equals adjoint degree m-3 for noncentrally symmetric polygons; Proof Steps 1–5 address degrees and denominator rigidity, not all cubic GBC numerators."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-wachspress-denominators-have-minimum-degree-on-every-convex-poly--7b4aad67706d/RESULT.md",
+        "material_read": "Full published RESULT.md including Finding, Assumptions, Proof, Verification, Relationship to prior work, Limitations, References.",
+        "method": "Read complete public primary result file; compared exact implications and absence of parametrization under cubic numerator constraint.",
+        "title": "Wachspress denominators have minimum degree on every convex polygon",
+        "trigger": "Plausible stronger statement covering every convex polygon and minimum denominator degree"
+      },
+      {
+        "assessment": "ONLY standard Wachspress coordinate construction, not an all-positive cubic-over-affine classification.",
+        "evidence": [
+          "Wachspress weights w_i=C_i/(A_(i-1)A_i) and their polynomial normalization."
+        ],
+        "identifier_or_url": "https://doc.cgal.org/4.14/Barycentric_coordinates_2/index.html",
+        "material_read": "Wachspress coordinates definitions and normalization/weight formulas; general coordinate library scope.",
+        "method": "Inspected accessible manual page sections.",
+        "title": "CGAL 2D Generalized Barycentric Coordinates manual",
+        "trigger": "Established computational polygon coordinate construction, possible equivalent parametrization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "73621492-c29d-4384-a2ce-8e56d462fde6",
+  "value": {
+    "rationale": "This supplies a natural complete moduli and sharp positivity classification for the first non-simplicial polygon family in the intermediate-degree class highlighted by Baumbach–Winter Section 3.3. It distinguishes two extremal non-Wachspress systems, all their positive rational interpolants, and the unique quadratic member, rather than merely reproducing a known single example or textbook deduction. It has plausible use for selecting admissible low-degree geometric interpolation coordinates without claiming unproved performance.",
+    "status": "PASS"
+  }
+}
