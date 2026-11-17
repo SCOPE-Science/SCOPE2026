@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility notes
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard libraries; no external dependencies. The verifier constructs the original discrete-neighbor median choice directly from the opinions and compares it to an independently written exact-rational normalized recurrence. Expected output:
+## correctness
 
-`VERIFY_OK 7776 rational recurrence identities; 1022 exact cylinder lengths; 372 low-step switching trajectories; 20 alternating-witness steps`
+PASS
 
-All calculations use `fractions.Fraction`; no numerical tolerances are used. The length-k cylinders are recursively pulled back on the affine branches and verified to have length \(6/2^k\) for all tested \(1\le k\le9\), rather than inferred from numerical histograms. The finite checks do not establish all time horizons: the complete proof of eventual switching behavior, consensus, and all-cylinder Bernoulli probabilities is in `RESULT.md`. The tie at exactly equal neighbor distance is resolved toward the lower leaf in every verifier case.
+PASS. Reconstructed d_{t+1}=(1-s)d_t, z_{t+1}=(1-2s)z_t+s sigma d_t and normalized map T_s(w)=[(1-2s)w+s sigma(w)]/(1-s), with lower tie. Contractive nonnormalized differences give consensus. For s<=2/3 any sign flip decreases the relevant outer amplitude until no further flip; for s>2/3 eventual fixed sign forces eventual exact fixed point +/-1, so exceptions are countable unions of finite preimages. At s=3/4 each branch maps a length-three half-interval onto length six with slope -2, giving uniform cylinder weights 2^-k and iid fair signs. Independently checked 12 rational alternating steps and limiting 73/100 witness. Applies only to original discrete-neighbor rule, not the 2025 interval-projection rule.
 
-The theorem concerns the **original 2024 neighbor-valued median rule** in arXiv:2406.17552v1. The revised 2025 v3 model has an enlarged median candidate set and cannot serve as a direct computational oracle for this original-rule result. There has been no independent external audit.
+## originality
+
+PASS
+
+PASS (bounded). Oct26 previously published three-path threshold applies a different interval-projection median, and its open alternating region does not imply the original neighbor-valued model’s almost-everywhere infinite switching or Bernoulli initial-condition coding. Mohr-Hjorth-Porter v3 Section 2.2 explicitly defines the real-valued projection closest to the current opinion, while 2024 v1 is identified by its abstract but full original revision was not retrieved. The model-specific symbolic law and exact exceptional set are substantive extra claims. Document v1 access risk.
+
+## value
+
+PASS
+
+PASS. The selected-neighbor switching itinerary is a meaningful dynamical observable distinct from opinion consensus. Its exact a.e. switching classification and a fully Bernoulli deterministic code on the minimal nontrivial three-agent graph identify genuine symbolic dynamics hidden beneath convergent opinions, not a normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
