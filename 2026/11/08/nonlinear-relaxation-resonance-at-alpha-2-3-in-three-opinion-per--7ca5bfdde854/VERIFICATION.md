@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python verify.py` with Python and SciPy to check the three-coordinate system against the original mean-field equation, the mass and equilibrium identities, the centered normal-form equations, and a set of exact-rational parameter and probability-vector inputs. The verifier also checks the critical rate ordering at five parameter values and four numerical trajectories for positivity, convergence, and entropy dissipation.
+## correctness
 
-An observed successful run returned `VERIFY_OK exact_rational_states=3816 analytical_boundaries=5 numeric_trajectories=4`. The universal global-attraction and sharp asymptotic statements are established by the inequalities and convolution estimates in `RESULT.md`, not by finite testing. In particular, no finite trajectory run proves the limit is nonzero or excludes unobserved behavior.
+PASS
 
-The source-equation identity was independently reconstructed in the stated normalization. The low-, critical-, and high-parameter remainders were separately estimated to avoid treating a slowly decaying quadratic forcing as a weighted-integrable function. No independent external verification has been performed.
+The frozen RESULT.md uses the precise unit-rate three-opinion IPP ODE a′=c(βb−αa), b′=2αac−βb(a+c), c′=a(βb−αc), α∈(0,1), β=1−α. Direct substitution establishes mass conservation and the unique nonvertex equilibrium (β/(2−α),α/(2−α),β/(2−α)); inward-pointing faces exclude other nonvertex boundary equilibria. The relative-entropy dissipation is the sum of two nonpositive reaction terms; all three vertex neighborhoods repel an interior solution, establishing global convergence, not merely local stability. Independently sympy-reduced x=b−α/(2−α), d=c−a to x′=−βx+(2−α)x²/2−αd²/2, d′=−(λ+βx)d with λ=αβ/(2−α). Exact variation-of-constants, integrability of x and exponential bootstrap yield nonzero D=lim e^{λt}d(t) for initially asymmetric data, a forced e^{-2λt} term for α<2/3, t e^{-βt} at α=2/3, and possibly-zero C e^{-βt} for α>2/3. The correct threshold follows from β−2λ=β(2−3α)/(2−α). Finite checks corroborate but do not prove global asymptotics.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. The novel claim is not the entropy technique or IPP equation but global convergence of nonvertices and the exact nonlinear forcing resonance for all 0<α<1; checked published original restricted cases do not imply that transition. Materially inaccessible later journal version is disclosed as a priority risk.
+
+## value
+
+PASS
+
+A natural outstanding question for the minimal three-opinion persuasion–polarization model: how the middle share relaxes when extreme-opinion imbalance forces a slower quadratic mode. The exact α=2/3 crossing, negative late middle deviation for α≤2/3 and logarithm-free t e^{-βt} resonance constitute a sharp structural dynamical boundary, not a parameter rename or textbook exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
