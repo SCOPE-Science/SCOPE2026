@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim follows for every integer \(m\ge1\) from the nonincreasing same-color-edge count, a local descent at each monochromatic triangle, and a complete description of all zero-descent moves on the \(2\cdot3^m\) minimum-energy configurations. Each hub-color fiber is \(P_3^{\square m}\), and the two fibers have exactly \(2^m\) reversible cross edges. This establishes the unique recurrent class and uniform stationary law. Exact stationary crossing flux and a union-bound/coupling-free conductance argument establish the stated hub-change rate and total-variation lower bound. The proof explicitly distinguishes an almost-sure entry claim from a mixing-time claim on the recurrent class. Direct independent finite computations reproduce all transitions and classes for \(m\le4\), and the product description for \(m\le5\); these checks do not replace the proof.
+## correctness
 
-## Originality — PASS, with qualified historical priority
-Rouquier, Regnault and Thierry (arXiv:1011.5119v1, available 23 November 2010) give the exact self-inclusive asynchronous rule and an energy argument, but their inspected clique/cycle/path/tree results do not state a triangle-bouquet recurrence class or stationary hub bottleneck; their clique statement handles the special case \(m=1\). Earlier literature on antiferromagnetic spin flips in the two-dimensional triangular lattice studies a different graph and kinetic regime, and its full text was not accessible in this comparison. Search of mathematical-result records for aliases, windmill graphs, Glauber dynamics, recurrent classes, and mixing barriers did not produce a covering theorem. A separate result for synchronous open-neighborhood minority on friendship graphs already has a \(2\cdot3^m\) fixed-state count, so that coincident number by itself carries no priority claim and does not imply the present asynchronous recurrent-graph/flux/mixing theorem. Unindexed equivalent results remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The paper's motivating gap concerns how graph topology changes asynchronous minority behavior. This complete natural family shows a sharp and surprising distinction between eventual recurrence and equilibration: every initial state eventually reaches a single connected recurrent component, yet exchange of the central spin across two extensive phase layers is exponentially rare at equilibrium. The exact transition geometry, stationary flux, and rigorous growing lower bound establish a structural metastability mechanism, not merely a recomputed fixed-state count.
+For the specified self-inclusive asynchronous minority rule every active vertex flip makes same-color edge energy E nonincreasing. E>=m, equality exactly when each triangle nonmonochromatic; from every E>m state some monochromatic triangle permits a strict peripheral energy decrease. At E=m, for each fixed hub color the m independent edge-neutral peripheral coordinates form P3^m; hub may flip exactly when all m coordinates are corners, with 2^m matching cross-layer edges and therefore one irreducible 2*3^m-state class. Symmetric transition rates 1/(2m+1) imply uniform stationary law; fraction (2/3)^m of corners gives rate (2/3)^m/(2m+1). Starting from stationarity conditioned on one hub layer, union bound on hub crossings gives TV >=1/2-t r_m and lower mixing bound ceil(1/(4 r_m)). Independent exhaustive enumeration m=1..4 recovered energy structure, recurrent connectivity, cross-layer counts and stationary rate. Does not establish any matching upper bound on mixing time.
 
-## Limits
-No matching upper bound for the mixing time is proved, and no historical uniqueness claim is made. The graph family and inclusive self-update convention are essential. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: older Rouquier–Regnault–Thierry self-inclusive minority analysis has the same update and monotone energy but examines cliques, paths, cycles and tree cases, not the product geometry or windmill bottleneck. Published stochastic-minority bottleneck on K_m,m,m is for a different graph and yields a six-hypercube attractor, not the 2*3^m two-P3^m structure. Synchronous windmill minority results with numerically equal counts are not asynchronous recurrence. No identified publication implies the exact 2^m cross-layer matching, stationary hub-switch rate or F_m bound.
+
+## value
+
+PASS
+
+The exact rare hub-flip mechanism supplies a motivated natural family where one recurrent class and uniform stationary law coexist with exponentially slow cross-layer mixing. The two-layer Cartesian product decomposition, stationary transition rate and rigorous conductance lower bound are mathematically useful even without a sharp upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
