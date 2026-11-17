@@ -1,11 +1,21 @@
-# Scientific review: adjacent-pair-loss rings
+# Independent mathematical audit
 
-**Correctness (PASS).** The theorem identifies a normalized two-boson Hilbert space, strictly positive edge-local jump rates and the exact no-jump evolution. In each total-momentum sector except the alternating one, the free hopping energies are simple. Every edge-dark nonexceptional eigenvector is an antipodal momentum pair at energy zero. On even rings the alternating sector has identically zero hopping energy and a rank-one detected edge direction. This gives the complete orthogonal projector and all dimensions. Projector overlaps give the localized capture laws, while finite-dimensional dissipative contraction proves the asymptotic formula for arbitrary positive rates. Independent algebraic and numerical implementations check finite cases; experiments are not treated as proofs of the infinite family.
+## correctness
 
-**Originality (PASS on examined evidence).** The closest literature is Ates–Olmos–Li–Lesanovsky (arXiv:1207.6291), introducing precisely distance-selective pair-loss Lindblad jumps but treating strong-dissipation bound complexes, and Everest–Hush–Lesanovsky (arXiv:1406.6097), treating strong-loss hard-core boson Zeno dynamics. Qin et al. (arXiv:1409.0306) analyze a Hermitian nearest-neighbor interaction instead of an irreversible channel; Krovi–Brun (arXiv:quant-ph/0606094) provide the general spectral dark-state principle; Gamble et al. (arXiv:1002.3003) give the two-boson Hamiltonian. The exact finite-rate parity classification, projector and distance-resolved pair-capture laws are not explicitly obtained in those inspected materials. Accessible overlapping earlier calculations of *on-site* collisions have distinct detector kernels and do not imply these formulas. Unindexed equivalent work and unexamined later literature remain a residual risk; the review does not claim a globally exhaustive search.
+PASS
 
-**Mathematical value (PASS).** Finite-rate loss of adjacent pairs is a concrete physical mechanism introduced in the distance-selective-loss literature, not an arbitrary graph-slicing statistic. The all-size classification exposes a sharp parity obstruction and a mod-four splitting of protected-space dimension, with an explicit protected projector and experimentally interpretable initial-separation capture laws. It separates true infinite-lifetime protection from the finite-time slow decay of Zeno dynamics. These are exact structural answers for an infinite family, beyond checking a few small rings or a single parameter value.
+PASS: normalize symmetric two-boson states and require gamma_j>0 so ker W is exactly vanishing of every adjacent-pair coordinate. Decomposition by simultaneous translation shows simple energies in each non-alternating sector; only antipodal Fourier pairs have edge amplitude zero. In the p=n/2 sector for even n, cos(pi p/n)=0 makes H=0 on the entire sector and the edge detector has rank one, yielding P_D=Q_pi-|e_pi><e_pi|+sum_{k=1}^{m-1}|phi_k vee phi_{k+m}><...| and dimensions n-1 or n-2 depending on n mod4. Overlaps give exact localized capture table including antipodal parity and adjacent absorption. Dissipative contraction plus absence of undamped Jordan blocks yields limit 1-Tr(P_D rho), independent of strictly positive nonuniform rates; no finite-time claim. Independent normalized spectral calculations for n=3,4,5,6,8,10 with unequal rates recovered ranks 0,3,0,4,7,8 and all distances' capture probabilities. These are corroboration, not an all-n proof.
 
-**Scientific scope and risk.** Results require noninteracting bosons and every nearest-neighbor pair-loss channel present with strictly positive rate. The proof does not address hard-core projection, extra loss types, different hopping amplitudes, interactions or finite-time lifetimes. Prior published work may contain an unindexed equivalent specialization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: earlier two-body nonlocal-loss papers specify similar jump operators but do not state the complete all-ring exact finite-rate dark projector and mod-four dimensions for noninteracting soft-core bosons, nor the distance-resolved rate-independent eventual capture table. On-site collision-loss results test a genuinely different subspace.
+
+## value
+
+PASS
+
+PASS: Exact protection/capture classification is a physically meaningful invariant of the natural adjacent-loss lattice system, distinguishing finite-rate asymptotic survival from strong-loss Zeno approximations, revealing sharp n mod4 selection and a nontrivial antipodal no-survival boundary. The explicit projector answers arbitrary initial-state capture rather than a small unmotivated computational slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
