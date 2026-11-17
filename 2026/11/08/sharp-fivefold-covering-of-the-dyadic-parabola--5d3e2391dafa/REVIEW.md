@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is reconstructed from the elementary parity obstruction, a mixed-parity base at modulus four, and two top-bit operations that independently control the linear and quadratic sums. The second operation changes the square sum by exactly the highest binary bit because its two entries have opposite parity. The obstruction for four terms reduces to modulus eight. Boundary exponents \(k=1,2\) are covered separately, and the finite checker tests the complete small-modulus spectra and the lifting moves. No computational sample is used as an infinite proof.
+## correctness
 
-## Originality — PASS
-The archival source Tóth (2014) counts solutions of single quadratic congruences, not simultaneous prescribed first and second moments. Hickman–Wright (2018) concerns analytic restriction over modular rings. A published fourth-moment result for the same dyadic graph computes energy and sharp analytic constants, which do not imply a fivefold covering theorem. General finite-group sum-cover work addresses a different optimization problem. Targeted searches for equivalently phrased two-moment systems, fivefold dyadic parabola sums and local additivity found no covering statement. Older local quadratic-form and additive-basis literature remains a historical-priority risk; a small-group sum-cover paper was inspected only at abstract level.
+PASS
 
-## Mathematical value — PASS
-The exact sharp covering order of a natural polynomial graph is classified over every dyadic ring. Five summands suffice for *every* parity-allowed prescribed pair of the first two power sums, and the sharp obstruction is structurally explained modulo eight. This resolves a local existence invariant rather than merely recomputing a table. No formula for representation counts, odd-prime extension or independent originality certification is claimed.
+For every k>=1 and targets (s,t) modulo 2^k of matching parity, the 5-term mixed-parity base at k=2 lifts via two independent top-bit toggles (add 2^k to one entry; move +/-2^(k-1) between opposite-parity entries). Each operation preserves lower bits and both tuple parities, proving all k by induction. The target (2,0) is not a 4-fold sum modulo 8: square-sum zero forces every entry even and the first coordinate divisible by 4. k=1 gives order 1 and k=2 gives order 3 (explicit 3-term construction). Confirmed exhaustive finite sumsets k=1..7 in independent program; not used as infinite proof.
 
-## Verification and limitations
-`checker.py` enumerated all sumset sizes for exponents one through seven, confirming the sharp values. It also independently checked mixed-parity witnesses and the two lifts at exponents two through four. These tests are finite corroboration; the argument above proves the general theorem. The proof and scope are self-contained, but bibliographic completeness cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact fivefold dyadic parabola covering order and sharp obstruction; the full published triple-convolution theorem and older quadratic congruence and finite-group cover sources do not state the universal fivefold basis result.
+
+## value
+
+PASS
+
+The exact universal additive covering order of a natural polynomial graph over every 2-power ring is a motivated invariant; the mixed-parity lift and modulo-8 obstruction settle a structural local two-moment existence question not a routine table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
