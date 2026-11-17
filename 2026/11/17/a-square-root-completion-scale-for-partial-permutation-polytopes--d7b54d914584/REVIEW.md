@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The Frobenius projection theorem is established for each exact integer dimension and rank. Uniqueness permits symmetry reduction to four orbit parameters; for fixed cross-block parameter the matched off-diagonal block vanishes, and a one-dimensional strictly convex quadratic yields the unique projected matrix. The squared norm formula, shell counts, strict distance monotonicity and unique Hausdorff extremizer follow directly. The Gaussian rank local limit follows from the exact ratio of rook counts, Stirling expansion and log-concavity tail bounds; the metric Gaussian law is its delta-method image. The exact rational checker verifies 46,230 vertex inequalities in dimensions up to seven and an independent numeric solver confirms 18 configurations. Computation is corroboration, not the infinite proof.
+
+## Originality — PASS, historical priority provisional
+The partial-permutation polytope and rank enumeration are already known (Heuer–Striker, 2020, Sections 2–3). General nearest doubly stochastic matrix solvers and KKT equations are already known (Hu–Im–Li–Wolkowicz, 2021). A 2016 minimal completion theorem enlarges the matrix and minimizes enlargement, so does not determine same-size Euclidean distance. Published results on partial-assignment inballs, uniform-vertex covariance and the Gaussian deficiency of random partial bijections concern other invariants: especially, the Gaussian rank input is **not** asserted as novel here. Searches with exact rank parameters, matrix-nearness aliases, and published related mathematical records did not reveal the closed-form rank-stratified projection, all-rank metric shells and Hausdorff rigidity. This is a best-knowledge priority assessment, not a proof from absence of a search hit. Some older matrix-nearness full texts were inaccessible and remain a risk.
+
+## Value — PASS
+Completing a partial matching to a perfect-matching **convex face** in the unscaled Frobenius metric is a natural geometric distance problem. The result completely characterizes a family of nearest points and every vertex-distance shell, gives the unique farthest point on the entire polytope, and exhibits a sharp square-root deficiency threshold. Uniform vertices fall exactly in the transition window, producing a nontrivial limiting squared error one half. This is substantially more specific than a routine renaming of a projection algorithm, and supplies a geometric interpretation of the known rank fluctuations.
+
+## Limits
+The result does not solve nearest-bistochastic projection for arbitrary real matrices, weighted matrix norms, rectangular assignments, or constrained sparse bipartite graphs. The nearest-point calculation for partial-permutation vertices is proved here, while the earlier Gaussian deficiency law is credited. An equivalent special case hidden in an older numerical-matrix paper remains possible. External independent validation is pending.
+
+Self-review: passed. Independent audit: not yet performed.
