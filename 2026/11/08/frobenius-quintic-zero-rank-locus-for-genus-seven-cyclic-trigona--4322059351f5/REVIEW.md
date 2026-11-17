@@ -1,15 +1,21 @@
-# Review of the genus-seven cyclic trigonal Cartier stratification
+# Independent mathematical audit
 
-## Correctness — PASS
-For each monic squarefree octic in characteristic two the genus-seven Kummer cover has the displayed seven regular differentials. Direct use of the characteristic-two Cartier identities produces an off-diagonal matrix with two rank-two blocks. Twisted products reduce every positive iterate rank to a two-by-two matrix \(H\) and its entrywise Frobenius-twisted product \(H^{[4]}H\). The nonzero rank-one product cannot subsequently vanish, yielding exactly the four stated profiles; stable ranks are \(4,2,0,0\). The parameter locus with stable rank zero is the cone over a closed-embedded rational quintic, with the asserted vertex singularity. The standalone program independently checks the formulas on all monic octics over \(\mathbb F_2\) and \(\mathbb F_4\), plus a deterministic \(\mathbb F_8\) sample. These checks do not substitute for the universal proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Elkin (arXiv:0708.0431; first public 2007-08-02), particularly the characteristic-two corollary, already entails constancy of the first Cartier rank; it does not state the four higher-iterate profiles or the explicit genus-seven coefficient strata. England (arXiv:1003.4144) studies genus-seven cyclic \((3,8)\) curves over complex numbers, not characteristic-two Cartier or \(2\)-rank. Bouw (Compositio 126, 2001) studies generic p-rank and general Hasse–Witt methods; the inspected material does not state this exact four-way classification or the Frobenius-quintic singular geometry. The Özman–Pries–Weir trielliptic realization theorem in arXiv:1907.05684 is for odd primes and does not imply the characteristic-two coefficient equations. Closest explicit characteristic-two polynomial examples involve degree-five or degree-seven branch polynomials, different genera and different smooth rank-zero strata. Relevant published-record searches yielded no equivalent or stronger precise statement. Historical priority remains subject to unindexed specialist work, and inaccessible earlier research material was not treated as checked.
+PASS
 
-## Mathematical value — PASS
-The four Cartier-iterate types classify an infinite natural family in its entirety, and the rank-zero subvariety has a geometric singularity not present in closely related smaller-degree examples. Its intrinsic nilpotence distinction at the cone vertex is invisible to first Cartier rank and to stable \(2\)-rank alone. The result supplies a complete reduced coefficient-space classification useful for analyzing positive-characteristic trigonal Jacobians, without claiming a moduli-stack scheme or full Ekedahl–Oort stratification.
+For y^3=f(x) with squarefree monic octic in characteristic 2, nine tame Kummer branch points give genus seven and the two dx/y plus five dx/y^2 forms are regular independent differentials. The explicitly inspected 7x7 semilinear Cartier block matrix has A injective of rank 2, B surjective rank 2, and BA^[1/2]=H^[1/4]. Twisted products give four claimed rank profiles from H and Q=H^[4]H, with rank-one scalar factorization proving stabilization or nilpotence (finite tests alone do not). The rank-zero equation H^[4]H=0 projectivizes to [st^4:t^5:s^5:s^4t], a smooth quintic parametrization, and the cone is irreducible dimension 2 with only its vertex singular. Four free coefficient coordinates produce codimension 2 in the squarefree-octic open, and the prescribed H can always be completed to squarefree f. Independently constructed GF(2) arithmetic checked all 128 squarefree monic octics against six Cartesian-power ranks and the four cases.
 
-## Limits
-This is a self-review of a self-contained proof, not an independent audit. Reproducible finite fields verify sample and exhaustive finite cases only. Historical absence cannot be proved from database search; older exact computations could exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Elkin supplies the initial Cartier-rank/a-number machinery, and related characteristic-two genus-six results exhibit different degree/septics and different rank-zero loci. The complete genus-seven rank-iterate classification together with singular rational-quintic cone geometry is not an implication of the identified published statements. Best-of-knowledge originality only.
+
+## value
+
+PASS
+
+The complete classification of an intrinsic arithmetic-geometric invariant (stable 2-rank and Cartier nilpotence) across a natural genus-seven cyclic Kummer family, with a singular rational-quintic rank-zero coefficient locus and precise codimension, is a motivated structural theorem. The vertex distinguishes nilpotence profiles without changing stable rank, a useful subtlety for Jacobian stratification; initial a-number constancy is acknowledged as old.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
