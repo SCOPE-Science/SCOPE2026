@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Gaussian derivative Fourier transformation gives an exact two-exponential STFT, and the time variable is eliminated without losing any roots. The real scalar equation has exactly two exterior roots and one or three interior roots except at explicitly identified fold and cusp degeneracies. Its derivative and second/third local expansions establish all boundary multiplicities; the exact Jacobian gives the charge signs. The supplied checker validates the formula against independent numerical quadrature and root cases. Scope is bounded to Gaussian derivatives, nonzero tones, and positive parameters.
+## correctness
 
-**Originality — PASS relative to examined evidence.** The result is the nontrivial two-parameter amplitude asymmetry of deterministic two-tone zeros. The first-derivative equal-amplitude transition is treated as background rather than claimed as a second contribution. The source by Bellourak et al. (arXiv:2610.13531) develops the charge language for stochastic white noise with orthonormal Hermite windows; Poinas–Bardenet (arXiv:2507.13829) treat unequal-amplitude interference with the Gaussian window and find a single line of zeros. Neither inspected full text states the Gaussian-derivative cusp locus, four-zero fold boundary, or sharp amplitude-exponent law. A 2022 Gaussian-window ridge separation theorem is not an equivalent zero classification. Exact earlier priority beyond these inspected sources is not independently certified.
+PASS
 
-**Value — PASS.** The exact fold curve gives a mathematically motivated and experimentally interpretable threshold for when unequal component strengths suppress the two extra spectrogram zeros. The fold charge cancellation, codimension-two cubic cusp, and universal \(2/3\) asymmetry law give a robust structural benchmark for the signed-zero framework introduced in recent work. They are not a mere new numerical sample of the symmetric transition.
+Fourier transform of a Gaussian derivative reduces nonzero STFT zeros to roots of F(u)=lambda+n log|(u−1)/(u+1)|+2cu, u=xi/omega not ±1, and exactly one time phase per real root modulo pi/omega. F′=2c+2n/(u²−1) is positive on each exterior interval, giving one root each. On (−1,1) the only extrema for c>n are ±v=sqrt(1−n/c), with extremal values lambda±H_n(c); hence 1, 2 (with double), or 3 internal distinct roots. The Jacobian at simple roots has index −sign F′, yielding conserved signed sum −1. The cubic expansion F=lambda+2(c−n)u−(2n/3)u³+O(u⁵) gives the unique cusp and 2/3 threshold law; F″ nonzero at noncusp folds. No extra zeros at xi=±omega.
 
-**Residual limitations.** Higher Gaussian derivatives are not orthonormal higher Hermite functions. Experimental zero detection may be unstable near folds. Equivalent catastrophe terminology might occur in specialist interference literature. No external mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for all derivative orders, unequal amplitude exact fold/cusp surface and topological charge bookkeeping. Prior symmetric n=1 claim is covered background, not new here.
+
+## value
+
+PASS
+
+The exact sharp amplitude-asymmetric fold curve and conserved topological charges resolve a natural robustness/bifurcation question for deterministic two-tone time-frequency zeros; all derivative orders and the four-zero collision boundary supply information beyond the previously known equal-amplitude n=1 diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
