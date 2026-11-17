@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:53:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-uniform-mixed-poisson-law-for-two-simultaneous-counting-balanc--349e71c07bb3/RESULT.md Git blob 94c99582e81838c6f3bf81d141432b16b08b1eed",
+        "2026/11/08/a-uniform-mixed-poisson-law-for-two-simultaneous-counting-balanc--349e71c07bb3/checker.py Git blob 280b71a53939e468e58f6133383486f1b6eced4d",
+        "Ghosh–Schwarzentruber arXiv:2610.26187v1 counting modal language",
+        "Standard multivariate lattice local limit and Le Cam Poisson-binomial bound"
+      ],
+      "rationale": "In the loopless directed p=1/2 independent-arc graph with independent fair four unary labels, let each color difference d_w=(1_p-1_q,1_r-1_s). The global M_n/√n tends to N_2(0,(1/2)I). Conditional on colors, each row v independently sums arc indicators times d_w; mean (M_n-d_v)/2 and covariance (1/4)sum_{w≠v}d_w d_w^T≈(n/8)I. Positive linear counts of color types (1,0),(0,1) ensure full lattice span, allowing uniform Fourier local CLT with Q_{n,v}=(4/(πn))exp(-||M_n||²/n)+o_P(1/n). Directed row independence (including root A_ov) makes root Z_n conditionally Poisson-binomial, parameter ≈(2/π)exp(-||M_n||²/n). Le Cam plus CLT gives a mixed Poisson; for G~N_2(0,I/2), ||G||²~Exp(1), so exp(-||G||²)~Uniform[0,1]. Good-color row bounds O(1/n) and exponentially rare bad labels yield convergence of every fixed factorial moment. Source checker independently enumerates n=2,3,4 and n=3 direct all directed arc assignments, independently checks the mean through K~Binomial(n-1,1/2), and is not used to prove the limit.",
+      "residual_risks": [
+        "Requires independent directed rows, fair labels and density p=1/2. Not a law for all counting-modal formulas.",
+        "Gaussian weak convergence alone would not justify all factorial moments without the exponentially likely uniform Q_v≤C/n bound, explicitly present in the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Schwarzentruber treats tree models; Adam-Day et al mean aggregation, not exact integer equalities; later Boolean reduct concerns majority formulas."
+        ],
+        "reasoning": "No broader inspected theorem implies this two simultaneous zero-balance fixed formula. Full convergence of counting modal logic on arbitrary graphs is not claimed.",
+        "searches": [
+          "arXiv:2610.26187 full modal syntax/tree asymptotics sections",
+          "arXiv:2403.03880 GNN averaging",
+          "Resultary 2026/11/2 exponential Boolean reduct biased majority"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: Counting modal logic two simultaneous number equality conditions random dense directed graph mixed Poisson uniform mixture",
+        "Ghosh–Schwarzentruber arXiv:2610.26187v1",
+        "Adam-Day et al arXiv:2403.03880 mean-aggregation GNN",
+        "Tousinejad–Koponen arXiv:2606.23715 colored digraph first-order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing tree law has independent child subtrees; final dense digraph conditionally shares the same colors M_n across all child rows, and the mixing intensity is random rather than deterministic."
+        ],
+        "reasoning": "The tree results do not imply a dense-directed-graph random-mixture limit. The new asymptotic is a concrete calculation of a previously unaddressed class, not a formal corollary of first-order or mean-GNN zero-one laws.",
+        "searches": [
+          "Ghosh–Schwarzentruber Section 7 future random graph problems",
+          "Current RESULT.md Fourier local limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Root event is a count of neighbors whose two outgoing-predicate difference sums equal zero; equivalently a shared-environment locally rare exact-balance count."
+        ],
+        "reasoning": "Equivalent random-environment Poisson-binomial description is derived in the submitted proof. The source tree fixed-formula results do not assert that mixed Poisson limit on dense directed graphs.",
+        "searches": [
+          "Ghosh–Schwarzentruber modal # predicates general graph inquiry",
+          "Resultary dense digraph two counting balances"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite checker lists root probabilities for n=2..4; the final law is a non-Poisson continuous mixture identified by asymptotic Fourier analysis."
+        ],
+        "reasoning": "Not just a table or finite enumeration: no finite sampled dataset determines the exact uniform mixing distribution for n→∞.",
+        "searches": [
+          "Ghosh–Schwarzentruber finite graph modal counts",
+          "Resultary random digraph count equality probability"
+        ]
+      },
+      "rationale": "Ghosh and Schwarzentruber (2026) supply the counting-modal semantics, derive small-model counts and tree asymptotics, and flag random general graphs as a future question. The present fixed depth-two formula on dense directed independent arcs has shared global color fluctuations causing a genuinely nondegenerate uniform random Poisson intensity, absent in independently branching tree models. First-order colored random digraph and mean-aggregation GNN convergence theorems do not address exact unnormalized count equalities. Resultary semantic search surfaced related counting-modal random frame limits but not this precise two-balance law other than the submitted record. The claim is specific and modest; best-of-knowledge priority is qualified.",
+      "residual_risks": [
+        "A general multivariate conditional-local-limit/mixture theorem might imply the fixed formula via specialization, but no covering statement for these rooted nested counting equalities was identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS definitions and tree model; does NOT present the dense two-pair mixed-Poisson law",
+          "evidence": "Authors identify extension to general graphs as prospective; assumptions use independent child subtrees rather than overlapping global colors.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26187v1",
+          "material_read": "Introduction, semantics, result discussions and tree-model asymptotics including Section 7 future general-graph questions",
+          "method": "Lawful primary arXiv HTML reading",
+          "title": "On Counting Graphs for Modal Logic with Counting",
+          "trigger": "Exactly the motivating modal syntax and neighboring asymptotic results"
+        },
+        {
+          "assessment": "Claim reconstructed with Fourier local CLT and conditional Le Cam",
+          "evidence": "q_v~(4/(πn)) exp(-||M_n||²/n), Λ~Uniform(0,2/π).",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-uniform-mixed-poisson-law-for-two-simultaneous-counting-balanc--349e71c07bb3/RESULT.md",
+          "material_read": "Full RESULT.md and checker.py",
+          "method": "Frozen Git primary package",
+          "title": "A uniform mixed-Poisson law for two simultaneous counting balances on dense random digraphs",
+          "trigger": "Current model/theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/a-uniform-mixed-poisson-law-for-two-simultaneous-counting-balanc--349e71c07bb3/RESULT.md",
+        "Ghosh–Schwarzentruber arXiv:2610.26187v1"
+      ],
+      "rationale": "An exact natural depth-two counting-modal probability supplies a concrete nontrivial answer in a random-graph setting where the earlier motivating work studied trees. The uniform mixed-Poisson intensity is a mathematically informative counterexample to naive deterministic-Poisson/zero-one heuristics driven by shared global labels. It gives all fixed factorial moments and a closed logical truth probability, without needing a general theory of every counting formula.",
+      "residual_risks": [
+        "Specialized independent-arc ensemble and four fair unary bits; not universal across graph distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Same C/O/V assessment criterion used across all records; verified finite computations treated only as corroboration, not infinite proofs.",
+    "Best-of-knowledge bibliography and reading risks are retained in the respective originality objects.",
+    "Source-tree SHA from assigned frozen commit independently matched exact Git tree object, and no GitHub mutations were performed."
+  ],
+  "schema_version": 1
+}

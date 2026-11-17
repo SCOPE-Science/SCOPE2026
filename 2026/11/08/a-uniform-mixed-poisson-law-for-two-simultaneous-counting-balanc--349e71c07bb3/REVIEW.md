@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is conditional on a precise fair-label, independent-arc directed model. The proof directly checks the nontrivial multivariate lattice span using the positive-density color-difference types \((1,0)\) and \((0,1)\), derives the Fourier local-limit normalization \(4/(\pi n)\) and the shift exponent \(-\|M_n\|^2/n\), and conditions on all colors to obtain independent directed rows. Conditional Le Cam approximation and a two-dimensional central limit theorem yield the uniform mixing intensity. Rare bad color configurations have exponentially small probability; the good configurations bound each child-event probability by \(O(1/n)\), justifying every stated fixed factorial moment. The independent outdegree identity confirms the limiting mean. The checker verifies exact finite probabilities without claiming finite checks prove the asymptotic theorem.
+PASS
 
-## Originality — PASS within available material
+In the loopless directed p=1/2 independent-arc graph with independent fair four unary labels, let each color difference d_w=(1_p-1_q,1_r-1_s). The global M_n/√n tends to N_2(0,(1/2)I). Conditional on colors, each row v independently sums arc indicators times d_w; mean (M_n-d_v)/2 and covariance (1/4)sum_{w≠v}d_w d_w^T≈(n/8)I. Positive linear counts of color types (1,0),(0,1) ensure full lattice span, allowing uniform Fourier local CLT with Q_{n,v}=(4/(πn))exp(-||M_n||²/n)+o_P(1/n). Directed row independence (including root A_ov) makes root Z_n conditionally Poisson-binomial, parameter ≈(2/π)exp(-||M_n||²/n). Le Cam plus CLT gives a mixed Poisson; for G~N_2(0,I/2), ||G||²~Exp(1), so exp(-||G||²)~Uniform[0,1]. Good-color row bounds O(1/n) and exponentially rare bad labels yield convergence of every fixed factorial moment. Source checker independently enumerates n=2,3,4 and n=3 direct all directed arc assignments, independently checks the mean through K~Binomial(n-1,1/2), and is not used to prove the limit.
 
-The 2026 motivating paper treats model counting and its asymptotic results on complete-branching *trees*, explicitly naming general graphs as further work. Its accessible full text does not derive an exact doubly balanced depth-two formula's limit for independent directed arcs. Independent tree-branch rare-event Poisson laws do not imply the present random-environment mixture. The 2024 mean-aggregation GNN convergence paper establishes aggregate elimination for normalized means rather than exact integer equalities, and the 2026 Markov-logic-network colored-digraph paper deals with first-order sentences in a different one-color relational model. The general mixed-Poisson theorem is classical, but its conditional color-environment intensity and uniform law in this formula were not found in the inspected sources or searched research records. Full historical priority is not asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an explicit non-degenerate limiting truth proportion for a natural fixed-depth counting-modal sentence on the randomly labeled directed graphs whose general convergence behavior was left for investigation in the 2026 motivating work. More importantly, it exhibits a qualitative mechanism absent on independent-branch trees: conditioning on globally shared predicate imbalances creates a continuum of Poisson intensities, exactly uniform for two balance coordinates. The full limiting distribution and factorial moments quantify this obstruction to naive independent-neighbor Poisson heuristics.
+Ghosh and Schwarzentruber (2026) supply the counting-modal semantics, derive small-model counts and tree asymptotics, and flag random general graphs as a future question. The present fixed depth-two formula on dense directed independent arcs has shared global color fluctuations causing a genuinely nondegenerate uniform random Poisson intensity, absent in independently branching tree models. First-order colored random digraph and mean-aggregation GNN convergence theorems do not address exact unnormalized count equalities. Resultary semantic search surfaced related counting-modal random frame limits but not this precise two-balance law other than the submitted record. The claim is specific and modest; best-of-knowledge priority is qualified.
 
-## Limitations and priority risks
+## value
 
-Only the specified directed dense fair model and fixed formula family are proved. No convergence assertion is made for other formulas or for undirected graphs. Classical lattice local central limit theorems and mixed-Poisson approximations may imply the result after a model-specific translation; earlier specialized probability literature could have examined precisely such color-sharing mechanisms. The finite checker is not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact natural depth-two counting-modal probability supplies a concrete nontrivial answer in a random-graph setting where the earlier motivating work studied trees. The uniform mixed-Poisson intensity is a mathematically informative counterexample to naive deterministic-Poisson/zero-one heuristics driven by shared global labels. It gives all fixed factorial moments and a closed logical truth probability, without needing a general theory of every counting formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
