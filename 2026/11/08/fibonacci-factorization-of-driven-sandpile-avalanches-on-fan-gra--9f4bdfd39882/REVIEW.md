@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The single final claim consists of the exact spatial-support law for each fan graph and drive site, the associated multivariate polynomial, finite conditional arm independence, and its derived bulk limit and mean. The proof uses the fan burning criterion to characterize recurrent height words, the reduced-Laplacian Fibonacci determinant, one-toppling propagation along the path, two independent recurrent tail factors, and exact Fibonacci normalization. The bulk limit follows from Binet's formula. The exact mean follows from group stationarity and one-grain dissipation per toppling. An independent burning/toppling enumerator tested 35,044 recurrent-state/site pairs for all fan lengths from two through nine, and an identity/determinant checker verified 536 finite parameter pairs up to length 100 and the selected bulk local limits through length 200. The infinite theorem is proved analytically; these finite tests are not treated as a replacement for proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual priority risk.** Austin et al., arXiv:1605.02713, explicitly calculate the wheel avalanche polynomial and already use the fan recurrent-word condition and Fibonacci fan counts. In particular, their wheel result substantially anticipates the limiting bulk avalanche-size law; this marginal limit is not claimed separately new. Their wheel formula does not supply the complete *finite fan* support polynomial or the exact conditional independence of its two arms. Selig, arXiv:2202.06487, directly studies fan sandpiles but its inspected Section 5 gives recurrent-state bijections and level counts, not drive-site-resolved avalanches. Targeted searches of research records and the published literature did not identify equivalent finite fan coverage. An unindexed or inaccessible equivalent fan theorem remains a historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The computed full support distribution is motivated by the driven avalanche observable on a natural boundary-altered counterpart of the wheel graph. Its exact two-sided factorization yields meaningful finite-boundary dependence and a closed thermodynamic distribution, distinguishing an exponentially localized avalanche regime from a power-law scenario. This is a complete result for an infinite family rather than an arbitrary special-size census.
+The fan with dominating sink has reduced Laplacian determinant F_(2n), and the burning forbidden-subconfiguration test reduces to no two height-zero sites without intervening two. Adding a grain at j topples at most once per path site (first-repeat argument); precisely its maximal saturated consecutive run propagates. For an exact interval [L,R] containing j, saturated internal heights are forced and two independent boundary tails have counts w(L-1),w(n-R), giving P_j([L,R])=w(L-1)w(n-R)/F_(2n). Fibonacci tail sums factor as F_(2j-1)F_(2(n-j)+1), proving zero probability and exact conditional arm independence. Summing over j gives the complete multivariate interval support polynomial. Binet gives bulk mass t phi^(-2t)/sqrt(5); sandpile group translation plus one grain lost per toppling gives exact E_j[T]=1. Rebuilt burning, recurrence and toppling simulation for all stable states n=2..8 and j, checking every interval count; finite checks are not the infinite proof.
 
-**Limitations.** Uniform edges, one distinguished universal sink and one-grain drive are essential. The limiting law requires an injection site receding from both endpoints. No claim about random toppling rules, weighted fans, multiple sinks or general universality is made. Priority comparisons are evidence-based rather than a certification of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2016 Austin et al wheel avalanche theorem and fan recurrent count, plus Selig 2022 fan recurrence/level counts are known premises. More decisively, a full 2026-11-02 Resultary theorem already establishes the UNIVARIATE fan principal-avalanche polynomial, saturated-run characterization, and bulk size distribution for the identical hub sink, so these are covered and are not credited. That published theorem sums over every source j and avalanche size and gives no fixed-source spatial interval law or independent two-sided reach distribution. The surviving original contribution is this natural site-resolved finite law and multivariate polynomial.
+
+## value
+
+PASS
+
+For a natural graph family, the full spatial support distribution at each selected injection site and its exact finite boundary/arm factorization are distinct, useful invariants not determined by the previously published aggregated avalanche-size generating function alone. The independent left/right geometric bulk structure is a meaningful exact refinement; the already known univariate law is expressly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

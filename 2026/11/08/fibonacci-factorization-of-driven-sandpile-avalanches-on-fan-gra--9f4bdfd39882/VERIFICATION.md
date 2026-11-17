@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-Run `python check_exhaustive.py` and `python check_identities.py` from a directory containing the accompanying files. Both require only Python 3 standard library.
+## correctness
 
-The independent exhaustive checker applies a Dhar burning stabilization criterion rather than assuming the claimed recurrent-word test. It separately simulates every legal avalanche, tabulates exact interval support counts, tests all zero events and the exact expected total toppling count. It examined all stable configurations for all fan lengths from two through nine and all drive positions, totaling 35,044 recurrent-state/addition tests. It also separately tested the forbidden-zero-word characterization against Dhar burning.
+PASS
 
-The second checker derives the reduced-Laplacian determinant by a continuant recurrence and tests normalization, conditional factorization, exact mean and finite forms for 536 integer parameter pairs, with fan lengths through 100. It also tests 25 limiting local probabilities at length 200, plus analytic normalization and moment constants.
+The fan with dominating sink has reduced Laplacian determinant F_(2n), and the burning forbidden-subconfiguration test reduces to no two height-zero sites without intervening two. Adding a grain at j topples at most once per path site (first-repeat argument); precisely its maximal saturated consecutive run propagates. For an exact interval [L,R] containing j, saturated internal heights are forced and two independent boundary tails have counts w(L-1),w(n-R), giving P_j([L,R])=w(L-1)w(n-R)/F_(2n). Fibonacci tail sums factor as F_(2j-1)F_(2(n-j)+1), proving zero probability and exact conditional arm independence. Summing over j gives the complete multivariate interval support polynomial. Binet gives bulk mass t phi^(-2t)/sqrt(5); sandpile group translation plus one grain lost per toppling gives exact E_j[T]=1. Rebuilt burning, recurrence and toppling simulation for all stable states n=2..8 and j, checking every interval count; finite checks are not the infinite proof.
 
-## Scope and limitations
+## originality
 
-The code is a finite consistency check and is not a computer proof for all sizes. The infinite-size argument rests on the explicit Fibonacci identities and Binet asymptotics in `RESULT.md`; the exact spatial factorization is proved from the burning criterion and path structure. No external scientific or independent validation is asserted.
+PASS
+
+The 2016 Austin et al wheel avalanche theorem and fan recurrent count, plus Selig 2022 fan recurrence/level counts are known premises. More decisively, a full 2026-11-02 Resultary theorem already establishes the UNIVARIATE fan principal-avalanche polynomial, saturated-run characterization, and bulk size distribution for the identical hub sink, so these are covered and are not credited. That published theorem sums over every source j and avalanche size and gives no fixed-source spatial interval law or independent two-sided reach distribution. The surviving original contribution is this natural site-resolved finite law and multivariate polynomial.
+
+## value
+
+PASS
+
+For a natural graph family, the full spatial support distribution at each selected injection site and its exact finite boundary/arm factorization are distinct, useful invariants not determined by the previously published aggregated avalanche-size generating function alone. The independent left/right geometric bulk structure is a meaningful exact refinement; the already known univariate law is expressly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
