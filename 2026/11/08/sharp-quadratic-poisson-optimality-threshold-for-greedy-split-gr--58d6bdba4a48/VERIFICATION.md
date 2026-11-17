@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside `RESULT.md` to replay 11,717 assertions. The implementation needs only the Python 3 standard library and outputs `VERIFY_OK 11717 assertions` on success.
+## correctness
 
-The checker compares direct labeled feasible-edge exhaustive transition laws with separately implemented rational count-state recursion for small complete split graphs, checks exact zero-deficit product identities, replays finite rational inequalities in the coupling proof, and verifies finite total-variation bounds for the Poisson approximation. The complete proof for arbitrary \(2\le a\le b\) and the asymptotic limits is given in `RESULT.md`; finite checks do not establish infinite claims by themselves.
+PASS
 
-No independent scientific audit has been performed.
+The exact clique/independent state has internal edge probability (x-1)/(2b-2a+3x+4k-1); every clique-internal choice removes two clique vertices and costs exactly one match vs optimum a, while cross choices yield a uniform labeled injection conditional on no internal choices. This gives Pzero=product_x 2(b-a+x)/(2(b-a+x)+x-1), and whole matching law TV from uniform maxima =1-Pzero because supports separate. Coupling visited internal selections with independent Bernoulli q_x=(x-1)/(2b), bounding skipped-state contributions and invoking Le Cam yields TV(D,Pois(a(a-1)/(4b)))<=a(a-1)(14a-5)/(24b²) for b>=4a; direct log product gives three regimes b/a²→infty/c/0. Independently recursed 105 exact-rational distributions and product identities plus 81 Poisson-TV bounds. The all-parameter results are proved by the source coupling rather than a finite numerical check.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives compared sources and all four direct implications.
+
+## value
+
+PASS
+
+The exact rare-deficit Poisson threshold b of order a² is a natural sharp phase boundary for whether a random maximal matching is maximum, with an explicit quantitative TV rate and exact whole-law coupling to uniform optimal injections. The finite split-graph recurrence is prior; the separate asymptotic classification is motivated and not a renaming of a proportional-regime CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The feasible-edge probabilities follow from exact edge counts in \(K_a\vee\overline K_b\). Internal clique choices contribute one lost matching edge each. Conditioning on no internal choice gives a uniform labeled cross-part injection. A coupling of the remaining clique-size process with independent Bernoulli choices proves the explicit Poisson total-variation bound, and a logarithmic expansion of the exact zero-deficit product gives all three sharp limit regimes. The standalone Python checker passed 11,717 assertions covering independent labeled enumeration, exact rational recursion, critical inequalities and finite total-variation estimates. The infinite statements rely on the proof rather than those finite tests.
+PASS
 
-## Originality — PASS (qualified)
+The exact clique/independent state has internal edge probability (x-1)/(2b-2a+3x+4k-1); every clique-internal choice removes two clique vertices and costs exactly one match vs optimum a, while cross choices yield a uniform labeled injection conditional on no internal choices. This gives Pzero=product_x 2(b-a+x)/(2(b-a+x)+x-1), and whole matching law TV from uniform maxima =1-Pzero because supports separate. Coupling visited internal selections with independent Bernoulli q_x=(x-1)/(2b), bounding skipped-state contributions and invoking Le Cam yields TV(D,Pois(a(a-1)/(4b)))<=a(a-1)(14a-5)/(24b²) for b>=4a; direct log product gives three regimes b/a²→infty/c/0. Independently recursed 105 exact-rational distributions and product identities plus 81 Poisson-TV bounds. The all-parameter results are proved by the source coupling rather than a finite numerical check.
 
-The greedy edge-choice algorithm and independent Bernoulli Poisson approximation are established tools. Arnosti (2021), *Greedy Matching in Bipartite Random Graphs*, https://doi.org/10.1287/stsy.2021.0082, studies random bipartite input instances, not this nonbipartite split-graph family. Dyer–Frieze–Pittel (1993), https://doi.org/10.1214/aoap/1177005436, analyze sparse random graphs and random labeled trees. Neither inspected source directly implies the fixed-family exact optimality product, whole-matching-law total variation or quadratic Poisson deficit window. The abstract of Dyer–Frieze (1991), https://doi.org/10.1002/rsa.3240020104, was available but its full text was not, so historical priority remains qualified. An absence in searches is not treated as proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-For the natural random-edge greedy maximal-matching algorithm, the theorem identifies a sharp \(b\asymp a^2\) scale for achieving the true maximum rather than simply a good multiplicative approximation. It supplies a finite error estimate, a Poisson additive-deficit law and an exact whole-output comparison with uniform optimal matchings. This is a mathematically motivated algorithmic reliability question on an infinite canonical graph family.
+Best-of-knowledge originality survives compared sources and all four direct implications.
 
-## Limitations
+## value
 
-The explicit Poisson bound assumes \(b\ge4a\), while the exact optimality formula assumes \(b\ge a\). No statement is made about unequal edge weights, vertex-first greedy matching, or sharpness of the numerical error constant. Full historical-priority verification and independent scientific audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact rare-deficit Poisson threshold b of order a² is a natural sharp phase boundary for whether a random maximal matching is maximum, with an explicit quantitative TV rate and exact whole-law coupling to uniform optimal injections. The finite split-graph recurrence is prior; the separate asymptotic classification is motivated and not a renaming of a proportional-regime CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
