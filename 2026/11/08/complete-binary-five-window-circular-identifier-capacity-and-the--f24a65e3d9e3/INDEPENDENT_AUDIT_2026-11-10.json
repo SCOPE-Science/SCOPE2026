@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:15:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-binary-five-window-circular-identifier-capacity-and-the--f24a65e3d9e3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-binary-five-window-circular-identifier-capacity-and-the--f24a65e3d9e3/witnesses.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-binary-five-window-circular-identifier-capacity-and-the--f24a65e3d9e3/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-binary-five-window-circular-identifier-capacity-and-the--f24a65e3d9e3/verify_independent.py"
+      ],
+      "rationale": "Each length-k binary cyclic identifier consumes k distinct 5-bit windows from a 32-word universe, giving floor(32/k) bound and automatic zero above k=32. The frozen witnesses.json provides full candidate optimal families for k=5..32 excluding seven; source verifier independently tests their window disjointness. At k=7 all 20 rotation classes are known from 2^7 strings; 2 constant and 6 with repeated 5-windows leave exactly 12 valid primitive cycles. Their explicitly listed partition into 3 internally intersecting classes (sizes 5,5,2) bounds an admissible family by 3, and three published disjoint 7-cycles attain. Independent direct 2^7 string/7-cycle intersection enumeration reproduces exactly 12 and no disjoint quadruple, yielding the unique deficit E(2,7,5)=3. This is an exhaustive finite certificate.",
+      "residual_risks": [
+        "A small-case table of E(2,7,5) in unpublished robot-tracking or de Bruijn computations could already exist.",
+        "Noiseless ordered read of exactly five bits and rotation identification are essential; reversal/noise not treated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1502.02199 fixed-length packing constructions for some divisibility classes",
+          "https://arxiv.org/abs/2205.02815 one repeat-free cycle any valid length",
+          "https://arxiv.org/abs/2308.16257 all-cycle factors may mix lengths"
+        ],
+        "reasoning": "One length-seven cycle does not imply four pairwise disjoint cycles; unconstrained cycle decompositions are too weak. Earlier partial constructions do not determine E(2,7,5).",
+        "searches": [
+          "binary de Bruijn graph order five disjoint directed cycles lengths seven eBug E(2,7,5)",
+          "arxiv 2205.02815 cut-down de Bruijn single prescribed length",
+          "arxiv 2308.16257 extremal factors de Bruijn length cycles"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1502.02199",
+        "https://arxiv.org/pdf/2205.02815",
+        "https://arxiv.org/abs/2308.16257",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-binary-five-window-circular-identifier-capacity-and-the--f24a65e3d9e3/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1502.02199 original eBug upper bound and partial constructions",
+          "https://arxiv.org/pdf/2205.02815 one-cycle theorem"
+        ],
+        "reasoning": "No compared prior statement forces an at-most-three partition of all twelve admissible 7-cycles; constructions show lower bounds only, general volume bound gives four and is not tight at seven.",
+        "searches": [
+          "binary de Bruijn graph order five disjoint directed cycles lengths seven eBug E(2,7,5)",
+          "Grubman 2015 Problem 1 Theorems 1-6 prime alphabet window",
+          "cut down de Bruijn cycles imply fixed length packing capacity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1502.02199 Proposition 1 gives exact equivalence between eBug circular words and vertex-disjoint fixed-length directed cycles",
+          "Assigned cyclic five-window sets correspond to vertices of 32-vertex binary order-five de Bruijn graph"
+        ],
+        "reasoning": "Two formulations are mathematically identical and were searched. Cyclic rotations count once; graphs of unordered factors or reversal equivalence are different.",
+        "searches": [
+          "binary de Bruijn graph order five disjoint directed cycles lengths seven eBug E(2,7,5)",
+          "\"E(2,7,5)\" de Bruijn identifier",
+          "de Bruijn order 5 maximum vertex disjoint 7 directed cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original arxiv:1502.02199 includes example for binary five-window k=8, not complete k profile",
+          "Frozen witnesses.json explicit complete construction list and 12-cycle certificate"
+        ],
+        "reasoning": "No inspected primary table gives the exact exceptional 7-capacity and all-k profile; even a bare E(2,7,5)=3 table would cover that finite claim, so unindexed tables remain a residual risk.",
+        "searches": [
+          "binary de Bruijn graph order five disjoint directed cycles lengths seven eBug E(2,7,5)",
+          "\"E(2,7,5)\" = 3",
+          "binary order five de Bruijn 7 cycles three cliques pack 12"
+        ]
+      },
+      "rationale": "Grubman–Şekercioğlu–Wood define E(q,k,l), bound and de Bruijn packing equivalence with some constructions including k=8, but their main theorems do not assert the exact full fixed q=2,l=5,k range or k=7 obstruction. Cameron–Gündoğan–Sawada construct a single cut-down de Bruijn sequence, not simultaneous disjoint identifiers; Álvarez et al. count cycles without every cycle sharing the same length. Targeted database search found no dominating exact fixed-seven packing table.",
+      "residual_risks": [
+        "A small-case table of E(2,7,5) in unpublished robot-tracking or de Bruijn computations could already exist.",
+        "Noiseless ordered read of exactly five bits and rotation identification are essential; reversal/noise not treated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior counting bound and construction regimes do not establish full q2,l5 profile or k7 deficit.",
+          "evidence": "Problem 1, Proposition 1 exact cycle equivalent, Theorem 5 partial constructions, final unresolved prime-parameter cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.02199",
+          "material_read": "Complete accessible arXiv PDF: abstract, problem, Proposition 1, main Theorems 1–6, necklace constructions and concluding limitations; rendered pages checked.",
+          "method": "OA primary full PDF and screenshot of key problem/theorems",
+          "title": "Partitioning de Bruijn Graphs into Fixed-Length Cycles for Robot Identification and Tracking",
+          "trigger": "Original paper defining same E(q,k,l) capacity and packing"
+        },
+        {
+          "assessment": "Single cut-down de Bruijn cycle of length k exists; no theorem packing floor(32/k) many pairwise disjoint cycles of same k.",
+          "evidence": "Paper focuses existence and generation of one repeat-free circular string of a given length.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.02815",
+          "material_read": "Full public manuscript introduction and main sequence construction algorithms, plus rendered first page.",
+          "method": "OA PDF text and page image",
+          "title": "Cut-Down de Bruijn Sequences",
+          "trigger": "Potentially stronger theorem constructing all lengths"
+        },
+        {
+          "assessment": "Mixed cycle-length factor optimization does not directly imply exact equal-length-seven packing.",
+          "evidence": "Length unconstrained in extremal factor problem, differing from all cycles length 7.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16257",
+          "material_read": "Abstract, theorem statements and relevant introductory description examined; full text not independently certified as read.",
+          "method": "Open primary paper abstract/theorem search",
+          "title": "On Extremal Factors of de Bruijn-like Graphs",
+          "trigger": "Another broad de Bruijn packing framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1502.02199",
+        "https://arxiv.org/pdf/2205.02815",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-binary-five-window-circular-identifier-capacity-and-the--f24a65e3d9e3/RESULT.md"
+      ],
+      "rationale": "The five-window binary eBug invariant is a naturally motivated and explicitly defined noiseless circular robot identifier capacity. A complete all-k profile supplies sharp constructive capacities and isolates a nontrivial seven-position deficit in an otherwise tight counting bound. The obstruction is a meaningful finite combinatorial classification of de Bruijn equal-length disjoint cycles, not arbitrary numerology.",
+      "residual_risks": [
+        "A small-case table of E(2,7,5) in unpublished robot-tracking or de Bruijn computations could already exist.",
+        "Noiseless ordered read of exactly five bits and rotation identification are essential; reversal/noise not treated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A small-case table of E(2,7,5) in unpublished robot-tracking or de Bruijn computations could already exist.",
+    "Noiseless ordered read of exactly five bits and rotation identification are essential; reversal/noise not treated."
+  ],
+  "schema_version": 1
+}
