@@ -1,11 +1,21 @@
-# Review of the nilpotent-cone self-Fourier singular-spectrum theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** Every nonzero square-zero \(2\times2\) matrix admits the unique parametrization \(s\nu_t\nu_t^{\mathsf T}J\), with \(t\in\mathbb P^1(\mathbb F_q)\) and \(s\ne0\). The trace pairing reduces exactly to \(-sv\Delta(t,r)^2\). Character orthogonality gives the trivial scalar block \(qI-\mathbf1\mathbf1^{\mathsf T}\), while the nontrivial scalar blocks are Gauss sums times projective determinant-character matrices. For nonquadratic characters these matrices satisfy the exact conference identity \(K_\chi K_\chi^*=qI\); the unique nontrivial quadratic character in odd characteristic instead gives \(K_\chi=\mathbf1\mathbf1^{\mathsf T}-I\). Counting all \(q-1\) character sectors yields precisely the claimed singular levels and multiplicities. An independent direct entrywise finite-field matrix construction matched the formulas for \(q=2,3,4,5,7,8,9,11\); finite tests do not establish the general theorem.
+## correctness
 
-**Originality — PASS under bounded comparison.** The full-text works of Achar–Mautner (2012) and Taylor (2016) address categorical Fourier transforms on nilpotent cones or Fourier transforms of invariant Lie-algebra functions, not the arbitrary-function complex singular-value spectrum of this finite square principal submatrix. The closest accessible related results on an odd-field half-Veronese cone and even-dimensional origin-included quadratic cones have different domains, normalizations, and spectral conclusions; neither covers the punctured three-dimensional nilpotent cone as a direct specialization. Classical Gauss sums, Möbius transformations on \(\mathbb P^1\), and character conference matrices are prior techniques, not new claims. Kawanaka's earlier relevant primary article could not be read in full; this creates a genuine residual historical-priority risk but no currently identified implication contradicting originality.
+PASS
 
-**Value — PASS.** Punctured nilpotent cones arise naturally in finite Lie algebra harmonic analysis. A complete classification of a critically sampled \((q^2-1)\times(q^2-1)\) Fourier operator provides universal reconstruction, exact singular multiplicities, and sharp stability bounds with a genuine even/odd characteristic transition. These properties do not follow from Fourier invertibility on the full ambient vector space, which does not imply principal-submatrix invertibility. This is a structural infinite-family theorem rather than an isolated table or parameter substitution.
+Parameterize every nonzero square-zero X by X_(t,s)=s u_t u_t^T J, t in P¹(F_q),s in F_q×, yielding q²-1 elements and trace pairing tr(X_(t,s)X_(r,v))=-sv det(u_t,u_r)^2. Decompose scalar fibers by unitary multiplicative characters. Trivial character block qI-J has singular 1 once and q (q times). Nontrivial characters give a Gauss sum of modulus sqrt(q) times projective Kχ; if χ²≠1, fractional-linear cross-ratio bijects q-1 off-diagonal points to F_q×, giving KχKχ*=qI. Odd-field quadratic χ gives K=J-I and exceptional sqrt(q) repeated q and q^(3/2) once. This yields exactly q²-1 total levels and universal invertibility; q2 boundary included. Independently assembled finite prime-field matrix and numerical SVD at q=2,3,5,7 (matrix sizes 3,8,24,48) reproducing full multiplicities. All q proof is algebraic, not finite extrapolation.
 
-**Limitations and risks.** The result is restricted to \(2\times2\) square-zero matrices with the origin excluded. It does not give phaseless recovery or classify every smaller sampling aperture. Independently adjudicated historical priority remains open, as does any independent mathematical audit. Source limitations are recorded in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier invariant-function Fourier transforms (Kawanaka/Letellier/Taylor) concern adjoint-invariant subspaces and representation-theoretic transforms, not an arbitrary complex-function square self-restriction with all singular values. A 2026 same-day general rank-one full matrix-cone Fourier result uses the larger *all rank-one* domain and coordinatewise pairing; it does not determine a smaller square-zero cut and trace-paired spectrum. A Veronese half-cone theorem has only square-scalar fibers and demonstrably different q=25 behavior (rank defect), while the current cone has every nonzero scalar and is invertible. Another 3x3 nilpotent **convolution** theorem uses frequencies throughout M3, not 2x2 restricted sampling. Best-of-knowledge O with Kawanaka original full text inaccessible, recorded.
+
+## value
+
+PASS
+
+The punctured minimal nilpotent cone is a natural representation-theoretic variety and finite restricted Fourier sampling is a natural exact inverse problem; sharp singular multiset, universal injectivity and condition number distinguish even vs odd characteristic. The theorem provides a complete all-prime-power boundary, not a table or arbitrary parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
