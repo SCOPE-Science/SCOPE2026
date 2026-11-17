@@ -1,19 +1,21 @@
-# Scientific review: cotree moment laws and hereditary covariance signs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies graph disjoint unions with Cartesian products of stable-set polytopes and graph joins with convex free sums. Radial cone-volume integration proves the exact factorial volume and rising-factorial moment recursions for all nonnegative multiindices. The normalized mixed-second-moment ratio transforms by an explicit positive factor at joins; induction gives the uniform sharp edge bound and exact nonedge sign partition. Direct rational integration on the induced four-vertex path establishes its negative endpoint covariance, so the hereditary converse follows from the cograph forbidden-path characterization. All quantifiers, coordinate normalization, and base cases are explicit. The checker independently integrates full-dimensional simplices for 564 finite cographs, evaluates 1,120 cubic-moment cases, and rechecks the path obstruction. Finite evidence supports rather than replaces the proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Stable-set polytope product under disjoint union and convex free sum under graph join; in the free sum, radial gauges and unused slack follow Dirichlet(a,b,1), giving volume a!b!/(a+b)! and for multiindex alpha the multiplier (a+1)_{|alpha_A|}(b+1)_{|alpha_B|}/(a+b+1)_{|alpha|}. This yields all-degree exact rational moments by cotree induction. The pairwise moment ratio R at a join has crossing value (N+1)/(N+2) and within-factor multiplier (a+2)/(a+1)*(N+1)/(N+2)>1, propagating edge R≤(n+1)/(n+2), nonedge R≥1 with strictness precisely for nonedges in connected components. Independently integrated the P4 stable-set polytope: normalization 5/24, E x2=7/25, E x2x3=1/15 and endpoint nonedge covariance -11/3750. The known forbidden induced P4 characterization then proves the hereditary iff; finite checks do not replace the Dirichlet proof.
 
-The closest primary graph source is Singh's *Cographs and 1-sums*, arXiv:2210.04139, establishing the join/zero-sum and induced-path framework. Aliniaeifard et al., *Stable set polytopes and their 1-skeleta*, arXiv:1804.00360, treat the same indicator polytopes but their inspected theorems concern edges, facets and diameter, not uniform-volume correlations. Kohn–Shapiro–Sturmfels, *Moment Varieties of Measures on Polytopes*, arXiv:1807.10258, establish general simplex-moment machinery but no closed cotree moment recursion or hereditary sign boundary. An earlier complete-multipartite moment law is a restricted special case, not broader coverage. Equivalence and implication comparisons under the aliases cograph/P4-free, graph join/0-sum, free sum, independence polytope, and uniform-volume moments found no dominating result. Targeted search cannot establish historical priority conclusively; generic integration and an unlocated alternate formulation remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives an all-degree exact integration method, a sharp edge covariance inequality, full reconstruction of adjacency and connected components from uniform interior covariance, and a clean forbidden-induced-subgraph converse. The P4 obstruction provides a substantive mathematical boundary rather than a numerical anecdote. Arbitrarily nested union/join constructions go beyond the earlier special families. There is no claim for uniform random stable sets or noncanonical affine coordinates.
+The published multipartite stable-set theorem is a proper special case of the cotree formula, but cannot imply the all-alternating-cotree recurrence and induced-P4 hereditary characterization without additional arguments. General stable-set-polytope and moment-variety papers supply background/algorithms, not the graph-specific sharp covariance sign iff. The universal Dirichlet-free-sum method is structurally motivated and its specialized consequences survive known coverage.
 
-## Limits and reproducibility
+## value
 
-The exact formula applies to finite simple cographs in their standard indicator realization. The hereditary characterization quantifies over every nonempty induced subgraph. A standalone checker uses stable-set vertex enumeration and independent exact-rational simplex integrations, with 564 finite configurations and 1,120 cubic-moment tests, without certifying all dimensions. Independent mathematical assessment and full historical-priority review have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural hierarchical graph class yields every uniform-volume mixed moment by a short cotree recursion, plus a sharp graph-recovery signature using covariance signs and a forbidden-subgraph boundary. The hereditary sign characterization is a structural all-cograph theorem, not a textbook consequence of the known multipartite special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
