@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the multipartite TOI-coalition spectrum
 
-The accompanying `verify.py` is a standalone Python 3 program using the standard library only. Run `python verify.py` in the directory containing this file. It builds the adjacency masks of each graph directly and tests total domination and complement independence for each candidate set; it does not use the theorem's structural TOIDS criterion as an oracle.
+# Independent mathematical audit
 
-It then exhaustively constructs unordered vertex partitions and tests each class and every candidate coalition partner from the graph definitions. It checks all 67 sorted positive part-size profiles with at least three parts and total order at most nine. The accepted partition totals are 8,199 two-class partitions and 5,140 three-class partitions, with no other class counts. For three-class partitions it independently checks whether the coalition graph is a path or a triangle and whether the pure-class criterion holds. The program also evaluates the closed formulas for a larger unbalanced vector without brute-force enumeration.
+## correctness
 
-Expected terminal lines:
+PASS
 
-```text
-EXHAUSTIVE_MULTIPARTITE_PROFILES_OK 67 partitions_accepted 13339 two_blocks 8199 three_blocks 5140
-LARGE_PROFILE_FORMULAS_OK (2, 4, 7, 10) 4193135 150666
-VERIFY_OK
-```
+For r>=3, independent vertex sets lie inside one part; a TOIDS is exactly a set whose complement lies in one part, since it contains every vertex of at least two other parts and is automatically total dominating. In a two-block partition neither block may be pure in one part, and subtracting each unique forbidden pure block from the 2^(N-1)-1 unordered nonempty bipartitions gives c2. With three coalition blocks, at least two complement classes must be pure and in distinct parts, which is also sufficient. Selecting their two nonempty subsets gives sum_{i<j}(2^ni-1)(2^nj-1), while the one r=3 all-pure partition is triple-counted and needs subtraction by two. Four or more blocks force every block outside any coalition pair into one part and leave an impossible coalition partner; source proof covers these cases and the coalition-graph distinction. Independent brute-force adjacency-mask TOIDS/set-partition enumerations agreed for profiles (1,1,1),(2,1,1),(2,2,2),(3,2,1), including the reported (22,25) for K2,2,2. Finite enumeration corroborates only.
 
-The unrestricted proof is in `RESULT.md`. The brute-force run is finite corroboration only; no independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The original TOI-coalition paper gives the predicate and several scalar extremal numbers. The October 13 complete-multipartite theorem already proves maximum block number three using the same TOIDS characterization, so that maximum is explicitly NOT treated as novel. The submitted result determines exact labelled partition counts at both possible sizes and full pure-block/coalition-graph types, which the complete earlier scalar proof does not entail as a stated result.
+
+## value
+
+PASS
+
+All admissible partitions of a natural domination-coalition graph class are classified, and both nonzero coefficients and coalition graph types are explicit for arbitrarily many unequal labelled parts. A complete count of all witnesses refines the known scalar extremum in a motivated, reusable manner rather than merely recomputing its maximum or an arbitrary restricted slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

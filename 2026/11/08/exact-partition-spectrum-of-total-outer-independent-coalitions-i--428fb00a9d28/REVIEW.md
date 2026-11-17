@@ -1,15 +1,21 @@
-# Review of the multipartite TOI-coalition partition spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns all finite labelled complete multipartite graphs with at least three nonempty parts. An independent set lies within one part, and in this domain the complement condition alone is equivalent to being a TOIDS because its selected complement contains at least two whole parts. The proof uses this equivalence to exclude four or more classes, classify two- and three-class partitions, and count them without changing the unordered-block convention. The only multiple counting occurs for the three-part partition into its original parts, which is represented three times and requires subtracting two. Every limit case, including complete graphs and singleton parts, is included. An independently implemented adjacency-based exhaustive graph-partition check covers 67 part-size profiles with order at most nine. It prints `VERIFY_OK`, and it is a finite corroboration rather than a substitute for the proof.
+## correctness
 
-## Originality — PASS, with priority qualification
-The initiating paper arXiv:2607.23623 establishes the definitions, general inequalities, and scalar results for complete, complete bipartite, path, and cycle graphs. A previous separate result establishes the scalar coalition number three for noncomplete complete multipartite graphs with at least three parts. Accordingly this work does **not** claim that scalar conclusion as new. The genuinely additional assertion is the if-and-only-if classification of **every** admissible partition, the exact formulas for all two- and three-class partitions, and the classification and number of coalition graphs of each type. A scalar maximum does not imply any of those multiplicities; obtaining them requires distinguishing pure blocks, handling unordered partition overcount, and separately analyzing the two-class partitions. Searches for equivalent TOI coalition partition-count formulas in both published mathematical research records and public primary literature did not locate a covering result. Incomplete historical indexing remains a risk, and this is not independent priority certification.
+PASS
 
-## Mathematical value — PASS
-The number of blocks alone hides an exponentially large family of two-block partitions and a different three-block family governed by pairs of part sizes. The exact census is natural for the newly defined coalition-partition invariant, finishes the complete-multipartite partition-spectrum problem in an unrestricted number of parts, and characterizes the unique triangular coalition graph. In balanced families the extremal three-block partitions become exponentially rare even though three is the maximum size. These features are not a routine recomputation of the previously known scalar extremum: they describe and enumerate the entire solution space.
+For r>=3, independent vertex sets lie inside one part; a TOIDS is exactly a set whose complement lies in one part, since it contains every vertex of at least two other parts and is automatically total dominating. In a two-block partition neither block may be pure in one part, and subtracting each unique forbidden pure block from the 2^(N-1)-1 unordered nonempty bipartitions gives c2. With three coalition blocks, at least two complement classes must be pure and in distinct parts, which is also sufficient. Selecting their two nonempty subsets gives sum_{i<j}(2^ni-1)(2^nj-1), while the one r=3 all-pure partition is triple-counted and needs subtraction by two. Four or more blocks force every block outside any coalition pair into one part and leave an impossible coalition partner; source proof covers these cases and the coalition-graph distinction. Independent brute-force adjacency-mask TOIDS/set-partition enumerations agreed for profiles (1,1,1),(2,1,1),(2,2,2),(3,2,1), including the reported (22,25) for K2,2,2. Finite enumeration corroborates only.
 
-## Closest literature and limitations
-The primary 2026 paper's Theorem 2 treats complete graphs and complete bipartite graphs; its general upper bounds do not supply the present census. The earlier complete-multipartite scalar result covers the value three and the TOIDS complement characterization, but not the exact labelled partition counts or coalition-graph classification. Super-domination and total restrained domination concern different coalition predicates. The present theorem does not apply to arbitrary graph joins or to complete bipartite graphs. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original TOI-coalition paper gives the predicate and several scalar extremal numbers. The October 13 complete-multipartite theorem already proves maximum block number three using the same TOIDS characterization, so that maximum is explicitly NOT treated as novel. The submitted result determines exact labelled partition counts at both possible sizes and full pure-block/coalition-graph types, which the complete earlier scalar proof does not entail as a stated result.
+
+## value
+
+PASS
+
+All admissible partitions of a natural domination-coalition graph class are classified, and both nonzero coefficients and coalition graph types are explicit for arbitrarily many unequal labelled parts. A complete count of all witnesses refines the known scalar extremum in a motivated, reusable manner rather than merely recomputing its maximum or an arbitrary restricted slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
