@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's log-cosh boundary modular is evaluated independently on each pair of parallelotope facets, giving an exact finite-dimensional coordinate modular. Strict concavity of \(u\mapsto\log\cosh\sqrt u\) establishes sharp Euclidean sphere extrema with rigidity, including every John and Löwner contact. Ellipsoid uniqueness and signed-permutation averaging extend those radii to globally optimal ellipsoids and all affine Banach–Mazur competitors. Strict convexity of \(\operatorname{arcosh}(e^s)^2\), the strictly increasing elasticity, and elementary endpoint expansions prove monotonicity and limits. The embedded script supplies finite numerical corroboration, not a substitute for the proof. Risks: normalization of the surface integral and the distinction from the smooth-covariogram limiting theorem were explicitly checked.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Reconstructed facet area*support normalization: each ±coordinate pair yields log cosh(z_i), and |det A|=1 gives affine covariance. Setting g(u)=log cosh(sqrt u), direct derivative g<0 yields Jensen maximal on equal squared coordinates and subadditive lower bound attained at one coordinate. Sharp inner and outer Euclidean radii and complete contacts follow. Signed-coordinate permutations force both unique extremal ellipsoids to be balls; averaging candidate quadratic forms proves no noninvariant ellipsoid improves Banach–Mazur ratio. The inverse-square radius h(s)=arcosh(e^s)^2 is strictly convex, and its increasing elasticity yields monotonicity; elementary asymptotics give endpoint/dimension limits. Independently recomputed derivative signs and checked values; numerical verifications not universal proofs.
 
-The closest full text inspected is Haddad–Jiménez–Resende, arXiv:2610.11700, Sections 1 and 5–6. It gives the critical Orlicz integral and a smooth-boundary level-set limit, whereas this theorem computes the new integral's exact John and Löwner ellipsoids, full contacts, and Banach–Mazur level/dimension profile for all centered unit-volume parallelotopes. Existing published mathematical records on mixed-power Orlicz norms, Euclidean Banach–Mazur distortion, and radial mean bodies of cubes have different defining modulars and do not imply the stated formula. Lutwak–Yang–Zhang's Orlicz projection-bodies paper is foundational but its complete text was not available for a decisive historical comparison. Novelty searches cannot certify first discovery, so priority remains provisional; no stronger, known covering statement was found in inspected material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The log-cosh transition modular is a recent natural bridge between polar projection and polar quadratic projection geometry. The present result determines the **entire exact ellipsoid-and-contact profile**, sharp Banach–Mazur distortion, strict level and dimension monotonicities, and the finite large-dimensional limit for the full affine class of parallelotopes. The bounded fixed-level high-dimensional distance versus unbounded large-level \(\sqrt d\) distortion is a structural contrast relevant to quantifying the transition. It is not a routine rescaling of the known smooth-body convergence theorem.
+PASS, qualified. The 2026 source smooth-covariogram theorem gives the critical logcosh Orlicz functional, its normalization, and limiting bodies, not the exact ellipsoids, full contacts, BM metric, and level/dimension profile for all volume-one parallelotopes. A previously published triangle case has different facet structure. General Orlicz projection-body and symmetric unconditional norm results provide methods but no inspected theorem with the complete exact formulas for this logcosh modular.
 
-## Limitations
+## value
 
-Only the finite facet-defined critical Orlicz body is investigated on nonsmooth parallelotopes; no covariogram level-set convergence is asserted for them. Full access to the 2010 foundational article was unavailable, and independent audit is still outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. This is a natural all-dimensional affine class and an exact one-parameter family of canonical transition Orlicz bodies, not an ad hoc slice. The complete ellipsoid-and-contact classification, sharp BM distance and strict level/dimension profile quantify crossover from Euclidean to ℓ1 geometry; the bounded high-d fixed-level limit is a motivated structural invariant beyond an individual numeric evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
