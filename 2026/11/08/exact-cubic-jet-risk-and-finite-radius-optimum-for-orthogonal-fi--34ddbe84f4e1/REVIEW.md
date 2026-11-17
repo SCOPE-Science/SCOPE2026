@@ -1,19 +1,21 @@
-# Scientific review: cubic-jet risk of orthogonal finite differences
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the centered \(d/k\)-normalized Haar \(k\)-frame gradient estimator and an odd cubic plus any even differentiable function. The proof gives the exact cubic trace/harmonic tensor decomposition, sphere fourth/sixth moments, and the orthonormal-column identity that kills all pair cross terms. The gradient mean, variance and Euclidean mean-square error follow with no limit or missing stochastic independence assumption. The risk is a positive-coefficient quadratic in \(h^2\) when the cubic is nonzero, proving the strict if-and-only-if threshold and optimizer. The strong-convexity lower bound for the example is explicit. \(1967\) exact-rational assertions in the standalone checker cover direct stencil values, tensor identities, exact sphere moments and radius-optimality examples. Finite checks supplement, not replace, the universal analytic proof. Boundary cases \(k=d\), zero tensor and zero trace are explicitly handled.
+PASS
 
-## Originality — PASS (with residual publication-priority risk)
+PASS: Antipodal central differences eliminate the arbitrary even term exactly and leave b·u+(h²/6)T[u³]. Orthogonally decompose T into trace t and harmonic trace-free H; the sphere fourth/sixth pairing contractions show E[UH(U³)]=0 and E[H(U³)²]=6||H||²/[d(d+2)(d+4)]. Frame columns are pointwise orthogonal, so ||Σu_a ψ(u_a)||²=Σψ(u_a)² even though columns are dependent. This yields mean w=b+h²t/[2(d+2)] and variance (d−k)||w||²/k+d h⁴||H||²/[6k(d+2)(d+4)], then the displayed risk quadratic in s=h². Its positive curvature W yields iff b·t<0 for k<d and exact optimizer/gap. Strong convexity follows Hessian lower bound (a−9/(4λ))I. The k=d zero-variance classification is H=0; k<d requires H=0 and w=0. Reconstructed moment contractions and checked exact rational radial example for d=3, k=1..3 across two rational orthogonal frames; package verify.py contains exact tensor and rational stencil tests. No assumption of independent frame columns is used.
 
-Feng and Wang (arXiv:2205.14737) introduce the exact Stiefel-centered estimator, establish general variance and bias bounds, and provide basic spherical-moment facts. Those facts are acknowledged as prior art. Their inspected gradient variance and bias theorems, proof and experimental/appendix material do not state the exact harmonic/trace cubic risk decomposition, complete zero-variance classification or beneficial nonzero-radius criterion. Kozak et al. (arXiv:2107.03941) and Rando et al. (arXiv:2206.05124) study random orthogonal directions and convergence using forward finite differences; their relevant sections do not provide this exact centered cubic moment/radius classification. Yu et al. (arXiv:2406.19617), Algorithm 1 and Theorem 4.1, analyze bias and covariance bounds for independent spherical or ellipsoidal direction samples, not the exact risk under a Haar-orthonormal frame. Previously known exact Haar-frame numerical examples concern different objectives and sampling updates. The claim is not that Haar moment integration itself is novel, but the sharp, signed bias-versus-random-subspace-risk tradeoff and its convex witness. The underlying general variance identity makes specialization mathematically accessible; an older specialized derivation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Cubic derivatives are the first nonvanishing local truncation terms for centered differences. The exact tensor law supplies a geometric explanation for residual randomness at a complete orthonormal frame, including its rigidity and dependence only on the harmonic cubic component. More unexpectedly, reducing the perturbation radius to zero can increase mean-square error for an undercomplete frame even with zero evaluation noise, and the improvement can be exactly a factor \(d/k\) on a globally strongly convex objective. This is a meaningful boundary for how derivative-free variance and finite-difference bias interact, not a minor rearrangement of a finite example.
+PASS with careful credited special case: Oct26 published harmonic-cubic rigidity supplies the k=d,b=0 exact mean/variance and H=0 classification, not a general nonzero b, incomplete k-frame, or strictly positive optimal radius. Feng–Wang 2022/23 introduce precisely the Haar Stiefel central estimator, sphere moments, and general variance/bias BOUNDS rather than this exact cubic tensor resolved MSE and sign criterion. Different Oct13 forward-difference quadratic SGD risk and Nov2 two-step Haar coupling work use different objectives/estimators. Surviving claim is exact partial-frame risk geometry and finite-radius convex witness.
 
-## Sources, limits, and integrity
+## value
 
-Primary motivation and closest comparator: https://arxiv.org/abs/2205.14737 (first public 2022-05-29). Supporting comparisons: https://arxiv.org/abs/2107.03941, https://arxiv.org/abs/2206.05124 and https://arxiv.org/abs/2406.19617. Classical sphere pairing and tensor-trace identities are not claimed as independent contributions. Risk is a one-point Euclidean, noise-free quantity, and the optimum radius requires unavailable oracle derivative information in a black-box setting. Generic higher odd terms, iterative convergence and noisy evaluations are not covered. A specialist historical source could contain a mathematically equivalent formula. No external independent verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Cubic truncation is the first nonlinear odd error in symmetric finite differences, and partial orthogonal frames are a natural query-budget regime. The exact trace/harmonic decomposition identifies which tensor contractions control variance and proves that a nonzero radius can improve MSE even with noiseless measurements. This is a meaningful finite-radius boundary theorem with a globally strongly convex witness, not a mere rephrasing of estimator bias bounds; the optimum is an oracle benchmark, not an automatic tuning algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

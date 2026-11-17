@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:00:28.603072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Antipodal central differences eliminate the arbitrary even term exactly and leave b·u+(h²/6)T[u³]. Orthogonally decompose T into trace t and harmonic trace-free H; the sphere fourth/sixth pairing contractions show E[UH(U³)]=0 and E[H(U³)²]=6||H||²/[d(d+2)(d+4)]. Frame columns are pointwise orthogonal, so ||Σu_a ψ(u_a)||²=Σψ(u_a)² even though columns are dependent. This yields mean w=b+h²t/[2(d+2)] and variance (d−k)||w||²/k+d h⁴||H||²/[6k(d+2)(d+4)], then the displayed risk quadratic in s=h². Its positive curvature W yields iff b·t<0 for k<d and exact optimizer/gap. Strong convexity follows Hessian lower bound (a−9/(4λ))I. The k=d zero-variance classification is H=0; k<d requires H=0 and w=0. Reconstructed moment contractions and checked exact rational radial example for d=3, k=1..3 across two rational orthogonal frames; package verify.py contains exact tensor and rational stencil tests. No assumption of independent frame columns is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Wang https://arxiv.org/html/2205.14737v3 Section 3: general smoothness bias and variance estimates for all k but not equality in cubic tensor invariants.",
+          "Oct26 https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md: exact equality only for a complete d-frame at stationary points (b=0)."
+        ],
+        "reasoning": "One prior source has general scope but weaker bounds, the other exact values in a strict subfamily. Neither implies the complete current exact risk for 1<=k<=d and all b,T.",
+        "searches": [
+          "Resultary: Orthogonal Haar random direction central finite difference cubic tensor exact variance risk optimal positive smoothing radius",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md",
+          "https://arxiv.org/html/2205.14737v3"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md",
+        "https://arxiv.org/html/2205.14737v3",
+        "https://arxiv.org/abs/2107.03941",
+        "https://arxiv.org/abs/2206.05124",
+        "https://arxiv.org/abs/2406.19617"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct26 source: H=0 iff zero orientation variance at k=d,b=0.",
+          "Current mean-square risk coefficient of h² is (d−k)(b·t)/[k(d+2)]; absent when k=d or b=0.",
+          "Feng–Wang bounds lack the signed coefficient; they cannot decide the if-and-only-if."
+        ],
+        "reasoning": "The new signed h² term and exact curvature W distinguish the claim. The strong-convexity example realizes the sign condition in a nonpathological gradient setting. Earlier works do not entail that statement.",
+        "searches": [
+          "Resultary: Orthogonal Haar random direction central finite difference cubic tensor exact variance risk optimal positive smoothing radius",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md",
+          "https://arxiv.org/html/2205.14737v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct26 https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md: k=d,b=0 exact formula Var=δ⁴||H||²/[6(d+2)(d+4)] and zero variance iff H=0, matching the submitted specialization.",
+          "Feng–Wang https://arxiv.org/html/2205.14737v3: Eq.(1) precisely d/(2hk) times Σ [f(hu)−f(−hu)]u."
+        ],
+        "reasoning": "Specializing the submitted formula at k=d,b=0 gives Oct26 exactly; but converse implication fails for k<d,b≠0 because the known formula has no gradient–cubic trace cross term or finite-radius MSE minimum.",
+        "searches": [
+          "Resultary: Orthogonal Haar random direction central finite difference cubic tensor exact variance risk optimal positive smoothing radius",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md",
+          "https://arxiv.org/html/2205.14737v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct26 https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md tabulates exact rank-one sixth-moment basis comparison for k=d,b=0; this is a covered special case.",
+          "No comparable exact table for all k and b·t threshold located."
+        ],
+        "reasoning": "The original published special-case formula must be credited but does not determine the mixed b·t coefficient that creates the positive-radius optimum; no stronger exact result identified.",
+        "searches": [
+          "Resultary: Orthogonal Haar random direction central finite difference cubic tensor exact variance risk optimal positive smoothing radius",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md"
+        ]
+      },
+      "rationale": "PASS with careful credited special case: Oct26 published harmonic-cubic rigidity supplies the k=d,b=0 exact mean/variance and H=0 classification, not a general nonzero b, incomplete k-frame, or strictly positive optimal radius. Feng–Wang 2022/23 introduce precisely the Haar Stiefel central estimator, sphere moments, and general variance/bias BOUNDS rather than this exact cubic tensor resolved MSE and sign criterion. Different Oct13 forward-difference quadratic SGD risk and Nov2 two-step Haar coupling work use different objectives/estimators. Surviving claim is exact partial-frame risk geometry and finite-radius convex witness.",
+      "residual_risks": [
+        "Oct26 exact k=d,b=0 classification is established prior work; only the full k<d, arbitrary b cubic trace and signed radius statement survives.",
+        "The risk-optimal radius depends on unknown b,T and is an oracle benchmark, not a practical tuning rule; no guarantees for higher odd terms or noise.",
+        "Unindexed exact higher-moment Stiefel estimator studies may overlap; full published estimator baseline was checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Proves the b=0,k=d subcase, no incomplete-frame signed-risk optimizer.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb/RESULT.md",
+          "material_read": "Entire RESULT.md: tensor and frame moments proof, complete rank-one crossover, limitations",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Harmonic-cubic rigidity and a sharp localization crossover for orthogonal-frame finite differences",
+          "trigger": "same tensor, exact full-frame special case"
+        },
+        {
+          "assessment": "METHOD_AND_BOUNDS",
+          "evidence": "Estimator agrees exactly but Theorem 1 and bias statements provide upper bounds, not closed cubic-jet risk with a signed nonzero-radius optimum.",
+          "identifier_or_url": "https://arxiv.org/html/2205.14737v3",
+          "material_read": "Full arXiv HTML accessed; Eq.(1), §3 variance and bias theorems and relevant appendices compared",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+          "trigger": "inventor of exact centered Haar-Stiefel estimator"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Forward differences on isotropic quadratics and stationary iterative risk, different from centered cubic single-shot MSE.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-a-sharp-signed-direction-reversal-for-fixed-radius-structured-ze--4bd5a359b778/RESULT.md",
+          "material_read": "Finding, hypotheses, and prior-work comparison",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "A sharp signed-direction reversal for fixed-radius structured zeroth-order descent",
+          "trigger": "related structured gradient risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Cubic truncation is the first nonlinear odd error in symmetric finite differences, and partial orthogonal frames are a natural query-budget regime. The exact trace/harmonic decomposition identifies which tensor contractions control variance and proves that a nonzero radius can improve MSE even with noiseless measurements. This is a meaningful finite-radius boundary theorem with a globally strongly convex witness, not a mere rephrasing of estimator bias bounds; the optimum is an oracle benchmark, not an automatic tuning algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real centered d/k-scaled Haar k-frame gradient finite differences on any cubic odd jet plus even term, exact tensor trace/harmonic mean, variance, and risk identities hold for d>=2 and 1<=k<=d; for k<d, positive radius improves zero-radius risk iff gradient b opposes cubic trace t; unique radius and exact gap, zero-variance cases, and strongly convex noiseless witness follow.",
+  "limitations": [
+    "Cubic odd part plus an arbitrary differentiable even part, noiseless two-sided finite differences at one point; no full optimization trajectory or general smooth function.",
+    "Finite rational checks corroborate exact formulas but symbolic sphere moment proof is universal."
+  ],
+  "schema_version": 1
+}
