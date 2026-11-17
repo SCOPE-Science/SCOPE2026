@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The finite claim is fully reproducible by compiling and executing `verify_exhaustive.cpp` under a conforming C++17 compiler, and by running `verify_transfer.py` with Python 3 and its standard library.
+## correctness
 
-The C++ verifier enumerates all \(3^{12}=531441\) assignments, verifies a simple thirty-edge five-regular graph construction, the full occupancy-minimum/degeneracy table, the twenty ground-defect edge supports with six configurations each, the six critical-field counts and the exact integer lower-hull inequalities. Its success marker is `EXHAUSTIVE_OK`.
+PASS
 
-The Python verifier computes the same complete joint bond/occupancy coefficients by a distinct two-pentagon transfer contraction and verifies the sum of multiplicities is exactly \(531441\). Its success marker is `TRANSFER_EXACT_OK`.
+For any simple closed triangular cellulation, each odd-valence vertex with no monochromatic incident edge must lie opposite one in a triangular face: otherwise its odd neighbor link would be properly 2-colored, impossible. Every monochromatic edge covers at most its two endpoints and the two opposite-face vertices, yielding o<=4b, hence ceil(o/4). On the explicit icosahedral graph, independent exhaustive base-three enumeration of every 3^12=531441 labeled assignment recomputed the exact 13 occupancy-sector minima (10,8,6,4,3,4,5,8,11,15,20,25,30) and minimizing degeneracies (72,600,1260,360,120,360,120,480,240,160,144,24,1), plus exactly 20 three-defect supports each supporting 6 colorings. The lower convex envelope has the seven stated vertices and slopes -2,-1,1,3,4,5; independent exact counting corroborated crossing multiplicities (2292,480,600,840,400,329). For this finite graph the exhaustive state space and graph construction are complete, not a sample or infinite extrapolation. Original C++ exhaustive and separate 9-state column transfer code inspected, and the parity bound checked mathematically.
 
-The parity obstruction is a direct proof for all closed surface triangulations and is not inferred from the finite computational test. No independent external audit or certification was performed. Field strengths are exact real parameters; comparisons use integer and rational linear inequalities, not floating-point thresholds.
+## originality
+
+PASS
+
+The complete q=3 icosahedral finite field-sector classification and odd-valence monochromatic-bond obstruction are distinct from neighboring published q=4 icosahedral Potts counts and from infinite-lattice 3-state results. Nakamoto–Ota–Watanabe primary full text treats maxima of vividly colored faces, not a lower bound on monochromatic edges for every arbitrary coloring. Earlier indexed Potts/coloring tables and folklore forms of the o/4 bound remain a meaningful historical risk; not a decisive mathematical coverage source in inspected material.
+
+## value
+
+PASS
+
+The icosahedral graph is a canonical highly frustrated 12-site triangulated spherical cluster; its complete one-color-field Potts magnetic staircase, exact degeneracies and geometrically organized twenty defect supports are natural finite invariants not obtained by a known table. The general odd-degree obstruction offers structural motivation, and the exhaustive result answers a precisely delineated finite-cluster question; no thermodynamic phase transition is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The odd-valence bound follows directly from odd vertex-link cycles and the fact that a monochromatic edge is incident to at most two opposite triangular-face vertices. The icosahedral finite-sector theorem follows from two complete, independently organized integer algorithms. One enumerates all \(3^{12}\) base-three spin words and thirty bonds; the other conditions on the two pole colors and contracts five nine-state ring columns with explicit closing bonds. Both give the same thirteen minima and multiplicities. The C++ checker verifies the exact lower convex envelope and crossing counts; the defect support count is a complete census, not sampling. Checks were run on the contained standalone source files. The field formula uses \(J>0\) and all real \(h\); boundary degeneracies include every tied sector.
+PASS
 
-## Originality: PASS on examined evidence, provisional
+For any simple closed triangular cellulation, each odd-valence vertex with no monochromatic incident edge must lie opposite one in a triangular face: otherwise its odd neighbor link would be properly 2-colored, impossible. Every monochromatic edge covers at most its two endpoints and the two opposite-face vertices, yielding o<=4b, hence ceil(o/4). On the explicit icosahedral graph, independent exhaustive base-three enumeration of every 3^12=531441 labeled assignment recomputed the exact 13 occupancy-sector minima (10,8,6,4,3,4,5,8,11,15,20,25,30) and minimizing degeneracies (72,600,1260,360,120,360,120,480,240,160,144,24,1), plus exactly 20 three-defect supports each supporting 6 colorings. The lower convex envelope has the seven stated vertices and slopes -2,-1,1,3,4,5; independent exact counting corroborated crossing multiplicities (2292,480,600,840,400,329). For this finite graph the exhaustive state space and graph construction are complete, not a sample or infinite extrapolation. Original C++ exhaustive and separate 9-state column transfer code inspected, and the parity bound checked mathematically.
 
-The most directly related full primary text is Chang–Shrock (2009), which gives a general arbitrary-graph magnetic Potts representation and explicit strip transfer matrices, but not this icosahedral evaluated field diagram. Konstantinidis (2005) treats a different quantum Heisenberg spin model on the same graph; Nakamoto–Ota–Watanabe (2005) concerns vivid-face extrema on planar triangulations; Kotecký–Salas–Sokal (2008) concerns a diced-lattice Potts model. The present claim is limited to the concrete finite ground-state spectrum and its simple parity obstruction. Generic enumeration and partition-function technology are credited as existing. The major remaining risk is an unindexed older explicit icosahedral magnetic Potts or three-color defect table, or an equivalent formulation through an existing specialized generating function.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The regular icosahedron is the canonical five-regular triangular Platonic graph, and a three-state antiferromagnet on its triangular faces is frustrated even at zero field. An exact parity obstruction quantitatively explains the minimum; the finite calculation resolves all thirteen constrained ground sectors, identifies six sharp field crossings and all degeneracies, and isolates twenty minimal frustration supports. Its asymmetric field response and balanced zero-field configurations are physically interpretable benchmarks distinct from proper-coloring counts or zero-field chromatic evaluations. This does not purport to determine larger-system thermodynamics.
+The complete q=3 icosahedral finite field-sector classification and odd-valence monochromatic-bond obstruction are distinct from neighboring published q=4 icosahedral Potts counts and from infinite-lattice 3-state results. Nakamoto–Ota–Watanabe primary full text treats maxima of vividly colored faces, not a lower bound on monochromatic edges for every arbitrary coloring. Earlier indexed Potts/coloring tables and folklore forms of the o/4 bound remain a meaningful historical risk; not a decisive mathematical coverage source in inspected material.
 
-## Limitations
+## value
 
-A finite-cluster result cannot establish a bulk phase transition. Historical priority beyond the inspected primary texts is not certified. The parity bound is elementary and may have older defective-coloring antecedents; the exact finite response, not the general algorithm, is the principal independently evaluated fact. External independent scientific validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The icosahedral graph is a canonical highly frustrated 12-site triangulated spherical cluster; its complete one-color-field Potts magnetic staircase, exact degeneracies and geometrically organized twenty defect supports are natural finite invariants not obtained by a known table. The general odd-degree obstruction offers structural motivation, and the exhaustive result answers a precisely delineated finite-cluster question; no thermodynamic phase transition is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

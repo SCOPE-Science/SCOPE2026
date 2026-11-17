@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:54:47.594580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any simple closed triangular cellulation, each odd-valence vertex with no monochromatic incident edge must lie opposite one in a triangular face: otherwise its odd neighbor link would be properly 2-colored, impossible. Every monochromatic edge covers at most its two endpoints and the two opposite-face vertices, yielding o<=4b, hence ceil(o/4). On the explicit icosahedral graph, independent exhaustive base-three enumeration of every 3^12=531441 labeled assignment recomputed the exact 13 occupancy-sector minima (10,8,6,4,3,4,5,8,11,15,20,25,30) and minimizing degeneracies (72,600,1260,360,120,360,120,480,240,160,144,24,1), plus exactly 20 three-defect supports each supporting 6 colorings. The lower convex envelope has the seven stated vertices and slopes -2,-1,1,3,4,5; independent exact counting corroborated crossing multiplicities (2292,480,600,840,400,329). For this finite graph the exhaustive state space and graph construction are complete, not a sample or infinite extrapolation. Original C++ exhaustive and separate 9-state column transfer code inspected, and the parity bound checked mathematically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published four-state icosahedral field record has b_k=(3,2,1,0,1,3,5,8,11,15,20,25,30), and zero-field proper four-colorings; audited three-state b_k=(10,8,6,4,3,4,5,8,11,15,20,25,30).",
+          "Kotecký–Salas–Sokal full paper concerns an infinite diced lattice."
+        ],
+        "reasoning": "Adding a fourth color relaxes the optimization and changes the ground-state diagram. The q=4 profile cannot imply the q=3 sector minima or degeneracies, despite matching some high-occupancy b_k. Infinite-lattice results address different graphs and regimes.",
+        "searches": [
+          "Resultary semantic search: icosahedral graph three state Potts antiferromagnet zero temperature color selective field occupancy phase diagram odd valence coloring frustrated edges",
+          "Resultary semantic search: icosahedron Potts three colors frustration defect faces 120 spins magnetic sector",
+          "Resultary/2026/11/8/SCOPE-exact-color-selective-field-staircase-at-the-four-color-threshol--b5aa0a23256f",
+          "arxiv:0802.2270"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/ars/Volume%20075/volume-75-paper-13.pdf",
+        "https://arxiv.org/abs/0802.2270",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-color-selective-field-staircase-at-the-four-color-threshol--b5aa0a23256f",
+        "https://arxiv.org/abs/cond-mat/0503658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nakamoto et al. Theorem 2 gives h(n)>=n/2 for the optimum number of vivid faces over colorings of plane triangulations, and upper examples.",
+          "The parity argument here binds every coloring through the odd-length link graph, not an optimum of vivid faces."
+        ],
+        "reasoning": "The established statements do not yield the exact seven-regime q=3 icosahedral magnetic response or the general o/4 monochromatic-edge bound, although the bound is elementary enough to have possible prior forms.",
+        "searches": [
+          "https://combinatorialpress.com/article/ars/Volume%20075/volume-75-paper-13.pdf",
+          "https://arxiv.org/abs/0802.2270",
+          "Resultary semantic search: icosahedral graph three state Potts antiferromagnet zero temperature color selective field occupancy phase diagram odd valence coloring frustrated edges",
+          "Resultary semantic search: icosahedron Potts three colors frustration defect faces 120 spins magnetic sector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A monochromatic edge spoils its adjacent faces; Nakamoto et al. instead maximize faces bearing all three colors on a plane triangulation.",
+          "Vertex odd-degree link parity is equivalent to a local defective-coloring obstruction."
+        ],
+        "reasoning": "The proposed o/4 bound could be phrased as a bound on defects in approximately proper 3-colorings; the full primary paper uses a different extremal quantifier over colorings and graph sizes, so its Theorem 2 does not imply o<=4b for every fixed coloring.",
+        "searches": [
+          "Resultary semantic search: icosahedral graph three state Potts antiferromagnet zero temperature color selective field occupancy phase diagram odd valence coloring frustrated edges",
+          "Resultary semantic search: icosahedron Potts three colors frustration defect faces 120 spins magnetic sector",
+          "https://combinatorialpress.com/article/ars/Volume%20075/volume-75-paper-13.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact audited 3^12 counts include 13-sector degeneracies and exactly 20 supports, with six coexistence multiplicities; the nearest inspected published 4^12 table counts four-state assignments instead."
+        ],
+        "reasoning": "A table of the entire chromatic/Potts polynomial for the same icosahedral graph and external field, if found, might imply these coefficients, but no such table was materially located. Generic exact partition-function algorithms alone do not imply the evaluated output; unindexed older tables remain residual.",
+        "searches": [
+          "Resultary semantic search: icosahedral graph three state Potts antiferromagnet zero temperature color selective field occupancy phase diagram odd valence coloring frustrated edges",
+          "Resultary semantic search: icosahedron Potts three colors frustration defect faces 120 spins magnetic sector",
+          "Resultary/2026/11/8/SCOPE-exact-color-selective-field-staircase-at-the-four-color-threshol--b5aa0a23256f"
+        ]
+      },
+      "rationale": "The complete q=3 icosahedral finite field-sector classification and odd-valence monochromatic-bond obstruction are distinct from neighboring published q=4 icosahedral Potts counts and from infinite-lattice 3-state results. Nakamoto–Ota–Watanabe primary full text treats maxima of vividly colored faces, not a lower bound on monochromatic edges for every arbitrary coloring. Earlier indexed Potts/coloring tables and folklore forms of the o/4 bound remain a meaningful historical risk; not a decisive mathematical coverage source in inspected material.",
+      "residual_risks": [
+        "Finite icosahedral enumeration counts all labeled configurations exactly and does not establish any infinite cluster or finite temperature phase transition.",
+        "Potential unindexed icosahedral Potts tables and equivalent defective-coloring formulations remain priority risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Maximizes vivid trichromatic faces and controls h(n) over plane triangulations; does not imply for every given coloring the lower bound on monochromatic edges based on odd-valence vertices, nor the finite icosahedral 3-state magnetic diagram",
+          "evidence": "Nakamoto, Ota and Watanabe (2005), Theorem 2: global minimum across plane triangulations of maximum vivid faces bounded between n/2 and (3n-2)/5 for infinite examples.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20075/volume-75-paper-13.pdf",
+          "material_read": "Complete six-page paper including Theorem 2 and both technical lemmas",
+          "method": "Primary OA journal PDF, text and first-page visual inspection",
+          "title": "On 3-coloring of plane triangulations",
+          "trigger": "Same color count and triangulated-face invariant"
+        },
+        {
+          "assessment": "Infinite diced lattice statistical-mechanical transition, not icosahedral zero-temperature field-sector enumeration",
+          "evidence": "Kotecký, Salas and Sokal investigate infinite diced lattice, rather than a twelve-vertex icosahedral cluster.",
+          "identifier_or_url": "https://arxiv.org/abs/0802.2270",
+          "material_read": "Full available open-access four-page PDF",
+          "method": "arXiv PDF and visual inspection",
+          "title": "Phase transition in the 3-state Potts antiferromagnet on the diced lattice",
+          "trigger": "Same three-state antiferromagnetic model"
+        },
+        {
+          "assessment": "Different q=4 model: zero-field proper four-colorings have zero frustrated bonds; q=3 requires at least three and has a distinct negative-field branch. Published q=4 theorem does not contain q=3 magnetic sector profile",
+          "evidence": "q=4 profile m_k=(3,2,1,0,1,3,5,8,11,15,20,25,30); audited q=3 profile=(10,8,6,4,3,4,5,8,11,15,20,25,30).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-color-selective-field-staircase-at-the-four-color-threshol--b5aa0a23256f",
+          "material_read": "Complete RESULT.md including all thirteen occupancy-sector minima, counts, lower envelope and references",
+          "method": "Published GitHub scientific RESULT full text",
+          "title": "Exact color-selective field staircase at the four-color threshold of the icosahedron",
+          "trigger": "Identical graph and magnetic field with neighboring Potts color count"
+        },
+        {
+          "assessment": "Quantum Heisenberg spin model is not discrete three-color Potts under a color-selective field; cannot assert whole-document noncoverage from abstract",
+          "evidence": "Different spin spaces and interaction laws.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0503658",
+          "material_read": "Abstract/metadata only; full text not independently read",
+          "method": "arXiv research record",
+          "title": "The Antiferromagnetic Heisenberg Model on Clusters with Icosahedral Symmetry",
+          "trigger": "Same cluster, frustration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The icosahedral graph is a canonical highly frustrated 12-site triangulated spherical cluster; its complete one-color-field Potts magnetic staircase, exact degeneracies and geometrically organized twenty defect supports are natural finite invariants not obtained by a known table. The general odd-degree obstruction offers structural motivation, and the exhaustive result answers a precisely delineated finite-cluster question; no thermodynamic phase transition is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/ars/Volume%20075/volume-75-paper-13.pdf",
+    "https://arxiv.org/abs/0802.2270",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-color-selective-field-staircase-at-the-four-color-threshol--b5aa0a23256f",
+    "https://arxiv.org/abs/cond-mat/0503658"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite icosahedral enumeration counts all labeled configurations exactly and does not establish any infinite cluster or finite temperature phase transition.",
+    "Potential unindexed icosahedral Potts tables and equivalent defective-coloring formulations remain priority risks."
+  ],
+  "residual_risks": [
+    "Finite icosahedral enumeration counts all labeled configurations exactly and does not establish any infinite cluster or finite temperature phase transition.",
+    "Potential unindexed icosahedral Potts tables and equivalent defective-coloring formulations remain priority risks."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Maximizes vivid trichromatic faces and controls h(n) over plane triangulations; does not imply for every given coloring the lower bound on monochromatic edges based on odd-valence vertices, nor the finite icosahedral 3-state magnetic diagram",
+      "evidence": "Nakamoto, Ota and Watanabe (2005), Theorem 2: global minimum across plane triangulations of maximum vivid faces bounded between n/2 and (3n-2)/5 for infinite examples.",
+      "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20075/volume-75-paper-13.pdf",
+      "material_read": "Complete six-page paper including Theorem 2 and both technical lemmas",
+      "method": "Primary OA journal PDF, text and first-page visual inspection",
+      "title": "On 3-coloring of plane triangulations",
+      "trigger": "Same color count and triangulated-face invariant"
+    },
+    {
+      "assessment": "Infinite diced lattice statistical-mechanical transition, not icosahedral zero-temperature field-sector enumeration",
+      "evidence": "Kotecký, Salas and Sokal investigate infinite diced lattice, rather than a twelve-vertex icosahedral cluster.",
+      "identifier_or_url": "https://arxiv.org/abs/0802.2270",
+      "material_read": "Full available open-access four-page PDF",
+      "method": "arXiv PDF and visual inspection",
+      "title": "Phase transition in the 3-state Potts antiferromagnet on the diced lattice",
+      "trigger": "Same three-state antiferromagnetic model"
+    },
+    {
+      "assessment": "Different q=4 model: zero-field proper four-colorings have zero frustrated bonds; q=3 requires at least three and has a distinct negative-field branch. Published q=4 theorem does not contain q=3 magnetic sector profile",
+      "evidence": "q=4 profile m_k=(3,2,1,0,1,3,5,8,11,15,20,25,30); audited q=3 profile=(10,8,6,4,3,4,5,8,11,15,20,25,30).",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-color-selective-field-staircase-at-the-four-color-threshol--b5aa0a23256f",
+      "material_read": "Complete RESULT.md including all thirteen occupancy-sector minima, counts, lower envelope and references",
+      "method": "Published GitHub scientific RESULT full text",
+      "title": "Exact color-selective field staircase at the four-color threshold of the icosahedron",
+      "trigger": "Identical graph and magnetic field with neighboring Potts color count"
+    },
+    {
+      "assessment": "Quantum Heisenberg spin model is not discrete three-color Potts under a color-selective field; cannot assert whole-document noncoverage from abstract",
+      "evidence": "Different spin spaces and interaction laws.",
+      "identifier_or_url": "https://arxiv.org/abs/cond-mat/0503658",
+      "material_read": "Abstract/metadata only; full text not independently read",
+      "method": "arXiv research record",
+      "title": "The Antiferromagnetic Heisenberg Model on Clusters with Icosahedral Symmetry",
+      "trigger": "Same cluster, frustration"
+    }
+  ]
+}
