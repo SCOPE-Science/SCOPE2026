@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:01:00.672149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/maximal-common-subsequence-spectrum-of-adjacent-swap-permutation--97ed686577cc/RESULT.md",
+        "RESULT.md:4985c0cdffc3b3c44b7f46c88f2e099e72829dd5",
+        "verify.py:caaee5ef3c63e3bfd23da5b8c2d1a083bf9b6cf2",
+        "METADATA.json:512a83b5a9c29244aeda9797c4c060d35e78e343"
+      ],
+      "rationale": "For a distinct-letter permutation order R, greedy scattered embedding in R^k is equivalent to at most k−1 weak descents of the word; an insertion cannot lower a descent count. An inclusion-maximal common subsequence saturates descent budgets for both orders P=AxyB and Q=AyxB, since otherwise a feasible additional letter can be inserted. The two almost-identical linear orders determine a no-free-insertion transition graph: permissible maximal words concatenate r forced A, B blocks separated by nonempty alternating x/y segments. Each reset consumes one descent in each order and internal xy and yx transitions consume the remaining exactly k−r each. Then lengths are 2k+(q−3)r, r=1..k, and the coefficient enumerator comes from H=(2+u+v)/(1−uv) for alternating segments. Diagonal extraction of (2+u+v)/(1−uv(3+u+v)) yields central binomial binom(2k,k). Independent exhaustive distinct-subsequence intersection and single-insertion maximality for q=4, P=0123, Q=0213, k=1..3 found total MCS 2,6,20 with length histograms {3:2}, {5:2,6:4}, {7:2,8:10,9:8}. These do not establish arbitrary k; the symbolic proof does.",
+      "residual_risks": [
+        "The hypotheses q>=4 and adjacent swap are essential; the q=3 case has no shorter maximal words and needs separate treatment.",
+        "Word counts distinguish distinct spellings not embeddings; no extrapolation from k<=3 is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hirota–Sakai provides cubic/quadratic data structures and enumeration delay for arbitrary strings, not this specialized closed form.",
+          "2026/11/8/SCOPE-a-binomial-maximal-common-subsequence-law-for-two-ternary-permut--ddc10730a686 assumes ternary powers; 2026/11/8/SCOPE-maximal-common-subsequences-of-opposite-permutation-powers-are-a--9030e6a455f4 treats complete reversal and all maximal words are longest."
+        ],
+        "reasoning": "The algorithmic generality does not supply an analytic formula without carrying out this family-specific analysis, and the ternary/reversal special cases do not dominate q>=4 varying-length MCS.",
+        "searches": [
+          "Hirota–Sakai arXiv:2307.10552 full accessible HTML",
+          "Sakai CPM 2018 maximal subsequences algorithms",
+          "Resultary: ternary permutation powers and opposite powers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2307.10552",
+        "https://doi.org/10.4230/LIPIcs.CPM.2018.1",
+        "2026/11/8/SCOPE-a-binomial-maximal-common-subsequence-law-for-two-ternary-permut--ddc10730a686",
+        "2026/11/8/SCOPE-maximal-common-subsequences-of-opposite-permutation-powers-are-a--9030e6a455f4",
+        "2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General MCS enumeration algorithms can output any particular instance with running time, but do not assert exact parametrized counts.",
+          "Ternary swap equal powers have only longest maximal common subsequences, whereas q>=4 admits arbitrarily shorter maximal ones for k>1."
+        ],
+        "reasoning": "The contrasting length distribution forbids simple specialization of the ternary theorem; a complete reversal lacks the single adjacent-transposition order graph and does not imply this classification.",
+        "searches": [
+          "Hirota–Sakai 2023 arXiv:2307.10552 intro/algorithms",
+          "Ternary 2026/11/8 cited Resultary",
+          "Opposite powers 2026/11/8 Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MCS means an inclusion-maximal element of the intersection of the two scattered-subsequence downsets, not necessarily an LCS.",
+          "Adjacent transposition creates a two-element incomparable pair in the intersection of the two letter orders."
+        ],
+        "reasoning": "The reset/alternating-block description is an explicit regular-language characterization of maximal elements of that intersection. Distinct from shortest common supersequences or Simon disagreement spectra.",
+        "searches": [
+          "Resultary: maximal common subsequence adjacent swap permutation powers central binomial",
+          "Hirota–Sakai arXiv:2307.10552"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact finite MCS histograms k=1..3 reproduced; length support grows with k.",
+          "Prior ternary central-binomial total is acknowledged; no earlier complete q>=4 per-r spectrum identified."
+        ],
+        "reasoning": "An infinite closed expression C_{k,r}, unique structural classification and total binomial identity are not merely finite string-algorithm outputs; searched tables are not novelty proof.",
+        "searches": [
+          "Resultary: maximal common subsequence size spectrum adjacent transposition",
+          "Original source verification and independent q=4 k<=3"
+        ]
+      },
+      "rationale": "General algorithms for maximal common subsequences were published earlier, but do not give a closed symbolic spectrum for adjacent-swapped permutation powers in the inspected material. A published ternary single-swap equal-power case already yields central binomial count and is openly credited; the q>=4 classification is not a direct consequence because shorter non-LCS maximal words arise and require the unique alternating-segment decomposition and finer r-distribution. Opposite/reversed powers are different pairs and have no such varying maximal-length spectrum.",
+      "residual_risks": [
+        "An older computational pattern-matching enumeration paper may contain the exact adjacent-swap family under different alphabet-normalization terminology; no guaranteed comprehensive novelty.",
+        "Sakai 2018 full body not re-read in this execution; prioritize qualified best-of-knowledge finding, not blanket full-document absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General algorithmic MCS framework is prior, but the inspected material does not assert adjacent-swap powers length distribution",
+          "evidence": "The three primary contributions are data structures, delay and space complexity for arbitrary input strings.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.10552",
+          "material_read": "Accessible full arXiv HTML abstract, introduction, general algorithm outline; source text searched for permutation specialization",
+          "method": "Compared theorem focus and explicit formula coverage",
+          "title": "Efficient algorithms for enumerating maximal common subsequences of two strings",
+          "trigger": "Same mathematical MCS object and high coverage general algorithms"
+        },
+        {
+          "assessment": "Algorithmic characterization prior, not full-document exclusion for q>=4 symbolic family",
+          "evidence": "General MCS algorithm exists; no evidence from abstract alone to certify absence of a family-specific formula.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.1",
+          "material_read": "Public conference abstract and theorem context; complete article proof not read this execution",
+          "method": "Partial mathematical scope comparison",
+          "title": "Maximal Common Subsequence Algorithms",
+          "trigger": "Earlier primary algorithm for maximal common subsequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2307.10552",
+        "https://doi.org/10.4230/LIPIcs.CPM.2018.1",
+        "2026/11/8/SCOPE-a-binomial-maximal-common-subsequence-law-for-two-ternary-permut--ddc10730a686",
+        "2026/11/8/SCOPE-maximal-common-subsequences-of-opposite-permutation-powers-are-a--9030e6a455f4",
+        "2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874"
+      ],
+      "rationale": "Maximal common subsequences can be significantly shorter than the longest ones, so algorithmic searches and maximal-antichain output size need exact length profiles. This natural adjacent-swap perturbation exposes an unbounded gap and nevertheless a universal central binomial total, together with a complete symbolic size spectrum; these precise facts are useful benchmark extremal combinatorics beyond novelty or code correctness alone.",
+      "residual_risks": [
+        "No broad downstream theorem is claimed; value is from the motivated exact invariant and classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The hypotheses q>=4 and adjacent swap are essential; the q=3 case has no shorter maximal words and needs separate treatment.",
+    "Word counts distinguish distinct spellings not embeddings; no extrapolation from k<=3 is claimed.",
+    "An older computational pattern-matching enumeration paper may contain the exact adjacent-swap family under different alphabet-normalization terminology; no guaranteed comprehensive novelty.",
+    "Sakai 2018 full body not re-read in this execution; prioritize qualified best-of-knowledge finding, not blanket full-document absence.",
+    "Scientific conclusions are best-of-knowledge, not independent external certification or claimed exhaustive literature access.",
+    "Publication withheld for privacy/transport reasons separate from C/O/V."
+  ],
+  "schema_version": 1
+}
