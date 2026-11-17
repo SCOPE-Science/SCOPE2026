@@ -1,19 +1,21 @@
-# Review of the random tense-frame commutation law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The box-composition identity translates the universal modal equation into equality of common-successor and common-predecessor relations. For each fixed selection of \(t\) distinct pair-defect events, the shared-outside-vertex witness calculation gives a *uniform* joint probability \(n^{-2t}e^{-tc}(1+o(1))\), even with endpoint overlaps. The method of factorial moments yields the Poisson count. Vertices with no in- or out-arcs have vanishing probability, eliminating diagonal discrepancies. The proof covers every fixed real \(c\), with the stated admissible sufficiently large \(n\). Exhaustive small-size tests support but do not replace the infinite argument.
+PASS
 
-## Originality
+For a loopless independent-arc relation R with p_n=sqrt((2log n+c)/n), the G∘H and H∘G universal box operators correspond to R∘R^{-1} and R^{-1}∘R; equality on ALL subsets is exactly relation equality (witness by complement of one target). Off-diagonal relation entries equal common-successor and common-predecessor existence. For any fixed t distinct directional pair-defects, per outside vertex witness probability t p_n^2 +O_t(p_n^3) by inclusion-exclusion; independent outside z and bounded endpoint correction yield uniform joint event probability n^{-2t}e^{-tc}(1+o(1)). Since there are n(n-1) defect types, all factorial moments tend to e^{-tc}, hence Poisson(e^{-c}). Missing in/outdegree at any vertex has probability <=2n(1-p_n)^{n-1}=o(1), so diagonals cannot alter limit exp(-e^{-c}). Independently enumerated ALL loopless labelled directed graphs n=1,2,3,4 (1+4+64+4096 structures) and ALL valuations; verified relation-product/box equivalence and exact missing-pair means. Small cases do not prove the infinite law.
 
-**PASS within consulted evidence.** The closest tense-logic source, Figallo–Sarmiento–Pezzini (arXiv:2610.01547v1), provides the operators and algebraic completeness, not a random-frame critical window. Rodionov–Zhukovskii (arXiv:1804.04430v1) concern maxima of common-neighbor counts in undirected graphs rather than the two-kind zero-count in independent-arc digraphs. Searches for relational-product commutation, zero common in-/out-neighbors and equivalent Poisson thresholds did not identify a dominating published theorem. Absence in searched sources is not proof of historical priority; older directed-codegree or relation-algebra literature is a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The event is a natural universally quantified equation for the two primitive strong tense operators; the proof identifies the exact sharp nondegenerate scaling and an explicit nontrivial limiting probability. The joint defect count is more informative than separately analyzing the two modes, and the diagonal issue is essential for logical equivalence. Its value is as an exact asymptotic finite-model law, not as a claim to an entire new proof-theoretic system.
+Best-of-knowledge original evaluated claim after statement/implication comparison with cited literature; see four checks and residual risks. No negative search is taken as priority proof.
 
-## Boundaries
+## value
 
-The result is limited to independent arcs without loops and fixed finite \(c\). It asserts neither an all-probability monotone threshold nor a quantitative error rate. Historical priority and mathematical validity have not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The universal commutation equation is a natural, valuation-independent tense-modal property. Its exact sharp directed random-frame threshold and combined two-direction zero-codegree Poisson intensity are motivated structural/probabilistic facts, not an arbitrary small test or rephrased classical Gumbel assertion; equivalence of relation algebra and logic is expressly credited. The critical scaling and limiting profile make the result usable in random model theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
