@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:50:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The closed-neighborhood synchronous rule forces every remaining mate of a singly blue triangle with probability one one round later; the hub succeeds independently with p=(1+X)/(2m). The exact multinomial E/S/F transition and E[Xnext|state]=X+S+2Ep, E[Snext|state]=2Ep(1-p) were checked. A left Perron moment inequality for M=[[2,1],[1,0]] gives a subcritical-time completion bound; Bernoulli warmup, Chernoff-controlled two-component Perron growth and white-fraction contraction produce matching upper time to c m and O_P(loglog m) extinction. A star domination and geometric-block tail control give uniform integrability and the expectation limit. Exactly hub-only initial state, fixed independent attempts and m->infinity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chan et al. order of magnitude Theta(log n) and Geneson–Hogben O(log n) star-neighborhood bound are weaker than a sharp coefficient."
+        ],
+        "reasoning": "Prior coverage supplies the order and domination, but no equality-rate argument for a hub-matching family or probability limit.",
+        "searches": [
+          "probabilistic zero forcing on friendship graph bouquet triangles hub asymptotic propagation time leading constant logarithm Perron root",
+          "https://arxiv.org/html/1906.11083v1",
+          "https://arxiv.org/html/1812.10476v1"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1906.11083",
+        "arxiv:1812.10476",
+        "arxiv:1909.04482",
+        "Resultary semantic search: probabilistic zero forcing on friendship graph bouquet triangles hub asymptotic propagation time leading constant logarithm Perron root"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Order Θ(log n) only bounds constants from above/below; does not imply lim tau_m/log m or its value.",
+          "The star bound is invoked only for a second-moment UI estimate."
+        ],
+        "reasoning": "Neither generic bound nor star coupling logically entails the two-stage left-Perron growth and sharp leading constant.",
+        "searches": [
+          "probabilistic zero forcing on friendship graph bouquet triangles hub asymptotic propagation time leading constant logarithm Perron root",
+          "https://arxiv.org/html/1906.11083v1",
+          "https://arxiv.org/html/1812.10476v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Friendship graph F_m is K_1 join (m K_2), a universal-vertex join; conditional state (E,S) exactly distinguishes untouched/half-filled triangles.",
+          "Chan et al. arXiv:1906.11083v1 Theorem 3.2 is an expected graph-optimized bound, not this fixed-hub distributional asymptotic."
+        ],
+        "reasoning": "Compared windmill/friendship/bouquet naming, graph-optimized versus prescribed start, and synchronous versus first-passage rules. The general graph-class inclusion does not yield this value of the Perron constant.",
+        "searches": [
+          "probabilistic zero forcing on friendship graph bouquet triangles hub asymptotic propagation time leading constant logarithm Perron root",
+          "https://arxiv.org/html/1906.11083v1",
+          "https://arxiv.org/html/1812.10476v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hit for this submitted finding and distinct friendship majority dynamics and clique-bouquet first-passage models; no earlier exact same-rule table identified."
+        ],
+        "reasoning": "The claim is a full m->infinity stochastic asymptotic, not an indexed finite graph-number-table lookup; finite means m=1..7 do not imply it.",
+        "searches": [
+          "probabilistic zero forcing on friendship graph bouquet triangles hub asymptotic propagation time leading constant logarithm Perron root",
+          "https://arxiv.org/html/1906.11083v1",
+          "https://arxiv.org/html/1812.10476v1"
+        ]
+      },
+      "rationale": "PASS, qualified. Chan et al. prove only Theta(log n) for graph-optimized expected zero-forcing time in universal-vertex bounded-degree joins; that covers the graph and order but not the hub-started precise leading constant or convergence in probability. Geneson/Hogben star bounds are a proof ingredient, not this two-type motif amplification. Closest published related-record search returned deterministic zero-forcing polynomials and different first-passage flooding mechanisms, not identical rule and asymptotic coefficient.",
+      "residual_risks": [
+        "An unindexed exact friendship-graph forcing limit under a different graph name could have priority.",
+        "Numerical finite-state checks cannot certify the random-time limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_ORDER_ONLY",
+          "evidence": "Theorem 3.2 bounds graph-optimized propagation by Θ(log n), not hub-started exact constant.",
+          "identifier_or_url": "https://arxiv.org/html/1906.11083v1",
+          "material_read": "Definitions, Sections 1–3 and Theorem 3.2",
+          "method": "Accessible arXiv full-text HTML, selected theorem/proof reading",
+          "title": "Using Markov chains to determine expected propagation time for probabilistic zero forcing",
+          "trigger": "Same rule and class includes universal-vertex friendship joins"
+        },
+        {
+          "assessment": "SUPPORTING_TOOL_NOT_SHARP_CLAIM",
+          "evidence": "Star controls expected finishing time, not F_m two-type exponent.",
+          "identifier_or_url": "https://arxiv.org/html/1812.10476v1",
+          "material_read": "Definitions and star-neighborhood logarithmic expectation estimate (Lemma 2.5 in the inspected version)",
+          "method": "Accessible arXiv text, focused lemma reading",
+          "title": "Propagation time for probabilistic zero forcing",
+          "trigger": "Star comparison needed for expectation and potential stronger prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Resolves the natural sharp-time question for a canonical family included in the established universal-vertex order theorem; triangle mates change the linearized propagation from one type to two, yielding the nontrivial Perron constant 1/log(1+sqrt(2)), simultaneously for completion time and mean. This is not a tiny arbitrary finite calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only synchronous closed-neighborhood hub-started forcing, not starting-vertex minimization or asynchronous forcing.",
+    "Expectation convergence depends on star-bound coupling and uniform-integrability argument; no fluctuation limit."
+  ],
+  "schema_version": 1
+}

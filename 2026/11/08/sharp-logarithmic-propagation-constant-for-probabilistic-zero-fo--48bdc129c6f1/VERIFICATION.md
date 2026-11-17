@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python check_friendship.py` with Python 3.10+ and no external packages. The program prints finite exact means and the total number of exact rational assertions. It separately computes the quotient-state and full-coloring-state transition kernels, verifies their distributions for \(m=1,2,3\) through seven rounds, verifies exact drift identities and normalization for all quotient states through \(m=5\), and evaluates finite expectations through \(m=6\).
+## correctness
 
-The checker tests finite consequences of the theorem and the derived kernel. It is not a certificate for the limiting theorem; that rests on the explicit Chernoff, Perron-growth and white-vertex extinction estimates in `RESULT.md`. The star-based uniform moment bound comes from Geneson and Hogben, Lemma 2.3, plus a stated monotone coupling. No independent audit was performed.
+PASS
+
+PASS. The closed-neighborhood synchronous rule forces every remaining mate of a singly blue triangle with probability one one round later; the hub succeeds independently with p=(1+X)/(2m). The exact multinomial E/S/F transition and E[Xnext|state]=X+S+2Ep, E[Snext|state]=2Ep(1-p) were checked. A left Perron moment inequality for M=[[2,1],[1,0]] gives a subcritical-time completion bound; Bernoulli warmup, Chernoff-controlled two-component Perron growth and white-fraction contraction produce matching upper time to c m and O_P(loglog m) extinction. A star domination and geometric-block tail control give uniform integrability and the expectation limit. Exactly hub-only initial state, fixed independent attempts and m->infinity.
+
+## originality
+
+PASS
+
+PASS, qualified. Chan et al. prove only Theta(log n) for graph-optimized expected zero-forcing time in universal-vertex bounded-degree joins; that covers the graph and order but not the hub-started precise leading constant or convergence in probability. Geneson/Hogben star bounds are a proof ingredient, not this two-type motif amplification. Closest published related-record search returned deterministic zero-forcing polynomials and different first-passage flooding mechanisms, not identical rule and asymptotic coefficient.
+
+## value
+
+PASS
+
+PASS. Resolves the natural sharp-time question for a canonical family included in the established universal-vertex order theorem; triangle mates change the linearized propagation from one type to two, yielding the nontrivial Perron constant 1/log(1+sqrt(2)), simultaneously for completion time and mean. This is not a tiny arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

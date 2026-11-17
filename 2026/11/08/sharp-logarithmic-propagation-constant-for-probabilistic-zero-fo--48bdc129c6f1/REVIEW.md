@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rule, hub forcing probability and deterministic force by a partly blue triangle give the exact multinomial quotient kernel. Both conditional binomial marginals are derived without assuming their independence. The lower time bound follows from a left-Perron supermartingale expectation inequality. The upper time bound uses (i) short Bernoulli and multiplicative warm-up, (ii) Chernoff-controlled two-type Perron growth from logarithmic population, (iii) quadratic extinction of the remaining white fraction, and (iv) a published uniform logarithmic star completion bound for uniform integrability. The exact-rational checker provides independent finite state checks, not an infinite-size proof. Risk: the proof uses the specific simultaneous, closed-neighborhood forcing rule; altering it changes the answer.
+PASS
 
-## Originality — PASS, qualified
+PASS. The closed-neighborhood synchronous rule forces every remaining mate of a singly blue triangle with probability one one round later; the hub succeeds independently with p=(1+X)/(2m). The exact multinomial E/S/F transition and E[Xnext|state]=X+S+2Ep, E[Snext|state]=2Ep(1-p) were checked. A left Perron moment inequality for M=[[2,1],[1,0]] gives a subcritical-time completion bound; Bernoulli warmup, Chernoff-controlled two-component Perron growth and white-fraction contraction produce matching upper time to c m and O_P(loglog m) extinction. A star domination and geometric-block tail control give uniform integrability and the expectation limit. Exactly hub-only initial state, fixed independent attempts and m->infinity.
 
-The primary 2019 work (arXiv:1906.11083v1, Theorem 3.2) gives \(\Theta(\log n)\) for the graph-optimized minimum expected time of universal-vertex joins to bounded-degree graphs, not the hub-started leading coefficient for friendship graphs. The 2018/2022 Geneson–Hogben source gives the star-neighborhood logarithmic bound, not the present two-type constant. Narayanan–Sun (2019) gives radius-based bounds rather than a sharp motif-family constant; inspected 2020 grid/regular/hypercube papers work on other structures. Related accessible records concern deterministic zero forcing polynomials or distinct rumor-spreading dynamics, so neither statement implies the present claim. Searches for friendship/windmill and the spectral coefficient yielded no direct coverage, but this does not prove global priority. Remaining risk: papers not indexed under those terms may have an equivalent multitype mean-field result.
+## originality
 
-## Value — PASS
+PASS
 
-The full logarithmic leading constant answers a natural sharp-time question left open by an established universal-vertex order theorem. The presence of exactly one extra edge per two leaves changes the linearized growth from the one-type hub mechanism to a two-type mechanism with Perron root \(1+\sqrt2\); this quantifies motif-level acceleration at fixed hub degree, rather than recomputing a generic Markov matrix for one small graph. Both the random time and its mean have the same leading constant. The claim is restricted to hub initiation, not optimal starting-vertex propagation time.
+PASS, qualified. Chan et al. prove only Theta(log n) for graph-optimized expected zero-forcing time in universal-vertex bounded-degree joins; that covers the graph and order but not the hub-started precise leading constant or convergence in probability. Geneson/Hogben star bounds are a proof ingredient, not this two-type motif amplification. Closest published related-record search returned deterministic zero-forcing polynomials and different first-passage flooding mechanisms, not identical rule and asymptotic coefficient.
 
-## Limits and related literature
+## value
 
-The proof does not establish a fluctuation distribution or more general clique bouquets. Primary relevant sources and distinctions are listed in `RESULT.md`. Publication priority requires further independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Resolves the natural sharp-time question for a canonical family included in the established universal-vertex order theorem; triangle mates change the linearized propagation from one type to two, yielding the nontrivial Perron constant 1/log(1+sqrt(2)), simultaneously for completion time and mean. This is not a tiny arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
