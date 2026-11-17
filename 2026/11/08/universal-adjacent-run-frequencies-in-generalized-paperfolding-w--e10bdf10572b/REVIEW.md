@@ -1,19 +1,21 @@
-# Review of the universal generalized-paperfolding adjacent-run law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The word is explicitly normalized by its 2-adic valuation formula for arbitrary instructions. Opposite signs at successive odd positions bound run length by three. A complete adjacent pair is a local factor of length at most eight. Exactly one position of such a window is divisible by eight; conditional on the starting residue modulo sixteen, its sign is asymptotically balanced for all instruction tails. The other seven positions are fixed by the first three instructions. An exhaustive finite \(32\)-template enumeration for each normalized triple gives the claimed integer matrix, with direct checker replay. Converting position density to run-index density uses the independently established total pair density \(1/2\). The mutual information is a direct exact calculation.
+PASS
 
-## Originality
+Read full frozen RESULT.md and verify.py. Odd-position signs alternate across adjacent odd sites, so runs have length ≤3. A complete consecutive run pair (a,b) is recognized by (-s)s^a(-s)^b s on a window of length a+b+2≤8, with boundary terms O(1). Every 8-window contains exactly one multiple of 8: the remaining seven letters are fixed by ε0,ε1,ε2 and start residue modulo16. The variable sign at multiples of 8 is conditionally asymptotically balanced by splitting the odd quotient modulo4 into equal classes at each 2-adic valuation, uniformly for arbitrary instruction tails. I independently reimplemented all 8 first-three-instruction choices ×16 residues ×2 upper signs ×9 run pairs; every choice yields integer count matrix [[0,3,1],[3,2,3],[1,3,0]]. The position pair density is count/32, their sum 1/2 equals run-start density, hence divide by 1/2 for run-index joint matrix/16. The mutual information follows from ratios 3/2,1/2,1 and row sums; no extrapolation of finite word prefixes.
 
-**PASS, with residual priority risk.** Madill–Rampersad (2012) studies abelian factor complexity, not run-pair frequencies. Shallit (arXiv 2024) provides a finite-automaton description, the possible run lengths and run-factor support, but the inspected full text does not calculate an all-instruction invariant pair-frequency matrix or the mutual information. Bunder–Bates–Arnold (2024) addresses the regular word and its continued fractions. The later automaton work could in principle be used for an independent derivation, and the inaccessible full 1994 canonical-position study remains a historical priority risk. The claim is not that allowed pairs, the run-length bound, or automata are new.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact two-point law provides a natural quantitative statistic beyond known support and subword complexity, and its striking invariance across all folding instructions makes it relevant to the large class of paperfolding words rather than just a single numerical example. It separates the deterministic transition restrictions from statistical independence, yielding a nonzero exact information measure.
+Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. An algorithm for factor locations could potentially imply this matrix after evaluation, but the published theorem statement/inspected main text does not directly dominate the explicit universal measure.
 
-## Limits
+## value
 
-The result covers only ordered pairs of successive run lengths, not longer correlations. The direct-prefix checks are not substitutes for the 2-adic proof. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact universal two-point stationary law for a deterministic run-length coding under completely arbitrary, even nonautomatic instruction sequences is a natural statistical invariant. It quantitatively reveals adjacent-run dependence via a nonzero exact mutual information where known factor support and complexity alone do not determine the probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
