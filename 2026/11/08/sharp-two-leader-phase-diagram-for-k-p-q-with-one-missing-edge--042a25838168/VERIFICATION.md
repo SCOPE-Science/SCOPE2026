@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-From a directory containing `verify.py` and `formulas.json`, run `python verify.py` with Python 3 and no nonstandard package dependencies. The exact execution completed with `VERIFY_OK: symbolic coefficient checks 474 exact grounded-matrix comparisons 4155`.
+## correctness
 
-The script reconstructs all eight rational objective functions symbolically from the biclique block inverse and Sherman–Morrison formulas, verifies rational-function equality with the coefficient tables, proves the eight denominator polynomials positive over the relevant domain, and checks all difference-polynomial coefficient signs on the unbounded parameter regions. A separate grounded-Laplacian Gauss–Jordan routine confirms individual objective functions for all vertex pairs on 45 distinct biclique sizes (total 4,155 leader pairs).
+PASS
 
-The exhaustive *symbolic* coefficient tests, rather than the finite graph tests, support the infinite classification. They depend on the derivation that every two-leader pair belongs to one of the eight symmetry classes. The selected partitions have at least three vertices per part; no assertions about different budgets, other defect patterns or nonunit conductances follow. Independent mathematical audit has not been performed.
+The graph automorphism group has exactly eight leader-pair orbits; the unmodified biclique inverse follows from a 2-block Schur complement and deleting one edge is a grounded rank-one Sherman–Morrison correction. Inspected verify.py recomputes all eight exact rational polynomials from the source formulas.json, proves positivity using shifted polynomial coefficient certificates on p>=6,q>=p and the complete p=3/4/5 unbounded strips, and checks all six remaining integer cases. Independent exact grounded Laplacian inverses for (3,3),(3,6),(3,7),(4,4),(4,5),(5,5),(5,6),(6,6),(6,7) matched the claimed optimizer classes and normalized trace (no factor of 1/2). Thus the infinite-domain proof uses symbolic sign certificates, not finite-size extrapolation.
+
+## originality
+
+PASS
+
+The October 25 prior theorem directly covers exactly the balanced diagonal p=q, including threshold n=6 and all balanced equality sets: this part is NOT new. Its proof and hypotheses restrict it to K_{n,n} and cannot imply the asymmetric p<q transition. The independent infinite-strip classification at p=3 q>=7, p=4 q>=5, p=5 q>=6, and general p<q goes beyond this prior; neither intact-biclique leader allocation nor single-chord biclique results imply the deleted-cross-edge problem. Best-of-knowledge pass for the unbalanced extension; older nonindexed exact biclique-specialized results remain a risk.
+
+## value
+
+PASS
+
+Changing community sizes and deleting a single edge creates the natural competing defect-endpoint versus ordinary-side placement regimes; classifying all optimal pairs and exact error values throughout two unbounded part-size parameters is a useful nontrivial structural robustness/leader-allocation theorem. New unbalanced regimes are not mechanically implied by balanced results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

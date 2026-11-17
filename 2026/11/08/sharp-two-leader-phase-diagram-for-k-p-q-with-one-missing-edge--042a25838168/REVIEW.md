@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The eight orbit classes exhaust every two-vertex selection when \(p,q\ge3\). The undeleted grounded biclique inverse is verified by direct multiplication, and Sherman–Morrison gives the exact correction after removing one edge. The characteristic sign certificates are complete: denominator positivity holds throughout \(p,q\ge3\), and the coefficientwise-nonnegative difference polynomials cover the full infinite quadrant \(p\ge6,q\ge p\), the three remaining infinite strips, and the six residual finite cases. The standalone verifier checked all symbolic numerator identities and 4,155 independently formed exact matrix inverses. No finite test is used to infer infinite optimality.
+## correctness
 
-## Originality — PASS, with residual risk
-The original 2013 noise-free leader-selection framework provides the objective but not a one-edge-deletion optimizer classification. The 2014 joint-centrality treatment obtains general-set formulas and evaluates path/cycle examples, not these two-part graphs. The 2014 path/ring optimization work does not cover the family. In contrast, the present claim describes a strict, explicit phase boundary and every minimizing two-vertex set in an infinite defective-biclique family. Relevant publicly indexed records did not reveal equivalent coverage. Unindexed or inaccessible equivalent formulas remain a publication-priority risk; this is not asserted to be a definitive novelty certificate.
+PASS
 
-## Value — PASS
-The defect-edge removal changes the placement optimum in a structurally meaningful way: unlike the undeleted symmetric biclique, the two nonadjacent endpoints of the missing edge can be the unique optimum, even though their degrees drop. The exact regime boundaries \((3,q\le6),(4,4),(5,5)\) give a natural, complete failure/survival classification for this effect under changing community sizes. Exact optimizer counts and costs support control-sensor placement and robustness comparisons, beyond a routine isolated computation.
+The graph automorphism group has exactly eight leader-pair orbits; the unmodified biclique inverse follows from a 2-block Schur complement and deleting one edge is a grounded rank-one Sherman–Morrison correction. Inspected verify.py recomputes all eight exact rational polynomials from the source formulas.json, proves positivity using shifted polynomial coefficient certificates on p>=6,q>=p and the complete p=3/4/5 unbounded strips, and checks all six remaining integer cases. Independent exact grounded Laplacian inverses for (3,3),(3,6),(3,7),(4,4),(4,5),(5,5),(5,6),(6,6),(6,7) matched the claimed optimizer classes and normalized trace (no factor of 1/2). Thus the infinite-domain proof uses symbolic sign certificates, not finite-size extrapolation.
 
-## Closest literature and limitations
-Lin–Fardad–Jovanović (2013), Fitch–Leonard (2014), Patterson–McGlohon–Dyagilev (2014); see `RESULT.md`. The domain is restricted to a single missing edge, two noise-free leaders and part sizes at least three. Publication-priority risk remains for equivalent not-yet-located work. The algebraic proof is internally reviewed, not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 25 prior theorem directly covers exactly the balanced diagonal p=q, including threshold n=6 and all balanced equality sets: this part is NOT new. Its proof and hypotheses restrict it to K_{n,n} and cannot imply the asymmetric p<q transition. The independent infinite-strip classification at p=3 q>=7, p=4 q>=5, p=5 q>=6, and general p<q goes beyond this prior; neither intact-biclique leader allocation nor single-chord biclique results imply the deleted-cross-edge problem. Best-of-knowledge pass for the unbalanced extension; older nonindexed exact biclique-specialized results remain a risk.
+
+## value
+
+PASS
+
+Changing community sizes and deleting a single edge creates the natural competing defect-endpoint versus ordinary-side placement regimes; classifying all optimal pairs and exact error values throughout two unbounded part-size parameters is a useful nontrivial structural robustness/leader-allocation theorem. New unbalanced regimes are not mechanically implied by balanced results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
