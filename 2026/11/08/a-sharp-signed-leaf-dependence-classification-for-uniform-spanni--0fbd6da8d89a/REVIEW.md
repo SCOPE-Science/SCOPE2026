@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact matching-deletion tree-count determinant follows from the transfer-current matrix for disjoint edges of a complete bipartite graph; the prescribed-leaf counting identity is bijective. The four probabilities are algebraically consistent. Negative covariance follows from \(c^2-Bx=1\), and the delicate positive covariance follows from a positive log-series coefficient proof, with explicitly tested small coefficients and an analytic tail bound. Independently structured exact Kirchhoff cofactor tests and integer sequence checks replayed from the supplied script. The finite checks do not certify the infinite case: the determinant and analytic proof do.
+PASS
 
-## Originality (O): PASS (qualified)
+For prescribed leaf set |S|<=2, unique construction of residual spanning tree of G-S and attachments to complement proves joint formula; exact K_{a,b} matching-deletion transfer-current determinant yields D and residual tree counts. Nonedge inequalities use c²-Bx=1 and y=x-1. Positive adjacent covariance uses analytic F(z)=log(P_adj/p²), first nonzero coefficient at z⁴ and integer N_j>0: j=4..21 exactly listed, j>=22 from a=(3+sqrt5)/2,b=(3-sqrt5)/2 and elementary geometric bounds, no reliance on finite enumeration for all n. Independently computed exact Laplacian cofactors for 3<=n<=8 and all pairs.
 
-Nachmias and Peres (2020) give high-degree UST local limit/leaf-density results rather than finite adjacent-pair covariance, and Klee and Stamps (2020) give the crown Laplacian spectrum without leaf-pair probabilities. Accessible related mathematical findings for (i) circular-ladder leaf covariances, (ii) single-weighted-edge bipartite UST covariance, and (iii) complete-multipartite leaf log-submodularity cover different families/conditions. The crown at \(n=4\) is a covered small ladder; it is only contextual here. The all-\(n\ge5\) sign theorem is not a corollary of the cited results. Historical priority beyond the searched and inspected materials remains uncertain.
+## originality
 
-## Value (V): PASS
+PASS
 
-Leaf indicators are a natural second-order local observable of uniform spanning trees; their signs distinguish interactions that edge-negative-association does not describe. The theorem completely determines pair-sign behavior over an unbounded family of dense regular graphs and exhibits positive covariance for all adjacency pairs, sharply contrasting the negative dependence of complete bipartite leaf events. The positive difference has cancellations through the first three analytic orders, so the sign is not an immediate generic high-degree consequence. This is a structural, exact natural-family classification rather than an isolated numerical table.
+Best-knowledge PASS. Crown-graph Laplacian spectrum and tree count are known, and local weak-limit leaf density is known, but inspected primary results do not give the all-n leaf-pair positive-for-adjacent versus negative-for-nonedge three-type classification. Small n=3,4 coincidences are not credited as novel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. Natural crown graphs separate three vertex-pair orbits and reveal strictly positive adjacent leaf dependence despite edge negative association; complete signed leaf-event classification is mathematically motivated and not merely a known tree-count specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

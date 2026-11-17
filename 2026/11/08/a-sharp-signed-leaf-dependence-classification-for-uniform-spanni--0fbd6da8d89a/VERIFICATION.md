@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The package contains a standalone pure-Python exact rational Kirchhoff-cofactor checker. It computes the crown Laplacian independently for each graph order 3 through 7, compares the single- and pair-leaf probabilities with the closed expressions, and verifies the recurrence coefficients used in the positivity proof. Executed command: `python3 crown_leaf_check.py`. Actual result: `VERIFY_OK 51 exact assertions`. This tests finite cases only; the all-order proof is algebraic and analytic. No independent external audit was performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For prescribed leaf set |S|<=2, unique construction of residual spanning tree of G-S and attachments to complement proves joint formula; exact K_{a,b} matching-deletion transfer-current determinant yields D and residual tree counts. Nonedge inequalities use c²-Bx=1 and y=x-1. Positive adjacent covariance uses analytic F(z)=log(P_adj/p²), first nonzero coefficient at z⁴ and integer N_j>0: j=4..21 exactly listed, j>=22 from a=(3+sqrt5)/2,b=(3-sqrt5)/2 and elementary geometric bounds, no reliance on finite enumeration for all n. Independently computed exact Laplacian cofactors for 3<=n<=8 and all pairs.
+
+## originality
+
+PASS
+
+Best-knowledge PASS. Crown-graph Laplacian spectrum and tree count are known, and local weak-limit leaf density is known, but inspected primary results do not give the all-n leaf-pair positive-for-adjacent versus negative-for-nonedge three-type classification. Small n=3,4 coincidences are not credited as novel.
+
+## value
+
+PASS
+
+PASS. Natural crown graphs separate three vertex-pair orbits and reveal strictly positive adjacent leaf dependence despite edge negative association; complete signed leaf-event classification is mathematically motivated and not merely a known tree-count specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
