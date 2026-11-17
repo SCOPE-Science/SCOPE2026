@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit radical gives a unique admissible root; a strictly concave quadratic proves global containment of the proposed John ellipsoid and identifies all contacts. The finite positive John contact decomposition has zero mean and identity covariance; a second decomposition using the normalized coordinate tips proves the minimum-volume containing ellipsoid. The explicit first-order expansions establish the two limits. Numerical checks of the package verifier supplement the analytic proof and are not used as an infinite certificate.
+## correctness
 
-## Originality
-PASS, provisional historical priority. The motivating reverse-isoperimetric theorem determines the role of the lens but gives no John/Löwner semiaxis or contact classification. Classical contact theorems provide optimization criteria, not formulas for this object. The most plausible older related full text, Kahan's study of intersections of ellipsoids with a common center, explicitly restricts to that case and does not imply this distinct-center lens theorem. Earlier lens mean-width work treats a different invariant. Targeted exact-object, alias, and broader-coverage searches found no equivalent statement. Optimization literature is broad, so older implicit or explicit equivalences remain a residual risk.
+PASS
 
-## Value
-PASS. The lens is the unique extremal model of a recent all-dimensional sharp reverse-isoperimetric theorem. Its exact John and Löwner ellipsoids are natural affine-geometric approximation invariants; the contact classification and the noncommuting small-overlap/high-dimensional regimes give structural information beyond a numerical exercise. The dimension limit exhibits strong axial compression even while the transverse scale remains macroscopic.
+Verified unique delta root between c² and 1 and b²-a²=ac sqrt(n). The John inclusion is the concave quadratic q(s)=(c+as)²+b²(1-s²), maximized only at s=1/sqrt(n); normalized contacts admit an exact isotropic finite frame, proving global John optimality. For Loewner, t=(1-c)v gives normalized quadratic ≤1-2c*v*(1-v)/(1+c), so only v=0,1 contact, with normalized ±coordinate tips providing the global Loewner frame. Limits follow by expanding the delta root. Independent sympy and sampled analytic parameter identities confirmed critical algebra, not the infinite statement. The c=0 ball is handled separately; c=1 excluded.
 
-## Scope and limitations
-Euclidean equal-radius lenses only; no result for curved model spaces, unequal radii, or more than two balls. No independent priority verification. The claim is not a Banach–Mazur formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for surviving distinct OUTER ellipsoid classification, with substantial credited John overlap. The published October 18 symmetric-ball lens theorem gives precisely the submitted John semiaxes and normalized 1/sqrt(n) contacts (algebraically equal via a older positive quadratic root); October 25 again gives John asymptotics. Neither inspected result establishes the unique minimum-volume OUTER Loewner ellipsoid of the lens, its equator-plus-axial-tip contact set, or its shrinking-overlap transverse ratio. Published general Loewner/John contact criteria determine certificates only when the body-specific contacts are computed.
+
+## value
+
+PASS
+
+PASS. The symmetric two-ball lens is a canonical convex-geometric object; paired inner/outer maximum/minimum volume ellipsoids and all contact orbits are natural exact affine invariants. Although its John half is already known and the remaining outer calculation is short, the complementary globally optimal Loewner formula and different contact geometry complete a worthwhile, directly reusable natural classification; no general downstream theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
