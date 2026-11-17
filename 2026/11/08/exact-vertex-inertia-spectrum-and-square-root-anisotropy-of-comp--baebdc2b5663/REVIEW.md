@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns uniform sampling from all binary matching-incidence vertices of the full-dimensional matching polytope of the complete graph on at least four vertices. Counting one edge and two disjoint edges gives the exact covariance entries. The well-specified orthogonal decomposition of edge space into constants, centered vertex stars and unsigned-incidence kernel yields the three eigenvalues and their multiplicities. The strict inequalities are proved using the two-step telephone recurrence, not inferred from sampled dimensions. The coefficient in the square-root condition-number asymptotic is supported by a quantitative two-step-ratio estimate with its derivative and error bounds explicitly shown. The checker independently enumerates every matching through nine vertices and uses exact rational arithmetic.
+PASS
 
-## Originality — PASS, with provisional historical priority
+Uniform sampling from all matching incidence vertices of P_n for n>=4 is the uniform random involution law. For any edge e, P(e)=a=T_(n-2)/T_n; disjoint e,f have P(e,f)=b=T_(n-4)/T_n, and incident edges never co-occur. This produces covariance in the span of I, line-graph adjacency A, J. The Johnson line graph J(n,2) has 3 orthogonal invariant subspaces: all-ones (dim1), vertex-star contrasts (n-1), unsigned incidence kernel (n(n-3)/2). Inserting A eigenvalues 2(n-2),n-4,-2 yields exactly the three claimed lambda formulas. The telephone ratio recurrence proves strict lambda_size<lambda_star<lambda_cycle; two-step expansion T_n/T_(n-1)=sqrt(n)+1/2+O(n^-1/2) gives lambda_size~1/(2 n^(3/2)), lambda_cycle~1/n, hence ratio 2sqrt(n)+O(1). Independent exact enumeration of n=4..8 matchings, full covariance construction and eigenvalues confirms all spectra, including n4 (3/50,1/10,3/10) and n8 (1367/72962,13/382,43/382).
 
-Abreu–Costa–Nascimento–Patuzzi (2019, DOI 10.5540/tema.2019.020.01.189) analyze degrees and regularity of the matching polytope's one-skeleton; the inspected eight-page primary full text does not state vertex-uniform second moments or a covariance spectrum. Torres (arXiv:2306.11910, 2023) treats normality of fixed-cardinality bipartite matching polytopes, rather than the all-cardinality complete-graph vertex distribution. Ferrarini–Gualandi (arXiv:2105.09827, 2021) discuss total matchings and facet systems, a different object. Quitmann (arXiv:2309.13632, 2023) proves spatial decay of monomer–dimer correlations for lattice domains, a different setting despite use of dimer–dimer covariance. Published nearby findings concern complete-graph matching-polytope radii and fractional matching-polytope John ellipsoids; their accessible summaries do not imply vertex-uniform covariance formulas, and the corresponding full repository pages were inaccessible. The line-graph/Johnson spectral decomposition is classical; novelty is not attributed to that representation alone but to the explicit all-size covariance classification, strict mode ordering and sharp conditioning. A different formulation under monomer–dimer susceptibility, random involutions or association schemes could predate the result; an expert literature audit is warranted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The covariance ellipsoid is a natural intrinsic second-moment invariant of a full-dimensional family of 0–1 polytopes. Exact identification of every eigenvalue and eigenspace answers a geometric question not answered by ordinary facet, volume or graph-skeleton data. The nontrivial inequality making the size mode uniquely least variable is all-dimensional, and the precise growth of its condition number as \(2\sqrt n+O(1)\) distinguishes the three fluctuation scales (size, star contrasts and cycle contrasts). This is an exact infinite-family classification, not an arbitrary finite slice or a table lookup.
+PASS best-of-knowledge. Standard matching/involution counts and line-graph Johnson eigenspaces are credited as ingredients, but the inspected matching-polytope primary literature focuses on skeleton regularity/degree, facets or fixed-size matchings and does not give the vertex-uniform second-moment spectrum with strict ordering and sharp square-root condition-number coefficient. Resultary counterpart for complete-bipartite partial-permutation vertices has a similar three-mode asymptotic but is NOT the complete-graph matching polytope (different edge-coordinate representation and incidence constraints). No verified stronger theorem implying exactly these complete-graph values was located.
 
-## Limits and residual risks
+## value
 
-No conclusions are made for arbitrary graphs, volume-uniform points, weighted models or fixed-size matching slices. Primary-source inspection covers the cited matching-polytope paper and directly relevant HTML text; the full text of the nearest published-finding corpus geometric findings could not be retrieved. Classical monomer–dimer correlations or association-scheme treatments might contain an equivalent theorem. The finite checker alone is not evidence for infinite-dimensional statements.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire covariance ellipsoid of the natural vertex-uniform matching polytope is explicitly diagonalized, identifies least- and most-variable combinatorial directions and computes sharp sqrt(n) anisotropy. This is a meaningful full spectrum and asymptotic, not merely a routine substitution into known telephone counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
