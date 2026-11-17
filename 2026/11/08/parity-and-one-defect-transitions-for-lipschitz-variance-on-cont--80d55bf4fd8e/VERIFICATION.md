@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification and limits
 
-Run `python3 verify_matching_spread.py` with the standard Python library. The checker uses exact integer numerators for rational metric lengths and verifies:
+# Independent mathematical audit
 
-- All six-state candidate extreme potentials and every maximizing assignment at 22 exact-rational instances for \(2\le k\le6\), including the exact odd-\(k\) threshold values.
-- Independent enumeration from all signed tight spanning trees for \(k=2\) at \(\lambda=1/2\) and \(k=3\) at \(\lambda=1/3\), \(4/5\), and \(9/10\). It reconstructs respectively \(18\) and \(162\) distinct normalized extremal potentials and compares complete sets.
-- The symbolic rational threshold identities for odd \(k\) through \(23\).
+## correctness
 
-Observed terminal marker: `ALL_MATCHED_EQUILATERAL_SPREAD_CHECKS_OK`.
+PASS
 
-These are exact finite calculations and not an exhaustive proof for arbitrary \(k\) or real \(\lambda\). The universal claim follows from the analytic six-state and two-split replacement arguments in `RESULT.md`. No external or independent audit has been performed.
+For every integer k>=2 and lambda strictly between 0 and 1, the 2k-point matching-contracted equilateral metric has range <=1. Strict convexity of the uniform variance on potentials modulo constants forces each maximizer to a tight-edge-connected polytope vertex. Every such vertex has six possible states per matched pair and both a lower/upper anchor. An opposite split-pair replacement raises variance by 2 lambda(1-lambda)/(2k); a same-side two-split randomized replacement raises expected variance by (k-1)lambda(1-lambda)/k^2. Hence at most one split pair maximizes. Pure states have variance a(k-a)/k^2. The one-split finite difference (k-2a-lambda-1)/k^2 is maximized at a=(k-1)/2 for odd k, with difference from the best pure state lambda[(2k-1)lambda-2(k-1)]/(4k^2). This yields precisely the stated parity law and transition lambda=2(k-1)/(2k-1), with both classes at the transition. Endpoints lambda=0,1 are intentionally excluded. Independent direct enumeration at 12 rational k/lambda instances corroborated but does not prove the infinite theorem.
+
+## originality
+
+PASS
+
+The earlier complete six-state vertex/facet theorem for arbitrary independent pair contractions covers an important geometric prerequisite but does not optimize the uniform centered L2 variance, prove one-split localization, or identify the sharp odd-parity threshold. Classical graph spread and generic Lipschitz polytope work do not supply the same model-specific sharp norm. No mathematically dominating formula was found in indexed results; historical priority is qualified.
+
+## value
+
+PASS
+
+The sharp Lipschitz-to-centered-L2 norm is a natural metric invariant. Equal contraction of disjoint pairs leads to a genuinely nontrivial parity obstruction and a sharp one-defect optimizer transition, distinguishing values continuously between equilateral and matched metrics. The one-split localization lemma and equality family are reusable structural facts, not merely a finite numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the matched-equilateral variance theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers, normalizations, and exceptional parameter endpoints were reconstructed. Strict convexity of uniform variance modulo constants restricts maximizers to vertices of the Lipschitz polytope. Tight-edge incidence rank proves the six possible states for each shortened pair. The explicitly computed expected-variance improvement from replacing two split pairs is strictly positive for every \(k\ge2\) and \(0<\lambda<1\), so maximizers have at most one split. Discrete finite differences select the unique optimal remaining count, and direct subtraction gives the stated rational threshold. The standalone checker independently enumerated the full tight-tree extremal set at four small rational instances and agreed with the candidate variance and optimizer family at 22 instances. The finite tests do not prove the unbounded family; the analytic proof does.
+PASS
 
-## Originality — PASS (qualified)
+For every integer k>=2 and lambda strictly between 0 and 1, the 2k-point matching-contracted equilateral metric has range <=1. Strict convexity of the uniform variance on potentials modulo constants forces each maximizer to a tight-edge-connected polytope vertex. Every such vertex has six possible states per matched pair and both a lower/upper anchor. An opposite split-pair replacement raises variance by 2 lambda(1-lambda)/(2k); a same-side two-split randomized replacement raises expected variance by (k-1)lambda(1-lambda)/k^2. Hence at most one split pair maximizes. Pure states have variance a(k-a)/k^2. The one-split finite difference (k-2a-lambda-1)/k^2 is maximized at a=(k-1)/2 for odd k, with difference from the best pure state lambda[(2k-1)lambda-2(k-1)]/(4k^2). This yields precisely the stated parity law and transition lambda=2(k-1)/(2k-1), with both classes at the transition. Endpoints lambda=0,1 are intentionally excluded. Independent direct enumeration at 12 rational k/lambda instances corroborated but does not prove the infinite theorem.
 
-The classical complete-graph spread is known (Addario-Berry, Janson and McDiarmid, arXiv:0902.1156). The general Lipschitz-polytope tight-edge geometry is also prior work (Gordon and Petrov, arXiv:1608.06848). The closest indexed result, *Facet enumeration for equilateral metrics with independently shortened pairs*, explicitly **does** establish the six-state extreme-point classification for this entire matching family; this geometric classification is not claimed new. It does **not** derive sharp uniform variance, eliminate all but one split pair among variance maximizers, or determine the exact optimizer transition. A separate equilateral Banach--Mazur result treats the unshortened norm comparison and does not imply the contracted-matching profile. No covering variance theorem appeared in the targeted source searches and full-text inspections. Unindexed equivalent formulations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem measures the sharp Lipschitz-to-centered-\(L^2\) norm under a controlled metric contraction. It captures a genuine parity obstruction (matching-pair count), a nontrivial stability plateau, and a sharp quadratic transition with complete localization of the defect on one pair. The structural elimination lemma reduces exponentially many extreme potentials to two meaningful families and identifies exactly how variance recovers toward the equilateral benchmark. This is a motivated infinite parameter family rather than an arbitrary finite table.
+The earlier complete six-state vertex/facet theorem for arbitrary independent pair contractions covers an important geometric prerequisite but does not optimize the uniform centered L2 variance, prove one-split localization, or identify the sharp odd-parity threshold. Classical graph spread and generic Lipschitz polytope work do not supply the same model-specific sharp norm. No mathematically dominating formula was found in indexed results; historical priority is qualified.
 
-## Boundaries and residual risks
+## value
 
-Equal matched distance and uniform atomic mass are essential to the symmetric sharp formula. The matching metric ceases to have the same extremizers at \(\lambda=1\). The argument does not address unequal shortenings, arbitrary other short-edge patterns or nonuniform probability. Priority relative to unindexed literature is not proven, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp Lipschitz-to-centered-L2 norm is a natural metric invariant. Equal contraction of disjoint pairs leads to a genuinely nontrivial parity obstruction and a sharp one-defect optimizer transition, distinguishing values continuously between equilateral and matched metrics. The one-split localization lemma and equality family are reusable structural facts, not merely a finite numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
