@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:16:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f/verify_polygon.py",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md",
+        "independent sympy exact conditioned-versus-renewal covariance comparison"
+      ],
+      "rationale": "Cyclic-gap chord/shoelace formulas yield X=(π³/3)R3/N³−(π⁵/60)R5/N⁵+O(N^-7R7), Y−2X=−(π⁵/10)R5/N⁵+O(N^-7R7). Geometric renewal rewards yield (R3−ρ3N,R5−ρ5N)/sqrt(N) with covariance σ_rs=p E[(G^r−ρ_r G)(G^s−ρ_s G)]; polynomial independence on infinite geometric support gives positive definiteness. Uniform geometric tails and fourth moments justify covariance limits and negligible Taylor remainders, so determinant scales N^-14 and 1−Corr∼positive N^-4. Independently checked geometry, exact p=1/2 coefficients ρ=(13,541), σ=(3240,465480,98058600), determinant 101038233600; checked symbolic conditional/deconditioning covariance identity as a further validation.",
+      "residual_risks": [
+        "Infinite CLT comes from renewal-reward/invariance theory, not finite Monte Carlo; cited full source supplies derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md"
+        ],
+        "reasoning": "Prior fixed-count two-scale CLT provides the stronger conditional distribution for every retention ratio p_n near p with uniformly controlled characteristic functions. Integrating this exact family against binomial sample-count fluctuations yields candidate's unconditional joint Gaussian. The October prior result already proves the same Bernoulli cubic area marginal.",
+        "searches": [
+          "Resultary: Bernoulli thinned regular polygon perimeter area joint two scale Gaussian CLT geometric spacings covariance determinant",
+          "Resultary earlier uniform m two-scale joint polygon CLT and explicit covariance p C"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md",
+        "https://doi.org/10.33993/jnaat522-1360",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f/RESULT.md"
+        ],
+        "reasoning": "At retention p, the earlier exact-m joint CLT has conditional covariance p*C_rs where C_rs=Cov(G^r,G^s)-Cov(G^r,G)Cov(G^s,G)/Var(G) (r,s=3,5) and is uniform for m/N in compact subsets of (0,1). With independent Bernoulli retention M~Bin(N,p), sqrt(N)(M/N-p) is asymptotically normal with variance p(1-p); conditioning on M, centering at rho_r(M/N) and applying a standard joint binomial delta/deconditioning step gives covariance p*C_rs+p(1-p)rho_r'(p)rho_s'(p), rho_r(p)=p E_p G^r. Symbolic algebra verifies this equals p E[(G^r-rho_r G)(G^s-rho_s G)] exactly for r,s=3,5; at p=1/2 the respective rank-one contributions are 1296,110160,9363600. The fixed-m theorem already proves the same third/fifth gap cancellation and nondegenerate two-scale Gaussian. Covariance determinant and correlation N^-4 coefficient are elementary covariance algebra consequences. The October Bernoulli theorem independently establishes the leading cubic/marginal limit. Thus the entire candidate follows by routine binomial mixing from prior stronger fixed-count law, despite the sampling-ensemble wording changing.",
+        "searches": [
+          "Resultary: Bernoulli thinned regular polygon perimeter area joint two scale Gaussian CLT geometric spacings covariance determinant",
+          "Resultary: Bernoulli thinned regular polygon two scale area perimeter gap powers covariance",
+          "conditional m to Binomial M deconditioning and Gaussian delta method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md"
+        ],
+        "reasoning": "Both use the same regular-grid cyclic positive-integer gaps and exact two-term sine expansion; difference is conditioning on sample count M versus Bernoulli M. Bernoulli law is the binomial mixture of the uniform m-subset conditional laws, so the descriptions are mathematically equivalent after conditioning.",
+        "searches": [
+          "Resultary: Bernoulli thinned regular polygon perimeter area joint two scale Gaussian CLT geometric spacings covariance determinant",
+          "Resultary: Bernoulli thinned regular polygon two scale area perimeter gap powers covariance",
+          "Resultary sharp area-perimeter cancellation uniformly thinned polygon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md"
+        ],
+        "reasoning": "The candidate's sigma coefficients and p=1/2 table are mechanically the prior conditional C matrix plus binomial delta rank-one variance; algebraic identity verified exactly. Hence absence of those exact coefficient numbers in the fixed-count paper is not new content.",
+        "searches": [
+          "Resultary: Bernoulli thinned regular polygon perimeter area joint two scale Gaussian CLT geometric spacings covariance determinant",
+          "geometric gap renewal covariance explicit moments p=1/2",
+          "Resultary fixed-m covariance C35 C55 table"
+        ]
+      },
+      "rationale": "The previously published same-object uniform fixed-size thinning theorem already proves the sharp *joint* cubic/quintic Gaussian law for all fixed sampling fractions, with explicit conditional covariance, and its proof controls parameters uniformly in compact intervals. Randomizing the fixed count with M~Bin(N,p), using the usual binomial CLT and delta method, gives precisely the purported Bernoulli joint law including its entire covariance matrix. The N^-14 determinant and N^-4 correlation follow by algebra from this joint limit; October Bernoulli area law covers the marginal. Neither a different label for thinning nor not writing the exact new numbers in prior text confers originality.",
+      "residual_risks": [
+        "The conditional-to-binomial implication uses standard stable CLT/deconditioning and moment uniform integrability; this should not be confused with literal word-for-word repetition.",
+        "The related fixed-m result is on the same published date; precise publication ordering is not claimed; mathematical implication, not temporal priority between same-day files, is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Internally mathematically correct but not original relative to stronger conditional source",
+          "evidence": [
+            "Proof §§1–5; joint limit, determinant and correlation"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f/RESULT.md",
+          "material_read": "Complete source theorem, joint renewal CLT and covariance arguments",
+          "method": "Exact Git blob read",
+          "title": "Two-scale Gaussian geometry of Bernoulli-thinned regular polygons",
+          "trigger": "assigned final claim"
+        },
+        {
+          "assessment": "Its conditional joint CLT, combined with binomial mixing, entails candidate entire new two-scale result; decisive coverage",
+          "evidence": [
+            "Finding two-scale joint law, Proof §§2–5, explicit C_ij(p) formulas"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+          "material_read": "Full published RESULT.md, including exact covariance matrix p C_rs, characteristic-function conditional CLT and uniformity in p_n",
+          "method": "Read full GitHub scientific publication",
+          "title": "Sharp area–perimeter cancellation and joint Gaussian fluctuations for uniformly thinned regular polygons",
+          "trigger": "same object and same third/fifth gap statistics under fixed m"
+        },
+        {
+          "assessment": "Previously proves first-order Bernoulli area Gaussian and cubic-gap variance; reinforces partial prior coverage",
+          "evidence": [
+            "Exact finite mean, renewal-reward variance and CLT"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md",
+          "material_read": "Full published RESULT.md",
+          "method": "Read entire GitHub publication",
+          "title": "Gaussian area fluctuations under Bernoulli thinning of regular polygons",
+          "trigger": "exact same independent vertex-retention law"
+        },
+        {
+          "assessment": "Different continuous Dirichlet spacing law, not decisive after prior exact lattice results",
+          "evidence": [
+            "Fifth-order extrapolation and normal limits"
+          ],
+          "identifier_or_url": "https://doi.org/10.33993/jnaat522-1360",
+          "material_read": "Accessible bibliographic/source descriptions; complete 2023 article not asserted read",
+          "method": "Bibliographic scope comparison",
+          "title": "Nonlinear random extrapolation estimates of pi under Dirichlet distributions",
+          "trigger": "fifth-order gap cancellation and area/perimeter joint geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-area-fluctuations-under-bernoulli-thinning-of-regular-p--ba8ad8ae6bd3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-scale-gaussian-geometry-of-bernoulli-thinned-regular-polygon--735087ac5f5f/RESULT.md"
+      ],
+      "rationale": "For the exact same geometric gap observables the source already proves the difficult joint third/fifth cancellation and nondegenerate conditional Gaussian limit. The candidate differs by a standard binomial deconditioning/delta covariance rank-one correction and algebraic propagation to determinant/correlation; no independently motivated structural boundary, unknown natural classification or substantively new lemma survives. Its correct constants and reproducible code alone are insufficient value.",
+      "residual_risks": [
+        "This is rejection for mathematical overlap/routine consequence, not an operational access failure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Source theory mathematical correctness maintained; reject as routine implication of stronger fixed-count joint theorem."
+  ],
+  "schema_version": 1
+}
