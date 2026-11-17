@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T00:08:54.982599Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Modal diagonalization of an SPD H turns the common scalar iid stepsize noise into random scalar curvature A_k=lambda(1+xi_k) in each mode, with mean lambda and variance lambda²s². Each second-moment transfer uses only those two moments. Direct W=((1+beta,a),(a,1+beta))/D solves W=M W M^T+E; the positive two-step comparison sign equals vW11-1. Threshold decreases with lambda and is therefore governed by L. At boundary a fixed PSD covariance precludes convergence for all starts; above it positive-cone growth produces a diverging deterministic start. Substituting Chebyshev parameters yields 2/(sqrt(kappa)(kappa+1)); minimax GD gives 1/kappa. Independently verified exact scalar-cutoff algebra against the published random-curvature formula and the rational heavy-ball boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior October 13 theorem gives complete scalar boundary for arbitrary iid positive curvatures, including both sides and the critical boundary; earlier Kidambi et al. Appendix A derived part of the high-noise necessary condition.",
+          "Summing scalar modal squared errors produces full SPD all-initializations condition; maximum eigenvalue dominates by strict decrease of allowable variance with lambda."
+        ],
+        "reasoning": "The earlier scalar theorem under moment equivalence covers the general covariance effect of common scalar jitter. Multi-mode extension requires no joint moment calculation because the target is E||e_k||², a sum.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md",
+          "https://arxiv.org/abs/1803.05591"
+        ]
+      },
+      "checked_sources": [
+        "Frozen submitted RESULT.md and verify_heavyball.py pinned source",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md",
+        "https://arxiv.org/abs/1803.05591",
+        "https://arxiv.org/abs/2206.07553",
+        "https://arxiv.org/abs/2401.06738"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Solving alpha*lambda<2(1-beta²)/[(1-beta)+(1+beta)s²] gives s²<2(1-beta)/(alpha*lambda)-(1-beta)/(1+beta) identically.",
+          "For SPD H, check each spectral curvature, with worst at L. Chebyshev alpha,beta and GD beta=0 give submitted comparison by substitution."
+        ],
+        "reasoning": "The full scientific claim is a corollary of prior scalar iff and elementary orthogonal decomposition; different parameter labels, signed-step allowance, and added rational witnesses do not restore originality.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md",
+          "arxiv:1803.05591 Appendix A Lemma 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier stochastic HB recurrence x[k+1]=(1+beta-eta A_k)x[k]-beta x[k-1], E A=mu and CV v=sigma/mu.",
+          "Set A=lambda(1+xi), mu=lambda, v²=s² and eta=alpha: the second-moment operators agree exactly even if 1+xi can be negative, since only E A,E A² matter."
+        ],
+        "reasoning": "The prior random-curvature formulation is the same scalar recurrence and second-moment law. The submitted distribution-free dependence on mean and variance is already implied.",
+        "searches": [
+          "Resultary semantic: heavy ball accelerated gradient descent random stepsize common multiplicative noise exact mean square stability",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 published formula tau_v(beta)=2(1-beta²)/[(1-beta)+(1+beta)v²] is an exact analytic law, not tabulated data."
+        ],
+        "reasoning": "Direct symbolic substitution of v²=s² yields the requested cutoff; numerical counterexample is one already included parameter point.",
+        "searches": [
+          "Resultary: coefficient of variation phase transition stability margin stochastic heavy ball",
+          "Resultary: random coefficient autoregression heavy ball exact second moment"
+        ]
+      },
+      "rationale": "An October 13, 2026 published exact scalar stochastic-heavy-ball theorem already gives necessary-and-sufficient convergence for iid random scalar curvature with coefficient of variation v and any 0<=beta<1. With v²=s², eta=alpha, mean curvature lambda its exact threshold rearranges identically to the submitted formula. The submitted general SPD claim follows by orthogonal modal decomposition and monotonicity at L, independent of cross-mode dependence for summed squared error. Chebyshev and GD values are elementary substitutions. No noncovered substantive conclusion survives.",
+      "residual_risks": [
+        "The earlier scalar positive-curvature theorem is extended to signed effective curvature only via its identical first-two-moment transfer, explicitly checked; it does not require positive steps in the present analytic proof.",
+        "No claim about optimal robust retuning is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMPLETE MATHEMATICAL IMPLICATION after modal reduction",
+          "evidence": [
+            "October 13 theorem tau_v(beta)=2(1-beta²)/[(1-beta)+(1+beta)v²]; identical to submitted threshold under v²=s²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md",
+          "material_read": "Full published RESULT.md: theorem, moment transfer, iff proof, optimizer and prior-work discussion",
+          "method": "Fetched and read full GitHub blob",
+          "title": "The coefficient-of-variation phase transition for stability-margin-optimal stochastic heavy ball",
+          "trigger": "Exact scalar covariance model likely dominates"
+        },
+        {
+          "assessment": "Partial prior high-noise necessary condition; complete later scalar theorem is decisive",
+          "evidence": [
+            "Appendix uses c=E A²/(E A)² and HB bound 2(1-beta²)/[c+(c-2)beta]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.05591",
+          "material_read": "Full arXiv HTML material including Appendix A Lemma 4 and Remark 8 (published 2018)",
+          "method": "Read arXiv full text",
+          "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+          "trigger": "Older stochastic momentum obstruction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp multiplicative-jitter tolerance and acceleration-versus-robustness tradeoff on SPD quadratics are mathematically motivated and exact, including positive-step counterexamples; nevertheless they are algebraically inherited from earlier scalar random-coefficient theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen submitted RESULT.md and verify_heavyball.py pinned source",
+    "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md",
+    "https://arxiv.org/abs/1803.05591",
+    "https://arxiv.org/abs/2206.07553",
+    "https://arxiv.org/abs/2401.06738"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Only iid common scalar multiplicative jitter on finite SPD quadratics; no correlated noise or general stochastic Hessian.",
+    "Prior exact scalar mean-square theorem subsumes submitted result."
+  ],
+  "residual_risks": [
+    "The earlier scalar positive-curvature theorem is extended to signed effective curvature only via its identical first-two-moment transfer, explicitly checked; it does not require positive steps in the present analytic proof.",
+    "No claim about optimal robust retuning is made."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COMPLETE MATHEMATICAL IMPLICATION after modal reduction",
+      "evidence": [
+        "October 13 theorem tau_v(beta)=2(1-beta²)/[(1-beta)+(1+beta)v²]; identical to submitted threshold under v²=s²."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98/RESULT.md",
+      "material_read": "Full published RESULT.md: theorem, moment transfer, iff proof, optimizer and prior-work discussion",
+      "method": "Fetched and read full GitHub blob",
+      "title": "The coefficient-of-variation phase transition for stability-margin-optimal stochastic heavy ball",
+      "trigger": "Exact scalar covariance model likely dominates"
+    },
+    {
+      "assessment": "Partial prior high-noise necessary condition; complete later scalar theorem is decisive",
+      "evidence": [
+        "Appendix uses c=E A²/(E A)² and HB bound 2(1-beta²)/[c+(c-2)beta]."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1803.05591",
+      "material_read": "Full arXiv HTML material including Appendix A Lemma 4 and Remark 8 (published 2018)",
+      "method": "Read arXiv full text",
+      "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+      "trigger": "Older stochastic momentum obstruction"
+    }
+  ]
+}
