@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:49:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary greedy-arch index equals number of shortest prefixes containing 0 and 1. The one-sided forbidden contiguous factor 1^(r+1) is tracked with E_j,Z,O_j states and one-run length j<=r; eliminating states gives exactly F_r(z,u)=(1+z-z^(r+1)-u z^(r+2))/(1-z-2u z²+u z^(r+2)+u² z^(r+3)). The constant-universality layer is 1 empty, 1+1_(n<=r) for n>=1. Minimal j-universal length=2j, with k+1 witnesses for r=1 and 2^k for r>=2. Simple dominant root at u=1 gives mu_r via Q_u/(rho Q_z) for fixed r; rho_r is the unique root Σ_{j=1}^{r+1}rho^j=1, and mu_r->1/3. Independently brute-enumerated all legal strings up to n=10 for r=1..5, checked literal subsequence index and coefficient recurrence; C PASS for all fixed integer r>=1 by finite-state and analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regular-language algorithms count subsequence-universal accepted words for any fixed DFA, hence algorithmically encompass this family in principle.",
+          "No retrieved primary uniform theorem explicitly gives this one-sided parameter r bivariate expression and asymptotic mu_r."
+        ],
+        "reasoning": "Fixed-instance algorithms provide decidability/computability but not a known closed expression uniform in r; earlier both-run closed formulas do not imply the submitted one-sided expression.",
+        "searches": [
+          "subsequence universality index number binary words forbidding 1 run length r rational generating function",
+          "https://doi.org/10.4230/LIPIcs.ISAAC.2023.4",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md",
+        "https://livrepository.liverpool.ac.uk/3177764/",
+        "https://doi.org/10.4230/LIPIcs.ISAAC.2023.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete October25 and Nov2 published proofs rely on restrictions on both symbols, with distinct E,S recurrences.",
+          "Adamson et al 2023 counting algorithms handle general regular languages but do not state this full one-sided formula as inspected in accessible description."
+        ],
+        "reasoning": "Neither full earlier run-capped theorem entails the current count, since the source languages are unequal. A mechanical DFA computation for each r does not by itself constitute the explicit uniform rate and shortest-layer theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md",
+          "https://doi.org/10.4230/LIPIcs.ISAAC.2023.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct25 and Nov2 published series impose both 0^(r+1) and 1^(r+1) avoidance; submitted imposes only 1^(r+1).",
+          "For r=1, the current language has Fibonacci growth, while two-sided cap 1 has only alternating words."
+        ],
+        "reasoning": "These constraints define different languages, not equivalent under complement, reversal or index renormalization; formulas and their dominant poles are distinct.",
+        "searches": [
+          "subsequence universality index number binary words forbidding 1 run length r rational generating function",
+          "run capped binary words exact subsequence universality spectrum forbidden run 1^{r+1} generating function",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier two-sided run-limit table is not the same language and includes deterministic r=1 alternating case.",
+          "Exact coefficients independently verified for all r=1..5 and n<=10 in submitted one-sided language."
+        ],
+        "reasoning": "An exact database/table for one-sided forbidden-one-run universality at all r was not found; finite search does not constitute priority proof.",
+        "searches": [
+          "subsequence universality index number binary words forbidding 1 run length r rational generating function",
+          "run capped binary words exact subsequence universality spectrum forbidden run 1^{r+1} generating function",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md"
+        ]
+      },
+      "rationale": "2026-10-25 and 2026-11-02 complete Resultary theorems count the different language in which BOTH 0 and 1 runs are capped. The present language only forbids long 1-runs while allowing arbitrarily many consecutive zeros. Their distributions and rates cannot be specialized to this language by setting the same cap or changing variable names. 2023 regular-language algorithms can compute each fixed automaton instance, but give no inspected parameter-uniform one-sided full bivariate formula and explicit mu_r. O PASS best of knowledge, retaining generic algorithm/unindexed transfer literature risk.",
+      "residual_risks": [
+        "A generic automaton/transfer-matrix method could yield the same one-sided formula after routine symbolic elimination; exact historical formula priority remains qualified.",
+        "Primary 2023 paper available abstract and OA metadata; entire PDF not accessible in this run, so no unsupported whole-text negative claim.",
+        "Asymptotic only fixed r with n->infinity; limit r->infinity is separate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_LANGUAGE",
+          "evidence": "Earlier caps both symbols, enumerator 1+2zA_R(1+uz)/(1-uz²(A_R+A_{R-1})), unlike one-sided cap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e/RESULT.md",
+          "material_read": "Full 2026-10-25 RESULT.md theorem, run-bound automaton, sharp lengths, and proof",
+          "method": "Read full published GitHub RESULT.md and compared constraints, formulas, and r=1 boundary",
+          "title": "Run-limited binary words: exact subsequence-universality spectrum and sharp forcing thresholds",
+          "trigger": "same words and index but symmetric cap"
+        },
+        {
+          "assessment": "DIFFERENT_LANGUAGE",
+          "evidence": "Both-symbol cap h excludes long zeros as well as ones; its h=1 source consists only of alternating words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md",
+          "material_read": "Full 2026-11-02 published primary theorem, bivariate rational GF, Gaussian limits and proof",
+          "method": "Read full original RESULT.md for exact hypotheses, numerator, denominator and asymptotic statements",
+          "title": "Run-capped binary words have an exact subsequence-universality spectrum",
+          "trigger": "near-exact same invariant and homopolymer constraint"
+        },
+        {
+          "assessment": "GENERAL_ALGORITHMIC_COVERAGE_RISK",
+          "evidence": "General counting algorithm can in principle evaluate each finite automaton; no explicit one-sided formula inspected in available material.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ISAAC.2023.4",
+          "material_read": "OA publisher/repository primary abstract and description of algorithms; PDF full text not retrieved in this run",
+          "method": "Read complete accessible abstract and bibliographic metadata, compared stated general counting algorithm with proposed explicit uniform expression",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "general automaton counting could dominate a special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-sided homopolymer run constraint is a natural non-symmetric regular language; the full universality index profile, sharp discontinuity at r=1 for minimal witnesses and explicit nonmonotone typical-rate phenomenon mu_2>mu_infinity=1/3 give a motivated all-parameter structural theorem. A closed rational family and its asymptotic consequence are independently useful and not a small arbitrary finite slice. V PASS.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks do not prove all-r GF; algebraic state-system elimination does. Analytic mu_r valid for fixed r only."
+  ],
+  "schema_version": 1
+}

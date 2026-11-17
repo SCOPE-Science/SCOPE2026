@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the ambient alphabet independently of the source word; in particular empty and unary words have universality index zero. Greedy binary arch factorization equals the scattered-subsequence universality index. The run-bounded finite-state equations have unique formal-power-series solutions, and their elimination gives the exact stated rational fraction with denominator constant term one. Coefficient recurrence and the two exact shortest-length counts follow by coefficient extraction and the classification of minimal arches. The asymptotic rate follows from a unique simple dominant pole at \(u=1\), with no numerator cancellation, and analytic perturbation. An independent coefficient engine, brute-force direct-subsequence test, and exact bounded-run count replay the claimed identities through the ranges stated in `VERIFICATION.md`. Finite enumeration was not used to infer the infinite theorem.
+## correctness
 
-## Originality — PASS, qualified
-Adamson and collaborators' 2023 regular-language paper (arXiv:2311.10658v1) gives algorithms that can in principle count universal words in each specific regular language, but not the closed formula for every run threshold or the shortest-length phase transition. Adamson (arXiv:2304.04583v1) gives unrestricted fixed-length counting and ranking. Kosche and collaborators (arXiv:2108.13968v1) provide arch/absence structure rather than the constrained enumerator. A separately inspected published full-binary enumerator agrees only in the coefficientwise limit when the run restriction is removed. No equivalent forbidden-one-run distribution was found in actual title, alias, parameter, and implication searches. This is a best-knowledge originality judgment; a differently indexed result in run-length-limited codes or automata may exist. A generic counting algorithm does not by itself supply the stated symbolic all-threshold closed form.
+PASS
 
-## Mathematical value — PASS
-The question is an explicit constrained-code refinement of a studied universality statistic on regular languages, not an arbitrary finite sample. The finding simultaneously determines every length and index layer for every forbidden-run bound, identifies the boundary \(r=1\) where the shortest universal-word multiplicity changes from exponential to linear, and determines a natural length-normalized expected universality rate. The restriction changes the distribution nontrivially and yields a surprising rate comparison between bounds one and two. The structural finite-state elimination and the sharp family-wide boundary are the motivating results; computability and experimental agreement are supporting evidence rather than the basis for value.
+The binary greedy-arch index equals number of shortest prefixes containing 0 and 1. The one-sided forbidden contiguous factor 1^(r+1) is tracked with E_j,Z,O_j states and one-run length j<=r; eliminating states gives exactly F_r(z,u)=(1+z-z^(r+1)-u z^(r+2))/(1-z-2u z²+u z^(r+2)+u² z^(r+3)). The constant-universality layer is 1 empty, 1+1_(n<=r) for n>=1. Minimal j-universal length=2j, with k+1 witnesses for r=1 and 2^k for r>=2. Simple dominant root at u=1 gives mu_r via Q_u/(rho Q_z) for fixed r; rho_r is the unique root Σ_{j=1}^{r+1}rho^j=1, and mu_r->1/3. Independently brute-enumerated all legal strings up to n=10 for r=1..5, checked literal subsequence index and coefficient recurrence; C PASS for all fixed integer r>=1 by finite-state and analytic proof.
 
-## Closest literature and residual risks
-The closest primary source is the 2023 work on universality of regular languages, while the closest explicit formula known in the inspected material concerns the unrestricted binary full language. The present derivation specializes a general finite-automaton method to a natural infinite regular-language family and finds a compact exact answer. Residual risk: an overlooked direct enumeration, weighted-automaton identity, or coding-theoretic reinterpretation. Computational diagnostics are limited to finite \(n,r\); the proof is required for infinite quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+2026-10-25 and 2026-11-02 complete Resultary theorems count the different language in which BOTH 0 and 1 runs are capped. The present language only forbids long 1-runs while allowing arbitrarily many consecutive zeros. Their distributions and rates cannot be specialized to this language by setting the same cap or changing variable names. 2023 regular-language algorithms can compute each fixed automaton instance, but give no inspected parameter-uniform one-sided full bivariate formula and explicit mu_r. O PASS best of knowledge, retaining generic algorithm/unindexed transfer literature risk.
+
+## value
+
+PASS
+
+A one-sided homopolymer run constraint is a natural non-symmetric regular language; the full universality index profile, sharp discontinuity at r=1 for minimal witnesses and explicit nonmonotone typical-rate phenomenon mu_2>mu_infinity=1/3 give a motivated all-parameter structural theorem. A closed rational family and its asymptotic consequence are independently useful and not a small arbitrary finite slice. V PASS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
