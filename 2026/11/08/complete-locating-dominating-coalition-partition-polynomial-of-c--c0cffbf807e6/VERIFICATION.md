@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The complete proof, including all quantifiers and boundary cases, is in `RESULT.md`. The included `verify.py` is an independent finite checker using graph adjacency-neighborhood traces and restricted-growth enumeration of unordered vertex partitions. Run `python3 verify.py` using Python 3; no third-party modules are required.
+## correctness
 
-The checker exhaustively tests every \(K_{m,n}\) with \(2\le m\le n\) and \(m+n\le10\). It compares every partition size and the number of triangular three-class coalition graphs to the stated formulas. Direct tests on all constructed three-class partitions also cover \((m,n)=(2,9),(3,8),(5,6),(6,7),(7,8)\). The replay ends in `VERIFY_OK` if every test passes. In particular, the small boundary profiles \(K_{2,2}\), \(K_{2,3}\), \(K_{2,4}\), and \(K_{3,3}\) are covered exhaustively.
+PASS
 
-These are finite computations only. The unrestricted theorem depends on the false-twin complement criterion, the general obstruction to four blocks, the three-block transversal characterization, and the analytic counts in the proof. Independent mathematical validation has not been performed.
+A locating-dominating set in K_{m,n}, m,n>=2, is exactly a set whose complement removes <=1 vertex per side; the forward direction uses false twins, reverse direction checks domination and distinct opposite-side traces. In an LDC partition, any coalition pair leaves at most two complementary singleton-class vertices, so >=5 vertex graphs have <=3 blocks. Two-block total is 2^{N-1}-(m+1)(n+1). Three-block partitions are exactly those with at least two transversal blocks; for N>=7 exactly two such blocks and the remaining large block, enumerated as two same-side singletons, a singleton+cross-pair, or two disjoint cross-pairs. Boundary N=4,5,6 exhaustively analysed. Independent direct labelled graph neighborhood-trace checks across 56,941 set partitions match the given polynomial and exceptional triangle counts for tested m,n.
+
+## originality
+
+PASS
+
+Chellali et al arXiv:2602.18760v2 (full 23-page PDF inspected) prove general bounds and small C4 coalition case, not the all-biclique two-/three-class polynomial or exact six triangle-coalition partitions. Published 11/2 multipartite theorem proves only maximum C_L and counts four-class maxima in all-part-size-two multipartite graphs, not the full polynomial for arbitrary K_mn. Alternative locating-domatic and super-coalition definitions differ. Hence exact full all-partition census is non-implied.
+
+## value
+
+PASS
+
+The introduced LDC-partition is a natural discrete graph invariant; full labelled biclique polynomial determines all feasible sizes, sharp exceptional small graphs and coalition-graph structure, beyond previously known scalar maxima. The twin-complement transversal criterion yields a reproducible classification applicable as an exact model for multipartite extensions. Not merely recomputing a known optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
