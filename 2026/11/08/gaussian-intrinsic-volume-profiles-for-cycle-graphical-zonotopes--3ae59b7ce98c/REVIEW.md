@@ -1,19 +1,21 @@
-# Scientific review: Gaussian intrinsic-volume profiles for cycle graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the established zonotope wedge-volume identity, then independently proves the incidence Gram determinants for each forest path component. The cyclic composition count accounts for all root choices and yields an exact coefficient formula, including the edge cases of the zero-th and top intrinsic volumes. The logarithmic generating identity follows algebraically. Strict positivity and aperiodicity of the polylogarithm coefficients isolate one simple dominant singularity for every fixed positive weight. A complex-neighborhood argument justifies uniform exponentially small remainders and differentiation, giving the stated moment asymptotics and Gaussian limit. The finite verifier passed 4160 checks and supplementary distributions through order 150. Risks: the proof depends on the standard published wedge-volume formula and familiar analytic coefficient/characteristic-function principles, both identified explicitly; finite tests are not infinite evidence.
+PASS
 
-## Originality — PASS (provisional priority)
+The claim uses the unscaled edge-incidence realization of C_n in the zero-sum Euclidean hyperplane and fixed t>0. Every proper selected-edge set is a forest, with path-block Gram determinant equal to its vertex count; wedge volume is the square root of the product. Rooting a cyclic composition at a deleted edge gives the exact factor n/(n-k) and all V_k including V_0=1 and V_(n-1)=n sqrt(n). The identity W_n=-n t^n[z^n]log(1-F(z)/t), F(z)=sum sqrt(j) z^j, has a unique strictly dominant simple root rho in (0,1) by aperiodicity. Uniform complex-parameter singularity extraction gives the logarithmic moment generating function n[u-log rho(te^u)+log rho(t)]+O(c^n), so E K=n(1-1/mu)+O(c^n), Var K=n sigma^2/mu^3+O(c^n), and the CLT. An independent Gram/forest-composition comparison for every k at n=3..8 reproduced the coefficients. The analytic argument, not finite checks, proves the arbitrary-n limits.
 
-Glew's originating 2026 work develops in-in zonotopes, graph-zonotope factors, canonical forms and factorization, not intrinsic-volume indices. Joós--Lángi, Corollary 1, already covers the wedge-volume identity for every zonotope, including these cycle examples, and is credited rather than counted as new. Their detailed results concern isoperimetric extremals; the inspected text has no Gaussian profile for the cycle. Padrol--Pilaud--Poullot analyzes deformation cones rather than geometric intrinsic-volume fluctuations. The closest public mathematical-record result on cycle graphical zonotopes computes a combinatorial one-skeleton Laplacian and spanning-tree complexity, while a different result treats weighted graphical-zonotope inradii. Neither statement implies the analytic intrinsic-volume index law. Actual external and mathematical-record searches tested aliases including Wills functionals, Steiner polynomials, forests, polylogarithms, and central limit indices; none supplied the full assertion. Residual risk: a less searchable specialization of renewal asymptotics or a publication not fully accessible here may precede this result. No database partition or unsuccessful search is used as a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The weighted intrinsic-volume index is a natural size profile (the coefficient distribution of the intrinsic-volume polynomial) once the standard graph-edge scale is fixed. The theorem computes not only total mass but a complete, nondegenerate all-dimensional Gaussian fluctuation law for every fixed positive weight, with explicit constants and exponentially accurate first two moments. It connects forest geometry to renewal asymptotics and quantifies how intrinsic volumes concentrate across dimensions in a growing family whose faces also arise in recent geometric constructions. The general wedge formula alone does not furnish these limit constants without the cyclic decomposition and complex-analytic calculation. No paper-sized claim or unproved downstream consequence is asserted.
+The general zonotope wedge identity is known, and the ordinary cycle volume n sqrt(n) is already implied by spanning-tree geometry. The finite cycle composition formula together with a complete one-parameter intrinsic-volume generating law and Gaussian intrinsic-volume-index fluctuation constants is a distinct statement. Resultary semantic matches concern Gaussian random widths, zonotope inertia, or graph-Laplacian geometry, not the Steiner intrinsic-volume index. Best-of-knowledge priority is qualified by possible earlier enumerative/renewal specializations.
 
-## Literature and limits
+## value
 
-Scientific sources include arXiv:2601.18903, arXiv:2206.03204, DOI:10.1007/s00454-023-00586-x, and arXiv:1810.12412. The originality review does not cover every inaccessible or unindexed paper. The theorem is for a fixed positive weight and the canonical Euclidean realization; it does not address the whole in-in zonotope. Numerical checks are non-certifying complements to the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact finite intrinsic-volume profile and nontrivial Gaussian normal law for the natural cycle graphical zonotope is a reusable geometric probability invariant, beyond computing the top volume or applying a generic concentration inequality. The explicit weights and fluctuation variance give a mathematically motivated family of statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
