@@ -1,16 +1,21 @@
-# Scientific review: full random-greedy size law on decorated paths
+# Independent mathematical audit
 
-## Correctness
-PASS for the specified family. First-minimum decomposition yields the recurrence without independence assumptions across interacting cells: after the first accepted vertex, disconnected residual components have independent conditional orders. The Riccati identity follows coefficient by coefficient. A separate core-acceptance recursion with continuous independent uniform priorities proves the exact expected value and its factorially bounded tail. The support follows from the accepted spine vertices being independent, plus explicit positive-probability relative-order events realizing every admissible count. Exact rational independent enumeration and recurrence reconstruction pass 738 checks. Remaining limits: all infinite-size statements follow from the analytic series argument, not finite enumeration; no variance law is asserted.
+## correctness
 
-## Originality
-PASS, with qualified historical priority. The 2019 first-public version of Krivelevich–Mészáros–Michaeli–Shikhelman supplies the ordinary-path mean and general local-limit framework. Penrose–Sudbury gives general random sequential adsorption forward equations. The ordinary-path mean is a direct precursor and the new mean expression is not treated as an independent methodological innovation. The distinct claim here is the evaluated full finite-size probability law for every uniform leaf decoration, its Riccati equation and exact support. Material inspected in those primary texts and targeted searches did not exhibit that evaluated statement or a dominating family theorem. An unindexed specialized calculation or further specialization of general forward equations is a residual priority risk.
+PASS
 
-## Value
-PASS. Random-order greedy maximal independent sets are a natural blocking-adsorption model. The full distribution, including attainable sizes and probabilities, addresses behavior that asymptotic density and one-point marginal formulas do not resolve. The decoration parameter ranges over all integers at least two, endpoints and small sizes are included, and the family distinguishes spine occupation from pendant occupation with a nontrivial support lattice. The result is not a claim about arbitrary trees.
+Condition on the earliest of (q+1)n vertices. If it is one of q leaves, it blocks its spine vertex and ensures q leaves selected in that cell, separating subpaths of lengths i-1,n-i. If the spine vertex is first, it contributes 1 and forces q leaves of each existing adjacent cell, leaving lengths max(i-2,0),max(n-i-1,0). Summing yields the claimed Riccati coefficients and base n=1,2. Identity X=qn-(q-1)K for accepted spine count K gives support 0<=K<=ceil(n/2), with strictly positive cell-priority constructions for each K, and P(K=0)=(q/(q+1))^n. The one-sided acceptance integral yields exponential partial sums and exactly the displayed mean; extending the entire exponential series gives its factorial remainder. Independently recomputed exact arbitrary-graph recursive priority laws for (n,q)=(1,2),(2,2),(3,2),(2,3), all matching the first-cell formula.
 
-## Literature and limits
-- M. Krivelevich, T. Mészáros, P. Michaeli, C. Shikhelman, *Greedy maximal independent sets via local limits*, first public arXiv:1907.07216 (2019-07-16), later *Random Structures & Algorithms* 64 (2024), 986–1015. https://arxiv.org/abs/1907.07216
-- M. D. Penrose, A. Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs*, arXiv:math/0503519; *Annals of Applied Probability* 15 (2005), 853–889. https://arxiv.org/abs/math/0503519
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Krivelevich–Mészáros–Michaeli–Shikhelman full open-access article gives general local limits, ordinary path expectation and tree inequalities but not an evaluated all-n,q probability-generating law for this vertex-greedy leaf-decorated path. Penrose–Sudbury gives broad RSA forward equations. A same-day published decorated-PATH MATCHING law instead orders edges and is explicitly a different random variable/process. The exact distribution and support are distinct from universal first-step recurrences and local-mean results.
+
+## value
+
+PASS
+
+PASS: Greedy MIS on regularly leaf-decorated paths is a natural random sequential adsorption family. Its exact all-finite distribution, constrained support and explicit boundary mean identify useful information not determined by just the asymptotic occupation density. The full support is structurally nontrivial for q>=2, and the family covers every spine length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

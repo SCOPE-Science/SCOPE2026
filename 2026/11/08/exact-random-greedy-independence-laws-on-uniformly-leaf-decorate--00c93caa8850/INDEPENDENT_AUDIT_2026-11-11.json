@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T02:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on the earliest of (q+1)n vertices. If it is one of q leaves, it blocks its spine vertex and ensures q leaves selected in that cell, separating subpaths of lengths i-1,n-i. If the spine vertex is first, it contributes 1 and forces q leaves of each existing adjacent cell, leaving lengths max(i-2,0),max(n-i-1,0). Summing yields the claimed Riccati coefficients and base n=1,2. Identity X=qn-(q-1)K for accepted spine count K gives support 0<=K<=ceil(n/2), with strictly positive cell-priority constructions for each K, and P(K=0)=(q/(q+1))^n. The one-sided acceptance integral yields exponential partial sums and exactly the displayed mean; extending the entire exponential series gives its factorial remainder. Independently recomputed exact arbitrary-graph recursive priority laws for (n,q)=(1,2),(2,2),(3,2),(2,3), all matching the first-cell formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General tree local-limit density and RSA forward equations are more general frameworks but do not supply a closed finite decorated-family distribution or support lattice."
+        ],
+        "reasoning": "General recurrences are computational tools; deriving a specific n,q polynomial and analytic boundary remainder still requires nontrivial exploitation of structure.",
+        "searches": [
+          "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+          "https://arxiv.org/abs/math/0503519",
+          "Resultary: exact random greedy independence on chain graphs",
+          "Resultary: randomly leaf-decorated path tree occupancy"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+        "https://arxiv.org/abs/math/0503519",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-leaf-augmentation-stochastically-improves-random-greedy-matching--f7b5944c0147/RESULT.md",
+        "https://arxiv.org/abs/1907.07216"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edge greedy matching on a decorated path has support ceil(n/2)..n, while vertex greedy independence here has support qn-(q-1)k and q-dependent size scaling."
+        ],
+        "reasoning": "Earlier matching theorem cannot imply the law of a distinct priority process; ordinary path and local-limit results similarly do not imply this all-finite-size polynomial directly.",
+        "searches": [
+          "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+          "https://arxiv.org/abs/math/0503519",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-leaf-augmentation-stochastically-improves-random-greedy-matching--f7b5944c0147/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wiley full article treats vertex-greedy independent sets on paths/trees, including exact ordinary-path mean; same-day other Resultary paper treats edge-greedy matchings on decorated paths."
+        ],
+        "reasoning": "Graph decoration agrees with edge-matching comparator, but selection mechanisms differ (vertex priorities vs edge priorities), and polynomials cannot be equated by relabelling.",
+        "searches": [
+          "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+          "https://arxiv.org/abs/math/0503519",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-leaf-augmentation-stochastically-improves-random-greedy-matching--f7b5944c0147/RESULT.md",
+          "Resultary: random-order greedy independent sets uniformly leaf decorated path full distribution",
+          "Resultary: path corona random greedy independence law Riccati"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior ordinary-path mean 1-e^-2 and mean series appear in Wiley; no evaluated all-q full distribution table located."
+        ],
+        "reasoning": "Credit known ordinary-path mean; do not infer novelty merely from absence of search results.",
+        "searches": [
+          "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+          "Resultary: leaf decorated path greedy maximal independent set exact probabilities"
+        ]
+      },
+      "rationale": "The primary Krivelevich–Mészáros–Michaeli–Shikhelman full open-access article gives general local limits, ordinary path expectation and tree inequalities but not an evaluated all-n,q probability-generating law for this vertex-greedy leaf-decorated path. Penrose–Sudbury gives broad RSA forward equations. A same-day published decorated-PATH MATCHING law instead orders edges and is explicitly a different random variable/process. The exact distribution and support are distinct from universal first-step recurrences and local-mean results.",
+      "residual_risks": [
+        "Penrose–Sudbury full primary text could not be read in this run; a specialized earlier decorated-caterpillar PGF could exist.",
+        "Universal finite-graph first-vertex recursion is classical, so priority rests on evaluated decorated-family law rather than recursion alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_BACKGROUND_NOT_EXACT_FULL_LAW",
+          "evidence": "Article derives ordinary path expected size and tree extremality, not q-private-leaf exact size PGF.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+          "material_read": "Full OA publisher HTML: model, path mean, local-limit and tree results, Section 8 expectation recurrence and limitations",
+          "method": "Read and targeted text search across publisher full HTML",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same vertex-priority greedy MIS model, path and tree expectation"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_PROCESS",
+          "evidence": "Original work samples edge arrival and counts matched edges, not accepted vertices under vertex arrivals.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-leaf-augmentation-stochastically-improves-random-greedy-matching--f7b5944c0147/RESULT.md",
+          "material_read": "Entire RESULT.md theorem, proof, recurrence and variable definitions",
+          "method": "Read-only complete Git text",
+          "title": "Leaf augmentation stochastically improves random-greedy matching, with an exact decorated-path law",
+          "trigger": "Same graph family and finite Riccati law, possible implicit equivalence"
+        },
+        {
+          "assessment": "GENERAL_METHOD_LIMITED_ACCESS",
+          "evidence": "No basis to claim whole-document noncoverage; explicit risk remains.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "ArXiv abstract and source-linked description; full proof inaccessible",
+          "method": "Public abstract comparison",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "General blocking RSA, possible dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Greedy MIS on regularly leaf-decorated paths is a natural random sequential adsorption family. Its exact all-finite distribution, constrained support and explicit boundary mean identify useful information not determined by just the asymptotic occupation density. The full support is structurally nontrivial for q>=2, and the family covers every spine length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+    "https://arxiv.org/abs/math/0503519",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-leaf-augmentation-stochastically-improves-random-greedy-matching--f7b5944c0147/RESULT.md",
+    "https://arxiv.org/abs/1907.07216"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=1 and integer q>=2, a uniformly priority-ordered greedy maximal independent set on the path with q private leaves per spine vertex has an exact polynomial Riccati recurrence, prescribed support and maximum probability, and a mean with a factorially small boundary-corrected remainder.",
+  "limitations": [
+    "No full variance law, large-deviation theorem, or arbitrary-core classification.",
+    "Finite checks are corroboration; factorial remainder follows from analytic series."
+  ],
+  "residual_risks": [
+    "Penrose–Sudbury full primary text could not be read in this run; a specialized earlier decorated-caterpillar PGF could exist.",
+    "Universal finite-graph first-vertex recursion is classical, so priority rests on evaluated decorated-family law rather than recursion alone."
+  ],
+  "schema_version": 1
+}
