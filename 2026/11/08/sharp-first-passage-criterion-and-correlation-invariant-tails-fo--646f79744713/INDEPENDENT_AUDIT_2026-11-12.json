@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:49:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional emission independence gives E exp(-s A_n)=pi[diag(f_i(s))P]^n 1. Primitive finite-state P ensures a simple Perron eigenvalue 1; the first variation is -h(s) with remainder O(h(s)^2), yielding resolvent ~1/h. The absorbed half-line kernel is nonnegative at site x=1, so Tonelli gives an iff integral of 1/(sqrt(s)h(s)); operational hitting-time decomposition extends fixed x. Under h regularly varying alpha in (0,1), Potter bounds justify rescaling theta_n and give 2x/pi Gamma(1+1/(2alpha))theta_n. Karamata yields the power-log boundary. Independent four finite-state Perron perturbation checks corroborate; infinite asymptotics rely on proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete Levit–Reuveni paper with supplement has iid rate-block transform [g(s)]^n; Eq. S1 explicitly says iid emission rates.",
+          "Grebenkov studies stochastic diffusivity switching and integrated diffusivity spectral transforms for continuous diffusion; broader framework but not fixed-period independent emissions conditioned on Markov states with unbounded heavy tails.",
+          "The November 2 result already establishes the iid marginal alpha=1/2 log beta>1 threshold and its specific Pareto-product mechanism."
+        ],
+        "reasoning": "The present core surviving original is arbitrary stationary finite-state Markov modulation with leading tail invariant under temporal correlations, plus arbitrary h(s) integrability. The iid log boundary is covered and not independent novelty.",
+        "searches": [
+          "https://pdfs.assets.alphaxiv.org/2609.26925v1.pdf",
+          "https://arxiv.org/pdf/1812.07249",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-marginal-multiplicative-jump-rate-disorder-a-sharp-three-factor--b4b9679cb1ff/RESULT.md",
+          "Markov modulated Poisson heavy tailed rate random walk first passage survival correlation stationary mixture Perron Laplace"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2609.26925v1.pdf",
+        "https://arxiv.org/pdf/1812.07249",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-marginal-multiplicative-jump-rate-disorder-a-sharp-three-factor--b4b9679cb1ff/RESULT.md",
+        "https://arxiv.org/abs/2609.26925",
+        "https://arxiv.org/abs/1812.07249"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Levit–Reuveni Supplement S1 computes a product of iid Laplace transforms and S3 the first-passage spectral integral.",
+          "Grebenkov Section 3 switching model treats finitely many diffusivity values with continuous switching and general transforms, not the stated positive unbounded block rates and arbitrary Laplace deficit.",
+          "The present h(s) criterion includes the known iid threshold as specialization; its universal Markov correlation invariance and exact x-dependent coefficient are separately proved."
+        ],
+        "reasoning": "The known spectral subordination theorem reduces the derivation to a particular Markov matrix asymptotic, but the previous hypotheses/statements do not assert the result for arbitrary emission distributions. We do not claim first invention of subordination or log-critical iid threshold.",
+        "searches": [
+          "https://pdfs.assets.alphaxiv.org/2609.26925v1.pdf",
+          "https://arxiv.org/pdf/1812.07249",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-marginal-multiplicative-jump-rate-disorder-a-sharp-three-factor--b4b9679cb1ff/RESULT.md",
+          "Markov modulated Poisson heavy tailed rate random walk first passage survival correlation stationary mixture Perron Laplace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Levit–Reuveni Eqs. (1)-(3) apply spectral subordination to arbitrary rate time processes but their evaluated rates are iid at blocks.",
+          "Current characteristic matrix of random integrated clock Q(s)=diag(f_i(s))P; Perron root 1-rho(Q)=sum pi_i(1-f_i)+O(h²)."
+        ],
+        "reasoning": "A general spectral subordination identity is a common representation but does not automatically state or quantify the Markov-correlated h-integrability criterion or correlation-invariant sharp constant; those require a finite-dimensional spectral perturbation and integral analysis.",
+        "searches": [
+          "Markov modulated Poisson heavy tailed rate random walk first passage survival correlation stationary mixture Perron Laplace",
+          "https://pdfs.assets.alphaxiv.org/2609.26925v1.pdf",
+          "https://arxiv.org/pdf/1812.07249",
+          "hidden Markov random rate emissions Perron first passage stationary mixture tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact assigned same finding and related iid marginal first-passage theorem, and separate finite-state MMPP interarrival ordering, but no prior matching h(s)-Perron correlation-invariance statement.",
+          "Actual full iid paper and two original broad first-passage sources were compared, rather than inferring novelty from zero search matches."
+        ],
+        "reasoning": "The published iid analogue has matching critical index in a subcase but cannot imply correlated-rate invariance; no exact model-table result for this modulation was identified.",
+        "searches": [
+          "Markov modulated Poisson heavy tailed rate random walk first passage survival correlation stationary mixture Perron Laplace",
+          "Resultary search Markov modulated Poisson heavy tailed rate random walk first passage survival correlation stationary mixture Perron Laplace",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-marginal-multiplicative-jump-rate-disorder-a-sharp-three-factor--b4b9679cb1ff/RESULT.md"
+        ]
+      },
+      "rationale": "The novel claim is a necessary-and-sufficient h(s) mean threshold and leading survival equivalent invariant under finite-state Markov rate correlations, not the established iid first-passage spectral identity or already-known iid log-critical beta>1 specialization.",
+      "residual_risks": [
+        "General Markov-additive renewal asymptotics could subsume the Perron perturbation in a source not found.",
+        "Markov state count must remain fixed and transition primitive; correlation independence is leading-order only.",
+        "No proof for long-range environment correlations, variable refresh intervals or general h without regular variation for the sharp equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes iid refresh and spectral strategy, not Markov-conditioned correlated emission equivalent",
+          "evidence": "Supplement S1 explicitly uses independent identically distributed rates and product [g(s tau)]^n; no Markov P and stationary mixture Perron criterion.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2609.26925v1.pdf",
+          "material_read": "Lawful open access 23-page v1 PDF, main spectral equations, rate distribution, supplementary S1 iid-block transform and S3 first-passage derivations",
+          "method": "Open access PDF read, relevant pages and page image inspected",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean (Levit and Reuveni)",
+          "trigger": "Exact original half-line random-clock mechanism and iid special case"
+        },
+        {
+          "assessment": "Broad subordination/matrix transform but no heavy-tailed block emissions theorem or correlation-invariant sharp tail constant for random walk",
+          "evidence": "Finitely many switching diffusivity states and continuous diffusion spectral approach are studied; submitted random emissions are unbounded even with finite Markov states.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07249",
+          "material_read": "Lawful open access 18-page preprint PDF, introduction, switching-state matrix construction, conclusions and relevant equations",
+          "method": "Open access PDF read and page image inspected",
+          "title": "A unifying approach to first-passage time distributions in diffusing diffusivity and switching diffusion models (Grebenkov)",
+          "trigger": "Possible broad dominating random-diffusivity switching framework"
+        },
+        {
+          "assessment": "Covers iid alpha=1/2 log-beta>1 corollary; does not imply invariant leading coefficient under correlated finite-state rates",
+          "evidence": "Prior iid one-factor-to-three-factor construction does not contain a Markov transition matrix or stationary Perron correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-marginal-multiplicative-jump-rate-disorder-a-sharp-three-factor--b4b9679cb1ff/RESULT.md",
+          "material_read": "Complete published RESULT.md and proof, including power-log tail constant and m-Pareto example",
+          "method": "Read-only GitHub full scientific file",
+          "title": "Marginal multiplicative jump-rate disorder: a sharp three-factor transition in mean first passage",
+          "trigger": "Exact critical log boundary already published for iid rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp necessary-and-sufficient heavy-tail passage-time criterion robust to finite-memory environmental correlations with exact survival prefactor is a natural structural extension of a named stochastic first-passage phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Requires fixed finite primitive Markov environment, positive finite conditional rates and independent emissions given states. Tail equivalent needs alpha strictly in (0,1); correlation invariance holds only to leading order.",
+  "schema_version": 1
+}
