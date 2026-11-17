@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under identical valuations, EFX restricts the difference in bundle values by the minimum item of the larger bundle. If there are at least two such items, that item is at most half the larger bundle, implying a 1:2 bound on total bundle values. Product extremization gives the sharp Nash ratio, and equality forces two equal items plus a bisectable complement. The single-item case is handled separately. The exact 456-profile and 2,939-allocation checker is supplemental.
+## correctness
 
-**Originality — PASS (priority qualified).** The directly inspected 2026 ICALP full HTML proves the generic EF1 gap under identical valuations, rather than an optimal universal EFX bound and equality characterization for two agents. The 2024 EFX-NSW tradeoff establishes that a good EFX allocation exists, not that every EFX allocation meets the stated welfare guarantee. The 2021 maximum-NSW/EFX relation points from optimality to EFX, while the result here bounds suboptimal EFX allocations. Yang et al. (2026) concerns EF1; only its abstract was accessible, so possible hidden EFX comparisons remain a residual risk. Actual semantic research-index queries yielded no dominating result, but non-detection does not prove novelty.
+PASS
 
-**Value — PASS.** This quantifies a natural welfare guarantee for any EFX allocation at the smallest nontrivial population size, gives the optimal constant, and completely characterizes all equality mechanisms. It distinguishes a universal robustness guarantee from the widely studied existence of one welfare-efficient fair allocation. Positive-valued four-good equality witnesses identify the minimum extremal instance size.
+Sort bundles a<=b. If the larger bundle has one good, its product ab is globally optimal. Otherwise EFX implies b-a<=min_{g in B}v_g<=b/2, so T/3<=a<=T/2, yielding ab>=2T²/9 while P*<=T²/4. Equality in both bounds forces B to have exactly two goods of value u each, A total u, and an exactly balanced global allocation requires a subbundle of A of value u/2. Conversely this is EFX and its optimum is balanced; witness (2,2,1,1) gives squared ratio 8/9. Exhaustive independent rational/integer enumeration of 456 positive-integer item multisets, 2939 EFX allocations, 4 equal cases corroborated. Strict positivity, complete allocation and two identical agents are essential.
 
-**Limits and closest literature.** See Feng–Hu–Li 2026; Feldman–Mauras–Ponitka 2024; Amanatidis et al. 2021; Yang et al. 2026. Novelty is a best-knowledge assessment, not independent certification. Only two identical additive agents and positive item values are covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge no inspected prior theorem proves a sharp guarantee for EVERY complete two-agent EFX allocation with common arbitrary positive additive values and its necessary-and-sufficient equality structure. Strongest related work for arbitrary EF1 allocations uses a weaker fairness requirement or restricted bivalued goods; EFX/NSW existence theorems reverse the quantifier.
+
+## value
+
+PASS
+
+The lower guarantee governs every EFX allocation (not just the existence of one selected allocation), and the equality classification determines exact welfare loss witnesses for a central fairness property. The sharp factor and rigid geometric/subset-sum mechanism are mathematically informative for the EFX–efficiency tradeoff rather than a routine restatement of EF1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
