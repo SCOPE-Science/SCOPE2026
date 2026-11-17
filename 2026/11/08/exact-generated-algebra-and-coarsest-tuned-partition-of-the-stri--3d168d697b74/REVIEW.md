@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite partition into the first \(N\) singleton positions and the \( |I| \) recurrent-color tail cells is closed under the strict-future modal operator. Its converse lower bound is constructive: the last point of the finite exceptional-color set is isolated by \(F\setminus\Diamond_< F\), and strict predecessor iteration isolates all earlier points; intersections with atomic color formulas then isolate every cofinal tail cell. This establishes the exact \(2^{N+|I|}\) elements and minimal tuned refinement for all finite generator families, including none. The packaged enumerator independently tested 5,503 finite-quotient cases.
+## correctness
 
-## Originality — PASS within inspected evidence
-Shapirovsky (2019), Example 1, constructs the same tuned partition as an upper bound for the strict natural-number chain. It does **not** assert exact generated-subalgebra equality, prove the necessary singleton lower bound, or establish coarsest tuned minimality. Agnew (2026) proves qualitative criteria for local finiteness on transitive frames, without this exact sharp count. An earlier exact reflexive ordinal result has a different modality and does not cover strict future. Relevant indexed literature and accessible previous claims were compared, with the remaining risk that minimality is implicit in unindexed specialist work.
+PASS
 
-## Mathematical value — PASS
-The statement exactly computes every finite-generated subalgebra on a fundamental infinite modal frame, determines the unique optimal finite filtration, and demonstrates the sharp quantitative gap left by known qualitative local-finiteness results. A single singleton generator already gives the unbounded sequence \(2^{m+2}\), showing the importance of strict predecessor-definability. This is a natural complete classification, not a sample count.
+For arbitrary finite generator count k including k=0, color every natural number by its k-bit valuation. Every recurrent color is cofinal; all finite-occurrence colors disappear after index N. The partition into the first N singletons and recurrent-color tail classes is tuned under strict future, so its unions form an upper-bound subalgebra. Writing F for the union of finite-occurrence colors, F\Diamond_<F isolates exactly the last transient position N-1, and iterated strict diamonds and Boolean differences isolate every earlier singleton. Intersecting each color with the definable tail produces the remaining atoms, establishing the exact 2^(N+|I|) count and minimality among tuned refinements. For k=0, I is the sole empty valuation and N=0, giving the two-element algebra. With one singleton generator {m}, the size is 2^(m+2). Independent quotient closure verified m=0..5, while unrestricted proof is the definability argument.
 
-## Limitations and closest references
-The structural invariant depends on the recurrence palette of an infinite word and is not necessarily computable from an arbitrary infinite description. The claim is specific to the strict ordinary order, and the original upper-bound tuned construction is prior mathematics. Historical priority and external mathematical review are not independently certified. Closest full-text sources: Shapirovsky, arXiv:1903.04614, Example 1; Agnew, arXiv:2606.02941, Theorem 3.16.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS: exact generated-algebra atom identification and *minimal* tuned refinement for arbitrary finite colorings are a substantive addition to the earlier explicit tuned upper-bound partition; not merely reasserting local finiteness. Strict diamond allows singleton peeling, unlike reflexive-ordinal results. The primary 2019 paper was materially read, not treated as snippet absence.
+
+## value
+
+PASS
+
+The atom-by-atom exact finite algebra and optimal quotient of arbitrary valuations on the canonical infinite strict chain give a reusable structural normal form, not just an existence bound. The unbounded 2^(m+2) singleton example quantifies precise dependence on valuation location; useful for modal logic decision and generated subalgebra analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
