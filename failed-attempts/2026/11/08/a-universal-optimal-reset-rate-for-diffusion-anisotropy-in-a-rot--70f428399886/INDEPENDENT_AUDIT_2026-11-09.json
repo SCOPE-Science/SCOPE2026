@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:46:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and VERIFICATION.md Git blobs",
+        "Independent SymPy substitution of K=aI, h=c, E=D(aI-cc^T/b) into earlier full diffusion tensor",
+        "Full prior general Poisson-reset result https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md"
+      ],
+      "rationale": "The Stratonovich equation has Itô spatial drift D R(phi)Jc and angular diffusivity alpha=Db. Schur complement Q=a I-cc^T/b>0 supplies independent angular and translational innovations. The angular derivative identity d[R(phi)Jc]=-R(phi)c dphi-alpha R(phi)Jc dt holds only on continuous reset excursions; resetting orientation does not move X. Regenerative renewal-reward covariance uses E[(Y-vT)(Y-vT)^T]/E T and gives the stated rational functions for both axes. Independent exact SymPy substitution from the earlier full all-mobility tensor gives zero difference for both new covariance rates and their gap; its factored optimizer gives r=2alpha and gap=10D gamma^2/(27b). These are analytically justified CLT rates, not an inference from logs alone.",
+      "residual_risks": [
+        "No simulation of trajectories was used to establish the regenerative CLT; all required finite cycle moments are explicit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior result applies to any symmetric positive-definite 3x3 body mobility K,h,m, rather than restricting K to isotropic aI."
+        ],
+        "reasoning": "All positive K=aI with nonzero c satisfy the earlier assumptions, and the specific gap and optimizer follow by algebra.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+          "Cleuren Eichhorn arXiv:2603.19430"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+        "Resultary semantic search on coupled colloid reset diffusion",
+        "Cleuren–Eichhorn arXiv:2603.19430 as origin of passive model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct computed equalities prior_Sigma_perp-new_Sigma_perp=0, prior_Sigma_para-new_Sigma_para=0 and prior_gap-new_gap=0."
+        ],
+        "reasoning": "Specializing a prior arbitrary-mobility theorem proves every final displayed formula, CLT and unique optimum.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+          "SymPy prior-specialization algebra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier D_eff=tr(E)I/2+rho/(rho+4)(E-tr(E)I/2)+Dr[fperp|a|^2 I+(fpara-fperp)aaT]; new Sigma=2 D_eff."
+        ],
+        "reasoning": "Exact normalization and frame change identify the same transport law.",
+        "searches": [
+          "Resultary query colloid translation rotation coupling Poisson orientation reset diffusion anisotropy",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior f_parallel(rho)=rho(2rho^2+2rho+3)/((rho+1)^3(rho+4)), maximum at rho=2 and value 5/27."
+        ],
+        "reasoning": "The submitted maximum gap is exactly twice earlier longitudinal enhancement after converting D_eff to Sigma, not a novel numerical observation.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+          "Independent exact SymPy factor equality"
+        ]
+      },
+      "rationale": "The earlier Nov 2 result determines the exact centered diffusion tensor for every positive-definite body mobility under the identical Poisson orientation reset, and its universal longitudinal enhancement maximizer at rho=2. Specialize K=aI, h=c, m=b, Theta=D, E=D(aI-cc^T/b), a_vector=-Jc/b. The paper’s tensor gives exactly both claimed Sigma_perp and Sigma_parallel, including the strictly positive gap equal to 2D gamma^2 f_parallel(r/alpha)/b and maximum at 2alpha. Symbolic subtraction yields zero for all positive parameters. No distinct claim remains.",
+      "residual_risks": [
+        "No remaining novelty after exact parameter substitution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE of submitted isotropic-K subcase",
+          "evidence": [
+            "Previous theorem D_eff matrix, f_parallel peak rho=2, general Gaussian CLT."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+          "material_read": "Full RESULT.md: model/assumptions, independent excursions, centered regeneration tensor, derivative extrema and references",
+          "method": "Primary published Git full text",
+          "title": "Poissonian orientation resets invert the diffusion axes of a thermally coupled colloid",
+          "trigger": "identical thermal coupling, angle resets, and tensor for broader mobility matrix"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+        "Independent symbolic identity"
+      ],
+      "rationale": "A finite reset-rate optimum for correlated colloid diffusion is physically motivated, but the general earlier tensor already computes and optimizes it in a broader mobility class. The isotropic translational block is a straightforward specialization, not a new structural theorem, parameter region or unsupported invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection for directly implied prior result, not a discrepancy in dynamics.",
+    "Do not promote as novel on the basis of different axis labels or covariance-vs-diffusion factor two."
+  ],
+  "schema_version": 1
+}
