@@ -1,12 +1,21 @@
-# Scientific review: characteristic-two quartic scroll
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a single linked geometric-and-arithmetic theorem. The normalization is the restriction of the graph of the three twisted-cubic minors to a conic; its finite birational property is proved away from and over the cubic. An explicit invertible eight-by-eight matrix establishes that the incidence bundle is balanced for the witness. A direct four-partial-derivative computation shows that the conductor preimage is smooth of bidegree \((2,2)\). Finite birational duality on the smooth normalization gives the conductor divisor, not merely its reduced support. The discriminant middle coefficient \(uv\) identifies exactly two branch points, and Riemann–Hurwitz forces different exponent \(2\) at both. The arithmetic result follows from the elliptic trace \(-1\) and normalization point-count additivity. Exact field enumerations through \(\mathbb F_{16}\) independently verify the predicted numbers. Risks: the generality assumptions are essential, and finite enumeration alone does not establish the extension-field formula.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Polo-Blanco–van der Put–Top, *Ruled quartic surfaces, models and classification* (2010/2011, §3.2.4), contains the general twisted-cubic minor construction, the classical conic classification, and the balanced rulings. Critically, its §3 expressly restricts the quartic classification to characteristic zero or greater than three; its treatment of characteristic-two degree-two maps is in the preceding *cubic*-surface section. The proposed result does **not** claim discovery of the minor equation, quartic construction, twisted cubic singular support, balanced normalization, or genus-one conductor in characteristic zero. Edge's classical article treats characteristic-zero scrolls and their pinch-point geometry. Jones (2026, §3.5) discusses complex double-twisted-cubic quartic normalization and conductor. These do not state a characteristic-two two-branch wild different or the arithmetic zeta function of the specified binary quartic. Scientific-database searches for the full objects, their algebraic aliases, branch law, discriminant, and zeta function, plus comparison against relevant existing mathematical claims, disclosed no covering statement. Risks: an unindexed or inaccessible positive-characteristic specialist source could preempt priority; absence in searches is not a proof of historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The four tame branch points of the classical elliptic double-curve normalization degenerate into two wild branches of **specified different exponent**, with an exact discriminant divisor and an identified conductor. This is a structural positive-characteristic change for a natural classical family, not a new label for a standard calculation. The exact zeta function of a concrete \(\mathbb F_2\)-member follows from that geometry and determines all extension-field counts. These invariants distinguish the surface from superficially similar binary quartics and supply an arithmetic model for future work on nonnormal surfaces. Limitations: no classification of completed analytic surface germs or the entire moduli of characteristic-two scrolls is asserted.
+The two displayed syzygies identify the blow-up incidence P1-bundle over the minor plane; restricting to a smooth conic makes a finite birational normalization of the quartic. The Serre-dual 8x8 evaluation matrix has determinant -1 on the exhibited conic, forcing balanced splitting Q=O(2)². The conductor E is the (2,2) incidence curve, smooth genus one; duality gives conductor divisor class (2,2), hence reduced with coefficient one. In char2, the quadratic middle coefficient B(u,v)=uv for that conic has two distinct simple zeros; Riemann–Hurwitz gives total different degree four, so each wild e=2 branch contributes exactly two. The F2 split-normalization correction #S=#Y-#E+#C and #E(F2)=4 imply Frobenius trace -1 and a_n=-a_(n-1)-2a_(n-2), hence the stated zeta function. Independent sympy reconstruction found balanced splitting determinant -1 and direct rational counts #E(F2)=4 and #S(F2)=8; finite extension checks in inspected source run to F16, but the zeta formula rests on the geometric normalization argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical secant-scroll construction and normalization geometry are covered by Polo-Blanco, van der Put and Top (their quartic classification assumes char zero or >3). The wild two-branch different-exponent law and exact characteristic-two finite-field zeta are not assertions of the inspected classical work. Other char-two quartics in Resultary (Steiner Roman, Burkhardt, etc.) are different varieties.
+
+## value
+
+PASS
+
+Characteristic-two collapse from four tame complex pinch points to two wild branches and an exact finite-field zeta quantify a natural degeneration of classical quartic scroll geometry. The conductor and Frobenius corrections are specific reusable invariants of this singular ruled surface.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
