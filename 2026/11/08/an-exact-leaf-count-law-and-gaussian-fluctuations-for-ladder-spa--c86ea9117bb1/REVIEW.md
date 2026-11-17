@@ -1,11 +1,21 @@
-# Review of the ladder leaf-count theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The rung-gap bijection is exact: every tree has at least one rung and exactly one omitted rail edge between successive rungs. The proof translates local degree-three contributions, including both outer endpoint conditions and the single-rung case, into a three-state transfer. Its rational simplification yields the displayed enumerator; the simple dominant pole at \(2-\sqrt3\) gives analytic moment asymptotics and a Gaussian limit with positive variance. An independent exhaustive and integer-arithmetic replay agrees for all trees up to seven columns and verifies further recurrences; numerical checks are not offered as substitutes for the infinite proof.
+## correctness
 
-**Originality: PASS (qualified).** Klenke's 2017 paper describes the renewal distribution of rung locations and the uniform horizontal cut given a gap, but does not evaluate the all-size leaf-count polynomial or its asymptotic variance and Gaussian fluctuations. The 2023 ladder-pseudoinverse paper gives resistance and total tree counts; Rapoport's 2023 general degree-field formulas do not evaluate this finite-size global leaf law. The scientific finite-rung-kernel result evaluates a different observable. Targeted searches did not reveal an exact leaf polynomial. Since the full tree construction in Klenke is stronger descriptive information, deriving the leaf law from it is possible; this is a real residual priority and implication risk rather than evidence of independence from earlier work.
+PASS
 
-**Value: PASS.** The number of leaves is a canonical global measure of terminal branching, not just a reparameterization of rung density. The rational law yields exact probabilities for every finite ladder, while the positive algebraic variance and normal limit quantify macroscopic fluctuations. The local ternary transfer is needed because incident gap cuts jointly influence the number of degree-three vertices at a rung.
+A ladder spanning tree is determined by a nonempty ordered rung set and one missing horizontal edge between successive rungs. Its degree-three vertex count is L-2. Inspected local marks 0,+,- and transfer B(u) with gap lengths 1,2,>=3; endpoint factors and one-rung term ensure all n>=1. Rational transfer yields displayed P_n(z) series with denominator 1-(z+3)u+(3-2z)u^2-(2z^2-3z+1)u^3. Independent exact symbolic expansion checked P1=1, P2=4, P3=8+6z+z^2, P4=14+28z+14z^2 and P5=22+84z+87z^2+16z^3, total counts matching 1/(1-4u+u^2). At z=1 the dominant simple pole 2-sqrt(3) and analytic separation give quasi-powers, exact mean density 2sqrt(3)-3 and variance 92sqrt(3)/3-53>0, hence CLT. Finite n enumeration alone was not treated as the CLT proof.
 
-**Closest work and limits.** Klenke (arXiv:1704.00182), Gantert–Klenke (2023, DOI 10.1007/s10955-023-03091-w), Azimi–Farrokhi (arXiv:2306.10497), and Rapoport (arXiv:2312.14992) are the closest inspected full-text sources. The theorem does not address unequal weights, larger strip widths, Berry–Esseen errors or finite-polynomial real-rootedness. Literature-priority review remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Klenke 2017 primary work gives rung renewal and uniform missing-rail-edge positions but not the evaluated leaf-marked generating function or mean/variance constants. Gantert-Klenke 2023 focuses on random walks on random ladder trees, whose CLT is for walk displacement, not leaf-count. General joint degree formulas could in principle generate the distribution but do not report its evaluated rational expression and asymptotic constants. Resultary search found other family leaf distributions, not ladder-specific equivalence. Best-of-knowledge PASS with residual implicit-coverage risk.
+
+## value
+
+PASS
+
+A uniform ladder spanning tree is a natural test case for random spanning-tree local geometry; the entire exact finite leaf distribution and explicit nondegenerate Gaussian fluctuations are motivated unknown tree statistics, not merely a restatement of total tree counts or rung densities. Boundary terms and degree-three marks require genuine combinatorial enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

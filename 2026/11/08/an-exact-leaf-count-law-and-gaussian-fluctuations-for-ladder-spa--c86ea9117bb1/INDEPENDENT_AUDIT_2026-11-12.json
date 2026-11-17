@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:39:56.710548Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A ladder spanning tree is determined by a nonempty ordered rung set and one missing horizontal edge between successive rungs. Its degree-three vertex count is L-2. Inspected local marks 0,+,- and transfer B(u) with gap lengths 1,2,>=3; endpoint factors and one-rung term ensure all n>=1. Rational transfer yields displayed P_n(z) series with denominator 1-(z+3)u+(3-2z)u^2-(2z^2-3z+1)u^3. Independent exact symbolic expansion checked P1=1, P2=4, P3=8+6z+z^2, P4=14+28z+14z^2 and P5=22+84z+87z^2+16z^3, total counts matching 1/(1-4u+u^2). At z=1 the dominant simple pole 2-sqrt(3) and analytic separation give quasi-powers, exact mean density 2sqrt(3)-3 and variance 92sqrt(3)/3-53>0, hence CLT. Finite n enumeration alone was not treated as the CLT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rapoport supplies general spanning-tree local-degree correlation machinery; Klenke supplies full rung renewal and gap cuts. Neither inspected theorem states exact ladder leaf rational series or CLT constants."
+        ],
+        "reasoning": "General computability from a broader method is distinguished from published theorem implication of the evaluated explicit law; no direct stronger matching statement located.",
+        "searches": [
+          "https://arxiv.org/abs/2312.14992",
+          "https://arxiv.org/abs/1704.00182",
+          "Resultary: uniform spanning trees ladder graph leaf count degree one probability generating function Gaussian CLT"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-leaf-count-law-and-gaussian-fluctuations-for-ladder-spa--c86ea9117bb1",
+        "https://arxiv.org/abs/1704.00182",
+        "https://doi.org/10.1007/s10955-023-03091-w",
+        "https://arxiv.org/abs/2312.14992"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Klenke Theorem 1.3/Remark 1.4 address independent rung gaps and cuts; Gantert-Klenke CLTs address a biased walker, not random variable L_n."
+        ],
+        "reasoning": "Known decompositions make this derivation possible but do not state/evaluate the global leaf count; the mathematical claim requires its 3-state leaf marking and dominant-pole analysis.",
+        "searches": [
+          "https://arxiv.org/abs/1704.00182",
+          "https://doi.org/10.1007/s10955-023-03091-w"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known rung-gap decomposition does not specify L=2+N3 marked probabilities; new bivariate rational series and constants require tracking adjacency of gap marks."
+        ],
+        "reasoning": "Known rung and cut distributions are inputs, not an evaluated identity for the terminal-degree statistic.",
+        "searches": [
+          "Resultary: uniform spanning trees ladder graph leaf count degree one probability generating function Gaussian CLT",
+          "https://arxiv.org/abs/1704.00182"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier ladder Laplacian and total tree counts evaluate P_n(1) only; submitted P3=8+6z+z^2, P4=14+28z+14z^2 distinguish leaf histogram."
+        ],
+        "reasoning": "No previously tabulated all-n leaf-degree distribution was found; a total-tree table is not a table of leaf counts.",
+        "searches": [
+          "Resultary: uniform spanning trees ladder graph leaf count degree one probability generating function Gaussian CLT",
+          "https://arxiv.org/abs/2306.10497"
+        ]
+      },
+      "rationale": "Klenke 2017 primary work gives rung renewal and uniform missing-rail-edge positions but not the evaluated leaf-marked generating function or mean/variance constants. Gantert-Klenke 2023 focuses on random walks on random ladder trees, whose CLT is for walk displacement, not leaf-count. General joint degree formulas could in principle generate the distribution but do not report its evaluated rational expression and asymptotic constants. Resultary search found other family leaf distributions, not ladder-specific equivalence. Best-of-knowledge PASS with residual implicit-coverage risk.",
+      "residual_risks": [
+        "A hidden specialization in broader local-degree formula literature could implicitly calculate the same rational law; full appendices not exhaustively screened.",
+        "No weighted ladder or Berry-Esseen bound claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_INPUT",
+          "evidence": "The rung-gap renewal and missing-edge law are prior, but leaf-count marked rational generating series and per-column Gaussian constants absent from inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.00182",
+          "material_read": "Primary PDF Theorem 1.3, Remark 1.4, relevant gap/cut model, PDF page imagery examined",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "The Random Spanning Tree on Ladder-like Graphs",
+          "trigger": "same exact unweighted ladder tree rung decomposition"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Its random variable is walk displacement in random spanning-tree environment, not tree leaf count; it does not determine these coefficients.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-023-03091-w",
+          "material_read": "Accessible 2023 article abstract, theorem and organization of biased-walk CLT",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Biased Random Walk on Spanning Trees of the Ladder Graph",
+          "trigger": "same ladder random tree but reported Gaussian limit"
+        },
+        {
+          "assessment": "RESIDUAL_RISK",
+          "evidence": "General degree joint formulas can potentially imply a new derivation, but no explicit evaluated all-n ladder leaf law was located.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.14992",
+          "material_read": "Abstract and result-level scope, not full paper exhaustive line-by-line reading",
+          "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "general local degree correlations could dominate exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform ladder spanning tree is a natural test case for random spanning-tree local geometry; the entire exact finite leaf distribution and explicit nondegenerate Gaussian fluctuations are motivated unknown tree statistics, not merely a restatement of total tree counts or rung densities. Boundary terms and degree-three marks require genuine combinatorial enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-leaf-count-law-and-gaussian-fluctuations-for-ladder-spa--c86ea9117bb1",
+    "https://arxiv.org/abs/1704.00182",
+    "https://doi.org/10.1007/s10955-023-03091-w",
+    "https://arxiv.org/abs/2312.14992"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unweighted P2 by Pn only, n>=1, finite coefficients exact, asymptotic CLT only."
+  ],
+  "residual_risks": [
+    "A hidden specialization in broader local-degree formula literature could implicitly calculate the same rational law; full appendices not exhaustively screened.",
+    "No weighted ladder or Berry-Esseen bound claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE_INPUT",
+      "evidence": "The rung-gap renewal and missing-edge law are prior, but leaf-count marked rational generating series and per-column Gaussian constants absent from inspected sections.",
+      "identifier_or_url": "https://arxiv.org/abs/1704.00182",
+      "material_read": "Primary PDF Theorem 1.3, Remark 1.4, relevant gap/cut model, PDF page imagery examined",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "The Random Spanning Tree on Ladder-like Graphs",
+      "trigger": "same exact unweighted ladder tree rung decomposition"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "Its random variable is walk displacement in random spanning-tree environment, not tree leaf count; it does not determine these coefficients.",
+      "identifier_or_url": "https://doi.org/10.1007/s10955-023-03091-w",
+      "material_read": "Accessible 2023 article abstract, theorem and organization of biased-walk CLT",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Biased Random Walk on Spanning Trees of the Ladder Graph",
+      "trigger": "same ladder random tree but reported Gaussian limit"
+    },
+    {
+      "assessment": "RESIDUAL_RISK",
+      "evidence": "General degree joint formulas can potentially imply a new derivation, but no explicit evaluated all-n ladder leaf law was located.",
+      "identifier_or_url": "https://arxiv.org/abs/2312.14992",
+      "material_read": "Abstract and result-level scope, not full paper exhaustive line-by-line reading",
+      "method": "Full primary RESULT.md or accessible primary-source body read, proof/theorem compared",
+      "title": "Correlations in uniform spanning trees: a fermionic approach",
+      "trigger": "general local degree correlations could dominate exact count"
+    }
+  ]
+}
