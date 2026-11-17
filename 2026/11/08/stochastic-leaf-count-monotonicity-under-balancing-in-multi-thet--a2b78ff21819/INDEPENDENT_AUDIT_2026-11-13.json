@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:43:18.756611Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k arms with s edges and s-k+2 vertices, a spanning tree must leave exactly one full terminal path and delete one edge on each of the others. Counting terminal/internal leaves gives z^(k-1)[sum_i prod_{j!=i}(2+(ell_j-2)z)+2k(z-1)]/tau, tau=sum_i prod_{j!=i}ell_j. For ell_a=p>=q+2=ell_b+2, balancing changes the numerator by delta*z^2 Q and tau by delta*Q(1), delta=p-q-1. The exact mixture law is old law with weight tau/(tau+delta R) plus H law with weight delta R/(tau+delta R), R=Q(1)>0. Coupling the intact path and keeping shared edge cuts yields H-L=E_a+E_b-J if intact path is in the remainder, or E_b+E_h-J / E_a+E_h-J otherwise; J=1 forces the two indicated cuts to touch the same terminal, hence each difference is nonnegative. Opposite-end cuts give strictness with positive probability, proving stochastic order and strict mean, and majorization reaches the two global extrema. Direct independent deletion-pattern enumeration reproduced exact leaf polynomials for six configurations, including (2,3,5,4); the symbolic coupling, not the finite checks, proves the universal claim. No arbitrary weighted-network/general-series-parallel extension is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearby statements concern different graph classes or fixed-graph degree probabilities."
+        ],
+        "reasoning": "No reviewed dominating all-graph theorem states that balancing subdivisions increases UST leaf counts stochastically; the general degree formulas alone do not yield this sign.",
+        "searches": [
+          "Resultary: generalized theta graph spanning tree leaf polynomial balancing length stochastic",
+          "Resultary complete-multipartite leaf covariance and Cayley conditional stochastic order",
+          "arXiv:2312.14992"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2312.14992v1",
+        "https://arxiv.org/abs/2011.08833",
+        "Resultary: uniform spanning tree leaf count stochastic order generalized theta graph path length balancing majorization stochastic dominance",
+        "Resultary: generalized theta graph spanning tree leaf polynomial balancing length stochastic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rapoport Theorems on fermionic edge and degree events allow evaluations on a chosen graph; changing two path lengths changes the graph and no monotonicity is an immediate corollary."
+        ],
+        "reasoning": "Prior exact degree probabilities are logically compatible with either sign of change; the cross-graph coupling is the additional theorem.",
+        "searches": [
+          "Rapoport arXiv:2312.14992 Section degree correlation",
+          "Resultary: uniform spanning tree leaf count stochastic order generalized theta graph path length balancing majorization stochastic dominance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "UST leaf count is the number of vertices with degree one; Rapoport expresses degree-event probabilities on a fixed graph, while the claim compares laws after arm-length transfers."
+        ],
+        "reasoning": "The general joint-degree formula could specialize to theta probabilities but by itself provides neither a common coupling nor all-threshold stochastic comparison under length balancing.",
+        "searches": [
+          "Resultary: uniform spanning tree leaf count stochastic order generalized theta graph path length balancing majorization stochastic dominance",
+          "Rapoport arXiv:2312.14992v1, joint degree law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an all-integer family and complete probability polynomial; the sampled enumerations are not a purported pre-existing finite table."
+        ],
+        "reasoning": "No identified exact database supplies the all-parameter polynomial-plus-stochastic-order classification; independently testing finite vectors is not proof of novelty.",
+        "searches": [
+          "Resultary: generalized theta graph spanning tree leaf polynomial balancing length stochastic",
+          "Resultary: leaf distribution generalized theta tree"
+        ]
+      },
+      "rationale": "Rapoport's all-finite-graph fermionic degree laws can compute the distribution in principle, but do not state or imply the strict theta balancing order across different graphs. Resultary searches found related tree leaf fluctuations and stochastic orders on complete multipartite, Cayley or Catalan graphs, not this family. The explicit cross-network monotone coupling and global majorization extrema are a distinct contribution; generic tree-count formulas and degree probabilities are credited.",
+      "residual_risks": [
+        "An unindexed generalized-theta-specific leaf polynomial or stochastic-order theorem could alter priority; broad UST degree formulas can be specialized to give the count, but no inspected stronger implication gives the order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general probabilistic framework but NOT the submitted distributional ordering",
+          "evidence": "Theorems on edge/degree event probabilities for a fixed graph and lattice limits, no theorem establishing path-length majorization.",
+          "identifier_or_url": "https://arxiv.org/html/2312.14992v1",
+          "material_read": "Full-text HTML mathematical statements and degree probability/fermionic equations; inspected the relevant degree theorem passages and searched for theta-specific balancing",
+          "method": "arXiv HTML open text",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "General all-finite-graph degree/leaf formulas could dominate theta count"
+        },
+        {
+          "assessment": "DIFFERENT regime, does not compare finite theta arm vectors",
+          "evidence": "High-degree regular local-limit theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.08833",
+          "material_read": "Abstract and stated model scope; not a same-object primary formula",
+          "method": "arXiv abstract",
+          "title": "The local limit of uniform spanning trees",
+          "trigger": "UST leaf limits as a possible broader known result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A genuine nontrivial distributional majorization law: it applies to every increasing leaf statistic, not merely expectation, and identifies both extremal subdivisions at fixed cycle rank and edge budget. The explicit mixture-coupling explains a strict stochastic ordering not forced by the spanning-tree count alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All arms must have at least two edges; uniform unweighted spanning trees and fixed number/total length only.",
+    "Finite sample counts are corroboration; no extension to arbitrary conductances or arbitrary series-parallel graphs."
+  ],
+  "schema_version": 1
+}

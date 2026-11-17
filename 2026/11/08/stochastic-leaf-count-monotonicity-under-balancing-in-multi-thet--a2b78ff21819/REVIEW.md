@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The spanning-tree deletion count is exact: exactly one terminal-to-terminal path survives in full and one edge is deleted in every other path. Endpoint deletions create the stated terminal-leaf correction. The polynomial and expectation follow by direct enumeration. Pairwise balancing changes the generating polynomial by a positive multiple of an auxiliary probability polynomial, and the explicit conditional coupling shows that auxiliary variable dominates the original leaf count. Its law has positive probability of strict improvement, yielding strict stochastic order and the global majorization extremizers. The independent standard-library script passed 3272 bounded exact tests, including exhaustive small-graph enumeration. No finite computation is used as a substitute for the symbolic proof.
+## correctness
 
-## Originality: PASS (best-knowledge)
-General finite-graph UST degree laws in Rapoport (2023) are acknowledged as stronger in the dimension of *general graph coverage* but do not state the cross-graph stochastic order under balancing generalized-theta path lengths. Noguchi and Zamfirescu (2023) establish contiguous leaf-count support, not a probability ordering. Nachmias and Peres (2020) concern regular high-degree graph limits. Published-record semantic searches for generalized-theta leaf polynomial, length balancing, and Schur/majorization stochastic domination, and comparisons with previously documented mathematical statements yielded no implication covering the asserted all-\(k\) stochastic comparison. A historically unindexed treatment remains a residual risk; search failure alone is not novelty proof.
+PASS
 
-## Value: PASS
-Uniform spanning trees on a fixed cyclic skeleton vary nontrivially under path subdivisions. The result gives a global structural optimization of the entire random leaf-count law, not merely a moment or one small example: all increasing leaf-statistic objectives have the same extremal length allocations. The mixture-coupling proof reveals why balancing improves the law. The family includes the minimal noncactus theta case and arbitrary higher numbers of parallel internally disjoint paths.
+For k arms with s edges and s-k+2 vertices, a spanning tree must leave exactly one full terminal path and delete one edge on each of the others. Counting terminal/internal leaves gives z^(k-1)[sum_i prod_{j!=i}(2+(ell_j-2)z)+2k(z-1)]/tau, tau=sum_i prod_{j!=i}ell_j. For ell_a=p>=q+2=ell_b+2, balancing changes the numerator by delta*z^2 Q and tau by delta*Q(1), delta=p-q-1. The exact mixture law is old law with weight tau/(tau+delta R) plus H law with weight delta R/(tau+delta R), R=Q(1)>0. Coupling the intact path and keeping shared edge cuts yields H-L=E_a+E_b-J if intact path is in the remainder, or E_b+E_h-J / E_a+E_h-J otherwise; J=1 forces the two indicated cuts to touch the same terminal, hence each difference is nonnegative. Opposite-end cuts give strictness with positive probability, proving stochastic order and strict mean, and majorization reaches the two global extrema. Direct independent deletion-pattern enumeration reproduced exact leaf polynomials for six configurations, including (2,3,5,4); the symbolic coupling, not the finite checks, proves the universal claim. No arbitrary weighted-network/general-series-parallel extension is asserted.
 
-## Scope and limitations
-All path lengths are integers at least two; all tree weights are uniform; graph cycle rank is fixed at \(k-1\); comparisons fix both \(k\) and total path length. The formulas are not asserted for arbitrary weighted graphs or every series-parallel graph. Historical priority is qualified. Exact tests are bounded and do not serve as infinite proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rapoport's all-finite-graph fermionic degree laws can compute the distribution in principle, but do not state or imply the strict theta balancing order across different graphs. Resultary searches found related tree leaf fluctuations and stochastic orders on complete multipartite, Cayley or Catalan graphs, not this family. The explicit cross-network monotone coupling and global majorization extrema are a distinct contribution; generic tree-count formulas and degree probabilities are credited.
+
+## value
+
+PASS
+
+A genuine nontrivial distributional majorization law: it applies to every increasing leaf statistic, not merely expectation, and identifies both extremal subdivisions at fixed cycle rank and edge budget. The explicit mixture-coupling explains a strict stochastic ordering not forced by the spanning-tree count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
