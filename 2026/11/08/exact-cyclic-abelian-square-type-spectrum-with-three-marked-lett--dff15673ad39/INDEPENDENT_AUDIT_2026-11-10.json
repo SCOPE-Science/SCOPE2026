@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:52:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every odd n>=3 and exactly three zeros, the proof reduces equal-half zero counts to j=0 or 1. For j=1, the chosen consecutive zero pair gives necessary-and-sufficient integer start bounds floor(g/2)+1<=m<=min(K,g+min(j,h)-1). After sorting a<=b<=c, the intermediate interval is contained in the small-gap interval; the large-gap interval reaches K. Their union and the longest all-ones run give N=K-1_{c even}+max(0,min(K,a+b-1,floor(c/2))-floor(a/2)). The sole even-c baseline deficit m=c/2 is compensated no later than m=c/2, proving EVERY prefix inequality, including n=3 and adjacent zero boundaries. A fresh independent enumerator compared exact types and all prefixes for 1,036 words of odd length 3..15. These finite checks corroborate but do not replace the interval proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hexagon lower bound on distinct square FACTOR STRINGS cannot imply the lower bound on equivalence classes.",
+          "The older general circular lower bound is floor((n+1)/4), weaker than the present K=(n-1)/2.",
+          "The Resultary fixed-three-one paper counts linear words with four exterior/interior gaps and does not cover cyclic wraparound windows."
+        ],
+        "reasoning": "Neither the stronger domain generality of a weaker numeric bound nor linear formulas imply the asserted all-prefix inequality for every three-marker circle.",
+        "searches": [
+          "Hexagon 2610.00473v2 general bound and two-run proposition",
+          "Fraenkel–Simpson–Paterson 1997 On weak circular squares in binary words",
+          "Resultary 2026/11/8/Parikh-spectrum intervals"
+        ]
+      },
+      "checked_sources": [
+        "hexagon:2610.00473v2",
+        "https://arxiv.org/abs/1802.04481 (definitions/survey)",
+        "Resultary 2026-11-08 linear Parikh-spectrum three-marker RESULT",
+        "Resultary 2026-11-08 literal Abelian diversity RESULT",
+        "Fraenkel–Simpson–Paterson 1997 theorem synopsis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete Hexagon paper states the general all-prefix inequality as open, while the current interval proof resolves it only for three zeros.",
+          "An arbitrary triple of positive cyclic gaps can represent three separated zero runs, not a two-run circular word."
+        ],
+        "reasoning": "The 2026 linear words and weaker older circular statements neither imply nor refute the new three-marked circular classification; full literature coverage is still unproven.",
+        "searches": [
+          "Hexagon 2610.00473v2 Theorem, Section 5 Conjecture 5.5, two-run proposition",
+          "Resultary linear three-marker exact half-Parikh spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhattacharjee v2 uses the same half-length and common half-Parikh-vector equivalence but states all-prefix inequality as Conjecture 5.5.",
+          "The Resultary 2026-11-08 Parikh-spectrum paper is explicitly for LINEAR 0^a1 0^b1 0^c1 0^d, not cyclic words."
+        ],
+        "reasoning": "Type names, weak squares, letter complementation and Parikh vectors were compared; the linear three-marker interval calculation has different endpoint restrictions and cannot be identified with the circular three-gap formula.",
+        "searches": [
+          "Resultary: three marker abelian square cyclic types intervals",
+          "Hexagon 2610.00473v2 Section 5: non-equivalent Abelian-square classes z_m",
+          "Resultary: Parikh-spectrum intervals and Dirichlet mean for Abelian squares in three-marker binary words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bhattacharjee reports finite checks of the general prefix conjecture to n<=27.",
+          "A separate published two-marked-letter exact table concerns exactly two marked letters."
+        ],
+        "reasoning": "Finite numerical checks or two-marker formulas do not establish the unbounded three-positive-gap spectrum and all its prefix bounds.",
+        "searches": [
+          "Hexagon v2 section 5 finite verification n<=27",
+          "Resultary: exact circular Abelian-square type spectrum for two isolated marked letters"
+        ]
+      },
+      "rationale": "The exact three-gap circular half-Parikh type formula and the full odd-length prefix inequalities are not consequences of the inspected 2026 general distinct-string bound, its two-run special case, the older weaker circular bound, or the published linear fixed-three-marker formulas. The motivating full article explicitly conjectures the prefix inequalities, and proves them only in narrower cases. No equivalent dominating result was identified in the targeted published searches. Priority is qualified by unindexed literature.",
+      "residual_risks": [
+        "The full 1997 primary circular-paper text was not independently obtained; an older equivalent three-gap classification could be unindexed.",
+        "The all-prefix statement is confined to odd circles with precisely three marked letters; finite enumerations do not prove other cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: states open all-prefix conjecture, does not prove three-marker exact type formula",
+          "evidence": "Section 5 all-prefix inequality is conjectured and computationally checked to finite lengths.",
+          "identifier_or_url": "https://hexagonmath.org/2610.00473v2",
+          "material_read": "Full article, particularly Section 5 two-run proposition, the definitions of z_m, and Conjecture 5.5; PDF pages inspected with page screenshots",
+          "method": "Read primary RESULT or article text and compared definitions, quantifiers, hypotheses and displayed theorems",
+          "title": "The minimum number of distinct abelian squares in a binary circular word",
+          "trigger": "Direct motivating exact invariant and conjecture"
+        },
+        {
+          "assessment": "NOT_COVERING: explicitly LINEAR input with exterior gaps and Dirichlet limit",
+          "evidence": "Defines w=0^a1 0^b1 0^c1 0^d and two pair intervals, not a cyclic 3-gap word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parikh-spectrum-intervals-and-a-dirichlet-mean-for-abelian-squar--c4afe7617e23",
+          "material_read": "Entire RESULT.md, finding, assumptions, proof, relationship and limitations",
+          "method": "Read primary RESULT or article text and compared definitions, quantifiers, hypotheses and displayed theorems",
+          "title": "Parikh-spectrum intervals and a Dirichlet mean for Abelian squares in three-marker binary words",
+          "trigger": "Three-marker half-Parikh invariant could be equivalent"
+        },
+        {
+          "assessment": "NOT_COVERING: literal distinct factors in a LINEAR word, not circular half-Parikh-equivalence types",
+          "evidence": "Counts S(w) of distinct literal Abelian square strings with four linear gaps and n^2 scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-abelian-square-diversity-and-conditional-limit-law-for-thr--3d4cd7a4fb18",
+          "material_read": "Entire RESULT.md, exact formula and assumptions",
+          "method": "Read primary RESULT or article text and compared definitions, quantifiers, hypotheses and displayed theorems",
+          "title": "Exact Abelian-square diversity and conditional limit law for three-marker binary words",
+          "trigger": "Possible stronger sparse-marker classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a motivated infinite subfamily of a recent explicitly open prefix-count conjecture, with a complete per-half-length type spectrum and closed three-gap formula, not a finite-table improvement. The distinction between circular and linear factors is structurally important; the result does not claim the unrestricted conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only odd n and exactly three marked letters, not arbitrary binary circles or four-marker families.",
+    "Fresh finite checks corroborate 1,036 cases; mathematical infinitude follows from proof, not checker."
+  ],
+  "schema_version": 1
+}

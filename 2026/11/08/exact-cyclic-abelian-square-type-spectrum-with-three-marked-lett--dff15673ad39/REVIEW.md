@@ -1,19 +1,21 @@
-# Scientific review: three-marked circular Abelian-square types
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof explicitly defines cyclic factors of length at most the full word, types as half-length and half-Parikh vectors, and the odd-length three-marker domain. The critical lemma derives all nine integer-start comparisons and reduces them to a necessary-and-sufficient interval for a chosen consecutive zero pair. This yields the complete type set: zero-free types from the longest one-run and exactly-two-zero types from three gap intervals. The containment of the intermediate-gap interval and the full-range property of the largest-gap interval give the exact total formula. The only baseline gap occurs at half-length half the largest gap when that gap is even; an additional small-gap type supplies its missing prefix contribution. Boundary cases with adjacent zeros and length three are included. Direct exhaustive and randomized cross-checks passed; correctness in all lengths rests on the proof, not extrapolation.
+PASS
 
-## Originality
+For every odd n>=3 and exactly three zeros, the proof reduces equal-half zero counts to j=0 or 1. For j=1, the chosen consecutive zero pair gives necessary-and-sufficient integer start bounds floor(g/2)+1<=m<=min(K,g+min(j,h)-1). After sorting a<=b<=c, the intermediate interval is contained in the small-gap interval; the large-gap interval reaches K. Their union and the longest all-ones run give N=K-1_{c even}+max(0,min(K,a+b-1,floor(c/2))-floor(a/2)). The sole even-c baseline deficit m=c/2 is compensated no later than m=c/2, proving EVERY prefix inequality, including n=3 and adjacent zero boundaries. A fresh independent enumerator compared exact types and all prefixes for 1,036 words of odd length 3..15. These finite checks corroborate but do not replace the interval proof.
 
-**PASS, subject to historical-priority risk.** The directly motivating October 2026 Hexagon v2 full text (particularly its Section 5, Proposition on two runs and Conjecture on non-equivalent types) contains neither an exact formula for three scattered minority letters nor a theorem proving every prefix inequality for that family. Its general theorem is about distinct factor strings, not the weaker quantity of equivalence classes, and its two-run formula does not include three isolated zeros. The 1997 circular lower bound is only \(\lfloor(n+1)/4\rfloor\), and the 2026 sparse-letter result treats linear, not circular, factors. A previously reported two-marker circle theorem also covers a different hypothesis. Searches of accessible published records and a comparison with the two-marker statement did not identify an implication-equivalent three-marker classification. The 1997 primary full text and all potentially unindexed literature were not exhaustively available, so independent historical priority remains open.
+## originality
 
-## Value
+PASS
 
-**PASS.** This resolves every prefix condition of a recent explicit open conjecture on a natural infinite three-marker class, while determining the individual types and a gap-based closed formula rather than merely a bound. Exact three-gap dependence is a plausible inductive starting point for more markers and separates circular from linear sparse-letter mechanisms. This is not a numerical extension of a table: all odd lengths and all positive three-gap choices are covered by a structural proof.
+The exact three-gap circular half-Parikh type formula and the full odd-length prefix inequalities are not consequences of the inspected 2026 general distinct-string bound, its two-run special case, the older weaker circular bound, or the published linear fixed-three-marker formulas. The motivating full article explicitly conjectures the prefix inequalities, and proves them only in narrower cases. No equivalent dominating result was identified in the targeted published searches. Priority is qualified by unindexed literature.
 
-## Literature and limits
+## value
 
-Primary source: D. Bhattacharjee, *The minimum number of distinct abelian squares in a binary circular word*, Hexagon hexagon:2610.00473v2, https://hexagonmath.org/2610.00473v2 ; earliest public version v1 October 22, 2026. Earlier framework: Fraenkel–Simpson–Paterson (1997), Simpson (2018), and Fazekas–Mammoliti–Mercaş–Simpson (2026). The conclusion does not cover four-marker or unrestricted binary circles. The finite verifier provides corroboration, not independent certification of the general theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a motivated infinite subfamily of a recent explicitly open prefix-count conjecture, with a complete per-half-length type spectrum and closed three-gap formula, not a finite-table improvement. The distinction between circular and linear factors is structurally important; the result does not claim the unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
