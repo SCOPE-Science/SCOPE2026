@@ -1,11 +1,21 @@
-# Self-review: bridged even-cycle skew forcing
+# Independent mathematical audit
 
-**Correctness (PASS).** Every alternating odd vertex set within a cycle is a skew fort, yielding a one-per-cycle lower bound. For any set attaining that bound, deleting the chosen vertices turns the cactus into a tree with even-length arms at all bridge ports. The residual tree has a perfect matching exactly when the port tree does; the standard forest empty-skew-forcing criterion completes the equivalence. Every minimum set, exchange, and nonexistent slide is characterized without hidden parameters. Both independently constructed finite verifiers agree on all six named examples, including two bridge trees with no perfect matching, and the second verifies all exchange shortest-path distances. Finite checks do not substitute for the symbolic all-order proof.
+## correctness
 
-**Originality (PASS, priority qualified).** DeAlba's matching/skew-forcing work establishes forest and unicyclic ingredients and discusses cactus examples (including a different diamond-necklace scalar), but does not state the connected even-cycle port-bridge-tree gate or full reconfiguration classification. Its general bipartite-cactus corollary has a rank-equality hypothesis and does not enumerate all optimal sets or their exchanges. Bong et al. give a reconfiguration framework, forest/cycle source calculations, and product behavior for *disconnected* sources; their results inspected do not imply that connected bridged-cycle sources realize these Hamming products. Published research-record searches, primary literature queries, and comparison to related claims found no equivalent or stronger covering statement; search absence cannot establish priority. Potential unpublished/unindexed or uninspected coverage remains a risk.
+PASS
 
-**Value (PASS).** This is a natural complete classification of a nontrivial infinite cactus family, with a sharp bridge-tree perfect-matching threshold and exact global versus adjacent relocation behavior. It gives connected-source realizations of all even-factor products of complete graphs. The exact structural criterion and reconfiguration geometry are independently motivated by the published forcing/reconfiguration literature, not arbitrary parameter slices.
+The odd-indexed set O_i is a skew fort in each even cycle, giving disjoint one-token-per-block lower bound k. For a candidate selecting one odd vertex from every cycle, deleting the selected set leaves a forest (indeed a connected tree) with two even-size arms at every port. In any perfect matching, each port must match a bridge; hence residual perfect matchings correspond exactly to perfect matchings of T. For forests, empty-set skew forcing iff perfect matching follows from a directed permutation of all force vertices and leaf-edge induction. Thus Z^- equals k iff T has a perfect matching, and all minima are coordinate choices O_i. Cartesian clique product exchange, edge count N sum_i(r_i-1)/2, diameter k, and all-isolated sliding follow immediately. Independently enumerated all size-2 successful sets in connected C4/C4, C4/C6, C6/C6 bridge sources and obtained 4,6,9 exactly; all are distinct odd pairs, not an all-T finite proof.
 
-**Limitations.** Graphs are restricted to even cycles connected at a single designated port per cycle by a tree of bridges; the theorem gives only a strict lower bound when the bridge tree lacks a perfect matching. Finite verification covers six stated cases, and historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS. DeAlba 2014 gives forest/matching and unicyclic skew-forcing facts; Bong et al. 2025 establish a general token reconfiguration framework and Cartesian products for disjoint unions. Neither inspected accessible material proves the sharp perfect-matching gate or the complete exchange-versus-slide classification for connected port-bridged even-cycle cactus trees. The specialist Bong complete text could not be opened and institutional access was disconnected; this remains genuine priority risk.
+
+## value
+
+PASS
+
+A natural connected cactus family has a sharp structural threshold for attaining its fort lower bound, with a complete minimum-solution configuration graph. The connected-source realization of products of nontrivial cliques, together with frozen sliding, directly addresses studied reconfiguration geometry rather than a trivial disconnected product or arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

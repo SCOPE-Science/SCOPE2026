@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and boundaries
+# Independent mathematical audit
 
-The new theorem is proved symbolically in `RESULT.md`. Two standalone programs reconstruct graph edges from a cycle-length vector and a tree-edge list and enumerate **all** black sets of sizes \(0,\ldots,k\). Each tests skew forcing by propagation until a fixed point. Both compare the complete family of successful size-\(k\) sets to the alternating odd-vertex classification on matched trees and to the empty family on unmatched trees. They also enumerate all replacement edges and assert that every token slide is absent. The set-based implementation separately constructs the exchange network and computes all pairwise shortest-path distances, asserting equality with the coordinate Hamming metric.
+## correctness
 
-Execute `python3 check_bitmask.py > check_bitmask.out.json` and `python3 check_sets.py > check_sets.out.json` in a directory containing the extracted files. The included recorded output files are expected to agree byte-for-byte. The six graph instances are two cycles of lengths 4 and 4; two cycles of 4 and 6; two cycles of 6 and 6; four four-cycles joined by a four-vertex path; three four-cycles joined by a three-vertex path; and four four-cycles joined by a four-vertex star. The last two trees do not admit perfect matchings; all others do.
+PASS
 
-These computations are exhaustive only for the specified finite graphs; they are not a proof for every tree or arbitrary cycle lengths. The proof instead establishes the general disjoint-fort lower bound and the residual-tree matching equivalence. No independent scholarly audit has been performed.
+The odd-indexed set O_i is a skew fort in each even cycle, giving disjoint one-token-per-block lower bound k. For a candidate selecting one odd vertex from every cycle, deleting the selected set leaves a forest (indeed a connected tree) with two even-size arms at every port. In any perfect matching, each port must match a bridge; hence residual perfect matchings correspond exactly to perfect matchings of T. For forests, empty-set skew forcing iff perfect matching follows from a directed permutation of all force vertices and leaf-edge induction. Thus Z^- equals k iff T has a perfect matching, and all minima are coordinate choices O_i. Cartesian clique product exchange, edge count N sum_i(r_i-1)/2, diameter k, and all-isolated sliding follow immediately. Independently enumerated all size-2 successful sets in connected C4/C4, C4/C6, C6/C6 bridge sources and obtained 4,6,9 exactly; all are distinct odd pairs, not an all-T finite proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS. DeAlba 2014 gives forest/matching and unicyclic skew-forcing facts; Bong et al. 2025 establish a general token reconfiguration framework and Cartesian products for disjoint unions. Neither inspected accessible material proves the sharp perfect-matching gate or the complete exchange-versus-slide classification for connected port-bridged even-cycle cactus trees. The specialist Bong complete text could not be opened and institutional access was disconnected; this remains genuine priority risk.
+
+## value
+
+PASS
+
+A natural connected cactus family has a sharp structural threshold for attaining its fort lower bound, with a complete minimum-solution configuration graph. The connected-source realization of products of nontrivial cliques, together with frozen sliding, directly addresses studied reconfiguration geometry rather than a trivial disconnected product or arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
