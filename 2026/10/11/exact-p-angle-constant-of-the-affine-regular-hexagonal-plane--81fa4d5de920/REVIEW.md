@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For unit \(x,y\), the P-angle expression is exactly
-\[
-\frac{A^2+B^2-4}{2AB},
-\qquad
-A=N(x+y),\ B=N(x-y).
-\]
-The six-facet dual representation of the affine-regular hexagon gives the global bound \(A+B\le3\), while triangle inequality gives \(A,B\le2\). The resulting quadratic envelope is at most \(1/4\), and \(x=(1,1)\), \(y=(1,0)\) attains equality. The finite dual-functional cases and the attaining computation were replayed from the bundled verifier.
+## correctness
 
-## Originality
-PASS. Searches covered the exact value, \(S_P\) notation, P-angle aliases, the explicit hexagonal norm, polygonal formulations, and nearby Day–James terminology. The closest same-invariant public result is the exact \(S_P\) formula for real \(\ell_p\) sequence spaces, which does not contain this six-gonal norm. Close same-space results concern different constants and do not imply the P-angle value. The defining Yang–Li preprint was inspected around the definition, universal bound, \(\ell_p\) example, and subsequent structural results; no hexagonal computation was found.
+PASS
 
-## Value
-PASS. The affine-regular hexagon is a canonical non-Euclidean normed plane, and \(S_P\) is designed to quantify deviation from Hilbert geometry. The exact value \(1/4\) therefore gives a natural benchmark, not an arbitrary parameter slice. The proof also isolates the sharp polyhedral inequality \(N(x+y)+N(x-y)\le3\), which is reusable in related finite-facet calculations.
+Reconstructed the final real two-dimensional theorem from the actual frozen RESULT.md and seven Git blob hashes. Unit ball is the six intersections of signed facets ±s, ±t, ±(s-t). For unit x,y with x!=±y let A=N(x+y)>0, B=N(x-y)>0. Dual support forms f,g attaining A,B yield A+B <= max_{f,g}(||f+g||_*+||f-g||_*)=3; each A,B<=2. The desired cosine <=1/4 is equivalent to q=2A^2+2B^2-AB<=8. If s=A+B<=2, q=2s^2-5AB<=8; if 2<=s<=3, (2-A)(2-B)>=0 implies AB>=2s-4, giving q<=2s^2-10s+20<=8 by convexity and endpoint values 8. For x=(1,1),y=(1,0), A=2,B=1 and cosine=(4+1-4)/(2*2*1)=1/4. Independently reconstructed the tree SHA f7253024a1d326e0bf7dded092ef3c755cbb0eee from all seven actual Git blob SHA-1s; independently derived the six vertices and 36 facet-pair table exactly. Exhaustive rational 180-point edge-grid gives 32040 admissible pairs consistent with the sharp bound; this finite grid is corroboration, not its proof. Yang–Li Definition 3.1 is used as a formula in dimension two, despite its introductory dim>2 convention, as Remark 3.2 explicitly discusses two dimensions.
 
-## Closest literature and limitations
-Yang and Li introduced the invariant in arXiv:2208.11239 and proved \(0\le S_P(X)\le1/2\), together with Hilbert-space and classical-space results. A later public record gives an exact formula on real \(\ell_p\) sequence spaces; it does not cover the affine-regular hexagonal plane. The present result does not classify all hexagonal norms. The defining preprint has an earlier standing dimension convention, while Definition 3.1 and its immediate two-dimensional Euclidean discussion support the same formula used here directly in dimension two.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the exact S_P value on a canonical non-ell_p six-gonal Banach plane. The primary Yang–Li source defines S_P and universal bounds but not this plane; the full earlier same-invariant ell_p theorem excludes this norm; an octagon theorem has a different 8-facet norm. Exact same-space von Neumann–Jordan and Radon Birkhoff constants have different admissible pairs and expressions. The single exact same-result Resultary hit is a mirror of this assigned finding, not evidence of independent prior coverage. A fresh facet inequality and quadratic envelope are needed to obtain the claimed sharp value. Unindexed or alternate-named equivalent work remains a residual risk.
+
+## value
+
+PASS
+
+This exact invariant is mathematically motivated: the affine-regular hexagon is the smallest centrally symmetric non-parallelogram polygon and a canonical non-Hilbert Radon normed plane, while Yang–Li S_P measures departure from the Hilbert relation via a concrete unit-pair angular supremum. The exact 1/4 locates this canonical model strictly between Hilbert zero and the universal 1/2 endpoint and supplies a sharp 6-facet benchmark distinct from the ell_p and regular-octagon cases. The reusable sharp support-functional bound N(x+y)+N(x-y)<=3 and explicit attaining pair make the fact independently reproducible and usable for comparing other polyhedral angular constants. A natural exact one-plane invariant can be valuable even without a full polygon classification; this is not merely a renamed known constant or a negative normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
