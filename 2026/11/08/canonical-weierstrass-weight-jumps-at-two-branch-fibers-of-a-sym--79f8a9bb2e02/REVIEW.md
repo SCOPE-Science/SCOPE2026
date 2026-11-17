@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four diagonal quadrics define a smooth degree-\(16\), genus-\(17\) curve. Adjunction identifies the canonical series with degree-two forms, and its seventeen monomial sections exhaust the full canonical space. At the two claimed branch fibers, a local parameter converts their jets to five Vandermonde odd sections and twelve even sections. Exact formal power-series matrices produce the two generic and two replacement determinants. Their gcd relations exclude simultaneous or higher-order jumps. The independent symbolic replay recomputes each determinant and squarefreeness fact without floating approximation. The three sequences give weights \(23,27,27\). The proof is confined to the stated two fibers.
+PASS
 
-## Originality — PASS, with priority qualification
+Adjunction for a smooth (2,2,2,2) complete intersection in P^5 yields K=O_C(2), degree16 and genus17, with 17 canonical quadratic sections (X0²,X1² and 15 mixed monomials). At R0 the five odd-in-w sections w f_a(w²), slopes a=0,±1,±t, have vanishing orders 1,3,5,7,9 via Vandermonde. The remaining 12 even-w sections split into seven even-z and five odd-z terms. Their exact 7×7/5×5 jet determinants contain coprime factors Q(t) and P(t), respectively; the next minors are nonzero at each relevant root. Thus generic and exceptional 17-entry valuation sequences produce weights 23/27. Reciprocal polynomials prove same at R1. Direct exact-rational independent odd-jet determinant evaluations at t=2,3 and both even-jet determinants at t=2,3 matched the specified formulas, with independent polynomial gcd, squarefree, t=0,±1 exclusion, and 17-entry weight sums 23,27,27. These point checks are corroboration; full all-t proof is the formal binomial-series determinant identities and gcds in inspected VERIFY.py plus the geometric local-parameter argument. No square-root branch zero on fiber because forbidden parameters excluded.
 
-The closest 2014/2018 Hidalgo–Leyton-Álvarez result proves a general weight lower bound and generic equality in full moduli; at type \((2,5)\) this bound is \(21\), not the \(23\)-to-\(27\) stratification found in this symmetric locus. Castorena–Frías-Medina describe precisely Humbert–Edge curves of type five, their Kummer surfaces and theta characteristics, without this parameter-dependent canonical weight computation. Karagiannis computes canonical coordinate rings and syzygies, without the four determinants or their zero loci. Exact-phrase and semantic research-index checks found no covering statement. Broader classical Weierstrass/Edge literature could still contain an equivalent expression, so publication priority is not independently established. The new claim is a specific weighted jump locus, not a rediscovery of an existing general theory.
+## originality
 
-## Value — PASS
+PASS
 
-Weierstrass weights are natural invariants of canonical curves. The result exhibits an entire symmetry-forced one-parameter weight level above the known general moduli lower bound, and determines exactly when and how those weights jump at two geometrically distinguished branch fibers. The two coprime jump divisors have different canonical gap mechanisms. This is a structural stratification of a natural genus-\(17\) family, not an arbitrary finite table.
+Hidalgo–Leyton-Álvarez prove a general Weierstrass-weight lower bound, specialized to 21 for (k,n)=(2,5), attaining equality on dense open full moduli. Their inspected full text does not give the 23/27 weights and exact 12-parameter polynomial discriminant on the highly symmetric genus-17 subfamily. Published nearby Humbert-Edge findings concern zeta/Newton polygons over finite fields, not canonical vanishing sequences over complex parameters. Best-of-knowledge the particular jet stratification is distinct, with specialized older curve literature as residual risk.
 
-## Evidence and limitations
+## value
 
-The verified formulas are for all complex parameters outside \(\{0,\pm1\}\), at \(32\) specified points only. The free parameter can describe isomorphic curves at different values. A specialist historical-priority review and independent proof audit remain outstanding. The included symbolic program provides reproducible exact calculations, not independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete canonical vanishing-sequence classification at 32 naturally distinguished ramification points, including an exact 12-marked-parameter exceptional locus, is a natural geometric invariant of a high-genus curve family. It refines generic Weierstrass lower bounds by explicit nontrivial jump discriminants, and separates P versus Q mechanisms while showing the same weight. This is a meaningful natural classification, not an arbitrary tiny parameter table or a general numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
