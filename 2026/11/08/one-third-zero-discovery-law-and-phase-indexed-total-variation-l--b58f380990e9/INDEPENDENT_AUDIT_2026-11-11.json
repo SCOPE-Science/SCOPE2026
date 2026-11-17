@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:56:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson splitting makes first-hit times of dyadic boxes independent exponentials; the first-hit event in (t,2t] has Bernoulli probability e^(-t 2^-j)-e^(-2t 2^-j). The factors 1-y+y²=(1-y^6)(1-y)/((1-y^3)(1-y²)) telescope under dyadic j, proving P(N(t)=0)=(1+e^-t+e^-2t)/3 and E N(t)=1-e^-t. After n=v2^m reindexing, omitted negative-index Bernoulli tail has mean e^-n; summable bi-infinite law L_v is a.s. finite with E=1, P0=1/3 and variance 1-sum a_k²<1. Coupling Poisson arrival times T_n,T_2n, Chebyshev deviations n^(2/3) and first-hit rate lambda(t)<=5/t gives total variation O(n^-1/3). Independent rational exact occupancy gave P(D_1=0)=1/3,P(D_2=0)=97/315, and numerical Poissonized void product matched formula for t=.2,1,4,16. The rate is not claimed optimal and phase dependence persists in the full law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General occupancy approximations treat regular variation or unbounded counts; geometric frequencies exhibit log-periodic bounded fluctuations."
+        ],
+        "reasoning": "The present dyadic first-hit limit occupies a regime not dominated by the inspected Gaussian/small-count asymptotic statements; no cited broader law directly yields its exact 1/3 void product.",
+        "searches": [
+          "Resultary: geometric dyadic occupancy zero new boxes between n and 2n draws probability 1/3 phase limit",
+          "arXiv:2308.01739",
+          "arXiv:0809.4387"
+        ]
+      },
+      "checked_sources": [
+        "Bogachev, Gnedin and Yakubovich, On the Variance of the Number of Occupied Boxes, arXiv:math/0609498, Example 2.2",
+        "Barbour and Gnedin, Small Counts in the Infinite Occupancy Scheme, arXiv:0809.4387",
+        "Derbazi, Gnedin and Marynych, Records in the Infinite Occupancy Scheme, arXiv:2308.01739, ALEA 2024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing only Var K(t)=E N(t) cannot determine P(N(t)=0). The dyadic factorization and explicit Poisson-clock coupling yield stronger distributional conclusions."
+        ],
+        "reasoning": "The new phase-indexed TV estimate is not a corollary of the old mean identity; first-hit independence under Poissonization is standard but yields the exact 1/3 only after special dyadic telescope.",
+        "searches": [
+          "Resultary: geometric dyadic occupancy zero new boxes between n and 2n draws probability 1/3 phase limit",
+          "arXiv:math/0609498",
+          "arXiv:0809.4387",
+          "arXiv:2308.01739"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Temporal new-box discoveries count first-hit times between two sampling epochs, unlike the number of boxes containing exactly r balls at a single time."
+        ],
+        "reasoning": "Explored the potential identity Var K(t)=E N(t); it supplies only the mean of temporal discoveries, not the void probability or full limiting law.",
+        "searches": [
+          "Resultary: geometric dyadic occupancy zero new boxes between n and 2n draws probability 1/3 phase limit",
+          "arXiv:math/0609498",
+          "arXiv:0809.4387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing Example 2.2 explicitly gives mean 1-e^-t, not the exact void product (1+e^-t+e^-2t)/3, nor fixed-sample 97/315 for n=2."
+        ],
+        "reasoning": "No tabulation or exact old distribution of doubled-window first-hit counts was found in inspected sources. Absence of a table is contextual, not novelty proof by itself.",
+        "searches": [
+          "Resultary: geometric dyadic occupancy zero new boxes between n and 2n draws probability 1/3 phase limit",
+          "arXiv:math/0609498"
+        ]
+      },
+      "rationale": "Bogachev/Gnedin/Yakubovich explicitly already identify E N(t)=Var K(t)=1-e^-t for dyadic boxes; that mean is credited. Their relevant Example 2.2 and Eq(2.12)-(2.13) do not state the new void-product 1/3 law or phase-indexed fixed-sample total variation coupling. Barbour/Gnedin studies exact-r occupancy counts rather than first-hit counts in a temporal doubling interval; the 2008 record-process paper addresses another process and excludes the geometric small-variance case. Best-of-knowledge originality is the exact zero-event and quantitative phase limit, not independent Poisson thinning.",
+      "residual_risks": [
+        "The uniform TV error exponent 1/3 is from elementary concentration and is not asserted sharp. The exact zero-discovery constant is special to masses 2^-j and the doubled sample window.",
+        "Full bibliographic priority beyond the inspected occupancy sources is necessarily qualified; generic Poisson-binomial and poissonization facts are standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR mean exactly 1-e^-t; no entire-document noncoverage claimed, but inspected corresponding formula stops at expectation/variance",
+          "evidence": "Example 2.2 identifies Var K(t)=E(K(2t)-K(t))=1-e^-t.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+          "material_read": "Primary PDF Section 2.2, Example 2.2, equations (2.12)-(2.13) and nearby discussion, visually inspected relevant page",
+          "method": "Open-access arXiv PDF text and screenshot",
+          "title": "On the Variance of the Number of Occupied Boxes",
+          "trigger": "Exact dyadic geometric frequencies and temporal discoveries"
+        },
+        {
+          "assessment": "Counts boxes containing exactly r balls, rather than temporal discovery count; no whole-paper negative coverage inference",
+          "evidence": "First page defines X_{n,r} and emphasizes regular variation and oscillatory occupancy behavior.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+          "material_read": "Primary PDF abstract and Introduction page 1, visually inspected",
+          "method": "Open-access arXiv PDF screenshot",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Oscillatory geometric frequencies and occupancy limits"
+        },
+        {
+          "assessment": "Geometric-frequency regime excluded from stated approximation according to accessible paper description; full-text priority qualification remains",
+          "evidence": "Cannot equate temporal doubling first-hit law to the cited record-count approximation without extra proof.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.01739",
+          "material_read": "Accessible abstract and cited model assumptions in research package, not entire full text",
+          "method": "Open-access scholarly search",
+          "title": "Records in the Infinite Occupancy Scheme",
+          "trigger": "Poisson approximation with small record counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dyadic occupancy is a canonical log-periodic infinite-box model. Its exact no-new-coupon probability 1/3 is a natural distributional invariant that differs from the superficially plausible Poisson(1) value e^-1; the full non-Poisson phase family and quantitative fixed-sample TV transfer explain precisely which Poisson approximation fails.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bogachev, Gnedin and Yakubovich, On the Variance of the Number of Occupied Boxes, arXiv:math/0609498, Example 2.2",
+    "Barbour and Gnedin, Small Counts in the Infinite Occupancy Scheme, arXiv:0809.4387",
+    "Derbazi, Gnedin and Marynych, Records in the Infinite Occupancy Scheme, arXiv:2308.01739, ALEA 2024"
+  ],
+  "disposition": "passed",
+  "final_claim": "For iid dyadic geometric box probabilities P(Z=j)=2^-j, newly discovered boxes between draws n and 2n have a dyadic-phase indexed non-Poisson Bernoulli-sum limit in total variation with error O(n^-1/3); its mean is 1 and no-discovery mass exactly 1/3 for every phase.",
+  "limitations": [
+    "The uniform TV error exponent 1/3 is from elementary concentration and is not asserted sharp. The exact zero-discovery constant is special to masses 2^-j and the doubled sample window.",
+    "Full bibliographic priority beyond the inspected occupancy sources is necessarily qualified; generic Poisson-binomial and poissonization facts are standard."
+  ],
+  "residual_risks": [
+    "The uniform TV error exponent 1/3 is from elementary concentration and is not asserted sharp. The exact zero-discovery constant is special to masses 2^-j and the doubled sample window.",
+    "Full bibliographic priority beyond the inspected occupancy sources is necessarily qualified; generic Poisson-binomial and poissonization facts are standard."
+  ],
+  "schema_version": 1
+}
