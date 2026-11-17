@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Direct verification
+# Independent mathematical audit
 
-`checks/finite_counts.py` constructs all rank-at-most-one operators as matrices over specified prime fields and compares all pairwise actual matrix products and commutators. For the tested tuple lengths it exhausts all commuting tuples and groups them by the span rank of their images, then compares counts with exact isotropic-Grassmann formulas. `checks/finite_counts.txt` is the recorded stdout.
+## correctness
 
-`checks/tangent_rank.py` builds generators for tangent spaces of each rank-one symplectic cone, directly linearizes matrix commutators, performs finite-field Gaussian elimination, and compares actual tangent dimension with the stated closed formula for several zero/nonzero support cases in dimensions four and six. `checks/tangent_rank.txt` is its recorded stdout.
+PASS
 
-Reproduce with `python3 checks/finite_counts.py` and `python3 checks/tangent_rank.py`. The programs require only Python's standard library. They do not test arbitrary extension fields or prove any infinite family; the proof establishes the general theorem. The reduced-variety tangent argument and the known literature on symplectic vector nullcones are needed for the global geometric conclusion.
+A rank-one sp(V) operator X_u=u⊗ω(u,.) has X_u²=0 and commutator zero with X_v exactly when ω(u,v)=0. Coordinatewise ± quotient of the isotropic vector nullcone describes the reduced variety in char≠2. Fiber dimension over isotropic s-planes yields irreducible global dimension; linearize nonzero vector coordinates and zero quadratic Veronese cones to obtain dim T=r(2n−s)+s(s+1)/2+(r−t)binom(2n−s,2). Comparing with global dimension gives precisely the stated smoothness trichotomy including zero-coordinate singularities for n>=2. A finite-field count uses symplectic isotropic Grassmann numbers times the number of spanning ordered images, ∏(q^r−q^j). Independently enumerated n=1 over q=3,5 and checked small symbolic tangent dimension inequalities; finite tests are not general proofs.
+
+## originality
+
+PASS
+
+Classical symplectic isotropic-vector nullcone dimension and irreducibility, isotropic q-counts and general commuting nilpotent theory are credited. Published and accessible primary literature does not state the tangent support stratification of the reduced coordinatewise ± rank-one operator quotient; provisional best-of-knowledge PASS with risk of a broader quotient theorem.
+
+## value
+
+PASS
+
+Complete smooth locus of the natural commuting minimal symplectic-nilpotent tuple variety is structurally valuable, with counterintuitive singularity forced by zero operator coordinates and an exact arithmetic support interpretation. This is not merely a known vector-nullcone calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
