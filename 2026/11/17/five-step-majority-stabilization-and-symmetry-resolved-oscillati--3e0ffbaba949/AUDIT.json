@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The graph has 24 permutations and degree three. Explicit lexicographic-neighbor enumeration computes all 2^24 updates; an independent Cartesian-isomorphic 12+12 parity factorization computes complete 4096-state P and Q maps and an exact formula for first recurrence. Both return fixed=208, period-two states=43056 and all six entry-depth bins with maximum five; witnessed by initial bitmask 9762. A complete group of 48 spatial automorphisms is constructed and checked edge by edge; period-orbit phase quotient and orbit-size weighted sums are verified. The minimum nonuniform fixed support follows from matching-cut equivalence and six commuting-square cosets. No larger or infinite-domain conclusion is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos assert eventual periods at most two for symmetric thresholds; no exact graph census. Benjamini et al. discuss finite graph period-two property and prove infinite/random-graph results. Kaaser et al. prove general voting-time bounds, with no particular truncated-octahedral case. Collares et al. study a monotone infection rule, not nonmonotone synchronous voting."
+      ],
+      "reasoning": "General period-at-most-two coverage does not settle the exact sharp entry time, state populations, geometric orbit sizes, or square-face supports. The permutahedron bootstrap result uses a different, irreversible local rule and cannot imply nonmonotone voting recurrence.",
+      "searches": [
+        "arxiv:1405.2486v1 majority dynamics finite graph theorem",
+        "arxiv:1508.03519v1 voting time deterministic majority process",
+        "arxiv:2507.06597v1 majority bootstrap percolation permutahedron",
+        "Periodic behaviour of generalized threshold functions Goles Olivos 1980"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.cmu.edu/~odonnell/papers/majority-dynamics.pdf",
+      "https://arxiv.org/pdf/1508.03519",
+      "https://arxiv.org/pdf/2507.06597",
+      "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+      "https://mathworld.wolfram.com/TruncatedOctahedralGraph.html",
+      "published record: Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+      "published record: Thirty geometric recurrent classes and a sharp four-step clock for majority dynamics on the four-cube",
+      "published record: Anti-forcing polynomial and symmetry-orbit profile of the four-letter permutohedron"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The dodecahedral census is for a 20-vertex graph; the cube census is for a 16-vertex graph with different degree. Alternating cubic graph dynamics concerns time-varying adjacency, not a single static 24-vertex permutohedron. The anti-forcing polynomial counts perfect matchings, not majority periodic orbits."
+      ],
+      "reasoning": "Neither a smaller-graph census nor a different dynamical operator yields the present numerical values by restriction, quotient, or a stated general formula. The current 208/21528 values require the present explicit update and exhaustive 12+12 map or equivalent graph-specific computation.",
+      "searches": [
+        "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+        "Thirty geometric recurrent classes and a sharp four-step clock for majority dynamics on the four-cube",
+        "A complete necklace spectrum for majority dynamics on alternating connected cubic graphs",
+        "Anti-forcing polynomial and symmetry-orbit profile of the four-letter permutohedron"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph is also the four-letter permutohedron, Bruhat graph B4, and the adjacent-position-transposition Cayley graph of S4 (MathWorld). Searches under these names found other graph invariants and majority counts for different graphs, but not the same 208/21528/five-step statement."
+      ],
+      "reasoning": "Aliases of the graph were treated as the identical object. A claim of majority dynamics under any of these aliases would cover the result, but none was identified after statement-level inspection of the returned records.",
+      "searches": [
+        "binary synchronous majority voting truncated octahedral graph permutohedron S4 adjacent transpositions exact recurrent periods basin census",
+        "majority dynamics 24 vertex truncated octahedral graph permutohedron fixed point two cycle",
+        "exact majority dynamics truncated octahedron 24 vertices 36 edges",
+        "majority voting \"permutohedron\" \"dynamics\" binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known exact counts for the dodecahedral graph and four-cube differ in graph order/adjacency; a record counting 169 perfect matchings of the four-letter permutohedron addresses edges, not vertex opinion configurations. No exact matching majority table appeared in the recorded searches."
+      ],
+      "reasoning": "A prior table would cover the result if it gave identical labelled states for the same update under graph isomorphism. The retrieved exact tables have different dynamical rules or different graphs, while a perfect-matching enumerator is not a majority configuration enumerator.",
+      "searches": [
+        "\"truncated octahedron\" \"majority dynamics\" two cycles",
+        "\"truncated octahedral graph\" \"208\" \"majority\"",
+        "\"majority\" \"21528\" \"208\" \"24\"",
+        "208 fixed points 21528 two-cycle orbits synchronous majority graph",
+        "majority dynamics on permutahedron B4 fixed points cycles 20 automorphism classes"
+      ]
+    },
+    "rationale": "The exact 24-vertex truncated-octahedral state and orbit census, sharp five-update convergence clock, and 20/717 full-symmetry class profile were not found in inspected exact-graph records or primary literature. The general two-period theorem, general upper bounds, and related graph-specific majority classifications are credited and do not imply these graph-specific numbers. Exact priority outside accessible indexing cannot be guaranteed.",
+    "residual_risks": [
+      "The original Goles–Olivos 1980 full text was not accessible; its general period-two theorem is fully acknowledged.",
+      "A pre-existing isolated finite census under an unindexed graph alias or in a historic table cannot be ruled out.",
+      "Publicly available archived summaries of neighboring finite majority cases were inspected as summaries where full scientific packages were inaccessible; no assertion of whole-document noncoverage is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General eventual-period claim only for finite graphs; new work does not claim this property as novel. Specific 24-vertex permutohedron census not present in inspected main claims.",
+        "evidence": "Introduction Theorem 1.1 attributes eventual period two to Goles and Olivos; the principal results address unimodular transitive and random graphs.",
+        "identifier_or_url": "https://www.cs.cmu.edu/~odonnell/papers/majority-dynamics.pdf",
+        "material_read": "Abstract, introduction, formal update definition, theorem 1.1, main theorem overview, and finite/infinite scope on pp.1-5",
+        "method": "Opened lawful full-text PDF, read text and inspected page 2 visually",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Same synchronous binary majority rule; general finite-graph period-two theorem"
+      },
+      {
+        "assessment": "Provides general voting-time methods and computational hardness, not the particular truncated-octahedron bound of five or its exact recurrent census.",
+        "evidence": "Definition 3 defines least t satisfying F^{t+2}=F^t per initial state; main results give bounds and contractions.",
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "Abstract, introduction, preliminaries, Definition 3 voting time, and statement of principal contraction bounds on pp.1-5",
+        "method": "Opened full preprint PDF, read detailed introductory mathematical statements, inspected first page visually",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Sharp maximum transient for the identical synchronous binary majority process"
+      },
+      {
+        "assessment": "Irreversible bootstrap infection retains active vertices and examines high-dimensional random thresholds; different dynamics from synchronous binary neighbor voting.",
+        "evidence": "Introduction describes A_t as an increasing sequence and studies asymptotic critical infection probabilities.",
+        "identifier_or_url": "https://arxiv.org/pdf/2507.06597",
+        "material_read": "Abstract, introductory model definition, statement of permutahedron high-dimensional scope on pp.1-4",
+        "method": "Opened lawful preprint PDF, read text, visually inspected first page",
+        "title": "Majority bootstrap percolation on the permutahedron and other high-dimensional graphs",
+        "trigger": "Identical permutohedron graph family and majority terminology"
+      },
+      {
+        "assessment": "Strong coverage of eventual period at most two is credited; text not available for verifying any potential numerical graph-specific discussion.",
+        "evidence": "Abstract expressly states symmetric threshold maps approach a fixed point or two-cycle.",
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Verified institutional publication record, citation and abstract only; original full text not obtained",
+        "method": "Institutional bibliographic abstract inspection",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original general eventual-period-two theorem"
+      },
+      {
+        "assessment": "Establishes the graph identification and the size of the spatial symmetry group; no majority update or periodic-state enumeration is supplied.",
+        "evidence": "24-vertex cubic truncated-octahedral graph is isomorphic to the four-letter permutation graph, with automorphism group of order 48.",
+        "identifier_or_url": "https://mathworld.wolfram.com/TruncatedOctahedralGraph.html",
+        "material_read": "Graph identification paragraph, Cayley/Bruhat representation, symmetry order and listed references",
+        "method": "Textual reference-page inspection",
+        "title": "Truncated Octahedral Graph",
+        "trigger": "Graph identity, cubic geometry, full symmetry order"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e0ffbab-a949-4383-880b-0c30bc8d5f47",
+  "value": {
+    "rationale": "A full labelled temporal and symmetry classification on the canonical 24-vertex cubic Archimedean graph is a natural exact dynamical invariant. The sharp five-update clock and strong oscillatory basin predominance are mathematically informative and not implied by general eventual-period-two theory. The six size-four square-face stable supports give a motivated geometric boundary, and the 12+12 bipartite reduction provides a reusable structural verification method. This is a finite self-contained classification, not a claim of a general new network theorem.",
+    "status": "PASS"
+  }
+}
