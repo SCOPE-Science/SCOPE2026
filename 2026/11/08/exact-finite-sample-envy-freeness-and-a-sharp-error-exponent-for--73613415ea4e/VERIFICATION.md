@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and evidence limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 installation using only the standard library. The program checks six exact rational probabilities, an independent two-good order-statistic identity, six direct simulations with a fixed local seed, and the sign and numerical precision of the analytic saddlepoint parameters. The checker was run against the embedded program; it terminated with a PASS result.
+## correctness
 
-The finite formula is proved by bilateral Laplace-transform inversion, rather than by simulation or enumeration. The sharp asymptotic uses exponential tilting and a local central limit theorem; the implemented finite numerical checks are not an independent proof of the limit. A second, separate numerical convolution of the single-good piecewise-linear density, with exact CDF bin masses and mesh \(1/2048\), matched the analytic probabilities for \(m=1,\ldots,12\) within \(1.2\times10^{-7}\). This independent discretization is corroborative only.
+PASS
 
-No independent scientific audit has been performed. Publication priority beyond the inspected literature and indexed research records is not certified.
+For a good, first-agent signed own-minus-other value Z has density 1+z on (−1,0) and z on (0,1). The two agents’ total signed gains sum to Σ|X_g−Y_g|>0 almost surely, so simultaneous envy is impossible and symmetry gives F_m=2P(ΣZ_g>0)−1. The MGF M(t)=((t−1)e^t+t+e^(−t))/t² (M(0)=1) is positive and strictly convex. Its m-th power expansion into e^{(r−u)t}/t^{2m−s−j} inverts by the bilateral Laplace formula, yielding exactly the displayed rational multinomial sum, with F1=0. Unique θ<0 with M′(θ)=0 exists by convexity; tilting at θ makes a compactly supported, nonlattice, bounded-density mean-zero law with variance σ²=M″(θ)/M(θ). Fourier local CLT plus a uniform O(m^−1/2) density bound justifies dominated convergence of the tilted half-line integral and the exact prefactor 2/(|θ|σ√2π). This is a proof of all m and the limit, independent of simulations.
+
+## originality
+
+PASS
+
+Theorem 2 in Dickerson et al. 2014 proves eventual envy-freeness of a utilitarian-maximizing assignment under broad iid assumptions, explicitly including uniform draws, but does not give finite exact probabilities or the sharp one-sided large-deviation constant. Other inspected fair division work studies EF existence, groups, asymmetric samples or online welfare; no known exact formula covering the complete final claim was found.
+
+## value
+
+PASS
+
+The exact finite-m welfare/fairness compatibility probability is a natural reliability statistic in canonical two-agent allocation. The analytic saddlepoint rate and exact prefactor quantify rare envy failure sharply, substantially strengthening qualitative high-probability results; the fixed two-agent uniform model is intrinsically motivated, not an arbitrary tiny enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

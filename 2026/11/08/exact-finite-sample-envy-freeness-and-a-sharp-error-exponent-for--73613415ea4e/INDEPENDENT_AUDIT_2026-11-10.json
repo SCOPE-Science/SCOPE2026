@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a good, first-agent signed own-minus-other value Z has density 1+z on (−1,0) and z on (0,1). The two agents’ total signed gains sum to Σ|X_g−Y_g|>0 almost surely, so simultaneous envy is impossible and symmetry gives F_m=2P(ΣZ_g>0)−1. The MGF M(t)=((t−1)e^t+t+e^(−t))/t² (M(0)=1) is positive and strictly convex. Its m-th power expansion into e^{(r−u)t}/t^{2m−s−j} inverts by the bilateral Laplace formula, yielding exactly the displayed rational multinomial sum, with F1=0. Unique θ<0 with M′(θ)=0 exists by convexity; tilting at θ makes a compactly supported, nonlattice, bounded-density mean-zero law with variance σ²=M″(θ)/M(θ). Fourier local CLT plus a uniform O(m^−1/2) density bound justifies dominated convergence of the tilted half-line integral and the exact prefactor 2/(|θ|σ√2π). This is a proof of all m and the limit, independent of simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dickerson et al. 2014 Theorem 2: high-probability existence of EF welfare-maximizing allocation for sufficiently many goods with general additive iid sampling, no F_m formula or prefactor.",
+          "Other works vary number of agents, item distributions or allocation criterion."
+        ],
+        "reasoning": "Qualitative convergence F_m→1, even under broad model assumptions, does not imply the exact m-dependent probability nor optimal ρ and m^−1/2 prefactor.",
+        "searches": [
+          "Dickerson Goldman Karp Procaccia Sandholm The Computational Rise and Fall of Fairness Theorem 2 PDF",
+          "Manurangsi Suksompong 2017 asymptotic fair division groups",
+          "Bai Gölz 2021 asymmetric valuations envy free Pareto optimal"
+        ]
+      },
+      "checked_sources": [
+        "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+        "doi:10.1609/aaai.v28i1.8884",
+        "arxiv:2609.31849",
+        "arxiv:1706.08219",
+        "arxiv:2109.08971",
+        "pinned RESULT.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2014 result quantifies a sufficient high-probability regime, not the exact finite distribution.",
+          "Complexity classifications are worst-case decision results, not probability laws under iid uniform goods."
+        ],
+        "reasoning": "Finite inversion and tilting yield strictly sharper statements than those primary theorems; merely invoking a generic Chernoff inequality would not recover their sharp constants.",
+        "searches": [
+          "https://jpdickerson.com/pubs/dickerson14computational.pdf Theorem 2",
+          "Bu Tao 2026 arxiv:2609.31849 complexity fair efficient allocation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is the intersection of two nonnegative signed utility-difference sums, but the two negative events are mutually exclusive.",
+          "Existing standard Cramér/Bahadur–Rao large deviations supply a method once the exact signed summand law is identified; they do not give the finite rational sum for this welfare assignment."
+        ],
+        "reasoning": "A change to signed-sum language is an exact equivalence; the model-specific density, finite inverse transform and exact constants remain not found as a preexisting instance.",
+        "searches": [
+          "two independent uniform agents highest value assignment envy-free finite sample sum sign density large deviations",
+          "Resultary two-agent independent uniform max-welfare envy-free probability finite m error exponent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-m table was identified beyond the reviewed source; distinct fair-division lottery records enumerate different mechanisms.",
+          "Independent rational arithmetic produced F1=0, F2=1/3, F3=23/60, F4=55/126, F5=4927/10080."
+        ],
+        "reasoning": "The exact rational sequence is not mechanically given by prior qualitative literature; lack of lookup result is not absolute priority proof.",
+        "searches": [
+          "Resultary: welfare maximizing two additive agents independent uniform valuations envy freeness finite probability sharp large deviations",
+          "exact probability utilitarian efficient allocation envy free two agents uniform 1/3 23/60"
+        ]
+      },
+      "rationale": "Theorem 2 in Dickerson et al. 2014 proves eventual envy-freeness of a utilitarian-maximizing assignment under broad iid assumptions, explicitly including uniform draws, but does not give finite exact probabilities or the sharp one-sided large-deviation constant. Other inspected fair division work studies EF existence, groups, asymmetric samples or online welfare; no known exact formula covering the complete final claim was found.",
+      "residual_risks": [
+        "Unindexed exact two-agent uniform calculations or standard signed-triangular convolution tables may recover the same coefficients.",
+        "A local CLT proof is sound under compactly supported tilted density; finite simulations alone would not justify the asymptotic, so it was reconstructed analytically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers high-probability eventual fairness but does not state exact all-m probability or saddlepoint prefactor",
+          "evidence": "AAAI 2014; Theorem 2 supplies existence/high-probability and per-item highest-valuer guarantee for large m, including uniform iid as an example.",
+          "identifier_or_url": "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+          "material_read": "Primary PDF abstract, assumptions A1–A2 and Theorem 2, PDF page image viewed",
+          "method": "Read relevant theorem and hypothesis content from paper and inspected PDF page",
+          "title": "The Computational Rise and Fall of Fairness",
+          "trigger": "Same welfare-optimal per-item allocation and iid Uniform[0,1] valuations"
+        },
+        {
+          "assessment": "Worst-case decision-complexity scope, no identified stochastic all-m law",
+          "evidence": "Published September 25 2026; finite probability is a distinct quantity.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31849",
+          "material_read": "Accessible abstract and named complexity results only",
+          "method": "Compared problem type, not whole-text noncoverage claim",
+          "title": "Fair and Efficient Allocations: Decision Problems in the Gap of Polynomial Hierarchy",
+          "trigger": "Same combination of envy freedom and welfare efficiency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-m welfare/fairness compatibility probability is a natural reliability statistic in canonical two-agent allocation. The analytic saddlepoint rate and exact prefactor quantify rare envy failure sharply, substantially strengthening qualitative high-probability results; the fixed two-agent uniform model is intrinsically motivated, not an arbitrary tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://jpdickerson.com/pubs/dickerson14computational.pdf",
+    "doi:10.1609/aaai.v28i1.8884",
+    "arxiv:2609.31849",
+    "arxiv:1706.08219",
+    "arxiv:2109.08971",
+    "pinned RESULT.md, verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two agents with independent Uniform[0,1] additive values, assigning each item to its higher valuer is envy-free with an exact all-m rational probability and failure probability asymptotic to 2ρ^m/(|θ|σ√(2πm)), with θ the unique negative minimizer of the explicit one-item MGF.",
+  "limitations": "Two agents, m≥1 independent Uniform[0,1] marginal additive values and unique no-tie utilitarian assignment. Asymptotic is fixed two agents, m→∞, without a claimed finite error bound.",
+  "residual_risks": [
+    "Unindexed exact two-agent uniform calculations or standard signed-triangular convolution tables may recover the same coefficients.",
+    "A local CLT proof is sound under compactly supported tilted density; finite simulations alone would not justify the asymptotic, so it was reconstructed analytically."
+  ],
+  "schema_version": 1
+}
