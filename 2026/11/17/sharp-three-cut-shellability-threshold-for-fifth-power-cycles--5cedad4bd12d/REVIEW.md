@@ -1,0 +1,15 @@
+# Scientific evaluation
+
+## Correctness — PASS
+The claim has one finite missing positive interval and an already published infinite tail. A supplied 34-kilobyte explicit order certificate lists **all** 8,040 disconnected-triple complements for the six integer widths 21–26. Independently reconstructed graph triples and direct set-theoretic intersection checks verify each shelling axiom against all earlier facets. The exact top-cell counts yield 1, 12, 24, 37, 51 and 66 spheres. Exhaustive Alexander-dual face enumeration and binary boundary reductions prove lower-degree field homology for every width 13–20, obstructing shellability, while an elementary nonneighbor argument proves voidness for widths 3–12. Chauhan–Shukla Theorem 1.4 proves the all-size tail 27 onward. Correctness risk: finite and published-infinite steps must both be retained; a partial enumeration would not prove either.
+
+## Originality — PASS
+Conjecture 4.2(ii) of Chauhan–Shukla–Vinayak (arXiv:2406.01979) anticipates the sharp threshold but does not prove it for exponent five. Its published Table 2 already contains the relevant finite homology ranks, which are expressly not claimed as new. Chauhan–Shukla (arXiv:2603.23155), whose full HTML proof and theorem were inspected, proves shellability for the fifth power only from 27 vertices onward. Previously published sharp classifications at powers three and four and uniform nonshellability up through the critical 20-vertex fifth-power case do not imply shellability for vertices 21 through 26. Searches of relevant published claims, arXiv, and equivalent fifth-power descriptions did not find any existing six-case shelling theorem. Residual risk: earlier unindexed or unpublished equivalent shellings cannot be completely excluded by search.
+
+## Mathematical value — PASS
+This establishes the full sharp transition for the next fifth-power family in a precisely stated published conjecture, closing six nontrivial cases left open by the existing general shelling theorem. Shellability and hence the integral wedge homotopy classification are stronger than the previously tabulated Betti numbers, which cannot certify a shelling. Every missing case is settled by a complete reusable combinatorial certificate, not a numerical guess. The outcome is directly motivated by the connection between graph cut complexes and Cohen–Macaulay/shellability phenomena.
+
+## Prior literature and limitations
+Closest original primary papers: Chauhan–Shukla, arXiv:2603.23155 (2026), Theorem 1.4; Chauhan–Shukla–Vinayak, arXiv:2406.01979 (2024/2025), Conjecture 4.2 and Table 2. Related published separate third- and fourth-power classifications and a general nonshellability-band theorem were materially compared. The finding is restricted to ordinary three-cut complexes of fifth powers; it does not resolve larger powers, higher cut sizes, or the integral homotopy type of nonshellable small orders. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
