@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional-component identity is obtained by marking a full weak component and showing that the complementary map is uniform. Its expectation factor follows from unique directed cycles; the connected-map count is a cycle-plus-forest count. Monotonicity of the mean component count yields a unique sign transition. A carefully localized Gaussian product expansion and a Riemann-sum cancellation produce the macroscopic threshold and the explicit order-\(\sqrt n\) correction. Direct exhaustive and exact-rational verifier tests passed; the tests are supporting checks rather than infinite proofs.
+## correctness
 
-**Originality — PASS with residual priority risk.** Comparisons searched random mappings, component-size frequency spectra, cyclic component counts, mixed moments, equivalent size-biased formulations, and the order-\(\sqrt n\) shift. A published record for set partitions has a similar marking argument but a logarithmic rather than macroscopic threshold, so it does not cover this model. The older mapping frequency-spectrum literature is much closer and may implicitly encode the exact mixed moment. Abstracts and accessible primary full text did not identify the new all-size sign cutoff or second-order displacement. Some older full texts remain inaccessible, and priority should be checked independently before external attribution.
+PASS
 
-**Value — PASS.** The theorem identifies a nontrivial macroscopic sign boundary for component-size sensitivity of the total component count, sharpens it by an explicit square-root correction, and separates the transition from the cycle-length scale. The second-order coefficient is required to predict the transition beyond its linear approximation, with an all-\(n\) unique sign classification.
+For each designated r-subset forming one whole functional component, every other image must remain in its complement; conditional on this event the complementary restriction is an independent uniform mapping. This proves E[K X_r]=E[X_r](1+mu_{n-r}); counting cycles proves mu_n. The rooted-forest/cycle decomposition yields c_r=(r-1)! sum_{q=0}^{r-1}r^q/q!, including r=n with 0^0=1. The function 1+mu_{n-r}-mu_n strictly decreases with r, has positive first and negative final term. The analytic Gaussian-product expansion mu_m=S_m+A/sqrt(m)+O(m^-1), A=sqrt(pi/2)/3, and the smooth Riemann-sum difference S_n-S_m=(1/2)log(n/m)+O(1/n), uniform for m/n in compact subsets (0,1), give the claimed cutoff shift. Independent enumeration of maps for n=2..5 and larger-n cutoff checks corroborated these identities; they do not prove the asymptotic.
 
-No independent validation is asserted. Finite computations cannot establish the asymptotic expansion, and unresolved implicit prior coverage remains the principal scientific risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on best-knowledge priority: precise order-sqrt(n) location of the component-size/total-component-count covariance sign change was not found in inspected earlier mapping frequency-spectrum statements. Earlier machinery could encode mixed moments, but no inspected accessible theorem implies this explicit second-order sign boundary. Lack of older full text is a residual risk, not automatic failure.
+
+## value
+
+PASS
+
+PASS: a natural covariance statistic of uniform random mappings has a rigorously unique sign cutoff at a macroscopic fraction 1-e^-2 and a positive order-sqrt(n) shift. The coefficient makes quantitatively different finite-size predictions and is not an arbitrary numerical slice or merely a known marginal distribution. Its value is the exact dependence transition, with residual historical priority risk acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
