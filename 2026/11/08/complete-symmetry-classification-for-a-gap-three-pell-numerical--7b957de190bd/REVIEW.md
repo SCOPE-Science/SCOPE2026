@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Pell identity \(5P_{n+4}=P_n+12P_{n+3}\) and the standard gcd law \(\gcd(P_r,P_s)=P_{\gcd(r,s)}\) are independently checked in the accompanying certificate for initial indices. The written proof treats \(n=1,2,4\) directly, establishes a two-generated gluing for all multiples of three, and for every other \(n\ge5\) proves three-generator minimality, then excludes all possible gcd pairs under the classical symmetry criterion. The inequalities \(P_{n+4}>2P_{n+3}\), \(P_{n+4}<3P_{n+3}\), and \(P_n\ge29\) close the exceptional cases. The proof covers the infinite index set; computation is only corroboration.
+## correctness
 
-## Originality — PASS (within inspected evidence)
-Komatsu and Mu's Pell semigroups have initial index gap \(2\), not the \(3\) used here. Fel's Fibonacci/Lucas triple classification does not state the Pell index classification. The general three-generator criterion is a tool rather than a classification of the Pell indices. Searches of related results and accessible earlier research claims did not identify the exact same sequence/gap-index classification. A fuller inspection of Fel's 2008 work and unindexed literature might reveal generalizations, so external originality remains unverified.
+PASS
 
-## Value — PASS
-Symmetry is a natural intrinsic property of numerical semigroups, equivalent to a Gorenstein semigroup algebra and, in embedding dimension three, to complete-intersection structure. The theorem gives a sharp infinite classification with a clean divisibility law and three exceptional indices for a family adjacent to—but not subsumed by—the Pell-triple family for which Frobenius and genus formulas have been developed. The exact arithmetic mechanism explains the index-three periodicity and rules out spurious index-four symmetry for large indices. This is not a mere finite data table.
+PASS. Reconstructed the Pell strong-divisibility gcds gcd(P_n,P_(n+3))=P_gcd(n,3), gcd(P_n,P_(n+4))=P_gcd(n,4), gcd(P_(n+3),P_(n+4))=1, and exact recurrence identity 5P_(n+4)=P_n+12P_(n+3). For 3|n these give d=5 and remaining generator c=a/5+12b/5, the positive gluing condition. Small symmetric exceptions n=1,2,4 are one-/two-generated. For n≥5 with 3∤n, a=P_n≥29, c<3b and gcd(a,b)=1 exclude c in <a,b>, hence three minimal generators; odd n is pairwise-coprime and for even n the possible a,c gcd d=2 or 12 cannot represent b in <a/d,c/d> (the relation b=5(c/12)-(a/12) in the 4|n case gives a/12>5). The three-generator symmetric-semigroup criterion yields only the claimed indices. Independent exact Pell/gcd and Apéry genus/Frobenius symmetry checks n=1..9 reproduced the rule, but the universal result relies on the arithmetic proof.
 
-## Scope and scientific limitations
-The theorem does not classify general Pell index gaps or generalized Pell parameters. The small-index data do not constitute proof. Prior overlap remains possible in unindexed sources; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, bounded prior-art assessment. Komatsu–Mu's complete Pell p-Frobenius/p-genus study applies to triples (P_i(u),P_(i+2)(u),P_(i+k)(u)), so its first index gap is 2 and cannot be specialized to (i,i+3,i+4). Fel's full 2008 Fibonacci/Lucas source, including Theorem 5 and the foundational three-generator criterion, was checked; it treats recurrence coefficient 1, not the ordinary Pell sequence coefficient 2. A nearby published Pell result treats offsets (3,5), not (3,4), and its exception list differs. Generic gluing conditions provide a tool, not the explicit congruence/exception classification. No directly covering exact index theorem located; a more general recurrence classification unindexed remains possible.
+
+## value
+
+PASS
+
+PASS. Symmetry/Gorenstein/complete-intersection are standard intrinsic semigroup properties, so giving an all-index if-and-only-if classification for a natural Pell-number triple family answers a substantive arithmetic-semigroup question. The sharp 3-divisibility mechanism and the isolated small exceptions require ruling out alternative pairwise-gcd gluings for an infinite family, beyond mechanical substitution or a short finite table. The result is distinct from the adjacent studied gap-two Pell family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
