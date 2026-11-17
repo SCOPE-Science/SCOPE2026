@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For a connected weighted graph, \(M=L+K_0\) is positive definite despite the selected zero entry of \(K_0\); this is proved from the Laplacian energy and at least one positive fixed stubbornness coefficient. The scalar equation for the selected node determines the exact equilibrium as \(x_0+d\eta(t)u\). The objective form \(H=L+I-\mathbf1\mathbf1^{\mathsf T}/n\) is positive semidefinite with constant-vector kernel; \(u=M^{-1}e_\ell\) is provably nonconstant, giving strictly positive quadratic coefficient when \(d\ne0\). The unique optimum follows by direct scalar convexity and proper treatment of the unattained infinite-resistance boundary. The example's rational formula and derivative are checked independently. A standalone exact-rational verifier passed 540 connected configurations and 12,831 listed assertions; this is supporting finite evidence rather than proof of universal cases.
+PASS
 
-## Originality: PASS, subject to explicit residual priority risk
+For the connected undirected weighted graph and positive κ_j for j≠ℓ, M=L+K_0 is positive definite, u=M^{-1}eℓ cannot be constant, and H=L+I−11ᵀ/n is positive semidefinite with kernel constants, so g=uℓ>0 and C=uᵀHu>0. Substitution proves x(t)=x0+(sℓ−(x0)ℓ)η(t)u, η=t/(1+gt), and PD(t)=x0ᵀHx0+2dBη+d²Cη². If d=0 it is constant; otherwise strictly convex as a function of η. Projection of −B/(dC) onto [0,1/g] and inversion gives exact finite, boundary and t→∞ infimum cases; 0<η*<1/g iff unique strict finite interior minimum. Independent rational algebra on the 3-vertex path checked PD(t)=3(21t²+6t+5)/[4(5t+3)²], derivative 24(3t−1)/(5t+3)^3, minimizer 1/3 and PD=9/28. These finite checks corroborate the general rank-one and strict-curvature proof.
 
-Relevant first-party literature was read at the mathematical-statement level. Shirzadi–Zehmakan (arXiv:2410.22577v1), Section 4 and Theorem 4.3, gives special-baseline change formulas and neutral-node direction claims, but not the present arbitrary-baseline global coordinate optimizer, phase classification and strict interior example. Abebe et al. (arXiv:2011.02583v1), Section 5.1 and Corollary 5.4, establish marginal monotonicity for the distinct *linear sum-of-opinions* objective, not for quadratic polarization–disagreement. Hunter–Zaman (arXiv:1806.11253), Sections 4–5, optimize selection/placement of stubborn agents and mean/threshold outcomes, not the same continuous variable and social objective. Searches for equivalent formulations, broad matrix-reduction coverage and exact tables did not locate a theorem implying the whole claim. The algebraic Sherman–Morrison identity and prior special cases are acknowledged as known; an equivalent unindexed coordinate-optimization argument remains possible.
+## originality
 
-## Value: PASS
+PASS
 
-The question is motivated by an explicit research gap: whether changing a single individual's stubbornness should increase or decrease a standard polarization–disagreement metric and where to set that coefficient optimally. The complete formula replaces repeated inverse solves or scalar searches with two linear solves and one scalar projection for arbitrary fixed heterogeneity. It also establishes a qualitative difference from earlier endpoint-only optimization for total expressed opinion. The small exact path example shows a genuine attained interior improvement over both low and arbitrarily high resistance, so the conclusion is not merely a textbook restatement of a rank-one identity.
+Original best-of-knowledge general fixed-baseline, one-coordinate PD optimizer and strict interior counterexample, distinguished from previously known single-coordinate rank-one response and optimization of linear total opinion.
 
-## Scientific limitations and remaining risks
+## value
 
-The result is a deterministic one-coordinate theorem, not a joint-optimality or empirical behavioral assertion. The fully resistant endpoint is not finite, the other stubbornnesses must remain positive, and independent publication-priority verification has not occurred. Full text was examined in the relevant mathematical sections of the main 2024 and 2020 works and in the relevant sections of the 2018 supporting work; not every existing publication can be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact closed-form global optimization theorem on arbitrary connected weighted FJ networks (one tunable resistance), including a necessary and sufficient strict interior condition and a small concrete counterexample to transferring the known linear-objective endpoint rule. It answers a motivated network intervention problem, not simply restates a rank-one update.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

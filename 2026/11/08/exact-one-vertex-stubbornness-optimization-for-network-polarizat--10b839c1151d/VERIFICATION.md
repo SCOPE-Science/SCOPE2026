@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The general result is proved algebraically in `RESULT.md`: positivity and invertibility of the base matrix, a direct rank-one equilibrium identity, strict quadratic curvature on the centered opinion space, and minimization of a positive quadratic on a half-open fractional-linear interval. No finite computer experiment is used as proof of an infinite assertion.
+## correctness
 
-## Reproduction
+PASS
 
-Run `python3 verify.py` with Python 3 and no third-party dependencies. The verifier uses exact fractions for the graph Laplacians, stubbornness coefficients, innate opinions, inverses, and polarization–disagreement objectives; it independently solves the FJ systems rather than assuming the candidate rank-one identity. It tests 540 connected graphs with orders two through seven, eight selected-node coefficients per graph, and sampled scalar-optimality inequalities. Its observed output is:
+For the connected undirected weighted graph and positive κ_j for j≠ℓ, M=L+K_0 is positive definite, u=M^{-1}eℓ cannot be constant, and H=L+I−11ᵀ/n is positive semidefinite with kernel constants, so g=uℓ>0 and C=uᵀHu>0. Substitution proves x(t)=x0+(sℓ−(x0)ℓ)η(t)u, η=t/(1+gt), and PD(t)=x0ᵀHx0+2dBη+d²Cη². If d=0 it is constant; otherwise strictly convex as a function of η. Projection of −B/(dC) onto [0,1/g] and inversion gives exact finite, boundary and t→∞ infimum cases; 0<η*<1/g iff unique strict finite interior minimum. Independent rational algebra on the 3-vertex path checked PD(t)=3(21t²+6t+5)/[4(5t+3)²], derivative 24(3t−1)/(5t+3)^3, minimizer 1/3 and PD=9/28. These finite checks corroborate the general rank-one and strict-curvature proof.
 
-```
-VERIFY_OK configurations=540 exact_assertions=12831 three_vertex_minimizer=1/3
-```
+## originality
 
-The exact three-vertex checks include the rational function for polarization–disagreement, its derivative identity, the unique optimum \(t=1/3\), and comparisons with the low- and high-resistance limits. The finite tests cannot prove absence of undiscovered equivalences in the literature, correctness for all graphs on their own, or any independent certification.
+PASS
+
+Original best-of-knowledge general fixed-baseline, one-coordinate PD optimizer and strict interior counterexample, distinguished from previously known single-coordinate rank-one response and optimization of linear total opinion.
+
+## value
+
+PASS
+
+This is an exact closed-form global optimization theorem on arbitrary connected weighted FJ networks (one tunable resistance), including a necessary and sufficient strict interior condition and a small concrete counterexample to transferring the known linear-objective endpoint rule. It answers a motivated network intervention problem, not simply restates a rank-one update.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
