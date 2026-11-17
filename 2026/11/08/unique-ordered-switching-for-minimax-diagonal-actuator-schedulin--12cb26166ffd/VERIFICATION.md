@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact Gramian formula, scalar equal-mass recursion, weighted-exponential upper envelope, global minimax inequality and optimizer uniqueness are proved in `RESULT.md` for all stated dimensions and continuous schedules. They do not depend on numerical enumeration.
+## correctness
 
-Run `python3 verify.py` in this package, using only Python's standard library. The program independently computes monotone scalar bisections and compares interval masses across 60 systems with 2–6 coordinates, checks 401 dual-envelope points per system and evaluates alternative 75-bin one-active-actuator schedules. Actual recorded execution output was:
+PASS
 
-`VERIFY_OK 25620 equalized entries, dual-envelope optimality, random alternative schedules`
+The endpoint reachability Gramian for a single coordinate activation at backward time s is diagonal with w_i=integral_{sigma=i} exp(-2lambda_i s)ds; worst Euclidean target energy is 1/min_i w_i when each positive, infinite otherwise. Monotone primitive F_lambda ensures unique ordered cuts having identical integrals m. The dual p_i>0 chosen at adjacent switch crossings makes g_i(s)=p_i exp(-2lambda_i s) the unique upper envelope on its intended interval (all nonneighbor crossings are convex combinations of intervening cuts). For every other measurable schedule, min_i w_i<=sum p_i w_i<=integral max_i g_i=sum p_i m=m. Equality in the strict envelope except finite crossings forces the same schedule almost everywhere. Independent double-precision bisection for n=2,(lambda1,lambda2,T)=(2,1,1) gave cut 0.3397459832093852,m=0.18576957648171977,1/m=5.383012756657723 and correctly ordered dual envelope on 1000 points. Numerical tests only support the exact global proof.
 
-The samples provide bounded spot checks only; they are not an exhaustive search over all measurable schedules. An analytic strict upper-envelope inequality is the global certificate. The exact scalar bisection and limiting interpretation assume strictly ordered positive rates. Numerical examples are not interval-certified. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: existing discrete-time time-varying sparse actuator design papers establish problem motivation and inverse Gramian objectives, but do not state the exact continuous-time ordered n-interval unique schedule under pointwise one-channel support. The dual weighted upper envelope is elementary minimax control, which is not credited as a new general framework. A stronger unindexed optimal-design/bang-bang rearrangement theorem could imply this specialization; explicitly retained as risk.
+
+## value
+
+PASS
+
+The exact unique time allocation among an uncountable class of measurable one-actuator schedules solves a natural worst-case controllability-energy design problem. The scalar bisection and strict one-pass ordered switching rule replace generic high-dimensional combinatorial scheduling and offer an analytically sharp benchmark for diagonal control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

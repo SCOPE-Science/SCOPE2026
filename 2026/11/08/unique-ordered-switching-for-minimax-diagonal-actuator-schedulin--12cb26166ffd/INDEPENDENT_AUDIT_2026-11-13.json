@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:55:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/unique-ordered-switching-for-minimax-diagonal-actuator-schedulin--12cb26166ffd/RESULT.md at Git blob 3dc11e2770c70fef0c5efbf1fb22cfc053a9d633",
+        "2026/11/08/unique-ordered-switching-for-minimax-diagonal-actuator-schedulin--12cb26166ffd/verify.py at Git blob ff49e2247176f92038ca3aedf30281824a3986ae",
+        "Independent n=2 bisection and 1000-point dual-envelope check"
+      ],
+      "rationale": "The endpoint reachability Gramian for a single coordinate activation at backward time s is diagonal with w_i=integral_{sigma=i} exp(-2lambda_i s)ds; worst Euclidean target energy is 1/min_i w_i when each positive, infinite otherwise. Monotone primitive F_lambda ensures unique ordered cuts having identical integrals m. The dual p_i>0 chosen at adjacent switch crossings makes g_i(s)=p_i exp(-2lambda_i s) the unique upper envelope on its intended interval (all nonneighbor crossings are convex combinations of intervening cuts). For every other measurable schedule, min_i w_i<=sum p_i w_i<=integral max_i g_i=sum p_i m=m. Equality in the strict envelope except finite crossings forces the same schedule almost everywhere. Independent double-precision bisection for n=2,(lambda1,lambda2,T)=(2,1,1) gave cut 0.3397459832093852,m=0.18576957648171977,1/m=5.383012756657723 and correctly ordered dual envelope on 1000 points. Numerical tests only support the exact global proof.",
+      "residual_risks": [
+        "The construction presupposes distinct positive rates, no switching cost, no minimum dwell and equal unit actuator gains."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2506.18514 emphasizes discrete-time sparse inputs and primarily trace-inverse objective.",
+          "Trélat–Zuazua arxiv:2609.37081 studies fixed actuator design across ranks and horizons."
+        ],
+        "reasoning": "Broader actuator-scheduling frameworks do not dominate this precise continuous-time one-active input and inverse-minimum-eigenvalue objective. A generic bang-bang design implication remains a documented historical risk.",
+        "searches": [
+          "diagonal linear control one actuator at a time minimum worst case energy optimal schedule sorted decay rates equalize Gramian",
+          "Kondapi Sriram Joseph Murthy discrete-time time-varying support trace inverse Gramian"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.12125",
+        "https://arxiv.org/abs/2506.18514",
+        "https://arxiv.org/abs/2610.09787",
+        "Resultary query: diagonal linear control one actuator at a time minimum worst case energy optimal schedule sorted decay rates equalize Gramian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general minimum-energy law y^T W^-1 y and controllability Gramian definitions are prior common knowledge.",
+          "The source papers do not display the positive dual weights, all pair crossing location proof or strict a.e. uniqueness of n contiguous intervals."
+        ],
+        "reasoning": "A specialized joint E-optimal assignment solution requires these extra steps and is not an immediate restatement of the cited discrete-time generic results.",
+        "searches": [
+          "diagonal linear control one actuator at a time minimum worst case energy optimal schedule sorted decay rates equalize Gramian",
+          "https://arxiv.org/abs/2407.12125",
+          "https://arxiv.org/abs/2506.18514"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ballotta et al arxiv:2407.12125 uses pointwise-sparse discrete-time control and worst-case energy criterion but heuristic/guarantee approaches.",
+          "This proof writes objective as max min_i integral_{Ai} exp(-2lambda_i s)ds."
+        ],
+        "reasoning": "The equivalent weighted fair-division/E-optimal design formulation is considered; no inspected source states this exact unique monotone-ordered partition for all distinct positive exponents.",
+        "searches": [
+          "diagonal linear control one actuator at a time minimum worst case energy optimal schedule sorted decay rates equalize Gramian",
+          "E-optimal experimental design exponential regression one-hot actuator time allocation rearrangement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently reconstructed unique two-mode switch ~0.3397459832, mass ~0.1857695765.",
+          "No prior table of exact n-coordinate cuts found; primary literature focuses numerical scheduling."
+        ],
+        "reasoning": "The contribution is an all-n closed recursion and optimality certificate; numeric examples alone are not originality evidence and are not treated as such.",
+        "searches": [
+          "diagonal linear control one actuator at a time minimum worst case energy optimal schedule sorted decay rates equalize Gramian",
+          "ordered switching diagonal actuator equal Gramian scalar recursion exact threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge: existing discrete-time time-varying sparse actuator design papers establish problem motivation and inverse Gramian objectives, but do not state the exact continuous-time ordered n-interval unique schedule under pointwise one-channel support. The dual weighted upper envelope is elementary minimax control, which is not credited as a new general framework. A stronger unindexed optimal-design/bang-bang rearrangement theorem could imply this specialization; explicitly retained as risk.",
+      "residual_risks": [
+        "A general continuous-time optimal experimental design theorem may already imply the interval-ordering classification as a corollary; the specific mathematical comparison was not established from accessible primary text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same design motivation; finite discrete-time schedule optimization, not this continuous-time exact unique sorted schedule",
+          "evidence": "Main problem defines one-point sparsity and inverse smallest Gramian eigenvalue; proposes feasible greedy/MCMC schedules",
+          "identifier_or_url": "https://arxiv.org/abs/2407.12125",
+          "material_read": "Original eight-page PDF text including problem formulation, sparse actuator support, energy objective and algorithm description; rendered opening/problem pages",
+          "method": "Primary arXiv PDF with page images for relevant formulation",
+          "title": "Pointwise-Sparse Actuator Scheduling for Linear Systems With Controllability Guarantee",
+          "trigger": "Same pointwise-sparse input scheduling and worst energy criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.12125",
+        "2026/11/08/unique-ordered-switching-for-minimax-diagonal-actuator-schedulin--12cb26166ffd/RESULT.md"
+      ],
+      "rationale": "The exact unique time allocation among an uncountable class of measurable one-actuator schedules solves a natural worst-case controllability-energy design problem. The scalar bisection and strict one-pass ordered switching rule replace generic high-dimensional combinatorial scheduling and offer an analytically sharp benchmark for diagonal control.",
+      "residual_risks": [
+        "Not applicable directly to coupled dynamics, switching penalties, multiple channels or discrete time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=2, T>0 and strictly ordered positive diagonal rates lambda_1>...>lambda_n, among all measurable preselected one-coordinate-at-a-time actuator schedules, the unique minimizer up to null sets of worst-case terminal minimum energy is the backward-time sorted contiguous schedule with equal diagonal Gramian entries m, determined by one monotone scalar root; worst-case energy equals 1/m.",
+  "limitations": [
+    "Rates strictly decreasing and positive; equal rates lose strict uniqueness and are excluded.",
+    "Any measurable schedule may switch rapidly; no implementation delay or switching cost."
+  ],
+  "schema_version": 1
+}
