@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS (same-model).** The claim uses the unnormalized integer adjacency difference and has explicit full-domain quantifiers. Completion of the square gives the exact Fourier eigenvalues; an independently derived Salié sum evaluation distinguishes nonzero and zero dual-radius modes. Opposite quadratic-character radii eliminate every zero mode. The quadratic-shell count and trace cyclotomic product yield the claimed absolute determinant, while hyperbolic-plane representation and the sharp cosine grid determine both extreme singular values. Exact small-field Bareiss determinants and full direct Fourier evaluations are supplementary finite consistency checks, not a substitute for the unlimited proof.
+## correctness
 
-## Originality
-**PASS relative to inspected literature and accessible claim records.** Iosevich–Koh give spherical Fourier transforms; Brittenham–Pakianathan give all individual Euclidean distance-graph eigenvalues; Pham–Xue prove recent sharp spherical extension inequalities. The new claim is the complete closed determinant and sharp inverse conditioning of the *signed opposite-character two-sphere filter*. Its multiplicity-and-cyclotomic-product argument is not the same statement as any cited single-sphere bound. Targeted published-record and prior-claim searches found no exact equivalent, but the possible existence of an earlier association-scheme/Salié product formulation remains a real priority risk.
+PASS
 
-## Value
-**PASS.** Two individually sparse spectral filters combine into an invertible full-space operator with determinant divisible by only the defining characteristic and two, and with a sharp dimension-independent numerical conditioning law. This settles the natural exact stable-reconstruction and modular-invertibility questions for every odd-dimensional nondegenerate quadratic space and every pair of complementary nonzero radii.
+Character diagonalization gives the individual sphere eigenvalues via quadratic Gauss sums. The signed difference cancels the common q^(d-1) mode and complementary character classes ensure exactly one nonzero Salié term off the dual isotropic cone. For dual norm s!=0 the two roots ±v of v²=rs give q^m(ψ(v)+ψ(-v)) up to sign; s=0 yields ±2q^m. Each nonzero s has multiplicity q^(d-1)+C_Q η(s) q^m; two opposing radial classes sum to 2q^(d-1). Product over all unordered ±v in F_q^× is 2^((q/p-1)/2) via ∏_{t∈F_p}(ζ^t+ζ^-t)=2. This yields determinant, q,p-exact prime support, and all min/max abs-cosine levels. Representation of nonzero dual norms uses an isotropic hyperbolic plane in dimension>=3. Independent direct Fourier eigenvalue enumeration for q=3,5,7 in dimension 3 reproduced determinant log-products and extrema; these tests are finite only.
 
-## Scientific limits
-Only unnormalized adjacency differences are treated; even dimensions and same-character/zero radii are excluded. This is a mathematical claim with self-review, not independent certification. The exact priority risk remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The individual spherical Fourier transforms and Salié sums are known, but the exact signed complementary-radius determinant, two-prime rigidity, and sharp p-only inversion constant are a substantive derived spectral result not found in identified prior work.
+
+## value
+
+PASS
+
+Exact integer determinant with only two prime divisors and a dimension-/extension-independent sharp inversion constant for a natural signed difference of two finite-field distance filters is a nonroutine spectral and arithmetic invariant useful for exact inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
