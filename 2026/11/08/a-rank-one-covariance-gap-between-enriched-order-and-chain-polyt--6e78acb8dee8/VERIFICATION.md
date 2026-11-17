@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Install the packages listed in `verification/requirements.txt` and execute `python verification/verify.py` at the package root. The script uses convex-hull facets only as a triangulation scaffold; all actual simplex volumes and first and second moments are evaluated by exact integer determinants and rational arithmetic. For eight parameter pairs, both direct polytope moment tensors agree with the all-parameter formula, and all volumes agree exactly. The pairs are \((1,1),(1,2),(2,1),(1,3),(3,1),(2,2),(2,3),(3,2)\). The code also checks \(22{,}500\) exact rational parameter ratios, strict bounds, reversal identities, and one near-sharp example. Expected final markers are `EXACT_INTEGER_FAN_TRIANGULATION_CHECKS_PASSED` and `COVARIANCE_RANK_ONE_AND_SHARP_RATIO_CHECKS_PASSED`.
+## correctness
 
-The finite hull stage uses floating point to select faces, and the exact arithmetic then integrates the resulting integer simplices. This is independent finite corroboration of the integral argument, not a proof for untested dimensions or a computer-generated certification of generality. The all-dimensional argument is in `RESULT.md`. Historical priority has been checked against the cited original enriched-poset papers and closest public mathematical records, but cannot be guaranteed by finite searches.
+PASS
+
+The signed-filter and antichain definitions give the two cube-hull bodies exactly. For enriched order, sections at upper minimum y give an m-cube of radius T=(1+min y)/2 and T~Beta(m+1,n) after weighting by the section volume. Conditional upper coordinate minima and uniforms give the rank-one added covariance bJ_n; lower block has a_m I_m and cross covariance zero by signed symmetry. For enriched chain, cubical free-sum shell radii (R,S,1−R−S) are Dirichlet(m,n,1), giving matching diagonal a_m I_m,a_n I_n. The determinant lemma gives ratio 1+nb/a_n. Independent exact rational spot checks m,n=(1,1),(1,2),(2,1),(2,3),(7,5) matched ratios 4/3,11/8,3/2,8/5,28/13; sharp sup follows from m=t²,n=t. Source triangulation script was inspected, not treated as a universal proof.
+
+## originality
+
+PASS
+
+Primary enriched-order/Ehrhart papers give the geometry and equal volume, not this uniform-volume covariance or sharp affine invariant comparison. A published 2026-10-25 study uses the exact same two hulls but examines widths, Gaussian windows, in/circumradius—not covariance. Another signed-order covariance study concerns a different halfspace body with volume 2m!n!/d!, not the enriched cube-hull pair of volume 2^d m!n!/d!. General Hanner isotropic recursion supplies the chain-half covariance only. No verified dominating formula for the order-half rank-one difference was found.
+
+## value
+
+PASS
+
+An exact affine-invariant isotropic-constant difference between canonical enriched order and chain realizations with equal Ehrhart polynomial distinguishes lattice-equivalent volume combinatorics from second moments. The strict universal sharp bound and layer reversal are motivated geometric invariants for a natural complete two-level poset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

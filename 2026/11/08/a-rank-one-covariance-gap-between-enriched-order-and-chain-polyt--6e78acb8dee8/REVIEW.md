@@ -1,15 +1,21 @@
-# Scientific review — rank-one covariance gap
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-level signed antichain/filter definitions give the two explicit convex-hull polytopes. The enriched order body has \(y\)-sections of cube side \(1+\min y_i\), making \(T=(1+\min y_i)/2\) exactly Beta\((m+1,n)\) under uniform interior measure. Conditional uniform coordinates give the order block covariance \(a_m I_m\oplus(a_n I_n+bJ_n)\). Shell integration of the free sum of signed cubes gives the enriched chain covariance \(a_m I_m\oplus a_n I_n\). Both volumes are \(2^{m+n}m!n!/(m+n)!\), and the matrix determinant lemma gives the exact strictly positive rank-one gap and determinant ratio in the finding. Strict upper bound \(4\) and its sharpness follow from a factorization and the sequence \(m=t^2,n=t\). The proof checks \(m=1\) and \(n=1\) without treating vacuous off-diagonal entries as actual covariances. The separate standalone checker reconstructs the polytopes and computes exact rational first and second moments over integer fan simplices for eight small cases, then checks 22,500 rational parameter identities. Finite computations corroborate, rather than extend, the all-parameter proof.
+## correctness
 
-## Originality — PASS, priority provisional
-Ohsugi–Tsuchiya (2018/2019) introduced the enriched poset polytope constructions and the enriched Ehrhart equality; Okada–Tsuchiya (2020) proved the transfer and triangulation results. These are acknowledged as premises. A public Hanner-polytope covariance recursion implies the enriched chain half of the formula, so that half is explicitly not claimed as a novel standalone result. The separate public two-level signed-chain volume computation studies the different simultaneous halfspaces \(|x_i+y_j|\le1\), not the present convex-hull pair. Relevant mathematical-record queries and primary sources did not identify a statement implying the new enriched **order** covariance, the positive rank-one order-minus-chain identity, or the sharp isotropic determinant ratio. The existing ordinary order/chain moment comparison has different defining bodies and cannot imply the enriched-order formula without additional work. Absence of a retrieved match is not proof of historical priority; additional work under covariance and optimal-design terminology may exist.
+PASS
 
-## Mathematical value — PASS
-Equal Ehrhart polynomials and equal volumes are known, but the enriched transfer does not preserve affine metric invariants. The full second-moment tensors reveal an unexpectedly rank-one positive correction supported only in the common upper-level direction, rather than a generic block perturbation. The exact affine-invariant determinant gap has a strict, dimension-free sharp range \((1,4)\), and it quantifies the geometric asymmetry between the two dual level orders. This is an infinite two-parameter structural invariant calculation, not a numerical slice or a mere rephrasing of the known volume correspondence. Facet counts may already distinguish the dual orders combinatorially; the isotropic formula gives separate quantitative information.
+The signed-filter and antichain definitions give the two cube-hull bodies exactly. For enriched order, sections at upper minimum y give an m-cube of radius T=(1+min y)/2 and T~Beta(m+1,n) after weighting by the section volume. Conditional upper coordinate minima and uniforms give the rank-one added covariance bJ_n; lower block has a_m I_m and cross covariance zero by signed symmetry. For enriched chain, cubical free-sum shell radii (R,S,1−R−S) are Dirichlet(m,n,1), giving matching diagonal a_m I_m,a_n I_n. The determinant lemma gives ratio 1+nb/a_n. Independent exact rational spot checks m,n=(1,1),(1,2),(2,1),(2,3),(7,5) matched ratios 4/3,11/8,3/2,8/5,28/13; sharp sup follows from m=t²,n=t. Source triangulation script was inspected, not treated as a universal proof.
 
-## Sources and limitations
-Core sources: Ohsugi and Tsuchiya, *Enriched chain polytopes*, arXiv:1812.02097v1; Ohsugi and Tsuchiya, *Enriched order polytopes and enriched Hibi rings*, arXiv:1903.00909v1; Okada and Tsuchiya, *Two enriched poset polytopes*, arXiv:2003.12271v1. Compared public research titles: *Sharp isotropic-constant range of all Hanner polytopes* (record `7976b0937cd2`) and *Exact volume and strict imbalance law for two-level signed-chain polytopes* (record `84c1d3d87a65`). The claimed domain is the complete two-level poset with both levels nonempty. Possible alternate-language priority remains an explicit residual risk. No general-poset covariance comparison is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary enriched-order/Ehrhart papers give the geometry and equal volume, not this uniform-volume covariance or sharp affine invariant comparison. A published 2026-10-25 study uses the exact same two hulls but examines widths, Gaussian windows, in/circumradius—not covariance. Another signed-order covariance study concerns a different halfspace body with volume 2m!n!/d!, not the enriched cube-hull pair of volume 2^d m!n!/d!. General Hanner isotropic recursion supplies the chain-half covariance only. No verified dominating formula for the order-half rank-one difference was found.
+
+## value
+
+PASS
+
+An exact affine-invariant isotropic-constant difference between canonical enriched order and chain realizations with equal Ehrhart polynomial distinguishes lattice-equivalent volume combinatorics from second moments. The strict universal sharp bound and layer reversal are motivated geometric invariants for a natural complete two-level poset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
