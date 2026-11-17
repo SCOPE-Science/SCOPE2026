@@ -1,16 +1,21 @@
-# Scientific review: line avoidance in the ternary projective plane
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is restricted to the explicitly defined thirteen-point, thirteen-line finite projective plane. `verify.py` reconstructs all lines and all 4330 augmented faces via two enumerators, verifies every line and point incidence, constructs the full 2145-pair augmented Morse matching and sorts every one of the 23140 oriented face incidences to prove acyclicity. Exactly one dimension-five and 39 dimension-six augmented critical faces remain, plus an ordinary critical vertex obtained by removing the empty-face pair. The signed integral Morse boundary is identically zero. The Hurewicz isomorphism in degree five turns each zero attaching degree into a nullhomotopic six-cell attachment. Independent direct mod-two boundary ranks, and a separate coordinate model with reverse-order matching and exact integer projection in `second_check.py`, corroborate the computation. The 5616-group enumeration and Lefschetz character calculation derive the quotient homology via finite-group transfer; commutator generation proves triviality of the one-dimensional degree-five character.
+## correctness
 
-**Risks and bounds:** These are finite exhaustive checks whose correctness depends on the fully supplied standard-library programs and the explicitly stated standard theorems. The checks do not establish any larger-order formula, a group-equivariant homotopy decomposition, or a quotient homotopy equivalence.
+PASS
 
-## Originality — PASS on inspected evidence
-Conant–Thistlethwaite's arXiv:0808.0739 (first public 2008-08-05), inspected in its definitions, examples and theorem discussion, supplies the hypergraph theta/independence framework, not the projective line-avoidance homotopy calculation. Björner–Tancer's arXiv:0710.1172 establishes Alexander homology duality, not a homotopy-type implication. The strongest relevant published result is `c6098fc06928` (2026-10-11), whose complete RESULT.md was inspected: it calculates the nonblocking/theta complex of this very plane. Because that theta complex is the Alexander dual, it already implies the new complex's homology ranks; **those ranks are not claimed as novel**. Its result does not establish the new dual's attaching-map nullhomotopy, its 5616-element degree-six rational character or the rational homology of its projective symmetry quotient. The preceding local affine-plane finding concerns 12 three-point affine lines, a different hypergraph. published-finding corpus searches for PG(2,3), whole-line avoidance, Alexander dual formulations, the 39 sphere count, quotient and PGL character produced no covering theorem.
+Independently generated all 13 normalized F3 projective points and 13 four-point projective lines; direct 2^13 face-mask filter yields exactly 4330 faces including empty and f=(13,78,286,702,1170,1248,702,117,13). Independently implemented ascending filtered-pivot matching, obtaining 2145 augmented pairs, exactly 1 critical 5-face and 39 critical 6-faces, and 23140 Hasse cover arrows; topological sort visited all 4330, proving acyclicity. Computed the signed integral Morse boundary by recursion on every critical 6-face and obtained all 39 coefficients zero. Therefore CW model is S5 with 39 six-cells attached by zero degree; Hurewicz π5(S5)=Z makes the wedge integral, not merely rational ranks. Separately enumerated all 5616 projectively normalized invertible 3×3 F3 matrices, classified their thirteen-point permutations, enumerated invariant cycle unions, and reproduced each of 8 class multiplicities and H6 traces: 1:39,117:−1,104:3,936:−1,702:−1,624:0,1404:1,1728:0. Summed character=0. PGL3(F3)=SL3(F3) perfect makes integral H5 rank-one action trivial; finite-group rational averaging gives quotient Q in degree 5 only. The independent check script used distinct source construction and is finite/exhaustive, appropriate because the theorem concerns only PG(2,3).
 
-**Risks and bounds:** Unindexed equivalent computations, including unpublished notes, cannot be excluded. The neighborhood-complex computation is particularly close and provides significant previously known homological information; novelty rests on homotopy and symmetry, not the Betti numbers. Publication priority is provisional.
+## originality
 
-## Value — PASS
-The line hypergraph of \(\mathrm{PG}(2,3)\) is a canonical small finite incidence geometry. It supports a geometrically natural distinction between line-free subsets and nonblocking subsets: the latter's homotopy type was determined previously, whereas the former includes additional blocking point sets. Computing the complete integral homotopy type resolves all higher attaching-map uncertainty left by Alexander duality. The full rational projective-symmetry character and the vanishing of invariant top cycles exhibit information invisible to nonequivariant homology. A complete, reproducible, naturally motivated finite classification is valuable even without a general family theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The closest earlier SCOPE paper computes the nonblocking/theta complex of the same plane (3862 faces including empty), whose Alexander dual is the current line-avoidance complex (4330 faces). Combinatorial Alexander duality transfers homology groups but neither full integral homotopy wedge nor the full 5616-group character or quotient invariants. Other projective cap complexes forbid triples, not full four-point lines. This motivates a genuinely distinct theorem despite overlapping Betti numbers.
+
+## value
+
+PASS
+
+The 13-point projective line hypergraph is a natural, symmetric finite incidence object; its exact integral attaching-map vanishing and complete projective-group representation are nontrivial invariants not in the known dual Betti table. The result is an independent complete natural finite classification with clear duality and symmetry implications, requiring no general all-orders theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

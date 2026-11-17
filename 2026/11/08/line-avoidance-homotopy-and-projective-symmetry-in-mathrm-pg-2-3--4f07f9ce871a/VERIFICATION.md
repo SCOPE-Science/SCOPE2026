@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The main proof certificate is the standalone Python 3 program `verify.py`, which uses no external packages. Execute `python3 verify.py`. Its expected exact output is embedded in `verification_output.txt`. It independently enumerates the simplices by all-mask filtering and by recursion; validates the projective plane incidence axioms; constructs all matching pairs; verifies the full directed incidence DAG; calculates signed integral Morse boundary coefficients; computes mod-two boundary ranks without using Morse theory; and enumerates the projective linear group and every signed Lefschetz trace.
+## correctness
 
-Execute `python3 second_check.py` and compare with `second_output.txt`. This independent implementation starts from affine-chart projective representatives and obtains lines from cross products of pairs, rather than from an orthogonal coefficient-list model. It uses reverse-order pivots, separately computes the integral gradient recursion and verifies the same critical-cell dimensions and zero integer attaching matrix.
+PASS
 
-The exact first calculation produces 4330 augmented faces, 2145 augmented matching pairs, 40 augmented critical faces, 23140 face-cover relations and no directed cycles. Its reduced integral Morse boundary has size 1 by 39 and is zero. Its mod-two reduced Betti ranks in degrees 0 to 8 are 0,0,0,0,0,1,39,0,0. It checks 5616 projective linear automorphisms; the reduced Lefschetz sum is -5616, yielding zero invariant degree-six homology in characteristic zero. The separate calculation returns `SECOND_CHECK_PASS`.
+Independently generated all 13 normalized F3 projective points and 13 four-point projective lines; direct 2^13 face-mask filter yields exactly 4330 faces including empty and f=(13,78,286,702,1170,1248,702,117,13). Independently implemented ascending filtered-pivot matching, obtaining 2145 augmented pairs, exactly 1 critical 5-face and 39 critical 6-faces, and 23140 Hasse cover arrows; topological sort visited all 4330, proving acyclicity. Computed the signed integral Morse boundary by recursion on every critical 6-face and obtained all 39 coefficients zero. Therefore CW model is S5 with 39 six-cells attached by zero degree; Hurewicz π5(S5)=Z makes the wedge integral, not merely rational ranks. Separately enumerated all 5616 projectively normalized invertible 3×3 F3 matrices, classified their thirteen-point permutations, enumerated invariant cycle unions, and reproduced each of 8 class multiplicities and H6 traces: 1:39,117:−1,104:3,936:−1,702:−1,624:0,1404:1,1728:0. Summed character=0. PGL3(F3)=SL3(F3) perfect makes integral H5 rank-one action trivial; finite-group rational averaging gives quotient Q in degree 5 only. The independent check script used distinct source construction and is finite/exhaustive, appropriate because the theorem concerns only PG(2,3).
 
-No computation certifies an infinite family, an integral group-ring decomposition, an equivariant homotopy wedge or a quotient homotopy type. The independent audit field above records that external scientific validation has not been performed.
+## originality
+
+PASS
+
+The closest earlier SCOPE paper computes the nonblocking/theta complex of the same plane (3862 faces including empty), whose Alexander dual is the current line-avoidance complex (4330 faces). Combinatorial Alexander duality transfers homology groups but neither full integral homotopy wedge nor the full 5616-group character or quotient invariants. Other projective cap complexes forbid triples, not full four-point lines. This motivates a genuinely distinct theorem despite overlapping Betti numbers.
+
+## value
+
+PASS
+
+The 13-point projective line hypergraph is a natural, symmetric finite incidence object; its exact integral attaching-map vanishing and complete projective-group representation are nontrivial invariants not in the known dual Betti table. The result is an independent complete natural finite classification with clear duality and symmetry implications, requiring no general all-orders theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
