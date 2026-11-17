@@ -1,11 +1,21 @@
-# Scientific assessment: complex-shift Cesàro negative inertia
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit difference right inverse has dense range; the derived bounded intertwiner satisfies \(BC_\alpha=C_\alpha^*\), yielding a factorization of the actual self-commutator. Its phase-normalized Gram matrix was independently recomputed and checked against finite-column multiplication. The Hilbert–Schmidt estimate proves compactness. The finite-support quadratic form has a positive diagonal, one real rank-one term, and one imaginary ordered-area term. For negative real shifts this gives a single negative direction; for nonreal shifts the four-phase harmonic-block witnesses give arbitrarily many pairwise form-orthogonal negative directions. The density arguments transfer these indices to the self-commutator. The standalone checker passed 3,888 finite assertions; these support only finite algebra and examples, not the infinite arguments.
+## correctness
 
-**Originality — PASS, with publication-priority risk.** Ma's arXiv:2610.00193v1 analyzes real \(\alpha>-1\), establishing hyponormality for real nonnegative shifts, and not negative-index multiplicities for nonreal parameters. The real-axis positivity statement is therefore specifically credited rather than claimed as new. The 2025 Gallardo-Gutiérrez–Partington article permits arbitrary complex Rhaly coefficient sequences but studies spectrum and invariant subspaces, not this nonreal-shift self-commutator inertia. The closer published published-finding corpus harmonic-trace and finite-Gram studies apply to **real** shifts and do not imply infinitely many negative eigenvalues when \(\operatorname{Im}\alpha\ne0\). Comparisons of the actual mathematical implications, not merely search-title matches, found no directly covering result. Residual risk: a broader theorem about complex terraced-matrix commutators, possibly not indexed under Cesàro terminology, could imply the trichotomy.
+PASS
 
-**Mathematical value — PASS.** This is a sharp, complete count of negative eigenvalues for a one-complex-parameter family at the classical Cesàro hyponormality frontier. The transition from zero or one negative eigenvalue on the real axis to infinitely many under an arbitrarily small imaginary perturbation is an operator-theoretic instability not visible from the known yes/no hyponormality criterion. The Hilbert–Schmidt compactness statement converts the quadratic-form count into an actual spectral multiplicity classification. The theorem is restricted to first order and does not predict individual eigenvalue sizes.
+PASS: Classical Hardy averaging bounds Cα, finite-difference L has dense image and Cα L=I on finite support. B=Cα*L is bounded by Copson and shift bounds; BCα=Cα*, so Qα=Cα*(I−B*B)Cα. The phase-normalized Gram matrix is HS and has the stated rank-one/ordered-area quadratic form. Real shifts yield zero/one negative direction; four disjoint harmonic blocks with phases 1,iσ,−1,−iσ yield arbitrarily many orthogonal strictly negative directions when v≠0. Hilbert–Schmidt perturbation estimate is summable. Finite Gram and phase tests corroborate only the algebra.
 
-**Closest sources and limitations.** Y. Ma, arXiv:2610.00193v1 (full HTML, abstract, Theorem 1.1 and finite-difference reduction); E. A. Gallardo-Gutiérrez and J. R. Partington, DOI:10.1007/s10231-025-01560-5 (full open-access article, introduction, Rhaly operator framework, spectral and invariant-subspace results); H. C. Rhaly Jr., arXiv:1602.01408 (abstract and source scope); published findings on generalized Cesàro harmonic traces and Gram bounds. Specialist publication-priority validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-knowledge PASS for infinite negative index at every nonreal complex shift; the closest 2026 all-order hyponormality theorem restricts α to real values, and the 2025 general-complex Rhaly study concerns different spectra/invariant subspaces. Prior real-shift positivity alone does not imply this nonreal inertia trichotomy.
+
+## value
+
+PASS
+
+PASS: The exact real/complex negative-index trichotomy identifies a sharp spectral-instability phenomenon—infinitely many negative eigenvalues appear under arbitrarily small imaginary Hilbert–Schmidt perturbation—beyond known real-shift yes/no hyponormality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
