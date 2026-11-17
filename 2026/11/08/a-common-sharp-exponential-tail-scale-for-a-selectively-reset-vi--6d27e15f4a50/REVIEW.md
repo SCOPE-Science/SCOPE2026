@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-by-two free propagator and its Gaussian innovations follow directly from the drift matrix and Ito isometry. The bath at consecutive reset epochs is a contracting random affine recursion, since every positive Poisson interarrival gives a coefficient strictly below one. Exponential integrability is established below \(\sqrt{r(\gamma+1)}\) by an explicit cosh drift condition, with a Gaussian innovation obstruction at and above the cutoff. The probe's stationary-age Gaussian mixture has the same cutoff. Chernoff's bound and a matching long-flight Gaussian lower bound prove both logarithmic tail limits. A standalone verifier passed 387 finite checks. Limits: no density prefactor or uniform large-\(\gamma\) estimate.
+PASS
 
-## Originality — PASS, with publication-priority risk
+e^{At}=I+(1-e^{-lambda t})A/lambda yields exact Gaussian innovation variances U,V=2t/(gamma+1)+O(1). Embedded bath Q_j=a(T_j)Q_{j-1}+Gaussian yields unique stationary perpetuity; cosh drift shows subcritical exponential moments, Gaussian-noise moment divergence handles endpoints. Independent exponential age gives X MGF with positive bounded bath factor; Chernoff and age-saddle lower bound match rate for both coordinates. Independent matrix moment equations at gamma=1,r=2 yield (X²,XQ,Q²)=(.8,.6,1.6). Finite numeric slope checks only corroborate.
 
-The exact model, finite-parameter variance, kurtosis and large-memory quasistatic density arise in Santra–Das (2026). Those premises are not new. Sections II–III and Appendix A were compared at the equation and claim level: the finite-\(\gamma\) sharp exponential-moment domain and the common probe/bath log-tail exponent are not given. Biswas et al. (2024 preprint) renew the full memory state rather than retain the bath. Tal-Friedman et al. (2022) have one-coordinate proportional resetting and an infinite Laplace convolution, not the same coupled generator. No full-priority guarantee is made; unpublished or non-indexed independent derivations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-A Gaussian quasistatic profile can approximate the central shape yet fail to characterize the farthest rare excursions at any finite memory time. The exact attainable inverse tail length \(\sqrt{r(\gamma+1)}\) supplies the missing parameter-uniform *finite-parameter* boundary and shows that an unreset bath coordinate shares the reset tracer's extreme-event scale despite different variances. The result requires a non-renewing bath recursion rather than direct substitution into a scalar renewal formula, and is a natural mathematical distinction for rare-event interpretation and experimental tail fitting.
+The prior lower-tail estimate is one half of the desired sandwich but leaves the other half and unreset bath asymptotics unproved; no implication of the final exact theorem.
 
-## Limitations and closest literature
+## value
 
-The theorem treats the exact linear, two-coordinate, independently driven, instantaneous selective-reset dynamics. It does not imply a crossover scale, finite-speed protocol result, full large-deviation principle, or experimentally accessible far-tail range. Closest works: Santra–Das (arXiv:2603.17027v1), Biswas et al. (arXiv:2412.09260), Tal-Friedman et al. (arXiv:2205.03363). An earlier scientific result concerning this same stochastic model classified stationary fourth-cumulant monotonicity; that finite-moment claim neither implies nor determines the moment-generating-function convergence boundary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp two-sided finite-memory extreme-tail behavior of both the reset observable and the retained bath coordinate resolves a physically meaningful noncommuting far-tail/quasistatic limit, beyond the published one-sided excursion obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

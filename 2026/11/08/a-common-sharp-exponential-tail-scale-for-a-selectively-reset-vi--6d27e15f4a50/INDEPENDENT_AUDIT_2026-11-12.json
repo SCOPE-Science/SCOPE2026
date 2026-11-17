@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:12:45.511798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned full RESULT.md",
+        "Git source tree and verification metadata",
+        "original independently authored bounded checker"
+      ],
+      "rationale": "e^{At}=I+(1-e^{-lambda t})A/lambda yields exact Gaussian innovation variances U,V=2t/(gamma+1)+O(1). Embedded bath Q_j=a(T_j)Q_{j-1}+Gaussian yields unique stationary perpetuity; cosh drift shows subcritical exponential moments, Gaussian-noise moment divergence handles endpoints. Independent exponential age gives X MGF with positive bounded bath factor; Chernoff and age-saddle lower bound match rate for both coordinates. Independent matrix moment equations at gamma=1,r=2 yield (X²,XQ,Q²)=(.8,.6,1.6). Finite numeric slope checks only corroborate.",
+      "residual_risks": [
+        "Finite numerical tests do not substitute for infinite analytic proof; source proof independently examined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra/Das give model, finite moments and quasistatic large-gamma Gaussian mixture, not exact far-tail rate at every finite gamma.",
+          "2026-11-02 theorem is strictly weaker on mgf lower domain and bath coordinate."
+        ],
+        "reasoning": "The current full two-coordinate exact cutoff/rate strengthens earlier obstruction; scalar Brownian reset calculations do not directly imply retained-bath perpetuity moment control.",
+        "searches": [
+          "Santra Das arxiv:2603.17027 full HTML Sections II–V Appendix A",
+          "arxiv:2412.09260 bath reset renewal",
+          "2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-11-02 full matched-model theorem",
+        "Santra and Das arxiv:2603.17027 full HTML",
+        "Biswas et al. arxiv:2412.09260 abstract",
+        "Tal-Friedman et al. arxiv:2205.03363 abstract",
+        "assigned RESULT full Git blob e4400b13abbec2a7aa2209c8ee442274802a8a3a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result explicitly states it does not prove moment finiteness below cutoff or an exact finite-gamma logarithmic tail exponent.",
+          "The new proof uses contractive Gaussian bath perpetuity and drift Lyapunov to show finiteness and then a Chernoff bound paired with a long-reset-free-flight lower bound."
+        ],
+        "reasoning": "The prior lower-tail estimate is one half of the desired sandwich but leaves the other half and unreset bath asymptotics unproved; no implication of the final exact theorem.",
+        "searches": [
+          "2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684/RESULT.md",
+          "Santra Das Eq.(7),(11),(28)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier work uses identical stochastic differential equations with g=gamma and proves probe exponential-moment divergence for |s|>=sqrt(r(g+1)) plus matching one-sided lower bound on excursion probabilities.",
+          "Assigned result additionally gives finiteness below threshold for both coordinates, sharp divergence for bath Q, and upper plus lower logarithmic tail limits."
+        ],
+        "reasoning": "Partial coverage is exact and credited; no equivalence from a one-sided lower bound to exact limit without a matching upper bound.",
+        "searches": [
+          "Resultary semantic: viscoelastic Brownian selectively reset probe not bath exponential moment critical tail rate gamma",
+          "2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior threshold value sqrt(r(g+1)) appears explicitly as a divergence boundary; this number itself is not original.",
+          "Exact stationarity at gamma=1,r=2 reproduces XX=4/5, XQ=3/5, QQ=8/5, also context rather than novelty."
+        ],
+        "reasoning": "The new theorem is two-sided analytic integrability and asymptotic equivalence in logarithmic rate, not a new numerical parameter table.",
+        "searches": [
+          "Resultary partially reset viscoelastic exponential tail sqrt(r(g+1))",
+          "Santra Das stationary second moments gamma=1 r=2"
+        ]
+      },
+      "rationale": "The prior lower-tail estimate is one half of the desired sandwich but leaves the other half and unreset bath asymptotics unproved; no implication of the final exact theorem.",
+      "residual_risks": [
+        "Mathematical starting kernel is already explicit in prior papers; the mathematical novelty is the sharp lower-domain and upper-tail proof.",
+        "Unindexed stationary OU jump-process large-deviation literature may contain a stronger general equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": "Prior explicitly disclaims exact cutoff and exact tail decay; current extends to bath and finiteness for subcritical k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684/RESULT.md",
+          "material_read": "Entire RESULT including assumptions, last-reset kernel, mgf divergence, lower excursion bound, limitations",
+          "method": "GitHub read-only full source",
+          "title": "Finite-memory exponential-tail obstruction for a partially reset viscoelastic probe",
+          "trigger": "Same SDE and tail-rate parameter"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Quasistatic large-gamma mixture Eq.(28) has Gaussian tail discussion Eq.(29), not fixed-finite-gamma sharp exponential moment theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+          "material_read": "Accessible full HTML sections II to V and appendices including equations (2), (7)-(9), (11), (19), (28)-(29)",
+          "method": "web full HTML sections and appendices",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Identical model with finite bath retained memory"
+        },
+        {
+          "assessment": "DIFFERENT_RESET_MECHANISM",
+          "evidence": "Memory state renewed in comparison model; cannot assume it covers selectively retained bath.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+          "material_read": "Abstract/section description only; full article not read",
+          "method": "arXiv metadata",
+          "title": "A resetting particle embedded in a viscoelastic bath",
+          "trigger": "Potential GLE renewal analogy"
+        },
+        {
+          "assessment": "DIFFERENT_SCALAR_MODEL",
+          "evidence": "No two-coordinate retained viscoelastic bath Markov recursion.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "Abstract/summary only",
+          "method": "arXiv metadata",
+          "title": "Diffusion with partial resetting",
+          "trigger": "Partial reset terminology and exponential tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 2026-11-02 full matched-model theorem",
+        "Santra and Das arxiv:2603.17027 full HTML",
+        "Biswas et al. arxiv:2412.09260 abstract",
+        "Tal-Friedman et al. arxiv:2205.03363 abstract",
+        "assigned RESULT full Git blob e4400b13abbec2a7aa2209c8ee442274802a8a3a"
+      ],
+      "rationale": "Sharp two-sided finite-memory extreme-tail behavior of both the reset observable and the retained bath coordinate resolves a physically meaningful noncommuting far-tail/quasistatic limit, beyond the published one-sided excursion obstruction.",
+      "residual_risks": [
+        "Mathematical starting kernel is already explicit in prior papers; the mathematical novelty is the sharp lower-domain and upper-tail proof.",
+        "Unindexed stationary OU jump-process large-deviation literature may contain a stronger general equivalent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Public-facing metadata sanitization not staged; no independent publication/import.",
+    "Prior same-model AUDIT is source evidence only; all three axes freshly assessed here.",
+    "Mathematical starting kernel is already explicit in prior papers; the mathematical novelty is the sharp lower-domain and upper-tail proof.",
+    "Unindexed stationary OU jump-process large-deviation literature may contain a stronger general equivalent."
+  ],
+  "schema_version": 1
+}
