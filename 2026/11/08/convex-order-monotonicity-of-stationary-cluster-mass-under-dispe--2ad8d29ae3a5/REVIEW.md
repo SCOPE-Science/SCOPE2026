@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary weak balance is obtained from the constant-coagulation, rate-independent binary-fragmentation equation at cluster density \(\lambda\). Its probability normalization yields the explicit two-branch smoothing transform. The map preserves unit mean, contracts quadratic Wasserstein distance by \(a_\nu=(2+2\mathbb E Z^2)/3<1\), and therefore possesses exactly one finite-second-moment unit-mean fixed point. Two elementary convex-order preservation arguments prove the stationary-law comparison; strict conditional Jensen and the strictly convex stationary Laplace integrand prove strict comparison at every positive argument. The exact variance formula, existence, domain and equality cases follow algebraically. The embedded checker independently verifies 509 finite checks but is not substituted for the infinite-dimensional proof.
+PASS
 
-## Originality — PASS, subject to the stated priority risk
+The weak stationary equation has precise mixture 1/3(U1+U2)+2/3(ZU1); since EZ=1/2, unit mean is preserved. A synchronous optimal W2 coupling has squared contraction constant a=(2+2EZ²)/3<1 on the complete mean-one finite-P2 space (the cross term vanishes by equality of means), proving existence and uniqueness. Convolution, common nonnegative scaling and convex mixtures preserve convex order, so iterates from δ1 preserve any split-kernel convex comparison and W2 limits inherit stop-loss order. Strict conditional Jensen for distinct comparable daughter laws yields strict all-s stationary Laplace order; m2=2/(1-2EZ²), minimum exactly 4 at Z=1/2. Independently checked half vs quarter splits yield 4 and 16/3. The result does not assert physical-time kinetic convergence or infinite-variance uniqueness.
 
-The most relevant full text, Krapivsky (arXiv:2605.22383v1), already establishes the model's stationary equations and exact moments for deterministic and uniform splitting, but does not state the general comparison of entire stationary distributions under convex-order changes of the fragmentation kernel. General smoothing-transform literature (Alsmeyer–Biggins–Meiners, arXiv:0906.3133) treats fixed-point classification, not this comparison implication. Caliebe–Rösler (2003) also provides finite-variance smoothing-transform solution theory; its full text was inaccessible and its detailed implications remain a residual risk. Discrete pure-fragmentation ensemble theory (Matsoukas, 2022) and discrete coagulation–fragmentation semigroup theory (Kerr–Langer, 2026) use different domains and objectives. Search comparisons included stochastic-order, majorization, kernel monotonicity and smoothing-transform terminology. This is a best-knowledge originality assessment, not a certified first-in-literature claim; a broader unindexed order theorem could subsume some conclusions.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating stationary-density equations are generally not explicitly soluble for asymmetric splits. The theorem nonetheless compares **every convex mass observable**, rather than merely a few moments, for any pair of splitting kernels ordered in convex order; it also gives strict Laplace ordering, the unique extremal equal-splitting rule, and a constructive controlled stationary approximation. This answers a natural physical comparative-statics question about fragment-size heterogeneity even where closed-form mass densities are inaccessible.
+Best-of-knowledge PASS: Krapivsky's complete 2026 work establishes the stationary mass equation and special deterministic/uniform split cases but not all-daughter-law convex-order comparisons. The general smoothing-transform references concern fixed-point existence/tails, with no located theorem imposing this distributional order under convex-order perturbations of the splitting kernel. The present stationary order and strict Laplace comparison survive, with a general smoothing-order priority risk.
 
-## Scientific boundaries and closest prior work
+## value
 
-The known variance identity for fixed deterministic ratio, and the uniform splitting stationary moments, are credited to Krapivsky and are not standalone new claims. The proof concerns finite-variance stationary mean-field solutions in the continuous-mass constant-kernel model, not dynamical convergence, spatially resolved particles, or general fragmentation kernels outside binary splits. Originality may be affected by unindexed stochastic-order results on smoothing-transform fixed points, despite the inspected sources and query comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: General fragmentation kernels are natural physical parameters. The full stationary convex order, strict all-s Laplace comparison, sharp equal-half optimum and finite-variance uniqueness answer a distribution-wide uncertainty problem not captured by the previously known second moment or special ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
