@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. Verified output includes `VERIFY_OK`, `local_tests=66 local_domain_elements=377179`, and `global_moduli=300 global_residue_indices=113400`. It compares local histograms exactly, tests least periods by every proper divisor, and confirms all image-cardinality predictions. These finite tests do not prove the formulas for unrestricted moduli; the mathematical proof is in `RESULT.md`. External independent audit has not been performed.
+## correctness
+
+PASS
+
+Used 24S(n)=(2n+1)^3-(2n+1) at p≥5, noncritical Hensel simple-root lifting, and critical local normal form (c+z)^3-(c+z)=f(c)+z²(3c+z). Square-unit change is bijective for odd p and yields exactly two p^j lifts for valuation 2j; p=2,3 integer-valued finite differences give isometries of p-index classes and periods p^(k+1). CRT yields exact P(m)=m gcd(m,6) and product image count. Independent full residue enumerations p^k=16,27,25,49,121,169,19 match local histograms, and im S mod30 has 18 residues. Unrestricted conclusions rest on local proof, not finite tables.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving core as compared against named prior and mathematical implications. 
+
+## value
+
+PASS
+
+Complete residue-fiber multiplicities and exact least periods for a classical integer-valued cubic are natural local-global arithmetic invariants, including genuinely nonuniform critical target lifting and 2/3-adic exceptional periods. The exact infinite family of histograms provides information beyond raw image cardinality, with concrete use for congruence-solution counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
