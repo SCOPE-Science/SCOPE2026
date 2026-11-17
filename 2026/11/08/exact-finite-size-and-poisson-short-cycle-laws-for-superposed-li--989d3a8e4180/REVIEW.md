@@ -1,21 +1,21 @@
-# Scientific review: superposed-successor short cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A proper subset of a prescribed directed cycle decomposes into directed paths, so its probability in one uniformly random linear order is exactly the reciprocal falling factorial of its edge count. Two applications of inclusion–exclusion establish the exact finite-size expectation. For disjoint cycles, every arc-color assignment is feasible except one that makes a cycle monochromatic. Proper assignments yield the leading \(n^{-L}\) term, while multiply colored arcs cost an additional factor of \(n^{-1}\). Families of distinct cycles with overlapping vertices have more arcs than vertices and therefore contribute only \(O(n^{-1})\) to each fixed joint factorial moment. This proves the stated independent-Poisson limit. Exact exhaustive checks for four parameter pairs confirm the finite-size identity, not the infinite theorem.
+PASS
 
-## Originality — PASS within inspected evidence
+A fixed proper h-arc subset of a directed k-cycle consists of disjoint directed paths, which collapse to n−h ordered blocks; the probability of all arcs in one uniform successor path is (n−h)!/n!=1/(n)_h. A complete directed cycle in a single path has probability zero, requiring truncation at k−1. One avoidance and one union inclusion-exclusion prove the exact finite-k expectation including k=n and r=1. For vertex-disjoint cycles of total L edges, color each required arc by one of r paths: every assignment is feasible except a monochromatic cycle. Their (∏_i(r^{k_i}−r)) n^−L leading probability has O(n^−L−1) overlaps from arcs assigned to more than one path. Overlapping distinct cycles have strictly more distinct arcs than vertices per multicyle component, making their total factorial-moment contribution O(n^−1). Thus each fixed mixed factorial moment tends to that of independent Poisson((r^k−r)/k), giving joint weak convergence and the directed girth law. Scope is fixed r and finite K; finite n is not Poisson.
 
-The two closely related October 2026 papers by Jeż–Michaliszyn–Witkowski and Michaliszyn–Witkowski treat satisfiability and realization of designated successor relations, rather than probabilities of cycles in their uncolored union. Cohen–Fachini–Körner (2015) treats extremal Hamiltonian-path families separated by short cycles, rather than random independent-path distributions. Frieze (2001) treats union of random permutations with global Hamiltonicity questions, and random-regular-graph Poisson laws apply to different graph ensembles. A previously established two-path reciprocal-edge statistic already covers the length-two case with two orders; the distinct claimed content here is the simultaneous arbitrary-short-length law, exact finite-size formula, and fixed arbitrary number of orders.
+## originality
 
-A residual priority risk is that an earlier probabilistic treatment of superposed Hamiltonian paths could imply this law without the present terminology. The 2001 article was available via its bibliographic abstract, not inspected in complete text. No claim of independent priority certification is made.
+PASS
 
-## Mathematical value — PASS
+The most relevant new 2026 successor papers address FO² finite satisfiability and signed cycle elimination, not random uniform path sampling, uncolored mixed directed short-cycle probabilities, or exact finite expectation. Random-permutation and undirected regular-graph Poisson analogues have different ensembles. A known two-path two-cycle overlap case is credited, but it does not imply the general r,k joint law.
 
-This is a natural exact statistic for the independent finite successor structures motivating recent satisfiability results. It identifies a persistent local first-order signal of the global acyclicity of **each** path: removing monochromatic colored cycles decreases the mean by exactly \(r/k\), unlike a sparse independent-edge model with the same expected degree. The complete joint short-cycle profile and exact finite-size expectation determine the limiting directed-girth distribution and a nontrivial family of first-order limiting probabilities; the result is not merely a small-case count or a renaming of a standard random-regular-graph theorem.
+## value
 
-## Limitations
+PASS
 
-The theorem does not establish an all-sentence first-order limit law, growing-length Poisson approximation, or independence at finite size. Specialist literature could contain an equivalent conditioning or factorial-moment result. Independent mathematical and historical-priority verification remains outstanding.
+A union of naturally sampled linear-order successors can have directed cycles despite each constituent being globally acyclic; the exact Poisson means measure the nontrivial deficit r/k relative to independent sparse arcs, and yield directed girth and non-zero-one limiting first-order cycle events. This is a meaningful structural random-finite-model statistic, not a tiny special-case count.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

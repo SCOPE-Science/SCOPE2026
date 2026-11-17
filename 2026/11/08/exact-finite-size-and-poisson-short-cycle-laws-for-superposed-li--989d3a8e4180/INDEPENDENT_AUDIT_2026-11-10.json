@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fixed proper h-arc subset of a directed k-cycle consists of disjoint directed paths, which collapse to n−h ordered blocks; the probability of all arcs in one uniform successor path is (n−h)!/n!=1/(n)_h. A complete directed cycle in a single path has probability zero, requiring truncation at k−1. One avoidance and one union inclusion-exclusion prove the exact finite-k expectation including k=n and r=1. For vertex-disjoint cycles of total L edges, color each required arc by one of r paths: every assignment is feasible except a monochromatic cycle. Their (∏_i(r^{k_i}−r)) n^−L leading probability has O(n^−L−1) overlaps from arcs assigned to more than one path. Overlapping distinct cycles have strictly more distinct arcs than vertices per multicyle component, making their total factorial-moment contribution O(n^−1). Thus each fixed mixed factorial moment tends to that of independent Poisson((r^k−r)/k), giving joint weak convergence and the directed girth law. Scope is fixed r and finite K; finite n is not Poisson.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jeż et al. primary Sections 1–4 study existence/decidability with named directed successor relations and signed counting of possible cycles, not random-law sampling.",
+          "Frieze 2001 deals with random permutations (cyclic components possible in each color), not paths and these exact local laws; only bibliographic abstract was accessible."
+        ],
+        "reasoning": "Finite satisfiability of a model is not distribution of independent uniform models, while a random-permutation path conditioning is nontrivial and leaves a residual risk.",
+        "searches": [
+          "Jeż Michaliszyn Witkowski 2610.19943 finite satisfiability arbitrary successors full text",
+          "Michaliszyn Witkowski 2610.09758 two variable logic many successors",
+          "Frieze Hamilton cycles union of random permutations 2001"
+        ]
+      },
+      "checked_sources": [
+        "https://www.paperpeel.com/paper/2610.19943",
+        "arxiv:2610.09758",
+        "arxiv:1501.00813",
+        "Resultary 2026/10/26/SCOPE-exact-rank-two-logical-limit-types-for-independent-random-succes--a1d5fcd736fe",
+        "Resultary 2026/11/8/SCOPE-complete-rank-two-limit-spectrum-for-independent-random-successo--47f446628163",
+        "pinned RESULT.md, checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Signed counting is an existence / finite-model construction, not a probability measure over independent uniform orders.",
+          "Extremal pairwise separation of Hamiltonian paths does not supply probabilistic moments of their union."
+        ],
+        "reasoning": "Neither distinct result implies exact E C_{n,k} or joint Poisson; the omitted monochromatic colorings r per cycle arise from the novel model-specific counting lemma.",
+        "searches": [
+          "arxiv:2610.19943 Section 4 signed counting eliminating monochromatic successor cycles",
+          "arxiv:2610.09758 random Poisson cycles",
+          "arxiv:1501.00813 Path separation by short cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "r random linear orders are r uniformly sampled labeled Hamiltonian directed paths; their union cycles require at least two colors.",
+          "Reciprocal adjacency in two independent orders covers k=2,r=2 only."
+        ],
+        "reasoning": "Rephrasing as a random multicolored path union changes no model. Existing two-path collision or shared-arc laws do not give all k or independent joint cycle asymptotics.",
+        "searches": [
+          "random superposition of Hamiltonian paths directed short cycle Poisson factorial moments",
+          "Resultary: superposed independent uniform Hamiltonian linear order paths directed k cycles Poisson law (r^k-r)/k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/26 rank-two findings concern colored shared arcs, not uncolored directed cycles of length 3 and above.",
+          "Independent exact enumeration checked expected short-cycle counts for (n,r)=(2,1),(3,2),(4,2)."
+        ],
+        "reasoning": "No indexed exact finite expectation table or all-fixed-r joint k-cycle law was found; existing overlap statistics are different variables, and search limitations remain.",
+        "searches": [
+          "Resultary complete rank-two limit spectrum independent random successor orders",
+          "Resultary Poisson orientation profiles at growing successor collision threshold",
+          "Poisson k cycles r independent random Hamilton paths"
+        ]
+      },
+      "rationale": "The most relevant new 2026 successor papers address FO² finite satisfiability and signed cycle elimination, not random uniform path sampling, uncolored mixed directed short-cycle probabilities, or exact finite expectation. Random-permutation and undirected regular-graph Poisson analogues have different ensembles. A known two-path two-cycle overlap case is credited, but it does not imply the general r,k joint law.",
+      "residual_risks": [
+        "An unindexed Poisson approximation theorem for conditioned Hamiltonian path superpositions may imply the same law.",
+        "Frieze 2001 full publisher text and Cohen–Fachini–Körner full proof were not reread; no claim of whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of probability law: deterministic satisfiability/algorithmic upper bound, not random union short-cycle statistics",
+          "evidence": "arxiv:2610.19943, Sections 1 and 4 discuss each relation being an entire path, and signed counting to enforce absence of monochromatic cycles.",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.19943",
+          "material_read": "Primary full HTML Sections 1–4 including §4 signed counting and finite-model constraints",
+          "method": "Read sections of primary proof text and compared quantifiers and random sampling requirements",
+          "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+          "trigger": "Same independent successor relations; possible signed cycle-enumeration dominance"
+        },
+        {
+          "assessment": "Different finite-model satisfiability theorem; unresolved chance of combinatorial appendix overlap",
+          "evidence": "Their upper bound/decidability is not random uniform graph distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09758",
+          "material_read": "Accessible abstract and previously documented model/finite certificate summary; complete current body not read",
+          "method": "Compared logical decision problem, not a whole-text negative priority claim",
+          "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+          "trigger": "Earlier same successor setting"
+        },
+        {
+          "assessment": "No evident all-r,k Poisson implication; full source remains priority risk",
+          "evidence": "2015 Cohen–Fachini–Körner family-size bounds, not independent random path sampling.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.00813",
+          "material_read": "Bibliographic abstract and statement of extremal path-family separation",
+          "method": "Compared extremal vs probabilistic quantifiers; no full text in current run",
+          "title": "Path separation by short cycles",
+          "trigger": "Same Hamiltonian-path unions and directed short cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A union of naturally sampled linear-order successors can have directed cycles despite each constituent being globally acyclic; the exact Poisson means measure the nontrivial deficit r/k relative to independent sparse arcs, and yield directed girth and non-zero-one limiting first-order cycle events. This is a meaningful structural random-finite-model statistic, not a tiny special-case count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.paperpeel.com/paper/2610.19943",
+    "arxiv:2610.09758",
+    "arxiv:1501.00813",
+    "Resultary 2026/10/26/SCOPE-exact-rank-two-logical-limit-types-for-independent-random-succes--a1d5fcd736fe",
+    "Resultary 2026/11/8/SCOPE-complete-rank-two-limit-spectrum-for-independent-random-successo--47f446628163",
+    "pinned RESULT.md, checker.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the simple directed union of r iid uniform successor paths on n labeled vertices, the expected directed k-cycle count has an exact two-stage inclusion-exclusion formula, and for fixed r,K all short-cycle counts jointly converge to independent Poisson variables of means (r^k−r)/k.",
+  "limitations": "Directed k-cycles count rotation classes, not reversal classes, with k≥2. Uniform independent Hamiltonian paths have no closing arc, and duplicate directed edges are collapsed. Joint asymptotic only for fixed number r of paths and fixed finite K of lengths, not all first-order sentences.",
+  "residual_risks": [
+    "An unindexed Poisson approximation theorem for conditioned Hamiltonian path superpositions may imply the same law.",
+    "Frieze 2001 full publisher text and Cohen–Fachini–Körner full proof were not reread; no claim of whole-document exclusion."
+  ],
+  "schema_version": 1
+}
