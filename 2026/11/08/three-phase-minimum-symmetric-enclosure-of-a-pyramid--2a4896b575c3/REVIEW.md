@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The reflection of the entire base forces two equal-volume sections and a slab of length \(2|t|\). Exterior reflected apex points force disjoint cones whose heights are explicit in each branch, establishing a universal lower bound. The centered reflection hull achieves all three branches because \(a\in B\). A nonzero horizontal center strictly enlarges the base slice at the only possible minimizing height \(t=0\), establishing uniqueness when \(d\ge3\). The degenerate planar plateau is explicit. Finite cubic-section tests support but do not replace this proof.
+## correctness
 
-**Originality: PASS, with historical-priority uncertainty.** The October 2026 parallelotope lattice-covering paper proves neither an arbitrary-symmetric-body volume profile nor a fixed-center-height equality theorem. The 2026 cube-apex paper's actual primal volume is a symmetric cube-plus-two-apices construction and its optimized invariant is a polar volume product, not symmetric enclosures of an existing pyramid. No dominating formula was found in the targeted external or mathematical-record searches. In dimension two the existence of small symmetric triangle enclosures is classical; its recovery is not claimed as novel. Earlier central-symmetrization literature could contain an equivalent statement and requires independent priority assessment.
+PASS
 
-**Mathematical value: PASS.** The exact profile classifies a natural constrained geometric optimization across all dimensions and all symmetric base shapes, reveals a sharp dimension-two transition, gives a uniqueness theorem, and identifies an exact-volume obstruction to extending a new lattice-covering criterion beyond parallelotopes. This is stronger than merely observing one small-volume bipyramid.
+Reflecting the mandatory base across arbitrary center (u,t) forces two translated base sections, hence a slab of sectional volume at least A at every intermediate height; the reflected apex pair forces disjoint outside caps of minimal volume Aq/d each. Integrating gives three sharp lower branches. Choosing horizontal center u=0 and convex hull of T and reflected T realizes each with no horizontal enlargement because a and -a belong to B. For d>=3 the height profile uniquely minimizes at t=0; nonzero u strictly increases B+[0,2u] and its cap volumes; equality forces unique center and hull. For d=2 the middle slope vanishes. Independent SciPy ConvexHull calculations for 5 heights and an off-axis square-pyramid model reproduced predicted volumes, but analytic cap argument is the all-dimensional proof.
 
-**Limitations.** The hypothesis \(a\in B\) and central symmetry of \(B\) are essential to the matching construction; independent validation and definitive historical priority remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality retained after direct statement/implication comparison with Resultary published findings and primary literature; strictly credited prior special cases. No inspected statement supplies the fixed t infimum over arbitrary centrally symmetric enclosing bodies; inaccessible related full text remains a risk rather than presumed noncoverage.
+
+## value
+
+PASS
+
+The prescribed-center minimum-volume symmetric covering problem has nontrivial dimensional rigidity and a planar minimizer plateau; the explicit profile exhibits a concrete counterexample to extending a cube-vertex lattice-covering theorem from parallelotopes to arbitrary centrally symmetric bodies. These are motivated geometric boundary distinctions, not merely a routine volume calculation for one chosen center.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
