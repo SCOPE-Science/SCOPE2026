@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python verification.py` with Python 3 and `sympy`, `numpy`, `scipy`, `mpmath` installed. The checker was executed successfully with output:
+## correctness
 
-`PASS 428 deterministic assertions: polynomial algebra, shape ordering, unique positive root, endpoint asymptotics, independent Gamma-CDF quadrature`
+PASS
 
-Symbolic checks simplify the derivative's quartic polynomial and the positive shape derivative identically, rather than relying on floating-point comparisons. Numerical checks evaluate the derivative sign and the direct spectral response on a range of positive shape/frequency pairs, compare positive quartic roots against independent root computations, test shape ordering, and evaluate low-/high-frequency asymptotic ratios. Independent high-precision integration of the gamma cumulative distribution times the exponential age kernel verifies the complex renewal factor at four parameter triples.
+The stationary Poisson backward age has density r e^{-ra}. Integrating the Gamma maturation CDF against the phase-locked square-wave signal and taking its first Fourier harmonic gives A/(4q/pi)=[x/sqrt(x^2+w^2)] [(1+x/k)^2+(w/k)^2]^(-k/2), valid for all k,w,x>0 by Tonelli/Fubini. Differentiating log amplitude and multiplying positive denominators produces exactly the stated quartic P; independently verified symbolically with SymPy. Coefficients have exactly one positive-to-negative sign variation for all k>0 (including 0<k<1,1<=k<2 and k>=2), and P(0)<0,P(infty)>0, giving a unique global peak. The derivative ∂_k(k(k+x)/((k+x)^2+w^2))=[x(k+x)^2+(2k+x)w^2]/denom^2>0, independently verified, proves that increasing shape moves the unique root left. The rescalings x~w^(2/3) and x~w/sqrt(k), expansion a=(1/k-1)/3, leading amplitude constant and deterministic x(x^2+w^2)=w^2 are obtained by balancing polynomial powers. Finite symbolic/numeric tests support, not substitute for, these universal deductions.
 
-# Scope of verification
+## originality
 
-The finite checks do not establish an infinite quantifier or guarantee novelty. Universal statements follow from the analytical age-integral identity, one-sign-change quartic proof, strict positive shape derivative and controlled polynomial asymptotics in RESULT.md. No experimental confirmation of gamma maturation in a physical double-well system is asserted.
+PASS
+
+Best-of-knowledge: Wang et al 2026 original main and supplemental primary source already gives the general renewal harmonic transfer and deterministic phase-dependent transit, including w^(2/3) low-frequency scaling; these premises receive no originality credit. The cited full text does not give an independently Gamma-distributed maturation mark at fixed mean, an exact one-positive-root quartic for all real k, strict monotonic k ordering or x~w/sqrt(k) high-frequency optimum. Radice studies Gamma distributed RESET intervals rather than maturation marks after Poisson resets. A broader unindexed refractory-response theorem could imply this explicit case; risk retained.
+
+## value
+
+PASS
+
+Exact rate-optimization and response-exponent laws distinguish heterogeneous maturation from deterministic delay in a natural renewal-response observable. The full positive shape continuum and monotonic preference ordering are mathematically informative, providing a sharp parametric resonance classification rather than another mere numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
