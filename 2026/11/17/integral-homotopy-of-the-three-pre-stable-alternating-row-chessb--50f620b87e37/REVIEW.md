@@ -1,0 +1,11 @@
+# Review of the alternating-row chessboard quotient classification
+
+**Correctness — PASS.** Every orbit cell is derived from the \(12\) even row permutations, with no simplex inversions because all occupied columns are distinct. The parity differential produces complete chain complexes with cell ranks \((4,6,8,2)\), \((5,10,20,10)\), and \((6,15,40,30)\). Two independent matrix constructors agree on integer Smith factors; notably \(\partial_3\) at width six has factors \(1^{24},3\). The two-skeleton contains all triangular relations of a complete graph, hence is simply connected. Attaching three-cells to a wedge of two-spheres and reducing their maps via integer Smith operations determines the entire homotopy types, not just homology.
+
+**Originality — PASS against inspected sources, with residual risk.** The classical 1994 paper proves general chessboard connectivity and discusses different quotient constructions (quotient by a subcomplex and a separate \(\Delta_{3,4}\) group action). Shareshian–Wachs (2004) determines torsion and symmetric-group representations of the unquotiented complex. Neither paper's inspected statements or methods compute the integral \(A_4\)-row orbit cellular boundaries. The 2026 generalized-chessboard classification has a different object (unquotiented multiple chessboard spaces); its full text was not retrieved. A publicly searchable seven-column quotient classification does not imply any of the three smaller-width integral types. Unindexed equivalent computations remain a risk; absence of search hits is not treated as proof of novelty.
+
+**Value — PASS.** Width six is the last four-row width before the standard \(n\ge7\) Cohen–Macaulay/shellable range. This is a natural, complete boundary classification, and the quotient's coexistence of free second homology with order-three torsion distinguishes it from the two preceding widths. The integral Moore summand cannot be read off from rational character formulas alone. The finite domain is motivated by the connectivity/shellability transition rather than an arbitrary numerical slice.
+
+The verifiers do not establish any theorem at larger widths. They use exact integer arithmetic for an exhaustively specified finite family; independent audit is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
