@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the flat-rank input, the first nonstopping Gaussian sketch has full column rank almost surely and spans the exact range. The second lookahead is therefore zero, but its Gaussian coefficients are independent row energies with exact chi-square laws. The pruning rule drops at least one row precisely when their minimum falls below the tolerance, and each omission incurs unit squared Frobenius projection error. Conditioning on the first nonstopping branch yields the exact product of chi-square probabilities. Stirling's formula and a controlled endpoint Laplace estimate establish the sharp square-root-logarithmic threshold and the centered Gumbel window. Numerical reconstruction and simulations corroborate the identities; they are not substitutes for the proof.
+PASS
 
-## Originality — PASS, with priority uncertainty
+For all integers b>=2, ambient N>b, and 0<tau<1, the first Gaussian block spans the rank-b diagonal range almost surely when it survives the initial test. Chi-square_{b²}/b is its squared Frobenius norm. On the surviving branch the next residual is exactly zero, and by Gaussian rotational invariance the independent second-block projected-row norms squared are independent chi-square_b/b. The minimum is < tau² iff at least one necessary unit-energy direction is removed; such removal makes true error >=1>tau. This gives precisely [1-F_{b²}(b tau²)](1-[1-F_b(b tau²)]^b). Stirling density and endpoint Laplace estimate for b^{-1}chi-square_b give the c=2 moderate-deviation threshold (including c=2 -> 0) and centered 1-exp(-exp(-x)) Gumbel law. The initial premature-stop branch is deliberately excluded; the paper does not define a previous basis on that branch. Actual released independent-sketch code and pruning loop were read; finite high-precision gamma-CDF computations independently match b=16 tau=.9 and .99 to >9 significant digits.
 
-Smith--Do--Chen (arXiv:2607.06758v1, Sections 3.2--3.3) supply the Gaussian row-energy proxy, its unbiasedness and individual variance; they do not state an exact collective-minimum under-pruning failure probability or the sharp block-size phase. Yu--Gu--Li (arXiv:1606.09402) use explicit coefficient energies; Pearce--Chen--Dong--Martinsson (arXiv:2310.09417) analyze LU-based adaptive interpolation; Gorman et al. (arXiv:1810.04125) derive tail bounds for projected Frobenius stopping indicators. Those statements do not imply this event and window without analyzing Algorithm 4's pruning. Earlier unpivoted QB over-retention with exact rows is a different phenomenon: it does not assert this adjoint-free under-retention or its all-block-size law. Standard chi-square extreme-value theory is not claimed as a new probability theorem. Other unseen or older specializations remain a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work exposes a concrete calibration limitation in an advertised fixed-tolerance numerical procedure. Individual row estimators become more accurate with block size, yet a growing number of minimum-based pruning decisions can make the true tolerance fail with probability tending to one inside a sharp near-threshold window. The exact finite-block law permits quantitative risk budgeting. This is not a claim of typical performance on all spectral shapes.
+Specific adjoint-free independent projected-row proxy under-retention and its finite-block conditional law are not entailed by the cited existing exact-row over-retention formulas or by a different fresh-look beta stopping procedure; classical chi-square/Gumbel tools credited. Best-of-knowledge with explicit source-coverage and implementation-version risks.
 
-## Restrictions and independent validation
+## value
 
-The full distribution conditions on reaching the defined second-lookahead branch. The first-stop event is explicitly accounted for in the unconditional joint-event probability, but the behavior of a procedure invoked before a basis exists is not assigned. All statements assume exact arithmetic and independent real Gaussian blocks. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete method-specific correctness hazard: an exactly recovered rank-b subspace can lose a necessary basis vector after noisy coefficient pruning, violating a nominal absolute Frobenius tolerance. Exact finite failure probability and sharp extreme-value window give a reproducible diagnostic for adaptive range-finder design; not just a textbook tail calculation divorced from an algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

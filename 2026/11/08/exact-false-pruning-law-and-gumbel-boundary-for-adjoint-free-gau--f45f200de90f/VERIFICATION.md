@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python, NumPy and SciPy installed. The verifier uses an explicit normalized Gaussian block and QR decomposition on the diagonal test family, computes the exact-zero lookahead, executes the row-norm deletion loop corresponding to Algorithms 3--4, and compares the true Frobenius projection error with the number of deleted columns. It independently samples the chi-square distributions defining the two stages and checks selected large-block asymptotic regimes.
+## correctness
 
-The finite checks do not establish any infinite-dimensional or all-block-size claim. Those statements follow from the full analytical proof in `RESULT.md`, including the endpoint gamma-density calculation. The unusual initial-stop branch is not assigned a returned-basis meaning; the exact law applies to the defined second-lookahead event. No external independent validation has been performed.
+PASS
+
+For all integers b>=2, ambient N>b, and 0<tau<1, the first Gaussian block spans the rank-b diagonal range almost surely when it survives the initial test. Chi-square_{b²}/b is its squared Frobenius norm. On the surviving branch the next residual is exactly zero, and by Gaussian rotational invariance the independent second-block projected-row norms squared are independent chi-square_b/b. The minimum is < tau² iff at least one necessary unit-energy direction is removed; such removal makes true error >=1>tau. This gives precisely [1-F_{b²}(b tau²)](1-[1-F_b(b tau²)]^b). Stirling density and endpoint Laplace estimate for b^{-1}chi-square_b give the c=2 moderate-deviation threshold (including c=2 -> 0) and centered 1-exp(-exp(-x)) Gumbel law. The initial premature-stop branch is deliberately excluded; the paper does not define a previous basis on that branch. Actual released independent-sketch code and pruning loop were read; finite high-precision gamma-CDF computations independently match b=16 tau=.9 and .99 to >9 significant digits.
+
+## originality
+
+PASS
+
+Specific adjoint-free independent projected-row proxy under-retention and its finite-block conditional law are not entailed by the cited existing exact-row over-retention formulas or by a different fresh-look beta stopping procedure; classical chi-square/Gumbel tools credited. Best-of-knowledge with explicit source-coverage and implementation-version risks.
+
+## value
+
+PASS
+
+A concrete method-specific correctness hazard: an exactly recovered rank-b subspace can lose a necessary basis vector after noisy coefficient pruning, violating a nominal absolute Frobenius tolerance. Exact finite failure probability and sharp extreme-value window give a reproducible diagnostic for adaptive range-finder design; not just a textbook tail calculation divorced from an algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

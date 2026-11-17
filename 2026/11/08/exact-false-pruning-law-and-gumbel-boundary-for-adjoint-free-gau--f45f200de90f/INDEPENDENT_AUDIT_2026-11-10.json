@@ -1,0 +1,229 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T23:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers b>=2, ambient N>b, and 0<tau<1, the first Gaussian block spans the rank-b diagonal range almost surely when it survives the initial test. Chi-square_{b²}/b is its squared Frobenius norm. On the surviving branch the next residual is exactly zero, and by Gaussian rotational invariance the independent second-block projected-row norms squared are independent chi-square_b/b. The minimum is < tau² iff at least one necessary unit-energy direction is removed; such removal makes true error >=1>tau. This gives precisely [1-F_{b²}(b tau²)](1-[1-F_b(b tau²)]^b). Stirling density and endpoint Laplace estimate for b^{-1}chi-square_b give the c=2 moderate-deviation threshold (including c=2 -> 0) and centered 1-exp(-exp(-x)) Gumbel law. The initial premature-stop branch is deliberately excluded; the paper does not define a previous basis on that branch. Actual released independent-sketch code and pruning loop were read; finite high-precision gamma-CDF computations independently match b=16 tau=.9 and .99 to >9 significant digits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Nov8 beta first-passage rule compares residual and total Gaussian projection each step; present theorem conditions on zero residual and prunes independent projected coefficient rows."
+        ],
+        "reasoning": "General randomized stopping and variance bounds cannot directly imply this exact algorithm-specific failure event absent the independent-row reduction.",
+        "searches": [
+          "Resultary: sequential Gaussian Frobenius stopping has a sharp premature rank law",
+          "arXiv:2607.06758 adaptive matrix-free low rank approximation",
+          "arXiv:1606.09402 fixed precision QB",
+          "arXiv:1810.04125 HSS Gaussian sampling"
+        ]
+      },
+      "checked_sources": [
+        "SMART-Algebra MATLAB source blobs ac6d9f67..., efd0e538...",
+        "Resultary Oct13 Cauchy RESULT.md blob d472d69c...",
+        "Resultary Nov2 arcsine RESULT.md blob e3fc1f1f...",
+        "Resultary Nov8 beta stopping RESULT.md blob c5df3f09...",
+        "arXiv:2607.06758 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source code establishes independent proxy sketches; comparison papers treat exact-coefficient over-retention or fresh-ratio first-passage stopping, not the min-of-b independent coefficients after full-rank basis formation."
+        ],
+        "reasoning": "Prior premises plus standard Gaussian order statistics allow derivation, but none of inspected prior *results* states or implies algorithm-specific full rank-b false-pruning probability and its Gumbel normalization.",
+        "searches": [
+          "GitHub implementation randQB_AF_Fro.m full source",
+          "Resultary Oct13 Cauchy-law over-retention; Nov2 arcsine over-retention",
+          "Resultary Nov8 sequential Gaussian Frobenius beta stopping"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent sketch produces b iid chi-square_b/b estimated energies and possible under-retention on flat rank-b; Oct13 Cauchy/Nov2 arcsine use exact-coefficient row energies and over-retention on anisotropic rank-two."
+        ],
+        "reasoning": "Both compare QB row pruning, but distinct estimator and different error event; their identities do not specialize to the claimed chi-square minimum.",
+        "searches": [
+          "Resultary: exact false pruning Gaussian adjoint-free two lookahead Frobenius chi square minimum Gumbel",
+          "SMART-Algebra randQB_AF_Fro.m and Prune_Rank_Fro.m",
+          "Resultary: Cauchy-law probability of nonminimal Frobenius QB rank pruning",
+          "Resultary: arcsine law obstruction rank pruning unpivoted Gaussian QB"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching tabulated probability or equivalent closed-form event located; exact expression independently evaluated numerically, but a negative search does not prove priority."
+        ],
+        "reasoning": "No exact table covering this conditional two-lookahead under-retention law identified in inspected results.",
+        "searches": [
+          "Resultary exact false pruning law Gumbel",
+          "arXiv 2607.06758 Frobenius row pruning tolerance false"
+        ]
+      },
+      "rationale": "Specific adjoint-free independent projected-row proxy under-retention and its finite-block conditional law are not entailed by the cited existing exact-row over-retention formulas or by a different fresh-look beta stopping procedure; classical chi-square/Gumbel tools credited. Best-of-knowledge with explicit source-coverage and implementation-version risks.",
+      "residual_risks": [
+        "Main mathematical article for 2607.06758 not inspected in full this run; its complete released implementation was read.",
+        "Unindexed general Gaussian row-pruning false-negative theorem may cover the special case.",
+        "The infinite limit requires the stated moderate-deviation density estimates, not the finite CDF examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_PROCEDURE_NOT_THE_EXACT_FAILURE_LAW",
+          "evidence": [
+            "Independent Gaussian normalized sketch; second zero residual enters pruning; early stop with no basis is not a well-defined returned-rank branch."
+          ],
+          "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_AF_Fro.m",
+          "material_read": "Complete MATLAB source of randQB_AF_Fro.m, initial and second stopping tests, Gaussian scaling, QR and pruning calls",
+          "method": "Read complete actual released MATLAB implementation at referenced GitHub blob ac6d9f67b0e4abca1f1165750428ea1f5aba9ab4",
+          "title": "Adjoint-free Frobenius range finder implementation",
+          "trigger": "Defines algorithm on which failure theorem is conditioned"
+        },
+        {
+          "assessment": "DEFINES_PROCEDURE_NOT_PROBABILITY",
+          "evidence": [
+            "When current residual is zero, at least one row is discarded exactly when its estimated norm is below tolerance."
+          ],
+          "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+          "material_read": "Complete MATLAB implementation including ascending-row sort and strict alpha_new < tau loop",
+          "method": "Read complete source blob efd0e53805f50a203b9101f5ea449091d1a0e6b2",
+          "title": "Frobenius row-energy pruning implementation",
+          "trigger": "Defines true discard event"
+        },
+        {
+          "assessment": "DIFFERENT_FAILURE_MODE_NOT_COVERING",
+          "evidence": [
+            "Rank-two anisotropic matrix with exact coefficient rows and over-retention; no chi-square row-minimum independent-proxy under-retention on a flat rank-b matrix."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-cauchy-law-probability-of-nonminimal-frobenius-qb-rank-pruning--7804e48298b5/RESULT.md",
+          "material_read": "Complete finding, proof, original references and limitations of Oct 13 RESULT.md",
+          "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+          "title": "A Cauchy-law probability of nonminimal Frobenius QB rank pruning",
+          "trigger": "Potential alias involving identical pruning routine"
+        },
+        {
+          "assessment": "DIFFERENT_FAILURE_MODE_NOT_COVERING",
+          "evidence": [
+            "Matrix-free exact QB row-energy over-retention of rank two although rank one suffices, unlike independent proxy sketches deleting required rank-b directions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-arcsine-law-obstruction-to-rank-pruning-after-unpivoted-gauss--e078e250fc79/RESULT.md",
+          "material_read": "Complete Nov 2 RESULT.md proof and scope",
+          "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+          "title": "An arcsine-law obstruction to rank pruning after unpivoted Gaussian QB blocks",
+          "trigger": "Later same-algorithm obstruction"
+        },
+        {
+          "assessment": "DIFFERENT_PROCEDURE_NOT_COVERING",
+          "evidence": [
+            "Per-look beta ratio and sequential first acceptance with fresh sketch; not coefficient-row pruning of a completed block or a Gumbel extreme of b independent rows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sequential-gaussian-frobenius-stopping-has-a-sharp-premature-ran--8c50fd5eebb7/RESULT.md",
+          "material_read": "Complete Nov 8 RESULT.md including beta first-passage law and asymptotic",
+          "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+          "title": "Sequential Gaussian Frobenius stopping has a sharp premature-rank law",
+          "trigger": "Gaussian stopping can cause related premature acceptance"
+        },
+        {
+          "assessment": "INCOMPLETE_TEXT_RISK",
+          "evidence": [
+            "Published source introduces method; individual row estimator unbiasedness does not by itself evaluate the probability of deleting necessary basis vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.06758",
+          "material_read": "Abstract and bibliographic metadata; full arXiv paper text not independently obtained in this run; complete companion source code read as s11 and s12",
+          "method": "ArXiv public abstract plus direct, full implementation read",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Original mathematical algorithm description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete method-specific correctness hazard: an exactly recovered rank-b subspace can lose a necessary basis vector after noisy coefficient pruning, violating a nominal absolute Frobenius tolerance. Exact finite failure probability and sharp extreme-value window give a reproducible diagnostic for adaptive range-finder design; not just a textbook tail calculation divorced from an algorithm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SMART-Algebra MATLAB source blobs ac6d9f67..., efd0e538...",
+    "Resultary Oct13 Cauchy RESULT.md blob d472d69c...",
+    "Resultary Nov2 arcsine RESULT.md blob e3fc1f1f...",
+    "Resultary Nov8 beta stopping RESULT.md blob c5df3f09...",
+    "arXiv:2607.06758 abstract"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Initial-stop branch excluded because prior basis unavailable; not a universal bound for arbitrary singular spectra.",
+    "Full arXiv method paper text not independently read; original algorithm release source read."
+  ],
+  "residual_risks": [
+    "Main mathematical article for 2607.06758 not inspected in full this run; its complete released implementation was read.",
+    "Unindexed general Gaussian row-pruning false-negative theorem may cover the special case.",
+    "The infinite limit requires the stated moderate-deviation density estimates, not the finite CDF examples."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINES_PROCEDURE_NOT_THE_EXACT_FAILURE_LAW",
+      "evidence": [
+        "Independent Gaussian normalized sketch; second zero residual enters pruning; early stop with no basis is not a well-defined returned-rank branch."
+      ],
+      "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_AF_Fro.m",
+      "material_read": "Complete MATLAB source of randQB_AF_Fro.m, initial and second stopping tests, Gaussian scaling, QR and pruning calls",
+      "method": "Read complete actual released MATLAB implementation at referenced GitHub blob ac6d9f67b0e4abca1f1165750428ea1f5aba9ab4",
+      "title": "Adjoint-free Frobenius range finder implementation",
+      "trigger": "Defines algorithm on which failure theorem is conditioned"
+    },
+    {
+      "assessment": "DEFINES_PROCEDURE_NOT_PROBABILITY",
+      "evidence": [
+        "When current residual is zero, at least one row is discarded exactly when its estimated norm is below tolerance."
+      ],
+      "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+      "material_read": "Complete MATLAB implementation including ascending-row sort and strict alpha_new < tau loop",
+      "method": "Read complete source blob efd0e53805f50a203b9101f5ea449091d1a0e6b2",
+      "title": "Frobenius row-energy pruning implementation",
+      "trigger": "Defines true discard event"
+    },
+    {
+      "assessment": "DIFFERENT_FAILURE_MODE_NOT_COVERING",
+      "evidence": [
+        "Rank-two anisotropic matrix with exact coefficient rows and over-retention; no chi-square row-minimum independent-proxy under-retention on a flat rank-b matrix."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-cauchy-law-probability-of-nonminimal-frobenius-qb-rank-pruning--7804e48298b5/RESULT.md",
+      "material_read": "Complete finding, proof, original references and limitations of Oct 13 RESULT.md",
+      "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+      "title": "A Cauchy-law probability of nonminimal Frobenius QB rank pruning",
+      "trigger": "Potential alias involving identical pruning routine"
+    },
+    {
+      "assessment": "DIFFERENT_FAILURE_MODE_NOT_COVERING",
+      "evidence": [
+        "Matrix-free exact QB row-energy over-retention of rank two although rank one suffices, unlike independent proxy sketches deleting required rank-b directions."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-arcsine-law-obstruction-to-rank-pruning-after-unpivoted-gauss--e078e250fc79/RESULT.md",
+      "material_read": "Complete Nov 2 RESULT.md proof and scope",
+      "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+      "title": "An arcsine-law obstruction to rank pruning after unpivoted Gaussian QB blocks",
+      "trigger": "Later same-algorithm obstruction"
+    },
+    {
+      "assessment": "DIFFERENT_PROCEDURE_NOT_COVERING",
+      "evidence": [
+        "Per-look beta ratio and sequential first acceptance with fresh sketch; not coefficient-row pruning of a completed block or a Gumbel extreme of b independent rows."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sequential-gaussian-frobenius-stopping-has-a-sharp-premature-ran--8c50fd5eebb7/RESULT.md",
+      "material_read": "Complete Nov 8 RESULT.md including beta first-passage law and asymptotic",
+      "method": "Read original theorem/proof text and compare assumptions, quantified result, and mathematical implication",
+      "title": "Sequential Gaussian Frobenius stopping has a sharp premature-rank law",
+      "trigger": "Gaussian stopping can cause related premature acceptance"
+    },
+    {
+      "assessment": "INCOMPLETE_TEXT_RISK",
+      "evidence": [
+        "Published source introduces method; individual row estimator unbiasedness does not by itself evaluate the probability of deleting necessary basis vectors."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2607.06758",
+      "material_read": "Abstract and bibliographic metadata; full arXiv paper text not independently obtained in this run; complete companion source code read as s11 and s12",
+      "method": "ArXiv public abstract plus direct, full implementation read",
+      "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+      "trigger": "Original mathematical algorithm description"
+    }
+  ]
+}
