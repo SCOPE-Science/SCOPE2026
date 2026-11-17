@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T17:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Clauwens Theorem 1 gives Adj(Q_T) as Z×V×S(V,T) with S=coker(1-τ), τ(v⊗w)=Tw⊗v. In dimension two, direct 4x4 determinant det(1-τ)=det(1-T)(1-detT) proves S=0 for the stated connected nonresonant locus (and rank defect one at connected detT=1 in odd characteristic). Since T-I invertible, derived subgroup of V⋊_T Z is V and characteristic, and the quotient is Z: any group isomorphism restricts to A∈GL2 and sends the generator to its sign, forcing T similar to U or U^(-1). Nonscalar 2x2 matrices classified by trace/determinant produce (p-2)(p-1) admissible cyclic classes; p-3 admissible scalars add to p²-2p-1. Fixed inversion class would force det=-1,trace=0, contradicting det(1-T)!=0. Inn(Q_T)=V⋊<T> and its translation subgroup characteristic. Direct independent matrix enumeration reproduced p=3,5,7 counts 2,14,34 and F5 T^7=(0,3;1,1), T^24=I. Source verifier has one potentially misleading unmodded det==0 test; independent check used correct mod-p invertibility and separately confirms claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clauwens theorem presents adjoint groups of arbitrary connected Alexander quandles using a central tensor cokernel S.",
+          "Maassarani Oct 18 studies connected enveloping groups and the equal-cardinality restriction for finite connected Alexander quandles, with different-size examples outside."
+        ],
+        "reasoning": "General structural formula is a stronger *presentation*, but alone does not classify abstract group isomorphism types and rank-two counts; rank-two reduction and conjugacy/inversion orbit enumeration are additional algebra.",
+        "searches": [
+          "connected Alexander quandles dimension two odd prime adjoint enveloping groups inversion dual determinant nonresonant class count",
+          "Clauwens Theorem 1 arxiv:1011.1587",
+          "Maassarani Oct 18 2026 arxiv:2610.25536"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1011.1587",
+        "arxiv:2610.17769",
+        "arxiv:2610.25536",
+        "arxiv:math/0202281",
+        "Resultary search connected Alexander quandles dimension two odd prime adjoint enveloping groups inversion dual determinant nonresonant class count",
+        "assigned RESULT.md and quandle_dimension2_checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clauwens Theorem 1 gives tensor-cokernel structure, used explicitly; it leaves nonresonant rank-two determinant evaluation and abstract group-isomorphism classification to the submitted argument.",
+          "Maassarani Proposition 2.2 gives generic dual envelope coincidence, but does not say all coincidences arise by inversion, or count all classes.",
+          "Nelson module classification of Alexander quandle isomorphism is a precursor to the quandle-type count."
+        ],
+        "reasoning": "After acknowledging all prior tools, the final criterion (similarity up to inverse), exact free inversion orbit census and counterexample Inn(Q_T)=Inn(Q_T^7) with G nonisomorphic go beyond the specifically inspected implications. A general classification under another name remains possible.",
+        "searches": [
+          "connected Alexander quandles dimension two odd prime adjoint enveloping groups inversion dual determinant nonresonant class count",
+          "arxiv:1011.1587",
+          "arxiv:2610.17769",
+          "arxiv:2610.25536",
+          "arxiv:math/0202281"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clauwens adjoint-group construction identifies semidirect structure when tensor-cokernel S vanishes.",
+          "Maassarani Proposition 2.2 proves G(Q) ≅ G(Q*) for arbitrary quandles; in the Alexander case Q*_T has inverse multiplier T^-1."
+        ],
+        "reasoning": "The duality theorem explains existence of an inversion coincidence, not that inversion gives ALL abstract isomorphisms on the nonresonant rank-two locus or the exact 2-to-1 class census.",
+        "searches": [
+          "connected Alexander quandles dimension two odd prime adjoint enveloping groups inversion dual determinant nonresonant class count",
+          "arxiv:1011.1587",
+          "arxiv:2610.17769",
+          "arxiv:math/0202281"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small-prime class pairs (p=3,5,7,11) (2,1),(14,7),(34,17),(98,49) corroborate all-p formula.",
+          "Prior Maassarani documents duality examples, not these full orbit counts."
+        ],
+        "reasoning": "No inspected exact database or table gives the full p²-2p-1 rank-two group-type census. The finite matrix calculations are not taken as historical-priority certification.",
+        "searches": [
+          "connected Alexander quandles dimension two odd prime adjoint enveloping groups inversion dual determinant nonresonant class count",
+          "Resultary search prime-square quandle adjoint exact classes",
+          "arxiv:2610.17769",
+          "arxiv:1011.1587"
+        ]
+      },
+      "rationale": "Clauwens 2010 proves the general adjoint-group presentation but does not classify distinct abstract group types or their exact counts for rank-two F_p modules. Nelson 2002 addresses quandle isomorphism via module equivalence. Maassarani October 13 Proposition 2.2 proves that dual quandles have isomorphic enveloping groups and supplies example, but neither an all-prime rank-two complete census nor the finer Inn-collision classification; October 18 paper concerns equal cardinality and unequal-cardinality constructions outside this connected affine subclass. The submitted implication from the general structure to an exact count and sharp inner/enveloping invariant separation is genuine evaluated work on a natural nonresonant locus; originality qualified by possible metabelian-group literature.",
+      "residual_risks": [
+        "Existing classifications of finite-by-cyclic/metabelian semidirect groups or Alexander quandles under alternate terminology could subsume this exact two-dimensional orbit census.",
+        "Nelson and October 18 paper not completely re-read during this execution, so priority outside inspected material is bounded.",
+        "Source checker check(p) uses det==0 rather than det%p==0 in one loop; independent finite audit used modular invertibility and correct GL2 classes rather than blindly trusting checker output."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_STRUCTURAL_PRECURSOR",
+          "evidence": "Theorem 1 determines adjoint group via S(M,T), but no all-p rank-two isomorphism count is stated.",
+          "identifier_or_url": "arxiv:1011.1587",
+          "material_read": "Primary PDF pp.1–5 with Definition 1, Theorem 1, multiplication on Z×M×S and relevant example; theorem and proof pages inspected visually.",
+          "method": "ArXiv PDF text and page screenshots",
+          "title": "The adjoint group of an Alexander quandle",
+          "trigger": "Exact general structural presentation for the same objects"
+        },
+        {
+          "assessment": "DUALITY_COVERED_NOT_CENSUS",
+          "evidence": "Proposition 2.2 says G(Q)=G(Q*) for all quandles; examples show finite coincidence, not exhaustive rank-two group-type or Inn classification.",
+          "identifier_or_url": "arxiv:2610.17769",
+          "material_read": "Primary full short paper; Proposition 2.2, proof and Example 2.3 read, including PDF page images.",
+          "method": "ArXiv PDF text and screenshots",
+          "title": "Quandles with isomorphic representation categories",
+          "trigger": "Dual-quandle enveloping-group coincidence"
+        },
+        {
+          "assessment": "PRIOR_CONTEXT_NOT_DEFINITIVE",
+          "evidence": "The accessible claims do not give the exact p²−2p−1 rank-two census; uninspected full material remains a risk.",
+          "identifier_or_url": "arxiv:2610.25536",
+          "material_read": "Abstract, introduction and relevant accessible text/paper description about equal cardinality of connected Alexander cases and unlike-size constructions; complete source not confirmed read in this execution.",
+          "method": "ArXiv primary listing and public source excerpts",
+          "title": "On quandles with isomorphic enveloping groups",
+          "trigger": "Recent same-object title, potentially dominating theorem"
+        },
+        {
+          "assessment": "CLASSIFICATION_TOOL_NOT_CENSUS",
+          "evidence": "Module isomorphism is needed to count quandle classes but does not classify enveloping-group isomorphism types.",
+          "identifier_or_url": "arxiv:math/0202281",
+          "material_read": "Primary arXiv abstract and theorem identification, supplemented by explicit rational canonical form argument in submitted proof; full paper not independently re-read.",
+          "method": "ArXiv primary listing and submitted citation",
+          "title": "Classification of Finite Alexander Quandles",
+          "trigger": "Module-isomorphism criterion as input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact classification quantifies information lost in passing from connected finite Alexander quandles to enveloping groups, the mechanism behind representation-category coincidences. The determinant-one locus is a natural sharp tensor obstruction boundary and the explicit nonisomorphic same-Inn example distinguishes two important invariants. This is a complete infinite-prime rank-two classification, not an arbitrary finite matrix census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1011.1587",
+    "arxiv:2610.17769",
+    "arxiv:2610.25536",
+    "arxiv:math/0202281",
+    "Resultary search connected Alexander quandles dimension two odd prime adjoint enveloping groups inversion dual determinant nonresonant class count",
+    "assigned RESULT.md and quandle_dimension2_checker.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd p, connected nonresonant Alexander quandles Q_T on F_p^2 (I-T invertible, detT !=1) have adjoint group V ⋊_T Z; its types correspond to similarity classes modulo inversion, yielding p²-2p-1 quandle types and half as many adjoint types; Inn groups are classified by conjugacy of <T>, with F5 counterexample distinguishing the invariants.",
+  "limitations": "Only connected F_p^2 Alexander quandles, odd p, detT≠1. No classification of detT=1 envelopes or arbitrary tensor category equivalences. Some relevant older primary literature was only partially accessible.",
+  "residual_risks": [
+    "Existing classifications of finite-by-cyclic/metabelian semidirect groups or Alexander quandles under alternate terminology could subsume this exact two-dimensional orbit census.",
+    "Nelson and October 18 paper not completely re-read during this execution, so priority outside inspected material is bounded.",
+    "Source checker check(p) uses det==0 rather than det%p==0 in one loop; independent finite audit used modular invertibility and correct GL2 classes rather than blindly trusting checker output."
+  ],
+  "schema_version": 1
+}
