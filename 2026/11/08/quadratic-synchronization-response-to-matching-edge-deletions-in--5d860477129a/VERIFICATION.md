@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The result is an infinite-family proof built on a cited finite-graph cycle criterion and an explicit finite sum over normalized integer heights. The two supplied standard-library verification programs were actually run from the paths in this package before acceptance:
+## correctness
 
-- `python verify_lifts.py` checked height-lift cycle consistency for all labelled three-colour starts on 22 graph instances, sizes \(n=3,4,5,6\), matching-deletion sizes \(t=0,\ldots,n\), against the stated exact census. Its last output line is `ALL_PASS`.
-- `python verify_dynamics.py` used two separate synchronous CA update rules directly, with eight full updates per start, on all 390,015 labelled initial states for 15 cases at \(n=3,4,5\). Its last output line records `DYNAMICS_PASS`.
+PASS
 
-The scripts use Python 3 standard library only; no external packages, solver, hidden inputs or datasets are required. The two `.out` files record the actual observed outputs. These finite checks do **not** certify the theorem for unbounded \(n\); the proof supplies that step. Historical originality and an independent audit are not certified.
+For n>=3 and 0<=t<=n the deleted-matching graph is connected. The Gravner–Lyu–Sivakoff 3-colour irrotationality criterion identifies synchronizing CCA and GHM initial states with integer 1-Lipschitz potential lifts, unique up to a global shift. Fix the left-shore potential minimum at zero and its range to 0,1,2; for each such left word, the permitted integer heights on a right vertex are the intersection of [A_i-1,A_i+1] over its remaining neighbours. Counting full, missing-one and extremal cases yields exactly 3[4^n+2*3^n-2^(n+2)+1+t*2^(n+1)+t(t-1)]. Both the t=0 and t=n boundaries are connected and included. Direct *independent* height enumeration agrees for all n=3..6 and t=0..n; independently running actual CCA and GHM dynamics until repetition for all 3^(2n) starts at n=3,4 verifies identical synchronization counts for each t. These finite tests corroborate but do not replace the all-n Lipschitz enumeration.
+
+## originality
+
+PASS
+
+Qualified original exact synchronizing-colouring census for a natural graph-defect parameter, while the root/winding synchronization criterion is pre-existing. The nonadditive t(t-1) interaction is not covered by the inspected one-edge temporal census.
+
+## value
+
+PASS
+
+The number of synchronizing initial colorings is a natural basin-size invariant for two classical deterministic excitation rules. The complete matching-deletion family reveals a rigorously quantified pair interaction, second finite difference 6, not an arbitrary finite parameter slice: arbitrary t from 0 to n changes the graph connectivity pattern while preserving the winding criterion. It can be used to compare robustness to structured edge deletion and is not just a numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

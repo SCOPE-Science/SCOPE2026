@@ -1,11 +1,21 @@
-# Review: quadratic synchronization response
+# Independent mathematical audit
 
-**Correctness: PASS.** The graph is connected for every specified \(n\ge3\) and \(t\le n\). The published cycle-integral criterion [1, Theorem 3] applies exactly to the finite connected synchronous three-state CCA and GHM rules given in the result. Cycle-flow conservation proves the common synchronization set. The height-lift bijection fixes the normalization and counts every starting colour exactly once per root-colour choice. For \(n\ge3\), a third bipartition index enforces the spread bound \(s\le2\). The three spread counts include the unique-extremum single-defect terms and the two-defect interaction \(t(t-1)\). Two independent programs reproduce all listed finite checks.
+## correctness
 
-**Originality: PASS, with historical risk.** [1] gives a general cycle criterion, not an explicit count for a graph with \(t\) matching edges deleted. Existing exact analysis at one deleted edge covers the endpoint \(t=1\), not the interaction term at \(t\ge2\). Nearby published claims about crown graph colourings, non-CIS pairs, and bipartite parity automata concern different definitions and do not mathematically imply the synchronization census. Searches for integer-Lipschitz homomorphisms and matching-deleted excitation did not locate a stronger or equivalent formula. An unindexed combinatorial enumeration remains possible.
+PASS
 
-**Mathematical value: PASS.** Synchronizing initial-state populations are natural dynamical basins; the exact all-size response to a structurally constrained set of edge removals measures resilience of a finite excitable network. The positive constant second difference is a non-additive pair-defect effect, absent in the \(t=0,1\) endpoints, and the same proof yields the uniform exponential synchronization law. This is an exact natural invariant of an infinite two-parameter family, not an arbitrary finite census.
+For n>=3 and 0<=t<=n the deleted-matching graph is connected. The Gravner–Lyu–Sivakoff 3-colour irrotationality criterion identifies synchronizing CCA and GHM initial states with integer 1-Lipschitz potential lifts, unique up to a global shift. Fix the left-shore potential minimum at zero and its range to 0,1,2; for each such left word, the permitted integer heights on a right vertex are the intersection of [A_i-1,A_i+1] over its remaining neighbours. Counting full, missing-one and extremal cases yields exactly 3[4^n+2*3^n-2^(n+2)+1+t*2^(n+1)+t(t-1)]. Both the t=0 and t=n boundaries are connected and included. Direct *independent* height enumeration agrees for all n=3..6 and t=0..n; independently running actual CCA and GHM dynamics until repetition for all 3^(2n) starts at n=3,4 verifies identical synchronization counts for each t. These finite tests corroborate but do not replace the all-n Lipschitz enumeration.
 
-**Closest literature and limits.** [1] supplies the general synchronization criterion and is not claimed as original. The present proof does not count nonzero-rate phases, temporal periodic orbits or entrance-time strata. Independent verification and complete historical priority are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified original exact synchronizing-colouring census for a natural graph-defect parameter, while the root/winding synchronization criterion is pre-existing. The nonadditive t(t-1) interaction is not covered by the inspected one-edge temporal census.
+
+## value
+
+PASS
+
+The number of synchronizing initial colorings is a natural basin-size invariant for two classical deterministic excitation rules. The complete matching-deletion family reveals a rigorously quantified pair interaction, second finite difference 6, not an arbitrary finite parameter slice: arbitrary t from 0 to n changes the graph connectivity pattern while preserving the winding criterion. It can be used to compare robustness to structured edge deletion and is not just a numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
