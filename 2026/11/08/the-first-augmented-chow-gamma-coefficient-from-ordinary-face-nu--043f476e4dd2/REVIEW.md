@@ -1,15 +1,21 @@
-# Scientific review of the first augmented-Chow gamma coefficient and simplex comparisons
+# Independent mathematical audit
 
-## Correctness — PASS
-For a convex polytope of dimension at least two, the relevant coefficient of the source's gamma-word formula is one on the leading all-c word, two on each one-d word, with one additional unit when the d appears at the right endpoint. In the ab expansion, a one-b flag-h coefficient equals the corresponding face count minus one. Equating both descriptions proves the exact first right gamma coefficient formula, and face-poset duality proves the left formula. The one-dimensional segment is handled directly. The all-dimensional lower bound follows from Billera–Ehrenborg's coefficientwise cd-index minimum and strictly positive one-d weights. Equality forces precisely dimension plus one vertices. Exhaustive degree-one-through-four word calculations prove the stated full low-dimensional comparison. The symbolic checks are independent finite corroboration, not proof of the infinite conclusions.
+## correctness
 
-## Originality — PASS, provisionally
-The closest source, Faustini–Ferroni–Piazza, arXiv:2609.22078 (public September 18, 2026), explicitly conjectures coefficientwise gamma-simplex minimality, while proving gamma-positivity and supplying the monomial formula from which the new calculation starts. The classical Billera–Ehrenborg theorem (2000) supplies the lower bound for cd-indices, but neither source as inspected identifies the face-vector formula, its dual vertex–facet imbalance identity, the sharp first gamma lower bound, or all low-dimensional gamma vectors as a complete proof of the conjecture through dimension four. These conclusions use the two sources jointly and are not claimed to have an independent new underlying cd-index theorem. Search results of accessible mathematical records and previous claims produced no equivalent result. A logically short corollary may have been observed elsewhere without an indexed statement; historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The theorem extracts a natural low-order invariant of the newly introduced stellahedral transform that unexpectedly depends only on ordinary face counts, in contrast to the flag data used to define the whole polynomial. The right-minus-left formula measures vertex–facet asymmetry exactly. Its sharp all-dimensional simplex bound and complete resolution of the published gamma-minimality conjecture through dimension four are useful boundaries for higher-dimensional work; the explicit degree-five sign obstruction identifies why the same coefficientwise-cd argument cannot simply continue. No claim is made of a result in dimensions five and above beyond the first gamma coefficient.
+For dimension n, the gamma-word map has coefficient 1 at z on c^n and 2+1_{d rightmost} on a one-d word, with no linear contribution from >=2 d. One-b flag h entry f_{k-1}-1 matches c^n plus adjacent one-d coefficients; summing yields gamma1^R=sum f_j+f_{n-1}-2n-1, and polar dual gives left with f0. For a simplex gamma1=2^{n+1}-n-2. Billera–Ehrenborg Theorem 5.3 (full primary PDF text and page screenshot inspected) gives coefficientwise cd-index dominance; positive one-d gamma weights give sharp gamma1 dominance, equality forces n+1 vertices (dually n+1 facets). Independently rederived gamma-word table for all degree<=4 words, first coefficients through n=34 and negative z^3 term in Gamma(c^3 d) at degree 5. All degree<=4 nonleading cd words have nonnegative positive gamma coefficients, so full gamma simplex bound holds n<=4; n4 values (1,26,43). Finite table checks supplement symbolic theorem, not prove all-dimensional statement.
 
-## Related work and limits
-The newest source contains the explicit gamma-word formula (Proposition 6.3), duality and conjecture (Theorems 1.6 and 6.9). Billera–Ehrenborg (Theorem 5.3) supplies a logically necessary cd-index comparison. This is a motivated combination and exact extraction of those ingredients; the higher-dimensional gamma-minimality conjecture remains open. The relevance of other, possibly unindexed, observations about the first gamma coefficient is a residual priority risk. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality qualified: Augmented Chow first gamma face invariant and simplex bounds. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.
+
+## value
+
+PASS
+
+This is a natural invariant of the augmented Chow/stellahedral transform whose first gamma coefficient unexpectedly depends on ordinary face counts rather than full flag data. All-dimensional dual vertex–facet imbalance identity, sharp equality classification and small-dimension complete gamma comparison provide precise boundaries for the published conjecture. The n4 right case is already published and gets NO novelty credit, but all-dimensional face identity and sharp gamma1 are a nontrivial useful remaining theorem; n>=5 full vector not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
