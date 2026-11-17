@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For each n>=7 and deleted distance d=1 or d=2, a closed walk of length n in the explicitly specified four-letter de Bruijn transfer is equivalent to a labelled pair (x,y) with y=F(x), x=F(y). Restricting letters to x=y gives precisely fixed points. Exact integer matrices of dimensions 256 and 16 therefore calculate P_n and H_n. By Cayley--Hamilton, D_n=P_n-H_n obeys a recurrence of order at most 272; so D_(n+12)-D_n also does. The included checker verifies 272 consecutive zeros for n=7..278 and the twelve initial values, proving the closed formula for all n>=7. The second independent direct graph-update enumeration verifies all 261888 states across n=7..16 and both edge deletions. Outputs are embedded; all conclusions depend only on reproducible exact arithmetic and the stated recurrence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles and Olivos 1980 published abstract proves eventual period at most two for symmetric threshold functions, with no graph-family orbit census in the accessible abstract.",
+        "Tosic and Agha 2004 author PDF, pages 1,5,8, studies uniform one-dimensional threshold automata and broad phase-space properties.",
+        "Benjamini et al. arxiv:1405.2486v1, Introduction Theorem 1.1 and Sections 2-3 study global convergence, random graphs and infinite networks, not deleted-bond counts."
+      ],
+      "reasoning": "Eventual period <=2 does not determine the number of periodic orbits. Homogeneous 1D results do not automatically extend to two heterogeneous local neighborhoods. General nonuniform cellular-automaton decidability and nilpotency results do not enumerate these two defect types.",
+      "searches": [
+        "Goles Olivos 1980 Periodic behaviour of generalized threshold functions",
+        "Tosic Agha 2004 Characterizing Configuration Spaces Simple Threshold Cellular Automata",
+        "Benjamini Chan O Donnell Tamuz Tan arxiv 1405.2486 majority dynamics",
+        "non-uniform cellular automata periodic points defective rule distributions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2205.08972v1, full HTML relevant sections",
+      "Tosic and Agha 2004, 10-page PDF relevant sections",
+      "arxiv:1405.2486v1, full HTML relevant sections",
+      "Goles--Olivos 1980 university bibliographic abstract",
+      "Prior scientific statements compared for squared-cycle fixed points, singly chorded ordinary-ring majority, squared-cycle excitation; deduplication only",
+      "Published semantic records queried for defective radius-two majority and analogous period-two classifications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n=7, the direct checker exhibits 0100110 <-> 1011001 after deleting edge {0,2}, while deletion of {0,1} gives zero two-cycles.",
+        "An intact radius-two ring cannot have a primitive two-cycle at odd n under the Nakar--Ron 2022 patterns, while deleting one distance-two edge produces one whenever n=3 mod 4.",
+        "The proven exact formulas involve edge-deletion distances and modular residue classes not determined by existing fixed-point counts or general period bounds."
+      ],
+      "reasoning": "There is a real change of dynamics, not merely a rewrite of an existing parameter: deleting {0,2} destroys uniformity and permits isolated odd-ring oscillations. No inspected broader theorem specifies counts after either deletion; one cannot derive these counts by specializing intact-ring results or formulas for a different graph operation.",
+      "searches": [
+        "arxiv:2205.08972 Theorem 1 r=2 exact patterns intact cyclic majority automata",
+        "majority cycle square remove edge periodic states fixed point two-cycle",
+        "singly chorded ring majority two cycles chord distance formula",
+        "fixed-state entropy squared cycles majority minority"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakar and Ron, arxiv:2205.08972v1, Section 1.4 gives intact radius-two ring recurrent configurations of spatial periods two, four, six and fixed long runs.",
+        "The deficient graphs have degree-three exceptional endpoints and a nontranslation-invariant local rule; the uniform classification does not identify their additional defect-induced two-cycles."
+      ],
+      "reasoning": "For intact rings the centered five-bit majority rule is equivalent to four-neighbor majority with self-retention of ties. After removing a bond, this equivalence to ONE uniform five-bit rule fails at exactly the two endpoints, where three-neighbor strict majority applies. Thus the uniform-ring classification does not imply the formulas for G_(n,d). The explicit odd-n defect two-cycle cannot be a configuration of the intact-ring theorem.",
+      "searches": [
+        "majority dynamics cycle square C_n^2 period two configurations",
+        "majority rule radius two ring counting 2 cycles period four periodic words",
+        "radius-two binary majority automaton single defect broken bond periodic oscillations",
+        "arxiv:2205.08972 sections 1.3 and 1.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic results included parity automata on the distance-two Boolean cube and complete-multipartite networks; those use additive parity rather than majority and different graphs.",
+        "Prior intact squared-cycle fixed-state work counts stationary states, not missing-edge temporal period-two states.",
+        "Prior singly chorded-ring result is for a degree-two ordinary ring with one extra edge, rather than a degree-four squared ring with one deleted edge."
+      ],
+      "reasoning": "No exact matching table or database entry surfaced in the actual searches. This search outcome alone is not proof of novelty; the scientific non-implications and accessible primary-source comparisons provide the basis for originality assessment.",
+      "searches": [
+        "published mathematical-record search: majority dynamics on a squared cycle with a deleted adjacent edge or deleted distance-two edge; exact period-two cycle counts",
+        "published mathematical-record search: range-two binary majority automaton single defect broken bond periodic oscillations",
+        "web literature: majority squared cycle graph deleted edge two cycle periodic",
+        "Prior-claim comparison: fixed-state spectra and entropy gap on squared cycles; chord-distance formula for majority two-cycles on singly chorded rings; contact-threshold rigidity on squared cycles"
+      ]
+    },
+    "rationale": "Exact classification of two-cycle counts under one specific missing nearest-neighbor or next-nearest-neighbor bond is distinct from general symmetric-threshold period bounds, homogeneous radius-two majority pattern classifications, fixed-state enumerations on intact squared cycles, and majority cycles on singly chorded ordinary rings. Both edge-defect types are classified simultaneously, exposing an odd-length two-cycle on distance-two deletion absent on neighboring-bond deletion. No claim of priority is made for the standard transfer construction or intact-ring patterns; residual historical uncertainty remains.",
+    "residual_risks": [
+      "Earlier literature not found in targeted searches may contain an exact defective-ring enumeration.",
+      "The original full text of Goles--Olivos 1980 and 1981 was not retrieved; no negative coverage inference is drawn from their abstracts alone.",
+      "The all-size result depends on the explicit finite integer certificate as well as an algebraic recurrence argument; independent human review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Applies to uniform cyclic radius-r majority; r=2 pattern list does not address two distinct defective neighborhoods, and no deleted-bond census appears in the inspected relevant statements.",
+        "evidence": [
+          "Section 1.4 enumerates the intact-ring temporal patterns (01)*, (0011)*, (001101)*, (001011)* alongside fixed run patterns.",
+          "Theorem 1 bounds the spatial period in the uniform regime."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Author full-text HTML, Introduction, Definition 3, Theorem 1, Section 1.4 r=2 explicit periodic pattern list and Section 1.5 minority comparison.",
+        "method": "Opened author arXiv text, inspected statements and formulas including the r=2 specialization.",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Most directly relevant intact radius-two majority cellular automaton; theorem may dominate if formulated for arbitrary local defects."
+      },
+      {
+        "assessment": "Broad uniform 1D synchronous/sequential CA periodicity and rarity results do not yield the present quantitative single-edge-deletion orbit count.",
+        "evidence": [
+          "Theorem 1 establishes existence of cycles for parallel 1D radius-r majority CA and their absence under sequential updating.",
+          "Lemmas 5-7 discuss finite vs infinite cycle configurations and density, not a deleted-bond orbit formula."
+        ],
+        "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "Accessible ten-page author PDF: introduction and definitions; PDF pages 5 and 8 including Theorem 1, Lemmas 5-7, discussion of cyclic configurations and finite/infinite CA.",
+        "method": "Read PDF text and visually inspected pages 5 and 8.",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "Earlier primary full-text analysis of majority threshold cellular automata, possible covering periodic-point classification."
+      },
+      {
+        "assessment": "Finite-graph eventual period-two fact and probabilistic/unimodular conclusions do not supply exact periodic-state counts on defective squared cycles.",
+        "evidence": [
+          "Introduction equation (1.1) explicitly treats ties by preserving the vertex opinion.",
+          "Theorem 1.1 is eventual period at most two for every finite graph; the paper focuses on other objects and does not give these census formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Author arXiv full-text HTML, Introduction, update rule and tie convention, Theorem 1.1, random-graph results and Section 2.",
+        "method": "Read text and verified initial arXiv posting on 2014-05-11 UTC.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Verified day-dated archival source and basic finite-graph majority-periodicity background."
+      },
+      {
+        "assessment": "Accessible result covers periods, not orbit counts; cannot assert that inaccessible full text excludes all related examples.",
+        "evidence": [
+          "Published abstract: symmetric threshold maps iterate to fixed points or two-cycles."
+        ],
+        "identifier_or_url": "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+        "material_read": "University-hosted bibliographic record and full published abstract only; original article full text not obtained.",
+        "method": "Compared stated theorem and scope of accessible abstract.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Foundational antecedent for eventual period <=2."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e064020d-6821-42d0-968b-ec1379abe477",
+  "value": {
+    "rationale": "A single local perturbation of the natural range-two majority ring induces a global and graph-theoretically selective oscillation effect. Two geometrically inequivalent missing edges have different exact laws: only removal of a distance-two bond creates an oscillation at every odd length n=3 mod 4, while no growing family of other 2-cycles appears. This is a complete natural infinite-family classification of a dynamically meaningful invariant, not an arbitrary parameter slice. The exact bound of four temporal orbits, the modular existence theorem, and the labelled seven-vertex witness distinguish defect response from the known uniform spatial periodicity classification. The finding is self-contained and independently reproducible modulo the stated historical priority risk.",
+    "status": "PASS"
+  }
+}
