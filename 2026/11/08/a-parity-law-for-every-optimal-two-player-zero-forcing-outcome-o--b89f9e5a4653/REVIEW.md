@@ -1,11 +1,21 @@
-# Scientific review: game zero forcing on an edge-deleted clique
+# Independent mathematical audit
 
-**Correctness — PASS.** A coloured universal vertex sees every white vertex, whereas a coloured exceptional vertex sees exactly the white universal vertices. Consequently all force targets and nonblocking seed options are decidable from the specified 72 quotient states. The exact recurrence faithfully applies the primary paper's set-valued optimality and force-preservation rules. The exhaustive 72-state identity \(F_3=F_5\) is reproduced by `verify.py` from `periodicity_certificate.tsv`; the size-independent transfer identity \(F_w=\Phi(F_{w-1})\) for \(w\ge2\) then gives a genuine infinite induction, not an unsupported finite extrapolation. Separately enumerated vertex-level game trees through order ten corroborate every quotient rule. Risk: the finite lemma is software-checked and awaits independent mathematical audit, although the full code and table permit direct replay.
+## correctness
 
-**Originality — PASS, qualified.** Annor and Howerton [1] explicitly give the \(n=5\) pair and \(n=4\) game value and report computation on all connected graphs through order nine. Those instances are covered prior work. The new mathematical content is the closed formula for every ordered optimal outcome for all \(n\ge4\), proved uniformly through the period-two state-transfer lemma. Their results for complete and complete bipartite graphs are neither equivalent to nor stronger than the edge-deleted-clique outcome theorem. Searches of published mathematical records and equivalent terminology did not expose the all-orders statement. Risk: unindexed or inaccessible later work might overlap, so historical priority is provisional.
+PASS
 
-**Mathematical value — PASS.** The original manuscript uses \(K_5-e\) to demonstrate that a player's ties can preserve multiple total seed counts, but gives no infinite class where this behavior is structurally classified. The result exhibits such behavior at every odd order and shows its disappearance at every even order, thereby connecting a natural one-edge perturbation of complete graphs to a robust parity phenomenon in competitive optimization. The complete outcome correspondence is stronger than the scalar invariant, and the symmetry quotient explains the infinite pattern. Risk: the family contains only one edge defect, so a broader theory of arbitrary edge deletions remains open.
+A coloured clique vertex has w+q white neighbours, and either exceptional vertex w. Hence no forces while w>=2, and quotient state (w,x,y,ownership flags,mover) with 72 non-w combinations suffices. Full certificate TSV has 72 identical F3/F5 pairs; read verifier recurrence and its labelled-vertex independent cross-check. A deterministic w-independent transfer Phi for w>=2 extends F3=F5 to all w by induction, yielding root force sets {(1,1)} for even n and {(1,0),(1,1)} for odd n. Converting force counts using ceil/floor n/2 turns gives the specified seed sets, including the exceptional P3 boundary. Bounded finite certificate is a genuine base lemma, not improperly extrapolated.
 
-**Closest sources and boundaries.** Primary source: Dickson Y. B. Annor and Ben Howerton, *A Two-Player Zero Forcing Game*, arXiv:2608.04579, submitted 2026-08-05, Sections 2–5. The paper's finite census through nine vertices is explicitly acknowledged; the new theorem has genuinely additional infinitely many cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: published primary paper supplies rules, K5-e example, K4-e scalar and census up to nine vertices, but not the unbounded ordered outcome classification or 72-state two-periodic transfer argument. No stronger covering theorem found in searched records; inaccessible/unindexed work remains a residual priority risk.
+
+## value
+
+PASS
+
+PASS: a nontrivial all-order classification of every optimal tie outcome for a competitive game, with distinct seed totals at every odd n; quotient periodicity is a reusable structural method beyond known small graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

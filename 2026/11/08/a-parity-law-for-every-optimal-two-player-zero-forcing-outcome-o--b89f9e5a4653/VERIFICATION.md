@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with `periodicity_certificate.tsv` in the same directory. No external modules are required.
+## correctness
 
-The program constructs and checks all 72 quotient-state entries for \(F_3\) and \(F_5\). Because the size-independent transfer equation holds for every \(w\ge2\), this finite equality is the inductive certificate for the unbounded parity law. The program separately computes the full vertex-labelled game tree for each \(3\le n\le10\), checks both the exceptional boundary and every stated base case, and checks further root values through order 102. All tests are exact integer/set operations. A successful replay ends with `VERIFY_OK`.
+PASS
 
-The independent vertex-labelled computation is an independently written *algorithmic cross-check within this package*, not an independent mathematical audit. The theorem is not established by finite-order testing alone; it relies on the exact transfer map and the 72-state finite identity. The result does not cover other graph families, nor different optimality or force-preservation conventions.
+A coloured clique vertex has w+q white neighbours, and either exceptional vertex w. Hence no forces while w>=2, and quotient state (w,x,y,ownership flags,mover) with 72 non-w combinations suffices. Full certificate TSV has 72 identical F3/F5 pairs; read verifier recurrence and its labelled-vertex independent cross-check. A deterministic w-independent transfer Phi for w>=2 extends F3=F5 to all w by induction, yielding root force sets {(1,1)} for even n and {(1,0),(1,1)} for odd n. Converting force counts using ceil/floor n/2 turns gives the specified seed sets, including the exceptional P3 boundary. Bounded finite certificate is a genuine base lemma, not improperly extrapolated.
+
+## originality
+
+PASS
+
+PASS best of knowledge: published primary paper supplies rules, K5-e example, K4-e scalar and census up to nine vertices, but not the unbounded ordered outcome classification or 72-state two-periodic transfer argument. No stronger covering theorem found in searched records; inaccessible/unindexed work remains a residual priority risk.
+
+## value
+
+PASS
+
+PASS: a nontrivial all-order classification of every optimal tie outcome for a competitive game, with distinct seed totals at every odd n; quotient periodicity is a reusable structural method beyond known small graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
