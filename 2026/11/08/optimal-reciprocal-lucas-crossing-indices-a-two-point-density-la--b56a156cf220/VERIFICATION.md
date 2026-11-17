@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify_lucas_reciprocal.py` using Python 3.11 or newer. The script constructs \(F_n\) recursively in integers and computes strict partial-sum crossings using exact rational arithmetic. For every \(2\le q\le p\le10\) and odd \(1\le k\le91\) it compares the exact minimum against the published cutoff interval, and calculates the predicted phase with 110-digit decimal precision. It records 2,070 parameter-index cases, 2,069 phase predictions agreeing exactly, and the explicit small equality exception \((p,q,k,J,J_{\mathrm{phase}})=(2,2,1,4,3)\). It also reports sample values of the density parameter \(\vartheta\).
+## correctness
 
-The unrestricted proof uses a convergent Binet-geometric expansion, an \(O_{p,q}(\rho^k)\) relative-error bound, irrationality via conjugation in a quadratic field, and Weyl equidistribution on odd indices. Exact finite computation neither supplies nor replaces the latter infinite argument. The phase formula is not asserted at every odd index. Numerical logarithms in the verifier only evaluate illustrative finite predictions, not the theorem's analytic constants.
+PASS
+
+For F_{k+2}=pF_{k+1}+qF_k with integers p>=q>=2 and odd k, write A=(p+sqrt(p²+4q))/2 and B=-q/A. The Binet inverse expansion cancels its leading 1/A mode in the infinite partial-sum overshoot E_k. The next Binet mode at z_1=-q/A³ contributes positive (A-B)C(q/A³)^k(1+O((q/A²)^k)); the tail after J has leading c(A-B)A^{-J}/(A-1). Taking their ratio gives A^{J-lambda k-b}(1+O(rho^k)), so crossing occurs at floor(lambda k+b)+1 except at exponentially small near-integer phases. Quadratic conjugation proves lambda=3-log_A q irrational, and equidistribution along odd k makes such near-integer phases density zero. The cutoff difference 0<theta<1 and diagonal overshoot density w-theta follow. An exact rational independent check reproduced 119/120 phase predictions at small indices and the strict equality exception (2,2,1), not an all-index eventual identity.
+
+## originality
+
+PASS
+
+Komornik and Pedicini (2026, Theorem 1.3 and Remark 1.7) prove upper/lower integer cutoffs K1,K2 and, in the diagonal family, the density of interval WIDTH K2-K1=2. The submitted theorem instead determines the density-one phase of the ACTUAL minimal strict crossing J(k) for all p>=q>=2 and exact J-K1 frequencies, and thus the distinct density of actual K2 overshoots. Primary full text including Table 1, Remark 1.7, and proof Sections 4-5 was read. No known fixed-cutoff result mechanically determines the Binet corrected C or theta; remaining risk is unlocated contemporaneous results.
+
+## value
+
+PASS
+
+The minimal crossing index is the exact natural observable in the original reciprocal-Lucas inequality, whose prior published cutoffs could be nonoptimal. Quantifying whether K1+1 or K1+2 is needed at each typical odd index and the precise frequency of upper-bound overshoot resolves a motivated, identified sharpness problem. An exceptional initial strict-equality case is correctly isolated, not hidden, and the density result is meaningful even without an all-index classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

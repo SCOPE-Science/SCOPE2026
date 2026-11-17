@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof independently derives the first surviving (negative-conjugate) Binet mode after the geometric leading term cancels, with exact coefficient \(C\), and derives the independently normalized remaining tail. Their ratio has a crossing at the explicit real phase \(\lambda k+b\), up to exponentially small relative error. The author-supplied finite-index bound guarantees existence and bounds the candidate integer range. Irrationality of \(\log_A q\) follows by quadratic conjugation, so equidistribution makes exponentially close integer phases a density-zero exception. The strictness boundary is explicitly retained; a verifier demonstrates the exceptional equality at \(p=q=2,k=1\). The full argument covers each fixed \(p\ge q\ge2\), all sufficiently large odd indices away from exceptional phases, and gives both limiting frequencies without extrapolating finite tests.
+## correctness
 
-## Originality — PASS (historical-priority risk retained)
-Komornik–Pedicini [1, Theorem 1.3 and Remark 1.7] give the lower/upper cutoff window, document its potential nonoptimality, and compute the frequency of **window widths**, but never compute the frequency of the **actual first strict crossing**. The new Binet coefficient \(C\), corrected phase \(b\), and density \(\vartheta\) distinguish the claims. Nearby Lucas-period, reciprocal higher-power-tail, and zeta-modal records have different sums and different target parameters. Earlier expansion literature describes existence rather than this optimal-index frequency, according to inspected bibliographic abstracts; full historical priority is not assured.
+PASS
 
-## Mathematical value — PASS
-The source identifies a concrete natural problem: its cutoff estimates are sometimes not optimal, even in the simplest diagonal case. The result resolves the asymptotic sharpness frequencies for all fixed admissible parameters, quantitatively separates window-width frequency from real endpoint accuracy, and gives a positive-density nonoptimality law for the published diagonal upper endpoint. The precise invariant is not an arbitrary restricted slice: it is the minimal index needed for the source's defining reciprocal-sum inequality.
+For F_{k+2}=pF_{k+1}+qF_k with integers p>=q>=2 and odd k, write A=(p+sqrt(p²+4q))/2 and B=-q/A. The Binet inverse expansion cancels its leading 1/A mode in the infinite partial-sum overshoot E_k. The next Binet mode at z_1=-q/A³ contributes positive (A-B)C(q/A³)^k(1+O((q/A²)^k)); the tail after J has leading c(A-B)A^{-J}/(A-1). Taking their ratio gives A^{J-lambda k-b}(1+O(rho^k)), so crossing occurs at floor(lambda k+b)+1 except at exponentially small near-integer phases. Quadratic conjugation proves lambda=3-log_A q irrational, and equidistribution along odd k makes such near-integer phases density zero. The cutoff difference 0<theta<1 and diagonal overshoot density w-theta follow. An exact rational independent check reproduced 119/120 phase predictions at small indices and the strict equality exception (2,2,1), not an all-index eventual identity.
 
-## Closest literature and limitations
-[1] V. Komornik and M. Pedicini, *Estimates of Lucas series and expansions in non-integer bases*, arXiv:2610.41658v1 (30 October 2026), https://arxiv.org/html/2610.41658v1 . The formula is density-one, **not** an eventual all-index identity; exceptionally close phases are left unclassified. The strongest new statement depends on [1] for existence of the finite crossing at every positive odd index. The finite verifier corroborates only tested parameter/index ranges. Historical-priority comparison with earlier articles whose unrestricted full text was not obtained remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Komornik and Pedicini (2026, Theorem 1.3 and Remark 1.7) prove upper/lower integer cutoffs K1,K2 and, in the diagonal family, the density of interval WIDTH K2-K1=2. The submitted theorem instead determines the density-one phase of the ACTUAL minimal strict crossing J(k) for all p>=q>=2 and exact J-K1 frequencies, and thus the distinct density of actual K2 overshoots. Primary full text including Table 1, Remark 1.7, and proof Sections 4-5 was read. No known fixed-cutoff result mechanically determines the Binet corrected C or theta; remaining risk is unlocated contemporaneous results.
+
+## value
+
+PASS
+
+The minimal crossing index is the exact natural observable in the original reciprocal-Lucas inequality, whose prior published cutoffs could be nonoptimal. Quantifying whether K1+1 or K1+2 is needed at each typical odd index and the precise frequency of upper-bound overshoot resolves a motivated, identified sharpness problem. An exceptional initial strict-equality case is correctly isolated, not hidden, and the density result is meaningful even without an all-index classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
