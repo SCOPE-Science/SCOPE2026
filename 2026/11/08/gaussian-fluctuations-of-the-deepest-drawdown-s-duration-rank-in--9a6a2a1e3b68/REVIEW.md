@@ -1,11 +1,21 @@
-# Scientific review: Gaussian fluctuations of selected drawdown-duration rank
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact two-boundary gambler's-ruin transform is derived from a recurrence, then analytically expanded near the origin to prove the conditional excursion-duration central limit theorem. The extreme height is tightly logarithmic by its exact geometric tail. Crucially, binomial count concentration is made simultaneous over deterministic duration thresholds before evaluating at the depth-selected random duration; this avoids falsely treating selected durations as independent. The exact Catalan duration law supplies the logarithmic correction. The proof establishes the whole centered joint limit with all constants; the \(424\) finite checks independently test its algebra but are not used as proof of convergence.
+## correctness
 
-**Originality (PASS, bounded-literature judgment).** Wu (arXiv:2610.41990v1) gives the first-order rank exponent and duration ratio, not the centered rank CLT. Perfilev–Wachtel (arXiv:1907.02578v1) provides a conditional limit theorem for a *single* high excursion, a necessary piece of background. Neither inspected source treats the empirical duration rank of the excursion selected as deepest across \(n\) episodes, its sharp adaptive-threshold \(O_{\mathbb P}(1)\) relation, or the joint fluctuation limit. Mathematical-research-record and broader literature searches did not identify a covering statement. The possibility of an earlier general theorem implying the full result remains a residual priority risk.
+PASS
 
-**Value (PASS).** The original drawdown-rank result determines a power of sample size; this theorem supplies its nontrivial and parameter-explicit second-order probability law, an exact asymptotic rank/selected-duration coupling, and the polynomial-tail correction \(-\tfrac32\log L_{I_n}\). These quantities quantify uncertainty in extremal duration ranking for a natural, nondegenerate random-walk model rather than adding an arbitrary finite calculation.
+Solved the finite gambler-ruin recurrence to reconstruct the generating function D_h(z) of exact depth and duration; at z=1 depth has geometric exponential tail and H_max=(log n)/alpha+O_P(1). The analytic logarithm of u(e^s) gives conditional duration mean 2h/delta and variance 8pqh/delta^3. The forced initial loss step yields Catalan P(L=2m)=C_(m-1)p^m q^(m-1) and t^(-3/2)exp(-beta t) length tails. Chernoff concentration holds simultaneously across deterministic O(log n) thresholds, avoiding illicit independence at adaptive L_I; this gives O_P(1) rank relation and joint Slutsky limit. Independently checked exact gambler-ruin height laws for h=1..9 at p=3/4, and read source rational checker. No deterministic-calendar-time result.
 
-**Limitations.** The result is restricted to fixed biased two-point increments and the first \(n\) independent nonzero completed excursions; it is not a claim for general increments or deterministic calendar-time windows. Literature priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wu (2026, arXiv:2610.41990) treats this same excursion/rank statistic, and its Theorem 1 and Example 2 *already establish* rank n^(1-rho+o_P(1)) and first-order duration ratio. Perfilev–Wachtel (2019) establish conditional CLT for a single large-height excursion, a prior component. Neither primary paper states the selected empirical rank sqrt(log n) Gaussian or the uniform threshold O_P(1) relation; these are the surviving advances, not the first-order exponent or single-excursion CLT.
+
+## value
+
+PASS
+
+A natural second-order uncertainty law for a widely studied drawdown ranking statistic, including explicit correlation -1 and Catalan logarithmic rank correction; quantifies fluctuation beyond existing first-order exponent and is not a contrived finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

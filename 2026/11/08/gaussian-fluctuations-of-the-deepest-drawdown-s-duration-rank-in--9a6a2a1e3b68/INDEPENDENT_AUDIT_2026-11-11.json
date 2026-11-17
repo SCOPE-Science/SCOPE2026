@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T15:55:22.492053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solved the finite gambler-ruin recurrence to reconstruct the generating function D_h(z) of exact depth and duration; at z=1 depth has geometric exponential tail and H_max=(log n)/alpha+O_P(1). The analytic logarithm of u(e^s) gives conditional duration mean 2h/delta and variance 8pqh/delta^3. The forced initial loss step yields Catalan P(L=2m)=C_(m-1)p^m q^(m-1) and t^(-3/2)exp(-beta t) length tails. Chernoff concentration holds simultaneously across deterministic O(log n) thresholds, avoiding illicit independence at adaptive L_I; this gives O_P(1) rank relation and joint Slutsky limit. Independently checked exact gambler-ruin height laws for h=1..9 at p=3/4, and read source rational checker. No deterministic-calendar-time result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Perfilev–Wachtel (2019) conditional excursion duration CLT for prescribed large height with broader light-tailed increments; Wu (2026) first-order rank for broader increments."
+        ],
+        "reasoning": "Neither theorem combines selected extreme height, dependency-aware rank counts and sqrt(log n) empirical rank law. General marked-extremes CLTs might but were not identified.",
+        "searches": [
+          "arxiv:1907.02578",
+          "deepest drawdown duration rank selected excursion central limit fluctuations Gaussian log rank"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.41990",
+        "https://arxiv.org/abs/1907.02578"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu Theorem1 gives convergence in probability of log R/log n only; Perfilev–Wachtel proves conditional single-excursion local/central limits without selected empirical rankings."
+        ],
+        "reasoning": "Neither first-order rank limit nor one-excursion conditional CLT implies the adaptive empirical rank expansion without new uniform tail-count control and tight extreme-height centering.",
+        "searches": [
+          "arxiv:2610.41990 Theorem 1",
+          "arxiv:1907.02578 Theorem 1 Corollary 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu 2026 original Theorem 1 uses same completed episodes, deepest episode duration and descending duration rank R_n; first-order log R/log n→1-rho."
+        ],
+        "reasoning": "Exact same first-order object, no terminological ambiguity. The new normalized centered rank fluctuation is a strictly finer distributional statement.",
+        "searches": [
+          "deepest drawdown excursion duration rank Gaussian central limit sqrt log n biased random walk",
+          "arxiv:2610.41990"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closed-form Catalan length distribution and gambler-ruin height transform are classical computable formulas; neither yields a pre-existing exact table of selected joint rank Gaussian fluctuations."
+        ],
+        "reasoning": "No finite database can replace an infinite-sample joint central limit law; the marginal Catalan counts are prior inputs, not novel scientific results.",
+        "searches": [
+          "deepest drawdown excursion duration rank Gaussian central limit sqrt log n biased random walk",
+          "arxiv:2610.41990 Example 2"
+        ]
+      },
+      "rationale": "Wu (2026, arXiv:2610.41990) treats this same excursion/rank statistic, and its Theorem 1 and Example 2 *already establish* rank n^(1-rho+o_P(1)) and first-order duration ratio. Perfilev–Wachtel (2019) establish conditional CLT for a single large-height excursion, a prior component. Neither primary paper states the selected empirical rank sqrt(log n) Gaussian or the uniform threshold O_P(1) relation; these are the surviving advances, not the first-order exponent or single-excursion CLT.",
+      "residual_risks": [
+        "Wu first-order result shares precisely the same model, so a future full general marked-extremes statement might subsume the Gaussian rank; no such implication appears in Wu primary theorem/proof. Oxford access was disconnected, but public arXiv text did permit direct inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS first-order exponent; NOT second-order Gaussian rank law",
+          "evidence": "Theorem 1 asserts log R_n/log n→1-rho; proof ranks via power bounds, not centered sqrt(log n).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.41990",
+          "material_read": "Full arXiv-rendered article, §2 model, Theorem 1, Example 2, and §4 proof of rank separation",
+          "method": "read arXiv primary HTML",
+          "title": "When is the deepest drawdown also the longest?",
+          "trigger": "Exact same drawdown rank and model"
+        },
+        {
+          "assessment": "COVERS conditional large-height duration normal mechanism, not extremal-selected empirical rank",
+          "evidence": "Theorems concern single excursion length/maximum joint tails; no n iid empirical duration rank statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.02578",
+          "material_read": "ArXiv-rendered original introduction, Theorem 1, Corollary and conditional excursion discussion",
+          "method": "read arXiv primary HTML",
+          "title": "Local tail asymptotics for the joint distribution of length and of maximum of a random walk excursion",
+          "trigger": "Potential stronger conditional duration CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural second-order uncertainty law for a widely studied drawdown ranking statistic, including explicit correlation -1 and Catalan logarithmic rank correction; quantifies fluctuation beyond existing first-order exponent and is not a contrived finite slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed p in (1/2,1) and q=1-p, among n i.i.d. completed nonzero loss excursions of the +1/-1 biased walk, the selected deepest excursion duration L_I and descending rank R_n have joint sqrt(log n) Gaussian limit (Z,-beta Z), with Z variance 8pq/(delta^3 alpha), alpha=log(p/q), beta=-log(2 sqrt(pq)), delta=p-q. The sharper relation log R_n=log n-beta L_I-3/2 log L_I+O_P(1) holds.",
+  "limitations": "Fixed p>1/2, independent completed *nonzero* excursions with forced initial loss; all durations even; ranking ties fixed; not deterministic physical time nor general increments; finite checks not proof.",
+  "schema_version": 1
+}
