@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_path_variance.py` with any reasonably modern Python 3 interpreter; only the standard library is needed. The checker generates the exact polynomial of each path-source outbreak's first two moments independently by enumeration of open-edge subsets, then compares the resulting variance to the closed polynomial in the mathematical proof.
+## correctness
 
-The command checks 45,052 source-edge configurations, 75 moment polynomials, 2,870 coefficient-sign patterns for location comparisons through 41 vertices, and the exact rational examples for six vertices. These computations were successfully executed from the delivered source code before inclusion.
+PASS
 
-The mathematical proof is not a finite search: its coefficient decomposition establishes one sign change of a polynomial quotient for arbitrary length and pair of source locations, and a strict near-one asymptotic establishes existence of the crossing. The Python checks are reproducibility diagnostics only, not an infinite-length certificate.
+An outbreak cluster on a path is 1+G_a+G_{m-a} with independent truncated Bernoulli-success runs. The tail-sum formula gives V_t(p)=sum_{j=1}^t j p^j -sum_{j=t+1}^{2t}(2t+1-j)p^j exactly. For D=V_a+V_{m-a}-V_c-V_{m-c}, coefficient regions are negative/positive/nonpositive and D(1)=0. Quotient D/(1-p) has prefix-sum coefficients with exactly one sign change. Descartes gives at most one positive zero counted with multiplicity, and D negative near zero while positive near one by strict convexity of sum_{j<=t}j^2, forcing one simple crossing. Mean comparison is positive by pairing short powers. Exact independent brute edge enumeration verifies 52 source moment polynomials, 3080 pair sign-certificate cases (m<=41), and the six-vertex rational signs. Finite checks corroborate only.
 
-No independent scientific validation has been performed. Other epidemic models, general graphs, arbitrary edge probabilities, and temporal outbreak statistics lie outside the theorem.
+## originality
+
+PASS
+
+PASS best of knowledge: closest stochastic epidemic papers address percolation cluster distributions, generic tree final-size laws and mean-risk rankings, not an all-n all-pairs exactly-one simple variance crossover. Other published findings concern two-crossing phenomena on general trees, or covariance under random sources, not the specified fixed-seed path comparison.
+
+## value
+
+PASS
+
+PASS: This is a complete structural pairwise ordering theorem for variance on the canonical seeded path model, showing a universal unique crossover despite central mean dominance. It is a mathematically motivated sharp comparative-risk phenomenon, not a single small-graph exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
