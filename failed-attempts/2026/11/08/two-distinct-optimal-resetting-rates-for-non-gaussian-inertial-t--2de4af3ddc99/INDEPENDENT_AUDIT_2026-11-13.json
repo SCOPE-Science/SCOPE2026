@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:53:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional Gaussian displacement gives fourth cumulant 3 Var(S_t) where S_t sums integrated-OU Gaussian interval variances. Exponential renewal-reward centered variance formula applies with bounded-linear q(tau) and exponential intervals; incomplete age affects only sublinear terms. Direct exponential integration gives C2=4D/[gamma²(z+1)(z+2)], C4=96D² z(7z²+28z+27)/[gamma^5(z+1)^3(z+2)^3(z+3)(z+4)] and K=6z(7z²+28z+27)/[(z+1)(z+2)(z+3)(z+4)]. Independent SymPy differentiation exactly reproduced both sixth-degree polynomial numerators and their single positive roots 0.30910714425957 and 2.55653661983339; Descartes signs plus endpoints prove unique maxima, finite-time positive cumulant follows strict convexity of q. No finite-time optimum or zero-friction claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary gives C4(z) itself, a strictly stronger ratewise formula than knowledge of its maximizing argument.",
+          "Olsen–Löwen gives all-order moment recursion; Meylahn et al give a general renewed OU area generating-function framework."
+        ],
+        "reasoning": "The earlier complete rational function dominates the remaining maximizer as an immediate calculus corollary; current underlying model/method is also known.",
+        "searches": [
+          "Resultary 2026/11/2 full theorem",
+          "Olsen–Löwen arxiv:2401.12685 and Meylahn et al arxiv:1510.02431"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-unique-optimum-of-non-gaussian-displacement-under-poisson-velo--dc4dddaa64f9",
+        "https://arxiv.org/abs/2401.12685",
+        "https://arxiv.org/abs/1510.02431",
+        "SCOPE2026 pinned RESULT.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating prior C4 yields -8P_abs/[(z+1)^4(z+2)^4(z+3)^2(z+4)^2], with P_abs the exact submitted polynomial.",
+          "Positive coefficients except negative constant show a unique root, so the extra optimum is a one-line consequence."
+        ],
+        "reasoning": "Every significant final assertion is either literally earlier (C4,K,K-optimum) or follows by routine derivative/root-sign operations (C4-optimum and separation); no independent remainder.",
+        "searches": [
+          "Compared submitted RESULT.md derivative polynomials against prior theorem C4 rate function",
+          "Independent SymPy differentiation of earlier rational C4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem has the identical stochastic equations with r=lambda, beta=z, and full C4 rational function.",
+          "Earlier H(beta)=K(z), identical sixth-degree P_rel and unique 2.55653661983339 optimum."
+        ],
+        "reasoning": "Not a distinct drift-reset model: the position is unreset, velocity reset to zero, gamma,D positive. The normalized optimal-rate statement is an exact earlier theorem.",
+        "searches": [
+          "Resultary query inertial particle velocity-only resetting fourth cumulant optimal rates",
+          "Read 2026/11/2 A unique optimum of non-Gaussian displacement under Poisson velocity resetting full RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known prior is an all-z formula, not a finite list or mere approximate root table; it reproduces C4(z) and K(z) identically."
+        ],
+        "reasoning": "Looking for whether 0.309 was printed is not decisive: its maximizer is computed directly from the previously known full rational formula.",
+        "searches": [
+          "Resultary exact coefficient and optimizer query for velocity resetting",
+          "Previous 2026/11/2 exact C4 and K formula"
+        ]
+      },
+      "rationale": "A fully inspected earlier Resultary theorem of 2026-11-02 gives the identical velocity-only reset OU model, identical *complete rational C4(z)* and C2(z), identical K(z), and proves its unique optimizer 2.55653661983339 with precisely the same degree-six polynomial. The remaining z≈0.309107 number is the location of the maximum of that earlier explicit known rational C4(z), obtained by one differentiation and Descartes sign count. It is an immediate calculus corollary of the previous exact rate formula, rather than an independent unknown fourth-cumulant theorem. The dual-rate comparison is thereby an immediate consequence of established data and elementary calculus.",
+      "residual_risks": [
+        "An explicit absolute-rate optimization could have appeared before the earlier exact C4 theorem; no exhaustive historical certification is claimed.",
+        "Originality/value rejection is a scientific implied-result judgment, not an access or transport failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS current rate formulas and K optimum; implies C4 optimizer by routine calculus.",
+          "evidence": "Identical C4(z) and K(z), with z_rel=2.55653661983339 and polynomial P_rel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-unique-optimum-of-non-gaussian-displacement-under-poisson-velo--dc4dddaa64f9",
+          "material_read": "Full original published RESULT.md including model, renewal proof, explicit C4 rational formula, optimizer polynomial, and complete relationships to earlier papers.",
+          "method": "Read actual Resultary repository RESULT.md and directly differentiated its rational expression.",
+          "title": "A unique optimum of non-Gaussian displacement under Poisson velocity resetting",
+          "trigger": "Exact same model, C4 coefficient, normalized kurtosis optimum."
+        },
+        {
+          "assessment": "Supports model/method background, not the decisive exact formula comparison.",
+          "evidence": "All-order moments and diffusion coefficient from velocity resetting.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "Public abstract and indexed result description; full paper not read in this run.",
+          "method": "Open web arXiv abstract.",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "Original underlying velocity-reset model and all-order moments."
+        },
+        {
+          "assessment": "Strong general method, current explicit duplicate from earlier Resultary is decisive.",
+          "evidence": "Renewal generating-function framework for area of reset Ornstein–Uhlenbeck process.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02431",
+          "material_read": "Full title/abstract and original journal description; full primary PDF not read in this run.",
+          "method": "Open web publisher abstract.",
+          "title": "Large deviations for Markov processes with resetting",
+          "trigger": "Equivalent integrated reset OU area and renewal transform."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Absolute versus standardized fourth cumulant are natural and physically distinguishable objectives, but the only not-printed fact is the maximizer of a published one-variable rational function. Its polynomial root and sign pattern follow mechanically from one derivative and do not introduce a new structural lemma, model, unexplored regime or non-implied invariant. The known full C4 function already lets any researcher compute or optimize this precise quantity; no independent substantive mathematical gap remains.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-unique-optimum-of-non-gaussian-displacement-under-poisson-velo--dc4dddaa64f9",
+    "https://arxiv.org/abs/2401.12685",
+    "https://arxiv.org/abs/1510.02431",
+    "SCOPE2026 pinned RESULT.md, verify.py"
+  ],
+  "disposition": "failed",
+  "final_claim": "For inertial Brownian motion with Poisson velocity-to-zero resetting and unreset position, exact long-time C2,C4 and normalized excess-kurtosis coefficient K have unique global resetting-rate maxima for C4 and K at z≈0.3091071443 and z≈2.5565366198 respectively.",
+  "limitations": [
+    "An explicit absolute-rate optimization could have appeared before the earlier exact C4 theorem; no exhaustive historical certification is claimed.",
+    "Originality/value rejection is a scientific implied-result judgment, not an access or transport failure.",
+    "Plan is not importable pending authorized public-file confidentiality remediation."
+  ],
+  "schema_version": 1
+}
