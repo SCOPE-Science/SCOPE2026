@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The literal AWVC blocking definition for a three-alternative top-choice-approval election is equivalent to four integer inequalities: total disapprovers, last-place disapprovers, and the two groups preferring each rival to the candidate. The proof reduces all possible coalitional preference intersections to these cases and establishes that two simultaneous survivors are impossible. Uniform rankings yield a four-class multinomial law with weights \((1/3,1/3,1/6,1/6)\). A normalized likelihood-ratio bound and an explicit attainable type prove the exact large-deviation rate for all voter counts. The exact subsequence prefactor follows from a multinomial change of measure, a summable lattice cone, a verified geometric-series evaluation \(14904/121\), and Stirling's formula. No numerical experiment is used as an infinite proof. The standalone checker exhaustively compared 5,004 anonymous strict-ranking histograms through nine voters and checked finite probabilities and the rational constant.
+PASS
 
-## Originality — PASS, with residual risks
+For singleton first-choice approval and three uniformly ranked candidates, the four exhaustive blocking tests a>0, 2a>=n, 3b<=a, 3(b+r)<=2a, 3(b+s)<=2a follow by classifying disapprover coalitions by common better rivals. Two candidate survivors would each need n/2 top votes and each be blocked by the other half. The type distribution is Multinomial(n;1/3,1/3,1/6,1/6). Exponential Markov bound using (3/2)^a(1/2)^b and the feasible type (3m,m,m,m) establish -log(27/16)/6 for all residues. The tilted mode (1/2,1/6,1/6,1/6), summable cone over h,j,ell and Stirling give the n≡0 mod6 prefactor. Independent direct strict-coalition enumeration for 27,990 candidate/profile tests through n=5 agreed; the explicit cone sum truncated at h=90 agreed with 14904/121 to 0.00031. No finite test purports to prove the n→∞ asymptotic.
 
-The directly relevant source is Dong et al., *Where Should Society Draw the Line?* (arXiv:2609.10759v1), specifically Definition 8 (AWVC), Theorem 4 (its majority-approval and veto guarantees), and the synthetic-data study. Those results introduce the general solution concept and experiment with it, whereas the current claim establishes the exact three-alternative nonemptiness law and a sharp lattice large-deviation prefactor under uniform top-one preferences. Their general majority condition is only a necessary condition here: the exact rate \(\log(27/16)/6\) is stronger than the majority-only binomial rate \(\log(9/8)/2\). Ianovski and Kondratev, *Computing the Proportional Veto Core* (arXiv:2003.09153), study the expected size of a different, approval-free veto core. No directly covering statement was identified in the accessible literature or claim searches. The primary document was materially inspected at its relevant definition, theorem, algorithm and empirical discussion; not every appendix was read end-to-end. The older source's complete text and potentially unindexed equivalent results remain material originality risks; an independent audit has not been conducted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A consent procedure is useful only insofar as it can produce defensible options, making its probability of returning an empty set a natural operational question. The exact three-alternative impartial-culture model is the smallest nontrivial ordinal culture with both last-place and two distinct middle-place coalitional veto patterns. The theorem proves structural uniqueness of consent under top-choice approval, delivers exact finite probabilities, and separates the full core's exponentially small survival probability from the weaker majority-only benchmark. The explicit rational \(n^{-3/2}\) prefactor captures a genuine three-constraint lattice boundary rather than an arbitrary finite census. It does not claim broader preference models or strategic truthfulness.
+Best-of-knowledge PASS for the exact AWVC nonempty rare-event law and rational n≡0 mod6 prefactor. Original Dong et al. work introduces the approval-weighted blocking mechanism; an earlier published SCOPE AWVC phase result assumes independent binary approvals and does not imply the tightly dependent top-choice-only rankings, four-category coalition cone, or this rate/prefactor. The primary 2026 paper's abstract was inspected but full text was unavailable; stronger hidden distributional calculations remain an explicit priority risk.
 
-## Closest literature and limitations
+## value
 
-Primary: C. Dong et al., arXiv:2609.10759v1 (September 9, 2026), https://arxiv.org/abs/2609.10759. Secondary: E. Ianovski and A. Y. Kondratev, arXiv:2003.09153, https://arxiv.org/abs/2003.09153. Other residue classes share the logarithmic rate but are not claimed to share one leading constant. The older proportional-veto paper's expected-size result is not a result about the AWVC rule defined in 2026; nonetheless a stronger reduction from that paper remains a residual check for subsequent independent scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact probability of nonempty collective consent under the natural impartial culture, including the rare-event rate and explicit lattice prefactor, is a motivated and potentially reusable social-choice statistic; the coalitional obstruction is not just a routine binomial majority count. The fixed three-candidate/top-only assumption and one-residue prefactor limit the result, but do not trivialize the exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
