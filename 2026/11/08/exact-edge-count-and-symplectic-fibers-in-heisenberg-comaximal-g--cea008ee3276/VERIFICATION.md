@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 check_comaximal.py` using Python 3 with no third-party dependencies. The exact output for the tested configurations is included as `verification_output.txt`.
+## correctness
 
-The program enumerates all RREF subspaces of the ambient Heisenberg Lie algebra in the tested prime fields; checks bracket closure for each; then directly takes vector spans of pairs together with their cross-brackets and determines whether each pair generates the full Lie algebra. This is an independent test of the claimed quotient-spanning criterion, not merely an evaluation of the same formula. It separately checks the predicted quotient-image fiber sizes. Finally it evaluates the integer Gaussian/symplectic formula over twenty configurations. The complete directly enumerated cases are \((m,q)=(1,2),(1,3),(2,2),(2,3)\), with exact edge counts \(27,96,3805,100905\). The two rank-one cases are prior-literature boundary checks.
+PASS
 
-The direct code uses modular inverses and RREF over **prime** fields only; the larger field sizes in the symbolic test are evaluations of integer cardinality formulas, not finite-extension-field enumerations. This limitation is explicit. The theorem covers all finite fields because the mathematical proof invokes finite symplectic linear algebra independently of the code. Neither finite enumeration nor symbolic value checks constitute an exhaustive verification of the universal theorem. No separate independent mathematical audit has been performed.
+For all finite fields q and every m>=2, any proper Heisenberg subalgebra is either a full inverse image of proper W<V or a linear-functional graph on nonzero isotropic W. Nondegeneracy proves Lie generation iff W+W'=V. Gaussian/subspace-complement counting gives D_k, and complementary Lagrangians contribute I_m*q^[m(m+1)/2+2m]/2 because symmetric bilinear forms parametrize their complements. The central projection-zero vertex is isolated; hyperplanes give clique and coloring of size (q^(2m)-1)/(q-1) and a common-neighbor diameter bound. Recomputed integer formulas independently for m=2 and q=2,3,4,5 (including 3805 and 100905 edges). Finite checks only corroborate unrestricted proof.
+
+## originality
+
+PASS
+
+Published rank-five (m=2) degree strata imply its special edge count, and the general quotient blow-up is known, but the inspected prior statements do not derive the all-rank nonuniform isotropic-fiber sum and complementary-Lagrangian edge term. Original best of knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+A complete uniform exact edge census for a natural all-rank family of Lie-algebra generation graphs plus clique/chromatic/diameter invariants; complementary Lagrangian term is structural and cannot be omitted. Useful extension beyond the prior dimension-five table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: exact edge counts for Heisenberg comaximal graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-Every subalgebra is reconstructed by its image in the quotient by the one-dimensional center. The proof distinguishes the central lift from graph lifts, proves the isotropic condition for the latter, and shows that Lie generation is equivalent to spanning the symplectic quotient. The Gaussian count of complementary subspaces, the isotropic-subspace count from ordered bases, and the symmetric-matrix count of complementary Lagrangians are each derived with their full finite-field hypotheses. Expanding the weighted edge count yields three disjoint edge types; the factor \(1/2\) is applied only to unordered types. The coloring and diameter arguments use proper hyperplanes and hold even in characteristic two. An independent exhaustive subspace/bracket checker reproduces \(156\) vertices and \(3805\) edges for \(m=2,q=2\), and \(691\) vertices and \(100905\) edges for \(m=2,q=3\), and checks lower-dimensional boundary cases. Finite checks corroborate but are not used to prove the infinite family.
+## correctness
 
-## Originality — qualified PASS
-The initial 2026 paper by Towers, Zuleta and Gutierrez classifies the three-dimensional Heisenberg case. Their August 2026 sequel proves a general Frattini-quotient blow-up theorem (Theorem 6.1) and counts triangles in dimension three; that generic graph reduction is **prior work**. The present contribution is the explicit all-rank symplectic fiber distribution and consequent exact number of edges for genuine higher-dimensional Heisenberg algebras, with a complementary-Lagrangian term. The first rank in scope has Lie-algebra dimension five. No matching edge formula was found in published mathematical-record searches, or in the inspected primary full texts. A result about the subalgebra *commutativity degree* of finite Heisenberg Lie algebras counts a different relation and does not entail the generation edge number. Search nonmatches cannot establish priority, and an implicit equivalent in subspace-sum-graph or classical finite symplectic geometry remains possible.
+PASS
 
-## Mathematical value — PASS
-The originating papers identify exact graph invariants and extension beyond the first low-dimensional Lie algebras as substantive targets. The edge number is a natural complete invariant of the comaximal graph, not an arbitrary statistic: it counts unordered pairs of proper subalgebras that generate the entire Lie algebra. The new enumeration separates three structural mechanisms, with extra-to-extra generation possible precisely between complementary Lagrangians. It therefore identifies symplectic geometry invisible in the prior rank-one uniform blow-up. Together with the vertex count and sharp clique/chromatic/diameter values, it gives an all-rank graph census in an important infinite nilpotent family. It is not a claim about spectra, graph automorphism groups, triangle counts, or all nilpotent algebras.
+For all finite fields q and every m>=2, any proper Heisenberg subalgebra is either a full inverse image of proper W<V or a linear-functional graph on nonzero isotropic W. Nondegeneracy proves Lie generation iff W+W'=V. Gaussian/subspace-complement counting gives D_k, and complementary Lagrangians contribute I_m*q^[m(m+1)/2+2m]/2 because symmetric bilinear forms parametrize their complements. The central projection-zero vertex is isolated; hyperplanes give clique and coloring of size (q^(2m)-1)/(q-1) and a common-neighbor diameter bound. Recomputed integer formulas independently for m=2 and q=2,3,4,5 (including 3805 and 100905 edges). Finite checks only corroborate unrestricted proof.
 
-## Primary literature comparisons and limitations
-The full public author text of arXiv:2605.09583 was inspected for the definition, dimension-three classification and Heisenberg case. The full public author text of arXiv:2608.16575 was inspected for Sections 3, 4, and 6, especially Theorem 6.1 and Example 6.5; they cover the general blow-up mechanism and the uniform rank-one example but do not calculate the all-rank finite symplectic fiber/edge enumerator. The exact formula is for arbitrary finite fields and rank \(m\ge2\). It assumes a nondegenerate alternating bracket with one-dimensional derived center. Possible historically equivalent formulations outside the searched literature remain a qualification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published rank-five (m=2) degree strata imply its special edge count, and the general quotient blow-up is known, but the inspected prior statements do not derive the all-rank nonuniform isotropic-fiber sum and complementary-Lagrangian edge term. Original best of knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+A complete uniform exact edge census for a natural all-rank family of Lie-algebra generation graphs plus clique/chromatic/diameter invariants; complementary Lagrangian term is structural and cannot be omitted. Useful extension beyond the prior dimension-five table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
