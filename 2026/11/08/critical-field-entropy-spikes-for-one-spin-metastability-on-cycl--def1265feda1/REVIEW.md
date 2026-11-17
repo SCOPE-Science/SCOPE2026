@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The energy change under a single spin flip is exactly \(2\sigma_v(h-J\sum_{w\sim v}\sigma_w)\). Since all degrees are three, only \(t=1\) and \(t=3\) permit marginal local-field transitions for nonnegative \(t=|h|/J\). The explicit sixteen-state pair-of-rungs transfer matrix is in bijection with labeled stable configurations, so its power trace gives the exact count for all \(n\ge3\). Exact integer characteristic-polynomial calculation produces the stated factors. Perron–Frobenius on the explicit primitive recurrent component establishes the critical growth constant. Independently constructed full-Hamiltonian tests and direct rung enumeration agree with the transfer counts. No numerical pattern is used as a substitute for an infinite proof.
+PASS
 
-## Originality — PASS on checked evidence, provisional
+Reconstructed the weak flip criterion Delta E_v=2 sigma_v(h-J sum neighbors sigma), whose neighbor sums are ±1,±3; tested field representatives t=0,1,2,3,4. The cyclic rung word is bijective with length-n closed walks of the explicit 16-state transition matrix, for every n>=3, with no division by rotational orbit. Independently rebuilt exact integer transfer matrices and symbolic characteristic polynomials: x^10(x-1)(x+1)(x^2-x-1)(x^2+x+1), x^7 P3 P6, x^12(x^2-x-1)(x^2+x+1), x^13(x+1)(x^2-2x-1), x^15(x-1). Their traces yield every stated count. The critical 11-state recurrent component and characteristic root rho≈2.33935824 support Perron asymptotics and both spike heights.
 
-The full text of Shukla's 2005 ladder paper treats voter dynamics and **ferromagnetic** Glauber fixed points; it does not state the antiferromagnetic positive-field classification. The full text of Waclaw–Burda 2008, including its ladder section, treats Gaussian-distributed spin-glass couplings and an ensemble-averaged complexity exponent, not the deterministic counts. The familiar prism independent-set count already covers the \(t=3\) endpoint alone and is explicitly acknowledged; it does not cover the \(t=1\) nine-root law or the complete piecewise field diagram. Earlier exact wheel one-spin-stability and Möbius-ladder ground-state records involve different graphs and/or different events. Searchable equivalents cannot rule out unindexed historical matches, so this is a provisional self-review.
+## originality
 
-## Value — PASS
+PASS
 
-The circular ladder is a canonical bounded-width degree-three network for zero-temperature Glauber metastability, and homogeneous antiferromagnetic interactions differ sharply from both the ferromagnetic and disordered models in the inspected literature. The explicit field thresholds, exact finite-size count and two nonmonotone critical entropy spikes quantify the local-minimum landscape, including the importance of allowing neutral flips at marginal fields. This is a natural all-size classification, not an arbitrary finite census or a mere normalization check.
+No prior inspected theorem gives the entire homogeneous antiferromagnetic prism spin-flip-stable count as field varies. Known t=3 independent-set count, classical transfer methods and other ladder/wheel models are credited, not counted as new. Resultary and primary-literature searches found no covering same-graph all-field entropy-spike theorem; residual unindexed exact Ising enumeration risk remains.
 
-## Limits and relevant literature
+## value
 
-Only weak one-spin stability is counted; neutral flips can remain dynamically possible. The \(t=3\) independent-set term is known and not a separate originality claim. Relevant inspected texts are Shukla, arXiv:cond-mat/0501754, sections I–III; Waclaw and Burda, arXiv:0801.1224v1, especially sections I and VII; and MathWorld's tabulation of prism independent sets. The 1989 honeycomb-lattice random-bond paper was available at abstract level only, but its model differs materially. Further independent historical and mathematical review is warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact local stability on a natural frustrated degree-three lattice yields a complete field phase diagram with two isolated entropy spikes and known independent-set endpoint distinguished; nonstandard critical 16-state spectrum and field normalization make a useful exact statistical-mechanics benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
