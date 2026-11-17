@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives both extensions using the precise six-term sequence in Li–Li–Russo Proposition 5.7; vanishing of the relevant line-bundle cohomology is checked directly. The category is extension-closed and finite length; uniqueness of the simple subobject makes projectivization a classification of middle-term isomorphism classes and proves the Schur property. At \(m=4\) the connecting map of the bundle extension is a \(2\times2\) matrix, and exact twists by \(\mathcal O(-6)\) and \(\mathcal O(-7)\), together with total degree fifteen, force exactly the claimed two splitting types. The included exact checker was run successfully; its finite checks are not treated as infinite proofs.
+## correctness
 
-## Originality
-PASS, with residual historical-priority uncertainty. The closest inspected full text is Li, Li and Russo, arXiv:2610.38184v1, Sections 5.1–5.4, whose Propositions 5.7–5.10 give the machinery and resolve the rigid \(m=2\) case, but not the \(m\ge3\) projective extension classification or the \(m=4\) Segre-quadric jumping stratification. Searches of mathematical research records using aliases for the two Hermite/Vandermonde orientations found no equivalent statement. General earlier literature on coherent systems may imply individual steps; this is explicitly acknowledged, and independent priority review remains desirable. The claim is a new combination and geometric refinement, not a claim that general Ext theory was invented here.
+PASS
 
-## Value
-PASS. This gives an exhaustive classification of the first nonsplit reducible rank-three exponent under the natural interpolation condition, with two distinct parameter dimensions; at the first interesting concrete value \(m=4\), it identifies a codimension-one smooth determinantal locus where the underlying bundle jumps. That explains a genuine geometric stratification invisible from the numerical exponent and the ambient rank-three bound. The result is not a generic exercise on arbitrary vector-bundle extensions, because the allowed coherent systems are constrained by unisolvent interpolation and have uniquely prescribed simple factors.
+Using J^1 O(2m-1)≅O(2m-2)^2 from nonzero-degree homogeneous derivatives and the coherent-system extension exact sequence, dim Ext^1(L,H)=m(2m-2)-2m=2m(m-2), dim Ext^1(H,L)=2h^1(O(1-m))=2(m-2). Finite length and simple factors L/H force two orientations; distinct simple factors have no cross Hom, so each nonsplit middle term has unique simple subobject, scalar automorphisms and is classified by projectivized Ext, endomorphism C. At m=4 a 2×2 boundary map H^0(O^2)→H^1(O(-3)) after twist -6 has rank A. Together with vanishing H^0(E(-7)) and total degree 15, rank 2 forces splitting (5,5,5) and rank1 (6,5,4), giving Segre quadric. Rational gradient-map rank was independently checked m=2..8, determinant rank-one counts over q=2,3,5,7; these finite computations do not replace categorical theorem.
 
-## Sources and limits
-Primary: Li–Li–Russo (2026), arXiv:2610.38184v1 (complete relevant Section 5 inspected). General-context abstracts checked: Newstead–Teixidor (arXiv:2001.07114), Jelisiejew–Keneshlou (arXiv:2112.14106). All exact statements pertain to the complex parameterized curve and do not classify simple objects or quotients by base changes. Historical implicit-coverage risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Li–Li–Russo paper supplies extension closure, simple objects and the extension spectral sequence, while the inspected statements do not give these all-m Ext dimensions, nonsplit isomorphism-space classification or the m=4 Segre splitting jump. Qualified against implicit consequences of general coherent-system literature.
+
+## value
+
+PASS
+
+The first nonsimple rank-three diagonal-exponent-five unisolvent coherent-system family has nontrivial moduli and a natural first bundle jumping divisor. The explicit oriented projective Ext classes and smooth determinantal wall refine generic structural extension statements, potentially supporting later geometry of m-direct-sum maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

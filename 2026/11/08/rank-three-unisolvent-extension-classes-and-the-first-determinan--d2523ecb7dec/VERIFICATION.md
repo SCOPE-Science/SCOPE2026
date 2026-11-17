@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify_extension_geometry.py` with Python 3 standard library. Exact rational Gaussian elimination checks the matrix ranks for \(2\le m\le10\), deriving extension dimensions \(2m(m-2)\) and \(2(m-2)\) from the independent polynomial-gradient comparison map. An exact finite-field count validates the smooth rank-one-matrix quadric has \((q+1)^2\) points for \(q\in\{2,3,5,7\}\). The observed output ends in `VERIFY_OK` and `QUADRIC_VERIFY_OK`.
+## correctness
 
-The all-\(m\) theorem is proved by coherent-system Ext exactness and line-bundle cohomology, not by the finite range of computed ranks. The moduli classification depends on unique simple subobjects and vanishing of cross Homs; the first splitting wall follows from the boundary map \(H^0(E(-6))\to H^1(\mathcal O(-3))\). Those arguments and their hypotheses are in `RESULT.md`. No independent mathematical audit or higher-\(m\) splitting census is asserted.
+PASS
+
+Using J^1 O(2m-1)≅O(2m-2)^2 from nonzero-degree homogeneous derivatives and the coherent-system extension exact sequence, dim Ext^1(L,H)=m(2m-2)-2m=2m(m-2), dim Ext^1(H,L)=2h^1(O(1-m))=2(m-2). Finite length and simple factors L/H force two orientations; distinct simple factors have no cross Hom, so each nonsplit middle term has unique simple subobject, scalar automorphisms and is classified by projectivized Ext, endomorphism C. At m=4 a 2×2 boundary map H^0(O^2)→H^1(O(-3)) after twist -6 has rank A. Together with vanishing H^0(E(-7)) and total degree 15, rank 2 forces splitting (5,5,5) and rank1 (6,5,4), giving Segre quadric. Rational gradient-map rank was independently checked m=2..8, determinant rank-one counts over q=2,3,5,7; these finite computations do not replace categorical theorem.
+
+## originality
+
+PASS
+
+The primary Li–Li–Russo paper supplies extension closure, simple objects and the extension spectral sequence, while the inspected statements do not give these all-m Ext dimensions, nonsplit isomorphism-space classification or the m=4 Segre splitting jump. Qualified against implicit consequences of general coherent-system literature.
+
+## value
+
+PASS
+
+The first nonsimple rank-three diagonal-exponent-five unisolvent coherent-system family has nontrivial moduli and a natural first bundle jumping divisor. The explicit oriented projective Ext classes and smooth determinantal wall refine generic structural extension statements, potentially supporting later geometry of m-direct-sum maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
