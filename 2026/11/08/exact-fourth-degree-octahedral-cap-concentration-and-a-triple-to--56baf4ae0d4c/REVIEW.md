@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim fixes pure degree-four spherical harmonics on the probability-normalized two-sphere and the six disjoint octahedral caps with \(2^{-1/2}\le c<1\). A nine-vector solid-harmonic basis was checked by the Laplacian and by full-sphere orthogonality. The exact cap and sphere pairings yield four scalar concentration branches of dimensions \(1,2,3,3\), including all off-block zeros; their weighted trace equals \(27(1-c)\). Polynomial factorizations and an explicit all-negative Bernstein certificate establish a unique top-eigenvalue crossing and exclude both other sectors. Direct numerical matrix quadrature at four radii independently corroborates the exact formulas. No numerical range was substituted for the quantified proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The published spherical Slepian formulation (Simons–Dahlen–Wieczorek), the 2020 large-sieve upper bounds (Jaming–Speckbacher), and the single-cap commuting-operator treatment (Michel–Plattner–Seibert) supply frameworks and bounds, not this exact pure-degree-four, six-cap octahedral spectrum or its triple-to-simple transition. The closest accessible earlier exact analysis concerns precisely the same six-axis-cap region but only pure degrees one and two, where the quadratic optimizer does not switch; a distinct two-antipodal-cap degree-four calculation concerns only two cap centers and multiple different mode switches; a previously recorded tetrahedral four-cap degree-three calculation concerns different parity, region and sectors. A published-finding corpus comparison against Platonic-solid fourth-moment tensors does not imply degree-eight cap-integrated harmonic energies. A prior specialist octahedral calculation under different terminology remains possible; no exhaustive priority certification is claimed.
+PASS
 
-**Mathematical value — PASS.** Unlike the same-region degree-two calculation with a fixed leading symmetry sector, the nine-dimensional pure quartic spherical-harmonic sector is the first even octahedral degree separating all four inequivalent \(1+2+3+3\) symmetry types. Determining its exact six-region concentration spectrum, proving two sectors can never optimize, and finding the unique algebraic transition with fourfold top degeneracy are a natural complete classification of a sharp spatial-concentration invariant, not a small numerical improvement. The result does not generalize to multiple degrees, unequal weights or overlapping caps.
+Inspected the nine explicit homogeneous harmonic sector bases and reconstructed normalized full-sphere and cap circular integrals using exact even monomial moments. Independent SymPy integration verified the four branch formulas, orthogonality of all nine candidate basis directions, weighted trace lambda_A+2lambda_E+3lambda_T+3lambda_U=27(1-c), and algebraic difference factorization. The A-U difference is a positive factor times Q(u)=495u^3-645u^2+237u-23 on u in [1/2,1]; Q is strictly convex there, negative at 1/2 and 7/10, positive at 3/4, giving one crossing. Exact signed sector comparisons show E and T cannot dominate either U before or A after crossing. c=1 excluded and cap-boundary null overlap at c=1/sqrt2 harmless. Finite quadrature is corroborative rather than the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General spherical Slepian theory supplies matrix formulation but no displayed complete pure-l=4 octahedral eigenbranches or algebraic transition. Closest same-six-cap calculations concern degree two, and other exact degree-four cap problems concern a different mask. No inspected primary source implies these exact four sector values; priority remains bounded by older specialized octahedral harmonic tables.
+
+## value
+
+PASS
+
+This is a natural exact symmetry-reduced Slepian concentration invariant for a six-axis cap mask. Pure degree four splits into the complete 1+2+3+3 octahedral sectors and produces a genuine symmetry-mode transition with sharp parameter and multiplicities; the all-c classification is not a numerical slice or routine exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

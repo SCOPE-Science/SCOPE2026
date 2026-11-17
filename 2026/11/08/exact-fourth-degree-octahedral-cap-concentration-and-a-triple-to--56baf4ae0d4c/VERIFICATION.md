@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-The standalone `check_octa_degree4.py` was executed with Python, SymPy and NumPy from the package directory. Its exact checks cover nine solid harmonic Laplacians, 45 normalized bilinear pairings over the sphere and six caps, every displayed scalar branch, trace, three critical difference identities, the polynomial-root location, and the strict Bernstein coefficients. It printed:
+# Independent mathematical audit
 
-```
-OCTA_DEGREE4_EXACT_PASS harmonic_basis=9 pairings=45 trace=9 transition_c=0.861650652371
-OCTA_DEGREE4_QUADRATURE_PASS radii=4 angular_nodes=256 polar_nodes=80
-```
+## correctness
 
-The quadrature check evaluates the full nine-by-nine normalized cap Gram matrix directly on four radii using eighty Gauss–Legendre nodes per cap and 256 angular nodes. The analytical integral and sign arguments in `RESULT.md` establish the quantified result for every allowed cap threshold. The check does not certify results outside \(2^{-1/2}\le c<1\), novelty of all earlier literature, or independent validation.
+PASS
+
+Inspected the nine explicit homogeneous harmonic sector bases and reconstructed normalized full-sphere and cap circular integrals using exact even monomial moments. Independent SymPy integration verified the four branch formulas, orthogonality of all nine candidate basis directions, weighted trace lambda_A+2lambda_E+3lambda_T+3lambda_U=27(1-c), and algebraic difference factorization. The A-U difference is a positive factor times Q(u)=495u^3-645u^2+237u-23 on u in [1/2,1]; Q is strictly convex there, negative at 1/2 and 7/10, positive at 3/4, giving one crossing. Exact signed sector comparisons show E and T cannot dominate either U before or A after crossing. c=1 excluded and cap-boundary null overlap at c=1/sqrt2 harmless. Finite quadrature is corroborative rather than the proof.
+
+## originality
+
+PASS
+
+General spherical Slepian theory supplies matrix formulation but no displayed complete pure-l=4 octahedral eigenbranches or algebraic transition. Closest same-six-cap calculations concern degree two, and other exact degree-four cap problems concern a different mask. No inspected primary source implies these exact four sector values; priority remains bounded by older specialized octahedral harmonic tables.
+
+## value
+
+PASS
+
+This is a natural exact symmetry-reduced Slepian concentration invariant for a six-axis cap mask. Pure degree four splits into the complete 1+2+3+3 octahedral sectors and produces a genuine symmetry-mode transition with sharp parameter and multiplicities; the all-c classification is not a numerical slice or routine exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
