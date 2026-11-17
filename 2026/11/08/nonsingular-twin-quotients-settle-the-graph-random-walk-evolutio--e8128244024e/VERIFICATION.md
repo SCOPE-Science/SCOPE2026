@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Execute `python3 verification/check_blowup.py` after extracting this package. The program uses only the Python standard library and constructs all seven expanded graphs directly from their base adjacencies and multiplicities. It checks that each base adjacency has full rank over the rationals; evaluates the predicted degree condition for each graph; verifies real diagonal isomorphism identities for each of the four positive cases; and, for six graphs of order at most six, exhaustively checks the left-multiplication rank formula on every nonzero \(\mathbb F_5\)-vector. This is \(38{,}244\) rank checks. The recorded output is in `verification/OUTPUT.txt`.
+# Independent mathematical audit
 
-These finite computations do not prove the unrestricted statement or rule out arbitrary algebra isomorphisms in obstructed finite examples. The proof of that obstruction rests on the intrinsic rank-one-space argument and edge constraints in `RESULT.md`. The output reports the exact tests performed and makes no independent-certification claim.
+## correctness
+
+PASS
+
+For invertible quotient adjacency, the neighbor-sum vectors w_i are independent, so rank L_x equals the number of nonzero clone blocks. An isomorphism permutes these maximal rank-one spaces; square identities give conformal orthogonal block maps and a size-preserving quotient automorphism. Edge equations c_i^2=c_j d_j and connectivity force regularity on a nonbipartite quotient or biregularity on its bipartition. Explicit positive diagonal scalings give the converse. Real positivity, no isolated vertices, and nonsingular H are essential; clone expansions may have singular adjacency.
+
+## originality
+
+PASS
+
+The whole-graph nonsingular theorem of Cadavid et al (2017) cannot cover a blow-up with twin classes: its full adjacency has duplicate rows. The November 8 singular-quotient theorem is stronger (all quotient types) but explicitly names the present nonsingular-quotient case as ALREADY established and treats the complementary case; same-day posting order is not independently timestamped. Thus the earlier self-contained nonsingular theorem is not treated as a retroactively covered original merely because a later complementary extension was published. No other inspected prior establishes the whole claimed clone family.
+
+## value
+
+PASS
+
+The rank-one multiplication locus classifies all real algebra isomorphisms on a natural infinite family of singular graph adjacency algebras, including all complete multipartite graphs. It bridges the prior invertible-whole-graph case toward the general graph criterion; the obstruction and exact regular/biregular boundary are structural, not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

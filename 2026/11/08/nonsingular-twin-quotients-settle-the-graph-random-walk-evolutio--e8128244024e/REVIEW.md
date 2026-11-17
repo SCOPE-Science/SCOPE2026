@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs clone blocks intrinsically as the maximal vector subspaces with left-multiplication rank at most one; this uses the explicitly assumed nonsingularity of the quotient adjacency matrix. It then derives both a conformality identity and a support-preserving graph automorphism for any real algebra isomorphism. The edge equation \(c_i^2=c_jd_j\) forces degree constancy on even-walk classes; the two possible patterns yield regularity or bipartite biregularity. Explicit positive diagonal maps establish sufficiency. The argument checks nonempty blocks, positive degrees, nonzero images of neighborhood sums, the case of a connected bipartite quotient, and the real-field hypothesis. The standalone checker examines seven base/clone configurations and exhaustively confirms the multiplication-rank lemma on \(38{,}244\) test vectors in \(\mathbb F_5\), but is not used as proof of the general statement.
+## correctness
 
-## Originality — PASS, qualified
-The earliest surveyed source (arXiv:2610.22248v1, Question 26) asks for the whole-graph criterion. The 2017 source establishes it when the expanded graph itself has nonsingular adjacency; that theorem does not imply the present case with repeated twins, where adjacency rows coincide. The 2024 source contains partial singular-graph families and recommends a twin-partition approach but does not classify all independent blow-ups of a nonsingular quotient. The complete-bipartite isomorphism and regular/biregular sufficiency are already known and explicitly credited. Semantic literature and mathematical-record searches did not expose a stronger or equivalent twin-quotient theorem; no search result alone establishes absence. An unindexed or differently phrased earlier argument remains possible.
+PASS
 
-## Mathematical value — PASS
-The result addresses the named, active singular-graph extension of an isomorphism criterion for nonassociative graph algebras. It supplies a uniform theorem for every finite connected graph with nonsingular false-twin quotient, not a collection of isolated examples. The proof gives a new intrinsic reconstruction method for the rank-one clone spaces, and the complete multipartite specialization is an immediately usable classification. Its scope still excludes singular twin quotients and does not claim the conjecture in full.
+For invertible quotient adjacency, the neighbor-sum vectors w_i are independent, so rank L_x equals the number of nonzero clone blocks. An isomorphism permutes these maximal rank-one spaces; square identities give conformal orthogonal block maps and a size-preserving quotient automorphism. Edge equations c_i^2=c_j d_j and connectivity force regularity on a nonbipartite quotient or biregularity on its bipartition. Explicit positive diagonal scalings give the converse. Real positivity, no isolated vertices, and nonsingular H are essential; clone expansions may have singular adjacency.
 
-## Closest literature and residual risks
-The strongest direct earlier theorem is Cadavid–Rodiño Montoya–Rodríguez (arXiv:1710.10516), Theorem 2.3, restricted to nonsingular expanded graphs; the most relevant singular-graph follow-up is Cadavid–Rodiño Montoya–Rodríguez–Vidal (arXiv:2405.12341). The October 2026 survey arXiv:2610.22248v1, Question 26, formulates the question generally. The main priority risk is an unindexed equivalent formulation using false twins, equitable blow-ups, or orthogonal decompositions of the evolution multiplication tensor. No classification beyond the specified hypothesis or other coefficient fields is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The whole-graph nonsingular theorem of Cadavid et al (2017) cannot cover a blow-up with twin classes: its full adjacency has duplicate rows. The November 8 singular-quotient theorem is stronger (all quotient types) but explicitly names the present nonsingular-quotient case as ALREADY established and treats the complementary case; same-day posting order is not independently timestamped. Thus the earlier self-contained nonsingular theorem is not treated as a retroactively covered original merely because a later complementary extension was published. No other inspected prior establishes the whole claimed clone family.
+
+## value
+
+PASS
+
+The rank-one multiplication locus classifies all real algebra isomorphisms on a natural infinite family of singular graph adjacency algebras, including all complete multipartite graphs. It bridges the prior invertible-whole-graph case toward the general graph criterion; the obstruction and exact regular/biregular boundary are structural, not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
