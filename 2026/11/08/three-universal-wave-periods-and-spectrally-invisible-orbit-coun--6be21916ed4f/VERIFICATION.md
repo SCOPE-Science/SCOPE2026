@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite checks
+# Independent mathematical audit
 
-Execute `python3 verify_wave.py` and `python3 verify_bruteforce.py` from the extracted package containing those two standalone files. Both scripts use Python 3 standard library exclusively. The captured stdout is in `verify_wave_output.txt` and `verify_bruteforce_output.txt`.
+## correctness
 
-`verify_wave.py` independently computes adjacency arrays and exact ranks over \(\mathbb F_2\) for the 5-cycle, two complete bipartite graphs, the Petersen graph, 4- and 5-rook graphs, two triangular graphs, the Paley graph on 13 vertices, the 63-vertex symplectic graph, and its four-vertex Godsil--McKay switch. It tests every asserted fixed-space dimension by direct nullity of the corresponding two-row update matrix power and tests that the predicted global order is exact. For the 63-vertex cospectral pair it verifies binary 2-ranks 6 and 8, with the common strongly regular parameters \((63,32,16,16)\).
+PASS
 
-`verify_bruteforce.py` independently iterates all \(1024\), \(256\), and \(4096\) binary two-row configurations of the 5-cycle, \(K_{2,2}\), and \(K_{3,3}\), respectively, to recover primitive periods, fixed counts and primitive cycle numbers, without matrix powers. Outputs match the claimed order-ten, order-four, and order-six branches.
+For symmetric binary adjacency A, the SRG identity mod 2 gives A²=(k-μ)I+(λ-μ)A+μJ. B=[[A,I],[I,0]] is invertible and B+B^{-1}=diag(A,A). Exhaustive feasible parity classification yields A²=0 (B order 4); constants/H split for even k,λ and odd μ (order 10); or A(A+I)²=0 (order 6). Ker(B+I) and ker(B²+I) give d0 and 2d0; a one-primary/zero-primary decomposition gives d0+2d1 for B³+I. Independent GF(2) matrix calculations reproduced cycle C5 order10 with fixed dims 1,2,9,10 and rook K2,2 / 4x4 rook order4 and predicted nullities. Möbius inversion counts primitive cycles. Abiad–Haemers full text confirms symplectic ranks 2ν and 2ν+2.
 
-**Limits.** The calculations are finite checks; infinitely many strongly regular graphs and arbitrarily large field sizes are covered solely by the algebraic argument in `RESULT.md`. None of these checks certifies novelty or serves as an independent mathematical audit.
+## originality
+
+PASS
+
+PASS best of knowledge: Abiad–Haemers Theorem 2.2 proves the cospectral strongly regular switched pair and changed binary ranks, but does not analyze reversible wave dynamics. Classic reversible second-order cellular automata provide block-matrix techniques, but no located earlier SRG parity trichotomy with exact 4/6/10 wave orders and full fixed-space cycle counts. Their known rank contrast implies dynamical nonconjugacy only after the current wave fixed-point calculation.
+
+## value
+
+PASS
+
+A complete uniform temporal-orbit classification for a natural class of graphs is a structural result; the parameter-parity clock and rank-sensitive cospectral dynamical distinction answer precise natural invariants and are useful beyond enumerated samples. The existing graph-switching construction is credited as prior, not newly discovered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

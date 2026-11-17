@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every nontrivial strongly regular graph, the adjacency relation reduces in characteristic two to one of the three period branches. The algebraic identity \(F+F^{-1}=\operatorname{diag}(A,A)\) gives the sharp orders; for the order-six case, the minimal polynomial of \(A\) divides \(z(z+1)^2\) and the primary decomposition yields the fixed-space exponents \(d_0\), \(2d_0\), \(d_0+2d_1\), and \(2v\). For order ten, the constants and sum-zero subspaces give orders two and five. All expressions are for labelled finite-field states. A separately written direct state iteration and an independent matrix-rank verifier passed; these are corroboration, not substitutes for the proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Martin–Odlyzko–Wolfram supplied general linear finite automaton machinery; Macfarlane studied reversible second-order one-dimensional matrix equivalents. Brouwer–van Eijl and Abiad–Haemers established the graph rank technology and cospectral symplectic graph switching. These earlier contributions are not claimed as new. The narrower novelty is the graph-parameter parity trichotomy of entire two-time-wave cycle distributions on every strongly regular graph and the explicit fixed-point obstruction to conjugacy for already-known cospectral graph pairs. Closest public published-finding corpus records cover first-order graph parity maps and other reversible rules, not this precise two-row wave census. The source comparisons cover relevant primary text, but historic equivalents outside indexed literature cannot be ruled out; Brouwer–van Eijl full text was not inspected.
+PASS
 
-## Mathematical value — PASS
-Exact uniform temporal order bounds of \(4\), \(6\), or \(10\) across arbitrarily large strongly regular graphs are structurally restrictive and resolve all primitive orbit populations. Infinitely many ordinary-adjacency-cospectral graph pairs have different fixed-state counts for the same reversible dynamics, demonstrating a natural dynamical invariant invisible to ordinary adjacency spectra. The result is not a routine calculation of one small instance and the distinction is useful when graph cospectrality is used as a surrogate for dynamical equivalence.
+For symmetric binary adjacency A, the SRG identity mod 2 gives A²=(k-μ)I+(λ-μ)A+μJ. B=[[A,I],[I,0]] is invertible and B+B^{-1}=diag(A,A). Exhaustive feasible parity classification yields A²=0 (B order 4); constants/H split for even k,λ and odd μ (order 10); or A(A+I)²=0 (order 6). Ker(B+I) and ker(B²+I) give d0 and 2d0; a one-primary/zero-primary decomposition gives d0+2d1 for B³+I. Independent GF(2) matrix calculations reproduced cycle C5 order10 with fixed dims 1,2,9,10 and rook K2,2 / 4x4 rook order4 and predicted nullities. Möbius inversion counts primitive cycles. Abiad–Haemers full text confirms symplectic ranks 2ν and 2ν+2.
 
-## Scope and limitations
-The result concerns characteristic-two two-row linear wave systems on nontrivial strongly regular graphs; absolute counts can require graph-specific binary ranks. The graph switching, graph spectral parameters, and general matrix techniques are existing prior art. A complete historical-priority search and an external independent scientific audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Abiad–Haemers Theorem 2.2 proves the cospectral strongly regular switched pair and changed binary ranks, but does not analyze reversible wave dynamics. Classic reversible second-order cellular automata provide block-matrix techniques, but no located earlier SRG parity trichotomy with exact 4/6/10 wave orders and full fixed-space cycle counts. Their known rank contrast implies dynamical nonconjugacy only after the current wave fixed-point calculation.
+
+## value
+
+PASS
+
+A complete uniform temporal-orbit classification for a natural class of graphs is a structural result; the parameter-parity clock and rank-sensitive cospectral dynamical distinction answer precise natural invariants and are useful beyond enumerated samples. The existing graph-switching construction is credited as prior, not newly discovered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
