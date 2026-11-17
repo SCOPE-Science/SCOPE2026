@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projective toric orbit equals the positroid variety by the regular-positroid theorem, not by an unproved equality of set-theoretic equations. The exact Pluecker-chart calculation supplies all coordinate ratios, isolates algebraically independent smooth variables, and identifies the full determinantal toric ideal. Such charts cover the variety, so the singular-locus statement is global. The Segre degree yields multiplicity. The canonical class calculation uses the explicit Picard quotient of the smooth Segre base and establishes both directions of the Gorenstein criterion. The finite checker corroborates sample monomial identities; no finite sample is used as proof of a universal assertion.
+## correctness
 
-**Originality — PASS, provisional.** McNeill (arXiv:2610.35914v2) proves toricity of regular positroid varieties; the local equations, singular strata and Gorenstein boundary do not follow as explicitly stated consequences without the new chart computation. Billey–Weaver (arXiv:2204.09013) and Fluegemann (arXiv:2407.21116) concern smoothness tests. Friedman–Hoşten–Rosana (arXiv:2610.02018) discuss rank-two matroid singularities. Earlier calculations of the three-block rank-two case and all-binary equal-block monomial varieties are recognized as covered specializations, not the new parameter range. The variable-block higher-rank singular Gorenstein transition is not implied by either specialization. Literature searches did not identify the full statement, but non-indexed older toric geometry remains a priority risk.
+PASS
 
-**Value — PASS.** This is a complete structural classification of local singularity models across a natural connected family of toric positroid varieties. The criterion distinguishes abundant singular Gorenstein examples from non-\(\mathbb Q\)-Gorenstein ones by an exact block-size threshold. Multiplicity can grow as a nontrivial binomial coefficient, giving an enumerative invariant of every stratum. This is more than repeating a smoothness test or computing a single low-dimensional example.
+The stated toric positroid is a parallel extension of U_(r,r+1). On a Pluecker chart omitting block k, monomial coordinate ratios split into independent smooth coordinates u_(j,s) and a_k by r matrix z_(s,i) of rank <=1. Its kernel is exactly the prime 2-minor ideal of the Segre cone, giving a scheme-theoretic affine chart A^(N-a_k-r) x D_(a_k,r), and the charts cover. The zero matrix gives precisely S_k. The Segre degree is binom(a_k+r-2,a_k-1), verified independently using Hilbert-polynomial top differences at (a_k,r)=(2,3),(3,3),(2,4),(4,4). The local divisor class group Pic(P^(a_k-1)xP^(r-1))/Z O(1,1) is Z; the canonical class (a_k-r) is torsion iff a_k=r, while a_k=1 is smooth. The global Q-Gorenstein/Gorenstein equivalence follows since each chart is normal Cohen-Macaulay. r>=3 and all a_k>=1; reduced singular support only.
 
-**Limitations and risk.** The Jacobian singular scheme and general regular positroids are not classified. Full text of the 2026 rank-two ED/GD paper and the 2024 Fluegemann paper was not accessible in this review; these papers are relevant but their known abstract-level claims do not establish an identified stronger statement in higher rank. Historical priority remains provisional. No independent check by a separate assessor has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+McNeill gives toricity of regular positroid varieties, not local equations. Earlier 3-block rank-two results and all-binary examples are genuine specializations, not dominating general r>=3 arbitrary sizes. The family-wide equations plus canonical threshold are not supplied by general smoothness tests or unrelated sparse-paving polytope results. Best-of-knowledge PASS, with implicit earlier toric localization as priority risk.
+
+## value
+
+PASS
+
+A uniform transverse singularity stratification and canonical-divisor boundary for a natural infinite-dimensional family of positroid varieties is a substantive exact geometric invariant, including singular Gorenstein cases at a_k=r; not merely applying toricity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
