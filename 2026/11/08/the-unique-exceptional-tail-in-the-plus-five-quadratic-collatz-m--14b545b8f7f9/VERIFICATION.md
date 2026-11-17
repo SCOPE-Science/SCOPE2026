@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The included `verify.py` is self-contained and uses exact integer arithmetic. Run `python3 verify.py` from the same directory as this document. Tests include 24,000 sampled odd-step factorizations, exhaustive terminal-hit searches in the documented finite grid, direct cycle-length checks for all integers from 3 through 20, and exact bounded-count comparisons to direct enumeration at the reported cutoffs. Inspect the output to confirm each check. These are finite tests; the infinite classification is proved in RESULT.md. An independent audit has not been performed.
+## correctness
 
-Observed verifier output:
+PASS
 
-```
-ODD_STEP_OK count=24000
-TERMINAL_ENTRY_OK j=1..12 odd_k=3..2001 unique=(1,3,3,1,3)
-PERIOD_OK m=3..20 plus_unique_tail=1_to_3
-COUNT_OK X=1,2,10,100,1000,10000
-VERIFY_OK exact_arithmetic=true finite_checks_only=true
-```
+For odd y, factor y+5=2^j k with k odd, so the next odd term is ky. Any k>1 strictly increases odd states. Solving 2^j(k^2-2^{2h})=5(k-1) for a first entry to terminal 2^m-5 forces k=3,j=h=1 and initial y=1. Subsequent dyadic multiplication gives exact B(X) and logarithmic-squared asymptotic.
+
+## originality
+
+PASS
+
+Existing terminal-state methods are reusable techniques, but they do not imply unique plus-five predecessor without solving equation (2).
+
+## value
+
+PASS
+
+The plus-five integer map has a complete basin-vs-divergence classification with a unique genuine preterminal tail and exact growth law; not merely renaming a known coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
