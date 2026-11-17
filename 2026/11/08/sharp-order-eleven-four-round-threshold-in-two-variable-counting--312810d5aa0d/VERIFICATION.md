@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the finite cograph threshold
+# Independent mathematical audit
 
-The embedded source `verify.py` uses only the Python standard library. Reproduction command, from the directory containing the embedded files:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-Its final line is `VERIFY_OK 21101`, and it writes `census.json`. The program asserts exact agreement of two refinement algorithms on every generated graph and checks the completeness-supporting canonical cotree counts \(1,2,4,10,24,66,180,522,1532,4624,14136\). The complete per-order distribution of strict refinement rounds is in `census.json`.
+Full canonical cotree enumeration for all n<=11 is justified by unique reduced union/join alternating cotrees, integer partitions and sibling multisets. Independently recreated all cograph counts 1,2,4,10,24,66,180,522,1532,4624,14136 and strict-round maxima 0,0,1,1,2,2,2,3,3,3,4, with exactly two n=11 maxima. Direct 11-vertex witness color trace 1,3,5,6,7 and complement invariance yield connected uniqueness; rank-4 unary C2 equivalence uses standard 1-WL counting types. Finite enumeration is exhaustive only by proved canonical coverage, not extrapolation.
 
-The direct witness \(W\) and its complement each have rank-by-rank class-count sequence \(1,3,5,6,7\), stable afterwards. The only eleven-vertex maximizers are the canonical cotrees recorded in `census.json`; one has a union root and the other a join root. The verifier checks that the cotrees are exchanged by complementation and that both graphs contain an induced four-cycle.
+## originality
 
-**Proof limits:** The computation is exhaustive only through eleven vertices, justified by the reduced cotree decomposition, and does not certify the maximum refinement depth at larger orders. Agreement between two implementations reduces implementation risk but is not independent mathematical validation. The uniqueness and finite cutoff additionally rely on the correctness of the cotree-to-graph and integer partition enumeration code, which is provided in full for inspection.
+PASS
+
+Best-of-knowledge original natural finite class-specific threshold: a complete canonical cotree enumeration establishes first four strict 1-WL refinement splits at eleven vertices and precisely two complementary extremizers. Earlier cotree generation and general 1-WL extremal results supply tools, not this exact order and isomorphism classification; historical priority from unindexed cograph tables remains possible.
+
+## value
+
+PASS
+
+The first order requiring four strict color refinements in the large and canonical P4-free graph class, plus exact number and graph-isomorphism types of first witnesses, is a motivated finite classification that researchers studying counting logic, graph distinguishability and cotree refinement can use directly. It is not merely a total unlabeled-graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

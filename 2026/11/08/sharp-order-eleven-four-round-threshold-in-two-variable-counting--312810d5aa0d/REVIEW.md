@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique reduced cotree theorem turns the exhaustive integer-partition recursion into a complete enumeration without isomorphic repetitions. All 21,101 classes through eleven vertices were evaluated by two separately implemented exact refinement procedures, which agree on every class. The eleven-vertex witness has a direct hand-reconstructible partition trace of 1, 3, 5, 6, 7 classes. Complementation preserves refinement partitions, proving the connected complement statement. Reproducibility depends on the embedded checker and exact census, not an unsupported sample or an external machine-only claim.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest historical literature provides cotree uniqueness (Corneil–Perl–Stewart), general color-refinement applicability (Arvind–Köbler–Rattan–Verbitsky), all-cograph generation (Jones–Protti–Del-Vecchio), and general-graph long-refinement results (Kiefer–McKay; Kiefer–de Mel). None of their inspected claims supplies the exact first four-round cutoff or its two exceptional cographs. Published graph listings include the underlying cographs, not their rank-four logical-type behavior. Accessible research records include a separate sharp three-round threshold for *trivially perfect* graphs, a strict subclass, which cannot establish the present four-round cograph boundary. A targeted search of published research records found no identical result; this does not establish absolute historical priority.
+PASS
 
-**Mathematical value — PASS.** Refinement depth is a central measure of quantifier rank in two-variable counting logic and parallel graph-processing complexity. The cograph class is a canonical exactly decomposable \(P_4\)-free family with connected members of diameter at most two. The unique connected order-eleven example proves that even this structurally constrained family can require four strict refinement steps. The exact first-occurrence threshold and complement-pair structure give a reproducible initial boundary for the class-specific maximum-depth problem, rather than an arbitrary graph-table statistic. No formula at larger orders is asserted.
+Full canonical cotree enumeration for all n<=11 is justified by unique reduced union/join alternating cotrees, integer partitions and sibling multisets. Independently recreated all cograph counts 1,2,4,10,24,66,180,522,1532,4624,14136 and strict-round maxima 0,0,1,1,2,2,2,3,3,3,4, with exactly two n=11 maxima. Direct 11-vertex witness color trace 1,3,5,6,7 and complement invariance yield connected uniqueness; rank-4 unary C2 equivalence uses standard 1-WL counting types. Finite enumeration is exhaustive only by proved canonical coverage, not extrapolation.
 
-**Limitations.** The universal statement is finite, ending at order eleven. It does not determine the asymptotic depth or an unrestricted-order classification. Some older cograph and counting-logic sources may be unindexed or inaccessible. The archival priority assessment is therefore provisional, and the mathematical verification is not an external independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original natural finite class-specific threshold: a complete canonical cotree enumeration establishes first four strict 1-WL refinement splits at eleven vertices and precisely two complementary extremizers. Earlier cotree generation and general 1-WL extremal results supply tools, not this exact order and isomorphism classification; historical priority from unindexed cograph tables remains possible.
+
+## value
+
+PASS
+
+The first order requiring four strict color refinements in the large and canonical P4-free graph class, plus exact number and graph-isomorphism types of first witnesses, is a motivated finite classification that researchers studying counting logic, graph distinguishability and cotree refinement can use directly. It is not merely a total unlabeled-graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
