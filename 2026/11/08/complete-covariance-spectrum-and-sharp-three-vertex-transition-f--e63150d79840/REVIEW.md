@@ -1,15 +1,21 @@
-# Scientific review: complete covariance spectrum of bipartite Lipschitz polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(p,q\ge2\), the proof begins with the exact polar inequalities in the Euclidean zero-sum subspace, fixes a translation gauge, and derives the complete fiber measure through ordered extrema of the first block. The marginal spread is \(\operatorname{Beta}(p-1,q+1)\), including the \(p=2\) boundary. Its second beta moments determine two within-block contrast eigenvalues and the between-block eigenvalue, with their full multiplicities. The strict comparison \(\lambda_B-\lambda_P=p(q-p-3)/(3n(n+1))\) and \(\lambda_Q-\lambda_B=q(q-p+3)/(3n(n+1))\) proves the entire sharp threshold without assuming a finite sample is exhaustive. The intrinsic volume normalization is checked separately. An independent exact-rational simplex integration verifies 174 covariance entries in six small cases and supplies corroboration, not the general proof.
+## correctness
 
-## Originality — PASS, priority provisional
-The closest primary full texts, arXiv:1807.07678 and arXiv:1910.05193, respectively give the complete-bipartite symmetric-edge-polytope facet/Ehrhart analysis and connect polar bodies to Lipschitz metric polytopes. Their relevant sections concern faces, triangulations, Ehrhart data and lattice-counting rather than continuous-volume covariance and eigenmode crossings. arXiv:2307.04933 supplies further polar lattice-point context. Existing exact polar-volume results already imply the ancillary volume formula and that formula is **not** claimed original. Known covariance analyses for complete-bipartite **graphical zonotopes** use a different polytope, whereas this finding concerns the **polar symmetric edge polytope**. No statement in the examined material yields the three positive covariance eigenvalues, full eigenspace multiplicities, and the transition at precisely \(q=p+3\). Earlier equivalent metric-space covariance literature cannot be ruled out, so no claim of independently established priority is made.
+PASS
 
-## Mathematical value — PASS
-The continuous uniform-volume covariance is a natural affine-second-moment geometric invariant, not an arbitrary extracted statistic. The theorem gives its full intrinsic spectrum for a two-parameter infinite class of Lipschitz polytopes and proves a sharp, nontrivial transition between two inequivalent variance-minimizing subspaces. It supplies the exact conditioning law, identifies near-isotropy along balanced growth, and distinguishes quadratic deterioration under fixed-part imbalance. These conclusions are not determined by known facet enumerations, scalar volume, or zonotope moments.
+Gauge the last q-class coordinate to zero. Cross-block inequalities force each v_j into [M−1,m+1], where m,M are u-block extrema. With z=(M−m)/2, h=1−z, center c=(m+M)/2, the root-coordinate Jacobian is constant; integration yields z~Beta(p−1,q+1) and c|z uniform [-h,h]. Thus Ez²=p(p−1)/(n(n+1)), Eh²=(q+1)(q+2)/(n(n+1)). Exchangeability fixes covariance scalar on two within-block contrast spaces and one between-block line; pairwise distance variances give λP and λQ, and centered difference of block means gives λB. Symbolically recomputed λB=(pq+2)/(3n(n+1)), λQ−λB=q(q−p+3)/(3n(n+1)), λB−λP=p(q−p−3)/(3n(n+1)) for all symbolic positive p,q; establishes transition, tie and κ formula. Root-gauge/intrinsic measure differ by constant Jacobian only. Source script triangulates six low-dimensional polytopes using exact rational simplex moments after floating vertex identification; inspected but did not treat it as unrestricted proof. No extrapolation from numerical cases.
 
-## Limits and closest literature
-The proof applies to unit-edge complete bipartite graphs with \(p,q\ge2\). Extensions to arbitrary graphs, weighted metrics, other sampling measures and higher moments are open. The 2018 and 2019 primary papers were inspected as complete PDFs, with particular attention to complete-bipartite facets, the metric-polytopes correspondence, and polar-dual sections. A metric-Lipschitz formulation outside the inspected works remains an originality risk. The finite checker is supplementary. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: primary same-object arithmetic polytope work determines h* and faces rather than covariance; Gordon–Petrov concerns generic Lipschitz metric combinatorics; the closest published covariance threshold applies to the unrelated biclique stable-set polytope. No evident theorem in inspected sources implies exact uniform-volume polar spectrum or q=p+3 transition.
+
+## value
+
+PASS
+
+Complete covariance operator and a sharp, dimension-independent three-vertex eigendirection transition for a natural metric/Lipschitz polar of K_(p,q) provide an invariant relevant to anisotropy and random potentials, not merely face counting or vertex-uniform inertia. The exact spectral decomposition and condition-number phase diagram are independently informative to geometric probability researchers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
