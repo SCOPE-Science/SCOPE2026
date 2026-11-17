@@ -1,0 +1,15 @@
+# Self-review: Three angular phases of power-weighted lecture-hall simplices
+
+## Correctness: PASS
+The central geometric identity is verified directly: suffix-vertex objectives are final Gaussian partial sum minus prefix sum, so normal-cone probability is a discrete Gaussian-walk minimum. The two-sided survival events depend on disjoint coordinates. After exact variance-clock embedding, the Brownian argmin is unique almost surely, making continuous-mapping arguments valid for both power and harmonic clocks. Below the summability threshold, the tail zero-one argument gives eventual stabilization without using finite experiments as an infinite proof. The standalone checker verifies geometric equality, the exact two-dimensional angle formula, the equal-weight discrete arcsine law, and several finite-sample diagnostics.
+
+## Originality: PASS, historical priority provisional
+The primary literature of Kohl–Olsen (arXiv:1710.10892), Olsen (arXiv:1808.06131), Brändén–Solus (arXiv:1911.12459), and Beck–Braun–Köppe–Savage–Zafeirakopoulos (arXiv:1508.04619) addresses algebraic, Ehrhart and triangulation properties of the same polytope setting. Classical Lévy arcsine theory, Sparre Andersen survival probabilities, and general inhomogeneous first-passage techniques are openly credited. Closest geometric work on a single terminal spike, Euclidean curvature of power staircases, and power-weighted covariance spectra does not supply this complete angular distribution and three-regime classification. The general time-change mechanism provides much of the proof once the geometric identification is made; this limits claims of probabilistic novelty. Inaccessible full text and unindexed equivalent orthant-probability results remain genuine historical risks, not evidence of uniqueness.
+
+## Mathematical value: PASS
+The result determines a natural, complete Euclidean normal-angle statistic for an infinite family and proves a sharp geometrically interpretable transition at exponent \(lpha=-1/2\): angular mass spreads across linear ranks, lives at random polynomial ranks, or eventually selects one finite index. It differentiates metrically noncongruent simplices whose face lattices are identical, with an exact finite angle formula rather than only a qualitative scaling law. The critical logarithmic regime and subcritical almost-sure result are integral to the claim.
+
+## Closest literature and limitations
+The most relevant geometric definition and suffix-vertex structure occur in Olsen's 2018 survey, Definition 2.7. The 2017 Kohl–Olsen preprint supplies a public foundational source. Historical mathematical priority is not independently certified; the full text of one potentially relevant indexed covariance manuscript was unavailable in this inspection. The parameter is fixed, weights may be nonintegral, local single-vertex asymptotics are not proved, and the random index in the summable regime is not explicitly distributed.
+
+Self-review: passed. Independent audit: not yet performed.
