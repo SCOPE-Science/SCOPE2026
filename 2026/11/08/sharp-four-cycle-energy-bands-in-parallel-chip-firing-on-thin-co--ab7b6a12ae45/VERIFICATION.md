@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute the following standalone Python 3 scripts from the directory containing this file:
+## correctness
 
-```
-python3 verification/verify_bruteforce.py
-python3 verification/verify_histogram.py
-python3 verification/verify_formula.py
-```
+PASS
 
-The exact captured standard output for each script is bundled in the adjacent output text file of matching stem.
+In a primitive period-four K_{2,b} orbit, connected-graph firing count equality and non-clumpiness restrict each vertex to k=1 or k=3 firings: k=2 forces two-step periodicity. In k=1, left-side firings cannot be simultaneous or adjacent, hence are opposite; for the 0,2 phase, each right vertex starts with 0/1 chips and fires in round three/one. If r right vertices begin at zero, periodic threshold constraints give 1<=r<=b-1, b<=alpha<=b+r-1, r<=beta<=b-1. Choosing i,j left slack and binomial right labels yields 4 z^{2b} S_b(z); confined-state complement gives 4 z^{5b-2} S_b(z^{-1}) for k=3, using total complement capacity 7b-2. Summing binomial geometric factors gives (1-z)^2 S_b=2^b(1+z^b)-2(1+z)^b, two exact mass support bands, endpoint populations 4(2^b-2), count 2^{b+1} b(b-1) states and 2^{b-1}b(b-1) orbits. Independent full synchronous state enumeration for b=2,3,4,5 matched predicted histograms, but finiteness does not prove b arbitrary. Proof depends expressly on correctly stated external firing-count, confinement, and non-clumpy lemmas.
 
-`verify_bruteforce.py`: checks every labelled chip vector in the finite confined box for each \(2\le b\le7\), including \(3,211,264\) vectors at \(b=7\). The update is the literal graph-rule update; a state counts iff it returns after four updates but not after two. All mass counts match the polynomial.
+## originality
 
-`verify_histogram.py`: independently reduces the right side to histograms and weights them by exact multinomial counts, through \(b=12\), with separate update and count implementations. This reaches all bounded configurations without listing every labelling explicitly.
+PASS
 
-`verify_formula.py`: checks the polynomial simplification by exact integer coefficients and the endpoint and total-count identities for each \(2\le b\le50\).
+Jiang and subsequent literature classify possible periodicities and forbid periods in an OPEN middle chip-mass interval, but do not determine this exact K_{2,b} primitive-four mass enumerator, its boundary counts or orbit totals in inspected text. Best-of-knowledge O PASS.
 
-The proof uses Jiang's equal-period firing-count and complementary confinement properties and Jiang–Scully–Zhang's non-clumpiness theorem; these are scientific inputs, not computational certificates. Finite computations do not prove correctness for all \(b\); the full argument appears in `RESULT.md`. No independent audit has been performed.
+## value
+
+PASS
+
+The full chip-mass generating function of primitive-four periodic configurations on the smallest bipartite family admitting them is a natural dynamical invariant. The two disjoint exact energy bands, sharp middle-stair boundary attainment and precise populations complete a motivated classification not supplied by period existence; infinite all-b statement, not just finite small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

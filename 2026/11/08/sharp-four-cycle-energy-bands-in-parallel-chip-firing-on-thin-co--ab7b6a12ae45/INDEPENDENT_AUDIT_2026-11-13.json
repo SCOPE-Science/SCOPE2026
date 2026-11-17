@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T18:15:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob bb514e392446ced15edc8682b7e16453f7e456e7",
+        "assigned verification/verify_bruteforce.py blob 514c9eb50375a6fa38fdb6298c3231bc0b49f6a6",
+        "assigned verification/verify_formula.py blob c5c342ef3057b7cd02b965818f036b2c24888ad0",
+        "https://ar5iv.labs.arxiv.org/html/1003.0943",
+        "https://arxiv.org/abs/1211.6786"
+      ],
+      "rationale": "In a primitive period-four K_{2,b} orbit, connected-graph firing count equality and non-clumpiness restrict each vertex to k=1 or k=3 firings: k=2 forces two-step periodicity. In k=1, left-side firings cannot be simultaneous or adjacent, hence are opposite; for the 0,2 phase, each right vertex starts with 0/1 chips and fires in round three/one. If r right vertices begin at zero, periodic threshold constraints give 1<=r<=b-1, b<=alpha<=b+r-1, r<=beta<=b-1. Choosing i,j left slack and binomial right labels yields 4 z^{2b} S_b(z); confined-state complement gives 4 z^{5b-2} S_b(z^{-1}) for k=3, using total complement capacity 7b-2. Summing binomial geometric factors gives (1-z)^2 S_b=2^b(1+z^b)-2(1+z)^b, two exact mass support bands, endpoint populations 4(2^b-2), count 2^{b+1} b(b-1) states and 2^{b-1}b(b-1) orbits. Independent full synchronous state enumeration for b=2,3,4,5 matched predicted histograms, but finiteness does not prove b arbitrary. Proof depends expressly on correctly stated external firing-count, confinement, and non-clumpy lemmas.",
+      "residual_risks": [
+        "Finite enumeration only through b=5 in this independent execution (submission checker claims through b=7); infinite result relies on phase exhaustion and prior external lemmas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang 2010 period possibilities; Jiang-Scully-Zhang nonclumpy firing patterns. Ji-Li-Wang and Jung period-two middle stair hold for open interval 3b-2 < total <4b; submitted result places four-cycles AT both endpoints and in exterior bands."
+        ],
+        "reasoning": "Broad period and middle-stair theorems constrain allowable words/intervals but cannot supply a labelled exact primitive-four polynomial or endpoint multiplicities.",
+        "searches": [
+          "https://ar5iv.labs.arxiv.org/html/1003.0943",
+          "https://arxiv.org/abs/1211.6786",
+          "https://arxiv.org/abs/2408.10508",
+          "https://arxiv.org/abs/2608.01350"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/1003.0943",
+        "https://arxiv.org/abs/1211.6786",
+        "https://arxiv.org/abs/2408.10508",
+        "https://arxiv.org/abs/2608.01350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem about allowed period four on K_{2,b} is existential and its nonclump lemma is needed in the proof; middle-stair theorem excludes primitive-four only for the STRICT inner interval. Neither alone implies endpoint attainment, let alone exact 4(2^b-2) per endpoint."
+        ],
+        "reasoning": "The new claim is not an uncredited restatement; external lemmas are explicit hypotheses and provide a starting restriction, while the opposite-phase enumeration and mass count supply the difference.",
+        "searches": [
+          "https://ar5iv.labs.arxiv.org/html/1003.0943",
+          "https://arxiv.org/abs/1211.6786",
+          "https://arxiv.org/abs/2408.10508"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Period-four orbit count and mass enumerator are equivalent to a phase-firing-word census on K_{2,b}; Jiang 2010 proves possible period lengths but its theorem does not give the polynomial coefficients."
+        ],
+        "reasoning": "Rephrased as activity-class and chip-mass support, the same result is not determined by mere period-four feasibility. Need full counting of opposite-phase configurations and complement.",
+        "searches": [
+          "Resultary: parallel chip-firing K_{2,b} primitive period four configurations chip total generating function energy bands middle stair",
+          "https://ar5iv.labs.arxiv.org/html/1003.0943"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results include K_{3,b} primitive-three and other graph classes but no earlier K_{2,b} period-four mass table besides submitted record."
+        ],
+        "reasoning": "No matching table located; absence of a search hit is not proof of historical priority. The all-b generating polynomial is a complete natural labelled state census, not arbitrary finite table recomputation.",
+        "searches": [
+          "Resultary: K_2_b synchronous chip firing primitive 4 cycle full mass histogram exact polynomial",
+          "Jiang 2010 period lengths complete bipartite graph counts"
+        ]
+      },
+      "rationale": "Jiang and subsequent literature classify possible periodicities and forbid periods in an OPEN middle chip-mass interval, but do not determine this exact K_{2,b} primitive-four mass enumerator, its boundary counts or orbit totals in inspected text. Best-of-knowledge O PASS.",
+      "residual_risks": [
+        "Full Bitar-Goles 1992 prior chip-firing article and some middle-stair texts were not materially read; an older explicit period-four count cannot be excluded.",
+        "Assigned classification depends on known confinement and nonclump lemmas; any mismatch in those hypotheses would affect C."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NON_COVERING_ENERGY_CENSUS",
+          "evidence": [
+            "Theorem classifies period possibilities; no coefficientwise primitive-four mass generating function read"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1003.0943",
+          "material_read": "Rendered full manuscript sections 2 and 3 including Lemmas 2.1-2.3, Proposition 2.5 and main complete-bipartite period theorem",
+          "method": "ar5iv full HTML primary text",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Same dynamics and graph K_{2,b}; crucial confinement and firing-count lemmas"
+        },
+        {
+          "assessment": "STRUCTURAL_LEMMA_ONLY",
+          "evidence": [
+            "prohibits clumpy firing words, not chip-mass counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.6786",
+          "material_read": "Full available expanded proceedings text, Section 3 including theorem on non-clumpy patterns and corollary; not full arXiv standalone PDF",
+          "method": "Public full proceedings text",
+          "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Non-clumpiness is essential to exclude two firings in four rounds"
+        },
+        {
+          "assessment": "RELATED_OPEN_INTERVAL",
+          "evidence": [
+            "open middle-stair exclusion, not boundary-inclusive"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.10508",
+          "material_read": "Abstract/theorem statements from public indexing; full text not read",
+          "method": "arxiv indexing",
+          "title": "Non-Stabilizing Parallel Chip-Firing Games",
+          "trigger": "Relevant middle stair no primitive periods"
+        },
+        {
+          "assessment": "RELATED_OPEN_INTERVAL",
+          "evidence": [
+            "two-period behavior inside open interval only"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.01350",
+          "material_read": "Abstract/theorem statement from public indexing; full text not read",
+          "method": "arxiv indexing",
+          "title": "The Middle Stair for Complete Bipartite Parallel Chip-Firing",
+          "trigger": "Same complete bipartite family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned phase enumeration",
+        "Jiang prior existence theorem",
+        "strict middle-stair comparison"
+      ],
+      "rationale": "The full chip-mass generating function of primitive-four periodic configurations on the smallest bipartite family admitting them is a natural dynamical invariant. The two disjoint exact energy bands, sharp middle-stair boundary attainment and precise populations complete a motivated classification not supplied by period existence; infinite all-b statement, not just finite small census.",
+      "residual_risks": [
+        "Family is restricted to K_{2,b}, not all bipartite graphs; historical counting overlap remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "b>=3 labelled synchronous no-dissipation K_{2,b}; counts initially periodic four-cycles, not transient basins nor other periods.",
+    "Bitar-Goles 1992 complete full text not verified."
+  ],
+  "schema_version": 1
+}

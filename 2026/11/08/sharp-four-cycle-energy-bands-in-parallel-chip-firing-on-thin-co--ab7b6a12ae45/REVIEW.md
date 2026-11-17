@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-round firing count is constant across vertices by Jiang's periodicity lemma (arXiv:1003.0943, Proposition 2.5). The impossibility of cyclic firing patterns containing both adjacent firings and adjacent waits (arXiv:1211.6786, Theorem 6.2) excludes the two-firings-per-four-round case unless every vertex alternates, which gives period two. Direct time-phase analysis excludes equal and adjacent left-side firing times for the one-firing case. Opposite times yield explicit necessary and sufficient integer inequalities for both left initial chip counts and binary right initial chips; they give the exact mass polynomial. Complementation gives three-firing states without omission. The resulting finite sums simplify by the binomial theorem. Proof is all-parameter. Direct exhaustive labelled-state enumeration, independent multinomial-histogram enumeration and polynomial-identity checks independently corroborate their respective finite ranges; captured outputs are included. Main risk is a previously unnoticed special phase or counting multiplicity, addressed by a necessary-and-sufficient phase proof and two distinct exhaustive approaches.
+PASS
 
-## Originality — PASS with residual priority risk
+In a primitive period-four K_{2,b} orbit, connected-graph firing count equality and non-clumpiness restrict each vertex to k=1 or k=3 firings: k=2 forces two-step periodicity. In k=1, left-side firings cannot be simultaneous or adjacent, hence are opposite; for the 0,2 phase, each right vertex starts with 0/1 chips and fires in round three/one. If r right vertices begin at zero, periodic threshold constraints give 1<=r<=b-1, b<=alpha<=b+r-1, r<=beta<=b-1. Choosing i,j left slack and binomial right labels yields 4 z^{2b} S_b(z); confined-state complement gives 4 z^{5b-2} S_b(z^{-1}) for k=3, using total complement capacity 7b-2. Summing binomial geometric factors gives (1-z)^2 S_b=2^b(1+z^b)-2(1+z)^b, two exact mass support bands, endpoint populations 4(2^b-2), count 2^{b+1} b(b-1) states and 2^{b-1}b(b-1) orbits. Independent full synchronous state enumeration for b=2,3,4,5 matched predicted histograms, but finiteness does not prove b arbitrary. Proof depends expressly on correctly stated external firing-count, confinement, and non-clumpy lemmas.
 
-Jiang (arXiv:1003.0943) determines *which* period lengths can occur on complete bipartite graphs; this does not imply counts of primitive-four states at each chip total. Jiang–Scully–Zhang (arXiv:1211.6786) supply a necessary firing-word restriction but no energy census. Ji–Li–Wang (arXiv:2408.10508) and Jung (arXiv:2608.01350) characterize the open middle-stair region, not its two boundary counts. Levine (arXiv:0811.2800) studies a different graph family. Searches included 'parallel chip firing complete bipartite period four configuration count', 'K_{2,b} chip-firing four cycles exact count', 'period four chip-firing generating polynomial by chip total', and related aliases; none produced a covering claim. An earlier unindexed calculation, especially in inaccessible older literature, remains possible. Source titles alone have not been taken as evidence of noncoverage; the specific existing theorems have been compared by implication.
+## originality
 
-## Value — PASS
+PASS
 
-The energy distribution of recurrent states is a natural dynamical invariant behind activity staircases. The graph family is the thinnest nontrivial complete bipartite family supporting primitive period four, and the complete exact enumeration resolves whether the endpoints excluded by the sharp middle-stair inequalities are actually attained. The polynomial identifies two maximal contiguous energy bands, their precise lengths, sharp endpoint multiplicities, and exponential-periodic-state population for every \(b\). These statements cannot be obtained from period existence alone and are useful for comparing energy-conditioned dynamics across graph families. This is not an arbitrary isolated table value.
+Jiang and subsequent literature classify possible periodicities and forbid periods in an OPEN middle chip-mass interval, but do not determine this exact K_{2,b} primitive-four mass enumerator, its boundary counts or orbit totals in inspected text. Best-of-knowledge O PASS.
 
-## Scientific limitations
+## value
 
-Only immediately periodic primitive-four states are counted, not their eventual basins or all other periods. Historical-priority uncertainty persists; the Bitar–Goles 1992 full article was not available for inspection. There is no independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full chip-mass generating function of primitive-four periodic configurations on the smallest bipartite family admitting them is a natural dynamical invariant. The two disjoint exact energy bands, sharp middle-stair boundary attainment and precise populations complete a motivated classification not supplied by period existence; infinite all-b statement, not just finite small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
