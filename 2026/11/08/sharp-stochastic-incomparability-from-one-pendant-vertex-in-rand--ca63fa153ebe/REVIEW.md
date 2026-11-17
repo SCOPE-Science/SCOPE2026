@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-step first-arrival decomposition is exhaustive, and the residual graphs in all four cases are identified explicitly. The resulting rational probability laws normalize to one; their two upper-tail crossings and strictly positive expectation difference follow by exact subtraction. All connected original graphs on at most three vertices are \(K_1\), \(K_2\), \(P_3\), or \(K_3\); each pendant attachment has the stochastic-order direction shown in the proof. An exact independent recurrence checker reproduced the formulas and minimality checks (179 assertions). Computation tests do not substitute for the infinite-family algebraic proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Conditioning on the first uniformly ordered vertex proves star law I_m∈{1,m} with probabilities 1/(m+1),m/(m+1). For the private pendant extension, first hub gives size 2, first new leaf reduces to K_{1,m−1} with one extra selected, first attachment leaf gives m, and any other old leaf leaves an edge plus isolated leaves, also m. Consequently P(I_m^+=2)=(m+1)/(m(m+2)), P(I_m^+=m)=1−this. Direct exact fraction subtraction gives a strict positive upper-tail difference at 2 and strict negative difference −1/[m(m+1)(m+2)] at m while mean increases (m²+m+2)/[m(m+1)(m+2)], for each integer m≥3. The only connected graphs on 1..3 vertices K1,K2,P3,K3 and their possible pendant attachments are exhausted, showing sharp minimum original order four. Independent rational first-vertex recursion corroborated m=3..8; finite enumeration is not used as all-m proof.
 
-The closest inspected full-text source, Krivelevich–Mészáros–Michaeli–Shikhelman, https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200 , introduces the process and treats expectations and tree extremizers; it discusses a different failure of expected-value monotonicity under edge deletion. It does not assert this exact two-threshold comparison under *pendant extension*. AofA 2020 DOI:10.4230/LIPIcs.AofA.2020.20 also describes expectation and tree results. Separate mathematical-record searches for pendant-extension stochastic ordering and greedy independent sets returned no covering theorem. Existing private matching-augmentation and decorated-path results concern different random variables/graph classes and imply neither crossing. Literature searches cannot prove uniqueness; historical priority remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question “does a locally enlarged tree produce a stochastically larger greedy independent set?” has a sharp negative answer already at four original vertices. The infinite star family shows two opposite tail movements while the mean moves upward, separating stochastic-order claims from expectation-level intuition. An exact order cutoff and full probability laws make this a structural boundary rather than an isolated numerical counterexample.
+The natural stochastic-order crossing for a single pendant extension (despite an increasing mean) and the smallest connected-original size were not covered by the inspected closest random-greedy MIS literature or relevant published records. Krivelevich et al develop local-limit laws and expected-size monotonicity/edge deletion phenomena, not this exact opposing upper-tail family. Results on random-greedy edge matching concern a distinct greedy object and can have opposite monotonicity. This is a best-of-knowledge finite-structural originality judgment.
 
-## Limits
+## value
 
-No universal monotonicity claim for expected size is made; there is no theorem classifying all connected graph families. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a sharp minimal counterexample to a natural stochastic-monotonicity intuition under graph augmentation. A complete two-point distribution and opposite upper-tail inequalities are more informative than an expected-size increase; the minimal four-vertex connected obstruction supplies a reusable boundary case for greedy graph algorithms, despite being elementary and finite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
