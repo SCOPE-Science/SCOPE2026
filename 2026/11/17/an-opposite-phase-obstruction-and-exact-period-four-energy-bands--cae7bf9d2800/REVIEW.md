@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The result uses the exact loopless complete-graph update and proves uniform per-vertex firing counts during a returning four-step history. The nonclumpy periodic-pattern theorem (Jiang, Scully and Zhang, arXiv:1211.6786, Theorem 6.2) excludes all two-fire phase words except alternating ones; these return in two steps. Independent threshold intersections then establish necessary and sufficient chip-height intervals for positive four-phase compositions, giving the mass polynomial. A connected-composition interval argument proves no holes, while two opposite singleton restrictions yield the edge multiplicity by inclusion-exclusion. Direct exhaustive evolution through size six and separate phase enumeration through size eight agree. The finite programs are not offered as an all-size proof.
+
+**Originality — PASS, qualified.** The closest sources are Levine's rotation-number and period theorem (arXiv:0811.2800), the general firing-pattern restriction (arXiv:1211.6786), Jiang's period-length construction (arXiv:1003.0943), and the published 2026 period-three mass polynomial. The one-chip shift between Levine's looped and the present loopless convention is an exact conjugacy, not a novelty distinction. The inspected claims do not determine the four-phase opposite-pair penalty, the strict band separation of \(3n-5\) absent energies, or the exceptional \(n=4\) edge term. Searches cannot rule out unpublished or unindexed equivalents.
+
+**Value — PASS.** The four-phase calculation reveals a genuine transition relative to the prior three-phase case: a phase-dependent upper energy replaces a common upper bound. The resulting exact full interval support and its coefficient formula characterize a natural finite-energy recurrent sector on the complete graph for every size, rather than isolated small graph counts.
+
+**Closest prior literature and limitations.** Levine 2008 studies all period denominators and a middle period-two stair; Jiang, Scully and Zhang 2012 supply a nontrivial external firing-pattern theorem; the 2026 primitive-three result is the closest enumeration. The claim is only about initially primitive-four states and does not count their basins. Independent mathematical validation and complete historical priority are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
