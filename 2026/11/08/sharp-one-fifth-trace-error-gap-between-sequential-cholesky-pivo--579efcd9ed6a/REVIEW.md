@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** With a unit-diagonal three-by-three SPD matrix, the first Cholesky pivot is uniform; the second is proportional to a two-by-two principal minor. This gives the exact unordered-pair laws. Every selected pair has trace residual equal to the full determinant divided by that minor. The resulting ratio is a reciprocal-sum expression. Harmonic–arithmetic mean gives the lower bound and exact equality conditions. Distances between rank-one projectors give a triangle for the square roots of the minors. A monotone spreading argument reduces the upper-bound optimization to degenerate triangles, where the displayed factored nonnegative rational expression gives the sharp \(6/5\). Positive-definite regularizations of three nearly collinear unit vectors approach the supremum. The verifier passed 682 exact-algebra assertions. Limits: these assertions do not prove the continuum inequality; that requires the written argument. All steps were reconstructed against the precise hypotheses and boundaries.
+## correctness
 
-**Originality — PASS, with residual precedence risk.** Chen–Epperly–Tropp–Webber [1] specifies the residual-proportional pivot rule and separately benchmarks DPP sampling; Dereziński–Mahoney [2] presents fixed-cardinality determinant sampling and Nyström error guarantees. Steinerberger [3] changes the sampling power and analyzes one-step norm contractions. Epperly [4] derives global RPCholesky trace and spectral error bounds from pivot-sequence probabilities. None of their inspected mathematical statements yields the exact sharp three-point correlation-kernel ordering and its equality/\(6/5\) classification as a stated result. The known distributional identities suffice as inputs to the new finite-geometry argument but do not by themselves give the sharp constant. Related source literature might contain an equivalent small-dimensional comparison not located in the searches. That is a precedence risk, not a claim of exhaustive novelty verification.
+PASS
 
-**Value — PASS.** Uniform kernel diagonals are common when data have equal self-similarity. Three indices and two pivots are the first configuration in which adaptive sequential pivoting and determinant-based set selection differ. The theorem gives a complete and tight quantitative cost of this distinction, sharp within 20% over *all* positive-definite three-point correlation kernels. The upper extremizer is a natural near-collinear feature geometry; the unequal-diagonal counterexample explains why the assumption is structural. The result does not assert an algorithmic speed advantage or solve general-dimensional sampling design.
+For real positive-definite 3x3 correlation A with w_ij=1-A_ij² and T_i=sum_{j!=i}w_ij, sequential RPCholesky picks first pivot uniformly and second proportionally to w_ij; 2-DPP unordered pair probability is w_ij/W. Schur complement says two-pivot residual trace det(A)/w_ij. Thus E_R=(2det(A)/3)sum 1/T_i and E_D=3det(A)/W. AM–HM gives ratio>=1 with equality precisely equal absolute correlations. Since sqrt(w_ij) is Frobenius distance between rank-one projectors divided by sqrt2, the triple satisfies triangle inequality. Ratio increases under shifting squared mass from smallest to largest side until a degenerate triangle; at a=b+c its exact factored gap to 6/5 is 2(t-1)^2(t+2)^2(2t+1)^2/[45(t²+1)(t²+2t+2)(2t²+2t+1)]. Strictness for positive-definite Gram triples and jittered nearly collinear unit vectors prove the supremum is 6/5 but unattained. Independent rational checks include equal-correlations and near-boundary ratios; finite tests are not substituted for proof.
 
-**Closest literature and limits.** Sources [1]–[4] are identified and compared in `RESULT.md`. The main limitation is restriction to a fixed rank-two three-point expected trace error and to correlation kernels. General sampling complexity results and other norms cannot be inferred. No independent scientific audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Chen–Epperly–Tropp–Webber and DPP/Nyström literature supply residual-diagonal pivot law and determinant sampling, but the inspected earlier papers do not derive the exact 3x3 correlation-restricted two-pivot dominance, iff equality condition, and sharp 6/5 supremum. Resultary returned distinct rank-one-spike orientation and one-pivot comparisons but not a stronger theorem which implies this entire correlation class; it includes the identical current result. General approximation expectation bounds do not determine the sharp relative constant or equality.
+
+## value
+
+PASS
+
+PASS: this is the smallest nontrivial (n=3, two selected pivots) exact comparison of adaptive versus determinantal kernel sampling on a natural normalized correlation matrix class. The sharp inequality, equality geometries, singular limiting factor 6/5, and counterexample outside equal diagonals locate a meaningful algorithmic boundary, useful independently of larger asymptotic guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

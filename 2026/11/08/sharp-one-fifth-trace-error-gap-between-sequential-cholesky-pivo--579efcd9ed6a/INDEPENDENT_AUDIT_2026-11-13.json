@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:11:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real positive-definite 3x3 correlation A with w_ij=1-A_ij² and T_i=sum_{j!=i}w_ij, sequential RPCholesky picks first pivot uniformly and second proportionally to w_ij; 2-DPP unordered pair probability is w_ij/W. Schur complement says two-pivot residual trace det(A)/w_ij. Thus E_R=(2det(A)/3)sum 1/T_i and E_D=3det(A)/W. AM–HM gives ratio>=1 with equality precisely equal absolute correlations. Since sqrt(w_ij) is Frobenius distance between rank-one projectors divided by sqrt2, the triple satisfies triangle inequality. Ratio increases under shifting squared mass from smallest to largest side until a degenerate triangle; at a=b+c its exact factored gap to 6/5 is 2(t-1)^2(t+2)^2(2t+1)^2/[45(t²+1)(t²+2t+2)(2t²+2t+1)]. Strictness for positive-definite Gram triples and jittered nearly collinear unit vectors prove the supremum is 6/5 but unattained. Independent rational checks include equal-correlations and near-boundary ratios; finite tests are not substituted for proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior RPCholesky analysis gives general bounds, not an all-correlation 3x3 2-step exact ratio.",
+          "DPP matrix approximation survey treats determinant selection broadly; not a proved 6/5 conditional ordering with equal-absolute-correlation iff equality."
+        ],
+        "reasoning": "Broader algorithm families are not logically dominating without a theorem of the same sharp specialized risk and equality.",
+        "searches": [
+          "random pivoted Cholesky vs 2-DPP trace residual 3 by 3 correlation matrix sharp ratio six fifth",
+          "https://arxiv.org/abs/2207.06503",
+          "https://arxiv.org/abs/2005.03185",
+          "https://arxiv.org/abs/2404.11487"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2207.06503",
+        "https://arxiv.org/abs/2005.03185",
+        "https://arxiv.org/abs/2404.11487",
+        "https://arxiv.org/abs/2608.20633"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen et al supply RPCholesky pivot dynamics and DPP comparison context, not the required sharp conditional dominance.",
+          "Source includes diagonal unequal-diagonal reversal, emphasizing that the result does not follow from arbitrary kernel sampling dominance."
+        ],
+        "reasoning": "No stated prior guarantee entails E_D<=E_R<6/5 E_D with the exact lower equality characterization on this restricted class.",
+        "searches": [
+          "random pivoted Cholesky vs 2-DPP trace residual 3 by 3 correlation matrix sharp ratio six fifth",
+          "https://arxiv.org/abs/2207.06503",
+          "https://arxiv.org/abs/2005.03185"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RPCholesky with residual diagonal pivot weights versus k-DPP principal-minor sampling, both producing Nyström A[:,S]A[S,S]^-1 A[S,:].",
+          "Trace residual of each selected 2-subset equals det A/(1-A_ij²) on unit-diagonal 3x3 input."
+        ],
+        "reasoning": "The laws reduce to a simple rational symmetric triple w_ij, making the exact result directly comparable to prior methods; no prior identical complete inequality found.",
+        "searches": [
+          "random pivoted Cholesky vs 2-DPP trace residual 3 by 3 correlation matrix sharp ratio six fifth",
+          "https://arxiv.org/abs/2207.06503",
+          "https://arxiv.org/abs/2005.03185"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact ratio R=2W/9 * sum_i 1/T_i, algebraic 6/5 sharp boundary certificate.",
+          "Independently checked R(1,1,1)=1 and R(4,1,1)=6/5 (degenerate admissible triangle boundary), and other positive-weight triples."
+        ],
+        "reasoning": "A finite grid alone would not certify all positive-definite A; here the rank-one-projector triangle inequality and factored boundary gap do.",
+        "searches": [
+          "random pivoted Cholesky vs 2-DPP trace residual 3 by 3 correlation matrix sharp ratio six fifth",
+          "https://arxiv.org/abs/2207.06503"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Chen–Epperly–Tropp–Webber and DPP/Nyström literature supply residual-diagonal pivot law and determinant sampling, but the inspected earlier papers do not derive the exact 3x3 correlation-restricted two-pivot dominance, iff equality condition, and sharp 6/5 supremum. Resultary returned distinct rank-one-spike orientation and one-pivot comparisons but not a stronger theorem which implies this entire correlation class; it includes the identical current result. General approximation expectation bounds do not determine the sharp relative constant or equality.",
+      "residual_risks": [
+        "Older column-subset selection, sequential volume-sampling or correlation-matrix literature might contain an equivalent 3x3 risk comparison not retrieved in semantic search.",
+        "Singular upper extremizer cannot be used as an attained PD equality case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK / NOT SHARP RATIO",
+          "evidence": "General pivoting and expectation bounds, but no inspected exact 3x3 unit-diagonal 6/5 conditional theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "ArXiv full PDF opened; examined algorithmic pivot law, main results and relevant DPP appendix; no whole-document novelty proof claimed.",
+          "method": "Primary PDF relevant sections and appendix read",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Primary RPCholesky definition and comparison with determinant selection"
+        },
+        {
+          "assessment": "BACKGROUND; INCOMPLETE FULL TEXT",
+          "evidence": "General k-DPP principal-minor selection does not by itself prove RPCholesky 3x3 conditional inequality.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03185",
+          "material_read": "Survey identification and method overview; full survey not documented as read.",
+          "method": "Bibliographic/source-level scope comparison",
+          "title": "Determinantal Point Processes in Randomized Numerical Linear Algebra",
+          "trigger": "Determinant sampling laws and possible broader coverage"
+        },
+        {
+          "assessment": "CORRECT SHARP COMPARISON",
+          "evidence": "Exact sampling laws, triangular geometry, factored gap, and strict positive-definite boundary checked.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-fifth-trace-error-gap-between-sequential-cholesky-pivo--579efcd9ed6a",
+          "material_read": "Full RESULT.md and verify.py source; metadata and AUDIT JSON examined.",
+          "method": "Frozen GitHub source read, analytic algebra reconstruction and independent rational tests",
+          "title": "Sharp one-fifth trace-error gap between sequential Cholesky pivots and two-point determinant sampling on correlation kernels",
+          "trigger": "Frozen final theorem and algebra verifier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: this is the smallest nontrivial (n=3, two selected pivots) exact comparison of adaptive versus determinantal kernel sampling on a natural normalized correlation matrix class. The sharp inequality, equality geometries, singular limiting factor 6/5, and counterexample outside equal diagonals locate a meaningful algorithmic boundary, useful independently of larger asymptotic guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real 3x3 SPD correlation kernels, selecting exactly two distinct pivots, expected Nyström trace residual; not arbitrary diagonal matrices, larger n, runtime or samplewise error.",
+    "Older column-subset selection, sequential volume-sampling or correlation-matrix literature might contain an equivalent 3x3 risk comparison not retrieved in semantic search.",
+    "Singular upper extremizer cannot be used as an attained PD equality case."
+  ],
+  "schema_version": 1
+}
