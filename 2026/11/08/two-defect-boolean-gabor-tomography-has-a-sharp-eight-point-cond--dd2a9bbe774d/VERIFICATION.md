@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-The source file `CHECK.py` uses only Python's standard library. Run `python3 CHECK.py` from the same directory to perform exact Gaussian-integer calculations of all \(N^2\) Weyl ambiguities in \(N=8,16,32\), with ten window parameter pairs for each order. For \(N=8\), it additionally forms every rank-one orbit projector explicitly and performs modular Gaussian elimination on the vectorized projectors for five Gaussian-integer windows, giving a second type of rank check. The coefficient embedding in the prime field is used only for these finite consistency tests; the all-parameter complex theorem comes from the exact algebraic identities in `RESULT.md`. It also tests all eight proposed optimizers for each of \(N=8,16,32,64\).
+# Independent mathematical audit
 
-Actual completed execution returned `TWO_DEFECT_BOOLEAN_GABOR_EXACT_CHECKS_PASS 30 spectral enumerations, 5 exact modular projector ranks, 32 sharp optimizers`.
+## correctness
 
-The universal proof checks separately the sign classes at shifts outside the two-point subgroup, the two special shifts, the spectral diagonalization, both ranges of the optimization variable, and the complete equality case. No statistical Monte Carlo or finite-only extrapolation is used. The C/O/V review in `REVIEW.md` is a bounded self-review; independent external validation has not been performed.
+PASS
+
+For a=0,d,otherwise, Walsh character orthogonality produces the stated 11 spectral rows and positive multiplicities summing N^2. Four nonexceptional rows enforce least ambiguity <=2r for r=min(|U|,|V|,|P|,|Q|), with H=N+2U+(U²+V²+P²+Q²)/2. Minimization in two ranges r<=2 and r>=2 yields kappa>=sqrt(2N)-1 for N>=8, equality only r=sqrt(N/2), U=-r, other three signed r. Solving linear equations yields exactly eight optimizers; direct substitution gives rank and finite condition. Independent exact integer-Gaussian ambiguity enumerations at N=8 and 16 matched all 11 rows and multiplicities in six sample parameter cases. General proof rests on Weyl diagonalization, not finite tests.
+
+## originality
+
+PASS
+
+The one-site real-plus-imaginary optimal spike and condition sqrt(2N)-1 already occur in Zhu–Wang 2026 and are explicitly credited. New survival: global two-parameter (two arbitrary complex-site defects) lower bound, all eight equality configurations including four separated-site optima, and complete eleven-row rank/spectrum for all parameters. Earlier two-hole cyclic Z_N rank theorem is different group structure and missing-site case; it does not imply Boolean two-site conditioning. Full Zhu-Wang text inaccessible, materially qualifies priority of exact optimized family.
+
+## value
+
+PASS
+
+Determining whether a second defect can improve a known measurement design is a natural minimax stability question. The exact all-parameter rank discriminant and extra full-rank separated optimizers distinguish complete tomography from isolated real/imag perturbations and are potentially useful as explicit sensing designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

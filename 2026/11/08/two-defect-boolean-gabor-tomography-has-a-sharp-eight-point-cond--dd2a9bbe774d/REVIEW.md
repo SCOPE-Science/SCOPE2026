@@ -1,11 +1,21 @@
-# Scientific review: two-defect Boolean Gabor tomography
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The claim fixes the entire parameter domain, the Boolean translation/modulation convention, the operator lift normalization, and the singularity convention. The eleven ambiguity branches follow by separating the zero shift, the displacement between the two defects, and all other shifts. Each nonzero character count is positive for \(N\ge8\) and the multiplicities sum to \(N^2\). The Weyl basis yields singular values \(\sqrt N|A_g|\) exactly. With \(r\) the minimum of four independent real and imaginary linear combinations, the least ambiguity is at most \(2r\); the norm bound has two regimes and yields \(\sqrt{2N}-1\). All equality conditions have been solved and all eight families checked against the *other* ambiguity branches, ruling out spurious minimizers. The finite exact checker separately expands full Walsh ambiguity, calculates real projector-span ranks over a prime field, and tests the equality examples; these are corroboration, not the universal proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** The closest full primary manuscript, Zhu--Wang arXiv:2608.11850, Section IV.1, establishes the characteristic-two **one-impulse** construction and already exhibits its best-phase example; no priority is claimed for that subfamily or its Gram spectrum. It does not state or imply a minimax theorem quantifying over two *independent* coordinate defects or classifying the eight equality parameters: its ambiguity coefficients only have one complex phase. Bojarovska--Flinth arXiv:1503.05800 supplies the spectral/phase-retrieval framework without this parameter optimization. The inspected published two-hole result is for **cyclic** Gabor orbits with two *missing* coordinates; it computes rank, not stability, and does not cover the exponent-two Boolean Weyl group or complex two-defect minimax. A binary affine-projector result concerns a different, non-Weyl action. Searches targeted group aliases, single- and two-spike variants, and conditioning equality; no stronger covering claim was found. The residual risk is a previously unlocated result in covariant quantum measurement design or two-coordinate perturbation theory. No universal historical priority is asserted.
+PASS
 
-**Mathematical value — PASS.** This is not another generic-injectivity example. It answers the sharp natural design question whether an additional independently tunable coordinate can improve the worst-direction condition number of a full minimal Gabor tomography orbit. The answer is a global *no-improvement* theorem with a complete eight-point equality classification, including four split-phase designs where both individual real-only and imaginary-only constituents are singular. The full eleven-branch parametric spectrum and rank discriminant give exact failure strata and directly support the conditioning theorem. The sharp bound matters to stable linear inversion and reveals a nontrivial rigidity boundary for a structured measurement family, without claiming optimality among all windows.
+For a=0,d,otherwise, Walsh character orthogonality produces the stated 11 spectral rows and positive multiplicities summing N^2. Four nonexceptional rows enforce least ambiguity <=2r for r=min(|U|,|V|,|P|,|Q|), with H=N+2U+(U²+V²+P²+Q²)/2. Minimization in two ranges r<=2 and r>=2 yields kappa>=sqrt(2N)-1 for N>=8, equality only r=sqrt(N/2), U=-r, other three signed r. Solving linear equations yields exactly eight optimizers; direct substitution gives rank and finite condition. Independent exact integer-Gaussian ambiguity enumerations at N=8 and 16 matched all 11 rows and multiplicities in six sample parameter cases. General proof rests on Weyl diagonalization, not finite tests.
 
-**Sources and limitations.** The 2015 first public motivating source is Bojarovska--Flinth, arXiv:1503.05800. The most relevant later comparison is Zhu--Wang, arXiv:2608.11850, especially Theorem 8 and equations (69)--(75), which are expressly credited. Goldberger--Kang--Okoudjou arXiv:2106.01509 and three published specific results were also compared. The theorem is restricted to \(n\ge3\), full Boolean Weyl orbits, and flat backgrounds with two specified defects. The scripts' finite tests do not provide independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one-site real-plus-imaginary optimal spike and condition sqrt(2N)-1 already occur in Zhu–Wang 2026 and are explicitly credited. New survival: global two-parameter (two arbitrary complex-site defects) lower bound, all eight equality configurations including four separated-site optima, and complete eleven-row rank/spectrum for all parameters. Earlier two-hole cyclic Z_N rank theorem is different group structure and missing-site case; it does not imply Boolean two-site conditioning. Full Zhu-Wang text inaccessible, materially qualifies priority of exact optimized family.
+
+## value
+
+PASS
+
+Determining whether a second defect can improve a known measurement design is a natural minimax stability question. The exact all-parameter rank discriminant and extra full-rank separated optimizers distinguish complete tomography from isolated real/imag perturbations and are potentially useful as explicit sensing designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
