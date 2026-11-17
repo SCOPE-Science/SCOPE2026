@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof and its finite assumptions appear in `RESULT.md` and the exact checker is `verify_function_cover.py`. The verifier uses no third-party package.
+## correctness
 
-Execute `python3 verify_function_cover.py` with Python 3.9 or later. Expected final message:
+PASS
 
-```
-PASS: 1355 all-profile pair comparisons through n=13; independent checks and infinite-family endpoint identities
-```
+For g nonempty disjoint guilds with S species, uniform sampling exactly k survivors gives H_a(k)=[z^k]prod_i((1+z)^a_i-1)/binom(S,k). The coefficient interpretation and inclusion-exclusion are algebraically identical; signs are exact integer differences. Independent partition recursion and polynomial convolution enumerated all profiles with S=1..13 and all 1,355 same-S/g unordered pairs: none reverse at S<=12 and precisely three at S=13, namely (1,3,4,5)/(2,2,2,7), (1,4,4,4)/(2,2,2,7), (1,3,3,3,3)/(2,2,2,2,5). The infinite (1,3,4,m) versus (2,2,2,m+2) m>=5 family has coverage-numerator difference 4(m-4)>0 at k=4 and -1 at k=S-1, proving reversal for every m. Finite exhaustive domain is S<=13 only; higher S covered by an explicit family, not a full census.
 
-The certificate compares 1,355 unordered equal-size/equal-group-count profile pairs across all totals 1 through 13. Every coefficient for each integer partition is calculated by two independent integer algorithms (polynomial convolution and inclusion–exclusion), so there is no numerical tolerance or floating-point inference. The three first-layer examples are independently replayed by exhaustive enumeration of all 13-species subsets. Infinite-family sample checks are diagnostics; the proof for all integers \(m\ge5\) is the explicit first-budget product and penultimate-budget singleton count in the manuscript.
+## originality
 
-The verifier does not test ecological empirical assumptions or prove historical priority. No independent audit has been performed.
+PASS
+
+The 2001 Fonseca-Ganade full paper treats random functional-group loss and expected surviving functional richness, first-loss risk and variance, but does not state this sharp S=13 same-S/g reversal classification. Related Resultary variance and rarefaction reversal findings concern other objective functions or sampling. The first-layer census appears a nontrivial new exact statement, qualified against classical coupon-collector and hypergeometric literature.
+
+## value
+
+PASS
+
+Probability that *every* ecological function survives a fixed-size extinction event is a natural finite-community robustness statistic. A sharp minimum population at which competing allocations can reverse ranking across budgets and the complete first-layer list clarify a mathematically real failure of universal ranking, with both a bounded cutoff and an unbounded witness family. The disjoint-guild null model is explicit and meaningful even without biological empirical validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
