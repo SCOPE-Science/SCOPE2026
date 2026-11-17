@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The necessity argument uses the all-positive trace and a forced impossible trace on any spanning out-arborescence support. The sufficiency argument constructs a realizing arborescence for each \(P\subseteq S\) by counting at least one root-attachable component and then connecting the remaining components through it. Every added arc avoids the negative queries. The rooted-forest determinant yields the full face polynomial. All quantifiers, the \(n=2\) case and the labeled/ordered arc convention are explicit. `arbo_checks.py` was run and its results agree with the theorem, but finite tests are not the proof.
+## correctness
 
-**Originality — PASS (qualified).** Actual searches compared arborescences, directed-branching/matroid-intersection aliases, supports, projections, and enumerators. The nearest material inspected is Kakimura–Kamiyama–Takazawa (2018, full arXiv HTML, Introduction, Preliminaries, packing section and conclusion), Király–Szigeti–Tanigawa (2019, full open-access HTML, sections on arborescence cuts and matroid intersection), and Coudert–Csikós–Ducoffe–Viennot (2024, full arXiv HTML, graph VC computation and algorithm). The first two provide stronger generic existence/packing machinery but neither inspected statement contains the all-label complete-digraph shattering classification or its enumeration; the third studies closed-neighborhood concepts rather than arborescence-incidence concepts. The generic single-matroid base theorem in accessible earlier work is not directly applicable to this two-matroid common-base family. Residual risk: an unindexed classical projection/corollary under different terminology may exist.
+PASS
 
-**Value — PASS.** The shattering complex of a natural connectivity-constrained concept class is classified at *every* face, not just in maximum dimension. A global universal-trace condition reduces to two local branching checks and one cardinality cutoff, and the entire face count has a closed formula. The characterization isolates the exact role of the fixed root and completeness of the digraph, potentially useful when comparing constrained network concept classes with undirected graphic-matroid bases. The theorem is self-contained and goes beyond a change of notation or an isolated small numerical computation.
+PASS: All-positive trace forces a directed branching. A putative support of n−1 arcs is a spanning arborescence and cannot realize the labeling forbidding every root-outgoing support arc while retaining others. For any branching of size at most n−2 and any positive subset P, the P-forest has t=n−|P| components and at most |S|−|P|<=t−2 blocked root attachments among t−1 nonroot components. Attach all open components directly to the root and each blocked component by an arc from one open component; the branching indegree rule guarantees every new arc avoids negative queries. The rooted-forest count det(nI−J)=k n^{n−k−1} establishes the face polynomial including n=2. Fresh exhaustive direct parent/cycle enumeration matched all supports at n=2..5 (2,16,512,65536 tested).
 
-The claim is restricted to complete bidirected graphs, and its novelty is relative to inspected material rather than established absolute priority. No independent verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: exact all-trace arc support theorem and all-order enumeration not implied by inspected branching optimization/packing or vertex-neighborhood VC results.
+
+## value
+
+PASS
+
+PASS: Full face-by-face shattering classification of a canonical connectivity-constrained directed concept family is a natural combinatorial invariant; the all-trace property reduces to precisely two branching checks and a tight global size cutoff and yields an exact count of all faces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

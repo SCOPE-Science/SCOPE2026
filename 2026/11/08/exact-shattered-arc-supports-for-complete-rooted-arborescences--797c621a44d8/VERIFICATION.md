@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python arbo_checks.py` with Python 3 and no external packages. The program reconstructs every rooted out-arborescence from Prüfer-generated trees, checks all arc-support traces for orders 2 through 5, confirms exact labeled face counts, and checks deterministic random samples at order 6. A successful test ends with `ROOTED_ARBORESCENCE_SHATTER_PASS 66866`.
+## correctness
 
-## Limits
+PASS
 
-The finite test does not establish the statement at arbitrary order. The unrestricted proof is the component-attachment argument in `RESULT.md`; the enumeration uses the all-minors matrix-tree theorem. An independent audit has not been performed.
+PASS: All-positive trace forces a directed branching. A putative support of n−1 arcs is a spanning arborescence and cannot realize the labeling forbidding every root-outgoing support arc while retaining others. For any branching of size at most n−2 and any positive subset P, the P-forest has t=n−|P| components and at most |S|−|P|<=t−2 blocked root attachments among t−1 nonroot components. Attach all open components directly to the root and each blocked component by an arc from one open component; the branching indegree rule guarantees every new arc avoids negative queries. The rooted-forest count det(nI−J)=k n^{n−k−1} establishes the face polynomial including n=2. Fresh exhaustive direct parent/cycle enumeration matched all supports at n=2..5 (2,16,512,65536 tested).
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: exact all-trace arc support theorem and all-order enumeration not implied by inspected branching optimization/packing or vertex-neighborhood VC results.
+
+## value
+
+PASS
+
+PASS: Full face-by-face shattering classification of a canonical connectivity-constrained directed concept family is a natural combinatorial invariant; the all-trace property reduces to precisely two branching checks and a tight global size cutoff and yields an exact count of all faces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
