@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:43:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the centered path coordinate v_i=(n+1)/2−i, the Rayleigh quotient bounds λ2 by (Σw_i+(n−1)^2z)/[n(n²−1)/12]. Parabolic path weights w_i^0=(λ0/2)i(n−i) attain λ2=λ0, with exact path spectrum λ0 k(k+1)/2. Equality at c=(n−1)^2 forces the affine weights w_i(z)=w_i^0−(n−1)z. The second-eigenspace positivity bound on f⊥{1,v} yields the generalized Rayleigh cutoff; disconnection at z=λ0/2 ensures it binds before edge nonnegativity. Rescaling an interior critical design proves strict gain for c below threshold. Independent SymPy reconstructed the C5 weighted Laplacian, checked the centered eigenvector and the complete displayed characteristic polynomial. The exact n=5 radical follows by quadratic crossing; these finite checks supplement the uniform-n polynomial spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mass-independent edge screening (Resultary 2026/11/2): n≥3, all m_i>0 and all p_i>0; q_c=(Σ√p_i)^2",
+          "General complete critical endpoint t_*=min(t_edge,t_spectral) on E"
+        ],
+        "reasoning": "The earlier theorem strictly dominates the current restricted unit-mass/unit-path-price n≥5 theorem, including both strict sides of cutoff, uniqueness at high price, and complete critical family. At unit weights its spectral endpoint is below t_edge, so no special case escapes.",
+        "searches": [
+          "cycle one expensive edge cost threshold all n squared path optimizer interval fastest mixing spectral gap graph Laplacian",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+          "fastest mixing reversible cycles arbitrary node masses arbitrary edge prices"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "Resultary searches: cycle one expensive edge cost threshold all n squared path optimizer interval fastest mixing spectral gap graph Laplacian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2026/11/2 prior defines ℓ_i=√p_i, S=Σℓ_i, f_i=z_i−weighted mean, w_i^0=Λ G_i/ℓ_i and q_c=S²",
+          "With m_i=p_i=1, V=n(n²−1)/12, G_i=i(n−i)/2, Λ=12B/[n(n²−1)], R(f)=(n−1)Σ(Δf)^2−(f_n−f_1)^2"
+        ],
+        "reasoning": "Mathematical substitution of actual earlier theorem **implies every clause** of the present claim, not merely that it could be found by solving a generic SDP. Historical Sun et al. provides framework, while later prior Resultary already gives the full all-parameter classification.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Resultary full RESULT.md gives generalized eigenproblem Lx=λMx with arbitrary masses and prices; choose M=I and p_i=1",
+          "Same edge weights w_i(t)=w_i^0−tS/ℓ_i specialize to w_i^0−(n−1)t"
+        ],
+        "reasoning": "Both optimize the continuous-time unnormalized symmetric Laplacian spectral gap under identical linear conductance costs after specialization; no discrete-time SLEM mismatch. The boundary optimizer sets coincide, not just their numerical cutoff.",
+        "searches": [
+          "cycle one expensive edge cost threshold all n squared path optimizer interval fastest mixing spectral gap graph Laplacian",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier five-cycle full paper gives closing rate q∈[0,1/20−√10/200] at budget1 and price16",
+          "Earlier general masses paper quotes n=5 price16 and critical endpoint 0.34188611699 at B=10"
+        ],
+        "reasoning": "The apparently new C5 radical is exactly a previously published expression after the harmless budget scale B: (10−√10)B/200. The general formula was also known.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+          "five cycle c=16 optimal segment radical (10−sqrt10)/200"
+        ]
+      },
+      "rationale": "This *entire* finding is a direct specialization of the already published complete theorem \"Mass-independent edge screening and complete critical optimizers for priced reversible cycles\" (Resultary, 2026/11/2): set all vertex masses m_i=1 and path prices p_i=1 in its n≥3 theorem. Its q_c=(Σ√p_i)^2 becomes (n−1)^2; its w_i^0 and critical affine family become exactly the present ones, and its full critical optimizer interval has the same generalized Rayleigh endpoint. The n=5 radical was also published explicitly in \"The exact price transition for fastest mixing on a five-cycle\" (2026/10/12). Difference in notation and exclusion of n=4 cannot make a corollary original.",
+      "residual_risks": [
+        "No uncertainty about scientific coverage: the published stronger theorem logically entails the entire restricted claim; residual risk is only whether the prior itself is valid, not an originality loophole.",
+        "No proposed repair could retain a newly valuable remainder of the stated theorem without changing the research question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_FULL_COVERAGE",
+          "evidence": [
+            "q_c=(Σ√p_i)^2, w_i(t)=w_i^0−tS/√p_i, unique path optimum above and whole interval at equality; specialize masses/prices to one to obtain assigned theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+          "material_read": "entire earlier published RESULT.md: findings, hypotheses, all four proof parts, endpoint formulas and n5 check",
+          "method": "full scientific text through source repository GitHub blob at published path",
+          "title": "Mass-independent edge screening and complete critical optimizers for priced reversible cycles",
+          "trigger": "exact stronger model and full optimizer face"
+        },
+        {
+          "assessment": "DECISIVE_N5_COVERAGE",
+          "evidence": [
+            "c=16; q≤1/20−√10/200 at B=1; all n5 optimal weights and uniqueness already stated"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md",
+          "material_read": "entire prior published RESULT.md: explicit below-price solution, full transition proof and critical closed interval",
+          "method": "full scientific text through source repository GitHub blob at published path",
+          "title": "The exact price transition for fastest mixing on a five-cycle",
+          "trigger": "same exact five-cycle radical"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": [
+            "Sun et al. 2006 establishes the same continuous-time λ2 optimization with linear budgets and general SDP framework, but decisive priority arises from later two exact full theorem statements"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "author-hosted abstract and available publication description; full PDF not re-read in this execution",
+          "method": "author site abstract + bibliographic comparison",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "foundational FMMP problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical cutoff and optimal face are meaningful in isolation, but the present package contributes no new independent exact invariant, classification, or substantive structural lemma beyond the earlier all-mass, arbitrary-edge-price theorem, and its five-cycle radical is independently already published. As a duplicative specialization, the claimed new finding has no incremental mathematical value; correctness and reproducibility cannot rescue known coverage.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md",
+    "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+    "Resultary searches: cycle one expensive edge cost threshold all n squared path optimizer interval fastest mixing spectral gap graph Laplacian"
+  ],
+  "disposition": "failed",
+  "final_claim": "For n≥5 uniform-mass cycles with all path-link prices one and closing-edge price c, the sharp spectral-gap edge-retention cutoff is c=(n−1)^2; the whole critical optimizer interval and the n=5 radical endpoint are given explicitly.",
+  "limitations": [
+    "This is scientific rejection for already-published dominance, not an operational inability or a false proof.",
+    "No low-price full optimum is claimed by this package; older stronger theorem likewise does not need it to cover the present statement."
+  ],
+  "residual_risks": [
+    "No uncertainty about scientific coverage: the published stronger theorem logically entails the entire restricted claim; residual risk is only whether the prior itself is valid, not an originality loophole.",
+    "No proposed repair could retain a newly valuable remainder of the stated theorem without changing the research question."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_FULL_COVERAGE",
+      "evidence": [
+        "q_c=(Σ√p_i)^2, w_i(t)=w_i^0−tS/√p_i, unique path optimum above and whole interval at equality; specialize masses/prices to one to obtain assigned theorem"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+      "material_read": "entire earlier published RESULT.md: findings, hypotheses, all four proof parts, endpoint formulas and n5 check",
+      "method": "full scientific text through source repository GitHub blob at published path",
+      "title": "Mass-independent edge screening and complete critical optimizers for priced reversible cycles",
+      "trigger": "exact stronger model and full optimizer face"
+    },
+    {
+      "assessment": "DECISIVE_N5_COVERAGE",
+      "evidence": [
+        "c=16; q≤1/20−√10/200 at B=1; all n5 optimal weights and uniqueness already stated"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6/RESULT.md",
+      "material_read": "entire prior published RESULT.md: explicit below-price solution, full transition proof and critical closed interval",
+      "method": "full scientific text through source repository GitHub blob at published path",
+      "title": "The exact price transition for fastest mixing on a five-cycle",
+      "trigger": "same exact five-cycle radical"
+    },
+    {
+      "assessment": "GENERAL_FRAMEWORK",
+      "evidence": [
+        "Sun et al. 2006 establishes the same continuous-time λ2 optimization with linear budgets and general SDP framework, but decisive priority arises from later two exact full theorem statements"
+      ],
+      "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "material_read": "author-hosted abstract and available publication description; full PDF not re-read in this execution",
+      "method": "author site abstract + bibliographic comparison",
+      "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+      "trigger": "foundational FMMP problem"
+    }
+  ]
+}
